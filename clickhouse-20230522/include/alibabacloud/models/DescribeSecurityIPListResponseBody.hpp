@@ -124,9 +124,9 @@ namespace Models
         shared_ptr<string> groupName_ {};
         // The group tag.
         shared_ptr<string> groupTag_ {};
-        // The IP addresses in the whitelist group.
+        // The list of IP addresses in the whitelist group.
         shared_ptr<string> securityIPList_ {};
-        // The IP address type.
+        // The type of the IP address.
         shared_ptr<string> securityIPType_ {};
         // The network type of the whitelist.
         shared_ptr<string> whitelistNetType_ {};
@@ -162,7 +162,7 @@ namespace Models
       shared_ptr<int32_t> DBInstanceID_ {};
       // The cluster name.
       shared_ptr<string> DBInstanceName_ {};
-      // The whitelist groups.
+      // The list of whitelist groups.
       shared_ptr<vector<Data::GroupItems>> groupItems_ {};
     };
 
@@ -185,7 +185,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned result.
     shared_ptr<DescribeSecurityIPListResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

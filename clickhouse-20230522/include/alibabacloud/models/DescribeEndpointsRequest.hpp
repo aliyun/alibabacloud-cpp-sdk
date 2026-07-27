@@ -57,13 +57,15 @@ namespace Models
 
 
   protected:
-    // The computing group ID.
+    // The compute group ID.
     shared_ptr<string> computingGroupId_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The region ID.
+    // 
+    // This parameter is required.
     shared_ptr<string> regionId_ {};
   };
 

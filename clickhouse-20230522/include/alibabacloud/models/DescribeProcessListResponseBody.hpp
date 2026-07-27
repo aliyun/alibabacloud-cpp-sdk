@@ -131,17 +131,17 @@ namespace Models
 
 
       protected:
-        // The address from which the query was initiated.
+        // The query address.
         shared_ptr<string> initialAddress_ {};
         // The query ID.
         shared_ptr<string> initialQueryId_ {};
-        // The user who initiated the query.
+        // The query user.
         shared_ptr<string> initialUser_ {};
-        // The query statement.
+        // The statement that is being queried.
         shared_ptr<string> query_ {};
-        // The execution duration of the query, in milliseconds (ms).
+        // The minimum query duration. Minimum value: **1000**. Unit: milliseconds.
         shared_ptr<int64_t> queryDurationMs_ {};
-        // The start time of the query. The time is in UTC and follows the `yyyy-MM-ddTHH:mm:ssZ` format.
+        // The time when the query started. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
         shared_ptr<string> queryStartTime_ {};
       };
 
@@ -184,7 +184,7 @@ namespace Models
       shared_ptr<string> DBInstanceName_ {};
       // The result set.
       shared_ptr<vector<Data::ResultSet>> resultSet_ {};
-      // The total number of entries that match the filter criteria.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -207,7 +207,7 @@ namespace Models
 
 
   protected:
-    // The data object.
+    // The returned result.
     shared_ptr<DescribeProcessListResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

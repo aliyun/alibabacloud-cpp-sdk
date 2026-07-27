@@ -67,7 +67,7 @@ AlibabaCloud::Clickhouse20230522::Client::Client(Config &config): OpenApiClient(
     {"eu-west-1" , "clickhouse.eu-west-1.aliyuncs.com"},
     {"eu-central-1" , "clickhouse.eu-central-1.aliyuncs.com"},
     {"cn-zhangjiakou" , "clickhouse.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu" , "clickhouse.aliyuncs.com"},
+    {"cn-wulanchabu" , "clickhouse.cn-wulanchabu.aliyuncs.com"},
     {"cn-huhehaote" , "clickhouse.cn-huhehaote.aliyuncs.com"},
     {"cn-guangzhou" , "clickhouse.cn-guangzhou.aliyuncs.com"},
     {"cn-chengdu" , "clickhouse.cn-chengdu.aliyuncs.com"},
@@ -1472,7 +1472,7 @@ DescribeAccountAuthorityResponse Client::describeAccountAuthority(const Describe
 }
 
 /**
- * @summary Queries database accounts for an ApsaraDB for ClickHouse cluster.
+ * @summary Queries the list of database accounts for a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request DescribeAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1519,7 +1519,7 @@ DescribeAccountsResponse Client::describeAccountsWithOptions(const DescribeAccou
 }
 
 /**
- * @summary Queries database accounts for an ApsaraDB for ClickHouse cluster.
+ * @summary Queries the list of database accounts for a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request DescribeAccountsRequest
  * @return DescribeAccountsResponse
@@ -1642,7 +1642,7 @@ DescribeBackupsResponse Client::describeBackups(const DescribeBackupsRequest &re
 }
 
 /**
- * @summary Call DescribeDBInstanceAttribute to query the details of an ApsaraDB for ClickHouse enterprise edition cluster.
+ * @summary Queries the details of an ApsaraDB for ClickHouse cluster.
  *
  * @param request DescribeDBInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1677,7 +1677,7 @@ DescribeDBInstanceAttributeResponse Client::describeDBInstanceAttributeWithOptio
 }
 
 /**
- * @summary Call DescribeDBInstanceAttribute to query the details of an ApsaraDB for ClickHouse enterprise edition cluster.
+ * @summary Queries the details of an ApsaraDB for ClickHouse cluster.
  *
  * @param request DescribeDBInstanceAttributeRequest
  * @return DescribeDBInstanceAttributeResponse
@@ -1892,7 +1892,7 @@ DescribeDBInstancesResponse Client::describeDBInstances(const DescribeDBInstance
 }
 
 /**
- * @summary To retrieve the cluster endpoints, call DescribeEndpoints.
+ * @summary Calls the DescribeEndpoints operation to query the endpoints of a cluster.
  *
  * @param request DescribeEndpointsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1931,7 +1931,7 @@ DescribeEndpointsResponse Client::describeEndpointsWithOptions(const DescribeEnd
 }
 
 /**
- * @summary To retrieve the cluster endpoints, call DescribeEndpoints.
+ * @summary Calls the DescribeEndpoints operation to query the endpoints of a cluster.
  *
  * @param request DescribeEndpointsRequest
  * @return DescribeEndpointsResponse
@@ -2370,7 +2370,7 @@ DescribeLangfuseUsersResponse Client::describeLangfuseUsers(const DescribeLangfu
 }
 
 /**
- * @summary Describes currently running queries.
+ * @summary Calls the DescribeProcessList operation to view queries that are currently running.
  *
  * @param request DescribeProcessListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2437,7 +2437,7 @@ DescribeProcessListResponse Client::describeProcessListWithOptions(const Describ
 }
 
 /**
- * @summary Describes currently running queries.
+ * @summary Calls the DescribeProcessList operation to view queries that are currently running.
  *
  * @param request DescribeProcessListRequest
  * @return DescribeProcessListResponse
@@ -2480,7 +2480,7 @@ DescribeRegionsResponse Client::describeRegions() {
 }
 
 /**
- * @summary Queries a whitelist.
+ * @summary Queries the IP address whitelist of a cluster by calling the DescribeSecurityIPList operation.
  *
  * @param request DescribeSecurityIPListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2515,7 +2515,7 @@ DescribeSecurityIPListResponse Client::describeSecurityIPListWithOptions(const D
 }
 
 /**
- * @summary Queries a whitelist.
+ * @summary Queries the IP address whitelist of a cluster by calling the DescribeSecurityIPList operation.
  *
  * @param request DescribeSecurityIPListRequest
  * @return DescribeSecurityIPListResponse

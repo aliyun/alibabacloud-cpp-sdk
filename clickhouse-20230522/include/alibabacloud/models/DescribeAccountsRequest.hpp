@@ -49,15 +49,15 @@ namespace Models
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline string getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
-    inline DescribeAccountsRequest& setPageNumber(string pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline DescribeAccountsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
-    inline DescribeAccountsRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline DescribeAccountsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // product Field Functions 
@@ -80,16 +80,13 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The page number.
-    shared_ptr<string> pageNumber_ {};
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
-    // 
     // - **30** (default)
-    // 
     // - **50**
-    // 
     // - **100**
-    shared_ptr<string> pageSize_ {};
-    // The code of the cloud service.
+    shared_ptr<int32_t> pageSize_ {};
+    // The product code.
     shared_ptr<string> product_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

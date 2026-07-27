@@ -429,7 +429,7 @@ namespace Clickhouse20230522
       Models::DescribeAccountAuthorityResponse describeAccountAuthority(const Models::DescribeAccountAuthorityRequest &request);
 
       /**
-       * @summary Queries database accounts for an ApsaraDB for ClickHouse cluster.
+       * @summary Queries the list of database accounts for a specified ApsaraDB for ClickHouse cluster.
        *
        * @param request DescribeAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -438,7 +438,7 @@ namespace Clickhouse20230522
       Models::DescribeAccountsResponse describeAccountsWithOptions(const Models::DescribeAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries database accounts for an ApsaraDB for ClickHouse cluster.
+       * @summary Queries the list of database accounts for a specified ApsaraDB for ClickHouse cluster.
        *
        * @param request DescribeAccountsRequest
        * @return DescribeAccountsResponse
@@ -480,7 +480,7 @@ namespace Clickhouse20230522
       Models::DescribeBackupsResponse describeBackups(const Models::DescribeBackupsRequest &request);
 
       /**
-       * @summary Call DescribeDBInstanceAttribute to query the details of an ApsaraDB for ClickHouse enterprise edition cluster.
+       * @summary Queries the details of an ApsaraDB for ClickHouse cluster.
        *
        * @param request DescribeDBInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -489,7 +489,7 @@ namespace Clickhouse20230522
       Models::DescribeDBInstanceAttributeResponse describeDBInstanceAttributeWithOptions(const Models::DescribeDBInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call DescribeDBInstanceAttribute to query the details of an ApsaraDB for ClickHouse enterprise edition cluster.
+       * @summary Queries the details of an ApsaraDB for ClickHouse cluster.
        *
        * @param request DescribeDBInstanceAttributeRequest
        * @return DescribeDBInstanceAttributeResponse
@@ -565,7 +565,7 @@ namespace Clickhouse20230522
       Models::DescribeDBInstancesResponse describeDBInstances(const Models::DescribeDBInstancesRequest &request);
 
       /**
-       * @summary To retrieve the cluster endpoints, call DescribeEndpoints.
+       * @summary Calls the DescribeEndpoints operation to query the endpoints of a cluster.
        *
        * @param request DescribeEndpointsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -574,7 +574,7 @@ namespace Clickhouse20230522
       Models::DescribeEndpointsResponse describeEndpointsWithOptions(const Models::DescribeEndpointsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary To retrieve the cluster endpoints, call DescribeEndpoints.
+       * @summary Calls the DescribeEndpoints operation to query the endpoints of a cluster.
        *
        * @param request DescribeEndpointsRequest
        * @return DescribeEndpointsResponse
@@ -718,7 +718,7 @@ namespace Clickhouse20230522
       Models::DescribeLangfuseUsersResponse describeLangfuseUsers(const Models::DescribeLangfuseUsersRequest &request);
 
       /**
-       * @summary Describes currently running queries.
+       * @summary Calls the DescribeProcessList operation to view queries that are currently running.
        *
        * @param request DescribeProcessListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -727,7 +727,7 @@ namespace Clickhouse20230522
       Models::DescribeProcessListResponse describeProcessListWithOptions(const Models::DescribeProcessListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Describes currently running queries.
+       * @summary Calls the DescribeProcessList operation to view queries that are currently running.
        *
        * @param request DescribeProcessListRequest
        * @return DescribeProcessListResponse
@@ -750,7 +750,7 @@ namespace Clickhouse20230522
       Models::DescribeRegionsResponse describeRegions();
 
       /**
-       * @summary Queries a whitelist.
+       * @summary Queries the IP address whitelist of a cluster by calling the DescribeSecurityIPList operation.
        *
        * @param request DescribeSecurityIPListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -759,7 +759,7 @@ namespace Clickhouse20230522
       Models::DescribeSecurityIPListResponse describeSecurityIPListWithOptions(const Models::DescribeSecurityIPListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a whitelist.
+       * @summary Queries the IP address whitelist of a cluster by calling the DescribeSecurityIPList operation.
        *
        * @param request DescribeSecurityIPListRequest
        * @return DescribeSecurityIPListResponse

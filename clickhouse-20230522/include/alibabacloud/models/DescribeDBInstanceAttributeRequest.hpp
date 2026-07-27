@@ -52,7 +52,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The region ID. You can call the [~~DescribeRegions~~](cdb.doc.dita#doc-api-clickhouse-DescribeRegions) operation to query the most recent region list.
+    // The region ID.
+    // 
+    // This parameter is required.
     shared_ptr<string> regionId_ {};
   };
 

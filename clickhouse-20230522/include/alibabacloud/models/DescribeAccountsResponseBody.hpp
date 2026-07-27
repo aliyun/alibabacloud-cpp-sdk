@@ -113,23 +113,21 @@ namespace Models
 
 
       protected:
-        // The username of the database account.
+        // The database account.
         shared_ptr<string> account_ {};
         // The type of the database account. Valid values:
-        // 
-        // - **1**: standard account
-        // 
-        // - **6**: privileged account
+        // - **1**: Standard account.
+        // - **6**: Privileged account.
         shared_ptr<string> accountType_ {};
-        // The description.
+        // The description of the account.
         shared_ptr<string> description_ {};
-        // The state of the database account. Valid values:
+        // The account status. Valid values:
         // 
-        // - **0**: The database account is being created.
+        // - **0**: Being created.
         // 
-        // - **1**: The database account is in use.
+        // - **1**: In use.
         // 
-        // - **3**: The database account is being deleted.
+        // - **3**: Being deleted.
         shared_ptr<string> status_ {};
       };
 
@@ -166,19 +164,16 @@ namespace Models
 
 
     protected:
-      // The database accounts.
+      // The list of accounts.
       shared_ptr<vector<Data::Accounts>> accounts_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page. Valid values:
-      // 
       // - **30** (default)
-      // 
       // - **50**
-      // 
       // - **100**
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -201,7 +196,7 @@ namespace Models
 
 
   protected:
-    // The result returned.
+    // The returned result.
     shared_ptr<DescribeAccountsResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
