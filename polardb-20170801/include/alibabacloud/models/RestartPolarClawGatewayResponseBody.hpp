@@ -140,17 +140,29 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<string> applicationId_ {};
+    // The response status code.
     shared_ptr<int32_t> code_ {};
+    // The approximate downtime of this restart, in milliseconds. This value is returned synchronously.
     shared_ptr<int64_t> downtimeMs_ {};
+    // The gateway version after the restart. This value is returned synchronously.
     shared_ptr<string> gatewayVersion_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The actual restart mode used.
     shared_ptr<string> mode_ {};
+    // Indicates whether the operation was successful.
     shared_ptr<bool> ok_ {};
+    // The operation name. This value is returned when Async is set to true.
     shared_ptr<string> operation_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the gateway has been confirmed available after the restart. This value is returned synchronously.
     shared_ptr<bool> restarted_ {};
+    // The initial state of the asynchronous task. This value is returned when Async is set to true.
     shared_ptr<string> state_ {};
+    // The asynchronous task ID. This value is returned when Async is set to true. You can poll the task status by calling DescribePolarClawTask.
     shared_ptr<string> taskId_ {};
   };
 

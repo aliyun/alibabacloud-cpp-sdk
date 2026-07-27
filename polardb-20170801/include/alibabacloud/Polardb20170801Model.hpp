@@ -192,6 +192,9 @@
 #include <alibabacloud/models/CreateGlobalSecurityIPGroupRequest.hpp>
 #include <alibabacloud/models/CreateGlobalSecurityIPGroupResponseBody.hpp>
 #include <alibabacloud/models/CreateGlobalSecurityIPGroupResponse.hpp>
+#include <alibabacloud/models/CreateGwConsumerOrderRequest.hpp>
+#include <alibabacloud/models/CreateGwConsumerOrderResponseBody.hpp>
+#include <alibabacloud/models/CreateGwConsumerOrderResponse.hpp>
 #include <alibabacloud/models/CreateModelApiRequest.hpp>
 #include <alibabacloud/models/CreateModelApiResponseBody.hpp>
 #include <alibabacloud/models/CreateModelApiResponse.hpp>

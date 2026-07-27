@@ -13,6 +13,7 @@ namespace Models
   class ModifyDBClusterSSLRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDBClusterSSLRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CertValidDays, certValidDays_);
       DARABONBA_PTR_TO_JSON(ConnectionString, connectionString_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DBEndpointId, DBEndpointId_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SSLEnabled, SSLEnabled_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDBClusterSSLRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CertValidDays, certValidDays_);
       DARABONBA_PTR_FROM_JSON(ConnectionString, connectionString_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DBEndpointId, DBEndpointId_);
@@ -49,9 +51,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->connectionString_ == nullptr
-        && this->DBClusterId_ == nullptr && this->DBEndpointId_ == nullptr && this->netType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
-        && this->pfsInstanceId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->SSLAutoRotate_ == nullptr && this->SSLEnabled_ == nullptr; };
+    virtual bool empty() const override { return this->certValidDays_ == nullptr
+        && this->connectionString_ == nullptr && this->DBClusterId_ == nullptr && this->DBEndpointId_ == nullptr && this->netType_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->pfsInstanceId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->SSLAutoRotate_ == nullptr
+        && this->SSLEnabled_ == nullptr; };
+    // certValidDays Field Functions 
+    bool hasCertValidDays() const { return this->certValidDays_ != nullptr;};
+    void deleteCertValidDays() { this->certValidDays_ = nullptr;};
+    inline string getCertValidDays() const { DARABONBA_PTR_GET_DEFAULT(certValidDays_, "") };
+    inline ModifyDBClusterSSLRequest& setCertValidDays(string certValidDays) { DARABONBA_PTR_SET_VALUE(certValidDays_, certValidDays) };
+
+
     // connectionString Field Functions 
     bool hasConnectionString() const { return this->connectionString_ != nullptr;};
     void deleteConnectionString() { this->connectionString_ = nullptr;};
@@ -130,6 +140,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> certValidDays_ {};
     shared_ptr<string> connectionString_ {};
     // The cluster ID.
     // 
@@ -138,16 +149,16 @@ namespace Models
     // The endpoint ID.
     // 
     // >* If the cluster is a PolarDB for MySQL cluster, this parameter is required.
-    // >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. SSL encryption is enabled for all endpoints by default.
+    // >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. Secure Sockets Layer (SSL) encryption is enabled for all endpoints by default.
     // >* You can call the [DescribeDBClusterSSL](https://help.aliyun.com/document_detail/2319159.html) operation to query endpoint details.
     shared_ptr<string> DBEndpointId_ {};
-    // The network type of the endpoint. The value must be the same as the network type of the endpoint specified by **DBEndpointId**. Valid values:
+    // The network type of the endpoint. The value must be consistent with the network type of the endpoint specified by the **DBEndpointId** parameter. Valid values:
     // * **Public**: public network
     // * **Private**: private network
     // * **Inner**: private network (classic network)
     // 
     // >* If the cluster is a PolarDB for MySQL cluster, this parameter is required.
-    // >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. SSL encryption is enabled for all endpoints by default.
+    // >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. Secure Sockets Layer (SSL) encryption is enabled for all endpoints by default.
     shared_ptr<string> netType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -156,16 +167,16 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether to enable automatic SSL certificate rotation. Valid values:
     // 
-    // - **Enable**: enables automatic SSL certificate rotation.
+    // - **Enable**: Enables automatic rotation.
     // 
-    // - **Disable**: disables automatic SSL certificate rotation.
+    // - **Disable**: Disables automatic rotation.
     shared_ptr<string> SSLAutoRotate_ {};
     // The SSL status. Valid values:
-    // * **Disable**: shutdown SSL encryption.
-    // * **Enable**: enables SSL encryption.
-    // * **Update**: updates the CA certificate.
+    // * **Disable**: Shutdown of Secure Sockets Layer (SSL) encryption.
+    // * **Enable**: Enables Secure Sockets Layer (SSL) encryption.
+    // * **Update**: Updates the CA certificate.
     // 
-    // > After you enable SSL encryption or update the CA certificate, you must download and configure the certificate. For details, see [Settings for SSL encryption](https://help.aliyun.com/document_detail/153182.html).
+    // > After you enable Secure Sockets Layer (SSL) encryption or update the CA certificate, you must download and configure the certificate. For details, see [Settings for SSL encryption](https://help.aliyun.com/document_detail/153182.html).
     shared_ptr<string> SSLEnabled_ {};
   };
 

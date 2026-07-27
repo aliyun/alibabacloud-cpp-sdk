@@ -48,8 +48,13 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The restart mode. Valid values:
+    // - in-process: lightweight restart without applying environment variable changes. This is the default value.
+    // - pkill: cold start that applies environment variable changes.
     shared_ptr<string> mode_ {};
   };
 

@@ -84,7 +84,9 @@ namespace Models
 
 
   protected:
+    // The Agentic cluster description.
     shared_ptr<string> agenticDbClusterDescription_ {};
+    // The Agentic cluster ID.
     shared_ptr<string> agenticDbClusterId_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};

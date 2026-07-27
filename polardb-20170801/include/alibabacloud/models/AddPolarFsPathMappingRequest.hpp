@@ -38,10 +38,14 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const CustomBucketPathList& obj) { 
         DARABONBA_PTR_TO_JSON(Bucket, bucket_);
+        DARABONBA_PTR_TO_JSON(BucketAccessKeyId, bucketAccessKeyId_);
+        DARABONBA_PTR_TO_JSON(BucketAccessKeySecret, bucketAccessKeySecret_);
         DARABONBA_PTR_TO_JSON(Path, path_);
       };
       friend void from_json(const Darabonba::Json& j, CustomBucketPathList& obj) { 
         DARABONBA_PTR_FROM_JSON(Bucket, bucket_);
+        DARABONBA_PTR_FROM_JSON(BucketAccessKeyId, bucketAccessKeyId_);
+        DARABONBA_PTR_FROM_JSON(BucketAccessKeySecret, bucketAccessKeySecret_);
         DARABONBA_PTR_FROM_JSON(Path, path_);
       };
       CustomBucketPathList() = default ;
@@ -56,12 +60,26 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->bucket_ == nullptr
-        && this->path_ == nullptr; };
+        && this->bucketAccessKeyId_ == nullptr && this->bucketAccessKeySecret_ == nullptr && this->path_ == nullptr; };
       // bucket Field Functions 
       bool hasBucket() const { return this->bucket_ != nullptr;};
       void deleteBucket() { this->bucket_ = nullptr;};
       inline string getBucket() const { DARABONBA_PTR_GET_DEFAULT(bucket_, "") };
       inline CustomBucketPathList& setBucket(string bucket) { DARABONBA_PTR_SET_VALUE(bucket_, bucket) };
+
+
+      // bucketAccessKeyId Field Functions 
+      bool hasBucketAccessKeyId() const { return this->bucketAccessKeyId_ != nullptr;};
+      void deleteBucketAccessKeyId() { this->bucketAccessKeyId_ = nullptr;};
+      inline string getBucketAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(bucketAccessKeyId_, "") };
+      inline CustomBucketPathList& setBucketAccessKeyId(string bucketAccessKeyId) { DARABONBA_PTR_SET_VALUE(bucketAccessKeyId_, bucketAccessKeyId) };
+
+
+      // bucketAccessKeySecret Field Functions 
+      bool hasBucketAccessKeySecret() const { return this->bucketAccessKeySecret_ != nullptr;};
+      void deleteBucketAccessKeySecret() { this->bucketAccessKeySecret_ = nullptr;};
+      inline string getBucketAccessKeySecret() const { DARABONBA_PTR_GET_DEFAULT(bucketAccessKeySecret_, "") };
+      inline CustomBucketPathList& setBucketAccessKeySecret(string bucketAccessKeySecret) { DARABONBA_PTR_SET_VALUE(bucketAccessKeySecret_, bucketAccessKeySecret) };
 
 
       // path Field Functions 
@@ -72,8 +90,10 @@ namespace Models
 
 
     protected:
-      // The name of the bucket.
+      // The bucket name.
       shared_ptr<string> bucket_ {};
+      shared_ptr<string> bucketAccessKeyId_ {};
+      shared_ptr<string> bucketAccessKeySecret_ {};
       // The custom storage path.
       shared_ptr<string> path_ {};
     };
@@ -104,13 +124,13 @@ namespace Models
 
 
   protected:
-    // A list of objects, each containing a bucket and its corresponding path.
+    // The bucket and corresponding path information.
     shared_ptr<vector<AddPolarFsPathMappingRequest::CustomBucketPathList>> customBucketPathList_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The ID of the PolarFS instance.
+    // The PolarFS instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};

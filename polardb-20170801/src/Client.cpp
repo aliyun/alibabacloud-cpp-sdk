@@ -77,9 +77,7 @@ AlibabaCloud::Polardb20170801::Client::Client(Config &config): OpenApiClient(con
     {"ap-southeast-6" , "polardb.ap-southeast-6.aliyuncs.com"},
     {"ap-southeast-5" , "polardb.ap-southeast-5.aliyuncs.com"},
     {"ap-southeast-3" , "polardb.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-2" , "polardb.ap-southeast-2.aliyuncs.com"},
     {"ap-southeast-1" , "polardb.ap-southeast-1.aliyuncs.com"},
-    {"ap-south-1" , "polardb.ap-south-1.aliyuncs.com"},
     {"ap-northeast-2" , "polardb.ap-northeast-2.aliyuncs.com"},
     {"ap-northeast-1" , "polardb.ap-northeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
@@ -3067,6 +3065,10 @@ CreateBackupResponse Client::createBackup(const CreateBackupRequest &request) {
 /**
  * @summary Creates API keys in batches.
  *
+ * @description > * Each cluster can have a maximum of three manually created backups at the same time.
+ * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before calling this operation.
+ * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
+ *
  * @param request CreateBatchConsumerRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateBatchConsumerResponse
@@ -3084,6 +3086,14 @@ CreateBatchConsumerResponse Client::createBatchConsumerWithOptions(const CreateB
 
   if (!!request.hasCount()) {
     query["Count"] = request.getCount();
+  }
+
+  if (!!request.hasCreditToken()) {
+    query["CreditToken"] = request.getCreditToken();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasGwClusterId()) {
@@ -3113,6 +3123,10 @@ CreateBatchConsumerResponse Client::createBatchConsumerWithOptions(const CreateB
 
 /**
  * @summary Creates API keys in batches.
+ *
+ * @description > * Each cluster can have a maximum of three manually created backups at the same time.
+ * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before calling this operation.
+ * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
  *
  * @param request CreateBatchConsumerRequest
  * @return CreateBatchConsumerResponse
@@ -3633,6 +3647,8 @@ CreateCronJobPolicyServerlessResponse Client::createCronJobPolicyServerless(cons
 /**
  * @summary Creates a PolarDB cluster.
  *
+ * @description DBLink can connect two PolarDB for PostgreSQL (Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL (Compatible with Oracle) cluster to a self-managed PostgreSQL database on an ECS instance. You can use DBLink to query data across clusters.
+ *
  * @param request CreateDBClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateDBClusterResponse
@@ -3923,6 +3939,8 @@ CreateDBClusterResponse Client::createDBClusterWithOptions(const CreateDBCluster
 
 /**
  * @summary Creates a PolarDB cluster.
+ *
+ * @description DBLink can connect two PolarDB for PostgreSQL (Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL (Compatible with Oracle) cluster to a self-managed PostgreSQL database on an ECS instance. You can use DBLink to query data across clusters.
  *
  * @param request CreateDBClusterRequest
  * @return CreateDBClusterResponse
@@ -5044,6 +5062,68 @@ CreateGlobalSecurityIPGroupResponse Client::createGlobalSecurityIPGroupWithOptio
 CreateGlobalSecurityIPGroupResponse Client::createGlobalSecurityIPGroup(const CreateGlobalSecurityIPGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createGlobalSecurityIPGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Places an order to purchase a token resource plan and activates a redemption code.
+ *
+ * @param request CreateGwConsumerOrderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGwConsumerOrderResponse
+ */
+CreateGwConsumerOrderResponse Client::createGwConsumerOrderWithOptions(const CreateGwConsumerOrderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasExpireTime()) {
+    query["ExpireTime"] = request.getExpireTime();
+  }
+
+  if (!!request.hasGatewayId()) {
+    query["GatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasKeyCount()) {
+    query["KeyCount"] = request.getKeyCount();
+  }
+
+  if (!!request.hasPackageSpec()) {
+    query["PackageSpec"] = request.getPackageSpec();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateGwConsumerOrder"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGwConsumerOrderResponse>();
+}
+
+/**
+ * @summary Places an order to purchase a token resource plan and activates a redemption code.
+ *
+ * @param request CreateGwConsumerOrderRequest
+ * @return CreateGwConsumerOrderResponse
+ */
+CreateGwConsumerOrderResponse Client::createGwConsumerOrder(const CreateGwConsumerOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createGwConsumerOrderWithOptions(request, runtime);
 }
 
 /**
@@ -10449,7 +10529,7 @@ DescribeApplicationAttributeResponse Client::describeApplicationAttribute(const 
 }
 
 /**
- * @summary Queries the log details of an AI application.
+ * @summary Queries the details of AI application logs.
  *
  * @param request DescribeApplicationLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10532,7 +10612,7 @@ DescribeApplicationLogsResponse Client::describeApplicationLogsWithOptions(const
 }
 
 /**
- * @summary Queries the log details of an AI application.
+ * @summary Queries the details of AI application logs.
  *
  * @param request DescribeApplicationLogsRequest
  * @return DescribeApplicationLogsResponse
@@ -10595,7 +10675,7 @@ DescribeApplicationParametersResponse Client::describeApplicationParameters(cons
 }
 
 /**
- * @summary Querying PolarDB AI application performance.
+ * @summary Queries the performance of a PolarDB AI application.
  *
  * @param request DescribeApplicationPerformanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10670,7 +10750,7 @@ DescribeApplicationPerformanceResponse Client::describeApplicationPerformanceWit
 }
 
 /**
- * @summary Querying PolarDB AI application performance.
+ * @summary Queries the performance of a PolarDB AI application.
  *
  * @param request DescribeApplicationPerformanceRequest
  * @return DescribeApplicationPerformanceResponse
@@ -24152,7 +24232,7 @@ ModifyDBClusterResourceGroupResponse Client::modifyDBClusterResourceGroup(const 
 }
 
 /**
- * @summary Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+ * @summary Enables or performs shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
  *
  * @param request ModifyDBClusterSSLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24161,6 +24241,10 @@ ModifyDBClusterResourceGroupResponse Client::modifyDBClusterResourceGroup(const 
 ModifyDBClusterSSLResponse Client::modifyDBClusterSSLWithOptions(const ModifyDBClusterSSLRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCertValidDays()) {
+    query["CertValidDays"] = request.getCertValidDays();
+  }
+
   if (!!request.hasConnectionString()) {
     query["ConnectionString"] = request.getConnectionString();
   }
@@ -24223,7 +24307,7 @@ ModifyDBClusterSSLResponse Client::modifyDBClusterSSLWithOptions(const ModifyDBC
 }
 
 /**
- * @summary Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+ * @summary Enables or performs shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
  *
  * @param request ModifyDBClusterSSLRequest
  * @return ModifyDBClusterSSLResponse

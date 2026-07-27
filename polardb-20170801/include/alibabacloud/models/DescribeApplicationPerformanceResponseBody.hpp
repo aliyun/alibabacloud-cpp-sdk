@@ -293,14 +293,14 @@ namespace Models
     shared_ptr<string> applicationId_ {};
     // The application type.
     shared_ptr<string> applicationType_ {};
-    // The end time of the query. The time is in UTC and follows the `yyyy-MM-ddTHH:mm:ssZ` format.
+    // The end of the time range to query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
     shared_ptr<string> endTime_ {};
+    // The data granularity.
     shared_ptr<string> interval_ {};
-    // The performance metrics.
     shared_ptr<DescribeApplicationPerformanceResponseBody::PerformanceKeys> performanceKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The start time of the query. The time is in UTC and follows the `yyyy-MM-ddTHH:mm:ssZ` format.
+    // The beginning of the time range to query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
     shared_ptr<string> startTime_ {};
   };
 

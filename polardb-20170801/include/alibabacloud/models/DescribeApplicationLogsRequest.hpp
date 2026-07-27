@@ -162,7 +162,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The instance ID of the subcomponent.
+    // The subcomponent instance ID.
     shared_ptr<string> componentName_ {};
     // The container name.
     shared_ptr<string> containerName_ {};
@@ -170,9 +170,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The search keyword. This parameter is used for PolarClaw instances.
+    // The search keyword. This parameter is used for polarclaw instances.
     shared_ptr<string> keyword_ {};
-    // The log level. This parameter is used for PolarClaw instances.
+    // The log level. This parameter is used for polarclaw instances.
     shared_ptr<string> level_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -189,7 +189,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    // The log type. This parameter is used for PolarClaw instances. Currently, only gateway is supported.
+    // The log type. This parameter is used for polarclaw instances. Currently, only gateway is supported.
     shared_ptr<string> type_ {};
   };
 

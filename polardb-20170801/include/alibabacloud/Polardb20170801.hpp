@@ -816,6 +816,10 @@ namespace Polardb20170801
       /**
        * @summary Creates API keys in batches.
        *
+       * @description > * Each cluster can have a maximum of three manually created backups at the same time.
+       * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before calling this operation.
+       * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
+       *
        * @param request CreateBatchConsumerRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateBatchConsumerResponse
@@ -824,6 +828,10 @@ namespace Polardb20170801
 
       /**
        * @summary Creates API keys in batches.
+       *
+       * @description > * Each cluster can have a maximum of three manually created backups at the same time.
+       * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before calling this operation.
+       * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
        *
        * @param request CreateBatchConsumerRequest
        * @return CreateBatchConsumerResponse
@@ -952,6 +960,8 @@ namespace Polardb20170801
       /**
        * @summary Creates a PolarDB cluster.
        *
+       * @description DBLink can connect two PolarDB for PostgreSQL (Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL (Compatible with Oracle) cluster to a self-managed PostgreSQL database on an ECS instance. You can use DBLink to query data across clusters.
+       *
        * @param request CreateDBClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateDBClusterResponse
@@ -960,6 +970,8 @@ namespace Polardb20170801
 
       /**
        * @summary Creates a PolarDB cluster.
+       *
+       * @description DBLink can connect two PolarDB for PostgreSQL (Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL (Compatible with Oracle) cluster to a self-managed PostgreSQL database on an ECS instance. You can use DBLink to query data across clusters.
        *
        * @param request CreateDBClusterRequest
        * @return CreateDBClusterResponse
@@ -1203,6 +1215,23 @@ namespace Polardb20170801
        * @return CreateGlobalSecurityIPGroupResponse
        */
       Models::CreateGlobalSecurityIPGroupResponse createGlobalSecurityIPGroup(const Models::CreateGlobalSecurityIPGroupRequest &request);
+
+      /**
+       * @summary Places an order to purchase a token resource plan and activates a redemption code.
+       *
+       * @param request CreateGwConsumerOrderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateGwConsumerOrderResponse
+       */
+      Models::CreateGwConsumerOrderResponse createGwConsumerOrderWithOptions(const Models::CreateGwConsumerOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Places an order to purchase a token resource plan and activates a redemption code.
+       *
+       * @param request CreateGwConsumerOrderRequest
+       * @return CreateGwConsumerOrderResponse
+       */
+      Models::CreateGwConsumerOrderResponse createGwConsumerOrder(const Models::CreateGwConsumerOrderRequest &request);
 
       /**
        * @summary Creates a model API.
@@ -2789,7 +2818,7 @@ namespace Polardb20170801
       Models::DescribeApplicationAttributeResponse describeApplicationAttribute(const Models::DescribeApplicationAttributeRequest &request);
 
       /**
-       * @summary Queries the log details of an AI application.
+       * @summary Queries the details of AI application logs.
        *
        * @param request DescribeApplicationLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2798,7 +2827,7 @@ namespace Polardb20170801
       Models::DescribeApplicationLogsResponse describeApplicationLogsWithOptions(const Models::DescribeApplicationLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the log details of an AI application.
+       * @summary Queries the details of AI application logs.
        *
        * @param request DescribeApplicationLogsRequest
        * @return DescribeApplicationLogsResponse
@@ -2823,7 +2852,7 @@ namespace Polardb20170801
       Models::DescribeApplicationParametersResponse describeApplicationParameters(const Models::DescribeApplicationParametersRequest &request);
 
       /**
-       * @summary Querying PolarDB AI application performance.
+       * @summary Queries the performance of a PolarDB AI application.
        *
        * @param request DescribeApplicationPerformanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2832,7 +2861,7 @@ namespace Polardb20170801
       Models::DescribeApplicationPerformanceResponse describeApplicationPerformanceWithOptions(const Models::DescribeApplicationPerformanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Querying PolarDB AI application performance.
+       * @summary Queries the performance of a PolarDB AI application.
        *
        * @param request DescribeApplicationPerformanceRequest
        * @return DescribeApplicationPerformanceResponse
@@ -6439,7 +6468,7 @@ namespace Polardb20170801
       Models::ModifyDBClusterResourceGroupResponse modifyDBClusterResourceGroup(const Models::ModifyDBClusterResourceGroupRequest &request);
 
       /**
-       * @summary Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+       * @summary Enables or performs shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
        *
        * @param request ModifyDBClusterSSLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6448,7 +6477,7 @@ namespace Polardb20170801
       Models::ModifyDBClusterSSLResponse modifyDBClusterSSLWithOptions(const Models::ModifyDBClusterSSLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+       * @summary Enables or performs shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
        *
        * @param request ModifyDBClusterSSLRequest
        * @return ModifyDBClusterSSLResponse

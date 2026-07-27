@@ -45,21 +45,43 @@ namespace Models
     class Items : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
+        DARABONBA_PTR_TO_JSON(Active, active_);
         DARABONBA_PTR_TO_JSON(ApiKey, apiKey_);
+        DARABONBA_PTR_TO_JSON(ApiKeyMd5, apiKeyMd5_);
+        DARABONBA_PTR_TO_JSON(ApiKeyStatus, apiKeyStatus_);
         DARABONBA_PTR_TO_JSON(ApiStatus, apiStatus_);
+        DARABONBA_PTR_TO_JSON(BudgetLimit, budgetLimit_);
+        DARABONBA_PTR_TO_JSON(BudgetPolicyId, budgetPolicyId_);
+        DARABONBA_PTR_TO_JSON(BudgetUsed, budgetUsed_);
         DARABONBA_PTR_TO_JSON(ConsumerGroupId, consumerGroupId_);
         DARABONBA_PTR_TO_JSON(ConsumerId, consumerId_);
         DARABONBA_PTR_TO_JSON(ConsumerTag, consumerTag_);
+        DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
+        DARABONBA_PTR_TO_JSON(Expired, expired_);
+        DARABONBA_PTR_TO_JSON(GmtCreated, gmtCreated_);
+        DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_TO_JSON(GwClusterId, gwClusterId_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(Status, status_);
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
+        DARABONBA_PTR_FROM_JSON(Active, active_);
         DARABONBA_PTR_FROM_JSON(ApiKey, apiKey_);
+        DARABONBA_PTR_FROM_JSON(ApiKeyMd5, apiKeyMd5_);
+        DARABONBA_PTR_FROM_JSON(ApiKeyStatus, apiKeyStatus_);
         DARABONBA_PTR_FROM_JSON(ApiStatus, apiStatus_);
+        DARABONBA_PTR_FROM_JSON(BudgetLimit, budgetLimit_);
+        DARABONBA_PTR_FROM_JSON(BudgetPolicyId, budgetPolicyId_);
+        DARABONBA_PTR_FROM_JSON(BudgetUsed, budgetUsed_);
         DARABONBA_PTR_FROM_JSON(ConsumerGroupId, consumerGroupId_);
         DARABONBA_PTR_FROM_JSON(ConsumerId, consumerId_);
         DARABONBA_PTR_FROM_JSON(ConsumerTag, consumerTag_);
+        DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
+        DARABONBA_PTR_FROM_JSON(Expired, expired_);
+        DARABONBA_PTR_FROM_JSON(GmtCreated, gmtCreated_);
+        DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_FROM_JSON(GwClusterId, gwClusterId_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -75,9 +97,18 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->apiStatus_ == nullptr && this->consumerGroupId_ == nullptr && this->consumerId_ == nullptr && this->consumerTag_ == nullptr && this->gwClusterId_ == nullptr
-        && this->name_ == nullptr && this->status_ == nullptr; };
+      virtual bool empty() const override { return this->active_ == nullptr
+        && this->apiKey_ == nullptr && this->apiKeyMd5_ == nullptr && this->apiKeyStatus_ == nullptr && this->apiStatus_ == nullptr && this->budgetLimit_ == nullptr
+        && this->budgetPolicyId_ == nullptr && this->budgetUsed_ == nullptr && this->consumerGroupId_ == nullptr && this->consumerId_ == nullptr && this->consumerTag_ == nullptr
+        && this->description_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr
+        && this->gwClusterId_ == nullptr && this->name_ == nullptr && this->status_ == nullptr; };
+      // active Field Functions 
+      bool hasActive() const { return this->active_ != nullptr;};
+      void deleteActive() { this->active_ = nullptr;};
+      inline bool getActive() const { DARABONBA_PTR_GET_DEFAULT(active_, false) };
+      inline Items& setActive(bool active) { DARABONBA_PTR_SET_VALUE(active_, active) };
+
+
       // apiKey Field Functions 
       bool hasApiKey() const { return this->apiKey_ != nullptr;};
       void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -85,11 +116,46 @@ namespace Models
       inline Items& setApiKey(string apiKey) { DARABONBA_PTR_SET_VALUE(apiKey_, apiKey) };
 
 
+      // apiKeyMd5 Field Functions 
+      bool hasApiKeyMd5() const { return this->apiKeyMd5_ != nullptr;};
+      void deleteApiKeyMd5() { this->apiKeyMd5_ = nullptr;};
+      inline string getApiKeyMd5() const { DARABONBA_PTR_GET_DEFAULT(apiKeyMd5_, "") };
+      inline Items& setApiKeyMd5(string apiKeyMd5) { DARABONBA_PTR_SET_VALUE(apiKeyMd5_, apiKeyMd5) };
+
+
+      // apiKeyStatus Field Functions 
+      bool hasApiKeyStatus() const { return this->apiKeyStatus_ != nullptr;};
+      void deleteApiKeyStatus() { this->apiKeyStatus_ = nullptr;};
+      inline string getApiKeyStatus() const { DARABONBA_PTR_GET_DEFAULT(apiKeyStatus_, "") };
+      inline Items& setApiKeyStatus(string apiKeyStatus) { DARABONBA_PTR_SET_VALUE(apiKeyStatus_, apiKeyStatus) };
+
+
       // apiStatus Field Functions 
       bool hasApiStatus() const { return this->apiStatus_ != nullptr;};
       void deleteApiStatus() { this->apiStatus_ = nullptr;};
       inline string getApiStatus() const { DARABONBA_PTR_GET_DEFAULT(apiStatus_, "") };
       inline Items& setApiStatus(string apiStatus) { DARABONBA_PTR_SET_VALUE(apiStatus_, apiStatus) };
+
+
+      // budgetLimit Field Functions 
+      bool hasBudgetLimit() const { return this->budgetLimit_ != nullptr;};
+      void deleteBudgetLimit() { this->budgetLimit_ = nullptr;};
+      inline int64_t getBudgetLimit() const { DARABONBA_PTR_GET_DEFAULT(budgetLimit_, 0L) };
+      inline Items& setBudgetLimit(int64_t budgetLimit) { DARABONBA_PTR_SET_VALUE(budgetLimit_, budgetLimit) };
+
+
+      // budgetPolicyId Field Functions 
+      bool hasBudgetPolicyId() const { return this->budgetPolicyId_ != nullptr;};
+      void deleteBudgetPolicyId() { this->budgetPolicyId_ = nullptr;};
+      inline string getBudgetPolicyId() const { DARABONBA_PTR_GET_DEFAULT(budgetPolicyId_, "") };
+      inline Items& setBudgetPolicyId(string budgetPolicyId) { DARABONBA_PTR_SET_VALUE(budgetPolicyId_, budgetPolicyId) };
+
+
+      // budgetUsed Field Functions 
+      bool hasBudgetUsed() const { return this->budgetUsed_ != nullptr;};
+      void deleteBudgetUsed() { this->budgetUsed_ = nullptr;};
+      inline int64_t getBudgetUsed() const { DARABONBA_PTR_GET_DEFAULT(budgetUsed_, 0L) };
+      inline Items& setBudgetUsed(int64_t budgetUsed) { DARABONBA_PTR_SET_VALUE(budgetUsed_, budgetUsed) };
 
 
       // consumerGroupId Field Functions 
@@ -111,6 +177,41 @@ namespace Models
       void deleteConsumerTag() { this->consumerTag_ = nullptr;};
       inline string getConsumerTag() const { DARABONBA_PTR_GET_DEFAULT(consumerTag_, "") };
       inline Items& setConsumerTag(string consumerTag) { DARABONBA_PTR_SET_VALUE(consumerTag_, consumerTag) };
+
+
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline Items& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // expireTime Field Functions 
+      bool hasExpireTime() const { return this->expireTime_ != nullptr;};
+      void deleteExpireTime() { this->expireTime_ = nullptr;};
+      inline string getExpireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, "") };
+      inline Items& setExpireTime(string expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
+
+
+      // expired Field Functions 
+      bool hasExpired() const { return this->expired_ != nullptr;};
+      void deleteExpired() { this->expired_ = nullptr;};
+      inline bool getExpired() const { DARABONBA_PTR_GET_DEFAULT(expired_, false) };
+      inline Items& setExpired(bool expired) { DARABONBA_PTR_SET_VALUE(expired_, expired) };
+
+
+      // gmtCreated Field Functions 
+      bool hasGmtCreated() const { return this->gmtCreated_ != nullptr;};
+      void deleteGmtCreated() { this->gmtCreated_ = nullptr;};
+      inline string getGmtCreated() const { DARABONBA_PTR_GET_DEFAULT(gmtCreated_, "") };
+      inline Items& setGmtCreated(string gmtCreated) { DARABONBA_PTR_SET_VALUE(gmtCreated_, gmtCreated) };
+
+
+      // gmtModified Field Functions 
+      bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
+      void deleteGmtModified() { this->gmtModified_ = nullptr;};
+      inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
+      inline Items& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
 
 
       // gwClusterId Field Functions 
@@ -135,16 +236,38 @@ namespace Models
 
 
     protected:
-      // The complete API key. This value is returned only in the current response.
+      // Indicates whether the key is active.
+      shared_ptr<bool> active_ {};
+      // The full API key. Returned only in this response.
       shared_ptr<string> apiKey_ {};
+      // The MD5 hash of the API key.
+      shared_ptr<string> apiKeyMd5_ {};
+      // The status of the API key. Default value: Active.
+      shared_ptr<string> apiKeyStatus_ {};
       // The API key status. Default value: Active.
       shared_ptr<string> apiStatus_ {};
-      // The ID of the user group.
+      // The budget limit, which equals the number of credits per package.
+      shared_ptr<int64_t> budgetLimit_ {};
+      // The budget policy ID. Each key has an independent budget policy.
+      shared_ptr<string> budgetPolicyId_ {};
+      // The used quota.
+      shared_ptr<int64_t> budgetUsed_ {};
+      // The user group ID.
       shared_ptr<string> consumerGroupId_ {};
       // The user ID.
       shared_ptr<string> consumerId_ {};
       // The consumer tag.
       shared_ptr<string> consumerTag_ {};
+      // The application description or remarks.
+      shared_ptr<string> description_ {};
+      // The expiration time.
+      shared_ptr<string> expireTime_ {};
+      // Indicates whether the key is expired.
+      shared_ptr<bool> expired_ {};
+      // The creation time.
+      shared_ptr<string> gmtCreated_ {};
+      // The last modification time.
+      shared_ptr<string> gmtModified_ {};
       // The gateway instance ID.
       shared_ptr<string> gwClusterId_ {};
       // The name.
