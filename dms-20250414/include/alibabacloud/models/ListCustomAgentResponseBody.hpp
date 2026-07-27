@@ -97,6 +97,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Status, status_);
           DARABONBA_PTR_TO_JSON(TextReportConfig, textReportConfig_);
           DARABONBA_PTR_TO_JSON(WebReportConfig, webReportConfig_);
+          DARABONBA_PTR_TO_JSON(WebReportTheme, webReportTheme_);
           DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
         };
         friend void from_json(const Darabonba::Json& j, Content& obj) { 
@@ -129,6 +130,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Status, status_);
           DARABONBA_PTR_FROM_JSON(TextReportConfig, textReportConfig_);
           DARABONBA_PTR_FROM_JSON(WebReportConfig, webReportConfig_);
+          DARABONBA_PTR_FROM_JSON(WebReportTheme, webReportTheme_);
           DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
         };
         Content() = default ;
@@ -393,7 +395,7 @@ namespace Models
         && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr && this->instruction_ == nullptr && this->isScheduleTask_ == nullptr && this->knowledge_ == nullptr
         && this->knowledgeConfigList_ == nullptr && this->modifier_ == nullptr && this->modifierUserName_ == nullptr && this->name_ == nullptr && this->nextRuntime_ == nullptr
         && this->offlineTime_ == nullptr && this->region_ == nullptr && this->relatedSessionId_ == nullptr && this->releaseTime_ == nullptr && this->scheduleTaskConfig_ == nullptr
-        && this->status_ == nullptr && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->status_ == nullptr && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr && this->workspaceId_ == nullptr; };
         // aliyunParentId Field Functions 
         bool hasAliyunParentId() const { return this->aliyunParentId_ != nullptr;};
         void deleteAliyunParentId() { this->aliyunParentId_ = nullptr;};
@@ -605,6 +607,13 @@ namespace Models
         inline Content& setWebReportConfig(string webReportConfig) { DARABONBA_PTR_SET_VALUE(webReportConfig_, webReportConfig) };
 
 
+        // webReportTheme Field Functions 
+        bool hasWebReportTheme() const { return this->webReportTheme_ != nullptr;};
+        void deleteWebReportTheme() { this->webReportTheme_ = nullptr;};
+        inline string getWebReportTheme() const { DARABONBA_PTR_GET_DEFAULT(webReportTheme_, "") };
+        inline Content& setWebReportTheme(string webReportTheme) { DARABONBA_PTR_SET_VALUE(webReportTheme_, webReportTheme) };
+
+
         // workspaceId Field Functions 
         bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
         void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -667,6 +676,7 @@ namespace Models
         shared_ptr<string> textReportConfig_ {};
         // The formatting instructions for the web report.
         shared_ptr<string> webReportConfig_ {};
+        shared_ptr<string> webReportTheme_ {};
         // The workspace ID.
         shared_ptr<string> workspaceId_ {};
       };

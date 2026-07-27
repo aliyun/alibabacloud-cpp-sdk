@@ -148,7 +148,7 @@ namespace Dms20250414
       Models::CreateAirflowLoginTokenResponse createAirflowLoginToken(const Models::CreateAirflowLoginTokenRequest &request);
 
       /**
-       * @summary Create a custom agent in your personal space or a workspace.
+       * @summary Creates a custom agent in a personal space or workspace.
        *
        * @param tmpReq CreateCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -157,7 +157,7 @@ namespace Dms20250414
       Models::CreateCustomAgentResponse createCustomAgentWithOptions(const Models::CreateCustomAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a custom agent in your personal space or a workspace.
+       * @summary Creates a custom agent in a personal space or workspace.
        *
        * @param request CreateCustomAgentRequest
        * @return CreateCustomAgentResponse
@@ -547,7 +547,7 @@ namespace Dms20250414
       Models::DeleteWorkspaceCodeResponse deleteWorkspaceCode(const Models::DeleteWorkspaceCodeRequest &request);
 
       /**
-       * @summary `DescribeCustomAgent` retrieves the details of a custom agent by its agent ID.
+       * @summary Retrieves the details of a custom agent by custom agent ID.
        *
        * @param request DescribeCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -556,7 +556,7 @@ namespace Dms20250414
       Models::DescribeCustomAgentResponse describeCustomAgentWithOptions(const Models::DescribeCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary `DescribeCustomAgent` retrieves the details of a custom agent by its agent ID.
+       * @summary Retrieves the details of a custom agent by custom agent ID.
        *
        * @param request DescribeCustomAgentRequest
        * @return DescribeCustomAgentResponse
@@ -1450,7 +1450,7 @@ namespace Dms20250414
       Models::ListWorkspaceCodeResponse listWorkspaceCode(const Models::ListWorkspaceCodeRequest &request);
 
       /**
-       * @summary Modify a custom agent in a personal space or workspace
+       * @summary Modifies a custom agent in a personal space or workspace.
        *
        * @param tmpReq ModifyCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1459,7 +1459,7 @@ namespace Dms20250414
       Models::ModifyCustomAgentResponse modifyCustomAgentWithOptions(const Models::ModifyCustomAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify a custom agent in a personal space or workspace
+       * @summary Modifies a custom agent in a personal space or workspace.
        *
        * @param request ModifyCustomAgentRequest
        * @return ModifyCustomAgentResponse
@@ -1562,13 +1562,7 @@ namespace Dms20250414
       /**
        * @summary Sends a user message to a specified session or cancels a session.
        *
-       * @description ## Request description
-       * - `agent_id` and `session_id` are required fields.
-       * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
-       * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
-       * - When `message_type` is `additional`, the `question` field is required.
-       * - `quoted_message` can be used to quote the content of a previous user message.
-       * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
+       * @description ## Request description.
        *
        * @param tmpReq SendChatMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1579,13 +1573,7 @@ namespace Dms20250414
       /**
        * @summary Sends a user message to a specified session or cancels a session.
        *
-       * @description ## Request description
-       * - `agent_id` and `session_id` are required fields.
-       * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
-       * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
-       * - When `message_type` is `additional`, the `question` field is required.
-       * - `quoted_message` can be used to quote the content of a previous user message.
-       * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
+       * @description ## Request description.
        *
        * @param request SendChatMessageRequest
        * @return SendChatMessageResponse

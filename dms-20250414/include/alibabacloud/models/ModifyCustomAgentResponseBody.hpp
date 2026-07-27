@@ -69,6 +69,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(TextReportConfig, textReportConfig_);
         DARABONBA_PTR_TO_JSON(WebReportConfig, webReportConfig_);
+        DARABONBA_PTR_TO_JSON(WebReportTheme, webReportTheme_);
         DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
@@ -100,6 +101,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(TextReportConfig, textReportConfig_);
         DARABONBA_PTR_FROM_JSON(WebReportConfig, webReportConfig_);
+        DARABONBA_PTR_FROM_JSON(WebReportTheme, webReportTheme_);
         DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
       };
       Data() = default ;
@@ -160,11 +162,11 @@ namespace Models
 
 
       protected:
-        // The cron expression for the task.
+        // The cron expression for time-based scheduling.
         shared_ptr<string> cronExpression_ {};
-        // The query for the task.
+        // The query for the scheduled task.
         shared_ptr<string> query_ {};
-        // The ID of a reference session.
+        // The ID of the referenced historical session.
         shared_ptr<string> relatedSessionId_ {};
       };
 
@@ -216,12 +218,9 @@ namespace Models
 
       protected:
         // The access type.
-        // 
-        // - mcp: Connects via MCP.
         shared_ptr<string> accessType_ {};
-        // The knowledge base UUID.
         shared_ptr<string> kbUuid_ {};
-        // The MCP server ID.
+        // The ID of the MCP Server.
         shared_ptr<string> mcpServerId_ {};
       };
 
@@ -281,13 +280,13 @@ namespace Models
 
 
       protected:
-        // Specifies whether to skip asking for human input during execution.
+        // Specifies whether to disable user inquiries during the process.
         shared_ptr<bool> skipAskHuman_ {};
-        // Specifies whether to skip plan confirmation.
+        // Specifies whether to skip the plan confirmation step.
         shared_ptr<bool> skipPlan_ {};
         // Specifies whether to skip all SQL confirmations.
         shared_ptr<bool> skipSqlConfirm_ {};
-        // Specifies whether to skip web report confirmation.
+        // Specifies whether to skip the web report rendering confirmation.
         shared_ptr<bool> skipWebReportConfirm_ {};
       };
 
@@ -356,15 +355,10 @@ namespace Models
 
 
       protected:
-        // The callback arguments.
         shared_ptr<string> callbackArgs_ {};
-        // The callback prompt.
         shared_ptr<string> callbackPrompt_ {};
-        // The callback timestamp.
         shared_ptr<int32_t> callbackTime_ {};
-        // The ID of the tool to be called.
         shared_ptr<string> toolId_ {};
-        // The callback type.
         shared_ptr<string> type_ {};
       };
 
@@ -374,7 +368,7 @@ namespace Models
         && this->gmtModified_ == nullptr && this->instruction_ == nullptr && this->isScheduleTask_ == nullptr && this->knowledge_ == nullptr && this->knowledgeConfigList_ == nullptr
         && this->modifier_ == nullptr && this->modifierUserName_ == nullptr && this->name_ == nullptr && this->nextRuntime_ == nullptr && this->offlineTime_ == nullptr
         && this->region_ == nullptr && this->relatedSessionId_ == nullptr && this->releaseTime_ == nullptr && this->scheduleTaskConfig_ == nullptr && this->status_ == nullptr
-        && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr && this->workspaceId_ == nullptr; };
       // aliyunParentUid Field Functions 
       bool hasAliyunParentUid() const { return this->aliyunParentUid_ != nullptr;};
       void deleteAliyunParentUid() { this->aliyunParentUid_ = nullptr;};
@@ -579,6 +573,13 @@ namespace Models
       inline Data& setWebReportConfig(string webReportConfig) { DARABONBA_PTR_SET_VALUE(webReportConfig_, webReportConfig) };
 
 
+      // webReportTheme Field Functions 
+      bool hasWebReportTheme() const { return this->webReportTheme_ != nullptr;};
+      void deleteWebReportTheme() { this->webReportTheme_ = nullptr;};
+      inline string getWebReportTheme() const { DARABONBA_PTR_GET_DEFAULT(webReportTheme_, "") };
+      inline Data& setWebReportTheme(string webReportTheme) { DARABONBA_PTR_SET_VALUE(webReportTheme_, webReportTheme) };
+
+
       // workspaceId Field Functions 
       bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
       void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -587,21 +588,20 @@ namespace Models
 
 
     protected:
-      // The main Alibaba Cloud account ID.
+      // The Alibaba Cloud account ID of the primary account.
       shared_ptr<string> aliyunParentUid_ {};
       // The Alibaba Cloud account ID.
       shared_ptr<string> aliyunUid_ {};
-      // The callback configuration.
       shared_ptr<Data::CallbackConfig> callbackConfig_ {};
-      // Name of the user who created the agent.
+      // The name of the creator.
       shared_ptr<string> creatorUserName_ {};
       // The custom agent ID.
       shared_ptr<string> customAgentId_ {};
       // The current DMS unit.
       shared_ptr<string> DMSUnit_ {};
-      // The data scope in JSON format.
+      // The specified data range in JSON string format.
       shared_ptr<string> dataJson_ {};
-      // The custom agent description.
+      // The description of the custom agent.
       shared_ptr<string> description_ {};
       // The current DMS unit.
       shared_ptr<string> dmsUnit_ {};
@@ -609,42 +609,40 @@ namespace Models
       shared_ptr<Data::ExecutionConfig> executionConfig_ {};
       // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The last modification time.
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // The instruction for the agent.
+      // The instruction.
       shared_ptr<string> instruction_ {};
-      // Indicates whether a scheduled task is configured.
+      // Indicates whether a periodic task is configured.
       shared_ptr<bool> isScheduleTask_ {};
-      // The text-based knowledge for the agent.
+      // The knowledge.
       shared_ptr<string> knowledge_ {};
-      // Configurations for external knowledge bases.
+      // The external knowledge bases.
       shared_ptr<vector<Data::KnowledgeConfigList>> knowledgeConfigList_ {};
-      // ID of the last modifier.
+      // The modifier.
       shared_ptr<string> modifier_ {};
-      // Name of the user who last modified the agent.
+      // The name of the modifier.
       shared_ptr<string> modifierUserName_ {};
-      // The custom agent name.
+      // The name of the custom agent.
       shared_ptr<string> name_ {};
-      // The next runtime for the scheduled task.
-      // 
-      // - This value is a UNIX timestamp.
+      // The next run time of the periodic task.
       shared_ptr<int64_t> nextRuntime_ {};
       // The offline time.
       shared_ptr<string> offlineTime_ {};
-      // The region ID.
+      // The region.
       shared_ptr<string> region_ {};
-      // The ID of a reference session.
       shared_ptr<string> relatedSessionId_ {};
-      // The release time.
+      // The publish time.
       shared_ptr<string> releaseTime_ {};
-      // The scheduled task configuration.
+      // The periodic task configuration.
       shared_ptr<Data::ScheduleTaskConfig> scheduleTaskConfig_ {};
-      // The agent status.
+      // The status of the custom agent.
       shared_ptr<string> status_ {};
-      // Formatting requirements for the text report.
+      // The text report format.
       shared_ptr<string> textReportConfig_ {};
-      // Formatting requirements for the web report.
+      // The web report format.
       shared_ptr<string> webReportConfig_ {};
+      shared_ptr<string> webReportTheme_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
@@ -689,19 +687,15 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The response struct.
     shared_ptr<ModifyCustomAgentResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message.
+    // The error message returned if the call failed.
     shared_ptr<string> errorMessage_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded. Valid values:
-    // 
-    // - **true**: The request succeeded.
-    // 
-    // - **false**: The request failed.
+    // Indicates whether the request was successful. Valid values:
     shared_ptr<bool> success_ {};
   };
 

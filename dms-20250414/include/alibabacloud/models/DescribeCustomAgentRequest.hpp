@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the custom agent.
+    // The custom agent ID.
     shared_ptr<string> customAgentId_ {};
-    // The ID of the workspace.
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

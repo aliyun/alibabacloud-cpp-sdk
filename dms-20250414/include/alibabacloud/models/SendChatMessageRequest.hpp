@@ -128,7 +128,7 @@ namespace Models
         shared_ptr<string> reportPrompt_ {};
         // The report theme. Valid values: default, journal, legacy, and neobrutalism.
         shared_ptr<string> reportTheme_ {};
-        // The service type. Valid values: TextReport and WebReport, indicating that the task generates a text report or a web report. Only WebReport is supported.
+        // The service type. Valid values: TextReport and WebReport, indicating that the task generates a text report or a web report. Only WebReport is currently supported.
         shared_ptr<string> reportType_ {};
       };
 
@@ -286,22 +286,19 @@ namespace Models
 
 
     protected:
-      // Deprecated. Use the input parameters of CreateAgentSession instead.
+      // Deprecated. Use the input parameter of CreateAgentSession instead.
       shared_ptr<string> customAgentId_ {};
-      // Deprecated. Use the input parameters of CreateAgentSession instead.
+      // Deprecated. Use the input parameter of CreateAgentSession instead.
       shared_ptr<string> customAgentStage_ {};
       // Specifies whether to enable web search.
       shared_ptr<string> enableSearch_ {};
       // The list of knowledge base IDs.
       shared_ptr<string> kbUuidList_ {};
-      // Only Chinese and English are supported. The default value is Chinese. Only uppercase values are supported.
+      // Only Chinese and English are supported. Default value: Chinese. Only uppercase values are supported.
       shared_ptr<string> language_ {};
       // The MCP server IDs in the session configuration.
       shared_ptr<string> mcpServerIds_ {};
-      // The mode. Valid values:
-      //  - **ASK_DATA**: data query mode.
-      //  - **ANALYSIS**: analysis mode.
-      //  - **INSIGHT**: insight mode.
+      // The mode:
       shared_ptr<string> mode_ {};
       // Specifies whether to enable the plan. Valid values: disable, enable, and force. Default value: enable.
       shared_ptr<string> planMode_ {};
@@ -313,7 +310,7 @@ namespace Models
       shared_ptr<bool> skipPlan_ {};
       // Specifies whether to skip all SQL confirmations.
       shared_ptr<bool> skipSqlConfirm_ {};
-      // Specifies whether to skip the web report generation confirmation.
+      // Specifies whether to skip the web report rendering confirmation.
       shared_ptr<bool> skipWebReportConfirm_ {};
     };
 
@@ -329,6 +326,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Engine, engine_);
         DARABONBA_PTR_TO_JSON(FileId, fileId_);
         DARABONBA_PTR_TO_JSON(Location, location_);
+        DARABONBA_PTR_TO_JSON(Permission, permission_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(Tables, tables_);
       };
@@ -342,6 +340,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Engine, engine_);
         DARABONBA_PTR_FROM_JSON(FileId, fileId_);
         DARABONBA_PTR_FROM_JSON(Location, location_);
+        DARABONBA_PTR_FROM_JSON(Permission, permission_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(Tables, tables_);
       };
@@ -356,9 +355,101 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Permission : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Permission& obj) { 
+          DARABONBA_PTR_TO_JSON(Tables, tables_);
+        };
+        friend void from_json(const Darabonba::Json& j, Permission& obj) { 
+          DARABONBA_PTR_FROM_JSON(Tables, tables_);
+        };
+        Permission() = default ;
+        Permission(const Permission &) = default ;
+        Permission(Permission &&) = default ;
+        Permission(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Permission() = default ;
+        Permission& operator=(const Permission &) = default ;
+        Permission& operator=(Permission &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Tables : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Tables& obj) { 
+            DARABONBA_PTR_TO_JSON(AllowedColumns, allowedColumns_);
+            DARABONBA_PTR_TO_JSON(RequiredRowFilter, requiredRowFilter_);
+            DARABONBA_PTR_TO_JSON(TableName, tableName_);
+          };
+          friend void from_json(const Darabonba::Json& j, Tables& obj) { 
+            DARABONBA_PTR_FROM_JSON(AllowedColumns, allowedColumns_);
+            DARABONBA_PTR_FROM_JSON(RequiredRowFilter, requiredRowFilter_);
+            DARABONBA_PTR_FROM_JSON(TableName, tableName_);
+          };
+          Tables() = default ;
+          Tables(const Tables &) = default ;
+          Tables(Tables &&) = default ;
+          Tables(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Tables() = default ;
+          Tables& operator=(const Tables &) = default ;
+          Tables& operator=(Tables &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->allowedColumns_ == nullptr
+        && this->requiredRowFilter_ == nullptr && this->tableName_ == nullptr; };
+          // allowedColumns Field Functions 
+          bool hasAllowedColumns() const { return this->allowedColumns_ != nullptr;};
+          void deleteAllowedColumns() { this->allowedColumns_ = nullptr;};
+          inline const vector<string> & getAllowedColumns() const { DARABONBA_PTR_GET_CONST(allowedColumns_, vector<string>) };
+          inline vector<string> getAllowedColumns() { DARABONBA_PTR_GET(allowedColumns_, vector<string>) };
+          inline Tables& setAllowedColumns(const vector<string> & allowedColumns) { DARABONBA_PTR_SET_VALUE(allowedColumns_, allowedColumns) };
+          inline Tables& setAllowedColumns(vector<string> && allowedColumns) { DARABONBA_PTR_SET_RVALUE(allowedColumns_, allowedColumns) };
+
+
+          // requiredRowFilter Field Functions 
+          bool hasRequiredRowFilter() const { return this->requiredRowFilter_ != nullptr;};
+          void deleteRequiredRowFilter() { this->requiredRowFilter_ = nullptr;};
+          inline string getRequiredRowFilter() const { DARABONBA_PTR_GET_DEFAULT(requiredRowFilter_, "") };
+          inline Tables& setRequiredRowFilter(string requiredRowFilter) { DARABONBA_PTR_SET_VALUE(requiredRowFilter_, requiredRowFilter) };
+
+
+          // tableName Field Functions 
+          bool hasTableName() const { return this->tableName_ != nullptr;};
+          void deleteTableName() { this->tableName_ = nullptr;};
+          inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+          inline Tables& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
+
+
+        protected:
+          // The list of columns that are allowed to be queried in the current table. If this parameter is not specified, all columns can be queried. If this parameter is specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure the analysis effectiveness of DataAgent, avoid specifying columns that exceed the allowed scope in the prompts, knowledge, or instructions modules of DataAgent. Otherwise, SQL statements without the required permissions are generated and blocked, which reduces the analysis speed and effectiveness of DataAgent.
+          shared_ptr<vector<string>> allowedColumns_ {};
+          // The required row filter condition for the current table. If this parameter is not specified, it is ignored. If this parameter is specified, the query condition is appended to all SQL statements that involve this table. Verify the validity of the condition before specifying it.
+          shared_ptr<string> requiredRowFilter_ {};
+          // The name of the table to which the permission constraint rule applies.
+          shared_ptr<string> tableName_ {};
+        };
+
+        virtual bool empty() const override { return this->tables_ == nullptr; };
+        // tables Field Functions 
+        bool hasTables() const { return this->tables_ != nullptr;};
+        void deleteTables() { this->tables_ = nullptr;};
+        inline const vector<Permission::Tables> & getTables() const { DARABONBA_PTR_GET_CONST(tables_, vector<Permission::Tables>) };
+        inline vector<Permission::Tables> getTables() { DARABONBA_PTR_GET(tables_, vector<Permission::Tables>) };
+        inline Permission& setTables(const vector<Permission::Tables> & tables) { DARABONBA_PTR_SET_VALUE(tables_, tables) };
+        inline Permission& setTables(vector<Permission::Tables> && tables) { DARABONBA_PTR_SET_RVALUE(tables_, tables) };
+
+
+      protected:
+        // The table-level permission constraints for querying the current data source. Each item in the list represents the permission constraints for a table.
+        shared_ptr<vector<Permission::Tables>> tables_ {};
+      };
+
       virtual bool empty() const override { return this->dataSourceId_ == nullptr
         && this->dataSourceType_ == nullptr && this->database_ == nullptr && this->dbName_ == nullptr && this->dmsDatabaseId_ == nullptr && this->dmsInstanceId_ == nullptr
-        && this->engine_ == nullptr && this->fileId_ == nullptr && this->location_ == nullptr && this->regionId_ == nullptr && this->tables_ == nullptr; };
+        && this->engine_ == nullptr && this->fileId_ == nullptr && this->location_ == nullptr && this->permission_ == nullptr && this->regionId_ == nullptr
+        && this->tables_ == nullptr; };
       // dataSourceId Field Functions 
       bool hasDataSourceId() const { return this->dataSourceId_ != nullptr;};
       void deleteDataSourceId() { this->dataSourceId_ = nullptr;};
@@ -422,6 +513,15 @@ namespace Models
       inline DataSources& setLocation(string location) { DARABONBA_PTR_SET_VALUE(location_, location) };
 
 
+      // permission Field Functions 
+      bool hasPermission() const { return this->permission_ != nullptr;};
+      void deletePermission() { this->permission_ = nullptr;};
+      inline const DataSources::Permission & getPermission() const { DARABONBA_PTR_GET_CONST(permission_, DataSources::Permission) };
+      inline DataSources::Permission getPermission() { DARABONBA_PTR_GET(permission_, DataSources::Permission) };
+      inline DataSources& setPermission(const DataSources::Permission & permission) { DARABONBA_PTR_SET_VALUE(permission_, permission) };
+      inline DataSources& setPermission(DataSources::Permission && permission) { DARABONBA_PTR_SET_RVALUE(permission_, permission) };
+
+
       // regionId Field Functions 
       bool hasRegionId() const { return this->regionId_ != nullptr;};
       void deleteRegionId() { this->regionId_ = nullptr;};
@@ -457,6 +557,8 @@ namespace Models
       shared_ptr<string> fileId_ {};
       // Deprecated. You do not need to specify this parameter.
       shared_ptr<string> location_ {};
+      // The permission constraints for querying the current data source. The permission constraint feature is available through a canary release. This parameter does not take effect for users who are not included in the canary release.
+      shared_ptr<DataSources::Permission> permission_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The list of table names to analyze.
@@ -475,6 +577,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Engine, engine_);
         DARABONBA_PTR_TO_JSON(FileId, fileId_);
         DARABONBA_PTR_TO_JSON(Location, location_);
+        DARABONBA_PTR_TO_JSON(Permission, permission_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(Tables, tables_);
       };
@@ -488,6 +591,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Engine, engine_);
         DARABONBA_PTR_FROM_JSON(FileId, fileId_);
         DARABONBA_PTR_FROM_JSON(Location, location_);
+        DARABONBA_PTR_FROM_JSON(Permission, permission_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(Tables, tables_);
       };
@@ -502,9 +606,101 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Permission : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Permission& obj) { 
+          DARABONBA_PTR_TO_JSON(Tables, tables_);
+        };
+        friend void from_json(const Darabonba::Json& j, Permission& obj) { 
+          DARABONBA_PTR_FROM_JSON(Tables, tables_);
+        };
+        Permission() = default ;
+        Permission(const Permission &) = default ;
+        Permission(Permission &&) = default ;
+        Permission(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Permission() = default ;
+        Permission& operator=(const Permission &) = default ;
+        Permission& operator=(Permission &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Tables : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Tables& obj) { 
+            DARABONBA_PTR_TO_JSON(AllowedColumns, allowedColumns_);
+            DARABONBA_PTR_TO_JSON(RequiredRowFilter, requiredRowFilter_);
+            DARABONBA_PTR_TO_JSON(TableName, tableName_);
+          };
+          friend void from_json(const Darabonba::Json& j, Tables& obj) { 
+            DARABONBA_PTR_FROM_JSON(AllowedColumns, allowedColumns_);
+            DARABONBA_PTR_FROM_JSON(RequiredRowFilter, requiredRowFilter_);
+            DARABONBA_PTR_FROM_JSON(TableName, tableName_);
+          };
+          Tables() = default ;
+          Tables(const Tables &) = default ;
+          Tables(Tables &&) = default ;
+          Tables(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Tables() = default ;
+          Tables& operator=(const Tables &) = default ;
+          Tables& operator=(Tables &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->allowedColumns_ == nullptr
+        && this->requiredRowFilter_ == nullptr && this->tableName_ == nullptr; };
+          // allowedColumns Field Functions 
+          bool hasAllowedColumns() const { return this->allowedColumns_ != nullptr;};
+          void deleteAllowedColumns() { this->allowedColumns_ = nullptr;};
+          inline const vector<string> & getAllowedColumns() const { DARABONBA_PTR_GET_CONST(allowedColumns_, vector<string>) };
+          inline vector<string> getAllowedColumns() { DARABONBA_PTR_GET(allowedColumns_, vector<string>) };
+          inline Tables& setAllowedColumns(const vector<string> & allowedColumns) { DARABONBA_PTR_SET_VALUE(allowedColumns_, allowedColumns) };
+          inline Tables& setAllowedColumns(vector<string> && allowedColumns) { DARABONBA_PTR_SET_RVALUE(allowedColumns_, allowedColumns) };
+
+
+          // requiredRowFilter Field Functions 
+          bool hasRequiredRowFilter() const { return this->requiredRowFilter_ != nullptr;};
+          void deleteRequiredRowFilter() { this->requiredRowFilter_ = nullptr;};
+          inline string getRequiredRowFilter() const { DARABONBA_PTR_GET_DEFAULT(requiredRowFilter_, "") };
+          inline Tables& setRequiredRowFilter(string requiredRowFilter) { DARABONBA_PTR_SET_VALUE(requiredRowFilter_, requiredRowFilter) };
+
+
+          // tableName Field Functions 
+          bool hasTableName() const { return this->tableName_ != nullptr;};
+          void deleteTableName() { this->tableName_ = nullptr;};
+          inline string getTableName() const { DARABONBA_PTR_GET_DEFAULT(tableName_, "") };
+          inline Tables& setTableName(string tableName) { DARABONBA_PTR_SET_VALUE(tableName_, tableName) };
+
+
+        protected:
+          // The list of columns that are allowed to be queried in the current table. If this parameter is not specified, all columns can be queried. If this parameter is specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure the analysis effectiveness of DataAgent, avoid specifying columns that exceed the allowed scope in the prompts, knowledge, or instructions modules of DataAgent. Otherwise, SQL statements without the required permissions are generated and blocked, which reduces the analysis speed and effectiveness of DataAgent.
+          shared_ptr<vector<string>> allowedColumns_ {};
+          // The required row filter condition for the current table. If this parameter is not specified, it is ignored. If this parameter is specified, the query condition is appended to all SQL statements that involve this table. Verify the validity of the condition before specifying it.
+          shared_ptr<string> requiredRowFilter_ {};
+          // The name of the table to which the permission constraint rule applies.
+          shared_ptr<string> tableName_ {};
+        };
+
+        virtual bool empty() const override { return this->tables_ == nullptr; };
+        // tables Field Functions 
+        bool hasTables() const { return this->tables_ != nullptr;};
+        void deleteTables() { this->tables_ = nullptr;};
+        inline const vector<Permission::Tables> & getTables() const { DARABONBA_PTR_GET_CONST(tables_, vector<Permission::Tables>) };
+        inline vector<Permission::Tables> getTables() { DARABONBA_PTR_GET(tables_, vector<Permission::Tables>) };
+        inline Permission& setTables(const vector<Permission::Tables> & tables) { DARABONBA_PTR_SET_VALUE(tables_, tables) };
+        inline Permission& setTables(vector<Permission::Tables> && tables) { DARABONBA_PTR_SET_RVALUE(tables_, tables) };
+
+
+      protected:
+        // The table-level permission constraints for querying the current data source. Each item in the list represents the permission constraints for a table.
+        shared_ptr<vector<Permission::Tables>> tables_ {};
+      };
+
       virtual bool empty() const override { return this->dataSourceId_ == nullptr
         && this->dataSourceType_ == nullptr && this->database_ == nullptr && this->dbName_ == nullptr && this->dmsDatabaseId_ == nullptr && this->dmsInstanceId_ == nullptr
-        && this->engine_ == nullptr && this->fileId_ == nullptr && this->location_ == nullptr && this->regionId_ == nullptr && this->tables_ == nullptr; };
+        && this->engine_ == nullptr && this->fileId_ == nullptr && this->location_ == nullptr && this->permission_ == nullptr && this->regionId_ == nullptr
+        && this->tables_ == nullptr; };
       // dataSourceId Field Functions 
       bool hasDataSourceId() const { return this->dataSourceId_ != nullptr;};
       void deleteDataSourceId() { this->dataSourceId_ = nullptr;};
@@ -568,6 +764,15 @@ namespace Models
       inline DataSource& setLocation(string location) { DARABONBA_PTR_SET_VALUE(location_, location) };
 
 
+      // permission Field Functions 
+      bool hasPermission() const { return this->permission_ != nullptr;};
+      void deletePermission() { this->permission_ = nullptr;};
+      inline const DataSource::Permission & getPermission() const { DARABONBA_PTR_GET_CONST(permission_, DataSource::Permission) };
+      inline DataSource::Permission getPermission() { DARABONBA_PTR_GET(permission_, DataSource::Permission) };
+      inline DataSource& setPermission(const DataSource::Permission & permission) { DARABONBA_PTR_SET_VALUE(permission_, permission) };
+      inline DataSource& setPermission(DataSource::Permission && permission) { DARABONBA_PTR_SET_RVALUE(permission_, permission) };
+
+
       // regionId Field Functions 
       bool hasRegionId() const { return this->regionId_ != nullptr;};
       void deleteRegionId() { this->regionId_ = nullptr;};
@@ -603,6 +808,8 @@ namespace Models
       shared_ptr<string> fileId_ {};
       // Deprecated. You do not need to specify this parameter.
       shared_ptr<string> location_ {};
+      // The permission constraints for querying the current data source. The permission constraint feature is available through a canary release. This parameter does not take effect for users who are not included in the canary release.
+      shared_ptr<DataSource::Permission> permission_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The list of table names to analyze.
@@ -727,47 +934,35 @@ namespace Models
 
 
   protected:
-    // The agent ID. This parameter is required. You can obtain the current agent ID from the response of the CreateAgentSession operation. Agent resources have a lifecycle, so the agent ID that you specify in each request may change.
+    // The agent ID. This parameter is required. You can obtain the current AgentId from the response of the CreateAgentSession operation. Agent resources have a lifecycle, so the AgentId you need to specify may change with each request.
     shared_ptr<string> agentId_ {};
-    // The Data Management unit you are currently in. If you choose to analyze a database, this information is used to correctly connect to your Data Management instance. You can go to the Data Management console to view your current Data Management unit. If you are a user of the Alibaba Cloud China Website, set this parameter to ap-southeast-1.
+    // The Data Management unit you are currently in. If you select an analytics database, this information is used to correctly connect to your Data Management instance through Data Management. You can go to the DAS console to view your current Data Management unit. If you are a user of Alibaba Cloud China Website (www.aliyun.com), set this parameter to cn-hangzhou.
     shared_ptr<string> DMSUnit_ {};
-    // The data source information. This parameter is optional. You can pass only one data source in this parameter. Use the DataSources parameter instead.
+    // The data source information. This parameter can be left empty. Only one data source can be specified for this parameter. Use the DataSources parameter instead.
     shared_ptr<SendChatMessageRequest::DataSource> dataSource_ {};
-    // The detailed data source information. This parameter is optional.
+    // The detailed data source information. This parameter can be left empty.
     shared_ptr<vector<SendChatMessageRequest::DataSources>> dataSources_ {};
     // The message content to send to the agent.
     // 
     // This parameter is required.
     shared_ptr<string> message_ {};
-    // The message type. Default value: `[primary]`.  
-    // 
-    // - In normal cases, set the message type to `[primary]` when interacting with the agent.
-    // 
-    // - When the message is a response to a human-in-the-loop question from the agent, set the type to `[additional]`.
-    // 
-    // - When the message is intended to trigger report generation, set the type to `[report]`.
-    // 
-    // - When the message is intended to cancel the current session, set the type to `[cancel]`.
+    // The message type. Default value: `[primary]`.
     shared_ptr<string> messageType_ {};
     // The parent session ID.
     shared_ptr<string> parentSessionId_ {};
-    // The specific question that the agent asks the user through human-in-the-loop. This parameter is required when the message type is `additional`.
+    // The specific question that the agent asks the user through Human-in-Loop. This parameter is required when the message type is `additional`.
     shared_ptr<string> question_ {};
     // The quoted content. This parameter is typically used when interacting with the agent.
     shared_ptr<string> quotedMessage_ {};
     // **Important**
-    // 
-    // When this message is a reply to an agent message (for example, the agent asks a clarifying question through ASK_HUMAN), set reply_to to the exact Checkpoint sequence number carried in that agent message. If this message is not a targeted reply, such as requesting the agent to perform further in-depth analysis after analysis is complete, you can leave reply_to empty or set it to "0".  
-    // 
-    // This field affects how the agent decides to process the message. Passing an incorrect value may cause the analysis results to be less effective than expected.
     shared_ptr<string> replyTo_ {};
-    // The special configuration for this session. Only the configuration passed in the first SendMessage call within the same session takes effect.
+    // The special configuration for the current session. For the same session, only the configuration specified in the first SendMessage call takes effect.
     shared_ptr<SendChatMessageRequest::SessionConfig> sessionConfig_ {};
-    // The session ID. This parameter is required. You can call the CreateAgentSession operation to obtain the session ID.
+    // The session ID. This parameter is required. You can obtain the SessionId by calling the CreateAgentSession operation.
     shared_ptr<string> sessionId_ {};
     // The configuration items that affect only the current task.
     shared_ptr<SendChatMessageRequest::TaskConfig> taskConfig_ {};
-    // The OSS bucket of the user. If this parameter is not specified, the analysis process is securely stored in built-in storage.
+    // The OSS bucket of the user. If this parameter is not specified, the analysis data is securely stored in the built-in storage.
     shared_ptr<string> userOssBucket_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ScheduleTaskConfig, scheduleTaskConfig_);
       DARABONBA_PTR_TO_JSON(TextReportConfig, textReportConfig_);
       DARABONBA_PTR_TO_JSON(WebReportConfig, webReportConfig_);
+      DARABONBA_PTR_TO_JSON(WebReportTheme, webReportTheme_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateCustomAgentRequest& obj) { 
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ScheduleTaskConfig, scheduleTaskConfig_);
       DARABONBA_PTR_FROM_JSON(TextReportConfig, textReportConfig_);
       DARABONBA_PTR_FROM_JSON(WebReportConfig, webReportConfig_);
+      DARABONBA_PTR_FROM_JSON(WebReportTheme, webReportTheme_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     CreateCustomAgentRequest() = default ;
@@ -103,11 +105,11 @@ namespace Models
 
 
     protected:
-      // The cron expression for the scheduled task.
+      // The cron expression for the time-based scheduling.
       shared_ptr<string> cronExpression_ {};
       // The query for the scheduled task.
       shared_ptr<string> query_ {};
-      // The ID of a previous session to use for reference.
+      // The ID of the referenced historical session.
       shared_ptr<string> relatedSessionId_ {};
     };
 
@@ -159,11 +161,9 @@ namespace Models
 
     protected:
       // The access type.
-      // 
-      // - `mcp`: Access via an MCP server.
       shared_ptr<string> accessType_ {};
       shared_ptr<string> kbUuid_ {};
-      // The ID of the MCP server.
+      // The ID of the MCP Server.
       shared_ptr<string> mcpServerId_ {};
     };
 
@@ -223,13 +223,13 @@ namespace Models
 
 
     protected:
-      // Specifies whether to skip asking the user for input during execution.
+      // Specifies whether to disable user inquiries during the process.
       shared_ptr<bool> skipAskHuman_ {};
       // Specifies whether to skip the plan confirmation step.
       shared_ptr<bool> skipPlan_ {};
-      // Specifies whether to skip all SQL confirmation steps.
+      // Specifies whether to skip all SQL confirmations.
       shared_ptr<bool> skipSqlConfirm_ {};
-      // Specifies whether to skip the web report confirmation step.
+      // Specifies whether to skip the web report rendering confirmation.
       shared_ptr<bool> skipWebReportConfirm_ {};
     };
 
@@ -308,7 +308,7 @@ namespace Models
     virtual bool empty() const override { return this->callbackConfig_ == nullptr
         && this->DMSUnit_ == nullptr && this->dataJson_ == nullptr && this->description_ == nullptr && this->executionConfig_ == nullptr && this->instruction_ == nullptr
         && this->knowledge_ == nullptr && this->knowledgeConfigList_ == nullptr && this->name_ == nullptr && this->relatedSessionId_ == nullptr && this->scheduleTaskConfig_ == nullptr
-        && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr && this->workspaceId_ == nullptr; };
     // callbackConfig Field Functions 
     bool hasCallbackConfig() const { return this->callbackConfig_ != nullptr;};
     void deleteCallbackConfig() { this->callbackConfig_ = nullptr;};
@@ -408,6 +408,13 @@ namespace Models
     inline CreateCustomAgentRequest& setWebReportConfig(string webReportConfig) { DARABONBA_PTR_SET_VALUE(webReportConfig_, webReportConfig) };
 
 
+    // webReportTheme Field Functions 
+    bool hasWebReportTheme() const { return this->webReportTheme_ != nullptr;};
+    void deleteWebReportTheme() { this->webReportTheme_ = nullptr;};
+    inline string getWebReportTheme() const { DARABONBA_PTR_GET_DEFAULT(webReportTheme_, "") };
+    inline CreateCustomAgentRequest& setWebReportTheme(string webReportTheme) { DARABONBA_PTR_SET_VALUE(webReportTheme_, webReportTheme) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -417,120 +424,31 @@ namespace Models
 
   protected:
     shared_ptr<CreateCustomAgentRequest::CallbackConfig> callbackConfig_ {};
-    // The ID of the DMS unit.
+    // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // The data range, specified as a **JSON string**.
-    // 
-    // - General parameters
-    // 
-    //   - `tableFlag`: Set to `true` to specify a data range.
-    // 
-    //   - `scope`: The value must be `personal`.
-    // 
-    //   - `personal`: Contains the parameters for a file or database.
-    // 
-    // **File type**: Use the following parameters.
-    // 
-    // - `DataSourceType`: The value must be `remote_data_center`.
-    // 
-    // - `FileId`: The ID of the file.
-    // 
-    // - `Database`: The name of the database returned by the `ListDataCenterTable` operation. This is typically the file name.
-    // 
-    // - `Tables`: The names of the tables returned by the `ListDataCenterTable` operation.
-    // 
-    // - `TableIds`: The table IDs returned by the `ListDataCenterTable` operation.
-    // 
-    // - `RegionId`: The current region.
-    // 
-    // ```
-    // {
-    //   "tableFlag": true,
-    //   "scope": "personal",
-    //   "personal": {
-    //     "DataSourceType": "remote_data_center",
-    //     "FileId": "f-f0jksn001ibmkoo********6v2zn6",
-    //     "Database": "diamonds.csv",
-    //     "Tables": [
-    //       "diamonds"
-    //     ],
-    //     "TableIds": [
-    //       "35hfn94pxl********50pi"
-    //     ],
-    //     "RegionId": "cn-hangzhou"
-    //   }
-    // }
-    // ```
-    // 
-    // **Database type**: Use the following parameters.
-    // 
-    // - `DataSourceType`: The value must be `database`.
-    // 
-    // - `DmsInstanceId`: The ID of the DMS instance returned by the data center API.
-    // 
-    // - `DmsDatabaseId`: The ID of the DMS database returned by the data center API.
-    // 
-    // - `FileId`: The instance name. This parameter is deprecated.
-    // 
-    // - `DbName`: The name of the database returned by the data center API.
-    // 
-    // - `Database`: The name of the database returned by the data center API.
-    // 
-    // - `Tables`: The names of the tables returned by the data center API.
-    // 
-    // - `TableIds`: The table IDs returned by the data center API.
-    // 
-    // - `Engine`: The database engine. Valid values: `mysql` and `postgresql`.
-    // 
-    // - `RegionId`: The current region.
-    // 
-    // ```
-    // {
-    //   "tableFlag": true,
-    //   "scope": "personal",
-    //   "personal": {
-    //     "DataSourceType": "database",
-    //     "DmsInstanceId": "284***8",
-    //     "DmsDatabaseId": "769***45",
-    //     "FileId": "pgm-bp15095e*******6t",
-    //     "DbName": "pg_catalog",
-    //     "Database": "pg_catalog",
-    //     "Tables": [
-    //       "pg_aggregate"
-    //     ],
-    //     "TableIds": [
-    //       "5263****31"
-    //     ],
-    //     "Engine": "postgresql",
-    //     "RegionId": "cn-hangzhou"
-    //   }
-    // }
-    // ```
+    // The specified data scope, in **JSON string format**.
     shared_ptr<string> dataJson_ {};
     // The description of the custom agent.
     shared_ptr<string> description_ {};
     // The execution configuration.
     shared_ptr<CreateCustomAgentRequest::ExecutionConfig> executionConfig_ {};
-    // The instruction for the custom agent.
-    // 
-    // - Maximum length: 10,000 characters.
+    // The instruction.
     shared_ptr<string> instruction_ {};
-    // The knowledge for the custom agent.
-    // 
-    // - Maximum length: 10,000 characters.
+    // The knowledge.
     shared_ptr<string> knowledge_ {};
-    // A list of external knowledge bases.
+    // The external knowledge base configurations.
     shared_ptr<vector<CreateCustomAgentRequest::KnowledgeConfigList>> knowledgeConfigList_ {};
     // The name of the custom agent.
     shared_ptr<string> name_ {};
     shared_ptr<string> relatedSessionId_ {};
-    // The configuration for the scheduled task.
+    // The scheduled task configuration.
     shared_ptr<CreateCustomAgentRequest::ScheduleTaskConfig> scheduleTaskConfig_ {};
-    // The formatting requirements for the text report.
+    // The text report format.
     shared_ptr<string> textReportConfig_ {};
-    // The formatting requirements for the web report.
+    // The web report format.
     shared_ptr<string> webReportConfig_ {};
-    // The ID of the workspace.
+    shared_ptr<string> webReportTheme_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const AgenticTableBaseInfo& obj) { 
       DARABONBA_PTR_TO_JSON(CatalogType, catalogType_);
+      DARABONBA_PTR_TO_JSON(DatabaseQualifiedName, databaseQualifiedName_);
       DARABONBA_PTR_TO_JSON(DatabaseUuid, databaseUuid_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(EngineMeta, engineMeta_);
@@ -24,6 +25,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, AgenticTableBaseInfo& obj) { 
       DARABONBA_PTR_FROM_JSON(CatalogType, catalogType_);
+      DARABONBA_PTR_FROM_JSON(DatabaseQualifiedName, databaseQualifiedName_);
       DARABONBA_PTR_FROM_JSON(DatabaseUuid, databaseUuid_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(EngineMeta, engineMeta_);
@@ -43,13 +45,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->catalogType_ == nullptr
-        && this->databaseUuid_ == nullptr && this->description_ == nullptr && this->engineMeta_ == nullptr && this->name_ == nullptr && this->qualifiedName_ == nullptr
-        && this->tableType_ == nullptr; };
+        && this->databaseQualifiedName_ == nullptr && this->databaseUuid_ == nullptr && this->description_ == nullptr && this->engineMeta_ == nullptr && this->name_ == nullptr
+        && this->qualifiedName_ == nullptr && this->tableType_ == nullptr; };
     // catalogType Field Functions 
     bool hasCatalogType() const { return this->catalogType_ != nullptr;};
     void deleteCatalogType() { this->catalogType_ = nullptr;};
     inline string getCatalogType() const { DARABONBA_PTR_GET_DEFAULT(catalogType_, "") };
     inline AgenticTableBaseInfo& setCatalogType(string catalogType) { DARABONBA_PTR_SET_VALUE(catalogType_, catalogType) };
+
+
+    // databaseQualifiedName Field Functions 
+    bool hasDatabaseQualifiedName() const { return this->databaseQualifiedName_ != nullptr;};
+    void deleteDatabaseQualifiedName() { this->databaseQualifiedName_ = nullptr;};
+    inline string getDatabaseQualifiedName() const { DARABONBA_PTR_GET_DEFAULT(databaseQualifiedName_, "") };
+    inline AgenticTableBaseInfo& setDatabaseQualifiedName(string databaseQualifiedName) { DARABONBA_PTR_SET_VALUE(databaseQualifiedName_, databaseQualifiedName) };
 
 
     // databaseUuid Field Functions 
@@ -98,6 +107,7 @@ namespace Models
 
   protected:
     shared_ptr<string> catalogType_ {};
+    shared_ptr<string> databaseQualifiedName_ {};
     shared_ptr<string> databaseUuid_ {};
     shared_ptr<string> description_ {};
     shared_ptr<AgenticTableEngineMeta> engineMeta_ {};
