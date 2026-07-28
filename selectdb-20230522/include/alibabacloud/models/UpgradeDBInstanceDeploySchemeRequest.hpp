@@ -76,8 +76,12 @@ namespace Models
 
 
     protected:
+      // The vSwitch ID.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> vSwitchIds_ {};
+      // The zone ID.
+      // 
       // This parameter is required.
       shared_ptr<string> zoneId_ {};
     };
@@ -115,10 +119,16 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // A list of multi-zone configurations.
+    // 
     // This parameter is required.
     shared_ptr<vector<UpgradeDBInstanceDeploySchemeRequest::MultiZone>> multiZone_ {};
+    // The ID of the region where the instance resides.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> securityToken_ {};

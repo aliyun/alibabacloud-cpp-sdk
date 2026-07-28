@@ -84,21 +84,25 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // Instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The database engine version of the instance.
+    // Database version.
     // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
+    // Specifies whether to perform parallel operations on cluster nodes
     shared_ptr<bool> parallelOperation_ {};
-    // The region ID of the instance.
+    // Region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The update mode. If you do not specify this parameter, the system immediately updates the database engine version. If you set this parameter to 1, the system updates the database engine version during the maintenance window.
+    // Upgrade method.
+    // 
+    // - If you do not specify this parameter, the system immediately upgrades the instance.
+    // - If you set this parameter to 1, the system upgrades the instance during the maintenance window.
     shared_ptr<string> switchTimeMode_ {};
   };
 

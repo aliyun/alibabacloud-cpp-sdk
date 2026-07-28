@@ -107,12 +107,13 @@ namespace Models
 
 
       protected:
-        // The port that is used to connect to the instance.
+        // Connection port number.
         shared_ptr<int32_t> port_ {};
-        // The protocol of the port. Valid values:
+        // Port type. Valid values:
         // 
-        // *   **HttpPort**: HTTP port.
-        // *   **MySQLPort**: MySQL port.
+        // - **HttpPort**: HTTP protocol port.
+        // 
+        // - **MySQLPort**: MySQL protocol port.
         shared_ptr<string> protocol_ {};
       };
 
@@ -185,29 +186,31 @@ namespace Models
 
 
     protected:
-      // The cluster ID.
+      // Cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The connection string of the instance.
+      // Connection address.
       shared_ptr<string> connectionString_ {};
-      // The IP address of the instance.
+      // IP address.
       shared_ptr<string> ip_ {};
-      // The network type of the instance. Valid values:
+      // Network type of the instance. Valid values:
       // 
-      // *   **VPC**: indicates a virtual private cloud (VPC)-connected instance.
-      // *   **PUBLIC**: indicates an Internet-connected instance.
+      // - **VPC**: Virtual Private Cloud (VPC).
+      // 
+      // - **PUBLIC**: Internet.
       shared_ptr<string> netType_ {};
-      // The ports.
+      // Port object.
       shared_ptr<vector<DBInstanceNetInfos::PortList>> portList_ {};
-      // Indicates whether the network information is visible to users. Valid values:
+      // Indicates whether the information is visible to users. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Visible to users.
+      // 
+      // - **false**: Not visible to users.
       shared_ptr<bool> userVisible_ {};
-      // The VPC ID.
+      // VPC ID.
       shared_ptr<string> vpcId_ {};
-      // The ID of the VPC-connected instance.
+      // VPC instance ID.
       shared_ptr<string> vpcInstanceId_ {};
-      // The vSwitch ID.
+      // vSwitch ID.
       shared_ptr<string> vswitchId_ {};
     };
 
@@ -284,9 +287,9 @@ namespace Models
 
 
       protected:
-        // The port that is used to connect to the BE cluster.
+        // Connection port number.
         shared_ptr<int32_t> port_ {};
-        // The protocol of the port.
+        // Port type.
         shared_ptr<string> protocol_ {};
       };
 
@@ -359,22 +362,23 @@ namespace Models
 
 
     protected:
-      // The cluster ID.
+      // Cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The connection string of the BE cluster.
+      // Connection address.
       shared_ptr<string> connectionString_ {};
-      // The IP address of the BE cluster.
+      // IP address.
       shared_ptr<string> ip_ {};
-      // The network type of the BE cluster.
+      // Network type.
       shared_ptr<string> netType_ {};
+      // Port list.
       shared_ptr<vector<DBClustersNetInfos::PortList>> portList_ {};
-      // Indicates whether the network information is visible to users.
+      // Indicates whether the information is visible to users.
       shared_ptr<bool> userVisible_ {};
-      // VPC ID
+      // VPC ID.
       shared_ptr<string> vpcId_ {};
-      // The VPC ID.
+      // VPC instance ID.
       shared_ptr<string> vpcInstanceId_ {};
-      // The vSwitch ID.
+      // vSwitch ID.
       shared_ptr<string> vswitchId_ {};
     };
 
@@ -406,11 +410,11 @@ namespace Models
 
 
   protected:
-    // The network information about the backend (BE) clusters.
+    // Network list of BE instances.
     shared_ptr<vector<DescribeDBInstanceNetInfoResponseBody::DBClustersNetInfos>> DBClustersNetInfos_ {};
-    // The network information about the instance.
+    // Instance network information.
     shared_ptr<vector<DescribeDBInstanceNetInfoResponseBody::DBInstanceNetInfos>> DBInstanceNetInfos_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

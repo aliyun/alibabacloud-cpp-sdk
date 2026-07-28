@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -111,8 +113,11 @@ namespace Models
 
 
   protected:
+    // The list of results.
     shared_ptr<vector<DescribeZonesResponseBody::Items>> items_ {};
+    // The number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page of results. If this parameter is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

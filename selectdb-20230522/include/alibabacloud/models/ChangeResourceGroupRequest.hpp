@@ -66,12 +66,19 @@ namespace Models
 
 
   protected:
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The destination resource group.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceGroupId_ {};
+    // The ID of the instance you want to move.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
+    // The type of the resource. Default value: `DBInstance`.
     shared_ptr<string> resourceType_ {};
   };
 

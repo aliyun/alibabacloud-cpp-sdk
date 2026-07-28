@@ -178,9 +178,9 @@ namespace Models
       shared_ptr<string> currency_ {};
       shared_ptr<vector<Data::OptionalPromotions>> optionalPromotions_ {};
       shared_ptr<map<string, string>> pricingRules_ {};
-      // The estimated refund amount when the subscription cluster of a subscription instance is changed to a pay-as-you-go cluster.
+      // The estimated refund amount when you change the billing method of a subscription cluster to pay-as-you-go.
       shared_ptr<string> refundAmount_ {};
-      // The amount of money.
+      // The amount.
       shared_ptr<string> tradeAmount_ {};
     };
 
@@ -203,7 +203,7 @@ namespace Models
 
 
   protected:
-    // The information returned.
+    // The returned data.
     shared_ptr<GetModifyBEClusterInquiryResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // Region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

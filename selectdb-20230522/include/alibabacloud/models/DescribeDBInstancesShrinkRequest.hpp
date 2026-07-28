@@ -118,28 +118,36 @@ namespace Models
     shared_ptr<string> DBInstanceIds_ {};
     // The state of the instance. Valid values:
     // 
-    // *   **CREATING**: The instance is being created.
-    // *   **ACTIVATION**: The instance is running.
-    // *   **RESOURCE_CHANGING**: The resource configuration of the instance is being changed.
-    // *   **ORDER_PREPARING**: The order is being confirmed.
-    // *   **READONLY_RESOURCE_CHANGING**: The resource configuration of the instance is being changed and the instance is write-locked.
-    // *   **DELETING**: The instance is being deleted.
+    // - **CREATING**: The instance is being created.
+    // 
+    // - **ACTIVATION**: The instance is running.
+    // 
+    // - **RESOURCE_CHANGING**: The instance is being upgraded or downgraded.
+    // 
+    // - **ORDER_PREPARING**: The order is being confirmed.
+    // 
+    // - **READONLY_RESOURCE_CHANGING**: The instance configuration is being changed, and the instance is write-locked.
+    // 
+    // - **DELETING**: The instance is being deleted.
     shared_ptr<string> DBInstanceStatus_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Valid values:
+    // The number of entries to return on each page. Valid values:
     // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // - **30** (default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int64_t> pageSize_ {};
-    // The region ID of the instance.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The list of tags of instances.
     shared_ptr<string> tagShrink_ {};
   };
 

@@ -94,14 +94,26 @@ namespace Models
 
 
   protected:
+    // The number of entries to return on each page.
+    // >Warning: This is a reserved parameter and is not supported.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to start the next query.
+    // >Warning: This is a reserved parameter and is not supported.
     shared_ptr<string> nextToken_ {};
+    // The page number to return.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The VPC ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
+    // The zone ID.
+    // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};
   };

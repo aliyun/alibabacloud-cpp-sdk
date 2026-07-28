@@ -94,17 +94,27 @@ namespace Models
 
 
   protected:
+    // Configuration file to modify. For compute clusters, it is fixed as be.conf. For fe clusters, it is fixed as fe.conf.
+    // 
     // This parameter is required.
     shared_ptr<string> configKey_ {};
+    // Cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Specifies whether to perform parallel operations on the cluster node.
+    // Whether to operate cluster nodes in parallel
     shared_ptr<bool> parallelOperation_ {};
+    // JSON string of parameters and parameter values.
+    // 
     // This parameter is required.
     shared_ptr<string> parameters_ {};
+    // Region ID.
     shared_ptr<string> regionId_ {};
+    // Upgrade method. If not specified, the upgrade will be performed immediately. If set to 1, the upgrade will be performed during the maintenance window.
     shared_ptr<string> switchTimeMode_ {};
   };
 

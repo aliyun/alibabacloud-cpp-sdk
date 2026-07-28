@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The rule for computing resources of the required cluster.
+    // The target compute resource class for the cluster.
     // 
     // This parameter is required.
     shared_ptr<string> clusterClass_ {};
@@ -106,15 +106,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
-    // The time when you want to execute the scheduled scaling rule.
+    // The start time of the time-based scaling rule.
     // 
     // This parameter is required.
     shared_ptr<string> elasticRuleStartTime_ {};
-    // The execution cycle.
-    // 
-    // Valid value:
-    // 
-    // *   Day
+    // The execution epoch.
     // 
     // This parameter is required.
     shared_ptr<string> executionPeriod_ {};

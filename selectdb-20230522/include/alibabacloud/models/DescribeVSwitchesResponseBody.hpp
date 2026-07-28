@@ -89,8 +89,11 @@ namespace Models
 
 
     protected:
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
+      // The vSwitch name.
       shared_ptr<string> vSwitchName_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -149,13 +152,19 @@ namespace Models
 
 
   protected:
+    // The list of results.
     shared_ptr<vector<DescribeVSwitchesResponseBody::Items>> items_ {};
+    // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to start the next query. If this parameter is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
+    // The current page number.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries on the current page.
     shared_ptr<string> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<string> totalRecordCount_ {};
   };
 

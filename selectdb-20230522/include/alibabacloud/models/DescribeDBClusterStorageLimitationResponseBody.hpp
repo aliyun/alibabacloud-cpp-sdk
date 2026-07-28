@@ -141,12 +141,19 @@ namespace Models
 
 
       protected:
+        // The specification code.
         shared_ptr<string> classCode_ {};
+        // The number of vCPU cores.
         shared_ptr<int32_t> cpuCores_ {};
+        // The default cache size in GB.
         shared_ptr<int32_t> defaultStorageInGB_ {};
+        // The maximum cache size in GB.
         shared_ptr<int32_t> maxStorageInGB_ {};
+        // The memory size in GB.
         shared_ptr<int32_t> memoryInGB_ {};
+        // The minimum cache size in GB.
         shared_ptr<int32_t> minStorageInGB_ {};
+        // The cache step size in GB.
         shared_ptr<int32_t> stepStorageInGB_ {};
       };
 
@@ -161,6 +168,7 @@ namespace Models
 
 
     protected:
+      // The list of cache specifications.
       shared_ptr<vector<Data::ClassCodeList>> classCodeList_ {};
     };
 
@@ -204,10 +212,15 @@ namespace Models
 
 
   protected:
+    // The details of the access denial. This field is returned only when the RAM verification fails.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The returned data.
     shared_ptr<DescribeDBClusterStorageLimitationResponseBody::Data> data_ {};
+    // The dynamic code. This parameter is not used. Ignore this parameter.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic message. This parameter is not used. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

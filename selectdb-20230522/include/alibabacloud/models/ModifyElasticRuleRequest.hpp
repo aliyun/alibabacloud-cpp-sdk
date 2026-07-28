@@ -128,7 +128,7 @@ namespace Models
     // 
     // Valid value:
     // 
-    // *   Day
+    // - Day
     shared_ptr<string> executionPeriod_ {};
     // The cloud service.
     shared_ptr<string> product_ {};

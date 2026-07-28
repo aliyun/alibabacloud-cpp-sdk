@@ -80,8 +80,11 @@ namespace Models
 
 
     protected:
+      // The cluster ID.
       shared_ptr<string> DBClusterId_ {};
+      // The instance ID.
       shared_ptr<string> DBInstanceId_ {};
+      // The order ID.
       shared_ptr<int64_t> orderId_ {};
     };
 
@@ -111,9 +114,11 @@ namespace Models
 
 
   protected:
-    // 代表资源一级ID的资源属性字段
+    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
+    // The returned data.
     shared_ptr<ModifyDBClusterResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -195,37 +195,85 @@ namespace Models
 
 
   protected:
+    // The reserved cache size.
+    // 
     // This parameter is required.
     shared_ptr<string> cacheSize_ {};
+    // The billing method of the cluster. Valid values:
+    // 
+    // - **Postpaid**: pay-as-you-go.
+    // 
+    // - **Prepaid**: subscription.
+    // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
     shared_ptr<int32_t> clusterNodeCount_ {};
     shared_ptr<string> clusterNodeType_ {};
+    // The instance type of the cluster. Valid values:
+    // 
+    // - **selectdb.xlarge**: 4 cores, 32 GB.
+    // 
+    // - **selectdb.2xlarge**: 8 cores, 64 GB.
+    // 
+    // - **selectdb.4xlarge**: 16 cores, 128 GB.
+    // 
+    // - **selectdb.8xlarge**: 32 cores, 256 GB.
+    // 
+    // - **selectdb.16xlarge**: 64 cores, 512 GB.
+    // 
+    // - **selectdb.24xlarge**: 96 cores, 768 GB.
+    // 
+    // - **selectdb.32xlarge**: 128 cores, 1024 GB.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterClass_ {};
+    // The description of the cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterDescription_ {};
-    // 代表资源一级ID的资源属性字段
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The database engine of the instance.
+    // The database engine type.
     shared_ptr<string> engine_ {};
+    // The database engine version.
+    // 
     // This parameter is required.
     shared_ptr<string> engineVersion_ {};
+    // The billing cycle of the subscription cluster. Valid values:
+    // 
+    // - **Year**: The cluster is billed on a yearly basis.
+    // 
+    // - **Month**: The cluster is billed on a monthly basis.
+    // 
+    // > This parameter is required and takes effect only when **ChargeType** is set to **Prepaid**.
     shared_ptr<string> period_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<double> scaleMax_ {};
     shared_ptr<double> scaleMin_ {};
+    // The subscription duration of the subscription cluster. Valid values:
+    // 
+    // - If Period is set to Year, valid values for UsedTime are 1, 2, 3, and 5.
+    // 
+    // - If Period is set to Month, the value of UsedTime can be an integer from 1 to 9.
+    // 
+    // > This parameter is required and takes effect only when ChargeType is set to Prepaid.
     shared_ptr<string> usedTime_ {};
+    // The vSwitch ID.
+    // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
-    // VPC ID.
+    // The VPC ID.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
+    // The zone ID.
+    // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};
   };

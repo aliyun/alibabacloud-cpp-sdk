@@ -38,7 +38,7 @@ namespace Selectdb20230522
       Models::AllocateInstancePublicConnectionResponse allocateInstancePublicConnection(const Models::AllocateInstancePublicConnectionRequest &request);
 
       /**
-       * @summary 资源转组
+       * @summary Moves a specified database instance to a different resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Selectdb20230522
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 资源转组
+       * @summary Moves a specified database instance to a different resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -55,7 +55,7 @@ namespace Selectdb20230522
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary Performs a precheck before an ApsaraDB for SelectDB instance is created.
+       * @summary Performs a precheck on the resources required to create an ApsaraDB for SelectDB instance.
        *
        * @param request CheckCreateDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Selectdb20230522
       Models::CheckCreateDBInstanceResponse checkCreateDBInstanceWithOptions(const Models::CheckCreateDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a precheck before an ApsaraDB for SelectDB instance is created.
+       * @summary Performs a precheck on the resources required to create an ApsaraDB for SelectDB instance.
        *
        * @param request CheckCreateDBInstanceRequest
        * @return CheckCreateDBInstanceResponse
@@ -72,8 +72,6 @@ namespace Selectdb20230522
       Models::CheckCreateDBInstanceResponse checkCreateDBInstance(const Models::CheckCreateDBInstanceRequest &request);
 
       /**
-       * @summary 判断指定 IP 是否已经存在于网络白名单组
-       *
        * @param request CheckIpExistsInSecurityIpListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CheckIpExistsInSecurityIpListResponse
@@ -81,15 +79,13 @@ namespace Selectdb20230522
       Models::CheckIpExistsInSecurityIpListResponse checkIpExistsInSecurityIpListWithOptions(const Models::CheckIpExistsInSecurityIpListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 判断指定 IP 是否已经存在于网络白名单组
-       *
        * @param request CheckIpExistsInSecurityIpListRequest
        * @return CheckIpExistsInSecurityIpListResponse
        */
       Models::CheckIpExistsInSecurityIpListResponse checkIpExistsInSecurityIpList(const Models::CheckIpExistsInSecurityIpListRequest &request);
 
       /**
-       * @summary Queries the service-linked role of ApsaraDB for SelectDB.
+       * @summary Call this operation to check the service-linked role.
        *
        * @param request CheckServiceLinkedRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +94,7 @@ namespace Selectdb20230522
       Models::CheckServiceLinkedRoleResponse checkServiceLinkedRoleWithOptions(const Models::CheckServiceLinkedRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the service-linked role of ApsaraDB for SelectDB.
+       * @summary Call this operation to check the service-linked role.
        *
        * @param request CheckServiceLinkedRoleRequest
        * @return CheckServiceLinkedRoleResponse
@@ -106,9 +102,10 @@ namespace Selectdb20230522
       Models::CheckServiceLinkedRoleResponse checkServiceLinkedRole(const Models::CheckServiceLinkedRoleRequest &request);
 
       /**
-       * @summary Creates a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Creates a cluster for a specified ApsaraDB for SelectDB instance.
        *
-       * @description > : For an instance that uses the pay-as-you-go billing method, you can create only pay-as-you-go clusters. For an instance that uses the subscription billing method, you can create pay-as-you-go or subscription clusters.
+       * @description >Warning: 
+       * Pay-as-you-go instances support only pay-as-you-go clusters. Subscription instances support both pay-as-you-go and subscription clusters.
        *
        * @param request CreateDBClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -117,9 +114,10 @@ namespace Selectdb20230522
       Models::CreateDBClusterResponse createDBClusterWithOptions(const Models::CreateDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Creates a cluster for a specified ApsaraDB for SelectDB instance.
        *
-       * @description > : For an instance that uses the pay-as-you-go billing method, you can create only pay-as-you-go clusters. For an instance that uses the subscription billing method, you can create pay-as-you-go or subscription clusters.
+       * @description >Warning: 
+       * Pay-as-you-go instances support only pay-as-you-go clusters. Subscription instances support both pay-as-you-go and subscription clusters.
        *
        * @param request CreateDBClusterRequest
        * @return CreateDBClusterResponse
@@ -130,8 +128,8 @@ namespace Selectdb20230522
        * @summary Creates a binding relationship for clusters. If the zone-redundant storage (ZRS) deployment method is used, you can create a binding relationship between two clusters.
        *
        * @description This operation is supported only for instances that use the zone-redundant storage (ZRS) feature and meet the following requirements:
-       * *   The instance clusters reside in different zones.
-       * *   The billing method of the instance clusters is consistent.
+       * - The instance clusters reside in different zones.
+       * - The billing method of the instance clusters is consistent.
        *
        * @param request CreateDBClusterBindingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -143,8 +141,8 @@ namespace Selectdb20230522
        * @summary Creates a binding relationship for clusters. If the zone-redundant storage (ZRS) deployment method is used, you can create a binding relationship between two clusters.
        *
        * @description This operation is supported only for instances that use the zone-redundant storage (ZRS) feature and meet the following requirements:
-       * *   The instance clusters reside in different zones.
-       * *   The billing method of the instance clusters is consistent.
+       * - The instance clusters reside in different zones.
+       * - The billing method of the instance clusters is consistent.
        *
        * @param request CreateDBClusterBindingRequest
        * @return CreateDBClusterBindingResponse
@@ -153,6 +151,8 @@ namespace Selectdb20230522
 
       /**
        * @summary Creates an ApsaraDB for SelectDB instance.
+       *
+       * @description Subscription instances cannot be deleted.
        *
        * @param tmpReq CreateDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -163,13 +163,15 @@ namespace Selectdb20230522
       /**
        * @summary Creates an ApsaraDB for SelectDB instance.
        *
+       * @description Subscription instances cannot be deleted.
+       *
        * @param request CreateDBInstanceRequest
        * @return CreateDBInstanceResponse
        */
       Models::CreateDBInstanceResponse createDBInstance(const Models::CreateDBInstanceRequest &request);
 
       /**
-       * @summary Creates a scheduled scaling rule.
+       * @summary Creates a time-based scaling rule.
        *
        * @param request CreateElasticRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -178,7 +180,7 @@ namespace Selectdb20230522
       Models::CreateElasticRuleResponse createElasticRuleWithOptions(const Models::CreateElasticRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a scheduled scaling rule.
+       * @summary Creates a time-based scaling rule.
        *
        * @param request CreateElasticRuleRequest
        * @return CreateElasticRuleResponse
@@ -186,7 +188,7 @@ namespace Selectdb20230522
       Models::CreateElasticRuleResponse createElasticRule(const Models::CreateElasticRuleRequest &request);
 
       /**
-       * @summary Creates a service-linked role for ApsaraDB for SelectDB.
+       * @summary Call this operation to create a service-linked role.
        *
        * @param request CreateServiceLinkedRoleForSelectDBRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -195,7 +197,7 @@ namespace Selectdb20230522
       Models::CreateServiceLinkedRoleForSelectDBResponse createServiceLinkedRoleForSelectDBWithOptions(const Models::CreateServiceLinkedRoleForSelectDBRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a service-linked role for ApsaraDB for SelectDB.
+       * @summary Call this operation to create a service-linked role.
        *
        * @param request CreateServiceLinkedRoleForSelectDBRequest
        * @return CreateServiceLinkedRoleForSelectDBResponse
@@ -203,7 +205,11 @@ namespace Selectdb20230522
       Models::CreateServiceLinkedRoleForSelectDBResponse createServiceLinkedRoleForSelectDB(const Models::CreateServiceLinkedRoleForSelectDBRequest &request);
 
       /**
-       * @summary 创建虚拟集群
+       * @summary Creates a virtual cluster.
+       *
+       * @description This operation is supported only for instances that use zone-redundant storage. The following conditions must also be met:
+       * - The minor engine version of the instance is 4.0.7 or later.
+       * - The primary and standby clusters are in different zones.
        *
        * @param request CreateVirtualClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -212,7 +218,11 @@ namespace Selectdb20230522
       Models::CreateVirtualClusterResponse createVirtualClusterWithOptions(const Models::CreateVirtualClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建虚拟集群
+       * @summary Creates a virtual cluster.
+       *
+       * @description This operation is supported only for instances that use zone-redundant storage. The following conditions must also be met:
+       * - The minor engine version of the instance is 4.0.7 or later.
+       * - The primary and standby clusters are in different zones.
        *
        * @param request CreateVirtualClusterRequest
        * @return CreateVirtualClusterResponse
@@ -254,7 +264,9 @@ namespace Selectdb20230522
       Models::DeleteDBClusterBindingResponse deleteDBClusterBinding(const Models::DeleteDBClusterBindingRequest &request);
 
       /**
-       * @summary Deletes an ApsaraDB for SelectDB instance.
+       * @summary Deletes a specified ApsaraDB SelectDB instance.
+       *
+       * @description Subscription instances cannot be deleted.
        *
        * @param request DeleteDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -263,7 +275,9 @@ namespace Selectdb20230522
       Models::DeleteDBInstanceResponse deleteDBInstanceWithOptions(const Models::DeleteDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an ApsaraDB for SelectDB instance.
+       * @summary Deletes a specified ApsaraDB SelectDB instance.
+       *
+       * @description Subscription instances cannot be deleted.
        *
        * @param request DeleteDBInstanceRequest
        * @return DeleteDBInstanceResponse
@@ -288,7 +302,9 @@ namespace Selectdb20230522
       Models::DeleteElasticRuleResponse deleteElasticRule(const Models::DeleteElasticRuleRequest &request);
 
       /**
-       * @summary 删除虚拟集群
+       * @summary Deletes a virtual cluster.
+       *
+       * @description > - This operation deletes only the virtual cluster. It **does not** delete the attached primary or secondary cluster.
        *
        * @param request DeleteVirtualClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -297,7 +313,9 @@ namespace Selectdb20230522
       Models::DeleteVirtualClusterResponse deleteVirtualClusterWithOptions(const Models::DeleteVirtualClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除虚拟集群
+       * @summary Deletes a virtual cluster.
+       *
+       * @description > - This operation deletes only the virtual cluster. It **does not** delete the attached primary or secondary cluster.
        *
        * @param request DeleteVirtualClusterRequest
        * @return DeleteVirtualClusterResponse
@@ -305,7 +323,7 @@ namespace Selectdb20230522
       Models::DeleteVirtualClusterResponse deleteVirtualCluster(const Models::DeleteVirtualClusterRequest &request);
 
       /**
-       * @summary Queries the information about all instance specifications.
+       * @summary Retrieves all instance type information.
        *
        * @param request DescribeAllDBInstanceClassRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -314,7 +332,7 @@ namespace Selectdb20230522
       Models::DescribeAllDBInstanceClassResponse describeAllDBInstanceClassWithOptions(const Models::DescribeAllDBInstanceClassRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about all instance specifications.
+       * @summary Retrieves all instance type information.
        *
        * @param request DescribeAllDBInstanceClassRequest
        * @return DescribeAllDBInstanceClassResponse
@@ -339,7 +357,7 @@ namespace Selectdb20230522
       Models::DescribeDBClusterConfigResponse describeDBClusterConfig(const Models::DescribeDBClusterConfigRequest &request);
 
       /**
-       * @summary Queries the configuration change logs of a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Queries the change logs for cluster configurations.
        *
        * @param request DescribeDBClusterConfigChangeLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -348,7 +366,7 @@ namespace Selectdb20230522
       Models::DescribeDBClusterConfigChangeLogsResponse describeDBClusterConfigChangeLogsWithOptions(const Models::DescribeDBClusterConfigChangeLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configuration change logs of a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Queries the change logs for cluster configurations.
        *
        * @param request DescribeDBClusterConfigChangeLogsRequest
        * @return DescribeDBClusterConfigChangeLogsResponse
@@ -356,7 +374,7 @@ namespace Selectdb20230522
       Models::DescribeDBClusterConfigChangeLogsResponse describeDBClusterConfigChangeLogs(const Models::DescribeDBClusterConfigChangeLogsRequest &request);
 
       /**
-       * @summary 获取集群的各规格缓存限制
+       * @summary Queries the cache limits for each cluster specification.
        *
        * @param request DescribeDBClusterStorageLimitationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -365,7 +383,7 @@ namespace Selectdb20230522
       Models::DescribeDBClusterStorageLimitationResponse describeDBClusterStorageLimitationWithOptions(const Models::DescribeDBClusterStorageLimitationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取集群的各规格缓存限制
+       * @summary Queries the cache limits for each cluster specification.
        *
        * @param request DescribeDBClusterStorageLimitationRequest
        * @return DescribeDBClusterStorageLimitationResponse
@@ -373,7 +391,7 @@ namespace Selectdb20230522
       Models::DescribeDBClusterStorageLimitationResponse describeDBClusterStorageLimitation(const Models::DescribeDBClusterStorageLimitationRequest &request);
 
       /**
-       * @summary Queries the details about an ApsaraDB for SelectDB instance.
+       * @summary Gets the details of a specified instance.
        *
        * @param request DescribeDBInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -382,7 +400,7 @@ namespace Selectdb20230522
       Models::DescribeDBInstanceAttributeResponse describeDBInstanceAttributeWithOptions(const Models::DescribeDBInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details about an ApsaraDB for SelectDB instance.
+       * @summary Gets the details of a specified instance.
        *
        * @param request DescribeDBInstanceAttributeRequest
        * @return DescribeDBInstanceAttributeResponse
@@ -390,7 +408,7 @@ namespace Selectdb20230522
       Models::DescribeDBInstanceAttributeResponse describeDBInstanceAttribute(const Models::DescribeDBInstanceAttributeRequest &request);
 
       /**
-       * @summary Queries the network information about an ApsaraDB for SelectDB instance.
+       * @summary Queries the network information of a specified ApsaraDB SelectDB instance.
        *
        * @param request DescribeDBInstanceNetInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -399,7 +417,7 @@ namespace Selectdb20230522
       Models::DescribeDBInstanceNetInfoResponse describeDBInstanceNetInfoWithOptions(const Models::DescribeDBInstanceNetInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the network information about an ApsaraDB for SelectDB instance.
+       * @summary Queries the network information of a specified ApsaraDB SelectDB instance.
        *
        * @param request DescribeDBInstanceNetInfoRequest
        * @return DescribeDBInstanceNetInfoResponse
@@ -407,7 +425,7 @@ namespace Selectdb20230522
       Models::DescribeDBInstanceNetInfoResponse describeDBInstanceNetInfo(const Models::DescribeDBInstanceNetInfoRequest &request);
 
       /**
-       * @summary Queries the information about ApsaraDB for SelectDB instances.
+       * @summary Queries instances.
        *
        * @param tmpReq DescribeDBInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -416,7 +434,7 @@ namespace Selectdb20230522
       Models::DescribeDBInstancesResponse describeDBInstancesWithOptions(const Models::DescribeDBInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about ApsaraDB for SelectDB instances.
+       * @summary Queries instances.
        *
        * @param request DescribeDBInstancesRequest
        * @return DescribeDBInstancesResponse
@@ -439,6 +457,52 @@ namespace Selectdb20230522
        * @return DescribeElasticRulesResponse
        */
       Models::DescribeElasticRulesResponse describeElasticRules(const Models::DescribeElasticRulesRequest &request);
+
+      /**
+       * @summary Retrieves the Profile analysis for a query.
+       *
+       * @description We recommend using the visual interface to run a query and obtain its QueryID. For more information, see [query audit](https://help.aliyun.com/zh/selectdb/audit-queries).
+       * >Notice: 
+       * Version limitations
+       * - Version 3.0 is not supported.
+       * - This feature is not available for instances created before 2025-08-01. To enable this feature for an older instance, please submit a ticket.
+       *
+       * @param request DescribeProfileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeProfileResponse
+       */
+      Models::DescribeProfileResponse describeProfileWithOptions(const Models::DescribeProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the Profile analysis for a query.
+       *
+       * @description We recommend using the visual interface to run a query and obtain its QueryID. For more information, see [query audit](https://help.aliyun.com/zh/selectdb/audit-queries).
+       * >Notice: 
+       * Version limitations
+       * - Version 3.0 is not supported.
+       * - This feature is not available for instances created before 2025-08-01. To enable this feature for an older instance, please submit a ticket.
+       *
+       * @param request DescribeProfileRequest
+       * @return DescribeProfileResponse
+       */
+      Models::DescribeProfileResponse describeProfile(const Models::DescribeProfileRequest &request);
+
+      /**
+       * @summary Retrieves the execution plan (Explain) for a query.
+       *
+       * @param request DescribeQueryExplainRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeQueryExplainResponse
+       */
+      Models::DescribeQueryExplainResponse describeQueryExplainWithOptions(const Models::DescribeQueryExplainRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the execution plan (Explain) for a query.
+       *
+       * @param request DescribeQueryExplainRequest
+       * @return DescribeQueryExplainResponse
+       */
+      Models::DescribeQueryExplainResponse describeQueryExplain(const Models::DescribeQueryExplainRequest &request);
 
       /**
        * @summary Queries available regions and zones.
@@ -475,7 +539,41 @@ namespace Selectdb20230522
       Models::DescribeSecurityIPListResponse describeSecurityIPList(const Models::DescribeSecurityIPListRequest &request);
 
       /**
-       * @summary DescribeVSwitches
+       * @summary Retrieve slow query statistics for a time range.
+       *
+       * @param request DescribeSlowQueryStatsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSlowQueryStatsResponse
+       */
+      Models::DescribeSlowQueryStatsResponse describeSlowQueryStatsWithOptions(const Models::DescribeSlowQueryStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieve slow query statistics for a time range.
+       *
+       * @param request DescribeSlowQueryStatsRequest
+       * @return DescribeSlowQueryStatsResponse
+       */
+      Models::DescribeSlowQueryStatsResponse describeSlowQueryStats(const Models::DescribeSlowQueryStatsRequest &request);
+
+      /**
+       * @summary 获取表结构
+       *
+       * @param request DescribeTableSchemaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeTableSchemaResponse
+       */
+      Models::DescribeTableSchemaResponse describeTableSchemaWithOptions(const Models::DescribeTableSchemaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取表结构
+       *
+       * @param request DescribeTableSchemaRequest
+       * @return DescribeTableSchemaResponse
+       */
+      Models::DescribeTableSchemaResponse describeTableSchema(const Models::DescribeTableSchemaRequest &request);
+
+      /**
+       * @summary Queries vSwitches in a specified zone.
        *
        * @param request DescribeVSwitchesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -484,7 +582,7 @@ namespace Selectdb20230522
       Models::DescribeVSwitchesResponse describeVSwitchesWithOptions(const Models::DescribeVSwitchesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DescribeVSwitches
+       * @summary Queries vSwitches in a specified zone.
        *
        * @param request DescribeVSwitchesRequest
        * @return DescribeVSwitchesResponse
@@ -492,7 +590,7 @@ namespace Selectdb20230522
       Models::DescribeVSwitchesResponse describeVSwitches(const Models::DescribeVSwitchesRequest &request);
 
       /**
-       * @summary DescribeZones
+       * @summary Describes the available zones.
        *
        * @param request DescribeZonesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -501,7 +599,7 @@ namespace Selectdb20230522
       Models::DescribeZonesResponse describeZonesWithOptions(const Models::DescribeZonesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DescribeZones
+       * @summary Describes the available zones.
        *
        * @param request DescribeZonesRequest
        * @return DescribeZonesResponse
@@ -526,7 +624,7 @@ namespace Selectdb20230522
       Models::EnDisableScalingRulesResponse enDisableScalingRules(const Models::EnDisableScalingRulesRequest &request);
 
       /**
-       * @summary Queries the pricing for creating a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Queries pricing information for creating a new cluster in a SelectDB instance.
        *
        * @param request GetCreateBEClusterInquiryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -535,7 +633,7 @@ namespace Selectdb20230522
       Models::GetCreateBEClusterInquiryResponse getCreateBEClusterInquiryWithOptions(const Models::GetCreateBEClusterInquiryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the pricing for creating a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Queries pricing information for creating a new cluster in a SelectDB instance.
        *
        * @param request GetCreateBEClusterInquiryRequest
        * @return GetCreateBEClusterInquiryResponse
@@ -543,7 +641,7 @@ namespace Selectdb20230522
       Models::GetCreateBEClusterInquiryResponse getCreateBEClusterInquiry(const Models::GetCreateBEClusterInquiryRequest &request);
 
       /**
-       * @summary Queries the pricing for changing the specifications of a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Retrieves the pricing information for creating a new cluster in a specified ApsaraDB for SelectDB instance.
        *
        * @param request GetModifyBEClusterInquiryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -552,7 +650,7 @@ namespace Selectdb20230522
       Models::GetModifyBEClusterInquiryResponse getModifyBEClusterInquiryWithOptions(const Models::GetModifyBEClusterInquiryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the pricing for changing the specifications of a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Retrieves the pricing information for creating a new cluster in a specified ApsaraDB for SelectDB instance.
        *
        * @param request GetModifyBEClusterInquiryRequest
        * @return GetModifyBEClusterInquiryResponse
@@ -560,7 +658,7 @@ namespace Selectdb20230522
       Models::GetModifyBEClusterInquiryResponse getModifyBEClusterInquiry(const Models::GetModifyBEClusterInquiryRequest &request);
 
       /**
-       * @summary Modifies the name of a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Modifies the cluster name of an ApsaraDB SelectDB instance.
        *
        * @param request ModifyBEClusterAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -569,7 +667,7 @@ namespace Selectdb20230522
       Models::ModifyBEClusterAttributeResponse modifyBEClusterAttributeWithOptions(const Models::ModifyBEClusterAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the name of a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Modifies the cluster name of an ApsaraDB SelectDB instance.
        *
        * @param request ModifyBEClusterAttributeRequest
        * @return ModifyBEClusterAttributeResponse
@@ -577,7 +675,7 @@ namespace Selectdb20230522
       Models::ModifyBEClusterAttributeResponse modifyBEClusterAttribute(const Models::ModifyBEClusterAttributeRequest &request);
 
       /**
-       * @summary Scales a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Scales out or in a specified ApsaraDB for SelectDB cluster.
        *
        * @param request ModifyDBClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -586,7 +684,7 @@ namespace Selectdb20230522
       Models::ModifyDBClusterResponse modifyDBClusterWithOptions(const Models::ModifyDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Scales a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Scales out or in a specified ApsaraDB for SelectDB cluster.
        *
        * @param request ModifyDBClusterRequest
        * @return ModifyDBClusterResponse
@@ -594,7 +692,7 @@ namespace Selectdb20230522
       Models::ModifyDBClusterResponse modifyDBCluster(const Models::ModifyDBClusterRequest &request);
 
       /**
-       * @summary Modifies the configurations of a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Modifies the cluster configuration.
        *
        * @param request ModifyDBClusterConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -603,7 +701,7 @@ namespace Selectdb20230522
       Models::ModifyDBClusterConfigResponse modifyDBClusterConfigWithOptions(const Models::ModifyDBClusterConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configurations of a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Modifies the cluster configuration.
        *
        * @param request ModifyDBClusterConfigRequest
        * @return ModifyDBClusterConfigResponse
@@ -662,7 +760,13 @@ namespace Selectdb20230522
       Models::ModifySecurityIPListResponse modifySecurityIPList(const Models::ModifySecurityIPListRequest &request);
 
       /**
-       * @summary 修改虚拟集群
+       * @summary Modifies a virtual cluster.
+       *
+       * @description - You can modify the primary cluster independently.
+       * - You can modify the standby cluster independently.
+       * - You can switch between the primary and standby clusters.
+       * >Warning: 
+       * You cannot modify both the primary and standby clusters in the same operation.
        *
        * @param request ModifyVirtualClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -671,7 +775,13 @@ namespace Selectdb20230522
       Models::ModifyVirtualClusterResponse modifyVirtualClusterWithOptions(const Models::ModifyVirtualClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改虚拟集群
+       * @summary Modifies a virtual cluster.
+       *
+       * @description - You can modify the primary cluster independently.
+       * - You can modify the standby cluster independently.
+       * - You can switch between the primary and standby clusters.
+       * >Warning: 
+       * You cannot modify both the primary and standby clusters in the same operation.
        *
        * @param request ModifyVirtualClusterRequest
        * @return ModifyVirtualClusterResponse
@@ -696,7 +806,7 @@ namespace Selectdb20230522
       Models::ReleaseInstancePublicConnectionResponse releaseInstancePublicConnection(const Models::ReleaseInstancePublicConnectionRequest &request);
 
       /**
-       * @summary Resets the password of an account for an ApsaraDB for SelectDB instance.
+       * @summary Resets the password for a database account in an ApsaraDB for SelectDB instance.
        *
        * @param request ResetAccountPasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -705,7 +815,7 @@ namespace Selectdb20230522
       Models::ResetAccountPasswordResponse resetAccountPasswordWithOptions(const Models::ResetAccountPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resets the password of an account for an ApsaraDB for SelectDB instance.
+       * @summary Resets the password for a database account in an ApsaraDB for SelectDB instance.
        *
        * @param request ResetAccountPasswordRequest
        * @return ResetAccountPasswordResponse
@@ -713,7 +823,7 @@ namespace Selectdb20230522
       Models::ResetAccountPasswordResponse resetAccountPassword(const Models::ResetAccountPasswordRequest &request);
 
       /**
-       * @summary Restarts a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Restarts the cluster of a specified ApsaraDB for SelectDB instance.
        *
        * @param request RestartDBClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -722,7 +832,7 @@ namespace Selectdb20230522
       Models::RestartDBClusterResponse restartDBClusterWithOptions(const Models::RestartDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restarts a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Restarts the cluster of a specified ApsaraDB for SelectDB instance.
        *
        * @param request RestartDBClusterRequest
        * @return RestartDBClusterResponse
@@ -730,7 +840,7 @@ namespace Selectdb20230522
       Models::RestartDBClusterResponse restartDBCluster(const Models::RestartDBClusterRequest &request);
 
       /**
-       * @summary Starts a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Starts a specified ApsaraDB SelectDB cluster.
        *
        * @param request StartBEClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -739,7 +849,7 @@ namespace Selectdb20230522
       Models::StartBEClusterResponse startBEClusterWithOptions(const Models::StartBEClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Starts a specified ApsaraDB SelectDB cluster.
        *
        * @param request StartBEClusterRequest
        * @return StartBEClusterResponse
@@ -747,7 +857,7 @@ namespace Selectdb20230522
       Models::StartBEClusterResponse startBECluster(const Models::StartBEClusterRequest &request);
 
       /**
-       * @summary Stops a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Stops a specified ApsaraDB SelectDB cluster.
        *
        * @param request StopBEClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -756,7 +866,7 @@ namespace Selectdb20230522
       Models::StopBEClusterResponse stopBEClusterWithOptions(const Models::StopBEClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a cluster in an ApsaraDB for SelectDB instance.
+       * @summary Stops a specified ApsaraDB SelectDB cluster.
        *
        * @param request StopBEClusterRequest
        * @return StopBEClusterResponse
@@ -764,7 +874,7 @@ namespace Selectdb20230522
       Models::StopBEClusterResponse stopBECluster(const Models::StopBEClusterRequest &request);
 
       /**
-       * @summary 资源打用户标签
+       * @summary Adds tags to one or more instances.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -773,7 +883,7 @@ namespace Selectdb20230522
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 资源打用户标签
+       * @summary Adds tags to one or more instances.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -781,7 +891,7 @@ namespace Selectdb20230522
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary 资源去除用户标签
+       * @summary Removes tags from instances.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -790,7 +900,7 @@ namespace Selectdb20230522
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 资源去除用户标签
+       * @summary Removes tags from instances.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -798,7 +908,12 @@ namespace Selectdb20230522
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary UpgradeDBInstanceDeployScheme
+       * @summary Upgrades a locally redundant instance to a zone-redundant instance.
+       *
+       * @description When an instance is upgraded to a zone-redundant architecture, its storage is also upgraded to be zone-redundant. The unit price for storage changes. For more information, see [Billing items and pricing](https://help.aliyun.com/zh/selectdb/product-overview/billing-item-new-version).
+       * > Version requirements
+       * >
+       * > - The minor version of the instance must be 4.0.4 or later.
        *
        * @param tmpReq UpgradeDBInstanceDeploySchemeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -807,7 +922,12 @@ namespace Selectdb20230522
       Models::UpgradeDBInstanceDeploySchemeResponse upgradeDBInstanceDeploySchemeWithOptions(const Models::UpgradeDBInstanceDeploySchemeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary UpgradeDBInstanceDeployScheme
+       * @summary Upgrades a locally redundant instance to a zone-redundant instance.
+       *
+       * @description When an instance is upgraded to a zone-redundant architecture, its storage is also upgraded to be zone-redundant. The unit price for storage changes. For more information, see [Billing items and pricing](https://help.aliyun.com/zh/selectdb/product-overview/billing-item-new-version).
+       * > Version requirements
+       * >
+       * > - The minor version of the instance must be 4.0.4 or later.
        *
        * @param request UpgradeDBInstanceDeploySchemeRequest
        * @return UpgradeDBInstanceDeploySchemeResponse
@@ -815,7 +935,7 @@ namespace Selectdb20230522
       Models::UpgradeDBInstanceDeploySchemeResponse upgradeDBInstanceDeployScheme(const Models::UpgradeDBInstanceDeploySchemeRequest &request);
 
       /**
-       * @summary Updates the database engine version of an ApsaraDB for SelectDB instance.
+       * @summary Upgrades the database version of a specified ApsaraDB SelectDB instance.
        *
        * @param request UpgradeDBInstanceEngineVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -824,7 +944,7 @@ namespace Selectdb20230522
       Models::UpgradeDBInstanceEngineVersionResponse upgradeDBInstanceEngineVersionWithOptions(const Models::UpgradeDBInstanceEngineVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the database engine version of an ApsaraDB for SelectDB instance.
+       * @summary Upgrades the database version of a specified ApsaraDB SelectDB instance.
        *
        * @param request UpgradeDBInstanceEngineVersionRequest
        * @return UpgradeDBInstanceEngineVersionResponse

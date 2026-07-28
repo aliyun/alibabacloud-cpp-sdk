@@ -51,6 +51,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(EngineMinorVersion, engineMinorVersion_);
         DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
         DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
+        DARABONBA_PTR_TO_JSON(FEClusterList, FEClusterList_);
         DARABONBA_PTR_TO_JSON(GmtCreated, gmtCreated_);
         DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_TO_JSON(InstanceUsedType, instanceUsedType_);
@@ -95,6 +96,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(EngineMinorVersion, engineMinorVersion_);
         DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
         DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
+        DARABONBA_PTR_FROM_JSON(FEClusterList, FEClusterList_);
         DARABONBA_PTR_FROM_JSON(GmtCreated, gmtCreated_);
         DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_FROM_JSON(InstanceUsedType, instanceUsedType_);
@@ -177,7 +179,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> tagKey_ {};
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -221,20 +225,94 @@ namespace Models
 
 
       protected:
+        // The list of vSwitch IDs.
         shared_ptr<vector<string>> vSwitchIds_ {};
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
+      };
+
+      class FEClusterList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const FEClusterList& obj) { 
+          DARABONBA_PTR_TO_JSON(DbClusterId, dbClusterId_);
+          DARABONBA_PTR_TO_JSON(NodeCount, nodeCount_);
+          DARABONBA_PTR_TO_JSON(SingleNodeCpuCores, singleNodeCpuCores_);
+          DARABONBA_PTR_TO_JSON(SingleNodeMemoryInGB, singleNodeMemoryInGB_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
+        };
+        friend void from_json(const Darabonba::Json& j, FEClusterList& obj) { 
+          DARABONBA_PTR_FROM_JSON(DbClusterId, dbClusterId_);
+          DARABONBA_PTR_FROM_JSON(NodeCount, nodeCount_);
+          DARABONBA_PTR_FROM_JSON(SingleNodeCpuCores, singleNodeCpuCores_);
+          DARABONBA_PTR_FROM_JSON(SingleNodeMemoryInGB, singleNodeMemoryInGB_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
+        };
+        FEClusterList() = default ;
+        FEClusterList(const FEClusterList &) = default ;
+        FEClusterList(FEClusterList &&) = default ;
+        FEClusterList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~FEClusterList() = default ;
+        FEClusterList& operator=(const FEClusterList &) = default ;
+        FEClusterList& operator=(FEClusterList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->dbClusterId_ == nullptr
+        && this->nodeCount_ == nullptr && this->singleNodeCpuCores_ == nullptr && this->singleNodeMemoryInGB_ == nullptr && this->status_ == nullptr; };
+        // dbClusterId Field Functions 
+        bool hasDbClusterId() const { return this->dbClusterId_ != nullptr;};
+        void deleteDbClusterId() { this->dbClusterId_ = nullptr;};
+        inline string getDbClusterId() const { DARABONBA_PTR_GET_DEFAULT(dbClusterId_, "") };
+        inline FEClusterList& setDbClusterId(string dbClusterId) { DARABONBA_PTR_SET_VALUE(dbClusterId_, dbClusterId) };
+
+
+        // nodeCount Field Functions 
+        bool hasNodeCount() const { return this->nodeCount_ != nullptr;};
+        void deleteNodeCount() { this->nodeCount_ = nullptr;};
+        inline int64_t getNodeCount() const { DARABONBA_PTR_GET_DEFAULT(nodeCount_, 0L) };
+        inline FEClusterList& setNodeCount(int64_t nodeCount) { DARABONBA_PTR_SET_VALUE(nodeCount_, nodeCount) };
+
+
+        // singleNodeCpuCores Field Functions 
+        bool hasSingleNodeCpuCores() const { return this->singleNodeCpuCores_ != nullptr;};
+        void deleteSingleNodeCpuCores() { this->singleNodeCpuCores_ = nullptr;};
+        inline int64_t getSingleNodeCpuCores() const { DARABONBA_PTR_GET_DEFAULT(singleNodeCpuCores_, 0L) };
+        inline FEClusterList& setSingleNodeCpuCores(int64_t singleNodeCpuCores) { DARABONBA_PTR_SET_VALUE(singleNodeCpuCores_, singleNodeCpuCores) };
+
+
+        // singleNodeMemoryInGB Field Functions 
+        bool hasSingleNodeMemoryInGB() const { return this->singleNodeMemoryInGB_ != nullptr;};
+        void deleteSingleNodeMemoryInGB() { this->singleNodeMemoryInGB_ = nullptr;};
+        inline int64_t getSingleNodeMemoryInGB() const { DARABONBA_PTR_GET_DEFAULT(singleNodeMemoryInGB_, 0L) };
+        inline FEClusterList& setSingleNodeMemoryInGB(int64_t singleNodeMemoryInGB) { DARABONBA_PTR_SET_VALUE(singleNodeMemoryInGB_, singleNodeMemoryInGB) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline FEClusterList& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      protected:
+        shared_ptr<string> dbClusterId_ {};
+        shared_ptr<int64_t> nodeCount_ {};
+        shared_ptr<int64_t> singleNodeCpuCores_ {};
+        shared_ptr<int64_t> singleNodeMemoryInGB_ {};
+        shared_ptr<string> status_ {};
       };
 
       virtual bool empty() const override { return this->category_ == nullptr
         && this->chargeType_ == nullptr && this->clusterCount_ == nullptr && this->DBInstanceId_ == nullptr && this->deployScheme_ == nullptr && this->description_ == nullptr
-        && this->engine_ == nullptr && this->engineMinorVersion_ == nullptr && this->engineVersion_ == nullptr && this->expireTime_ == nullptr && this->gmtCreated_ == nullptr
-        && this->gmtModified_ == nullptr && this->instanceUsedType_ == nullptr && this->isDeleted_ == nullptr && this->lockMode_ == nullptr && this->lockReason_ == nullptr
-        && this->maintainEndTimeStr_ == nullptr && this->maintainEndtime_ == nullptr && this->maintainStartTimeStr_ == nullptr && this->maintainStarttime_ == nullptr && this->multiZone_ == nullptr
-        && this->objectStoreSize_ == nullptr && this->parentInstance_ == nullptr && this->regionId_ == nullptr && this->resourceCpu_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->resourceMemory_ == nullptr && this->scaleMax_ == nullptr && this->scaleMin_ == nullptr && this->scaleReplica_ == nullptr && this->serverless_ == nullptr
-        && this->status_ == nullptr && this->storageSize_ == nullptr && this->storageType_ == nullptr && this->tags_ == nullptr && this->tenantClusterId_ == nullptr
-        && this->tenantToken_ == nullptr && this->tenantUserId_ == nullptr && this->vpcId_ == nullptr && this->vswitchId_ == nullptr && this->zoneId_ == nullptr
-        && this->connectionString_ == nullptr; };
+        && this->engine_ == nullptr && this->engineMinorVersion_ == nullptr && this->engineVersion_ == nullptr && this->expireTime_ == nullptr && this->FEClusterList_ == nullptr
+        && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr && this->instanceUsedType_ == nullptr && this->isDeleted_ == nullptr && this->lockMode_ == nullptr
+        && this->lockReason_ == nullptr && this->maintainEndTimeStr_ == nullptr && this->maintainEndtime_ == nullptr && this->maintainStartTimeStr_ == nullptr && this->maintainStarttime_ == nullptr
+        && this->multiZone_ == nullptr && this->objectStoreSize_ == nullptr && this->parentInstance_ == nullptr && this->regionId_ == nullptr && this->resourceCpu_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->resourceMemory_ == nullptr && this->scaleMax_ == nullptr && this->scaleMin_ == nullptr && this->scaleReplica_ == nullptr
+        && this->serverless_ == nullptr && this->status_ == nullptr && this->storageSize_ == nullptr && this->storageType_ == nullptr && this->tags_ == nullptr
+        && this->tenantClusterId_ == nullptr && this->tenantToken_ == nullptr && this->tenantUserId_ == nullptr && this->vpcId_ == nullptr && this->vswitchId_ == nullptr
+        && this->zoneId_ == nullptr && this->connectionString_ == nullptr; };
       // category Field Functions 
       bool hasCategory() const { return this->category_ != nullptr;};
       void deleteCategory() { this->category_ = nullptr;};
@@ -303,6 +381,15 @@ namespace Models
       void deleteExpireTime() { this->expireTime_ = nullptr;};
       inline string getExpireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, "") };
       inline Items& setExpireTime(string expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
+
+
+      // FEClusterList Field Functions 
+      bool hasFEClusterList() const { return this->FEClusterList_ != nullptr;};
+      void deleteFEClusterList() { this->FEClusterList_ = nullptr;};
+      inline const vector<Items::FEClusterList> & getFEClusterList() const { DARABONBA_PTR_GET_CONST(FEClusterList_, vector<Items::FEClusterList>) };
+      inline vector<Items::FEClusterList> getFEClusterList() { DARABONBA_PTR_GET(FEClusterList_, vector<Items::FEClusterList>) };
+      inline Items& setFEClusterList(const vector<Items::FEClusterList> & fEClusterList) { DARABONBA_PTR_SET_VALUE(FEClusterList_, fEClusterList) };
+      inline Items& setFEClusterList(vector<Items::FEClusterList> && fEClusterList) { DARABONBA_PTR_SET_RVALUE(FEClusterList_, fEClusterList) };
 
 
       // gmtCreated Field Functions 
@@ -534,100 +621,116 @@ namespace Models
 
 
     protected:
-      // The edition of the instance. Default value: basic.
+      // The instance edition. The default value is basic.
       shared_ptr<string> category_ {};
       // The billing method of the instance. Valid values:
       // 
-      // *   **Postpaid**: pay-as-you-go.
-      // *   **Prepaid**: subscription.
+      // - **Postpaid**: pay-as-you-go
+      // 
+      // - **Prepaid**: subscription
       shared_ptr<string> chargeType_ {};
       // The total number of clusters.
       shared_ptr<int32_t> clusterCount_ {};
       // The instance ID.
       shared_ptr<string> DBInstanceId_ {};
+      // The deployment mode of the instance:
+      // 
+      // - multi_az: zone-redundant storage.
+      // 
+      // - single_az: locally redundant storage.
       shared_ptr<string> deployScheme_ {};
       // The description of the instance.
       shared_ptr<string> description_ {};
-      // The database engine of the instance.
+      // The database type.
       shared_ptr<string> engine_ {};
+      // The minor engine version of the instance.
       shared_ptr<string> engineMinorVersion_ {};
-      // The database engine version of the instance.
+      // The database version.
       shared_ptr<string> engineVersion_ {};
-      // The time when the cluster expires.
+      // The expiration time of the cluster.
       // 
-      // >  A specific value is returned only for subscription clusters whose billing method is **Prepaid**. For pay-as-you-go clusters whose billing method is **Postpaid**, no value is returned.
+      // > This parameter is returned only for **Prepaid** (subscription) clusters. For **Postpaid** (pay-as-you-go) clusters, this parameter is empty.
       shared_ptr<string> expireTime_ {};
-      // The time when the task was created. The time is displayed in UTC.
+      shared_ptr<vector<Items::FEClusterList>> FEClusterList_ {};
+      // The time when the task was created (GMT).
       shared_ptr<string> gmtCreated_ {};
-      // The time when the task was last modified. The time is displayed in UTC.
+      // The time when the task was last modified (GMT).
       shared_ptr<string> gmtModified_ {};
-      // The type of the instance.
+      // The instance usage type.
       shared_ptr<string> instanceUsedType_ {};
       // Indicates whether the instance is deleted. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The instance is deleted.
+      // 
+      // - **false**: The instance is not deleted.
       shared_ptr<bool> isDeleted_ {};
       // The lock mode of the instance.
       shared_ptr<int64_t> lockMode_ {};
       // The reason why the instance is locked.
       shared_ptr<string> lockReason_ {};
-      // The end timestamp of the maintenance window.
+      // The timestamp that indicates the end of the maintenance window.
       shared_ptr<string> maintainEndTimeStr_ {};
-      // The end time of the instance maintenance window.
+      // The end time of the maintenance window for the instance.
       shared_ptr<string> maintainEndtime_ {};
-      // The start timestamp of the maintenance window.
+      // The timestamp that indicates the start of the maintenance window.
       shared_ptr<string> maintainStartTimeStr_ {};
-      // The start time of the instance maintenance window.
+      // The start time of the maintenance window for the instance.
       shared_ptr<string> maintainStarttime_ {};
+      // The multi-zone configuration.
       shared_ptr<vector<Items::MultiZone>> multiZone_ {};
-      // The storage capacity of the instance. Unit: GB.
+      // The instance storage size. Unit: GB.
       shared_ptr<int64_t> objectStoreSize_ {};
-      // The time when the instance was created.
+      // The creation time.
       shared_ptr<string> parentInstance_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The number of CPU cores of the instance.
+      // The allocated CPU for the resource.
       shared_ptr<int64_t> resourceCpu_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The memory capacity of the instance.
+      // The memory size.
       shared_ptr<int64_t> resourceMemory_ {};
-      // The maximum number of RCUs.
+      // The maximum number of RDS Capacity Units (RCUs) for the instance.
       shared_ptr<int64_t> scaleMax_ {};
-      // The minimum number of RDS capacity units (RCUs).
+      // The minimum number of RDS Capacity Units (RCUs) for the instance.
       shared_ptr<int64_t> scaleMin_ {};
-      // This parameter is not returned.
+      // This field is redundant.
       shared_ptr<int64_t> scaleReplica_ {};
+      // Indicates whether the instance is a serverless instance.
       shared_ptr<bool> serverless_ {};
       // The state of the instance. Valid values:
       // 
-      // *   **CREATING**: The instance is being created.
-      // *   **ACTIVATION**: The instance is running.
-      // *   **RESOURCE_CHANGING**: The resource configuration of the instance is being changed.
-      // *   **ORDER_PREPARING**: The order is being confirmed.
-      // *   **READONLY_RESOURCE_CHANGING**: The resource configuration of the instance is being changed and the instance is write-locked.
-      // *   **DELETING**: The instance is being deleted.
+      // - **CREATING**: The instance is being created.
+      // 
+      // - **ACTIVATION**: The instance is running.
+      // 
+      // - **RESOURCE_CHANGING**: The instance is being upgraded or downgraded.
+      // 
+      // - **ORDER_PREPARING**: The order is being confirmed.
+      // 
+      // - **READONLY_RESOURCE_CHANGING**: The instance configuration is being changed, and the instance is write-locked.
+      // 
+      // - **DELETING**: The instance is being deleted.
       shared_ptr<string> status_ {};
-      // The cache size.
+      // The storage capacity.
       shared_ptr<int64_t> storageSize_ {};
-      // The storage type of the instance.
+      // The storage class of the instance.
       shared_ptr<string> storageType_ {};
-      // The details about each tag returned.
+      // The list of tags of the instance.
       shared_ptr<vector<Items::Tags>> tags_ {};
-      // The ID of the cluster that is monitored by Managed Service for Prometheus.
+      // The ID of the Prometheus monitoring cluster.
       shared_ptr<string> tenantClusterId_ {};
-      // The token that is used to access Managed Service for Prometheus.
+      // The token for connecting to Prometheus monitoring.
       shared_ptr<string> tenantToken_ {};
-      // The ID of the account that uses Managed Service for Prometheus.
+      // The user account label for Prometheus monitoring.
       shared_ptr<string> tenantUserId_ {};
-      // The virtual private cloud (VPC) ID.
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
       // The vSwitch ID.
       shared_ptr<string> vswitchId_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
-      // The connection string of the instance.
+      // The connection address.
       shared_ptr<string> connectionString_ {};
     };
 
@@ -671,19 +774,21 @@ namespace Models
 
 
   protected:
-    // The details about each instance returned.
+    // The list of instance details.
     shared_ptr<vector<DescribeDBInstancesResponseBody::Items>> items_ {};
-    // The number of entries per page. Valid values:
+    // The number of entries to return per page. Valid values:
     // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // - **30** (default value)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int64_t> pageNumber_ {};
-    // The page number.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalRecordCount_ {};
   };
 

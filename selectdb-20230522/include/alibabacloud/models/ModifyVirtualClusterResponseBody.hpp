@@ -69,7 +69,9 @@ namespace Models
 
 
     protected:
+      // The cluster ID.
       shared_ptr<string> dbClusterId_ {};
+      // The instance ID.
       shared_ptr<string> dbInstanceId_ {};
     };
 
@@ -92,8 +94,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ModifyVirtualClusterResponseBody::Data> data_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

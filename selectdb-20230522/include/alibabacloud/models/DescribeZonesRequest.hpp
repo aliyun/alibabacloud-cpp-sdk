@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // - If you do not specify the **MaxResults** request parameter, paged query is disabled. The **MaxResults** response parameter indicates the total number of entries.
+    // 
+    // - If you specify the **MaxResults** request parameter, paged query is enabled. The **MaxResults** response parameter indicates the number of entries on the current page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

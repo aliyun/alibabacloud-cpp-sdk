@@ -134,14 +134,36 @@ namespace Models
     shared_ptr<string> cacheSize_ {};
     shared_ptr<int32_t> clusterNodeCount_ {};
     shared_ptr<string> clusterNodeType_ {};
+    // The instance class of the cluster. Valid values:
+    // 
+    // - **selectdb.xlarge**: 4 cores, 32 GB memory.
+    // 
+    // - **selectdb.2xlarge**: 8 cores, 64 GB memory.
+    // 
+    // - **selectdb.4xlarge**: 16 cores, 128 GB memory.
+    // 
+    // - **selectdb.8xlarge**: 32 cores, 256 GB memory.
+    // 
+    // - **selectdb.16xlarge**: 16 cores, 512 GB memory.
+    // 
+    // - **selectdb.24xlarge**: 24 cores, 768 GB memory.
+    // 
+    // - **selectdb.32xlarge**: 32 cores, 1024 GB memory.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterClass_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The database engine of the instance. Set the value to selectdb.
+    // The database type. The value is fixed to selectdb.
     shared_ptr<string> engine_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

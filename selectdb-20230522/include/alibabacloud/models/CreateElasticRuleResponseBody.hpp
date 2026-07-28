@@ -105,19 +105,15 @@ namespace Models
 
 
     protected:
-      // The rule for computing resources of the required cluster.
+      // The target compute resource class for the cluster.
       shared_ptr<string> clusterClass_ {};
       // The cluster ID.
       shared_ptr<string> clusterId_ {};
       // The instance ID.
       shared_ptr<string> dbInstanceId_ {};
-      // The time when the scheduled scaling rule is executed.
+      // The start time of the time-based scaling rule.
       shared_ptr<string> elasticRuleStartTime_ {};
-      // The execution cycle.
-      // 
-      // Valid value:
-      // 
-      // *   Day
+      // The execution epoch.
       shared_ptr<string> executionPeriod_ {};
       // The rule ID.
       shared_ptr<int64_t> ruleId_ {};
@@ -142,7 +138,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<CreateElasticRuleResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

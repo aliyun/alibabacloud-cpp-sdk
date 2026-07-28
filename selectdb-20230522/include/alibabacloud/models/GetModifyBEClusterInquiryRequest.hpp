@@ -158,14 +158,9 @@ namespace Models
 
 
   protected:
-    // The size of the elastic cache.
+    // The elastic cache space.
     shared_ptr<int64_t> cacheSize_ {};
     // The billing method.
-    // 
-    // Valid values:
-    // 
-    // *   PREPAY: subscription
-    // *   POSTPAY: pay-as-you-go
     // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
@@ -173,41 +168,26 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The commodity code.
     // 
-    // Valid values:
-    // 
-    // *   selectdb_pre_public_intl: subscription commodity on the international site (alibabacloud.com)
-    // *   selectdb_go_public_cn: pay-as-you-go commodity on the China site (aliyun.com)
-    // *   selectdb_go_public_intl: pay-as-you-go commodity on the international site (alibabacloud.com)
-    // *   selectdb_pre_public_cn: subscription commodity on the China site (aliyun.com)
-    // 
     // This parameter is required.
     shared_ptr<string> commodityCode_ {};
-    // The number of elastic CPU cores.
+    // The elastic computing resources.
     shared_ptr<int64_t> computeSize_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
-    // Specifies whether to change the billing method of the cluster.
+    // Specifies whether this is an inquiry for changing the billing method of the cluster.
     shared_ptr<bool> modifyClusterChargeType_ {};
-    // The size of the reserved cache.
+    // The reserved cache space.
     shared_ptr<int64_t> preCacheSize_ {};
-    // The number of reserved CPU cores.
+    // The reserved computing resources.
     shared_ptr<int64_t> preComputeSize_ {};
     // The billing cycle.
-    // 
-    // Valid values:
-    // 
-    // *   Month
-    // *   Year
-    // *   Minute
-    // *   Hour
-    // *   Day
     // 
     // This parameter is required.
     shared_ptr<string> pricingCycle_ {};
     shared_ptr<string> promotionOptionNo_ {};
-    // The number of clusters whose specifications are to be changed.
+    // The quantity.
     // 
     // This parameter is required.
     shared_ptr<int64_t> quantity_ {};

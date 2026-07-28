@@ -78,8 +78,11 @@ namespace Models
 
 
     protected:
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
+      // The instance ID.
       shared_ptr<string> DBInstanceId_ {};
+      // The order ID.
       shared_ptr<int64_t> orderId_ {};
     };
 
@@ -102,7 +105,9 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<CreateDBClusterResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

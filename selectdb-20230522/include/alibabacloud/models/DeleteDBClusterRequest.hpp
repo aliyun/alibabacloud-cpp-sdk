@@ -75,15 +75,19 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // 代表资源一级ID的资源属性字段
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // 代表资源组的资源属性字段
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
   };

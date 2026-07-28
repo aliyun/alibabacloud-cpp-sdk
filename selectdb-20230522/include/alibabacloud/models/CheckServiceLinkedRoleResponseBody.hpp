@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Indicates whether the service-linked role has been created.
     shared_ptr<bool> hasServiceLinkedRole_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

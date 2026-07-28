@@ -117,7 +117,7 @@ namespace Models
       // 
       // Valid value:
       // 
-      // *   Day
+      // - Day
       shared_ptr<string> executionPeriod_ {};
       // The rule ID.
       shared_ptr<int64_t> ruleId_ {};

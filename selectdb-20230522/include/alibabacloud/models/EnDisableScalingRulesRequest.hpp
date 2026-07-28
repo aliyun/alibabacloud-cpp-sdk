@@ -103,8 +103,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     // 
     // This parameter is required.
     shared_ptr<bool> scalingRulesEnable_ {};

@@ -92,13 +92,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Specifies whether to perform parallel operations on the cluster node.
+    // Specifies whether to restart the cluster nodes in parallel.
     shared_ptr<bool> parallelOperation_ {};
-    // The region ID.
+    // The ID of the region.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
   };

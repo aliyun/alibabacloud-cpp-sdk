@@ -54,8 +54,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

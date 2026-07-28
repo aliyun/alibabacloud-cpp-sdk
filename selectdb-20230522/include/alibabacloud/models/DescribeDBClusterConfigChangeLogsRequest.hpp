@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The configuration file that you want to modify. For a compute cluster, set the value to be.conf. For a frontend (FE) cluster, set the value to fe.conf.
+    // The configuration file that was modified. The value is \\`be.conf\\` for a compute cluster and \\`fe.conf\\` for an FE cluster.
     shared_ptr<string> configKey_ {};
     // The cluster ID.
     // 
@@ -94,13 +94,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The end of the time range to query. Format: yyyy-MM-dd HH:mm:ss.
+    // The end time to query change logs. The format is \\`yyyy-MM-dd HH:mm:ss\\`.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Format: yyyy-MM-dd HH:mm:ss.
+    // The start time to query change logs. The format is \\`yyyy-MM-dd HH:mm:ss\\`.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

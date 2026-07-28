@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEDBINSTANCEATTRIBUTERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <map>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,8 +15,10 @@ namespace Models
   class DescribeDBInstanceAttributeResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeDBInstanceAttributeResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(CanUpgradeVersionCommunityMap, canUpgradeVersionCommunityMap_);
       DARABONBA_PTR_TO_JSON(CanUpgradeVersions, canUpgradeVersions_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
+      DARABONBA_PTR_TO_JSON(CommunityVersion, communityVersion_);
       DARABONBA_PTR_TO_JSON(ConfigPatternType, configPatternType_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(DBClusterList, DBClusterList_);
@@ -30,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LangfuseInstanceIds, langfuseInstanceIds_);
       DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
       DARABONBA_PTR_TO_JSON(LockReason, lockReason_);
+      DARABONBA_PTR_TO_JSON(MCPServerServiceStatus, MCPServerServiceStatus_);
       DARABONBA_PTR_TO_JSON(MaintainEndtime, maintainEndtime_);
       DARABONBA_PTR_TO_JSON(MaintainStarttime, maintainStarttime_);
       DARABONBA_PTR_TO_JSON(MultiZone, multiZone_);
@@ -52,8 +56,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDBInstanceAttributeResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(CanUpgradeVersionCommunityMap, canUpgradeVersionCommunityMap_);
       DARABONBA_PTR_FROM_JSON(CanUpgradeVersions, canUpgradeVersions_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
+      DARABONBA_PTR_FROM_JSON(CommunityVersion, communityVersion_);
       DARABONBA_PTR_FROM_JSON(ConfigPatternType, configPatternType_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(DBClusterList, DBClusterList_);
@@ -68,6 +74,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LangfuseInstanceIds, langfuseInstanceIds_);
       DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
       DARABONBA_PTR_FROM_JSON(LockReason, lockReason_);
+      DARABONBA_PTR_FROM_JSON(MCPServerServiceStatus, MCPServerServiceStatus_);
       DARABONBA_PTR_FROM_JSON(MaintainEndtime, maintainEndtime_);
       DARABONBA_PTR_FROM_JSON(MaintainStarttime, maintainStarttime_);
       DARABONBA_PTR_FROM_JSON(MultiZone, multiZone_);
@@ -193,13 +200,29 @@ namespace Models
 
 
     protected:
+      // The ID of the primary cluster.
       shared_ptr<string> activeClusterId_ {};
+      // The name of the primary cluster.
       shared_ptr<string> activeClusterName_ {};
+      // The time when the virtual cluster was created.
       shared_ptr<string> createdTime_ {};
+      // The cluster ID.
       shared_ptr<string> dbClusterId_ {};
+      // The cluster name.
       shared_ptr<string> dbClusterName_ {};
+      // The ID of the standby cluster.
       shared_ptr<string> standbyClusterId_ {};
+      // The name of the standby cluster.
       shared_ptr<string> standbyClusterName_ {};
+      // The state of the virtual cluster. Valid values:
+      // 
+      // - **CREATING**: The virtual cluster is being created.
+      // 
+      // - **RUNNING**: The virtual cluster is running.
+      // 
+      // - **DELETING**: The virtual cluster is being deleted.
+      // 
+      // - **UPDATING**: The virtual cluster is being updated.
       shared_ptr<string> status_ {};
     };
 
@@ -305,9 +328,13 @@ namespace Models
 
 
     protected:
+      // The number of available IP addresses in the zone.
       shared_ptr<int64_t> availableIpCount_ {};
+      // The CIDR block.
       shared_ptr<string> cidr_ {};
+      // A list of vSwitch IDs.
       shared_ptr<vector<string>> vSwitchIds_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -542,71 +569,102 @@ namespace Models
 
 
     protected:
-      // The cache size. Unit: GB.
+      // The cache storage size, in GB.
       shared_ptr<string> cacheStorageSizeGB_ {};
-      // The cache type.
+      // The cache storage type.
       shared_ptr<string> cacheStorageType_ {};
       // The billing method of the cluster. Valid values:
       // 
-      // *   **Postpaid**: pay-as-you-go.
-      // *   **Prepaid**: subscription.
+      // - **Postpaid**: pay-as-you-go
+      // 
+      // - **Prepaid**: subscription
       shared_ptr<string> chargeType_ {};
+      // The ID of the target cluster to which this cluster is bound.
       shared_ptr<string> clusterBinding_ {};
+      // The number of nodes in the cluster. This parameter applies only to serverless instances.
       shared_ptr<int32_t> clusterNodeCount_ {};
+      // The cluster node type. This parameter applies only to serverless instances.
       shared_ptr<string> clusterNodeType_ {};
       // The number of CPU cores.
       shared_ptr<int64_t> cpuCores_ {};
       // The time when the cluster was created.
       shared_ptr<string> createdTime_ {};
-      // The specifications of the cluster. Valid values:
+      // The cluster class. Valid values:
       // 
-      // *   **selectdb.xlarge**: 4 CPU cores and 32 GB of memory.
-      // *   **selectdb.2xlarge**: 8 CPU cores and 64 GB of memory.
-      // *   **selectdb.4xlarge**: 16 CPU cores and 128 GB of memory.
-      // *   **selectdb.8xlarge**: 32 CPU cores and 256 GB of memory.
-      // *   **selectdb.16xlarge**: 64 CPU cores and 512 GB of memory.
-      // *   **selectdb.24xlarge**: 96 CPU cores and 768 GB of memory.
-      // *   **selectdb.32xlarge**: 128 CPU cores and 1,024 GB of memory.
+      // - **selectdb.xlarge**: 4 CPU cores, 16 GB of memory.
+      // 
+      // - **selectdb.2xlarge**: 8 CPU cores, 32 GB of memory.
+      // 
+      // - **selectdb.4xlarge**: 16 CPU cores, 64 GB of memory.
+      // 
+      // - **selectdb.8xlarge**: 32 CPU cores, 128 GB of memory.
+      // 
+      // - **selectdb.16xlarge**: 64 CPU cores, 256 GB of memory.
+      // 
+      // - **selectdb.24xlarge**: 96 CPU cores, 384 GB of memory.
+      // 
+      // - **selectdb.32xlarge**: 128 CPU cores, 512 GB of memory.
       shared_ptr<string> dbClusterClass_ {};
-      // The ID of the cluster.
+      // The cluster ID.
       shared_ptr<string> dbClusterId_ {};
-      // The name of the cluster.
+      // The cluster name.
       shared_ptr<string> dbClusterName_ {};
       // The instance name.
       shared_ptr<string> dbInstanceName_ {};
-      // The memory size.
+      // The memory size, in GB.
       shared_ptr<int64_t> memory_ {};
-      // The modified time.
+      // The time when the cluster was last modified.
       shared_ptr<string> modifiedTime_ {};
       // The performance level.
       shared_ptr<string> performanceLevel_ {};
+      // The maximum value of the auto-scaling range for the cluster\\"s RDS Capacity Units (RCUs).
       shared_ptr<double> scaleMax_ {};
+      // The minimum value of the auto-scaling range for the cluster\\"s RDS Capacity Units (RCUs).
       shared_ptr<double> scaleMin_ {};
+      // Indicates whether a scheduled scaling policy is enabled.
       shared_ptr<bool> scalingRulesEnable_ {};
-      // The time when the cluster started.
+      // The time when the cluster was started.
       shared_ptr<string> startTime_ {};
       // The state of the cluster. Valid values:
       // 
-      // *   **CREATING**: The cluster is being created.
-      // *   **ACTIVATION**: The cluster is running.
-      // *   **RESOURCE_CHANGING**: The resource configuration of the cluster is being changed.
-      // *   **ORDER_PREPARING**: The order is being confirmed.
-      // *   **READONLY_RESOURCE_CHANGING**: The resource configuration of the cluster is being changed and the cluster is write-locked.
-      // *   **DELETING**: The cluster is being deleted.
+      // - **CREATING**: The cluster is being created.
+      // 
+      // - **ACTIVATION**: The cluster is running.
+      // 
+      // - **RESOURCE_CHANGING**: The cluster configuration is being changed.
+      // 
+      // - **ORDER_PREPARING**: The order is being confirmed.
+      // 
+      // - **READONLY_RESOURCE_CHANGING**: The cluster configuration is being changed, and the cluster is write-locked.
+      // 
+      // - **DELETING**: The cluster is being deleted.
       shared_ptr<string> status_ {};
+      // The subdomain.
       shared_ptr<string> subDomain_ {};
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
-    virtual bool empty() const override { return this->canUpgradeVersions_ == nullptr
-        && this->chargeType_ == nullptr && this->configPatternType_ == nullptr && this->createTime_ == nullptr && this->DBClusterList_ == nullptr && this->DBInstanceId_ == nullptr
-        && this->deployScheme_ == nullptr && this->description_ == nullptr && this->engine_ == nullptr && this->engineMinorVersion_ == nullptr && this->engineVersion_ == nullptr
-        && this->expireTime_ == nullptr && this->gmtModified_ == nullptr && this->langfuseInstanceIds_ == nullptr && this->lockMode_ == nullptr && this->lockReason_ == nullptr
-        && this->maintainEndtime_ == nullptr && this->maintainStarttime_ == nullptr && this->multiZone_ == nullptr && this->OTelBearerToken_ == nullptr && this->OTelGrafanaServiceStatus_ == nullptr
-        && this->objectStoreSize_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->resourceCpu_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->secGroupConnValid_ == nullptr && this->serverless_ == nullptr && this->status_ == nullptr && this->storageSize_ == nullptr && this->subDomain_ == nullptr
-        && this->tags_ == nullptr && this->vSwitchId_ == nullptr && this->virtualClusterList_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+    virtual bool empty() const override { return this->canUpgradeVersionCommunityMap_ == nullptr
+        && this->canUpgradeVersions_ == nullptr && this->chargeType_ == nullptr && this->communityVersion_ == nullptr && this->configPatternType_ == nullptr && this->createTime_ == nullptr
+        && this->DBClusterList_ == nullptr && this->DBInstanceId_ == nullptr && this->deployScheme_ == nullptr && this->description_ == nullptr && this->engine_ == nullptr
+        && this->engineMinorVersion_ == nullptr && this->engineVersion_ == nullptr && this->expireTime_ == nullptr && this->gmtModified_ == nullptr && this->langfuseInstanceIds_ == nullptr
+        && this->lockMode_ == nullptr && this->lockReason_ == nullptr && this->MCPServerServiceStatus_ == nullptr && this->maintainEndtime_ == nullptr && this->maintainStarttime_ == nullptr
+        && this->multiZone_ == nullptr && this->OTelBearerToken_ == nullptr && this->OTelGrafanaServiceStatus_ == nullptr && this->objectStoreSize_ == nullptr && this->regionId_ == nullptr
+        && this->requestId_ == nullptr && this->resourceCpu_ == nullptr && this->resourceGroupId_ == nullptr && this->secGroupConnValid_ == nullptr && this->serverless_ == nullptr
+        && this->status_ == nullptr && this->storageSize_ == nullptr && this->subDomain_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr
+        && this->virtualClusterList_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+    // canUpgradeVersionCommunityMap Field Functions 
+    bool hasCanUpgradeVersionCommunityMap() const { return this->canUpgradeVersionCommunityMap_ != nullptr;};
+    void deleteCanUpgradeVersionCommunityMap() { this->canUpgradeVersionCommunityMap_ = nullptr;};
+    inline const map<string, string> & getCanUpgradeVersionCommunityMap() const { DARABONBA_PTR_GET_CONST(canUpgradeVersionCommunityMap_, map<string, string>) };
+    inline map<string, string> getCanUpgradeVersionCommunityMap() { DARABONBA_PTR_GET(canUpgradeVersionCommunityMap_, map<string, string>) };
+    inline DescribeDBInstanceAttributeResponseBody& setCanUpgradeVersionCommunityMap(const map<string, string> & canUpgradeVersionCommunityMap) { DARABONBA_PTR_SET_VALUE(canUpgradeVersionCommunityMap_, canUpgradeVersionCommunityMap) };
+    inline DescribeDBInstanceAttributeResponseBody& setCanUpgradeVersionCommunityMap(map<string, string> && canUpgradeVersionCommunityMap) { DARABONBA_PTR_SET_RVALUE(canUpgradeVersionCommunityMap_, canUpgradeVersionCommunityMap) };
+
+
     // canUpgradeVersions Field Functions 
     bool hasCanUpgradeVersions() const { return this->canUpgradeVersions_ != nullptr;};
     void deleteCanUpgradeVersions() { this->canUpgradeVersions_ = nullptr;};
@@ -621,6 +679,13 @@ namespace Models
     void deleteChargeType() { this->chargeType_ = nullptr;};
     inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
     inline DescribeDBInstanceAttributeResponseBody& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
+
+
+    // communityVersion Field Functions 
+    bool hasCommunityVersion() const { return this->communityVersion_ != nullptr;};
+    void deleteCommunityVersion() { this->communityVersion_ = nullptr;};
+    inline string getCommunityVersion() const { DARABONBA_PTR_GET_DEFAULT(communityVersion_, "") };
+    inline DescribeDBInstanceAttributeResponseBody& setCommunityVersion(string communityVersion) { DARABONBA_PTR_SET_VALUE(communityVersion_, communityVersion) };
 
 
     // configPatternType Field Functions 
@@ -723,6 +788,13 @@ namespace Models
     void deleteLockReason() { this->lockReason_ = nullptr;};
     inline string getLockReason() const { DARABONBA_PTR_GET_DEFAULT(lockReason_, "") };
     inline DescribeDBInstanceAttributeResponseBody& setLockReason(string lockReason) { DARABONBA_PTR_SET_VALUE(lockReason_, lockReason) };
+
+
+    // MCPServerServiceStatus Field Functions 
+    bool hasMCPServerServiceStatus() const { return this->MCPServerServiceStatus_ != nullptr;};
+    void deleteMCPServerServiceStatus() { this->MCPServerServiceStatus_ = nullptr;};
+    inline string getMCPServerServiceStatus() const { DARABONBA_PTR_GET_DEFAULT(MCPServerServiceStatus_, "") };
+    inline DescribeDBInstanceAttributeResponseBody& setMCPServerServiceStatus(string MCPServerServiceStatus) { DARABONBA_PTR_SET_VALUE(MCPServerServiceStatus_, MCPServerServiceStatus) };
 
 
     // maintainEndtime Field Functions 
@@ -872,77 +944,103 @@ namespace Models
 
 
   protected:
-    // The information returned.
+    shared_ptr<map<string, string>> canUpgradeVersionCommunityMap_ {};
+    // The engine versions to which the instance can be upgraded.
     shared_ptr<vector<string>> canUpgradeVersions_ {};
     // The billing method of the instance. Valid values:
     // 
-    // *   **Postpaid**: pay-as-you-go.
-    // *   **Prepaid**: subscription.
+    // - **Postpaid**: pay-as-you-go
+    // 
+    // - **Prepaid**: subscription
     shared_ptr<string> chargeType_ {};
+    shared_ptr<string> communityVersion_ {};
+    // The configuration template applied to the instance.
     shared_ptr<string> configPatternType_ {};
     // The time when the instance was created.
     shared_ptr<string> createTime_ {};
-    // The information about each cluster returned.
+    // A list of clusters in the instance.
     shared_ptr<vector<DescribeDBInstanceAttributeResponseBody::DBClusterList>> DBClusterList_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
+    // The instance deployment mode.
     shared_ptr<string> deployScheme_ {};
-    // The description of the instance.
+    // The instance description.
     shared_ptr<string> description_ {};
-    // The database engine of the instance.
+    // The database engine.
     shared_ptr<string> engine_ {};
-    // The minor kernel version number of the instance.
+    // The minor engine version of the instance.
     shared_ptr<string> engineMinorVersion_ {};
-    // The database engine version of the instance.
+    // The database engine version.
     shared_ptr<string> engineVersion_ {};
-    // The time when the instance expires.
+    // The expiration time of the subscription instance.
     shared_ptr<string> expireTime_ {};
-    // The time when the instance was last modified, such as when you restarted the instance or applied for a public endpoint for the instance. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+    // The time when the instance was last modified. The time is in `yyyy-MM-ddTHH:mmZ` format and is displayed in UTC.
     shared_ptr<string> gmtModified_ {};
     shared_ptr<vector<string>> langfuseInstanceIds_ {};
-    // The lock mode of the instance. Set the value to **lock**, which specifies that the instance is locked when it automatically expires or has an overdue payment.
+    // The lock mode of the instance. A value of **lock** indicates that the instance was automatically locked due to an expired subscription or an overdue payment.
     shared_ptr<int64_t> lockMode_ {};
-    // The reason why the instance is locked.
+    // The reason the instance is locked.
     shared_ptr<string> lockReason_ {};
-    // The end time of the instance maintenance window.
+    shared_ptr<string> MCPServerServiceStatus_ {};
+    // The end time of the maintenance window.
     shared_ptr<string> maintainEndtime_ {};
-    // The start time of the instance maintenance window.
+    // The start time of the maintenance window.
     shared_ptr<string> maintainStarttime_ {};
+    // The multi-zone configuration.
+    // 
+    // > - This parameter is returned only if the `DeployScheme` parameter is set to `multi_az`.
     shared_ptr<vector<DescribeDBInstanceAttributeResponseBody::MultiZone>> multiZone_ {};
     shared_ptr<string> OTelBearerToken_ {};
     shared_ptr<string> OTelGrafanaServiceStatus_ {};
-    // The storage capacity of the instance.
+    // The object storage space, in GB.
     shared_ptr<int64_t> objectStoreSize_ {};
-    // The Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of CPU cores of the instance.
+    // The number of CPU cores.
     shared_ptr<int64_t> resourceCpu_ {};
-    // The ID of the resource group to which the instance belongs.
+    // The ID of the instance\\"s resource group.
     shared_ptr<string> resourceGroupId_ {};
+    // Indicates whether the direct port connection feature is enabled for the instance\\"s VPC.
+    // 
+    // - `true`: Enabled.
+    // 
+    // - `false`: Disabled.
     shared_ptr<string> secGroupConnValid_ {};
+    // Indicates whether the serverless feature is enabled for the instance.
+    // 
+    // - `true`: Enabled.
+    // 
+    // - `false`: Disabled.
     shared_ptr<bool> serverless_ {};
     // The state of the instance. Valid values:
     // 
-    // *   **CREATING**: The instance is being created.
-    // *   **ACTIVATION**: The instance is running.
-    // *   **RESOURCE_CHANGING**: The resource configuration of the instance is being changed.
-    // *   **ORDER_PREPARING**: The order is being confirmed.
-    // *   **READONLY_RESOURCE_CHANGING**: The resource configuration of the instance is being changed and the instance is write-locked.
-    // *   **DELETING**: The instance is being deleted.
+    // - **CREATING**: The instance is being created.
+    // 
+    // - **ACTIVE**: The instance is running.
+    // 
+    // - **RESOURCE_CHANGING**: The instance configuration is being changed.
+    // 
+    // - **ORDER_PREPARING**: The order is being confirmed.
+    // 
+    // - **READONLY_RESOURCE_CHANGING**: The instance configuration is being changed, and the instance is write-locked.
+    // 
+    // - **DELETING**: The instance is being deleted.
     shared_ptr<string> status_ {};
-    // The cache size.
+    // The storage space, in GB.
     shared_ptr<int64_t> storageSize_ {};
-    // The subdomain zone ID.
+    // The subdomain.
     shared_ptr<string> subDomain_ {};
-    // The tags that are added to the instances. Each tag is a key-value pair that consists of two parts: TagKey and TagValue. Format: `{"key1":"value1"}`.
+    // A list of tags attached to the instance.
     shared_ptr<vector<DescribeDBInstanceAttributeResponseBody::Tags>> tags_ {};
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
+    // A list of virtual clusters.
     shared_ptr<vector<DescribeDBInstanceAttributeResponseBody::VirtualClusterList>> virtualClusterList_ {};
-    // The VPC ID.
+    // The VPC ID of the instance.
     shared_ptr<string> vpcId_ {};
-    // The Zone ID.
+    // The zone ID of the instance.
     shared_ptr<string> zoneId_ {};
   };
 

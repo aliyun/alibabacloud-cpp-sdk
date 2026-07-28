@@ -101,8 +101,9 @@ namespace Models
     protected:
       // The IP address type. Valid values:
       // 
-      // *   ipv4
-      // *   ipv6 (not supported)
+      // - ipv4
+      // 
+      // - ipv6 (not supported)
       shared_ptr<string> aecurityIPType_ {};
       // The name of the whitelist.
       shared_ptr<string> groupName_ {};

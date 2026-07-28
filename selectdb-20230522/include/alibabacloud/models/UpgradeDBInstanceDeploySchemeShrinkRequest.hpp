@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // A list of multi-zone configurations.
+    // 
     // This parameter is required.
     shared_ptr<string> multiZoneShrink_ {};
+    // The ID of the region where the instance resides.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> securityToken_ {};

@@ -149,15 +149,19 @@ namespace Models
 
 
       protected:
+        // The time when the task was created. The time is in GMT.
         shared_ptr<string> gmtCreated_ {};
+        // The time when the task was last modified. The time is in GMT.
         shared_ptr<string> gmtModified_ {};
-        // The ID of the change log.
+        // The ID of the change record.
         shared_ptr<int64_t> id_ {};
-        // Indicates whether the modification has taken effect.
+        // Indicates whether the configuration has taken effect.
         shared_ptr<bool> isApplied_ {};
-        // The parameter name.
+        // The name of the configuration item.
         shared_ptr<string> name_ {};
+        // The new parameter value.
         shared_ptr<string> newValue_ {};
+        // The original parameter value.
         shared_ptr<string> oldValue_ {};
       };
 
@@ -203,6 +207,7 @@ namespace Models
     protected:
       // The cluster ID.
       shared_ptr<string> dbClusterId_ {};
+      // The numeric ID of the instance.
       shared_ptr<string> dbInstanceId_ {};
       // The instance ID.
       shared_ptr<string> dbInstanceName_ {};
@@ -252,13 +257,15 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The information returned.
+    // The returned data.
     shared_ptr<DescribeDBClusterConfigChangeLogsResponseBody::Data> data_ {};
-    // The dynamic code. This parameter is not returned.
+    // The dynamic code. This parameter is not used. Ignore this parameter.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic message. This parameter is not returned.
+    // The dynamic message. This parameter is not used. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
