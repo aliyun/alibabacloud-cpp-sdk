@@ -10,6 +10,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::Ververica20220718::Models;
@@ -162,6 +163,140 @@ CancelSqlPreviewResponse Client::cancelSqlPreview(const string &_namespace, cons
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   CancelSqlPreviewHeaders headers = CancelSqlPreviewHeaders();
   return cancelSqlPreviewWithOptions(namespace, request, headers, runtime);
+}
+
+/**
+ * @summary Initiates a streaming conversation with an AI Agent.
+ *
+ * @param request ChatAiAgentRequest
+ * @param headers ChatAiAgentHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChatAiAgentResponse
+ */
+FutureGenerator<ChatAiAgentResponse> Client::chatAiAgentWithSSE(const string &_namespace, const ChatAiAgentRequest &request, const ChatAiAgentHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasHitlDecisions()) {
+    body["hitlDecisions"] = request.getHitlDecisions();
+  }
+
+  if (!!request.hasRefs()) {
+    body["refs"] = request.getRefs();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["sessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasUserMessage()) {
+    body["userMessage"] = request.getUserMessage();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ChatAiAgent"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/advisor/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/ai-agent/stream/agent/v2/chat")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<ChatAiAgentResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary Initiates a streaming conversation with an AI Agent.
+ *
+ * @param request ChatAiAgentRequest
+ * @param headers ChatAiAgentHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChatAiAgentResponse
+ */
+ChatAiAgentResponse Client::chatAiAgentWithOptions(const string &_namespace, const ChatAiAgentRequest &request, const ChatAiAgentHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasHitlDecisions()) {
+    body["hitlDecisions"] = request.getHitlDecisions();
+  }
+
+  if (!!request.hasRefs()) {
+    body["refs"] = request.getRefs();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["sessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasUserMessage()) {
+    body["userMessage"] = request.getUserMessage();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ChatAiAgent"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/advisor/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/ai-agent/stream/agent/v2/chat")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ChatAiAgentResponse>();
+}
+
+/**
+ * @summary Initiates a streaming conversation with an AI Agent.
+ *
+ * @param request ChatAiAgentRequest
+ * @return ChatAiAgentResponse
+ */
+ChatAiAgentResponse Client::chatAiAgent(const string &_namespace, const ChatAiAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  ChatAiAgentHeaders headers = ChatAiAgentHeaders();
+  return chatAiAgentWithOptions(namespace, request, headers, runtime);
 }
 
 /**
@@ -1871,6 +2006,54 @@ GetAppliedScheduledPlanResponse Client::getAppliedScheduledPlan(const string &_n
 }
 
 /**
+ * @summary Queries the Autopilot tuning configuration. Returns the enabled status and full configuration. Does not affect the existing V2 configuration.
+ *
+ * @param request GetAutopilotPolicyRequest
+ * @param headers GetAutopilotPolicyHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAutopilotPolicyResponse
+ */
+GetAutopilotPolicyResponse Client::getAutopilotPolicyWithOptions(const string &_namespace, const string &deploymentId, const GetAutopilotPolicyRequest &request, const GetAutopilotPolicyHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAutopilotPolicy"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/autopilot/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/deployments/" , Darabonba::Encode::Encoder::percentEncode(deploymentId) , "/autopilotpolicy-describe")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAutopilotPolicyResponse>();
+}
+
+/**
+ * @summary Queries the Autopilot tuning configuration. Returns the enabled status and full configuration. Does not affect the existing V2 configuration.
+ *
+ * @param request GetAutopilotPolicyRequest
+ * @return GetAutopilotPolicyResponse
+ */
+GetAutopilotPolicyResponse Client::getAutopilotPolicy(const string &_namespace, const string &deploymentId, const GetAutopilotPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetAutopilotPolicyHeaders headers = GetAutopilotPolicyHeaders();
+  return getAutopilotPolicyWithOptions(namespace, deploymentId, request, headers, runtime);
+}
+
+/**
  * @summary Retrieves the details of a specified catalog or all catalogs.
  *
  * @param request GetCatalogsRequest
@@ -3207,6 +3390,76 @@ HotUpdateJobResponse Client::hotUpdateJob(const string &_namespace, const string
 }
 
 /**
+ * @summary Retrieves the Autopilot tuning history records.
+ *
+ * @param request ListAutopilotTuningHistoriesRequest
+ * @param headers ListAutopilotTuningHistoriesHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAutopilotTuningHistoriesResponse
+ */
+ListAutopilotTuningHistoriesResponse Client::listAutopilotTuningHistoriesWithOptions(const string &_namespace, const string &deploymentId, const ListAutopilotTuningHistoriesRequest &request, const ListAutopilotTuningHistoriesHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAcceptLanguage()) {
+    realHeaders["Accept-Language"] = Darabonba::Convert::stringVal(headers.getAcceptLanguage());
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAutopilotTuningHistories"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/autopilot/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/deployments/" , Darabonba::Encode::Encoder::percentEncode(deploymentId) , "/tuninghistories")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAutopilotTuningHistoriesResponse>();
+}
+
+/**
+ * @summary Retrieves the Autopilot tuning history records.
+ *
+ * @param request ListAutopilotTuningHistoriesRequest
+ * @return ListAutopilotTuningHistoriesResponse
+ */
+ListAutopilotTuningHistoriesResponse Client::listAutopilotTuningHistories(const string &_namespace, const string &deploymentId, const ListAutopilotTuningHistoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  ListAutopilotTuningHistoriesHeaders headers = ListAutopilotTuningHistoriesHeaders();
+  return listAutopilotTuningHistoriesWithOptions(namespace, deploymentId, request, headers, runtime);
+}
+
+/**
  * @summary Obtains a list of existing custom connectors.
  *
  * @param headers ListCustomConnectorsHeaders
@@ -4532,6 +4785,64 @@ SubmitSqlPreviewResponse Client::submitSqlPreview(const string &_namespace, cons
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   SubmitSqlPreviewHeaders headers = SubmitSqlPreviewHeaders();
   return submitSqlPreviewWithOptions(namespace, request, headers, runtime);
+}
+
+/**
+ * @summary Updates an Autopilot tuning policy.
+ *
+ * @param request UpdateAutopilotPolicyRequest
+ * @param headers UpdateAutopilotPolicyHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAutopilotPolicyResponse
+ */
+UpdateAutopilotPolicyResponse Client::updateAutopilotPolicyWithOptions(const string &_namespace, const string &deploymentId, const UpdateAutopilotPolicyRequest &request, const UpdateAutopilotPolicyHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEnabled()) {
+    body["enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasPolicyConfig()) {
+    body["policyConfig"] = request.getPolicyConfig();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.getWorkspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAutopilotPolicy"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/autopilot/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/deployments/" , Darabonba::Encode::Encoder::percentEncode(deploymentId) , "/autopilotpolicy-update")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAutopilotPolicyResponse>();
+}
+
+/**
+ * @summary Updates an Autopilot tuning policy.
+ *
+ * @param request UpdateAutopilotPolicyRequest
+ * @return UpdateAutopilotPolicyResponse
+ */
+UpdateAutopilotPolicyResponse Client::updateAutopilotPolicy(const string &_namespace, const string &deploymentId, const UpdateAutopilotPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  UpdateAutopilotPolicyHeaders headers = UpdateAutopilotPolicyHeaders();
+  return updateAutopilotPolicyWithOptions(namespace, deploymentId, request, headers, runtime);
 }
 
 /**

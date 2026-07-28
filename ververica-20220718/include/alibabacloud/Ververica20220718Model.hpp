@@ -20,6 +20,7 @@
 #include <alibabacloud/models/DraftValidationDetail.hpp>
 #include <alibabacloud/models/AsyncDraftValidateResult.hpp>
 #include <alibabacloud/models/AsyncResourcePlanOperationResult.hpp>
+#include <alibabacloud/models/AutopilotPolicy.hpp>
 #include <alibabacloud/models/BasicResourceSettingSpec.hpp>
 #include <alibabacloud/models/BasicResourceSetting.hpp>
 #include <alibabacloud/models/BatchResourceSetting.hpp>
@@ -121,6 +122,7 @@
 #include <alibabacloud/models/SubmitPreview.hpp>
 #include <alibabacloud/models/Table.hpp>
 #include <alibabacloud/models/TableMeta.hpp>
+#include <alibabacloud/models/TuningHistory.hpp>
 #include <alibabacloud/models/UdfFunction.hpp>
 #include <alibabacloud/models/UpdateUdfArtifactResult.hpp>
 #include <alibabacloud/models/Variable.hpp>
@@ -131,6 +133,10 @@
 #include <alibabacloud/models/CancelSqlPreviewRequest.hpp>
 #include <alibabacloud/models/CancelSqlPreviewResponseBody.hpp>
 #include <alibabacloud/models/CancelSqlPreviewResponse.hpp>
+#include <alibabacloud/models/ChatAiAgentHeaders.hpp>
+#include <alibabacloud/models/ChatAiAgentRequest.hpp>
+#include <alibabacloud/models/ChatAiAgentResponseBody.hpp>
+#include <alibabacloud/models/ChatAiAgentResponse.hpp>
 #include <alibabacloud/models/CreateDeploymentHeaders.hpp>
 #include <alibabacloud/models/CreateDeploymentRequest.hpp>
 #include <alibabacloud/models/CreateDeploymentResponseBody.hpp>
@@ -255,6 +261,10 @@
 #include <alibabacloud/models/GetAppliedScheduledPlanRequest.hpp>
 #include <alibabacloud/models/GetAppliedScheduledPlanResponseBody.hpp>
 #include <alibabacloud/models/GetAppliedScheduledPlanResponse.hpp>
+#include <alibabacloud/models/GetAutopilotPolicyHeaders.hpp>
+#include <alibabacloud/models/GetAutopilotPolicyRequest.hpp>
+#include <alibabacloud/models/GetAutopilotPolicyResponseBody.hpp>
+#include <alibabacloud/models/GetAutopilotPolicyResponse.hpp>
 #include <alibabacloud/models/GetCatalogsHeaders.hpp>
 #include <alibabacloud/models/GetCatalogsRequest.hpp>
 #include <alibabacloud/models/GetCatalogsResponseBody.hpp>
@@ -346,6 +356,10 @@
 #include <alibabacloud/models/HotUpdateJobHeaders.hpp>
 #include <alibabacloud/models/HotUpdateJobResponseBody.hpp>
 #include <alibabacloud/models/HotUpdateJobResponse.hpp>
+#include <alibabacloud/models/ListAutopilotTuningHistoriesHeaders.hpp>
+#include <alibabacloud/models/ListAutopilotTuningHistoriesRequest.hpp>
+#include <alibabacloud/models/ListAutopilotTuningHistoriesResponseBody.hpp>
+#include <alibabacloud/models/ListAutopilotTuningHistoriesResponse.hpp>
 #include <alibabacloud/models/ListCustomConnectorsHeaders.hpp>
 #include <alibabacloud/models/ListCustomConnectorsResponseBody.hpp>
 #include <alibabacloud/models/ListCustomConnectorsResponse.hpp>
@@ -435,6 +449,10 @@
 #include <alibabacloud/models/SubmitSqlPreviewRequest.hpp>
 #include <alibabacloud/models/SubmitSqlPreviewResponseBody.hpp>
 #include <alibabacloud/models/SubmitSqlPreviewResponse.hpp>
+#include <alibabacloud/models/UpdateAutopilotPolicyHeaders.hpp>
+#include <alibabacloud/models/UpdateAutopilotPolicyRequest.hpp>
+#include <alibabacloud/models/UpdateAutopilotPolicyResponseBody.hpp>
+#include <alibabacloud/models/UpdateAutopilotPolicyResponse.hpp>
 #include <alibabacloud/models/UpdateDeploymentHeaders.hpp>
 #include <alibabacloud/models/UpdateDeploymentRequest.hpp>
 #include <alibabacloud/models/UpdateDeploymentResponseBody.hpp>

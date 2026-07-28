@@ -55,6 +55,34 @@ namespace Ververica20220718
       Models::CancelSqlPreviewResponse cancelSqlPreview(const string &_namespace, const Models::CancelSqlPreviewRequest &request);
 
       /**
+       * @summary Initiates a streaming conversation with an AI Agent.
+       *
+       * @param request ChatAiAgentRequest
+       * @param headers ChatAiAgentHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatAiAgentResponse
+       */
+      FutureGenerator<Models::ChatAiAgentResponse> chatAiAgentWithSSE(const string &_namespace, const Models::ChatAiAgentRequest &request, const Models::ChatAiAgentHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Initiates a streaming conversation with an AI Agent.
+       *
+       * @param request ChatAiAgentRequest
+       * @param headers ChatAiAgentHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatAiAgentResponse
+       */
+      Models::ChatAiAgentResponse chatAiAgentWithOptions(const string &_namespace, const Models::ChatAiAgentRequest &request, const Models::ChatAiAgentHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Initiates a streaming conversation with an AI Agent.
+       *
+       * @param request ChatAiAgentRequest
+       * @return ChatAiAgentResponse
+       */
+      Models::ChatAiAgentResponse chatAiAgent(const string &_namespace, const Models::ChatAiAgentRequest &request);
+
+      /**
        * @summary Creates a deployment.
        *
        * @param request CreateDeploymentRequest
@@ -659,6 +687,24 @@ namespace Ververica20220718
       Models::GetAppliedScheduledPlanResponse getAppliedScheduledPlan(const string &_namespace, const Models::GetAppliedScheduledPlanRequest &request);
 
       /**
+       * @summary Queries the Autopilot tuning configuration. Returns the enabled status and full configuration. Does not affect the existing V2 configuration.
+       *
+       * @param request GetAutopilotPolicyRequest
+       * @param headers GetAutopilotPolicyHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAutopilotPolicyResponse
+       */
+      Models::GetAutopilotPolicyResponse getAutopilotPolicyWithOptions(const string &_namespace, const string &deploymentId, const Models::GetAutopilotPolicyRequest &request, const Models::GetAutopilotPolicyHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the Autopilot tuning configuration. Returns the enabled status and full configuration. Does not affect the existing V2 configuration.
+       *
+       * @param request GetAutopilotPolicyRequest
+       * @return GetAutopilotPolicyResponse
+       */
+      Models::GetAutopilotPolicyResponse getAutopilotPolicy(const string &_namespace, const string &deploymentId, const Models::GetAutopilotPolicyRequest &request);
+
+      /**
        * @summary Retrieves the details of a specified catalog or all catalogs.
        *
        * @param request GetCatalogsRequest
@@ -1109,6 +1155,24 @@ namespace Ververica20220718
       Models::HotUpdateJobResponse hotUpdateJob(const string &_namespace, const string &jobId);
 
       /**
+       * @summary Retrieves the Autopilot tuning history records.
+       *
+       * @param request ListAutopilotTuningHistoriesRequest
+       * @param headers ListAutopilotTuningHistoriesHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAutopilotTuningHistoriesResponse
+       */
+      Models::ListAutopilotTuningHistoriesResponse listAutopilotTuningHistoriesWithOptions(const string &_namespace, const string &deploymentId, const Models::ListAutopilotTuningHistoriesRequest &request, const Models::ListAutopilotTuningHistoriesHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the Autopilot tuning history records.
+       *
+       * @param request ListAutopilotTuningHistoriesRequest
+       * @return ListAutopilotTuningHistoriesResponse
+       */
+      Models::ListAutopilotTuningHistoriesResponse listAutopilotTuningHistories(const string &_namespace, const string &deploymentId, const Models::ListAutopilotTuningHistoriesRequest &request);
+
+      /**
        * @summary Obtains a list of existing custom connectors.
        *
        * @param headers ListCustomConnectorsHeaders
@@ -1531,6 +1595,24 @@ namespace Ververica20220718
        * @return SubmitSqlPreviewResponse
        */
       Models::SubmitSqlPreviewResponse submitSqlPreview(const string &_namespace, const Models::SubmitSqlPreviewRequest &request);
+
+      /**
+       * @summary Updates an Autopilot tuning policy.
+       *
+       * @param request UpdateAutopilotPolicyRequest
+       * @param headers UpdateAutopilotPolicyHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAutopilotPolicyResponse
+       */
+      Models::UpdateAutopilotPolicyResponse updateAutopilotPolicyWithOptions(const string &_namespace, const string &deploymentId, const Models::UpdateAutopilotPolicyRequest &request, const Models::UpdateAutopilotPolicyHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates an Autopilot tuning policy.
+       *
+       * @param request UpdateAutopilotPolicyRequest
+       * @return UpdateAutopilotPolicyResponse
+       */
+      Models::UpdateAutopilotPolicyResponse updateAutopilotPolicy(const string &_namespace, const string &deploymentId, const Models::UpdateAutopilotPolicyRequest &request);
 
       /**
        * @summary Updates information about a deployment.
