@@ -78,6 +78,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
         DARABONBA_PTR_TO_JSON(VswId, vswId_);
         DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
+        DARABONBA_PTR_TO_JSON(maintainablePeriodTimeZone, maintainablePeriodTimeZone_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AclId, aclId_);
@@ -113,6 +114,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
         DARABONBA_PTR_FROM_JSON(VswId, vswId_);
         DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
+        DARABONBA_PTR_FROM_JSON(maintainablePeriodTimeZone, maintainablePeriodTimeZone_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -205,7 +207,9 @@ namespace Models
 
 
       protected:
+        // The key of the tag.
         shared_ptr<string> key_ {};
+        // The value of the tag.
         shared_ptr<string> value_ {};
       };
 
@@ -320,15 +324,25 @@ namespace Models
 
 
       protected:
+        // The number of CUs for the Data node.
         shared_ptr<int32_t> dataNodeCuNum_ {};
+        // The number of replicas for the Data node.
         shared_ptr<int32_t> dataNodeReplica_ {};
+        // The number of CUs for the Index node.
         shared_ptr<int32_t> indexNodeCuNum_ {};
+        // The number of replicas for the Index node.
         shared_ptr<int32_t> indexNodeReplica_ {};
+        // The number of CUs for the MixCoordinator node.
         shared_ptr<int32_t> mixCoodinatorNodeCuNum_ {};
+        // The number of replicas for the MixCoordinator node.
         shared_ptr<int32_t> mixCoodinatorNodeReplica_ {};
+        // The number of CUs for the Proxy node.
         shared_ptr<int32_t> proxyNodeCuNum_ {};
+        // The number of replicas for the Proxy node.
         shared_ptr<int32_t> proxyNodeReplica_ {};
+        // The number of CUs for the Query node.
         shared_ptr<int32_t> queryNodeCuNum_ {};
+        // The number of replicas for the Query node.
         shared_ptr<int32_t> queryNodeReplica_ {};
       };
 
@@ -440,6 +454,10 @@ namespace Models
             DARABONBA_PTR_TO_JSON(PayType, payType_);
             DARABONBA_PTR_TO_JSON(Replica, replica_);
             DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
+            DARABONBA_PTR_TO_JSON(dataDiskEnabled, dataDiskEnabled_);
+            DARABONBA_PTR_TO_JSON(dataDiskSize, dataDiskSize_);
+            DARABONBA_PTR_TO_JSON(dataDiskStorageClass, dataDiskStorageClass_);
+            DARABONBA_PTR_TO_JSON(podsList, podsList_);
           };
           friend void from_json(const Darabonba::Json& j, MilvusResourceInfoList& obj) { 
             DARABONBA_PTR_FROM_JSON(ComponentType, componentType_);
@@ -450,6 +468,10 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(PayType, payType_);
             DARABONBA_PTR_FROM_JSON(Replica, replica_);
             DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
+            DARABONBA_PTR_FROM_JSON(dataDiskEnabled, dataDiskEnabled_);
+            DARABONBA_PTR_FROM_JSON(dataDiskSize, dataDiskSize_);
+            DARABONBA_PTR_FROM_JSON(dataDiskStorageClass, dataDiskStorageClass_);
+            DARABONBA_PTR_FROM_JSON(podsList, podsList_);
           };
           MilvusResourceInfoList() = default ;
           MilvusResourceInfoList(const MilvusResourceInfoList &) = default ;
@@ -462,9 +484,52 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class PodsList : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const PodsList& obj) { 
+              DARABONBA_PTR_TO_JSON(podId, podId_);
+              DARABONBA_PTR_TO_JSON(podName, podName_);
+            };
+            friend void from_json(const Darabonba::Json& j, PodsList& obj) { 
+              DARABONBA_PTR_FROM_JSON(podId, podId_);
+              DARABONBA_PTR_FROM_JSON(podName, podName_);
+            };
+            PodsList() = default ;
+            PodsList(const PodsList &) = default ;
+            PodsList(PodsList &&) = default ;
+            PodsList(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~PodsList() = default ;
+            PodsList& operator=(const PodsList &) = default ;
+            PodsList& operator=(PodsList &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->podId_ == nullptr
+        && this->podName_ == nullptr; };
+            // podId Field Functions 
+            bool hasPodId() const { return this->podId_ != nullptr;};
+            void deletePodId() { this->podId_ = nullptr;};
+            inline string getPodId() const { DARABONBA_PTR_GET_DEFAULT(podId_, "") };
+            inline PodsList& setPodId(string podId) { DARABONBA_PTR_SET_VALUE(podId_, podId) };
+
+
+            // podName Field Functions 
+            bool hasPodName() const { return this->podName_ != nullptr;};
+            void deletePodName() { this->podName_ = nullptr;};
+            inline string getPodName() const { DARABONBA_PTR_GET_DEFAULT(podName_, "") };
+            inline PodsList& setPodName(string podName) { DARABONBA_PTR_SET_VALUE(podName_, podName) };
+
+
+          protected:
+            shared_ptr<string> podId_ {};
+            shared_ptr<string> podName_ {};
+          };
+
           virtual bool empty() const override { return this->componentType_ == nullptr
         && this->cuNum_ == nullptr && this->cuRatio_ == nullptr && this->diskSize_ == nullptr && this->diskType_ == nullptr && this->payType_ == nullptr
-        && this->replica_ == nullptr && this->zoneId_ == nullptr; };
+        && this->replica_ == nullptr && this->zoneId_ == nullptr && this->dataDiskEnabled_ == nullptr && this->dataDiskSize_ == nullptr && this->dataDiskStorageClass_ == nullptr
+        && this->podsList_ == nullptr; };
           // componentType Field Functions 
           bool hasComponentType() const { return this->componentType_ != nullptr;};
           void deleteComponentType() { this->componentType_ = nullptr;};
@@ -521,18 +586,42 @@ namespace Models
           inline MilvusResourceInfoList& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
+          // dataDiskEnabled Field Functions 
+          bool hasDataDiskEnabled() const { return this->dataDiskEnabled_ != nullptr;};
+          void deleteDataDiskEnabled() { this->dataDiskEnabled_ = nullptr;};
+          inline bool getDataDiskEnabled() const { DARABONBA_PTR_GET_DEFAULT(dataDiskEnabled_, false) };
+          inline MilvusResourceInfoList& setDataDiskEnabled(bool dataDiskEnabled) { DARABONBA_PTR_SET_VALUE(dataDiskEnabled_, dataDiskEnabled) };
+
+
+          // dataDiskSize Field Functions 
+          bool hasDataDiskSize() const { return this->dataDiskSize_ != nullptr;};
+          void deleteDataDiskSize() { this->dataDiskSize_ = nullptr;};
+          inline int32_t getDataDiskSize() const { DARABONBA_PTR_GET_DEFAULT(dataDiskSize_, 0) };
+          inline MilvusResourceInfoList& setDataDiskSize(int32_t dataDiskSize) { DARABONBA_PTR_SET_VALUE(dataDiskSize_, dataDiskSize) };
+
+
+          // dataDiskStorageClass Field Functions 
+          bool hasDataDiskStorageClass() const { return this->dataDiskStorageClass_ != nullptr;};
+          void deleteDataDiskStorageClass() { this->dataDiskStorageClass_ = nullptr;};
+          inline string getDataDiskStorageClass() const { DARABONBA_PTR_GET_DEFAULT(dataDiskStorageClass_, "") };
+          inline MilvusResourceInfoList& setDataDiskStorageClass(string dataDiskStorageClass) { DARABONBA_PTR_SET_VALUE(dataDiskStorageClass_, dataDiskStorageClass) };
+
+
+          // podsList Field Functions 
+          bool hasPodsList() const { return this->podsList_ != nullptr;};
+          void deletePodsList() { this->podsList_ = nullptr;};
+          inline const vector<MilvusResourceInfoList::PodsList> & getPodsList() const { DARABONBA_PTR_GET_CONST(podsList_, vector<MilvusResourceInfoList::PodsList>) };
+          inline vector<MilvusResourceInfoList::PodsList> getPodsList() { DARABONBA_PTR_GET(podsList_, vector<MilvusResourceInfoList::PodsList>) };
+          inline MilvusResourceInfoList& setPodsList(const vector<MilvusResourceInfoList::PodsList> & podsList) { DARABONBA_PTR_SET_VALUE(podsList_, podsList) };
+          inline MilvusResourceInfoList& setPodsList(vector<MilvusResourceInfoList::PodsList> && podsList) { DARABONBA_PTR_SET_RVALUE(podsList_, podsList) };
+
+
         protected:
           // The component type. Valid values:
-          // 
-          // *   standalone
-          // *   proxy
-          // *   mix_coordinator
-          // *   query
-          // *   index
-          // *   data
           shared_ptr<string> componentType_ {};
-          // The number of CUs.
+          // The number of compute units (CUs).
           shared_ptr<int32_t> cuNum_ {};
+          // The CU specifications. Valid values:
           shared_ptr<int32_t> cuRatio_ {};
           // The disk size.
           shared_ptr<int32_t> diskSize_ {};
@@ -542,6 +631,10 @@ namespace Models
           // The number of replicas.
           shared_ptr<int32_t> replica_ {};
           shared_ptr<string> zoneId_ {};
+          shared_ptr<bool> dataDiskEnabled_ {};
+          shared_ptr<int32_t> dataDiskSize_ {};
+          shared_ptr<string> dataDiskStorageClass_ {};
+          shared_ptr<vector<MilvusResourceInfoList::PodsList>> podsList_ {};
         };
 
         virtual bool empty() const override { return this->attuPort_ == nullptr
@@ -613,23 +706,23 @@ namespace Models
 
 
       protected:
-        // The port of the Attu component.
+        // The Attu component port.
         shared_ptr<int32_t> attuPort_ {};
-        // The public IP address.
+        // The public network address.
         shared_ptr<string> internetUrl_ {};
-        // The internal IP address.
+        // The internal network address.
         shared_ptr<string> intranetUrl_ {};
         // The resource details.
         shared_ptr<vector<ClusterInfo::MilvusResourceInfoList>> milvusResourceInfoList_ {};
-        // The size of the data stored in OSS.
+        // The OSS storage data size.
         shared_ptr<string> ossStorageSize_ {};
-        // The timestamp when the OSS metric is stored.
+        // The timestamp of the OSS storage metric.
         shared_ptr<int64_t> ossStorageTimestamp_ {};
         // The proxy port.
         shared_ptr<int32_t> proxyPort_ {};
         // The total number of CUs.
         shared_ptr<int32_t> totalCuNum_ {};
-        // The total number of disks.
+        // The total disk size.
         shared_ptr<int32_t> totalDiskSize_ {};
       };
 
@@ -640,7 +733,7 @@ namespace Models
         && this->nodeType_ == nullptr && this->openPublicNet_ == nullptr && this->packageType_ == nullptr && this->payType_ == nullptr && this->productCode_ == nullptr
         && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->runningTime_ == nullptr && this->sgId_ == nullptr && this->tags_ == nullptr
         && this->templateVersion_ == nullptr && this->userConfig_ == nullptr && this->vSwitches_ == nullptr && this->version_ == nullptr && this->vpcId_ == nullptr
-        && this->vswId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->vswId_ == nullptr && this->zoneId_ == nullptr && this->maintainablePeriodTimeZone_ == nullptr; };
       // aclId Field Functions 
       bool hasAclId() const { return this->aclId_ != nullptr;};
       void deleteAclId() { this->aclId_ = nullptr;};
@@ -882,76 +975,75 @@ namespace Models
       inline Data& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
+      // maintainablePeriodTimeZone Field Functions 
+      bool hasMaintainablePeriodTimeZone() const { return this->maintainablePeriodTimeZone_ != nullptr;};
+      void deleteMaintainablePeriodTimeZone() { this->maintainablePeriodTimeZone_ = nullptr;};
+      inline string getMaintainablePeriodTimeZone() const { DARABONBA_PTR_GET_DEFAULT(maintainablePeriodTimeZone_, "") };
+      inline Data& setMaintainablePeriodTimeZone(string maintainablePeriodTimeZone) { DARABONBA_PTR_SET_VALUE(maintainablePeriodTimeZone_, maintainablePeriodTimeZone) };
+
+
     protected:
-      // AclId for Public Network Access Control.
+      // The ACL ID for public network access control.
       shared_ptr<string> aclId_ {};
       // The start time.
       shared_ptr<int64_t> beginTime_ {};
-      // The name of the bucket.
+      // The bucket name.
       shared_ptr<string> bucketName_ {};
-      // The address of the bucket.
+      // The bucket path.
       shared_ptr<string> bucketPath_ {};
       // The instance details.
       shared_ptr<Data::ClusterInfo> clusterInfo_ {};
       // The instance name.
       shared_ptr<string> clusterName_ {};
+      // Indicates whether high availability is enabled.
       shared_ptr<bool> enableHa_ {};
       shared_ptr<string> encrypted_ {};
       // The expiration time.
       shared_ptr<int64_t> expireTime_ {};
       shared_ptr<Data::HighAvailability> highAvailability_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The instance status. Valid values:
-      // 
-      // *   creating.
-      // *   running.
-      // *   updating. Cluster scaling (up/down), configuration changes, and enabling/disabling public network access.
-      // *   disable. The cluster has expired and needs to be renewed for activation.
-      // *   deleting.
-      // *   deleted.
       shared_ptr<string> instanceStatus_ {};
       shared_ptr<string> kmsKeyId_ {};
       shared_ptr<string> maintainablePeriod_ {};
+      // The configuration information.
       shared_ptr<Data::MeasureConfig> measureConfig_ {};
       shared_ptr<string> multiZoneMode_ {};
+      // The node type. Valid values:
       shared_ptr<string> nodeType_ {};
-      // Indicates whether Internet access is enabled.
+      // Indicates whether public network access is enabled.
       shared_ptr<bool> openPublicNet_ {};
       // The specification details. Valid values:
-      // 
-      // *   trial.
-      // *   standard.
       shared_ptr<string> packageType_ {};
-      // The billing method of the instance. Valid values:
-      // 
-      // *   0: pay-as-you-go
-      // *   1: subscription
+      // The billing type. Valid values:
       shared_ptr<int32_t> payType_ {};
       // The commodity code.
       shared_ptr<string> productCode_ {};
-      // The region code.
+      // The region.
       shared_ptr<string> regionId_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The runtime.
+      // The running time.
       shared_ptr<int64_t> runningTime_ {};
       // The security group ID.
       shared_ptr<string> sgId_ {};
+      // The tag information.
       shared_ptr<vector<Data::Tags>> tags_ {};
-      // The version of the software stack.
+      // The software stack version.
       shared_ptr<string> templateVersion_ {};
-      // User-defined configuration.
+      // The user-defined configuration.
       shared_ptr<string> userConfig_ {};
       shared_ptr<vector<Data::VSwitches>> vSwitches_ {};
-      // The kernel version.
+      // The Milvus version.
       shared_ptr<string> version_ {};
-      // The virtual private cloud (VPC) ID.
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
-      // The ID of the vSwitch.
+      // The vSwitch ID.
       shared_ptr<string> vswId_ {};
       // The zone.
       shared_ptr<string> zoneId_ {};
+      shared_ptr<string> maintainablePeriodTimeZone_ {};
     };
 
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
@@ -1009,17 +1101,17 @@ namespace Models
 
 
   protected:
-    // The detailed information about the failed permission verification.
+    // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The returned result.
+    // The response data.
     shared_ptr<GetInstanceDetailResponseBody::Data> data_ {};
-    // The error code returned.
+    // The error code.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

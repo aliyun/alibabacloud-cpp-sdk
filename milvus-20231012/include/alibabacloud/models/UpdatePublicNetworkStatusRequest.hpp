@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // The CIDR blocks.
+    // The CIDR block.
     shared_ptr<string> cidr_ {};
-    // The component type. Valid values:
+    // The component type. Valid value:
     // 
-    // *   Proxy
+    // - Proxy
     // 
     // This parameter is required.
     shared_ptr<string> componentType_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Enable /disable the Internet.
+    // Specifies whether to enable public network access.
     // 
     // This parameter is required.
     shared_ptr<bool> publicNetworkEnabled_ {};

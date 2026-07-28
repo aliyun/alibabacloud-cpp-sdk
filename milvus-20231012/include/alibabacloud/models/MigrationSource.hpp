@@ -71,7 +71,9 @@ namespace Models
 
 
     protected:
+      // The endpoint address of the migration source.
       shared_ptr<string> endpoint_ {};
+      // The port number of the migration source.
       shared_ptr<string> port_ {};
     };
 
@@ -131,9 +133,13 @@ namespace Models
 
 
     protected:
+      // The authentication type.
       shared_ptr<string> authType_ {};
+      // The password used for authentication.
       shared_ptr<string> password_ {};
+      // The token used for authentication.
       shared_ptr<string> token_ {};
+      // The username used for authentication.
       shared_ptr<string> username_ {};
     };
 
@@ -165,8 +171,11 @@ namespace Models
 
 
   protected:
+    // The authentication information of the migration source.
     shared_ptr<MigrationSource::AuthInfo> authInfo_ {};
+    // The name of the database to migrate.
     shared_ptr<string> database_ {};
+    // The endpoint information of the migration source.
     shared_ptr<MigrationSource::Endpoint> endpoint_ {};
   };
 

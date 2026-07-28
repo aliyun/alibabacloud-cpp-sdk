@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Specify one or more CIDR blocks, separated by commas.
     shared_ptr<string> cidrs_ {};
+    // The name of the ACL group.
     shared_ptr<string> groupName_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

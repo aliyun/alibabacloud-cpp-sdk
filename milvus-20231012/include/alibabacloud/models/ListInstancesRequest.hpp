@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -143,14 +145,15 @@ namespace Models
     shared_ptr<string> clusterId_ {};
     // The instance name.
     shared_ptr<string> clusterName_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The region code.
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The tags used to filter instances.
     shared_ptr<vector<ListInstancesRequest::Tag>> tag_ {};
   };
 

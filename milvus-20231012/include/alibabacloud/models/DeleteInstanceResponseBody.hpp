@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The order ID.
     shared_ptr<string> orderId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -143,7 +143,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -243,18 +245,23 @@ namespace Models
 
 
         protected:
-          // The type of the component. Valid values:
+          // The component type. Valid values:
           // 
-          // *   standalone
-          // *   proxy
-          // *   mix_coordinator
-          // *   query
-          // *   index
-          // *   data
+          // - `standalone`
+          // 
+          // - `proxy`
+          // 
+          // - `mix_coordinator`
+          // 
+          // - `query`
+          // 
+          // - `index`
+          // 
+          // - `data`
           shared_ptr<string> componentType_ {};
           // The number of CUs.
           shared_ptr<int32_t> cuNum_ {};
-          // The disk size.
+          // The disk size in GB.
           shared_ptr<int32_t> diskSize_ {};
           // The disk type.
           shared_ptr<string> diskType_ {};
@@ -317,19 +324,19 @@ namespace Models
 
 
       protected:
-        // The port of the Attu component.
+        // The Attu port.
         shared_ptr<int32_t> attuPort_ {};
-        // The public IP address.
+        // The public endpoint.
         shared_ptr<string> internetUrl_ {};
         // The internal endpoint.
         shared_ptr<string> intranetUrl_ {};
-        // The resource details.
+        // A list of resource details for the instance\\"s components.
         shared_ptr<vector<ClusterInfo::MilvusResourceInfoList>> milvusResourceInfoList_ {};
         // The proxy port.
         shared_ptr<int32_t> proxyPort_ {};
-        // The number of CUs.
+        // The total number of CUs.
         shared_ptr<int32_t> totalCuNum_ {};
-        // The total capacity of the disk.
+        // The total disk size in GB.
         shared_ptr<int32_t> totalDiskSize_ {};
       };
 
@@ -498,57 +505,69 @@ namespace Models
 
 
     protected:
+      // Indicates whether automatic backup is enabled.
       shared_ptr<bool> autoBackup_ {};
-      // The start time.
+      // The creation time of the instance.
       shared_ptr<int64_t> beginTime_ {};
       // The instance details.
       shared_ptr<Data::ClusterInfo> clusterInfo_ {};
       // The instance name.
       shared_ptr<string> clusterName_ {};
-      // The expiration time.
+      // The expiration time of the instance.
       shared_ptr<int64_t> expireTime_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The status of the bastion host. Valid values:
+      // The instance status. Valid values:
       // 
-      // *   creating.
-      // *   running.
-      // *   updating. Cluster scaling (up/down), configuration changes, and enabling/disabling public network access.
-      // *   disable. The cluster has expired and needs to be renewed for activation.
-      // *   deleting.
-      // *   deleted.
+      // - `creating`: The instance is being created.
+      // 
+      // - `running`: The instance is running.
+      // 
+      // - `updating`: The instance is being updated. This includes scaling the instance, changing configurations, or modifying public network access.
+      // 
+      // - `disable`: The instance is unavailable because it has expired and requires renewal.
+      // 
+      // - `deleting`: The instance is being deleted.
+      // 
+      // - `deleted`: The instance has been deleted.
       shared_ptr<string> instanceStatus_ {};
+      // The node type.
       shared_ptr<string> nodeType_ {};
-      // Indicates whether Internet access is enabled.
+      // Indicates whether public network access is enabled.
       shared_ptr<bool> openPublicNet_ {};
-      // The specification details. Valid values:
+      // The instance edition. Valid values:
       // 
-      // *   trial.
-      // *   standard.
+      // - `trial`: Trial Edition.
+      // 
+      // - `standard`: Standard Edition.
       shared_ptr<string> packageType_ {};
-      // The billing method of the instance. Valid values:
+      // The billing method. Valid values:
       // 
-      // *   0: pay-as-you-go
-      // *   1: subscription
+      // - `0`: pay-as-you-go.
+      // 
+      // - `1`: subscription.
       shared_ptr<int32_t> payType_ {};
-      // The commodity code.
+      // The product code.
       shared_ptr<string> productCode_ {};
-      // The region code.
+      // The region ID.
       shared_ptr<string> regionId_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The runtime.
+      // The duration the instance has been running.
       shared_ptr<int32_t> runningTime_ {};
       // The security group ID.
       shared_ptr<string> sgId_ {};
+      // The tags attached to the instance.
       shared_ptr<vector<Data::Tags>> tags_ {};
+      // The template version.
       shared_ptr<string> templateVersion_ {};
+      // The instance version.
       shared_ptr<string> version_ {};
-      // The virtual private cloud (VPC) ID.
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
-      // The ID of the vSwitch.
+      // The vSwitch ID.
       shared_ptr<string> vswId_ {};
-      // The zone.
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -614,21 +633,21 @@ namespace Models
 
 
   protected:
-    // The detailed information about the failed permission verification.
+    // Details for an access denial error.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The returned result.
+    // An array of instance objects.
     shared_ptr<vector<ListInstancesResponseBody::Data>> data_ {};
-    // The error code returned.
+    // The error code.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The total number.
+    // The total number of instances found.
     shared_ptr<int32_t> total_ {};
   };
 

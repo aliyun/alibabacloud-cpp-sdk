@@ -120,7 +120,9 @@ namespace Models
 
 
     protected:
+      // The vSwitch ID configuration in the zone.
       shared_ptr<string> vswId_ {};
+      // The zone.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -162,7 +164,9 @@ namespace Models
 
 
     protected:
+      // The key of the resource tag.
       shared_ptr<string> key_ {};
+      // The value of the resource tag.
       shared_ptr<string> value_ {};
     };
 
@@ -171,6 +175,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Components& obj) { 
         DARABONBA_PTR_TO_JSON(cuNum, cuNum_);
         DARABONBA_PTR_TO_JSON(cuType, cuType_);
+        DARABONBA_PTR_TO_JSON(dataDisk, dataDisk_);
         DARABONBA_PTR_TO_JSON(diskSizeType, diskSizeType_);
         DARABONBA_PTR_TO_JSON(replica, replica_);
         DARABONBA_PTR_TO_JSON(type, type_);
@@ -178,6 +183,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Components& obj) { 
         DARABONBA_PTR_FROM_JSON(cuNum, cuNum_);
         DARABONBA_PTR_FROM_JSON(cuType, cuType_);
+        DARABONBA_PTR_FROM_JSON(dataDisk, dataDisk_);
         DARABONBA_PTR_FROM_JSON(diskSizeType, diskSizeType_);
         DARABONBA_PTR_FROM_JSON(replica, replica_);
         DARABONBA_PTR_FROM_JSON(type, type_);
@@ -193,8 +199,70 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class DataDisk : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const DataDisk& obj) { 
+          DARABONBA_PTR_TO_JSON(enabled, enabled_);
+          DARABONBA_PTR_TO_JSON(performanceLevel, performanceLevel_);
+          DARABONBA_PTR_TO_JSON(size, size_);
+          DARABONBA_PTR_TO_JSON(storageClass, storageClass_);
+        };
+        friend void from_json(const Darabonba::Json& j, DataDisk& obj) { 
+          DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+          DARABONBA_PTR_FROM_JSON(performanceLevel, performanceLevel_);
+          DARABONBA_PTR_FROM_JSON(size, size_);
+          DARABONBA_PTR_FROM_JSON(storageClass, storageClass_);
+        };
+        DataDisk() = default ;
+        DataDisk(const DataDisk &) = default ;
+        DataDisk(DataDisk &&) = default ;
+        DataDisk(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~DataDisk() = default ;
+        DataDisk& operator=(const DataDisk &) = default ;
+        DataDisk& operator=(DataDisk &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->enabled_ == nullptr
+        && this->performanceLevel_ == nullptr && this->size_ == nullptr && this->storageClass_ == nullptr; };
+        // enabled Field Functions 
+        bool hasEnabled() const { return this->enabled_ != nullptr;};
+        void deleteEnabled() { this->enabled_ = nullptr;};
+        inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+        inline DataDisk& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+        // performanceLevel Field Functions 
+        bool hasPerformanceLevel() const { return this->performanceLevel_ != nullptr;};
+        void deletePerformanceLevel() { this->performanceLevel_ = nullptr;};
+        inline string getPerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(performanceLevel_, "") };
+        inline DataDisk& setPerformanceLevel(string performanceLevel) { DARABONBA_PTR_SET_VALUE(performanceLevel_, performanceLevel) };
+
+
+        // size Field Functions 
+        bool hasSize() const { return this->size_ != nullptr;};
+        void deleteSize() { this->size_ = nullptr;};
+        inline int32_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
+        inline DataDisk& setSize(int32_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
+
+
+        // storageClass Field Functions 
+        bool hasStorageClass() const { return this->storageClass_ != nullptr;};
+        void deleteStorageClass() { this->storageClass_ = nullptr;};
+        inline string getStorageClass() const { DARABONBA_PTR_GET_DEFAULT(storageClass_, "") };
+        inline DataDisk& setStorageClass(string storageClass) { DARABONBA_PTR_SET_VALUE(storageClass_, storageClass) };
+
+
+      protected:
+        shared_ptr<bool> enabled_ {};
+        shared_ptr<string> performanceLevel_ {};
+        shared_ptr<int32_t> size_ {};
+        shared_ptr<string> storageClass_ {};
+      };
+
       virtual bool empty() const override { return this->cuNum_ == nullptr
-        && this->cuType_ == nullptr && this->diskSizeType_ == nullptr && this->replica_ == nullptr && this->type_ == nullptr; };
+        && this->cuType_ == nullptr && this->dataDisk_ == nullptr && this->diskSizeType_ == nullptr && this->replica_ == nullptr && this->type_ == nullptr; };
       // cuNum Field Functions 
       bool hasCuNum() const { return this->cuNum_ != nullptr;};
       void deleteCuNum() { this->cuNum_ = nullptr;};
@@ -207,6 +275,15 @@ namespace Models
       void deleteCuType() { this->cuType_ = nullptr;};
       inline string getCuType() const { DARABONBA_PTR_GET_DEFAULT(cuType_, "") };
       inline Components& setCuType(string cuType) { DARABONBA_PTR_SET_VALUE(cuType_, cuType) };
+
+
+      // dataDisk Field Functions 
+      bool hasDataDisk() const { return this->dataDisk_ != nullptr;};
+      void deleteDataDisk() { this->dataDisk_ = nullptr;};
+      inline const Components::DataDisk & getDataDisk() const { DARABONBA_PTR_GET_CONST(dataDisk_, Components::DataDisk) };
+      inline Components::DataDisk getDataDisk() { DARABONBA_PTR_GET(dataDisk_, Components::DataDisk) };
+      inline Components& setDataDisk(const Components::DataDisk & dataDisk) { DARABONBA_PTR_SET_VALUE(dataDisk_, dataDisk) };
+      inline Components& setDataDisk(Components::DataDisk && dataDisk) { DARABONBA_PTR_SET_RVALUE(dataDisk_, dataDisk) };
 
 
       // diskSizeType Field Functions 
@@ -231,12 +308,21 @@ namespace Models
 
 
     protected:
+      // The number of compute units (CUs).
+      // 
       // This parameter is required.
       shared_ptr<int32_t> cuNum_ {};
+      // The CU type.
       shared_ptr<string> cuType_ {};
+      shared_ptr<Components::DataDisk> dataDisk_ {};
+      // The disk size type for Query Node. Set to Large for storage-optimized, and Normal for compute-optimized or other configurations.
       shared_ptr<string> diskSizeType_ {};
+      // The number of replicas.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> replica_ {};
+      // The component type.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -288,8 +374,11 @@ namespace Models
 
 
     protected:
+      // The backup ID.
       shared_ptr<string> backupId_ {};
+      // The backup name.
       shared_ptr<string> backupName_ {};
+      // The ID of the source backup cluster.
       shared_ptr<string> sourceClusterId_ {};
     };
 
@@ -498,36 +587,67 @@ namespace Models
 
 
   protected:
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // Specifies whether to enable AI function.
     shared_ptr<bool> aiFunction_ {};
+    // Specifies whether to enable automatic backup.
     shared_ptr<bool> autoBackup_ {};
+    // Specifies whether to enable automatic payment. Default value: true. Valid values:
     shared_ptr<bool> autoPay_ {};
+    // Specifies whether to enable auto-renewal. This parameter takes effect only when the payment type is set to Subscription.
     shared_ptr<bool> autoRenew_ {};
+    // The backup and restoration information.
     shared_ptr<CreateInstanceRequest::BackupRestoreInfo> backupRestoreInfo_ {};
+    // The component information.
     shared_ptr<vector<CreateInstanceRequest::Components>> components_ {};
+    // The configuration items.
     shared_ptr<string> configuration_ {};
+    // The database administrator password.
     shared_ptr<string> dbAdminPassword_ {};
+    // The Milvus version.
+    // 
     // This parameter is required.
     shared_ptr<string> dbVersion_ {};
+    // Specifies whether to enable OSS encryption.
     shared_ptr<bool> encrypted_ {};
+    // Specifies whether to enable high availability.
     shared_ptr<bool> ha_ {};
+    // The instance name.
     shared_ptr<string> instanceName_ {};
+    // Specifies whether to enable multi-zone storage.
     shared_ptr<bool> isMultiAzStorage_ {};
+    // The ID of the KMS key used for encryption.
     shared_ptr<string> kmsKeyId_ {};
+    // The number of load replicas.
     shared_ptr<int32_t> loadReplicas_ {};
+    // The zone configuration.
     shared_ptr<string> multiZoneMode_ {};
+    // The payment duration.
     shared_ptr<int32_t> paymentDuration_ {};
+    // The payment duration unit.
     shared_ptr<string> paymentDurationUnit_ {};
+    // The payment type.
+    // 
     // This parameter is required.
     shared_ptr<string> paymentType_ {};
+    // The coupon code.
     shared_ptr<string> promotionNo_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The instance tags.
     shared_ptr<vector<CreateInstanceRequest::Tags>> tags_ {};
+    // The vSwitches.
     shared_ptr<vector<CreateInstanceRequest::VSwitchIds>> vSwitchIds_ {};
+    // The VPC ID.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
+    // The primary zone.
+    // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
   };
 

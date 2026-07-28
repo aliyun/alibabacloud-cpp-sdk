@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // Details about why access was denied. Returned only when RAM denies access due to insufficient permissions.
     shared_ptr<string> accessDeniedDetail_ {};
+    // A value of `true` indicates that the operation was successful.
     shared_ptr<bool> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

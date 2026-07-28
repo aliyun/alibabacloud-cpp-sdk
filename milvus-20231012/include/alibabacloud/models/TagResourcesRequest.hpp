@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -113,12 +115,20 @@ namespace Models
 
 
   protected:
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The IDs of the resources. You can specify up to 50 resource IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
+    // The resource type.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The tags to add to the resources. You can add up to 20 tags.
+    // 
     // This parameter is required.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};
   };

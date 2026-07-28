@@ -82,7 +82,9 @@ namespace Models
 
 
     protected:
+      // The type of the component to be adjusted.
       shared_ptr<string> componentType_ {};
+      // The target value for the adjustment.
       shared_ptr<string> targetValue_ {};
     };
 
@@ -148,13 +150,21 @@ namespace Models
 
 
   protected:
+    // The adjustment information of the scaling rule.
     shared_ptr<vector<ScalingRule::AdjustInfos>> adjustInfos_ {};
+    // The cron expression for the scaling schedule.
     shared_ptr<string> cronStr_ {};
+    // Indicates whether the scaling rule is disabled.
     shared_ptr<bool> disabled_ {};
+    // The end time of the scaling rule. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // The ID of the scaling rule.
     shared_ptr<string> ruleId_ {};
+    // The name of the scaling rule.
     shared_ptr<string> scalingRuleName_ {};
+    // The start time of the scaling rule. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
+    // The time zone of the scaling rule.
     shared_ptr<string> timeZone_ {};
   };
 

@@ -88,11 +88,17 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of instances.
     shared_ptr<vector<InstanceDetail>> instances_ {};
+    // The maximum number of records to retrieve in a single request.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token (not currently enabled).
     shared_ptr<string> nextToken_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -84,7 +84,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -157,14 +159,23 @@ namespace Models
 
 
   protected:
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The cluster ID.
     shared_ptr<string> instanceId_ {};
+    // The cluster name.
     shared_ptr<string> instanceName_ {};
+    // The maximum number of records to retrieve in a single request.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next request (not currently enabled).
     shared_ptr<string> nextToken_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The list of tags in JSON format.
     shared_ptr<vector<ListInstancesV2Request::Tag>> tag_ {};
   };
 

@@ -149,18 +149,31 @@ namespace Models
 
 
   protected:
+    // The types of components involved in the scaling activity.
     shared_ptr<string> componentTypes_ {};
+    // The description of the scaling activity.
     shared_ptr<string> description_ {};
+    // The end time of the scaling activity.
     shared_ptr<string> endTime_ {};
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The type of the scaling policy.
     shared_ptr<string> policyType_ {};
+    // The ID of the scaling activity.
     shared_ptr<string> scalingActivityId_ {};
+    // The state of the scaling activity.
     shared_ptr<string> scalingActivityState_ {};
+    // The ID of the scaling policy.
     shared_ptr<string> scalingPolicyId_ {};
+    // The details of the scaling rule.
     shared_ptr<string> scalingRuleDetail_ {};
+    // The ID of the scaling rule.
     shared_ptr<string> scalingRuleId_ {};
+    // The name of the scaling rule that triggered the activity.
     shared_ptr<string> scalingRuleName_ {};
+    // The start time of the scaling activity.
     shared_ptr<string> startTime_ {};
+    // The time zone of the scaling activity.
     shared_ptr<string> timeZone_ {};
   };
 

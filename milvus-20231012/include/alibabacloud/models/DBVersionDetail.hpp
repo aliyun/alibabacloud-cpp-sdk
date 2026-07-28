@@ -147,12 +147,19 @@ namespace Models
 
 
       protected:
+        // The default number of replicas for the component.
         shared_ptr<int32_t> defaultReplicas_ {};
+        // The maximum number of replicas for the component.
         shared_ptr<int32_t> maxReplicas_ {};
+        // The minimum number of replicas for the component.
         shared_ptr<int32_t> minReplicas_ {};
+        // The name of the component.
         shared_ptr<string> name_ {};
+        // The available specifications for the component.
         shared_ptr<vector<string>> specs_ {};
+        // The step size for scaling the number of replicas.
         shared_ptr<int32_t> step_ {};
+        // The type of the component.
         shared_ptr<string> type_ {};
       };
 
@@ -196,10 +203,15 @@ namespace Models
 
 
     protected:
+      // The component specifications.
       shared_ptr<vector<Specs::ComponentSpecs>> componentSpecs_ {};
+      // Indicates whether the high availability (HA) edition is supported.
       shared_ptr<bool> isHA_ {};
+      // Indicates whether the Standalone edition is supported.
       shared_ptr<bool> isStandalone_ {};
+      // Indicates whether the Standalone Pro edition is supported.
       shared_ptr<bool> isStandalonePro_ {};
+      // The zone mode of the specification.
       shared_ptr<string> zoneMode_ {};
     };
 
@@ -229,8 +241,11 @@ namespace Models
 
 
   protected:
+    // The specifications supported by the version.
     shared_ptr<vector<DBVersionDetail::Specs>> specs_ {};
+    // The status of the version.
     shared_ptr<string> status_ {};
+    // The version number.
     shared_ptr<string> version_ {};
   };
 

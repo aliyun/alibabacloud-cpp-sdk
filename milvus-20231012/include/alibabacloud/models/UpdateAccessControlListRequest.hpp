@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of public network access control
+    // The public access control ID.
     shared_ptr<string> aclId_ {};
-    // The CIDR blocks.
+    // The CIDR block.
     shared_ptr<string> cidr_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
   };
 

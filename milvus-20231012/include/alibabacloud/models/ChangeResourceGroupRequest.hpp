@@ -75,11 +75,17 @@ namespace Models
 
 
   protected:
+    // The new resource group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> newResourceGroupId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The resource ID.
     shared_ptr<string> resourceId_ {};
+    // The resource type.
     shared_ptr<string> resourceType_ {};
   };
 

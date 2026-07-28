@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The name of the allow list group.
     shared_ptr<string> groupName_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The new CIDR blocks for the allow list group. To specify multiple CIDR blocks, separate them with a comma.
     shared_ptr<string> newCidrs_ {};
   };
 

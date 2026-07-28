@@ -112,11 +112,17 @@ namespace Models
 
 
     protected:
+      // The CIDR blocks in the group.
       shared_ptr<vector<string>> cidrs_ {};
+      // The timestamp of the group\\"s creation.
       shared_ptr<string> createTime_ {};
+      // The group name.
       shared_ptr<string> groupName_ {};
+      // The group ID.
       shared_ptr<int64_t> id_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The ID of the Alibaba Cloud account. This parameter is read-only.
       shared_ptr<int64_t> uid_ {};
     };
 
@@ -153,9 +159,13 @@ namespace Models
 
 
   protected:
+    // Details about the access denial. Returned only for requests denied due to insufficient RAM permissions.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The response data.
     shared_ptr<vector<ListAclGroupsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

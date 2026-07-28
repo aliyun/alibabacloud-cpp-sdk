@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The fee that can be covered by the promotion.
     shared_ptr<string> canPromFee_ {};
+    // Indicates whether the promotion is selected.
     shared_ptr<bool> isSelected_ {};
+    // The description of the promotion.
     shared_ptr<string> promotionDesc_ {};
+    // The name of the promotion.
     shared_ptr<string> promotionName_ {};
+    // The code of the promotion option.
     shared_ptr<string> promotionOptionCode_ {};
+    // The number of the promotion option.
     shared_ptr<string> promotionOptionNo_ {};
+    // Indicates whether the promotion is selected.
     shared_ptr<bool> selected_ {};
   };
 

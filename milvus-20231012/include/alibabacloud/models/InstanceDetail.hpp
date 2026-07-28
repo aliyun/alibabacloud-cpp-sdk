@@ -112,7 +112,9 @@ namespace Models
 
 
     protected:
+      // The vSwitch IDs.
       shared_ptr<string> vswId_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -154,7 +156,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -163,16 +167,20 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Components& obj) { 
         DARABONBA_PTR_TO_JSON(cuNum, cuNum_);
         DARABONBA_PTR_TO_JSON(cuType, cuType_);
+        DARABONBA_PTR_TO_JSON(dataDisk, dataDisk_);
         DARABONBA_PTR_TO_JSON(diskSizeType, diskSizeType_);
         DARABONBA_PTR_TO_JSON(payType, payType_);
+        DARABONBA_PTR_TO_JSON(podsList, podsList_);
         DARABONBA_PTR_TO_JSON(replica, replica_);
         DARABONBA_PTR_TO_JSON(type, type_);
       };
       friend void from_json(const Darabonba::Json& j, Components& obj) { 
         DARABONBA_PTR_FROM_JSON(cuNum, cuNum_);
         DARABONBA_PTR_FROM_JSON(cuType, cuType_);
+        DARABONBA_PTR_FROM_JSON(dataDisk, dataDisk_);
         DARABONBA_PTR_FROM_JSON(diskSizeType, diskSizeType_);
         DARABONBA_PTR_FROM_JSON(payType, payType_);
+        DARABONBA_PTR_FROM_JSON(podsList, podsList_);
         DARABONBA_PTR_FROM_JSON(replica, replica_);
         DARABONBA_PTR_FROM_JSON(type, type_);
       };
@@ -187,8 +195,113 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class PodsList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const PodsList& obj) { 
+          DARABONBA_PTR_TO_JSON(podId, podId_);
+          DARABONBA_PTR_TO_JSON(podName, podName_);
+        };
+        friend void from_json(const Darabonba::Json& j, PodsList& obj) { 
+          DARABONBA_PTR_FROM_JSON(podId, podId_);
+          DARABONBA_PTR_FROM_JSON(podName, podName_);
+        };
+        PodsList() = default ;
+        PodsList(const PodsList &) = default ;
+        PodsList(PodsList &&) = default ;
+        PodsList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~PodsList() = default ;
+        PodsList& operator=(const PodsList &) = default ;
+        PodsList& operator=(PodsList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->podId_ == nullptr
+        && this->podName_ == nullptr; };
+        // podId Field Functions 
+        bool hasPodId() const { return this->podId_ != nullptr;};
+        void deletePodId() { this->podId_ = nullptr;};
+        inline string getPodId() const { DARABONBA_PTR_GET_DEFAULT(podId_, "") };
+        inline PodsList& setPodId(string podId) { DARABONBA_PTR_SET_VALUE(podId_, podId) };
+
+
+        // podName Field Functions 
+        bool hasPodName() const { return this->podName_ != nullptr;};
+        void deletePodName() { this->podName_ = nullptr;};
+        inline string getPodName() const { DARABONBA_PTR_GET_DEFAULT(podName_, "") };
+        inline PodsList& setPodName(string podName) { DARABONBA_PTR_SET_VALUE(podName_, podName) };
+
+
+      protected:
+        shared_ptr<string> podId_ {};
+        shared_ptr<string> podName_ {};
+      };
+
+      class DataDisk : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const DataDisk& obj) { 
+          DARABONBA_PTR_TO_JSON(enabled, enabled_);
+          DARABONBA_PTR_TO_JSON(performanceLevel, performanceLevel_);
+          DARABONBA_PTR_TO_JSON(size, size_);
+          DARABONBA_PTR_TO_JSON(storageClass, storageClass_);
+        };
+        friend void from_json(const Darabonba::Json& j, DataDisk& obj) { 
+          DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+          DARABONBA_PTR_FROM_JSON(performanceLevel, performanceLevel_);
+          DARABONBA_PTR_FROM_JSON(size, size_);
+          DARABONBA_PTR_FROM_JSON(storageClass, storageClass_);
+        };
+        DataDisk() = default ;
+        DataDisk(const DataDisk &) = default ;
+        DataDisk(DataDisk &&) = default ;
+        DataDisk(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~DataDisk() = default ;
+        DataDisk& operator=(const DataDisk &) = default ;
+        DataDisk& operator=(DataDisk &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->enabled_ == nullptr
+        && this->performanceLevel_ == nullptr && this->size_ == nullptr && this->storageClass_ == nullptr; };
+        // enabled Field Functions 
+        bool hasEnabled() const { return this->enabled_ != nullptr;};
+        void deleteEnabled() { this->enabled_ = nullptr;};
+        inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+        inline DataDisk& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+        // performanceLevel Field Functions 
+        bool hasPerformanceLevel() const { return this->performanceLevel_ != nullptr;};
+        void deletePerformanceLevel() { this->performanceLevel_ = nullptr;};
+        inline string getPerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(performanceLevel_, "") };
+        inline DataDisk& setPerformanceLevel(string performanceLevel) { DARABONBA_PTR_SET_VALUE(performanceLevel_, performanceLevel) };
+
+
+        // size Field Functions 
+        bool hasSize() const { return this->size_ != nullptr;};
+        void deleteSize() { this->size_ = nullptr;};
+        inline int32_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
+        inline DataDisk& setSize(int32_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
+
+
+        // storageClass Field Functions 
+        bool hasStorageClass() const { return this->storageClass_ != nullptr;};
+        void deleteStorageClass() { this->storageClass_ = nullptr;};
+        inline string getStorageClass() const { DARABONBA_PTR_GET_DEFAULT(storageClass_, "") };
+        inline DataDisk& setStorageClass(string storageClass) { DARABONBA_PTR_SET_VALUE(storageClass_, storageClass) };
+
+
+      protected:
+        shared_ptr<bool> enabled_ {};
+        shared_ptr<string> performanceLevel_ {};
+        shared_ptr<int32_t> size_ {};
+        shared_ptr<string> storageClass_ {};
+      };
+
       virtual bool empty() const override { return this->cuNum_ == nullptr
-        && this->cuType_ == nullptr && this->diskSizeType_ == nullptr && this->payType_ == nullptr && this->replica_ == nullptr && this->type_ == nullptr; };
+        && this->cuType_ == nullptr && this->dataDisk_ == nullptr && this->diskSizeType_ == nullptr && this->payType_ == nullptr && this->podsList_ == nullptr
+        && this->replica_ == nullptr && this->type_ == nullptr; };
       // cuNum Field Functions 
       bool hasCuNum() const { return this->cuNum_ != nullptr;};
       void deleteCuNum() { this->cuNum_ = nullptr;};
@@ -203,6 +316,15 @@ namespace Models
       inline Components& setCuType(string cuType) { DARABONBA_PTR_SET_VALUE(cuType_, cuType) };
 
 
+      // dataDisk Field Functions 
+      bool hasDataDisk() const { return this->dataDisk_ != nullptr;};
+      void deleteDataDisk() { this->dataDisk_ = nullptr;};
+      inline const Components::DataDisk & getDataDisk() const { DARABONBA_PTR_GET_CONST(dataDisk_, Components::DataDisk) };
+      inline Components::DataDisk getDataDisk() { DARABONBA_PTR_GET(dataDisk_, Components::DataDisk) };
+      inline Components& setDataDisk(const Components::DataDisk & dataDisk) { DARABONBA_PTR_SET_VALUE(dataDisk_, dataDisk) };
+      inline Components& setDataDisk(Components::DataDisk && dataDisk) { DARABONBA_PTR_SET_RVALUE(dataDisk_, dataDisk) };
+
+
       // diskSizeType Field Functions 
       bool hasDiskSizeType() const { return this->diskSizeType_ != nullptr;};
       void deleteDiskSizeType() { this->diskSizeType_ = nullptr;};
@@ -215,6 +337,15 @@ namespace Models
       void deletePayType() { this->payType_ = nullptr;};
       inline string getPayType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
       inline Components& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
+
+
+      // podsList Field Functions 
+      bool hasPodsList() const { return this->podsList_ != nullptr;};
+      void deletePodsList() { this->podsList_ = nullptr;};
+      inline const vector<Components::PodsList> & getPodsList() const { DARABONBA_PTR_GET_CONST(podsList_, vector<Components::PodsList>) };
+      inline vector<Components::PodsList> getPodsList() { DARABONBA_PTR_GET(podsList_, vector<Components::PodsList>) };
+      inline Components& setPodsList(const vector<Components::PodsList> & podsList) { DARABONBA_PTR_SET_VALUE(podsList_, podsList) };
+      inline Components& setPodsList(vector<Components::PodsList> && podsList) { DARABONBA_PTR_SET_RVALUE(podsList_, podsList) };
 
 
       // replica Field Functions 
@@ -232,11 +363,18 @@ namespace Models
 
 
     protected:
+      // The number of CUs.
       shared_ptr<int32_t> cuNum_ {};
+      // The CU type.
       shared_ptr<string> cuType_ {};
+      shared_ptr<Components::DataDisk> dataDisk_ {};
+      // The disk size type for the Query Node. Set this parameter to Large for storage-optimized configurations, and to Normal for other configurations.
       shared_ptr<string> diskSizeType_ {};
       shared_ptr<string> payType_ {};
+      shared_ptr<vector<Components::PodsList>> podsList_ {};
+      // The number of replicas.
       shared_ptr<int32_t> replica_ {};
+      // The component type.
       shared_ptr<string> type_ {};
     };
 
@@ -416,31 +554,62 @@ namespace Models
 
 
   protected:
+    // The automatic backup configuration.
     shared_ptr<bool> autoBackup_ {};
+    // The component information.
     shared_ptr<vector<InstanceDetail::Components>> components_ {};
+    // The configuration.
     shared_ptr<string> configuration_ {};
+    // The creation time.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> createTime_ {};
+    // The instance version.
     shared_ptr<string> dbVersion_ {};
+    // Indicates whether data encryption is enabled.
     shared_ptr<bool> encrypted_ {};
+    // The expiration time.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> expireTime_ {};
+    // Indicates whether high availability is enabled.
     shared_ptr<bool> ha_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The instance name.
     shared_ptr<string> instanceName_ {};
     // kms key Id。
     shared_ptr<string> kmsKeyId_ {};
+    // The multi-zone deployment mode.
     shared_ptr<string> multiZoneMode_ {};
+    // The order ID.
     shared_ptr<string> orderId_ {};
+    // The billing method. Valid values: PayAsYouGo: pay-as-you-go billing method. Subscription: subscription.
     shared_ptr<string> paymentType_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The running time.
     shared_ptr<int64_t> runningTime_ {};
+    // The security group IDs.
     shared_ptr<vector<string>> securityGroupIds_ {};
+    // The instance status. Valid values:
+    // 
+    // - creating: Being created.
+    // - running: Running.
+    // - updating: Being upgraded. This includes specification changes, configuration changes, and public network access changes.
+    // - disable: Unavailable. The cluster has expired and requires renewal to reactivate.
+    // - deleting: Being deleted.
+    // - deleted: Deleted.
     shared_ptr<string> status_ {};
+    // The tags.
     shared_ptr<vector<InstanceDetail::Tags>> tags_ {};
+    // The vSwitch IDs.
     shared_ptr<vector<InstanceDetail::VSwitchIds>> vSwitchIds_ {};
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
+    // The zone ID of the instance.
     shared_ptr<string> zoneId_ {};
   };
 

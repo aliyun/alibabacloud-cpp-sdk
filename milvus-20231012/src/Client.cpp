@@ -17,7 +17,18 @@ namespace Milvus20231012
 {
 
 AlibabaCloud::Milvus20231012::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"eu-central-1" , "milvus.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "milvus.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "milvus.cn-wulanchabu.aliyuncs.com"},
+    {"cn-shenzhen" , "milvus.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai" , "milvus.cn-shanghai.aliyuncs.com"},
+    {"cn-hongkong" , "milvus.cn-hongkong.aliyuncs.com"},
+    {"cn-hangzhou" , "milvus.cn-hangzhou.aliyuncs.com"},
+    {"cn-beijing" , "milvus.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-1" , "milvus.ap-southeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("milvus", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +47,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 资源转组
+ * @summary Changes the resource group of a resource.
  *
  * @param request ChangeResourceGroupRequest
  * @param headers map
@@ -85,7 +96,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary 资源转组
+ * @summary Changes the resource group of a resource.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -97,7 +108,7 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary 创建白名单分组
+ * @summary Creates an ACL group.
  *
  * @param request CreateAclGroupRequest
  * @param headers map
@@ -142,7 +153,7 @@ CreateAclGroupResponse Client::createAclGroupWithOptions(const CreateAclGroupReq
 }
 
 /**
- * @summary 创建白名单分组
+ * @summary Creates an ACL group.
  *
  * @param request CreateAclGroupRequest
  * @return CreateAclGroupResponse
@@ -154,7 +165,7 @@ CreateAclGroupResponse Client::createAclGroup(const CreateAclGroupRequest &reque
 }
 
 /**
- * @summary Create a service role for Milvus to access other cloud products
+ * @summary Creates the server role required by Milvus to access other cloud products.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -179,7 +190,7 @@ CreateDefaultRoleResponse Client::createDefaultRoleWithOptions(const map<string,
 }
 
 /**
- * @summary Create a service role for Milvus to access other cloud products
+ * @summary Creates the server role required by Milvus to access other cloud products.
  *
  * @return CreateDefaultRoleResponse
  */
@@ -190,7 +201,7 @@ CreateDefaultRoleResponse Client::createDefaultRole() {
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates a cluster instance.
  *
  * @param request CreateInstanceRequest
  * @param headers map
@@ -329,7 +340,7 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates a cluster instance.
  *
  * @param request CreateInstanceRequest
  * @return CreateInstanceResponse
@@ -341,7 +352,7 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
- * @summary 删除实例
+ * @summary Deletes an instance.
  *
  * @param request DeleteInstanceRequest
  * @param headers map
@@ -378,7 +389,7 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
 }
 
 /**
- * @summary 删除实例
+ * @summary Deletes an instance.
  *
  * @param request DeleteInstanceRequest
  * @return DeleteInstanceResponse
@@ -480,7 +491,7 @@ DescribeInstanceConfigsResponse Client::describeInstanceConfigs(const DescribeIn
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves the details of an instance.
  *
  * @param request GetInstanceRequest
  * @param headers map
@@ -517,7 +528,7 @@ GetInstanceResponse Client::getInstanceWithOptions(const GetInstanceRequest &req
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves the details of an instance.
  *
  * @param request GetInstanceRequest
  * @return GetInstanceResponse
@@ -529,7 +540,7 @@ GetInstanceResponse Client::getInstance(const GetInstanceRequest &request) {
 }
 
 /**
- * @summary Get the details of an instance.
+ * @summary Retrieves the details of a single instance.
  *
  * @param request GetInstanceDetailRequest
  * @param headers map
@@ -562,7 +573,7 @@ GetInstanceDetailResponse Client::getInstanceDetailWithOptions(const GetInstance
 }
 
 /**
- * @summary Get the details of an instance.
+ * @summary Retrieves the details of a single instance.
  *
  * @param request GetInstanceDetailRequest
  * @return GetInstanceDetailResponse
@@ -574,7 +585,7 @@ GetInstanceDetailResponse Client::getInstanceDetail(const GetInstanceDetailReque
 }
 
 /**
- * @summary 获取当前用户下的分组信息和内容
+ * @summary Retrieves one or more access control list (ACL) groups.
  *
  * @param request ListAclGroupsRequest
  * @param headers map
@@ -611,7 +622,7 @@ ListAclGroupsResponse Client::listAclGroupsWithOptions(const ListAclGroupsReques
 }
 
 /**
- * @summary 获取当前用户下的分组信息和内容
+ * @summary Retrieves one or more access control list (ACL) groups.
  *
  * @param request ListAclGroupsRequest
  * @return ListAclGroupsResponse
@@ -623,7 +634,7 @@ ListAclGroupsResponse Client::listAclGroups(const ListAclGroupsRequest &request)
 }
 
 /**
- * @summary Get the list of Milvus instances under the current account.
+ * @summary Retrieves a list of Milvus instances in the current account.
  *
  * @param tmpReq ListInstancesRequest
  * @param headers map
@@ -686,7 +697,7 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
- * @summary Get the list of Milvus instances under the current account.
+ * @summary Retrieves a list of Milvus instances in the current account.
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -698,7 +709,7 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary 根据集群ID或者名称搜索集群
+ * @summary Searches for clusters by cluster ID or name.
  *
  * @param tmpReq ListInstancesV2Request
  * @param headers map
@@ -769,7 +780,7 @@ ListInstancesV2Response Client::listInstancesV2WithOptions(const ListInstancesV2
 }
 
 /**
- * @summary 根据集群ID或者名称搜索集群
+ * @summary Searches for clusters by cluster ID or name.
  *
  * @param request ListInstancesV2Request
  * @return ListInstancesV2Response
@@ -781,7 +792,7 @@ ListInstancesV2Response Client::listInstancesV2(const ListInstancesV2Request &re
 }
 
 /**
- * @summary Update the configuration parameters of each component of Milvus.
+ * @summary Modifies the configuration parameters for Milvus components.
  *
  * @param request ModifyInstanceConfigRequest
  * @param headers map
@@ -822,7 +833,7 @@ ModifyInstanceConfigResponse Client::modifyInstanceConfigWithOptions(const Modif
 }
 
 /**
- * @summary Update the configuration parameters of each component of Milvus.
+ * @summary Modifies the configuration parameters for Milvus components.
  *
  * @param request ModifyInstanceConfigRequest
  * @return ModifyInstanceConfigResponse
@@ -834,7 +845,7 @@ ModifyInstanceConfigResponse Client::modifyInstanceConfig(const ModifyInstanceCo
 }
 
 /**
- * @summary 打标
+ * @summary Adds tags to resources.
  *
  * @param request TagResourcesRequest
  * @param headers map
@@ -879,7 +890,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary 打标
+ * @summary Adds tags to resources.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -891,7 +902,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary 删除标签
+ * @summary Remove resource tags.
  *
  * @param tmpReq UnTagResourcesRequest
  * @param headers map
@@ -950,7 +961,7 @@ UnTagResourcesResponse Client::unTagResourcesWithOptions(const UnTagResourcesReq
 }
 
 /**
- * @summary 删除标签
+ * @summary Remove resource tags.
  *
  * @param request UnTagResourcesRequest
  * @return UnTagResourcesResponse
@@ -962,7 +973,7 @@ UnTagResourcesResponse Client::unTagResources(const UnTagResourcesRequest &reque
 }
 
 /**
- * @summary Configure Public IP Address Whitelist
+ * @summary Sets the IP address whitelist for public access to a Milvus instance.
  *
  * @param request UpdateAccessControlListRequest
  * @param headers map
@@ -1003,7 +1014,7 @@ UpdateAccessControlListResponse Client::updateAccessControlListWithOptions(const
 }
 
 /**
- * @summary Configure Public IP Address Whitelist
+ * @summary Sets the IP address whitelist for public access to a Milvus instance.
  *
  * @param request UpdateAccessControlListRequest
  * @return UpdateAccessControlListResponse
@@ -1015,7 +1026,7 @@ UpdateAccessControlListResponse Client::updateAccessControlList(const UpdateAcce
 }
 
 /**
- * @summary 修改分组内的白名单
+ * @summary Modifies the CIDR blocks in a specified allow list group.
  *
  * @param request UpdateAclGroupCidrsRequest
  * @param headers map
@@ -1056,7 +1067,7 @@ UpdateAclGroupCidrsResponse Client::updateAclGroupCidrsWithOptions(const UpdateA
 }
 
 /**
- * @summary 修改分组内的白名单
+ * @summary Modifies the CIDR blocks in a specified allow list group.
  *
  * @param request UpdateAclGroupCidrsRequest
  * @return UpdateAclGroupCidrsResponse
@@ -1068,7 +1079,7 @@ UpdateAclGroupCidrsResponse Client::updateAclGroupCidrs(const UpdateAclGroupCidr
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates an instance.
  *
  * @param request UpdateInstanceRequest
  * @param headers map
@@ -1135,7 +1146,7 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const UpdateInstanceReq
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates an instance.
  *
  * @param request UpdateInstanceRequest
  * @return UpdateInstanceResponse
@@ -1147,7 +1158,7 @@ UpdateInstanceResponse Client::updateInstance(const UpdateInstanceRequest &reque
 }
 
 /**
- * @summary Modifies the name of an instance.
+ * @summary Changes the name of an instance.
  *
  * @param request UpdateInstanceNameRequest
  * @param headers map
@@ -1184,7 +1195,7 @@ UpdateInstanceNameResponse Client::updateInstanceNameWithOptions(const UpdateIns
 }
 
 /**
- * @summary Modifies the name of an instance.
+ * @summary Changes the name of an instance.
  *
  * @param request UpdateInstanceNameRequest
  * @return UpdateInstanceNameResponse
@@ -1196,7 +1207,7 @@ UpdateInstanceNameResponse Client::updateInstanceName(const UpdateInstanceNameRe
 }
 
 /**
- * @summary Enable or disable Internet access for Milvus.
+ * @summary Enables or disables public network access for a Milvus instance.
  *
  * @param request UpdatePublicNetworkStatusRequest
  * @param headers map
@@ -1241,7 +1252,7 @@ UpdatePublicNetworkStatusResponse Client::updatePublicNetworkStatusWithOptions(c
 }
 
 /**
- * @summary Enable or disable Internet access for Milvus.
+ * @summary Enables or disables public network access for a Milvus instance.
  *
  * @param request UpdatePublicNetworkStatusRequest
  * @return UpdatePublicNetworkStatusResponse

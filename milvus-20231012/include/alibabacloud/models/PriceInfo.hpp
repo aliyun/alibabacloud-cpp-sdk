@@ -92,8 +92,11 @@ namespace Models
 
 
     protected:
+      // The amount associated with the pricing rule.
       shared_ptr<string> amount_ {};
+      // The name of the pricing rule.
       shared_ptr<string> name_ {};
+      // The ID of the pricing rule.
       shared_ptr<string> ruleId_ {};
     };
 
@@ -135,7 +138,9 @@ namespace Models
 
 
     protected:
+      // The original amount of the price module.
       shared_ptr<string> originalAmount_ {};
+      // The type of the price module.
       shared_ptr<string> type_ {};
     };
 
@@ -205,13 +210,21 @@ namespace Models
 
 
   protected:
+    // The currency of the price.
     shared_ptr<string> currency_ {};
+    // The discount amount.
     shared_ptr<string> discountAmount_ {};
+    // The optional promotions.
     shared_ptr<vector<PromotionInfo>> optionalPromotions_ {};
+    // The original price.
     shared_ptr<string> originalAmount_ {};
+    // The price modules.
     shared_ptr<vector<PriceInfo::PriceModules>> priceModules_ {};
+    // The pricing rules.
     shared_ptr<vector<PriceInfo::Rules>> rules_ {};
+    // The tax amount.
     shared_ptr<string> taxAmount_ {};
+    // The actual trade price.
     shared_ptr<string> tradeAmount_ {};
   };
 
