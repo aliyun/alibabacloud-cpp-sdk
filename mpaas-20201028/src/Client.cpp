@@ -1857,6 +1857,14 @@ CreateMdsCubeResourceResponse Client::createMdsCubeResourceWithOptions(const Cre
     body["FileUrl"] = request.getFileUrl();
   }
 
+  if (!!request.hasHarmonyMaxVersion()) {
+    body["HarmonyMaxVersion"] = request.getHarmonyMaxVersion();
+  }
+
+  if (!!request.hasHarmonyMinVersion()) {
+    body["HarmonyMinVersion"] = request.getHarmonyMinVersion();
+  }
+
   if (!!request.hasIosMaxVersion()) {
     body["IosMaxVersion"] = request.getIosMaxVersion();
   }

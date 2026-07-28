@@ -13,12 +13,16 @@ namespace Models
   class CreateOpenSingleDataResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateOpenSingleDataResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AccessDeniedDetail, accessDeniedDetail_);
+      DARABONBA_PTR_TO_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Result, result_);
       DARABONBA_PTR_TO_JSON(ResultCode, resultCode_);
       DARABONBA_PTR_TO_JSON(ResultMessage, resultMessage_);
     };
     friend void from_json(const Darabonba::Json& j, CreateOpenSingleDataResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccessDeniedDetail, accessDeniedDetail_);
+      DARABONBA_PTR_FROM_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Result, result_);
       DARABONBA_PTR_FROM_JSON(ResultCode, resultCode_);
@@ -35,8 +39,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->requestId_ == nullptr
-        && this->result_ == nullptr && this->resultCode_ == nullptr && this->resultMessage_ == nullptr; };
+    virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
+        && this->httpStatusCode_ == nullptr && this->requestId_ == nullptr && this->result_ == nullptr && this->resultCode_ == nullptr && this->resultMessage_ == nullptr; };
+    // accessDeniedDetail Field Functions 
+    bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
+    void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline CreateOpenSingleDataResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
+
+
+    // httpStatusCode Field Functions 
+    bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
+    void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline CreateOpenSingleDataResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -66,6 +84,8 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accessDeniedDetail_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> result_ {};
     shared_ptr<string> resultCode_ {};

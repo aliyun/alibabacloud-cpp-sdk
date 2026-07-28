@@ -18,6 +18,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppId, appId_);
       DARABONBA_PTR_TO_JSON(ExtendInfo, extendInfo_);
       DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
+      DARABONBA_PTR_TO_JSON(HarmonyMaxVersion, harmonyMaxVersion_);
+      DARABONBA_PTR_TO_JSON(HarmonyMinVersion, harmonyMinVersion_);
       DARABONBA_PTR_TO_JSON(IosMaxVersion, iosMaxVersion_);
       DARABONBA_PTR_TO_JSON(IosMinVersion, iosMinVersion_);
       DARABONBA_PTR_TO_JSON(MockDataUrl, mockDataUrl_);
@@ -36,6 +38,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(ExtendInfo, extendInfo_);
       DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
+      DARABONBA_PTR_FROM_JSON(HarmonyMaxVersion, harmonyMaxVersion_);
+      DARABONBA_PTR_FROM_JSON(HarmonyMinVersion, harmonyMinVersion_);
       DARABONBA_PTR_FROM_JSON(IosMaxVersion, iosMaxVersion_);
       DARABONBA_PTR_FROM_JSON(IosMinVersion, iosMinVersion_);
       DARABONBA_PTR_FROM_JSON(MockDataUrl, mockDataUrl_);
@@ -60,9 +64,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->androidMaxVersion_ == nullptr
-        && this->androidMinVersion_ == nullptr && this->appId_ == nullptr && this->extendInfo_ == nullptr && this->fileUrl_ == nullptr && this->iosMaxVersion_ == nullptr
-        && this->iosMinVersion_ == nullptr && this->mockDataUrl_ == nullptr && this->onexFlag_ == nullptr && this->platform_ == nullptr && this->previewPictureUrl_ == nullptr
-        && this->templateId_ == nullptr && this->templateResourceDesc_ == nullptr && this->templateResourceVersion_ == nullptr && this->tenantId_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->androidMinVersion_ == nullptr && this->appId_ == nullptr && this->extendInfo_ == nullptr && this->fileUrl_ == nullptr && this->harmonyMaxVersion_ == nullptr
+        && this->harmonyMinVersion_ == nullptr && this->iosMaxVersion_ == nullptr && this->iosMinVersion_ == nullptr && this->mockDataUrl_ == nullptr && this->onexFlag_ == nullptr
+        && this->platform_ == nullptr && this->previewPictureUrl_ == nullptr && this->templateId_ == nullptr && this->templateResourceDesc_ == nullptr && this->templateResourceVersion_ == nullptr
+        && this->tenantId_ == nullptr && this->workspaceId_ == nullptr; };
     // androidMaxVersion Field Functions 
     bool hasAndroidMaxVersion() const { return this->androidMaxVersion_ != nullptr;};
     void deleteAndroidMaxVersion() { this->androidMaxVersion_ = nullptr;};
@@ -96,6 +101,20 @@ namespace Models
     void deleteFileUrl() { this->fileUrl_ = nullptr;};
     inline string getFileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
     inline CreateMdsCubeResourceRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
+
+
+    // harmonyMaxVersion Field Functions 
+    bool hasHarmonyMaxVersion() const { return this->harmonyMaxVersion_ != nullptr;};
+    void deleteHarmonyMaxVersion() { this->harmonyMaxVersion_ = nullptr;};
+    inline string getHarmonyMaxVersion() const { DARABONBA_PTR_GET_DEFAULT(harmonyMaxVersion_, "") };
+    inline CreateMdsCubeResourceRequest& setHarmonyMaxVersion(string harmonyMaxVersion) { DARABONBA_PTR_SET_VALUE(harmonyMaxVersion_, harmonyMaxVersion) };
+
+
+    // harmonyMinVersion Field Functions 
+    bool hasHarmonyMinVersion() const { return this->harmonyMinVersion_ != nullptr;};
+    void deleteHarmonyMinVersion() { this->harmonyMinVersion_ = nullptr;};
+    inline string getHarmonyMinVersion() const { DARABONBA_PTR_GET_DEFAULT(harmonyMinVersion_, "") };
+    inline CreateMdsCubeResourceRequest& setHarmonyMinVersion(string harmonyMinVersion) { DARABONBA_PTR_SET_VALUE(harmonyMinVersion_, harmonyMinVersion) };
 
 
     // iosMaxVersion Field Functions 
@@ -181,6 +200,8 @@ namespace Models
     shared_ptr<string> appId_ {};
     shared_ptr<string> extendInfo_ {};
     shared_ptr<string> fileUrl_ {};
+    shared_ptr<string> harmonyMaxVersion_ {};
+    shared_ptr<string> harmonyMinVersion_ {};
     shared_ptr<string> iosMaxVersion_ {};
     shared_ptr<string> iosMinVersion_ {};
     shared_ptr<string> mockDataUrl_ {};
