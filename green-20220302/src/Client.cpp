@@ -64,7 +64,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Document review results
+ * @summary Queries the document content moderation result.
  *
  * @param request DescribeFileModerationResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -99,7 +99,7 @@ DescribeFileModerationResultResponse Client::describeFileModerationResultWithOpt
 }
 
 /**
- * @summary Document review results
+ * @summary Queries the document content moderation result.
  *
  * @param request DescribeFileModerationResultRequest
  * @return DescribeFileModerationResultResponse
@@ -995,7 +995,7 @@ MultiModalGuardAsyncResponse Client::multiModalGuardAsync(const MultiModalGuardA
 /**
  * @summary Queries the asynchronous results of AI safety guardrail multimodal content moderation, supporting audio and video modalities.
  *
- * @description If an API involves fees, add the following bold statement as the first sentence: **Make sure that you fully understand the billing methods and pricing of XXX before you call this operation.** In this statement, "pricing" is a hyperlink that points to: https://www.aliyun.com/price/product#/ecs/detail.
+ * @description If the API incurs fees, add the following bold statement as the first sentence: **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of XXX.**
  *
  * @param request MultiModalGuardAsyncResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1032,7 +1032,7 @@ MultiModalGuardAsyncResultResponse Client::multiModalGuardAsyncResultWithOptions
 /**
  * @summary Queries the asynchronous results of AI safety guardrail multimodal content moderation, supporting audio and video modalities.
  *
- * @description If an API involves fees, add the following bold statement as the first sentence: **Make sure that you fully understand the billing methods and pricing of XXX before you call this operation.** In this statement, "pricing" is a hyperlink that points to: https://www.aliyun.com/price/product#/ecs/detail.
+ * @description If the API incurs fees, add the following bold statement as the first sentence: **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of XXX.**
  *
  * @param request MultiModalGuardAsyncResultRequest
  * @return MultiModalGuardAsyncResultResponse
@@ -1043,7 +1043,7 @@ MultiModalGuardAsyncResultResponse Client::multiModalGuardAsyncResult(const Mult
 }
 
 /**
- * @summary Performs synchronous multimodal content moderation. Supports base64-encoded image strings.
+ * @summary Performs synchronous multimodal content moderation. Supports image base64 strings.
  *
  * @param request MultiModalGuardForBase64Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -1057,6 +1057,10 @@ MultiModalGuardForBase64Response Client::multiModalGuardForBase64WithOptions(con
   }
 
   json body = {};
+  if (!!request.hasFileBase64Str()) {
+    body["FileBase64Str"] = request.getFileBase64Str();
+  }
+
   if (!!request.hasImageBase64Str()) {
     body["ImageBase64Str"] = request.getImageBase64Str();
   }
@@ -1084,7 +1088,7 @@ MultiModalGuardForBase64Response Client::multiModalGuardForBase64WithOptions(con
 }
 
 /**
- * @summary Performs synchronous multimodal content moderation. Supports base64-encoded image strings.
+ * @summary Performs synchronous multimodal content moderation. Supports image base64 strings.
  *
  * @param request MultiModalGuardForBase64Request
  * @return MultiModalGuardForBase64Response

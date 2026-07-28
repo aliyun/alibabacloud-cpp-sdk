@@ -215,7 +215,7 @@ namespace Models
               shared_ptr<float> confidence_ {};
               // The label description.
               shared_ptr<string> description_ {};
-              // The extended information of the detection result.
+              // The extended information of the moderation result.
               Darabonba::Json ext_ {};
               // The label.
               shared_ptr<string> label_ {};
@@ -266,17 +266,17 @@ namespace Models
             // - low: Low risk.
             // - none: No risk detected.
             shared_ptr<string> level_ {};
-            // The detection result.
+            // The moderation result.
             shared_ptr<vector<Detail::Result>> result_ {};
-            // The moderation recommendation. Valid values:
+            // The recommended action. Valid values:
             // 
             // - block: Block the content.
             // - pass: Allow the content.
             // - watch: Manually review the content.
             // - mask: Mask the content.
             shared_ptr<string> suggestion_ {};
-            // The detection type. Valid values:
-            // - contentModeration: content compliance detection
+            // The moderation type. Valid values:
+            // - contentModeration: content compliance moderation
             // - promptAttack: prompt attack detection
             // - sensitiveData: sensitive content detection
             // - modelHallucination: model hallucination detection
@@ -339,13 +339,15 @@ namespace Models
 
 
         protected:
-          // The list of detection results.
+          // The list of moderation results.
           shared_ptr<vector<Frames::Detail>> detail_ {};
+          // The error code.
           shared_ptr<int32_t> errorCode_ {};
+          // The error message.
           shared_ptr<string> errorMsg_ {};
           // The frame capture position.
           shared_ptr<float> offset_ {};
-          // The moderation recommendation. Valid values:
+          // The recommended action. Valid values:
           // 
           // - block: Block the content.
           // - pass: Allow the content.
@@ -354,7 +356,7 @@ namespace Models
           shared_ptr<string> suggestion_ {};
           // The absolute timestamp, in milliseconds.
           shared_ptr<int64_t> timestamp_ {};
-          // The temporary URL of the frame.
+          // The temporary URL of the segment.
           shared_ptr<string> url_ {};
         };
 
@@ -384,11 +386,11 @@ namespace Models
 
 
       protected:
-        // The frame detection results.
+        // The frame moderation results.
         shared_ptr<vector<FrameResult::Frames>> frames_ {};
         // The number of segments.
         shared_ptr<int32_t> sliceNum_ {};
-        // The moderation recommendation. Valid values:
+        // The recommended action. Valid values:
         // 
         // - block: Block the content.
         // - pass: Allow the content.
@@ -545,7 +547,7 @@ namespace Models
               shared_ptr<float> confidence_ {};
               // The label description.
               shared_ptr<string> description_ {};
-              // The extended information of the detection result.
+              // The extended information of the moderation result.
               Darabonba::Json ext_ {};
               // The label.
               shared_ptr<string> label_ {};
@@ -596,17 +598,17 @@ namespace Models
             // - low: Low risk.
             // - none: No risk detected.
             shared_ptr<string> level_ {};
-            // The list of detection results.
+            // The list of moderation results.
             shared_ptr<vector<Detail::Result>> result_ {};
-            // The moderation recommendation. Valid values:
+            // The recommended action. Valid values:
             // 
             // - block: Block the content.
             // - pass: Allow the content.
             // - watch: Manually review the content.
             // - mask: Mask the content.
             shared_ptr<string> suggestion_ {};
-            // The detection type. Valid values:
-            // - contentModeration: content compliance detection
+            // The moderation type. Valid values:
+            // - contentModeration: content compliance moderation
             // - promptAttack: prompt attack detection
             // - sensitiveData: sensitive content detection
             // - modelHallucination: model hallucination detection
@@ -661,13 +663,13 @@ namespace Models
 
 
         protected:
-          // The detection details.
+          // The moderation details.
           shared_ptr<vector<SliceDetails::Detail>> detail_ {};
           // The end time of the segment, in seconds.
           shared_ptr<int64_t> endTime_ {};
           // The start time of the segment, in seconds.
           shared_ptr<int64_t> startTime_ {};
-          // The moderation recommendation. Valid values:
+          // The recommended action. Valid values:
           // 
           // - block: Block the content.
           // - pass: Allow the content.

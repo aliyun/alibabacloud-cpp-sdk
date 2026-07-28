@@ -72,11 +72,13 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const PageSummary& obj) { 
           DARABONBA_PTR_TO_JSON(ImageSummary, imageSummary_);
           DARABONBA_PTR_TO_JSON(PageSum, pageSum_);
+          DARABONBA_PTR_TO_JSON(RiskSummary, riskSummary_);
           DARABONBA_PTR_TO_JSON(TextSummary, textSummary_);
         };
         friend void from_json(const Darabonba::Json& j, PageSummary& obj) { 
           DARABONBA_PTR_FROM_JSON(ImageSummary, imageSummary_);
           DARABONBA_PTR_FROM_JSON(PageSum, pageSum_);
+          DARABONBA_PTR_FROM_JSON(RiskSummary, riskSummary_);
           DARABONBA_PTR_FROM_JSON(TextSummary, textSummary_);
         };
         PageSummary() = default ;
@@ -158,7 +160,7 @@ namespace Models
 
 
           protected:
-            // The description of the label.
+            // The label descriptions.
             shared_ptr<string> description_ {};
             // The label.
             shared_ptr<string> label_ {};
@@ -189,6 +191,284 @@ namespace Models
           shared_ptr<string> riskLevel_ {};
           // The text labels.
           shared_ptr<vector<TextSummary::TextLabels>> textLabels_ {};
+        };
+
+        class RiskSummary : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const RiskSummary& obj) { 
+            DARABONBA_PTR_TO_JSON(Ext, ext_);
+            DARABONBA_PTR_TO_JSON(RiskLabels, riskLabels_);
+            DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
+          };
+          friend void from_json(const Darabonba::Json& j, RiskSummary& obj) { 
+            DARABONBA_PTR_FROM_JSON(Ext, ext_);
+            DARABONBA_PTR_FROM_JSON(RiskLabels, riskLabels_);
+            DARABONBA_PTR_FROM_JSON(RiskLevel, riskLevel_);
+          };
+          RiskSummary() = default ;
+          RiskSummary(const RiskSummary &) = default ;
+          RiskSummary(RiskSummary &&) = default ;
+          RiskSummary(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~RiskSummary() = default ;
+          RiskSummary& operator=(const RiskSummary &) = default ;
+          RiskSummary& operator=(RiskSummary &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class RiskLabels : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const RiskLabels& obj) { 
+              DARABONBA_PTR_TO_JSON(Confidence, confidence_);
+              DARABONBA_PTR_TO_JSON(Description, description_);
+              DARABONBA_PTR_TO_JSON(Label, label_);
+            };
+            friend void from_json(const Darabonba::Json& j, RiskLabels& obj) { 
+              DARABONBA_PTR_FROM_JSON(Confidence, confidence_);
+              DARABONBA_PTR_FROM_JSON(Description, description_);
+              DARABONBA_PTR_FROM_JSON(Label, label_);
+            };
+            RiskLabels() = default ;
+            RiskLabels(const RiskLabels &) = default ;
+            RiskLabels(RiskLabels &&) = default ;
+            RiskLabels(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~RiskLabels() = default ;
+            RiskLabels& operator=(const RiskLabels &) = default ;
+            RiskLabels& operator=(RiskLabels &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->confidence_ == nullptr
+        && this->description_ == nullptr && this->label_ == nullptr; };
+            // confidence Field Functions 
+            bool hasConfidence() const { return this->confidence_ != nullptr;};
+            void deleteConfidence() { this->confidence_ = nullptr;};
+            inline float getConfidence() const { DARABONBA_PTR_GET_DEFAULT(confidence_, 0.0) };
+            inline RiskLabels& setConfidence(float confidence) { DARABONBA_PTR_SET_VALUE(confidence_, confidence) };
+
+
+            // description Field Functions 
+            bool hasDescription() const { return this->description_ != nullptr;};
+            void deleteDescription() { this->description_ = nullptr;};
+            inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+            inline RiskLabels& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+            // label Field Functions 
+            bool hasLabel() const { return this->label_ != nullptr;};
+            void deleteLabel() { this->label_ = nullptr;};
+            inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
+            inline RiskLabels& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
+
+
+          protected:
+            shared_ptr<float> confidence_ {};
+            shared_ptr<string> description_ {};
+            shared_ptr<string> label_ {};
+          };
+
+          class Ext : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Ext& obj) { 
+              DARABONBA_PTR_TO_JSON(AigcData, aigcData_);
+            };
+            friend void from_json(const Darabonba::Json& j, Ext& obj) { 
+              DARABONBA_PTR_FROM_JSON(AigcData, aigcData_);
+            };
+            Ext() = default ;
+            Ext(const Ext &) = default ;
+            Ext(Ext &&) = default ;
+            Ext(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Ext() = default ;
+            Ext& operator=(const Ext &) = default ;
+            Ext& operator=(Ext &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class AigcData : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const AigcData& obj) { 
+                DARABONBA_PTR_TO_JSON(AIGC, AIGC_);
+                DARABONBA_PTR_TO_JSON(Explain, explain_);
+              };
+              friend void from_json(const Darabonba::Json& j, AigcData& obj) { 
+                DARABONBA_PTR_FROM_JSON(AIGC, AIGC_);
+                DARABONBA_PTR_FROM_JSON(Explain, explain_);
+              };
+              AigcData() = default ;
+              AigcData(const AigcData &) = default ;
+              AigcData(AigcData &&) = default ;
+              AigcData(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~AigcData() = default ;
+              AigcData& operator=(const AigcData &) = default ;
+              AigcData& operator=(AigcData &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              class AIGC : public Darabonba::Model {
+              public:
+                friend void to_json(Darabonba::Json& j, const AIGC& obj) { 
+                  DARABONBA_PTR_TO_JSON(ContentProducer, contentProducer_);
+                  DARABONBA_PTR_TO_JSON(ContentPropagator, contentPropagator_);
+                  DARABONBA_PTR_TO_JSON(Label, label_);
+                  DARABONBA_PTR_TO_JSON(ProduceID, produceID_);
+                  DARABONBA_PTR_TO_JSON(PropagateID, propagateID_);
+                  DARABONBA_PTR_TO_JSON(ReservedCode1, reservedCode1_);
+                  DARABONBA_PTR_TO_JSON(ReservedCode2, reservedCode2_);
+                };
+                friend void from_json(const Darabonba::Json& j, AIGC& obj) { 
+                  DARABONBA_PTR_FROM_JSON(ContentProducer, contentProducer_);
+                  DARABONBA_PTR_FROM_JSON(ContentPropagator, contentPropagator_);
+                  DARABONBA_PTR_FROM_JSON(Label, label_);
+                  DARABONBA_PTR_FROM_JSON(ProduceID, produceID_);
+                  DARABONBA_PTR_FROM_JSON(PropagateID, propagateID_);
+                  DARABONBA_PTR_FROM_JSON(ReservedCode1, reservedCode1_);
+                  DARABONBA_PTR_FROM_JSON(ReservedCode2, reservedCode2_);
+                };
+                AIGC() = default ;
+                AIGC(const AIGC &) = default ;
+                AIGC(AIGC &&) = default ;
+                AIGC(const Darabonba::Json & obj) { from_json(obj, *this); };
+                virtual ~AIGC() = default ;
+                AIGC& operator=(const AIGC &) = default ;
+                AIGC& operator=(AIGC &&) = default ;
+                virtual void validate() const override {
+                };
+                virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+                virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+                virtual bool empty() const override { return this->contentProducer_ == nullptr
+        && this->contentPropagator_ == nullptr && this->label_ == nullptr && this->produceID_ == nullptr && this->propagateID_ == nullptr && this->reservedCode1_ == nullptr
+        && this->reservedCode2_ == nullptr; };
+                // contentProducer Field Functions 
+                bool hasContentProducer() const { return this->contentProducer_ != nullptr;};
+                void deleteContentProducer() { this->contentProducer_ = nullptr;};
+                inline string getContentProducer() const { DARABONBA_PTR_GET_DEFAULT(contentProducer_, "") };
+                inline AIGC& setContentProducer(string contentProducer) { DARABONBA_PTR_SET_VALUE(contentProducer_, contentProducer) };
+
+
+                // contentPropagator Field Functions 
+                bool hasContentPropagator() const { return this->contentPropagator_ != nullptr;};
+                void deleteContentPropagator() { this->contentPropagator_ = nullptr;};
+                inline string getContentPropagator() const { DARABONBA_PTR_GET_DEFAULT(contentPropagator_, "") };
+                inline AIGC& setContentPropagator(string contentPropagator) { DARABONBA_PTR_SET_VALUE(contentPropagator_, contentPropagator) };
+
+
+                // label Field Functions 
+                bool hasLabel() const { return this->label_ != nullptr;};
+                void deleteLabel() { this->label_ = nullptr;};
+                inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
+                inline AIGC& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
+
+
+                // produceID Field Functions 
+                bool hasProduceID() const { return this->produceID_ != nullptr;};
+                void deleteProduceID() { this->produceID_ = nullptr;};
+                inline string getProduceID() const { DARABONBA_PTR_GET_DEFAULT(produceID_, "") };
+                inline AIGC& setProduceID(string produceID) { DARABONBA_PTR_SET_VALUE(produceID_, produceID) };
+
+
+                // propagateID Field Functions 
+                bool hasPropagateID() const { return this->propagateID_ != nullptr;};
+                void deletePropagateID() { this->propagateID_ = nullptr;};
+                inline string getPropagateID() const { DARABONBA_PTR_GET_DEFAULT(propagateID_, "") };
+                inline AIGC& setPropagateID(string propagateID) { DARABONBA_PTR_SET_VALUE(propagateID_, propagateID) };
+
+
+                // reservedCode1 Field Functions 
+                bool hasReservedCode1() const { return this->reservedCode1_ != nullptr;};
+                void deleteReservedCode1() { this->reservedCode1_ = nullptr;};
+                inline string getReservedCode1() const { DARABONBA_PTR_GET_DEFAULT(reservedCode1_, "") };
+                inline AIGC& setReservedCode1(string reservedCode1) { DARABONBA_PTR_SET_VALUE(reservedCode1_, reservedCode1) };
+
+
+                // reservedCode2 Field Functions 
+                bool hasReservedCode2() const { return this->reservedCode2_ != nullptr;};
+                void deleteReservedCode2() { this->reservedCode2_ = nullptr;};
+                inline string getReservedCode2() const { DARABONBA_PTR_GET_DEFAULT(reservedCode2_, "") };
+                inline AIGC& setReservedCode2(string reservedCode2) { DARABONBA_PTR_SET_VALUE(reservedCode2_, reservedCode2) };
+
+
+              protected:
+                shared_ptr<string> contentProducer_ {};
+                shared_ptr<string> contentPropagator_ {};
+                shared_ptr<string> label_ {};
+                shared_ptr<string> produceID_ {};
+                shared_ptr<string> propagateID_ {};
+                shared_ptr<string> reservedCode1_ {};
+                shared_ptr<string> reservedCode2_ {};
+              };
+
+              virtual bool empty() const override { return this->AIGC_ == nullptr
+        && this->explain_ == nullptr; };
+              // AIGC Field Functions 
+              bool hasAIGC() const { return this->AIGC_ != nullptr;};
+              void deleteAIGC() { this->AIGC_ = nullptr;};
+              inline const AigcData::AIGC & getAIGC() const { DARABONBA_PTR_GET_CONST(AIGC_, AigcData::AIGC) };
+              inline AigcData::AIGC getAIGC() { DARABONBA_PTR_GET(AIGC_, AigcData::AIGC) };
+              inline AigcData& setAIGC(const AigcData::AIGC & aIGC) { DARABONBA_PTR_SET_VALUE(AIGC_, aIGC) };
+              inline AigcData& setAIGC(AigcData::AIGC && aIGC) { DARABONBA_PTR_SET_RVALUE(AIGC_, aIGC) };
+
+
+              // explain Field Functions 
+              bool hasExplain() const { return this->explain_ != nullptr;};
+              void deleteExplain() { this->explain_ = nullptr;};
+              inline string getExplain() const { DARABONBA_PTR_GET_DEFAULT(explain_, "") };
+              inline AigcData& setExplain(string explain) { DARABONBA_PTR_SET_VALUE(explain_, explain) };
+
+
+            protected:
+              shared_ptr<AigcData::AIGC> AIGC_ {};
+              shared_ptr<string> explain_ {};
+            };
+
+            virtual bool empty() const override { return this->aigcData_ == nullptr; };
+            // aigcData Field Functions 
+            bool hasAigcData() const { return this->aigcData_ != nullptr;};
+            void deleteAigcData() { this->aigcData_ = nullptr;};
+            inline const Ext::AigcData & getAigcData() const { DARABONBA_PTR_GET_CONST(aigcData_, Ext::AigcData) };
+            inline Ext::AigcData getAigcData() { DARABONBA_PTR_GET(aigcData_, Ext::AigcData) };
+            inline Ext& setAigcData(const Ext::AigcData & aigcData) { DARABONBA_PTR_SET_VALUE(aigcData_, aigcData) };
+            inline Ext& setAigcData(Ext::AigcData && aigcData) { DARABONBA_PTR_SET_RVALUE(aigcData_, aigcData) };
+
+
+          protected:
+            shared_ptr<Ext::AigcData> aigcData_ {};
+          };
+
+          virtual bool empty() const override { return this->ext_ == nullptr
+        && this->riskLabels_ == nullptr && this->riskLevel_ == nullptr; };
+          // ext Field Functions 
+          bool hasExt() const { return this->ext_ != nullptr;};
+          void deleteExt() { this->ext_ = nullptr;};
+          inline const RiskSummary::Ext & getExt() const { DARABONBA_PTR_GET_CONST(ext_, RiskSummary::Ext) };
+          inline RiskSummary::Ext getExt() { DARABONBA_PTR_GET(ext_, RiskSummary::Ext) };
+          inline RiskSummary& setExt(const RiskSummary::Ext & ext) { DARABONBA_PTR_SET_VALUE(ext_, ext) };
+          inline RiskSummary& setExt(RiskSummary::Ext && ext) { DARABONBA_PTR_SET_RVALUE(ext_, ext) };
+
+
+          // riskLabels Field Functions 
+          bool hasRiskLabels() const { return this->riskLabels_ != nullptr;};
+          void deleteRiskLabels() { this->riskLabels_ = nullptr;};
+          inline const vector<RiskSummary::RiskLabels> & getRiskLabels() const { DARABONBA_PTR_GET_CONST(riskLabels_, vector<RiskSummary::RiskLabels>) };
+          inline vector<RiskSummary::RiskLabels> getRiskLabels() { DARABONBA_PTR_GET(riskLabels_, vector<RiskSummary::RiskLabels>) };
+          inline RiskSummary& setRiskLabels(const vector<RiskSummary::RiskLabels> & riskLabels) { DARABONBA_PTR_SET_VALUE(riskLabels_, riskLabels) };
+          inline RiskSummary& setRiskLabels(vector<RiskSummary::RiskLabels> && riskLabels) { DARABONBA_PTR_SET_RVALUE(riskLabels_, riskLabels) };
+
+
+          // riskLevel Field Functions 
+          bool hasRiskLevel() const { return this->riskLevel_ != nullptr;};
+          void deleteRiskLevel() { this->riskLevel_ = nullptr;};
+          inline string getRiskLevel() const { DARABONBA_PTR_GET_DEFAULT(riskLevel_, "") };
+          inline RiskSummary& setRiskLevel(string riskLevel) { DARABONBA_PTR_SET_VALUE(riskLevel_, riskLevel) };
+
+
+        protected:
+          shared_ptr<RiskSummary::Ext> ext_ {};
+          shared_ptr<vector<RiskSummary::RiskLabels>> riskLabels_ {};
+          shared_ptr<string> riskLevel_ {};
         };
 
         class ImageSummary : public Darabonba::Model {
@@ -259,7 +539,7 @@ namespace Models
 
 
           protected:
-            // The description of the label.
+            // The label description.
             shared_ptr<string> description_ {};
             // The label.
             shared_ptr<string> label_ {};
@@ -293,7 +573,7 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->imageSummary_ == nullptr
-        && this->pageSum_ == nullptr && this->textSummary_ == nullptr; };
+        && this->pageSum_ == nullptr && this->riskSummary_ == nullptr && this->textSummary_ == nullptr; };
         // imageSummary Field Functions 
         bool hasImageSummary() const { return this->imageSummary_ != nullptr;};
         void deleteImageSummary() { this->imageSummary_ = nullptr;};
@@ -310,6 +590,15 @@ namespace Models
         inline PageSummary& setPageSum(int32_t pageSum) { DARABONBA_PTR_SET_VALUE(pageSum_, pageSum) };
 
 
+        // riskSummary Field Functions 
+        bool hasRiskSummary() const { return this->riskSummary_ != nullptr;};
+        void deleteRiskSummary() { this->riskSummary_ = nullptr;};
+        inline const PageSummary::RiskSummary & getRiskSummary() const { DARABONBA_PTR_GET_CONST(riskSummary_, PageSummary::RiskSummary) };
+        inline PageSummary::RiskSummary getRiskSummary() { DARABONBA_PTR_GET(riskSummary_, PageSummary::RiskSummary) };
+        inline PageSummary& setRiskSummary(const PageSummary::RiskSummary & riskSummary) { DARABONBA_PTR_SET_VALUE(riskSummary_, riskSummary) };
+        inline PageSummary& setRiskSummary(PageSummary::RiskSummary && riskSummary) { DARABONBA_PTR_SET_RVALUE(riskSummary_, riskSummary) };
+
+
         // textSummary Field Functions 
         bool hasTextSummary() const { return this->textSummary_ != nullptr;};
         void deleteTextSummary() { this->textSummary_ = nullptr;};
@@ -324,6 +613,7 @@ namespace Models
         shared_ptr<PageSummary::ImageSummary> imageSummary_ {};
         // The total number of pages.
         shared_ptr<int32_t> pageSum_ {};
+        shared_ptr<PageSummary::RiskSummary> riskSummary_ {};
         // The text summary information.
         shared_ptr<PageSummary::TextSummary> textSummary_ {};
       };
@@ -459,21 +749,21 @@ namespace Models
         protected:
           // The description.
           shared_ptr<string> description_ {};
-          // The description of the label.
+          // The label descriptions.
           shared_ptr<string> descriptions_ {};
-          // The value of the label.
+          // The label values.
           shared_ptr<string> labels_ {};
           // The risk level.
           shared_ptr<string> riskLevel_ {};
-          // Details about the hit risk.
+          // The details of the hit risks.
           shared_ptr<string> riskTips_ {};
-          // The risk keywords that were hit.
+          // The risk keywords that are hit.
           shared_ptr<string> riskWords_ {};
           // The service.
           shared_ptr<string> service_ {};
           // The text content.
           shared_ptr<string> text_ {};
-          // Information about the text segment.
+          // The text segment information.
           shared_ptr<string> textSegment_ {};
         };
 
@@ -560,13 +850,13 @@ namespace Models
 
 
           protected:
-            // The height of the detected area.
+            // The H value of the coordinate point.
             shared_ptr<int32_t> h_ {};
-            // The width of the detected area.
+            // The W value of the coordinate point.
             shared_ptr<int32_t> w_ {};
-            // The X coordinate of the point.
+            // The X value of the coordinate point.
             shared_ptr<int32_t> x_ {};
-            // The Y-coordinate of the point.
+            // The Y value of the coordinate point.
             shared_ptr<int32_t> y_ {};
           };
 
@@ -617,7 +907,7 @@ namespace Models
 
 
           protected:
-            // The confidence score.
+            // The risk score.
             shared_ptr<float> confidence_ {};
             // The description.
             shared_ptr<string> description_ {};
@@ -675,7 +965,7 @@ namespace Models
           shared_ptr<ImageResult::Location> location_ {};
           // The risk level.
           shared_ptr<string> riskLevel_ {};
-          // The service that was called.
+          // The invoked service.
           shared_ptr<string> service_ {};
         };
 
@@ -721,13 +1011,13 @@ namespace Models
 
 
       protected:
-        // The image moderation results.
+        // The image moderation result.
         shared_ptr<vector<PageResult::ImageResult>> imageResult_ {};
-        // The URL of the image.
+        // The image URL.
         shared_ptr<string> imageUrl_ {};
         // The page number.
         shared_ptr<int32_t> pageNum_ {};
-        // The text moderation results.
+        // The text moderation result.
         shared_ptr<vector<PageResult::TextResult>> textResult_ {};
         // The URL where the text content is stored.
         shared_ptr<string> textUrl_ {};
@@ -790,19 +1080,19 @@ namespace Models
 
 
     protected:
-      // The AccountId specified in the request.
+      // The AccountId passed in by the customer.
       shared_ptr<string> accountId_ {};
-      // The ID of the data.
+      // The data ID.
       shared_ptr<string> dataId_ {};
-      // The document type. This parameter is optional.
+      // Optional. The document type.
       shared_ptr<string> docType_ {};
-      // A list of moderation results.
+      // The list of moderation results.
       shared_ptr<vector<Data::PageResult>> pageResult_ {};
       // The summary information.
       shared_ptr<Data::PageSummary> pageSummary_ {};
       // The risk level.
       shared_ptr<string> riskLevel_ {};
-      // The download URL for the file.
+      // The file download URL.
       shared_ptr<string> url_ {};
     };
 
@@ -839,13 +1129,13 @@ namespace Models
 
 
   protected:
-    // The return code. A value of 200 indicates that the request was successful.
+    // The return code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<DescribeFileModerationResultResponseBody::Data> data_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -13,11 +13,13 @@ namespace Models
   class MultiModalGuardForBase64Request : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const MultiModalGuardForBase64Request& obj) { 
+      DARABONBA_PTR_TO_JSON(FileBase64Str, fileBase64Str_);
       DARABONBA_PTR_TO_JSON(ImageBase64Str, imageBase64Str_);
       DARABONBA_PTR_TO_JSON(Service, service_);
       DARABONBA_PTR_TO_JSON(ServiceParameters, serviceParameters_);
     };
     friend void from_json(const Darabonba::Json& j, MultiModalGuardForBase64Request& obj) { 
+      DARABONBA_PTR_FROM_JSON(FileBase64Str, fileBase64Str_);
       DARABONBA_PTR_FROM_JSON(ImageBase64Str, imageBase64Str_);
       DARABONBA_PTR_FROM_JSON(Service, service_);
       DARABONBA_PTR_FROM_JSON(ServiceParameters, serviceParameters_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->imageBase64Str_ == nullptr
-        && this->service_ == nullptr && this->serviceParameters_ == nullptr; };
+    virtual bool empty() const override { return this->fileBase64Str_ == nullptr
+        && this->imageBase64Str_ == nullptr && this->service_ == nullptr && this->serviceParameters_ == nullptr; };
+    // fileBase64Str Field Functions 
+    bool hasFileBase64Str() const { return this->fileBase64Str_ != nullptr;};
+    void deleteFileBase64Str() { this->fileBase64Str_ = nullptr;};
+    inline string getFileBase64Str() const { DARABONBA_PTR_GET_DEFAULT(fileBase64Str_, "") };
+    inline MultiModalGuardForBase64Request& setFileBase64Str(string fileBase64Str) { DARABONBA_PTR_SET_VALUE(fileBase64Str_, fileBase64Str) };
+
+
     // imageBase64Str Field Functions 
     bool hasImageBase64Str() const { return this->imageBase64Str_ != nullptr;};
     void deleteImageBase64Str() { this->imageBase64Str_ = nullptr;};
@@ -57,6 +66,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> fileBase64Str_ {};
     // The base64-encoded string of the image.
     shared_ptr<string> imageBase64Str_ {};
     // Service

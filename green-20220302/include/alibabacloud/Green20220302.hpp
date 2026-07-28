@@ -21,7 +21,7 @@ namespace Green20220302
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Document review results
+       * @summary Queries the document content moderation result.
        *
        * @param request DescribeFileModerationResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Green20220302
       Models::DescribeFileModerationResultResponse describeFileModerationResultWithOptions(const Models::DescribeFileModerationResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Document review results
+       * @summary Queries the document content moderation result.
        *
        * @param request DescribeFileModerationResultRequest
        * @return DescribeFileModerationResultResponse
@@ -394,7 +394,7 @@ namespace Green20220302
       /**
        * @summary Queries the asynchronous results of AI safety guardrail multimodal content moderation, supporting audio and video modalities.
        *
-       * @description If an API involves fees, add the following bold statement as the first sentence: **Make sure that you fully understand the billing methods and pricing of XXX before you call this operation.** In this statement, "pricing" is a hyperlink that points to: https://www.aliyun.com/price/product#/ecs/detail.
+       * @description If the API incurs fees, add the following bold statement as the first sentence: **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of XXX.**
        *
        * @param request MultiModalGuardAsyncResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -405,7 +405,7 @@ namespace Green20220302
       /**
        * @summary Queries the asynchronous results of AI safety guardrail multimodal content moderation, supporting audio and video modalities.
        *
-       * @description If an API involves fees, add the following bold statement as the first sentence: **Make sure that you fully understand the billing methods and pricing of XXX before you call this operation.** In this statement, "pricing" is a hyperlink that points to: https://www.aliyun.com/price/product#/ecs/detail.
+       * @description If the API incurs fees, add the following bold statement as the first sentence: **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of XXX.**
        *
        * @param request MultiModalGuardAsyncResultRequest
        * @return MultiModalGuardAsyncResultResponse
@@ -413,7 +413,7 @@ namespace Green20220302
       Models::MultiModalGuardAsyncResultResponse multiModalGuardAsyncResult(const Models::MultiModalGuardAsyncResultRequest &request);
 
       /**
-       * @summary Performs synchronous multimodal content moderation. Supports base64-encoded image strings.
+       * @summary Performs synchronous multimodal content moderation. Supports image base64 strings.
        *
        * @param request MultiModalGuardForBase64Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -422,7 +422,7 @@ namespace Green20220302
       Models::MultiModalGuardForBase64Response multiModalGuardForBase64WithOptions(const Models::MultiModalGuardForBase64Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs synchronous multimodal content moderation. Supports base64-encoded image strings.
+       * @summary Performs synchronous multimodal content moderation. Supports image base64 strings.
        *
        * @param request MultiModalGuardForBase64Request
        * @return MultiModalGuardForBase64Response
