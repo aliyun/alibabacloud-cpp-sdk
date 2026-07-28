@@ -57,9 +57,15 @@ namespace Models
 
 
   protected:
+    // The access permission. Valid values:
+    // 
+    // - private: private.
     shared_ptr<string> acl_ {};
+    // The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // The description of the Registry template.
     shared_ptr<string> description_ {};
   };
 

@@ -112,11 +112,17 @@ namespace Models
 
 
     protected:
+      // The time when the version was created.
       shared_ptr<string> createTime_ {};
+      // The version description.
       shared_ptr<string> description_ {};
+      // The template ID.
       shared_ptr<string> moduleId_ {};
+      // The template version number.
       shared_ptr<string> moduleVersion_ {};
+      // The version name.
       shared_ptr<string> name_ {};
+      // The source path of the version.
       shared_ptr<string> sourcePath_ {};
     };
 
@@ -160,10 +166,15 @@ namespace Models
 
 
   protected:
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
+    // The list of version information.
     shared_ptr<vector<ListModuleVersionResponseBody::Versions>> versions_ {};
   };
 

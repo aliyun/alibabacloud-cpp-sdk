@@ -80,7 +80,10 @@ namespace Models
 
 
     protected:
+      // Alert address.
       shared_ptr<string> address_ {};
+      // Alerting method.  
+      // Currently, only `cms` is supported.
       shared_ptr<string> type_ {};
     };
 
@@ -139,12 +142,22 @@ namespace Models
 
 
   protected:
+    // **Alert address list**
     shared_ptr<vector<UpdateDetectConfigRequest::AlarmConfigs>> alarmConfigs_ {};
+    // Idempotent token, format: [0-9a-zA-Z-]{1,64}. We recommend using a UUID.
     shared_ptr<string> clientToken_ {};
+    // **Cron expression (UTC+8)**. Required when the trigger type is Cron.
     shared_ptr<string> cronExpression_ {};
+    // **Description**
     shared_ptr<string> description_ {};
+    // Drift detection name
     shared_ptr<string> detectConfigName_ {};
+    // **Whether the detection feature is enabled. The default value is true.**
     shared_ptr<bool> enabled_ {};
+    // **Trigger type**  
+    // 
+    // * Manual: Execute manually  
+    // * Cron: Trigger periodically
     shared_ptr<string> triggerType_ {};
   };
 

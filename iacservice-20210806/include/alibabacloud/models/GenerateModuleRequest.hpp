@@ -96,12 +96,24 @@ namespace Models
 
 
   protected:
+    // The generation source. Valid values:
+    // - Resource: Generates a Terraform HCL template based on resource properties.
+    // - VariableToCode: Generates a final Terraform HCL template by combining variables with an existing Terraform HCL template.
+    // - CodeToVariable: Extracts variable information from a Terraform HCL template.
+    // - Module: Generates Terraform Module code based on variables.
     shared_ptr<string> generateSource_ {};
+    // The collection of parameters, passed in key:value format, such as {"vpc_name":"vpc-test"}.
     Darabonba::Json parameters_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The syntax. Valid values:
+    // - hcl (default).
     shared_ptr<string> syntax_ {};
+    // The existing Terraform HCL template content.
     shared_ptr<string> template_ {};
+    // The Terraform provider version.
     shared_ptr<string> terraformProviderVersion_ {};
+    // The Terraform resource type.
     shared_ptr<string> terraformResourceType_ {};
   };
 

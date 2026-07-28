@@ -82,7 +82,9 @@ namespace Models
 
 
     protected:
+      // The tag key of the template.
       shared_ptr<string> tagKey_ {};
+      // The tag value of the template.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -124,7 +126,9 @@ namespace Models
 
 
     protected:
+      // The group ID.
       shared_ptr<string> groupId_ {};
+      // The project ID.
       shared_ptr<string> projectId_ {};
     };
 
@@ -192,14 +196,34 @@ namespace Models
 
 
   protected:
+    // The idempotence token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // The template description. The description can be up to 256 characters in length.
     shared_ptr<string> description_ {};
+    // The project group information.
     shared_ptr<UpdateModuleAttributeRequest::GroupInfo> groupInfo_ {};
+    // The template name. The name must meet the following requirements:
+    // 
+    // - The name must be 2 to 128 characters in length.
+    // - The name can contain letters, digits, Chinese characters, hyphens (-), underscores (_), and periods (.). It cannot start or end with a hyphen, underscore, or period.
+    // - The name must be unique among all templates within the current account.
     shared_ptr<string> name_ {};
+    // The path of the template source.
+    // 
+    // - If the source is Registry, set this parameter to <workspace name>/<module name>:<module version>. Example: terraform-alicloud-modules/rds:1.0.0.
+    // - If the source is OSS, set this parameter to oss::<file URL>. The file must be a ZIP file. Example: oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip.
+    // - If the source is ExportTask, set this parameter to <export task ID>:<exported version>. Example: ex-3b6cb9fa4751afff298da723c24ac:v1.
     shared_ptr<string> sourcePath_ {};
+    // The path of the state file that corresponds to the template. Currently, only OSS paths are supported. Set this parameter to oss::<OSS file path>/terraform.tfstate.
     shared_ptr<string> statePath_ {};
+    // The tags of the template.
     shared_ptr<vector<UpdateModuleAttributeRequest::Tags>> tags_ {};
+    // The version generation strategy. Valid values:
+    // 
+    // - Manual: manually generate versions. This is the default value.
+    // - SourcePathUpdated: a new version is generated when sourcePath is modified.
     shared_ptr<string> versionStrategy_ {};
   };
 

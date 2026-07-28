@@ -59,8 +59,11 @@ namespace Models
 
 
   protected:
+    // The generated Terraform HCL template code content.
     shared_ptr<string> module_ {};
+    // The variables and resource properties in the generated template code.
     Darabonba::Json properties_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

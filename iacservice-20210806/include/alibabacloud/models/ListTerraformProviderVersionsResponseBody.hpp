@@ -85,8 +85,11 @@ namespace Models
 
 
     protected:
+      // The publish time.
       shared_ptr<string> publishedTime_ {};
+      // The status.
       shared_ptr<string> status_ {};
+      // The version.
       shared_ptr<string> version_ {};
     };
 
@@ -130,10 +133,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of records retrieved in a single request.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next page. An empty value indicates that no more pages are available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
+    // The list of versions.
     shared_ptr<vector<ListTerraformProviderVersionsResponseBody::Versions>> versions_ {};
   };
 

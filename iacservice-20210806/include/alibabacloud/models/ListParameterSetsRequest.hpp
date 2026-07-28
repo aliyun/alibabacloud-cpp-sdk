@@ -66,9 +66,12 @@ namespace Models
 
 
   protected:
+    // The keyword for exact match search. The search is case-insensitive.
     shared_ptr<string> keyword_ {};
     shared_ptr<string> kmsKeyId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 200.
     shared_ptr<int32_t> pageSize_ {};
   };
 

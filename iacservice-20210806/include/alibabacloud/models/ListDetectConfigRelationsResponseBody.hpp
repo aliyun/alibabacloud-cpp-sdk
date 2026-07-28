@@ -108,11 +108,20 @@ namespace Models
 
 
     protected:
+      // Association time
       shared_ptr<string> attachDate_ {};
+      // Drift detection configuration ID
       shared_ptr<string> detectConfigId_ {};
+      // Whether enabled
       shared_ptr<string> enabled_ {};
+      // Target ID. StackId or TaskId
       shared_ptr<string> targetId_ {};
+      // Target name
       shared_ptr<string> targetName_ {};
+      // Target type  
+      // 
+      // - Task: orchestration job  
+      // - Stack: resource stack
       shared_ptr<string> targetType_ {};
     };
 
@@ -142,9 +151,11 @@ namespace Models
 
 
   protected:
+    // List of associations
     shared_ptr<vector<ListDetectConfigRelationsResponseBody::DetectConfigRelations>> detectConfigRelations_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
+    // Total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

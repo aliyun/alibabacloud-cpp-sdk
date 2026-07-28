@@ -66,9 +66,24 @@ namespace Models
 
 
   protected:
+    // The search keyword. Fuzzy search by workspace name is supported.
     shared_ptr<string> keyword_ {};
+    // The number of entries per page in a paged query. Maximum value: 100.
+    // Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The query token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
+    // The workspace type. Valid values:
+    // 
+    // - system: public workspace
+    // 
+    // - self: custom workspace
+    // 
+    // - shared: shared workspace
+    // 
+    // - community: community workspace
+    // 
+    // By default, all workspaces are returned.
     shared_ptr<string> type_ {};
   };
 

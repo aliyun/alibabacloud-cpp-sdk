@@ -57,10 +57,18 @@ namespace Models
 
 
   protected:
+    // Drift detection configuration ID
+    // 
     // This parameter is required.
     shared_ptr<string> detectConfigId_ {};
+    // Target ID to associate. StackId or TaskId
+    // 
     // This parameter is required.
     shared_ptr<string> targetId_ {};
+    // Target type to associate  
+    // - Task: orchestration job  
+    // - Stack: resource stack
+    // 
     // This parameter is required.
     shared_ptr<string> targetType_ {};
   };

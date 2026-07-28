@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
     shared_ptr<string> clientToken_ {};
+    // The template description. Length: 0 to 255 characters.
     shared_ptr<string> description_ {};
+    // The template name. Length: 1 to 128 characters. The name must be unique.
     shared_ptr<string> name_ {};
   };
 

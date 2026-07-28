@@ -119,9 +119,13 @@ namespace Models
 
 
       protected:
+        // The deployment name.
         shared_ptr<string> deploymentName_ {};
+        // The result of the deployment task.
         shared_ptr<string> jobResult_ {};
+        // The deployment status.
         shared_ptr<string> status_ {};
+        // The URL to view the deployment details.
         shared_ptr<string> url_ {};
       };
 
@@ -165,10 +169,19 @@ namespace Models
 
 
     protected:
+      // The deployment results of the stack.
       shared_ptr<vector<StackResults::Deployments>> deployments_ {};
+      // The error message.
       shared_ptr<string> message_ {};
+      // The unique identifier of the stack.
       shared_ptr<string> stackId_ {};
+      // The stack name.
       shared_ptr<string> stackName_ {};
+      // The execution status of the stack. Valid values:
+      // - Deploying: deploying
+      // - Errored: deployment failed
+      // - Deployed: deployment completed
+      // - Waiting: waiting for deployment.
       shared_ptr<string> stackStatus_ {};
     };
 
@@ -207,7 +220,9 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The execution results of the triggered stacks.
     shared_ptr<vector<GetStackExecutionResultResponseBody::StackResults>> stackResults_ {};
+    // The unique ID of the trigger.
     shared_ptr<string> triggerId_ {};
     shared_ptr<string> triggeredStatus_ {};
   };

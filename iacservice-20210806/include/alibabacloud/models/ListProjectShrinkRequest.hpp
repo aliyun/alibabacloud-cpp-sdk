@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The search keyword. Name-based search is supported.
     shared_ptr<string> keyword_ {};
+    // The page number. Default value: 1.
     shared_ptr<string> pageNumber_ {};
+    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<string> pageSize_ {};
+    // The list of tags.
     shared_ptr<string> tagShrink_ {};
   };
 

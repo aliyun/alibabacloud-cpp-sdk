@@ -113,7 +113,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -193,15 +195,25 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The group description.
       shared_ptr<string> description_ {};
+      // The group ID.
       shared_ptr<string> groupId_ {};
+      // Indicates whether the group is the default group.
       shared_ptr<bool> isDefault_ {};
+      // The number of templates.
       shared_ptr<int64_t> moduleCnt_ {};
+      // The group name.
       shared_ptr<string> name_ {};
+      // The project ID.
       shared_ptr<string> projectId_ {};
+      // The number of scenario-based testing tasks.
       shared_ptr<int64_t> sceneTestingTaskCnt_ {};
+      // The tags.
       shared_ptr<vector<Groups::Tags>> tags_ {};
+      // The number of tasks.
       shared_ptr<int64_t> taskCnt_ {};
     };
 
@@ -245,10 +257,15 @@ namespace Models
 
 
   protected:
+    // The total number of records.
     shared_ptr<int64_t> count_ {};
+    // The list of service group IDs.
     shared_ptr<vector<ListGroupResponseBody::Groups>> groups_ {};
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The page size, which indicates the maximum number of results returned per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -155,8 +155,11 @@ namespace Models
 
 
         protected:
+          // The difference information of the resource change.
           shared_ptr<string> change_ {};
+          // The types of resource change actions included in this resource change.
           shared_ptr<vector<string>> resourceActions_ {};
+          // The unique identifier of the resource.
           shared_ptr<string> resourceIdentifier_ {};
         };
 
@@ -207,8 +210,11 @@ namespace Models
 
 
         protected:
+          // The number of resources to be created.
           shared_ptr<int32_t> add_ {};
+          // The number of resources to be changed.
           shared_ptr<int32_t> change_ {};
+          // The number of resources to be destroyed.
           shared_ptr<int32_t> destroy_ {};
         };
 
@@ -247,9 +253,17 @@ namespace Models
 
 
       protected:
+        // The change type of the component. Valid values:
+        // - create: all resource changes in the component are additions.
+        // - delete: all resource changes in the component are deletions.
+        // - read: all resource changes in the component are read operations.
+        // - update: resource changes in the component include two or more types among additions, deletions, and read operations.
         shared_ptr<string> moduleAction_ {};
+        // The number of resources to be added, updated, and destroyed in this deployment.
         shared_ptr<PlanOutputs::ModuleActionDetail> moduleActionDetail_ {};
+        // The resource change information.
         shared_ptr<vector<PlanOutputs::ResourceChanges>> resourceChanges_ {};
+        // The component name of the stack.
         shared_ptr<string> stackModuleName_ {};
       };
 
@@ -327,11 +341,16 @@ namespace Models
 
 
       protected:
+        // The default value of the parameter.
         shared_ptr<string> defaultValue_ {};
+        // The description.
         shared_ptr<string> description_ {};
+        // The parameter name.
         shared_ptr<string> name_ {};
         shared_ptr<bool> sensitive_ {};
+        // The parameter type.
         shared_ptr<string> type_ {};
+        // The parameter value.
         shared_ptr<string> value_ {};
       };
 
@@ -400,10 +419,15 @@ namespace Models
 
 
       protected:
+        // The description.
         shared_ptr<string> description_ {};
+        // The expression, which can reference component outputs. Format: component.{component name}.{component output name}.
         shared_ptr<string> expression_ {};
+        // The name.
         shared_ptr<string> name_ {};
+        // The parameter type.
         shared_ptr<string> type_ {};
+        // The actual value after the deployment is completed.
         shared_ptr<string> value_ {};
       };
 
@@ -445,7 +469,11 @@ namespace Models
 
 
       protected:
+        // Specifies whether to automatically execute the task. Default value: false. Valid values:
+        // - **false**: No.
+        // - **true**: Yes.
         shared_ptr<bool> autoApply_ {};
+        // Specifies whether this is a destroy job.
         shared_ptr<bool> isDestroy_ {};
       };
 
@@ -567,20 +595,64 @@ namespace Models
 
 
     protected:
+      // The configuration item.
       shared_ptr<Deployments::Config> config_ {};
+      // The configuration version, such as v1. The initial value is v1. The version number increments each time the stack is updated or refreshed and the configuration changes.
       shared_ptr<string> configVersion_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The deployment name.
       shared_ptr<string> deploymentName_ {};
+      // The deployment number. The deployment number of each stack starts from 1 and increments each time a deployment is triggered.
       shared_ptr<string> deploymentNo_ {};
+      // Deprecated field.
       shared_ptr<string> deploymentVersion_ {};
+      // The execution duration, in milliseconds.
       shared_ptr<int64_t> elapsedTime_ {};
+      // The execution type.
+      // 
+      // Manual: manual execution (default).
+      // 
+      // Auto: automatic execution.
       shared_ptr<string> executeType_ {};
+      // The failure reason.
       shared_ptr<string> failedReason_ {};
+      // The job ID.
       shared_ptr<string> jobId_ {};
+      // The outputs.
       shared_ptr<vector<Deployments::Outputs>> outputs_ {};
+      // The parameter set content.
       shared_ptr<vector<Deployments::Parameters>> parameters_ {};
+      // The state file output results.
       shared_ptr<vector<Deployments::PlanOutputs>> planOutputs_ {};
+      // The deployment status.
+      // | Name | Description |
+      // |------|------|
+      // | Pending | The initial status after a deployment is created. |
+      // | PriorityQueued | The deployment is queued by priority. |
+      // | PlanQueued | The deployment is queued because no workflow is available after the deployment is created. |
+      // | ApplyQueued | The deployment is queued because no workflow is available during execution. |
+      // | Planning | The resource deployment is in the Plan phase. |
+      // | Planned | The resource deployment has completed the Plan phase. |
+      // | ConfigProactiveInProgress | A compliance pre-check is in progress. |
+      // | ConfigProactiveSuccess | The compliance pre-check succeeded. |
+      // | DetectInProgress | Drift detection is in progress. |
+      // | ImportQueued | The deployment is queued because no workflow is available during the Import phase. |
+      // | Importing | The resource deployment is in the Import phase. |
+      // | Imported | The resource deployment has completed the Import phase. |
+      // | StateQueued | The deployment is queued because no workflow is available during the state command execution. |
+      // | Stating | The resource deployment is executing the state command. |
+      // | Stated | The resource deployment has completed the state command execution. |
+      // | Confirmed | The resource deployment has been confirmed after the Plan phase. |
+      // | PlannedAndFinished | No differences were found after the Plan phase. The deployment is in a final status. |
+      // | Applying | The resource deployment is in the Apply phase. |
+      // | Applied | The resource deployment has completed the Apply phase. |
+      // | Discarded | The resource deployment has been discarded and is in a final status. |
+      // | Errored | The deployment encountered an error and is in a final status. |
+      // | ConfigProactiveFailure | The compliance pre-check failed. |
+      // | Canceled | The deployment has been canceled and is in a final status. |.
       shared_ptr<string> status_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -610,9 +682,11 @@ namespace Models
 
 
   protected:
+    // The deployment results of the stack.
     shared_ptr<vector<GetStackDeploymentsResponseBody::Deployments>> deployments_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

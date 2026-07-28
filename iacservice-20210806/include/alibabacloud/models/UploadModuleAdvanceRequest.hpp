@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The template content.
     shared_ptr<map<string, string>> code_ {};
+    // The module ID. This parameter is valid and required when resourceType is set to Module.
     shared_ptr<string> moduleId_ {};
+    // The name of the module. This parameter is valid and required when resourceType is set to RegistryModule.
     shared_ptr<string> moduleName_ {};
+    // The workspace name. This parameter is valid and required when resourceType is set to RegistryModule.
     shared_ptr<string> namespaceName_ {};
+    // The local zip file to upload. The file size cannot exceed 10 MB.
     shared_ptr<Darabonba::IStream> urlObject_ {};
   };
 

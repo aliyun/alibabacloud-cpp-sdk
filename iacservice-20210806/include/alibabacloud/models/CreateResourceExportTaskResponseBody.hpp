@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The resource export task ID.
     shared_ptr<string> exportTaskId_ {};
+    // The resource export version.
     shared_ptr<string> exportVersion_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

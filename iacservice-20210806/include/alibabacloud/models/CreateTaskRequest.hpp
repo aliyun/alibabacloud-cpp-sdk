@@ -27,8 +27,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(protectionStrategy, protectionStrategy_);
       DARABONBA_PTR_TO_JSON(ramRole, ramRole_);
       DARABONBA_PTR_TO_JSON(skipPropertyValidation, skipPropertyValidation_);
+      DARABONBA_PTR_TO_JSON(skipRegionValidation, skipRegionValidation_);
       DARABONBA_PTR_TO_JSON(tags, tags_);
       DARABONBA_PTR_TO_JSON(taskBackend, taskBackend_);
+      DARABONBA_PTR_TO_JSON(terraformProviderVersion, terraformProviderVersion_);
       DARABONBA_PTR_TO_JSON(terraformVersion, terraformVersion_);
       DARABONBA_PTR_TO_JSON(triggerStrategy, triggerStrategy_);
     };
@@ -46,8 +48,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(protectionStrategy, protectionStrategy_);
       DARABONBA_PTR_FROM_JSON(ramRole, ramRole_);
       DARABONBA_PTR_FROM_JSON(skipPropertyValidation, skipPropertyValidation_);
+      DARABONBA_PTR_FROM_JSON(skipRegionValidation, skipRegionValidation_);
       DARABONBA_PTR_FROM_JSON(tags, tags_);
       DARABONBA_PTR_FROM_JSON(taskBackend, taskBackend_);
+      DARABONBA_PTR_FROM_JSON(terraformProviderVersion, terraformProviderVersion_);
       DARABONBA_PTR_FROM_JSON(terraformVersion, terraformVersion_);
       DARABONBA_PTR_FROM_JSON(triggerStrategy, triggerStrategy_);
     };
@@ -109,8 +113,11 @@ namespace Models
 
 
     protected:
+      // The endpoint information.
       shared_ptr<string> bucketEndpoint_ {};
+      // The bucket name.
       shared_ptr<string> bucketName_ {};
+      // The object path.
       shared_ptr<string> objectPath_ {};
     };
 
@@ -152,7 +159,9 @@ namespace Models
 
 
     protected:
+      // The tag key of the node.
       shared_ptr<string> tagKey_ {};
+      // The tag value of the node.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -194,15 +203,17 @@ namespace Models
 
 
     protected:
+      // The group ID.
       shared_ptr<string> groupId_ {};
+      // The project ID.
       shared_ptr<string> projectId_ {};
     };
 
     virtual bool empty() const override { return this->autoApply_ == nullptr
         && this->autoDestroy_ == nullptr && this->clientToken_ == nullptr && this->description_ == nullptr && this->groupInfo_ == nullptr && this->initModuleState_ == nullptr
         && this->moduleId_ == nullptr && this->moduleVersion_ == nullptr && this->name_ == nullptr && this->parameterSetIds_ == nullptr && this->protectionStrategy_ == nullptr
-        && this->ramRole_ == nullptr && this->skipPropertyValidation_ == nullptr && this->tags_ == nullptr && this->taskBackend_ == nullptr && this->terraformVersion_ == nullptr
-        && this->triggerStrategy_ == nullptr; };
+        && this->ramRole_ == nullptr && this->skipPropertyValidation_ == nullptr && this->skipRegionValidation_ == nullptr && this->tags_ == nullptr && this->taskBackend_ == nullptr
+        && this->terraformProviderVersion_ == nullptr && this->terraformVersion_ == nullptr && this->triggerStrategy_ == nullptr; };
     // autoApply Field Functions 
     bool hasAutoApply() const { return this->autoApply_ != nullptr;};
     void deleteAutoApply() { this->autoApply_ = nullptr;};
@@ -300,6 +311,13 @@ namespace Models
     inline CreateTaskRequest& setSkipPropertyValidation(bool skipPropertyValidation) { DARABONBA_PTR_SET_VALUE(skipPropertyValidation_, skipPropertyValidation) };
 
 
+    // skipRegionValidation Field Functions 
+    bool hasSkipRegionValidation() const { return this->skipRegionValidation_ != nullptr;};
+    void deleteSkipRegionValidation() { this->skipRegionValidation_ = nullptr;};
+    inline bool getSkipRegionValidation() const { DARABONBA_PTR_GET_DEFAULT(skipRegionValidation_, false) };
+    inline CreateTaskRequest& setSkipRegionValidation(bool skipRegionValidation) { DARABONBA_PTR_SET_VALUE(skipRegionValidation_, skipRegionValidation) };
+
+
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
@@ -318,6 +336,13 @@ namespace Models
     inline CreateTaskRequest& setTaskBackend(CreateTaskRequest::TaskBackend && taskBackend) { DARABONBA_PTR_SET_RVALUE(taskBackend_, taskBackend) };
 
 
+    // terraformProviderVersion Field Functions 
+    bool hasTerraformProviderVersion() const { return this->terraformProviderVersion_ != nullptr;};
+    void deleteTerraformProviderVersion() { this->terraformProviderVersion_ = nullptr;};
+    inline string getTerraformProviderVersion() const { DARABONBA_PTR_GET_DEFAULT(terraformProviderVersion_, "") };
+    inline CreateTaskRequest& setTerraformProviderVersion(string terraformProviderVersion) { DARABONBA_PTR_SET_VALUE(terraformProviderVersion_, terraformProviderVersion) };
+
+
     // terraformVersion Field Functions 
     bool hasTerraformVersion() const { return this->terraformVersion_ != nullptr;};
     void deleteTerraformVersion() { this->terraformVersion_ = nullptr;};
@@ -333,26 +358,64 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically execute the node. Default value: false.
+    // - true: After the preview is complete (terraform plan), the execution (terraform apply) is automatically performed without manual confirmation.
+    // - false: After the preview is complete (terraform plan), manual confirmation is required before the execution (terraform apply) starts.
     shared_ptr<bool> autoApply_ {};
+    // Specifies whether to automatically destroy resources after creation. Default value: false.
+    // - true: After the execution is complete (terraform apply), the destroy operation (terraform destroy) is automatically performed without manual confirmation.
+    // - false: After the execution is complete (terraform apply), no further action is taken.
     shared_ptr<bool> autoDestroy_ {};
+    // The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // The description of the node.
     shared_ptr<string> description_ {};
+    // The project group information.
     shared_ptr<CreateTaskRequest::GroupInfo> groupInfo_ {};
+    // Specifies whether to use a state file. Default value: false. This parameter is applicable when the template originates from resource export. Only one node can use this parameter.
     shared_ptr<bool> initModuleState_ {};
+    // The template ID.
+    // 
     // This parameter is required.
     shared_ptr<string> moduleId_ {};
+    // The template version.
+    // 
     // This parameter is required.
     shared_ptr<string> moduleVersion_ {};
+    // The node name. The name must meet the following requirements:
+    // 
+    // - The name must be 2 to 128 characters in length.
+    // - The name can contain letters, digits, Chinese characters, hyphens (-), underscores (_), and periods (.). The name cannot start or end with a hyphen, underscore, or period.
+    // - The name must be unique among all node resources within the current account.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The collection of associated parameter set IDs.
     shared_ptr<vector<string>> parameterSetIds_ {};
+    // The list of resource protection strategies.
     shared_ptr<vector<string>> protectionStrategy_ {};
+    // The RAM role. The system assumes this role to execute the template when a new job is triggered. This parameter is required when the job trigger method is not manual.
     shared_ptr<string> ramRole_ {};
+    // Specifies whether to skip enumeration value validation. Default value: false.
     shared_ptr<bool> skipPropertyValidation_ {};
+    shared_ptr<bool> skipRegionValidation_ {};
+    // The list of tags for the node.
     shared_ptr<vector<CreateTaskRequest::Tags>> tags_ {};
+    // The node backend configuration. After this parameter is configured, runtime log information is saved to the specified OSS bucket.
     shared_ptr<CreateTaskRequest::TaskBackend> taskBackend_ {};
+    shared_ptr<string> terraformProviderVersion_ {};
+    // The Terraform version. Call the **ListAvailableTerraformVersions** operation to obtain the list of supported versions. Default value: 1.5.7.
     shared_ptr<string> terraformVersion_ {};
+    // The job trigger method. Valid values:
+    // 
+    // - Manual: manual trigger (default).
+    // - NewVersion: triggered when a new template version is published.
+    // - ParameterSetUpdated: triggered when the parameter set content changes or the parameter set attach relationship changes.
+    // - Auto: automatically triggered when the node properties change, such as node creation, execution version change, or job trigger policy change (when changed from another value to Auto).
+    // 
+    // The **ramRole** parameter is required when the trigger method is not manual.
     shared_ptr<string> triggerStrategy_ {};
   };
 

@@ -94,15 +94,35 @@ namespace Models
 
 
   protected:
+    // The access permission. Valid values:
+    // 
+    // - private: private.
     shared_ptr<string> acl_ {};
+    // The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // The description of the Registry template.
     shared_ptr<string> description_ {};
+    // The name of the Registry template. The name must meet the following requirements:
+    // 
+    // - The name must be 3 to 63 characters in length.
+    // - The name can contain uppercase and lowercase letters, digits, hyphens (-), and underscores (_), and cannot start or end with a hyphen.
+    // - The name must be unique within the workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> moduleName_ {};
+    // The workspace name.
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceName_ {};
+    // The provider type. Valid values:
+    // 
+    // - alicloud: Alibaba Cloud.
     shared_ptr<string> provider_ {};
+    // The template type. Valid values:
+    // 
+    // - self: custom template.
     shared_ptr<string> type_ {};
   };
 

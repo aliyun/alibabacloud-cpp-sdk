@@ -94,7 +94,12 @@ namespace Models
 
 
     protected:
+      // The trigger strategy. Valid values:
+      // 
+      // - ProviderNewVersion: triggered when a new Provider version is released.
+      // - Cron: triggered on a schedule.
       shared_ptr<string> triggerStrategy_ {};
+      // The policy value that must be maintained for scheduled triggers. This value is a cron expression.
       shared_ptr<string> triggerValue_ {};
     };
 
@@ -136,7 +141,9 @@ namespace Models
 
 
     protected:
+      // The path configuration for notifications.
       shared_ptr<string> notifyPath_ {};
+      // The notification type. Valid values: DingDing.
       shared_ptr<string> notifyType_ {};
     };
 
@@ -253,20 +260,38 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically delete the group.
     shared_ptr<bool> autoDestroy_ {};
+    // Specifies whether to enable the automatic trigger policy. Valid values: - **true**: enabled. - **false**: disabled.
     shared_ptr<bool> autoTrigger_ {};
+    // The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // The group description.
     shared_ptr<string> description_ {};
+    // Specifies whether to forcibly use the group configuration.
     shared_ptr<bool> forcedSetting_ {};
+    // The group name.
     shared_ptr<string> name_ {};
+    // The notification configuration.
     shared_ptr<vector<UpdateGroupRequest::NotifyConfig>> notifyConfig_ {};
+    // The list of notification operation types.
     shared_ptr<vector<string>> notifyOperationTypes_ {};
+    // The RAM role (1-128 characters). The system assumes this role to execute the template when a new job is triggered. This parameter is required when the job trigger method is not manual.
     shared_ptr<string> ramRole_ {};
+    // The list of export fields for the report.
     shared_ptr<vector<string>> reportExportField_ {};
+    // The export path for the execution report. OSS paths are supported.
     shared_ptr<string> reportExportPath_ {};
+    // The Terraform Provider version. Select a Terraform Provider version. Nodes in the group execute plans based on the specified Terraform Provider version. The version configured on a node takes higher priority.
     shared_ptr<string> terraformProviderVersion_ {};
+    // The trigger policy. This parameter cannot be empty when autoTrigger is set to true.
     shared_ptr<vector<UpdateGroupRequest::TriggerConfig>> triggerConfig_ {};
+    // The resource type that triggers execution. Valid values:
+    // 
+    // - Task: regular node.
+    // - SceneTestingTask: scenario-based testing node.
     shared_ptr<vector<string>> triggerResourceType_ {};
   };
 

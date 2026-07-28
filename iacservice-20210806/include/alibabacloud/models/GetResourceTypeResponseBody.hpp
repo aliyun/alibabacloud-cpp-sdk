@@ -43,6 +43,7 @@ namespace Models
         DARABONBA_ANY_TO_JSON(properties, properties_);
         DARABONBA_PTR_TO_JSON(resourceDetailPageUrl, resourceDetailPageUrl_);
         DARABONBA_PTR_TO_JSON(resourceListPageUrl, resourceListPageUrl_);
+        DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
         DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(statusStartVersion, statusStartVersion_);
         DARABONBA_PTR_TO_JSON(subcategory, subcategory_);
@@ -60,6 +61,7 @@ namespace Models
         DARABONBA_ANY_FROM_JSON(properties, properties_);
         DARABONBA_PTR_FROM_JSON(resourceDetailPageUrl, resourceDetailPageUrl_);
         DARABONBA_PTR_FROM_JSON(resourceListPageUrl, resourceListPageUrl_);
+        DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
         DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(statusStartVersion, statusStartVersion_);
         DARABONBA_PTR_FROM_JSON(subcategory, subcategory_);
@@ -135,8 +137,11 @@ namespace Models
 
 
       protected:
+        // The API name.
         shared_ptr<string> apiName_ {};
+        // The API version.
         shared_ptr<string> apiVersion_ {};
+        // The operation type. Valid values: Write, Read.
         shared_ptr<string> operationType_ {};
         // serviceCode
         shared_ptr<string> serviceCode_ {};
@@ -144,8 +149,8 @@ namespace Models
 
       virtual bool empty() const override { return this->description_ == nullptr
         && this->operations_ == nullptr && this->product_ == nullptr && this->productName_ == nullptr && this->productNameEn_ == nullptr && this->properties_ == nullptr
-        && this->resourceDetailPageUrl_ == nullptr && this->resourceListPageUrl_ == nullptr && this->status_ == nullptr && this->statusStartVersion_ == nullptr && this->subcategory_ == nullptr
-        && this->supportExported_ == nullptr && this->terraformProviderVersion_ == nullptr && this->terraformResourceType_ == nullptr && this->title_ == nullptr; };
+        && this->resourceDetailPageUrl_ == nullptr && this->resourceListPageUrl_ == nullptr && this->resourceType_ == nullptr && this->status_ == nullptr && this->statusStartVersion_ == nullptr
+        && this->subcategory_ == nullptr && this->supportExported_ == nullptr && this->terraformProviderVersion_ == nullptr && this->terraformResourceType_ == nullptr && this->title_ == nullptr; };
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
@@ -206,6 +211,13 @@ namespace Models
       inline ResourceType& setResourceListPageUrl(string resourceListPageUrl) { DARABONBA_PTR_SET_VALUE(resourceListPageUrl_, resourceListPageUrl) };
 
 
+      // resourceType Field Functions 
+      bool hasResourceType() const { return this->resourceType_ != nullptr;};
+      void deleteResourceType() { this->resourceType_ = nullptr;};
+      inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+      inline ResourceType& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
@@ -256,20 +268,36 @@ namespace Models
 
 
     protected:
+      // The description.
       shared_ptr<string> description_ {};
+      // The collection of APIs associated with the resource.
       shared_ptr<vector<ResourceType::Operations>> operations_ {};
+      // The product code.
       shared_ptr<string> product_ {};
+      // The product name.
       shared_ptr<string> productName_ {};
+      // The English name of the product.
       shared_ptr<string> productNameEn_ {};
+      // The resource properties.
       Darabonba::Json properties_ {};
+      // The URL of the resource details page.
       shared_ptr<string> resourceDetailPageUrl_ {};
+      // The URL of the resources page.
       shared_ptr<string> resourceListPageUrl_ {};
+      shared_ptr<string> resourceType_ {};
+      // The resource status.
       shared_ptr<string> status_ {};
+      // The version from which the status takes effect.
       shared_ptr<string> statusStartVersion_ {};
+      // The product category in Terraform.
       shared_ptr<string> subcategory_ {};
+      // Indicates whether export is supported.
       shared_ptr<bool> supportExported_ {};
+      // The Terraform provider version.
       shared_ptr<string> terraformProviderVersion_ {};
+      // The resource code in Terraform.
       shared_ptr<string> terraformResourceType_ {};
+      // The title.
       shared_ptr<string> title_ {};
     };
 
@@ -292,7 +320,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The detailed information about the resource type.
     shared_ptr<GetResourceTypeResponseBody::ResourceType> resourceType_ {};
   };
 

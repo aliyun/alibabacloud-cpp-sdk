@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Specifies whether to synchronously clean up resources managed by the stack. By default, resources are not cleaned up.
     shared_ptr<bool> cleanResources_ {};
   };
 

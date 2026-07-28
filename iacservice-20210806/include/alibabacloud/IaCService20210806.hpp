@@ -22,7 +22,9 @@ namespace IaCService20210806
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 新增共享账号信息
+       * @summary Adds shared accounts.
+       *
+       * @description Per-user call frequency: 100 calls per second.
        *
        * @param request AddSharedAccountsRequest
        * @param headers map
@@ -32,7 +34,9 @@ namespace IaCService20210806
       Models::AddSharedAccountsResponse addSharedAccountsWithOptions(const Models::AddSharedAccountsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增共享账号信息
+       * @summary Adds shared accounts.
+       *
+       * @description Per-user call frequency: 100 calls per second.
        *
        * @param request AddSharedAccountsRequest
        * @return AddSharedAccountsResponse
@@ -40,7 +44,7 @@ namespace IaCService20210806
       Models::AddSharedAccountsResponse addSharedAccounts(const Models::AddSharedAccountsRequest &request);
 
       /**
-       * @summary 将参数集关联资源
+       * @summary Associate drift detection configuration
        *
        * @param request AssociateDetectConfigRequest
        * @param headers map
@@ -50,7 +54,7 @@ namespace IaCService20210806
       Models::AssociateDetectConfigResponse associateDetectConfigWithOptions(const Models::AssociateDetectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将参数集关联资源
+       * @summary Associate drift detection configuration
        *
        * @param request AssociateDetectConfigRequest
        * @return AssociateDetectConfigResponse
@@ -58,7 +62,7 @@ namespace IaCService20210806
       Models::AssociateDetectConfigResponse associateDetectConfig(const Models::AssociateDetectConfigRequest &request);
 
       /**
-       * @summary 分组关联
+       * @summary Associates resources with a group.
        *
        * @param request AssociateGroupRequest
        * @param headers map
@@ -68,7 +72,7 @@ namespace IaCService20210806
       Models::AssociateGroupResponse associateGroupWithOptions(const string &groupId, const Models::AssociateGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分组关联
+       * @summary Associates resources with a group.
        *
        * @param request AssociateGroupRequest
        * @return AssociateGroupResponse
@@ -76,7 +80,12 @@ namespace IaCService20210806
       Models::AssociateGroupResponse associateGroup(const string &groupId, const Models::AssociateGroupRequest &request);
 
       /**
-       * @summary 将参数集关联资源
+       * @summary Associates parameter sets.
+       *
+       * @description After creating a parameter set, you need to associate it with a resource. Valid values for the resource type:
+       * - Module: template
+       * - ModuleVersion: template version
+       * - Task: node.
        *
        * @param request AssociateParameterSetRequest
        * @param headers map
@@ -86,7 +95,12 @@ namespace IaCService20210806
       Models::AssociateParameterSetResponse associateParameterSetWithOptions(const Models::AssociateParameterSetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将参数集关联资源
+       * @summary Associates parameter sets.
+       *
+       * @description After creating a parameter set, you need to associate it with a resource. Valid values for the resource type:
+       * - Module: template
+       * - ModuleVersion: template version
+       * - Task: node.
        *
        * @param request AssociateParameterSetRequest
        * @return AssociateParameterSetResponse
@@ -94,7 +108,9 @@ namespace IaCService20210806
       Models::AssociateParameterSetResponse associateParameterSet(const Models::AssociateParameterSetRequest &request);
 
       /**
-       * @summary 取消资源导出任务
+       * @summary Cancels a resource export task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request CancelResourceExportTaskRequest
        * @param headers map
@@ -104,7 +120,9 @@ namespace IaCService20210806
       Models::CancelResourceExportTaskResponse cancelResourceExportTaskWithOptions(const string &exportTaskId, const Models::CancelResourceExportTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消资源导出任务
+       * @summary Cancels a resource export task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request CancelResourceExportTaskRequest
        * @return CancelResourceExportTaskResponse
@@ -112,7 +130,13 @@ namespace IaCService20210806
       Models::CancelResourceExportTaskResponse cancelResourceExportTask(const string &exportTaskId, const Models::CancelResourceExportTaskRequest &request);
 
       /**
-       * @summary 创建偏差检测配置
+       * @summary Creates a drift detection configuration that supports manual or scheduled triggering.
+       *
+       * @description ## Request Description  
+       * - When `triggerType` is set to `Cron`, a valid `cronExpression` must be provided.  
+       * - Each element in the `alarmConfigs` list must specify the alerting method `type` and the corresponding alerting address `address`.  
+       * - If the `enabled` parameter is not explicitly set, its default value is `true`, meaning newly created detection configurations are enabled by default.  
+       * - It is recommended to use a UUID as the value of `clientToken` to ensure request idempotence.
        *
        * @param request CreateDetectConfigRequest
        * @param headers map
@@ -122,7 +146,13 @@ namespace IaCService20210806
       Models::CreateDetectConfigResponse createDetectConfigWithOptions(const Models::CreateDetectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建偏差检测配置
+       * @summary Creates a drift detection configuration that supports manual or scheduled triggering.
+       *
+       * @description ## Request Description  
+       * - When `triggerType` is set to `Cron`, a valid `cronExpression` must be provided.  
+       * - Each element in the `alarmConfigs` list must specify the alerting method `type` and the corresponding alerting address `address`.  
+       * - If the `enabled` parameter is not explicitly set, its default value is `true`, meaning newly created detection configurations are enabled by default.  
+       * - It is recommended to use a UUID as the value of `clientToken` to ensure request idempotence.
        *
        * @param request CreateDetectConfigRequest
        * @return CreateDetectConfigResponse
@@ -130,7 +160,7 @@ namespace IaCService20210806
       Models::CreateDetectConfigResponse createDetectConfig(const Models::CreateDetectConfigRequest &request);
 
       /**
-       * @summary 创建分组
+       * @summary Creates a group.
        *
        * @param request CreateGroupRequest
        * @param headers map
@@ -140,7 +170,7 @@ namespace IaCService20210806
       Models::CreateGroupResponse createGroupWithOptions(const Models::CreateGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建分组
+       * @summary Creates a group.
        *
        * @param request CreateGroupRequest
        * @return CreateGroupResponse
@@ -148,7 +178,9 @@ namespace IaCService20210806
       Models::CreateGroupResponse createGroup(const Models::CreateGroupRequest &request);
 
       /**
-       * @summary 创建作业
+       * @summary Creates a job and runs a task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request CreateJobRequest
        * @param headers map
@@ -158,7 +190,9 @@ namespace IaCService20210806
       Models::CreateJobResponse createJobWithOptions(const string &taskId, const Models::CreateJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建作业
+       * @summary Creates a job and runs a task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request CreateJobRequest
        * @return CreateJobResponse
@@ -166,7 +200,9 @@ namespace IaCService20210806
       Models::CreateJobResponse createJob(const string &taskId, const Models::CreateJobRequest &request);
 
       /**
-       * @summary Create Module
+       * @summary Creates a Terraform template. Multiple source methods are supported, such as OSS import, Registry import, file upload, and online editing.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request CreateModuleRequest
        * @param headers map
@@ -176,7 +212,9 @@ namespace IaCService20210806
       Models::CreateModuleResponse createModuleWithOptions(const Models::CreateModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Module
+       * @summary Creates a Terraform template. Multiple source methods are supported, such as OSS import, Registry import, file upload, and online editing.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request CreateModuleRequest
        * @return CreateModuleResponse
@@ -184,7 +222,11 @@ namespace IaCService20210806
       Models::CreateModuleResponse createModule(const Models::CreateModuleRequest &request);
 
       /**
-       * @summary Publish a template version.
+       * @summary Publishes a new version for a specified template.
+       *
+       * @description ## Operation description
+       * - Use the `clientToken` parameter to ensure idempotence of the request and prevent duplicate submissions caused by network retries.
+       * - Use semantic versioning (such as `v1.0.0`).
        *
        * @param request CreateModuleVersionRequest
        * @param headers map
@@ -194,7 +236,11 @@ namespace IaCService20210806
       Models::CreateModuleVersionResponse createModuleVersionWithOptions(const string &moduleId, const Models::CreateModuleVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Publish a template version.
+       * @summary Publishes a new version for a specified template.
+       *
+       * @description ## Operation description
+       * - Use the `clientToken` parameter to ensure idempotence of the request and prevent duplicate submissions caused by network retries.
+       * - Use semantic versioning (such as `v1.0.0`).
        *
        * @param request CreateModuleVersionRequest
        * @return CreateModuleVersionResponse
@@ -202,7 +248,14 @@ namespace IaCService20210806
       Models::CreateModuleVersionResponse createModuleVersion(const string &moduleId, const Models::CreateModuleVersionRequest &request);
 
       /**
-       * @summary 创建参数集
+       * @summary Adds a new parameter set. You can set the name, description, and parameter list.
+       *
+       * @description ## Operation description
+       * - This operation creates a new parameter set.
+       * - The name field is required and can be up to 128 characters in length.
+       * - Each element in the parameters array must contain the name field. Other fields are optional.
+       * - Use the clientToken field to ensure the idempotence of the request.
+       * - The request header must contain authentication information to ensure secure access.
        *
        * @param request CreateParameterSetRequest
        * @param headers map
@@ -212,7 +265,14 @@ namespace IaCService20210806
       Models::CreateParameterSetResponse createParameterSetWithOptions(const Models::CreateParameterSetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建参数集
+       * @summary Adds a new parameter set. You can set the name, description, and parameter list.
+       *
+       * @description ## Operation description
+       * - This operation creates a new parameter set.
+       * - The name field is required and can be up to 128 characters in length.
+       * - Each element in the parameters array must contain the name field. Other fields are optional.
+       * - Use the clientToken field to ensure the idempotence of the request.
+       * - The request header must contain authentication information to ensure secure access.
        *
        * @param request CreateParameterSetRequest
        * @return CreateParameterSetResponse
@@ -220,7 +280,7 @@ namespace IaCService20210806
       Models::CreateParameterSetResponse createParameterSet(const Models::CreateParameterSetRequest &request);
 
       /**
-       * @summary 创建项目
+       * @summary Creates a project.
        *
        * @param request CreateProjectRequest
        * @param headers map
@@ -230,7 +290,7 @@ namespace IaCService20210806
       Models::CreateProjectResponse createProjectWithOptions(const Models::CreateProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建项目
+       * @summary Creates a project.
        *
        * @param request CreateProjectRequest
        * @return CreateProjectResponse
@@ -238,7 +298,9 @@ namespace IaCService20210806
       Models::CreateProjectResponse createProject(const Models::CreateProjectRequest &request);
 
       /**
-       * @summary 创建RegistryModule
+       * @summary Creates a Registry template.
+       *
+       * @description Per-user call frequency: 100 calls per second.
        *
        * @param request CreateRegistryModuleRequest
        * @param headers map
@@ -248,7 +310,9 @@ namespace IaCService20210806
       Models::CreateRegistryModuleResponse createRegistryModuleWithOptions(const Models::CreateRegistryModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建RegistryModule
+       * @summary Creates a Registry template.
+       *
+       * @description Per-user call frequency: 100 calls per second.
        *
        * @param request CreateRegistryModuleRequest
        * @return CreateRegistryModuleResponse
@@ -256,7 +320,9 @@ namespace IaCService20210806
       Models::CreateRegistryModuleResponse createRegistryModule(const Models::CreateRegistryModuleRequest &request);
 
       /**
-       * @summary 创建工作空间
+       * @summary Creates a workspace.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request CreateRegistryNamespaceRequest
        * @param headers map
@@ -266,7 +332,9 @@ namespace IaCService20210806
       Models::CreateRegistryNamespaceResponse createRegistryNamespaceWithOptions(const Models::CreateRegistryNamespaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建工作空间
+       * @summary Creates a workspace.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request CreateRegistryNamespaceRequest
        * @return CreateRegistryNamespaceResponse
@@ -274,7 +342,9 @@ namespace IaCService20210806
       Models::CreateRegistryNamespaceResponse createRegistryNamespace(const Models::CreateRegistryNamespaceRequest &request);
 
       /**
-       * @summary 创建导出任务
+       * @summary Creates a resource export task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request CreateResourceExportTaskRequest
        * @param headers map
@@ -284,7 +354,9 @@ namespace IaCService20210806
       Models::CreateResourceExportTaskResponse createResourceExportTaskWithOptions(const Models::CreateResourceExportTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建导出任务
+       * @summary Creates a resource export task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request CreateResourceExportTaskRequest
        * @return CreateResourceExportTaskResponse
@@ -292,7 +364,7 @@ namespace IaCService20210806
       Models::CreateResourceExportTaskResponse createResourceExportTask(const Models::CreateResourceExportTaskRequest &request);
 
       /**
-       * @summary 创建资源栈
+       * @summary Creates a resource stack and triggers deployment.
        *
        * @param request CreateStackRequest
        * @param headers map
@@ -302,7 +374,7 @@ namespace IaCService20210806
       Models::CreateStackResponse createStackWithOptions(const Models::CreateStackRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建资源栈
+       * @summary Creates a resource stack and triggers deployment.
        *
        * @param request CreateStackRequest
        * @return CreateStackResponse
@@ -310,7 +382,9 @@ namespace IaCService20210806
       Models::CreateStackResponse createStack(const Models::CreateStackRequest &request);
 
       /**
-       * @summary 创建任务
+       * @summary Creates a node.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request CreateTaskRequest
        * @param headers map
@@ -320,7 +394,9 @@ namespace IaCService20210806
       Models::CreateTaskResponse createTaskWithOptions(const Models::CreateTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建任务
+       * @summary Creates a node.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request CreateTaskRequest
        * @return CreateTaskResponse
@@ -328,7 +404,7 @@ namespace IaCService20210806
       Models::CreateTaskResponse createTask(const Models::CreateTaskRequest &request);
 
       /**
-       * @summary 删除偏差检测配置
+       * @summary Delete drift detection configuration
        *
        * @param request DeleteDetectConfigRequest
        * @param headers map
@@ -338,7 +414,7 @@ namespace IaCService20210806
       Models::DeleteDetectConfigResponse deleteDetectConfigWithOptions(const string &detectConfigId, const Models::DeleteDetectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除偏差检测配置
+       * @summary Delete drift detection configuration
        *
        * @param request DeleteDetectConfigRequest
        * @return DeleteDetectConfigResponse
@@ -346,7 +422,7 @@ namespace IaCService20210806
       Models::DeleteDetectConfigResponse deleteDetectConfig(const string &detectConfigId, const Models::DeleteDetectConfigRequest &request);
 
       /**
-       * @summary 删除分组
+       * @summary Deletes a group.
        *
        * @param request DeleteGroupRequest
        * @param headers map
@@ -356,7 +432,7 @@ namespace IaCService20210806
       Models::DeleteGroupResponse deleteGroupWithOptions(const string &groupId, const Models::DeleteGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除分组
+       * @summary Deletes a group.
        *
        * @param request DeleteGroupRequest
        * @return DeleteGroupResponse
@@ -364,7 +440,11 @@ namespace IaCService20210806
       Models::DeleteGroupResponse deleteGroup(const string &groupId, const Models::DeleteGroupRequest &request);
 
       /**
-       * @summary 删除模板
+       * @summary Deletes a specified template and all its versions.
+       *
+       * @description ## Operation description
+       * - This operation deletes a specified template.
+       * - Deletion is irreversible. Proceed with caution.
        *
        * @param request DeleteModuleRequest
        * @param headers map
@@ -374,7 +454,11 @@ namespace IaCService20210806
       Models::DeleteModuleResponse deleteModuleWithOptions(const string &moduleId, const Models::DeleteModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除模板
+       * @summary Deletes a specified template and all its versions.
+       *
+       * @description ## Operation description
+       * - This operation deletes a specified template.
+       * - Deletion is irreversible. Proceed with caution.
        *
        * @param request DeleteModuleRequest
        * @return DeleteModuleResponse
@@ -382,7 +466,9 @@ namespace IaCService20210806
       Models::DeleteModuleResponse deleteModule(const string &moduleId, const Models::DeleteModuleRequest &request);
 
       /**
-       * @summary 删除参数集
+       * @summary Deletes a specified parameter set by parameter set ID.
+       *
+       * @description Deletes a specified parameter set.
        *
        * @param request DeleteParameterSetRequest
        * @param headers map
@@ -392,7 +478,9 @@ namespace IaCService20210806
       Models::DeleteParameterSetResponse deleteParameterSetWithOptions(const string &parameterSetId, const Models::DeleteParameterSetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除参数集
+       * @summary Deletes a specified parameter set by parameter set ID.
+       *
+       * @description Deletes a specified parameter set.
        *
        * @param request DeleteParameterSetRequest
        * @return DeleteParameterSetResponse
@@ -400,7 +488,7 @@ namespace IaCService20210806
       Models::DeleteParameterSetResponse deleteParameterSet(const string &parameterSetId, const Models::DeleteParameterSetRequest &request);
 
       /**
-       * @summary 删除项目
+       * @summary Deletes a project.
        *
        * @param request DeleteProjectRequest
        * @param headers map
@@ -410,7 +498,7 @@ namespace IaCService20210806
       Models::DeleteProjectResponse deleteProjectWithOptions(const string &projectId, const Models::DeleteProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除项目
+       * @summary Deletes a project.
        *
        * @param request DeleteProjectRequest
        * @return DeleteProjectResponse
@@ -418,7 +506,9 @@ namespace IaCService20210806
       Models::DeleteProjectResponse deleteProject(const string &projectId, const Models::DeleteProjectRequest &request);
 
       /**
-       * @summary 删除RegistryModule
+       * @summary Deletes a Registry template.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request DeleteRegistryModuleRequest
        * @param headers map
@@ -428,7 +518,9 @@ namespace IaCService20210806
       Models::DeleteRegistryModuleResponse deleteRegistryModuleWithOptions(const string &namespaceName, const string &moduleName, const Models::DeleteRegistryModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除RegistryModule
+       * @summary Deletes a Registry template.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request DeleteRegistryModuleRequest
        * @return DeleteRegistryModuleResponse
@@ -436,7 +528,9 @@ namespace IaCService20210806
       Models::DeleteRegistryModuleResponse deleteRegistryModule(const string &namespaceName, const string &moduleName, const Models::DeleteRegistryModuleRequest &request);
 
       /**
-       * @summary 删除RegistryModule版本
+       * @summary Deletes a Registry template version.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request DeleteRegistryModuleVersionRequest
        * @param headers map
@@ -446,7 +540,9 @@ namespace IaCService20210806
       Models::DeleteRegistryModuleVersionResponse deleteRegistryModuleVersionWithOptions(const string &namespaceName, const string &moduleName, const string &version, const Models::DeleteRegistryModuleVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除RegistryModule版本
+       * @summary Deletes a Registry template version.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request DeleteRegistryModuleVersionRequest
        * @return DeleteRegistryModuleVersionResponse
@@ -454,7 +550,9 @@ namespace IaCService20210806
       Models::DeleteRegistryModuleVersionResponse deleteRegistryModuleVersion(const string &namespaceName, const string &moduleName, const string &version, const Models::DeleteRegistryModuleVersionRequest &request);
 
       /**
-       * @summary 删除工作空间
+       * @summary Deletes a workspace.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request DeleteRegistryNamespaceRequest
        * @param headers map
@@ -464,7 +562,9 @@ namespace IaCService20210806
       Models::DeleteRegistryNamespaceResponse deleteRegistryNamespaceWithOptions(const string &namespaceName, const Models::DeleteRegistryNamespaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除工作空间
+       * @summary Deletes a workspace.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request DeleteRegistryNamespaceRequest
        * @return DeleteRegistryNamespaceResponse
@@ -472,7 +572,9 @@ namespace IaCService20210806
       Models::DeleteRegistryNamespaceResponse deleteRegistryNamespace(const string &namespaceName, const Models::DeleteRegistryNamespaceRequest &request);
 
       /**
-       * @summary 删除资源导出任务
+       * @summary Deletes a resource export task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request DeleteResourceExportTaskRequest
        * @param headers map
@@ -482,7 +584,9 @@ namespace IaCService20210806
       Models::DeleteResourceExportTaskResponse deleteResourceExportTaskWithOptions(const string &exportTaskId, const Models::DeleteResourceExportTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除资源导出任务
+       * @summary Deletes a resource export task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request DeleteResourceExportTaskRequest
        * @return DeleteResourceExportTaskResponse
@@ -490,7 +594,7 @@ namespace IaCService20210806
       Models::DeleteResourceExportTaskResponse deleteResourceExportTask(const string &exportTaskId, const Models::DeleteResourceExportTaskRequest &request);
 
       /**
-       * @summary 删除资源栈
+       * @summary Deletes a stack.
        *
        * @param request DeleteStackRequest
        * @param headers map
@@ -500,7 +604,7 @@ namespace IaCService20210806
       Models::DeleteStackResponse deleteStackWithOptions(const string &stackId, const Models::DeleteStackRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除资源栈
+       * @summary Deletes a stack.
        *
        * @param request DeleteStackRequest
        * @return DeleteStackResponse
@@ -508,7 +612,10 @@ namespace IaCService20210806
       Models::DeleteStackResponse deleteStack(const string &stackId, const Models::DeleteStackRequest &request);
 
       /**
-       * @summary 删除任务
+       * @summary Deletes a node.
+       *
+       * @description Single-user call frequency: 100 calls per second.
+       * Deletes a node. If the node has resources that have not been destroyed, the node cannot be deleted.
        *
        * @param request DeleteTaskRequest
        * @param headers map
@@ -518,7 +625,10 @@ namespace IaCService20210806
       Models::DeleteTaskResponse deleteTaskWithOptions(const string &taskId, const Models::DeleteTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除任务
+       * @summary Deletes a node.
+       *
+       * @description Single-user call frequency: 100 calls per second.
+       * Deletes a node. If the node has resources that have not been destroyed, the node cannot be deleted.
        *
        * @param request DeleteTaskRequest
        * @return DeleteTaskResponse
@@ -526,7 +636,9 @@ namespace IaCService20210806
       Models::DeleteTaskResponse deleteTask(const string &taskId, const Models::DeleteTaskRequest &request);
 
       /**
-       * @summary 发起状态文件一致性检测
+       * @summary Initiates a state file consistency check.
+       *
+       * @description This API is used to perform drift detection on the state files of resource orchestration tasks and stack tasks in the automated service desk.
        *
        * @param request DetectTerraformStateRequest
        * @param headers map
@@ -536,7 +648,9 @@ namespace IaCService20210806
       Models::DetectTerraformStateResponse detectTerraformStateWithOptions(const Models::DetectTerraformStateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发起状态文件一致性检测
+       * @summary Initiates a state file consistency check.
+       *
+       * @description This API is used to perform drift detection on the state files of resource orchestration tasks and stack tasks in the automated service desk.
        *
        * @param request DetectTerraformStateRequest
        * @return DetectTerraformStateResponse
@@ -544,7 +658,7 @@ namespace IaCService20210806
       Models::DetectTerraformStateResponse detectTerraformState(const Models::DetectTerraformStateRequest &request);
 
       /**
-       * @summary 解除参数集关联资源关系
+       * @summary Disassociate drift detection configuration
        *
        * @param request DissociateDetectConfigRequest
        * @param headers map
@@ -554,7 +668,7 @@ namespace IaCService20210806
       Models::DissociateDetectConfigResponse dissociateDetectConfigWithOptions(const Models::DissociateDetectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解除参数集关联资源关系
+       * @summary Disassociate drift detection configuration
        *
        * @param request DissociateDetectConfigRequest
        * @return DissociateDetectConfigResponse
@@ -562,7 +676,7 @@ namespace IaCService20210806
       Models::DissociateDetectConfigResponse dissociateDetectConfig(const Models::DissociateDetectConfigRequest &request);
 
       /**
-       * @summary 取消关联分组
+       * @summary Dissociates a resource group.
        *
        * @param request DissociateGroupRequest
        * @param headers map
@@ -572,7 +686,7 @@ namespace IaCService20210806
       Models::DissociateGroupResponse dissociateGroupWithOptions(const string &projectId, const string &groupId, const Models::DissociateGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消关联分组
+       * @summary Dissociates a resource group.
        *
        * @param request DissociateGroupRequest
        * @return DissociateGroupResponse
@@ -580,7 +694,7 @@ namespace IaCService20210806
       Models::DissociateGroupResponse dissociateGroup(const string &projectId, const string &groupId, const Models::DissociateGroupRequest &request);
 
       /**
-       * @summary 解除参数集关联资源关系
+       * @summary Dissociates a parameter set from other resources.
        *
        * @param request DissociateParameterSetRequest
        * @param headers map
@@ -590,7 +704,7 @@ namespace IaCService20210806
       Models::DissociateParameterSetResponse dissociateParameterSetWithOptions(const Models::DissociateParameterSetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解除参数集关联资源关系
+       * @summary Dissociates a parameter set from other resources.
        *
        * @param request DissociateParameterSetRequest
        * @return DissociateParameterSetResponse
@@ -598,7 +712,9 @@ namespace IaCService20210806
       Models::DissociateParameterSetResponse dissociateParameterSet(const Models::DissociateParameterSetRequest &request);
 
       /**
-       * @summary 执行RegistryModule
+       * @summary Executes a Module officially provided by Alibaba Cloud Terraform.
+       *
+       * @description This API operation is used to execute Terraform Module code to create or update cloud resources. Before using this API operation, make sure that all required authentication information is correctly configured and that the Terraform code corresponding to the Module meets the expected functional requirements.
        *
        * @param request ExecuteRegistryModuleRequest
        * @param headers map
@@ -608,7 +724,9 @@ namespace IaCService20210806
       Models::ExecuteRegistryModuleResponse executeRegistryModuleWithOptions(const string &namespaceName, const string &moduleName, const Models::ExecuteRegistryModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 执行RegistryModule
+       * @summary Executes a Module officially provided by Alibaba Cloud Terraform.
+       *
+       * @description This API operation is used to execute Terraform Module code to create or update cloud resources. Before using this API operation, make sure that all required authentication information is correctly configured and that the Terraform code corresponding to the Module meets the expected functional requirements.
        *
        * @param request ExecuteRegistryModuleRequest
        * @return ExecuteRegistryModuleResponse
@@ -616,7 +734,9 @@ namespace IaCService20210806
       Models::ExecuteRegistryModuleResponse executeRegistryModule(const string &namespaceName, const string &moduleName, const Models::ExecuteRegistryModuleRequest &request);
 
       /**
-       * @summary 执行资源导出任务
+       * @summary Runs a resource export task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request ExecuteResourceExportTaskRequest
        * @param headers map
@@ -626,7 +746,9 @@ namespace IaCService20210806
       Models::ExecuteResourceExportTaskResponse executeResourceExportTaskWithOptions(const string &exportTaskId, const Models::ExecuteResourceExportTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 执行资源导出任务
+       * @summary Runs a resource export task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request ExecuteResourceExportTaskRequest
        * @return ExecuteResourceExportTaskResponse
@@ -634,7 +756,10 @@ namespace IaCService20210806
       Models::ExecuteResourceExportTaskResponse executeResourceExportTask(const string &exportTaskId, const Models::ExecuteResourceExportTaskRequest &request);
 
       /**
-       * @summary 执行TerraformApply
+       * @summary Executes TerraformApply.
+       *
+       * @description Executes the Terraform Apply command to create or update cloud resources based on the provided Terraform code. This API can handle complex scenarios such as operations that depend on a previous state.
+       * Before calling this API, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
        *
        * @param request ExecuteTerraformApplyRequest
        * @param headers map
@@ -644,7 +769,10 @@ namespace IaCService20210806
       Models::ExecuteTerraformApplyResponse executeTerraformApplyWithOptions(const Models::ExecuteTerraformApplyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 执行TerraformApply
+       * @summary Executes TerraformApply.
+       *
+       * @description Executes the Terraform Apply command to create or update cloud resources based on the provided Terraform code. This API can handle complex scenarios such as operations that depend on a previous state.
+       * Before calling this API, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
        *
        * @param request ExecuteTerraformApplyRequest
        * @return ExecuteTerraformApplyResponse
@@ -652,7 +780,9 @@ namespace IaCService20210806
       Models::ExecuteTerraformApplyResponse executeTerraformApply(const Models::ExecuteTerraformApplyRequest &request);
 
       /**
-       * @summary 执行TerraformDestroy
+       * @summary Executes Terraform Destroy.
+       *
+       * @description Executes the Terraform Destroy command to destroy resources created by Terraform.
        *
        * @param request ExecuteTerraformDestroyRequest
        * @param headers map
@@ -662,7 +792,9 @@ namespace IaCService20210806
       Models::ExecuteTerraformDestroyResponse executeTerraformDestroyWithOptions(const Models::ExecuteTerraformDestroyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 执行TerraformDestroy
+       * @summary Executes Terraform Destroy.
+       *
+       * @description Executes the Terraform Destroy command to destroy resources created by Terraform.
        *
        * @param request ExecuteTerraformDestroyRequest
        * @return ExecuteTerraformDestroyResponse
@@ -670,7 +802,10 @@ namespace IaCService20210806
       Models::ExecuteTerraformDestroyResponse executeTerraformDestroy(const Models::ExecuteTerraformDestroyRequest &request);
 
       /**
-       * @summary 执行TerraformPlan
+       * @summary Executes a Terraform plan.
+       *
+       * @description Executes a Terraform Plan command by using the provided Terraform code to create or update cloud resources. This API operation can handle complex scenarios such as operations that depend on a previous state.
+       * Before calling this API operation, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
        *
        * @param request ExecuteTerraformPlanRequest
        * @param headers map
@@ -680,7 +815,10 @@ namespace IaCService20210806
       Models::ExecuteTerraformPlanResponse executeTerraformPlanWithOptions(const Models::ExecuteTerraformPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 执行TerraformPlan
+       * @summary Executes a Terraform plan.
+       *
+       * @description Executes a Terraform Plan command by using the provided Terraform code to create or update cloud resources. This API operation can handle complex scenarios such as operations that depend on a previous state.
+       * Before calling this API operation, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
        *
        * @param request ExecuteTerraformPlanRequest
        * @return ExecuteTerraformPlanResponse
@@ -688,7 +826,7 @@ namespace IaCService20210806
       Models::ExecuteTerraformPlanResponse executeTerraformPlan(const Models::ExecuteTerraformPlanRequest &request);
 
       /**
-       * @summary 生成模板
+       * @summary Generates Terraform HCL template code.
        *
        * @param request GenerateModuleRequest
        * @param headers map
@@ -698,7 +836,7 @@ namespace IaCService20210806
       Models::GenerateModuleResponse generateModuleWithOptions(const Models::GenerateModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成模板
+       * @summary Generates Terraform HCL template code.
        *
        * @param request GenerateModuleRequest
        * @return GenerateModuleResponse
@@ -706,7 +844,7 @@ namespace IaCService20210806
       Models::GenerateModuleResponse generateModule(const Models::GenerateModuleRequest &request);
 
       /**
-       * @summary 偏差检测配置详情
+       * @summary Retrieve drift detection configuration
        *
        * @param request GetDetectConfigRequest
        * @param headers map
@@ -716,7 +854,7 @@ namespace IaCService20210806
       Models::GetDetectConfigResponse getDetectConfigWithOptions(const string &detectConfigId, const Models::GetDetectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 偏差检测配置详情
+       * @summary Retrieve drift detection configuration
        *
        * @param request GetDetectConfigRequest
        * @return GetDetectConfigResponse
@@ -724,7 +862,9 @@ namespace IaCService20210806
       Models::GetDetectConfigResponse getDetectConfig(const string &detectConfigId, const Models::GetDetectConfigRequest &request);
 
       /**
-       * @summary 获取Terraform运行结果
+       * @summary Retrieves the result of a Terraform run.
+       *
+       * @description Retrieves the result of a Terraform run.
        *
        * @param request GetExecuteStateRequest
        * @param headers map
@@ -734,7 +874,9 @@ namespace IaCService20210806
       Models::GetExecuteStateResponse getExecuteStateWithOptions(const string &stateId, const Models::GetExecuteStateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Terraform运行结果
+       * @summary Retrieves the result of a Terraform run.
+       *
+       * @description Retrieves the result of a Terraform run.
        *
        * @param request GetExecuteStateRequest
        * @return GetExecuteStateResponse
@@ -742,7 +884,7 @@ namespace IaCService20210806
       Models::GetExecuteStateResponse getExecuteState(const string &stateId, const Models::GetExecuteStateRequest &request);
 
       /**
-       * @summary 查询分组
+       * @summary Queries a group.
        *
        * @param request GetGroupRequest
        * @param headers map
@@ -752,7 +894,7 @@ namespace IaCService20210806
       Models::GetGroupResponse getGroupWithOptions(const string &groupId, const Models::GetGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询分组
+       * @summary Queries a group.
        *
        * @param request GetGroupRequest
        * @return GetGroupResponse
@@ -760,7 +902,9 @@ namespace IaCService20210806
       Models::GetGroupResponse getGroup(const string &groupId, const Models::GetGroupRequest &request);
 
       /**
-       * @summary 作业详情
+       * @summary Retrieves job information.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request GetJobRequest
        * @param headers map
@@ -770,7 +914,9 @@ namespace IaCService20210806
       Models::GetJobResponse getJobWithOptions(const string &taskId, const string &jobId, const Models::GetJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 作业详情
+       * @summary Retrieves job information.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request GetJobRequest
        * @return GetJobResponse
@@ -778,7 +924,10 @@ namespace IaCService20210806
       Models::GetJobResponse getJob(const string &taskId, const string &jobId, const Models::GetJobRequest &request);
 
       /**
-       * @summary Get Module Details
+       * @summary Queries the details of a specified template.
+       *
+       * @description ## Operation description
+       * You can call this operation to query the details of a specified template, including but not limited to the template name, description, source, status, and latest version. You must specify the template ID and include authentication information in the request.
        *
        * @param request GetModuleRequest
        * @param headers map
@@ -788,7 +937,10 @@ namespace IaCService20210806
       Models::GetModuleResponse getModuleWithOptions(const string &moduleId, const Models::GetModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Module Details
+       * @summary Queries the details of a specified template.
+       *
+       * @description ## Operation description
+       * You can call this operation to query the details of a specified template, including but not limited to the template name, description, source, status, and latest version. You must specify the template ID and include authentication information in the request.
        *
        * @param request GetModuleRequest
        * @return GetModuleResponse
@@ -796,7 +948,10 @@ namespace IaCService20210806
       Models::GetModuleResponse getModule(const string &moduleId, const Models::GetModuleRequest &request);
 
       /**
-       * @summary 模板版本详情
+       * @summary Queries the details of a specific version of a specified template.
+       *
+       * @description ## Operation description
+       * You can call this operation to query the details of a specific version of a specified template, including the version number, description, and release time. Make sure that the template ID and version number are correct.
        *
        * @param request GetModuleVersionRequest
        * @param headers map
@@ -806,7 +961,10 @@ namespace IaCService20210806
       Models::GetModuleVersionResponse getModuleVersionWithOptions(const string &moduleId, const string &moduleVersion, const Models::GetModuleVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 模板版本详情
+       * @summary Queries the details of a specific version of a specified template.
+       *
+       * @description ## Operation description
+       * You can call this operation to query the details of a specific version of a specified template, including the version number, description, and release time. Make sure that the template ID and version number are correct.
        *
        * @param request GetModuleVersionRequest
        * @return GetModuleVersionResponse
@@ -814,7 +972,12 @@ namespace IaCService20210806
       Models::GetModuleVersionResponse getModuleVersion(const string &moduleId, const string &moduleVersion, const Models::GetModuleVersionRequest &request);
 
       /**
-       * @summary 参数集详情
+       * @summary Retrieves the details of a parameter set by parameter set ID.
+       *
+       * @description ## Description
+       * - This operation retrieves detailed parameter set information by specifying a parameterSetId.
+       * - Authentication is required to call this operation.
+       * - If the request succeeds, the response includes detailed data such as the parameter set name, description, and parameter list.
        *
        * @param request GetParameterSetRequest
        * @param headers map
@@ -824,7 +987,12 @@ namespace IaCService20210806
       Models::GetParameterSetResponse getParameterSetWithOptions(const string &parameterSetId, const Models::GetParameterSetRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 参数集详情
+       * @summary Retrieves the details of a parameter set by parameter set ID.
+       *
+       * @description ## Description
+       * - This operation retrieves detailed parameter set information by specifying a parameterSetId.
+       * - Authentication is required to call this operation.
+       * - If the request succeeds, the response includes detailed data such as the parameter set name, description, and parameter list.
        *
        * @param request GetParameterSetRequest
        * @return GetParameterSetResponse
@@ -832,7 +1000,7 @@ namespace IaCService20210806
       Models::GetParameterSetResponse getParameterSet(const string &parameterSetId, const Models::GetParameterSetRequest &request);
 
       /**
-       * @summary 查询项目
+       * @summary Queries a project.
        *
        * @param request GetProjectRequest
        * @param headers map
@@ -842,7 +1010,7 @@ namespace IaCService20210806
       Models::GetProjectResponse getProjectWithOptions(const string &projectId, const Models::GetProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询项目
+       * @summary Queries a project.
        *
        * @param request GetProjectRequest
        * @return GetProjectResponse
@@ -850,7 +1018,27 @@ namespace IaCService20210806
       Models::GetProjectResponse getProject(const string &projectId, const Models::GetProjectRequest &request);
 
       /**
-       * @summary 获取RegistryModule信息
+       * @summary Retrieves the resource documentation of a Terraform provider.
+       *
+       * @param request GetProviderDocumentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetProviderDocumentResponse
+       */
+      Models::GetProviderDocumentResponse getProviderDocumentWithOptions(const Models::GetProviderDocumentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the resource documentation of a Terraform provider.
+       *
+       * @param request GetProviderDocumentRequest
+       * @return GetProviderDocumentResponse
+       */
+      Models::GetProviderDocumentResponse getProviderDocument(const Models::GetProviderDocumentRequest &request);
+
+      /**
+       * @summary Queries a Registry module.
+       *
+       * @description Single-user call frequency: 200 calls per second.
        *
        * @param request GetRegistryModuleRequest
        * @param headers map
@@ -860,7 +1048,9 @@ namespace IaCService20210806
       Models::GetRegistryModuleResponse getRegistryModuleWithOptions(const string &namespaceName, const string &moduleName, const Models::GetRegistryModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取RegistryModule信息
+       * @summary Queries a Registry module.
+       *
+       * @description Single-user call frequency: 200 calls per second.
        *
        * @param request GetRegistryModuleRequest
        * @return GetRegistryModuleResponse
@@ -868,7 +1058,9 @@ namespace IaCService20210806
       Models::GetRegistryModuleResponse getRegistryModule(const string &namespaceName, const string &moduleName, const Models::GetRegistryModuleRequest &request);
 
       /**
-       * @summary 获取RegistryModule版本信息
+       * @summary Queries a Registry template version.
+       *
+       * @description Single-user call frequency: 200 calls per second.
        *
        * @param request GetRegistryModuleVersionRequest
        * @param headers map
@@ -878,7 +1070,9 @@ namespace IaCService20210806
       Models::GetRegistryModuleVersionResponse getRegistryModuleVersionWithOptions(const string &namespaceName, const string &moduleName, const string &version, const Models::GetRegistryModuleVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取RegistryModule版本信息
+       * @summary Queries a Registry template version.
+       *
+       * @description Single-user call frequency: 200 calls per second.
        *
        * @param request GetRegistryModuleVersionRequest
        * @return GetRegistryModuleVersionResponse
@@ -886,7 +1080,9 @@ namespace IaCService20210806
       Models::GetRegistryModuleVersionResponse getRegistryModuleVersion(const string &namespaceName, const string &moduleName, const string &version, const Models::GetRegistryModuleVersionRequest &request);
 
       /**
-       * @summary 获取工作空间信息
+       * @summary Queries a workspace.
+       *
+       * @description Single-user call frequency: 200 calls per second.
        *
        * @param request GetRegistryNamespaceRequest
        * @param headers map
@@ -896,7 +1092,9 @@ namespace IaCService20210806
       Models::GetRegistryNamespaceResponse getRegistryNamespaceWithOptions(const string &namespaceName, const Models::GetRegistryNamespaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取工作空间信息
+       * @summary Queries a workspace.
+       *
+       * @description Single-user call frequency: 200 calls per second.
        *
        * @param request GetRegistryNamespaceRequest
        * @return GetRegistryNamespaceResponse
@@ -904,7 +1102,9 @@ namespace IaCService20210806
       Models::GetRegistryNamespaceResponse getRegistryNamespace(const string &namespaceName, const Models::GetRegistryNamespaceRequest &request);
 
       /**
-       * @summary 查询导出任务详情
+       * @summary Queries the details of a resource export task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request GetResourceExportTaskRequest
        * @param headers map
@@ -914,7 +1114,9 @@ namespace IaCService20210806
       Models::GetResourceExportTaskResponse getResourceExportTaskWithOptions(const string &exportTaskId, const Models::GetResourceExportTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询导出任务详情
+       * @summary Queries the details of a resource export task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request GetResourceExportTaskRequest
        * @return GetResourceExportTaskResponse
@@ -922,7 +1124,9 @@ namespace IaCService20210806
       Models::GetResourceExportTaskResponse getResourceExportTask(const string &exportTaskId, const Models::GetResourceExportTaskRequest &request);
 
       /**
-       * @summary 获取资源类型信息
+       * @summary Retrieves resource type information.
+       *
+       * @description ## Request description.
        *
        * @param request GetResourceTypeRequest
        * @param headers map
@@ -932,7 +1136,9 @@ namespace IaCService20210806
       Models::GetResourceTypeResponse getResourceTypeWithOptions(const string &resourceType, const Models::GetResourceTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取资源类型信息
+       * @summary Retrieves resource type information.
+       *
+       * @description ## Request description.
        *
        * @param request GetResourceTypeRequest
        * @return GetResourceTypeResponse
@@ -940,7 +1146,7 @@ namespace IaCService20210806
       Models::GetResourceTypeResponse getResourceType(const string &resourceType, const Models::GetResourceTypeRequest &request);
 
       /**
-       * @summary 获取资源栈
+       * @summary Queries a stack.
        *
        * @param request GetStackRequest
        * @param headers map
@@ -950,7 +1156,7 @@ namespace IaCService20210806
       Models::GetStackResponse getStackWithOptions(const string &stackId, const Models::GetStackRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取资源栈
+       * @summary Queries a stack.
        *
        * @param request GetStackRequest
        * @return GetStackResponse
@@ -958,7 +1164,7 @@ namespace IaCService20210806
       Models::GetStackResponse getStack(const string &stackId, const Models::GetStackRequest &request);
 
       /**
-       * @summary 部署详情接口
+       * @summary Queries the list of deployments for a stack.
        *
        * @param request GetStackDeploymentsRequest
        * @param headers map
@@ -968,7 +1174,7 @@ namespace IaCService20210806
       Models::GetStackDeploymentsResponse getStackDeploymentsWithOptions(const string &stackId, const Models::GetStackDeploymentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 部署详情接口
+       * @summary Queries the list of deployments for a stack.
        *
        * @param request GetStackDeploymentsRequest
        * @return GetStackDeploymentsResponse
@@ -976,7 +1182,7 @@ namespace IaCService20210806
       Models::GetStackDeploymentsResponse getStackDeployments(const string &stackId, const Models::GetStackDeploymentsRequest &request);
 
       /**
-       * @summary 获取资源栈部署结果
+       * @summary Retrieves the trigger result of a stack.
        *
        * @param request GetStackExecutionResultRequest
        * @param headers map
@@ -986,7 +1192,7 @@ namespace IaCService20210806
       Models::GetStackExecutionResultResponse getStackExecutionResultWithOptions(const string &triggerId, const Models::GetStackExecutionResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取资源栈部署结果
+       * @summary Retrieves the trigger result of a stack.
        *
        * @param request GetStackExecutionResultRequest
        * @return GetStackExecutionResultResponse
@@ -994,7 +1200,9 @@ namespace IaCService20210806
       Models::GetStackExecutionResultResponse getStackExecutionResult(const string &triggerId, const Models::GetStackExecutionResultRequest &request);
 
       /**
-       * @summary 查询任务详情
+       * @summary Retrieves the details of a task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request GetTaskRequest
        * @param headers map
@@ -1004,7 +1212,9 @@ namespace IaCService20210806
       Models::GetTaskResponse getTaskWithOptions(const string &taskId, const Models::GetTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询任务详情
+       * @summary Retrieves the details of a task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request GetTaskRequest
        * @return GetTaskResponse
@@ -1012,7 +1222,9 @@ namespace IaCService20210806
       Models::GetTaskResponse getTask(const string &taskId, const Models::GetTaskRequest &request);
 
       /**
-       * @summary 获取状态文件检测结果
+       * @summary Retrieves the detection result of a state file.
+       *
+       * @description This API is used to retrieve the detection results of state files for resource orchestration tasks and stack tasks on the automation service desk.
        *
        * @param request GetTerraformStateDetectionRequest
        * @param headers map
@@ -1022,7 +1234,9 @@ namespace IaCService20210806
       Models::GetTerraformStateDetectionResponse getTerraformStateDetectionWithOptions(const string &detectionId, const Models::GetTerraformStateDetectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取状态文件检测结果
+       * @summary Retrieves the detection result of a state file.
+       *
+       * @description This API is used to retrieve the detection results of state files for resource orchestration tasks and stack tasks on the automation service desk.
        *
        * @param request GetTerraformStateDetectionRequest
        * @return GetTerraformStateDetectionResponse
@@ -1030,7 +1244,7 @@ namespace IaCService20210806
       Models::GetTerraformStateDetectionResponse getTerraformStateDetection(const string &detectionId, const Models::GetTerraformStateDetectionRequest &request);
 
       /**
-       * @summary 关联到资源的偏差检测配置列表
+       * @summary List drift detection associations
        *
        * @param request ListDetectConfigRelationsRequest
        * @param headers map
@@ -1040,7 +1254,7 @@ namespace IaCService20210806
       Models::ListDetectConfigRelationsResponse listDetectConfigRelationsWithOptions(const Models::ListDetectConfigRelationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 关联到资源的偏差检测配置列表
+       * @summary List drift detection associations
        *
        * @param request ListDetectConfigRelationsRequest
        * @return ListDetectConfigRelationsResponse
@@ -1048,7 +1262,7 @@ namespace IaCService20210806
       Models::ListDetectConfigRelationsResponse listDetectConfigRelations(const Models::ListDetectConfigRelationsRequest &request);
 
       /**
-       * @summary 偏差检测配置列表
+       * @summary List drift detection configurations
        *
        * @param request ListDetectConfigsRequest
        * @param headers map
@@ -1058,7 +1272,7 @@ namespace IaCService20210806
       Models::ListDetectConfigsResponse listDetectConfigsWithOptions(const Models::ListDetectConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 偏差检测配置列表
+       * @summary List drift detection configurations
        *
        * @param request ListDetectConfigsRequest
        * @return ListDetectConfigsResponse
@@ -1066,7 +1280,18 @@ namespace IaCService20210806
       Models::ListDetectConfigsResponse listDetectConfigs(const Models::ListDetectConfigsRequest &request);
 
       /**
-       * @summary 获取Explorer的egistryModule版本示例列表
+       * @summary Retrieves the list of official Terraform Module examples.
+       *
+       * @description This operation queries the example information of Terraform Modules officially provided by Alibaba Cloud.
+       * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+       * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModuleExamples operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
+       * - You can use keyword, namespaceName, moduleName, moduleVersion, and exampleName as conditional filter settings to narrow down the search scope. Multiple filter conditions have a logical `AND` relationship, and only resources that meet all filter conditions are returned.
+       *   - keyword: optional. Searches by keyword and supports fuzzy match on exampleName. For example, if keyword is set to ecs, module examples whose names contain ecs are returned.
+       *   - namespaceName: optional. Filters module examples by a specific workspace. For example, if namespaceName is set to alibaba, module examples in the alibaba workspace are returned.
+       *   - moduleName: optional. Filters module examples by a specific module name. For example, if moduleName is set to ecs, module examples whose module name is ecs are returned.
+       *   - moduleVersion: optional. Filters module examples by a specific module version. For example, if moduleVersion is set to 1.0.0, module examples whose module version is 1.0.0 are returned.
+       *   - exampleName: optional. Filters module examples by a specific example name. For example, if exampleName is set to ecs, module examples whose example name is ecs are returned.
+       * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates processing of query results.
        *
        * @param request ListExplorerRegistryModuleExamplesRequest
        * @param headers map
@@ -1076,7 +1301,18 @@ namespace IaCService20210806
       Models::ListExplorerRegistryModuleExamplesResponse listExplorerRegistryModuleExamplesWithOptions(const Models::ListExplorerRegistryModuleExamplesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Explorer的egistryModule版本示例列表
+       * @summary Retrieves the list of official Terraform Module examples.
+       *
+       * @description This operation queries the example information of Terraform Modules officially provided by Alibaba Cloud.
+       * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+       * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModuleExamples operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
+       * - You can use keyword, namespaceName, moduleName, moduleVersion, and exampleName as conditional filter settings to narrow down the search scope. Multiple filter conditions have a logical `AND` relationship, and only resources that meet all filter conditions are returned.
+       *   - keyword: optional. Searches by keyword and supports fuzzy match on exampleName. For example, if keyword is set to ecs, module examples whose names contain ecs are returned.
+       *   - namespaceName: optional. Filters module examples by a specific workspace. For example, if namespaceName is set to alibaba, module examples in the alibaba workspace are returned.
+       *   - moduleName: optional. Filters module examples by a specific module name. For example, if moduleName is set to ecs, module examples whose module name is ecs are returned.
+       *   - moduleVersion: optional. Filters module examples by a specific module version. For example, if moduleVersion is set to 1.0.0, module examples whose module version is 1.0.0 are returned.
+       *   - exampleName: optional. Filters module examples by a specific example name. For example, if exampleName is set to ecs, module examples whose example name is ecs are returned.
+       * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates processing of query results.
        *
        * @param request ListExplorerRegistryModuleExamplesRequest
        * @return ListExplorerRegistryModuleExamplesResponse
@@ -1084,7 +1320,17 @@ namespace IaCService20210806
       Models::ListExplorerRegistryModuleExamplesResponse listExplorerRegistryModuleExamples(const Models::ListExplorerRegistryModuleExamplesRequest &request);
 
       /**
-       * @summary 获取Explorer的egistryModule版本列表
+       * @summary Lists the version information of official Terraform modules provided by Alibaba Cloud.
+       *
+       * @description This operation queries the version information of official Terraform modules provided by Alibaba Cloud.
+       * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+       * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
+       * - You can use keyword, namespaceName, moduleName, and moduleVersion as conditional filter Settings to narrow the search scope. Multiple filter conditions have a logical `AND` relationship. Only resources that meet all filter conditions are returned.
+       *   - keyword: optional. Performs a fuzzy match on the module name. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
+       *   - namespaceName: optional. Filters modules by a specific workspace. For example, if namespaceName is set to alibaba, modules whose workspace is alibaba are returned. When moduleName is specified, namespaceName must also be specified. You can call the ListExplorerRegistryModule operation to obtain the namespaceName information.
+       *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, modules whose name is ecs are returned.
+       *   - moduleVersion: optional. Filters modules by a specific version. For example, if moduleVersion is set to 1.0.0, modules whose version is 1.0.0 are returned.
+       * The response contains the request ID, total number of entries, data on the current page, and pagination information, which facilitates the processing of query results.
        *
        * @param request ListExplorerRegistryModuleVersionsRequest
        * @param headers map
@@ -1094,7 +1340,17 @@ namespace IaCService20210806
       Models::ListExplorerRegistryModuleVersionsResponse listExplorerRegistryModuleVersionsWithOptions(const Models::ListExplorerRegistryModuleVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Explorer的egistryModule版本列表
+       * @summary Lists the version information of official Terraform modules provided by Alibaba Cloud.
+       *
+       * @description This operation queries the version information of official Terraform modules provided by Alibaba Cloud.
+       * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+       * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
+       * - You can use keyword, namespaceName, moduleName, and moduleVersion as conditional filter Settings to narrow the search scope. Multiple filter conditions have a logical `AND` relationship. Only resources that meet all filter conditions are returned.
+       *   - keyword: optional. Performs a fuzzy match on the module name. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
+       *   - namespaceName: optional. Filters modules by a specific workspace. For example, if namespaceName is set to alibaba, modules whose workspace is alibaba are returned. When moduleName is specified, namespaceName must also be specified. You can call the ListExplorerRegistryModule operation to obtain the namespaceName information.
+       *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, modules whose name is ecs are returned.
+       *   - moduleVersion: optional. Filters modules by a specific version. For example, if moduleVersion is set to 1.0.0, modules whose version is 1.0.0 are returned.
+       * The response contains the request ID, total number of entries, data on the current page, and pagination information, which facilitates the processing of query results.
        *
        * @param request ListExplorerRegistryModuleVersionsRequest
        * @return ListExplorerRegistryModuleVersionsResponse
@@ -1102,7 +1358,15 @@ namespace IaCService20210806
       Models::ListExplorerRegistryModuleVersionsResponse listExplorerRegistryModuleVersions(const Models::ListExplorerRegistryModuleVersionsRequest &request);
 
       /**
-       * @summary 获取Explorer的Registry Module列表
+       * @summary Lists information about official Terraform modules provided by Alibaba Cloud.
+       *
+       * @description This operation queries information about official Terraform modules provided by Alibaba Cloud.
+       * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+       * - If the `nextToken` parameter is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If you do not specify the `NextToken` parameter, the first page of data is returned by default.
+       * - You can use keyword and moduleName as filter conditions to narrow the search scope. Multiple filter conditions are evaluated by using a logical `AND`. Only resources that meet all filter conditions are returned.
+       *   - keyword: optional. Searches by keyword through fuzzy matching against ModuleName. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
+       *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, only the module whose name is exactly ecs is returned.
+       * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates the processing of query results.
        *
        * @param request ListExplorerRegistryModulesRequest
        * @param headers map
@@ -1112,7 +1376,15 @@ namespace IaCService20210806
       Models::ListExplorerRegistryModulesResponse listExplorerRegistryModulesWithOptions(const Models::ListExplorerRegistryModulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Explorer的Registry Module列表
+       * @summary Lists information about official Terraform modules provided by Alibaba Cloud.
+       *
+       * @description This operation queries information about official Terraform modules provided by Alibaba Cloud.
+       * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+       * - If the `nextToken` parameter is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If you do not specify the `NextToken` parameter, the first page of data is returned by default.
+       * - You can use keyword and moduleName as filter conditions to narrow the search scope. Multiple filter conditions are evaluated by using a logical `AND`. Only resources that meet all filter conditions are returned.
+       *   - keyword: optional. Searches by keyword through fuzzy matching against ModuleName. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
+       *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, only the module whose name is exactly ecs is returned.
+       * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates the processing of query results.
        *
        * @param request ListExplorerRegistryModulesRequest
        * @return ListExplorerRegistryModulesResponse
@@ -1120,7 +1392,7 @@ namespace IaCService20210806
       Models::ListExplorerRegistryModulesResponse listExplorerRegistryModules(const Models::ListExplorerRegistryModulesRequest &request);
 
       /**
-       * @summary 查询分组列表
+       * @summary Queries the list of groups.
        *
        * @param tmpReq ListGroupRequest
        * @param headers map
@@ -1130,7 +1402,7 @@ namespace IaCService20210806
       Models::ListGroupResponse listGroupWithOptions(const Models::ListGroupRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询分组列表
+       * @summary Queries the list of groups.
        *
        * @param request ListGroupRequest
        * @return ListGroupResponse
@@ -1138,7 +1410,9 @@ namespace IaCService20210806
       Models::ListGroupResponse listGroup(const Models::ListGroupRequest &request);
 
       /**
-       * @summary 作业列表
+       * @summary Queries a list of jobs.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request ListJobsRequest
        * @param headers map
@@ -1148,7 +1422,9 @@ namespace IaCService20210806
       Models::ListJobsResponse listJobsWithOptions(const string &taskId, const Models::ListJobsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 作业列表
+       * @summary Queries a list of jobs.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request ListJobsRequest
        * @return ListJobsResponse
@@ -1156,7 +1432,9 @@ namespace IaCService20210806
       Models::ListJobsResponse listJobs(const string &taskId, const Models::ListJobsRequest &request);
 
       /**
-       * @summary 模板版本列表
+       * @summary Retrieves a list of template versions.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request ListModuleVersionRequest
        * @param headers map
@@ -1166,7 +1444,9 @@ namespace IaCService20210806
       Models::ListModuleVersionResponse listModuleVersionWithOptions(const string &moduleId, const Models::ListModuleVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 模板版本列表
+       * @summary Retrieves a list of template versions.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request ListModuleVersionRequest
        * @return ListModuleVersionResponse
@@ -1174,7 +1454,16 @@ namespace IaCService20210806
       Models::ListModuleVersionResponse listModuleVersion(const string &moduleId, const Models::ListModuleVersionRequest &request);
 
       /**
-       * @summary 列举模板
+       * @summary Retrieves a list of templates for the current user, with support for pagination and conditional filtering.
+       *
+       * @description ## Operation description
+       * This operation lists all Terraform templates for the current user. You can specify query parameters to implement pagination, fuzzy match template names, and filter templates by source or status. You can also filter templates by tag for more granular results.
+       * ### Notes
+       * - Use the pageNumber and pageSize parameters to control the number of returned results.
+       * - Use the name parameter to perform a fuzzy match on template names.
+       * - Use the source parameter to filter templates by source, such as OSS import or file upload.
+       * - Use the status parameter to filter templates by status, such as Created or Published.
+       * - Tag-based filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
        *
        * @param tmpReq ListModulesRequest
        * @param headers map
@@ -1184,7 +1473,16 @@ namespace IaCService20210806
       Models::ListModulesResponse listModulesWithOptions(const Models::ListModulesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举模板
+       * @summary Retrieves a list of templates for the current user, with support for pagination and conditional filtering.
+       *
+       * @description ## Operation description
+       * This operation lists all Terraform templates for the current user. You can specify query parameters to implement pagination, fuzzy match template names, and filter templates by source or status. You can also filter templates by tag for more granular results.
+       * ### Notes
+       * - Use the pageNumber and pageSize parameters to control the number of returned results.
+       * - Use the name parameter to perform a fuzzy match on template names.
+       * - Use the source parameter to filter templates by source, such as OSS import or file upload.
+       * - Use the status parameter to filter templates by status, such as Created or Published.
+       * - Tag-based filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
        *
        * @param request ListModulesRequest
        * @return ListModulesResponse
@@ -1192,7 +1490,7 @@ namespace IaCService20210806
       Models::ListModulesResponse listModules(const Models::ListModulesRequest &request);
 
       /**
-       * @summary 关联到资源的参数集列表
+       * @summary Lists the parameter sets associated with a resource.
        *
        * @param request ListParameterSetRelationRequest
        * @param headers map
@@ -1202,7 +1500,7 @@ namespace IaCService20210806
       Models::ListParameterSetRelationResponse listParameterSetRelationWithOptions(const Models::ListParameterSetRelationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 关联到资源的参数集列表
+       * @summary Lists the parameter sets associated with a resource.
        *
        * @param request ListParameterSetRelationRequest
        * @return ListParameterSetRelationResponse
@@ -1210,7 +1508,13 @@ namespace IaCService20210806
       Models::ListParameterSetRelationResponse listParameterSetRelation(const Models::ListParameterSetRelationRequest &request);
 
       /**
-       * @summary 参数集列表
+       * @summary Queries and retrieves a paginated list of parameter sets with keyword search support.
+       *
+       * @description ## Operation description
+       * This operation queries all parameter sets in the system. You can filter results by keyword and paginate the results. Authentication information is required.
+       * ### Notes
+       * - The keyword parameter can be used to perform a fuzzy match on parameter sets by name or description.
+       * - Pagination is controlled by pageNumber and pageSize. Results start from the first page by default. Set pageSize to a reasonable value to avoid performance issues.
        *
        * @param request ListParameterSetsRequest
        * @param headers map
@@ -1220,7 +1524,13 @@ namespace IaCService20210806
       Models::ListParameterSetsResponse listParameterSetsWithOptions(const Models::ListParameterSetsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 参数集列表
+       * @summary Queries and retrieves a paginated list of parameter sets with keyword search support.
+       *
+       * @description ## Operation description
+       * This operation queries all parameter sets in the system. You can filter results by keyword and paginate the results. Authentication information is required.
+       * ### Notes
+       * - The keyword parameter can be used to perform a fuzzy match on parameter sets by name or description.
+       * - Pagination is controlled by pageNumber and pageSize. Results start from the first page by default. Set pageSize to a reasonable value to avoid performance issues.
        *
        * @param request ListParameterSetsRequest
        * @return ListParameterSetsResponse
@@ -1228,7 +1538,13 @@ namespace IaCService20210806
       Models::ListParameterSetsResponse listParameterSets(const Models::ListParameterSetsRequest &request);
 
       /**
-       * @summary 所有产品列表
+       * @summary Queries the list of all products.
+       *
+       * @description ## Operation description
+       * - **Keyword search**: Use the `keyword` parameter for fuzzy matching.
+       * - **Paged query**: Use `nextToken` for pagination and `maxResults` to specify the maximum number of results per page (default: 100, maximum: 200).
+       * - **Terraform Provider version**: The optional `terraformProviderVersion` parameter filters products associated with a specific Provider version.
+       * - **Response structure**: The response contains the request ID, total number of entries, data of the current page, and pagination information for easy processing of query results.
        *
        * @param request ListProductsRequest
        * @param headers map
@@ -1238,7 +1554,13 @@ namespace IaCService20210806
       Models::ListProductsResponse listProductsWithOptions(const Models::ListProductsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 所有产品列表
+       * @summary Queries the list of all products.
+       *
+       * @description ## Operation description
+       * - **Keyword search**: Use the `keyword` parameter for fuzzy matching.
+       * - **Paged query**: Use `nextToken` for pagination and `maxResults` to specify the maximum number of results per page (default: 100, maximum: 200).
+       * - **Terraform Provider version**: The optional `terraformProviderVersion` parameter filters products associated with a specific Provider version.
+       * - **Response structure**: The response contains the request ID, total number of entries, data of the current page, and pagination information for easy processing of query results.
        *
        * @param request ListProductsRequest
        * @return ListProductsResponse
@@ -1246,7 +1568,7 @@ namespace IaCService20210806
       Models::ListProductsResponse listProducts(const Models::ListProductsRequest &request);
 
       /**
-       * @summary 查询项目列表
+       * @summary Queries the list of projects.
        *
        * @param tmpReq ListProjectRequest
        * @param headers map
@@ -1256,7 +1578,7 @@ namespace IaCService20210806
       Models::ListProjectResponse listProjectWithOptions(const Models::ListProjectRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询项目列表
+       * @summary Queries the list of projects.
        *
        * @param request ListProjectRequest
        * @return ListProjectResponse
@@ -1264,7 +1586,9 @@ namespace IaCService20210806
       Models::ListProjectResponse listProject(const Models::ListProjectRequest &request);
 
       /**
-       * @summary 获取RegistryModule版本列表
+       * @summary Queries the list of Registry template versions.
+       *
+       * @description Single-user call frequency: 200 calls per second.
        *
        * @param request ListRegistryModuleVersionsRequest
        * @param headers map
@@ -1274,7 +1598,9 @@ namespace IaCService20210806
       Models::ListRegistryModuleVersionsResponse listRegistryModuleVersionsWithOptions(const Models::ListRegistryModuleVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取RegistryModule版本列表
+       * @summary Queries the list of Registry template versions.
+       *
+       * @description Single-user call frequency: 200 calls per second.
        *
        * @param request ListRegistryModuleVersionsRequest
        * @return ListRegistryModuleVersionsResponse
@@ -1282,7 +1608,9 @@ namespace IaCService20210806
       Models::ListRegistryModuleVersionsResponse listRegistryModuleVersions(const Models::ListRegistryModuleVersionsRequest &request);
 
       /**
-       * @summary 获取RegistryModule列表
+       * @summary Queries a list of registry modules.
+       *
+       * @description Single-user call frequency: 200 calls per second.
        *
        * @param request ListRegistryModulesRequest
        * @param headers map
@@ -1292,7 +1620,9 @@ namespace IaCService20210806
       Models::ListRegistryModulesResponse listRegistryModulesWithOptions(const Models::ListRegistryModulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取RegistryModule列表
+       * @summary Queries a list of registry modules.
+       *
+       * @description Single-user call frequency: 200 calls per second.
        *
        * @param request ListRegistryModulesRequest
        * @return ListRegistryModulesResponse
@@ -1300,7 +1630,9 @@ namespace IaCService20210806
       Models::ListRegistryModulesResponse listRegistryModules(const Models::ListRegistryModulesRequest &request);
 
       /**
-       * @summary 获取工作空间列表
+       * @summary Queries the list of workspaces.
+       *
+       * @description Single-user call frequency: 200 calls per second.
        *
        * @param request ListRegistryNamespacesRequest
        * @param headers map
@@ -1310,7 +1642,9 @@ namespace IaCService20210806
       Models::ListRegistryNamespacesResponse listRegistryNamespacesWithOptions(const Models::ListRegistryNamespacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取工作空间列表
+       * @summary Queries the list of workspaces.
+       *
+       * @description Single-user call frequency: 200 calls per second.
        *
        * @param request ListRegistryNamespacesRequest
        * @return ListRegistryNamespacesResponse
@@ -1318,7 +1652,9 @@ namespace IaCService20210806
       Models::ListRegistryNamespacesResponse listRegistryNamespaces(const Models::ListRegistryNamespacesRequest &request);
 
       /**
-       * @summary 获取任务版本列表
+       * @summary Retrieves the list of versions for a resource export task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request ListResourceExportTaskVersionsRequest
        * @param headers map
@@ -1328,7 +1664,9 @@ namespace IaCService20210806
       Models::ListResourceExportTaskVersionsResponse listResourceExportTaskVersionsWithOptions(const string &exportTaskId, const Models::ListResourceExportTaskVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取任务版本列表
+       * @summary Retrieves the list of versions for a resource export task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request ListResourceExportTaskVersionsRequest
        * @return ListResourceExportTaskVersionsResponse
@@ -1336,7 +1674,9 @@ namespace IaCService20210806
       Models::ListResourceExportTaskVersionsResponse listResourceExportTaskVersions(const string &exportTaskId, const Models::ListResourceExportTaskVersionsRequest &request);
 
       /**
-       * @summary 查询导出任务列表
+       * @summary Queries the list of resource export tasks.
+       *
+       * @description Rate limit per user: 100 calls per second.
        *
        * @param request ListResourceExportTasksRequest
        * @param headers map
@@ -1346,7 +1686,9 @@ namespace IaCService20210806
       Models::ListResourceExportTasksResponse listResourceExportTasksWithOptions(const Models::ListResourceExportTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询导出任务列表
+       * @summary Queries the list of resource export tasks.
+       *
+       * @description Rate limit per user: 100 calls per second.
        *
        * @param request ListResourceExportTasksRequest
        * @return ListResourceExportTasksResponse
@@ -1354,7 +1696,10 @@ namespace IaCService20210806
       Models::ListResourceExportTasksResponse listResourceExportTasks(const Models::ListResourceExportTasksRequest &request);
 
       /**
-       * @summary 资源类型列表
+       * @summary Queries a list of resource types by filter conditions with pagination support.
+       *
+       * @description ## Operation description
+       * This API operation allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform provider version, child class, status, and keyword. The results include detailed information about each resource, such as the product code, status, status effective version, child class, Terraform provider version, and resource type code. Paging is supported to facilitate handling large amounts of data.
        *
        * @param tmpReq ListResourceTypesRequest
        * @param headers map
@@ -1364,7 +1709,10 @@ namespace IaCService20210806
       Models::ListResourceTypesResponse listResourceTypesWithOptions(const Models::ListResourceTypesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 资源类型列表
+       * @summary Queries a list of resource types by filter conditions with pagination support.
+       *
+       * @description ## Operation description
+       * This API operation allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform provider version, child class, status, and keyword. The results include detailed information about each resource, such as the product code, status, status effective version, child class, Terraform provider version, and resource type code. Paging is supported to facilitate handling large amounts of data.
        *
        * @param request ListResourceTypesRequest
        * @return ListResourceTypesResponse
@@ -1372,7 +1720,7 @@ namespace IaCService20210806
       Models::ListResourceTypesResponse listResourceTypes(const Models::ListResourceTypesRequest &request);
 
       /**
-       * @summary 资源列表
+       * @summary Retrieves the resources of a node.
        *
        * @param request ListResourcesRequest
        * @param headers map
@@ -1382,7 +1730,7 @@ namespace IaCService20210806
       Models::ListResourcesResponse listResourcesWithOptions(const Models::ListResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 资源列表
+       * @summary Retrieves the resources of a node.
        *
        * @param request ListResourcesRequest
        * @return ListResourcesResponse
@@ -1390,7 +1738,7 @@ namespace IaCService20210806
       Models::ListResourcesResponse listResources(const Models::ListResourcesRequest &request);
 
       /**
-       * @summary 查询资源栈配置列表
+       * @summary Queries the list of stack configurations.
        *
        * @param request ListStackConfigsRequest
        * @param headers map
@@ -1400,7 +1748,7 @@ namespace IaCService20210806
       Models::ListStackConfigsResponse listStackConfigsWithOptions(const string &stackId, const Models::ListStackConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询资源栈配置列表
+       * @summary Queries the list of stack configurations.
        *
        * @param request ListStackConfigsRequest
        * @return ListStackConfigsResponse
@@ -1408,7 +1756,7 @@ namespace IaCService20210806
       Models::ListStackConfigsResponse listStackConfigs(const string &stackId, const Models::ListStackConfigsRequest &request);
 
       /**
-       * @summary 列举资源栈
+       * @summary Queries the list of stacks.
        *
        * @param request ListStacksRequest
        * @param headers map
@@ -1418,7 +1766,7 @@ namespace IaCService20210806
       Models::ListStacksResponse listStacksWithOptions(const Models::ListStacksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举资源栈
+       * @summary Queries the list of stacks.
        *
        * @param request ListStacksRequest
        * @return ListStacksResponse
@@ -1426,7 +1774,9 @@ namespace IaCService20210806
       Models::ListStacksResponse listStacks(const Models::ListStacksRequest &request);
 
       /**
-       * @summary 任务列表
+       * @summary Queries a list of tasks.
+       *
+       * @description The maximum number of times that a single user can call this operation per second: 100.
        *
        * @param tmpReq ListTasksRequest
        * @param headers map
@@ -1436,7 +1786,9 @@ namespace IaCService20210806
       Models::ListTasksResponse listTasksWithOptions(const Models::ListTasksRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 任务列表
+       * @summary Queries a list of tasks.
+       *
+       * @description The maximum number of times that a single user can call this operation per second: 100.
        *
        * @param request ListTasksRequest
        * @return ListTasksResponse
@@ -1444,7 +1796,7 @@ namespace IaCService20210806
       Models::ListTasksResponse listTasks(const Models::ListTasksRequest &request);
 
       /**
-       * @summary terraformProvider版本
+       * @summary Retrieves the list of Terraform provider versions.
        *
        * @param request ListTerraformProviderVersionsRequest
        * @param headers map
@@ -1454,7 +1806,7 @@ namespace IaCService20210806
       Models::ListTerraformProviderVersionsResponse listTerraformProviderVersionsWithOptions(const Models::ListTerraformProviderVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary terraformProvider版本
+       * @summary Retrieves the list of Terraform provider versions.
        *
        * @param request ListTerraformProviderVersionsRequest
        * @return ListTerraformProviderVersionsResponse
@@ -1462,7 +1814,10 @@ namespace IaCService20210806
       Models::ListTerraformProviderVersionsResponse listTerraformProviderVersions(const Models::ListTerraformProviderVersionsRequest &request);
 
       /**
-       * @summary 支持状态文件的资源导入和移除
+       * @summary Supports resource import and removal for state files.
+       *
+       * @description This API is used to manage state files for resource orchestration tasks and stack tasks on the automated service desk.
+       * Before using this API, make sure that all required authentication information is correctly configured and that the Terraform code meets the expected functional requirements.
        *
        * @param request ManageTerraformStateRequest
        * @param headers map
@@ -1472,7 +1827,10 @@ namespace IaCService20210806
       Models::ManageTerraformStateResponse manageTerraformStateWithOptions(const Models::ManageTerraformStateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 支持状态文件的资源导入和移除
+       * @summary Supports resource import and removal for state files.
+       *
+       * @description This API is used to manage state files for resource orchestration tasks and stack tasks on the automated service desk.
+       * Before using this API, make sure that all required authentication information is correctly configured and that the Terraform code meets the expected functional requirements.
        *
        * @param request ManageTerraformStateRequest
        * @return ManageTerraformStateResponse
@@ -1480,7 +1838,10 @@ namespace IaCService20210806
       Models::ManageTerraformStateResponse manageTerraformState(const Models::ManageTerraformStateRequest &request);
 
       /**
-       * @summary 控制作业
+       * @summary After a job is created, you can perform the **Cancel** operation to stop the job while it is running.
+       * After a job reaches the pending confirmation state, you can perform the **Abolish** operation to stop the job, or perform the **Execute** operation to continue the job execution.
+       *
+       * @description Per-user call frequency: 100 calls per second.
        *
        * @param request OperateJobRequest
        * @param headers map
@@ -1490,7 +1851,10 @@ namespace IaCService20210806
       Models::OperateJobResponse operateJobWithOptions(const string &taskId, const string &jobId, const string &operationType, const Models::OperateJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 控制作业
+       * @summary After a job is created, you can perform the **Cancel** operation to stop the job while it is running.
+       * After a job reaches the pending confirmation state, you can perform the **Abolish** operation to stop the job, or perform the **Execute** operation to continue the job execution.
+       *
+       * @description Per-user call frequency: 100 calls per second.
        *
        * @param request OperateJobRequest
        * @return OperateJobResponse
@@ -1498,7 +1862,9 @@ namespace IaCService20210806
       Models::OperateJobResponse operateJob(const string &taskId, const string &jobId, const string &operationType, const Models::OperateJobRequest &request);
 
       /**
-       * @summary 发布RegistryModule版本
+       * @summary Publishes a Registry template version.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request PublishRegistryModuleVersionRequest
        * @param headers map
@@ -1508,7 +1874,9 @@ namespace IaCService20210806
       Models::PublishRegistryModuleVersionResponse publishRegistryModuleVersionWithOptions(const Models::PublishRegistryModuleVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发布RegistryModule版本
+       * @summary Publishes a Registry template version.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request PublishRegistryModuleVersionRequest
        * @return PublishRegistryModuleVersionResponse
@@ -1516,7 +1884,9 @@ namespace IaCService20210806
       Models::PublishRegistryModuleVersionResponse publishRegistryModuleVersion(const Models::PublishRegistryModuleVersionRequest &request);
 
       /**
-       * @summary 删除共享账号信息
+       * @summary Removes a shared account.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param tmpReq RemoveSharedAccountsRequest
        * @param headers map
@@ -1526,7 +1896,9 @@ namespace IaCService20210806
       Models::RemoveSharedAccountsResponse removeSharedAccountsWithOptions(const Models::RemoveSharedAccountsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除共享账号信息
+       * @summary Removes a shared account.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request RemoveSharedAccountsRequest
        * @return RemoveSharedAccountsResponse
@@ -1534,7 +1906,7 @@ namespace IaCService20210806
       Models::RemoveSharedAccountsResponse removeSharedAccounts(const Models::RemoveSharedAccountsRequest &request);
 
       /**
-       * @summary 触发资源栈部署
+       * @summary Trigger Stack execution
        *
        * @param request TriggerStackExecutionRequest
        * @param headers map
@@ -1544,7 +1916,7 @@ namespace IaCService20210806
       Models::TriggerStackExecutionResponse triggerStackExecutionWithOptions(const Models::TriggerStackExecutionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 触发资源栈部署
+       * @summary Trigger Stack execution
        *
        * @param request TriggerStackExecutionRequest
        * @return TriggerStackExecutionResponse
@@ -1552,7 +1924,13 @@ namespace IaCService20210806
       Models::TriggerStackExecutionResponse triggerStackExecution(const Models::TriggerStackExecutionRequest &request);
 
       /**
-       * @summary 更新偏差检测配置
+       * @summary Updates the drift detection configuration information for the specified ID.
+       *
+       * @description ## Request Description  
+       * - `detectConfigId` is a required parameter used to identify the specific detection configuration to update.  
+       * - When `triggerType` is set to `Cron`, a valid `cronExpression` must be provided.  
+       * - Each element in the `alarmConfigs` list must include an alert type (`type`) and an address (`address`).  
+       * - If you do not want to change certain properties (such as `name`, `description`, etc.), you can omit these fields from the request body.
        *
        * @param request UpdateDetectConfigRequest
        * @param headers map
@@ -1562,7 +1940,13 @@ namespace IaCService20210806
       Models::UpdateDetectConfigResponse updateDetectConfigWithOptions(const string &detectConfigId, const Models::UpdateDetectConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新偏差检测配置
+       * @summary Updates the drift detection configuration information for the specified ID.
+       *
+       * @description ## Request Description  
+       * - `detectConfigId` is a required parameter used to identify the specific detection configuration to update.  
+       * - When `triggerType` is set to `Cron`, a valid `cronExpression` must be provided.  
+       * - Each element in the `alarmConfigs` list must include an alert type (`type`) and an address (`address`).  
+       * - If you do not want to change certain properties (such as `name`, `description`, etc.), you can omit these fields from the request body.
        *
        * @param request UpdateDetectConfigRequest
        * @return UpdateDetectConfigResponse
@@ -1570,7 +1954,9 @@ namespace IaCService20210806
       Models::UpdateDetectConfigResponse updateDetectConfig(const string &detectConfigId, const Models::UpdateDetectConfigRequest &request);
 
       /**
-       * @summary 修改ExplorerModule
+       * @summary Updates an Explorer template.
+       *
+       * @description Updates an Explorer template.
        *
        * @param request UpdateExplorerModuleAttributeRequest
        * @param headers map
@@ -1580,7 +1966,9 @@ namespace IaCService20210806
       Models::UpdateExplorerModuleAttributeResponse updateExplorerModuleAttributeWithOptions(const string &explorerModuleId, const Models::UpdateExplorerModuleAttributeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改ExplorerModule
+       * @summary Updates an Explorer template.
+       *
+       * @description Updates an Explorer template.
        *
        * @param request UpdateExplorerModuleAttributeRequest
        * @return UpdateExplorerModuleAttributeResponse
@@ -1588,7 +1976,7 @@ namespace IaCService20210806
       Models::UpdateExplorerModuleAttributeResponse updateExplorerModuleAttribute(const string &explorerModuleId, const Models::UpdateExplorerModuleAttributeRequest &request);
 
       /**
-       * @summary 修改分组
+       * @summary Modifies a group.
        *
        * @param request UpdateGroupRequest
        * @param headers map
@@ -1598,7 +1986,7 @@ namespace IaCService20210806
       Models::UpdateGroupResponse updateGroupWithOptions(const string &groupId, const Models::UpdateGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改分组
+       * @summary Modifies a group.
        *
        * @param request UpdateGroupRequest
        * @return UpdateGroupResponse
@@ -1606,7 +1994,13 @@ namespace IaCService20210806
       Models::UpdateGroupResponse updateGroup(const string &groupId, const Models::UpdateGroupRequest &request);
 
       /**
-       * @summary Update Module
+       * @summary Updates the name, description, tags, and other information of a specified template.
+       *
+       * @description ## Operation description
+       * - This operation allows you to modify the basic attributes of an existing template, including but not limited to the template name, description, and tags.
+       * - The update operation does not affect the content or version information of the template.
+       * - To enable or disable deletion protection, use the deletionProtection parameter.
+       * - Use clientToken to ensure the idempotence of the request and avoid duplicate submissions caused by network issues.
        *
        * @param request UpdateModuleAttributeRequest
        * @param headers map
@@ -1616,7 +2010,13 @@ namespace IaCService20210806
       Models::UpdateModuleAttributeResponse updateModuleAttributeWithOptions(const string &moduleId, const Models::UpdateModuleAttributeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update Module
+       * @summary Updates the name, description, tags, and other information of a specified template.
+       *
+       * @description ## Operation description
+       * - This operation allows you to modify the basic attributes of an existing template, including but not limited to the template name, description, and tags.
+       * - The update operation does not affect the content or version information of the template.
+       * - To enable or disable deletion protection, use the deletionProtection parameter.
+       * - Use clientToken to ensure the idempotence of the request and avoid duplicate submissions caused by network issues.
        *
        * @param request UpdateModuleAttributeRequest
        * @return UpdateModuleAttributeResponse
@@ -1624,7 +2024,14 @@ namespace IaCService20210806
       Models::UpdateModuleAttributeResponse updateModuleAttribute(const string &moduleId, const Models::UpdateModuleAttributeRequest &request);
 
       /**
-       * @summary 更新参数集
+       * @summary Updates the attributes of a specified parameter set, such as the name and description.
+       *
+       * @description ## Operation description
+       * - This operation allows you to modify the basic information of an existing parameter set, including the name and description.
+       * - If the request includes the parameters field, the parameter list in the parameter set is updated.
+       * - The clientToken field can be used to ensure the idempotence of the request.
+       * - The update operation requires a valid parameterSetId as a path parameter.
+       * - The request must include authentication information to pass identity verification.
        *
        * @param request UpdateParameterSetAttributeRequest
        * @param headers map
@@ -1634,7 +2041,14 @@ namespace IaCService20210806
       Models::UpdateParameterSetAttributeResponse updateParameterSetAttributeWithOptions(const string &parameterSetId, const Models::UpdateParameterSetAttributeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新参数集
+       * @summary Updates the attributes of a specified parameter set, such as the name and description.
+       *
+       * @description ## Operation description
+       * - This operation allows you to modify the basic information of an existing parameter set, including the name and description.
+       * - If the request includes the parameters field, the parameter list in the parameter set is updated.
+       * - The clientToken field can be used to ensure the idempotence of the request.
+       * - The update operation requires a valid parameterSetId as a path parameter.
+       * - The request must include authentication information to pass identity verification.
        *
        * @param request UpdateParameterSetAttributeRequest
        * @return UpdateParameterSetAttributeResponse
@@ -1642,7 +2056,7 @@ namespace IaCService20210806
       Models::UpdateParameterSetAttributeResponse updateParameterSetAttribute(const string &parameterSetId, const Models::UpdateParameterSetAttributeRequest &request);
 
       /**
-       * @summary 修改项目
+       * @summary Updates project information.
        *
        * @param request UpdateProjectRequest
        * @param headers map
@@ -1652,7 +2066,7 @@ namespace IaCService20210806
       Models::UpdateProjectResponse updateProjectWithOptions(const string &projectId, const Models::UpdateProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改项目
+       * @summary Updates project information.
        *
        * @param request UpdateProjectRequest
        * @return UpdateProjectResponse
@@ -1660,7 +2074,9 @@ namespace IaCService20210806
       Models::UpdateProjectResponse updateProject(const string &projectId, const Models::UpdateProjectRequest &request);
 
       /**
-       * @summary 修改RegistryModule
+       * @summary Updates a Registry template.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request UpdateRegistryModuleAttributeRequest
        * @param headers map
@@ -1670,7 +2086,9 @@ namespace IaCService20210806
       Models::UpdateRegistryModuleAttributeResponse updateRegistryModuleAttributeWithOptions(const string &namespaceName, const string &moduleName, const Models::UpdateRegistryModuleAttributeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改RegistryModule
+       * @summary Updates a Registry template.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request UpdateRegistryModuleAttributeRequest
        * @return UpdateRegistryModuleAttributeResponse
@@ -1678,7 +2096,9 @@ namespace IaCService20210806
       Models::UpdateRegistryModuleAttributeResponse updateRegistryModuleAttribute(const string &namespaceName, const string &moduleName, const Models::UpdateRegistryModuleAttributeRequest &request);
 
       /**
-       * @summary 修改工作空间
+       * @summary Modifies a workspace.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request UpdateRegistryNamespaceAttributeRequest
        * @param headers map
@@ -1688,7 +2108,9 @@ namespace IaCService20210806
       Models::UpdateRegistryNamespaceAttributeResponse updateRegistryNamespaceAttributeWithOptions(const string &namespaceName, const Models::UpdateRegistryNamespaceAttributeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改工作空间
+       * @summary Modifies a workspace.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request UpdateRegistryNamespaceAttributeRequest
        * @return UpdateRegistryNamespaceAttributeResponse
@@ -1696,7 +2118,9 @@ namespace IaCService20210806
       Models::UpdateRegistryNamespaceAttributeResponse updateRegistryNamespaceAttribute(const string &namespaceName, const Models::UpdateRegistryNamespaceAttributeRequest &request);
 
       /**
-       * @summary 更新导出任务
+       * @summary Modifies a resource export task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request UpdateResourceExportTaskAttributeRequest
        * @param headers map
@@ -1706,7 +2130,9 @@ namespace IaCService20210806
       Models::UpdateResourceExportTaskAttributeResponse updateResourceExportTaskAttributeWithOptions(const string &exportTaskId, const Models::UpdateResourceExportTaskAttributeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新导出任务
+       * @summary Modifies a resource export task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request UpdateResourceExportTaskAttributeRequest
        * @return UpdateResourceExportTaskAttributeResponse
@@ -1714,7 +2140,7 @@ namespace IaCService20210806
       Models::UpdateResourceExportTaskAttributeResponse updateResourceExportTaskAttribute(const string &exportTaskId, const Models::UpdateResourceExportTaskAttributeRequest &request);
 
       /**
-       * @summary 更新资源栈
+       * @summary Modifies a stack. When the configuration changes, a stack deployment is triggered.
        *
        * @param request UpdateStackRequest
        * @param headers map
@@ -1724,7 +2150,7 @@ namespace IaCService20210806
       Models::UpdateStackResponse updateStackWithOptions(const string &stackId, const Models::UpdateStackRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新资源栈
+       * @summary Modifies a stack. When the configuration changes, a stack deployment is triggered.
        *
        * @param request UpdateStackRequest
        * @return UpdateStackResponse
@@ -1732,7 +2158,9 @@ namespace IaCService20210806
       Models::UpdateStackResponse updateStack(const string &stackId, const Models::UpdateStackRequest &request);
 
       /**
-       * @summary 修改任务
+       * @summary Updates the properties of a task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request UpdateTaskAttributeRequest
        * @param headers map
@@ -1742,7 +2170,9 @@ namespace IaCService20210806
       Models::UpdateTaskAttributeResponse updateTaskAttributeWithOptions(const string &taskId, const Models::UpdateTaskAttributeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改任务
+       * @summary Updates the properties of a task.
+       *
+       * @description Single-user call frequency: 100 calls per second.
        *
        * @param request UpdateTaskAttributeRequest
        * @return UpdateTaskAttributeResponse
@@ -1750,7 +2180,7 @@ namespace IaCService20210806
       Models::UpdateTaskAttributeResponse updateTaskAttribute(const string &taskId, const Models::UpdateTaskAttributeRequest &request);
 
       /**
-       * @summary 模版上传
+       * @summary Uploads a template.
        *
        * @param request UploadModuleRequest
        * @param headers map
@@ -1760,7 +2190,7 @@ namespace IaCService20210806
       Models::UploadModuleResponse uploadModuleWithOptions(const string &resourceType, const Models::UploadModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 模版上传
+       * @summary Uploads a template.
        *
        * @param request UploadModuleRequest
        * @return UploadModuleResponse
@@ -1770,7 +2200,9 @@ namespace IaCService20210806
       Models::UploadModuleResponse uploadModuleAdvance(const string &resourceType, const Models::UploadModuleAdvanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 模版预检
+       * @summary Performs a dry run on a template.
+       *
+       * @description Performs a dry run on the content of a Terraform configuration file.
        *
        * @param request ValidateModuleRequest
        * @param headers map
@@ -1780,7 +2212,9 @@ namespace IaCService20210806
       FutureGenerator<Models::ValidateModuleResponse> validateModuleWithSSE(const Models::ValidateModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 模版预检
+       * @summary Performs a dry run on a template.
+       *
+       * @description Performs a dry run on the content of a Terraform configuration file.
        *
        * @param request ValidateModuleRequest
        * @param headers map
@@ -1790,7 +2224,9 @@ namespace IaCService20210806
       Models::ValidateModuleResponse validateModuleWithOptions(const Models::ValidateModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 模版预检
+       * @summary Performs a dry run on a template.
+       *
+       * @description Performs a dry run on the content of a Terraform configuration file.
        *
        * @param request ValidateModuleRequest
        * @return ValidateModuleResponse

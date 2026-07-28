@@ -122,12 +122,19 @@ namespace Models
 
 
     protected:
+      // The description.
       shared_ptr<string> description_ {};
+      // The number of downloads.
       shared_ptr<int64_t> downloads_ {};
+      // The latest version number.
       shared_ptr<string> latestVersion_ {};
+      // The module name.
       shared_ptr<string> moduleName_ {};
+      // The workspace name.
       shared_ptr<string> namespaceName_ {};
+      // The source.
       shared_ptr<string> source_ {};
+      // The status.
       shared_ptr<string> status_ {};
     };
 
@@ -171,10 +178,21 @@ namespace Models
 
 
   protected:
+    // The list of Explorer community modules.
     shared_ptr<vector<ListExplorerRegistryModulesResponseBody::ExplorerRegistryModules>> explorerRegistryModules_ {};
+    // The maximum number of entries per page.
+    // 
+    // Valid values: 0 to 200.
+    // 
+    // Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next page of results.
+    // 
+    // If the total number of entries exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page of data.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

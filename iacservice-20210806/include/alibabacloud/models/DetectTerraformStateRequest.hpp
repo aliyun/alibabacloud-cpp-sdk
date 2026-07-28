@@ -57,10 +57,18 @@ namespace Models
 
 
   protected:
+    // The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // The task identifier. For a Stack task, the format is <$stackId>:<$deploymentName>. For a Task task, the format is <$TaskId>.
+    // 
     // This parameter is required.
     shared_ptr<string> identifier_ {};
+    // The task type. Valid values:
+    // - Stack
+    // - Task.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

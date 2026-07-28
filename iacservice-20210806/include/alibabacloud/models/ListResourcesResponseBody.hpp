@@ -129,7 +129,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> tagKey_ {};
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -273,25 +275,41 @@ namespace Models
 
 
     protected:
+      // The Alibaba Cloud account ID.
       shared_ptr<string> accountId_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The dependent resources.
       shared_ptr<vector<string>> dependsOnResourceIds_ {};
+      // The product code.
       shared_ptr<string> productCode_ {};
+      // The resource properties.
       Darabonba::Json properties_ {};
+      // The property variables.
       Darabonba::Json propertyVariables_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The resource ARN.
       shared_ptr<string> resourceArn_ {};
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
+      // The resource name.
       shared_ptr<string> resourceName_ {};
+      // The URL of the resources page.
       shared_ptr<string> resourcePageUrl_ {};
+      // The resource type.
       shared_ptr<string> resourceType_ {};
+      // The status.
       shared_ptr<string> status_ {};
+      // The tags.
       shared_ptr<vector<Resources::Tags>> tags_ {};
       // terraform arn
       shared_ptr<string> terraformArn_ {};
       // terraform code
       shared_ptr<string> terraformCode_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -335,10 +353,15 @@ namespace Models
 
 
   protected:
+    // The resource information.
     shared_ptr<vector<ListResourcesResponseBody::Resources>> resources_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 200.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

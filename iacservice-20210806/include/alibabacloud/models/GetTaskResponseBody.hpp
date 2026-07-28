@@ -52,6 +52,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(protectionStrategy, protectionStrategy_);
         DARABONBA_PTR_TO_JSON(ramRole, ramRole_);
         DARABONBA_PTR_TO_JSON(skipPropertyValidation, skipPropertyValidation_);
+        DARABONBA_PTR_TO_JSON(skipRegionValidation, skipRegionValidation_);
         DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(tags, tags_);
         DARABONBA_PTR_TO_JSON(taskBackend, taskBackend_);
@@ -78,6 +79,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(protectionStrategy, protectionStrategy_);
         DARABONBA_PTR_FROM_JSON(ramRole, ramRole_);
         DARABONBA_PTR_FROM_JSON(skipPropertyValidation, skipPropertyValidation_);
+        DARABONBA_PTR_FROM_JSON(skipRegionValidation, skipRegionValidation_);
         DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(tags, tags_);
         DARABONBA_PTR_FROM_JSON(taskBackend, taskBackend_);
@@ -144,8 +146,11 @@ namespace Models
 
 
       protected:
+        // The endpoint information.
         shared_ptr<string> bucketEndpoint_ {};
+        // The bucket name.
         shared_ptr<string> bucketName_ {};
+        // The object path.
         shared_ptr<string> objectPath_ {};
       };
 
@@ -187,7 +192,9 @@ namespace Models
 
 
       protected:
+        // The tag key of the task.
         shared_ptr<string> tagKey_ {};
+        // The tag value of the task.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -247,9 +254,13 @@ namespace Models
 
 
       protected:
+        // The group ID.
         shared_ptr<string> groupId_ {};
+        // The group name.
         shared_ptr<string> groupName_ {};
+        // The project ID.
         shared_ptr<string> projectId_ {};
+        // The project name.
         shared_ptr<string> projectName_ {};
       };
 
@@ -257,8 +268,8 @@ namespace Models
         && this->autoDestroy_ == nullptr && this->createTime_ == nullptr && this->currentJobId_ == nullptr && this->currentJobStatus_ == nullptr && this->deletionProtection_ == nullptr
         && this->description_ == nullptr && this->groupInfo_ == nullptr && this->initModuleState_ == nullptr && this->latestModuleVersion_ == nullptr && this->moduleId_ == nullptr
         && this->moduleName_ == nullptr && this->moduleVersion_ == nullptr && this->name_ == nullptr && this->protectionStrategy_ == nullptr && this->ramRole_ == nullptr
-        && this->skipPropertyValidation_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->taskBackend_ == nullptr && this->taskId_ == nullptr
-        && this->taskOutputPath_ == nullptr && this->terraformVersion_ == nullptr && this->triggerStrategy_ == nullptr; };
+        && this->skipPropertyValidation_ == nullptr && this->skipRegionValidation_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->taskBackend_ == nullptr
+        && this->taskId_ == nullptr && this->taskOutputPath_ == nullptr && this->terraformVersion_ == nullptr && this->triggerStrategy_ == nullptr; };
       // autoApply Field Functions 
       bool hasAutoApply() const { return this->autoApply_ != nullptr;};
       void deleteAutoApply() { this->autoApply_ = nullptr;};
@@ -382,6 +393,13 @@ namespace Models
       inline Task& setSkipPropertyValidation(bool skipPropertyValidation) { DARABONBA_PTR_SET_VALUE(skipPropertyValidation_, skipPropertyValidation) };
 
 
+      // skipRegionValidation Field Functions 
+      bool hasSkipRegionValidation() const { return this->skipRegionValidation_ != nullptr;};
+      void deleteSkipRegionValidation() { this->skipRegionValidation_ = nullptr;};
+      inline bool getSkipRegionValidation() const { DARABONBA_PTR_GET_DEFAULT(skipRegionValidation_, false) };
+      inline Task& setSkipRegionValidation(bool skipRegionValidation) { DARABONBA_PTR_SET_VALUE(skipRegionValidation_, skipRegionValidation) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
@@ -436,29 +454,62 @@ namespace Models
 
 
     protected:
+      // Indicates whether the task is automatically executed.
       shared_ptr<bool> autoApply_ {};
+      // Indicates whether automatic deletion is enabled. When enabled, resources are automatically destroyed after the task is completed.
       shared_ptr<bool> autoDestroy_ {};
+      // The time when the task was created.
       shared_ptr<string> createTime_ {};
+      // The job ID of the current task.
       shared_ptr<string> currentJobId_ {};
+      // The current job status.
       shared_ptr<string> currentJobStatus_ {};
+      // Indicates whether deletion protection is enabled.
       shared_ptr<bool> deletionProtection_ {};
+      // The description of the task.
       shared_ptr<string> description_ {};
+      // The group information.
       shared_ptr<Task::GroupInfo> groupInfo_ {};
+      // Specifies whether to use a state file. Default value: false. This parameter is applicable to templates that originate from resource export. Only one task can use this parameter at a time.
       shared_ptr<bool> initModuleState_ {};
+      // The latest version number of the template.
       shared_ptr<string> latestModuleVersion_ {};
+      // The template ID.
       shared_ptr<string> moduleId_ {};
+      // The template name.
       shared_ptr<string> moduleName_ {};
+      // The template version.
       shared_ptr<string> moduleVersion_ {};
+      // The task name.
       shared_ptr<string> name_ {};
+      // The list of resource protection strategies.
       shared_ptr<vector<string>> protectionStrategy_ {};
+      // The RAM role.
       shared_ptr<string> ramRole_ {};
+      // Specifies whether to skip enumeration value validation. Default value: false.
       shared_ptr<bool> skipPropertyValidation_ {};
+      shared_ptr<bool> skipRegionValidation_ {};
+      // The task status. Valid values:
+      // 
+      // - Available: the task is available and no job is running.
+      // - Running: a job is currently running.
       shared_ptr<string> status_ {};
+      // The list of task tags.
       shared_ptr<vector<Task::Tags>> tags_ {};
+      // The task backend configuration. After this parameter is configured, runtime log information is saved to the specified OSS bucket.
       shared_ptr<Task::TaskBackend> taskBackend_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The task output path.
       shared_ptr<string> taskOutputPath_ {};
+      // The Terraform version.
       shared_ptr<string> terraformVersion_ {};
+      // The job trigger method. Valid values:
+      // 
+      // - Manual: manually triggered (default).
+      // - NewVersion: triggered when a new template version is published.
+      // - ParameterSetUpdated: triggered when the parameter set content changes or the parameter set attach relationship changes.
+      // - Auto: automatically triggered when the task properties change, such as task creation, execution version change, or job trigger policy change (when changed from another value to Auto).
       shared_ptr<string> triggerStrategy_ {};
     };
 
@@ -481,8 +532,9 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task information.
     shared_ptr<GetTaskResponseBody::Task> task_ {};
   };
 

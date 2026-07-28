@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // If ResourceType is set to ModuleVersion, this parameter takes effect and returns the version ID after publishing.
     shared_ptr<string> version_ {};
   };
 

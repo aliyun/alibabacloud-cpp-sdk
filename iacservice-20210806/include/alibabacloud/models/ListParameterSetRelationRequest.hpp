@@ -48,8 +48,17 @@ namespace Models
 
 
   protected:
+    // The ID of the resource. For ModuleVersion, concatenate <moduleId>-<versionId>.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
+    // The type of the resource. Valid values:
+    // - Module
+    // - ModuleVersion
+    // - Task
+    // - SceneTestingTask
+    // - Stack.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
   };

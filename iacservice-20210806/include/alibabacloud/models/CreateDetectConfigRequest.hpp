@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // Alerting address.
       shared_ptr<string> address_ {};
+      // Alerting method. Currently only `cms` is supported.
       shared_ptr<string> type_ {};
     };
 
@@ -139,14 +141,25 @@ namespace Models
 
 
   protected:
+    // List of alerting addresses
     shared_ptr<vector<CreateDetectConfigRequest::AlarmConfigs>> alarmConfigs_ {};
+    // Idempotence token, format: `[0-9a-zA-Z-]{1,64}`. It is recommended to use a UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // Cron expression (UTC+8). Required when trigger type is `Cron`.
     shared_ptr<string> cronExpression_ {};
+    // Description, up to 256 characters in length.
     shared_ptr<string> description_ {};
+    // Detection configuration Name
+    // 
     // This parameter is required.
     shared_ptr<string> detectConfigName_ {};
+    // Whether the Detection feature is Enabled. The default value is `true`.
     shared_ptr<bool> enabled_ {};
+    // Trigger type  
+    // - Manual: Execute manually  
+    // - Cron: Trigger on a schedule
     shared_ptr<string> triggerType_ {};
   };
 

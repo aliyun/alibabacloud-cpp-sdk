@@ -25,7 +25,10 @@ namespace IaCService20210806
 {
 
 AlibabaCloud::IaCService20210806::Client::Client(AlibabaCloud::OpenApi::Utils::Models::Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-zhangjiakou" , "iac.cn-zhangjiakou.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("iacservice", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -45,7 +48,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 新增共享账号信息
+ * @summary Adds shared accounts.
+ *
+ * @description Per-user call frequency: 100 calls per second.
  *
  * @param request AddSharedAccountsRequest
  * @param headers map
@@ -86,7 +91,9 @@ AddSharedAccountsResponse Client::addSharedAccountsWithOptions(const AddSharedAc
 }
 
 /**
- * @summary 新增共享账号信息
+ * @summary Adds shared accounts.
+ *
+ * @description Per-user call frequency: 100 calls per second.
  *
  * @param request AddSharedAccountsRequest
  * @return AddSharedAccountsResponse
@@ -98,7 +105,7 @@ AddSharedAccountsResponse Client::addSharedAccounts(const AddSharedAccountsReque
 }
 
 /**
- * @summary 将参数集关联资源
+ * @summary Associate drift detection configuration
  *
  * @param request AssociateDetectConfigRequest
  * @param headers map
@@ -139,7 +146,7 @@ AssociateDetectConfigResponse Client::associateDetectConfigWithOptions(const Ass
 }
 
 /**
- * @summary 将参数集关联资源
+ * @summary Associate drift detection configuration
  *
  * @param request AssociateDetectConfigRequest
  * @return AssociateDetectConfigResponse
@@ -151,7 +158,7 @@ AssociateDetectConfigResponse Client::associateDetectConfig(const AssociateDetec
 }
 
 /**
- * @summary 分组关联
+ * @summary Associates resources with a group.
  *
  * @param request AssociateGroupRequest
  * @param headers map
@@ -196,7 +203,7 @@ AssociateGroupResponse Client::associateGroupWithOptions(const string &groupId, 
 }
 
 /**
- * @summary 分组关联
+ * @summary Associates resources with a group.
  *
  * @param request AssociateGroupRequest
  * @return AssociateGroupResponse
@@ -208,7 +215,12 @@ AssociateGroupResponse Client::associateGroup(const string &groupId, const Assoc
 }
 
 /**
- * @summary 将参数集关联资源
+ * @summary Associates parameter sets.
+ *
+ * @description After creating a parameter set, you need to associate it with a resource. Valid values for the resource type:
+ * - Module: template
+ * - ModuleVersion: template version
+ * - Task: node.
  *
  * @param request AssociateParameterSetRequest
  * @param headers map
@@ -249,7 +261,12 @@ AssociateParameterSetResponse Client::associateParameterSetWithOptions(const Ass
 }
 
 /**
- * @summary 将参数集关联资源
+ * @summary Associates parameter sets.
+ *
+ * @description After creating a parameter set, you need to associate it with a resource. Valid values for the resource type:
+ * - Module: template
+ * - ModuleVersion: template version
+ * - Task: node.
  *
  * @param request AssociateParameterSetRequest
  * @return AssociateParameterSetResponse
@@ -261,7 +278,9 @@ AssociateParameterSetResponse Client::associateParameterSet(const AssociateParam
 }
 
 /**
- * @summary 取消资源导出任务
+ * @summary Cancels a resource export task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request CancelResourceExportTaskRequest
  * @param headers map
@@ -294,7 +313,9 @@ CancelResourceExportTaskResponse Client::cancelResourceExportTaskWithOptions(con
 }
 
 /**
- * @summary 取消资源导出任务
+ * @summary Cancels a resource export task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request CancelResourceExportTaskRequest
  * @return CancelResourceExportTaskResponse
@@ -306,7 +327,13 @@ CancelResourceExportTaskResponse Client::cancelResourceExportTask(const string &
 }
 
 /**
- * @summary 创建偏差检测配置
+ * @summary Creates a drift detection configuration that supports manual or scheduled triggering.
+ *
+ * @description ## Request Description  
+ * - When `triggerType` is set to `Cron`, a valid `cronExpression` must be provided.  
+ * - Each element in the `alarmConfigs` list must specify the alerting method `type` and the corresponding alerting address `address`.  
+ * - If the `enabled` parameter is not explicitly set, its default value is `true`, meaning newly created detection configurations are enabled by default.  
+ * - It is recommended to use a UUID as the value of `clientToken` to ensure request idempotence.
  *
  * @param request CreateDetectConfigRequest
  * @param headers map
@@ -363,7 +390,13 @@ CreateDetectConfigResponse Client::createDetectConfigWithOptions(const CreateDet
 }
 
 /**
- * @summary 创建偏差检测配置
+ * @summary Creates a drift detection configuration that supports manual or scheduled triggering.
+ *
+ * @description ## Request Description  
+ * - When `triggerType` is set to `Cron`, a valid `cronExpression` must be provided.  
+ * - Each element in the `alarmConfigs` list must specify the alerting method `type` and the corresponding alerting address `address`.  
+ * - If the `enabled` parameter is not explicitly set, its default value is `true`, meaning newly created detection configurations are enabled by default.  
+ * - It is recommended to use a UUID as the value of `clientToken` to ensure request idempotence.
  *
  * @param request CreateDetectConfigRequest
  * @return CreateDetectConfigResponse
@@ -375,7 +408,7 @@ CreateDetectConfigResponse Client::createDetectConfig(const CreateDetectConfigRe
 }
 
 /**
- * @summary 创建分组
+ * @summary Creates a group.
  *
  * @param request CreateGroupRequest
  * @param headers map
@@ -464,7 +497,7 @@ CreateGroupResponse Client::createGroupWithOptions(const CreateGroupRequest &req
 }
 
 /**
- * @summary 创建分组
+ * @summary Creates a group.
  *
  * @param request CreateGroupRequest
  * @return CreateGroupResponse
@@ -476,7 +509,9 @@ CreateGroupResponse Client::createGroup(const CreateGroupRequest &request) {
 }
 
 /**
- * @summary 创建作业
+ * @summary Creates a job and runs a task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request CreateJobRequest
  * @param headers map
@@ -521,7 +556,9 @@ CreateJobResponse Client::createJobWithOptions(const string &taskId, const Creat
 }
 
 /**
- * @summary 创建作业
+ * @summary Creates a job and runs a task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request CreateJobRequest
  * @return CreateJobResponse
@@ -533,7 +570,9 @@ CreateJobResponse Client::createJob(const string &taskId, const CreateJobRequest
 }
 
 /**
- * @summary Create Module
+ * @summary Creates a Terraform template. Multiple source methods are supported, such as OSS import, Registry import, file upload, and online editing.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request CreateModuleRequest
  * @param headers map
@@ -598,7 +637,9 @@ CreateModuleResponse Client::createModuleWithOptions(const CreateModuleRequest &
 }
 
 /**
- * @summary Create Module
+ * @summary Creates a Terraform template. Multiple source methods are supported, such as OSS import, Registry import, file upload, and online editing.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request CreateModuleRequest
  * @return CreateModuleResponse
@@ -610,7 +651,11 @@ CreateModuleResponse Client::createModule(const CreateModuleRequest &request) {
 }
 
 /**
- * @summary Publish a template version.
+ * @summary Publishes a new version for a specified template.
+ *
+ * @description ## Operation description
+ * - Use the `clientToken` parameter to ensure idempotence of the request and prevent duplicate submissions caused by network retries.
+ * - Use semantic versioning (such as `v1.0.0`).
  *
  * @param request CreateModuleVersionRequest
  * @param headers map
@@ -651,7 +696,11 @@ CreateModuleVersionResponse Client::createModuleVersionWithOptions(const string 
 }
 
 /**
- * @summary Publish a template version.
+ * @summary Publishes a new version for a specified template.
+ *
+ * @description ## Operation description
+ * - Use the `clientToken` parameter to ensure idempotence of the request and prevent duplicate submissions caused by network retries.
+ * - Use semantic versioning (such as `v1.0.0`).
  *
  * @param request CreateModuleVersionRequest
  * @return CreateModuleVersionResponse
@@ -663,7 +712,14 @@ CreateModuleVersionResponse Client::createModuleVersion(const string &moduleId, 
 }
 
 /**
- * @summary 创建参数集
+ * @summary Adds a new parameter set. You can set the name, description, and parameter list.
+ *
+ * @description ## Operation description
+ * - This operation creates a new parameter set.
+ * - The name field is required and can be up to 128 characters in length.
+ * - Each element in the parameters array must contain the name field. Other fields are optional.
+ * - Use the clientToken field to ensure the idempotence of the request.
+ * - The request header must contain authentication information to ensure secure access.
  *
  * @param request CreateParameterSetRequest
  * @param headers map
@@ -708,7 +764,14 @@ CreateParameterSetResponse Client::createParameterSetWithOptions(const CreatePar
 }
 
 /**
- * @summary 创建参数集
+ * @summary Adds a new parameter set. You can set the name, description, and parameter list.
+ *
+ * @description ## Operation description
+ * - This operation creates a new parameter set.
+ * - The name field is required and can be up to 128 characters in length.
+ * - Each element in the parameters array must contain the name field. Other fields are optional.
+ * - Use the clientToken field to ensure the idempotence of the request.
+ * - The request header must contain authentication information to ensure secure access.
  *
  * @param request CreateParameterSetRequest
  * @return CreateParameterSetResponse
@@ -720,7 +783,7 @@ CreateParameterSetResponse Client::createParameterSet(const CreateParameterSetRe
 }
 
 /**
- * @summary 创建项目
+ * @summary Creates a project.
  *
  * @param request CreateProjectRequest
  * @param headers map
@@ -761,7 +824,7 @@ CreateProjectResponse Client::createProjectWithOptions(const CreateProjectReques
 }
 
 /**
- * @summary 创建项目
+ * @summary Creates a project.
  *
  * @param request CreateProjectRequest
  * @return CreateProjectResponse
@@ -773,7 +836,9 @@ CreateProjectResponse Client::createProject(const CreateProjectRequest &request)
 }
 
 /**
- * @summary 创建RegistryModule
+ * @summary Creates a Registry template.
+ *
+ * @description Per-user call frequency: 100 calls per second.
  *
  * @param request CreateRegistryModuleRequest
  * @param headers map
@@ -830,7 +895,9 @@ CreateRegistryModuleResponse Client::createRegistryModuleWithOptions(const Creat
 }
 
 /**
- * @summary 创建RegistryModule
+ * @summary Creates a Registry template.
+ *
+ * @description Per-user call frequency: 100 calls per second.
  *
  * @param request CreateRegistryModuleRequest
  * @return CreateRegistryModuleResponse
@@ -842,7 +909,9 @@ CreateRegistryModuleResponse Client::createRegistryModule(const CreateRegistryMo
 }
 
 /**
- * @summary 创建工作空间
+ * @summary Creates a workspace.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request CreateRegistryNamespaceRequest
  * @param headers map
@@ -891,7 +960,9 @@ CreateRegistryNamespaceResponse Client::createRegistryNamespaceWithOptions(const
 }
 
 /**
- * @summary 创建工作空间
+ * @summary Creates a workspace.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request CreateRegistryNamespaceRequest
  * @return CreateRegistryNamespaceResponse
@@ -903,7 +974,9 @@ CreateRegistryNamespaceResponse Client::createRegistryNamespace(const CreateRegi
 }
 
 /**
- * @summary 创建导出任务
+ * @summary Creates a resource export task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request CreateResourceExportTaskRequest
  * @param headers map
@@ -972,7 +1045,9 @@ CreateResourceExportTaskResponse Client::createResourceExportTaskWithOptions(con
 }
 
 /**
- * @summary 创建导出任务
+ * @summary Creates a resource export task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request CreateResourceExportTaskRequest
  * @return CreateResourceExportTaskResponse
@@ -984,7 +1059,7 @@ CreateResourceExportTaskResponse Client::createResourceExportTask(const CreateRe
 }
 
 /**
- * @summary 创建资源栈
+ * @summary Creates a resource stack and triggers deployment.
  *
  * @param request CreateStackRequest
  * @param headers map
@@ -1004,6 +1079,10 @@ CreateStackResponse Client::createStackWithOptions(const CreateStackRequest &req
 
   if (!!request.hasName()) {
     body["name"] = request.getName();
+  }
+
+  if (!!request.hasParameterSetIds()) {
+    body["parameterSetIds"] = request.getParameterSetIds();
   }
 
   if (!!request.hasRamRole()) {
@@ -1041,7 +1120,7 @@ CreateStackResponse Client::createStackWithOptions(const CreateStackRequest &req
 }
 
 /**
- * @summary 创建资源栈
+ * @summary Creates a resource stack and triggers deployment.
  *
  * @param request CreateStackRequest
  * @return CreateStackResponse
@@ -1053,7 +1132,9 @@ CreateStackResponse Client::createStack(const CreateStackRequest &request) {
 }
 
 /**
- * @summary 创建任务
+ * @summary Creates a node.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request CreateTaskRequest
  * @param headers map
@@ -1115,12 +1196,20 @@ CreateTaskResponse Client::createTaskWithOptions(const CreateTaskRequest &reques
     body["skipPropertyValidation"] = request.getSkipPropertyValidation();
   }
 
+  if (!!request.hasSkipRegionValidation()) {
+    body["skipRegionValidation"] = request.getSkipRegionValidation();
+  }
+
   if (!!request.hasTags()) {
     body["tags"] = request.getTags();
   }
 
   if (!!request.hasTaskBackend()) {
     body["taskBackend"] = request.getTaskBackend();
+  }
+
+  if (!!request.hasTerraformProviderVersion()) {
+    body["terraformProviderVersion"] = request.getTerraformProviderVersion();
   }
 
   if (!!request.hasTerraformVersion()) {
@@ -1150,7 +1239,9 @@ CreateTaskResponse Client::createTaskWithOptions(const CreateTaskRequest &reques
 }
 
 /**
- * @summary 创建任务
+ * @summary Creates a node.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request CreateTaskRequest
  * @return CreateTaskResponse
@@ -1162,7 +1253,7 @@ CreateTaskResponse Client::createTask(const CreateTaskRequest &request) {
 }
 
 /**
- * @summary 删除偏差检测配置
+ * @summary Delete drift detection configuration
  *
  * @param request DeleteDetectConfigRequest
  * @param headers map
@@ -1189,7 +1280,7 @@ DeleteDetectConfigResponse Client::deleteDetectConfigWithOptions(const string &d
 }
 
 /**
- * @summary 删除偏差检测配置
+ * @summary Delete drift detection configuration
  *
  * @param request DeleteDetectConfigRequest
  * @return DeleteDetectConfigResponse
@@ -1201,7 +1292,7 @@ DeleteDetectConfigResponse Client::deleteDetectConfig(const string &detectConfig
 }
 
 /**
- * @summary 删除分组
+ * @summary Deletes a group.
  *
  * @param request DeleteGroupRequest
  * @param headers map
@@ -1228,7 +1319,7 @@ DeleteGroupResponse Client::deleteGroupWithOptions(const string &groupId, const 
 }
 
 /**
- * @summary 删除分组
+ * @summary Deletes a group.
  *
  * @param request DeleteGroupRequest
  * @return DeleteGroupResponse
@@ -1240,7 +1331,11 @@ DeleteGroupResponse Client::deleteGroup(const string &groupId, const DeleteGroup
 }
 
 /**
- * @summary 删除模板
+ * @summary Deletes a specified template and all its versions.
+ *
+ * @description ## Operation description
+ * - This operation deletes a specified template.
+ * - Deletion is irreversible. Proceed with caution.
  *
  * @param request DeleteModuleRequest
  * @param headers map
@@ -1267,7 +1362,11 @@ DeleteModuleResponse Client::deleteModuleWithOptions(const string &moduleId, con
 }
 
 /**
- * @summary 删除模板
+ * @summary Deletes a specified template and all its versions.
+ *
+ * @description ## Operation description
+ * - This operation deletes a specified template.
+ * - Deletion is irreversible. Proceed with caution.
  *
  * @param request DeleteModuleRequest
  * @return DeleteModuleResponse
@@ -1279,7 +1378,9 @@ DeleteModuleResponse Client::deleteModule(const string &moduleId, const DeleteMo
 }
 
 /**
- * @summary 删除参数集
+ * @summary Deletes a specified parameter set by parameter set ID.
+ *
+ * @description Deletes a specified parameter set.
  *
  * @param request DeleteParameterSetRequest
  * @param headers map
@@ -1306,7 +1407,9 @@ DeleteParameterSetResponse Client::deleteParameterSetWithOptions(const string &p
 }
 
 /**
- * @summary 删除参数集
+ * @summary Deletes a specified parameter set by parameter set ID.
+ *
+ * @description Deletes a specified parameter set.
  *
  * @param request DeleteParameterSetRequest
  * @return DeleteParameterSetResponse
@@ -1318,7 +1421,7 @@ DeleteParameterSetResponse Client::deleteParameterSet(const string &parameterSet
 }
 
 /**
- * @summary 删除项目
+ * @summary Deletes a project.
  *
  * @param request DeleteProjectRequest
  * @param headers map
@@ -1345,7 +1448,7 @@ DeleteProjectResponse Client::deleteProjectWithOptions(const string &projectId, 
 }
 
 /**
- * @summary 删除项目
+ * @summary Deletes a project.
  *
  * @param request DeleteProjectRequest
  * @return DeleteProjectResponse
@@ -1357,7 +1460,9 @@ DeleteProjectResponse Client::deleteProject(const string &projectId, const Delet
 }
 
 /**
- * @summary 删除RegistryModule
+ * @summary Deletes a Registry template.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request DeleteRegistryModuleRequest
  * @param headers map
@@ -1384,7 +1489,9 @@ DeleteRegistryModuleResponse Client::deleteRegistryModuleWithOptions(const strin
 }
 
 /**
- * @summary 删除RegistryModule
+ * @summary Deletes a Registry template.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request DeleteRegistryModuleRequest
  * @return DeleteRegistryModuleResponse
@@ -1396,7 +1503,9 @@ DeleteRegistryModuleResponse Client::deleteRegistryModule(const string &namespac
 }
 
 /**
- * @summary 删除RegistryModule版本
+ * @summary Deletes a Registry template version.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request DeleteRegistryModuleVersionRequest
  * @param headers map
@@ -1423,7 +1532,9 @@ DeleteRegistryModuleVersionResponse Client::deleteRegistryModuleVersionWithOptio
 }
 
 /**
- * @summary 删除RegistryModule版本
+ * @summary Deletes a Registry template version.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request DeleteRegistryModuleVersionRequest
  * @return DeleteRegistryModuleVersionResponse
@@ -1435,7 +1546,9 @@ DeleteRegistryModuleVersionResponse Client::deleteRegistryModuleVersion(const st
 }
 
 /**
- * @summary 删除工作空间
+ * @summary Deletes a workspace.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request DeleteRegistryNamespaceRequest
  * @param headers map
@@ -1462,7 +1575,9 @@ DeleteRegistryNamespaceResponse Client::deleteRegistryNamespaceWithOptions(const
 }
 
 /**
- * @summary 删除工作空间
+ * @summary Deletes a workspace.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request DeleteRegistryNamespaceRequest
  * @return DeleteRegistryNamespaceResponse
@@ -1474,7 +1589,9 @@ DeleteRegistryNamespaceResponse Client::deleteRegistryNamespace(const string &na
 }
 
 /**
- * @summary 删除资源导出任务
+ * @summary Deletes a resource export task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request DeleteResourceExportTaskRequest
  * @param headers map
@@ -1501,7 +1618,9 @@ DeleteResourceExportTaskResponse Client::deleteResourceExportTaskWithOptions(con
 }
 
 /**
- * @summary 删除资源导出任务
+ * @summary Deletes a resource export task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request DeleteResourceExportTaskRequest
  * @return DeleteResourceExportTaskResponse
@@ -1513,7 +1632,7 @@ DeleteResourceExportTaskResponse Client::deleteResourceExportTask(const string &
 }
 
 /**
- * @summary 删除资源栈
+ * @summary Deletes a stack.
  *
  * @param request DeleteStackRequest
  * @param headers map
@@ -1546,7 +1665,7 @@ DeleteStackResponse Client::deleteStackWithOptions(const string &stackId, const 
 }
 
 /**
- * @summary 删除资源栈
+ * @summary Deletes a stack.
  *
  * @param request DeleteStackRequest
  * @return DeleteStackResponse
@@ -1558,7 +1677,10 @@ DeleteStackResponse Client::deleteStack(const string &stackId, const DeleteStack
 }
 
 /**
- * @summary 删除任务
+ * @summary Deletes a node.
+ *
+ * @description Single-user call frequency: 100 calls per second.
+ * Deletes a node. If the node has resources that have not been destroyed, the node cannot be deleted.
  *
  * @param request DeleteTaskRequest
  * @param headers map
@@ -1585,7 +1707,10 @@ DeleteTaskResponse Client::deleteTaskWithOptions(const string &taskId, const Del
 }
 
 /**
- * @summary 删除任务
+ * @summary Deletes a node.
+ *
+ * @description Single-user call frequency: 100 calls per second.
+ * Deletes a node. If the node has resources that have not been destroyed, the node cannot be deleted.
  *
  * @param request DeleteTaskRequest
  * @return DeleteTaskResponse
@@ -1597,7 +1722,9 @@ DeleteTaskResponse Client::deleteTask(const string &taskId, const DeleteTaskRequ
 }
 
 /**
- * @summary 发起状态文件一致性检测
+ * @summary Initiates a state file consistency check.
+ *
+ * @description This API is used to perform drift detection on the state files of resource orchestration tasks and stack tasks in the automated service desk.
  *
  * @param request DetectTerraformStateRequest
  * @param headers map
@@ -1638,7 +1765,9 @@ DetectTerraformStateResponse Client::detectTerraformStateWithOptions(const Detec
 }
 
 /**
- * @summary 发起状态文件一致性检测
+ * @summary Initiates a state file consistency check.
+ *
+ * @description This API is used to perform drift detection on the state files of resource orchestration tasks and stack tasks in the automated service desk.
  *
  * @param request DetectTerraformStateRequest
  * @return DetectTerraformStateResponse
@@ -1650,7 +1779,7 @@ DetectTerraformStateResponse Client::detectTerraformState(const DetectTerraformS
 }
 
 /**
- * @summary 解除参数集关联资源关系
+ * @summary Disassociate drift detection configuration
  *
  * @param request DissociateDetectConfigRequest
  * @param headers map
@@ -1691,7 +1820,7 @@ DissociateDetectConfigResponse Client::dissociateDetectConfigWithOptions(const D
 }
 
 /**
- * @summary 解除参数集关联资源关系
+ * @summary Disassociate drift detection configuration
  *
  * @param request DissociateDetectConfigRequest
  * @return DissociateDetectConfigResponse
@@ -1703,7 +1832,7 @@ DissociateDetectConfigResponse Client::dissociateDetectConfig(const DissociateDe
 }
 
 /**
- * @summary 取消关联分组
+ * @summary Dissociates a resource group.
  *
  * @param request DissociateGroupRequest
  * @param headers map
@@ -1744,7 +1873,7 @@ DissociateGroupResponse Client::dissociateGroupWithOptions(const string &project
 }
 
 /**
- * @summary 取消关联分组
+ * @summary Dissociates a resource group.
  *
  * @param request DissociateGroupRequest
  * @return DissociateGroupResponse
@@ -1756,7 +1885,7 @@ DissociateGroupResponse Client::dissociateGroup(const string &projectId, const s
 }
 
 /**
- * @summary 解除参数集关联资源关系
+ * @summary Dissociates a parameter set from other resources.
  *
  * @param request DissociateParameterSetRequest
  * @param headers map
@@ -1797,7 +1926,7 @@ DissociateParameterSetResponse Client::dissociateParameterSetWithOptions(const D
 }
 
 /**
- * @summary 解除参数集关联资源关系
+ * @summary Dissociates a parameter set from other resources.
  *
  * @param request DissociateParameterSetRequest
  * @return DissociateParameterSetResponse
@@ -1809,7 +1938,9 @@ DissociateParameterSetResponse Client::dissociateParameterSet(const DissociatePa
 }
 
 /**
- * @summary 执行RegistryModule
+ * @summary Executes a Module officially provided by Alibaba Cloud Terraform.
+ *
+ * @description This API operation is used to execute Terraform Module code to create or update cloud resources. Before using this API operation, make sure that all required authentication information is correctly configured and that the Terraform code corresponding to the Module meets the expected functional requirements.
  *
  * @param request ExecuteRegistryModuleRequest
  * @param headers map
@@ -1846,7 +1977,9 @@ ExecuteRegistryModuleResponse Client::executeRegistryModuleWithOptions(const str
 }
 
 /**
- * @summary 执行RegistryModule
+ * @summary Executes a Module officially provided by Alibaba Cloud Terraform.
+ *
+ * @description This API operation is used to execute Terraform Module code to create or update cloud resources. Before using this API operation, make sure that all required authentication information is correctly configured and that the Terraform code corresponding to the Module meets the expected functional requirements.
  *
  * @param request ExecuteRegistryModuleRequest
  * @return ExecuteRegistryModuleResponse
@@ -1858,7 +1991,9 @@ ExecuteRegistryModuleResponse Client::executeRegistryModule(const string &namesp
 }
 
 /**
- * @summary 执行资源导出任务
+ * @summary Runs a resource export task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request ExecuteResourceExportTaskRequest
  * @param headers map
@@ -1891,7 +2026,9 @@ ExecuteResourceExportTaskResponse Client::executeResourceExportTaskWithOptions(c
 }
 
 /**
- * @summary 执行资源导出任务
+ * @summary Runs a resource export task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request ExecuteResourceExportTaskRequest
  * @return ExecuteResourceExportTaskResponse
@@ -1903,7 +2040,10 @@ ExecuteResourceExportTaskResponse Client::executeResourceExportTask(const string
 }
 
 /**
- * @summary 执行TerraformApply
+ * @summary Executes TerraformApply.
+ *
+ * @description Executes the Terraform Apply command to create or update cloud resources based on the provided Terraform code. This API can handle complex scenarios such as operations that depend on a previous state.
+ * Before calling this API, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
  *
  * @param request ExecuteTerraformApplyRequest
  * @param headers map
@@ -1944,7 +2084,10 @@ ExecuteTerraformApplyResponse Client::executeTerraformApplyWithOptions(const Exe
 }
 
 /**
- * @summary 执行TerraformApply
+ * @summary Executes TerraformApply.
+ *
+ * @description Executes the Terraform Apply command to create or update cloud resources based on the provided Terraform code. This API can handle complex scenarios such as operations that depend on a previous state.
+ * Before calling this API, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
  *
  * @param request ExecuteTerraformApplyRequest
  * @return ExecuteTerraformApplyResponse
@@ -1956,7 +2099,9 @@ ExecuteTerraformApplyResponse Client::executeTerraformApply(const ExecuteTerrafo
 }
 
 /**
- * @summary 执行TerraformDestroy
+ * @summary Executes Terraform Destroy.
+ *
+ * @description Executes the Terraform Destroy command to destroy resources created by Terraform.
  *
  * @param request ExecuteTerraformDestroyRequest
  * @param headers map
@@ -1993,7 +2138,9 @@ ExecuteTerraformDestroyResponse Client::executeTerraformDestroyWithOptions(const
 }
 
 /**
- * @summary 执行TerraformDestroy
+ * @summary Executes Terraform Destroy.
+ *
+ * @description Executes the Terraform Destroy command to destroy resources created by Terraform.
  *
  * @param request ExecuteTerraformDestroyRequest
  * @return ExecuteTerraformDestroyResponse
@@ -2005,7 +2152,10 @@ ExecuteTerraformDestroyResponse Client::executeTerraformDestroy(const ExecuteTer
 }
 
 /**
- * @summary 执行TerraformPlan
+ * @summary Executes a Terraform plan.
+ *
+ * @description Executes a Terraform Plan command by using the provided Terraform code to create or update cloud resources. This API operation can handle complex scenarios such as operations that depend on a previous state.
+ * Before calling this API operation, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
  *
  * @param request ExecuteTerraformPlanRequest
  * @param headers map
@@ -2046,7 +2196,10 @@ ExecuteTerraformPlanResponse Client::executeTerraformPlanWithOptions(const Execu
 }
 
 /**
- * @summary 执行TerraformPlan
+ * @summary Executes a Terraform plan.
+ *
+ * @description Executes a Terraform Plan command by using the provided Terraform code to create or update cloud resources. This API operation can handle complex scenarios such as operations that depend on a previous state.
+ * Before calling this API operation, ensure that all required authentication information is properly configured and that the Terraform code meets the expected functional requirements.
  *
  * @param request ExecuteTerraformPlanRequest
  * @return ExecuteTerraformPlanResponse
@@ -2058,7 +2211,7 @@ ExecuteTerraformPlanResponse Client::executeTerraformPlan(const ExecuteTerraform
 }
 
 /**
- * @summary 生成模板
+ * @summary Generates Terraform HCL template code.
  *
  * @param request GenerateModuleRequest
  * @param headers map
@@ -2115,7 +2268,7 @@ GenerateModuleResponse Client::generateModuleWithOptions(const GenerateModuleReq
 }
 
 /**
- * @summary 生成模板
+ * @summary Generates Terraform HCL template code.
  *
  * @param request GenerateModuleRequest
  * @return GenerateModuleResponse
@@ -2127,7 +2280,7 @@ GenerateModuleResponse Client::generateModule(const GenerateModuleRequest &reque
 }
 
 /**
- * @summary 偏差检测配置详情
+ * @summary Retrieve drift detection configuration
  *
  * @param request GetDetectConfigRequest
  * @param headers map
@@ -2154,7 +2307,7 @@ GetDetectConfigResponse Client::getDetectConfigWithOptions(const string &detectC
 }
 
 /**
- * @summary 偏差检测配置详情
+ * @summary Retrieve drift detection configuration
  *
  * @param request GetDetectConfigRequest
  * @return GetDetectConfigResponse
@@ -2166,7 +2319,9 @@ GetDetectConfigResponse Client::getDetectConfig(const string &detectConfigId, co
 }
 
 /**
- * @summary 获取Terraform运行结果
+ * @summary Retrieves the result of a Terraform run.
+ *
+ * @description Retrieves the result of a Terraform run.
  *
  * @param request GetExecuteStateRequest
  * @param headers map
@@ -2193,7 +2348,9 @@ GetExecuteStateResponse Client::getExecuteStateWithOptions(const string &stateId
 }
 
 /**
- * @summary 获取Terraform运行结果
+ * @summary Retrieves the result of a Terraform run.
+ *
+ * @description Retrieves the result of a Terraform run.
  *
  * @param request GetExecuteStateRequest
  * @return GetExecuteStateResponse
@@ -2205,7 +2362,7 @@ GetExecuteStateResponse Client::getExecuteState(const string &stateId, const Get
 }
 
 /**
- * @summary 查询分组
+ * @summary Queries a group.
  *
  * @param request GetGroupRequest
  * @param headers map
@@ -2232,7 +2389,7 @@ GetGroupResponse Client::getGroupWithOptions(const string &groupId, const GetGro
 }
 
 /**
- * @summary 查询分组
+ * @summary Queries a group.
  *
  * @param request GetGroupRequest
  * @return GetGroupResponse
@@ -2244,7 +2401,9 @@ GetGroupResponse Client::getGroup(const string &groupId, const GetGroupRequest &
 }
 
 /**
- * @summary 作业详情
+ * @summary Retrieves job information.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request GetJobRequest
  * @param headers map
@@ -2277,7 +2436,9 @@ GetJobResponse Client::getJobWithOptions(const string &taskId, const string &job
 }
 
 /**
- * @summary 作业详情
+ * @summary Retrieves job information.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request GetJobRequest
  * @return GetJobResponse
@@ -2289,7 +2450,10 @@ GetJobResponse Client::getJob(const string &taskId, const string &jobId, const G
 }
 
 /**
- * @summary Get Module Details
+ * @summary Queries the details of a specified template.
+ *
+ * @description ## Operation description
+ * You can call this operation to query the details of a specified template, including but not limited to the template name, description, source, status, and latest version. You must specify the template ID and include authentication information in the request.
  *
  * @param request GetModuleRequest
  * @param headers map
@@ -2316,7 +2480,10 @@ GetModuleResponse Client::getModuleWithOptions(const string &moduleId, const Get
 }
 
 /**
- * @summary Get Module Details
+ * @summary Queries the details of a specified template.
+ *
+ * @description ## Operation description
+ * You can call this operation to query the details of a specified template, including but not limited to the template name, description, source, status, and latest version. You must specify the template ID and include authentication information in the request.
  *
  * @param request GetModuleRequest
  * @return GetModuleResponse
@@ -2328,7 +2495,10 @@ GetModuleResponse Client::getModule(const string &moduleId, const GetModuleReque
 }
 
 /**
- * @summary 模板版本详情
+ * @summary Queries the details of a specific version of a specified template.
+ *
+ * @description ## Operation description
+ * You can call this operation to query the details of a specific version of a specified template, including the version number, description, and release time. Make sure that the template ID and version number are correct.
  *
  * @param request GetModuleVersionRequest
  * @param headers map
@@ -2355,7 +2525,10 @@ GetModuleVersionResponse Client::getModuleVersionWithOptions(const string &modul
 }
 
 /**
- * @summary 模板版本详情
+ * @summary Queries the details of a specific version of a specified template.
+ *
+ * @description ## Operation description
+ * You can call this operation to query the details of a specific version of a specified template, including the version number, description, and release time. Make sure that the template ID and version number are correct.
  *
  * @param request GetModuleVersionRequest
  * @return GetModuleVersionResponse
@@ -2367,7 +2540,12 @@ GetModuleVersionResponse Client::getModuleVersion(const string &moduleId, const 
 }
 
 /**
- * @summary 参数集详情
+ * @summary Retrieves the details of a parameter set by parameter set ID.
+ *
+ * @description ## Description
+ * - This operation retrieves detailed parameter set information by specifying a parameterSetId.
+ * - Authentication is required to call this operation.
+ * - If the request succeeds, the response includes detailed data such as the parameter set name, description, and parameter list.
  *
  * @param request GetParameterSetRequest
  * @param headers map
@@ -2394,7 +2572,12 @@ GetParameterSetResponse Client::getParameterSetWithOptions(const string &paramet
 }
 
 /**
- * @summary 参数集详情
+ * @summary Retrieves the details of a parameter set by parameter set ID.
+ *
+ * @description ## Description
+ * - This operation retrieves detailed parameter set information by specifying a parameterSetId.
+ * - Authentication is required to call this operation.
+ * - If the request succeeds, the response includes detailed data such as the parameter set name, description, and parameter list.
  *
  * @param request GetParameterSetRequest
  * @return GetParameterSetResponse
@@ -2406,7 +2589,7 @@ GetParameterSetResponse Client::getParameterSet(const string &parameterSetId, co
 }
 
 /**
- * @summary 查询项目
+ * @summary Queries a project.
  *
  * @param request GetProjectRequest
  * @param headers map
@@ -2433,7 +2616,7 @@ GetProjectResponse Client::getProjectWithOptions(const string &projectId, const 
 }
 
 /**
- * @summary 查询项目
+ * @summary Queries a project.
  *
  * @param request GetProjectRequest
  * @return GetProjectResponse
@@ -2445,7 +2628,58 @@ GetProjectResponse Client::getProject(const string &projectId, const GetProjectR
 }
 
 /**
- * @summary 获取RegistryModule信息
+ * @summary Retrieves the resource documentation of a Terraform provider.
+ *
+ * @param request GetProviderDocumentRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetProviderDocumentResponse
+ */
+GetProviderDocumentResponse Client::getProviderDocumentWithOptions(const GetProviderDocumentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProviderVersion()) {
+    query["providerVersion"] = request.getProviderVersion();
+  }
+
+  if (!!request.hasTerraformResourceType()) {
+    query["terraformResourceType"] = request.getTerraformResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetProviderDocument"},
+    {"version" , "2021-08-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/version/terraform/provider/document")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetProviderDocumentResponse>();
+}
+
+/**
+ * @summary Retrieves the resource documentation of a Terraform provider.
+ *
+ * @param request GetProviderDocumentRequest
+ * @return GetProviderDocumentResponse
+ */
+GetProviderDocumentResponse Client::getProviderDocument(const GetProviderDocumentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getProviderDocumentWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries a Registry module.
+ *
+ * @description Single-user call frequency: 200 calls per second.
  *
  * @param request GetRegistryModuleRequest
  * @param headers map
@@ -2472,7 +2706,9 @@ GetRegistryModuleResponse Client::getRegistryModuleWithOptions(const string &nam
 }
 
 /**
- * @summary 获取RegistryModule信息
+ * @summary Queries a Registry module.
+ *
+ * @description Single-user call frequency: 200 calls per second.
  *
  * @param request GetRegistryModuleRequest
  * @return GetRegistryModuleResponse
@@ -2484,7 +2720,9 @@ GetRegistryModuleResponse Client::getRegistryModule(const string &namespaceName,
 }
 
 /**
- * @summary 获取RegistryModule版本信息
+ * @summary Queries a Registry template version.
+ *
+ * @description Single-user call frequency: 200 calls per second.
  *
  * @param request GetRegistryModuleVersionRequest
  * @param headers map
@@ -2511,7 +2749,9 @@ GetRegistryModuleVersionResponse Client::getRegistryModuleVersionWithOptions(con
 }
 
 /**
- * @summary 获取RegistryModule版本信息
+ * @summary Queries a Registry template version.
+ *
+ * @description Single-user call frequency: 200 calls per second.
  *
  * @param request GetRegistryModuleVersionRequest
  * @return GetRegistryModuleVersionResponse
@@ -2523,7 +2763,9 @@ GetRegistryModuleVersionResponse Client::getRegistryModuleVersion(const string &
 }
 
 /**
- * @summary 获取工作空间信息
+ * @summary Queries a workspace.
+ *
+ * @description Single-user call frequency: 200 calls per second.
  *
  * @param request GetRegistryNamespaceRequest
  * @param headers map
@@ -2550,7 +2792,9 @@ GetRegistryNamespaceResponse Client::getRegistryNamespaceWithOptions(const strin
 }
 
 /**
- * @summary 获取工作空间信息
+ * @summary Queries a workspace.
+ *
+ * @description Single-user call frequency: 200 calls per second.
  *
  * @param request GetRegistryNamespaceRequest
  * @return GetRegistryNamespaceResponse
@@ -2562,7 +2806,9 @@ GetRegistryNamespaceResponse Client::getRegistryNamespace(const string &namespac
 }
 
 /**
- * @summary 查询导出任务详情
+ * @summary Queries the details of a resource export task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request GetResourceExportTaskRequest
  * @param headers map
@@ -2595,7 +2841,9 @@ GetResourceExportTaskResponse Client::getResourceExportTaskWithOptions(const str
 }
 
 /**
- * @summary 查询导出任务详情
+ * @summary Queries the details of a resource export task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request GetResourceExportTaskRequest
  * @return GetResourceExportTaskResponse
@@ -2607,7 +2855,9 @@ GetResourceExportTaskResponse Client::getResourceExportTask(const string &export
 }
 
 /**
- * @summary 获取资源类型信息
+ * @summary Retrieves resource type information.
+ *
+ * @description ## Request description.
  *
  * @param request GetResourceTypeRequest
  * @param headers map
@@ -2648,7 +2898,9 @@ GetResourceTypeResponse Client::getResourceTypeWithOptions(const string &resourc
 }
 
 /**
- * @summary 获取资源类型信息
+ * @summary Retrieves resource type information.
+ *
+ * @description ## Request description.
  *
  * @param request GetResourceTypeRequest
  * @return GetResourceTypeResponse
@@ -2660,7 +2912,7 @@ GetResourceTypeResponse Client::getResourceType(const string &resourceType, cons
 }
 
 /**
- * @summary 获取资源栈
+ * @summary Queries a stack.
  *
  * @param request GetStackRequest
  * @param headers map
@@ -2687,7 +2939,7 @@ GetStackResponse Client::getStackWithOptions(const string &stackId, const GetSta
 }
 
 /**
- * @summary 获取资源栈
+ * @summary Queries a stack.
  *
  * @param request GetStackRequest
  * @return GetStackResponse
@@ -2699,7 +2951,7 @@ GetStackResponse Client::getStack(const string &stackId, const GetStackRequest &
 }
 
 /**
- * @summary 部署详情接口
+ * @summary Queries the list of deployments for a stack.
  *
  * @param request GetStackDeploymentsRequest
  * @param headers map
@@ -2752,7 +3004,7 @@ GetStackDeploymentsResponse Client::getStackDeploymentsWithOptions(const string 
 }
 
 /**
- * @summary 部署详情接口
+ * @summary Queries the list of deployments for a stack.
  *
  * @param request GetStackDeploymentsRequest
  * @return GetStackDeploymentsResponse
@@ -2764,7 +3016,7 @@ GetStackDeploymentsResponse Client::getStackDeployments(const string &stackId, c
 }
 
 /**
- * @summary 获取资源栈部署结果
+ * @summary Retrieves the trigger result of a stack.
  *
  * @param request GetStackExecutionResultRequest
  * @param headers map
@@ -2791,7 +3043,7 @@ GetStackExecutionResultResponse Client::getStackExecutionResultWithOptions(const
 }
 
 /**
- * @summary 获取资源栈部署结果
+ * @summary Retrieves the trigger result of a stack.
  *
  * @param request GetStackExecutionResultRequest
  * @return GetStackExecutionResultResponse
@@ -2803,7 +3055,9 @@ GetStackExecutionResultResponse Client::getStackExecutionResult(const string &tr
 }
 
 /**
- * @summary 查询任务详情
+ * @summary Retrieves the details of a task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request GetTaskRequest
  * @param headers map
@@ -2830,7 +3084,9 @@ GetTaskResponse Client::getTaskWithOptions(const string &taskId, const GetTaskRe
 }
 
 /**
- * @summary 查询任务详情
+ * @summary Retrieves the details of a task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request GetTaskRequest
  * @return GetTaskResponse
@@ -2842,7 +3098,9 @@ GetTaskResponse Client::getTask(const string &taskId, const GetTaskRequest &requ
 }
 
 /**
- * @summary 获取状态文件检测结果
+ * @summary Retrieves the detection result of a state file.
+ *
+ * @description This API is used to retrieve the detection results of state files for resource orchestration tasks and stack tasks on the automation service desk.
  *
  * @param request GetTerraformStateDetectionRequest
  * @param headers map
@@ -2869,7 +3127,9 @@ GetTerraformStateDetectionResponse Client::getTerraformStateDetectionWithOptions
 }
 
 /**
- * @summary 获取状态文件检测结果
+ * @summary Retrieves the detection result of a state file.
+ *
+ * @description This API is used to retrieve the detection results of state files for resource orchestration tasks and stack tasks on the automation service desk.
  *
  * @param request GetTerraformStateDetectionRequest
  * @return GetTerraformStateDetectionResponse
@@ -2881,7 +3141,7 @@ GetTerraformStateDetectionResponse Client::getTerraformStateDetection(const stri
 }
 
 /**
- * @summary 关联到资源的偏差检测配置列表
+ * @summary List drift detection associations
  *
  * @param request ListDetectConfigRelationsRequest
  * @param headers map
@@ -2922,7 +3182,7 @@ ListDetectConfigRelationsResponse Client::listDetectConfigRelationsWithOptions(c
 }
 
 /**
- * @summary 关联到资源的偏差检测配置列表
+ * @summary List drift detection associations
  *
  * @param request ListDetectConfigRelationsRequest
  * @return ListDetectConfigRelationsResponse
@@ -2934,7 +3194,7 @@ ListDetectConfigRelationsResponse Client::listDetectConfigRelations(const ListDe
 }
 
 /**
- * @summary 偏差检测配置列表
+ * @summary List drift detection configurations
  *
  * @param request ListDetectConfigsRequest
  * @param headers map
@@ -2975,7 +3235,7 @@ ListDetectConfigsResponse Client::listDetectConfigsWithOptions(const ListDetectC
 }
 
 /**
- * @summary 偏差检测配置列表
+ * @summary List drift detection configurations
  *
  * @param request ListDetectConfigsRequest
  * @return ListDetectConfigsResponse
@@ -2987,7 +3247,18 @@ ListDetectConfigsResponse Client::listDetectConfigs(const ListDetectConfigsReque
 }
 
 /**
- * @summary 获取Explorer的egistryModule版本示例列表
+ * @summary Retrieves the list of official Terraform Module examples.
+ *
+ * @description This operation queries the example information of Terraform Modules officially provided by Alibaba Cloud.
+ * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+ * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModuleExamples operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
+ * - You can use keyword, namespaceName, moduleName, moduleVersion, and exampleName as conditional filter settings to narrow down the search scope. Multiple filter conditions have a logical `AND` relationship, and only resources that meet all filter conditions are returned.
+ *   - keyword: optional. Searches by keyword and supports fuzzy match on exampleName. For example, if keyword is set to ecs, module examples whose names contain ecs are returned.
+ *   - namespaceName: optional. Filters module examples by a specific workspace. For example, if namespaceName is set to alibaba, module examples in the alibaba workspace are returned.
+ *   - moduleName: optional. Filters module examples by a specific module name. For example, if moduleName is set to ecs, module examples whose module name is ecs are returned.
+ *   - moduleVersion: optional. Filters module examples by a specific module version. For example, if moduleVersion is set to 1.0.0, module examples whose module version is 1.0.0 are returned.
+ *   - exampleName: optional. Filters module examples by a specific example name. For example, if exampleName is set to ecs, module examples whose example name is ecs are returned.
+ * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates processing of query results.
  *
  * @param request ListExplorerRegistryModuleExamplesRequest
  * @param headers map
@@ -3044,7 +3315,18 @@ ListExplorerRegistryModuleExamplesResponse Client::listExplorerRegistryModuleExa
 }
 
 /**
- * @summary 获取Explorer的egistryModule版本示例列表
+ * @summary Retrieves the list of official Terraform Module examples.
+ *
+ * @description This operation queries the example information of Terraform Modules officially provided by Alibaba Cloud.
+ * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+ * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModuleExamples operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
+ * - You can use keyword, namespaceName, moduleName, moduleVersion, and exampleName as conditional filter settings to narrow down the search scope. Multiple filter conditions have a logical `AND` relationship, and only resources that meet all filter conditions are returned.
+ *   - keyword: optional. Searches by keyword and supports fuzzy match on exampleName. For example, if keyword is set to ecs, module examples whose names contain ecs are returned.
+ *   - namespaceName: optional. Filters module examples by a specific workspace. For example, if namespaceName is set to alibaba, module examples in the alibaba workspace are returned.
+ *   - moduleName: optional. Filters module examples by a specific module name. For example, if moduleName is set to ecs, module examples whose module name is ecs are returned.
+ *   - moduleVersion: optional. Filters module examples by a specific module version. For example, if moduleVersion is set to 1.0.0, module examples whose module version is 1.0.0 are returned.
+ *   - exampleName: optional. Filters module examples by a specific example name. For example, if exampleName is set to ecs, module examples whose example name is ecs are returned.
+ * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates processing of query results.
  *
  * @param request ListExplorerRegistryModuleExamplesRequest
  * @return ListExplorerRegistryModuleExamplesResponse
@@ -3056,7 +3338,17 @@ ListExplorerRegistryModuleExamplesResponse Client::listExplorerRegistryModuleExa
 }
 
 /**
- * @summary 获取Explorer的egistryModule版本列表
+ * @summary Lists the version information of official Terraform modules provided by Alibaba Cloud.
+ *
+ * @description This operation queries the version information of official Terraform modules provided by Alibaba Cloud.
+ * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+ * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
+ * - You can use keyword, namespaceName, moduleName, and moduleVersion as conditional filter Settings to narrow the search scope. Multiple filter conditions have a logical `AND` relationship. Only resources that meet all filter conditions are returned.
+ *   - keyword: optional. Performs a fuzzy match on the module name. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
+ *   - namespaceName: optional. Filters modules by a specific workspace. For example, if namespaceName is set to alibaba, modules whose workspace is alibaba are returned. When moduleName is specified, namespaceName must also be specified. You can call the ListExplorerRegistryModule operation to obtain the namespaceName information.
+ *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, modules whose name is ecs are returned.
+ *   - moduleVersion: optional. Filters modules by a specific version. For example, if moduleVersion is set to 1.0.0, modules whose version is 1.0.0 are returned.
+ * The response contains the request ID, total number of entries, data on the current page, and pagination information, which facilitates the processing of query results.
  *
  * @param request ListExplorerRegistryModuleVersionsRequest
  * @param headers map
@@ -3109,7 +3401,17 @@ ListExplorerRegistryModuleVersionsResponse Client::listExplorerRegistryModuleVer
 }
 
 /**
- * @summary 获取Explorer的egistryModule版本列表
+ * @summary Lists the version information of official Terraform modules provided by Alibaba Cloud.
+ *
+ * @description This operation queries the version information of official Terraform modules provided by Alibaba Cloud.
+ * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+ * - If `nextToken` is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If the `NextToken` parameter is not specified, the first page of data is returned by default.
+ * - You can use keyword, namespaceName, moduleName, and moduleVersion as conditional filter Settings to narrow the search scope. Multiple filter conditions have a logical `AND` relationship. Only resources that meet all filter conditions are returned.
+ *   - keyword: optional. Performs a fuzzy match on the module name. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
+ *   - namespaceName: optional. Filters modules by a specific workspace. For example, if namespaceName is set to alibaba, modules whose workspace is alibaba are returned. When moduleName is specified, namespaceName must also be specified. You can call the ListExplorerRegistryModule operation to obtain the namespaceName information.
+ *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, modules whose name is ecs are returned.
+ *   - moduleVersion: optional. Filters modules by a specific version. For example, if moduleVersion is set to 1.0.0, modules whose version is 1.0.0 are returned.
+ * The response contains the request ID, total number of entries, data on the current page, and pagination information, which facilitates the processing of query results.
  *
  * @param request ListExplorerRegistryModuleVersionsRequest
  * @return ListExplorerRegistryModuleVersionsResponse
@@ -3121,7 +3423,15 @@ ListExplorerRegistryModuleVersionsResponse Client::listExplorerRegistryModuleVer
 }
 
 /**
- * @summary 获取Explorer的Registry Module列表
+ * @summary Lists information about official Terraform modules provided by Alibaba Cloud.
+ *
+ * @description This operation queries information about official Terraform modules provided by Alibaba Cloud.
+ * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+ * - If the `nextToken` parameter is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If you do not specify the `NextToken` parameter, the first page of data is returned by default.
+ * - You can use keyword and moduleName as filter conditions to narrow the search scope. Multiple filter conditions are evaluated by using a logical `AND`. Only resources that meet all filter conditions are returned.
+ *   - keyword: optional. Searches by keyword through fuzzy matching against ModuleName. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
+ *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, only the module whose name is exactly ecs is returned.
+ * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates the processing of query results.
  *
  * @param request ListExplorerRegistryModulesRequest
  * @param headers map
@@ -3170,7 +3480,15 @@ ListExplorerRegistryModulesResponse Client::listExplorerRegistryModulesWithOptio
 }
 
 /**
- * @summary 获取Explorer的Registry Module列表
+ * @summary Lists information about official Terraform modules provided by Alibaba Cloud.
+ *
+ * @description This operation queries information about official Terraform modules provided by Alibaba Cloud.
+ * You can use the `maxResults` parameter to adjust the maximum number of entries to return.
+ * - If the `nextToken` parameter is not included in the response, no more data is available. Otherwise, more data is available. To query the next page, set the `nextToken` parameter of the ListExplorerRegistryModules operation to the `nextToken` value returned in the previous response. If you do not specify the `NextToken` parameter, the first page of data is returned by default.
+ * - You can use keyword and moduleName as filter conditions to narrow the search scope. Multiple filter conditions are evaluated by using a logical `AND`. Only resources that meet all filter conditions are returned.
+ *   - keyword: optional. Searches by keyword through fuzzy matching against ModuleName. For example, if keyword is set to ecs, modules whose names contain ecs are returned.
+ *   - moduleName: optional. Filters modules by a specific name. For example, if moduleName is set to ecs, only the module whose name is exactly ecs is returned.
+ * The response contains the request ID, total number of entries, data of the current page, and pagination information, which facilitates the processing of query results.
  *
  * @param request ListExplorerRegistryModulesRequest
  * @return ListExplorerRegistryModulesResponse
@@ -3182,7 +3500,7 @@ ListExplorerRegistryModulesResponse Client::listExplorerRegistryModules(const Li
 }
 
 /**
- * @summary 查询分组列表
+ * @summary Queries the list of groups.
  *
  * @param tmpReq ListGroupRequest
  * @param headers map
@@ -3237,7 +3555,7 @@ ListGroupResponse Client::listGroupWithOptions(const ListGroupRequest &tmpReq, c
 }
 
 /**
- * @summary 查询分组列表
+ * @summary Queries the list of groups.
  *
  * @param request ListGroupRequest
  * @return ListGroupResponse
@@ -3249,7 +3567,9 @@ ListGroupResponse Client::listGroup(const ListGroupRequest &request) {
 }
 
 /**
- * @summary 作业列表
+ * @summary Queries a list of jobs.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request ListJobsRequest
  * @param headers map
@@ -3298,7 +3618,9 @@ ListJobsResponse Client::listJobsWithOptions(const string &taskId, const ListJob
 }
 
 /**
- * @summary 作业列表
+ * @summary Queries a list of jobs.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request ListJobsRequest
  * @return ListJobsResponse
@@ -3310,7 +3632,9 @@ ListJobsResponse Client::listJobs(const string &taskId, const ListJobsRequest &r
 }
 
 /**
- * @summary 模板版本列表
+ * @summary Retrieves a list of template versions.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request ListModuleVersionRequest
  * @param headers map
@@ -3351,7 +3675,9 @@ ListModuleVersionResponse Client::listModuleVersionWithOptions(const string &mod
 }
 
 /**
- * @summary 模板版本列表
+ * @summary Retrieves a list of template versions.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request ListModuleVersionRequest
  * @return ListModuleVersionResponse
@@ -3363,7 +3689,16 @@ ListModuleVersionResponse Client::listModuleVersion(const string &moduleId, cons
 }
 
 /**
- * @summary 列举模板
+ * @summary Retrieves a list of templates for the current user, with support for pagination and conditional filtering.
+ *
+ * @description ## Operation description
+ * This operation lists all Terraform templates for the current user. You can specify query parameters to implement pagination, fuzzy match template names, and filter templates by source or status. You can also filter templates by tag for more granular results.
+ * ### Notes
+ * - Use the pageNumber and pageSize parameters to control the number of returned results.
+ * - Use the name parameter to perform a fuzzy match on template names.
+ * - Use the source parameter to filter templates by source, such as OSS import or file upload.
+ * - Use the status parameter to filter templates by status, such as Created or Published.
+ * - Tag-based filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
  *
  * @param tmpReq ListModulesRequest
  * @param headers map
@@ -3426,7 +3761,16 @@ ListModulesResponse Client::listModulesWithOptions(const ListModulesRequest &tmp
 }
 
 /**
- * @summary 列举模板
+ * @summary Retrieves a list of templates for the current user, with support for pagination and conditional filtering.
+ *
+ * @description ## Operation description
+ * This operation lists all Terraform templates for the current user. You can specify query parameters to implement pagination, fuzzy match template names, and filter templates by source or status. You can also filter templates by tag for more granular results.
+ * ### Notes
+ * - Use the pageNumber and pageSize parameters to control the number of returned results.
+ * - Use the name parameter to perform a fuzzy match on template names.
+ * - Use the source parameter to filter templates by source, such as OSS import or file upload.
+ * - Use the status parameter to filter templates by status, such as Created or Published.
+ * - Tag-based filtering requires a JSON-formatted string, for example, `[{"key":"env","value":"prod"}]`.
  *
  * @param request ListModulesRequest
  * @return ListModulesResponse
@@ -3438,7 +3782,7 @@ ListModulesResponse Client::listModules(const ListModulesRequest &request) {
 }
 
 /**
- * @summary 关联到资源的参数集列表
+ * @summary Lists the parameter sets associated with a resource.
  *
  * @param request ListParameterSetRelationRequest
  * @param headers map
@@ -3475,7 +3819,7 @@ ListParameterSetRelationResponse Client::listParameterSetRelationWithOptions(con
 }
 
 /**
- * @summary 关联到资源的参数集列表
+ * @summary Lists the parameter sets associated with a resource.
  *
  * @param request ListParameterSetRelationRequest
  * @return ListParameterSetRelationResponse
@@ -3487,7 +3831,13 @@ ListParameterSetRelationResponse Client::listParameterSetRelation(const ListPara
 }
 
 /**
- * @summary 参数集列表
+ * @summary Queries and retrieves a paginated list of parameter sets with keyword search support.
+ *
+ * @description ## Operation description
+ * This operation queries all parameter sets in the system. You can filter results by keyword and paginate the results. Authentication information is required.
+ * ### Notes
+ * - The keyword parameter can be used to perform a fuzzy match on parameter sets by name or description.
+ * - Pagination is controlled by pageNumber and pageSize. Results start from the first page by default. Set pageSize to a reasonable value to avoid performance issues.
  *
  * @param request ListParameterSetsRequest
  * @param headers map
@@ -3532,7 +3882,13 @@ ListParameterSetsResponse Client::listParameterSetsWithOptions(const ListParamet
 }
 
 /**
- * @summary 参数集列表
+ * @summary Queries and retrieves a paginated list of parameter sets with keyword search support.
+ *
+ * @description ## Operation description
+ * This operation queries all parameter sets in the system. You can filter results by keyword and paginate the results. Authentication information is required.
+ * ### Notes
+ * - The keyword parameter can be used to perform a fuzzy match on parameter sets by name or description.
+ * - Pagination is controlled by pageNumber and pageSize. Results start from the first page by default. Set pageSize to a reasonable value to avoid performance issues.
  *
  * @param request ListParameterSetsRequest
  * @return ListParameterSetsResponse
@@ -3544,7 +3900,13 @@ ListParameterSetsResponse Client::listParameterSets(const ListParameterSetsReque
 }
 
 /**
- * @summary 所有产品列表
+ * @summary Queries the list of all products.
+ *
+ * @description ## Operation description
+ * - **Keyword search**: Use the `keyword` parameter for fuzzy matching.
+ * - **Paged query**: Use `nextToken` for pagination and `maxResults` to specify the maximum number of results per page (default: 100, maximum: 200).
+ * - **Terraform Provider version**: The optional `terraformProviderVersion` parameter filters products associated with a specific Provider version.
+ * - **Response structure**: The response contains the request ID, total number of entries, data of the current page, and pagination information for easy processing of query results.
  *
  * @param request ListProductsRequest
  * @param headers map
@@ -3601,7 +3963,13 @@ ListProductsResponse Client::listProductsWithOptions(const ListProductsRequest &
 }
 
 /**
- * @summary 所有产品列表
+ * @summary Queries the list of all products.
+ *
+ * @description ## Operation description
+ * - **Keyword search**: Use the `keyword` parameter for fuzzy matching.
+ * - **Paged query**: Use `nextToken` for pagination and `maxResults` to specify the maximum number of results per page (default: 100, maximum: 200).
+ * - **Terraform Provider version**: The optional `terraformProviderVersion` parameter filters products associated with a specific Provider version.
+ * - **Response structure**: The response contains the request ID, total number of entries, data of the current page, and pagination information for easy processing of query results.
  *
  * @param request ListProductsRequest
  * @return ListProductsResponse
@@ -3613,7 +3981,7 @@ ListProductsResponse Client::listProducts(const ListProductsRequest &request) {
 }
 
 /**
- * @summary 查询项目列表
+ * @summary Queries the list of projects.
  *
  * @param tmpReq ListProjectRequest
  * @param headers map
@@ -3664,7 +4032,7 @@ ListProjectResponse Client::listProjectWithOptions(const ListProjectRequest &tmp
 }
 
 /**
- * @summary 查询项目列表
+ * @summary Queries the list of projects.
  *
  * @param request ListProjectRequest
  * @return ListProjectResponse
@@ -3676,7 +4044,9 @@ ListProjectResponse Client::listProject(const ListProjectRequest &request) {
 }
 
 /**
- * @summary 获取RegistryModule版本列表
+ * @summary Queries the list of Registry template versions.
+ *
+ * @description Single-user call frequency: 200 calls per second.
  *
  * @param request ListRegistryModuleVersionsRequest
  * @param headers map
@@ -3721,7 +4091,9 @@ ListRegistryModuleVersionsResponse Client::listRegistryModuleVersionsWithOptions
 }
 
 /**
- * @summary 获取RegistryModule版本列表
+ * @summary Queries the list of Registry template versions.
+ *
+ * @description Single-user call frequency: 200 calls per second.
  *
  * @param request ListRegistryModuleVersionsRequest
  * @return ListRegistryModuleVersionsResponse
@@ -3733,7 +4105,9 @@ ListRegistryModuleVersionsResponse Client::listRegistryModuleVersions(const List
 }
 
 /**
- * @summary 获取RegistryModule列表
+ * @summary Queries a list of registry modules.
+ *
+ * @description Single-user call frequency: 200 calls per second.
  *
  * @param request ListRegistryModulesRequest
  * @param headers map
@@ -3786,7 +4160,9 @@ ListRegistryModulesResponse Client::listRegistryModulesWithOptions(const ListReg
 }
 
 /**
- * @summary 获取RegistryModule列表
+ * @summary Queries a list of registry modules.
+ *
+ * @description Single-user call frequency: 200 calls per second.
  *
  * @param request ListRegistryModulesRequest
  * @return ListRegistryModulesResponse
@@ -3798,7 +4174,9 @@ ListRegistryModulesResponse Client::listRegistryModules(const ListRegistryModule
 }
 
 /**
- * @summary 获取工作空间列表
+ * @summary Queries the list of workspaces.
+ *
+ * @description Single-user call frequency: 200 calls per second.
  *
  * @param request ListRegistryNamespacesRequest
  * @param headers map
@@ -3843,7 +4221,9 @@ ListRegistryNamespacesResponse Client::listRegistryNamespacesWithOptions(const L
 }
 
 /**
- * @summary 获取工作空间列表
+ * @summary Queries the list of workspaces.
+ *
+ * @description Single-user call frequency: 200 calls per second.
  *
  * @param request ListRegistryNamespacesRequest
  * @return ListRegistryNamespacesResponse
@@ -3855,7 +4235,9 @@ ListRegistryNamespacesResponse Client::listRegistryNamespaces(const ListRegistry
 }
 
 /**
- * @summary 获取任务版本列表
+ * @summary Retrieves the list of versions for a resource export task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request ListResourceExportTaskVersionsRequest
  * @param headers map
@@ -3904,7 +4286,9 @@ ListResourceExportTaskVersionsResponse Client::listResourceExportTaskVersionsWit
 }
 
 /**
- * @summary 获取任务版本列表
+ * @summary Retrieves the list of versions for a resource export task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request ListResourceExportTaskVersionsRequest
  * @return ListResourceExportTaskVersionsResponse
@@ -3916,7 +4300,9 @@ ListResourceExportTaskVersionsResponse Client::listResourceExportTaskVersions(co
 }
 
 /**
- * @summary 查询导出任务列表
+ * @summary Queries the list of resource export tasks.
+ *
+ * @description Rate limit per user: 100 calls per second.
  *
  * @param request ListResourceExportTasksRequest
  * @param headers map
@@ -3961,7 +4347,9 @@ ListResourceExportTasksResponse Client::listResourceExportTasksWithOptions(const
 }
 
 /**
- * @summary 查询导出任务列表
+ * @summary Queries the list of resource export tasks.
+ *
+ * @description Rate limit per user: 100 calls per second.
  *
  * @param request ListResourceExportTasksRequest
  * @return ListResourceExportTasksResponse
@@ -3973,7 +4361,10 @@ ListResourceExportTasksResponse Client::listResourceExportTasks(const ListResour
 }
 
 /**
- * @summary 资源类型列表
+ * @summary Queries a list of resource types by filter conditions with pagination support.
+ *
+ * @description ## Operation description
+ * This API operation allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform provider version, child class, status, and keyword. The results include detailed information about each resource, such as the product code, status, status effective version, child class, Terraform provider version, and resource type code. Paging is supported to facilitate handling large amounts of data.
  *
  * @param tmpReq ListResourceTypesRequest
  * @param headers map
@@ -4052,7 +4443,10 @@ ListResourceTypesResponse Client::listResourceTypesWithOptions(const ListResourc
 }
 
 /**
- * @summary 资源类型列表
+ * @summary Queries a list of resource types by filter conditions with pagination support.
+ *
+ * @description ## Operation description
+ * This API operation allows you to perform a conditional query for a list of resource types based on conditions such as product code, Terraform provider version, child class, status, and keyword. The results include detailed information about each resource, such as the product code, status, status effective version, child class, Terraform provider version, and resource type code. Paging is supported to facilitate handling large amounts of data.
  *
  * @param request ListResourceTypesRequest
  * @return ListResourceTypesResponse
@@ -4064,7 +4458,7 @@ ListResourceTypesResponse Client::listResourceTypes(const ListResourceTypesReque
 }
 
 /**
- * @summary 资源列表
+ * @summary Retrieves the resources of a node.
  *
  * @param request ListResourcesRequest
  * @param headers map
@@ -4113,7 +4507,7 @@ ListResourcesResponse Client::listResourcesWithOptions(const ListResourcesReques
 }
 
 /**
- * @summary 资源列表
+ * @summary Retrieves the resources of a node.
  *
  * @param request ListResourcesRequest
  * @return ListResourcesResponse
@@ -4125,7 +4519,7 @@ ListResourcesResponse Client::listResources(const ListResourcesRequest &request)
 }
 
 /**
- * @summary 查询资源栈配置列表
+ * @summary Queries the list of stack configurations.
  *
  * @param request ListStackConfigsRequest
  * @param headers map
@@ -4170,7 +4564,7 @@ ListStackConfigsResponse Client::listStackConfigsWithOptions(const string &stack
 }
 
 /**
- * @summary 查询资源栈配置列表
+ * @summary Queries the list of stack configurations.
  *
  * @param request ListStackConfigsRequest
  * @return ListStackConfigsResponse
@@ -4182,7 +4576,7 @@ ListStackConfigsResponse Client::listStackConfigs(const string &stackId, const L
 }
 
 /**
- * @summary 列举资源栈
+ * @summary Queries the list of stacks.
  *
  * @param request ListStacksRequest
  * @param headers map
@@ -4239,7 +4633,7 @@ ListStacksResponse Client::listStacksWithOptions(const ListStacksRequest &reques
 }
 
 /**
- * @summary 列举资源栈
+ * @summary Queries the list of stacks.
  *
  * @param request ListStacksRequest
  * @return ListStacksResponse
@@ -4251,7 +4645,9 @@ ListStacksResponse Client::listStacks(const ListStacksRequest &request) {
 }
 
 /**
- * @summary 任务列表
+ * @summary Queries a list of tasks.
+ *
+ * @description The maximum number of times that a single user can call this operation per second: 100.
  *
  * @param tmpReq ListTasksRequest
  * @param headers map
@@ -4326,7 +4722,9 @@ ListTasksResponse Client::listTasksWithOptions(const ListTasksRequest &tmpReq, c
 }
 
 /**
- * @summary 任务列表
+ * @summary Queries a list of tasks.
+ *
+ * @description The maximum number of times that a single user can call this operation per second: 100.
  *
  * @param request ListTasksRequest
  * @return ListTasksResponse
@@ -4338,7 +4736,7 @@ ListTasksResponse Client::listTasks(const ListTasksRequest &request) {
 }
 
 /**
- * @summary terraformProvider版本
+ * @summary Retrieves the list of Terraform provider versions.
  *
  * @param request ListTerraformProviderVersionsRequest
  * @param headers map
@@ -4383,7 +4781,7 @@ ListTerraformProviderVersionsResponse Client::listTerraformProviderVersionsWithO
 }
 
 /**
- * @summary terraformProvider版本
+ * @summary Retrieves the list of Terraform provider versions.
  *
  * @param request ListTerraformProviderVersionsRequest
  * @return ListTerraformProviderVersionsResponse
@@ -4395,7 +4793,10 @@ ListTerraformProviderVersionsResponse Client::listTerraformProviderVersions(cons
 }
 
 /**
- * @summary 支持状态文件的资源导入和移除
+ * @summary Supports resource import and removal for state files.
+ *
+ * @description This API is used to manage state files for resource orchestration tasks and stack tasks on the automated service desk.
+ * Before using this API, make sure that all required authentication information is correctly configured and that the Terraform code meets the expected functional requirements.
  *
  * @param request ManageTerraformStateRequest
  * @param headers map
@@ -4448,7 +4849,10 @@ ManageTerraformStateResponse Client::manageTerraformStateWithOptions(const Manag
 }
 
 /**
- * @summary 支持状态文件的资源导入和移除
+ * @summary Supports resource import and removal for state files.
+ *
+ * @description This API is used to manage state files for resource orchestration tasks and stack tasks on the automated service desk.
+ * Before using this API, make sure that all required authentication information is correctly configured and that the Terraform code meets the expected functional requirements.
  *
  * @param request ManageTerraformStateRequest
  * @return ManageTerraformStateResponse
@@ -4460,7 +4864,10 @@ ManageTerraformStateResponse Client::manageTerraformState(const ManageTerraformS
 }
 
 /**
- * @summary 控制作业
+ * @summary After a job is created, you can perform the **Cancel** operation to stop the job while it is running.
+ * After a job reaches the pending confirmation state, you can perform the **Abolish** operation to stop the job, or perform the **Execute** operation to continue the job execution.
+ *
+ * @description Per-user call frequency: 100 calls per second.
  *
  * @param request OperateJobRequest
  * @param headers map
@@ -4497,7 +4904,10 @@ OperateJobResponse Client::operateJobWithOptions(const string &taskId, const str
 }
 
 /**
- * @summary 控制作业
+ * @summary After a job is created, you can perform the **Cancel** operation to stop the job while it is running.
+ * After a job reaches the pending confirmation state, you can perform the **Abolish** operation to stop the job, or perform the **Execute** operation to continue the job execution.
+ *
+ * @description Per-user call frequency: 100 calls per second.
  *
  * @param request OperateJobRequest
  * @return OperateJobResponse
@@ -4509,7 +4919,9 @@ OperateJobResponse Client::operateJob(const string &taskId, const string &jobId,
 }
 
 /**
- * @summary 发布RegistryModule版本
+ * @summary Publishes a Registry template version.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request PublishRegistryModuleVersionRequest
  * @param headers map
@@ -4554,7 +4966,9 @@ PublishRegistryModuleVersionResponse Client::publishRegistryModuleVersionWithOpt
 }
 
 /**
- * @summary 发布RegistryModule版本
+ * @summary Publishes a Registry template version.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request PublishRegistryModuleVersionRequest
  * @return PublishRegistryModuleVersionResponse
@@ -4566,7 +4980,9 @@ PublishRegistryModuleVersionResponse Client::publishRegistryModuleVersion(const 
 }
 
 /**
- * @summary 删除共享账号信息
+ * @summary Removes a shared account.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param tmpReq RemoveSharedAccountsRequest
  * @param headers map
@@ -4613,7 +5029,9 @@ RemoveSharedAccountsResponse Client::removeSharedAccountsWithOptions(const Remov
 }
 
 /**
- * @summary 删除共享账号信息
+ * @summary Removes a shared account.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request RemoveSharedAccountsRequest
  * @return RemoveSharedAccountsResponse
@@ -4625,7 +5043,7 @@ RemoveSharedAccountsResponse Client::removeSharedAccounts(const RemoveSharedAcco
 }
 
 /**
- * @summary 触发资源栈部署
+ * @summary Trigger Stack execution
  *
  * @param request TriggerStackExecutionRequest
  * @param headers map
@@ -4674,7 +5092,7 @@ TriggerStackExecutionResponse Client::triggerStackExecutionWithOptions(const Tri
 }
 
 /**
- * @summary 触发资源栈部署
+ * @summary Trigger Stack execution
  *
  * @param request TriggerStackExecutionRequest
  * @return TriggerStackExecutionResponse
@@ -4686,7 +5104,13 @@ TriggerStackExecutionResponse Client::triggerStackExecution(const TriggerStackEx
 }
 
 /**
- * @summary 更新偏差检测配置
+ * @summary Updates the drift detection configuration information for the specified ID.
+ *
+ * @description ## Request Description  
+ * - `detectConfigId` is a required parameter used to identify the specific detection configuration to update.  
+ * - When `triggerType` is set to `Cron`, a valid `cronExpression` must be provided.  
+ * - Each element in the `alarmConfigs` list must include an alert type (`type`) and an address (`address`).  
+ * - If you do not want to change certain properties (such as `name`, `description`, etc.), you can omit these fields from the request body.
  *
  * @param request UpdateDetectConfigRequest
  * @param headers map
@@ -4743,7 +5167,13 @@ UpdateDetectConfigResponse Client::updateDetectConfigWithOptions(const string &d
 }
 
 /**
- * @summary 更新偏差检测配置
+ * @summary Updates the drift detection configuration information for the specified ID.
+ *
+ * @description ## Request Description  
+ * - `detectConfigId` is a required parameter used to identify the specific detection configuration to update.  
+ * - When `triggerType` is set to `Cron`, a valid `cronExpression` must be provided.  
+ * - Each element in the `alarmConfigs` list must include an alert type (`type`) and an address (`address`).  
+ * - If you do not want to change certain properties (such as `name`, `description`, etc.), you can omit these fields from the request body.
  *
  * @param request UpdateDetectConfigRequest
  * @return UpdateDetectConfigResponse
@@ -4755,7 +5185,9 @@ UpdateDetectConfigResponse Client::updateDetectConfig(const string &detectConfig
 }
 
 /**
- * @summary 修改ExplorerModule
+ * @summary Updates an Explorer template.
+ *
+ * @description Updates an Explorer template.
  *
  * @param request UpdateExplorerModuleAttributeRequest
  * @param headers map
@@ -4796,7 +5228,9 @@ UpdateExplorerModuleAttributeResponse Client::updateExplorerModuleAttributeWithO
 }
 
 /**
- * @summary 修改ExplorerModule
+ * @summary Updates an Explorer template.
+ *
+ * @description Updates an Explorer template.
  *
  * @param request UpdateExplorerModuleAttributeRequest
  * @return UpdateExplorerModuleAttributeResponse
@@ -4808,7 +5242,7 @@ UpdateExplorerModuleAttributeResponse Client::updateExplorerModuleAttribute(cons
 }
 
 /**
- * @summary 修改分组
+ * @summary Modifies a group.
  *
  * @param request UpdateGroupRequest
  * @param headers map
@@ -4893,7 +5327,7 @@ UpdateGroupResponse Client::updateGroupWithOptions(const string &groupId, const 
 }
 
 /**
- * @summary 修改分组
+ * @summary Modifies a group.
  *
  * @param request UpdateGroupRequest
  * @return UpdateGroupResponse
@@ -4905,7 +5339,13 @@ UpdateGroupResponse Client::updateGroup(const string &groupId, const UpdateGroup
 }
 
 /**
- * @summary Update Module
+ * @summary Updates the name, description, tags, and other information of a specified template.
+ *
+ * @description ## Operation description
+ * - This operation allows you to modify the basic attributes of an existing template, including but not limited to the template name, description, and tags.
+ * - The update operation does not affect the content or version information of the template.
+ * - To enable or disable deletion protection, use the deletionProtection parameter.
+ * - Use clientToken to ensure the idempotence of the request and avoid duplicate submissions caused by network issues.
  *
  * @param request UpdateModuleAttributeRequest
  * @param headers map
@@ -4966,7 +5406,13 @@ UpdateModuleAttributeResponse Client::updateModuleAttributeWithOptions(const str
 }
 
 /**
- * @summary Update Module
+ * @summary Updates the name, description, tags, and other information of a specified template.
+ *
+ * @description ## Operation description
+ * - This operation allows you to modify the basic attributes of an existing template, including but not limited to the template name, description, and tags.
+ * - The update operation does not affect the content or version information of the template.
+ * - To enable or disable deletion protection, use the deletionProtection parameter.
+ * - Use clientToken to ensure the idempotence of the request and avoid duplicate submissions caused by network issues.
  *
  * @param request UpdateModuleAttributeRequest
  * @return UpdateModuleAttributeResponse
@@ -4978,7 +5424,14 @@ UpdateModuleAttributeResponse Client::updateModuleAttribute(const string &module
 }
 
 /**
- * @summary 更新参数集
+ * @summary Updates the attributes of a specified parameter set, such as the name and description.
+ *
+ * @description ## Operation description
+ * - This operation allows you to modify the basic information of an existing parameter set, including the name and description.
+ * - If the request includes the parameters field, the parameter list in the parameter set is updated.
+ * - The clientToken field can be used to ensure the idempotence of the request.
+ * - The update operation requires a valid parameterSetId as a path parameter.
+ * - The request must include authentication information to pass identity verification.
  *
  * @param request UpdateParameterSetAttributeRequest
  * @param headers map
@@ -5019,7 +5472,14 @@ UpdateParameterSetAttributeResponse Client::updateParameterSetAttributeWithOptio
 }
 
 /**
- * @summary 更新参数集
+ * @summary Updates the attributes of a specified parameter set, such as the name and description.
+ *
+ * @description ## Operation description
+ * - This operation allows you to modify the basic information of an existing parameter set, including the name and description.
+ * - If the request includes the parameters field, the parameter list in the parameter set is updated.
+ * - The clientToken field can be used to ensure the idempotence of the request.
+ * - The update operation requires a valid parameterSetId as a path parameter.
+ * - The request must include authentication information to pass identity verification.
  *
  * @param request UpdateParameterSetAttributeRequest
  * @return UpdateParameterSetAttributeResponse
@@ -5031,7 +5491,7 @@ UpdateParameterSetAttributeResponse Client::updateParameterSetAttribute(const st
 }
 
 /**
- * @summary 修改项目
+ * @summary Updates project information.
  *
  * @param request UpdateProjectRequest
  * @param headers map
@@ -5072,7 +5532,7 @@ UpdateProjectResponse Client::updateProjectWithOptions(const string &projectId, 
 }
 
 /**
- * @summary 修改项目
+ * @summary Updates project information.
  *
  * @param request UpdateProjectRequest
  * @return UpdateProjectResponse
@@ -5084,7 +5544,9 @@ UpdateProjectResponse Client::updateProject(const string &projectId, const Updat
 }
 
 /**
- * @summary 修改RegistryModule
+ * @summary Updates a Registry template.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request UpdateRegistryModuleAttributeRequest
  * @param headers map
@@ -5125,7 +5587,9 @@ UpdateRegistryModuleAttributeResponse Client::updateRegistryModuleAttributeWithO
 }
 
 /**
- * @summary 修改RegistryModule
+ * @summary Updates a Registry template.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request UpdateRegistryModuleAttributeRequest
  * @return UpdateRegistryModuleAttributeResponse
@@ -5137,7 +5601,9 @@ UpdateRegistryModuleAttributeResponse Client::updateRegistryModuleAttribute(cons
 }
 
 /**
- * @summary 修改工作空间
+ * @summary Modifies a workspace.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request UpdateRegistryNamespaceAttributeRequest
  * @param headers map
@@ -5178,7 +5644,9 @@ UpdateRegistryNamespaceAttributeResponse Client::updateRegistryNamespaceAttribut
 }
 
 /**
- * @summary 修改工作空间
+ * @summary Modifies a workspace.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request UpdateRegistryNamespaceAttributeRequest
  * @return UpdateRegistryNamespaceAttributeResponse
@@ -5190,7 +5658,9 @@ UpdateRegistryNamespaceAttributeResponse Client::updateRegistryNamespaceAttribut
 }
 
 /**
- * @summary 更新导出任务
+ * @summary Modifies a resource export task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request UpdateResourceExportTaskAttributeRequest
  * @param headers map
@@ -5259,7 +5729,9 @@ UpdateResourceExportTaskAttributeResponse Client::updateResourceExportTaskAttrib
 }
 
 /**
- * @summary 更新导出任务
+ * @summary Modifies a resource export task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request UpdateResourceExportTaskAttributeRequest
  * @return UpdateResourceExportTaskAttributeResponse
@@ -5271,7 +5743,7 @@ UpdateResourceExportTaskAttributeResponse Client::updateResourceExportTaskAttrib
 }
 
 /**
- * @summary 更新资源栈
+ * @summary Modifies a stack. When the configuration changes, a stack deployment is triggered.
  *
  * @param request UpdateStackRequest
  * @param headers map
@@ -5324,7 +5796,7 @@ UpdateStackResponse Client::updateStackWithOptions(const string &stackId, const 
 }
 
 /**
- * @summary 更新资源栈
+ * @summary Modifies a stack. When the configuration changes, a stack deployment is triggered.
  *
  * @param request UpdateStackRequest
  * @return UpdateStackResponse
@@ -5336,7 +5808,9 @@ UpdateStackResponse Client::updateStack(const string &stackId, const UpdateStack
 }
 
 /**
- * @summary 修改任务
+ * @summary Updates the properties of a task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request UpdateTaskAttributeRequest
  * @param headers map
@@ -5390,8 +5864,16 @@ UpdateTaskAttributeResponse Client::updateTaskAttributeWithOptions(const string 
     body["skipPropertyValidation"] = request.getSkipPropertyValidation();
   }
 
+  if (!!request.hasSkipRegionValidation()) {
+    body["skipRegionValidation"] = request.getSkipRegionValidation();
+  }
+
   if (!!request.hasTags()) {
     body["tags"] = request.getTags();
+  }
+
+  if (!!request.hasTerraformProviderVersion()) {
+    body["terraformProviderVersion"] = request.getTerraformProviderVersion();
   }
 
   if (!!request.hasTerraformVersion()) {
@@ -5421,7 +5903,9 @@ UpdateTaskAttributeResponse Client::updateTaskAttributeWithOptions(const string 
 }
 
 /**
- * @summary 修改任务
+ * @summary Updates the properties of a task.
+ *
+ * @description Single-user call frequency: 100 calls per second.
  *
  * @param request UpdateTaskAttributeRequest
  * @return UpdateTaskAttributeResponse
@@ -5433,7 +5917,7 @@ UpdateTaskAttributeResponse Client::updateTaskAttribute(const string &taskId, co
 }
 
 /**
- * @summary 模版上传
+ * @summary Uploads a template.
  *
  * @param request UploadModuleRequest
  * @param headers map
@@ -5484,7 +5968,7 @@ UploadModuleResponse Client::uploadModuleWithOptions(const string &resourceType,
 }
 
 /**
- * @summary 模版上传
+ * @summary Uploads a template.
  *
  * @param request UploadModuleRequest
  * @return UploadModuleResponse
@@ -5582,7 +6066,9 @@ UploadModuleResponse Client::uploadModuleAdvance(const string &resourceType, con
 }
 
 /**
- * @summary 模版预检
+ * @summary Performs a dry run on a template.
+ *
+ * @description Performs a dry run on the content of a Terraform configuration file.
  *
  * @param request ValidateModuleRequest
  * @param headers map
@@ -5645,7 +6131,9 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 模版预检
+ * @summary Performs a dry run on a template.
+ *
+ * @description Performs a dry run on the content of a Terraform configuration file.
  *
  * @param request ValidateModuleRequest
  * @param headers map
@@ -5694,7 +6182,9 @@ ValidateModuleResponse Client::validateModuleWithOptions(const ValidateModuleReq
 }
 
 /**
- * @summary 模版预检
+ * @summary Performs a dry run on a template.
+ *
+ * @description Performs a dry run on the content of a Terraform configuration file.
  *
  * @param request ValidateModuleRequest
  * @return ValidateModuleResponse

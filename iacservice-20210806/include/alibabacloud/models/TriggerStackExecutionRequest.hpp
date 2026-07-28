@@ -78,14 +78,27 @@ namespace Models
 
 
   protected:
+    // Operation to execute  
+    // - terraform plan  
+    // - terraform apply  
+    // - state detect
+    // 
     // This parameter is required.
     shared_ptr<string> action_ {};
+    // Collection of changed files. You can specify only the folders containing changed files.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> changedFolders_ {};
+    // Idempotent token. Format: [0-9a-zA-Z-]{1,64}. We recommend using a UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // Stack code path. Currently, only Stacks created through IaC templates are supported.  
+    // Parameter format: iacservice::{moduleId}
+    // 
     // This parameter is required.
     shared_ptr<string> codePackagePath_ {};
+    // Code version of the Stack to trigger
     shared_ptr<string> codeVersionId_ {};
   };
 

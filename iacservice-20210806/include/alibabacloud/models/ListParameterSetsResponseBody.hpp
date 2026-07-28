@@ -116,8 +116,15 @@ namespace Models
 
 
       protected:
+        // The creation time.
         shared_ptr<string> createTime_ {};
+        // The resource ID. When the resource type is ModuleVersion, the value is a concatenation of <moduleId>-<moduleversion>, such as mod-34535345df123fr-v3.
         shared_ptr<string> resourceId_ {};
+        // The resource type. Valid values:
+        // 
+        // - Module: template
+        // - ModuleVersion: template version
+        // - Task: task.
         shared_ptr<string> resourceType_ {};
       };
 
@@ -188,10 +195,18 @@ namespace Models
 
 
       protected:
+        // The parameter name.
         shared_ptr<string> name_ {};
         shared_ptr<bool> secret_ {};
+        // The parameter set status. Valid values:
+        // 
+        // HAS_VALUE (default): A specific value is defined.
+        // 
+        // EXPLICIT_NULL: The value is explicitly set to null.
         shared_ptr<string> status_ {};
+        // The parameter type (string/number/bool/map(string)/list(string)).
         shared_ptr<string> type_ {};
+        // The parameter value.
         Darabonba::Json value_ {};
       };
 
@@ -252,12 +267,19 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // Indicates whether deletion protection is enabled.
       shared_ptr<bool> deletionProtection_ {};
+      // The description of the parameter set.
       shared_ptr<string> description_ {};
+      // The name of the parameter set.
       shared_ptr<string> name_ {};
+      // The ID of the parameter set.
       shared_ptr<string> parameterSetId_ {};
+      // The parameters in the parameter set.
       shared_ptr<vector<ParameterSets::Parameters>> parameters_ {};
+      // The relationships associated with the parameter set.
       shared_ptr<vector<ParameterSets::RelationList>> relationList_ {};
     };
 
@@ -301,10 +323,15 @@ namespace Models
 
 
   protected:
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 200.
     shared_ptr<int32_t> pageSize_ {};
+    // The parameter sets.
     shared_ptr<vector<ListParameterSetsResponseBody::ParameterSets>> parameterSets_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -125,7 +125,9 @@ namespace Models
 
 
       protected:
+        // The list of properties of the Terraform resource that corresponds to the resource type.
         shared_ptr<vector<string>> properties_ {};
+        // The resource type.
         shared_ptr<string> resourceType_ {};
       };
 
@@ -176,8 +178,15 @@ namespace Models
 
 
       protected:
+        // The module type where the exported template is stored. Two formats are supported: CloudRegistry and OSS. If the ExportToModule parameter is specified, both formats are returned. Otherwise, only CloudRegistry is returned.
         shared_ptr<string> source_ {};
+        // The download URL of the module where the exported template is stored.
+        // 
+        // - If Source is set to CloudRegistry, the format is: "cloudregistry::iacservice//"
+        // 
+        // - If Source is set to OSS, the format is: "oss::https://.oss-ap-southeast-1.aliyuncs.com/xxx.zip".
         shared_ptr<string> sourcePath_ {};
+        // The version of the module where the exported template is stored.
         shared_ptr<string> version_ {};
       };
 
@@ -221,7 +230,17 @@ namespace Models
 
 
       protected:
+        // The name of the include rule for resource export. Valid values:
+        // 
+        // - ResourceType: required. The resource type. Example: ALIYUN::VPC::VPC.
+        // - RegionId: required. The region to which the resource belongs. Only one region is supported. Example: ap-southeast-1.
+        // - \\<ResourceType>:Id: the resource ID. Example: ALIYUN::VPC::VPC:Id.
+        // - ResourceGroupId: the resource group ID. Example: rg-1234.
+        // - ZoneId: the zone to which the resource belongs. Only one zone is supported. Example: ap-southeast-1a.
+        // 
+        // By default, the relationship between multiple filter conditions is AND. A resource is considered matched only if all filter conditions are met.
         shared_ptr<string> key_ {};
+        // The values of the include rules for resource export.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -272,8 +291,18 @@ namespace Models
 
 
       protected:
+        // The module type in which the exported template is saved. Valid values:
+        // 
+        // - OSS: OSS
+        // - Registry: Terraform Registry.
         shared_ptr<string> source_ {};
+        // The path where the template content is saved.
+        // 
+        // - If Source is set to Registry, the format is: "cloudregistry::iacservice//"
+        // 
+        // - If Source is set to OSS, the format is: "oss::https://.oss-ap-southeast-1.aliyuncs.com/xxx.zip".
         shared_ptr<string> sourcePath_ {};
+        // The path of the state file that corresponds to the module.
         shared_ptr<string> statePath_ {};
       };
 
@@ -419,23 +448,48 @@ namespace Models
 
 
     protected:
+      // The time when the task was created.
       shared_ptr<string> createTime_ {};
+      // The task description.
       shared_ptr<string> description_ {};
+      // The execution duration.
       shared_ptr<int64_t> elapsedTime_ {};
+      // The ID of the resource export task.
       shared_ptr<string> exportTaskId_ {};
+      // Saves the exported template as a module. If this parameter is not set, the template is automatically saved in the registry.
       shared_ptr<Task::ExportToModule> exportToModule_ {};
+      // The resource export version.
       shared_ptr<string> exportVersion_ {};
+      // The failure reason.
       shared_ptr<string> failedReason_ {};
+      // The values of the include rules for resource export.
       shared_ptr<vector<Task::IncludeRules>> includeRules_ {};
+      // The module configuration for the exported resources.
       shared_ptr<vector<Task::Modules>> modules_ {};
+      // The task name.
       shared_ptr<string> name_ {};
+      // The RAM role.
       shared_ptr<string> ramRole_ {};
+      // The task status. Valid values:
+      // 
+      // - Available: the task is available and no job is running.
+      // - Running: a job is currently running.
       shared_ptr<string> status_ {};
+      // The task output path.
       shared_ptr<string> taskOutputPath_ {};
+      // The Terraform context.
       Darabonba::Json terraformContext_ {};
+      // The Terraform provider version.
       shared_ptr<string> terraformProviderVersion_ {};
+      // The Terraform version.
       shared_ptr<string> terraformVersion_ {};
+      // The trigger strategy. Valid values:
+      // - Auto: triggered automatically when rules are modified or the trigger strategy is changed to Auto.
+      // - Manual: triggered manually.
+      // 
+      // Default value: Manual.
       shared_ptr<string> triggerStrategy_ {};
+      // The list of variables. Parameters in the exported resources are set as variables.
       shared_ptr<vector<Task::Variables>> variables_ {};
     };
 
@@ -458,7 +512,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task information.
     shared_ptr<GetResourceExportTaskResponseBody::Task> task_ {};
   };
 

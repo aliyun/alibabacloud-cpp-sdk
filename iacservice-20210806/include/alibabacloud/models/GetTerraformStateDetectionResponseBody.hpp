@@ -133,8 +133,11 @@ namespace Models
 
 
         protected:
+          // The attribute name.
           shared_ptr<string> attributePath_ {};
+          // The server-side state value.
           shared_ptr<string> remoteValue_ {};
+          // The value stored in the state file.
           shared_ptr<string> stateValue_ {};
         };
 
@@ -171,9 +174,13 @@ namespace Models
 
 
       protected:
+        // The collection of attribute drifts.
         shared_ptr<vector<DriftedResources::AttributeDrifts>> attributeDrifts_ {};
+        // The drift type.
         shared_ptr<string> driftedType_ {};
+        // The Terraform resource ID.
         shared_ptr<string> resourceId_ {};
+        // The identifier of the resource in the Terraform template. For a Stack task, the value is in the format of <$componetName>:<$resourceName>. For a Task task, the value is <$resourceName>.
         shared_ptr<string> resourceIdentifier_ {};
       };
 
@@ -251,8 +258,11 @@ namespace Models
 
 
         protected:
+          // The attribute name.
           shared_ptr<string> attributePath_ {};
+          // The server-side state value.
           shared_ptr<string> remoteValue_ {};
+          // The template-declared value.
           shared_ptr<string> templateValue_ {};
         };
 
@@ -296,10 +306,15 @@ namespace Models
 
 
       protected:
+        // The collection of attribute changes.
         shared_ptr<vector<ChangedResources::AttributeChanges>> attributeChanges_ {};
+        // The change type.
         shared_ptr<string> changedType_ {};
+        // Indicates whether resource drift exists.
         shared_ptr<bool> hasDrift_ {};
+        // The Terraform resource ID.
         shared_ptr<string> resourceId_ {};
+        // The identifier of the resource in the Terraform template. For a Stack task, the value is in the format of <$componetName>:<$resourceName>. For a Task task, the value is <$resourceName>.
         shared_ptr<string> resourceIdentifier_ {};
       };
 
@@ -352,11 +367,24 @@ namespace Models
 
 
     protected:
+      // The collection of resources with state changes.
       shared_ptr<vector<Job::ChangedResources>> changedResources_ {};
+      // The collection of resources with state drift.
       shared_ptr<vector<Job::DriftedResources>> driftedResources_ {};
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The task identifier. For a Stack task, the value is in the format of <$stackId>:<$deploymentName>. For a Task task, the value is <$TaskId>.
       shared_ptr<string> identifier_ {};
+      // The job status. Valid values:
+      // 
+      // - Pending: the initial status after the job is created.
+      // - PlanQueued: the job is queued because no containers are available after the job is created.
+      // - Planning: the resource job is in the Plan execution phase.
+      // - Planned: the resource job has completed the Plan execution.
+      // - PlannedAndFinished: no differences are found after the Plan execution is complete. The job is in a final status.
+      // - Errored: the job execution encountered an error and entered a final status.
       shared_ptr<string> status_ {};
+      // The task type.
       shared_ptr<string> type_ {};
     };
 
@@ -379,6 +407,7 @@ namespace Models
 
 
   protected:
+    // The job details.
     shared_ptr<GetTerraformStateDetectionResponseBody::Job> job_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

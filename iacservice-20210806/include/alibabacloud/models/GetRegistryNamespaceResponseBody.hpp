@@ -127,13 +127,21 @@ namespace Models
 
 
     protected:
+      // The permissions.
       shared_ptr<string> acl_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The description of the workspace.
       shared_ptr<string> description_ {};
+      // The name of the administrator.
       shared_ptr<string> maintainer_ {};
+      // The number of Registry templates in the workspace.
       shared_ptr<int32_t> modules_ {};
+      // The name of the workspace.
       shared_ptr<string> namespaceName_ {};
+      // The list of shared accounts.
       shared_ptr<vector<int64_t>> sharedAccounts_ {};
+      // The type of the workspace.
       shared_ptr<string> type_ {};
     };
 
@@ -156,7 +164,9 @@ namespace Models
 
 
   protected:
+    // The workspace information.
     shared_ptr<GetRegistryNamespaceResponseBody::Namespace> namespace_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

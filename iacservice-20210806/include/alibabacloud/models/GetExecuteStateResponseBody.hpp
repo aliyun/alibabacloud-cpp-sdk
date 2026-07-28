@@ -77,11 +77,28 @@ namespace Models
 
 
   protected:
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The run log.
     Darabonba::Json logFile_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The state file content.
     shared_ptr<string> state_ {};
+    // The status. Valid values:
+    // 
+    // - Pending: ready to start.
+    // - PlanQueued: the plan task has been created but is waiting in the queue because no workflow is available.
+    // - ApplyQueued: the apply task has been created but is waiting in the queue because no workflow is available.
+    // - Planning: the plan phase is being executed.
+    // - Planned: the plan execution is complete.
+    // - Confirmed: the plan has been confirmed after execution.
+    // - PlannedAndFinished: the plan execution is complete and no diff was found. The job is in a terminal state.
+    // - Applying: the apply phase is being executed.
+    // - Applied: the apply execution is complete.
+    // - Discarded: the task has been discarded. This is a terminal state.
+    // - Errored: the execution encountered an error. This is a terminal state.
+    // - Canceled: the execution has been canceled. This is a terminal state.
     shared_ptr<string> status_ {};
   };
 

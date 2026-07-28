@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Drift detection configuration ID
     shared_ptr<string> detectConfigId_ {};
+    // request ID
     shared_ptr<string> requestId_ {};
   };
 

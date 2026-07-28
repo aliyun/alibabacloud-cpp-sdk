@@ -142,6 +142,9 @@
 #include <alibabacloud/models/GetProjectRequest.hpp>
 #include <alibabacloud/models/GetProjectResponseBody.hpp>
 #include <alibabacloud/models/GetProjectResponse.hpp>
+#include <alibabacloud/models/GetProviderDocumentRequest.hpp>
+#include <alibabacloud/models/GetProviderDocumentResponseBody.hpp>
+#include <alibabacloud/models/GetProviderDocumentResponse.hpp>
 #include <alibabacloud/models/GetRegistryModuleRequest.hpp>
 #include <alibabacloud/models/GetRegistryModuleResponseBody.hpp>
 #include <alibabacloud/models/GetRegistryModuleResponse.hpp>

@@ -119,7 +119,9 @@ namespace Models
 
 
       protected:
+        // The list of Terraform resource properties corresponding to the resource type.
         shared_ptr<vector<string>> properties_ {};
+        // The resource type.
         shared_ptr<string> resourceType_ {};
       };
 
@@ -170,8 +172,15 @@ namespace Models
 
 
       protected:
+        // The module type where the exported template is stored. Two formats are supported: CloudRegistry and OSS. If the ExportToModule parameter is specified, both formats are returned. Otherwise, only CloudRegistry is returned.
         shared_ptr<string> source_ {};
+        // The download URL of the module where the exported template is stored.
+        // 
+        // - If Source is set to CloudRegistry, the format is: "cloudregistry::iacservice//"
+        // 
+        // - If Source is set to OSS, the format is: "oss::https://.oss-ap-southeast-1.aliyuncs.com/xxx.zip".
         shared_ptr<string> sourcePath_ {};
+        // The version of the module where the exported template is stored.
         shared_ptr<string> version_ {};
       };
 
@@ -215,7 +224,17 @@ namespace Models
 
 
       protected:
+        // The name of the inclusion rule for resource export. Valid values:
+        // 
+        // - ResourceType: required. The resource type. Example: ALIYUN::VPC::VPC.
+        // - RegionId: required. The region to which the resource belongs. Only one region is supported. Example: ap-southeast-1.
+        // - \\<ResourceType>:Id: the resource ID. Example: ALIYUN::VPC::VPC:Id.
+        // - ResourceGroupId: the resource group ID. Example: rg-1234.
+        // - ZoneId: the zone to which the resource belongs. Only one zone is supported. Example: ap-southeast-1h.
+        // 
+        // Multiple filter conditions are combined by using the AND operator. A resource is matched only if all filter conditions are met.
         shared_ptr<string> key_ {};
+        // The values of the inclusion rules for resource export.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -266,8 +285,18 @@ namespace Models
 
 
       protected:
+        // The module type in which the exported template is saved. Valid values:
+        // 
+        // - OSS: OSS
+        // - Registry: Terraform Registry.
         shared_ptr<string> source_ {};
+        // The path where the template content is saved.
+        // 
+        // - If Source is set to Registry, the format is: "cloudregistry::iacservice//"
+        // 
+        // - If Source is set to OSS, the format is: "oss::https://.oss-ap-southeast-1.aliyuncs.com/xxx.zip".
         shared_ptr<string> sourcePath_ {};
+        // The path of the state file corresponding to the module.
         shared_ptr<string> statePath_ {};
       };
 
@@ -368,17 +397,34 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The execution duration.
       shared_ptr<int64_t> elapsedTime_ {};
+      // The ID of the resource export task.
       shared_ptr<string> exportTaskId_ {};
+      // Saves the exported template as a module. If this parameter is not set, the template is automatically saved in the registry.
       shared_ptr<ExportTasks::ExportToModule> exportToModule_ {};
+      // The resource export version.
       shared_ptr<string> exportVersion_ {};
+      // The reason for the export failure.
       shared_ptr<string> failedReason_ {};
+      // The list of inclusion rules used when exporting resources.
       shared_ptr<vector<ExportTasks::IncludeRules>> includeRules_ {};
+      // The module configuration of the exported resources.
       shared_ptr<vector<ExportTasks::Modules>> modules_ {};
+      // The name of the export task.
       shared_ptr<string> name_ {};
+      // The version export status. Valid values:
+      // - Queue: queued
+      // - Pending: preparing to run
+      // - Success: succeeded
+      // - Errored: failed
+      // - Canceled: canceled.
       shared_ptr<string> status_ {};
+      // The list of variables. Parameters of the exported resources are set as variables.
       shared_ptr<vector<ExportTasks::Variables>> variables_ {};
     };
 
@@ -422,10 +468,15 @@ namespace Models
 
 
   protected:
+    // The list of export task versions.
     shared_ptr<vector<ListResourceExportTaskVersionsResponseBody::ExportTasks>> exportTasks_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

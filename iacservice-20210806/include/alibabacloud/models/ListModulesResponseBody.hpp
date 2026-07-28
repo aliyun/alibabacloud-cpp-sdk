@@ -131,9 +131,13 @@ namespace Models
 
 
       protected:
+        // The tag key of the template.
         shared_ptr<string> key_ {};
+        // The tag key of the template.
         shared_ptr<string> tagKey_ {};
+        // The tag value of the template.
         shared_ptr<string> tagValue_ {};
+        // The tag value of the template.
         shared_ptr<string> value_ {};
       };
 
@@ -193,9 +197,13 @@ namespace Models
 
 
       protected:
+        // The group ID.
         shared_ptr<string> groupId_ {};
+        // The group name.
         shared_ptr<string> groupName_ {};
+        // The project ID.
         shared_ptr<string> projectId_ {};
+        // The project name.
         shared_ptr<string> projectName_ {};
       };
 
@@ -277,15 +285,35 @@ namespace Models
 
 
     protected:
+      // The time when the template was created.
       shared_ptr<string> createTime_ {};
+      // Indicates whether deletion protection is enabled. Deletion protection is automatically enabled when the template is associated with a node, which prevents the template from being deleted.
       shared_ptr<bool> deletionProtection_ {};
+      // The description of the template.
       shared_ptr<string> description_ {};
+      // The group information.
       shared_ptr<Modules::GroupInfo> groupInfo_ {};
+      // The latest version number.
       shared_ptr<string> latestVersion_ {};
+      // The template ID.
       shared_ptr<string> moduleId_ {};
+      // The template name.
       shared_ptr<string> name_ {};
+      // The template source. Valid values:
+      // 
+      // - OSS: imported from OSS.
+      // - Registry: created from a template in the template center.
+      // - ExportTask: exported from a resource export task.
+      // - Upload: uploaded as a file.
+      // - Shared: cloned from a shared template.
+      // - Editor: created by using the online editor.
       shared_ptr<string> source_ {};
+      // The template status. Valid values:
+      // 
+      // - Creating: the template is being created.
+      // - Created: the template has been created. You can publish a version after the template is created.
       shared_ptr<string> status_ {};
+      // The list of template tags.
       shared_ptr<vector<Modules::Tags>> tags_ {};
     };
 
@@ -329,10 +357,15 @@ namespace Models
 
 
   protected:
+    // The list of templates.
     shared_ptr<vector<ListModulesResponseBody::Modules>> modules_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

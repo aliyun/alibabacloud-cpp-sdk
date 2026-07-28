@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
   };

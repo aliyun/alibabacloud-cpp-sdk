@@ -60,10 +60,23 @@ namespace Models
 
 
   protected:
+    // The list of Alibaba Cloud account IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> accountIds_ {};
+    // The ID of the resource to unshare.
+    // 
+    //  - If the type is Namespace, set this parameter to the workspace name. 
+    // 
+    // - If the type is RegistryModule, set this parameter to \\<namespaceName>/\\<ModuleName>.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
+    // The resource type. Valid values:
+    // 
+    // - RegistryModule: Registry template.
+    // - Namespace: workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
   };

@@ -113,7 +113,9 @@ namespace Models
 
 
       protected:
+        // The tag key of the template.
         shared_ptr<string> tagKey_ {};
+        // The tag value of the template.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -173,9 +175,13 @@ namespace Models
 
 
       protected:
+        // The group ID.
         shared_ptr<string> groupId_ {};
+        // The group name.
         shared_ptr<string> groupName_ {};
+        // The project ID.
         shared_ptr<string> projectId_ {};
+        // The project name.
         shared_ptr<string> projectName_ {};
       };
 
@@ -279,18 +285,50 @@ namespace Models
 
 
     protected:
+      // The time when the template was created.
       shared_ptr<string> createTime_ {};
+      // The template description.
       shared_ptr<string> description_ {};
+      // The group information.
       shared_ptr<Module::GroupInfo> groupInfo_ {};
+      // The latest version number.
       shared_ptr<string> latestVersion_ {};
+      // The template ID.
       shared_ptr<string> moduleId_ {};
+      // The template name.
       shared_ptr<string> name_ {};
+      // The storage path of the template.
       shared_ptr<string> outputPath_ {};
+      // The template source. Valid values:
+      // 
+      // - OSS: Imported from OSS.
+      // - Registry: Created from a template in the template center.
+      // - ExportTask: Exported from a resource export task.
+      // - Upload: Uploaded as a file.
+      // - Shared: Cloned from a shared template.
+      // - Editor: Created by using the online editor.
       shared_ptr<string> source_ {};
+      // The source path of the template.
+      // 
+      // - If the source is Registry, the value is in the format of <workspace name>/<module name>:<module version>, such as terraform-alicloud-modules/rds:1.0.0.
+      // - If the source is OSS, the value is in the format of oss::<file link>, such as oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip.
+      // - If the source is ExportTask, the value is in the format of <export task ID>:<exported version>, such as ex-3b6cb9fa4751afff298da723c24ac:v1.
       shared_ptr<string> sourcePath_ {};
+      // The path of the state file that corresponds to the template. Currently, only OSS paths are supported. The value is in the format of oss::<file OSS path>/terraform.tfstate.
       shared_ptr<string> statePath_ {};
+      // The template status. Valid values:
+      // 
+      // - Creating: The template is being created.
+      // - Created: The template is created.
+      // 
+      // After the template is created, you can publish a version.
       shared_ptr<string> status_ {};
+      // The tags of the template.
       shared_ptr<vector<Module::Tags>> tags_ {};
+      // The version generation strategy. Valid values:
+      // 
+      // - Manual: Versions are generated manually. This is the default value.
+      // - SourcePathUpdated: A new version is generated when the sourcePath is modified.
       shared_ptr<string> versionStrategy_ {};
     };
 
@@ -313,8 +351,9 @@ namespace Models
 
 
   protected:
+    // The template information.
     shared_ptr<GetModuleResponseBody::Module> module_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

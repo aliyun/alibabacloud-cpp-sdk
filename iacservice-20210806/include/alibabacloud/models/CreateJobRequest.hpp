@@ -66,11 +66,24 @@ namespace Models
 
 
   protected:
+    // The idempotence token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // The job description. Length: 1 to 64 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // The operation command. Valid values:
+    // 
+    // - plan: performs a preview. This is the default value.
+    // - refresh: refreshes the resource status.
+    // - destroy: destroys resources.
     shared_ptr<string> subCommand_ {};
+    // The task type. Valid values:
+    // 
+    // - Task: regular task. This is the default value.
+    // - SceneTestingTask: scenario-based testing task.
     shared_ptr<string> taskType_ {};
   };
 

@@ -140,14 +140,38 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The description of the stack.
       shared_ptr<string> description_ {};
+      // The stack name.
       shared_ptr<string> name_ {};
+      // The creation source. Valid values:
+      // - OSS: a template stored in Object Storage Service (OSS).
+      // - IAC_SERVICE_MODULE: a template created in the automation service console.
       shared_ptr<string> source_ {};
+      // The path of the configuration source. The value cannot exceed 1000 characters.
+      // - If the source is OSS, the value is in the format oss::<file link> and must be a zip file, such as oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip.
+      // - If the source is IAC_SERVICE_MODULE, the value is a template ID, such as mod-xxxxx.
       shared_ptr<string> sourcePath_ {};
+      // The description of the stack.
       shared_ptr<string> stackDescription_ {};
+      // The stack ID, which is the unique identifier generated after the stack is created.
       shared_ptr<string> stackId_ {};
+      // The stack name (deprecated). Use name instead.
       shared_ptr<string> stackName_ {};
+      // The stack status.
+      // | Name | Description |
+      // |------|------|
+      // | Creating | Being created |
+      // | Created | Creation complete |
+      // | Waiting | Waiting for deployment |
+      // | Deploying | Being deployed |
+      // | Deployed | Deployment complete |
+      // | Errored | Deployment failed |
+      // | Deleting | Being deleted |
+      // | Deleted | Deleted |
+      // | DeleteFailed | Deletion failed |.
       shared_ptr<string> status_ {};
     };
 
@@ -191,10 +215,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of results returned.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. This parameter is empty if no more pages are available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of stacks.
     shared_ptr<vector<ListStacksResponseBody::Stacks>> stacks_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

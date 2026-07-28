@@ -96,10 +96,15 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The project description. Length: 0 to 1024 characters.
       shared_ptr<string> description_ {};
+      // The project name.
       shared_ptr<string> name_ {};
+      // The project ID.
       shared_ptr<string> projectId_ {};
+      // The number of tasks.
       shared_ptr<int64_t> taskCnt_ {};
     };
 
@@ -122,7 +127,9 @@ namespace Models
 
 
   protected:
+    // The project details.
     shared_ptr<GetProjectResponseBody::Project> project_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

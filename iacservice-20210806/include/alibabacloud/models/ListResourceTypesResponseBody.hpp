@@ -177,18 +177,30 @@ namespace Models
 
 
     protected:
+      // The description.
       shared_ptr<string> description_ {};
+      // The product name.
       shared_ptr<string> product_ {};
+      // The product name.
       shared_ptr<string> productName_ {};
+      // The URL of the resource details page.
       shared_ptr<string> resourceDetailPageUrl_ {};
+      // The URL of the resources page.
       shared_ptr<string> resourceListPageUrl_ {};
       shared_ptr<string> resourceType_ {};
+      // The resource status.
       shared_ptr<string> status_ {};
+      // The version from which the resource status takes effect.
       shared_ptr<string> statusStartVersion_ {};
+      // The product subcategory in Terraform.
       shared_ptr<string> subcategory_ {};
+      // Specifies whether Terraformer is supported.
       shared_ptr<string> supportTerraformer_ {};
+      // The Terraform provider version.
       shared_ptr<string> terraformProviderVersion_ {};
+      // The resource type in Terraform.
       shared_ptr<string> terraformResourceType_ {};
+      // The title.
       shared_ptr<string> title_ {};
     };
 
@@ -232,10 +244,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries per page. Valid values: 0 to 200. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The resources.
     shared_ptr<vector<ListResourceTypesResponseBody::ResourceTypes>> resourceTypes_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

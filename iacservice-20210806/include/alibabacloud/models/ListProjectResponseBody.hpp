@@ -105,7 +105,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -156,11 +158,17 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The project description.
       shared_ptr<string> description_ {};
+      // The project name.
       shared_ptr<string> name_ {};
+      // The project ID.
       shared_ptr<string> projectId_ {};
+      // The tags.
       shared_ptr<vector<Projects::Tags>> tags_ {};
+      // The number of tasks.
       shared_ptr<int64_t> taskCnt_ {};
     };
 
@@ -204,10 +212,15 @@ namespace Models
 
 
   protected:
+    // The total number of records.
     shared_ptr<int64_t> count_ {};
+    // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
+    // The list of projects.
     shared_ptr<vector<ListProjectResponseBody::Projects>> projects_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

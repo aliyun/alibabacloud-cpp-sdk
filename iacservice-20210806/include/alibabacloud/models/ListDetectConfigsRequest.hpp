@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Name of the drift detection configuration (fuzzy match).
     shared_ptr<string> detectConfigName_ {};
+    // Maximum number of records to retrieve in a single request. Valid range: 1–200. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
+    // Query credential (Token). Set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
   };
 

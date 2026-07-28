@@ -139,9 +139,13 @@ namespace Models
 
 
       protected:
+        // The tag key of the task.
         shared_ptr<string> key_ {};
+        // The tag key of the module.
         shared_ptr<string> tagKey_ {};
+        // The tag value of the task.
         shared_ptr<string> tagValue_ {};
+        // The tag value of the task.
         shared_ptr<string> value_ {};
       };
 
@@ -201,9 +205,13 @@ namespace Models
 
 
       protected:
+        // The group ID.
         shared_ptr<string> groupId_ {};
+        // The group name.
         shared_ptr<string> groupName_ {};
+        // The project ID.
         shared_ptr<string> projectId_ {};
+        // The project name.
         shared_ptr<string> projectName_ {};
       };
 
@@ -314,19 +322,36 @@ namespace Models
 
 
     protected:
+      // Indicates whether the task is automatically executed.
       shared_ptr<bool> autoApply_ {};
+      // The time when the task was created.
       shared_ptr<string> createTime_ {};
+      // The job ID of the current task.
       shared_ptr<string> currentJobId_ {};
+      // The current job status.
       shared_ptr<string> currentJobStatus_ {};
+      // Indicates whether deletion protection is enabled. Deletion protection is automatically enabled when managed resources are included.
       shared_ptr<bool> deletionProtection_ {};
+      // The task group information.
       shared_ptr<Tasks::GroupInfo> groupInfo_ {};
+      // The latest version of the module.
       shared_ptr<string> latestModuleVersion_ {};
+      // The module ID.
       shared_ptr<string> moduleId_ {};
+      // The module name.
       shared_ptr<string> moduleName_ {};
+      // The module version.
       shared_ptr<string> moduleVersion_ {};
+      // The task name.
       shared_ptr<string> name_ {};
+      // The task status. Valid values:
+      // 
+      // - Available: The task is available, and no job is running.
+      // - Running: The task is running, and the current job is in progress.
       shared_ptr<string> status_ {};
+      // The list of task tags.
       shared_ptr<vector<Tasks::Tags>> tags_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -370,10 +395,15 @@ namespace Models
 
 
   protected:
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of tasks.
     shared_ptr<vector<ListTasksResponseBody::Tasks>> tasks_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The project ID.
     shared_ptr<string> projectId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

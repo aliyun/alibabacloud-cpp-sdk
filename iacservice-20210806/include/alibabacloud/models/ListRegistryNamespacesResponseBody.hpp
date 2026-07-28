@@ -133,13 +133,21 @@ namespace Models
 
 
     protected:
+      // The permissions.
       shared_ptr<string> acl_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The workspace description.
       shared_ptr<string> description_ {};
+      // The administrator name.
       shared_ptr<string> maintainer_ {};
+      // The number of Registry templates in the workspace.
       shared_ptr<int32_t> modules_ {};
+      // The workspace name.
       shared_ptr<string> namespaceName_ {};
+      // The list of shared accounts.
       shared_ptr<vector<int64_t>> sharedAccounts_ {};
+      // The workspace type.
       shared_ptr<string> type_ {};
     };
 
@@ -183,10 +191,15 @@ namespace Models
 
 
   protected:
+    // The total number of records.
     shared_ptr<int64_t> count_ {};
+    // The maximum number of records returned at a time.
     shared_ptr<int32_t> maxResults_ {};
+    // The list of workspaces.
     shared_ptr<vector<ListRegistryNamespacesResponseBody::Namespaces>> namespaces_ {};
+    // The token for the next page. A value of null indicates that no more pages are available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

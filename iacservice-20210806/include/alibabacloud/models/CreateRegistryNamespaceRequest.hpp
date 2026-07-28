@@ -75,11 +75,24 @@ namespace Models
 
 
   protected:
+    // The access permission. Valid values:
+    // 
+    // - private: private access.
     shared_ptr<string> acl_ {};
+    // The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // The workspace description.
     shared_ptr<string> description_ {};
+    // The administrator name.
     shared_ptr<string> maintainer_ {};
+    // The workspace name. The name must meet the following requirements:
+    // 
+    // - The name must be 3 to 63 characters in length.
+    // - The name can contain uppercase and lowercase letters, digits, hyphens (-), and underscores (_), and cannot start or end with a hyphen.
+    // - The name must be unique within the global workspace resources.
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceName_ {};
   };

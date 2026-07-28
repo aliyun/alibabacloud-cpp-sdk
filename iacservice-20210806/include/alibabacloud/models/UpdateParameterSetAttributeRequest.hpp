@@ -99,10 +99,17 @@ namespace Models
 
 
     protected:
+      // The parameter name.
       shared_ptr<string> name_ {};
       shared_ptr<bool> secret_ {};
+      // The parameter set status. Valid values:
+      // 
+      // - HAS_VALUE (default): Defines a specific value.
+      // - EXPLICIT_NULL: Explicitly set to null.
       shared_ptr<string> status_ {};
+      // The parameter type. Valid values: string, number, bool, map(string), and list(string).
       shared_ptr<string> type_ {};
+      // The parameter value. Use JSON for complex types.
       shared_ptr<string> value_ {};
     };
 
@@ -132,9 +139,13 @@ namespace Models
 
 
   protected:
+    // The description of the parameter set. Maximum length: 1024 characters.
     shared_ptr<string> description_ {};
+    // The name of the parameter set. Maximum length: 128 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The parameter list.
     shared_ptr<vector<UpdateParameterSetAttributeRequest::Parameters>> parameters_ {};
   };
 

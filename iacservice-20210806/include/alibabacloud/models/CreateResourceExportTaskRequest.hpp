@@ -88,7 +88,9 @@ namespace Models
 
 
     protected:
+      // The list of properties of the Terraform resource that corresponds to the resource type.
       shared_ptr<vector<string>> properties_ {};
+      // The resource type. Call **ListResourceTypes** to view the list of supported resources.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -132,7 +134,17 @@ namespace Models
 
 
     protected:
+      // The name of the inclusion rule used when exporting resources. Valid values:
+      // 
+      // - ResourceType: required. The resource type. Call **ListResourceTypes** to view the list of supported resources. Example: ALIYUN::VPC::VPC.
+      // - RegionId: required. The region to which the resource belongs. Only one region is supported. Example: cn-chengdu.
+      // - \\<ResourceType>:Id: the resource ID. Example: ALIYUN::VPC::VPC:Id.
+      // - ResourceGroupId: the resource group ID. Example: rg-1234.
+      // - ZoneId: the zone to which the resource belongs. Only one zone is supported. Example: cn-hangzhou-h.
+      // 
+      // By default, multiple filter conditions are evaluated using the AND operator. A resource is considered a match only when all filter conditions are met.
       shared_ptr<string> key_ {};
+      // The list of values for the inclusion rule used when exporting resources.
       shared_ptr<vector<string>> values_ {};
     };
 
@@ -183,8 +195,14 @@ namespace Models
 
 
     protected:
+      // The module type in which the exported template is saved. Valid values:
+      // 
+      // - OSS: OSS.
+      // - Registry: Terraform Registry.
       shared_ptr<string> source_ {};
+      // The path for saving the template content. Set this parameter when source is set to OSS.
       shared_ptr<string> sourcePath_ {};
+      // The path for saving the template state file. Set this parameter when source is set to OSS.
       shared_ptr<string> statePath_ {};
     };
 
@@ -268,17 +286,37 @@ namespace Models
 
 
   protected:
+    // The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // The description of the resource export task.
     shared_ptr<string> description_ {};
+    // Saves the exported template as a module. If this parameter is not specified, the template is automatically saved in the Registry.
     shared_ptr<CreateResourceExportTaskRequest::ExportToModule> exportToModule_ {};
+    // The list of inclusion rules used when exporting resources.
     shared_ptr<vector<CreateResourceExportTaskRequest::IncludeRules>> includeRules_ {};
+    // The name of the resource export task. The name must meet the following requirements:
+    // 
+    // - The name must be 3 to 63 characters in length.
+    // - The name can contain letters, digits, Chinese characters, hyphens (-), underscores (_), and periods (.). The name cannot start or end with a hyphen, underscore, or period.
+    // - The name must be unique among resource export tasks within the current account.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The RAM role (1 to 128 characters). The system assumes this role to execute the template when a new job is triggered. This parameter is required when the job trigger method is not manual.
     shared_ptr<string> ramRole_ {};
+    // The Terraform provider version. Call **ListTerraformProviderVersions** to view the list of supported versions. Default value: the latest version.
     shared_ptr<string> terraformProviderVersion_ {};
+    // The Terraform version. Call **ListAvailableTerraformVersions** to view the list of supported versions. Default value: 1.5.7.
     shared_ptr<string> terraformVersion_ {};
+    // The trigger strategy. Valid values:
+    // - Auto: triggered when rules are modified or the trigger strategy is changed to Auto.
+    // - Manual: manually triggered.
+    // 
+    // Default value: Manual.
     shared_ptr<string> triggerStrategy_ {};
+    // The list of variables. Exported resource parameters are set as variables.
     shared_ptr<vector<CreateResourceExportTaskRequest::Variables>> variables_ {};
   };
 

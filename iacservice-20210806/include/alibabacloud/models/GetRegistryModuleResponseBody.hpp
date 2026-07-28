@@ -164,17 +164,38 @@ namespace Models
 
 
     protected:
+      // The permission. Valid values:
+      // 
+      // - private: private.
       shared_ptr<string> acl_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The module description.
       shared_ptr<string> description_ {};
+      // The number of downloads.
       shared_ptr<int32_t> downloads_ {};
+      // The module name.
       shared_ptr<string> moduleName_ {};
+      // The workspace name.
       shared_ptr<string> namespaceName_ {};
+      // The provider type. Valid values:
+      // 
+      // - alicloud: Alibaba Cloud.
       shared_ptr<string> provider_ {};
+      // The list of accounts with which the Registry module is shared.
       shared_ptr<vector<int64_t>> sharedAccounts_ {};
+      // The module source, which is a concatenation of <NamespaceName>/<ModuleName>.
       shared_ptr<string> source_ {};
+      // The module source URL.
       shared_ptr<string> sourceUrl_ {};
+      // The workspace type. Valid values:
+      // 
+      // - system: public module
+      // - self: custom module
+      // - shared: shared module
+      // - community: community module.
       shared_ptr<string> type_ {};
+      // The latest version.
       shared_ptr<string> version_ {};
     };
 
@@ -197,7 +218,9 @@ namespace Models
 
 
   protected:
+    // The Registry module.
     shared_ptr<GetRegistryModuleResponseBody::RegistryModule> registryModule_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

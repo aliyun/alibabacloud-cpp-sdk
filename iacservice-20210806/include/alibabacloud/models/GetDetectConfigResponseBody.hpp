@@ -103,7 +103,9 @@ namespace Models
 
 
       protected:
+        // Alerting address.
         shared_ptr<string> address_ {};
+        // Alerting method. Currently, only `cms` is supported.
         shared_ptr<string> type_ {};
       };
 
@@ -169,13 +171,24 @@ namespace Models
 
 
     protected:
+      // List of alerting addresses
       shared_ptr<vector<DetectConfig::AlarmConfigs>> alarmConfigs_ {};
+      // Creation Time.
       shared_ptr<string> createTime_ {};
+      // Cron expression (UTC+8). Required when the trigger type is Cron.
       shared_ptr<string> cronExpression_ {};
+      // Description.
       shared_ptr<string> description_ {};
+      // Drift detection configuration ID
       shared_ptr<string> detectConfigId_ {};
+      // Drift detection configuration name
       shared_ptr<string> detectConfigName_ {};
+      // Is scheduled detection enabled
       shared_ptr<bool> enabled_ {};
+      // Trigger type  
+      // 
+      // - Manual: Execute manually  
+      // - Cron: Trigger on schedule
       shared_ptr<string> triggerType_ {};
     };
 
@@ -198,8 +211,9 @@ namespace Models
 
 
   protected:
+    // Drift detection configuration information
     shared_ptr<GetDetectConfigResponseBody::DetectConfig> detectConfig_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
   };
 

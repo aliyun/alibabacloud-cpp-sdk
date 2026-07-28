@@ -121,7 +121,12 @@ namespace Models
 
 
       protected:
+        // The trigger strategy. Valid values:
+        // 
+        // - ProviderNewVersion: triggered when a new provider version is released
+        // - Cron: triggered on a schedule.
         shared_ptr<string> triggerStrategy_ {};
+        // The policy value that must be maintained for scheduled triggering. This value is a cron expression.
         shared_ptr<string> triggerValue_ {};
       };
 
@@ -163,7 +168,10 @@ namespace Models
 
 
       protected:
+        // The path configuration for notifications.
         shared_ptr<string> notifyPath_ {};
+        // The notification type. Valid values:
+        // DingDing.
         shared_ptr<string> notifyType_ {};
       };
 
@@ -302,22 +310,42 @@ namespace Models
 
 
     protected:
+      // Indicates whether automatic deletion is enabled.
       shared_ptr<bool> autoDestroy_ {};
+      // Indicates whether automatic triggering is enabled.
       shared_ptr<bool> autoTrigger_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The group description.
       shared_ptr<string> description_ {};
+      // Indicates whether the group configuration is forcibly used.
       shared_ptr<bool> forcedSetting_ {};
+      // The group ID.
       shared_ptr<string> groupId_ {};
+      // The group name.
       shared_ptr<string> name_ {};
+      // The notification configuration.
       shared_ptr<vector<Group::NotifyConfig>> notifyConfig_ {};
+      // The list of notification operation types.
       shared_ptr<vector<string>> notifyOperationTypes_ {};
+      // The project ID.
       shared_ptr<string> projectId_ {};
+      // The RAM role (1 to 128 characters). The system assumes this role to execute the template when a new job is triggered. This parameter is required when the job trigger mode is not manual.
       shared_ptr<string> ramRole_ {};
+      // The list of report export field options.
       shared_ptr<vector<string>> reportExportField_ {};
+      // The export address for the execution report. OSS addresses are supported. Format: https://<OSS bucket address>/<path>.
       shared_ptr<string> reportExportPath_ {};
+      // The number of tasks.
       shared_ptr<int64_t> taskCnt_ {};
+      // The Terraform provider version. Select a Terraform provider version. Tasks in the group are executed based on the specified Terraform provider version. The version configured on a task takes higher priority. This version may conflict with the Terraform provider version specified in the module.
       shared_ptr<string> terraformProviderVersion_ {};
+      // The trigger policy. This parameter cannot be empty when autoTrigger is set to true.
       shared_ptr<vector<Group::TriggerConfig>> triggerConfig_ {};
+      // The resource type that triggers execution. Valid values:
+      // 
+      // - Task: regular task
+      // - SceneTestingTask: scenario-based testing task.
       shared_ptr<vector<string>> triggerResourceType_ {};
     };
 
@@ -340,7 +368,9 @@ namespace Models
 
 
   protected:
+    // The group.
     shared_ptr<GetGroupResponseBody::Group> group_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

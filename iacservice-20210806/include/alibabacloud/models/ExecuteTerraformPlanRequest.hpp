@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // The Terraform code to execute. If the execution content has not changed, you can specify only stateId.
     shared_ptr<string> code_ {};
+    // The ID of the state file. If this parameter is specified, the Plan command continues to run based on the existing state file.
     shared_ptr<string> stateId_ {};
   };
 

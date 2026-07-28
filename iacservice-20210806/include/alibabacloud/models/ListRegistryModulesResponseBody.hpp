@@ -170,17 +170,29 @@ namespace Models
 
 
     protected:
+      // The permission. A value of private indicates that the module is private.
       shared_ptr<string> acl_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The description of the registry module.
       shared_ptr<string> description_ {};
+      // The number of downloads.
       shared_ptr<int32_t> downloads_ {};
+      // The name of the registry module.
       shared_ptr<string> moduleName_ {};
+      // The workspace name.
       shared_ptr<string> namespaceName_ {};
+      // The provider type. A value of alicloud indicates Alibaba Cloud.
       shared_ptr<string> provider_ {};
+      // The list of accounts with which the registry module is shared.
       shared_ptr<vector<int64_t>> sharedAccounts_ {};
+      // The module source.
       shared_ptr<string> source_ {};
+      // The module source URL.
       shared_ptr<string> sourceUrl_ {};
+      // The templatetype.
       shared_ptr<string> type_ {};
+      // The latest version number.
       shared_ptr<string> version_ {};
     };
 
@@ -224,10 +236,15 @@ namespace Models
 
 
   protected:
+    // The total number of records.
     shared_ptr<int64_t> count_ {};
+    // The maximum number of entries returned.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page. A value of null indicates that no more pages are available.
     shared_ptr<string> nextToken_ {};
+    // The list of registry modules.
     shared_ptr<vector<ListRegistryModulesResponseBody::RegistryModules>> registryModules_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

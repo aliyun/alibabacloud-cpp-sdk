@@ -144,10 +144,15 @@ namespace Models
 
 
       protected:
+        // Indicates whether the job is a destroy job.
         shared_ptr<bool> isDestroy_ {};
+        // The template description.
         shared_ptr<string> moduleDescription_ {};
+        // The template version.
         shared_ptr<string> moduleVersion_ {};
+        // The resource change details.
         shared_ptr<string> resourcesChanged_ {};
+        // The operation command.
         shared_ptr<string> subCommand_ {};
       };
 
@@ -236,16 +241,46 @@ namespace Models
 
 
     protected:
+      // The job configuration.
       shared_ptr<Jobs::Config> config_ {};
+      // The time when the job was created.
       shared_ptr<string> createTime_ {};
+      // The job description.
       shared_ptr<string> description_ {};
+      // The execution duration.
       shared_ptr<int64_t> elapsedTime_ {};
+      // The execution type. Valid values:
+      // 
+      // - Manual: manual execution. This is the default value.
+      // - Auto: automatic execution.
       shared_ptr<string> executeType_ {};
+      // Indicates whether the assertion check passed.
       shared_ptr<bool> isPassAssertCheck_ {};
+      // The job ID.
       shared_ptr<string> jobId_ {};
+      // The job status. Valid values:
+      // 
+      // - Pending: The initial status after the job is created.
+      // - PlanQueued: After the job is created, if no workflow is available, the job is queued.
+      // - Planning: The resource job is in the Plan execution phase.
+      // - ConfigProactiveInProgress: Compliance pre-check is in progress. The compliance pre-check feature must be enabled for the account.
+      // - ConfigProactiveSuccess: Compliance pre-check succeeded. The compliance pre-check feature must be enabled for the account.
+      // - Planned: The resource job has completed the Plan execution.
+      // - PlannedAndFinished: After the Plan execution is complete, no diff is found. This is a final status.
+      // - Confirmed: The resource job is waiting for confirmation after the Plan execution is complete.
+      // - ApplyQueued: During job execution, if no workflow is available, the job is queued.
+      // - Applying: The resource job is in the Apply execution phase.
+      // - Applied: The resource job has completed the Apply execution. This is a final status.
+      // - Errored: The job execution encountered an error. This is a final status.
+      // - Canceled: The job execution was canceled. This is a final status.
+      // - Discarded: The plan of the resource job was discarded. This is a final status.
+      // - ConfigProactiveFailure: Compliance pre-check failed. The compliance pre-check feature must be enabled for the account.
       shared_ptr<string> status_ {};
+      // The status details.
       shared_ptr<map<string, JobsStatusDetailValue>> statusDetail_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The Terraform provider version.
       shared_ptr<string> terraformProviderVersion_ {};
     };
 
@@ -289,10 +324,15 @@ namespace Models
 
 
   protected:
+    // The list of jobs.
     shared_ptr<vector<ListJobsResponseBody::Jobs>> jobs_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

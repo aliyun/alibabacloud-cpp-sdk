@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // The tag key of the template.
       shared_ptr<string> tagKey_ {};
+      // The tag value of the template.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -139,12 +141,18 @@ namespace Models
 
 
   protected:
+    // The group ID.
     shared_ptr<string> groupId_ {};
+    // The search keyword. Fuzzy match is supported for template names.
     shared_ptr<string> keyword_ {};
     shared_ptr<string> moduleName_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The project ID.
     shared_ptr<string> projectId_ {};
+    // The list of template tags.
     shared_ptr<vector<ListModulesRequest::Tag>> tag_ {};
   };
 

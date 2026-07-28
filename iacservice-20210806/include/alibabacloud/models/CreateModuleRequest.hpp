@@ -84,7 +84,9 @@ namespace Models
 
 
     protected:
+      // The tag key of the template.
       shared_ptr<string> tagKey_ {};
+      // The tag value of the template.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -126,7 +128,9 @@ namespace Models
 
 
     protected:
+      // The group ID.
       shared_ptr<string> groupId_ {};
+      // The project ID.
       shared_ptr<string> projectId_ {};
     };
 
@@ -201,17 +205,45 @@ namespace Models
 
 
   protected:
+    // The idempotency parameter. We recommend that you use a UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // The description of the template. The description can be up to 256 characters in length.
     shared_ptr<string> description_ {};
+    // The project group information to which the template belongs.
     shared_ptr<CreateModuleRequest::GroupInfo> groupInfo_ {};
+    // The name of the template. The name must meet the following requirements:
+    // - The name must be 2 to 128 characters in length.
+    // - The name can contain letters, digits, Chinese characters, hyphens (-), underscores (_), and periods (.). The name cannot start or end with a hyphen, underscore, or period.
+    // - The name must be unique among all templates under the current account.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The source from which the template is created. Valid values:
+    // - OSS: imports from a ZIP file stored in OSS.
+    // - Registry: creates from a module in the template registry.
+    // - ExportTask: references a template exported by a resource export task.
+    // - Editor: creates a blank template that supports online editing.
+    // - Upload: uploads a local template file to generate the template.
+    // 
     // This parameter is required.
     shared_ptr<string> source_ {};
+    // The path of the template source. This parameter takes effect when source is set to Registry, OSS, or ExportTask.
+    // - If source is set to Registry, the value is in the format of \\<workspace name>/\\<module name>:\\<module version>. Example: terraform-alicloud-modules/rds:1.0.0.
+    // - If source is set to OSS, the value is in the format of oss::<file URL>. The file must be a ZIP file. Example: oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip.
+    // - If source is set to ExportTask, the value is in the format of \\<export task ID>:\\<exported version>. Example: ex-3b6cb9fa4751afff298da723c24ac:v1.
+    // - If source is set to Editor or Upload, leave this parameter empty.
     shared_ptr<string> sourcePath_ {};
+    // The path of the State file that corresponds to the template. This parameter is valid only when source is set to OSS.
+    // The value is in the format of oss::\\<OSS file path>/terraform.tfstate.
     shared_ptr<string> statePath_ {};
+    // The list of tags for the template.
     shared_ptr<vector<CreateModuleRequest::Tags>> tags_ {};
+    // The version generation strategy. Valid values:
+    // 
+    // - Manual: manually generates a version. This is the default value.
+    // - SourcePathUpdated: generates a new version when sourcePath is modified.
     shared_ptr<string> versionStrategy_ {};
   };
 

@@ -132,7 +132,9 @@ namespace Models
 
 
         protected:
+          // The input name.
           shared_ptr<string> name_ {};
+          // The input source. Currently, only an upstream stack can be specified. The format is {iacEndpoint}/{accountId}/{upstreamStackName}.
           shared_ptr<string> source_ {};
         };
 
@@ -201,10 +203,15 @@ namespace Models
 
 
         protected:
+          // The output description.
           shared_ptr<string> description_ {};
+          // The output name.
           shared_ptr<string> name_ {};
+          // The actual output value after the stack deployment is complete.
           shared_ptr<string> result_ {};
+          // The output type, such as string or list(string).
           shared_ptr<string> type_ {};
+          // The original definition of the output value. Currently, string or list(string) is supported. You can reference a deployment output in the format: deployment.{deploymentName}.{deploymentOutputName}.
           shared_ptr<string> value_ {};
         };
 
@@ -236,6 +243,7 @@ namespace Models
 
 
         protected:
+          // The deployment name.
           shared_ptr<string> name_ {};
         };
 
@@ -269,8 +277,11 @@ namespace Models
 
 
       protected:
+        // The list of deployments.
         shared_ptr<vector<DeploymentConfig::Deployment>> deployment_ {};
+        // The list of outputs.
         shared_ptr<vector<DeploymentConfig::PublishOutput>> publishOutput_ {};
+        // The list of upstream inputs.
         shared_ptr<vector<DeploymentConfig::UpstreamInput>> upstreamInput_ {};
       };
 
@@ -362,10 +373,17 @@ namespace Models
 
 
         protected:
+          // The default value.
           shared_ptr<string> default_ {};
+          // The description.
           shared_ptr<string> description_ {};
+          // The variable name.
           shared_ptr<string> name_ {};
           shared_ptr<bool> sensitive_ {};
+          // The variable type, such as:
+          // - string
+          // - list(string)
+          // - map(string).
           shared_ptr<string> type_ {};
         };
 
@@ -425,9 +443,13 @@ namespace Models
 
 
         protected:
+          // The output description.
           shared_ptr<string> description_ {};
+          // The output name.
           shared_ptr<string> name_ {};
+          // The output type.
           shared_ptr<string> type_ {};
+          // The output value.
           shared_ptr<string> value_ {};
         };
 
@@ -459,6 +481,7 @@ namespace Models
 
 
         protected:
+          // The component name.
           shared_ptr<string> name_ {};
         };
 
@@ -492,8 +515,11 @@ namespace Models
 
 
       protected:
+        // The list of components.
         shared_ptr<vector<ComponentConfig::Component>> component_ {};
+        // The list of component outputs.
         shared_ptr<vector<ComponentConfig::Output>> output_ {};
+        // The list of component variables.
         shared_ptr<vector<ComponentConfig::Variable>> variable_ {};
       };
 
@@ -561,13 +587,32 @@ namespace Models
 
 
     protected:
+      // The component configuration.
       shared_ptr<Configs::ComponentConfig> componentConfig_ {};
+      // The content of the component configuration.
       shared_ptr<string> componentContent_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The deployment configuration.
       shared_ptr<Configs::DeploymentConfig> deploymentConfig_ {};
+      // The content of the deployment configuration.
       shared_ptr<string> deploymentContent_ {};
       shared_ptr<string> failedReason_ {};
+      // The status of the stack configuration.
+      // | Name | Description |
+      // |------|------|
+      // | Creating | Being created. |
+      // | Created | Created. |
+      // | Waiting | Waiting for deployment. |
+      // | Deploying | Being deployed. |
+      // | Deployed | Deployed. |
+      // | Errored | Deployment failed. |
+      // | Deleting | Being deleted. |
+      // | Deleted | Deleted. |
+      // | DeleteFailed | Deletion failed. |
+      // | DetectTriggered | Drift detection triggered. |.
       shared_ptr<string> status_ {};
+      // The configuration version number, such as v1. The initial value is v1. The version number increments each time the stack is updated or refreshed and the configuration changes.
       shared_ptr<string> version_ {};
     };
 
@@ -611,11 +656,17 @@ namespace Models
 
 
   protected:
+    // The list of stack configurations.
     shared_ptr<vector<ListStackConfigsResponseBody::Configs>> configs_ {};
+    // The maximum number of records returned in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The position from which the current call starts reading. An empty value indicates that all data has been read.
+    // 
     // This parameter is required.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records that match the request conditions. This parameter is optional and may not be returned by default.
     shared_ptr<int32_t> totalCount_ {};
   };
 

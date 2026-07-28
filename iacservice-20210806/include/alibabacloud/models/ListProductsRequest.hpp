@@ -94,12 +94,23 @@ namespace Models
 
 
   protected:
+    // The keyword for searching products. Fuzzy match is supported.
     shared_ptr<string> keyword_ {};
+    // The maximum number of results per page. Valid values: 0 to 200. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
+    // The sort order. Valid values:
+    // - Normal: default sorting (default value)
+    // - Top: sorted by popularity.
     shared_ptr<string> sort_ {};
+    // The status. Valid values:
+    // - Available
+    // - Deprecated.
     shared_ptr<string> status_ {};
+    // Specifies whether Terraformer is supported.
     shared_ptr<bool> supportTerraformer_ {};
+    // The Terraform Provider version. If this parameter is left empty, the latest version is used by default.
     shared_ptr<string> terraformProviderVersion_ {};
   };
 

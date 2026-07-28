@@ -77,10 +77,16 @@ namespace Models
 
 
   protected:
+    // The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
     shared_ptr<string> clientToken_ {};
+    // The template text that is directly passed in when source is set to Upload.
     shared_ptr<string> code_ {};
+    // Specifies multiple configuration files to pass in.
     Darabonba::Json codeMap_ {};
+    // The template source. Valid values:
+    // Upload: text upload.
     shared_ptr<string> source_ {};
+    // The source path.
     shared_ptr<string> sourcePath_ {};
   };
 

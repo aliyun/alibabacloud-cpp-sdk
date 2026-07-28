@@ -50,6 +50,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The state file ID.
     shared_ptr<string> stateId_ {};
   };
 

@@ -144,15 +144,39 @@ namespace Models
 
 
     protected:
+      // The time when the version was created.
       shared_ptr<string> createTime_ {};
+      // The version description.
       shared_ptr<string> description_ {};
+      // The template ID.
       shared_ptr<string> moduleId_ {};
+      // The template version number.
       shared_ptr<string> moduleVersion_ {};
+      // The version name.
       shared_ptr<string> name_ {};
+      // The version source. Valid values:
+      // 
+      // - OSS: imported from OSS.
+      // - Registry: created by using a template from the template center.
+      // - ExportTask: exported from a resource export task.
+      // - Upload: uploaded as a file.
+      // - Shared: cloned from a shared source.
+      // - Editor: edited online.
       shared_ptr<string> source_ {};
+      // The path of the version source.
+      // 
+      // - If the source is Registry, the value is in the format of <workspace name>/<module name>:<module version>. Example: terraform-alicloud-modules/rds:1.0.0.
+      // - If the source is OSS, the value is in the format of oss::<file link>. Example: oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip.
+      // - If the source is ExportTask, the value is in the format of <export task ID>:<exported version>. Example: ex-3b6cb9fa4751afff298da723c24ac:v1.
       shared_ptr<string> sourcePath_ {};
+      // The path of the State file that corresponds to the template. Currently, only OSS paths are supported. The value is in the format of oss::<OSS file path>/terraform.tfstate.
       shared_ptr<string> statePath_ {};
+      // The Terraform content.
       Darabonba::Json terraformContext_ {};
+      // The version generation strategy. Valid values:
+      // 
+      // - Manual: manually generate a version. This is the default value.
+      // - SourcePathUpdated: a new version is generated when the sourcePath is modified.
       shared_ptr<string> versionStrategy_ {};
     };
 
@@ -175,7 +199,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The version details.
     shared_ptr<GetModuleVersionResponseBody::Version> version_ {};
   };
 

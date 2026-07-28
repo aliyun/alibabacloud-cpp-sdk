@@ -75,10 +75,21 @@ namespace Models
 
 
   protected:
+    // The export version number.
     shared_ptr<string> exportVersion_ {};
+    // The search keyword. Fuzzy match is supported for export version names.
     shared_ptr<string> keyword_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The export status. Valid values:
+    // 
+    // - Queue: queued
+    // - Pending: preparing to run
+    // - Success: succeeded
+    // - Errored: failed
+    // - Canceled: canceled.
     shared_ptr<string> status_ {};
   };
 

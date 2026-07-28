@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The keyword for searching versions. Fuzzy match is supported.
     shared_ptr<string> keyword_ {};
+    // The maximum number of records to retrieve in a single request.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next page. A value of null indicates that no more pages are available.
     shared_ptr<string> nextToken_ {};
+    // The usage. Set to Explorer to retrieve meta information.
     shared_ptr<string> usage_ {};
   };
 

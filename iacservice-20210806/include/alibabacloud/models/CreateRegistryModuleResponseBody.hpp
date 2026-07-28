@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The template source, which is a concatenation of \\<namespaceName>/\\<ModuleName>.
     shared_ptr<string> source_ {};
   };
 

@@ -94,12 +94,30 @@ namespace Models
 
 
   protected:
+    // The keyword used to perform a fuzzy search by stack name.
     shared_ptr<string> keyword_ {};
     shared_ptr<string> kmsKeyId_ {};
+    // The maximum number of results to return. Default value: 100. Maximum value: 200.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. This parameter is empty if no more pages are available.
     shared_ptr<string> nextToken_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 200.
     shared_ptr<int32_t> pageSize_ {};
+    // The stack status.
+    // | Name | Description |
+    // |------|------|
+    // | Creating | Being created |
+    // | Created | Creation complete |
+    // | Waiting | Waiting for deployment |
+    // | Deploying | Being deployed |
+    // | Deployed | Deployment complete |
+    // | Errored | Deployment failed |
+    // | Deleting | Being deleted |
+    // | Deleted | Deleted |
+    // | DeleteFailed | Deletion failed |
+    // | DetectTriggered | Drift detection triggered |.
     shared_ptr<string> status_ {};
   };
 

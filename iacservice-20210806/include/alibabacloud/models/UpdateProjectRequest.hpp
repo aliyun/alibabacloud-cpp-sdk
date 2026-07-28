@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // The project description. Length: 0 to 1024 characters.
     shared_ptr<string> description_ {};
+    // The project name. Length: 1 to 128 characters.
     shared_ptr<string> name_ {};
   };
 

@@ -84,15 +84,30 @@ namespace Models
 
 
   protected:
+    // The action to perform on the state file. Supports import and removal. Valid values:
+    // - Import
+    // - StateRemove.
+    // 
     // This parameter is required.
     shared_ptr<string> action_ {};
+    // The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // The task identifier. For Stack tasks, the format is <$stackId>:<$deploymentName>. For Task tasks, the format is <$TaskId>.
+    // 
     // This parameter is required.
     shared_ptr<string> identifier_ {};
+    // The actual resource ID of the Terraform resource.
     shared_ptr<string> importResourceId_ {};
+    // The resource identifier in the Terraform template. For Stack tasks, the format is <$componetName>:<$resourceName>. For Task tasks, the format is <$resourceName>.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceIdentifier_ {};
+    // The task type. Valid values:
+    // - Stack
+    // - Task.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

@@ -102,10 +102,15 @@ namespace Models
 
 
     protected:
+      // The time when the parameter set was created.
       shared_ptr<string> createTime_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The name of the parameter set.
       shared_ptr<string> name_ {};
+      // The ID of the parameter set.
       shared_ptr<string> parameterSetId_ {};
+      // The content of the parameter set.
       shared_ptr<map<string, string>> parameters_ {};
     };
 
@@ -135,8 +140,11 @@ namespace Models
 
 
   protected:
+    // The list of parameter sets.
     shared_ptr<vector<ListParameterSetRelationResponseBody::ParameterSets>> parameterSets_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

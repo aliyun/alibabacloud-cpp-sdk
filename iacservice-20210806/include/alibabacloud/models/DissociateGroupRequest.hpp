@@ -60,9 +60,17 @@ namespace Models
 
 
   protected:
+    // The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
     shared_ptr<string> clientToken_ {};
+    // The list of resource IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceIds_ {};
+    // The resource type. Valid values:
+    // 
+    // - Module: template.
+    // - SceneTestingTask: scenario-based testing task.
+    // - Task: regular task.
     shared_ptr<string> resourceType_ {};
   };
 

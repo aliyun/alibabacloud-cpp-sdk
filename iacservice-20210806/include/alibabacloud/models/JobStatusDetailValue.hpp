@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // 备注
     shared_ptr<string> comment_ {};
+    // 执行结果
     shared_ptr<string> jobResult_ {};
+    // 到达状态时间
     shared_ptr<string> timeStamps_ {};
+    // 错误详情
     shared_ptr<string> errorMessage_ {};
   };
 

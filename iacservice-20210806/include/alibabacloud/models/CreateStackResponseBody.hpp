@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The stack ID. This is the unique identifier of the stack after it is created.
     shared_ptr<string> stackId_ {};
   };
 

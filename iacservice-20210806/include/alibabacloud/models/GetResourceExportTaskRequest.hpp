@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The export version.
     shared_ptr<string> exportVersion_ {};
   };
 

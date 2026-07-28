@@ -110,7 +110,9 @@ namespace Models
 
 
       protected:
+        // The component configuration.
         shared_ptr<string> componentContent_ {};
+        // The deployment configuration.
         shared_ptr<string> deploymentContent_ {};
       };
 
@@ -205,17 +207,46 @@ namespace Models
 
 
     protected:
+      // The stack configuration.
       shared_ptr<Stack::Config> config_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The current configuration version number, such as v1. The initial value is v1. The version number increments each time the stack is updated or refreshed and the configuration changes.
       shared_ptr<string> currentConfigVersion_ {};
+      // The description of the stack.
       shared_ptr<string> description_ {};
+      // The stack name.
       shared_ptr<string> name_ {};
+      // The RAM role assumed by the system to perform resource change operations during stack deployment.
       shared_ptr<string> ramRole_ {};
+      // The configuration source of the stack. Valid values:
+      // - OSS: a template stored in Object Storage Service (OSS).
+      // - IAC_SERVICE_MODULE: a template created in the automation service console.
       shared_ptr<string> source_ {};
+      // The path value of the configuration source. The value cannot exceed 1000 characters.
+      // - If the source is OSS, the value is in the format of oss::<file link>. The file must be a ZIP file. Example: oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip.
+      // - If the source is IAC_SERVICE_MODULE, the value is a template ID. Example: mod-xxxxx.
       shared_ptr<string> sourcePath_ {};
+      // The unique identifier of the stack, which is generated after the stack is created.
       shared_ptr<string> stackId_ {};
+      // The stack status.
+      // | Name | Description |
+      // |------|------|
+      // | Creating | The stack is being created. |
+      // | Created | The stack is created. |
+      // | Waiting | The stack is waiting for deployment. |
+      // | Deploying | The stack is being deployed. |
+      // | Deployed | The stack is deployed. |
+      // | Errored | The deployment failed. |
+      // | Deleting | The stack is being deleted. |
+      // | Deleted | The stack is deleted. |
+      // | DeleteFailed | The deletion failed. |
+      // | DetectTriggered | Drift detection is triggered. |.
       shared_ptr<string> status_ {};
+      // The deployment trigger method of the stack. This field is not publicly available.
+      // - SetUpdated: triggered by file changes.
       shared_ptr<string> triggerStrategy_ {};
+      // The directory where the deployment and component configuration files of the stack are located. Set this parameter to / for the root directory.
       shared_ptr<string> workingDirectory_ {};
     };
 
@@ -238,7 +269,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The stack information.
     shared_ptr<GetStackResponseBody::Stack> stack_ {};
   };
 

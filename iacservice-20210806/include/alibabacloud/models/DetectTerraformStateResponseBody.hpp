@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // The ID of the detection task.
     shared_ptr<string> detectionId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

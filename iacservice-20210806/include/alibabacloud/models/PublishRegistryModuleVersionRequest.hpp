@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
+    // The template name.
+    // 
     // This parameter is required.
     shared_ptr<string> moduleName_ {};
+    // The workspace name.
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceName_ {};
+    // The version number. The value must conform to the [semantic version](http://semver.org/) specification, such as 1.0.1. The initial version is 1.0.0.
+    // 
     // This parameter is required.
     shared_ptr<string> version_ {};
   };

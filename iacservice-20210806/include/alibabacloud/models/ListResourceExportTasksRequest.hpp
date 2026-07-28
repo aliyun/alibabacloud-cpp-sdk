@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The ID of the resource export task.
     shared_ptr<string> exportTaskId_ {};
+    // The search keyword. Fuzzy search by task name is supported.
     shared_ptr<string> keyword_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
   };
 
