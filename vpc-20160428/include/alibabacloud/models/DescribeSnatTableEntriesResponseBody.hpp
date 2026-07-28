@@ -234,14 +234,14 @@ namespace Models
 
 
   protected:
-    // The number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeSnatTableEntriesResponseBody::SnatTableEntries> snatTableEntries_ {};
-    // The number of returned entries.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

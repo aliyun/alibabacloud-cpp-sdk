@@ -249,45 +249,49 @@ namespace Models
 
 
       protected:
-        // The action of the inbound rule. Valid values:
+        // The collection policy of the inbound rule. Valid values:
         // 
-        // *   **accept**
-        // *   **drop**
+        // - **accept**: collects network traffic.
+        // - **drop**: does not collect network traffic.
         shared_ptr<string> action_ {};
-        // The destination CIDR block of the inbound traffic.
+        // The destination CIDR block of network traffic for the inbound rule.
         shared_ptr<string> destinationCidrBlock_ {};
-        // The destination port range of the inbound traffic.
+        // The destination port range of network traffic for the inbound rule.
         shared_ptr<string> destinationPortRange_ {};
-        // The version of IP protocol.
+        // The IP version.
         shared_ptr<string> ipVersion_ {};
         // The priority of the inbound rule. A smaller value indicates a higher priority.
         shared_ptr<int32_t> priority_ {};
-        // The protocol that is used by the inbound traffic to be mirrored. Valid values:
+        // The protocol type used by the inbound network traffic to be mirrored. Valid values:
         // 
-        // *   **ALL**
-        // *   **ICMP**
-        // *   **TCP**
-        // *   **UDP**
+        // - **ALL**: all protocols.
+        // - **ICMP**: Internet Control Message Protocol.
+        // - **TCP**: Transmission Control Protocol.
+        // - **UDP**: User Datagram Protocol.
         shared_ptr<string> protocol_ {};
-        // The source CIDR block of the inbound traffic.
+        // The source CIDR block of network traffic for the inbound rule.
         shared_ptr<string> sourceCidrBlock_ {};
-        // The destination port range of the inbound traffic.
+        // The destination port range of network traffic for the inbound rule.
         shared_ptr<string> sourcePortRange_ {};
-        // The direction of the network traffic. Valid values:
+        // The direction of network traffic. Valid values:
         // 
-        // *   **egress**
-        // *   **ingress**
+        // - **egress**: outbound.
+        // 
+        // - **ingress**: inbound.
         shared_ptr<string> trafficDirection_ {};
-        // The ID of the filter associated with the inbound rule.
+        // The instance ID of the traffic mirror filter associated with the inbound rule.
         shared_ptr<string> trafficMirrorFilterId_ {};
-        // The ID of the inbound rule.
+        // The instance ID of the inbound rule.
         shared_ptr<string> trafficMirrorFilterRuleId_ {};
         // The status of the inbound rule. Valid values:
         // 
-        // *   **Creating**
-        // *   **Created**
-        // *   **Modifying**
-        // *   **Deleting**
+        // - **Creating**: being created.
+        // 
+        // - **Created**: created.
+        // 
+        // - **Modifying**: being modified.
+        // 
+        // - **Deleting**: being deleted.
         shared_ptr<string> trafficMirrorFilterRuleStatus_ {};
       };
 
@@ -421,45 +425,49 @@ namespace Models
 
 
       protected:
-        // The action of the outbound rule. Valid values:
+        // The collection policy of the outbound rule. Valid values:
         // 
-        // *   **accept**
-        // *   **drop**
+        // - **accept**: collects network traffic.
+        // - **drop**: does not collect network traffic.
         shared_ptr<string> action_ {};
-        // The destination CIDR block of the outbound traffic.
+        // The destination CIDR block of network traffic for the outbound rule.
         shared_ptr<string> destinationCidrBlock_ {};
-        // The destination port range of the outbound traffic.
+        // The destination port range of network traffic for the outbound rule.
         shared_ptr<string> destinationPortRange_ {};
-        // The version of IP protocol.
+        // The IP version.
         shared_ptr<string> ipVersion_ {};
         // The priority of the outbound rule. A smaller value indicates a higher priority.
         shared_ptr<int32_t> priority_ {};
-        // The protocol that is used by the outbound traffic to be mirrored. Valid values:
+        // The protocol type used by the outbound network traffic to be mirrored. Valid values:
         // 
-        // *   **ALL**
-        // *   **ICMP**
-        // *   **TCP**
-        // *   **UDP**
+        // - **ALL**: all protocols.
+        // - **ICMP**: Internet Control Message Protocol.
+        // - **TCP**: Transmission Control Protocol.
+        // - **UDP**: User Datagram Protocol.
         shared_ptr<string> protocol_ {};
-        // The source CIDR block of the outbound traffic.
+        // The source CIDR block of network traffic for the outbound rule.
         shared_ptr<string> sourceCidrBlock_ {};
-        // The source port range of the outbound traffic.
+        // The source port range of network traffic for the outbound rule.
         shared_ptr<string> sourcePortRange_ {};
-        // The direction of the network traffic. Valid values:
+        // The direction of network traffic. Valid values:
         // 
-        // *   **egress**
-        // *   **ingress**
+        // - **egress**: outbound.
+        // 
+        // - **ingress**: inbound.
         shared_ptr<string> trafficDirection_ {};
-        // The ID of the filter associated with the outbound rule.
+        // The instance ID of the traffic mirror filter associated with the outbound rule.
         shared_ptr<string> trafficMirrorFilterId_ {};
-        // The ID of the outbound rule.
+        // The instance ID of the outbound rule.
         shared_ptr<string> trafficMirrorFilterRuleId_ {};
         // The status of the outbound rule. Valid values:
         // 
-        // *   **Creating**
-        // *   **Created**
-        // *   **Modifying**
-        // *   **Deleting**
+        // - **Creating**: being created.
+        // 
+        // - **Created**: created.
+        // 
+        // - **Modifying**: being modified.
+        // 
+        // - **Deleting**: being deleted.
         shared_ptr<string> trafficMirrorFilterRuleStatus_ {};
       };
 
@@ -536,28 +544,31 @@ namespace Models
 
 
     protected:
-      // The time when the filter is created.
+      // The time when the traffic mirror filter was created.
       shared_ptr<string> creationTime_ {};
-      // The information about the outbound rules.
+      // The details of outbound rules.
       shared_ptr<vector<TrafficMirrorFilters::EgressRules>> egressRules_ {};
-      // The information about the inbound rules.
+      // The details of inbound rules.
       shared_ptr<vector<TrafficMirrorFilters::IngressRules>> ingressRules_ {};
-      // The ID of the resource group to which the traffic mirror session belongs.
+      // The ID of the resource group to which the traffic mirroring filter belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The tag list.
+      // The tags.
       shared_ptr<vector<TrafficMirrorFilters::Tags>> tags_ {};
-      // The description of the filter.
+      // The description of the traffic mirror filter.
       shared_ptr<string> trafficMirrorFilterDescription_ {};
-      // The ID of the filter.
+      // The instance ID of the traffic mirror filter.
       shared_ptr<string> trafficMirrorFilterId_ {};
-      // The filter name.
+      // The name of the traffic mirror filter.
       shared_ptr<string> trafficMirrorFilterName_ {};
-      // The status of the filter. Valid values:
+      // The status of the traffic mirror filter. Valid values:
       // 
-      // *   **Creating**
-      // *   **Created**
-      // *   **Modifying**
-      // *   **Deleting**
+      // - **Creating**: being created.
+      // 
+      // - **Created**: created.
+      // 
+      // - **Modifying**: being modified.
+      // 
+      // - **Deleting**: being deleted.
       shared_ptr<string> trafficMirrorFilterStatus_ {};
     };
 
@@ -608,20 +619,19 @@ namespace Models
 
 
   protected:
-    // The number of entries returned.
+    // The number of entries returned in the current request.
     shared_ptr<int32_t> count_ {};
-    // The maximum number of entries returned.
+    // The maximum number of entries queried in the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value is returned for **NextToken**, the value is the token that is used for the next query.
+    // The token for the next query. Valid values:
+    // - If **NextToken** is empty, no next query exists.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of entries returned.
+    // The total number of entries returned.
     shared_ptr<string> totalCount_ {};
-    // The information about the filters.
+    // The details of traffic mirror filters.
     shared_ptr<vector<ListTrafficMirrorFiltersResponseBody::TrafficMirrorFilters>> trafficMirrorFilters_ {};
   };
 

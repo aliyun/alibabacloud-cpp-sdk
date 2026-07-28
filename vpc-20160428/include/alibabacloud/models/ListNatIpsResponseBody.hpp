@@ -138,33 +138,34 @@ namespace Models
 
 
     protected:
-      // The IP prefix address range to which the queried NAT IP address belongs.
+      // The CIDR block of the IP prefix to which the NAT IP address belongs.
       shared_ptr<string> ipv4Prefix_ {};
-      // Indicates whether the IP address is the default IP address of the NAT gateway. Valid values:
+      // Indicates whether the NAT IP address is the default one. Valid values:
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: The NAT IP address is the default one.
+      // 
+      // - **false**: The NAT IP address is not the default one.
       shared_ptr<bool> isDefault_ {};
-      // The ID of the Virtual Private Cloud (VPC) NAT gateway to which the IP address is assigned.
+      // The instance ID of the VPC NAT gateway to which the NAT IP address belongs.
       shared_ptr<string> natGatewayId_ {};
-      // The IP address.
+      // The NAT IP address.
       shared_ptr<string> natIp_ {};
-      // The CIDR block to which the IP address belongs.
+      // The CIDR block to which the NAT IP address belongs.
       shared_ptr<string> natIpCidr_ {};
-      // The description of the IP address.
+      // The description of the NAT IP address.
       shared_ptr<string> natIpDescription_ {};
-      // The ID of the IP address.
+      // The instance ID of the NAT IP address.
       shared_ptr<string> natIpId_ {};
-      // The name of the IP address.
+      // The name of the NAT IP address.
       shared_ptr<string> natIpName_ {};
-      // The status of the IP address. Valid values:
+      // The status of the NAT IP address. Valid values:
       // 
-      // *   **Available**: available
-      // *   **Deleted**: deleted
-      // *   **Deleting**: deleting
-      // *   **Creating**: creating
-      // *   **Associated**: specified in an SNAT or DNAT entry
-      // *   **Associating**: being specified in an SNAT or DNAT entry
+      // - **Available**: available.
+      // - **Deleted**: deleted.
+      // - **Deleting**: being deleted.
+      // - **Creating**: being created.
+      // - **Associated**: associated with an SNAT or DNAT entry.
+      // - **Associating**: being associated with an SNAT or DNAT entry.
       shared_ptr<string> natIpStatus_ {};
     };
 
@@ -201,16 +202,15 @@ namespace Models
 
 
   protected:
-    // The list of IP addresses of the NAT gateway.
+    // The list of NAT IP addresses.
     shared_ptr<vector<ListNatIpsResponseBody::NatIps>> natIps_ {};
-    // The token that is used for the next query. Valid values:
-    // 
-    // *   If the value of **NextToken** is not returned, it indicates that no next query is to be sent.
-    // *   If the value of **NextToken** is returned, the value indicates the token that is used for the next query.
+    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // - If **NextToken** is empty, no next query exists.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of IP addresses that are returned.
+    // The total number of NAT IP addresses returned.
     shared_ptr<string> totalCount_ {};
   };
 

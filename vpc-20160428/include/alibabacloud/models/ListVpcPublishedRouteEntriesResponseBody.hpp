@@ -106,11 +106,11 @@ namespace Models
 
 
       protected:
-        // The publishing status of the route entry in the publishing target.
+        // The publish status of the route entry in the publish target.
         shared_ptr<string> publishStatus_ {};
-        // The ID of the route publishing target instance.
+        // The instance ID of the route publish target.
         shared_ptr<string> publishTargetInstanceId_ {};
-        // The type of the route publishing target.
+        // The route publish target.
         shared_ptr<string> publishTargetType_ {};
       };
 
@@ -151,9 +151,9 @@ namespace Models
       shared_ptr<string> destinationCidrBlock_ {};
       // The ID of the route entry.
       shared_ptr<string> routeEntryId_ {};
-      // List of route entry publishing status information in the publishing targets.
+      // The list of publish status information for the route entry in publish targets.
       shared_ptr<vector<RouteEntries::RoutePublishTargets>> routePublishTargets_ {};
-      // The ID of the route table.
+      // The route table ID.
       shared_ptr<string> routeTableId_ {};
     };
 
@@ -183,14 +183,14 @@ namespace Models
 
 
   protected:
-    // Indicates whether there is a token for the next query. Values:
+    // The token for the next query. Valid values:
     // 
-    // - If **NextToken** is empty, it means there is no next query.
-    // - If **NextToken** has a return value, this value indicates the token for the start of the next query.
+    // - If **NextToken** is empty, no next query exists.
+    // - If **NextToken** has a value, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // List of route entry publishing status information.
+    // The list of route entry publish status information.
     shared_ptr<vector<ListVpcPublishedRouteEntriesResponseBody::RouteEntries>> routeEntries_ {};
   };
 

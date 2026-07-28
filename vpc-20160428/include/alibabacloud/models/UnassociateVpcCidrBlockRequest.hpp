@@ -103,25 +103,23 @@ namespace Models
 
 
   protected:
-    // The secondary IPv6 CIDR block to be deleted.
+    // The secondary IPv6 CIDR block to delete.
     // 
-    // > 
-    // > - You must set one of the Ipv6CidrBlock and SecondaryCidrBlock parameters.
+    // > You must specify either **Ipv6CidrBlock** or **SecondaryCidrBlock**, but not both.
     shared_ptr<string> IPv6CidrBlock_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the VPC to which the secondary CIDR block to be deleted belongs.
+    // The region ID of the VPC from which you want to delete a secondary CIDR block. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The secondary IPv4 CIDR block to be deleted.
+    // The secondary IPv4 CIDR block to delete.
     // 
-    // > 
-    // > - You must set one of the SecondaryCidrBlock and Ipv6CidrBlock parameters.
+    // > You must specify either **SecondaryCidrBlock** or **Ipv6CidrBlock**, but not both.
     shared_ptr<string> secondaryCidrBlock_ {};
     // The ID of the VPC from which you want to delete a secondary CIDR block.
     // 

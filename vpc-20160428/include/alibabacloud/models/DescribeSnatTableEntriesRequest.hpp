@@ -170,21 +170,21 @@ namespace Models
 
 
   protected:
-    // The ID of the NAT gateway.
+    // The ID of the NAT gateway to query.
     // 
-    // >  You must specify at least one of **SnatTableId** and **NatGatewayId**.
+    // > You must specify at least one of **SnatTableId** and **NatGatewayId**.
     shared_ptr<string> natGatewayId_ {};
-    // The ID of the elastic network interface to be queried.
+    // The IDs of the elastic network interfaces (ENIs) to query.
     shared_ptr<vector<string>> networkInterfaceIds_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where you want to create the NAT gateway.
+    // The region ID of the NAT gateway.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -194,21 +194,23 @@ namespace Models
     shared_ptr<string> snatEntryId_ {};
     // The name of the SNAT entry.
     // 
-    // The name must be 2 to 128 characters in length, and can contain digits, underscores (_), and hyphens (-). The name must start with a letter.
+    // The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, underscores (_), and hyphens (-).
     shared_ptr<string> snatEntryName_ {};
-    // *   When you query SNAT entries of Internet NAT gateways, this parameter specifies the EIP in an SNAT entry.
-    // *   When you query SNAT entries of VPC NAT gateways, this parameter specifies the NAT IP address in an SNAT entry.
+    // - When you query SNAT entries of an Internet NAT gateway, this parameter specifies the elastic IP address (EIP) in the SNAT entry.
+    //  
+    // - When you query SNAT entries of a VPC NAT gateway, this parameter specifies the NAT IP address in the SNAT entry.
     shared_ptr<string> snatIp_ {};
-    // The ID of the SNAT table.
+    // The ID of the SNAT table. 
     // 
-    // >  You must specify at least one of **SnatTableId** and **NatGatewayId**.
+    // > You must specify at least one of **SnatTableId** and **NatGatewayId**.
     shared_ptr<string> snatTableId_ {};
-    // The source CIDR block specified in the SNAT entry.
+    // The source CIDR block of the SNAT entry.
     shared_ptr<string> sourceCIDR_ {};
     // The ID of the vSwitch.
     // 
-    // *   When you query SNAT entries of Internet NAT gateways, this parameter specifies that Elastic Compute Service (ECS) instances in the vSwitch can use SNAT entries to access the Internet.
-    // *   When you query SNAT entries of virtual private cloud (VPC) NAT gateways, this parameter specifies that ECS instances in the vSwitch can use SNAT entries to access external networks.
+    // - When you query SNAT entries of an Internet NAT gateway, this parameter specifies the vSwitch whose ECS instances can access the Internet by using the SNAT rule.
+    // 
+    // - When you query SNAT entries of a VPC NAT gateway, this parameter specifies the vSwitch whose ECS instances can access external networks by using the SNAT rule.
     shared_ptr<string> sourceVSwitchId_ {};
   };
 

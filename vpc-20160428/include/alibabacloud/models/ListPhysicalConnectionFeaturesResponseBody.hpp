@@ -70,21 +70,21 @@ namespace Models
 
 
     protected:
-      // The feature key of the Express Connect circuit. Valid values:
+      // The attribute key of the Express Connect circuit. Valid values:
       // 
-      // *   **SubifRateLimit**: subinterface throttling
-      // *   **BFD Capability**: Bidirectional Forwarding Detection (BFD)
-      // *   **DualStack**: Dual stack
-      // *   **CEN**: When a virtual border router (VBR) is attached to a Cloud Enterprise Network (CEN) instance and BGP routes are advertised on the user side, attributes such as **as-path** and **community** are carried.
-      // *   **CENv6**: When a VBR is attached to an IPv6 CEN instance and BGP routes are advertised on the user side, attributes such as **as-path** and **community** are carried.
-      // *   **QOS**: The device supports configuring QOS policies on physical ports.
-      // *   **MSHA**: The device supports fast switching groups between two VBRs.
-      // *   **MULTI_MS_HA**: The device supports a maximum of eight VBRs that can be added to the same ECR.
+      // - **SubifRateLimit**: sub-interface rate limiting.
+      // - **BFD能力**: Bidirectional Forwarding Detection (BFD) capability.
+      // - **DualStack**: the capability to support both IPv4 and IPv6.
+      // - **CEN**: when a Virtual Border Router (VBR) is attached to a Cloud Enterprise Network (CEN) instance, the original route attributes such as **as-path** and **community** can be carried when advertising BGP routes to the user side.
+      // - **CENv6**: when a VBR is attached to an IPv6-enabled CEN instance, the original route attributes such as **as-path** and **community** can be carried when advertising BGP routes to the user side.
+      // - **QOS**: the device supports configuring QoS policies on physical ports.
+      // - **MSHA**: the device supports configuring a fast failover group between two VBRs.
+      // - **MULTI_MS_HA**: the device supports configuring a fast failover group among up to 8 VBRs. These VBRs must be added to the same Express Connect Router (ECR).
       shared_ptr<string> featureKey_ {};
-      // The feature value of the Express Connect circuit. Valid values:
+      // The attribute value of the Express Connect circuit. Valid values:
       // 
-      // *   **OK**: Supported
-      // *   **NOK**: Not supported
+      // - **OK**: Supported.
+      // - **NOK**: Not supported.
       shared_ptr<string> featureValue_ {};
     };
 
@@ -107,7 +107,7 @@ namespace Models
 
 
   protected:
-    // The list of Express Connect circuit features.
+    // The list of Express Connect circuit attributes.
     shared_ptr<vector<ListPhysicalConnectionFeaturesResponseBody::PhysicalConnectionFeatures>> physicalConnectionFeatures_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

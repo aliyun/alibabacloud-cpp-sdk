@@ -123,34 +123,33 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client generates the value. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
     // 
-    // >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** of each API request may be different.
+    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may vary for each API request.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to check the request without performing the operation. Valid values:
-    // 
-    // *   **true**: prechecks the request without performing the operation. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-    // *   **false** (default): sends the request. After the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
+    // Specifies whether to perform a dry run. Valid values:
+    // - **true**: performs a dry run without associating the gateway route table with the IPv4 gateway instance. The system checks the required parameters, request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+    // - **false** (default): performs a dry run and sends the request. If the check succeeds, an HTTP 2xx status code is returned and the gateway route table is associated with the IPv4 gateway instance.
     shared_ptr<bool> dryRun_ {};
-    // The ID of the IPv4 gateway.
+    // The instance ID of the IPv4 gateway to associate.
     // 
-    // The IPv4 gateway must be in the **Activated** state.
+    // The IPv4 gateway instance to associate must be in the **Activated** state.
     // 
     // This parameter is required.
     shared_ptr<string> gatewayId_ {};
-    // The type of a gateway to be associated with a route table.
+    // The type of the gateway instance to associate.
     shared_ptr<string> gatewayType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the IPv4 gateway with which you want to associate the gateway route table.
+    // The region ID of the gateway route table and IPv4 gateway instance to associate.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the gateway route table.
+    // The ID of the gateway route table to associate.
     // 
     // This parameter is required.
     shared_ptr<string> routeTableId_ {};

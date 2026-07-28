@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the contiguous EIP group.
+    // The instance ID of the contiguous EIP group.
     shared_ptr<string> eipSegmentInstanceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -258,15 +258,15 @@ namespace Models
         shared_ptr<int64_t> ikeLifetime_ {};
         // The IKE negotiation mode. Valid values:
         // 
-        // **main**: This mode offers higher security during negotiations.
+        // **main**: main mode. Negotiations are highly secure.
         shared_ptr<string> ikeMode_ {};
         // The Diffie-Hellman key exchange algorithm.
         shared_ptr<string> ikePfs_ {};
         // The IKE version.
         shared_ptr<string> ikeVersion_ {};
-        // The ID of the IPsec server. The default value is the public IP address of the VPN gateway. Both FQDNs and IP addresses are supported.
+        // The identifier of the IPsec server. FQDN and IP address formats are supported. The default value is the public IP address of the selected VPN gateway.
         shared_ptr<string> localId_ {};
-        // The identifier of the customer gateway. Both fully qualified domain names (FQDNs) and IP addresses are supported. By default, this parameter is empty.
+        // The identifier of the peer. FQDN and IP address formats are supported. The default value is empty.
         shared_ptr<string> remoteId_ {};
       };
 
@@ -406,18 +406,19 @@ namespace Models
 
 
     protected:
-      // The client CIDR block. It refers to the CIDR block that is allocated to the virtual interface of the client.
+      // The client CIDR block, which is the CIDR block from which IP addresses are assigned to the virtual network interface controllers (NICs) of clients.
       shared_ptr<string> clientIpPool_ {};
       // The time when the IPsec server was created.
       // 
-      // T is used as a delimiter. Z indicates that the time is in UTC.
+      // T is the delimiter. Z indicates UTC.
       shared_ptr<string> creationTime_ {};
-      // Indicates whether the current IPsec tunnel is deleted and negotiations are reinitiated. Valid values:
+      // Indicates whether the current IPsec tunnel is deleted and negotiations are reinitiated.
       // 
-      // *   **true**: immediately initiates negotiations after the configuration is completed.
-      // *   **false**: initiates negotiations when inbound traffic is detected.
+      // - **true**: Negotiations are reinitiated after the configuration is complete.
+      // 
+      // - **false**: Negotiations are reinitiated when traffic is detected.
       shared_ptr<bool> effectImmediately_ {};
-      // The ID of the IDaaS instance.
+      // The instance ID of IDaaS.
       shared_ptr<string> IDaaSInstanceId_ {};
       // The configurations of Phase 1 negotiations.
       shared_ptr<IpsecServers::IkeConfig> ikeConfig_ {};
@@ -425,32 +426,32 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The configurations of Phase 2 negotiations.
       shared_ptr<IpsecServers::IpsecConfig> ipsecConfig_ {};
-      // The IPsec server ID.
+      // The ID of the IPsec server.
       shared_ptr<string> ipsecServerId_ {};
       // The name of the IPsec server.
       shared_ptr<string> ipsecServerName_ {};
-      // The local CIDR blocks, which refer to the CIDR blocks on the virtual private cloud (VPC) side.
+      // The local CIDR block, which is the VPC-side CIDR block that needs to communicate with the client CIDR block.
       shared_ptr<string> localSubnet_ {};
-      // The number of SSL-VPN connections supported by the VPN gateway.
-      // 
-      // >  The number of SSL-VPN connections specified in this parameter includes both SSL-VPN and IPsec-VPN connections. For example, you have five SSL-VPN connections and three SSL clients occupy three SSL-VPN connections. In this case, two clients can connect to the IPsec server.
+      // The maximum number of SSL-VPN connections supported by the VPN gateway.
+      // > SSL-VPN and the IPsec server share SSL-VPN connections. For example, if the maximum number of SSL-VPN connections is 5 and three SSL clients are already connected to SSL-VPN, only two more clients can connect to the IPsec server.
       shared_ptr<int32_t> maxConnections_ {};
-      // Indicates whether two-factor authentication is enabled. Valid values:
+      // Indicates whether two-factor authentication is enabled.
       // 
-      // *   **true**
-      // *   **false**: The feature is disabled.
+      // - **true**: Two-factor authentication is enabled.
+      // 
+      // - **false**: Two-factor authentication is disabled.
       shared_ptr<bool> multiFactorAuthEnabled_ {};
       // The number of clients that are connected to the IPsec server.
       shared_ptr<int32_t> onlineClientCount_ {};
       // The pre-shared key.
       shared_ptr<string> psk_ {};
-      // Indicates whether pre-shared key authentication is enabled. Only **true** may be returned, which indicates that pre-shared key authentication is enabled.
+      // Indicates whether pre-shared key authentication is enabled. The value is **true**, which indicates that pre-shared key authentication is enabled.
       shared_ptr<bool> pskEnabled_ {};
-      // The ID of the region where the IPsec server is created.
+      // The region ID of the IPsec server.
       shared_ptr<string> regionId_ {};
       // The ID of the resource group to which the IPsec server belongs.
       // 
-      // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group information.
+      // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
       shared_ptr<string> resourceGroupId_ {};
       // The ID of the VPN gateway.
       shared_ptr<string> vpnGatewayId_ {};
@@ -498,12 +499,13 @@ namespace Models
   protected:
     // The list of IPsec servers.
     shared_ptr<vector<ListIpsecServersResponseBody::IpsecServers>> ipsecServers_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+    // The pagination token. Valid values:
     // 
-    // *   If no value is returned for **NextToken**, no next queries are sent.
-    // *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+    // - If **NextToken** is empty, no subsequent query is to be sent.
+    // 
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -48,10 +48,10 @@ namespace Models
 
 
   protected:
-    // Indicates whether the region supports BGP.
+    // Indicates whether the current region supports the BGP feature.
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Supported.
+    // - **false**: Not supported.
     shared_ptr<bool> bgpEnabled_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

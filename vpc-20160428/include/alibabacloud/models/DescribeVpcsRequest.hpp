@@ -231,11 +231,11 @@ namespace Models
     shared_ptr<string> dhcpOptionsSetId_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // - **true**: performs a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+    // - **true**: performs a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
     // 
-    // - **false** (default): sends a normal request. If the check succeeds, an HTTP 2xx status code is returned and the resource is queried.
+    // - **false** (default): sends a normal request, and the resource status is directly queried after the request passes the check. An HTTP 2xx status code is returned.
     shared_ptr<bool> dryRun_ {};
-    // Specifies whether to query VPCs that have IPv6 CIDR blocks enabled in the specified region. The default value is empty, which means no filtering is performed based on IPv6 enablement. Valid values:
+    // Specifies whether to query VPCs that have IPv6 CIDR blocks enabled in the specified region. The default value is empty, which means no filtering is applied based on IPv6 enablement. Valid values:
     // 
     // - **false**: IPv6 is not enabled.
     // - **true**: IPv6 is enabled.
@@ -250,7 +250,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page in paging queries. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the VPC. 
     // 

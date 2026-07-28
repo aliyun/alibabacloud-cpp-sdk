@@ -167,13 +167,9 @@ namespace Models
 
 
           protected:
-            // IPsec阶段认证算法。
             shared_ptr<string> ipsecAuthAlg_ {};
-            // IPsec阶段加密算法。
             shared_ptr<string> ipsecEncAlg_ {};
-            // IPsec阶段生存时间。单位：秒。
             shared_ptr<int64_t> ipsecLifetime_ {};
-            // IPsec阶段DH分组。
             shared_ptr<string> ipsecPfs_ {};
           };
 
@@ -279,26 +275,14 @@ namespace Models
 
 
           protected:
-            // IKE阶段认证算法。
             shared_ptr<string> ikeAuthAlg_ {};
-            // IKE阶段加密算法。
             shared_ptr<string> ikeEncAlg_ {};
-            // IKE阶段生存时间。单位：秒。
             shared_ptr<int64_t> ikeLifetime_ {};
-            // IKE协商模式。
-            // 
-            // - **main**：主模式，协商过程安全性高。
-            // - **aggressive**：野蛮模式，协商快速且协商成功率高。
             shared_ptr<string> ikeMode_ {};
-            // IKE阶段DH分组。
             shared_ptr<string> ikePfs_ {};
-            // IKE协议的版本。
             shared_ptr<string> ikeVersion_ {};
-            // 本地IDC侧隧道的标识。
             shared_ptr<string> localId_ {};
-            // 预共享密钥。
             shared_ptr<string> psk_ {};
-            // 阿里云侧隧道的标识。
             shared_ptr<string> remoteId_ {};
           };
 
@@ -344,15 +328,10 @@ namespace Models
 
 
         protected:
-          // 第一阶段协商的配置信息。
           shared_ptr<TunnelConfig::IkeConfig> ikeConfig_ {};
-          // 第二阶段协商的配置信息。
           shared_ptr<TunnelConfig::IpsecConfig> ipsecConfig_ {};
-          // 本地IDC侧隧道的标识。
           shared_ptr<string> local_ {};
-          // 阿里云侧隧道的标识。
           shared_ptr<string> remote_ {};
-          // 隧道ID。
           shared_ptr<string> tunnelId_ {};
         };
 
@@ -426,11 +405,11 @@ namespace Models
 
 
       protected:
-        // The authentication algorithm in the IPsec phase.
+        // The IPsec phase authentication algorithm.
         shared_ptr<string> ipsecAuthAlg_ {};
-        // The encryption algorithm in the IPsec phase.
+        // The IPsec phase encryption algorithm.
         shared_ptr<string> ipsecEncAlg_ {};
-        // The lifetime in the IPsec phase. Unit: seconds.
+        // The IPsec phase lifetime. Unit: seconds.
         shared_ptr<int64_t> ipsecLifetime_ {};
         // The DH group in the IPsec phase.
         shared_ptr<string> ipsecPfs_ {};
@@ -538,20 +517,20 @@ namespace Models
 
 
       protected:
-        // The authentication algorithm in the IKE phase.
+        // The IKE phase authentication algorithm.
         shared_ptr<string> ikeAuthAlg_ {};
-        // The encryption algorithm in the IKE phase.
+        // The IKE phase encryption algorithm.
         shared_ptr<string> ikeEncAlg_ {};
-        // The lifetime in the IKE phase. Unit: seconds.
+        // The IKE phase lifetime. Unit: seconds.
         shared_ptr<int64_t> ikeLifetime_ {};
         // The IKE negotiation mode. Valid values:
         // 
-        // *   **main**: This mode offers higher security during negotiations.
-        // *   **aggressive**: This mode is faster and has a higher success rate.
+        // - **main**: Main mode. This mode provides high security during negotiation.
+        // - **aggressive**: Aggressive mode. This mode supports fast negotiation and a higher success rate.
         shared_ptr<string> ikeMode_ {};
         // The DH group in the IKE phase.
         shared_ptr<string> ikePfs_ {};
-        // The IKE version.
+        // The version of the IKE protocol.
         shared_ptr<string> ikeVersion_ {};
         // The identifier of the customer gateway. FQDN and IP formats are supported. The default value is the IP address of the customer gateway.
         shared_ptr<string> localId_ {};
@@ -745,17 +724,17 @@ namespace Models
 
     protected:
       shared_ptr<VpnConnectionConfig::BgpConfigs> bgpConfigs_ {};
-      // The configurations of Phase 1 negotiations.
+      // The configuration of Phase 1 negotiation.
       shared_ptr<VpnConnectionConfig::IkeConfig> ikeConfig_ {};
-      // The configurations of Phase 2 negotiations.
+      // The configuration of Phase 2 negotiation.
       shared_ptr<VpnConnectionConfig::IpsecConfig> ipsecConfig_ {};
       // The identifier of the customer gateway.
       shared_ptr<string> local_ {};
-      // The CIDR block on the data center side.
+      // The CIDR block on the on-premises data center side.
       shared_ptr<string> localSubnet_ {};
       // The identifier of the VPN gateway.
       shared_ptr<string> remote_ {};
-      // The CIDR block on the virtual private cloud (VPC) side.
+      // The CIDR block on the VPC side.
       shared_ptr<string> remoteSubnet_ {};
       shared_ptr<VpnConnectionConfig::TunnelsConfig> tunnelsConfig_ {};
     };
@@ -781,7 +760,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The configurations of the peer gateway device.
+    // The configuration of the peer gateway device of the IPsec-VPN connection.
     shared_ptr<DownloadVpnConnectionConfigResponseBody::VpnConnectionConfig> vpnConnectionConfig_ {};
   };
 

@@ -48,10 +48,11 @@ namespace Models
 
 
   protected:
-    // Indicates whether the traffic mirror feature is enabled. Valid values:
+    // Indicates whether the traffic mirroring feature is enabled. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Enabled.
+    // 
+    // - **false**: Not enabled.
     shared_ptr<bool> enabled_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

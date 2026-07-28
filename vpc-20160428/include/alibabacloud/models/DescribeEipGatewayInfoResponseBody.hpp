@@ -154,10 +154,10 @@ namespace Models
 
 
   protected:
-    // The status code of the operation.
+    // The operation status code.
     shared_ptr<string> code_ {};
     shared_ptr<DescribeEipGatewayInfoResponseBody::EipInfos> eipInfos_ {};
-    // The result of the operation.
+    // The operation message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

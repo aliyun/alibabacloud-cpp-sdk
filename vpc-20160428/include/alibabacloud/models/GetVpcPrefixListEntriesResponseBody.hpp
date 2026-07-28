@@ -94,11 +94,11 @@ namespace Models
 
 
     protected:
-      // The CIDR blocks specified in the prefix list.
+      // The Classless Inter-Domain Routing (CIDR) block of the prefix list.
       shared_ptr<string> cidr_ {};
       // The description of the prefix list.
       shared_ptr<string> description_ {};
-      // The ID of the prefix list.
+      // The instance ID of the prefix list.
       shared_ptr<string> prefixListId_ {};
       // The region ID of the prefix list.
       shared_ptr<string> regionId_ {};
@@ -146,10 +146,9 @@ namespace Models
   protected:
     // The number of entries.
     shared_ptr<int64_t> count_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value is returned for **NextToken**, the value indicates the token that is used for the next request to retrieve a new page of results.
+    // The pagination token. Valid values:
+    // - If **NextToken** is empty, no subsequent query is required.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The information about the prefix list.
     shared_ptr<vector<GetVpcPrefixListEntriesResponseBody::PrefixListEntry>> prefixListEntry_ {};

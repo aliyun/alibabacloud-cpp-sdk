@@ -111,9 +111,9 @@ namespace Models
 
 
       protected:
-        // The key of tag N added to the resource.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // The value of tag N added to the resource.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -173,20 +173,21 @@ namespace Models
 
 
       protected:
-        // The suffix of the hostname.
+        // The hostname suffix.
         shared_ptr<string> domainName_ {};
         // The IP address of the DNS server.
         shared_ptr<string> domainNameServers_ {};
         // The lease time of the IPv6 DHCP options set.
         // 
-        // *   If you use hours as the unit, Unit: h. Valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **24h**.
+        // - If the lease time is in hours, the unit is h. Valid values: **24h** to **1176h** and **87600h** to **175200h**. Default value: **24h**.
         // 
-        // *   If you use days as the unit, Unit: d. Valid values are **1d to 49d** and **3650d to 7300d**. Default value: **1d**.
+        // - If the lease time is in days, the unit is d. Valid values: **1d** to **49d** and **3650d** to **7300d**. Default value: **1d**.
         shared_ptr<string> ipv6LeaseTime_ {};
-        // The lease time of the IPv4 addresses for the DHCP options set.
+        // The lease time of the IPv4 DHCP options set.
         // 
-        // *   If you use hours as the unit, valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
-        // *   If you use days as the unit, valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+        // - If the lease time is in hours, the unit is h. Valid values: **24h** to **1176h** and **87600h** to **175200h**. Default value: **87600h**.
+        // 
+        // - If the lease time is in days, the unit is d. Valid values: **1d** to **49d** and **3650d** to **7300d**. Default value: **3650d**.
         shared_ptr<string> leaseTime_ {};
       };
 
@@ -268,11 +269,11 @@ namespace Models
 
 
     protected:
-      // The number of VPCs with which the DHCP options set is associated.
+      // The number of VPCs associated with the DHCP options set.
       shared_ptr<int32_t> associateVpcCount_ {};
-      // The creation time of the DHCP options sets.
+      // The creation time.
       shared_ptr<string> creationTime_ {};
-      // The details of DHCP options.
+      // The DHCP options configuration.
       shared_ptr<DhcpOptionsSets::DhcpOptions> dhcpOptions_ {};
       // The description of the DHCP options set.
       shared_ptr<string> dhcpOptionsSetDescription_ {};
@@ -280,18 +281,21 @@ namespace Models
       shared_ptr<string> dhcpOptionsSetId_ {};
       // The name of the DHCP options set.
       shared_ptr<string> dhcpOptionsSetName_ {};
-      // The ID of the Alibaba Cloud account to which the DHCP options set belongs.
+      // The Alibaba Cloud account ID to which the DHCP options set belongs.
       shared_ptr<int64_t> ownerId_ {};
       // The ID of the resource group to which the DHCP options set belongs.
       shared_ptr<string> resourceGroupId_ {};
       // The status of the DHCP options set. Valid values:
       // 
-      // *   **Available**
-      // *   **InUse**
-      // *   **Pending**
-      // *   **Deleted**
+      // - **Available**: available.
+      // 
+      // - **InUse**: in use.
+      // 
+      // - **Pending**: being configured.
+      // 
+      // - **Deleted**: deleted.
       shared_ptr<string> status_ {};
-      // The tag list.
+      // The list of tags.
       shared_ptr<vector<DhcpOptionsSets::Tags>> tags_ {};
     };
 
@@ -328,16 +332,15 @@ namespace Models
 
 
   protected:
-    // The list of the DHCP options sets.
+    // The list of DHCP options sets.
     shared_ptr<vector<ListDhcpOptionsSetsResponseBody::DhcpOptionsSets>> dhcpOptionsSets_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value is returned for **NextToken**, the value is used to retrieve a new page of results.
+    // The pagination token. Valid values:
+    // - If **NextToken** is empty, no subsequent query exists.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of entries.
+    // The total number of entries returned.
     shared_ptr<string> totalCount_ {};
   };
 

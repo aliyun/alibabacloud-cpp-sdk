@@ -117,40 +117,52 @@ namespace Models
 
 
   protected:
-    // Specifies whether to remove all tags from the specified resource. Valid values:
-    // 
-    // *   **true**
-    // *   **false** (default)
+    // Specifies whether to unbind all tags from the resources. Valid values:
+    // - **true**: Unbinds all tags from the resources.
+    // - **false** (default): Does not unbind all tags from the resources.
     shared_ptr<bool> all_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the resource.
+    // The region ID of the resources.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource ID. You can specify up to 20 resource IDs.
+    // The resource IDs. You can specify up to 50 resource IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The resource type. Valid values:
+    // - **VPC**: virtual private cloud (VPC) instance.
+    // - **VSWITCH**: vSwitch instance.
+    // - **ROUTETABLE**: route table instance.
+    // - **EIP**: elastic IP address (EIP) instance.
+    // - **VPNGATEWAY**: VPN gateway instance.
+    // - **NATGATEWAY**: NAT gateway instance.
+    // - **COMMONBANDWIDTHPACKAGE**: Internet Shared Bandwidth instance.
+    // - **PREFIXLIST**: prefix list instance.
+    // - **PUBLICIPADDRESSPOOL**: IP address pool instance.
+    // - **IPV4GATEWAY**: IPv4 gateway instance.
+    // - **IPV6GATEWAY**: IPv6 gateway instance.
+    // - **NETWORKACL**: network ACL instance.
+    // - **TRAFFICMIRRORFILTER**: traffic mirror filter instance.
+    // - **TRAFFICMIRRORSESSION**: traffic mirror session instance.
+    // - **FLOWLOG**: flow log instance.
+    // - **HAVIP**: high-availability virtual IP address (HaVip) instance.
+    // - **DHCPOPTIONSSET**: DHCP options set instance.
+    // - **GATEWAYENDPOINT**: gateway endpoint instance.
+    // - **IPV6ADDRESS**: IPv6 address instance.
     // 
-    // *   **VPC**
-    // *   **VSWITCH**
-    // *   **ROUTETABLE**
-    // *   **EIP**
-    // *   **VpnGateway**
-    // *   **NATGATEWAY**
-    // *   **COMMONBANDWIDTHPACKAGE**: EIP bandwidth plan
+    // > The resource type value is case-insensitive.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The key of the tag that you want to remove. You can specify at most 20 tag keys. It can be an empty string.
+    // The tag keys to unbind. You can specify up to 20 tag keys.
     // 
-    // The key cannot exceed 64 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
+    // Each tag key can be up to 128 characters in length, can be an empty string, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

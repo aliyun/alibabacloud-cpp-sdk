@@ -303,7 +303,7 @@ namespace Models
     shared_ptr<DescribeNatGatewayAssociateNetworkInterfacesResponseBody::AssociateNetworkInterfaces> associateNetworkInterfaces_ {};
     // The number of associated ENIs.
     shared_ptr<int32_t> count_ {};
-    // The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries per page for a paginated query. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
     // The instance ID of the VPC NAT gateway.
     shared_ptr<string> natGatewayId_ {};

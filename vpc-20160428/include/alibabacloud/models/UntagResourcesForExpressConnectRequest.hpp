@@ -117,34 +117,34 @@ namespace Models
 
 
   protected:
-    // Specifies whether to remove all tags from the specified resource. Valid values:
+    // Specifies whether to unbind all tags from the resource. Valid values:
     // 
-    // *   **true**
-    // *   **false** (default)
+    // - **true**: Unbinds all tags from the resource.
+    // - **false** (default): Does not unbind all tags from the resource.
     shared_ptr<bool> all_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region in which the resource is deployed.
+    // The region ID of the resource.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The IDs of the resources from which you want to remove tags.
+    // The list of resource IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the resource. Valid values:
-    // 
-    // *   **PHYSICALCONNECTION**: Express Connect circuit.
-    // *   **VIRTUALBORDERROUTER**: virtual border router (VBR).
-    // *   **ROUTERINTERFACE**: router interface.
+    // The resource type. Valid values:
+    // - **PHYSICALCONNECTION**: Express Connect circuit instance.
+    // - **VIRTUALBORDERROUTER**: Virtual Border Router.
+    // - **ROUTERINTERFACE**: VBR uplink.
+    // - **TRAFFICQOS**: QoS policy.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags to remove from the specified resource.
+    // The list of tag keys for the resource.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

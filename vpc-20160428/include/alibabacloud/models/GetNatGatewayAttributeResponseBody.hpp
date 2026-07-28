@@ -191,15 +191,15 @@ namespace Models
 
 
     protected:
-      // The ID of the elastic network interface instance.
+      // The instance ID of the elastic network interfaces (ENIs) network interface controller (NIC).
       shared_ptr<string> eniInstanceId_ {};
-      // The ID of the availability zone to which the NAT Gateway instance belongs.
+      // The zone to which the NAT gateway instance belongs.
       shared_ptr<string> izNo_ {};
-      // The maximum bandwidth, in Mbps.
+      // The maximum bandwidth value. Unit: Mbit/s.
       shared_ptr<int32_t> maxBandwidth_ {};
       // The private IP address.
       shared_ptr<string> privateIpAddress_ {};
-      // The ID of the vSwitch to which the NAT Gateway instance belongs.
+      // The ID of the vSwitch to which the NAT gateway instance belongs.
       shared_ptr<string> vswitchId_ {};
     };
 
@@ -259,18 +259,17 @@ namespace Models
 
 
     protected:
-      // The error message that is returned when log delivery fails.
+      // The error message for session log writing failure.
       shared_ptr<string> deliverLogsErrorMessage_ {};
-      // The status of log delivery. Valid values:
+      // The status of session log writing. Valid values:
       // 
-      // - **Success**: The logs are delivered successfully.
-      // 
-      // - **Failure**: The logs failed to be delivered.
+      // - **Succsess**: Succeeded.
+      // - **Failure**: Failed.
       shared_ptr<string> deliveryStatus_ {};
-      // The destination to which session logs are delivered. The value is always
-      // **sls**, which indicates Log Service.
+      // The destination type for session log delivery. Valid values:
+      // **sls**: Simple Log Service (SLS).
       shared_ptr<string> logDeliveryType_ {};
-      // The Log Service Logstore to which session logs are delivered.
+      // The destination address to which session logs are written.
       shared_ptr<string> logDestination_ {};
     };
 
@@ -321,17 +320,15 @@ namespace Models
 
 
     protected:
-      // The ID of the EIP instance.
+      // The instance ID of the EIP.
       shared_ptr<string> allocationId_ {};
-      // The EIP address.
+      // The IP address of the EIP.
       shared_ptr<string> ipAddress_ {};
-      // The usage status of the EIP.
+      // The association status of the EIP bound to the Internet NAT gateway instance.
       // 
-      // - **Idle**: Not associated with an SNAT entry or a DNAT entry.
-      // 
-      // - **UsedBySnat**: Associated with an SNAT entry.
-      // 
-      // - **UsedByForward**: Associated with a DNAT entry.
+      // - **idle**: The EIP is not associated with any SNAT entry or DNAT entry.
+      // - **UsedBySnatTable**: The EIP is associated with an SNAT entry.
+      // - **UsedByForwardTable**: The EIP is associated with a DNAT entry.
       shared_ptr<string> usingStatus_ {};
     };
 
@@ -452,10 +449,8 @@ namespace Models
 
     protected:
       // Indicates whether deletion protection is enabled.
-      // 
-      // - **true**
-      // 
-      // - **false**
+      // - **true**: Deletion protection is enabled.
+      // - **false**: Deletion protection is not enabled.
       shared_ptr<bool> enabled_ {};
     };
 
@@ -515,50 +510,32 @@ namespace Models
 
 
     protected:
-      // Indicates whether auto-payment is enabled. This parameter is returned only if **InstanceChargeType** is set to **PrePaid**. Valid values:
+      // Indicates whether automatic payment is enabled. When the value of **InstanceChargeType** is **PrePaid**, the following values are returned:
       // 
-      // - **false**: Auto-payment is disabled. After an order is generated, the payment must be completed in the Orders console.
+      // - **false**: Automatic payment is not enabled. After an order is generated, go to the Order Center to complete the payment.
       // 
-      // - **true**: Auto-payment is enabled. Payments are automatically completed.
+      // - **true**: Automatic payment is enabled. The order is automatically paid.
       // 
-      // If **InstanceChargeType** is set to **PostPaid**, an empty string is returned.
+      // When the value of **InstanceChargeType** is **PostPaid**, an empty value is returned.
       shared_ptr<string> autoPay_ {};
-      // <props="china">
+      // <props="china">The billing method of the NAT gateway instance. Valid values:
       // 
-      // The billing method of the NAT Gateway instance. Valid values:
+      // <props="china">- **PostPaid**: pay-as-you-go.
       // 
+      // <props="china">- **PrePaid**: subscription.
       // 
-      // 
-      // <props="china">
-      // 
-      // - **PostPaid**: pay-as-you-go.
-      // 
-      // 
-      // 
-      // <props="china">
-      // 
-      // - **PrePaid**: subscription.
-      // 
-      // 
-      // 
-      // 
-      // <props="intl">
-      // 
-      // The billing method of the NAT Gateway instance. The value is **PostPaid** (pay-as-you-go).
+      // <props="intl">The billing method of the NAT gateway instance. Valid values: **PostPaid** (pay-as-you-go).
       shared_ptr<string> instanceChargeType_ {};
-      // The billing method of the NAT Gateway instance. Valid values:
+      // The billing type of the NAT gateway instance. Valid values:
       // 
-      // - **PayBySpec**: billed by specification.
-      // 
+      // - **PayBySpec**: billed by defined specifications.
       // - **PayByLcu**: billed by usage.
       shared_ptr<string> internetChargeType_ {};
-      // The specification of the public NAT gateway instance. This parameter is returned only if **InternetChargeType** is set to **PayBySpec**. Valid values:
-      // 
-      // - **Small**
-      // 
-      // - **Middle**
-      // 
-      // - **Large**
+      // The specification of the Internet NAT gateway instance. When **InternetChargeType** is **PayBySpec**, the following values are returned:
+      // - **Small**: small.
+      // - **Middle**: medium.
+      // - **Large**: large.
+      // When **InternetChargeType** is **PayByLcu**, an empty value is returned.
       shared_ptr<string> spec_ {};
     };
 
@@ -606,9 +583,9 @@ namespace Models
       // 
       // - **tunnel**: tunnel mode.
       shared_ptr<string> modeValue_ {};
-      // The tunnel type. This parameter is returned only when `ModeValue` is set to `tunnel`. Valid value:
+      // The tunnel mode type. Valid values:
       // 
-      // - **geneve**: Geneve.
+      // - **geneve**: Geneve type.
       shared_ptr<string> tunnelType_ {};
     };
 
@@ -827,92 +804,82 @@ namespace Models
 
 
   protected:
-    // The access mode of the VPC NAT Gateway.
+    // The access mode for reverse access to the VPC NAT gateway.
     shared_ptr<GetNatGatewayAttributeResponseBody::AccessMode> accessMode_ {};
     shared_ptr<string> availabilityMode_ {};
-    // The billing configuration.
+    // The billing configuration information.
     shared_ptr<GetNatGatewayAttributeResponseBody::BillingConfig> billingConfig_ {};
-    // The business status of the NAT Gateway instance. Valid values:
+    // The business status of the NAT gateway. Valid values:
     // 
-    // - **Normal**: The instance is running normally.
-    // 
-    // - **FinancialLocked**: The instance is suspended due to an overdue payment.
+    // - **Normal**: Normal.
+    // - **FinancialLocked**: Locked due to overdue payment.
     shared_ptr<string> businessStatus_ {};
-    // The creation time of the NAT Gateway instance. The time is in the `YYYY-MM-DDThh:mm:ssZ` format.
+    // The time when the NAT gateway was created. The time is displayed in the YYYY-MM-DDThh:mm:ssZ format.
     shared_ptr<string> creationTime_ {};
-    // Information about the deletion protection feature.
+    // The deletion protection information.
     shared_ptr<GetNatGatewayAttributeResponseBody::DeletionProtectionInfo> deletionProtectionInfo_ {};
-    // The description of the NAT Gateway instance.
+    // The description of the NAT gateway instance.
     shared_ptr<string> description_ {};
     // Indicates whether the gateway traffic monitoring feature is enabled. Valid values:
-    // 
-    // - **true**: Enabled.
-    // 
-    // - **false**: Disabled.
+    // - **true**: The gateway traffic monitoring feature is enabled.
+    // - **false**: The gateway traffic monitoring feature is not enabled.
     shared_ptr<bool> ecsMetricEnabled_ {};
     // Indicates whether session logging is enabled. Valid values:
     // 
-    // - **true**
+    // - **true**: Session logging is enabled.
     // 
-    // - **false**
+    // - **false**: Session logging is disabled.
     shared_ptr<bool> enableSessionLog_ {};
-    // The expiration time of the NAT Gateway instance.
+    // The expiration time of the NAT gateway instance.
     shared_ptr<string> expiredTime_ {};
-    // Information about the DNAT table.
+    // The DNAT table information.
     shared_ptr<GetNatGatewayAttributeResponseBody::ForwardTable> forwardTable_ {};
-    // Information about the FULLNAT table.
+    // The FULLNAT table information.
     shared_ptr<GetNatGatewayAttributeResponseBody::FullNatTable> fullNatTable_ {};
-    // The Elastic IP Addresses (EIPs) that are associated with the public NAT gateway.
+    // The list of elastic IP addresses (EIPs) associated with the Internet NAT gateway.
     shared_ptr<vector<GetNatGatewayAttributeResponseBody::IpList>> ipList_ {};
-    // The session log delivery settings.
+    // The session log configuration information.
     shared_ptr<GetNatGatewayAttributeResponseBody::LogDelivery> logDelivery_ {};
-    // The name of the NAT Gateway instance.
+    // The name of the NAT gateway instance.
     shared_ptr<string> name_ {};
-    // The ID of the NAT Gateway instance.
+    // The ID of the NAT gateway instance.
     shared_ptr<string> natGatewayId_ {};
-    // The type of the public NAT gateway. The value **Enhanced** indicates an Enhanced NAT Gateway.
+    // The type of the Internet NAT gateway. The value is **Enhanced**, which indicates an enhanced NAT gateway.
     shared_ptr<string> natType_ {};
-    // The type of the NAT Gateway. Valid values:
+    // The type of the NAT gateway. Valid values:
     // 
-    // - **internet**: A public NAT gateway.
-    // 
-    // - **intranet**: A VPC NAT Gateway.
+    // - **internet**: Internet NAT gateway.
+    // - **intranet**: VPC NAT gateway.
     shared_ptr<string> networkType_ {};
-    // The private network information about the NAT Gateway instance.
+    // The private network information of the NAT gateway instance.
     shared_ptr<GetNatGatewayAttributeResponseBody::PrivateInfo> privateInfo_ {};
     // Indicates whether PrivateLink is supported. Valid values:
     // 
     // - **true**: PrivateLink is supported.
-    // 
     // - **false**: PrivateLink is not supported.
     shared_ptr<bool> privateLinkEnabled_ {};
-    // The mode of the PrivateLink service. Valid values:
+    // The PrivateLink service conversion mode. Valid values:
     // 
     // - **FullNat**: FULLNAT mode.
-    // 
     // - **Geneve**: Geneve mode.
     shared_ptr<string> privateLinkMode_ {};
-    // The region ID of the NAT Gateway instance.
+    // The region ID of the NAT gateway instance.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Information about the SNAT table.
+    // The SNAT table information.
     shared_ptr<GetNatGatewayAttributeResponseBody::SnatTable> snatTable_ {};
-    // The status of the NAT Gateway instance. Valid values:
+    // The status of the NAT gateway. Valid values:
     // 
-    // - **Creating**: Being created. This is an asynchronous operation.
-    // 
-    // - **Available**: Available. This is the steady state of the NAT Gateway after creation.
-    // 
-    // - **Modifying**: Being modified. This is an asynchronous operation.
-    // 
-    // - **Deleting**: Being deleted. This is an asynchronous operation.
-    // 
-    // - **Converting**: Being converted to an Enhanced NAT Gateway. This is an asynchronous operation.
+    // - **Creating**: The NAT gateway is being created. The creation of a NAT gateway is an asynchronous operation. The NAT gateway remains in the **Creating** state until the creation is complete.
+    // - **Available**: The NAT gateway is available. This is a stable state after the NAT gateway is created.
+    // - **Modifying**: The NAT gateway is being modified. The modification of a NAT gateway is an asynchronous operation. The NAT gateway remains in the **Modifying** state during the modification.
+    // - **Deleting**: The NAT gateway is being deleted. The deletion of a NAT gateway is an asynchronous operation. The NAT gateway remains in the **Deleting** state during the deletion.
+    // - **Converting**: The NAT gateway is being converted. The conversion from a standard NAT gateway to an enhanced NAT gateway is an asynchronous operation. The NAT gateway remains in the **Converting** state during the conversion.
     shared_ptr<string> status_ {};
-    // The ID of the VPC to which the NAT Gateway instance belongs.
+    // The ID of the VPC to which the NAT gateway instance belongs.
     shared_ptr<string> vpcId_ {};
   };
 

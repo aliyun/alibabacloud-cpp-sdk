@@ -103,17 +103,17 @@ namespace Models
 
 
   protected:
-    // The ACL ID.
+    // The ID of the access control policy group.
     // 
     // This parameter is required.
     shared_ptr<string> aclId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page when paging is used. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region of the ACL.
+    // The region of the access control policy group.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

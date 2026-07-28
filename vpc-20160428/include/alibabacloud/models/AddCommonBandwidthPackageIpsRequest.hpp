@@ -115,7 +115,7 @@ namespace Models
 
 
   protected:
-    // The ID of the Internet Shared Bandwidth instance.
+    // The instance ID of the Internet Shared Bandwidth instance.
     // 
     // This parameter is required.
     shared_ptr<string> bandwidthPackageId_ {};
@@ -123,19 +123,19 @@ namespace Models
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // The list of EIPs that you want to associate with the Internet Shared Bandwidth instance.
+    // The list of EIP instance IDs to be added.
     // 
-    // You can specify at most 10 EIP IDs at a time.
+    // You can add up to 10 EIP instance IDs at a time.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> ipInstanceIds_ {};
-    // The IP type. Set the value to **EIP**, which indicates that an EIP is added to the Shared Bandwidth.
+    // The IP type. Set the value to **EIP**, which specifies that EIPs are added to the Internet Shared Bandwidth instance.
     shared_ptr<string> ipType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the Internet Shared Bandwidth instance.
+    // The region ID of the Internet Shared Bandwidth instance. 
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to query the most recent region list.
     // 

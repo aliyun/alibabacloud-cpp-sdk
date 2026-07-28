@@ -124,36 +124,35 @@ namespace Models
 
 
   protected:
-    // The tag keys.
+    // The tag key.
     shared_ptr<string> keyword_ {};
     // The number of entries per page. Valid values: 1 to 50. Default value: 50.
     shared_ptr<int32_t> maxResult_ {};
-    // The token that is used for the next query. Valid values:
-    // 
-    // *   If this is your first query or no next query is to be sent, ignore this parameter.
-    // *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+    // The pagination token. Valid values:
+    // - If this is the first query or no subsequent query exists, leave this parameter empty.
+    // - If a subsequent query exists, set the value to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the resource.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource IDs. You can specify up to 20 resource IDs.
+    // The resource ID. You can specify up to 50 resource IDs.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The resource type. Valid values:
     // 
-    // *   **VPC**: virtual private cloud (VPC)
-    // *   **VSWITCH**: vSwitch
-    // *   **ROUTETABLE**: route table
-    // *   **EIP**: elastic IP address (EIP)
-    // *   **VpnGateway**: VPN gateway
-    // *   **NATGATEWAY**: NAT gateway
-    // *   **COMMONBANDWIDTHPACKAGE**: EIP bandwidth plan
+    // - **VPC**: virtual private cloud (VPC) instance.
+    // - **VSWITCH**: vSwitch instance.
+    // - **ROUTETABLE**: route table instance.
+    // - **EIP**: Elastic IP Address (EIP) instance.
+    // - **VpnGateWay**: VPN gateway instance.
+    // - **NATGATEWAY**: NAT gateway instance.
+    // - **COMMONBANDWIDTHPACKAGE**: Internet Shared Bandwidth instance.
     shared_ptr<string> resourceType_ {};
   };
 

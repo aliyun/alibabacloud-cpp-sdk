@@ -160,9 +160,9 @@ namespace Models
     shared_ptr<string> ipVersion_ {};
     // The instance ID of the IPAM pool.
     shared_ptr<string> ipamPoolId_ {};
-    // The subnet mask used to add an IPv6 CIDR block from an IPAM pool to the VPC.
+    // The mask used to add an IPv6 CIDR block from an IPAM pool to the VPC.
     // 
-    // > When you use an IPAM pool to add a secondary IPv6 CIDR block to the VPC, you must specify at least one of IPv6CidrBlock and Ipv6CidrMask.
+    // > When you use an IPAM pool to add a secondary IPv6 CIDR block to the VPC, you must specify at least one of IPv6CidrBlock or Ipv6CidrMask.
     shared_ptr<int32_t> ipv6CidrMask_ {};
     // The type of the IPv6 CIDR block of the VPC. Valid values:
     // 
@@ -171,32 +171,31 @@ namespace Models
     // - **ChinaUnicom**: China Unicom (single ISP).
     // - **ChinaTelecom**: China Telecom (single ISP).
     // 
-    // > If your account is included in the China single-ISP bandwidth whitelist, you can set this parameter to **ChinaTelecom** (China Telecom), **ChinaUnicom** (China Unicom), or **ChinaMobile** (China Mobile).
+    // > If you are a user who has activated the single-ISP bandwidth whitelist, you can set this parameter to **ChinaTelecom** (China Telecom), **ChinaUnicom** (China Unicom), or **ChinaMobile** (China Mobile).
     shared_ptr<string> ipv6Isp_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the VPC to which you want to add a secondary CIDR block. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The secondary IPv4 CIDR block to add. The CIDR block must meet the following requirements:
     // 
-    // - Use a private IPv4 address specified in RFC 1918 as the secondary IPv4 CIDR block of the VPC. The subnet mask is recommended to be 16 to 28 bits in length. Examples: 10.0.0.0/16, 172.16.0.0/16, and 192.168.0.0/16.
+    // - Use private IPv4 addresses specified in RFC 1918 as the secondary IPv4 CIDR block of the virtual private cloud (VPC). The subnet mask must be 16 to 28 bits in length. Examples: 10.0.0.0/16, 172.16.0.0/16, and 192.168.0.0/16.
     // - You can use a custom CIDR block other than 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, 169.254.0.0/16, or their subnets as the secondary IPv4 CIDR block of the virtual private cloud (VPC).
     // 
     // Configuration limits:
-    // 
-    // - The CIDR block cannot start with 0. The subnet mask is recommended to be 16 to 28 bits in length.
+    // - The CIDR block cannot start with 0. The subnet mask must be 16 to 28 bits in length.
     // 
     // - The secondary CIDR block cannot overlap with the primary CIDR block or existing secondary CIDR blocks of the VPC.
     // 
     // > If you do not use an IPAM pool to add a secondary CIDR block to the VPC, you must specify either the **SecondaryCidrBlock** parameter or the **Ipv6CidrBlock** parameter, but not both.
     shared_ptr<string> secondaryCidrBlock_ {};
-    // The subnet mask used to add a secondary IPv4 CIDR block from an IPAM pool to the VPC.
+    // The mask used to add a secondary IPv4 CIDR block from an IPAM pool to the VPC.
     // 
-    // > When you use an IPAM pool to add a secondary IPv4 CIDR block to the VPC, you must specify at least one of SecondaryCidrBlock and SecondaryCidrMask.
+    // > When you use an IPAM pool to add a secondary IPv4 CIDR block to the VPC, you must specify at least one of SecondaryCidrBlock or SecondaryCidrMask.
     shared_ptr<int32_t> secondaryCidrMask_ {};
     // The ID of the VPC to which you want to add a secondary CIDR block.
     // 

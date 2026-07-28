@@ -88,11 +88,11 @@ namespace Models
 
 
     protected:
-      // The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
       // The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
       // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
@@ -183,32 +183,31 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return.
+    // The maximum number of entries to return in this request.
     // 
     // Valid values: **1** to **100**. Default value: **10**.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   You do not need to specify this parameter for the first request.
-    // *   You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token for the next query. Valid values:
+    // - You do not need to specify this parameter for the first request or if no next query exists.
+    // - If a next query exists, set the value to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region to which the mirrored traffic belongs.
+    // The region ID of the traffic mirror filter.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list. For more information about regions that support traffic mirror, see [Overview of traffic mirror](https://help.aliyun.com/document_detail/207513.html).
+    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list. For more information about regions that support traffic mirroring, see [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the mirrored traffic belongs.
+    // The ID of the resource group to which the traffic mirroring filter belongs.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tag list.
+    // The tags.
     shared_ptr<vector<ListTrafficMirrorFiltersRequest::Tags>> tags_ {};
-    // The ID of the traffic mirror filter. The maximum value of **N** is **100**, which specifies that you can query up to 100 filters at a time.
+    // The instance IDs of traffic mirror filters. The maximum value of **N** is **100**, which means that you can query up to 100 traffic mirror filters at a time.
     shared_ptr<vector<string>> trafficMirrorFilterIds_ {};
-    // The name of the filter.
+    // The name of the traffic mirror filter.
     shared_ptr<string> trafficMirrorFilterName_ {};
   };
 

@@ -138,16 +138,16 @@ namespace Models
 
 
     protected:
-      // The key of the filter. Valid values:
+      // The valid values of Filter Key:
       // 
       // - ResourceId
-      // >Set Value to the ID of the EPS resource that you want to query.
+      // >Specify the ID of the EPS resource in Value.
       // - NetworkInterfaceId
-      // >Set Value to the ID of the elastic network interface (ENI) that you want to query.
+      // >Specify the ID of the network interface controller (NIC) in Value.
       // - ResourceOwnerId
-      // >Set Value to the UID of the user to whom the EPS resource belongs for resource ownership query.
+      // >Specify the UID of the user to whom the EPS resource ownership belongs in Value.
       shared_ptr<string> key_ {};
-      // The filter value. You can specify multiple values separated by commas (,).
+      // You can specify multiple values separated by commas.
       shared_ptr<string> value_ {};
     };
 
@@ -252,7 +252,7 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // The filter information. You can specify key-value pairs to filter the query results.
     shared_ptr<vector<DescribeNatGatewayAssociateNetworkInterfacesRequest::Filter>> filter_ {};
-    // The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries per page for a paginated query. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
     // The ID of the NAT gateway to query.
     // 
@@ -260,15 +260,15 @@ namespace Models
     shared_ptr<string> natGatewayId_ {};
     // The pagination token. Valid values:
     // 
-    // - If this is the first query or no subsequent query is required, you do not need to specify this parameter.
+    // - If this is the first query or no subsequent query exists, leave this parameter empty.
     // 
-    // - If a subsequent query is required, set the value to the **NextToken** value returned in the previous API call.
+    // - If a subsequent query exists, set this parameter to the **NextToken** value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the NAT gateway.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

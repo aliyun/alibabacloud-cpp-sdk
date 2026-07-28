@@ -76,15 +76,15 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the router interface is deployed.
+    // The region where the router interface resides. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the initiator router interface.
+    // The ID of the requester VPC router interface.
     // 
     // This parameter is required.
     shared_ptr<string> routerInterfaceId_ {};

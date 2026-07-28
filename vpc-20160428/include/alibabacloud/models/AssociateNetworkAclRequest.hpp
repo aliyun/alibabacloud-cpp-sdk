@@ -86,9 +86,9 @@ namespace Models
     protected:
       // The ID of the associated resource.
       shared_ptr<string> resourceId_ {};
-      // The type of resource with which you want to associate the network ACL. Set the value to **VSwitch**.
+      // The type of the associated resource. Valid values: **VSwitch**.
       // 
-      // Valid values of **N**: **0** to **29**. You can associate a network ACL with up to 30 vSwitches.
+      // Valid values of **N**: **0** to **29**. You can associate up to 30 resources.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -165,9 +165,11 @@ namespace Models
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** may differ for each API request.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request.
+    // Specifies whether to perform a dry run. Valid values:
+    // - true: performs a dry run.
+    // - false (default): sends the request.
     shared_ptr<bool> dryRun_ {};
     // The ID of the network ACL.
     // 

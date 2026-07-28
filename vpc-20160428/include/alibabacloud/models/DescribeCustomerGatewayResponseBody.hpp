@@ -199,19 +199,19 @@ namespace Models
 
 
   protected:
-    // The autonomous system number (ASN) of the gateway device in the data center.
+    // The autonomous system number of the on-premises data center gateway device.
     shared_ptr<int64_t> asn_ {};
-    // The authentication key of the Border Gateway Protocol (BGP) routing protocol for the gateway device in the data center.
+    // The authentication key of the BGP routing protocol for the on-premises data center gateway device.
     shared_ptr<string> authKey_ {};
-    // The timestamp generated when the customer gateway was created. Unit: milliseconds.
+    // The timestamp when the customer gateway was created. Unit: milliseconds.
     // 
-    // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+    // The timestamp is in the UNIX format and represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC to the time when the customer gateway was created.
     shared_ptr<int64_t> createTime_ {};
-    // The ID of the customer gateway.
+    // The instance ID of the customer gateway.
     shared_ptr<string> customerGatewayId_ {};
     // The description of the customer gateway.
     shared_ptr<string> description_ {};
-    // The IP address of the gateway device in the data center.
+    // The IP address of the on-premises data center gateway device.
     shared_ptr<string> ipAddress_ {};
     // The name of the customer gateway.
     shared_ptr<string> name_ {};
@@ -219,7 +219,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The ID of the resource group to which the customer gateway belongs.
     // 
-    // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
+    // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<DescribeCustomerGatewayResponseBody::Tags> tags_ {};
   };

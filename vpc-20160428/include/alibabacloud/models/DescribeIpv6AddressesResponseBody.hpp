@@ -529,13 +529,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeIpv6AddressesResponseBody::Ipv6Addresses> ipv6Addresses_ {};
-    // The page number of the returned page. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page for paging queries. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of returned entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

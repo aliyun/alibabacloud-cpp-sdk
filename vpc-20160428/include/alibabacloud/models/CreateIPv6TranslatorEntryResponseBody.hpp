@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the IPv6 Translation Service instance.
+    // The instance ID of the IPv6 Translation Service.
     shared_ptr<string> ipv6TranslatorEntryId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

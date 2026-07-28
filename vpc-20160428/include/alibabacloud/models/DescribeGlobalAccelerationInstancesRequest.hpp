@@ -167,49 +167,57 @@ namespace Models
 
 
   protected:
-    // The bandwidth type of the GA instance. Valid values:
-    // 
-    // *   **Sharing**
-    // *   **Exclusive** (default)
+    // The bandwidth type of the Alibaba Cloud Global Accelerator (GA) instance. Valid values: 
+    //            
+    // - **Sharing**: Queries shared-bandwidth instances.
+    //   
+    // - **Exclusive** (default): Queries dedicated-bandwidth instances.
     shared_ptr<string> bandwidthType_ {};
-    // The ID of the GA instance.
+    // The ID of the Alibaba Cloud Global Accelerator (GA) instance.
     shared_ptr<string> globalAccelerationInstanceId_ {};
-    // Specifies whether to return information about pending orders. Valid values:
+    // Specifies whether to include reservation data that has not taken effect. Valid values:
     // 
-    // *   **false** (default)
-    // *   **true**
+    // - **false** (default): Does not include reservation data that has not taken effect.
+    // 
+    // - **true**: Includes reservation data that has not taken effect.
     shared_ptr<bool> includeReservationData_ {};
-    // The public IP address of the GA instance.
+    // The public IP address of the Alibaba Cloud Global Accelerator (GA) instance.
     shared_ptr<string> ipAddress_ {};
-    // The name of the GA instance.
+    // The name of the Alibaba Cloud Global Accelerator (GA) instance.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Maximum value: **100**. Default value: **10**.
+    // The number of entries per page for paging queries. Maximum value: **100**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the GA instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The region where the Alibaba Cloud Global Accelerator (GA) instance resides. You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the backend service instance.
+    // The instance ID of the backend service.
     shared_ptr<string> serverId_ {};
-    // The region of the backend service. Valid values:
+    // The backend service region. Valid values: 
     // 
-    // *   **china-mainland**
-    // *   **north-america**
-    // *   **asia-pacific**
-    // *   **europe**
+    // - **china-mainland**: the Chinese mainland.
+    // 
+    // - **north-america**: North America.
+    //    
+    // - **asia-pacific**: Asia Pacific.
+    //    
+    // - **europe**: Europe.
     shared_ptr<string> serviceLocation_ {};
-    // The status of the GA instance. Valid values:
+    // The instance status of the Alibaba Cloud Global Accelerator (GA) instance. Valid values: 
     // 
-    // *   **Available**
-    // *   **Inuse**
-    // *   **Associating**
-    // *   **Unassociating**
+    // - **Available**: active.
+    // 
+    // - **Inuse**: Allocated.
+    //    
+    // - **Associating**: Being attached.
+    //    
+    // - **Unassociating**: Being disassociated.
     shared_ptr<string> status_ {};
   };
 

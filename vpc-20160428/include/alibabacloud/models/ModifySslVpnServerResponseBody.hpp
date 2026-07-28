@@ -221,26 +221,26 @@ namespace Models
     shared_ptr<bool> compress_ {};
     // The current number of connections.
     shared_ptr<int32_t> connections_ {};
-    // The creation time of the SSL-VPN server.
+    // The time when the SSL-VPN server was created.
     shared_ptr<int64_t> createTime_ {};
-    // Indicates whether two-factor authentication is enabled.
+    // Indicates whether two-factor identity authentication is enabled.
     // 
-    // - **true**: Enabled.
+    // - **true**: enabled.
     // 
-    // - **false** (default): Not enabled.
+    // - **false** (default): not enabled.
     shared_ptr<bool> enableMultiFactorAuth_ {};
     // The ID of the IDaaS application.
     shared_ptr<string> IDaaSApplicationId_ {};
-    // The ID of the IDaaS EIAM instance.
+    // The instance ID of the IDaaS EIAM instance.
     shared_ptr<string> IDaaSInstanceId_ {};
     // The version of the IDaaS EIAM instance.
     // 
-    // - This parameter is returned only when the SSL server is bound to an IDaaS EIAM 2.0 instance. The only valid value is **EIAM 2.0**.
+    // - This parameter is returned only when the SSL server is bound to an IDaaS EIAM 2.0 instance. The value is **EIAM 2.0**.
     // - If the SSL server is bound to an IDaaS EIAM 1.0 instance, this parameter is not returned.
     shared_ptr<string> IDaaSInstanceVersion_ {};
     // The public IP address.
     shared_ptr<string> internetIp_ {};
-    // The local subnet.
+    // The local CIDR block.
     shared_ptr<string> localSubnet_ {};
     // The maximum number of connections.
     shared_ptr<int32_t> maxConnections_ {};
@@ -256,11 +256,11 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The ID of the resource group to which the SSL-VPN server belongs.
     // 
-    // The resource group of the SSL-VPN server is the same as that of the associated VPN gateway instance. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
+    // The SSL-VPN server belongs to the same resource group as the associated VPN gateway instance. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
     shared_ptr<string> resourceGroupId_ {};
     // The ID of the SSL-VPN server.
     shared_ptr<string> sslVpnServerId_ {};
-    // The ID of the VPN gateway instance.
+    // The instance ID of the VPN gateway.
     shared_ptr<string> vpnGatewayId_ {};
   };
 

@@ -96,9 +96,9 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the GA instance.
+    // The region where the Alibaba Cloud Global Accelerator (GA) instance resides. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -108,10 +108,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> serverId_ {};
-    // The type of the backend service instance. Valid values:
+    // The type of the backend service instance. Valid values: 
     // 
-    // *   **EcsInstance** (default): Elastic Compute Service (ECS)
-    // *   **SlbInstance**: Server Load Balancer (SLB)
+    // - **EcsInstance** (default): ECS instance.
+    // 
+    // - **SlbInstance**: load balancing instance.
     shared_ptr<string> serverType_ {};
   };
 

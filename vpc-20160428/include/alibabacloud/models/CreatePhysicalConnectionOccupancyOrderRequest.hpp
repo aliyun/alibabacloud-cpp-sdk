@@ -149,45 +149,45 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable automatic payments. Valid values:
+    // Specifies whether to enable automatic payment. Valid values:
     // 
-    // *   **true**: yes Make sure that you have a sufficient balance in your account. Otherwise, your order becomes invalid and is automatically canceled.
-    // *   **false**: disables automatic payment. This is the default value.
+    // - **true**: enables automatic payment. Make sure that your account balance is sufficient. If your account balance is insufficient, an abnormal order is generated and can only be canceled.
+    // - **false** (default): generates an order without charging.
     shared_ptr<bool> autoPay_ {};
-    // Whether to enable auto-renewal. Valid values:
+    // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // - **false** (**default**): disable auto-renewal.
-    // - **true**: enable auto-renewal.
+    // - **false** (default): disables auto-renewal.
+    // - **true**: enables auto-renewal.
     shared_ptr<bool> autoRenew_ {};
-    // The auto-renewal duration. Unit: months. Valid values: **0** to **2147483647**. Default Value: **1**.
+    // The auto-renewal duration. Unit: months. Valid values: **0** to **2147483647**. Default value: **1**.
     shared_ptr<int32_t> autoRenewDuration_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+    // The client generates the value. The value must be unique among different requests.
     shared_ptr<string> clientToken_ {};
-    // The billing method. Set the value to
+    // The billing method of the instance. Valid values:
     // 
-    // **PrePaid**, which specifies the subscription billing method. If you choose this billing method, make sure that your Alibaba Cloud account supports balance payments or credit payments.
+    // **PrePaid**: subscription. If you select this billing method, make sure that your Alibaba Cloud account supports balance payment or credit payment.
     shared_ptr<string> instanceChargeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The subscription duration.
     // 
-    // *   If **PricingCycle** is set to **Month**, set **Period** to a value from **1 to 9**.
-    // *   If **PricingCycle** is set to **Year**, set **Period** to a value from **1 to 5**.
+    // - If **PricingCycle** is set to **Month**, valid values of **Period** are **1 to 9**.
+    // - If **PricingCycle** is set to **Year**, valid values of **Period** are **1 to 5**.
     shared_ptr<int32_t> period_ {};
-    // The ID of the Express Connect circuit.
+    // The instance ID of the Express Connect circuit.
     // 
     // This parameter is required.
     shared_ptr<string> physicalConnectionId_ {};
     // The billing cycle of the subscription. Valid values:
     // 
-    // *   **Month** (default)
-    // *   **Year**
+    // - **Month** (default): billed on a monthly basis.
+    // - **Year**: billed on a yearly basis.
     shared_ptr<string> pricingCycle_ {};
-    // The region ID of the Express Connect circuit.
+    // The region ID of the Express Connect circuit. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

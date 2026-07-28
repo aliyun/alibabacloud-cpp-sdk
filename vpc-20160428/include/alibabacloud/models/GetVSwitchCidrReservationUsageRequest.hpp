@@ -103,24 +103,23 @@ namespace Models
 
 
   protected:
-    // The number of entries to return on each page. Valid values: **1** to **100**. Default value: **10**.
+    // The number of entries per page in a paged query. Valid values: **1** to **100**. Default value: **10**.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   You do not need to specify this parameter for the first request.
-    // *   If a value is returned for NextToken, specify the value in the next request to retrieve a new page of results.
+    // The pagination token. Valid values:
+    // - Leave this parameter empty for the first query or if no subsequent query is required.
+    // - If a subsequent query is required, set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the vSwitch.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the reserved CIDR block.
+    // The instance ID of the reserved CIDR block for a vSwitch that you want to query.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchCidrReservationId_ {};

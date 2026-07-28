@@ -151,34 +151,35 @@ namespace Models
   protected:
     // The new IPv4 CIDR block of the VPC.
     // 
-    // You can specify a larger or smaller IPv4 CIDR block than the IPv4 CIDR block of the VPC. The subnet mask must be 8 to 28 bits in length. If you specify a smaller IPv4 CIDR block and existing IP addresses do not fall within the CIDR block, the modification fails.
+    // You can expand or shrink the CIDR block within the original IPv4 CIDR block of the VPC. The recommended subnet mask is 16 to 28 bits. If you shrink the IPv4 CIDR block of the VPC and IP addresses that are already in use fall outside the target CIDR block, the modification fails.
     // 
-    // >  If you modify the CIDR block of a VPC, your existing services are not affected.
+    // > Modifying the IPv4 CIDR block of a VPC does not affect existing services.
     shared_ptr<string> cidrBlock_ {};
     // The new description of the VPC.
     // 
-    // The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
+    // The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
     // Specifies whether to enable the DNS hostname feature. Valid values:
     // 
-    // *   **false** (default): disabled.
-    // *   **true**: enabled.
+    // - **false** (default): Disabled.
+    // - **true**: Enabled.
     shared_ptr<bool> enableDnsHostname_ {};
-    // Specifies whether to enable IPv6 CIDR blocks. Valid values:
-    // 
-    // *   **true**
-    // *   **false** (default)
+    // Specifies whether to enable IPv6. Valid values:
+    // - **false** (default): Disabled.
+    // - **true**: Enabled.
     shared_ptr<bool> enableIPv6_ {};
     // The IPv6 CIDR block of the VPC.
+    // When you enable IPv6 for a VPC, the system will assign an IPv6 CIDR block. To specify an IPv6 CIDR block, invoke the [AllocateVpcIpv6Cidr](https://help.aliyun.com/document_detail/448916.html) operation to reserve a specific IPv6 CIDR block first, and then pass it in.
+    // > For a VPC that already has IPv6 enabled, you cannot modify the IPv6 CIDR block by passing in this parameter.
     shared_ptr<string> ipv6CidrBlock_ {};
-    // The type of IPv6 CIDR block. Valid values:
+    // The type of the IPv6 CIDR block of the VPC. Valid values:
     // 
-    // *   **BGP** (default)
-    // *   **ChinaMobile**
-    // *   **ChinaUnicom**
-    // *   **ChinaTelecom**
+    // - **BGP** (default): Alibaba Cloud BGP IPv6.
+    // - **ChinaMobile**: China Mobile (single ISP).
+    // - **ChinaUnicom**: China Unicom (single ISP).
+    // - **ChinaTelecom**: China Telecom (single ISP).
     // 
-    // >  If your Alibaba Cloud account is allowed to activate single-ISP bandwidth, you can set this parameter to **ChinaTelecom**, **ChinaUnicom**, or **ChinaMobile**.
+    // > If you are a user who has the single-ISP bandwidth whitelist enabled, you can set this parameter to **ChinaTelecom** (China Telecom), **ChinaUnicom** (China Unicom), or **ChinaMobile** (China Mobile).
     shared_ptr<string> ipv6Isp_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

@@ -116,13 +116,13 @@ namespace Models
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
+    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
     shared_ptr<string> clientToken_ {};
     // The ID of the HaVip to be associated.
     // 
     // This parameter is required.
     shared_ptr<string> haVipId_ {};
-    // The instance ID of the ECS instance to attach to the HaVip.
+    // The ID of the ECS instance to attach to the HaVip.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -130,7 +130,7 @@ namespace Models
     // 
     // - **EcsInstance**: ECS instance.
     // 
-    // - **NetworkInterface**: network interface controller (NIC) instance. If the instance to attach to the HaVip is a network interface controller (NIC), this parameter is required.
+    // - **NetworkInterface**: elastic network interface (ENI). If the instance to attach to the HaVip is an ENI, this parameter is required.
     shared_ptr<string> instanceType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

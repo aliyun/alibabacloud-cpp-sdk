@@ -287,62 +287,47 @@ namespace Models
 
 
     protected:
-      // The localized name of the company.
+      // The name of the construction company.
       shared_ptr<string> companyLocalizedName_ {};
-      // The name of the company that requires the physical connection.
+      // The name of the organization that requires the Express Connect circuit deployment.
       shared_ptr<string> companyName_ {};
-      // The time when construction personnel enter the site.
+      // The time when the construction crew enters the site.
       shared_ptr<string> constructionTime_ {};
-      // The description of the LOA.
       shared_ptr<string> description_ {};
-      // The instance ID of the physical connection.
+      // The instance ID of the Express Connect circuit.
       shared_ptr<string> instanceId_ {};
-      // The line code assigned by the line service provider.
+      // The line code of the carrier.
       shared_ptr<string> lineCode_ {};
-      // The line label for the in-building cable at the data center.
+      // The cable label in the data center building.
       shared_ptr<string> lineLabel_ {};
-      // The contact information of the line O\\&M personnel.
+      // The contact information of the line O&M personnel.
       shared_ptr<string> lineSPContactInfo_ {};
-      // The line service provider. Valid values:
-      // 
+      // The telecommunications service provider. Valid values:
       // - **China Telecom**
-      // 
       // - **China Unicom**
-      // 
       // - **China Mobile**
-      // 
-      // - **Other**
+      // - **China Other**
       shared_ptr<string> lineServiceProvider_ {};
-      // The line type of the physical connection. Valid values:
+      // The type of the Express Connect circuit. Valid values:
       // 
       // - **MSTP**
-      // 
       // - **MPLSVPN**
-      // 
       // - **FIBRE**
-      // 
       // - **Other**
       shared_ptr<string> lineType_ {};
-      // The URL to download the LOA file.
+      // The download URL of the LOA file.
       shared_ptr<string> loaUrl_ {};
-      // Information about the construction personnel.
       shared_ptr<PhysicalConnectionLOAType::PMInfo> PMInfo_ {};
-      // The system integrator (SI).
+      // The construction company that enters the site.
       shared_ptr<string> SI_ {};
       // The status of the LOA. Valid values:
       // 
-      // - **Applying**: The LOA application is in progress.
-      // 
+      // - **Applying**: The LOA application is being processed.
       // - **Accept**: The LOA application is approved.
-      // 
       // - **Available**: The LOA is available.
-      // 
       // - **Rejected**: The LOA application is rejected.
-      // 
-      // - **Completing**: The construction of the physical connection is in progress.
-      // 
-      // - **Complete**: The construction of the physical connection is complete.
-      // 
+      // - **Completing**: The circuit is under construction.
+      // - **Complete**: The circuit construction is complete.
       // - **Deleted**: The LOA is deleted.
       shared_ptr<string> status_ {};
     };
@@ -366,7 +351,7 @@ namespace Models
 
 
   protected:
-    // Information about the physical connection\\"s LOA.
+    // The LOA information of the Express Connect circuit.
     shared_ptr<DescribePhysicalConnectionLOAResponseBody::PhysicalConnectionLOAType> physicalConnectionLOAType_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

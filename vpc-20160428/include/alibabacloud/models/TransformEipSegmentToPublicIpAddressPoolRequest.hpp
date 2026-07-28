@@ -106,7 +106,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID of the IP address pool.
+    // The ID of the resource group to which the IP address pool belongs.
     shared_ptr<string> resourceGroupId_ {};
   };
 

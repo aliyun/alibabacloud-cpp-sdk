@@ -130,23 +130,23 @@ namespace Models
 
 
   protected:
-    // The BGP autonomous system number (ASN) to be configured for the Smart Access Gateway (SAG) device.
+    // The local BGP autonomous system (AS) number to be configured on the Smart Access Gateway device.
     shared_ptr<string> bgpAs_ {};
-    // The peer IP address when the SAG device is connected to the cloud.
+    // The cloud-side IP address used for peering with the Smart Access Gateway device.
     shared_ptr<string> ceIp_ {};
-    // Descriptions of ECC.
+    // The description of the Express Cloud Connection instance.
     shared_ptr<string> description_ {};
-    // The ID of the ECC instance.
+    // The instance ID of the Express Cloud Connection instance.
     // 
     // This parameter is required.
     shared_ptr<string> eccId_ {};
-    // The name of the ECC instance.
+    // The name of the Express Cloud Connection instance.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The on-premises IP address when the SAG device is connected to the cloud.
+    // The local IP address of the Smart Access Gateway device used for peering with the cloud.
     shared_ptr<string> peIp_ {};
-    // The region ID of the ECC instance.
+    // The region ID of the Express Cloud Connection instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

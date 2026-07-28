@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The FULLNAT entry ID.
+    // The ID of the FULLNAT entry.
     shared_ptr<string> fullNatEntryId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

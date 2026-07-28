@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the ECC instance.
+    // The instance ID of the Express Cloud Connection.
     shared_ptr<string> eccId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

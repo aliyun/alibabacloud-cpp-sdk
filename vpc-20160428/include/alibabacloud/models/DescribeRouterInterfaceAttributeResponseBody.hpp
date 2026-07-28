@@ -532,18 +532,20 @@ namespace Models
   protected:
     // The ID of the access point.
     shared_ptr<string> accessPointId_ {};
-    // The bandwidth of the router interface. Unit: Mbit/s.
+    // The bandwidth of the router interface. Unit: Mbps.
     shared_ptr<int32_t> bandwidth_ {};
-    // The status of the router interface. Valid values:
+    // The business status of the router interface. Valid values:
     // 
-    // *   **Normal**
-    // *   **FinancialLocked**
-    // *   **SecurityLocked**
+    // - **Normal**: Normal.
+    // 
+    // - **FinancialLocked**: locked due to overdue payment.
+    // 
+    // - **SecurityLocked**: locked due to security risk control.
     shared_ptr<string> businessStatus_ {};
     // The billing method. Valid values:
     // 
-    // *   **AfterPay**: pay-as-you-go
-    // *   **PrePaid**: subscription
+    // - **AfterPay**: pay-as-you-go.
+    // - **PrePaid**: subscription.
     shared_ptr<string> chargeType_ {};
     // The HTTP status code.
     shared_ptr<string> code_ {};
@@ -553,92 +555,91 @@ namespace Models
     shared_ptr<string> creationTime_ {};
     // Indicates whether the connection is a cross-border connection. Valid values:
     // 
-    // *   **false**
-    // *   **true**
+    // - **false**: The connection is not a cross-border connection.
+    // 
+    // - **true**: The connection is a cross-border connection.
     shared_ptr<bool> crossBorder_ {};
     // The description of the router interface.
     shared_ptr<string> description_ {};
-    // The end of the time range during which data was queried.
+    // The end time of the data retrieval.
     shared_ptr<string> endTime_ {};
-    // Indicates whether the VBR that is created in the Fast Link mode is uplinked to the router interface. The Fast Link mode helps automatically connect router interfaces that are created for the VBR and its peer VPC. Valid values:
+    // Indicates whether the router interface on the VBR was created in fast link mode. Fast link mode allows the router interfaces on the VBR and VPC to be automatically connected after they are created. Valid values:
     // 
-    // *   **true**
-    // *   **false** (default)
+    // - **true**: The router interface was created in fast link mode.
+    // - **false** (default): The router interface was not created in fast link mode.
     // 
-    // > 
     // 
-    // *   This parameter takes effect only when **RouterType** is set to **VBR** and **OppositeRouterType** is set to **VRouter**.
-    // 
-    // *   When **FastLinkMode** is set to **true**, **Role** must be set to **InitiatingSide**. **AccessPointId**, **OppositeRouterType**, **OpppsiteRouterId**, and **OppositeInterfaceOwnerId** are required.
+    // > -  This parameter takes effect only when **RouterType** is set to **VBR** and **OppositeRouterType** is set to **VRouter**.
+    // - When **FastLinkMode** is set to **true**, **Role** must be set to **InitiatingSide**, and **AccessPointId**, **OppositeRouterType**, **OpppsiteRouterId**, and **OppositeInterfaceOwnerId** are required.
     shared_ptr<string> fastLinkMode_ {};
-    // The time when the router interface was modified.
+    // The time when the router interface was last modified.
     shared_ptr<string> gmtModified_ {};
-    // Indicates whether renewal data is included. Valid values:
+    // Indicates whether renewal data exists. Valid values:
     // 
-    // *   **false**
-    // *   **true**
+    // - **false**: No renewal data exists.
+    // 
+    // - **true**: Renewal data exists.
     shared_ptr<string> hasReservationData_ {};
-    // The rate of health checks. Unit: seconds. The value indicates the interval at which probe packets are sent during a health check.
+    // The health check rate. Unit: seconds. This value indicates the interval between consecutive probe packets sent during a health check.
     shared_ptr<int32_t> hcRate_ {};
-    // The healthy threshold. This value indicates the number of probe packets that are sent during a health check. Unit: packets.
+    // The health check threshold. This value indicates the number of probe packets sent during a health check. Unit: packets.
     shared_ptr<int32_t> hcThreshold_ {};
-    // The source IP address that is used for the health check.
+    // The source IP address of the health check.
     shared_ptr<string> healthCheckSourceIp_ {};
-    // The status of the health check. Valid values:
+    // The health check status. Valid values:
     // 
-    // *   **Abnormal**
-    // *   **Normal**
-    // *   **NoRedundantRoute**
-    // *   **NoHealthCheckConfig**
+    // - **Abnormal**: abnormal.
+    // - **Normal**: Normal.
+    // - **NoRedundantRoute**: no redundant route configured.
+    // - **NoHealthCheckConfig**: no health check configured.
     shared_ptr<string> healthCheckStatus_ {};
-    // The destination IP address that is used for the health check.
+    // The target IP address of the health check.
     shared_ptr<string> healthCheckTargetIp_ {};
-    // The response parameters.
+    // The response message.
     shared_ptr<string> message_ {};
     // The name of the router interface.
     shared_ptr<string> name_ {};
     // The ID of the peer access point.
     shared_ptr<string> oppositeAccessPointId_ {};
-    // The maximum bandwidth of the peer router interface. Unit: Mbit/s.
+    // The bandwidth of the peer router interface. Unit: Mbps.
     shared_ptr<int32_t> oppositeBandwidth_ {};
-    // The service status of the peer router interface. Valid values:
-    // 
-    // *   **Normal**
-    // *   **FinancialLocked**
-    // *   **SecurityLocked**
+    // The business status of the peer router interface. Valid values:
+    // - **Normal**: Normal.
+    // - **FinancialLocked**: locked due to overdue payment.
+    // - **SecurityLocked**: locked due to security risk control.
     shared_ptr<string> oppositeInterfaceBusinessStatus_ {};
     // The ID of the peer router interface.
     shared_ptr<string> oppositeInterfaceId_ {};
-    // The ID of the Alibaba Cloud account to which the peer router interface belongs.
+    // The ID of the account to which the peer router interface belongs.
     shared_ptr<string> oppositeInterfaceOwnerId_ {};
     // The specification of the peer router interface. Valid values:
     // 
-    // *   **Mini.2**: 2 Mbit/s
-    // *   **Mini.5**: 5 Mbit/s
-    // *   **Small.1**: 10 Mbit/s
-    // *   **Small.2**: 20 Mbit/s
-    // *   **Small.5**: 50 Mbit/s
-    // *   **Middle.1**: 100 Mbit/s
-    // *   **Middle.2**: 200 Mbit/s
-    // *   **Middle.5**: 500 Mbit/s
-    // *   **Large.1**: 1,000 Mbit/s
-    // *   **Large.2**: 2,000 Mbit/s
-    // *   **Large.5**: 5,000 Mbit/s
-    // *   **Xlarge.1**: 10,000 Mbit/s
-    // *   **Negative**: not applicable
+    // - **Mini.2**: 2 Mbps
+    // - **Mini.5**: 5 Mbps
+    // - **Small.1**: 10 Mbps
+    // - **Small.2**: 20 Mbps
+    // - **Small.5**: 50 Mbps
+    // - **Middle.1**: 100 Mbps
+    // - **Middle.2**: 200 Mbps
+    // - **Middle.5**: 500 Mbps
+    // - **Large.1**: 1000 Mbps
+    // - **Large.2**: 2000 Mbps
+    // - **Large.5**: 5000 Mbps
+    // - **Xlarge.1**: 10000 Mbps
+    // - **Negative**: no specification involved.
     shared_ptr<string> oppositeInterfaceSpec_ {};
     // The status of the peer router interface. Valid values:
     // 
-    // *   **Idle**
-    // *   **AcceptingConnecting**
-    // *   **Connecting**
-    // *   **Activating**
-    // *   **Active**
-    // *   **Modifying**
-    // *   **Deactivating**
-    // *   **Inactive**
-    // *   **Deleting**
-    // *   **Deleted**
+    // - **Idle**: not connected.
+    // - **AcceptingConnecting**: accepting a connection.
+    // - **Connecting**: connecting.
+    // - **Activating**: being activated.
+    // - **Active**: activated.
+    // - **Modifying**: being modified.
+    // - **Deactivating**: being frozen.
+    // - **Inactive**: frozen.
+    // - **Deleting**: being deleted.
+    // - **Deleted**: deleted.
     shared_ptr<string> oppositeInterfaceStatus_ {};
     // The region ID of the peer router interface.
     shared_ptr<string> oppositeRegionId_ {};
@@ -646,26 +647,26 @@ namespace Models
     shared_ptr<string> oppositeRouterId_ {};
     // The type of the router to which the peer router interface belongs. Valid values:
     // 
-    // *   **VRouter**
-    // *   **VBR**
+    // - **VRouter**: vRouter of a VPC.
+    // - **VBR**: Virtual Border Router.
     shared_ptr<string> oppositeRouterType_ {};
     // The ID of the peer VPC.
     shared_ptr<string> oppositeVpcInstanceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The time when the renewal takes effect.
+    // The renewal active time.
     shared_ptr<string> reservationActiveTime_ {};
-    // The maximum bandwidth after the renewal takes effect. Unit: Mbit/s.
+    // The renewal bandwidth. Unit: Mbps.
     shared_ptr<string> reservationBandwidth_ {};
-    // The metering method that is used after the renewal takes effect. Valid values: If **PayByBandwidth** is returned, it indicates that the Express Connect circuit is billed on a pay-by-bandwidth basis.
+    // The renewal billing type. Valid values: **PayByBandwidth**, which indicates pay-by-bandwidth.
     shared_ptr<string> reservationInternetChargeType_ {};
-    // The type of the renewal order. Only **RENEW** may be returned, which indicates that the order is placed for service renewal.
+    // The type of the renewal order. Valid values: **RENEW**, which indicates a renewal order.
     shared_ptr<string> reservationOrderType_ {};
     // The resource group ID.
     // 
-    // For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/94475.html)
+    // For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/2381067.html).
     shared_ptr<string> resourceGroupId_ {};
-    // The role of the router interface in the peering connection.
+    // The role in the peering connection.
     shared_ptr<string> role_ {};
     // The ID of the router to which the router interface belongs.
     shared_ptr<string> routerId_ {};
@@ -673,40 +674,41 @@ namespace Models
     shared_ptr<string> routerInterfaceId_ {};
     // The type of the router to which the route table belongs. Valid values:
     // 
-    // *   **VRouter**
-    // *   **VBR**
+    // - **VRouter**: vRouter of a VPC.
+    // 
+    // - **VBR**: Virtual Border Router.
     shared_ptr<string> routerType_ {};
     // The specification of the router interface. Valid values:
     // 
-    // *   **Mini.2**: 2 Mbit/s
-    // *   **Mini.5**: 5 Mbit/s
-    // *   **Small.1**: 10 Mbit/s
-    // *   **Small.2**: 20 Mbit/s
-    // *   **Small.5**: 50 Mbit/s
-    // *   **Middle.1**: 100 Mbit/s
-    // *   **Middle.2**: 200 Mbit/s
-    // *   **Middle.5**: 500 Mbit/s
-    // *   **Large.1**: 1,000 Mbit/s
-    // *   **Large.2**: 2,000 Mbit/s
-    // *   **Large.5**: 5,000 Mbit/s
-    // *   **Xlarge.1**: 10,000 Mbit/s
+    // - **Mini.2**: 2 Mbps
+    // - **Mini.5**: 5 Mbps
+    // - **Small.1**: 10 Mbps
+    // - **Small.2**: 20 Mbps
+    // - **Small.5**: 50 Mbps
+    // - **Middle.1**: 100 Mbps
+    // - **Middle.2**: 200 Mbps
+    // - **Middle.5**: 500 Mbps
+    // - **Large.1**: 1000 Mbps
+    // - **Large.2**: 2000 Mbps
+    // - **Large.5**: 5000 Mbps
+    // - **Xlarge.1**: 10000 Mbps
     shared_ptr<string> spec_ {};
     // The status of the router interface. Valid values:
     // 
-    // *   **Idle**
-    // *   **AcceptingConnecting**
-    // *   **Connecting**
-    // *   **Activating**
-    // *   **Active**
-    // *   **Modifying**
-    // *   **Deactivating**
-    // *   **Inactive**
-    // *   **Deleting**
+    // - **Idle**: not connected.
+    // - **AcceptingConnecting**: accepting a connection.
+    // - **Connecting**: connecting.
+    // - **Activating**: being activated.
+    // - **Active**: activated.
+    // - **Modifying**: being modified.
+    // - **Deactivating**: being frozen.
+    // - **Inactive**: frozen.
+    // - **Deleting**: being deleted.
     shared_ptr<string> status_ {};
-    // Indicates whether the request is successful. Valid values: true and false.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
     shared_ptr<DescribeRouterInterfaceAttributeResponseBody::Tags> tags_ {};
-    // The ID of the virtual private cloud (VPC) to which the router interface belongs.
+    // The ID of the virtual private cloud (VPC) to which the routing interface belongs.
     shared_ptr<string> vpcInstanceId_ {};
   };
 

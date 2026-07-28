@@ -90,9 +90,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N added to the resource.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of tag N added to the resource.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -189,22 +189,27 @@ namespace Models
 
 
   protected:
-    // The time when the endpoint was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+    // The time when the gateway endpoint was created. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
     shared_ptr<string> creationTime_ {};
     // The description of the gateway endpoint.
     shared_ptr<string> endpointDescription_ {};
-    // The ID of the gateway endpoint.
+    // The endpoint instance ID of the gateway endpoint.
     shared_ptr<string> endpointId_ {};
     // The name of the gateway endpoint.
     shared_ptr<string> endpointName_ {};
     // The status of the gateway endpoint. Valid values:
     // 
-    // *   **Creating**
-    // *   **Created**
-    // *   **Modifying**
-    // *   **Associating**
-    // *   **Dissociating**
-    // *   **Deleting**
+    // - **Creating**: being created.
+    // 
+    // - **Created**: created and in a normal state.
+    // 
+    // - **Modifying**: being modified.
+    // 
+    // - **Associating**: being associated.
+    // 
+    // - **Dissociating**: being disassociated.
+    // 
+    // - **Deleting**: being deleted.
     shared_ptr<string> endpointStatus_ {};
     // The access policy for the cloud service.
     shared_ptr<string> policyDocument_ {};
@@ -212,13 +217,13 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The ID of the resource group to which the gateway endpoint belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The ID of the route table associated with the gateway endpoint.
+    // The IDs of the route tables associated with the gateway endpoint.
     shared_ptr<vector<string>> routeTables_ {};
-    // The name of the endpoint service.
+    // The service name of the endpoint service.
     shared_ptr<string> serviceName_ {};
-    // The tag list.
+    // The list of tags.
     shared_ptr<vector<GetVpcGatewayEndpointAttributeResponseBody::Tags>> tags_ {};
-    // The ID of the virtual private cloud (VPC) to which the gateway endpoint belongs.
+    // The ID of the VPC to which the gateway endpoint belongs.
     shared_ptr<string> vpcId_ {};
   };
 

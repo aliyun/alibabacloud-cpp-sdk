@@ -195,12 +195,12 @@ namespace Models
 
 
     protected:
-      // The type of resource to which the IPsec-VPN connection is attached. The value is **CEN**, which indicates that the IPsec-VPN connection is associated with a transit router instance.
+      // The type of resource to which the IPsec-VPN connection is associated. The value is **CEN**, which indicates that the IPsec-VPN connection is associated with a transit router instance.
       shared_ptr<string> attachType_ {};
       // Indicates whether the IPsec-VPN connection is associated with a transit router instance that belongs to a different Alibaba Cloud account.
       // 
-      // - **true**: yes.
-      // - **false**: no.
+      // - **true**: Yes.
+      // - **false**: No.
       shared_ptr<bool> crossAccountAuthorized_ {};
       // The description of the IPsec-VPN connection.
       shared_ptr<string> description_ {};
@@ -210,21 +210,21 @@ namespace Models
       shared_ptr<string> name_ {};
       // The system tags of the IPsec-VPN connection.
       // 
-      // You can use system tags to check whether the IPsec-VPN connection supports BGP. You do not need to pay attention to other properties.
+      // You can use system tags to check whether the IPsec-VPN connection supports BGP. You can ignore other properties.
       // 
       // **BGPSupport**: indicates whether the IPsec-VPN connection supports BGP.
-      //    - **true**: supported.
-      //    - **false**: not supported.
+      //    - **true**: Supported.
+      //    - **false**: Not supported.
       shared_ptr<string> tag_ {};
-      // The list of tags that are attached to the IPsec-VPN connection.
+      // The list of tags associated with the IPsec-VPN connection.
       shared_ptr<vector<VpnAttachments::Tags>> tags_ {};
-      // The ID of the transit routing instance to which the IPsec-VPN connection is attached.
+      // The instance ID of the forward routing vRouter to which the IPsec-VPN connection is attached.
       shared_ptr<string> transitRouterId_ {};
       // The name of the transit router instance.
       shared_ptr<string> transitRouterName_ {};
       // The bandwidth specification of a single VPN tunnel. Valid values:
-      // Standard (default): standard. The default bandwidth is 1 Gbit/s.
-      // Large: large. The default bandwidth is 3 Gbit/s.
+      // Standard (default): standard. The default bandwidth is 1 Gbps.
+      // Large: large. The default bandwidth is 3 Gbps.
       shared_ptr<string> tunnelBandwidth_ {};
     };
 
@@ -268,15 +268,15 @@ namespace Models
 
 
   protected:
-    // The page number of the list.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page when paging is used.
+    // The number of entries per page in paging queries.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of IPsec-VPN connections that are associated with transit router instances.
+    // The list of IPsec-VPN connections associated with transit router instances.
     shared_ptr<vector<DescribeVpnAttachmentsResponseBody::VpnAttachments>> vpnAttachments_ {};
   };
 

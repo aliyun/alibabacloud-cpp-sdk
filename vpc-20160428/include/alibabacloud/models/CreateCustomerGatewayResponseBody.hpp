@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // The timestamp generated when the customer gateway was created. Unit: milliseconds.
+    // The timestamp when the customer gateway was created. Unit: milliseconds.
     // 
-    // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+    // The timestamp is in the UNIX format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> createTime_ {};
-    // The ID of the customer gateway.
+    // The instance ID of the customer gateway instance.
     shared_ptr<string> customerGatewayId_ {};
     // The description of the customer gateway.
     shared_ptr<string> description_ {};

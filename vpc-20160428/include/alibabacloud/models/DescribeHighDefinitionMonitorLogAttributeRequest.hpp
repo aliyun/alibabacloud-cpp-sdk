@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The ID of the instance whose fine-grained monitoring configurations you want to query.
+    // The instance ID for which you want to query high-precision second-level monitoring.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -104,7 +104,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the instance.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

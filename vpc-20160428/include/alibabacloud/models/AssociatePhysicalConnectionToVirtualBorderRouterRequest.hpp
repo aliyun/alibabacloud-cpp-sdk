@@ -186,64 +186,67 @@ namespace Models
 
 
   protected:
-    // The circuit code of the Express Connect circuit. The circuit code is provided by the connectivity provider.
+    // The circuit code provided by the carrier for the Express Connect circuit. 
     // 
-    // >  Only the Express Connect circuit owner can specify this parameter.
+    // > Only the owner of the Express Connect circuit can specify this parameter.
     shared_ptr<string> circuitCode_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client generates the value of this parameter. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to enable IPv6. Valid values:
     // 
-    // *   **true**
-    // *   **false** (default)
+    // - **true**: Enabled.
+    // 
+    // - **false** (default): Disabled.
     shared_ptr<string> enableIpv6_ {};
-    // The IP address of the gateway device on the Alibaba Cloud side.
+    // The Alibaba Cloud-side IP address of the VBR instance.
     shared_ptr<string> localGatewayIp_ {};
-    // The IPv6 address of the gateway device on the Alibaba Cloud side.
+    // The Alibaba Cloud-side IPv6 address of the VBR instance.
     shared_ptr<string> localIpv6GatewayIp_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The IP address of the gateway device on the user side.
+    // The client-side IP address of the VBR instance.
     // 
-    // *   Only the owner of the VBR can set or modify this parameter.
-    // *   When you create a VBR for the owner of the Express Connect circuit, this parameter is required.
+    // - Only the VBR owner can specify or modify this property.
+    // 
+    // - This parameter is required when you create a VBR instance for the Express Connect circuit owner.
     shared_ptr<string> peerGatewayIp_ {};
-    // The IPv6 address of the gateway device in the data center.
+    // The client-side IPv6 address of the VBR instance.
     // 
-    // *   Only the owner of the VBR can specify or modify this parameter.
-    // *   When you create a VBR for the owner of the Express Connect circuit, this parameter is required.
+    // - Only the VBR owner can specify or modify this property.
+    // 
+    // - This parameter is required when you create a VBR instance for the Express Connect circuit owner.
     shared_ptr<string> peerIpv6GatewayIp_ {};
-    // The subnet mask of the IPv6 addresses of the gateway devices on the user side and Alibaba Cloud side.
+    // The subnet mask for the Alibaba Cloud-side and client-side IPv6 addresses of the VBR instance.
     // 
-    // The two IPv6 addresses must fall within the same subnet.
+    // The two IPv6 addresses must be in the same subnet.
     shared_ptr<string> peeringIpv6SubnetMask_ {};
-    // The subnet mask of the IP addresses of the VBR and the gateway device in the data center.
+    // The subnet mask for the Alibaba Cloud-side and client-side IP addresses of the VBR instance.
     // 
-    // The two IP addresses must fall within the same subnet.
+    // The two IP addresses must be in the same subnet.
     shared_ptr<string> peeringSubnetMask_ {};
-    // The ID of the Express Connect circuit.
+    // The Express Connect circuit instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> physicalConnectionId_ {};
     // The region ID of the Express Connect circuit.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the VBR.
+    // The VBR instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> vbrId_ {};
-    // The VLAN ID of the VBR. Valid values: **0 to 2999**.
+    // The VLAN ID of the VBR. Valid values: **0 to 2999**. 
     // 
-    // >  Only the Express Connect circuit owner can specify this parameter. Two VBRs associated with the same Express Connect circuit cannot use the same VLAN ID.
+    // > Only the owner of the Express Connect circuit can specify this parameter. The VLAN IDs of two VBRs on the same Express Connect circuit must be different.
     // 
     // This parameter is required.
     shared_ptr<string> vlanId_ {};

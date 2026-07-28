@@ -103,20 +103,22 @@ namespace Models
 
 
   protected:
-    // The IP version. Valid values:
+    // The version of the IP protocol. Valid values:
     // 
-    // *   **IPv4** (default)
-    // *   **IPv6**
+    // - **ipv4** (default): IPv4.
+    // 
+    // - **ipv6**: IPv6.
     shared_ptr<string> ipVersion_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: **1**.
+    // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query.
     // 
     // Valid values: **1** to **100**. Default value: **100**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region that you want to query. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The region to query.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

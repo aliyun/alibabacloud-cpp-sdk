@@ -104,13 +104,13 @@ namespace Models
 
 
     protected:
-      // The key of the tag. Up to 20 tag keys are supported. If you need to pass this value, it cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // A tag key can have up to 128 characters and cannot start with `aliyun` or `acs:`. It also cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of the tag. Up to 20 tag values are supported. If you need to pass this value, it can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
-      // A tag value can have up to 128 characters and cannot start with `aliyun` or `acs:`. It also cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -257,54 +257,62 @@ namespace Models
   protected:
     // The description of the flow log.
     // 
-    // The description must be 1 to 256 characters long and cannot start with `http://` or `https://`.
+    // The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
     // The ID of the flow log.
     shared_ptr<string> flowLogId_ {};
     // The name of the flow log.
     // 
-    // The name must be 1 to 128 characters long and cannot start with `http://` or `https://`.
+    // The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> flowLogName_ {};
-    // The Logstore that stores the captured traffic.
+    // The name of the Logstore that stores the captured traffic.
     shared_ptr<string> logStoreName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number, with a default value of **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of items per page in a paginated query, with a maximum value of **50** and a default value of **20**.
+    // The number of entries per page in paging queries. Maximum value: **50**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The Project that manages the captured traffic.
+    // The name of the project that manages the captured traffic.
     shared_ptr<string> projectName_ {};
     // The region ID of the flow log.
     // 
-    // You can obtain the region ID by calling the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) interface.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID of the flow log.
+    // The ID of the resource group to which the flow log belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The resource ID of the traffic to capture.
+    // The ID of the resource whose traffic you want to capture.
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The resource type of the traffic to capture. Values:
-    // - **NetworkInterface**: Elastic Network Interface (ENI).
-    // - **VSwitch**: All ENIs within a VSwitch.
-    // - **VPC**: All ENIs within a VPC.
+    // The resource type of the traffic to catch. Valid values:
+    //           
+    // - **NetworkInterface**: network interface controller (NIC).
+    //   
+    // - **VSwitch**: all network interface controllers (NICs) in a vSwitch.
+    //   
+    // - **VPC**: all network interface controllers (NICs) in a virtual private cloud (VPC).
     shared_ptr<string> resourceType_ {};
-    // The status of the flow log. Values:
-    // - **Active**: The flow log is in an active state.
+    // The status of the flow log. Valid values:
+    // - **Active**: The flow log is active.
+    // 
     // - **Activating**: The flow log is being created.
-    // - **Inactive**: The flow log is in an inactive state.
+    // 
+    // - **Inactive**: The flow log is inactive.
     shared_ptr<string> status_ {};
     // The list of tags.
     shared_ptr<vector<DescribeFlowLogsRequest::Tags>> tags_ {};
-    // The type of traffic to collect. Values:
-    // - **All**: All traffic.
-    // - **Allow**: Traffic allowed by access control.
-    // - **Drop**: Traffic denied by access control.
+    // The traffic type to collect. Valid values:
+    //           
+    // - **All**: all traffic.
+    //   
+    // - **Allow**: traffic allowed by access control.
+    //   
+    // - **Drop**: traffic denied by access control.
     shared_ptr<string> trafficType_ {};
-    // The ID of the VPC for which you want to view the flow log.
+    // The ID of the VPC for which you want to query flow logs.
     shared_ptr<string> vpcId_ {};
   };
 

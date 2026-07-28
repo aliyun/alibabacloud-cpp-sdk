@@ -105,16 +105,16 @@ namespace Models
     protected:
       // The default access policy.
       shared_ptr<string> defaultPolicyDocument_ {};
-      // The domain name of the cloud service to which the endpoint service belongs.
+      // The domain name of the cloud service associated with the endpoint service in the queried region.
       shared_ptr<string> serviceDomain_ {};
-      // The ID of the endpoint service.
+      // The instance ID of the endpoint service.
       shared_ptr<string> serviceId_ {};
       // The name of the endpoint service.
       shared_ptr<string> serviceName_ {};
-      // Indicate whether the endpoint service supports the access policy. Valid values:
+      // Indicates whether the endpoint service supports access policies. Valid values:
       // 
-      // *   **false**
-      // *   **true**
+      // - **false**: Access policies are not supported.
+      // - **true**: Access policies are supported.
       shared_ptr<bool> supportPolicy_ {};
     };
 
@@ -158,16 +158,15 @@ namespace Models
 
 
   protected:
-    // The number of entries returned per page.
+    // The number of entries per page in a paged query.
     shared_ptr<int64_t> maxResults_ {};
-    // The token that is used for the next query. Valid values:
-    // 
-    // *   If no value is returned for **NextToken**, no next queries are sent.
-    // *   If **NextToken** is returned, the value is the token that is used for the next query.
+    // The token for the next query. Valid values:
+    // - If **NextToken** is empty, no next query exists.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of entries returned.
+    // The list of available endpoint services.
     shared_ptr<vector<ListVpcEndpointServicesByEndUserResponseBody::Services>> services_ {};
     // The total number of entries returned.
     shared_ptr<string> totalCount_ {};

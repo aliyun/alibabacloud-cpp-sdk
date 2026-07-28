@@ -142,15 +142,15 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate a token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the value of RequestId as the client token. The value of RequestId is different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
     shared_ptr<string> clientToken_ {};
     // The description of the egress-only rule.
     // 
     // The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // A dry run of the request without actually executing it.
+    // Specifies whether to perform a dry run without performing the actual request.
     shared_ptr<bool> dryRun_ {};
     // The ID of the IPv6 address for which you want to create an egress-only rule.
     // 
@@ -158,9 +158,9 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The type of the instance for which you want to create an egress-only rule.
     // 
-    // Default value: **Ipv6Address**
+    // Set the value to **Ipv6Address** (default), which indicates the IPv6 address type.
     shared_ptr<string> instanceType_ {};
-    // The ID of the IPv6 gateway.
+    // The instance ID of the IPv6 gateway.
     // 
     // This parameter is required.
     shared_ptr<string> ipv6GatewayId_ {};
@@ -170,7 +170,7 @@ namespace Models
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region in which the IPv6 gateway is deployed.
+    // The region ID of the IPv6 gateway.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 

@@ -86,9 +86,9 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the IPsec-VPN connection is created.
+    // The region ID of the IPsec-VPN connection. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

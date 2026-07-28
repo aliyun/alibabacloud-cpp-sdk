@@ -87,17 +87,17 @@ namespace Models
 
 
     protected:
-      // The number of route entries.
+      // The number of routes.
       shared_ptr<int32_t> routeCount_ {};
-      // The route type. Valid values:
+      // The type of the route. Valid values:
       // 
-      // *   **custom**: destination-based route.
-      // *   **bgp**: BGP route.
+      // - **custom**: destination route.
+      // - **bgp**: BGP route.
       shared_ptr<string> routeEntryType_ {};
       // The source of the BGP route. Valid values:
       // 
-      // *   **CLOUD**: The current BGP route is learned by the IPsec connection from the transit router.
-      // *   **VPN_BGP**: The current BGP route is learned by the IPsec connection from the data center.
+      // - **CLOUD**: The BGP route is learned by the IPsec-VPN connection from the transit router.
+      // - **VPN_BGP**: The BGP route is learned by the IPsec-VPN connection from the on-premises data center.
       shared_ptr<string> source_ {};
     };
 
@@ -223,43 +223,43 @@ namespace Models
 
 
     protected:
-      // The list of autonomous system (AS) numbers that the BGP route goes through.
+      // The list of autonomous system (AS) numbers that the BGP route passes through.
       shared_ptr<string> asPath_ {};
       // The community value carried by the BGP route.
       shared_ptr<string> community_ {};
-      // The timestamp when the route was created.
+      // The timestamp when the destination route was created.
       // 
-      // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+      // The timestamp is in the Unix format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
       shared_ptr<int64_t> createTime_ {};
       // The next hop of the route.
       shared_ptr<string> nextHop_ {};
-      // The list of next hops.
+      // The list of next-hop tunnels.
       // 
-      // > - This parameter is returned only by dual-tunnel IPsec connections.
-      // > - This parameter is returned only when the tunnel status is **Phase 2 Negotiation Successful**.
+      // > - This information is returned only for IPsec-VPN connections in dual-tunnel mode.
+      // > - Tunnel information is returned only when the tunnel status is **Phase 2 negotiations succeeded**.
       shared_ptr<vector<string>> nextHopTunnelIdList_ {};
       // The destination CIDR block of the route.
       shared_ptr<string> routeDest_ {};
-      // The route type. Valid values:
+      // The type of the route. Valid values:
       // 
-      // *   **custom**: a destination-based route
-      // *   **bgp**: a BGP route
+      // - **custom**: destination route.
+      // - **bgp**: BGP route.
       shared_ptr<string> routeEntryType_ {};
       // The source of the BGP route. Valid values:
       // 
-      // *   **CLOUD**: indicates that the current BGP route is learned by the IPsec-VPN connection from the transit router.
-      // *   **VPN_BGP**: indicates that the current BGP route is learned by the IPsec-VPN connection from the data center.
+      // - **CLOUD**: The BGP route is learned by the IPsec-VPN connection from the transit router.
+      // - **VPN_BGP**: The BGP route is learned by the IPsec-VPN connection from the on-premises data center.
       shared_ptr<string> source_ {};
-      // The status of the route.
+      // The status of the route. Valid values:
       // 
-      // *   **published**: indicates that the current route is advertised to the transit router.
-      // *   **Active**: indicates that the current BGP route is available.
+      // - **published**: The destination route is published to the transit router instance.
+      // - **Active**: The BGP route is available.
       shared_ptr<string> state_ {};
       // The ID of the IPsec-VPN connection.
       shared_ptr<string> vpnConnectionId_ {};
-      // The weight of the destination-based route.
+      // The weight of the destination route.
       // 
-      // >  The current parameter has no effect.
+      // > This parameter is not in use.
       shared_ptr<int32_t> weight_ {};
     };
 
@@ -312,19 +312,19 @@ namespace Models
 
 
   protected:
-    // The number of the returned page.
+    // The page number of the list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page for paging queries.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of entries returned.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of route entries.
+    // The list of routes.
     shared_ptr<vector<DescribeVcoRouteEntriesResponseBody::VcoRouteEntries>> vcoRouteEntries_ {};
-    // The information on route entries of the dual-tunnel IPsec connection.
+    // The route statistics of the IPsec-VPN connection in dual-tunnel mode.
     // 
-    // >  This parameter is returned only for IPsec connections in dual-tunnel mode.
+    // > This information is returned only for IPsec-VPN connections in dual-tunnel mode.
     shared_ptr<vector<DescribeVcoRouteEntriesResponseBody::VpnRouteCounts>> vpnRouteCounts_ {};
   };
 

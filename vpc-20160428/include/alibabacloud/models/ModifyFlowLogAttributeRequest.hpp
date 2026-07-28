@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FlowLogId, flowLogId_);
       DARABONBA_PTR_TO_JSON(FlowLogName, flowLogName_);
       DARABONBA_PTR_TO_JSON(IpVersion, ipVersion_);
+      DARABONBA_PTR_TO_JSON(LogFormat, logFormat_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FlowLogId, flowLogId_);
       DARABONBA_PTR_FROM_JSON(FlowLogName, flowLogName_);
       DARABONBA_PTR_FROM_JSON(IpVersion, ipVersion_);
+      DARABONBA_PTR_FROM_JSON(LogFormat, logFormat_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aggregationInterval_ == nullptr
-        && this->description_ == nullptr && this->flowLogId_ == nullptr && this->flowLogName_ == nullptr && this->ipVersion_ == nullptr && this->ownerAccount_ == nullptr
-        && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+        && this->description_ == nullptr && this->flowLogId_ == nullptr && this->flowLogName_ == nullptr && this->ipVersion_ == nullptr && this->logFormat_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // aggregationInterval Field Functions 
     bool hasAggregationInterval() const { return this->aggregationInterval_ != nullptr;};
     void deleteAggregationInterval() { this->aggregationInterval_ = nullptr;};
@@ -83,6 +85,13 @@ namespace Models
     void deleteIpVersion() { this->ipVersion_ = nullptr;};
     inline string getIpVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
     inline ModifyFlowLogAttributeRequest& setIpVersion(string ipVersion) { DARABONBA_PTR_SET_VALUE(ipVersion_, ipVersion) };
+
+
+    // logFormat Field Functions 
+    bool hasLogFormat() const { return this->logFormat_ != nullptr;};
+    void deleteLogFormat() { this->logFormat_ = nullptr;};
+    inline string getLogFormat() const { DARABONBA_PTR_GET_DEFAULT(logFormat_, "") };
+    inline ModifyFlowLogAttributeRequest& setLogFormat(string logFormat) { DARABONBA_PTR_SET_VALUE(logFormat_, logFormat) };
 
 
     // ownerAccount Field Functions 
@@ -127,7 +136,7 @@ namespace Models
     // 
     // The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The ID of the flow log.
+    // The flow log ID.
     // 
     // This parameter is required.
     shared_ptr<string> flowLogId_ {};
@@ -135,16 +144,14 @@ namespace Models
     // 
     // The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> flowLogName_ {};
-    // The version of the IP address. Valid values:
-    // 
-    // *   **IPV4**: the IPv4 address.
-    // *   **DualStack**: includes IPv4 and IPv6 address
+    // The IP address version of the traffic captured by the flow log.
     shared_ptr<string> ipVersion_ {};
+    shared_ptr<string> logFormat_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the flow log is created.
+    // The region ID of the flow log.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

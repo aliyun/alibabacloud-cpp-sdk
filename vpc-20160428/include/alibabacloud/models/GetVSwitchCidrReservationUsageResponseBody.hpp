@@ -112,15 +112,15 @@ namespace Models
 
 
     protected:
-      // The CIDR block allocated to the ENI from the reserved CIDR block.
+      // The prefix CIDR block allocated from the current reserved CIDR block for a vSwitch to an elastic network interface (ENI).
       shared_ptr<string> ipPrefixCidr_ {};
-      // The ID of the reserved CIDR block.
+      // The instance ID of the reserved CIDR block allocated by prefix.
       shared_ptr<string> ipPrefixId_ {};
-      // The ID of the elastic network interface (ENI) whose CIDR block is allocated from the reserved CIDR block.
+      // The instance ID of the elastic network interface (ENI) allocated from the reserved CIDR block for a vSwitch.
       shared_ptr<string> resourceId_ {};
-      // The type of the resource to which a CIDR block is allocated from the reserved CIDR block. Only **NetworkInterface** may be returned, which indicates an ENI.
+      // The instance type allocated from the reserved CIDR block for a vSwitch. Valid values: **NetworkInterface**, which indicates an elastic network interface (ENI).
       shared_ptr<string> resourceType_ {};
-      // The ID of the reserved CIDR block.
+      // The instance ID of the reserved CIDR block for a vSwitch.
       shared_ptr<string> vSwitchCidrReservationId_ {};
       // The ID of the vSwitch to which the reserved CIDR block belongs.
       shared_ptr<string> vSwitchId_ {};
@@ -166,14 +166,13 @@ namespace Models
 
 
   protected:
-    // A list of reserved CIDR blocks that are in use.
+    // The list of allocated reserved CIDR blocks for a vSwitch.
     shared_ptr<vector<GetVSwitchCidrReservationUsageResponseBody::CidrReservationUsages>> cidrReservationUsages_ {};
-    // The number of entries to return per page.
+    // The number of entries per page in a paged query.
     shared_ptr<int64_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+    // The pagination token. Valid values:
+    // - If **NextToken** is empty, no subsequent query exists.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

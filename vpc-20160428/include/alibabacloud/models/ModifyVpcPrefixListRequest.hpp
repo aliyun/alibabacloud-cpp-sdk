@@ -92,9 +92,9 @@ namespace Models
 
 
     protected:
-      // The CIDR block that you want to delete from the prefix list.
+      // The Classless Inter-Domain Routing block to delete from the prefix list instance.
       shared_ptr<string> cidr_ {};
-      // The description of the CIDR block that you want to delete.
+      // The description of the Classless Inter-Domain Routing block to delete from the prefix list.
       shared_ptr<string> description_ {};
     };
 
@@ -136,13 +136,13 @@ namespace Models
 
 
     protected:
-      // The CIDR block to be added to the prefix list.
+      // The Classless Inter-Domain Routing block to add to the prefix list instance.
       // 
-      // >  If the CIDR block already exists in the prefix list, you can only modify the description of the CIDR block by setting the **AddPrefixListEntry.N.Description** parameter.
+      // > If the Classless Inter-Domain Routing block already exists in the prefix list, only the value of **AddPrefixListEntry.N.Description** is modified, which means only the description of the Classless Inter-Domain Routing block is updated.
       shared_ptr<string> cidr_ {};
-      // The description of the CIDR block to be added to the prefix list.
+      // The description of the Classless Inter-Domain Routing block to add to the prefix list instance.
       // 
-      // The description must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+      // The description must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
       shared_ptr<string> description_ {};
     };
 
@@ -246,40 +246,39 @@ namespace Models
 
 
   protected:
-    // The information about CIDR blocks to be added to the prefix list.
+    // The list of Classless Inter-Domain Routing blocks to add to the prefix list instance.
     shared_ptr<vector<ModifyVpcPrefixListRequest::AddPrefixListEntry>> addPrefixListEntry_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to only precheck the request. Valid values:
-    // 
-    // *   **true**: checks the request without performing the operation. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-    // *   **false** (default): sends the request. If the request passes the check, a 2xx HTTP status code is returned and the operation is performed.
+    // Specifies whether to perform a dry run. Valid values:
+    // - **true**: performs a dry run without modifying the prefix list configuration. The system checks the required parameters, request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+    // - **false** (default): performs a dry run and sends the request. If the check succeeds, an HTTP 2xx status code is returned and the prefix list configuration is modified.
     shared_ptr<bool> dryRun_ {};
-    // The maximum number of CIDR blocks supported by the prefix list after the configuration of the prefix list is modified.
+    // The new maximum number of Classless Inter-Domain Routing block entries in the prefix list instance.
     shared_ptr<int32_t> maxEntries_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The new description of the prefix list.
     // 
-    // The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
+    // The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> prefixListDescription_ {};
-    // The ID of the prefix list.
+    // The instance ID of the prefix list that you want to modify.
     // 
     // This parameter is required.
     shared_ptr<string> prefixListId_ {};
     // The new name of the prefix list.
     // 
-    // The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+    // The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> prefixListName_ {};
-    // The region ID of the prefix list.
+    // The region ID of the prefix list that you want to modify.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The information about CIDR blocks to be deleted to the prefix list.
+    // The list of Classless Inter-Domain Routing blocks to delete from the prefix list instance.
     shared_ptr<vector<ModifyVpcPrefixListRequest::RemovePrefixListEntry>> removePrefixListEntry_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

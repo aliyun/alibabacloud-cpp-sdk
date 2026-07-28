@@ -92,13 +92,13 @@ namespace Models
 
 
     protected:
-      // The key of tag N added to the resource. You can specify at most 20 tag keys. It cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // The key cannot exceed 64 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
+      // The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of tag N added to the resource. You can specify at most 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
-      // The tag value cannot exceed 128 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -200,24 +200,23 @@ namespace Models
 
 
   protected:
-    // The ID of the gateway endpoint.
+    // The endpoint instance ID of the gateway endpoint.
     shared_ptr<string> endpointId_ {};
     // The name of the gateway endpoint.
     // 
     // The name must be 1 to 128 characters in length.
     shared_ptr<string> endpointName_ {};
-    // The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   You do not need to specify this parameter for the first request.
-    // *   If a value is returned for NextToken, specify the value in the next request to retrieve a new page of results.
+    // Specifies whether a next query token is available. Valid values:
+    // - Leave this parameter empty for the first query or when no more results are available.
+    // - If more results are available, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the gateway endpoint.
+    // The region ID of the gateway endpoint that you want to query.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -225,11 +224,11 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The name of the endpoint service.
+    // The service name of the endpoint service.
     shared_ptr<string> serviceName_ {};
-    // The tag list.
+    // The list of tags.
     shared_ptr<vector<ListVpcGatewayEndpointsRequest::Tags>> tags_ {};
-    // The ID of the virtual private cloud (VPC) to which the gateway endpoint belongs.
+    // The ID of the VPC to which the gateway endpoint belongs.
     shared_ptr<string> vpcId_ {};
   };
 

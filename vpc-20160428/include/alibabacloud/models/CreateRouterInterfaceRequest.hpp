@@ -124,13 +124,13 @@ namespace Models
 
 
     protected:
-      // The tag key to add to the resource. You must enter at least one tag key. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You must specify at least 1 and can specify at most 20 tag keys. The tag key cannot be an empty string.
       // 
-      // A tag key can be at most 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value to add to the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify at most 20 tag values. The tag value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -347,147 +347,162 @@ namespace Models
 
 
   protected:
-    // The ID of the access point to which the VBR belongs.
+    // The ID of the access point to which the VBR belongs. 
     // 
-    // You can call the [DescribeAccessPoints](https://help.aliyun.com/document_detail/36062.html) operation to obtain the IDs of access points.
-    // 
-    // >  This parameter is required if the VBR is connected to an Express Connect circuit.
+    // You can call the [DescribeAccessPoints](https://help.aliyun.com/document_detail/36062.html) operation to query the access point ID of the Express Connect circuit.  
+    //           
+    // > This parameter is required in Express Connect circuit scenarios.
     shared_ptr<string> accessPointId_ {};
-    // Specifies whether to enable automatic payment. Valid values:
+    // Specifies whether to enable automatic payment. Valid values: 
+    //           
+    // - **false** (default): Automatic payment is disabled. After an order is generated, go to the Order Center to complete the payment.   
     // 
-    // *   **false** (default): The automatic payment is disabled. If you select this option, you must go to the Order Center to complete the payment after an order is generated.
-    // *   **true**: The automatic payment is enabled. Payments are automatically complete after an order is generated.
+    // - **true**: Automatic payment is enabled. The order is automatically paid.   
     // 
-    // >  This parameter is required if **InstanceChargeType** is set to **PrePaid**.
+    // > This parameter is required when **InstanceChargeType** is set to **PrePaid**.
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // *   **false** (default)
-    // *   **true**
+    // - **false** (default): Auto-renewal is disabled.
+    // - **true**: Auto-renewal is enabled.
     shared_ptr<bool> autoRenew_ {};
-    // The client token that is used to ensure the idempotence of the request.
+    // The client token that is used to ensure the idempotence of the request. 
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+    // The client generates the value of this parameter. Ensure that the value is unique among different requests. 
     // 
-    // >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+    // > If you do not specify this parameter, the system uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // The description of the router interface.
+    // The description of the router interface.  
     // 
-    // The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
+    // The description must be 2 to 256 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // Specifies whether the VBR that is created in the Fast Link mode is uplinked to the router interface. The Fast Link mode helps automatically connect router interfaces that are created for the VBR and its peer VPC. Valid values:
+    // Specifies whether the router interface on the VBR is created in fast link mode. Fast link mode allows the router interfaces on the VBR and VPC to be automatically connected after they are created. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: yes.
+    // - **false** (default): no.
     // 
-    // > 
-    // 
-    // *   This parameter takes effect only if **RouterType** is set to **VBR** and **OppositeRouterType** is set to **VRouter**.
-    // 
-    // *   If **FastLinkMode** is set to **true**, **Role** must be set to **InitiatingSide**. In this case, **AccessPointId**, **OppositeRouterType**, **OpppsiteRouterId**, and **OppositeInterfaceOwnerId** are required.
+    // > - This parameter takes effect only when **RouterType** is set to **VBR** and **OppositeRouterType** is set to **VRouter**.
+    // > - When **FastLinkMode** is set to **true**, **Role** must be set to **InitiatingSide**, and **AccessPointId**, **OppositeRouterType**, **OppositeRouterId**, and **OppositeInterfaceOwnerId** are required.
     shared_ptr<bool> fastLinkMode_ {};
-    // The source IP address that is used to perform health checks. The source IP address must be an idle IP address of the local virtual private cloud (VPC).
+    // The source IP address for health checks. The IP address must be an unused IP address in the local VPC. 
     // 
-    // >  You can set this parameter when an Express Connect circuit is used.
+    // > You can specify this parameter in Express Connect circuit scenarios.
     shared_ptr<string> healthCheckSourceIp_ {};
-    // The destination IP address that is used to perform health checks.
+    // The destination IP address for health checks. 
     // 
-    // >  This parameter is required if you specify **HealthCheckSourceIp**
+    // > This parameter is required when **HealthCheckSourceIp** is specified.
     shared_ptr<string> healthCheckTargetIp_ {};
-    // The billing method of the router interface. Valid values:
+    // The billing method of the router interface. Valid values: 
     // 
-    // *   **PrePaid**: subscription
-    // *   **PostPaid**: pay-as-you-go
+    // - **PrePaid**: subscription.
+    // 
+    // - **PostPaid**: pay-as-you-go.
     shared_ptr<string> instanceChargeType_ {};
-    // The name of the router interface.
+    // The name of the router interface.  
     // 
-    // The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+    // The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> name_ {};
     // The ID of the access point to which the peer belongs.
     // 
-    // >  This parameter is required if the peer router interface is associated with a VBR. The specified value cannot be changed after the router interface is created.
+    // > This parameter is required when the peer router interface is on a VBR. This parameter cannot be modified after the router interface is created.
     shared_ptr<string> oppositeAccessPointId_ {};
     // The ID of the peer router interface.
     shared_ptr<string> oppositeInterfaceId_ {};
-    // The ID of the Alibaba Cloud account to which the peer router interface belongs.
+    // The Alibaba Cloud account ID of the owner of the peer router interface.
     shared_ptr<string> oppositeInterfaceOwnerId_ {};
-    // The ID of the region in which the acceptor is deployed.
+    // The region ID of the accepter.
     // 
     // This parameter is required.
     shared_ptr<string> oppositeRegionId_ {};
     // The ID of the peer router.
     shared_ptr<string> oppositeRouterId_ {};
-    // The type of router that is associated with the peer router interface. Valid values:
+    // The type of the router associated with the peer router interface. Valid values: 
     // 
-    // *   **VRouter**
-    // *   **VBR**
+    // - **VRouter**: vRouter.
+    // 
+    // - **VBR**: Virtual Border Router.
     shared_ptr<string> oppositeRouterType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The subscription duration. Valid values:
+    // The subscription duration. Valid values: 
     // 
-    // *   Valid values when PricingCycle is set to Month: **1 to 9**.
-    // *   Valid values when PricingCycle is set to Year: **1 to 3**.
+    // - If you select monthly billing, the valid values are **1** to **9**.
     // 
-    // >  This parameter is required if **InstanceChargeType** is set to **PrePaid**.
+    // - If you select yearly billing, the valid values are **1** to **3**.
+    // 
+    // > This parameter is required when **InstanceChargeType** is set to **PrePaid**.
     shared_ptr<int32_t> period_ {};
     // The billing cycle of the subscription. Valid values:
     // 
-    // *   **Month** (default)
-    // *   **Year**
+    // - **Month** (default): monthly billing.
     // 
-    // >  This parameter is required if **InstanceChargeType** is set to **PrePaid**.
+    // - **Year**: yearly billing.
+    // 
+    // > This parameter is required when **InstanceChargeType** is set to **PrePaid**.
     shared_ptr<string> pricingCycle_ {};
-    // The ID of the region to which the router interface belongs.
+    // The region ID of the router interface.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     // 
-    // For more information about resource group, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+    // For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/2381067.html).
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The role of the router interface. Valid values:
+    // The role of the router interface. Valid values: 
+    //   
+    // - **InitiatingSide**: requester.   
     // 
-    // *   **InitiatingSide**: requester
-    // *   **AcceptingSide**: acceptor
+    // - **AcceptingSide**: accepter.
     // 
     // This parameter is required.
     shared_ptr<string> role_ {};
-    // The ID of the router that is associated with the router interface.
+    // The ID of the router associated with the router interface.
     // 
     // This parameter is required.
     shared_ptr<string> routerId_ {};
-    // The type of router that is associated with the router interface. Valid values:
+    // The type of the router associated with the router interface. Valid values: 
     // 
-    // *   **VRouter**
-    // *   **VBR**
+    // - **VRouter**: vRouter.
+    // 
+    // - **VBR**: Virtual Border Router.
     // 
     // This parameter is required.
     shared_ptr<string> routerType_ {};
-    // The specification of the router interface and the corresponding bandwidth. Valid values:
+    // The specification of the router interface. The available specifications and corresponding bandwidth values are as follows: 
+    //           
+    // - **Mini.2**: 2 Mbps   
     // 
-    // *   **Mini.2**: 2 Mbit/s
-    // *   **Mini.5**: 5 Mbit/s
-    // *   **Small.1**: 10 Mbit/s
-    // *   **Small.2**: 20 Mbit/s
-    // *   **Small.5**: 50 Mbit/s
-    // *   **Middle.1**: 100 Mbit/s
-    // *   **Middle.2**: 200 Mbit/s
-    // *   **Middle.5**: 500 Mbit/s
-    // *   **Large.1**: 1,000 Mbit/s
-    // *   **Large.2**: 2,000 Mbit/s
-    // *   **Large.5**: 5,000 Mbit/s
-    // *   **Xlarge.1**: 10,000 Mbit/s
+    // - **Mini.5**: 5 Mbps   
     // 
-    // >  If **Role** is set to **AcceptingSide**, set **Spec** to **Negative**. This indicates that you do not need to specify the specification when you create an acceptor router interface.
+    // - **Small.1**: 10 Mbps   
+    // 
+    // - **Small.2**: 20 Mbps   
+    //  
+    // - **Small.5**: 50 Mbps   
+    // 
+    // - **Middle.1**: 100 Mbps   
+    // 
+    // - **Middle.2**: 200 Mbps   
+    // 
+    // - **Middle.5**: 500 Mbps   
+    // 
+    // - **Large.1**: 1000 Mbps   
+    // 
+    // - **Large.2**: 2000 Mbps   
+    // 
+    // - **Large.5**: 5000 Mbps   
+    // 
+    // - **Xlarge.1**: 10000 Mbps  
+    // 
+    // > When **Role** is set to **AcceptingSide** (accepter), set **Spec** to **Negative**. No specification is required when you create an accepter router interface.
     // 
     // This parameter is required.
     shared_ptr<string> spec_ {};
-    // The tag to add to the resource.
+    // The tags of the resource.
     shared_ptr<vector<CreateRouterInterfaceRequest::Tags>> tags_ {};
   };
 

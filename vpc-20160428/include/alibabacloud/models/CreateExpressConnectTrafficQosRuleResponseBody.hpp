@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The ID of the QoS policy.
+    // The QoS policy ID.
     shared_ptr<string> qosId_ {};
-    // The ID of the QoS queue.
+    // The QoS queue ID.
     shared_ptr<string> queueId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the QoS rule.
+    // The QoS rule ID.
     shared_ptr<string> ruleId_ {};
   };
 

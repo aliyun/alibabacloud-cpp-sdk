@@ -105,7 +105,7 @@ namespace Models
     protected:
       // The ID of the next hop instance of the ECMP route.
       shared_ptr<string> nextHopId_ {};
-      // The type of next hop of the ECMP route. Valid value: **RouterInterface** (router interface).
+      // The type of next hop for the ECMP route. Set the value to **RouterInterface** (router interface).
       shared_ptr<string> nextHopType_ {};
       // The weight of the next hop of the ECMP route.
       shared_ptr<int32_t> weight_ {};
@@ -218,15 +218,15 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // Generate a parameter value from your client. Make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
     // The description of the custom route entry.
     // 
     // The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The destination CIDR block of the custom route entry. IPv4 CIDR blocks, IPv6 CIDR blocks, destination CIDR blocks of prefix lists, and instance IDs of prefix lists are supported. The following requirements must be met:
+    // The destination CIDR block of the custom route entry. IPv4 CIDR blocks, IPv6 CIDR blocks, prefix list destination CIDR blocks, and prefix list instance IDs are supported. The following requirements must be met:
     //           
     // - The destination CIDR block cannot point to or be contained by 100.64.0.0/10.  
     //  
@@ -235,22 +235,22 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> destinationCidrBlock_ {};
     // Specifies whether to perform a dry run. Valid values:
-    // - **true**: performs a dry run. The system checks the required parameters, request format, and business restrictions. If the request fails the dry run, the corresponding error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // - **false** (default): sends a normal request, passes the dry run, and returns an HTTP 2xx status code. The route is directly created.
+    // - **true**: performs a dry run. The system checks the required parameters, request format, and business restrictions. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **false** (default): sends a normal request. After the request passes the dry run, an HTTP 2xx status code is returned and the route is created.
     shared_ptr<bool> dryRun_ {};
     // The ID of the next hop instance of the custom route entry.
     // > If you set NextHopType to ECR, you can call the [DescribeExpressConnectRouterAssociation](https://help.aliyun.com/document_detail/2712069.html) operation to obtain the AssociationId as the next hop ID.
-    // > -.
+    // > -
     shared_ptr<string> nextHopId_ {};
     // The information about the next hops.
     shared_ptr<vector<CreateRouteEntryRequest::NextHopList>> nextHopList_ {};
-    // The type of next hop of the custom route entry. Valid values: 
+    // The type of next hop for the custom route entry. Valid values: 
     // 
     // - **Instance** (default): ECS instance.
     // 
     // - **HaVip**: high-availability virtual IP address.  
     // 
-    // - **RouterInterface**: vRouter interface.
+    // - **RouterInterface**: router interface.
     // 
     // - **NetworkInterface**: network interface controller (NIC).
     // 
@@ -267,6 +267,7 @@ namespace Models
     // - **GatewayEndpoint**: gateway endpoint.
     // - **Ecr**: Express Connect Router (ECR).
     // - **GatewayLoadBalancerEndpoint**: Gateway Load Balancer endpoint (GWLBe).
+    // - **RouteTargetGroup**: route target group.
     shared_ptr<string> nextHopType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

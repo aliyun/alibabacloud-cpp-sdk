@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // The maximum bandwidth for the EIP. This value cannot be larger than the maximum bandwidth of the Internet Shared Bandwidth instance. Unit: Mbit/s.
+    // The maximum bandwidth that can be allocated within the Internet Shared Bandwidth instance. Unit: Mbps.
     // 
     // This parameter is required.
     shared_ptr<string> bandwidth_ {};
-    // The ID of the Internet Shared Bandwidth instance.
+    // The instance ID of the Internet Shared Bandwidth instance.
     // 
     // This parameter is required.
     shared_ptr<string> bandwidthPackageId_ {};
-    // The ID of the EIP that is associated with the Internet Shared Bandwidth instance.
+    // The instance ID of the EIP that has been added to the Internet Shared Bandwidth instance.
     // 
     // This parameter is required.
     shared_ptr<string> eipId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the Internet Shared Bandwidth instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The region ID of the Internet Shared Bandwidth instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

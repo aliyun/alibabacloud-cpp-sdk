@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // Indicates whether billing for outbound data transfer is enabled. Valid values:
+    // Indicates whether outbound traffic billing is enabled.
+    // - **true**: Enabled.
     // 
-    // *   **true**: yes
-    // *   **false**: no
+    // - **false**: Not enabled.
     shared_ptr<bool> enabled_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

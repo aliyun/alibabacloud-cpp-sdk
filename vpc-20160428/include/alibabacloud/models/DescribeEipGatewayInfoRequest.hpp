@@ -84,13 +84,13 @@ namespace Models
 
 
   protected:
-    // The ID of the secondary ENI that is associated with the EIP.
+    // The ID of the secondary elastic network interfaces (ENIs) to which the EIP that you want to query is attached. This parameter refers to the network interface controller (NIC) associated with the EIP.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region to which the EIP that you want to query belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The region to which the EIP belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

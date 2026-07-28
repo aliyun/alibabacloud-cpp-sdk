@@ -107,30 +107,30 @@ namespace Models
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // The ID of the instance for which you want to set deletion protection in Settings.
+    // The ID of the instance for which you want to set deletion protection.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
     // Specifies whether to enable deletion protection. Valid values:
     // 
-    // - **true**: enables deletion protection.
+    // - **true**: Enabled.
     // 
-    // - **false**: disables deletion protection.
+    // - **false**: Disabled.
     // 
     // This parameter is required.
     shared_ptr<bool> protectionEnable_ {};
-    // The region ID of the instance for which you want to enable or disable deletion protection. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
+    // The region ID of the instance for which you want to set deletion protection. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the instance for which you want to enable or disable deletion protection. Valid values:
+    // The type of instance for which you want to set deletion protection. Valid values:
     // 
-    // - **EIP**: elastic IP address (EIP).
+    // - **EIP**: elastic IP address.
     // 
     // - **CBWP**: Internet Shared Bandwidth.
     // 

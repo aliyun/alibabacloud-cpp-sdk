@@ -86,15 +86,15 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The CIDR block on the Alibaba Cloud side.
+    // The region ID of the IPsec-VPN connection. 
     // 
-    // Multiple CIDR blocks are separated by commas (,).
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The request ID.
+    // The ID of the IPsec-VPN connection.
     // 
     // This parameter is required.
     shared_ptr<string> vpnConnectionId_ {};

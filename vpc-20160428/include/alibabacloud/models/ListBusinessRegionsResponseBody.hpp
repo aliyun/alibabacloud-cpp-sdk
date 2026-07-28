@@ -72,9 +72,9 @@ namespace Models
 
 
     protected:
-      // The name of the region where circuits are available.
+      // The name of the region where Express Connect circuits are available for purchase.
       shared_ptr<string> name_ {};
-      // The ID of the region where circuits are available.
+      // The region ID where Express Connect circuits are available for purchase.
       shared_ptr<string> regionId_ {};
     };
 
@@ -104,11 +104,11 @@ namespace Models
 
 
   protected:
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> count_ {};
-    // The list of regions available for Express Connect circuits.
+    // The list of regions where Express Connect circuits are available for purchase.
     shared_ptr<vector<ListBusinessRegionsResponseBody::GeographicSubRegions>> geographicSubRegions_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

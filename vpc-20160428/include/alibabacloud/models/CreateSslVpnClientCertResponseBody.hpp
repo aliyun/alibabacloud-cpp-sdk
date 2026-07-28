@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The name of the SSL-VPN client certificate.
+    // The name of the SSL client certificate.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the SSL-VPN client certificate.
+    // The ID of the SSL client certificate.
     shared_ptr<string> sslVpnClientCertId_ {};
   };
 

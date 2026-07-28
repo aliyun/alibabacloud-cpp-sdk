@@ -48,10 +48,11 @@ namespace Models
 
 
   protected:
-    // Indicates whether the IP address pool feature is enabled. Valid values:
+    // Indicates whether the IP address pool feature is activated. Valid values:
     // 
-    // *   **true**
-    // *   **false** You can call OpenPublicIpAddressPoolService to enable the IP address pool feature.
+    // - **true**: activated.
+    // 
+    // - **false**: not activated. You can call the OpenPublicIpAddressPoolService operation to activate the IP address pool feature.
     shared_ptr<bool> enabled_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

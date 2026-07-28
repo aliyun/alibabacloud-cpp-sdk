@@ -133,9 +133,9 @@ namespace Models
     // The BFD hop count. Valid values: **1** to **255**.
     // 
     // This parameter is required when BFD is enabled.
-    // Specify the BFD hop count, which is the maximum number of devices that data passes through from the source to the destination. You can configure different hop counts based on actual physical link factors.
+    // Enter the BFD hop count, which specifies the maximum number of devices that data passes through from the source to the destination. You can configure different hop counts based on the actual physical link factors.
     // 
-    // > When you use BFD in a multi-cloud environment or a fiber direct connect network without any bridging devices in between, you need to change the default BFD hop count from **255** to **1**.
+    // > If you use BFD in a multi-cloud environment or a direct fiber connection topology with no bridging devices in between, change the default BFD hop count from **255** to **1**.
     shared_ptr<int32_t> bfdMultiHop_ {};
     // The ID of the BGP group.
     // 
@@ -143,20 +143,20 @@ namespace Models
     shared_ptr<string> bgpGroupId_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // The client generates the value of this parameter. Make sure that the value is unique among different requests. The maximum length is 64 ASCII characters.
+    // The client generates the value. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
     // 
-    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
+    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to enable Bidirectional Forwarding Detection (BFD). Valid values:
     // 
     // - **true**: enables BFD.
     // 
-    // - **false**: disables BFD.
+    // - **false**: does not enable BFD.
     shared_ptr<bool> enableBfd_ {};
     // The IP version. Valid values:
     // 
     // - **IPv4** (default): IPv4.
-    // - **IPv6**: IPv6. IPv6 is supported only when the VBR on which the BGP group is created has IPv6 enabled.
+    // - **IPv6**: IPv6. IPv6 is supported only when the Virtual Border Router (VBR) on which the BGP group is created has the enable IPv6 feature turned on.
     shared_ptr<string> ipVersion_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -164,7 +164,7 @@ namespace Models
     shared_ptr<string> peerIpAddress_ {};
     // The region ID of the BGP group.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) API to obtain the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

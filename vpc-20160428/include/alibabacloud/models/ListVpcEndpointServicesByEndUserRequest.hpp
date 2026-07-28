@@ -103,24 +103,23 @@ namespace Models
 
 
   protected:
-    // The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries per page in a paged query. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int64_t> maxResults_ {};
-    // The token that is used for the next query. Valid values:
-    // 
-    // *   If this is your first query and no next queries are to be sent, ignore this parameter.
-    // *   If a next query is to be performed, set the value to the NextToken value returned in the last call to the ListListenerCertificates operation.
+    // The token for the next query. Valid values:
+    // - Leave this parameter empty for the first query or if no next query exists.
+    // - If a next query exists, set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the gateway endpoint.
+    // The region ID of the gateway endpoint to query.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The name of the endpoint service that you want to query.
+    // The name of the endpoint service to query.
     shared_ptr<string> serviceName_ {};
   };
 

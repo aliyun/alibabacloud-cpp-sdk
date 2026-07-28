@@ -92,11 +92,11 @@ namespace Models
     protected:
       // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -220,7 +220,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The tags of the resource.
     shared_ptr<vector<CreateIpv6GatewayRequest::Tag>> tag_ {};
-    // The ID of the VPC for which you want to enable IPv6 and create the IPv6 gateway.
+    // The ID of the VPC for which you want to enable IPv6.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

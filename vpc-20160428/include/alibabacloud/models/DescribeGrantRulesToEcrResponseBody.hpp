@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The authorization time. The time follows the ISO8601 standard and uses UTC time. The format is YYYY-MM-DDThh:mm:ssZ.
+      // The authorization time. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
       shared_ptr<string> createTime_ {};
-      // The ECR account ID.
+      // The instance ID of the cross-account authorization for the Express Connect Router (ECR).
       shared_ptr<string> ecrInstanceId_ {};
-      // The ECR account ID.
+      // The authorized user ID for the cross-account authorization of the Express Connect Router (ECR).
       shared_ptr<int64_t> ecrUid_ {};
     };
 
@@ -142,17 +142,17 @@ namespace Models
 
 
   protected:
-    // The total number of entries returned.
+    // The number of entries returned.
     shared_ptr<int32_t> count_ {};
-    // The cross-account authorization list of the ECR
+    // The cross-account authorization list of Express Connect Router (ECR).
     shared_ptr<vector<DescribeGrantRulesToEcrResponseBody::EcrGrantRules>> ecrGrantRules_ {};
-    // The page number. Default value: **1**.
+    // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on each page. Maximum value: 50. Default value: 10.
+    // The number of entries per page in a paged query. Maximum value: 50. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

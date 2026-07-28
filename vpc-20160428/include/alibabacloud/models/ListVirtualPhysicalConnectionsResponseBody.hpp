@@ -155,13 +155,13 @@ namespace Models
 
 
       protected:
-        // The tag key, which cannot be an empty string. You can specify up to 20 tag keys.
+        // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
         // 
-        // The key can be up to 64 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). The key cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+        // The tag key can be up to 64 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). The tag key cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
         shared_ptr<string> key_ {};
-        // The tag value. You can specify up to 20 tag values. The tag value can be an empty string.
+        // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
         // 
-        // The value can be up to 128 characters in length. It can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+        // The tag value can be up to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). The tag value cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
         shared_ptr<string> value_ {};
       };
 
@@ -392,155 +392,123 @@ namespace Models
 
 
     protected:
-      // The ID of the access point.
+      // The access point ID of the Express Connect circuit.
       shared_ptr<string> accessPointId_ {};
-      // The physical location of the access device for the physical connection.
+      // The physical location of the access device for the Express Connect circuit.
       shared_ptr<string> adLocation_ {};
-      // The ID of the Alibaba Cloud account that owns the virtual physical connection.
+      // The Alibaba Cloud account ID of the shared Express Connect circuits owner.
       shared_ptr<string> aliUid_ {};
-      // The bandwidth of the physical connection. Unit: Mbps.
+      // The bandwidth of the Express Connect circuit. Unit: Mbit/s.
       shared_ptr<int64_t> bandwidth_ {};
-      // The business status of the physical connection. Valid values:
+      // The business status of the Express Connect circuit. Valid values:
       // 
-      // - **Normal**: The connection is running as expected.
-      // 
-      // - **FinancialLocked**: The connection is locked due to an overdue payment.
-      // 
-      // - **SecurityLocked**: The connection is locked for security reasons.
+      // - **Normal**: Enabled.
+      // - **FinancialLocked**: Financial lock.
+      // - **SecurityLocked**: Locked for security reasons.
       shared_ptr<string> businessStatus_ {};
-      // The billing method of the physical connection.
+      // The billing method of the Express Connect circuit.
       // 
-      // The only valid value is **Prepaid**, which corresponds to the subscription billing method.
+      // Valid values: **Prepaid**, which indicates subscription.
       shared_ptr<string> chargeType_ {};
-      // The circuit code of the physical connection, which is provided by the carrier.
+      // The circuit code provided by the carrier for the Express Connect circuit.
       shared_ptr<string> circuitCode_ {};
-      // The time the physical connection was created.
+      // The time when the Express Connect circuit was created.
       shared_ptr<string> creationTime_ {};
-      // The description of the physical connection.
+      // The description of the Express Connect circuit.
       shared_ptr<string> description_ {};
-      // The time the physical connection was enabled.
+      // The time when the Express Connect circuit was enabled.
       shared_ptr<string> enabledTime_ {};
-      // The expiration time of the virtual physical connection.
+      // The expiration time of the shared Express Connect circuits.
       // 
-      // The time is in UTC and follows the `YYYY-MM-DDThh:mm:ssZ` format (ISO 8601).
+      // The time is displayed in the ISO 8601 standard in UTC. Format: YYYY-MM-DDThh:mm:ssZ.
       shared_ptr<string> endTime_ {};
-      // The expected bandwidth for the virtual physical connection. This bandwidth is applied after the payment is completed.
+      // The expected bandwidth of the shared Express Connect circuits. The expected bandwidth takes effect only after payment is complete.
       // 
-      // **M** indicates Mbps, and **G** indicates Gbps.
+      // Unit: **M** indicates Mbit/s, and **G** indicates Gbit/s.
       shared_ptr<string> expectSpec_ {};
-      // The carrier that provides the physical connection. Valid values include:
+      // The carrier that provides the physical connection. Valid values:
       // 
       // - **CT**: China Telecom.
-      // 
       // - **CU**: China Unicom.
-      // 
       // - **CM**: China Mobile.
-      // 
-      // - **CO**: other Chinese carriers.
-      // 
+      // - **CO**: Other carriers in the Chinese mainland.
       // - **Equinix**: Equinix.
-      // 
-      // - **Other**: other carriers outside China.
+      // - **Other**: Other carriers outside the Chinese mainland.
       shared_ptr<string> lineOperator_ {};
       // The status of the Letter of Authorization (LOA). Valid values:
       // 
-      // - **Applying**: The LOA request is being processed.
-      // 
+      // - **Applying**: The LOA application is being processed.
       // - **Accept**: The LOA application is approved.
-      // 
-      // - **Available**: The LOA is generated and ready for use.
-      // 
-      // - **Rejected**: The LOA request is rejected.
-      // 
-      // - **Completing**: The physical connection is being provisioned.
-      // 
-      // - **Complete**: Provisioning is complete.
-      // 
+      // - **Available**: The LOA is available.
+      // - **Rejected**: The LOA application is rejected.
+      // - **Completing**: The Express Connect circuit is under construction.
+      // - **Complete**: The Express Connect circuit construction is complete.
       // - **Deleted**: The LOA is deleted.
       shared_ptr<string> loaStatus_ {};
-      // The name of the physical connection.
+      // The name of the Express Connect circuit.
       shared_ptr<string> name_ {};
-      // The billing method of the virtual physical connection. Valid values:
+      // The payer of the shared Express Connect circuits. Valid values:
       // 
-      // - **PayByPhysicalConnectionOwner**: The owner of the parent physical connection pays.
-      // 
-      // - **PayByVirtualPhysicalConnectionOwner**: The owner of the virtual physical connection pays.
+      // - **PayByPhysicalConnectionOwner**: The owner of the Express Connect circuit associated with the shared Express Connect circuits is the payer.
+      // - **PayByVirtualPhysicalConnectionOwner**: The owner of the shared Express Connect circuits is the payer.
       shared_ptr<string> orderMode_ {};
-      // The ID of the Alibaba Cloud account that owns the parent physical connection.
+      // The Alibaba Cloud account ID to which the Express Connect circuit belongs.
       shared_ptr<string> parentPhysicalConnectionAliUid_ {};
-      // The ID of the parent physical connection.
+      // The instance ID of the Express Connect circuit.
       shared_ptr<string> parentPhysicalConnectionId_ {};
-      // The location of the on-premises data center.
+      // The geographic location of the on-premises data center.
       shared_ptr<string> peerLocation_ {};
-      // The ID of the virtual physical connection.
+      // The instance ID of the shared Express Connect circuits.
       shared_ptr<string> physicalConnectionId_ {};
-      // The port number of the access device for the physical connection.
+      // The port number of the access device for the Express Connect circuit.
       shared_ptr<string> portNumber_ {};
-      // The port type of the physical connection access point. Valid values:
+      // The port type of the Express Connect circuit. Valid values:
       // 
-      // - **100Base-T**: 100 Mbps copper port.
-      // 
-      // - **1000Base-T**: 1 Gbps copper port.
-      // 
-      // - **1000Base-LX**: 1 Gbps single-mode optical port (10 km).
-      // 
-      // - **10GBase-T**: 10 Gbps copper port.
-      // 
-      // - **10GBase-LR**: 10 Gbps single-mode optical port (10 km).
-      // 
-      // - **40GBase-LR**: 40 Gbps single-mode optical port.
-      // 
-      // - **100GBase-LR**: 100 Gbps single-mode optical port.
+      // - **100Base-T**: 100M Ethernet port.
+      // - **1000Base-T**: 1 GE electrical port.
+      // - **1000Base-LX**: GE single-mode optical port (10 km).
+      // - **10GBase-T**: 10 GE electrical port.
+      // - **10GBase-LR**: 10 GE single-mode optical port (10 km).
+      // - **40GBase-LR**: 40 GE single-mode optical port.
+      // - **100GBase-LR**: 100 GE single-mode optical port.
       shared_ptr<string> portType_ {};
-      // The type of the physical connection. Valid values:
+      // The type of the Express Connect circuit. Valid values:
       // 
-      // - **VirtualPhysicalConnection**: a virtual physical connection.
-      // 
-      // - **PhysicalConnection**: a dedicated physical connection.
+      // - **VirtualPhysicalConnection**: Shared Express Connect circuits.
+      // - **PhysicalConnection**: Dedicated Express Connect circuit.
       shared_ptr<string> productType_ {};
-      // The ID of the redundant physical connection.
+      // The ID of the redundant Express Connect circuit.
       shared_ptr<string> redundantPhysicalConnectionId_ {};
-      // The ID of the resource group to which the virtual physical connection belongs.
+      // The ID of the resource group to which the shared Express Connect circuits belong.
       shared_ptr<string> resourceGroupId_ {};
-      // The bandwidth of the virtual physical connection.
+      // The bandwidth of the shared Express Connect circuits.
       // 
-      // M indicates Mbps, and G indicates Gbps.
+      // Unit: **M** indicates Mbit/s, and **G** indicates Gbit/s.
       shared_ptr<string> spec_ {};
-      // The status of the physical connection. Valid values:
+      // The status of the Express Connect circuit. Valid values:
       // 
       // - **Initial**: The application is under review.
-      // 
       // - **Approved**: The application is approved.
-      // 
       // - **Allocating**: Resources are being allocated.
-      // 
-      // - **Allocated**: The connection is ready for provisioning.
-      // 
-      // - **Confirmed**: Awaiting user confirmation.
-      // 
-      // - **Enabled**: The connection is enabled.
-      // 
+      // - **Allocated**: Under construction.
+      // - **Confirmed**: Pending confirmation.
+      // - **Enabled**: Enabled.
       // - **Rejected**: The application is rejected.
-      // 
-      // - **Canceled**: The application is canceled.
-      // 
+      // - **Canceled**: Canceled.
       // - **Allocation Failed**: Resource allocation failed.
-      // 
-      // - **Terminated**: The connection is terminated.
+      // - **Terminated**: Terminated.
       shared_ptr<string> status_ {};
-      // A list of tags.
+      // The tag list.
       shared_ptr<vector<VirtualPhysicalConnections::Tags>> tags_ {};
-      // The type of the physical connection. The default value is **VPC**.
+      // The type of the Express Connect circuit. Default value: **VPC**.
       shared_ptr<string> type_ {};
-      // The business status of the virtual physical connection. Valid values:
+      // The business status of the shared Express Connect circuits. Valid values:
       // 
-      // - **Confirmed**: The virtual physical connection has been accepted by the recipient.
-      // 
-      // - **UnConfirmed**: The virtual physical connection is awaiting acceptance.
-      // 
-      // - **Deleted**: The virtual physical connection is deleted.
+      // - **Confirmed**: The shared Express Connect circuits have been accepted.
+      // - **UnConfirmed**: The shared Express Connect circuits have not been accepted.
+      // - **Deleted**: The shared Express Connect circuits have been deleted.
       shared_ptr<string> virtualPhysicalConnectionStatus_ {};
-      // The VLAN ID of the virtual physical connection.
+      // The VLAN ID of the shared Express Connect circuits.
       shared_ptr<string> vlanId_ {};
     };
 
@@ -584,19 +552,17 @@ namespace Models
 
 
   protected:
-    // The number of entries returned in this request.
+    // The number of entries returned in the current query.
     shared_ptr<int32_t> count_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // - If **NextToken** is not returned, no more results are available.
-    // 
-    // - If a value is returned for **NextToken**, use it in the next request to retrieve the subsequent page of results.
+    // Indicates whether a next query token is available. Valid values:
+    // - If **NextToken** is empty, no next query is available.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // A list of virtual physical connections.
+    // The list of shared Express Connect circuits.
     shared_ptr<vector<ListVirtualPhysicalConnectionsResponseBody::VirtualPhysicalConnections>> virtualPhysicalConnections_ {};
   };
 

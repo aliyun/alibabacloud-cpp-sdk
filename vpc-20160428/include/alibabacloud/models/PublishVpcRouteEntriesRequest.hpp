@@ -84,11 +84,11 @@ namespace Models
 
 
     protected:
-      // The destination CIDR block for the route entry.
+      // The destination CIDR block of the route entry.
       // 
       // This parameter is required.
       shared_ptr<string> destinationCidrBlock_ {};
-      // The ID of the route table for the route entry.
+      // The route table ID of the route entry.
       // 
       // This parameter is required.
       shared_ptr<string> routeTableId_ {};
@@ -163,25 +163,25 @@ namespace Models
 
 
   protected:
-    // Indicates whether to perform a dry run of this request. Values:
+    // Specifies whether to perform a dry run. Valid values:
     // 
-    // - **true**: Sends a check request without publishing the route. The checks include whether the AccessKey is valid, the authorization status of the RAM user, and if all required parameters are filled out. If the check fails, the corresponding error is returned. If the check passes, the `DryRunOperation` error code is returned.
+    // - **true**: performs a dry run without publishing route entries. The system checks the AccessKey pair, the authorization of the Resource Access Management (RAM) user, and the required parameters. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
     // 
-    // - **false** (default): Sends a normal request. After passing the check, it returns a 2xx HTTP status code and directly queries the resource status.
+    // - **false** (default): sends a normal request. If the check succeeds, a 2xx HTTP status code is returned and the resource status is queried.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the instance is located. You can obtain the region ID by calling the DescribeRegions interface.
+    // The region ID of the instance. You can call the DescribeRegions operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // List of route entries to be published, supporting up to 50 routes at most.
+    // The list of route entries to publish. You can specify up to 50 routes.
     shared_ptr<vector<PublishVpcRouteEntriesRequest::RouteEntries>> routeEntries_ {};
-    // The ID of the target instance for route publication.
+    // The publish route entry target instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> targetInstanceId_ {};
-    // The type of the target for route publication.
+    // The type of the route publish target.
     // 
     // This parameter is required.
     shared_ptr<string> targetType_ {};

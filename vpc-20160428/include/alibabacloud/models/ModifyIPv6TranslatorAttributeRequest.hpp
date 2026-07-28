@@ -114,19 +114,19 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // Generate a unique value from your client to ensure that different requests have unique ClientToken values. ClientToken supports only ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // The description of IPv6 Translation Service. This parameter is empty by default. It must be 2 to 100 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It cannot start with http:// or [https://](https://。).
+    // The description of the IPv6 Translation Service instance. The default value is empty. The description must be 2 to 100 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-), but cannot start with http:// or https://.
     shared_ptr<string> description_ {};
     // The ID of the IPv6 Translation Service instance.
     // 
     // This parameter is required.
     shared_ptr<string> ipv6TranslatorId_ {};
-    // The name of the IPv6 Translation Service instance. The default name is the instance ID. It must be 2 to 100 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It cannot start with http:// or [https://](https://。).
+    // The name of the IPv6 Translation Service instance. The default value is the instance ID. The name must be 2 to 100 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-), but cannot start with http:// or https://.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query the most recent region list.
+    // The region of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

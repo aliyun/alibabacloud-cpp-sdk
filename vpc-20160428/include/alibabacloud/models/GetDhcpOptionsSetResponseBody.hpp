@@ -150,20 +150,21 @@ namespace Models
 
 
     protected:
-      // The suffix of the hostname.
+      // The hostname suffix.
       shared_ptr<string> domainName_ {};
       // The IP address of the DNS server.
       shared_ptr<string> domainNameServers_ {};
-      // The lease time of the IPv6 addresses for the DHCP options set.
-      //  
-      // *   If you use hours as the unit, Valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
-      // *   If you use days as the unit, Valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+      // The lease time of the IPv6 DHCP options set.
+      // 
+      // - When the lease time is set in hours: Unit: h. Valid values: **24h to 1176h** and **87600h to 175200h**. Default value: **24h**.
+      // 
+      // - When the lease time is set in days: Unit: d. Valid values: **1d to 49d** and **3650d to 7300d**. Default value: **1d**.
       shared_ptr<string> ipv6LeaseTime_ {};
-      // The lease time of the IPv4 addresses for the DHCP options set.
+      // The lease time of the IPv4 DHCP options set.
       // 
-      // *   If you use hours as the unit, valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
+      // - When the lease time is set in hours: Unit: h. Valid values: **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
       // 
-      // *   If you use days as the unit, valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+      // - When the lease time is set in days: Unit: d. Valid values: **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
       shared_ptr<string> leaseTime_ {};
     };
 
@@ -205,12 +206,13 @@ namespace Models
 
 
     protected:
-      // The status of the VPC that is associated with the DHCP options set. Valid values:
-      //  
-      // *   **InUse**: in use
-      // *   **Pending**: being configured
+      // The status of the VPC associated with the DHCP options set. Valid values:
+      // 
+      // - **InUse**: in use.
+      // 
+      // - **Pending**: being configured.
       shared_ptr<string> associateStatus_ {};
-      // The ID of the VPC that is associated with the DHCP options set.
+      // The ID of the VPC associated with the DHCP options set.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -301,11 +303,11 @@ namespace Models
 
 
   protected:
-    // The information about the virtual private cloud (VPC) that is associated with the DHCP options set.
+    // The information about the VPCs associated with the DHCP options set.
     shared_ptr<vector<GetDhcpOptionsSetResponseBody::AssociateVpcs>> associateVpcs_ {};
-    // create time
+    // The creation time.
     shared_ptr<string> creationTime_ {};
-    // The configuration information about the DHCP options set.
+    // The DHCP options configuration.
     shared_ptr<GetDhcpOptionsSetResponseBody::DhcpOptions> dhcpOptions_ {};
     // The description of the DHCP options set.
     shared_ptr<string> dhcpOptionsSetDescription_ {};
@@ -313,20 +315,23 @@ namespace Models
     shared_ptr<string> dhcpOptionsSetId_ {};
     // The name of the DHCP options set.
     shared_ptr<string> dhcpOptionsSetName_ {};
-    // The ID of the Alibaba Cloud account to which the DHCP options set belongs.
+    // The Alibaba Cloud account ID to which the DHCP options set belongs.
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group.
+    // The ID of the resource group to which the DHCP options set belongs.
     shared_ptr<string> resourceGroupId_ {};
     // The status of the DHCP options set. Valid values:
     // 
-    // *   **Available**: available
-    // *   **InUse**: in use
-    // *   **Deleted**: deleted
-    // *   **Pending**: being configured
+    // - **Available**: available.
+    // 
+    // - **InUse**: in use.
+    // 
+    // - **Deleted**: deleted.
+    // 
+    // - **Pending**: being configured.
     shared_ptr<string> status_ {};
-    // The tag list.
+    // The tag information.
     shared_ptr<vector<GetDhcpOptionsSetResponseBody::Tags>> tags_ {};
   };
 

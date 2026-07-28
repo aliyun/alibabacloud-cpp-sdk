@@ -74,7 +74,7 @@ namespace Models
     // 
     // * **Large.5**: 5000 Mbps
     // 
-    // * **Xlarge.1**: 10000 Mbps.
+    // * **Xlarge.1**: 10000 Mbps
     shared_ptr<string> spec_ {};
   };
 

@@ -123,18 +123,17 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
     shared_ptr<string> clientToken_ {};
-    // The description of the network ACL.
+    // The description of the network ACL. 
     // 
-    // The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
+    // The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-    // 
-    // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // *   **false**: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+    // Specifies whether to perform a dry run. Valid values:
+    // * **true**: performs a dry run.
+    // * **false** (default): sends the request.
     shared_ptr<bool> dryRun_ {};
     // The ID of the network ACL.
     // 
@@ -142,13 +141,13 @@ namespace Models
     shared_ptr<string> networkAclId_ {};
     // The name of the network ACL.
     // 
-    // The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
+    // The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> networkAclName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the network ACL.
+    // The region where the network ACL resides.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

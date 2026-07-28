@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The order ID.
     shared_ptr<string> orderId_ {};
-    // The ID of the Express Connect circuit.
+    // The Express Connect circuit ID.
     shared_ptr<string> physicalConnectionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

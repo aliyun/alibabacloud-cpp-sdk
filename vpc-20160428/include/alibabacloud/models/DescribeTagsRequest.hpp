@@ -178,7 +178,7 @@ namespace Models
     shared_ptr<int32_t> maxResult_ {};
     // The pagination token. Valid values:
     // - If this is the first query or no subsequent query exists, leave this parameter empty.
-    // - If a subsequent query exists, set this parameter to the NextToken value returned by the previous API call.
+    // - If a subsequent query exists, set the value to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

@@ -176,51 +176,55 @@ namespace Models
 
 
   protected:
-    // The bandwidth for ECC, which corresponds to the bandwidth for the underlying circuit.
+    // The bandwidth of the Express Cloud Connection instance, which corresponds to the bandwidth of the underlying physical connection.
     // 
     // Unit: Mbit/s.
     // 
     // This parameter is required.
     shared_ptr<int32_t> bandwidth_ {};
-    // The email address of the contact who applies for ECC.
+    // The email address of the contact person for the Express Cloud Connection application.
     shared_ptr<string> contactMail_ {};
-    // The phone number of the contact who applies for ECC.
+    // The phone number of the contact person for the Express Cloud Connection application.
     shared_ptr<string> contactTel_ {};
-    // The description of ECC.
+    // The description of the Express Cloud Connection instance.
     // 
-    // The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
+    // The description must be 2 to 256 characters in length and must start with a letter or a Chinese character, but cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The ID card number of the contact who applies for ECC.
+    // The ID card number of the contact person for the Express Cloud Connection application.
     shared_ptr<string> IDCardNo_ {};
-    // The Internet service provider (ISP) for the data center.
+    // The network service provider of the IDC.
     // 
     // This parameter is required.
     shared_ptr<string> idcSP_ {};
-    // The name of the ECC instance.
+    // The name of the Express Cloud Connection instance.
     // 
-    // The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`.
+    // The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-), but cannot start with `http://` or `https://`.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The city where the data center is located.
+    // The city where the on-premises IDC is located.
     shared_ptr<string> peerCity_ {};
-    // The geographical location of the data center.
+    // The geographic location of the on-premises data center.
     // 
-    // > It must be accurate to house number-floor-room number-server rack number.
+    // >The location must be accurate to the street number, floor, room number, and rack number.
     // 
     // This parameter is required.
     shared_ptr<string> peerLocation_ {};
-    // The port of the Express Connect circuit. Valid values:
+    // The port type of the Express Connect circuit. Valid values:
     // 
-    // *   100Base-T
-    // *   1000Base-T
-    // *   1000Base-LX
-    // *   10GBase-T
-    // *   10GBase-LR
+    // * 100Base-T: 100M Ethernet port
+    // 
+    // * 1000Base-T (default): GE electrical port
+    // 
+    // * 1000Base-LX: GE single-mode optical port (10 km)
+    // 
+    // * 10GBase-T: 10 GE electrical port
+    // 
+    // * 10GBase-LR: 10 GE single-mode optical port (10 km)
     shared_ptr<string> portType_ {};
-    // The ID of the standby Express Connect circuit.
+    // The instance ID of the redundant Express Cloud Connection circuit.
     shared_ptr<string> redundantEccId_ {};
-    // The region ID of the ECC instance.
+    // The region ID of the Express Cloud Connection instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

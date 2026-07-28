@@ -111,7 +111,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the VPN gateway instance.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

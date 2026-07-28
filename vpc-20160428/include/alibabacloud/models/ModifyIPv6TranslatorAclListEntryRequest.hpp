@@ -103,23 +103,23 @@ namespace Models
 
 
   protected:
-    // The remarks of the ACL rule.
+    // The description of the access control policy group entry.
     // 
-    // It must be 2 to 100 characters in length, and can contain digits, underscores (_), and hyphens (-). It must start with a letter.
+    // The description must be 2 to 100 characters in length and must start with a letter or a Chinese character. It can contain digits, underscores (_), or hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> aclEntryComment_ {};
-    // The ID of the ACL rule to which the IP entry belongs.
+    // The ID of the access control policy group entry that contains the IP entry.
     // 
     // This parameter is required.
     shared_ptr<string> aclEntryId_ {};
-    // The ID of the ACL to which the IP entry belongs.
+    // The ID of the access control policy group that contains the IP entry.
     // 
     // This parameter is required.
     shared_ptr<string> aclId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region of the ACL.
+    // The region of the access control policy group.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -204,30 +204,30 @@ namespace Models
 
 
   protected:
-    // Indicates whether BGP routes are automatically propagated to the VPC. Valid values:
+    // Indicates whether routing automatic propagation is enabled for BGP routes to the VPC. Valid values:
     // 
     // - **true**: automatic propagation is enabled.
     // 
     // - **false**: automatic propagation is not enabled.
     shared_ptr<bool> autoPropagate_ {};
-    // The billing status of the VPN gateway instance. Valid values:
+    // The payment status of the VPN gateway instance. Valid values:
     // 
     // - **Normal**: Normal.
     // - **FinancialLocked**: locked due to overdue payment.
     shared_ptr<string> businessStatus_ {};
     // The timestamp when the VPN gateway instance was created. Unit: milliseconds.
     // 
-    // The timestamp follows the UNIX timestamp format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC to the time when the VPN gateway instance was created.
+    // The timestamp is in the UNIX format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> createTime_ {};
     // The description of the VPN gateway instance.
     shared_ptr<string> description_ {};
     // The second IP address assigned by the system to the VPN gateway instance for creating IPsec-VPN connections.
     // 
-    // This parameter is returned only for VPN gateway instances that support dual-tunnel IPsec-VPN connections.
+    // This parameter is returned only for VPN gateway instances that support creating dual-tunnel IPsec-VPN connections.
     shared_ptr<string> disasterRecoveryInternetIp_ {};
     // The ID of the second vSwitch associated with the VPN gateway instance.
     // 
-    // This parameter is returned only for VPN gateway instances that support dual-tunnel IPsec-VPN connections.
+    // This parameter is returned only for VPN gateway instances that support creating dual-tunnel IPsec-VPN connections.
     shared_ptr<string> disasterRecoveryVSwitchId_ {};
     // The enabling status of the BGP feature for the VPN gateway. Valid values:
     // 
@@ -237,15 +237,15 @@ namespace Models
     shared_ptr<bool> enableBgp_ {};
     // The timestamp when the VPN gateway instance expires. Unit: milliseconds.
     // 
-    // The timestamp follows the UNIX timestamp format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC to the time when the VPN gateway instance expires.
+    // The timestamp is in the UNIX format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> endTime_ {};
-    // - If the VPN gateway instance supports single-tunnel IPsec-VPN connections, this address is the IP address of the VPN gateway instance and can be used to create IPsec-VPN connections or SSL-VPN connections.
+    // - If the VPN gateway instance supports creating single-tunnel IPsec-VPN connections, this address is the IP address of the VPN gateway instance and can be used to create IPsec-VPN connections or SSL-VPN connections.
     // 
-    // - If the VPN gateway instance supports dual-tunnel IPsec-VPN connections, this address is the first IP address used to create IPsec-VPN connections and cannot be used to create SSL-VPN connections.
+    // - If the VPN gateway instance supports creating dual-tunnel IPsec-VPN connections, this address is the first IP address used to create IPsec-VPN connections and cannot be used to create SSL-VPN connections.
     // 
-    //     If the VPN gateway instance supports dual-tunnel IPsec-VPN connections, the system assigns two IPsec IP addresses to the VPN gateway instance for creating dual-tunnel IPsec-VPN connections.
+    //     If the VPN gateway instance supports creating dual-tunnel IPsec-VPN connections, the system assigns two IPsec IP addresses to the VPN gateway instance for creating dual-tunnel IPsec-VPN connections.
     shared_ptr<string> internetIp_ {};
-    // The private IP address of the vSwitch occupied by the system when the VPN gateway instance was deployed.
+    // The private IP address of the vSwitch occupied by the system when deploying the VPN gateway instance.
     // 
     // This parameter is returned only for VPN gateway instances that support single-tunnel IPsec-VPN connections and have the IPsec-VPN feature enabled.
     shared_ptr<string> intranetIp_ {};
@@ -261,7 +261,7 @@ namespace Models
     shared_ptr<string> spec_ {};
     // The IP address of the SSL-VPN connection.
     // 
-    // This parameter is returned only when the SSL-VPN feature is enabled for a VPN gateway instance that supports dual-tunnel IPsec-VPN connections and uses the public network type.
+    // This parameter is returned only when the SSL-VPN feature is enabled for a VPN gateway instance that supports creating dual-tunnel IPsec-VPN connections and uses the public network type.
     shared_ptr<string> sslVpnInternetIp_ {};
     // The status of the VPN gateway. Valid values:
     // 

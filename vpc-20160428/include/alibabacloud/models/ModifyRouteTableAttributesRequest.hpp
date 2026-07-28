@@ -112,31 +112,30 @@ namespace Models
 
 
   protected:
-    // The description of the route table.
+    // The description of the route table.  
     // 
-    // The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
+    // The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the virtual private cloud (VPC) to which the custom route table belongs.
+    // The region ID of the VPC to which the route table belongs. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Indicates whether to enable route propagation to receive dynamic routes. Valid values:
+    // Specifies whether to receive dynamic routes by enabling or disabling route propagation. Valid values:
     // 
-    // - **true** (default): enables route propagation.
-    // 
-    // - **false**: disables route propagation.
+    // - **true** (default): enabled.
+    // - **false**: disabled.
     shared_ptr<bool> routePropagationEnable_ {};
     // The ID of the route table.
     // 
     // This parameter is required.
     shared_ptr<string> routeTableId_ {};
-    // The name of the route table.
+    // The name of the route table.  
     // 
     // The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> routeTableName_ {};

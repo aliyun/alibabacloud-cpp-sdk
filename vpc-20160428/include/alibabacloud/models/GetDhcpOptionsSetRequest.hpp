@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The ID of the DHCP options set.
+    // The ID of the DHCP options set that you want to query.
     // 
     // This parameter is required.
     shared_ptr<string> dhcpOptionsSetId_ {};
@@ -92,7 +92,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the DHCP options set that you want to query.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

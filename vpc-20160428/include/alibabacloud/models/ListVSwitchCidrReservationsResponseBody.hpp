@@ -223,39 +223,39 @@ namespace Models
 
 
     protected:
-      // The number of used prefixes in the reserved CIDR block.
+      // The number of used prefix CIDR blocks in the reserved CIDR block for a vSwitch.
       shared_ptr<int32_t> assignedCidrCount_ {};
-      // The number of available prefixes in the reserved CIDR block.
+      // The number of active prefix CIDR blocks in the reserved CIDR block for a vSwitch.
       shared_ptr<int32_t> availableCidrCount_ {};
       // The time when the reserved CIDR block was created.
       shared_ptr<string> creationTime_ {};
-      // The IP version of the reserved CIDR block. Valid values:
+      // The IP version of the reserved CIDR block for a vSwitch. Valid values:
       // 
-      // *   **IPv4** (default)
-      // *   **IPv6**
+      // - **IPv4** (default): IPv4.
+      // - **IPv6**: IPv6.
       shared_ptr<string> ipVersion_ {};
       // The status of the reserved CIDR block. Valid values:
       // 
-      // *   **Assigning**
-      // *   **Assigned**
-      // *   **Releasing**
-      // *   **Released**
+      // - **Assigning**: being allocated.
+      // - **Assigned**: allocated.
+      // - **Releasing**: being released.
+      // - **Released**: released.
       shared_ptr<string> status_ {};
-      // The tags.
+      // The list of tags.
       shared_ptr<vector<VSwitchCidrReservations::Tags>> tags_ {};
-      // The type of the reserved CIDR block. Valid value: **prefix**. CIDR blocks are allocated from the reserved CIDR block.
+      // The type of the reserved CIDR block for a vSwitch. Valid values: **prefix** (default), which indicates that addresses are allocated by CIDR block.
       shared_ptr<string> type_ {};
-      // The reserved CIDR block.
+      // The reserved CIDR block for a vSwitch.
       shared_ptr<string> vSwitchCidrReservationCidr_ {};
-      // The description of the reserved CIDR block.
+      // The description of the reserved CIDR block for a vSwitch.
       shared_ptr<string> vSwitchCidrReservationDescription_ {};
-      // The ID of the reserved CIDR block.
+      // The instance ID of the reserved CIDR block for a vSwitch.
       shared_ptr<string> vSwitchCidrReservationId_ {};
-      // The name of the reserved CIDR block.
+      // The name of the reserved CIDR block for a vSwitch.
       shared_ptr<string> vSwitchCidrReservationName_ {};
-      // The ID of the vSwitch to which the reserved CIDR block belongs.
+      // The ID of the vSwitch to which the reserved CIDR block for a vSwitch belongs.
       shared_ptr<string> vSwitchId_ {};
-      // The virtual private cloud (VPC) to which the reserved CIDR block belongs.
+      // The ID of the VPC to which the reserved CIDR block for a vSwitch belongs.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -299,18 +299,17 @@ namespace Models
 
 
   protected:
-    // The number of entries to return per page.
+    // The number of entries per page.
     shared_ptr<int64_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+    // The pagination token. Valid values:
+    // - If **NextToken** is empty, no subsequent query exists.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
-    // A list of reserved CIDR blocks.
+    // The list of reserved CIDR blocks for a vSwitch.
     shared_ptr<vector<ListVSwitchCidrReservationsResponseBody::VSwitchCidrReservations>> vSwitchCidrReservations_ {};
   };
 

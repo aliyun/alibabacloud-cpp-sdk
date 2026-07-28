@@ -129,24 +129,24 @@ namespace Models
 
 
     protected:
-      // The time when the CIDR block was created.
+      // The time when the NAT CIDR block was created.
       shared_ptr<string> creationTime_ {};
-      // Indicates whether the CIDR block is the default CIDR block of the NAT gateway. Valid values:
+      // Indicates whether the NAT CIDR block is the default NAT CIDR block. Valid values:
       // 
-      // *   **true**: The CIDR block is the default CIDR block of the NAT gateway.
-      // *   **false**: The CIDR block is not the default CIDR block of the NAT gateway.
+      // - **true**: The NAT CIDR block is the default NAT CIDR block.
+      // - **false**: The NAT CIDR block is not the default NAT CIDR block.
       shared_ptr<bool> isDefault_ {};
-      // The ID of the VPC NAT gateway.
+      // The instance ID of the VPC NAT gateway to which the NAT CIDR block belongs.
       shared_ptr<string> natGatewayId_ {};
-      // The CIDR block of the NAT gateway.
+      // The NAT CIDR block.
       shared_ptr<string> natIpCidr_ {};
-      // The description of the CIDR block of the NAT gateway.
+      // The description of the NAT CIDR block.
       shared_ptr<string> natIpCidrDescription_ {};
-      // The ID of the CIDR block of the NAT gateway.
+      // The instance ID of the NAT CIDR block.
       shared_ptr<string> natIpCidrId_ {};
-      // The name of the CIDR block of the NAT gateway.
+      // The name of the NAT CIDR block.
       shared_ptr<string> natIpCidrName_ {};
-      // The status of the CIDR block of the NAT gateway. If **Available** is returned, it indicates that the CIDR block is available.
+      // The status of the NAT CIDR block. The value is **Available**, which indicates that the NAT CIDR block is available.
       shared_ptr<string> natIpCidrStatus_ {};
     };
 
@@ -183,16 +183,15 @@ namespace Models
 
 
   protected:
-    // The CIDR blocks of the NAT gateway.
+    // The list of NAT CIDR blocks.
     shared_ptr<vector<ListNatIpCidrsResponseBody::NatIpCidrs>> natIpCidrs_ {};
-    // The token that is used for the next query. Valid values:
-    // 
-    // *   If the value of **NextToken** is not returned, it indicates that no next query is to be sent.
-    // *   If the value of **NextToken** is returned, the value indicates the token that is used for the next query.
+    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // - If **NextToken** is empty, no subsequent requests exist.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of CIDR blocks that are returned.
+    // The total number of NAT CIDR block entries returned.
     shared_ptr<string> totalCount_ {};
   };
 

@@ -114,7 +114,7 @@ namespace Models
     protected:
       // The ID of the Alibaba Cloud account to which the IPsec-VPN connection belongs.
       shared_ptr<int64_t> aliUid_ {};
-      // The instance ID of the CEN instance to which the IPsec-VPN connection authorization is granted.
+      // The instance ID of the CEN instance to which the IPsec-VPN connection grants authorization.
       shared_ptr<string> bindInstance_ {};
       // The type of resource to which the IPsec-VPN connection is authorized.
       // 
@@ -122,9 +122,9 @@ namespace Models
       shared_ptr<string> bindProduct_ {};
       // The ID of the Alibaba Cloud account to which the IPsec-VPN connection is authorized.
       shared_ptr<int64_t> bindUid_ {};
-      // The timestamp when the cross-account authorization was created for the IPsec-VPN connection.
+      // The timestamp when the cross-account authorization of the IPsec-VPN connection was created.
       // 
-      // The timestamp is in the UNIX format and represents the total number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC to the time when the cross-account authorization was created.
+      // The timestamp is in the UNIX format and represents the total number of seconds that have elapsed since January 1, 1970, 00:00:00 (UTC) to the time when the cross-account authorization was created.
       shared_ptr<int64_t> creationTime_ {};
       // The ID of the IPsec-VPN connection.
       shared_ptr<string> vpnConnectionId_ {};
@@ -170,11 +170,11 @@ namespace Models
 
 
   protected:
-    // The list of cross-account authorization information for the IPsec-VPN connection.
+    // The list of cross-account authorization information of the IPsec-VPN connection.
     shared_ptr<vector<DescribeVpnCrossAccountAuthorizationsResponseBody::CrossAccountAuthorizations>> crossAccountAuthorizations_ {};
     // The page number of the list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paging query.
+    // The number of entries per page when paging is used.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

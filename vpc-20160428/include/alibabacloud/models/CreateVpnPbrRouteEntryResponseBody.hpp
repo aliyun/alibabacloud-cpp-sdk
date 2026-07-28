@@ -130,32 +130,36 @@ namespace Models
 
 
   protected:
-    // The timestamp generated when the policy-based route was created. Unit: milliseconds.
+    // The timestamp when the policy-based route was created. Unit: milliseconds.
     // 
-    // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+    // The timestamp follows the UNIX timestamp format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> createTime_ {};
-    // The description of the route.
+    // The description of the policy-based route.
     shared_ptr<string> description_ {};
-    // The tunneling protocol. The value is **Ipsec**.
+    // The next hop of the policy-based route.
     shared_ptr<string> nextHop_ {};
-    // The tunneling protocol. The value is set to **Ipsec**, which indicates the IPsec tunneling protocol.
+    // The tunneling protocol. Set the value to **Ipsec** (IPsec tunneling protocol).
     shared_ptr<string> overlayMode_ {};
-    // The priority of the policy-based route.
+    // The policy priority of the policy-based routing entry.
     shared_ptr<int32_t> priority_ {};
-    // The priority of the policy-based route.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The VPN gateway ID.
+    // The destination CIDR block of the policy-based route.
     shared_ptr<string> routeDest_ {};
     // The source CIDR block of the policy-based route.
     shared_ptr<string> routeSource_ {};
-    // The status of the policy-based route.
+    // The publish status of the policy-based route.
     // 
-    // *   **published**: advertised to the VPC route table.
-    // *   **normal**: not advertised to the VPC route table.
+    // - **published**: The policy-based route has been published to the VPC route table.
+    // 
+    // - **normal**: The policy-based route has not been published to the VPC route table.
     shared_ptr<string> state_ {};
-    // The ID of the VPN gateway.
+    // The instance ID of the VPN gateway.
     shared_ptr<string> vpnInstanceId_ {};
-    // The source CIDR block of the policy-based route.
+    // The weight of the policy-based route.
+    // 
+    // - **100**: The IPsec-VPN connection associated with the policy-based route serves as the active link.
+    // - **0**: The IPsec-VPN connection associated with the policy-based route serves as the standby link.
     shared_ptr<int32_t> weight_ {};
   };
 

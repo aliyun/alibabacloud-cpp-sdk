@@ -97,17 +97,16 @@ namespace Models
     // The language of the response. Valid values:
     // 
     // - **zh-CN**: Chinese.
-    // 
     // - **en-US** (default): English.
     shared_ptr<string> acceptLanguage_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page for paging. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the access point is located.
+    // The region ID of the access point.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to obtain the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

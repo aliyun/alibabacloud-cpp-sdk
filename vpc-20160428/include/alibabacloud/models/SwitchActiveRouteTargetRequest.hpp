@@ -74,11 +74,13 @@ namespace Models
 
 
     protected:
-      // The key of the resource tag. Up to 20 tag keys are supported. If you need to pass this value, you cannot input an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // Each tag key can have up to 128 characters and cannot start with `aliyun` or `acs:`. It also cannot contain `http://` or `https://`.
+      // The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of the resource tag. Up to 20 tag values are supported. If you need to pass this value, you can input an empty string. A maximum of 128 characters is allowed. The value cannot start with `aliyun` or `acs:`, and it must not contain `http://` or `https://`.
+      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+      // 
+      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -115,19 +117,19 @@ namespace Models
 
 
   protected:
-    // Client token, used to ensure the idempotence of the request. Generate a unique value for this parameter from your client to ensure that it is unique across different requests. The ClientToken only supports ASCII characters. Note: If you do not specify this, the system will automatically use the RequestId of the API request as the ClientToken identifier. The RequestId may differ for each API request.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters. If you do not specify this parameter, the system automatically uses the RequestId value as the ClientToken value. The RequestId value may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // The region ID where the RouteTargetGroup is located.
+    // The region ID of the route target group.
     // 
-    // You can obtain the region ID by calling the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) API.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The instance ID of the RouteTargetGroup.
+    // The instance ID of the route target group.
     // 
     // This parameter is required.
     shared_ptr<string> routeTargetGroupId_ {};
-    // Resource tags.
+    // The tags of the resource.
     shared_ptr<vector<SwitchActiveRouteTargetRequest::Tag>> tag_ {};
   };
 

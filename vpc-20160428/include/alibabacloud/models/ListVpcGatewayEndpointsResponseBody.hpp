@@ -115,9 +115,9 @@ namespace Models
 
 
       protected:
-        // The key of tag N added to the resource.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // The value of tag N added to the resource.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -206,36 +206,36 @@ namespace Models
 
 
     protected:
-      // The ID of the route table associated with the gateway endpoint.
+      // The IDs of the route tables associated with the gateway endpoint.
       shared_ptr<vector<string>> associatedRouteTables_ {};
-      // The time when the endpoint was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The time when the gateway endpoint was created. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
       shared_ptr<string> creationTime_ {};
       // The description of the gateway endpoint.
       shared_ptr<string> endpointDescription_ {};
-      // The ID of the gateway endpoint.
+      // The endpoint instance ID of the gateway endpoint.
       shared_ptr<string> endpointId_ {};
       // The name of the gateway endpoint.
       shared_ptr<string> endpointName_ {};
       // The status of the gateway endpoint. Valid values:
       // 
-      // *   **Creating**
-      // *   **Created**
-      // *   **Modifying**
-      // *   **Associating**
-      // *   **Dissociating**
-      // *   **Deleting**
+      // - **Creating**: being created.
+      // - **Created**: created and in a normal state.
+      // - **Modifying**: being modified.
+      // - **Associating**: being associated.
+      // - **Dissociating**: being disassociated.
+      // - **Deleting**: being deleted.
       shared_ptr<string> endpointStatus_ {};
       // The access policy for the cloud service.
       // 
-      // For more information about the syntax and structure of the access policy, see [Policy syntax and structure](https://help.aliyun.com/document_detail/93739.html).
+      // For more information about the syntax and structure of access policies, see [Policy structure and syntax](https://help.aliyun.com/document_detail/93739.html).
       shared_ptr<string> policyDocument_ {};
       // The ID of the resource group to which the gateway endpoint belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The name of the endpoint service.
+      // The service name of the endpoint service.
       shared_ptr<string> serviceName_ {};
-      // The tag list.
+      // The list of tags.
       shared_ptr<vector<Endpoints::Tags>> tags_ {};
-      // The ID of the virtual private cloud (VPC) to which the gateway endpoint belongs.
+      // The ID of the VPC to which the gateway endpoint belongs.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -281,16 +281,15 @@ namespace Models
   protected:
     // The list of gateway endpoints.
     shared_ptr<vector<ListVpcGatewayEndpointsResponseBody::Endpoints>> endpoints_ {};
-    // The number of entries per page.
+    // The number of entries per page for a paged query.
     shared_ptr<int64_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   If no value is returned for **NextToken**, no next queries are sent.
-    // *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+    // Indicates whether a next query token is available. Valid values:
+    // - If **NextToken** is empty, no more results are available.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of entries returned.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

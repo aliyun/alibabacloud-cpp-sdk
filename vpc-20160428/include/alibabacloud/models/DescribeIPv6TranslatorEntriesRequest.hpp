@@ -204,51 +204,51 @@ namespace Models
 
 
   protected:
-    // The ID of the network ACL.
+    // The ID of the access control policy group.
     shared_ptr<string> aclId_ {};
-    // Specifies whether to enable access control lists (ACLs). Valid values:
-    // 
-    // *   **on**
-    // *   **off**
+    // Specifies whether to enable access control. Valid values:
+    // - **on**: enabled.
+    // - **off**: disabled.
     shared_ptr<string> aclStatus_ {};
-    // The ACL type. Valid values:
+    // The type of the access control policy. Valid values:
     // 
-    // *   **white**: a whitelist. IPv6 addresses in the ACL are allowed to access backend services.
-    // *   **black**: a blacklist. IPv6 addresses in the ACL are not allowed to access backend services.
+    // - **white**: allows the IPv6 addresses in the access control policy group to access backend services.
+    // 
+    // - **black**: denies the IPv6 addresses in the access control policy group from accessing backend services.
     shared_ptr<string> aclType_ {};
-    // The IPv6 address allocated to the IPv6 Translation Service instance.
+    // The IPv6 address allocated by the IPv6 Translation Service instance.
     shared_ptr<string> allocateIpv6Addr_ {};
-    // The port used by the IPv6 address allocated to the IPv6 Translation Service instance.
+    // The port used by the IPv6 address allocated by the IPv6 Translation Service instance.
     shared_ptr<int32_t> allocateIpv6Port_ {};
-    // The public IPv4 address that needs to provide IPv6 services.
+    // The public IPv4 address that requires IPv6 services.
     shared_ptr<string> backendIpv4Addr_ {};
-    // The port used by the public IPv4 address that needs to provide IPv6 services.
+    // The port used by the public IPv4 address that requires IPv6 services.
     shared_ptr<int32_t> backendIpv4Port_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // The name of the IPv6 mapping entry.
+    // The name of the IPv6 Translation mapping entry.
     shared_ptr<string> entryName_ {};
-    // The ID of the IPv6 mapping entry.
+    // The ID of the IPv6 Translation mapping entry to query. 
     // 
-    // > If **Ipv6TranslatorId** and **Ipv6TranslatorEntryId** are empty, information about all IPv6 mapping entries is returned. If only **Ipv6TranslatorEntryId** is empty, information about the IPv6 mapping entries of the current IPv6 Translation Service instance is returned.
+    // > If both **Ipv6TranslatorId** and **Ipv6TranslatorEntryId** are empty, all IPv6 Translation mapping entries are returned. If only **Ipv6TranslatorEntryId** is empty, all IPv6 Translation mapping entries under the current IPv6 Translation Service instance are returned.
     shared_ptr<string> ipv6TranslatorEntryId_ {};
     // The ID of the IPv6 Translation Service instance.
     shared_ptr<string> ipv6TranslatorId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page for paging. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query the most recent region list.
+    // The region of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The protocol used by the data to be forwarded.
+    // The protocol type used for data forwarding.
     shared_ptr<string> transProtocol_ {};
   };
 

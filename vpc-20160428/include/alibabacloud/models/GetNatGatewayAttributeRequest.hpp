@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The ID of the NAT gateway.
+    // The instance ID of the NAT gateway.
     // 
     // This parameter is required.
     shared_ptr<string> natGatewayId_ {};
@@ -92,7 +92,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the NAT gateway.
     // 
-    // Call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to obtain the region ID.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

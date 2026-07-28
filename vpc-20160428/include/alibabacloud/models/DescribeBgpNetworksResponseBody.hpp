@@ -174,13 +174,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeBgpNetworksResponseBody::BgpNetworks> bgpNetworks_ {};
-    // The page number.
+    // The page number of the list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of advertised BGP networks.
+    // The total number of advertised Border Gateway Protocol (BGP) networks.
     shared_ptr<int32_t> totalCount_ {};
   };
 

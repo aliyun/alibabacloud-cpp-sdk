@@ -98,11 +98,11 @@ namespace Models
     protected:
       // The tag key.
       // 
-      // You can specify at most 20 tag keys at a time.
+      // You can specify up to 20 tag keys at a time.
       shared_ptr<string> key_ {};
       // The tag value.
       // 
-      // Each tag key corresponds to one tag value. You can specify at most 20 tag values at a time.
+      // Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
       shared_ptr<string> value_ {};
     };
 
@@ -218,47 +218,53 @@ namespace Models
 
 
   protected:
-    // The payment status of the VPN gateway. Valid values:
+    // The billing status of the VPN gateway. Valid values:
     // 
-    // *   **Normal**
-    // *   **FinancialLocked**
+    // - **Normal**: Normal.
+    // 
+    // - **FinancialLocked**: locked due to overdue payment.
     shared_ptr<string> businessStatus_ {};
-    // VPN 网关类型，取值：
-    // Traditional：传统型VPN网关，覆盖IPsec功能和SSL功能
-    // Enhance.SiteToSite：增强型站点入云VPN，只覆盖IPsec功能
+    // The type of the VPN gateway. Valid values:
+    // - Traditional: a traditional VPN gateway that supports both IPsec-VPN and SSL-VPN features.
+    // - Enhanced.SiteToSite: an enhanced site-to-cloud VPN gateway that supports only the IPsec-VPN feature.
     shared_ptr<string> gatewayType_ {};
-    // Specifies whether to return information about pending orders. Valid values:
+    // Specifies whether to include pending order data. Valid values:
     // 
-    // *   **false** (default)
-    // *   **true**
+    // - **false** (default): does not include pending order data.
+    // 
+    // - **true**: includes pending order data.
     shared_ptr<bool> includeReservationData_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: **1**.
+    // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **1** to **50**. Default value: **10**.
+    // The number of entries per page for paging queries. Valid values: **1** to **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the VPN gateway.
+    // The region ID of the VPN gateway. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the VPN gateway belongs.
     // 
-    //  You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group list.
+    // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group IDs.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The status of the VPN gateway. Valid values:
     // 
-    // *   **init**
-    // *   **provisioning**
-    // *   **active**
-    // *   **updating**
-    // *   **deleting**
+    // - **init**: initializing.
+    // 
+    // - **provisioning**: preparing.
+    // 
+    // - **active**: Normal.
+    // 
+    // - **updating**: updating.
+    // 
+    // - **deleting**: deleting.
     shared_ptr<string> status_ {};
-    // The tags that are added to the VPN gateway.
+    // The list of tags bound to the VPN gateway.
     shared_ptr<vector<DescribeVpnGatewaysRequest::Tag>> tag_ {};
     // The ID of the virtual private cloud (VPC) to which the VPN gateway belongs.
     shared_ptr<string> vpcId_ {};

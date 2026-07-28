@@ -153,38 +153,43 @@ namespace Models
 
 
     protected:
-      // The description of the failover test.
+      // The description of the failover test job.
       // 
-      // The description must be 0 to 256 characters in length and cannot start with \\*\\*http:// **or** https://\\*\\*.
+      // The description is 0 to 256 characters in length and cannot start with **http://** or **https://**.
       shared_ptr<string> description_ {};
-      // The duration of the failover test. Unit: minutes. Valid values: **1 to 4320**.
+      // The test duration. Unit: minutes. Valid values: **1 to 4320**.
       shared_ptr<string> jobDuration_ {};
-      // The ID of the failover test.
+      // The failover test job ID.
       shared_ptr<string> jobId_ {};
-      // Indicates whether the failover test is performed immediately. Valid values:
+      // The failover test type. Valid values:
       // 
-      // *   **StartNow**
-      // *   **StartLater**
+      // - **StartNow**: The test starts immediately after the failover test job is created.
+      // 
+      // - **StartLater**: Only the test job is created. The test is not started.
       shared_ptr<string> jobType_ {};
-      // The name of the failover test.
+      // The name of the failover test job.
       // 
-      // The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
+      // The name is 0 to 128 characters in length and cannot start with `http://` or `https://`.
       shared_ptr<string> name_ {};
-      // The IDs of the failover test resources.
+      // The list of failover test resource IDs.
       shared_ptr<vector<string>> resourceId_ {};
-      // The type of the failover test resource. Only **PHYSICALCONNECTION** is returned.
+      // The failover test resource type. Valid values: **PHYSICALCONNECTION**: Express Connect circuit.
       shared_ptr<string> resourceType_ {};
-      // The beginning of the fault drill task. The time must be in UTC. Specify the time in the ISO 8601 standard in `YYYY-MM-DDThh:mm:ssZ` format.
+      // The start time of the failover test job. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format based on the ISO 8601 standard.
       shared_ptr<string> startTime_ {};
-      // The status of the failover test. Valid values:
+      // The status of the failover test job. Valid values:
       // 
-      // *   **Init**
-      // *   **Starting**
-      // *   **Testing**
-      // *   **Stopping**
-      // *   **Stopped**
+      // - **Init**: Pending.
+      // 
+      // - **Starting**: Starting.
+      // 
+      // - **Testing**: In progress.
+      // 
+      // - **Stopping**: Stopping.
+      // 
+      // - **Stopped**: Completed.
       shared_ptr<string> status_ {};
-      // The end of the fault drill task. The time must be in UTC. Specify the time in the ISO 8601 standard in `YYYY-MM-DDThh:mm:ssZ` format.
+      // The end time of the failover test job. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format based on the ISO 8601 standard.
       shared_ptr<string> stopTime_ {};
     };
 
@@ -237,18 +242,19 @@ namespace Models
   protected:
     // The number of entries on the current page.
     shared_ptr<int32_t> count_ {};
-    // The list of failover tests.
+    // The list of failover test jobs.
     shared_ptr<vector<DescribeFailoverTestJobsResponseBody::FailoverTestJobList>> failoverTestJobList_ {};
-    // The number of entries per page. Valid values: **1 to 100**. Default value: 20.
+    // The number of entries per page for paginated queries. Valid values: **1 to 100**. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+    // The token for the next query. Valid values:
     // 
-    // *   If no value is returned for **NextToken**, no next queries are sent.
-    // *   If a value is returned for **NextToken**, the value is used to retrieve a new page of results.
+    // - Leave this parameter empty for the first query or if no next query exists.
+    // 
+    // - If a next query exists, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of entries returned.
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

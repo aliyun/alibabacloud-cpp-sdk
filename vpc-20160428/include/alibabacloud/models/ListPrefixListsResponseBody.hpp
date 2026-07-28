@@ -243,16 +243,16 @@ namespace Models
 
 
     protected:
-      // The CIDR block specified in the prefix list.
+      // The Classless Inter-Domain Routing (CIDR) block information of the prefix list.
       shared_ptr<vector<string>> cidrBlocks_ {};
       // The time when the prefix list was created.
       shared_ptr<string> creationTime_ {};
       // The IP version of the prefix list. Valid values:
       // 
-      // *   **IPV4**
-      // *   **IPV6**
+      // - **IPV4**: IPv4.
+      // - **IPV6**: IPv6.
       shared_ptr<string> ipVersion_ {};
-      // The maximum number of CIDR blocks that you can specify in the prefix list.
+      // The maximum number of entries for Classless Inter-Domain Routing (CIDR) blocks in the prefix list.
       shared_ptr<int32_t> maxEntries_ {};
       // The Alibaba Cloud account to which the prefix list belongs.
       shared_ptr<string> ownerId_ {};
@@ -264,11 +264,11 @@ namespace Models
       shared_ptr<string> prefixListName_ {};
       // The status of the prefix list. Valid values:
       // 
-      // *   **Created**
-      // *   **Deleted**
-      // *   **Modifying**
+      // - **Created**: Created.
+      // - **Deleted**: Deleted.
+      // - **Modifying**: Being modified.
       // 
-      // >  This parameter is the same as the **Status** parameter.
+      // > This parameter has the same meaning and valid values as **Status**.
       shared_ptr<string> prefixListStatus_ {};
       // The type of the prefix list.
       shared_ptr<string> prefixListType_ {};
@@ -276,16 +276,16 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The ID of the resource group to which the prefix list belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // Indicates whether the prefix list is shared. Valid values:
+      // The sharing type of the prefix list. Valid values:
       // 
-      // *   **Shared**: The prefix list is shared.
-      // *   If an empty value is returned, the prefix list is not shared.
+      // - **Shared**: The prefix list is a shared prefix list.
+      // - Empty: The prefix list is not a shared prefix list.
       shared_ptr<string> shareType_ {};
       // The status of the prefix list. Valid values:
       // 
-      // *   **Created**
-      // *   **Deleted**
-      // *   **Modifying**
+      // - **Created**: Created.
+      // - **Deleted**: Deleted.
+      // - **Modifying**: Being modified.
       shared_ptr<string> status_ {};
       // The tags.
       shared_ptr<vector<PrefixLists::Tags>> tags_ {};
@@ -331,12 +331,11 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int64_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value is returned for **NextToken**, the value indicates the token that is used for the next request to retrieve a new page of results.
+    // The pagination token. Valid values:
+    // - If **NextToken** is empty, no subsequent query exists.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The information about the prefix lists.
     shared_ptr<vector<ListPrefixListsResponseBody::PrefixLists>> prefixLists_ {};

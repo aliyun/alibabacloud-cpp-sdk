@@ -154,7 +154,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeIPv6TranslatorAclListsResponseBody::Ipv6TranslatorAcls> ipv6TranslatorAcls_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

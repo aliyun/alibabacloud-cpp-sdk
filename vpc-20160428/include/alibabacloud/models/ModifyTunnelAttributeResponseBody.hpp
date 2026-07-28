@@ -229,8 +229,8 @@ namespace Models
       shared_ptr<int64_t> ikeLifetime_ {};
       // The IKE negotiation mode.
       // 
-      // - **main**: main mode. This mode offers high security during negotiations.
-      // - **aggressive**: aggressive mode. This mode supports fast negotiations and a higher success rate.
+      // - **main**: main mode. The negotiation process is more secure.
+      // - **aggressive**: aggressive mode. The negotiation is faster and has a higher success rate.
       shared_ptr<string> ikeMode_ {};
       // The DH group.
       shared_ptr<string> ikePfs_ {};
@@ -241,11 +241,11 @@ namespace Models
       // 
       // Compared with IKEv1, IKEv2 simplifies the SA negotiation process and provides better support for multi-CIDR-block scenarios.
       shared_ptr<string> ikeVersion_ {};
-      // The identifier of the local end of the tunnel. It supports FQDN and IP formats. Default value: the IP address of the current tunnel.
+      // The identifier of the local end of the tunnel. The value supports FQDN and IP formats. Default value: the IP address of the current tunnel.
       shared_ptr<string> localId_ {};
       // The pre-shared key.
       shared_ptr<string> psk_ {};
-      // The identifier of the peer end of the tunnel. It supports FQDN and IP formats. Default value: the IP address of the customer gateway instance associated with the tunnel.
+      // The identifier of the peer end of the tunnel. The value supports FQDN and IP formats. Default value: the IP address of the customer gateway instance associated with the tunnel.
       shared_ptr<string> remoteId_ {};
     };
 
@@ -459,7 +459,7 @@ namespace Models
     shared_ptr<bool> enableNatTraversal_ {};
     // The IP address of the tunnel.
     shared_ptr<string> internetIp_ {};
-    // The CA certificate of the peer when an IPsec-VPN connection is created with a Chinese SM VPN gateway.
+    // The peer CA certificate when the IPsec-VPN connection is created with a China CA VPN gateway.
     shared_ptr<string> remoteCaCertificate_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -470,9 +470,9 @@ namespace Models
     shared_ptr<string> role_ {};
     // The status of the tunnel.
     // 
-    // - **active**: available.
-    // - **updating**: being updated.
-    // - **deleting**: being deleted.
+    // - **active**: The tunnel is available.
+    // - **updating**: The tunnel is being updated.
+    // - **deleting**: The tunnel is being deleted.
     shared_ptr<string> state_ {};
     // The BGP configuration of the tunnel.
     shared_ptr<ModifyTunnelAttributeResponseBody::TunnelBgpConfig> tunnelBgpConfig_ {};

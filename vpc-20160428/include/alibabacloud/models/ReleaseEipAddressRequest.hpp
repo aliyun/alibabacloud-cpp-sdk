@@ -84,13 +84,13 @@ namespace Models
 
 
   protected:
-    // The ID of the EIP that you want to release.
+    // The ID of the EIP to release.
     // 
     // This parameter is required.
     shared_ptr<string> allocationId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region to which the EIP belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The region ID of the EIP to release. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query region IDs.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

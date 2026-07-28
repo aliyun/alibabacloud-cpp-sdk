@@ -123,16 +123,17 @@ namespace Models
     // The number of log entries.
     shared_ptr<int32_t> count_ {};
     shared_ptr<DescribeVpnSslServerLogsResponseBody::Data> data_ {};
-    // Indicates whether the log is accurate. Valid values:
+    // Indicates whether the queried logs are accurate. Valid values:
     // 
-    // *   **true**: accurate
-    // *   **false**: inaccurate
+    // - **true**: Accurate.
+    // 
+    // - **false**: Not accurate.
     shared_ptr<bool> isCompleted_ {};
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

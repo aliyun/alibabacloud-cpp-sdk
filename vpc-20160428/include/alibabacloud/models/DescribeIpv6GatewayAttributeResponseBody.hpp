@@ -245,45 +245,49 @@ namespace Models
 
 
   protected:
-    // The status of the IPv6 gateway. Valid values:
+    // The business status of the IPv6 gateway. Valid values:
     // 
-    // *   **Normal**
-    // *   **FinancialLocked**
-    // *   **SecurityLocked**
+    // - **Normal**: Normal.
+    // 
+    // - **FinancialLocked**: financial lock.
+    // 
+    // - **SecurityLocked**: security lock.
     shared_ptr<string> businessStatus_ {};
     // The time when the IPv6 gateway was created.
     shared_ptr<string> creationTime_ {};
     // The description of the IPv6 gateway.
     shared_ptr<string> description_ {};
-    // The time when the IPv6 gateway expires.
+    // The expiration time of the IPv6 gateway.
     shared_ptr<string> expiredTime_ {};
     // The ID of the gateway route table associated with the IPv6 gateway.
     // 
-    // >  This parameter is available only when the IPv6 gateway is associated with a gateway route table.
+    // 
+    // > This parameter is displayed only for IPv6 gateways that are associated with a gateway route table.
     shared_ptr<string> gatewayRouteTableId_ {};
-    // The metering method of the IPv6 gateway.
+    // The billing method of the IPv6 gateway.
     shared_ptr<string> instanceChargeType_ {};
-    // The ID of the IPv6 gateway.
+    // The instance ID of the IPv6 gateway.
     shared_ptr<string> ipv6GatewayId_ {};
     // The name of the IPv6 gateway.
     shared_ptr<string> name_ {};
-    // The ID of the Alibaba Cloud account to which the IPv6 gateway belongs.
+    // The Alibaba Cloud account ID of the IPv6 gateway owner.
     // 
-    // >  This value is of the Long type. In some languages, the precision may be lost. Use this value with caution.
+    // >Notice: This value is of the Long type. Precision loss may occur in certain programming languages. Use this value with caution.
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the IPv6 gateway is deployed.
+    // The region ID of the IPv6 gateway.
     shared_ptr<string> regionId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The status of the IPv6 gateway. Valid values:
     // 
-    // *   **Pending**
-    // *   **Available**
+    // - **Pending**: being configured.
+    // 
+    // - **Available**: active.
     shared_ptr<string> status_ {};
     shared_ptr<DescribeIpv6GatewayAttributeResponseBody::Tags> tags_ {};
-    // The ID of the virtual private cloud (VPC) to which the IPv6 gateway belongs.
+    // The ID of the VPC to which the IPv6 gateway belongs.
     shared_ptr<string> vpcId_ {};
   };
 

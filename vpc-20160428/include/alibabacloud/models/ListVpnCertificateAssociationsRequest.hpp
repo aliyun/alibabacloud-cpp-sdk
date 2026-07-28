@@ -91,29 +91,31 @@ namespace Models
   protected:
     // The list of certificate IDs.
     // 
-    // You can query the association between at most 20 SSL certificates and VPN gateways.
+    // You can query the associations between up to 20 SSL certificates and VPN gateway instances at a time.
     shared_ptr<vector<string>> certificateId_ {};
     // The certificate type. Valid values:
     // 
-    // *   **Encryption**
-    // *   **Signature**
-    shared_ptr<string> certificateType_ {};
-    // The number of entries to return on each page. Valid values: **1** to **20**. Default value: **1**.
-    shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // - **Encryption**: encryption certificate.
     // 
-    // *   You do not need to specify this parameter for the first request.
-    // *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+    // - **Signature**: signing certificate.
+    shared_ptr<string> certificateType_ {};
+    // The number of entries per page. Valid values: **1** to **20**. Default value: **10**.
+    shared_ptr<int32_t> maxResults_ {};
+    // The token for the next query. Valid values:
+    // 
+    // - If this is the first query or no next query exists, leave this parameter empty.
+    // 
+    // - If a next query exists, set this parameter to the **NextToken** value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The region ID of the VPN gateway.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The list of VPN gateway IDs.
+    // The list of VPN gateway instance IDs.
     // 
-    // You can query the association between at most 20 VPN gateways and SSL certificates.
+    // You can query the associations between up to 20 VPN gateway instances and SSL certificates at a time.
     shared_ptr<vector<string>> vpnGatewayId_ {};
   };
 

@@ -224,13 +224,13 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of entries returned.
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
     shared_ptr<DescribeVpnPbrRouteEntriesResponseBody::VpnPbrRouteEntries> vpnPbrRouteEntries_ {};
   };

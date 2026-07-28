@@ -103,20 +103,21 @@ namespace Models
 
 
     protected:
-      // The time when the Anycast EIP was associated.
+      // The time when the association was created.
       // 
-      // The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
       shared_ptr<string> associationTime_ {};
       // The certificate ID.
       shared_ptr<string> certificateId_ {};
-      // The type of the certificate.
+      // The certificate type.
       // 
-      // *   **Encryption**
-      // *   **Signature**
+      // - **Encryption**: encryption certificate.
+      // 
+      // - **Signature**: signing certificate.
       shared_ptr<string> certificateType_ {};
-      // The ID of the region where the VPN gateway is created.
+      // The region ID of the VPN gateway.
       shared_ptr<string> regionId_ {};
-      // The ID of the VPN gateway.
+      // The VPN gateway instance ID.
       shared_ptr<string> vpnGatewayId_ {};
     };
 
@@ -160,18 +161,19 @@ namespace Models
 
 
   protected:
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+    // The token for the next query. Valid values:
     // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If **NextToken** is not empty, the value indicates the token that is used for the next query.
+    // - If **NextToken** is empty, no next query exists.
+    // 
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of associations.
     shared_ptr<int32_t> totalCount_ {};
-    // The association information.
+    // The list of associations.
     shared_ptr<vector<ListVpnCertificateAssociationsResponseBody::VpnCertificateRelations>> vpnCertificateRelations_ {};
   };
 

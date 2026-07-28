@@ -125,7 +125,7 @@ namespace Models
     // 
     // - **true**: enabled.
     // 
-    //     After routing automatic propagation is enabled, the VPN gateway instance performs automatic learning of system routes from the system route table of the VPC-connected instance and automatically propagates routes of the on-premises data center to the system route table of the VPC-connected instance.
+    //     After routing automatic propagation is enabled, the VPN gateway instance performs automatic learning of system routes in the system route table of the VPC-connected instance and automatically propagates routes of the on-premises data center to the system route table of the VPC-connected instance.
     // - **false**: disabled.
     //     
     //     Before you disable routing automatic propagation, make sure that the BGP dynamic route feature is disabled for all IPsec-VPN connections under the VPN gateway.
@@ -142,7 +142,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The new name of the VPN gateway.  
     // 
-    // The name must be 2 to 100 characters in length and cannot start with `http://` or `https://`. It must start with an uppercase or lowercase letter and can contain uppercase and lowercase letters, digits, underscores (_), hyphens (-), and periods (.). Other special characters are not supported.
+    // The name must be 2 to 100 characters in length. It cannot start with `http://` or `https://`. It must start with an uppercase or lowercase letter and can contain uppercase and lowercase letters, digits, underscores (_), hyphens (-), and periods (.). Other special characters are not supported.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

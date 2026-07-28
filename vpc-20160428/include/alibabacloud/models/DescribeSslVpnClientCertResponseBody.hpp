@@ -157,23 +157,23 @@ namespace Models
     shared_ptr<string> clientConfig_ {};
     // The client key.
     shared_ptr<string> clientKey_ {};
-    // The timestamp that indicates when the SSL client certificate was created. Unit: milliseconds.
+    // The timestamp when the SSL client certificate was created. Unit: milliseconds.
     // 
-    // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+    // The timestamp is in the UNIX format and represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> createTime_ {};
-    // The timestamp that indicates when the SSL client certificate expires. Unit: milliseconds.
+    // The timestamp when the SSL client certificate expires. Unit: milliseconds.
     // 
-    // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+    // The timestamp is in the UNIX format and represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> endTime_ {};
     // The name of the SSL client certificate.
     shared_ptr<string> name_ {};
-    // The ID of the region where the SSL client certificate is created.
+    // The region ID of the SSL client certificate.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group to which the SSL client certificate belongs.
+    // The resource group ID of the SSL client certificate.
     // 
-    // The SSL client certificate and the SSL server associated with the SSL client certificate belong to the same resource group. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
+    // The SSL client certificate belongs to the same resource group as its associated SSL server. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group information.
     shared_ptr<string> resourceGroupId_ {};
     // The ID of the SSL client certificate.
     shared_ptr<string> sslVpnClientCertId_ {};
@@ -181,9 +181,11 @@ namespace Models
     shared_ptr<string> sslVpnServerId_ {};
     // The status of the SSL client certificate. Valid values:
     // 
-    // *   **expiring-soon**
-    // *   **normal**
-    // *   **expired**
+    // - **expiring-soon**: The certificate will expire within one week.
+    // 
+    // - **normal**: Normal. 
+    // 
+    // - **expired**: Expired.
     shared_ptr<string> status_ {};
   };
 

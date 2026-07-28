@@ -112,32 +112,32 @@ namespace Models
 
 
   protected:
-    // The UNIX timestamp when the destination-based route entry was created. Unit: milliseconds.  
+    // The timestamp when the destination route entry was created. Unit: milliseconds.
     // 
-    // The timestamp follows the Unix time format, which represents the total number of milliseconds elapsed since 00:00:00 UTC on January 1, 1970, until the destination-based route entry was created.
+    // The timestamp follows the UNIX format and represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> createTime_ {};
-    // The description of the destination-based route entry.
+    // The description of the destination route entry.
     shared_ptr<string> description_ {};
-    // The next hop of the destination-based route entry.
+    // The next hop of the destination route entry.
     shared_ptr<string> nextHop_ {};
-    // The tunnel protocol.  
+    // The tunneling protocol.
     // 
-    // Valid value: **Ipsec**, which indicates the IPsec tunnel protocol.
+    // The value is **Ipsec**, which specifies the IPsec tunneling protocol.
     shared_ptr<string> overlayMode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The description of the destination-based route.
+    // The destination CIDR block of the destination route entry.
     shared_ptr<string> routeDest_ {};
-    // The publish status of the destination-based route entry.  
+    // The publish status of the destination route entry.
     // 
-    // Valid value: **published**, which indicates that the route entry has been published to the transit router instance.
+    // The value is **published**, which indicates that the route entry is published to the transit router instance.
     shared_ptr<string> state_ {};
-    // The request ID.
+    // The ID of the IPsec-VPN connection.
     shared_ptr<string> vpnConnectionId_ {};
-    // The weight of the destination-based route entry.  
+    // The weight of the destination route entry.
     // 
-    // - **0**: indicates low priority.  
-    // - **100**: indicates high priority.
+    // - **0**: low priority.
+    // - **100**: high priority.
     shared_ptr<int32_t> weight_ {};
   };
 

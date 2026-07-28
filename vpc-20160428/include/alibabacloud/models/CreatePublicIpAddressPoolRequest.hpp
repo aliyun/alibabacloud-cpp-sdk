@@ -98,11 +98,11 @@ namespace Models
     protected:
       // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -222,51 +222,48 @@ namespace Models
 
 
   protected:
-    // The service type of the IP address pool. Valid values:
-    // 
-    // *   **CloudBox** Only cloud box users can select this type.
-    // *   **Default**: This is the default value.
+    // The business type of the IP address pool. Valid values:
+    // - **CloudBox**: CloudBox. Only CloudBox users can select this type.
+    // - **Default** (default): indicates that the business type is not a special type.
     shared_ptr<string> bizType_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate a value, and you must make sure that each request has a unique token value. The client token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The value of **RequestId** for each API request is different.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // The description of the IP address pool.
+    // The description of the IP address pool instance.
     // 
     // The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // Specifies whether to precheck only this request. Valid values:
-    // 
-    // *   **true**: prechecks the request without creating an IP address pool. The system checks the required parameters, request format, and service limits. If the request fails to pass the precheck, an error code is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-    // *   **false**: sends the request. This is the default value. If the request passes the precheck, a 2xx HTTP status code is returned and the IP address pool is created.
+    // Specifies whether to perform a dry run. Valid values:
+    // - **true**: performs a dry run without creating the IP address pool. The system checks the required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **false** (default): performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
     // The line type. Valid values:
     // 
-    // *   **BGP** (default)
-    // *   **BGP_PRO**
+    // - **BGP** (default): BGP (Multi-ISP) line.
     // 
-    // For more information about BGP (Multi-ISP) lines and BGP (Multi-ISP) Pro lines, see the "Line types" section in the [What is EIP?](https://help.aliyun.com/document_detail/32321.html) topic.
+    // - **BGP_PRO**: BGP (Multi-ISP) Pro line.
     // 
-    // *   If you are allowed to use single-ISP bandwidth, you can also use one of the following values:
+    // For more information about BGP (Multi-ISP) lines and BGP (Multi-ISP) Pro lines, see [EIP line types](https://help.aliyun.com/document_detail/32321.html).
     // 
-    //     *   **ChinaTelecom**
-    //     *   **ChinaUnicom**
-    //     *   **ChinaMobile**
-    //     *   **ChinaTelecom_L2**
-    //     *   **ChinaUnicom_L2**
-    //     *   **ChinaMobile_L2**
-    // 
-    // *   If your services are deployed in China East 1 Finance, this parameter is required and you must set the value to **BGP_FinanceCloud**.
+    // - If you are a whitelist user of single-ISP bandwidth, you can also select the following types:
+    //     - **ChinaTelecom**: China Telecom
+    //     - **ChinaUnicom**: China Unicom
+    //     - **ChinaMobile**: China Mobile
+    //     - **ChinaTelecom_L2**: China Telecom L2
+    //     - **ChinaUnicom_L2**: China Unicom L2
+    //     - **ChinaMobile_L2**: China Mobile L2
+    // - If you are a China (Hangzhou) Finance Cloud user, this field is required. Set this parameter to **BGP_FinanceCloud**.
     shared_ptr<string> isp_ {};
-    // The name of the IP address pool.
+    // The name of the IP address pool instance.
     // 
     // The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where you want to create the IP address pool.
+    // The region ID of the IP address pool that you want to create.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -274,13 +271,16 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The editions of Anti-DDoS.
-    // - If you do not specify this parameter, Anti-DDoS Origin Basic is used.
-    // - If you set the parameter to AntiDDoS_Enhanced, Anti-DDoS Pro/Premium is used.
+    // The security protection level.
+    // 
+    // - If this parameter is left empty, DDoS Protection (Basic) is used by default.
+    // 
+    // - If this parameter is set to **AntiDDoS_Enhanced**, DDoS Protection (Enhanced) is used.
     shared_ptr<vector<string>> securityProtectionTypes_ {};
-    // The tag of the resource.
+    // The tags of the resource.
     shared_ptr<vector<CreatePublicIpAddressPoolRequest::Tag>> tag_ {};
-    // The zone of the IP address pool. If you set **BizType** to **CloudBox**, this parameter is required.
+    // The zones of the IP address pool.
+    // This parameter is required only when **BizType** is set to **CloudBox**, which indicates that the business type of the IP address pool is CloudBox.
     shared_ptr<vector<string>> zones_ {};
   };
 

@@ -117,28 +117,29 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
     // 
-    // >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** value as the **ClientToken** value. The **RequestId** value may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to check the request without performing the operation. Valid values:
+    // Specifies whether to perform a dry run. Valid values:
     // 
-    // *   **true**: checks the API request without performing the operation. The system checks the required parameters, request format, and limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-    // *   **false** (default): sends the request. After the request passes the check, the operation is performed.
+    // - **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // 
+    // - **false** (default): performs a dry run and sends the request. If the request passes the dry run, inbound or outbound rules are deleted.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region to which the mirrored traffic belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list. For more information about regions that support traffic mirror, see [Overview of traffic mirror](https://help.aliyun.com/document_detail/207513.html).
+    // The region ID of the traffic mirror. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list. For more information about regions that support traffic mirroring, see [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the filter.
+    // The instance ID of the traffic mirror filter.
     // 
     // This parameter is required.
     shared_ptr<string> trafficMirrorFilterId_ {};
-    // The ID of the inbound or outbound rule.
+    // The instance IDs of the inbound or outbound rules.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> trafficMirrorFilterRuleIds_ {};

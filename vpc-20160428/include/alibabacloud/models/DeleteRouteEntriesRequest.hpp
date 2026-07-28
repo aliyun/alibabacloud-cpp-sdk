@@ -98,19 +98,19 @@ namespace Models
 
 
     protected:
-      // The destination CIDR block of the route that you want to delete. IPv4 and IPv6 CIDR blocks are supported. You can specify up to 50 destination CIDR blocks.
+      // The destination CIDR block of the route entry to delete. IPv4 CIDR blocks, IPv6 CIDR blocks, and prefix list CIDR blocks are supported. You can specify up to 50 destination CIDR blocks.
       // 
-      // >  If **RouteEntryId** is not specified, **DstCidrBlock** and **NextHop** are required.
+      // > If the **RouteEntryId** parameter is not specified, the **DstCidrBlock** and **NextHop** parameters are required.
       shared_ptr<string> dstCidrBlock_ {};
-      // The ID of the next hop that you want to delete. You can specify up to 50 next hop IDs.
+      // The ID of the next hop instance to delete. You can specify up to 50 instance IDs.
       // 
-      // >  If **RouteEntryId** is not specified, **DstCidrBlock** and **NextHop** are required.
+      // > If the **RouteEntryId** parameter is not specified, the **DstCidrBlock** and **NextHop** parameters are required.
       shared_ptr<string> nextHop_ {};
-      // The ID of the route that you want to delete. You can specify up to 50 route IDs.
+      // The ID of the route entry to delete. You can specify up to 50 route entry IDs.
       // 
-      // >  If **RouteEntryId** is not specified, **DstCidrBlock** and **NextHop** are required.
+      // > If the **RouteEntryId** parameter is not specified, the **DstCidrBlock** and **NextHop** parameters are required.
       shared_ptr<string> routeEntryId_ {};
-      // The ID of the route table to which the routes to be deleted belongs. You can specify up to 50 route table IDs.
+      // The ID of the route table that contains the route entry to delete. You can specify up to 50 route table IDs.
       // 
       // This parameter is required.
       shared_ptr<string> routeTableId_ {};
@@ -171,22 +171,23 @@ namespace Models
 
 
   protected:
-    // Specifies whether to perform a dry run, without performing the actual request. Valid values:
+    // Specifies whether to perform a dry run. Valid values:
     // 
-    // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+    // **true**: performs a dry run without deleting routes. The system checks the AccessKey pair, the authorization of the Resource Access Management (RAM) user, and the required parameters. If the check fails, the corresponding error is returned. If the check passes, the `DryRunOperation` error code is returned.
+    // 
+    // **false** (default): sends a normal request. If the check passes, a 2xx HTTP status code is returned and the routes are deleted.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the route table.
+    // The ID of the region where the route table resides.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The information about the routes that you want to delete.
+    // The information about the route entries to delete.
     shared_ptr<vector<DeleteRouteEntriesRequest::RouteEntries>> routeEntries_ {};
   };
 

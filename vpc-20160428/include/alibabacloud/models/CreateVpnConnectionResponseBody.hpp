@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The timestamp generated when the IPsec-VPN connection was established. Unit: milliseconds.
+    // The timestamp when the IPsec-VPN connection was created. Unit: milliseconds.
     // 
-    // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+    // The timestamp follows the UNIX timestamp format, which represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> createTime_ {};
     // The name of the IPsec-VPN connection.
     shared_ptr<string> name_ {};

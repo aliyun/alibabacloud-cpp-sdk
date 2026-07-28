@@ -112,15 +112,15 @@ namespace Models
 
 
   protected:
-    // The type of resource to which the IPsec-VPN connection is attached. Default value: **CEN**.
+    // The type of resource to which the IPsec-VPN connection is associated. Default value: **CEN**.
     // 
-    // The value can only be **CEN**, which indicates that the system queries IPsec-VPN connections that are associated with transit router instances.
+    // The value can only be **CEN**, which indicates that the system queries IPsec-VPN connections associated with transit router instances.
     shared_ptr<string> attachType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the list. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page when paging is used. Default value: **10**. Valid values: **1** to **50**.
+    // The number of entries per page in paging queries. Default value: **10**. Valid values: **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the IPsec-VPN connection.
     // 
@@ -132,7 +132,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The ID of the IPsec-VPN connection.
     // 
-    // > If you do not specify the IPsec-VPN connection ID, the system queries information about all IPsec-VPN connections that are associated with transit router instances in the current region.
+    // > If you do not specify an IPsec-VPN connection ID, the system queries all IPsec-VPN connections that are associated with transit router instances in the current region.
     shared_ptr<string> vpnConnectionId_ {};
   };
 

@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The instance ID of the resource.
+    // The resource instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -125,11 +125,11 @@ namespace Models
     // 
     // - **VpnGateway**: VPN gateway instance.
     // 
-    //   After you change the resource group of a VPN gateway instance, the resource group of the IPsec server, SSL server, SSL client certificate, and IPsec-VPN connections (IPsec-VPN connections associated with the VPN gateway instance) under the VPN gateway instance is also changed.
+    //   After you change the resource group of a VPN gateway instance, the resource group of the IPsec server, SSL server, SSL client certificate, and IPsec-VPN connection (an IPsec-VPN connection associated with the VPN gateway instance) under the VPN gateway instance is also changed.
     // - **CustomerGateway**: customer gateway instance.
     // - **VpnAttachment**: IPsec-VPN connection instance.
     //     
-    //   This refers to IPsec-VPN connections associated with a transit router instance or IPsec-VPN connections that are not associated with any resource.
+    //   This refers to an IPsec-VPN connection associated with a transit router instance or an IPsec-VPN connection that is not associated with any resource.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

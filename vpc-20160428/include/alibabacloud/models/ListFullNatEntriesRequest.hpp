@@ -183,45 +183,45 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** of each API request may be different.
     shared_ptr<string> clientToken_ {};
-    // The ID of the FULLNAT entry that you want to query.
+    // The ID of the FULLNAT entry to query.
     shared_ptr<string> fullNatEntryId_ {};
-    // The name of the FULLNAT entry that you want to query. You can specify at most 20 names.
+    // The names of the FULLNAT entries to query. You can specify up to 20 names.
     // 
-    // The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+    // The name must be 2 to 128 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). The name must start with a letter or Chinese character.
     shared_ptr<vector<string>> fullNatEntryNames_ {};
-    // The ID of the FULLNAT table to which the FULLNAT entries to be queried belong.
+    // The ID of the FULLNAT table to which the FULLNAT entries belong.
     // 
-    // >  You must specify at least one of **FullNatTableId** and **NatGatewayId**.
+    // > You must specify at least one of **FullNatTableId** and **NatGatewayId**.
     shared_ptr<string> fullNatTableId_ {};
-    // The protocol of the packets that are forwarded by the port. Valid values:
+    // The protocol type of the Redirection Port. Valid values:
     // 
-    // *   **TCP**
-    // *   **UDP**
+    // - **TCP**: forwards TCP packets.
+    // - **UDP**: forwards UDP packets.
     shared_ptr<string> ipProtocol_ {};
-    // The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int64_t> maxResults_ {};
-    // The ID of the NAT gateway.
+    // The ID of the NAT gateway to query.
     // 
-    // >  You must specify at least one of **FullNatTableId** and **NatGatewayId**.
+    // > You must specify at least one of **FullNatTableId** and **NatGatewayId**.
     shared_ptr<string> natGatewayId_ {};
-    // The NAT IP address that provides address translation in FULLNAT entries.
+    // The NAT IP address in the FULLNAT entry to query.
     shared_ptr<string> natIp_ {};
-    // The frontend port to be modified in the mapping of FULLNAT port. Valid values: **1** to **65535**.
+    // The frontend port in the FULLNAT entry to query. Valid values: 1 to 65535.
     shared_ptr<string> natIpPort_ {};
-    // The ID of the elastic network interface (ENI) that you want to query.
+    // The IDs of the elastic network interfaces (ENIs) to query.
     shared_ptr<vector<string>> networkInterfaceIds_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
     // 
-    // *   You do not need to specify this parameter for the first request.
-    // *   You must specify the token that is obtained from the previous query as the value of the **NextToken** parameter.
+    // - You do not need to specify this parameter for the first request or if no next query exists.
+    // - If a next query exists, set the value to the **NextToken** value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the virtual private cloud (VPC) NAT gateway to which the FULLNAT entries to be queried belong.
+    // The region ID of the VPC NAT gateway to which the FULLNAT entries belong.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
     // 

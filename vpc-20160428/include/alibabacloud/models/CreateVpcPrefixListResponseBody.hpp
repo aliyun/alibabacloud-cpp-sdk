@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The ID of the prefix list.
+    // The instance ID of the prefix list.
     shared_ptr<string> prefixListId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The ID of the resource group to which the prefix list belongs.
     shared_ptr<string> resourceGroupId_ {};

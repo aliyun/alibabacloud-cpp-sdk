@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The information returned after traffic mirror is enabled.
+    // The message returned after the traffic mirroring feature is activated.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

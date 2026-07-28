@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the IPv4 gateway.
+    // The instance ID of the IPv4 gateway.
     shared_ptr<string> ipv4GatewayId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

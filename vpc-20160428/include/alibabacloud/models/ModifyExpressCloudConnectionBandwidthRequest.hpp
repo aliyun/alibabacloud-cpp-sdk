@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The bandwidth of the ECC instance.
+    // The bandwidth of the Express Cloud Connection (ECC) instance.
     shared_ptr<string> bandwidth_ {};
-    // The ID of the ECC instance.
+    // The instance ID of the Express Cloud Connection (ECC) instance.
     // 
     // This parameter is required.
     shared_ptr<string> eccId_ {};

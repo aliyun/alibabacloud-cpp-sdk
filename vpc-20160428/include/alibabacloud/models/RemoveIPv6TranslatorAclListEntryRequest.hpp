@@ -103,11 +103,11 @@ namespace Models
 
 
   protected:
-    // The ID of the ACL entry to be deleted.
+    // The ID of the access control policy entry that you want to delete.
     // 
     // This parameter is required.
     shared_ptr<string> aclEntryId_ {};
-    // The ID of the ACL to which the ACL entry belongs.
+    // The ID of the access control policy group to which the access control policy entry belongs.
     // 
     // This parameter is required.
     shared_ptr<string> aclId_ {};
@@ -117,7 +117,7 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region of the ACL.
+    // The region of the access control policy group.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

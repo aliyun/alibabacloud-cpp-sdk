@@ -79,9 +79,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The ID of the route table that is automatically created by the system after the VPC is created.
+    // The ID of the route table that is automatically created when the VPC is created.
     shared_ptr<string> routeTableId_ {};
-    // The ID of the vRouter that is automatically created by the system after the VPC is created.
+    // The ID of the vRouter that is automatically created when the VPC is created.
     shared_ptr<string> VRouterId_ {};
     // The ID of the created VPC.
     shared_ptr<string> vpcId_ {};

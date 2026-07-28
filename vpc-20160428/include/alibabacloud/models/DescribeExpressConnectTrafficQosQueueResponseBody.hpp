@@ -231,15 +231,15 @@ namespace Models
 
 
       protected:
-        // The destination IP address IPv4 CIDR block that is used for traffic matching by the QoS rule.
+        // The destination IP address IPv4 CIDR block that the QoS rule matches for traffic.
         // 
         // > You cannot specify this parameter together with **SrcIPv6Cidr** or **DstIPv6Cidr**.
         shared_ptr<string> dstCidr_ {};
-        // The destination IP address IPv6 CIDR block that is used for traffic matching by the QoS rule.
+        // The destination IP address IPv6 CIDR block that the QoS rule matches for traffic.
         // 
         // > You cannot specify this parameter together with **SrcCidr** or **DstCidr**.
         shared_ptr<string> dstIPv6Cidr_ {};
-        // The destination port range that is used for traffic matching by the QoS rule. Valid values: **0** to **65535**. A value of -1 indicates that no port is matched. Only a single port number is supported. The start and end port numbers must be the same. The destination port range is fixed for each protocol type. Valid values:
+        // The destination port range that the QoS rule matches. Valid values: **0** to **65535**. A value of -1 indicates that no match is applied. Only a single port number can be specified. The start and end port numbers must be the same. The destination port range is fixed for different protocol types. Valid values:
         // 
         // - **ALL**: -1/-1, not editable.
         // 
@@ -273,9 +273,9 @@ namespace Models
         // 
         // - **Redis**: 6379/6379, not editable.
         shared_ptr<string> dstPortRange_ {};
-        // The DSCP value that is used for traffic matching by the QoS rule. Valid values: **0** to **63**. A value of -1 indicates that no DSCP value is matched.
+        // The DSCP value that the QoS rule matches. Valid values: **0** to **63**. A value of -1 indicates that no match is applied.
         shared_ptr<int32_t> matchDscp_ {};
-        // The priority of the QoS rule. Valid values: **1** to **9000**. A larger value indicates a higher priority. The priority of each QoS rule must be unique within the same QoS policy.
+        // The priority of the QoS rule. Valid values: **1** to **9000**. A larger value indicates a higher priority. QoS rule priorities must be unique within the same QoS policy.
         shared_ptr<int32_t> priority_ {};
         // The protocol type of the QoS rule. Valid values:
         // 
@@ -309,13 +309,13 @@ namespace Models
         // 
         // - **PostgreSQL**
         // 
-        // - **Redis**.
+        // - **Redis**
         shared_ptr<string> protocol_ {};
         // The QoS policy ID.
         shared_ptr<string> qosId_ {};
         // The QoS queue ID.
         shared_ptr<string> queueId_ {};
-        // The new DSCP value to remark in the traffic. Valid values: **0** to **63**. A value of -1 indicates that the DSCP value is not modified.
+        // The remarked DSCP value in the traffic. Valid values: **0** to **63**. A value of -1 indicates that the DSCP value is not modified.
         shared_ptr<int32_t> remarkingDscp_ {};
         // The description of the QoS rule.
         // 
@@ -327,15 +327,15 @@ namespace Models
         // 
         // The name must be **0** to **128** characters in length and cannot start with `http://` or `https://`.
         shared_ptr<string> ruleName_ {};
-        // The source IPv4 CIDR block that is used for traffic matching by the QoS rule.
+        // The source IPv4 CIDR block that the QoS rule matches.
         // 
         // > You cannot specify this parameter together with **SrcIPv6Cidr** or **DstIPv6Cidr**.
         shared_ptr<string> srcCidr_ {};
-        // The source IPv6 CIDR block that is used for traffic matching by the QoS rule.
+        // The source IPv6 CIDR block that the QoS rule matches.
         // 
         // > You cannot specify this parameter together with **SrcCidr** or **DstCidr**.
         shared_ptr<string> srcIPv6Cidr_ {};
-        // The source port range that is used for traffic matching by the QoS rule. Valid values: **0** to **65535**. A value of -1 indicates that no port is matched. Only a single port number is supported. The start and end port numbers must be the same.
+        // The source port range that the QoS rule matches. Valid values: **0** to **65535**. A value of -1 indicates that no match is applied. Only a single port number can be specified. The start and end port numbers must be the same.
         shared_ptr<string> srcPortRange_ {};
         // The status of the QoS rule. Valid values:
         // 

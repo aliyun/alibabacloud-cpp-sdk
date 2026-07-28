@@ -96,13 +96,13 @@ namespace Models
 
 
     protected:
-      // The value of tag N to add to the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of tag N to add to the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -220,13 +220,13 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the returned page. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the VPC to which the route table belongs.
     // 
-    // You can call [DescribeRegions](https://www.alibabacloud.com/help/vpc/developer-reference/api-vpc-2016-04-28-describeregions) to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -238,23 +238,25 @@ namespace Models
     shared_ptr<string> routeTableId_ {};
     // The name of the route table.
     shared_ptr<string> routeTableName_ {};
-    // The type of the route table.
+    // The type of the route table. Valid values:
     // 
-    // *   **System**
-    // *   **Custom**
+    // - **System**: system route table.
+    // 
+    // - **Custom**: custom route table.
     shared_ptr<string> routeTableType_ {};
-    // The ID of vRouter to which the route table belongs.
+    // The ID of the router to which the route table belongs.
     shared_ptr<string> routerId_ {};
-    // The type of the router to which the route table belongs. Valid value:
+    // The type of the router to which the route table belongs. Valid values: 
     // 
-    // *   **VRouter** (default): a vRouter
-    // *   **VBR**: a VBR
+    // - **VRouter** (default): vRouter.
+    // 
+    // - **VBR**: Virtual Border Router.
     shared_ptr<string> routerType_ {};
     // The tags of the resource.
     shared_ptr<vector<DescribeRouteTableListRequest::Tag>> tag_ {};
-    // The ID of the VPC to which the route table belongs. 
+    // The ID of the VPC to which the route table belongs.
     // 
-    // When this parameter is set, the value of **RouterType** is automatically assigned to **VRouter**.
+    // If you specify this parameter, the value of **RouterType** is automatically set to **VRouter**.
     shared_ptr<string> vpcId_ {};
   };
 

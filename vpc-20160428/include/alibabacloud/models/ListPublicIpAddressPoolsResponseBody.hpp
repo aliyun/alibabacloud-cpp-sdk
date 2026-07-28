@@ -129,9 +129,9 @@ namespace Models
 
 
       protected:
-        // The key of tag N.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // The value of tag N.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -280,81 +280,79 @@ namespace Models
 
 
     protected:
-      // The service type of the IP address pool.
-      // 
-      // *   **CloudBox** Only cloud box users can select this type.
-      // *   **Default** (default)
+      // The business type of the IP address pool.
+      // - **CloudBox**: CloudBox. Only CloudBox users support this type.
+      // - **Default** (default): default, indicating a non-special type.
       shared_ptr<string> bizType_ {};
-      // The status of the IP address pool.
+      // The business status of the IP address pool instance.
       // 
-      // *   **Normal**
-      // *   **FinancialLocked**
+      // - **Normal**: normal.
+      // - **FinancialLocked**: locked.
       shared_ptr<string> businessStatus_ {};
-      // The time when the IP address pool was created. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
+      // The creation time, in the format of `YYYY-MM-DDThh:mm:ssZ`.
       shared_ptr<string> creationTime_ {};
-      // The description of the IP address pool.
+      // The description of the IP address pool instance.
       shared_ptr<string> description_ {};
-      // Indicates whether idle IP addresses exist.
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether idle IP addresses are available.
+      // - **true**: yes.
+      // - **false**: no.
       shared_ptr<bool> ipAddressRemaining_ {};
       // The line type.
       // 
-      // *   **BGP**: BGP (Multi-ISP)
-      // *   **BGP_PRO**: BGP (Multi-ISP) Pro
+      // - **BGP**: BGP (multi-ISP) line.
       // 
-      // For more information about BGP (Multi-ISP) and BGP (Multi-ISP) Pro, see [EIP line types](https://help.aliyun.com/document_detail/32321.html).
+      // - **BGP_PRO**: BGP (multi-ISP) Pro line.
       // 
-      // If you are allowed to use single-ISP bandwidth, one of the following values may be returned:
+      // For more information about BGP (multi-ISP) lines and BGP (multi-ISP) Pro lines, see [EIP line types](https://help.aliyun.com/document_detail/32321.html).
       // 
-      // *   **ChinaTelecom**
-      // *   **ChinaUnicom**
-      // *   **ChinaMobile**
-      // *   **ChinaTelecom_L2**
-      // *   **ChinaUnicom_L2**
-      // *   **ChinaMobile_L2**
+      // If you are a whitelist user of single-ISP bandwidth, the returned type may also be:
+      // - **ChinaTelecom**: China Telecom
+      // - **ChinaUnicom**: China Unicom
+      // - **ChinaMobile**: China Mobile
+      // - **ChinaTelecom_L2**: China Telecom L2
+      // - **ChinaUnicom_L2**: China Unicom L2
+      // - **ChinaMobile_L2**: China Mobile L2
       // 
-      // If your services are deployed in China East 1 Finance, **BGP_FinanceCloud** is returned.
+      // If you are a China (Hangzhou) Finance Cloud user, **BGP_FinanceCloud** is returned.
       shared_ptr<string> isp_ {};
-      // The name of the IP address pool.
+      // The name of the IP address pool instance.
       shared_ptr<string> name_ {};
       // The Alibaba Cloud account to which the IP address pool belongs.
       shared_ptr<int64_t> ownerId_ {};
-      // The ID of the IP address pool.
+      // The instance ID of the IP address pool.
       shared_ptr<string> publicIpAddressPoolId_ {};
       // The region ID of the IP address pool.
       shared_ptr<string> regionId_ {};
       // The ID of the resource group to which the IP address pool belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The edition of Anti-DDoS.
+      // The security protection level.
       // 
-      // *   If you do not set this parameter, Anti-DDoS Origin Basic is used.
-      // *   If the value is set to **AntiDDoS_Enhanced**, Anti-DDoS Pro/Premium is used.
+      // - If this parameter is empty, the default value is Anti-DDoS Basic.
+      // 
+      // - If the value is **AntiDDoS_Enhanced**, it indicates Anti-DDoS (Enhanced).
       shared_ptr<vector<string>> securityProtectionTypes_ {};
       // The sharing type of the IP address pool.
       // 
-      // *   If **Shared** is returned, the IP address pool is shared.
-      // *   If an empty value is returned, the IP address pool is not shared.
+      // - **Shared**: The IP address pool is a shared IP address pool.
+      // - Empty: The IP address pool is not a shared IP address pool.
       shared_ptr<string> shareType_ {};
-      // The status of the IP address pool.
-      // 
-      // *   **Created**
-      // *   **Deleting**
-      // *   **Modifying**
+      // The instance status of the IPAM pool.
+      // - **Created**: active.
+      // - **Deleting**: being deleted.
+      // - **Modifying**: being modified.
       shared_ptr<string> status_ {};
-      // The tag list.
+      // The list of tags.
       shared_ptr<vector<PublicIpAddressPoolList::Tags>> tags_ {};
       // The total number of available IP addresses in the public IP address pool.
       shared_ptr<int32_t> totalIpNum_ {};
       // The number of used IP addresses in the public IP address pool.
       shared_ptr<int32_t> usedIpNum_ {};
-      // The user type. Valid values:
-      // 
-      // *   **admin**: An administrator can delete, modify, and query IP address pools, and can assign elastic IP addresses (EIPs) to the pool.
-      // *   **user**: A user can only assign EIPs to the IP address pool and query the IP address pool, but cannot modify or delete the IP address pool.
+      // The type of the user. Valid values:
+      // - **admin**: administrator. An administrator can delete, modify, and query IP address pools, and allocate elastic IP addresses (EIPs) from IP address pools.
+      // - **user**: regular user. A regular user can only allocate EIPs from IP address pools and query IP address pools, but cannot modify or delete IP address pools.
       shared_ptr<string> userType_ {};
-      // The zone of the IP address pool. This parameter is returned only when the service type of the IP address pool is CloudBox.
+      // The zones of the IP address pool.
+      // This parameter is returned only when the business type of the IP address pool is CloudBox.
       shared_ptr<vector<string>> zones_ {};
     };
 
@@ -391,16 +389,15 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
-    // 
-    // *   If **NextToken** is empty, no next page exists.
-    // *   If a value is returned for **NextToken**, the value is used to retrieve a new page of results.
+    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // - If **NextToken** is empty, no subsequent request is to be sent.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The IP address pools.
+    // The list of IP address pool instances.
     shared_ptr<vector<ListPublicIpAddressPoolsResponseBody::PublicIpAddressPoolList>> publicIpAddressPoolList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries returned under the current request conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

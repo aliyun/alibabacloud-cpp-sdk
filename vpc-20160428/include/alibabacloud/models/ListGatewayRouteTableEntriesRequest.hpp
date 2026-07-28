@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The destination CIDR block of the route entry in the gateway route table that you want to query.
+    // The destination CIDR block of the route entry in the gateway route table to query.
     shared_ptr<string> destinationCidrBlock_ {};
     // The ID of the gateway route table to query.
     // 

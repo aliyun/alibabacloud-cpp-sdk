@@ -101,13 +101,13 @@ namespace Models
 
 
     protected:
-      // The destination CIDR block of the route entry that failed to be deleted. IPv4 and IPv6 CIDR blocks are supported.
+      // The destination CIDR block of the route entry that failed to be deleted. IPv4 CIDR blocks, IPv6 CIDR blocks, and prefix list CIDR blocks are supported.
       shared_ptr<string> dstCidrBlock_ {};
-      // The error code.
+      // The error code returned for the failure.
       shared_ptr<string> failedCode_ {};
-      // The error message.
+      // The error message returned for the failure.
       shared_ptr<string> failedMessage_ {};
-      // The ID of the next hop that failed to be deleted.
+      // The instance ID of the next hop that failed to be deleted.
       shared_ptr<string> nextHop_ {};
       // The ID of the route entry that failed to be deleted.
       shared_ptr<string> routeEntryId_ {};
@@ -148,11 +148,11 @@ namespace Models
   protected:
     // The number of route entries that failed to be deleted.
     shared_ptr<int32_t> failedCount_ {};
-    // The information about the route entry that failed to be deleted.
+    // The information about the route entries that failed to be deleted.
     shared_ptr<vector<DeleteRouteEntriesResponseBody::FailedRouteEntries>> failedRouteEntries_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of route entries that were deleted.
+    // The number of route entries that were successfully deleted.
     shared_ptr<int32_t> successCount_ {};
   };
 

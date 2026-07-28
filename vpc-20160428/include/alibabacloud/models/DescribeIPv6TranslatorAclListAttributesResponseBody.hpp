@@ -183,13 +183,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeIPv6TranslatorAclListAttributesResponseBody::AclEntries> aclEntries_ {};
-    // The ACL ID.
+    // The ID of the access control policy group.
     shared_ptr<string> aclId_ {};
-    // The name of the ACL.
+    // The name of the access control policy group.
     shared_ptr<string> aclName_ {};
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

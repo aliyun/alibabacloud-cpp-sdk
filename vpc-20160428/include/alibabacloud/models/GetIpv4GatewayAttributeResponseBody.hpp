@@ -88,9 +88,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N added to the resource.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of tag N added to the resource.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -181,33 +181,39 @@ namespace Models
     shared_ptr<string> createTime_ {};
     // Indicates whether the IPv4 gateway is activated. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The IPv4 gateway is activated.
+    // 
+    // - **false**: The IPv4 gateway is not activated.
     shared_ptr<bool> enabled_ {};
-    // The description of the IPv4 gateway.
+    // The description of the IPv4 gateway instance.
     shared_ptr<string> ipv4GatewayDescription_ {};
-    // The ID of the IPv4 gateway.
+    // The instance ID of the IPv4 gateway.
     shared_ptr<string> ipv4GatewayId_ {};
-    // The name of the IPv4 gateway.
+    // The name of the IPv4 gateway instance.
     shared_ptr<string> ipv4GatewayName_ {};
-    // The ID of the route table associated with the IPv4 gateway.
+    // The ID of the route table associated with the IPv4 gateway instance.
     shared_ptr<string> ipv4GatewayRouteTableId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The ID of the resource group to which the IPv4 gateway belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The status of the IPv4 gateway. Valid values:
+    // The status of the IPv4 gateway instance. Valid values:
     // 
-    // *   **Creating**
-    // *   **Created**
-    // *   **Modifying**
-    // *   **Deleting**
-    // *   **Deleted**
-    // *   **Activating**
+    // - **Creating**: The IPv4 gateway is being created.
+    // 
+    // - **Created**: The IPv4 gateway is created and available.
+    // 
+    // - **Modifying**: The IPv4 gateway is being modified.
+    // 
+    // - **Deleting**: The IPv4 gateway is being deleted.
+    // 
+    // - **Deleted**: The IPv4 gateway is deleted.
+    // 
+    // - **Activating**: The IPv4 gateway is being activated.
     shared_ptr<string> status_ {};
     // The tag list.
     shared_ptr<vector<GetIpv4GatewayAttributeResponseBody::Tags>> tags_ {};
-    // The ID of the VPC with which the IPv4 gateway is associated.
+    // The ID of the VPC associated with the IPv4 gateway instance.
     shared_ptr<string> vpcId_ {};
   };
 

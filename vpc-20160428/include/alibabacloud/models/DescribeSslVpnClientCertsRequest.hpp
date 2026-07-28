@@ -136,9 +136,9 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Default value: **10**. Valid values: **1** to **50**.
+    // The number of entries per page for paging. Default value: **10**. Valid values: **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the SSL client certificate that you want to query.
+    // The region ID of the SSL client certificates that you want to query.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 

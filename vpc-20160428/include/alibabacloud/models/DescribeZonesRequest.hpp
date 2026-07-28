@@ -94,21 +94,23 @@ namespace Models
 
 
   protected:
-    // The language used in the **LocalName** parameter. Valid values:
+    // The display language of the zone name **LocalName** in the response. Valid values:
     // 
-    // *   **zh-cn**: Chinese
-    // *   **en-us**: English
-    // *   **ja**: Japanese
+    // - **zh-cn**: Chinese.
+    // 
+    // - **en-us**: English.
+    // 
+    // - **ja**: Japanese.
     shared_ptr<string> acceptLanguage_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the zone. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The ID of the region where the zones reside. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The zone type. Default value: **AvailabilityZone**.
+    // The type of zones to query. Default value: **AvailabilityZone**, which indicates a standard cloud zone.
     shared_ptr<string> zoneType_ {};
   };
 

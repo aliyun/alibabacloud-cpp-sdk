@@ -123,26 +123,26 @@ namespace Models
   protected:
     // The ID of the BGP group.
     shared_ptr<string> bgpGroupId_ {};
-    // Specifies whether the BGP group is the default one. Valid values:
+    // Specifies whether the BGP group is the default BGP group. Valid values:
     // 
-    // *   **false**
-    // *   **true**
+    // - **false**: The BGP group is not the default BGP group.
+    // - **true**: The BGP group is the default BGP group.
     shared_ptr<bool> isDefault_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: **1**.
+    // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. The maximum value is **50**. Default value: **10**.
+    // The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region in which the VBR is deployed.
+    // The region ID of the VBR. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the virtual border router (VBR) that is associated with the BGP group.
+    // The ID of the VBR associated with the BGP group.
     shared_ptr<string> routerId_ {};
   };
 

@@ -110,21 +110,20 @@ namespace Models
 
 
     protected:
-      // The ID of the IP address pool.
+      // The CIDR block.
       shared_ptr<string> cidrBlock_ {};
-      // The CIDR blocks.
+      // The time when the CIDR block was created. The time is in the `YYYY-MM-DDThh:mm:ssZ` format.
       shared_ptr<string> creationTime_ {};
-      // The information about the CIDR blocks.
+      // The instance ID of the IPAM pool.
       shared_ptr<string> publicIpAddressPoolId_ {};
-      // The time when the CIDR block was created. The time is displayed in `YYYY-MM-DDThh:mm:ssZ` format.
-      shared_ptr<string> status_ {};
-      // The total number of available IP addresses in the CIDR block.
-      shared_ptr<int32_t> totalIpNum_ {};
       // The status of the CIDR block in the IP address pool. Valid values:
-      // 
-      // *   **Created**: available
-      // *   **Deleting**: being deleted
-      // *   **Modifying**: being modified
+      // - **Created**: available.
+      // - **Deleting**: being deleted.
+      // - **Modifying**: being modified.
+      shared_ptr<string> status_ {};
+      // The total number of available IP addresses in the CIDR block of the IP address pool.
+      shared_ptr<int32_t> totalIpNum_ {};
+      // The number of used IP addresses in the CIDR block of the IP address pool.
       shared_ptr<int32_t> usedIpNum_ {};
     };
 
@@ -161,16 +160,15 @@ namespace Models
 
 
   protected:
-    // The token that is used for the next query. Valid values:
-    // 
-    // *   If **NextToken** was not returned, it indicates that no additional results exist.
-    // *   If **NextToken** is returned, the value is the token that is used for the next query.
+    // The pagination token. Valid values:
+    // - If **NextToken** is empty, no subsequent query exists.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The total number of entries returned.
+    // The list of CIDR blocks in the IP address pool.
     shared_ptr<vector<ListPublicIpAddressPoolCidrBlocksResponseBody::PublicIpPoolCidrBlockList>> publicIpPoolCidrBlockList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The maximum number of entries returned. Valid values: **10** to **100**. Default value: **10**.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

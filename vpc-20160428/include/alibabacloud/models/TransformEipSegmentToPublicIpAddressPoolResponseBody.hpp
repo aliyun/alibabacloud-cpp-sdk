@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> publicIpAddressPoolId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource group ID of the IP address pool.
+    // The ID of the resource group to which the IP address pool belongs.
     shared_ptr<string> resourceGroupId_ {};
   };
 

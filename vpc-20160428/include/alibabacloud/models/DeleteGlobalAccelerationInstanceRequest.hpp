@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // The ID of the GA instance.
+    // The ID of the Alibaba Cloud Global Accelerator (GA) instance.
     // 
     // This parameter is required.
     shared_ptr<string> globalAccelerationInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the GA instance.
+    // The region where the Alibaba Cloud Global Accelerator (GA) instance is located. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

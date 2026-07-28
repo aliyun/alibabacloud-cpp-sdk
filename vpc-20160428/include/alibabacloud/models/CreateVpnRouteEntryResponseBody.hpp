@@ -114,13 +114,13 @@ namespace Models
   protected:
     // The timestamp when the destination route was created. Unit: milliseconds.
     // 
-    // The timestamp follows the UNIX timestamp format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The timestamp follows the UNIX timestamp format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC to the time when the destination route was created.
     shared_ptr<int64_t> createTime_ {};
     // The description of the destination route.
     shared_ptr<string> description_ {};
     // The next hop of the destination route.
     shared_ptr<string> nextHop_ {};
-    // The tunneling protocol. Set the value to **Ipsec** (IPsec tunneling protocol).
+    // The tunneling protocol. Set the value to **Ipsec** (IPsec tunneling).
     shared_ptr<string> overlayMode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -128,9 +128,9 @@ namespace Models
     shared_ptr<string> routeDest_ {};
     // The publish status of the destination route.
     // 
-    // - **published**: The destination route has been published to the route table of the VPC.
+    // - **published**: The destination route is published to the VPC route table.
     // 
-    // - **normal**: The destination route has not been published to the route table of the VPC.
+    // - **normal**: The destination route is not published to the VPC route table.
     shared_ptr<string> state_ {};
     // The instance ID of the VPN gateway.
     shared_ptr<string> vpnInstanceId_ {};

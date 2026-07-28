@@ -86,13 +86,13 @@ namespace Models
 
 
     protected:
-      // The key of tag N to add to the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of tag N to add to the resource. You can specify at most 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -136,19 +136,25 @@ namespace Models
 
 
     protected:
-      // The filter keys. You can specify at most five filter keys. Valid values of **N**: **1 to 5**. The following filter keys are supported:
+      // The filter condition. You can specify up to 5 filter conditions. Valid values of **N**: **1 to 5**.
       // 
-      // *   **VpcId**: virtual private cloud (VPC) ID
-      // *   **VSwitchId**: vSwitch ID
-      // *   **Status**: HaVip status
-      // *   **HaVipId**: HaVip ID
-      // *   **HaVipAddress**: HaVip IP address
+      // The following filter conditions are supported:
       // 
-      // You can specify multiple values for each filter key. The logical operator among multiple values is OR. If one value is matched, the filter key is matched.
+      // - **VpcId**: the virtual private cloud (VPC) ID.
       // 
-      // The logical operator among multiple filter keys is AND. HaVips can be queried only if all filter keys are matched.
+      // - **VSwitchId**: the vSwitch ID.
+      // 
+      // - **Status**: the HaVip status.
+      // 
+      // - **HaVipId**: the HaVip ID.
+      // 
+      // - **HaVipAddress**: the IP address of the HaVip.
+      // 
+      // Each filter condition (Filter Key) can have multiple values. The values have an OR relationship, which means that a match on any value satisfies the filter condition.
+      // 
+      // Different filter conditions (Filter Keys) have an AND relationship, which means that all parameter filter conditions must be met for a record to be returned.
       shared_ptr<string> key_ {};
-      // The value of the filter key. Valid values of **N**: **1 to 5**.
+      // The values of the specified filter condition. Valid values of **N**: **1 to 5**.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -230,17 +236,17 @@ namespace Models
 
 
   protected:
-    // The details of the filter condition.
+    // The filter conditions.
     shared_ptr<vector<DescribeHaVipsRequest::Filter>> filter_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the returned page. Default value: **1**.
+    // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page in a paging query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the HaVip.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -248,7 +254,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tag list.
+    // The tags.
     shared_ptr<vector<DescribeHaVipsRequest::Tags>> tags_ {};
   };
 

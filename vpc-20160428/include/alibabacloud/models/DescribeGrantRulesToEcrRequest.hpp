@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The tag keys. You must specify at least one tag key and at most 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You must specify at least 1 tag key and can specify at most 20 tag keys. The tag key cannot be an empty string.
       // 
-      // The tag key can be up to 128 characters in length. The tag key cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -133,23 +133,23 @@ namespace Models
 
 
   protected:
-    // The ID of the VBR.
+    // VBR ID。
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return. Default value: 1.
+    // The page number of the list. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int64_t> pageSize_ {};
-    // The region ID
+    // The region ID.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The ID of the resource group to which the VBR belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The tag list.
+    // The tags of the VBR.
     shared_ptr<vector<DescribeGrantRulesToEcrRequest::Tags>> tags_ {};
   };
 

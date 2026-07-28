@@ -92,11 +92,11 @@ namespace Models
     protected:
       // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // The tag key can be up to 64 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // The tag key can be up to 64 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -193,16 +193,16 @@ namespace Models
   protected:
     // The description of the shared Express Connect circuits.
     // 
-    // The description must be 2 to 256 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
+    // The description must be 2 to 256 characters in length and must start with a letter or a Chinese character, but cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // - **true**: performs a dry run without creating the shared Express Connect circuits. The system checks the required parameters, request format, and instance status. If the check fails, the corresponding error is returned. If the check succeeds, `DRYRUN.SUCCESS` is returned.
-    // - **false** (default): sends a Normal request. After the request passes the check, the shared Express Connect circuits are created.
+    // - **true**: performs a dry run without creating the shared Express Connect circuits. The system checks the required parameters, request format, and instance status. If the check fails, the corresponding error is returned. If the check passes, `DRYRUN.SUCCESS` is returned.
+    // - **false** (default): sends a Normal request. After the check passes, the shared Express Connect circuits are created.
     shared_ptr<bool> dryRun_ {};
     // The name of the shared Express Connect circuits.
     // 
-    // The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, underscores (_), and hyphens (-) but cannot start with `http://` or `https://`.
+    // The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, underscores (_), and hyphens (-), but cannot start with `http://` or `https://`.
     shared_ptr<string> name_ {};
     // The payer of the shared Express Connect circuits. Valid values:
     // 
@@ -230,14 +230,16 @@ namespace Models
     // <props="china">
     // > The bandwidth values **2G**, **5G**, **8G**, and **10G** are not available by default. To use these values, contact your account manager.
     // 
+    // 
     // <props="intl">
     // > The bandwidth values **2G**, **5G**, **8G**, and **10G** are not available by default. To use these values, contact your account manager.
     // 
-    // Unit: **M** indicates Mbit/s. **G** indicates Gbit/s.
+    // 
+    // Unit: **M** indicates Mbit/s, and **G** indicates Gbit/s.
     // 
     // This parameter is required.
     shared_ptr<string> spec_ {};
-    // The list of tags.
+    // The tags.
     shared_ptr<vector<CreateVirtualPhysicalConnectionRequest::Tag>> tag_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
@@ -247,8 +249,8 @@ namespace Models
     shared_ptr<string> token_ {};
     // The VLAN ID of the shared Express Connect circuits. Valid values: **0** to **2999**.
     // 
-    // - If the VLAN ID is set to **0**, the physical switch port of the Virtual Border Router (VBR) uses Layer 3 routing interface mode instead of VLAN mode. In Layer 3 routing interface mode, each Express Connect circuit corresponds to one VBR.
-    // - If the VLAN ID is set to a value from **1** to **2999**, the physical switch port of the VBR uses VLAN-based Layer 3 subinterface mode. In Layer 3 subinterface mode, each VLAN ID corresponds to one VBR. In this case, the Express Connect circuit of the VBR can connect to VPCs under multiple accounts. VBRs in different VLANs have Layer 2 network isolation and cannot communicate with each other.
+    // - If the VLAN ID is set to **0**, the physical vSwitch port of the Virtual Border Router (VBR) uses Layer 3 routing interface mode instead of VLAN mode. In Layer 3 routing interface mode, each Express Connect circuit corresponds to one VBR.
+    // - If the VLAN ID is set to a value from **1** to **2999**, the physical vSwitch port of the VBR uses VLAN-based Layer 3 sub-interfaces. In Layer 3 sub-interface mode, each VLAN ID corresponds to one VBR. In this case, the Express Connect circuit of the VBR can connect to VPCs under multiple accounts. VBRs in different VLANs have network isolation at Layer 2 and cannot communicate with each other.
     // 
     // This parameter is required.
     shared_ptr<int64_t> vlanId_ {};

@@ -115,26 +115,27 @@ namespace Models
 
 
   protected:
-    // The HTTP status codes returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The response messages.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The page number.
+    // The page number of the list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The range of the public IP addresses of the VPC in the region.
+    // The range of public IP addresses in a virtual private cloud (VPC) in the specified region.
     shared_ptr<vector<string>> publicIpAddress_ {};
-    // The ID of the region to which the public IP addresses belong.
+    // The region ID of the public IP address.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
+    // Indicates whether the query was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The query was successful.
+    // 
+    // - **false**: The query failed.
     shared_ptr<bool> success_ {};
-    // The number of returned entries.
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

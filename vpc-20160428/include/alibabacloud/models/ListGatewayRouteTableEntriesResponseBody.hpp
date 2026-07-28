@@ -133,7 +133,7 @@ namespace Models
         // The next hop type. Valid values:
         // 
         // - **Instance** (default): ECS instance.
-        // - **HaVip**: high-availability virtual IP address (HaVip).
+        // - **HaVip**: high-availability virtual IP address.
         // - **VpnGateway**: VPN gateway.
         // - **NatGateway**: NAT gateway.
         // - **NetworkInterface**: secondary elastic network interfaces (ENIs).
@@ -218,7 +218,7 @@ namespace Models
       shared_ptr<string> nextHopType_ {};
       // The next hop information.
       shared_ptr<vector<GatewayRouteEntryModels::NextHops>> nextHops_ {};
-      // The status of the route entry.
+      // The status of the route entry. Valid values:
       // 
       // - **Pending**: being configured.
       // - **Available**: available.
@@ -259,7 +259,7 @@ namespace Models
 
 
   protected:
-    // The details of route entries in the gateway route table.
+    // The details of the route entries in the gateway route table.
     shared_ptr<vector<ListGatewayRouteTableEntriesResponseBody::GatewayRouteEntryModels>> gatewayRouteEntryModels_ {};
     // The pagination token. Valid values:
     // - If **NextToken** is empty, no subsequent query exists.

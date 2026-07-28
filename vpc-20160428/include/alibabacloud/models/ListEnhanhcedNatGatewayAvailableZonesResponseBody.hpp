@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The name of the zone.
+      // The zone name.
       shared_ptr<string> localName_ {};
-      // The ID of the zone where the instance is deployed.
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The list of zones.
     shared_ptr<vector<ListEnhanhcedNatGatewayAvailableZonesResponseBody::Zones>> zones_ {};

@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The order number. This parameter is returned if InstanceChargeType is set to PrePaid.
+    // The order ID. This parameter is returned when the subscription billing method is selected.
     shared_ptr<int64_t> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

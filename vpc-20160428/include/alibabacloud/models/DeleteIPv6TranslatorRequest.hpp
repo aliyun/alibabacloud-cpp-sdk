@@ -96,9 +96,9 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // The ID of the IPv6 Translation Service instance.
+    // The instance ID of the IPv6 Translation Service.
     // 
     // This parameter is required.
     shared_ptr<string> ipv6TranslatorId_ {};

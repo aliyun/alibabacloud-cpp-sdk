@@ -155,17 +155,17 @@ namespace Models
     shared_ptr<string> description_ {};
     // The IPv4 CIDR block of the route entry. IPv4 and IPv6 CIDR blocks are supported.
     // > If the **RouteEntryId** parameter is not specified, the **DestinationCidrBlock** and **RouteTableId** parameters are required.
-    // > To change the IPv4 CIDR block of a route to a **prefix list**, specify the **RouteEntryId** parameter. The **DestinationCidrBlock** parameter does not support prefix list CIDR blocks or prefix list instance IDs.
+    // > To change the IPv4 CIDR block of a route to a **prefix list**, you must specify the **RouteEntryId** parameter. The **DestinationCidrBlock** parameter does not support prefix list CIDR blocks or prefix list instance IDs.
     shared_ptr<string> destinationCidrBlock_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // **true**: sends the request without modifying the route. The system checks whether the AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+    // **true**: performs a dry run without modifying the route. The system checks the AccessKey pair, the authorization of the Resource Access Management (RAM) user, and the required parameters. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
     // 
-    // **false** (default): sends a Normal request. After the request passes the check, a 2xx HTTP status code is returned and the route is modified.
+    // **false** (default): sends a Normal request. If the check succeeds, a 2xx HTTP status code is returned and the route is modified.
     shared_ptr<bool> dryRun_ {};
-    // The new next hop instance ID of the route.
+    // The new next hop instance ID of the route entry.
     shared_ptr<string> newNextHopId_ {};
-    // The new next hop type of the route. Valid values:
+    // The new next hop type of the route entry. Valid values:
     // 
     // - **Instance**: ECS instance.
     // 
@@ -173,7 +173,7 @@ namespace Models
     // 
     // - **RouterInterface**: vRouter interface.
     // 
-    // - **NetworkInterface**: elastic network interface (ENI).
+    // - **NetworkInterface**: elastic network interfaces (ENIs).
     // 
     // - **VpnGateway**: VPN gateway.
     // 
@@ -181,13 +181,14 @@ namespace Models
     // 
     // - **NatGateway**: NAT gateway.
     // 
-    // - **Attachment**: transit router.
+    // - **Attachment**: forward router.
     // 
     // - **VpcPeer**: VPC peering connection.
     // - **Ipv4Gateway**: IPv4 gateway.
     // - **GatewayEndpoint**: gateway endpoint.
     // - **Ecr**: Express Connect Router (ECR).
     // - **GatewayLoadBalancerEndpoint**: Gateway Load Balancer endpoint (GWLBe).
+    // - **RouteTargetGroup**: route target group.
     shared_ptr<string> newNextHopType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

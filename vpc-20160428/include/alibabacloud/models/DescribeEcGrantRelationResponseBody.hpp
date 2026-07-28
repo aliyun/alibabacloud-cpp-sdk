@@ -160,33 +160,33 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account to which the VPC belongs.
+      // The Alibaba Cloud account ID of the VPC instance owner in the authorization relationship.
       shared_ptr<int64_t> aliUid_ {};
-      // The time when permissions on the VPC were granted to the VBR.
+      // The time when the VPC-connected instance granted authorization to the VBR instance.
       shared_ptr<string> gmtCreate_ {};
-      // The VBRs that have permissions on the VPC. Valid values:
+      // The scope of VBR instances that are granted authorization. Valid values:
       // 
-      // *   **All**: VBRs that reside in the specified region and belong to the specified Alibaba Cloud account all have permissions on the VPC.
-      // *   **Specify**: Only the specified VBR has permissions on the VPC.
+      // - **All**: The VPC-connected instance is authorized to all VBR instances under the specified region and Alibaba Cloud account.
+      // - **Specify**: The VPC-connected instance is authorized to a specified VBR instance.
       shared_ptr<string> grantType_ {};
-      // The ID of the VPC.
+      // The instance ID of the VPC-connected instance in the authorization relationship.
       shared_ptr<string> instanceId_ {};
-      // The name of the VPC.
+      // The name of the VPC instance in the authorization relationship.
       shared_ptr<string> instanceName_ {};
-      // The ID of the vRouter.
+      // The vRouter ID of the VPC instance in the authorization relationship.
       shared_ptr<string> instanceRouterId_ {};
-      // The ID of the region where the VPC is deployed.
+      // The region ID of the VPC instance in the authorization relationship.
       shared_ptr<string> regionNo_ {};
-      // The query result. Valid values:
+      // The status of the authorization relationship. Valid values:
       // 
-      // *   **Created**: The VBR has permissions on the VPC.
-      // *   **Deleted**: The VBR does not have permissions on the VPC.
+      // - **Created**: An authorization relationship exists between the VPC-connected instance and the VBR instance.
+      // - **Deleted**: No authorization relationship exists between the VPC-connected instance and the VBR instance.
       shared_ptr<string> status_ {};
-      // The ID of the VBR.
+      // The instance ID of the VBR instance in the authorization relationship.
       shared_ptr<string> vbrInstanceId_ {};
-      // The ID of the Alibaba Cloud account to which the VBR belongs.
+      // The Alibaba Cloud account ID of the VBR instance owner.
       shared_ptr<int64_t> vbrOwnerUid_ {};
-      // The ID of the region where the VBR is deployed.
+      // The region ID of the VBR instance in the authorization relationship.
       shared_ptr<string> vbrRegionNo_ {};
     };
 
@@ -237,17 +237,17 @@ namespace Models
 
 
   protected:
-    // The total number of entries returned.
+    // The number of query results.
     shared_ptr<int32_t> count_ {};
-    // The query results.
+    // The list of authorization relationship query results.
     shared_ptr<vector<DescribeEcGrantRelationResponseBody::EcGrantRelations>> ecGrantRelations_ {};
-    // The page number.
+    // The page number of the list.
     shared_ptr<int32_t> page_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
   };
 

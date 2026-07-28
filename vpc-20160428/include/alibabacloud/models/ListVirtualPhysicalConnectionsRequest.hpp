@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The key of the tag. You can specify up to 20 tags. The tag key cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // The key can be up to 64 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // The tag key can be up to 64 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). The tag key cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of the tag. You can specify up to 20 tags. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
-      // The value can be up to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). The tag value cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -199,47 +199,44 @@ namespace Models
 
 
   protected:
-    // Indicates whether the tenant has accepted the virtual physical connection. Valid values:
+    // Indicates whether the shared Express Connect circuits have been confirmed and accepted by the tenant. Valid values:
     // 
-    // - **true**: The connection has been accepted.
-    // 
-    // - **false**: The connection has not been accepted.
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> isConfirmed_ {};
-    // The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries per page when you query results by page. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to retrieve the next page of results. Valid values:
-    // 
-    // - Leave this parameter empty for the first request.
-    // 
-    // - For subsequent requests, set this parameter to the `NextToken` value returned from the previous request.
+    // Specifies whether a next query token is available. Valid values:
+    // - You do not need to specify this parameter for the first query or if no next query is available.
+    // - If a next query is available, set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the physical connection associated with the virtual physical connection.
-    shared_ptr<string> physicalConnectionId_ {};
-    // The ID of the region where the virtual physical connection is located.
+    // The ID of the Express Connect circuit associated with the shared Express Connect circuits.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the latest list of regions.
+    // In the following content of this topic, the Express Connect circuit associated with the shared Express Connect circuits is referred to as the Express Connect circuit, to distinguish it from the shared Express Connect circuits.
+    shared_ptr<string> physicalConnectionId_ {};
+    // The region ID of the shared Express Connect circuits.
+    // 
+    // You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the virtual physical connection belongs.
+    // The ID of the resource group to which the shared Express Connect circuits belong.
     shared_ptr<string> resourceGroupId_ {};
-    // The list of tags.
+    // The tag list.
     shared_ptr<vector<ListVirtualPhysicalConnectionsRequest::Tags>> tags_ {};
-    // The Alibaba Cloud accounts that own the virtual physical connections.
+    // The Alibaba Cloud account information of the shared Express Connect circuits owner.
     shared_ptr<vector<string>> virtualPhysicalConnectionAliUids_ {};
-    // The business status of the virtual physical connection. Valid values:
+    // The business status of the shared Express Connect circuits. Valid values:
     // 
-    // - **Normal**: The connection is operating normally.
-    // 
-    // - **FinancialLocked**: The connection is locked due to an overdue payment.
-    // 
-    // - **SecurityLocked**: The connection is locked for security reasons.
+    // - **Normal**: Normal.
+    // - **FinancialLocked**: financial lock.
+    // - **SecurityLocked**: Locked for security reasons.
     shared_ptr<string> virtualPhysicalConnectionBusinessStatus_ {};
-    // The IDs of the virtual physical connections.
+    // The shared Express Connect circuits information.
     shared_ptr<vector<string>> virtualPhysicalConnectionIds_ {};
-    // The business statuses of the virtual physical connections.
+    // The business status information of the shared Express Connect circuits.
     shared_ptr<vector<string>> virtualPhysicalConnectionStatuses_ {};
-    // The VLAN IDs of the virtual physical connections.
+    // The VLAN ID of the shared Express Connect circuits.
     shared_ptr<vector<string>> vlanIds_ {};
   };
 

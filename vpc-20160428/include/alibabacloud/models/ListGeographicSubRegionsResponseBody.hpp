@@ -60,9 +60,9 @@ namespace Models
 
 
   protected:
-    // The number of entries.
+    // The number of entries in the list.
     shared_ptr<int64_t> count_ {};
-    // The region list.
+    // The list of regions to query.
     shared_ptr<vector<string>> geographicSubRegions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

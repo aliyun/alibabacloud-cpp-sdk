@@ -503,10 +503,11 @@ namespace Models
       shared_ptr<NetworkAclAttribute::Resources> resources_ {};
       // The status of the network ACL. Valid values:
       // 
-      // *   **Available**
-      // *   **Modifying**
+      // - **Available**: available.
+      // 
+      // - **Modifying**: being modified.
       shared_ptr<string> status_ {};
-      // The ID of the VPC to which the network ACL belongs.
+      // The ID of the VPC associated with the network ACL.
       shared_ptr<string> vpcId_ {};
     };
 

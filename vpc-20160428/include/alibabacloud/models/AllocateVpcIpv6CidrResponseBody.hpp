@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The IPv6 CIDR block that is reserved.
+    // The reserved IPv6 CIDR block.
     shared_ptr<string> ipv6CidrBlock_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

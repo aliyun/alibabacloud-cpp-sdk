@@ -119,7 +119,7 @@ namespace Models
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** value as the **ClientToken** value. The **RequestId** value may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
@@ -131,7 +131,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the traffic mirror session.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
     // 
     // For more information about the regions that support traffic mirroring, see [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
     // 
@@ -139,11 +139,11 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The instance ID of the traffic mirror session to which you want to increase traffic mirror sources.
+    // The instance ID of the traffic mirror session to which you want to add traffic mirror sources.
     // 
     // This parameter is required.
     shared_ptr<string> trafficMirrorSessionId_ {};
-    // The instance ID of the traffic mirror source to increase. Currently, only elastic network interfaces (ENIs) are supported as traffic mirror sources. The default value of **N** is **1**, which indicates that you can add only one traffic mirror source to a traffic mirror session.
+    // The instance ID of the traffic mirror source to add. Currently, elastic network interfaces (ENIs) are supported as traffic mirror sources. The default value of **N** is **1**, which indicates that you can add only one traffic mirror source to a traffic mirror session.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> trafficMirrorSourceIds_ {};

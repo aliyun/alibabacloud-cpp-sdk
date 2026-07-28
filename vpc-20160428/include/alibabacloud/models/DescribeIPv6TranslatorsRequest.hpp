@@ -173,8 +173,9 @@ namespace Models
     shared_ptr<string> allocateIpv6Addr_ {};
     // The business status of the IPv6 Translation Service instance. Valid values:
     // 
-    // *   **Normal**
-    // *   **FinancialLocked**
+    // - **Normal**: normal.
+    // 
+    // - **FinancialLocked**: locked.
     shared_ptr<string> businessStatus_ {};
     // The ID of the IPv6 Translation Service instance.
     shared_ptr<string> ipv6TranslatorId_ {};
@@ -182,32 +183,39 @@ namespace Models
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page in paging query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The billing method of the IPv6 Translation Service instance. Valid values:
+    // The billing transform type of the IPv6 Translation Service instance. Valid values:
     // 
-    // *   **Prepay**: subscription
-    // *   **Postpay**: pay-as-you-go
+    // - **Prepay**: subscription.
+    // 
+    // - **Postpay**: pay-as-you-go.
     shared_ptr<string> payType_ {};
-    // The region of the IPv6 Translation Service instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The region of the IPv6 Translation Service instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The specification of the IPv6 Translation Service instance. Set the value to **small**.
+    // The specification of the IPv6 Translation Service instance. Valid values: **small**.
     shared_ptr<string> spec_ {};
     // The status of the IPv6 Translation Service instance. Valid values:
     // 
-    // *   **init**
-    // *   **provisioning**
-    // *   **active**
-    // *   **updating**
-    // *   **upgrading**
-    // *   **deleting**
-    // *   **deleted**
+    // - **init**: initializing.
+    // 
+    // - **provisioning**: being provisioned.
+    // 
+    // - **active**: available.
+    // 
+    // - **updating**: being updated.
+    // 
+    // - **upgrading**: being upgraded.
+    // 
+    // - **deleting**: being deleted.
+    // 
+    // - **deleted**: deleted.
     shared_ptr<string> status_ {};
   };
 

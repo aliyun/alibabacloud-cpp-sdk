@@ -108,15 +108,13 @@ namespace Models
 
 
     protected:
-      // The key of tag N. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+      // A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of tag N.
+      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length. It can be an empty string. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
-      // 
-      // Each tag key corresponds to one tag value. You can specify at most 20 tag values at a time.
+      // A tag value can be up to 128 characters in length and must start with a letter or Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -275,46 +273,47 @@ namespace Models
 
 
   protected:
-    // The type of IP address. Valid values:
+    // The type of the IPv6 address. Valid values:
     // 
-    // - IPv6Address (default): indicates an IPv6 instance used to query a single IPv6 address.
-    // 
-    // - IPv6Prefix: indicates an IPv6 instance used to query prefix CIDR blocks.
+    // * IPv6Address (default): queries IPv6 instances with a single IPv6 IP address.
+    // * IPv6Prefix: queries IPv6 instances with a prefix CIDR block.
     shared_ptr<string> addressType_ {};
-    // The ID of the instance that is assigned the IPv6 address.
+    // The instance ID associated with the IPv6 address that you want to query.
     shared_ptr<string> associatedInstanceId_ {};
-    // The type of instance associated with the IPv6 address. Valid values:
+    // The type of the instance associated with the IPv6 address that you want to query. Valid values:
     // 
-    // *   **EcsInstance**: Elastic Compute Service (ECS) instance in a virtual private cloud (VPC)
-    // *   **NetworkInterface**: secondary elastic network interface (ENI)
+    //  - **EcsInstance**: an ECS instance in a VPC.
+    // - **NetworkInterface**: a secondary elastic network interface (ENI) that serves as a network interface controller (NIC).
     shared_ptr<string> associatedInstanceType_ {};
-    // Specifies whether to return information about pending orders. Valid values:
+    // Specifies whether to include renewal data that has not taken effect. Valid values:
     // 
-    // *   **false** (default)
-    // *   **true**
+    // - **false** (default): does not include renewal data that has not taken effect.
+    // 
+    // - **true**: includes renewal data that has not taken effect.
     shared_ptr<bool> includeReservationData_ {};
     // The IPv6 address that you want to query.
     shared_ptr<string> ipv6Address_ {};
-    // The ID of the IPv6 address that you want to query. You can enter at most 20 IPv6 address IDs in each API request. Separate IPv6 address IDs with commas (,).
+    // The ID of the IPv6 address that you want to query. You can specify up to 20 IPv6 address IDs in each call. Separate multiple IDs with commas (,).
     shared_ptr<string> ipv6AddressId_ {};
-    // The ID of the Internet bandwidth that you purchased for the IPv6 address.
+    // The instance ID of the Internet bandwidth associated with the IPv6 address that you want to query. This parameter is available after public network bandwidth is enabled.
     shared_ptr<string> ipv6InternetBandwidthId_ {};
     // The name of the IPv6 address that you want to query.
     // 
     // The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> name_ {};
-    // The type of communication supported by the IPv6 address. Valid values:
+    // The communication type of the IPv6 address that you want to query. Valid values:
     // 
-    // *   **Private**
-    // *   **Public**
+    // - **Private**: private communication.
+    // 
+    // - **Public**: public communication.
     shared_ptr<string> networkType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page for paging queries. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region in which you want to query IPv6 addresses. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The region ID of the IPv6 addresses that you want to query. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -322,18 +321,17 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Indicates whether the instance is managed. Valid values:
+    // Specifies whether the instance is a managed instance. Valid values:
+    // - **true**: The instance is a managed instance.
+    // - **false**: The instance is not a managed instance.
     // 
-    // *   **true**
-    // *   **false**
-    // 
-    // If you do not specify this parameter, all instances are queried.
+    // If you do not set this parameter, all instances are queried.
     shared_ptr<bool> serviceManaged_ {};
-    // The tag list.
+    // The list of tags. You can specify up to 20 tags.
     shared_ptr<vector<DescribeIpv6AddressesRequest::Tag>> tag_ {};
-    // The ID of the vSwitch to which the IPv6 address belongs.
+    // The ID of the vSwitch to which the IPv6 address that you want to query belongs.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the VPC to which the IPv6 address belongs.
+    // The ID of the VPC to which the IPv6 address that you want to query belongs.
     shared_ptr<string> vpcId_ {};
   };
 

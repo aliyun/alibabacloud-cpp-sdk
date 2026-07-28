@@ -175,9 +175,9 @@ ActivateRouterInterfaceResponse Client::activateRouterInterface(const ActivateRo
 /**
  * @summary Calls the ActiveFlowLog operation to activate a flow log and start capturing traffic of the specified resource.
  *
- * @description * The **ActiveFlowLog** operation is asynchronous. After you call this operation, the system returns a request ID, but the flow log has not been activated yet because the activation task is still running in the background. You can call [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) to query the activation status of the flow log:
+ * @description * The **ActiveFlowLog** operation is asynchronous. After you send a request, the system returns a request ID. However, the flow log is not yet activated, and the activation task is still running in the background. You can call [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) to query the activation status of the flow log:
  *     - If the flow log is in the **Activating** state, the flow log is being activated.
- *     - If the flow log is in the **Active** state, the flow log has been activated.
+ *     - If the flow log is in the **Active** state, the flow log is activated.
  * * The **ActiveFlowLog** operation does not support concurrent activation of the same flow log.
  *
  * @param request ActiveFlowLogRequest
@@ -231,9 +231,9 @@ ActiveFlowLogResponse Client::activeFlowLogWithOptions(const ActiveFlowLogReques
 /**
  * @summary Calls the ActiveFlowLog operation to activate a flow log and start capturing traffic of the specified resource.
  *
- * @description * The **ActiveFlowLog** operation is asynchronous. After you call this operation, the system returns a request ID, but the flow log has not been activated yet because the activation task is still running in the background. You can call [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) to query the activation status of the flow log:
+ * @description * The **ActiveFlowLog** operation is asynchronous. After you send a request, the system returns a request ID. However, the flow log is not yet activated, and the activation task is still running in the background. You can call [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) to query the activation status of the flow log:
  *     - If the flow log is in the **Activating** state, the flow log is being activated.
- *     - If the flow log is in the **Active** state, the flow log has been activated.
+ *     - If the flow log is in the **Active** state, the flow log is activated.
  * * The **ActiveFlowLog** operation does not support concurrent activation of the same flow log.
  *
  * @param request ActiveFlowLogRequest
@@ -245,7 +245,7 @@ ActiveFlowLogResponse Client::activeFlowLog(const ActiveFlowLogRequest &request)
 }
 
 /**
- * @summary Invokes AddBgpNetwork to advertise a Border Gateway Protocol (BGP) network.
+ * @summary Invokes the AddBgpNetwork operation to advertise a Border Gateway Protocol (BGP) network.
  *
  * @param request AddBgpNetworkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -308,7 +308,7 @@ AddBgpNetworkResponse Client::addBgpNetworkWithOptions(const AddBgpNetworkReques
 }
 
 /**
- * @summary Invokes AddBgpNetwork to advertise a Border Gateway Protocol (BGP) network.
+ * @summary Invokes the AddBgpNetwork operation to advertise a Border Gateway Protocol (BGP) network.
  *
  * @param request AddBgpNetworkRequest
  * @return AddBgpNetworkResponse
@@ -319,16 +319,16 @@ AddBgpNetworkResponse Client::addBgpNetwork(const AddBgpNetworkRequest &request)
 }
 
 /**
- * @summary Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
+ * @summary Adds an elastic IP address (EIP) to an Internet Shared Bandwidth instance.
  *
- * @description Before invoking this API, note the following:
- * - The EIP must meet the following conditions when you add it to an Internet Shared Bandwidth instance by using this API:
- *     - The metering method of the EIP is pay-as-you-go.
- *     - The Region of the EIP is the same as that of the Internet Shared Bandwidth instance to which you want to add the EIP.
- *     - The line type of the EIP matches the line type of the Internet Shared Bandwidth instance.
- * - The **AddCommonBandwidthPackageIp** API is asynchronous. After you invoke this API, the system immediately returns a RequestId, but the EIP is not yet successfully added to the Internet Shared Bandwidth instance. The system continues to process the addition task in the background. You can call the [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) API to query the association status between the Internet Shared Bandwidth instance and the EIP.
- *     - If the association status is **BINDING**, the Internet Shared Bandwidth instance and the EIP are being associated. In this state, you can only perform query operations and cannot perform other operations.
- *     - If the association status is **BINDED**, the association between the Internet Shared Bandwidth instance and the EIP is complete.
+ * @description Before invoking this operation, note the following:
+ * - When you invoke this operation to add an EIP to an Internet Shared Bandwidth instance, the EIP must meet the following conditions:
+ *     - The EIP uses the pay-as-you-go billing method.
+ *     - The EIP is in the same region as the Internet Shared Bandwidth instance.
+ *     - The line type of the EIP is the same as that of the Internet Shared Bandwidth instance.
+ * - The **AddCommonBandwidthPackageIp** operation is asynchronous. After you send a request, the system returns a request ID, but the EIP is not yet added to the Internet Shared Bandwidth instance. The addition task is still running in the background. You can invoke [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) to query the association status between the Internet Shared Bandwidth instance and the EIP. 
+ *     - If the association status is **BINDING**, the Internet Shared Bandwidth instance is being associated with the EIP. In this state, you can only execute query operations.
+ *     - If the association status is **BINDED**, the Internet Shared Bandwidth instance is associated with the EIP.
  *
  * @param request AddCommonBandwidthPackageIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -395,16 +395,16 @@ AddCommonBandwidthPackageIpResponse Client::addCommonBandwidthPackageIpWithOptio
 }
 
 /**
- * @summary Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
+ * @summary Adds an elastic IP address (EIP) to an Internet Shared Bandwidth instance.
  *
- * @description Before invoking this API, note the following:
- * - The EIP must meet the following conditions when you add it to an Internet Shared Bandwidth instance by using this API:
- *     - The metering method of the EIP is pay-as-you-go.
- *     - The Region of the EIP is the same as that of the Internet Shared Bandwidth instance to which you want to add the EIP.
- *     - The line type of the EIP matches the line type of the Internet Shared Bandwidth instance.
- * - The **AddCommonBandwidthPackageIp** API is asynchronous. After you invoke this API, the system immediately returns a RequestId, but the EIP is not yet successfully added to the Internet Shared Bandwidth instance. The system continues to process the addition task in the background. You can call the [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) API to query the association status between the Internet Shared Bandwidth instance and the EIP.
- *     - If the association status is **BINDING**, the Internet Shared Bandwidth instance and the EIP are being associated. In this state, you can only perform query operations and cannot perform other operations.
- *     - If the association status is **BINDED**, the association between the Internet Shared Bandwidth instance and the EIP is complete.
+ * @description Before invoking this operation, note the following:
+ * - When you invoke this operation to add an EIP to an Internet Shared Bandwidth instance, the EIP must meet the following conditions:
+ *     - The EIP uses the pay-as-you-go billing method.
+ *     - The EIP is in the same region as the Internet Shared Bandwidth instance.
+ *     - The line type of the EIP is the same as that of the Internet Shared Bandwidth instance.
+ * - The **AddCommonBandwidthPackageIp** operation is asynchronous. After you send a request, the system returns a request ID, but the EIP is not yet added to the Internet Shared Bandwidth instance. The addition task is still running in the background. You can invoke [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) to query the association status between the Internet Shared Bandwidth instance and the EIP. 
+ *     - If the association status is **BINDING**, the Internet Shared Bandwidth instance is being associated with the EIP. In this state, you can only execute query operations.
+ *     - If the association status is **BINDED**, the Internet Shared Bandwidth instance is associated with the EIP.
  *
  * @param request AddCommonBandwidthPackageIpRequest
  * @return AddCommonBandwidthPackageIpResponse
@@ -415,15 +415,16 @@ AddCommonBandwidthPackageIpResponse Client::addCommonBandwidthPackageIp(const Ad
 }
 
 /**
- * @summary Associates multiple elastic IP addresses (EIPs) with an Internet Shared Bandwidth instance.
+ * @summary Adds multiple elastic IP addresses (EIPs) to an Internet Shared Bandwidth instance.
  *
- * @description - 调用本接口批量添加EIP到共享带宽中时，EIP需满足以下条件：
- *     - EIP的计费方式为按量付费。
- *     - EIP的地域与要加入的共享带宽的地域相同。
- *     - EIP的线路类型与要加入的共享带宽的线路类型一致。
- * - **AddCommonBandwidthPackageIps**接口属于异步接口，即系统会先返回一个请求ID，但EIP并未成功添加到共享带宽，系统后台的添加任务仍在进行。您可以调用[DescribeCommonBandwidthPackages](~~DescribeCommonBandwidthPackages~~)查询共享带宽和EIP的关联状态。 
- *     - 当共享带宽和EIP的关联状态处于**BINDING**时，表示共享带宽与EIP关联中，在该状态下，您只能执行查询操作，不能执行其他操作。
- *     - 当共享带宽和EIP的关联状态处于**BINDED**时，表示共享带宽与EIP关联完成。
+ * @description - When you invoke this operation to add multiple EIPs to an Internet Shared Bandwidth instance, the EIPs must meet the following conditions:
+ *     - The EIPs use the pay-as-you-go billing method.
+ *     - The EIPs are in the same region as the Internet Shared Bandwidth instance.
+ *     - The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
+ * - The **AddCommonBandwidthPackageIps** operation is asynchronous. After you send a request, the system returns a request ID. However, the EIPs are not immediately added to the Internet Shared Bandwidth instance. The addition node is still running in the background. You can invoke [DescribeCommonBandwidthPackages](~~DescribeCommonBandwidthPackages~~) to query the association status between the Internet Shared Bandwidth instance and the EIPs. 
+ *     - If the association status is **BINDING**, the Internet Shared Bandwidth instance is being associated with the EIPs. In this state, you can only execute query operations.
+ *     - If the association status is **BINDED**, the Internet Shared Bandwidth instance is associated with the EIPs.
+ * Billable methods: The EIPs must use the pay-as-you-go billing method.
  *
  * @param request AddCommonBandwidthPackageIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -486,15 +487,16 @@ AddCommonBandwidthPackageIpsResponse Client::addCommonBandwidthPackageIpsWithOpt
 }
 
 /**
- * @summary Associates multiple elastic IP addresses (EIPs) with an Internet Shared Bandwidth instance.
+ * @summary Adds multiple elastic IP addresses (EIPs) to an Internet Shared Bandwidth instance.
  *
- * @description - 调用本接口批量添加EIP到共享带宽中时，EIP需满足以下条件：
- *     - EIP的计费方式为按量付费。
- *     - EIP的地域与要加入的共享带宽的地域相同。
- *     - EIP的线路类型与要加入的共享带宽的线路类型一致。
- * - **AddCommonBandwidthPackageIps**接口属于异步接口，即系统会先返回一个请求ID，但EIP并未成功添加到共享带宽，系统后台的添加任务仍在进行。您可以调用[DescribeCommonBandwidthPackages](~~DescribeCommonBandwidthPackages~~)查询共享带宽和EIP的关联状态。 
- *     - 当共享带宽和EIP的关联状态处于**BINDING**时，表示共享带宽与EIP关联中，在该状态下，您只能执行查询操作，不能执行其他操作。
- *     - 当共享带宽和EIP的关联状态处于**BINDED**时，表示共享带宽与EIP关联完成。
+ * @description - When you invoke this operation to add multiple EIPs to an Internet Shared Bandwidth instance, the EIPs must meet the following conditions:
+ *     - The EIPs use the pay-as-you-go billing method.
+ *     - The EIPs are in the same region as the Internet Shared Bandwidth instance.
+ *     - The line type of the EIPs is the same as that of the Internet Shared Bandwidth instance.
+ * - The **AddCommonBandwidthPackageIps** operation is asynchronous. After you send a request, the system returns a request ID. However, the EIPs are not immediately added to the Internet Shared Bandwidth instance. The addition node is still running in the background. You can invoke [DescribeCommonBandwidthPackages](~~DescribeCommonBandwidthPackages~~) to query the association status between the Internet Shared Bandwidth instance and the EIPs. 
+ *     - If the association status is **BINDING**, the Internet Shared Bandwidth instance is being associated with the EIPs. In this state, you can only execute query operations.
+ *     - If the association status is **BINDED**, the Internet Shared Bandwidth instance is associated with the EIPs.
+ * Billable methods: The EIPs must use the pay-as-you-go billing method.
  *
  * @param request AddCommonBandwidthPackageIpsRequest
  * @return AddCommonBandwidthPackageIpsResponse
@@ -505,7 +507,7 @@ AddCommonBandwidthPackageIpsResponse Client::addCommonBandwidthPackageIps(const 
 }
 
 /**
- * @summary Associates an elastic IP address (EIP) with a shared-bandwidth Global Accelerator (GA) instance.
+ * @summary Adds an Elastic IP Address (EIP) to a specified Internet Shared Bandwidth instance.
  *
  * @param request AddGlobalAccelerationInstanceIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -560,7 +562,7 @@ AddGlobalAccelerationInstanceIpResponse Client::addGlobalAccelerationInstanceIpW
 }
 
 /**
- * @summary Associates an elastic IP address (EIP) with a shared-bandwidth Global Accelerator (GA) instance.
+ * @summary Adds an Elastic IP Address (EIP) to a specified Internet Shared Bandwidth instance.
  *
  * @param request AddGlobalAccelerationInstanceIpRequest
  * @return AddGlobalAccelerationInstanceIpResponse
@@ -573,7 +575,7 @@ AddGlobalAccelerationInstanceIpResponse Client::addGlobalAccelerationInstanceIp(
 /**
  * @deprecated OpenAPI AddIPv6TranslatorAclListEntry is deprecated
  *
- * @summary Adds an IP entry to an access control list (ACL).
+ * @summary Adds an IP entry to an access control policy group.
  *
  * @param request AddIPv6TranslatorAclListEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -634,7 +636,7 @@ AddIPv6TranslatorAclListEntryResponse Client::addIPv6TranslatorAclListEntryWithO
 /**
  * @deprecated OpenAPI AddIPv6TranslatorAclListEntry is deprecated
  *
- * @summary Adds an IP entry to an access control list (ACL).
+ * @summary Adds an IP entry to an access control policy group.
  *
  * @param request AddIPv6TranslatorAclListEntryRequest
  * @return AddIPv6TranslatorAclListEntryResponse
@@ -647,13 +649,13 @@ AddIPv6TranslatorAclListEntryResponse Client::addIPv6TranslatorAclListEntry(cons
 /**
  * @summary Adds a CIDR block to an IP address pool.
  *
- * @description Before you call this operation, take note of the following limits:
- * *   The CIDR block and the IP address pool must belong to the same region.
- * *   The CIDR block and the IP address pool must use the same line type.
- * *   **AddPublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) operation to query the status of the task.
- *     *   If the CIDR block is in the **Modifying** state, the CIDR block is being added. In this state, you can only query the CIDR block and cannot perform other operations.
- *     *   If the CIDR block is in the **Created** state, the CIDR block is added.
- * *   You cannot repeatedly call the **AddPublicIpAddressPoolCidrBlock** operation to add a CIDR block to an IP address pool within the specified period of time.
+ * @description Before calling this operation, note the following:
+ * - The CIDR block and the IP address pool must belong to the same region.
+ * - The CIDR block and the IP address pool must belong to the same ISP line type.
+ * - **AddPublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID, but the CIDR block has not been added yet. The system continues to process the addition task in the background. You can call [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) to query the status of the CIDR block in the IP address pool.
+ *     - If the CIDR block is in the **Modifying** state, the CIDR block is being added. In this state, you can only perform query operations.
+ *     - If the CIDR block is in the **Created** state, the CIDR block has been added.
+ * - **AddPublicIpAddressPoolCidrBlock** does not support concurrently adding the same CIDR block to an IP address pool.
  *
  * @param request AddPublicIpAddressPoolCidrBlockRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -722,13 +724,13 @@ AddPublicIpAddressPoolCidrBlockResponse Client::addPublicIpAddressPoolCidrBlockW
 /**
  * @summary Adds a CIDR block to an IP address pool.
  *
- * @description Before you call this operation, take note of the following limits:
- * *   The CIDR block and the IP address pool must belong to the same region.
- * *   The CIDR block and the IP address pool must use the same line type.
- * *   **AddPublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) operation to query the status of the task.
- *     *   If the CIDR block is in the **Modifying** state, the CIDR block is being added. In this state, you can only query the CIDR block and cannot perform other operations.
- *     *   If the CIDR block is in the **Created** state, the CIDR block is added.
- * *   You cannot repeatedly call the **AddPublicIpAddressPoolCidrBlock** operation to add a CIDR block to an IP address pool within the specified period of time.
+ * @description Before calling this operation, note the following:
+ * - The CIDR block and the IP address pool must belong to the same region.
+ * - The CIDR block and the IP address pool must belong to the same ISP line type.
+ * - **AddPublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID, but the CIDR block has not been added yet. The system continues to process the addition task in the background. You can call [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) to query the status of the CIDR block in the IP address pool.
+ *     - If the CIDR block is in the **Modifying** state, the CIDR block is being added. In this state, you can only perform query operations.
+ *     - If the CIDR block is in the **Created** state, the CIDR block has been added.
+ * - **AddPublicIpAddressPoolCidrBlock** does not support concurrently adding the same CIDR block to an IP address pool.
  *
  * @param request AddPublicIpAddressPoolCidrBlockRequest
  * @return AddPublicIpAddressPoolCidrBlockResponse
@@ -823,10 +825,10 @@ AddSourcesToTrafficMirrorSessionResponse Client::addSourcesToTrafficMirrorSessio
 }
 
 /**
- * @summary Request an Elastic IP Address (EIP).
+ * @summary Applies for an elastic IP address (EIP).
  *
- * @description Before using this API, ensure that you fully understand the billing method and pricing of EIPs. For more information, see [Billing overview](https://help.aliyun.com/document_detail/122035.html).
- * After invoking this API, a randomly selected Elastic IP Address with the status **Available** will be allocated in the specified region. At the transport layer, EIPs currently support parsing content for ICMP, TCP, and UDP protocols only, and do not support parsing content for protocols such as IGMP and SCTP.
+ * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of EIPs. For more information, see [Billing overview](https://help.aliyun.com/document_detail/122035.html).
+ * After you call this operation, an EIP in the **Available** state is randomly allocated in the specified region. EIPs support only ICMP, TCP, and UDP at the transport layer. EIPs do not support IGMP or SCTP.
  *
  * @param request AllocateEipAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -949,10 +951,10 @@ AllocateEipAddressResponse Client::allocateEipAddressWithOptions(const AllocateE
 }
 
 /**
- * @summary Request an Elastic IP Address (EIP).
+ * @summary Applies for an elastic IP address (EIP).
  *
- * @description Before using this API, ensure that you fully understand the billing method and pricing of EIPs. For more information, see [Billing overview](https://help.aliyun.com/document_detail/122035.html).
- * After invoking this API, a randomly selected Elastic IP Address with the status **Available** will be allocated in the specified region. At the transport layer, EIPs currently support parsing content for ICMP, TCP, and UDP protocols only, and do not support parsing content for protocols such as IGMP and SCTP.
+ * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of EIPs. For more information, see [Billing overview](https://help.aliyun.com/document_detail/122035.html).
+ * After you call this operation, an EIP in the **Available** state is randomly allocated in the specified region. EIPs support only ICMP, TCP, and UDP at the transport layer. EIPs do not support IGMP or SCTP.
  *
  * @param request AllocateEipAddressRequest
  * @return AllocateEipAddressResponse
@@ -963,7 +965,7 @@ AllocateEipAddressResponse Client::allocateEipAddress(const AllocateEipAddressRe
 }
 
 /**
- * @summary Call AllocateEipAddressPro to allocate a specified elastic IP address for use in custom network configurations.
+ * @summary Allocates a specified elastic IP address (EIP) for specific network configuration requirements.
  *
  * @param request AllocateEipAddressProRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1070,7 +1072,7 @@ AllocateEipAddressProResponse Client::allocateEipAddressProWithOptions(const All
 }
 
 /**
- * @summary Call AllocateEipAddressPro to allocate a specified elastic IP address for use in custom network configurations.
+ * @summary Allocates a specified elastic IP address (EIP) for specific network configuration requirements.
  *
  * @param request AllocateEipAddressProRequest
  * @return AllocateEipAddressProResponse
@@ -1083,11 +1085,11 @@ AllocateEipAddressProResponse Client::allocateEipAddressPro(const AllocateEipAdd
 /**
  * @deprecated OpenAPI AllocateEipSegmentAddress is deprecated
  *
- * @summary Applies for contiguous elastic IP addresses (EIPs).
+ * @summary Contiguous Elastic IP (EIP) addresses are a group of sequentially ordered elastic public IP addresses. When designing your network, you can apply for and use these IP addresses in bulk for cloud resources that require contiguous public IP addresses. You can call the AllocateEipSegmentAddress operation to apply for contiguous EIPs.
  *
- * @description **AllocateEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns the ID of a contiguous EIP group and runs the task in the background. You can call the [DescribeEipSegment](https://help.aliyun.com/document_detail/156063.html) operation to query the status of the task.
- * *   If the contiguous EIP group is in the **Allocating** state, the EIPs are being allocated. In this case, you can only perform the query operation and cannot perform other operations.
- * *   If the contiguous EIP group is in the **Allocated** state, the EIPs are allocated.
+ * @description **AllocateEipSegmentAddress** is an asynchronous operation. After you call this operation, the system returns the instance ID of a contiguous EIP group, but the contiguous EIP group is not yet created. The creation task is still running in the background. You can call [DescribeEipSegment](https://help.aliyun.com/document_detail/156063.html) to query the status of the contiguous EIP group.
+ * - If the contiguous EIP group is in the **Allocating** state, the contiguous EIP group is being allocated. In this state, you can only perform query operations.
+ * - If the contiguous EIP group is in the **Allocated** state, the contiguous EIP group is allocated.
  *
  * @param request AllocateEipSegmentAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1168,11 +1170,11 @@ AllocateEipSegmentAddressResponse Client::allocateEipSegmentAddressWithOptions(c
 /**
  * @deprecated OpenAPI AllocateEipSegmentAddress is deprecated
  *
- * @summary Applies for contiguous elastic IP addresses (EIPs).
+ * @summary Contiguous Elastic IP (EIP) addresses are a group of sequentially ordered elastic public IP addresses. When designing your network, you can apply for and use these IP addresses in bulk for cloud resources that require contiguous public IP addresses. You can call the AllocateEipSegmentAddress operation to apply for contiguous EIPs.
  *
- * @description **AllocateEipSegmentAddress** is an asynchronous operation. After a request is sent, the system returns the ID of a contiguous EIP group and runs the task in the background. You can call the [DescribeEipSegment](https://help.aliyun.com/document_detail/156063.html) operation to query the status of the task.
- * *   If the contiguous EIP group is in the **Allocating** state, the EIPs are being allocated. In this case, you can only perform the query operation and cannot perform other operations.
- * *   If the contiguous EIP group is in the **Allocated** state, the EIPs are allocated.
+ * @description **AllocateEipSegmentAddress** is an asynchronous operation. After you call this operation, the system returns the instance ID of a contiguous EIP group, but the contiguous EIP group is not yet created. The creation task is still running in the background. You can call [DescribeEipSegment](https://help.aliyun.com/document_detail/156063.html) to query the status of the contiguous EIP group.
+ * - If the contiguous EIP group is in the **Allocating** state, the contiguous EIP group is being allocated. In this state, you can only perform query operations.
+ * - If the contiguous EIP group is in the **Allocated** state, the contiguous EIP group is allocated.
  *
  * @param request AllocateEipSegmentAddressRequest
  * @return AllocateEipSegmentAddressResponse
@@ -1183,10 +1185,10 @@ AllocateEipSegmentAddressResponse Client::allocateEipSegmentAddress(const Alloca
 }
 
 /**
- * @summary Invokes the AllocateIpv6Address operation to allocate a free IPv6 address or IPv6 prefix CIDR block. The address is not associated with any resource instance (such as an elastic network interface (ENI) or Network Load Balancer (NLB) instance) and exists as an independent IPv6 address in a virtual private cloud (VPC).
+ * @summary Invokes the AllocateIpv6Address operation to allocate a free IPv6 address or IPv6 prefix CIDR block. The address is not associated with any resource instance (such as a network interface controller (NIC) or Network Load Balancer (NLB)) and exists as an independent IPv6 address in the virtual private cloud (VPC).
  *
- * @description Scenarios: After you enable Internet bandwidth for a free IPv6 address, configure an inbound routing rule in the IPv6 gateway route table to direct public IPv6 traffic to an Internet Data Center (IDC) through an Express Connect circuit. This way, IDC resources can provide services over the Internet by using an Alibaba Cloud IPv6 address.
- * > To allocate an IPv6 address to an elastic network interface (ENI) of an ECS instance, invoke the [AssignIpv6Addresses](https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-assignipv6addresses) operation of ECS.
+ * @description Scenarios: After you enable Internet bandwidth for a free IPv6 address, configure an inbound routing rule in the IPv6 gateway route table to direct public IPv6 traffic to the data center through an Express Connect circuit. This way, data center resources can provide services over the Internet by using an Alibaba Cloud IPv6 address.
+ * > To allocate an IPv6 address to a network interface controller (NIC) of an ECS instance, invoke the [AssignIpv6Addresses](https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-assignipv6addresses) operation of ECS.
  *
  * @param request AllocateIpv6AddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1273,10 +1275,10 @@ AllocateIpv6AddressResponse Client::allocateIpv6AddressWithOptions(const Allocat
 }
 
 /**
- * @summary Invokes the AllocateIpv6Address operation to allocate a free IPv6 address or IPv6 prefix CIDR block. The address is not associated with any resource instance (such as an elastic network interface (ENI) or Network Load Balancer (NLB) instance) and exists as an independent IPv6 address in a virtual private cloud (VPC).
+ * @summary Invokes the AllocateIpv6Address operation to allocate a free IPv6 address or IPv6 prefix CIDR block. The address is not associated with any resource instance (such as a network interface controller (NIC) or Network Load Balancer (NLB)) and exists as an independent IPv6 address in the virtual private cloud (VPC).
  *
- * @description Scenarios: After you enable Internet bandwidth for a free IPv6 address, configure an inbound routing rule in the IPv6 gateway route table to direct public IPv6 traffic to an Internet Data Center (IDC) through an Express Connect circuit. This way, IDC resources can provide services over the Internet by using an Alibaba Cloud IPv6 address.
- * > To allocate an IPv6 address to an elastic network interface (ENI) of an ECS instance, invoke the [AssignIpv6Addresses](https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-assignipv6addresses) operation of ECS.
+ * @description Scenarios: After you enable Internet bandwidth for a free IPv6 address, configure an inbound routing rule in the IPv6 gateway route table to direct public IPv6 traffic to the data center through an Express Connect circuit. This way, data center resources can provide services over the Internet by using an Alibaba Cloud IPv6 address.
+ * > To allocate an IPv6 address to a network interface controller (NIC) of an ECS instance, invoke the [AssignIpv6Addresses](https://www.alibabacloud.com/help/en/ecs/developer-reference/api-ecs-2014-05-26-assignipv6addresses) operation of ECS.
  *
  * @param request AllocateIpv6AddressRequest
  * @return AllocateIpv6AddressResponse
@@ -1287,19 +1289,19 @@ AllocateIpv6AddressResponse Client::allocateIpv6Address(const AllocateIpv6Addres
 }
 
 /**
- * @summary Invokes the AllocateIpv6InternetBandwidth operation to allocate Internet bandwidth for an IPv6 address in a VPC to enable public network communication. After the bandwidth is allocated, the IPv6 address can both initiate outbound access to the Internet and be accessed from the Internet.
+ * @summary Enables Internet bandwidth for an IPv6 address in a VPC so that the IPv6 address can communicate over the Internet. After Internet bandwidth is enabled, the IPv6 address can both initiate outbound connections to the Internet and be accessed from the Internet.
  *
- * @description - You can allocate public Internet bandwidth for the following types of IPv6 addresses:
+ * @description - You can enable Internet bandwidth for the following types of IPv6 addresses:
  *     - IPv6 addresses assigned to elastic network interfaces (ENIs) of ECS instances.
  *     - Unassociated IPv6 addresses that are not attached to any resource instance.
  * - Before you call this operation, make sure that the target IPv6 address already exists. This means that an ECS instance in the VPC has been assigned an IPv6 address, or an unassociated IPv6 address has been created by calling [AllocateIpv6Address](https://www.alibabacloud.com/help/en/vpc/developer-reference/api-vpc-2016-04-28-allocateipv6address).
- * - After the bandwidth is allocated, the IPv6 address can both initiate outbound connections to the Internet and receive inbound connections from the Internet. To allow only outbound access to the Internet, call [CreateIpv6EgressOnlyRule](https://www.alibabacloud.com/help/en/ipv6-gateway/developer-reference/api-vpc-2016-04-28-createipv6egressonlyrule-ipv6s)
+ * - After Internet bandwidth is enabled, the IPv6 address can both initiate outbound connections to the Internet and be accessed from the Internet. To allow public network access to the Internet, call [CreateIpv6EgressOnlyRule](https://www.alibabacloud.com/help/en/ipv6-gateway/developer-reference/api-vpc-2016-04-28-createipv6egressonlyrule-ipv6s)
  *   to configure an IPv6 egress-only rule.
- * - The **AllocateIpv6InternetBandwidth** operation does not support concurrent purchases of the same IPv6 public Internet bandwidth.
+ * - The **AllocateIpv6InternetBandwidth** operation does not support concurrent purchases of Internet bandwidth for the same IPv6 address.
  * - Scenarios:
- *     - IPv6 public network access for ECS instances: Allows ECS instances to access the Internet or provide services over IPv6.
- *     - Unassociated IPv6 public network access: Works with IPv6 gateway route tables to route Internet traffic to on-premises IDCs.
- *     - Outbound-only communication: Works with CreateIpv6EgressOnlyRule to allow only outbound access and deny inbound connections from the Internet.
+ *     - ECS instance IPv6 Internet access: Allows an ECS instance to access the Internet or provide services over IPv6.
+ *     - Unassociated IPv6 Internet access: Works with IPv6 gateway route tables to route Internet traffic to on-premises IDCs.
+ *     - Outbound-only communication: Works with CreateIpv6EgressOnlyRule to allow public network access and reject inbound connections from the Internet.
  *
  * @param request AllocateIpv6InternetBandwidthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1378,19 +1380,19 @@ AllocateIpv6InternetBandwidthResponse Client::allocateIpv6InternetBandwidthWithO
 }
 
 /**
- * @summary Invokes the AllocateIpv6InternetBandwidth operation to allocate Internet bandwidth for an IPv6 address in a VPC to enable public network communication. After the bandwidth is allocated, the IPv6 address can both initiate outbound access to the Internet and be accessed from the Internet.
+ * @summary Enables Internet bandwidth for an IPv6 address in a VPC so that the IPv6 address can communicate over the Internet. After Internet bandwidth is enabled, the IPv6 address can both initiate outbound connections to the Internet and be accessed from the Internet.
  *
- * @description - You can allocate public Internet bandwidth for the following types of IPv6 addresses:
+ * @description - You can enable Internet bandwidth for the following types of IPv6 addresses:
  *     - IPv6 addresses assigned to elastic network interfaces (ENIs) of ECS instances.
  *     - Unassociated IPv6 addresses that are not attached to any resource instance.
  * - Before you call this operation, make sure that the target IPv6 address already exists. This means that an ECS instance in the VPC has been assigned an IPv6 address, or an unassociated IPv6 address has been created by calling [AllocateIpv6Address](https://www.alibabacloud.com/help/en/vpc/developer-reference/api-vpc-2016-04-28-allocateipv6address).
- * - After the bandwidth is allocated, the IPv6 address can both initiate outbound connections to the Internet and receive inbound connections from the Internet. To allow only outbound access to the Internet, call [CreateIpv6EgressOnlyRule](https://www.alibabacloud.com/help/en/ipv6-gateway/developer-reference/api-vpc-2016-04-28-createipv6egressonlyrule-ipv6s)
+ * - After Internet bandwidth is enabled, the IPv6 address can both initiate outbound connections to the Internet and be accessed from the Internet. To allow public network access to the Internet, call [CreateIpv6EgressOnlyRule](https://www.alibabacloud.com/help/en/ipv6-gateway/developer-reference/api-vpc-2016-04-28-createipv6egressonlyrule-ipv6s)
  *   to configure an IPv6 egress-only rule.
- * - The **AllocateIpv6InternetBandwidth** operation does not support concurrent purchases of the same IPv6 public Internet bandwidth.
+ * - The **AllocateIpv6InternetBandwidth** operation does not support concurrent purchases of Internet bandwidth for the same IPv6 address.
  * - Scenarios:
- *     - IPv6 public network access for ECS instances: Allows ECS instances to access the Internet or provide services over IPv6.
- *     - Unassociated IPv6 public network access: Works with IPv6 gateway route tables to route Internet traffic to on-premises IDCs.
- *     - Outbound-only communication: Works with CreateIpv6EgressOnlyRule to allow only outbound access and deny inbound connections from the Internet.
+ *     - ECS instance IPv6 Internet access: Allows an ECS instance to access the Internet or provide services over IPv6.
+ *     - Unassociated IPv6 Internet access: Works with IPv6 gateway route tables to route Internet traffic to on-premises IDCs.
+ *     - Outbound-only communication: Works with CreateIpv6EgressOnlyRule to allow public network access and reject inbound connections from the Internet.
  *
  * @param request AllocateIpv6InternetBandwidthRequest
  * @return AllocateIpv6InternetBandwidthResponse
@@ -1401,12 +1403,11 @@ AllocateIpv6InternetBandwidthResponse Client::allocateIpv6InternetBandwidth(cons
 }
 
 /**
- * @summary Reserves an IPv6 CIDR block.
+ * @summary Reserves a specified IPv6 CIDR block.
  *
- * @description # [](#)
- * The following section describes how to allocate an IPv6 CIDR block to a virtual private cloud (VPC):
- * 1.  Call the AllocateVpcIpv6Cidr operation to reserve the IPv6 CIDR block.
- * 2.  To allocate an IPv6 CIDR block to an existing VPC, call the [AssociateVpcCidrBlock](https://help.aliyun.com/document_detail/146745.html) operation. Set **RegionId**, **VpcId**, and **IPv6CidrBlock** to the IPv6 CIDR bock, and set **IpVersion** to **ipv6**. To allocate an IPv6 CIDR block when you create a VPC, call the [CreateVpc](https://help.aliyun.com/document_detail/35737.html) operation. Set **RegionId** and **Ipv6CidrBlock** to the IPv6 CIDR block, and set **EnableIpv6** to **true**.
+ * @description To assign a specified IPv6 CIDR block to a VPC, perform the following steps:
+ * 1. Call this operation to reserve the specified IPv6 CIDR block.
+ * 2. To assign the specified IPv6 CIDR block to an existing VPC, call the [AssociateVpcCidrBlock](https://help.aliyun.com/document_detail/146745.html) operation and set **RegionId**, **VpcId**, and **IPv6CidrBlock** to the specified IPv6 CIDR block, and set **IpVersion** to **ipv6**. To assign the specified IPv6 CIDR block to a new VPC, call the [CreateVpc](https://help.aliyun.com/document_detail/35737.html) operation and set **RegionId** and **Ipv6CidrBlock** to the specified IPv6 CIDR block, and set **EnableIpv6** to **true**.
  *
  * @param request AllocateVpcIpv6CidrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1473,12 +1474,11 @@ AllocateVpcIpv6CidrResponse Client::allocateVpcIpv6CidrWithOptions(const Allocat
 }
 
 /**
- * @summary Reserves an IPv6 CIDR block.
+ * @summary Reserves a specified IPv6 CIDR block.
  *
- * @description # [](#)
- * The following section describes how to allocate an IPv6 CIDR block to a virtual private cloud (VPC):
- * 1.  Call the AllocateVpcIpv6Cidr operation to reserve the IPv6 CIDR block.
- * 2.  To allocate an IPv6 CIDR block to an existing VPC, call the [AssociateVpcCidrBlock](https://help.aliyun.com/document_detail/146745.html) operation. Set **RegionId**, **VpcId**, and **IPv6CidrBlock** to the IPv6 CIDR bock, and set **IpVersion** to **ipv6**. To allocate an IPv6 CIDR block when you create a VPC, call the [CreateVpc](https://help.aliyun.com/document_detail/35737.html) operation. Set **RegionId** and **Ipv6CidrBlock** to the IPv6 CIDR block, and set **EnableIpv6** to **true**.
+ * @description To assign a specified IPv6 CIDR block to a VPC, perform the following steps:
+ * 1. Call this operation to reserve the specified IPv6 CIDR block.
+ * 2. To assign the specified IPv6 CIDR block to an existing VPC, call the [AssociateVpcCidrBlock](https://help.aliyun.com/document_detail/146745.html) operation and set **RegionId**, **VpcId**, and **IPv6CidrBlock** to the specified IPv6 CIDR block, and set **IpVersion** to **ipv6**. To assign the specified IPv6 CIDR block to a new VPC, call the [CreateVpc](https://help.aliyun.com/document_detail/35737.html) operation and set **RegionId** and **Ipv6CidrBlock** to the specified IPv6 CIDR block, and set **EnableIpv6** to **true**.
  *
  * @param request AllocateVpcIpv6CidrRequest
  * @return AllocateVpcIpv6CidrResponse
@@ -1587,13 +1587,13 @@ ApplyPhysicalConnectionLOAResponse Client::applyPhysicalConnectionLOA(const Appl
 }
 
 /**
- * @summary Associates an elastic IP address (EIP) with an instance in the same region.
+ * @summary Associates an elastic IP address (EIP) with a cloud resource instance in the same region.
  *
- * @description *   You can associate an EIP with an Elastic Compute Service (ECS) instance, a Classic Load Balancer (CLB) instance, a secondary elastic network interface (ENI), a NAT gateway, or a high-availability virtual IP address (HAVIP) in the same region. The ECS instance and CLB instance must be deployed in a virtual private cloud (VPC).
- * *   **AssociateEipAddress** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task.
- *     *   If the EIP is in the **Associating** state, the EIP is being associated. In this state, you can only query the EIP and cannot perform other operations.
- *     *   If the EIP is in the **InUse** state, the EIP is associated.
- * *   You cannot call the **AssociateEipAddress** operation to associate an EIP with multiple instances at a time.
+ * @description - An EIP can be associated with an Elastic Compute Service (ECS) instance of the virtual private cloud (VPC) network type, a CLB instance of the VPC network type, a secondary elastic network interface, a NAT gateway, or a high-availability virtual IP address (HAVIP) in the same region.
+ * - The **AssociateEipAddress** operation is asynchronous. After you send a request, the system returns a request ID, but the association between the EIP and the cloud resource instance is not yet complete. The association task continues to run in the background. You can call [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) to query the status of the EIP:
+ *     - If the EIP is in the **Associating** state, the EIP is being associated. In this state, you can only perform query operations.
+ *     - If the EIP is in the **InUse** state, the EIP is associated.
+ * - The **AssociateEipAddress** operation does not support concurrent requests to associate the same EIP with cloud resource instances.
  *
  * @param request AssociateEipAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1672,13 +1672,13 @@ AssociateEipAddressResponse Client::associateEipAddressWithOptions(const Associa
 }
 
 /**
- * @summary Associates an elastic IP address (EIP) with an instance in the same region.
+ * @summary Associates an elastic IP address (EIP) with a cloud resource instance in the same region.
  *
- * @description *   You can associate an EIP with an Elastic Compute Service (ECS) instance, a Classic Load Balancer (CLB) instance, a secondary elastic network interface (ENI), a NAT gateway, or a high-availability virtual IP address (HAVIP) in the same region. The ECS instance and CLB instance must be deployed in a virtual private cloud (VPC).
- * *   **AssociateEipAddress** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task.
- *     *   If the EIP is in the **Associating** state, the EIP is being associated. In this state, you can only query the EIP and cannot perform other operations.
- *     *   If the EIP is in the **InUse** state, the EIP is associated.
- * *   You cannot call the **AssociateEipAddress** operation to associate an EIP with multiple instances at a time.
+ * @description - An EIP can be associated with an Elastic Compute Service (ECS) instance of the virtual private cloud (VPC) network type, a CLB instance of the VPC network type, a secondary elastic network interface, a NAT gateway, or a high-availability virtual IP address (HAVIP) in the same region.
+ * - The **AssociateEipAddress** operation is asynchronous. After you send a request, the system returns a request ID, but the association between the EIP and the cloud resource instance is not yet complete. The association task continues to run in the background. You can call [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) to query the status of the EIP:
+ *     - If the EIP is in the **Associating** state, the EIP is being associated. In this state, you can only perform query operations.
+ *     - If the EIP is in the **InUse** state, the EIP is associated.
+ * - The **AssociateEipAddress** operation does not support concurrent requests to associate the same EIP with cloud resource instances.
  *
  * @param request AssociateEipAddressRequest
  * @return AssociateEipAddressResponse
@@ -1689,13 +1689,13 @@ AssociateEipAddressResponse Client::associateEipAddress(const AssociateEipAddres
 }
 
 /**
- * @summary Associates multiple elastic IP addresses (EIPs) with an instance in the same region.
+ * @summary Associates multiple Elastic IP Addresses (EIPs) with a cloud service instance in the same region in a batch.
  *
- * @description *   You can call the **AssociateEipAddressBatch** operation to associate EIPs with an instance in the same region. The instance must be a NAT gateway or a secondary elastic network interface (ENI). For more information about how to associate EIPs with other instances, see [AssociateEipAddress](https://help.aliyun.com/document_detail/120195.html).
- * *   **AssociateEipAddressBatch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task.
- *     *   If the EIP is in the **Associating** state, the EIP is being associated. You can only query the EIP and cannot perform other operations.
- *     *   If the EIP is in the **InUse** state, the EIP is associated.
- * *   You cannot call the **AssociateEipAddressBatch** operation to associate an EIP with multiple instances at a time.
+ * @description - **AssociateEipAddressBatch** associates multiple EIPs with a cloud service instance in a batch. This operation supports only associating EIPs with an Internet NAT gateway instance or a secondary elastic network interface (ENI) in the same region. To associate an EIP with other cloud service instances, call [AssociateEipAddress](https://help.aliyun.com/document_detail/120195.html).
+ * - **AssociateEipAddressBatch** is an asynchronous operation. After you send a request, the system returns a request ID. However, the association is not complete. The association task runs in the background. You can invoke [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) to query the status of an EIP:
+ *     - If the EIP is in the **Associating** state, the EIP is being attached. In this state, you can only execute query operations.
+ *     - If the EIP is in the **InUse** state, the association is complete.
+ * - **AssociateEipAddressBatch** does not support concurrent attachment of the same EIP with cloud service instances.
  *
  * @param request AssociateEipAddressBatchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1762,13 +1762,13 @@ AssociateEipAddressBatchResponse Client::associateEipAddressBatchWithOptions(con
 }
 
 /**
- * @summary Associates multiple elastic IP addresses (EIPs) with an instance in the same region.
+ * @summary Associates multiple Elastic IP Addresses (EIPs) with a cloud service instance in the same region in a batch.
  *
- * @description *   You can call the **AssociateEipAddressBatch** operation to associate EIPs with an instance in the same region. The instance must be a NAT gateway or a secondary elastic network interface (ENI). For more information about how to associate EIPs with other instances, see [AssociateEipAddress](https://help.aliyun.com/document_detail/120195.html).
- * *   **AssociateEipAddressBatch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task.
- *     *   If the EIP is in the **Associating** state, the EIP is being associated. You can only query the EIP and cannot perform other operations.
- *     *   If the EIP is in the **InUse** state, the EIP is associated.
- * *   You cannot call the **AssociateEipAddressBatch** operation to associate an EIP with multiple instances at a time.
+ * @description - **AssociateEipAddressBatch** associates multiple EIPs with a cloud service instance in a batch. This operation supports only associating EIPs with an Internet NAT gateway instance or a secondary elastic network interface (ENI) in the same region. To associate an EIP with other cloud service instances, call [AssociateEipAddress](https://help.aliyun.com/document_detail/120195.html).
+ * - **AssociateEipAddressBatch** is an asynchronous operation. After you send a request, the system returns a request ID. However, the association is not complete. The association task runs in the background. You can invoke [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) to query the status of an EIP:
+ *     - If the EIP is in the **Associating** state, the EIP is being attached. In this state, you can only execute query operations.
+ *     - If the EIP is in the **InUse** state, the association is complete.
+ * - **AssociateEipAddressBatch** does not support concurrent attachment of the same EIP with cloud service instances.
  *
  * @param request AssociateEipAddressBatchRequest
  * @return AssociateEipAddressBatchResponse
@@ -1779,15 +1779,15 @@ AssociateEipAddressBatchResponse Client::associateEipAddressBatch(const Associat
 }
 
 /**
- * @summary Invokes the AssociateHaVip operation to attach an HaVip to an ECS instance or a network interface controller (NIC) in a virtual private cloud (VPC).
+ * @summary Invokes the AssociateHaVip operation to attach an HaVip to an ECS instance or elastic network interface (ENI) in a virtual private cloud (VPC).
  *
  * @description When you call this operation to associate an HaVip, take note of the following items:
- * - The HaVip takes effect immediately after it is attached without the need to restart the ECS instance. However, you must configure the HaVip on the elastic network interfaces (ENIs) of the ECS instance.
+ * - The HaVip takes effect immediately after being attached without the need to restart the ECS instance. However, you must configure the HaVip on the elastic network interface (ENI) of the ECS instance.
  * - The HaVip and the ECS instance to be associated must belong to the same vSwitch.
- * - An HaVip can be attached to up to 10 ECS instances or up to 10 network interface controllers (NICs) at the same time. However, an HaVip cannot be associated with ECS instances and network interface controllers (NICs) simultaneously.
+ * - An HaVip can be attached to up to 10 ECS instances or up to 10 elastic network interfaces (ENIs) at the same time. However, an HaVip cannot be associated with both ECS instances and ENIs simultaneously.
  * - The ECS instance to be associated must be in the **Running** or **Stopped** state.
  * - The HaVip instance must be in the **Available** or **InUse** state.
- * - The **AssociateHaVip** operation is asynchronous. After you send a request, the system returns a request ID, but the HaVip association has not been completed. The association task is still running in the background. You can call [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) to query the association status of the HaVip:
+ * - **AssociateHaVip** is an asynchronous operation. After you call this operation, the system returns a request ID, but the HaVip is not yet associated. The association task is still running in the background. You can call [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) to query the association status of the HaVip:
  *     - If the HaVip is in the **Associating** state, the HaVip is being associated.
  *     - If the HaVip is in the **InUse** state, the HaVip is associated.
  * - The **AssociateHaVip** operation does not support concurrent association of the same HaVip.
@@ -1853,15 +1853,15 @@ AssociateHaVipResponse Client::associateHaVipWithOptions(const AssociateHaVipReq
 }
 
 /**
- * @summary Invokes the AssociateHaVip operation to attach an HaVip to an ECS instance or a network interface controller (NIC) in a virtual private cloud (VPC).
+ * @summary Invokes the AssociateHaVip operation to attach an HaVip to an ECS instance or elastic network interface (ENI) in a virtual private cloud (VPC).
  *
  * @description When you call this operation to associate an HaVip, take note of the following items:
- * - The HaVip takes effect immediately after it is attached without the need to restart the ECS instance. However, you must configure the HaVip on the elastic network interfaces (ENIs) of the ECS instance.
+ * - The HaVip takes effect immediately after being attached without the need to restart the ECS instance. However, you must configure the HaVip on the elastic network interface (ENI) of the ECS instance.
  * - The HaVip and the ECS instance to be associated must belong to the same vSwitch.
- * - An HaVip can be attached to up to 10 ECS instances or up to 10 network interface controllers (NICs) at the same time. However, an HaVip cannot be associated with ECS instances and network interface controllers (NICs) simultaneously.
+ * - An HaVip can be attached to up to 10 ECS instances or up to 10 elastic network interfaces (ENIs) at the same time. However, an HaVip cannot be associated with both ECS instances and ENIs simultaneously.
  * - The ECS instance to be associated must be in the **Running** or **Stopped** state.
  * - The HaVip instance must be in the **Available** or **InUse** state.
- * - The **AssociateHaVip** operation is asynchronous. After you send a request, the system returns a request ID, but the HaVip association has not been completed. The association task is still running in the background. You can call [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) to query the association status of the HaVip:
+ * - **AssociateHaVip** is an asynchronous operation. After you call this operation, the system returns a request ID, but the HaVip is not yet associated. The association task is still running in the background. You can call [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) to query the association status of the HaVip:
  *     - If the HaVip is in the **Associating** state, the HaVip is being associated.
  *     - If the HaVip is in the **InUse** state, the HaVip is associated.
  * - The **AssociateHaVip** operation does not support concurrent association of the same HaVip.
@@ -1875,16 +1875,16 @@ AssociateHaVipResponse Client::associateHaVip(const AssociateHaVipRequest &reque
 }
 
 /**
- * @summary This operation associates a MacSec key with a port on a dedicated physical connection. It uses dedicated encryption hardware, such as a NIC or switch, to perform low-latency encryption and decryption. It directly encrypts the physical link, such as a fiber optic or Ethernet cable, to protect all traffic from the sender to the receiver.
+ * @summary Associates a MACsec key with a dedicated Express Connect circuit port. MACsec uses dedicated encryption chips (such as NICs or switches) to implement low-latency encryption and decryption, directly encrypting physical links (such as optical fiber or Ethernet) to cover all traffic from sender to receiver.
  *
- * @description This operation has the following prerequisites:
- * - The device that hosts the Express Connect physical connection supports the MacSec feature.
- * - The Express Connect physical connection must be fully paid.
- * - MacSec can be configured only on a dedicated physical connection.
- * Note the following:
- * - You can configure a maximum of three sets of Ckn and Cak.
- * - If you associate a key that is in the Disassociated state, the system disassociates the previously active key.
- * - If you associate a key that is in the AssociatedFailed state, the device renegotiates the session.
+ * @description To use this feature, the following conditions must be met:
+ * - The device on which the Express Connect circuit resides supports the MACsec feature.
+ * - The Express Connect circuit payment must be completed.
+ * - Only dedicated Express Connect circuits are supported.
+ * Other notes:
+ * - A maximum of three CKN and CAK pairs can be configured.
+ * - Associating a key that is currently in the Disassociated state cancels the previously associated key.
+ * - Associating a key that is currently in the AssociatedFailed state triggers the device to renegotiate the session.
  *
  * @param request AssociateMacSecKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1931,16 +1931,16 @@ AssociateMacSecKeyResponse Client::associateMacSecKeyWithOptions(const Associate
 }
 
 /**
- * @summary This operation associates a MacSec key with a port on a dedicated physical connection. It uses dedicated encryption hardware, such as a NIC or switch, to perform low-latency encryption and decryption. It directly encrypts the physical link, such as a fiber optic or Ethernet cable, to protect all traffic from the sender to the receiver.
+ * @summary Associates a MACsec key with a dedicated Express Connect circuit port. MACsec uses dedicated encryption chips (such as NICs or switches) to implement low-latency encryption and decryption, directly encrypting physical links (such as optical fiber or Ethernet) to cover all traffic from sender to receiver.
  *
- * @description This operation has the following prerequisites:
- * - The device that hosts the Express Connect physical connection supports the MacSec feature.
- * - The Express Connect physical connection must be fully paid.
- * - MacSec can be configured only on a dedicated physical connection.
- * Note the following:
- * - You can configure a maximum of three sets of Ckn and Cak.
- * - If you associate a key that is in the Disassociated state, the system disassociates the previously active key.
- * - If you associate a key that is in the AssociatedFailed state, the device renegotiates the session.
+ * @description To use this feature, the following conditions must be met:
+ * - The device on which the Express Connect circuit resides supports the MACsec feature.
+ * - The Express Connect circuit payment must be completed.
+ * - Only dedicated Express Connect circuits are supported.
+ * Other notes:
+ * - A maximum of three CKN and CAK pairs can be configured.
+ * - Associating a key that is currently in the Disassociated state cancels the previously associated key.
+ * - Associating a key that is currently in the AssociatedFailed state triggers the device to renegotiate the session.
  *
  * @param request AssociateMacSecKeyRequest
  * @return AssociateMacSecKeyResponse
@@ -1951,13 +1951,12 @@ AssociateMacSecKeyResponse Client::associateMacSecKey(const AssociateMacSecKeyRe
 }
 
 /**
- * @summary Associates a network access control list (ACL) with a vSwitch.
+ * @summary Attaches a network ACL to a vSwitch.
  *
- * @description ## [](#)Description
- * *   **AssociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of the task.
- *     *   If the network ACL is in the **BINDING** state, the network ACL is being associated.
- *     *   If the network ACL is in the **BINDED** state, the network ACL is associated.
- * *   You cannot repeatedly call the **AssociateNetworkAcl** operation to associate a network ACL within the specified period of time.
+ * @description - **AssociateNetworkAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the network ACL is not yet associated. The association task continues to run in the background. You can call [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) to query the association status of the network ACL:
+ *     - If the network ACL is in the **BINDING** state, the network ACL is being associated.
+ *     - If the network ACL is in the **BINDED** state, the network ACL is associated.
+ * - **AssociateNetworkAcl** does not support concurrent association of the same network ACL.
  *
  * @param request AssociateNetworkAclRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2024,13 +2023,12 @@ AssociateNetworkAclResponse Client::associateNetworkAclWithOptions(const Associa
 }
 
 /**
- * @summary Associates a network access control list (ACL) with a vSwitch.
+ * @summary Attaches a network ACL to a vSwitch.
  *
- * @description ## [](#)Description
- * *   **AssociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of the task.
- *     *   If the network ACL is in the **BINDING** state, the network ACL is being associated.
- *     *   If the network ACL is in the **BINDED** state, the network ACL is associated.
- * *   You cannot repeatedly call the **AssociateNetworkAcl** operation to associate a network ACL within the specified period of time.
+ * @description - **AssociateNetworkAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the network ACL is not yet associated. The association task continues to run in the background. You can call [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) to query the association status of the network ACL:
+ *     - If the network ACL is in the **BINDING** state, the network ACL is being associated.
+ *     - If the network ACL is in the **BINDED** state, the network ACL is associated.
+ * - **AssociateNetworkAcl** does not support concurrent association of the same network ACL.
  *
  * @param request AssociateNetworkAclRequest
  * @return AssociateNetworkAclResponse
@@ -2041,7 +2039,7 @@ AssociateNetworkAclResponse Client::associateNetworkAcl(const AssociateNetworkAc
 }
 
 /**
- * @summary Associates a virtual border router (VBR) with a specified Express Connect circuit.
+ * @summary Associates a Virtual Border Router (VBR) with an Express Connect circuit.
  *
  * @param request AssociatePhysicalConnectionToVirtualBorderRouterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2136,7 +2134,7 @@ AssociatePhysicalConnectionToVirtualBorderRouterResponse Client::associatePhysic
 }
 
 /**
- * @summary Associates a virtual border router (VBR) with a specified Express Connect circuit.
+ * @summary Associates a Virtual Border Router (VBR) with an Express Connect circuit.
  *
  * @param request AssociatePhysicalConnectionToVirtualBorderRouterRequest
  * @return AssociatePhysicalConnectionToVirtualBorderRouterResponse
@@ -2149,9 +2147,9 @@ AssociatePhysicalConnectionToVirtualBorderRouterResponse Client::associatePhysic
 /**
  * @summary Associates a custom route table with a vSwitch in the same VPC.
  *
- * @description **AssociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
- * *   If the vSwitch is in the **Pending** state, the route table is being associated with the vSwitch.
- * *   If the vSwitch is in the **Available** state, the route table is associated with the vSwitch.
+ * @description **AssociateRouteTable** is an asynchronous operation. After you call this operation, the system returns a request ID, but the association is not yet complete. The association task continues to run in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the association status of the route table:
+ * - If the vSwitch is in the **Pending** state, the route table is being associated.
+ * - If the vSwitch is in the **Available** state, the route table is associated.
  *
  * @param request AssociateRouteTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2216,9 +2214,9 @@ AssociateRouteTableResponse Client::associateRouteTableWithOptions(const Associa
 /**
  * @summary Associates a custom route table with a vSwitch in the same VPC.
  *
- * @description **AssociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task:
- * *   If the vSwitch is in the **Pending** state, the route table is being associated with the vSwitch.
- * *   If the vSwitch is in the **Available** state, the route table is associated with the vSwitch.
+ * @description **AssociateRouteTable** is an asynchronous operation. After you call this operation, the system returns a request ID, but the association is not yet complete. The association task continues to run in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the association status of the route table:
+ * - If the vSwitch is in the **Pending** state, the route table is being associated.
+ * - If the vSwitch is in the **Available** state, the route table is associated.
  *
  * @param request AssociateRouteTableRequest
  * @return AssociateRouteTableResponse
@@ -2229,7 +2227,7 @@ AssociateRouteTableResponse Client::associateRouteTable(const AssociateRouteTabl
 }
 
 /**
- * @summary Associates a gateway route table with an IPv4 gateway in the same virtual private cloud (VPC).
+ * @summary Associates a gateway route table with an IPv4 gateway or IPv6 gateway instance in the same VPC by calling the AssociateRouteTableWithGateway operation.
  *
  * @param request AssociateRouteTableWithGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2300,7 +2298,7 @@ AssociateRouteTableWithGatewayResponse Client::associateRouteTableWithGatewayWit
 }
 
 /**
- * @summary Associates a gateway route table with an IPv4 gateway in the same virtual private cloud (VPC).
+ * @summary Associates a gateway route table with an IPv4 gateway or IPv6 gateway instance in the same VPC by calling the AssociateRouteTableWithGateway operation.
  *
  * @param request AssociateRouteTableWithGatewayRequest
  * @return AssociateRouteTableWithGatewayResponse
@@ -2311,18 +2309,18 @@ AssociateRouteTableWithGatewayResponse Client::associateRouteTableWithGateway(co
 }
 
 /**
- * @summary Calls the AssociateRouteTablesWithVpcGatewayEndpoint operation to associate route tables with a gateway endpoint.
+ * @summary Associates route tables with a VPC gateway endpoint by calling the AssociateRouteTablesWithVpcGatewayEndpoint operation.
  *
- * @description Before you call this operation to associate route tables with a gateway endpoint, take note of the following information:
- * - The gateway endpoint instance with which you want to associate route tables cannot be in a transient state, such as **Creating**, **Modifying**, **Associating** (attaching), **Dissociating** (detaching), or **Deleting** (deleting).
- * - The route tables that you want to associate cannot be in a transient state, such as **Creating**, **Modifying**, **Associating** (attaching), **Dissociating** (detaching), or **Deleting** (deleting).
+ * @description Before you call this operation to associate route tables with a gateway endpoint, take note of the following items:
+ * - The gateway endpoint instance with which you want to associate route tables cannot be in a transient state, such as **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
+ * - The route tables that you want to associate cannot be in a transient state, such as **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
  * - The route tables and the gateway endpoint must belong to the same VPC.
  * - The route tables to be associated cannot be shared route tables.
  * - Virtual Border Router (VBR) route tables are not supported.
  * - You can associate up to 20 route tables at a time.
- * - The **AssociateRouteTablesWithVpcGatewayEndpoint** operation is asynchronous. After you send a request, the system returns an endpoint instance ID, but the route tables have not been associated with the gateway endpoint yet. The association task is still running in the background. You can call [GetVpcGatewayEndpointAttribute](https://help.aliyun.com/document_detail/311017.html) to query the association status of the route tables and the gateway endpoint:
- *     - If the route tables and the gateway endpoint are in the **Associating** state, the route tables are being associated with the gateway endpoint.
- *     - If the route tables and the gateway endpoint are in the **Created** state, the route tables have been associated with the gateway endpoint.
+ * - The **AssociateRouteTablesWithVpcGatewayEndpoint** operation is asynchronous. After you send a request, the system returns an instance ID, but the route tables have not yet been associated with the gateway endpoint. The association task is still running in the background. You can call [GetVpcGatewayEndpointAttribute](https://help.aliyun.com/document_detail/311017.html) to query the association status of the route tables and the gateway endpoint:
+ *     - If the route tables and the gateway endpoint are in the **Associating** state, the association is in progress.
+ *     - If the route tables and the gateway endpoint are in the **Created** state, the association is complete.
  * - The **AssociateRouteTablesWithVpcGatewayEndpoint** operation does not support concurrent association of the same route table with a gateway endpoint.
  *
  * @param request AssociateRouteTablesWithVpcGatewayEndpointRequest
@@ -2386,18 +2384,18 @@ AssociateRouteTablesWithVpcGatewayEndpointResponse Client::associateRouteTablesW
 }
 
 /**
- * @summary Calls the AssociateRouteTablesWithVpcGatewayEndpoint operation to associate route tables with a gateway endpoint.
+ * @summary Associates route tables with a VPC gateway endpoint by calling the AssociateRouteTablesWithVpcGatewayEndpoint operation.
  *
- * @description Before you call this operation to associate route tables with a gateway endpoint, take note of the following information:
- * - The gateway endpoint instance with which you want to associate route tables cannot be in a transient state, such as **Creating**, **Modifying**, **Associating** (attaching), **Dissociating** (detaching), or **Deleting** (deleting).
- * - The route tables that you want to associate cannot be in a transient state, such as **Creating**, **Modifying**, **Associating** (attaching), **Dissociating** (detaching), or **Deleting** (deleting).
+ * @description Before you call this operation to associate route tables with a gateway endpoint, take note of the following items:
+ * - The gateway endpoint instance with which you want to associate route tables cannot be in a transient state, such as **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
+ * - The route tables that you want to associate cannot be in a transient state, such as **Creating**, **Modifying**, **Associating**, **Dissociating**, or **Deleting**.
  * - The route tables and the gateway endpoint must belong to the same VPC.
  * - The route tables to be associated cannot be shared route tables.
  * - Virtual Border Router (VBR) route tables are not supported.
  * - You can associate up to 20 route tables at a time.
- * - The **AssociateRouteTablesWithVpcGatewayEndpoint** operation is asynchronous. After you send a request, the system returns an endpoint instance ID, but the route tables have not been associated with the gateway endpoint yet. The association task is still running in the background. You can call [GetVpcGatewayEndpointAttribute](https://help.aliyun.com/document_detail/311017.html) to query the association status of the route tables and the gateway endpoint:
- *     - If the route tables and the gateway endpoint are in the **Associating** state, the route tables are being associated with the gateway endpoint.
- *     - If the route tables and the gateway endpoint are in the **Created** state, the route tables have been associated with the gateway endpoint.
+ * - The **AssociateRouteTablesWithVpcGatewayEndpoint** operation is asynchronous. After you send a request, the system returns an instance ID, but the route tables have not yet been associated with the gateway endpoint. The association task is still running in the background. You can call [GetVpcGatewayEndpointAttribute](https://help.aliyun.com/document_detail/311017.html) to query the association status of the route tables and the gateway endpoint:
+ *     - If the route tables and the gateway endpoint are in the **Associating** state, the association is in progress.
+ *     - If the route tables and the gateway endpoint are in the **Created** state, the association is complete.
  * - The **AssociateRouteTablesWithVpcGatewayEndpoint** operation does not support concurrent association of the same route table with a gateway endpoint.
  *
  * @param request AssociateRouteTablesWithVpcGatewayEndpointRequest
@@ -2513,18 +2511,20 @@ AssociateVpcCidrBlockResponse Client::associateVpcCidrBlock(const AssociateVpcCi
 }
 
 /**
- * @summary Associates a VPN gateway with a certificate.
+ * @summary Associates a certificate with a VPN gateway by calling the AssociateVpnGatewayWithCertificate operation.
  *
- * @description Before you associate a VPN gateway with an SSL certificate, take note of the following items:
- * *   You can associate only VPN gateways of the ShangMi (SM) type with SSL certificates. You need to associate a VPN gateway of the SM type with two SSL certificates, one as the encryption certificate and the other as the signature certificate.
- * *   The SSL certificates must use the SM algorithm.
- * *   You cannot specify one SSL certificate as both the encryption certificate and signature certificate for one VPN gateway.
- * *   **AssociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
- *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being associated.
- *     *   If the VPN gateway is in the **active** state, the SSL certificate is being associated.
- * *   You cannot call **AssociateVpnGatewayWithCertificate** within a specific period of time.
- * ### [](#)Prerequisites
- * Make sure that you have two SSL certificates that use the SM algorithm in the Certificate Management Service console. For more information about SSL certificates, see [What is Certificate Management Service?](https://help.aliyun.com/document_detail/28535.html).
+ * @description Before you attach a VPN gateway to an SSL certificate, take note of the following information:
+ * - Only Chinese SM VPN gateways support SSL certificate attachment. You must attach two SSL certificates to a Chinese SM VPN gateway: one as the encryption certificate and the other as the signing certificate.
+ * - The SSL certificates must use Chinese SM algorithms.
+ * - You cannot specify the same SSL certificate as both the encryption certificate and the signing certificate for the same VPN gateway instance.
+ * <props="china">
+ * - When you attach a VPN gateway to an SSL certificate for the first time, the system performs automatic creation of a service-linked role named AliyunServiceRoleForVPNCertificate and adds the access policy AliyunServiceRolePolicyForVPNCertificate to the role. This grants the VPN gateway permissions to access other cloud resources. For more information, see [AliyunServiceRoleForVPNCertificate](https://help.aliyun.com/document_detail/203323.html).
+ * - The **AssociateVpnGatewayWithCertificate** operation is asynchronous. After you send a request, the system returns a request ID, but the SSL certificate is not yet attached to the VPN gateway. The attachment node continues to run in the background. You can invoke the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the attachment status of the SSL certificate:
+ *     - If the VPN gateway is in the **updating** state, the SSL certificate is being attached.
+ *     - If the VPN gateway is in the **active** state, the SSL certificate is attached.
+ * - The **AssociateVpnGatewayWithCertificate** operation does not support concurrent SSL certificate attachment for the same VPN gateway.
+ * ### Before you begin
+ * Make sure that you have two SSL certificates that use Chinese SM algorithms in the Alibaba Cloud Certificate Management Service console. For more information about SSL certificates, see [What is Certificate Management Service?](https://help.aliyun.com/document_detail/28535.html).
  *
  * @param request AssociateVpnGatewayWithCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2575,18 +2575,20 @@ AssociateVpnGatewayWithCertificateResponse Client::associateVpnGatewayWithCertif
 }
 
 /**
- * @summary Associates a VPN gateway with a certificate.
+ * @summary Associates a certificate with a VPN gateway by calling the AssociateVpnGatewayWithCertificate operation.
  *
- * @description Before you associate a VPN gateway with an SSL certificate, take note of the following items:
- * *   You can associate only VPN gateways of the ShangMi (SM) type with SSL certificates. You need to associate a VPN gateway of the SM type with two SSL certificates, one as the encryption certificate and the other as the signature certificate.
- * *   The SSL certificates must use the SM algorithm.
- * *   You cannot specify one SSL certificate as both the encryption certificate and signature certificate for one VPN gateway.
- * *   **AssociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
- *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being associated.
- *     *   If the VPN gateway is in the **active** state, the SSL certificate is being associated.
- * *   You cannot call **AssociateVpnGatewayWithCertificate** within a specific period of time.
- * ### [](#)Prerequisites
- * Make sure that you have two SSL certificates that use the SM algorithm in the Certificate Management Service console. For more information about SSL certificates, see [What is Certificate Management Service?](https://help.aliyun.com/document_detail/28535.html).
+ * @description Before you attach a VPN gateway to an SSL certificate, take note of the following information:
+ * - Only Chinese SM VPN gateways support SSL certificate attachment. You must attach two SSL certificates to a Chinese SM VPN gateway: one as the encryption certificate and the other as the signing certificate.
+ * - The SSL certificates must use Chinese SM algorithms.
+ * - You cannot specify the same SSL certificate as both the encryption certificate and the signing certificate for the same VPN gateway instance.
+ * <props="china">
+ * - When you attach a VPN gateway to an SSL certificate for the first time, the system performs automatic creation of a service-linked role named AliyunServiceRoleForVPNCertificate and adds the access policy AliyunServiceRolePolicyForVPNCertificate to the role. This grants the VPN gateway permissions to access other cloud resources. For more information, see [AliyunServiceRoleForVPNCertificate](https://help.aliyun.com/document_detail/203323.html).
+ * - The **AssociateVpnGatewayWithCertificate** operation is asynchronous. After you send a request, the system returns a request ID, but the SSL certificate is not yet attached to the VPN gateway. The attachment node continues to run in the background. You can invoke the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the attachment status of the SSL certificate:
+ *     - If the VPN gateway is in the **updating** state, the SSL certificate is being attached.
+ *     - If the VPN gateway is in the **active** state, the SSL certificate is attached.
+ * - The **AssociateVpnGatewayWithCertificate** operation does not support concurrent SSL certificate attachment for the same VPN gateway.
+ * ### Before you begin
+ * Make sure that you have two SSL certificates that use Chinese SM algorithms in the Alibaba Cloud Certificate Management Service console. For more information about SSL certificates, see [What is Certificate Management Service?](https://help.aliyun.com/document_detail/28535.html).
  *
  * @param request AssociateVpnGatewayWithCertificateRequest
  * @return AssociateVpnGatewayWithCertificateResponse
@@ -2597,12 +2599,12 @@ AssociateVpnGatewayWithCertificateResponse Client::associateVpnGatewayWithCertif
 }
 
 /**
- * @summary Associates a DHCP options set with a virtual private cloud (VPC).
+ * @summary Calls the AttachDhcpOptionsSetToVpc operation to attach a DHCP options set to a VPC.
  *
- * @description *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
- *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
- *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is associated.
- * *   You cannot repeatedly call the **AttachDhcpOptionsSetToVpc** operation to associate DHCP options sets with a VPC within the specified period of time.
+ * @description - **AttachDhcpOptionsSetToVpc** is an asynchronous operation. After you send a request, the system returns a request ID, but the DHCP options set is not yet attached to the VPC. The attachment task is still running in the background. You can call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) to query the attachment status of the DHCP options set:
+ *     - If the DHCP options set is in the **Pending** state, the DHCP options set is being attached.
+ *     - If the DHCP options set is in the **InUse** state, the DHCP options set is attached.
+ * - **AttachDhcpOptionsSetToVpc** does not support concurrent attachment of DHCP options sets to the same VPC.
  *
  * @param request AttachDhcpOptionsSetToVpcRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2665,12 +2667,12 @@ AttachDhcpOptionsSetToVpcResponse Client::attachDhcpOptionsSetToVpcWithOptions(c
 }
 
 /**
- * @summary Associates a DHCP options set with a virtual private cloud (VPC).
+ * @summary Calls the AttachDhcpOptionsSetToVpc operation to attach a DHCP options set to a VPC.
  *
- * @description *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
- *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
- *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is associated.
- * *   You cannot repeatedly call the **AttachDhcpOptionsSetToVpc** operation to associate DHCP options sets with a VPC within the specified period of time.
+ * @description - **AttachDhcpOptionsSetToVpc** is an asynchronous operation. After you send a request, the system returns a request ID, but the DHCP options set is not yet attached to the VPC. The attachment task is still running in the background. You can call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) to query the attachment status of the DHCP options set:
+ *     - If the DHCP options set is in the **Pending** state, the DHCP options set is being attached.
+ *     - If the DHCP options set is in the **InUse** state, the DHCP options set is attached.
+ * - **AttachDhcpOptionsSetToVpc** does not support concurrent attachment of DHCP options sets to the same VPC.
  *
  * @param request AttachDhcpOptionsSetToVpcRequest
  * @return AttachDhcpOptionsSetToVpcResponse
@@ -2681,7 +2683,7 @@ AttachDhcpOptionsSetToVpcResponse Client::attachDhcpOptionsSetToVpc(const Attach
 }
 
 /**
- * @summary Associates a virtual border router (VBR) with a hosted connection.
+ * @summary Associates a Virtual Border Router (VBR) instance with shared Express Connect circuits.
  *
  * @param request AttachVbrToVpconnRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2728,7 +2730,7 @@ AttachVbrToVpconnResponse Client::attachVbrToVpconnWithOptions(const AttachVbrTo
 }
 
 /**
- * @summary Associates a virtual border router (VBR) with a hosted connection.
+ * @summary Associates a Virtual Border Router (VBR) instance with shared Express Connect circuits.
  *
  * @param request AttachVbrToVpconnRequest
  * @return AttachVbrToVpconnResponse
@@ -2739,11 +2741,11 @@ AttachVbrToVpconnResponse Client::attachVbrToVpconn(const AttachVbrToVpconnReque
 }
 
 /**
- * @summary Cancels the maximum bandwidth configured for an elastic IP address (EIP) that is associated with an Internet Shared Bandwidth instance.
+ * @summary Cancels the maximum available bandwidth setting for an EIP that has been added to an Internet Shared Bandwidth instance.
  *
- * @description Before you call this operation, take note of the following items:
- * *   After this operation is performed, the maximum bandwidth of the EIP equals that of the Internet Shared Bandwidth instance.
- * *   You cannot repeatedly call the **CancelCommonBandwidthPackageIpBandwidth** operation within a specific time period.
+ * @description Before you begin:
+ * - After the setting is canceled, the maximum available bandwidth of the EIP becomes the same as that of the Internet Shared Bandwidth instance.
+ * - The **CancelCommonBandwidthPackageIpBandwidth** operation does not support concurrent requests to cancel the maximum available bandwidth setting for the same EIP.
  *
  * @param request CancelCommonBandwidthPackageIpBandwidthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2798,11 +2800,11 @@ CancelCommonBandwidthPackageIpBandwidthResponse Client::cancelCommonBandwidthPac
 }
 
 /**
- * @summary Cancels the maximum bandwidth configured for an elastic IP address (EIP) that is associated with an Internet Shared Bandwidth instance.
+ * @summary Cancels the maximum available bandwidth setting for an EIP that has been added to an Internet Shared Bandwidth instance.
  *
- * @description Before you call this operation, take note of the following items:
- * *   After this operation is performed, the maximum bandwidth of the EIP equals that of the Internet Shared Bandwidth instance.
- * *   You cannot repeatedly call the **CancelCommonBandwidthPackageIpBandwidth** operation within a specific time period.
+ * @description Before you begin:
+ * - After the setting is canceled, the maximum available bandwidth of the EIP becomes the same as that of the Internet Shared Bandwidth instance.
+ * - The **CancelCommonBandwidthPackageIpBandwidth** operation does not support concurrent requests to cancel the maximum available bandwidth setting for the same EIP.
  *
  * @param request CancelCommonBandwidthPackageIpBandwidthRequest
  * @return CancelCommonBandwidthPackageIpBandwidthResponse
@@ -2815,7 +2817,7 @@ CancelCommonBandwidthPackageIpBandwidthResponse Client::cancelCommonBandwidthPac
 /**
  * @summary Cancels access to an Express Connect circuit. After the cancellation, the Express Connect circuit enters the Canceled state.
  *
- * @description You can cancel access only for Express Connect circuits that are in the **Initial**, **Approved**, **Allocated**, or **Confirmed** state (not yet activated).
+ * @description You can cancel access only for Express Connect circuits in the **Initial**, **Approved**, **Allocated**, or **Confirmed** state (not yet activated).
  *
  * @param request CancelPhysicalConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2872,7 +2874,7 @@ CancelPhysicalConnectionResponse Client::cancelPhysicalConnectionWithOptions(con
 /**
  * @summary Cancels access to an Express Connect circuit. After the cancellation, the Express Connect circuit enters the Canceled state.
  *
- * @description You can cancel access only for Express Connect circuits that are in the **Initial**, **Approved**, **Allocated**, or **Confirmed** state (not yet activated).
+ * @description You can cancel access only for Express Connect circuits in the **Initial**, **Approved**, **Allocated**, or **Confirmed** state (not yet activated).
  *
  * @param request CancelPhysicalConnectionRequest
  * @return CancelPhysicalConnectionResponse
@@ -2883,10 +2885,9 @@ CancelPhysicalConnectionResponse Client::cancelPhysicalConnection(const CancelPh
 }
 
 /**
- * @summary Moves an Express Connect circuit to a new resource group.
+ * @summary Calls the ChangeResourceGroup operation to modify the resource group to which an Express Connect circuit resource belongs.
  *
- * @description ## [](#)
- * You cannot repeatedly call the **ChangeResourceGroup** operation to modify the resource group of the same Express Connect circuit.
+ * @description The **ChangeResourceGroup** operation does not support concurrent modifications of the resource group to which an Express Connect circuit resource belongs within the same Express Connect circuit instance.
  *
  * @param request ChangeResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2929,10 +2930,9 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary Moves an Express Connect circuit to a new resource group.
+ * @summary Calls the ChangeResourceGroup operation to modify the resource group to which an Express Connect circuit resource belongs.
  *
- * @description ## [](#)
- * You cannot repeatedly call the **ChangeResourceGroup** operation to modify the resource group of the same Express Connect circuit.
+ * @description The **ChangeResourceGroup** operation does not support concurrent modifications of the resource group to which an Express Connect circuit resource belongs within the same Express Connect circuit instance.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -2943,7 +2943,9 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary Checks whether a private IP address in a specified vSwitch is available.
+ * @summary Checks whether a private IP address in a vSwitch is available.
+ *
+ * @description - The first and last 3 IPv4 addresses of each vSwitch are system reserved IP addresses, and the first and last 9 IPv6 addresses are system reserved IP addresses. These addresses cannot be allocated.
  *
  * @param request CheckCanAllocateVpcPrivateIpAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3002,7 +3004,9 @@ CheckCanAllocateVpcPrivateIpAddressResponse Client::checkCanAllocateVpcPrivateIp
 }
 
 /**
- * @summary Checks whether a private IP address in a specified vSwitch is available.
+ * @summary Checks whether a private IP address in a vSwitch is available.
+ *
+ * @description - The first and last 3 IPv4 addresses of each vSwitch are system reserved IP addresses, and the first and last 9 IPv6 addresses are system reserved IP addresses. These addresses cannot be allocated.
  *
  * @param request CheckCanAllocateVpcPrivateIpAddressRequest
  * @return CheckCanAllocateVpcPrivateIpAddressResponse
@@ -3013,7 +3017,7 @@ CheckCanAllocateVpcPrivateIpAddressResponse Client::checkCanAllocateVpcPrivateIp
 }
 
 /**
- * @summary Checks whether the region of an IPsec-VPN connection supports BGP.
+ * @summary Calls the CheckVpnBgpEnabled operation to query whether the region of an IPsec-VPN connection supports the BGP feature.
  *
  * @param request CheckVpnBgpEnabledRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3060,7 +3064,7 @@ CheckVpnBgpEnabledResponse Client::checkVpnBgpEnabledWithOptions(const CheckVpnB
 }
 
 /**
- * @summary Checks whether the region of an IPsec-VPN connection supports BGP.
+ * @summary Calls the CheckVpnBgpEnabled operation to query whether the region of an IPsec-VPN connection supports the BGP feature.
  *
  * @param request CheckVpnBgpEnabledRequest
  * @return CheckVpnBgpEnabledResponse
@@ -3071,7 +3075,7 @@ CheckVpnBgpEnabledResponse Client::checkVpnBgpEnabled(const CheckVpnBgpEnabledRe
 }
 
 /**
- * @summary Generates a report for an installed Express Connect circuit.
+ * @summary Calls CompletePhysicalConnectionLOA to complete the construction.
  *
  * @param request CompletePhysicalConnectionLOARequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3150,7 +3154,7 @@ CompletePhysicalConnectionLOAResponse Client::completePhysicalConnectionLOAWithO
 }
 
 /**
- * @summary Generates a report for an installed Express Connect circuit.
+ * @summary Calls CompletePhysicalConnectionLOA to complete the construction.
  *
  * @param request CompletePhysicalConnectionLOARequest
  * @return CompletePhysicalConnectionLOAResponse
@@ -3161,7 +3165,7 @@ CompletePhysicalConnectionLOAResponse Client::completePhysicalConnectionLOA(cons
 }
 
 /**
- * @summary Changes the status of an Express Connect circuit to Confirmed.
+ * @summary Confirms that an Express Connect circuit is available. The status of the Express Connect circuit changes to Confirmed.
  *
  * @param request ConfirmPhysicalConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3216,7 +3220,7 @@ ConfirmPhysicalConnectionResponse Client::confirmPhysicalConnectionWithOptions(c
 }
 
 /**
- * @summary Changes the status of an Express Connect circuit to Confirmed.
+ * @summary Confirms that an Express Connect circuit is available. The status of the Express Connect circuit changes to Confirmed.
  *
  * @param request ConfirmPhysicalConnectionRequest
  * @return ConfirmPhysicalConnectionResponse
@@ -3227,13 +3231,13 @@ ConfirmPhysicalConnectionResponse Client::confirmPhysicalConnection(const Confir
 }
 
 /**
- * @summary Initiates a connection from the router interface of an initiator to the router interface of an accepter.
+ * @summary Initiates a connection from the requester VPC router interface to the accepter.
  *
- * @description After you call this operation, the router interface enters the **Connecting** state. When the connection is established, it enters the **Active** state.
- * When you call this operation, take note of the following items:
- * *   Only an initiator router interface in the **Idle** state can initiate a connection.
- * *   You can create only one pair of connected router interfaces between two routers.
- * *   You cannot initiate a connection if your Alibaba Cloud account has a router interface with overdue payments.
+ * @description After you call this operation, the router interface enters the **Connecting** state. After the connection is established, the router interface enters the **Active** state.
+ * When you call this operation to create a VPC, note the following items: 
+ * - Only a requester VPC router interface in the **Idle** state can initiate a connection to the accepter VPC. 
+ * - A maximum of one pair of interconnected router interfaces can exist between any two routers. 
+ * - If your account has a router interface with an overdue payment, you cannot initiate a connection.
  *
  * @param request ConnectRouterInterfaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3280,13 +3284,13 @@ ConnectRouterInterfaceResponse Client::connectRouterInterfaceWithOptions(const C
 }
 
 /**
- * @summary Initiates a connection from the router interface of an initiator to the router interface of an accepter.
+ * @summary Initiates a connection from the requester VPC router interface to the accepter.
  *
- * @description After you call this operation, the router interface enters the **Connecting** state. When the connection is established, it enters the **Active** state.
- * When you call this operation, take note of the following items:
- * *   Only an initiator router interface in the **Idle** state can initiate a connection.
- * *   You can create only one pair of connected router interfaces between two routers.
- * *   You cannot initiate a connection if your Alibaba Cloud account has a router interface with overdue payments.
+ * @description After you call this operation, the router interface enters the **Connecting** state. After the connection is established, the router interface enters the **Active** state.
+ * When you call this operation to create a VPC, note the following items: 
+ * - Only a requester VPC router interface in the **Idle** state can initiate a connection to the accepter VPC. 
+ * - A maximum of one pair of interconnected router interfaces can exist between any two routers. 
+ * - If your account has a router interface with an overdue payment, you cannot initiate a connection.
  *
  * @param request ConnectRouterInterfaceRequest
  * @return ConnectRouterInterfaceResponse
@@ -3297,9 +3301,9 @@ ConnectRouterInterfaceResponse Client::connectRouterInterface(const ConnectRoute
 }
 
 /**
- * @summary Copies network ACL rules by calling the CopyNetworkAclEntries operation.
+ * @summary Calls the CopyNetworkAclEntries operation to copy network ACL rules.
  *
- * @description - **CopyNetworkAclEntries** is an asynchronous operation. After you invoke this operation, the system returns a request ID, but the network ACL rules have not been replicated yet. The replication node continues to run in the background. You can invoke [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) to query the replication status of the network ACL rules:
+ * @description - **CopyNetworkAclEntries** is an asynchronous operation. After you send a request, the system returns a request ID, but the network ACL rules have not been replicated yet. The replication node is still running in the background. You can invoke [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) to query the replication status of the network ACL rules:
  *     - If the network ACL rules are in the **Modifying** state, the network ACL rules are being replicated.
  *     - If the network ACL rules are in the **Available** state, the network ACL rules are replicated. Copy succeeded.
  * - **CopyNetworkAclEntries** does not support concurrent replication of the same network ACL rules.
@@ -3369,9 +3373,9 @@ CopyNetworkAclEntriesResponse Client::copyNetworkAclEntriesWithOptions(const Cop
 }
 
 /**
- * @summary Copies network ACL rules by calling the CopyNetworkAclEntries operation.
+ * @summary Calls the CopyNetworkAclEntries operation to copy network ACL rules.
  *
- * @description - **CopyNetworkAclEntries** is an asynchronous operation. After you invoke this operation, the system returns a request ID, but the network ACL rules have not been replicated yet. The replication node continues to run in the background. You can invoke [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) to query the replication status of the network ACL rules:
+ * @description - **CopyNetworkAclEntries** is an asynchronous operation. After you send a request, the system returns a request ID, but the network ACL rules have not been replicated yet. The replication node is still running in the background. You can invoke [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) to query the replication status of the network ACL rules:
  *     - If the network ACL rules are in the **Modifying** state, the network ACL rules are being replicated.
  *     - If the network ACL rules are in the **Available** state, the network ACL rules are replicated. Copy succeeded.
  * - **CopyNetworkAclEntries** does not support concurrent replication of the same network ACL rules.
@@ -3385,16 +3389,16 @@ CopyNetworkAclEntriesResponse Client::copyNetworkAclEntries(const CopyNetworkAcl
 }
 
 /**
- * @summary Creates a BGP group for a virtual border router (VBR).
+ * @summary Creates a BGP group for a specified Virtual Border Router (VBR).
  *
- * @description You can connect a VBR to a data center through BGP. Each BGP group is associated with a VBR. You can add a BGP peer that needs to communicate with a VBR to a BGP group and advertise the BGP network in the VBR.
- * BGP groups are used to simplify BGP configurations. You can add BGP peers that use the same configurations to one BGP group. Before you start, you must create a BGP group with the requested autonomous system number (ASN).
- * When you call this operation, take note of the following limits:
- * *   You can specify only the data center that is connected to the VBR through an Express Connect circuit as a BGP peer.
- * *   VBRs support only BGP-4.
- * *   You can create at most eight BGP peers for each VBR.
- * *   Each BGP peer supports at most 110 dynamic routes.
- * *   The ASN of Alibaba Cloud is 45104. You can specify a 2-byte or 4-byte ASN for the data center.
+ * @description You can use Border Gateway Protocol (BGP) to enable communication between a VBR and an on-premises data center. Each BGP group is associated with a VBR. You only need to add the BGP peers that communicate with the VBR to the corresponding BGP group, and then advertise the Border Gateway Protocol (BGP) networks in the VBR. 
+ * BGP groups simplify BGP configurations by merging BGP peers with the same configurations into a single BGP group, which reduces configuration complexity. Create a BGP group based on the requested Autonomous System Number (ASN). 
+ * When you invoke this operation to create a BGP group, take note of the following items: 
+ * - A VBR supports establishing BGP peers only with the on-premises data center at the other end of the Express Connect circuit.
+ * - The BGP version supported by VBRs is BGP-4.
+ * - Each VBR supports up to 8 BGP peers.
+ * - Each BGP peer supports up to 110 dynamic routes.
+ * - The ASN on the Alibaba Cloud side is 45104. The ASN on the user side can be a 2-byte or 4-byte value.
  *
  * @param request CreateBgpGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3481,16 +3485,16 @@ CreateBgpGroupResponse Client::createBgpGroupWithOptions(const CreateBgpGroupReq
 }
 
 /**
- * @summary Creates a BGP group for a virtual border router (VBR).
+ * @summary Creates a BGP group for a specified Virtual Border Router (VBR).
  *
- * @description You can connect a VBR to a data center through BGP. Each BGP group is associated with a VBR. You can add a BGP peer that needs to communicate with a VBR to a BGP group and advertise the BGP network in the VBR.
- * BGP groups are used to simplify BGP configurations. You can add BGP peers that use the same configurations to one BGP group. Before you start, you must create a BGP group with the requested autonomous system number (ASN).
- * When you call this operation, take note of the following limits:
- * *   You can specify only the data center that is connected to the VBR through an Express Connect circuit as a BGP peer.
- * *   VBRs support only BGP-4.
- * *   You can create at most eight BGP peers for each VBR.
- * *   Each BGP peer supports at most 110 dynamic routes.
- * *   The ASN of Alibaba Cloud is 45104. You can specify a 2-byte or 4-byte ASN for the data center.
+ * @description You can use Border Gateway Protocol (BGP) to enable communication between a VBR and an on-premises data center. Each BGP group is associated with a VBR. You only need to add the BGP peers that communicate with the VBR to the corresponding BGP group, and then advertise the Border Gateway Protocol (BGP) networks in the VBR. 
+ * BGP groups simplify BGP configurations by merging BGP peers with the same configurations into a single BGP group, which reduces configuration complexity. Create a BGP group based on the requested Autonomous System Number (ASN). 
+ * When you invoke this operation to create a BGP group, take note of the following items: 
+ * - A VBR supports establishing BGP peers only with the on-premises data center at the other end of the Express Connect circuit.
+ * - The BGP version supported by VBRs is BGP-4.
+ * - Each VBR supports up to 8 BGP peers.
+ * - Each BGP peer supports up to 110 dynamic routes.
+ * - The ASN on the Alibaba Cloud side is 45104. The ASN on the user side can be a 2-byte or 4-byte value.
  *
  * @param request CreateBgpGroupRequest
  * @return CreateBgpGroupResponse
@@ -3501,7 +3505,7 @@ CreateBgpGroupResponse Client::createBgpGroup(const CreateBgpGroupRequest &reque
 }
 
 /**
- * @summary Calls the CreateBgpPeer API to add a BGP peer to the specified BGP group.
+ * @summary Adds a BGP peer to a specified BGP group.
  *
  * @param request CreateBgpPeerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3572,7 +3576,7 @@ CreateBgpPeerResponse Client::createBgpPeerWithOptions(const CreateBgpPeerReques
 }
 
 /**
- * @summary Calls the CreateBgpPeer API to add a BGP peer to the specified BGP group.
+ * @summary Adds a BGP peer to a specified BGP group.
  *
  * @param request CreateBgpPeerRequest
  * @return CreateBgpPeerResponse
@@ -3585,7 +3589,7 @@ CreateBgpPeerResponse Client::createBgpPeer(const CreateBgpPeerRequest &request)
 /**
  * @summary Creates an Internet Shared Bandwidth instance by calling the CreateCommonBandwidthPackage operation.
  *
- * @description <props="china"><ph>This operation supports only the creation of pay-as-you-go Internet Shared Bandwidth instances. To create a subscription Internet Shared Bandwidth instance, see [Create an Internet Shared Bandwidth instance](https://help.aliyun.com/document_detail/65223.html).</ph>.
+ * @description <props="china"><ph>This operation supports only the creation of pay-as-you-go Internet Shared Bandwidth instances. To create a subscription Internet Shared Bandwidth instance, see [Create an Internet Shared Bandwidth instance](https://help.aliyun.com/document_detail/65223.html).</ph>
  *
  * @param request CreateCommonBandwidthPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3678,7 +3682,7 @@ CreateCommonBandwidthPackageResponse Client::createCommonBandwidthPackageWithOpt
 /**
  * @summary Creates an Internet Shared Bandwidth instance by calling the CreateCommonBandwidthPackage operation.
  *
- * @description <props="china"><ph>This operation supports only the creation of pay-as-you-go Internet Shared Bandwidth instances. To create a subscription Internet Shared Bandwidth instance, see [Create an Internet Shared Bandwidth instance](https://help.aliyun.com/document_detail/65223.html).</ph>.
+ * @description <props="china"><ph>This operation supports only the creation of pay-as-you-go Internet Shared Bandwidth instances. To create a subscription Internet Shared Bandwidth instance, see [Create an Internet Shared Bandwidth instance](https://help.aliyun.com/document_detail/65223.html).</ph>
  *
  * @param request CreateCommonBandwidthPackageRequest
  * @return CreateCommonBandwidthPackageResponse
@@ -3779,18 +3783,18 @@ CreateCustomerGatewayResponse Client::createCustomerGateway(const CreateCustomer
 }
 
 /**
- * @summary Creates a default vSwitch.
+ * @summary Creates a default vSwitch by calling the CreateDefaultVSwitch operation.
  *
  * @description When you call this operation to create a default vSwitch, take note of the following items:
- * - The first and last three IP addresses of each default vSwitch CIDR block are reserved by the system. For example, the system reserved IP addresses of 192.168.1.0/24 are 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+ * - The first and last three IP addresses of each default vSwitch CIDR block are reserved by the system. For example, the system reserved IP addresses for 192.168.1.0/24 are 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
  * - The number of cloud service instances in a default vSwitch cannot exceed the remaining available cloud service instances in the VPC (15,000 minus the current number of cloud service instances).
  * - Default vSwitches do not support multicast or broadcast.
  * - After a default vSwitch is created, you cannot modify its CIDR block.
- * - The **CreateDefaultVSwitch** operation is asynchronous. After you send a request, the system returns an instance ID, but the default vSwitch is not yet created. A background task is still in progress. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the creation status of the default vSwitch:
+ * - The **CreateDefaultVSwitch** operation is asynchronous. After you call this operation, the system returns an instance ID, but the default vSwitch has not been created yet. The background task is still in progress. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the creation status of the default vSwitch:
  *     - If the default vSwitch is in the **Pending** state, the default vSwitch is being configured.
  *     - If the default vSwitch is in the **Available** state, the default vSwitch is available.
  * - If a default vSwitch already exists in a zone of the specified region, the call to this operation fails.
- * - Before you create a default vSwitch, create a default VPC first. You can call the [CreateDefaultVpc](https://help.aliyun.com/document_detail/609152.html) operation to create a default VPC.
+ * - Before creating a default vSwitch, create a default VPC first. You can call the [CreateDefaultVpc](https://help.aliyun.com/document_detail/609152.html) operation to create a default VPC.
  *
  * @param request CreateDefaultVSwitchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3849,18 +3853,18 @@ CreateDefaultVSwitchResponse Client::createDefaultVSwitchWithOptions(const Creat
 }
 
 /**
- * @summary Creates a default vSwitch.
+ * @summary Creates a default vSwitch by calling the CreateDefaultVSwitch operation.
  *
  * @description When you call this operation to create a default vSwitch, take note of the following items:
- * - The first and last three IP addresses of each default vSwitch CIDR block are reserved by the system. For example, the system reserved IP addresses of 192.168.1.0/24 are 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+ * - The first and last three IP addresses of each default vSwitch CIDR block are reserved by the system. For example, the system reserved IP addresses for 192.168.1.0/24 are 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
  * - The number of cloud service instances in a default vSwitch cannot exceed the remaining available cloud service instances in the VPC (15,000 minus the current number of cloud service instances).
  * - Default vSwitches do not support multicast or broadcast.
  * - After a default vSwitch is created, you cannot modify its CIDR block.
- * - The **CreateDefaultVSwitch** operation is asynchronous. After you send a request, the system returns an instance ID, but the default vSwitch is not yet created. A background task is still in progress. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the creation status of the default vSwitch:
+ * - The **CreateDefaultVSwitch** operation is asynchronous. After you call this operation, the system returns an instance ID, but the default vSwitch has not been created yet. The background task is still in progress. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the creation status of the default vSwitch:
  *     - If the default vSwitch is in the **Pending** state, the default vSwitch is being configured.
  *     - If the default vSwitch is in the **Available** state, the default vSwitch is available.
  * - If a default vSwitch already exists in a zone of the specified region, the call to this operation fails.
- * - Before you create a default vSwitch, create a default VPC first. You can call the [CreateDefaultVpc](https://help.aliyun.com/document_detail/609152.html) operation to create a default VPC.
+ * - Before creating a default vSwitch, create a default VPC first. You can call the [CreateDefaultVpc](https://help.aliyun.com/document_detail/609152.html) operation to create a default VPC.
  *
  * @param request CreateDefaultVSwitchRequest
  * @return CreateDefaultVSwitchResponse
@@ -3875,12 +3879,12 @@ CreateDefaultVSwitchResponse Client::createDefaultVSwitch(const CreateDefaultVSw
  *
  * @description When you call this operation to create a default VPC, note the following items:
  * - After a default VPC is created, you cannot modify its CIDR block, but you can add secondary IPv4 CIDR blocks.
- * - Each default VPC supports up to 300,000 private network IP addresses for cloud resources, and this quota cannot be upgraded.
+ * - Each default VPC supports up to 300,000 private network IP addresses for cloud resources. This quota cannot be upgraded.
  *   
  * - After a default VPC is created, a vRouter and a route table are automatically created.
  *   
- * - Each default VPC supports up to three user CIDR blocks. If multiple user CIDR blocks overlap, the CIDR block with the shorter mask takes effect. For example, if both 10.0.0.0/16 and 10.0.0.0/24 exist, 10.0.0.0/16 takes effect.
- * - The **CreateDefaultVpc** operation is asynchronous. After you send a request, the system returns an instance ID while the default VPC is still being created in the background. You can call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) to query the creation status of the default VPC:
+ * - Each default VPC supports up to three user CIDR blocks. If one user CIDR block contains another, the CIDR block with the shorter mask takes effect. For example, if both 10.0.0.0/16 and 10.0.0.0/24 are specified, 10.0.0.0/16 takes effect.
+ * - The **CreateDefaultVpc** operation is asynchronous. After you call this operation, the system returns an instance ID, but the default VPC is not yet created. The creation task is still running in the background. You can call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) to query the creation status of the default VPC:
  *     - If the default VPC is in the **Pending** state, the default VPC is being configured.
  *     - If the default VPC is in the **Available** state, the default VPC is available.
  * - The **CreateDefaultVpc** operation does not support concurrent creation of default VPCs in the same region.
@@ -3951,12 +3955,12 @@ CreateDefaultVpcResponse Client::createDefaultVpcWithOptions(const CreateDefault
  *
  * @description When you call this operation to create a default VPC, note the following items:
  * - After a default VPC is created, you cannot modify its CIDR block, but you can add secondary IPv4 CIDR blocks.
- * - Each default VPC supports up to 300,000 private network IP addresses for cloud resources, and this quota cannot be upgraded.
+ * - Each default VPC supports up to 300,000 private network IP addresses for cloud resources. This quota cannot be upgraded.
  *   
  * - After a default VPC is created, a vRouter and a route table are automatically created.
  *   
- * - Each default VPC supports up to three user CIDR blocks. If multiple user CIDR blocks overlap, the CIDR block with the shorter mask takes effect. For example, if both 10.0.0.0/16 and 10.0.0.0/24 exist, 10.0.0.0/16 takes effect.
- * - The **CreateDefaultVpc** operation is asynchronous. After you send a request, the system returns an instance ID while the default VPC is still being created in the background. You can call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) to query the creation status of the default VPC:
+ * - Each default VPC supports up to three user CIDR blocks. If one user CIDR block contains another, the CIDR block with the shorter mask takes effect. For example, if both 10.0.0.0/16 and 10.0.0.0/24 are specified, 10.0.0.0/16 takes effect.
+ * - The **CreateDefaultVpc** operation is asynchronous. After you call this operation, the system returns an instance ID, but the default VPC is not yet created. The creation task is still running in the background. You can call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) to query the creation status of the default VPC:
  *     - If the default VPC is in the **Pending** state, the default VPC is being configured.
  *     - If the default VPC is in the **Available** state, the default VPC is available.
  * - The **CreateDefaultVpc** operation does not support concurrent creation of default VPCs in the same region.
@@ -3973,9 +3977,9 @@ CreateDefaultVpcResponse Client::createDefaultVpc(const CreateDefaultVpcRequest 
 /**
  * @summary Creates a DHCP options set.
  *
- * @description *   **CreateDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetDhcpOptionsSet](https://help.aliyun.com/document_detail/448820.html) to query the status of the task.
- *     *   If the vSwitch is in the **Pending** state, the DHCP options set is being configured.
- *     *   If the vSwitch is in the **Available** state, the DHCP options set is available.
+ * @description - **CreateDhcpOptionsSet** is an asynchronous operation. After you invoke this operation, the system returns an instance ID but the DHCP options set is not yet created. The background node is still in progress. You can invoke [GetDhcpOptionsSet](https://help.aliyun.com/document_detail/448820.html) to query the creation status of the DHCP options set:
+ *     - If the vSwitch is in the **Pending** state, the DHCP options set is being configured.
+ *     - If the vSwitch is in the **Available** state, the DHCP options set is active.
  *
  * @param request CreateDhcpOptionsSetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4064,9 +4068,9 @@ CreateDhcpOptionsSetResponse Client::createDhcpOptionsSetWithOptions(const Creat
 /**
  * @summary Creates a DHCP options set.
  *
- * @description *   **CreateDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetDhcpOptionsSet](https://help.aliyun.com/document_detail/448820.html) to query the status of the task.
- *     *   If the vSwitch is in the **Pending** state, the DHCP options set is being configured.
- *     *   If the vSwitch is in the **Available** state, the DHCP options set is available.
+ * @description - **CreateDhcpOptionsSet** is an asynchronous operation. After you invoke this operation, the system returns an instance ID but the DHCP options set is not yet created. The background node is still in progress. You can invoke [GetDhcpOptionsSet](https://help.aliyun.com/document_detail/448820.html) to query the creation status of the DHCP options set:
+ *     - If the vSwitch is in the **Pending** state, the DHCP options set is being configured.
+ *     - If the vSwitch is in the **Available** state, the DHCP options set is active.
  *
  * @param request CreateDhcpOptionsSetRequest
  * @return CreateDhcpOptionsSetResponse
@@ -4077,13 +4081,13 @@ CreateDhcpOptionsSetResponse Client::createDhcpOptionsSet(const CreateDhcpOption
 }
 
 /**
- * @summary Use the `CreateEnhancedVpnGateway` API to create an Enhanced VPN Gateway.
+ * @summary Creates an enhanced VPN gateway by calling the CreateEnhancedVpnGateway operation.
  *
- * @description - Before you create an enhanced VPN gateway, we recommend that you review the [VPN Gateway Usage Limits](https://help.aliyun.com/zh/vpn/sub-product-ipsec-vpn/user-guide/vpn-gateway-instance/?spm=a2c4g.11186623.0.0.6c6919591peeAe).
- * - An enhanced VPN gateway supports only dual-tunnel mode IPsec-VPN connections. When you call the `CreateEnhancedVpnGateway` operation to create a VPN Gateway instance, you must specify the **VSwitchId** and **DisasterRecoveryVSwitchId** parameters in addition to other required parameters.
- * - **CreateEnhancedVpnGateway** is an asynchronous operation. After you send a request, the system returns an instance ID and starts creating the enhanced VPN gateway in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/zh/vpn/sub-product-ipsec-vpn/developer-reference/api-vpc-2016-04-28-describevpngateway-vpns?spm=a2c4g.11186623.0.0.6c6919591peeAe) to query the creation status of the enhanced VPN gateway:
- *   - The **provisioning** state indicates that the gateway is being created.
- *   - The **active** state indicates that the gateway has been created.
+ * @description - Before you create an enhanced VPN gateway, we recommend that you understand the limits of VPN gateways. For more information, see [Limits of VPN Gateway](https://www.alibabacloud.com/help/en/vpn/sub-product-ipsec-vpn/user-guide/vpn-gateway-instance/).
+ * - Enhanced VPN gateway instances support only dual-tunnel IPsec-VPN connections. When you call the `CreateEnhancedVpnGateway` operation to create a VPN gateway instance, in addition to the required parameters, you must also specify the **VSwitchId** and **DisasterRecoveryVSwitchId** parameters.
+ * - The **CreateEnhancedVpnGateway** operation is asynchronous. After you send a request, the system returns an instance ID, but the enhanced VPN gateway is not yet created. The creation task is still running in the background. You can call [DescribeVpnGateway](https://www.alibabacloud.com/help/en/vpn/sub-product-ipsec-vpn/developer-reference/api-vpc-2016-04-28-describevpngateway-vpns) to query the creation status of the enhanced VPN gateway:
+ *   - If the enhanced VPN gateway is in the **provisioning** state, the enhanced VPN gateway is being created.
+ *   - If the enhanced VPN gateway is in the **active** state, the enhanced VPN gateway is created.
  *
  * @param request CreateEnhancedVpnGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4166,13 +4170,13 @@ CreateEnhancedVpnGatewayResponse Client::createEnhancedVpnGatewayWithOptions(con
 }
 
 /**
- * @summary Use the `CreateEnhancedVpnGateway` API to create an Enhanced VPN Gateway.
+ * @summary Creates an enhanced VPN gateway by calling the CreateEnhancedVpnGateway operation.
  *
- * @description - Before you create an enhanced VPN gateway, we recommend that you review the [VPN Gateway Usage Limits](https://help.aliyun.com/zh/vpn/sub-product-ipsec-vpn/user-guide/vpn-gateway-instance/?spm=a2c4g.11186623.0.0.6c6919591peeAe).
- * - An enhanced VPN gateway supports only dual-tunnel mode IPsec-VPN connections. When you call the `CreateEnhancedVpnGateway` operation to create a VPN Gateway instance, you must specify the **VSwitchId** and **DisasterRecoveryVSwitchId** parameters in addition to other required parameters.
- * - **CreateEnhancedVpnGateway** is an asynchronous operation. After you send a request, the system returns an instance ID and starts creating the enhanced VPN gateway in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/zh/vpn/sub-product-ipsec-vpn/developer-reference/api-vpc-2016-04-28-describevpngateway-vpns?spm=a2c4g.11186623.0.0.6c6919591peeAe) to query the creation status of the enhanced VPN gateway:
- *   - The **provisioning** state indicates that the gateway is being created.
- *   - The **active** state indicates that the gateway has been created.
+ * @description - Before you create an enhanced VPN gateway, we recommend that you understand the limits of VPN gateways. For more information, see [Limits of VPN Gateway](https://www.alibabacloud.com/help/en/vpn/sub-product-ipsec-vpn/user-guide/vpn-gateway-instance/).
+ * - Enhanced VPN gateway instances support only dual-tunnel IPsec-VPN connections. When you call the `CreateEnhancedVpnGateway` operation to create a VPN gateway instance, in addition to the required parameters, you must also specify the **VSwitchId** and **DisasterRecoveryVSwitchId** parameters.
+ * - The **CreateEnhancedVpnGateway** operation is asynchronous. After you send a request, the system returns an instance ID, but the enhanced VPN gateway is not yet created. The creation task is still running in the background. You can call [DescribeVpnGateway](https://www.alibabacloud.com/help/en/vpn/sub-product-ipsec-vpn/developer-reference/api-vpc-2016-04-28-describevpngateway-vpns) to query the creation status of the enhanced VPN gateway:
+ *   - If the enhanced VPN gateway is in the **provisioning** state, the enhanced VPN gateway is being created.
+ *   - If the enhanced VPN gateway is in the **active** state, the enhanced VPN gateway is created.
  *
  * @param request CreateEnhancedVpnGatewayRequest
  * @return CreateEnhancedVpnGatewayResponse
@@ -4183,7 +4187,7 @@ CreateEnhancedVpnGatewayResponse Client::createEnhancedVpnGateway(const CreateEn
 }
 
 /**
- * @summary Creates an Express Cloud Connect (ECC) instance.
+ * @summary Creates an Express Cloud Connection (ECC) instance.
  *
  * @param request CreateExpressCloudConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4274,7 +4278,7 @@ CreateExpressCloudConnectionResponse Client::createExpressCloudConnectionWithOpt
 }
 
 /**
- * @summary Creates an Express Cloud Connect (ECC) instance.
+ * @summary Creates an Express Cloud Connection (ECC) instance.
  *
  * @param request CreateExpressCloudConnectionRequest
  * @return CreateExpressCloudConnectionResponse
@@ -4287,7 +4291,7 @@ CreateExpressCloudConnectionResponse Client::createExpressCloudConnection(const 
 /**
  * @summary Creates a Quality of Service (QoS) policy for Express Connect.
  *
- * @description - The Express Connect QoS feature is in invitational preview. To call this operation, contact your account manager to be added to the whitelist.
+ * @description - The Express Connect QoS feature is currently in invitational preview. To call this operation, contact your account manager to be added to the whitelist.
  * - The number of QoS policies that each user can create is subject to a quota limit. To increase the quota, contact your account manager.
  *
  * @param request CreateExpressConnectTrafficQosRequest
@@ -4357,7 +4361,7 @@ CreateExpressConnectTrafficQosResponse Client::createExpressConnectTrafficQosWit
 /**
  * @summary Creates a Quality of Service (QoS) policy for Express Connect.
  *
- * @description - The Express Connect QoS feature is in invitational preview. To call this operation, contact your account manager to be added to the whitelist.
+ * @description - The Express Connect QoS feature is currently in invitational preview. To call this operation, contact your account manager to be added to the whitelist.
  * - The number of QoS policies that each user can create is subject to a quota limit. To increase the quota, contact your account manager.
  *
  * @param request CreateExpressConnectTrafficQosRequest
@@ -4369,7 +4373,7 @@ CreateExpressConnectTrafficQosResponse Client::createExpressConnectTrafficQos(co
 }
 
 /**
- * @summary Calls the CreateExpressConnectTrafficQosQueue operation to create an Express Connect QoS queue.
+ * @summary Creates a QoS queue for Express Connect.
  *
  * @description - The default queue cannot be created.
  * - The number of high-priority queues has an upper limit. To increase the quota, contact your account manager.
@@ -4445,7 +4449,7 @@ CreateExpressConnectTrafficQosQueueResponse Client::createExpressConnectTrafficQ
 }
 
 /**
- * @summary Calls the CreateExpressConnectTrafficQosQueue operation to create an Express Connect QoS queue.
+ * @summary Creates a QoS queue for Express Connect.
  *
  * @description - The default queue cannot be created.
  * - The number of high-priority queues has an upper limit. To increase the quota, contact your account manager.
@@ -4461,10 +4465,10 @@ CreateExpressConnectTrafficQosQueueResponse Client::createExpressConnectTrafficQ
 }
 
 /**
- * @summary Creates a quality of service (QoS) rule.
+ * @summary Creates a QoS rule for Express Connect.
  *
- * @description - QoS规则的优先级，需要在一个QoS策略中唯一。
- * - 单个QoS队列的QoS规则数量有限制，如果想要提升配额，请联系商务经理。
+ * @description - The priority of a QoS rule must be unique within a QoS policy.
+ * - The number of QoS rules in a single QoS queue is limited. To increase the quota, contact your account manager.
  *
  * @param request CreateExpressConnectTrafficQosRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4571,10 +4575,10 @@ CreateExpressConnectTrafficQosRuleResponse Client::createExpressConnectTrafficQo
 }
 
 /**
- * @summary Creates a quality of service (QoS) rule.
+ * @summary Creates a QoS rule for Express Connect.
  *
- * @description - QoS规则的优先级，需要在一个QoS策略中唯一。
- * - 单个QoS队列的QoS规则数量有限制，如果想要提升配额，请联系商务经理。
+ * @description - The priority of a QoS rule must be unique within a QoS policy.
+ * - The number of QoS rules in a single QoS queue is limited. To increase the quota, contact your account manager.
  *
  * @param request CreateExpressConnectTrafficQosRuleRequest
  * @return CreateExpressConnectTrafficQosRuleResponse
@@ -4585,16 +4589,17 @@ CreateExpressConnectTrafficQosRuleResponse Client::createExpressConnectTrafficQo
 }
 
 /**
- * @summary Creates a failover test.
+ * @summary Creates a failover test job for Express Connect.
  *
- * @description You cannot create a failover test in the following scenarios:
- * *   You have created a failover test in the region and its type is StartNow.
- * *   The Express Connect circuit or hosted connection has pending orders or overdue payments.
- * *   A failover test is already performed on the Express Connect circuit or hosted connection.
- * *   More than one hosted connection is created over the Express Connect circuit.
- * *   More than one cross-account VBR is created on the Express Connect circuit.
- * *   No VBR is associated with the hosted connection.
- * *   The VLAN ID of the hosted connection is set to 0.
+ * @description You cannot create a failover test job in the following scenarios:
+ * - A failover test job is already running in the current region, and the job type of the new failover test job is set to StartNow.
+ * - The Express Connect circuit instance or shared Express Connect circuit instance has not been paid for or has an overdue payment.
+ * - The Express Connect circuit instance or shared Express Connect circuit instance is already in another running failover test job.
+ *  
+ * - The Express Connect circuit instance has more than one shared Express Connect circuit.
+ * - The Express Connect circuit instance has more than one cross-account Virtual Border Router (VBR).
+ * - The shared Express Connect circuit instance is not associated with a VBR.
+ * - The VLAN of the shared Express Connect circuit instance is set to 0.
  *
  * @param request CreateFailoverTestJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4673,16 +4678,17 @@ CreateFailoverTestJobResponse Client::createFailoverTestJobWithOptions(const Cre
 }
 
 /**
- * @summary Creates a failover test.
+ * @summary Creates a failover test job for Express Connect.
  *
- * @description You cannot create a failover test in the following scenarios:
- * *   You have created a failover test in the region and its type is StartNow.
- * *   The Express Connect circuit or hosted connection has pending orders or overdue payments.
- * *   A failover test is already performed on the Express Connect circuit or hosted connection.
- * *   More than one hosted connection is created over the Express Connect circuit.
- * *   More than one cross-account VBR is created on the Express Connect circuit.
- * *   No VBR is associated with the hosted connection.
- * *   The VLAN ID of the hosted connection is set to 0.
+ * @description You cannot create a failover test job in the following scenarios:
+ * - A failover test job is already running in the current region, and the job type of the new failover test job is set to StartNow.
+ * - The Express Connect circuit instance or shared Express Connect circuit instance has not been paid for or has an overdue payment.
+ * - The Express Connect circuit instance or shared Express Connect circuit instance is already in another running failover test job.
+ *  
+ * - The Express Connect circuit instance has more than one shared Express Connect circuit.
+ * - The Express Connect circuit instance has more than one cross-account Virtual Border Router (VBR).
+ * - The shared Express Connect circuit instance is not associated with a VBR.
+ * - The VLAN of the shared Express Connect circuit instance is set to 0.
  *
  * @param request CreateFailoverTestJobRequest
  * @return CreateFailoverTestJobResponse
@@ -4695,7 +4701,7 @@ CreateFailoverTestJobResponse Client::createFailoverTestJob(const CreateFailover
 /**
  * @summary Creates a flow log.
  *
- * @description **CreateFlowLog** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the flow log has not been created yet. The creation node is still running in the background. You can invoke [DescribeFlowLogs](https://help.aliyun.com/document_detail/448670.html) to query the creation status of the flow log:
+ * @description **CreateFlowLog** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the flow log is not yet created. The creation node continues in the background. You can invoke [DescribeFlowLogs](https://help.aliyun.com/document_detail/448670.html) to query the creation status of the flow log:
  * - If the flow log is in the **Activating** state, the flow log is being created.
  * - If the flow log is in the **Active** state, the flow log is created and activated.
  *
@@ -4720,6 +4726,10 @@ CreateFlowLogResponse Client::createFlowLogWithOptions(const CreateFlowLogReques
 
   if (!!request.hasIpVersion()) {
     query["IpVersion"] = request.getIpVersion();
+  }
+
+  if (!!request.hasLogFormat()) {
+    query["LogFormat"] = request.getLogFormat();
   }
 
   if (!!request.hasLogStoreName()) {
@@ -4794,7 +4804,7 @@ CreateFlowLogResponse Client::createFlowLogWithOptions(const CreateFlowLogReques
 /**
  * @summary Creates a flow log.
  *
- * @description **CreateFlowLog** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the flow log has not been created yet. The creation node is still running in the background. You can invoke [DescribeFlowLogs](https://help.aliyun.com/document_detail/448670.html) to query the creation status of the flow log:
+ * @description **CreateFlowLog** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the flow log is not yet created. The creation node continues in the background. You can invoke [DescribeFlowLogs](https://help.aliyun.com/document_detail/448670.html) to query the creation status of the flow log:
  * - If the flow log is in the **Activating** state, the flow log is being created.
  * - If the flow log is in the **Active** state, the flow log is created and activated.
  *
@@ -4807,20 +4817,20 @@ CreateFlowLogResponse Client::createFlowLog(const CreateFlowLogRequest &request)
 }
 
 /**
- * @summary Adds a DNAT entry to a DNAT table.
+ * @summary Adds a DNAT entry to a DNAT table by calling the CreateForwardEntry operation.
  *
- * @description ## [](#)
- * Each DNAT entry consists of the following parameters: **ExternalIp**, **ExternalPort**, **IpProtocol**, **InternalIp**, and **InternalPort**. After you add a DNAT entry, the NAT gateway forwards packets over the specified protocol from **ExternalIp:ExternalPort** to **InternalIp:InternalPort** and sends responses back through the same route.
- * When you call this operation, take note of the following limits:
- * *   **CreateForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) operation to query the status of the task.
- *     *   If the DNAT entry is in the **Pending** state, the system is adding the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
- *     *   If the DNAT entry is in the **Available** state, the DNAT entry is added.
- * *   You cannot repeatedly call the **CreateForwardEntry** operation to add a DNAT entry within a specific period of time.
- * *   All combinations of **ExternalIp**, **ExternalPort**, and **IpProtocol** used in DNAT entries must be unique. You cannot distribute requests to more than one Elastic Compute Service (ECS) instance if these requests are initiated from the same source IP address, received on the same port, and use the same protocol.
- * *   The combinations of **IpProtocol**, **InternalIp**, and **InternalPort** must be unique.
- * *   If one or more DNAT entries in the DNAT table are in the **Pending** or **Modifying** state, you cannot add DNAT entries to the DNAT table.
- * *   You can add at most 100 DNAT entries to a DNAT table.
- * *   For an elastic IP address (EIP) used by an Internet NAT gateway or a NAT IP address used by a Virtual Private Cloud (VPC) NAT gateway, take note of the following limit: If the IP address has IP mapping enabled and is specified in a DNAT entry, the IP address cannot be used by another DNAT or SNAT entry.
+ * @description Each DNAT entry consists of five parts: **ExternalIp**, **ExternalPort**, **IpProtocol**, **InternalIp**, and **InternalPort**. After you add a DNAT entry, the NAT gateway forwards packets of the specified protocol received on **ExternalIp:ExternalPort** to **InternalIp:InternalPort** and returns responses along the same path.
+ * Note the following when you call this operation to add a DNAT entry: 
+ *      
+ * - The **CreateForwardEntry** operation is asynchronous. After you send a request, the system returns a DNAT entry ID, but the DNAT entry is not yet added. The system adds the entry in the background. You can call [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) to query the status of the DNAT entry:
+ *     - If the DNAT entry is in the **Pending** state, the DNAT entry is being added. In this state, you can only perform query operations.
+ *     - If the DNAT entry is in the **Available** state, the DNAT entry is added.
+ *  
+ * - The combination of **ExternalIp**, **ExternalPort**, and **IpProtocol** of each DNAT entry must be unique. You cannot forward packets from the same source IP address, port, and protocol to multiple destination ECS instances.
+ * - The combination of **InternalIp**, **InternalPort**, and **IpProtocol** of each DNAT entry must also be unique.
+ * - The IP addresses specified by **ExternalIp** and **InternalIp** in a DNAT entry cannot be the same. If your business requires the two IP addresses to be the same, contact your account manager.
+ * - A maximum of 100 DNAT entries can be added to a DNAT table.
+ * - An IP address configured with IP mapping in a DNAT entry (an EIP used by an Internet NAT gateway or a NAT IP address used by a VPC NAT gateway) cannot be used by other DNAT entries or SNAT entries.
  *
  * @param request CreateForwardEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4907,20 +4917,20 @@ CreateForwardEntryResponse Client::createForwardEntryWithOptions(const CreateFor
 }
 
 /**
- * @summary Adds a DNAT entry to a DNAT table.
+ * @summary Adds a DNAT entry to a DNAT table by calling the CreateForwardEntry operation.
  *
- * @description ## [](#)
- * Each DNAT entry consists of the following parameters: **ExternalIp**, **ExternalPort**, **IpProtocol**, **InternalIp**, and **InternalPort**. After you add a DNAT entry, the NAT gateway forwards packets over the specified protocol from **ExternalIp:ExternalPort** to **InternalIp:InternalPort** and sends responses back through the same route.
- * When you call this operation, take note of the following limits:
- * *   **CreateForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) operation to query the status of the task.
- *     *   If the DNAT entry is in the **Pending** state, the system is adding the DNAT entry. You can only query the DNAT entry, but cannot perform other operations.
- *     *   If the DNAT entry is in the **Available** state, the DNAT entry is added.
- * *   You cannot repeatedly call the **CreateForwardEntry** operation to add a DNAT entry within a specific period of time.
- * *   All combinations of **ExternalIp**, **ExternalPort**, and **IpProtocol** used in DNAT entries must be unique. You cannot distribute requests to more than one Elastic Compute Service (ECS) instance if these requests are initiated from the same source IP address, received on the same port, and use the same protocol.
- * *   The combinations of **IpProtocol**, **InternalIp**, and **InternalPort** must be unique.
- * *   If one or more DNAT entries in the DNAT table are in the **Pending** or **Modifying** state, you cannot add DNAT entries to the DNAT table.
- * *   You can add at most 100 DNAT entries to a DNAT table.
- * *   For an elastic IP address (EIP) used by an Internet NAT gateway or a NAT IP address used by a Virtual Private Cloud (VPC) NAT gateway, take note of the following limit: If the IP address has IP mapping enabled and is specified in a DNAT entry, the IP address cannot be used by another DNAT or SNAT entry.
+ * @description Each DNAT entry consists of five parts: **ExternalIp**, **ExternalPort**, **IpProtocol**, **InternalIp**, and **InternalPort**. After you add a DNAT entry, the NAT gateway forwards packets of the specified protocol received on **ExternalIp:ExternalPort** to **InternalIp:InternalPort** and returns responses along the same path.
+ * Note the following when you call this operation to add a DNAT entry: 
+ *      
+ * - The **CreateForwardEntry** operation is asynchronous. After you send a request, the system returns a DNAT entry ID, but the DNAT entry is not yet added. The system adds the entry in the background. You can call [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) to query the status of the DNAT entry:
+ *     - If the DNAT entry is in the **Pending** state, the DNAT entry is being added. In this state, you can only perform query operations.
+ *     - If the DNAT entry is in the **Available** state, the DNAT entry is added.
+ *  
+ * - The combination of **ExternalIp**, **ExternalPort**, and **IpProtocol** of each DNAT entry must be unique. You cannot forward packets from the same source IP address, port, and protocol to multiple destination ECS instances.
+ * - The combination of **InternalIp**, **InternalPort**, and **IpProtocol** of each DNAT entry must also be unique.
+ * - The IP addresses specified by **ExternalIp** and **InternalIp** in a DNAT entry cannot be the same. If your business requires the two IP addresses to be the same, contact your account manager.
+ * - A maximum of 100 DNAT entries can be added to a DNAT table.
+ * - An IP address configured with IP mapping in a DNAT entry (an EIP used by an Internet NAT gateway or a NAT IP address used by a VPC NAT gateway) cannot be used by other DNAT entries or SNAT entries.
  *
  * @param request CreateForwardEntryRequest
  * @return CreateForwardEntryResponse
@@ -4931,12 +4941,11 @@ CreateForwardEntryResponse Client::createForwardEntry(const CreateForwardEntryRe
 }
 
 /**
- * @summary Adds a FULLNAT entry to the FULLNAT table.
+ * @summary Adds a FULLNAT entry to a FULLNAT table by calling the CreateFullNatEntry operation.
  *
- * @description *   **CreateFullNatEntry** is an asynchronous operation. After you send a request to call this operation, the system returns a FULLNAT entry and the FULLNAT entry is being added in the backend. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
- *     *   If the FULLNAT entry is in the **Creating** state, the system is adding the FULLNAT entry. You can only query the status of the FULLNAT entry, but cannot perform other operations.
- *     *   If the FULLNAT entry is in the **Available** state, the FULLNAT entry is added.
- * *   You cannot repeatedly call the **CreateFullNatEntry** operation for the same VPN gateway within the specified period of time.
+ * @description **CreateFullNatEntry** is an asynchronous operation. After you send a request, the system returns a FULLNAT entry, but the FULLNAT entry has not been added yet. The addition task is still running in the background. You can call [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) to query the status of the FULLNAT entry:
+ * - If the FULLNAT entry is in the **Creating** state, the FULLNAT entry is being added. In this state, you can only perform query operations and cannot perform other operations.
+ * - If the FULLNAT entry is in the **Available** state, the FULLNAT entry has been added.
  *
  * @param request CreateFullNatEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5031,12 +5040,11 @@ CreateFullNatEntryResponse Client::createFullNatEntryWithOptions(const CreateFul
 }
 
 /**
- * @summary Adds a FULLNAT entry to the FULLNAT table.
+ * @summary Adds a FULLNAT entry to a FULLNAT table by calling the CreateFullNatEntry operation.
  *
- * @description *   **CreateFullNatEntry** is an asynchronous operation. After you send a request to call this operation, the system returns a FULLNAT entry and the FULLNAT entry is being added in the backend. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
- *     *   If the FULLNAT entry is in the **Creating** state, the system is adding the FULLNAT entry. You can only query the status of the FULLNAT entry, but cannot perform other operations.
- *     *   If the FULLNAT entry is in the **Available** state, the FULLNAT entry is added.
- * *   You cannot repeatedly call the **CreateFullNatEntry** operation for the same VPN gateway within the specified period of time.
+ * @description **CreateFullNatEntry** is an asynchronous operation. After you send a request, the system returns a FULLNAT entry, but the FULLNAT entry has not been added yet. The addition task is still running in the background. You can call [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) to query the status of the FULLNAT entry:
+ * - If the FULLNAT entry is in the **Creating** state, the FULLNAT entry is being added. In this state, you can only perform query operations and cannot perform other operations.
+ * - If the FULLNAT entry is in the **Available** state, the FULLNAT entry has been added.
  *
  * @param request CreateFullNatEntryRequest
  * @return CreateFullNatEntryResponse
@@ -5049,10 +5057,10 @@ CreateFullNatEntryResponse Client::createFullNatEntry(const CreateFullNatEntryRe
 /**
  * @deprecated OpenAPI CreateGlobalAccelerationInstance is deprecated
  *
- * @summary Creates a Global Accelerator (GA) instance.
+ * @summary Creates an Alibaba Cloud Global Accelerator (GA) instance.
  *
- * @description ## Usage notes
- * You can call this operation to create only pay-as-you-go GA instances.
+ * @description ## Operation description
+ * This operation supports only the creation of pay-as-you-go Alibaba Cloud Global Accelerator (GA) instances.
  *
  * @param request CreateGlobalAccelerationInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5125,10 +5133,10 @@ CreateGlobalAccelerationInstanceResponse Client::createGlobalAccelerationInstanc
 /**
  * @deprecated OpenAPI CreateGlobalAccelerationInstance is deprecated
  *
- * @summary Creates a Global Accelerator (GA) instance.
+ * @summary Creates an Alibaba Cloud Global Accelerator (GA) instance.
  *
- * @description ## Usage notes
- * You can call this operation to create only pay-as-you-go GA instances.
+ * @description ## Operation description
+ * This operation supports only the creation of pay-as-you-go Alibaba Cloud Global Accelerator (GA) instances.
  *
  * @param request CreateGlobalAccelerationInstanceRequest
  * @return CreateGlobalAccelerationInstanceResponse
@@ -5141,7 +5149,7 @@ CreateGlobalAccelerationInstanceResponse Client::createGlobalAccelerationInstanc
 /**
  * @summary Creates a high-availability virtual IP address (HAVIP).
  *
- * @description **CreateHaVip** is an asynchronous operation. After you invoke this operation, the system returns the HAVIP ID, but the HAVIP is not yet created. The creation node is still running in the background. You can invoke [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) to query the creation status of the HAVIP:
+ * @description **CreateHaVip** is an asynchronous operation. After you call this operation, the system returns the HAVIP ID, but the HAVIP is not yet created. The creation task is still running in the background. You can call [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) to query the creation status of the HAVIP:
  * - If the HAVIP is in the **Creating** state, the HAVIP is being created.
  * - If the HAVIP is in the **Available** state, the HAVIP is created.
  *
@@ -5220,7 +5228,7 @@ CreateHaVipResponse Client::createHaVipWithOptions(const CreateHaVipRequest &req
 /**
  * @summary Creates a high-availability virtual IP address (HAVIP).
  *
- * @description **CreateHaVip** is an asynchronous operation. After you invoke this operation, the system returns the HAVIP ID, but the HAVIP is not yet created. The creation node is still running in the background. You can invoke [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) to query the creation status of the HAVIP:
+ * @description **CreateHaVip** is an asynchronous operation. After you call this operation, the system returns the HAVIP ID, but the HAVIP is not yet created. The creation task is still running in the background. You can call [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) to query the creation status of the HAVIP:
  * - If the HAVIP is in the **Creating** state, the HAVIP is being created.
  * - If the HAVIP is in the **Available** state, the HAVIP is created.
  *
@@ -5233,9 +5241,9 @@ CreateHaVipResponse Client::createHaVip(const CreateHaVipRequest &request) {
 }
 
 /**
- * @summary Creates Express Connect circuits in zone-redundancy mode to ensure the stability of multi-line access to your workloads on Alibaba Cloud and to avoid service disruptions caused by single-line failures through multi-line disaster recovery.
+ * @summary Creates Express Connect circuits in zone redundancy mode to ensure service stability through multi-line access to Alibaba Cloud and to avoid service disruption caused by single-line failures through multi-line disaster recovery.
  *
- * @description When you purchase ports, you can select one of the following three combination types to provide disaster recovery capabilities for your workloads.
+ * @description When you purchase ports, you can select one of the following combination types to provide disaster recovery capabilities for your business or workloads.
  * - Maximum disaster recovery: You apply for resources in two access points and establish four independent Express Connect circuit connections. The SLA availability for maximum disaster recovery is no less than 99.99%.
  * - Enhanced disaster recovery: You apply for resources in two access points and establish two independent Express Connect circuit connections. The SLA availability for enhanced disaster recovery is no less than 99.95%.
  * - Development and testing: You apply for resources in one access point and establish two independent Express Connect circuit connections.
@@ -5325,9 +5333,9 @@ CreateHighReliablePhysicalConnectionResponse Client::createHighReliablePhysicalC
 }
 
 /**
- * @summary Creates Express Connect circuits in zone-redundancy mode to ensure the stability of multi-line access to your workloads on Alibaba Cloud and to avoid service disruptions caused by single-line failures through multi-line disaster recovery.
+ * @summary Creates Express Connect circuits in zone redundancy mode to ensure service stability through multi-line access to Alibaba Cloud and to avoid service disruption caused by single-line failures through multi-line disaster recovery.
  *
- * @description When you purchase ports, you can select one of the following three combination types to provide disaster recovery capabilities for your workloads.
+ * @description When you purchase ports, you can select one of the following combination types to provide disaster recovery capabilities for your business or workloads.
  * - Maximum disaster recovery: You apply for resources in two access points and establish four independent Express Connect circuit connections. The SLA availability for maximum disaster recovery is no less than 99.99%.
  * - Enhanced disaster recovery: You apply for resources in two access points and establish two independent Express Connect circuit connections. The SLA availability for enhanced disaster recovery is no less than 99.95%.
  * - Development and testing: You apply for resources in one access point and establish two independent Express Connect circuit connections.
@@ -5437,7 +5445,7 @@ CreateIPv6TranslatorResponse Client::createIPv6Translator(const CreateIPv6Transl
 /**
  * @deprecated OpenAPI CreateIPv6TranslatorAclList is deprecated
  *
- * @summary Creates an access control list (ACL).
+ * @summary Creates an access control policy group.
  *
  * @param request CreateIPv6TranslatorAclListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5494,7 +5502,7 @@ CreateIPv6TranslatorAclListResponse Client::createIPv6TranslatorAclListWithOptio
 /**
  * @deprecated OpenAPI CreateIPv6TranslatorAclList is deprecated
  *
- * @summary Creates an access control list (ACL).
+ * @summary Creates an access control policy group.
  *
  * @param request CreateIPv6TranslatorAclListRequest
  * @return CreateIPv6TranslatorAclListResponse
@@ -5507,7 +5515,7 @@ CreateIPv6TranslatorAclListResponse Client::createIPv6TranslatorAclList(const Cr
 /**
  * @deprecated OpenAPI CreateIPv6TranslatorEntry is deprecated
  *
- * @summary Adds an IPv6 mapping entry to an IPv6 Translation Service instance.
+ * @summary Adds an IPv6 translation mapping entry to a specified IPv6 Translation Service instance.
  *
  * @param request CreateIPv6TranslatorEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5600,7 +5608,7 @@ CreateIPv6TranslatorEntryResponse Client::createIPv6TranslatorEntryWithOptions(c
 /**
  * @deprecated OpenAPI CreateIPv6TranslatorEntry is deprecated
  *
- * @summary Adds an IPv6 mapping entry to an IPv6 Translation Service instance.
+ * @summary Adds an IPv6 translation mapping entry to a specified IPv6 Translation Service instance.
  *
  * @param request CreateIPv6TranslatorEntryRequest
  * @return CreateIPv6TranslatorEntryResponse
@@ -5611,14 +5619,14 @@ CreateIPv6TranslatorEntryResponse Client::createIPv6TranslatorEntry(const Create
 }
 
 /**
- * @summary Creates an IPsec server.
+ * @summary Creates an IPsec server by calling the CreateIpsecServer operation.
  *
- * @description *   Before you create an IPsec server, you must create a VPN gateway and enable the SSL-VPN feature for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
- * *   Before you create an IPsec server, make sure that no IPsec-VPN connection exists on the VPN gateway. For more information, see [DeleteVpnConnection](https://help.aliyun.com/document_detail/2526948.html).
- * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the task.
- *     *   If the VPN gateway is in the **updating** state, the IPsec server is being created.
- *     *   If the VPN gateway is in the **active** state, the IPsec server is created.
- * *   You cannot repeatedly call **CreateIpsecServer** within the specified period of time.
+ * @description - Before you create an IPsec server, create a VPN gateway and make sure that the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
+ * - Before you create an IPsec server, make sure that no IPsec-VPN connections exist on the VPN gateway instance. For more information, see [DeleteVpnConnection](https://help.aliyun.com/document_detail/2526948.html).
+ * - **CreateIpsecServer** is an asynchronous operation. After you send a request, the system returns an instance ID but the IPsec server is not yet created. The creation task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the VPN gateway instance to determine the creation status of the IPsec server:
+ *     - If the VPN gateway instance is in the **updating** state, the IPsec server is being created.
+ *     - If the VPN gateway instance is in the **active** state, the IPsec server is created.
+ * - **CreateIpsecServer** does not support concurrent creation of IPsec servers on the same VPN gateway.
  *
  * @param request CreateIpsecServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5693,14 +5701,14 @@ CreateIpsecServerResponse Client::createIpsecServerWithOptions(const CreateIpsec
 }
 
 /**
- * @summary Creates an IPsec server.
+ * @summary Creates an IPsec server by calling the CreateIpsecServer operation.
  *
- * @description *   Before you create an IPsec server, you must create a VPN gateway and enable the SSL-VPN feature for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
- * *   Before you create an IPsec server, make sure that no IPsec-VPN connection exists on the VPN gateway. For more information, see [DeleteVpnConnection](https://help.aliyun.com/document_detail/2526948.html).
- * *   **CreateIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the task.
- *     *   If the VPN gateway is in the **updating** state, the IPsec server is being created.
- *     *   If the VPN gateway is in the **active** state, the IPsec server is created.
- * *   You cannot repeatedly call **CreateIpsecServer** within the specified period of time.
+ * @description - Before you create an IPsec server, create a VPN gateway and make sure that the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
+ * - Before you create an IPsec server, make sure that no IPsec-VPN connections exist on the VPN gateway instance. For more information, see [DeleteVpnConnection](https://help.aliyun.com/document_detail/2526948.html).
+ * - **CreateIpsecServer** is an asynchronous operation. After you send a request, the system returns an instance ID but the IPsec server is not yet created. The creation task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the VPN gateway instance to determine the creation status of the IPsec server:
+ *     - If the VPN gateway instance is in the **updating** state, the IPsec server is being created.
+ *     - If the VPN gateway instance is in the **active** state, the IPsec server is created.
+ * - **CreateIpsecServer** does not support concurrent creation of IPsec servers on the same VPN gateway.
  *
  * @param request CreateIpsecServerRequest
  * @return CreateIpsecServerResponse
@@ -5713,10 +5721,10 @@ CreateIpsecServerResponse Client::createIpsecServer(const CreateIpsecServerReque
 /**
  * @summary Creates an IPv4 gateway.
  *
- * @description *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway:
- *     *   If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
- *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is created.
- * *   You cannot repeatedly call the **CreateIpv4Gateway** operation to create IPv4 gateways in a virtual private cloud (VPC) within the specified period of time.
+ * @description - **CreateIpv4Gateway** is an asynchronous operation. After you call this operation, the system returns an instance ID, but the IPv4 gateway is not yet created. The creation task is still running in the background. You can call [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) to query the creation status of the IPv4 gateway:
+ *     - If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
+ *     - If the IPv4 gateway is in the **Created** state, the IPv4 gateway is created.
+ * - You cannot call **CreateIpv4Gateway** to concurrently create IPv4 gateways in the same VPC.
  *
  * @param request CreateIpv4GatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5797,10 +5805,10 @@ CreateIpv4GatewayResponse Client::createIpv4GatewayWithOptions(const CreateIpv4G
 /**
  * @summary Creates an IPv4 gateway.
  *
- * @description *   **CreateIpv4Gateway** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway:
- *     *   If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
- *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is created.
- * *   You cannot repeatedly call the **CreateIpv4Gateway** operation to create IPv4 gateways in a virtual private cloud (VPC) within the specified period of time.
+ * @description - **CreateIpv4Gateway** is an asynchronous operation. After you call this operation, the system returns an instance ID, but the IPv4 gateway is not yet created. The creation task is still running in the background. You can call [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) to query the creation status of the IPv4 gateway:
+ *     - If the IPv4 gateway is in the **Creating** state, the IPv4 gateway is being created.
+ *     - If the IPv4 gateway is in the **Created** state, the IPv4 gateway is created.
+ * - You cannot call **CreateIpv4Gateway** to concurrently create IPv4 gateways in the same VPC.
  *
  * @param request CreateIpv4GatewayRequest
  * @return CreateIpv4GatewayResponse
@@ -5811,12 +5819,12 @@ CreateIpv4GatewayResponse Client::createIpv4Gateway(const CreateIpv4GatewayReque
 }
 
 /**
- * @summary You can create an egress-only rule to allow ECS instances in a VPC with an IPv6 CIDR block to initiate outbound access to IPv6 endpoints of clients, while preventing IPv6 endpoints of clients from accessing ECS instances in the VPC over the Internet. Invoke CreateIpv6EgressOnlyRule to add an egress-only rule for an IPv6 address.
+ * @summary Creates an IPv6 egress-only rule for an IPv6 address by calling CreateIpv6EgressOnlyRule. You can create an egress-only rule to allow ECS instances in a VPC with an IPv6 CIDR block to proactively access IPv6 endpoints on the client side, while preventing IPv6 endpoints on the client side from accessing ECS instances in the VPC over the Internet.
  *
- * @description - The **CreateIpv6EgressOnlyRule** API is asynchronous. The system returns an instance ID immediately, but the egress-only rule for the IPv6 address has not yet been successfully created, as the creation job continues in the background. You can invoke [DescribeIpv6EgressOnlyRules](https://help.aliyun.com/document_detail/102208.html) to query the creation status of the egress-only rule for the IPv6 address:
- *     - When the egress-only rule for the IPv6 address is in the **Creating** status, it indicates that the rule is still being created.
- *     - When the egress-only rule for the IPv6 address is in the **Created** status, it indicates that the rule has been successfully created.
- * - The **CreateIpv6EgressOnlyRule** API does not support concurrent addition of egress-only rules for the same IPv6 address.
+ * @description - **CreateIpv6EgressOnlyRule** is an asynchronous operation. After you send a request, the system returns an instance ID but the IPv6 egress-only rule is not yet created. The creation task is still running in the background. You can call [DescribeIpv6EgressOnlyRules](https://help.aliyun.com/document_detail/102208.html) to query the creation status of the IPv6 egress-only rule:
+ *     - When the IPv6 egress-only rule is in the **Creating** state, the rule is being created.
+ *     - When the IPv6 egress-only rule is in the **Created** state, the rule is created.
+ * - **CreateIpv6EgressOnlyRule** does not support concurrent creation of egress-only rules for the same IPv6 address.
  *
  * @param request CreateIpv6EgressOnlyRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5895,12 +5903,12 @@ CreateIpv6EgressOnlyRuleResponse Client::createIpv6EgressOnlyRuleWithOptions(con
 }
 
 /**
- * @summary You can create an egress-only rule to allow ECS instances in a VPC with an IPv6 CIDR block to initiate outbound access to IPv6 endpoints of clients, while preventing IPv6 endpoints of clients from accessing ECS instances in the VPC over the Internet. Invoke CreateIpv6EgressOnlyRule to add an egress-only rule for an IPv6 address.
+ * @summary Creates an IPv6 egress-only rule for an IPv6 address by calling CreateIpv6EgressOnlyRule. You can create an egress-only rule to allow ECS instances in a VPC with an IPv6 CIDR block to proactively access IPv6 endpoints on the client side, while preventing IPv6 endpoints on the client side from accessing ECS instances in the VPC over the Internet.
  *
- * @description - The **CreateIpv6EgressOnlyRule** API is asynchronous. The system returns an instance ID immediately, but the egress-only rule for the IPv6 address has not yet been successfully created, as the creation job continues in the background. You can invoke [DescribeIpv6EgressOnlyRules](https://help.aliyun.com/document_detail/102208.html) to query the creation status of the egress-only rule for the IPv6 address:
- *     - When the egress-only rule for the IPv6 address is in the **Creating** status, it indicates that the rule is still being created.
- *     - When the egress-only rule for the IPv6 address is in the **Created** status, it indicates that the rule has been successfully created.
- * - The **CreateIpv6EgressOnlyRule** API does not support concurrent addition of egress-only rules for the same IPv6 address.
+ * @description - **CreateIpv6EgressOnlyRule** is an asynchronous operation. After you send a request, the system returns an instance ID but the IPv6 egress-only rule is not yet created. The creation task is still running in the background. You can call [DescribeIpv6EgressOnlyRules](https://help.aliyun.com/document_detail/102208.html) to query the creation status of the IPv6 egress-only rule:
+ *     - When the IPv6 egress-only rule is in the **Creating** state, the rule is being created.
+ *     - When the IPv6 egress-only rule is in the **Created** state, the rule is created.
+ * - **CreateIpv6EgressOnlyRule** does not support concurrent creation of egress-only rules for the same IPv6 address.
  *
  * @param request CreateIpv6EgressOnlyRuleRequest
  * @return CreateIpv6EgressOnlyRuleResponse
@@ -5911,14 +5919,14 @@ CreateIpv6EgressOnlyRuleResponse Client::createIpv6EgressOnlyRule(const CreateIp
 }
 
 /**
- * @summary An IPv6 gateway controls IPv6 network traffic for a virtual private cloud (VPC). Creates an IPv6 gateway by calling the CreateIpv6Gateway operation.
+ * @summary Creates an IPv6 gateway. An IPv6 gateway is used to control IPv6 network traffic for a virtual private cloud (VPC).
  *
- * @description - Before you create an IPv6 gateway, make sure that the target VPC and vSwitch have IPv6 CIDR blocks enabled. You can call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/448582.html) to query the VPC configuration.
+ * @description - Before you create an IPv6 gateway, make sure that the target VPC and vSwitch have IPv6 CIDR blocks enabled. You can call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/448582.html) to query the VPC configurations.
  * - You can create only one IPv6 gateway for each VPC.
- * - **CreateIpv6Gateway** is an asynchronous operation. After you send a request, the system returns an instance ID while enable IPv6 gateway is being created in the background. You can call [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) to query the creation status of enable IPv6 gateway:
+ * - **CreateIpv6Gateway** is an asynchronous operation. After you send a request, the system returns an instance ID but enable IPv6 gateway is not yet created. The creation task is still running in the background. You can call [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) to query the creation status of enable IPv6 gateway:
  *     - If enable IPv6 gateway is in the **Creating** state, enable IPv6 gateway is being created.
  *     - If enable IPv6 gateway is in the **Created** state, enable IPv6 gateway is created.
- * - You cannot call **CreateIpv6Gateway** to concurrently create IPv6 gateways in the same VPC.
+ * - **CreateIpv6Gateway** does not support concurrent creation of IPv6 gateways in the same VPC.
  *
  * @param request CreateIpv6GatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5997,14 +6005,14 @@ CreateIpv6GatewayResponse Client::createIpv6GatewayWithOptions(const CreateIpv6G
 }
 
 /**
- * @summary An IPv6 gateway controls IPv6 network traffic for a virtual private cloud (VPC). Creates an IPv6 gateway by calling the CreateIpv6Gateway operation.
+ * @summary Creates an IPv6 gateway. An IPv6 gateway is used to control IPv6 network traffic for a virtual private cloud (VPC).
  *
- * @description - Before you create an IPv6 gateway, make sure that the target VPC and vSwitch have IPv6 CIDR blocks enabled. You can call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/448582.html) to query the VPC configuration.
+ * @description - Before you create an IPv6 gateway, make sure that the target VPC and vSwitch have IPv6 CIDR blocks enabled. You can call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/448582.html) to query the VPC configurations.
  * - You can create only one IPv6 gateway for each VPC.
- * - **CreateIpv6Gateway** is an asynchronous operation. After you send a request, the system returns an instance ID while enable IPv6 gateway is being created in the background. You can call [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) to query the creation status of enable IPv6 gateway:
+ * - **CreateIpv6Gateway** is an asynchronous operation. After you send a request, the system returns an instance ID but enable IPv6 gateway is not yet created. The creation task is still running in the background. You can call [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) to query the creation status of enable IPv6 gateway:
  *     - If enable IPv6 gateway is in the **Creating** state, enable IPv6 gateway is being created.
  *     - If enable IPv6 gateway is in the **Created** state, enable IPv6 gateway is created.
- * - You cannot call **CreateIpv6Gateway** to concurrently create IPv6 gateways in the same VPC.
+ * - **CreateIpv6Gateway** does not support concurrent creation of IPv6 gateways in the same VPC.
  *
  * @param request CreateIpv6GatewayRequest
  * @return CreateIpv6GatewayResponse
@@ -6015,15 +6023,16 @@ CreateIpv6GatewayResponse Client::createIpv6Gateway(const CreateIpv6GatewayReque
 }
 
 /**
- * @summary Createa an enhanced public NAT gateway or a VPC NAT gateway.
+ * @summary Creates an enhanced Internet NAT gateway or a VPC NAT gateway by calling the CreateNatGateway operation.
  *
- * @description Before you call this operation, note the following:
- * - When you create a NAT gateway for the first time, a service-linked role named AliyunServiceRoleForNatgw is automatically created. A permission policy named AliyunServiceRolePolicyForNatgw is attached to this role to allow the NAT gateway to access other cloud resources. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
- * - After an enhanced public NAT gateway is created, the system automatically adds a route entry to the VPC\\"s route table to route traffic to the NAT gateway. This entry sets the destination CIDR block to 0.0.0.0/0 and the next hop to the NAT gateway.
- * - The **CreateNatGateway** operation is asynchronous. After you send a request, the system returns a NAT gateway (public or VPC) instance ID while the creation task runs in the background. Call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) operation to query the status of the NAT gateway.
- *   - A status of **Creating** indicates that the NAT gateway is being created. You can perform only query operations.
- *   - A status of **Available** indicates that the NAT gateway has been created.
- * Creating a NAT gateway takes about 1 to 3 minutes.
+ * @description Before you call this operation, take note of the following information:
+ * - When you create a NAT gateway for the first time, the system performs automatic creation of a service-linked role named AliyunServiceRoleForNatgw and associates the access policy named AliyunServiceRolePolicyForNatgw with the role. This grants the NAT gateway permissions to access other cloud resources. For more information, see [Service-linked role](https://help.aliyun.com/document_detail/174251.html).
+ * - After an enhanced Internet NAT gateway is created, the system automatically adds a route to the VPC route table with the destination CIDR block 0.0.0.0/0 and the next hop set to the NAT gateway. This route directs traffic to the NAT gateway.
+ * - The **CreateNatGateway** operation is asynchronous. After you call this operation, the system returns the instance ID of a NAT gateway (Internet NAT gateway or VPC NAT gateway), but the NAT gateway instance is not yet created. The creation task is still running in the background. You can call [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) to query the status of the NAT gateway.
+ *     - If the NAT gateway is in the **Creating** state, the NAT gateway is being created. In this state, you can only perform query operations.
+ *     - If the NAT gateway is in the **Available** state, the NAT gateway is created.
+ *  
+ *  It takes 1 to 3 minutes to create a NAT gateway.
  *
  * @param tmpReq CreateNatGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6164,15 +6173,16 @@ CreateNatGatewayResponse Client::createNatGatewayWithOptions(const CreateNatGate
 }
 
 /**
- * @summary Createa an enhanced public NAT gateway or a VPC NAT gateway.
+ * @summary Creates an enhanced Internet NAT gateway or a VPC NAT gateway by calling the CreateNatGateway operation.
  *
- * @description Before you call this operation, note the following:
- * - When you create a NAT gateway for the first time, a service-linked role named AliyunServiceRoleForNatgw is automatically created. A permission policy named AliyunServiceRolePolicyForNatgw is attached to this role to allow the NAT gateway to access other cloud resources. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
- * - After an enhanced public NAT gateway is created, the system automatically adds a route entry to the VPC\\"s route table to route traffic to the NAT gateway. This entry sets the destination CIDR block to 0.0.0.0/0 and the next hop to the NAT gateway.
- * - The **CreateNatGateway** operation is asynchronous. After you send a request, the system returns a NAT gateway (public or VPC) instance ID while the creation task runs in the background. Call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) operation to query the status of the NAT gateway.
- *   - A status of **Creating** indicates that the NAT gateway is being created. You can perform only query operations.
- *   - A status of **Available** indicates that the NAT gateway has been created.
- * Creating a NAT gateway takes about 1 to 3 minutes.
+ * @description Before you call this operation, take note of the following information:
+ * - When you create a NAT gateway for the first time, the system performs automatic creation of a service-linked role named AliyunServiceRoleForNatgw and associates the access policy named AliyunServiceRolePolicyForNatgw with the role. This grants the NAT gateway permissions to access other cloud resources. For more information, see [Service-linked role](https://help.aliyun.com/document_detail/174251.html).
+ * - After an enhanced Internet NAT gateway is created, the system automatically adds a route to the VPC route table with the destination CIDR block 0.0.0.0/0 and the next hop set to the NAT gateway. This route directs traffic to the NAT gateway.
+ * - The **CreateNatGateway** operation is asynchronous. After you call this operation, the system returns the instance ID of a NAT gateway (Internet NAT gateway or VPC NAT gateway), but the NAT gateway instance is not yet created. The creation task is still running in the background. You can call [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) to query the status of the NAT gateway.
+ *     - If the NAT gateway is in the **Creating** state, the NAT gateway is being created. In this state, you can only perform query operations.
+ *     - If the NAT gateway is in the **Available** state, the NAT gateway is created.
+ *  
+ *  It takes 1 to 3 minutes to create a NAT gateway.
  *
  * @param request CreateNatGatewayRequest
  * @return CreateNatGatewayResponse
@@ -6185,10 +6195,10 @@ CreateNatGatewayResponse Client::createNatGateway(const CreateNatGatewayRequest 
 /**
  * @summary Creates a NAT IP address for a VPC NAT gateway instance.
  *
- * @description **CreateNatIp** is an asynchronous operation. After you send a request, the system returns a NAT IP address, but the NAT IP address is not yet created. The creation task is still running in the background. You can call [ListNatIps](https://help.aliyun.com/document_detail/287000.html) to query the status of the NAT IP address:
+ * @description **CreateNatIp** is an asynchronous operation. After you call this operation, the system returns a NAT IP address, but the NAT IP address is not yet created. The creation task is still running in the background. You can call [ListNatIps](https://help.aliyun.com/document_detail/287000.html) to query the status of the NAT IP address:
  * - If the NAT IP address is in the **Creating** state, the NAT IP address is being created. In this state, you can only perform query operations.
  * - If the NAT IP address is in the **Available** state, the NAT IP address is created.
- * **CreateNatIp** does not support concurrent creation of NAT IP addresses within the same NAT gateway.
+ * The **CreateNatIp** operation does not support concurrent creation of NAT IP addresses within the same NAT gateway.
  *
  * @param request CreateNatIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6277,10 +6287,10 @@ CreateNatIpResponse Client::createNatIpWithOptions(const CreateNatIpRequest &req
 /**
  * @summary Creates a NAT IP address for a VPC NAT gateway instance.
  *
- * @description **CreateNatIp** is an asynchronous operation. After you send a request, the system returns a NAT IP address, but the NAT IP address is not yet created. The creation task is still running in the background. You can call [ListNatIps](https://help.aliyun.com/document_detail/287000.html) to query the status of the NAT IP address:
+ * @description **CreateNatIp** is an asynchronous operation. After you call this operation, the system returns a NAT IP address, but the NAT IP address is not yet created. The creation task is still running in the background. You can call [ListNatIps](https://help.aliyun.com/document_detail/287000.html) to query the status of the NAT IP address:
  * - If the NAT IP address is in the **Creating** state, the NAT IP address is being created. In this state, you can only perform query operations.
  * - If the NAT IP address is in the **Available** state, the NAT IP address is created.
- * **CreateNatIp** does not support concurrent creation of NAT IP addresses within the same NAT gateway.
+ * The **CreateNatIp** operation does not support concurrent creation of NAT IP addresses within the same NAT gateway.
  *
  * @param request CreateNatIpRequest
  * @return CreateNatIpResponse
@@ -6599,9 +6609,9 @@ CreatePhysicalConnectionResponse Client::createPhysicalConnection(const CreatePh
 }
 
 /**
- * @summary Invoke the CreatePhysicalConnectionOccupancyOrder API to create an order for resource occupancy fees.
+ * @summary Creates an order for resource occupation fees by calling the CreatePhysicalConnectionOccupancyOrder operation.
  *
- * @description > This operation is allowed only for instances whose Express Connect circuit status is **Complete** (waiting for user payment).
+ * @description > Only Express Connect circuits in the Waiting for Payment (**Complete**) state support this operation.
  *
  * @param request CreatePhysicalConnectionOccupancyOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6680,9 +6690,9 @@ CreatePhysicalConnectionOccupancyOrderResponse Client::createPhysicalConnectionO
 }
 
 /**
- * @summary Invoke the CreatePhysicalConnectionOccupancyOrder API to create an order for resource occupancy fees.
+ * @summary Creates an order for resource occupation fees by calling the CreatePhysicalConnectionOccupancyOrder operation.
  *
- * @description > This operation is allowed only for instances whose Express Connect circuit status is **Complete** (waiting for user payment).
+ * @description > Only Express Connect circuits in the Waiting for Payment (**Complete**) state support this operation.
  *
  * @param request CreatePhysicalConnectionOccupancyOrderRequest
  * @return CreatePhysicalConnectionOccupancyOrderResponse
@@ -6693,7 +6703,7 @@ CreatePhysicalConnectionOccupancyOrderResponse Client::createPhysicalConnectionO
 }
 
 /**
- * @summary Creates an order for initial installation of an Express Connect circuit.
+ * @summary Creates an order for the initial installation fee of an Express Connect circuit port by calling CreatePhysicalConnectionSetupOrder.
  *
  * @param request CreatePhysicalConnectionSetupOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6768,7 +6778,7 @@ CreatePhysicalConnectionSetupOrderResponse Client::createPhysicalConnectionSetup
 }
 
 /**
- * @summary Creates an order for initial installation of an Express Connect circuit.
+ * @summary Creates an order for the initial installation fee of an Express Connect circuit port by calling CreatePhysicalConnectionSetupOrder.
  *
  * @param request CreatePhysicalConnectionSetupOrderRequest
  * @return CreatePhysicalConnectionSetupOrderResponse
@@ -6781,7 +6791,7 @@ CreatePhysicalConnectionSetupOrderResponse Client::createPhysicalConnectionSetup
 /**
  * @summary Creates an IP address pool.
  *
- * @description By default, the IP address pool feature is unavailable. You can apply for the privilege to use the **IP address pool feature** in the Quota Center console. For more information, see the "Request a quota increase in the Quota Center console" section in the [Manage EIP quotas](https://help.aliyun.com/document_detail/108213.html) topic.
+ * @description The IP address pool feature is not available by default. To use this feature, apply for the **IP address pool feature** privilege quota in Quota Center. For more information, see [Increase a quota in Quota Center](https://help.aliyun.com/document_detail/108213.html).
  *
  * @param request CreatePublicIpAddressPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6870,7 +6880,7 @@ CreatePublicIpAddressPoolResponse Client::createPublicIpAddressPoolWithOptions(c
 /**
  * @summary Creates an IP address pool.
  *
- * @description By default, the IP address pool feature is unavailable. You can apply for the privilege to use the **IP address pool feature** in the Quota Center console. For more information, see the "Request a quota increase in the Quota Center console" section in the [Manage EIP quotas](https://help.aliyun.com/document_detail/108213.html) topic.
+ * @description The IP address pool feature is not available by default. To use this feature, apply for the **IP address pool feature** privilege quota in Quota Center. For more information, see [Increase a quota in Quota Center](https://help.aliyun.com/document_detail/108213.html).
  *
  * @param request CreatePublicIpAddressPoolRequest
  * @return CreatePublicIpAddressPoolResponse
@@ -6881,20 +6891,20 @@ CreatePublicIpAddressPoolResponse Client::createPublicIpAddressPool(const Create
 }
 
 /**
- * @summary Adds custom routes in a batch to the route table of a VPC router.
+ * @summary Creates custom route entries in a route table of a VPC vRouter in a batch.
  *
- * @description - **CreateRouteEntries** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the status of a route:
- *   - If a route is in the **Creating** state, the route is being created.
- *   - If a route is in the **Created** state, the route is created.
- * - **CreateRouteEntries** does not support concurrent batch operations to add custom routes to the same VPC.
- * **Note the following when you add custom routes to the route table of a VPC router:**
- * - A route table can contain a maximum of 200 custom routes.
- * - The destination CIDR block (**DstCidrBlock**) of a custom route cannot be the same as, overlap with, or be a subset of the CIDR block of a vSwitch in the VPC.
- * - The destination CIDR block (**DstCidrBlock**) of a custom route cannot be 100.64.0.0/10 or a subset of 100.64.0.0/10.
- * - The destination CIDR blocks (**DstCidrBlock**) of routes in the same route table cannot be the same.
- * - An IP address specified as the destination CIDR block (**DstCidrBlock**) is processed with a 32-bit subnet mask.
- * - Multiple custom routes can point to the same next hop (**NextHop**).
- * - The next hop (**NextHop**) of a custom route must be in the same VPC as the route table.
+ * @description - **CreateRouteEntries** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the route has not been created yet. The system continues to run the task in the background. You can invoke [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the creation status of the route:
+ *     - If the route is in the **Creating** state, the route is being created.
+ *     - If the route is in the **Created** state, the route is created.
+ * - **CreateRouteEntries** does not support concurrent batch creation of custom route entries in the same VPC.
+ * **Before you add custom route entries to a route table of a VPC vRouter, take note of the following items:**
+ * - A route table can contain a maximum of 200 custom route entries.
+ * - The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be the same as, contain, or be contained by the CIDR block of a vSwitch in the VPC.
+ * - The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot point to or be contained by 100.64.0.0/10.
+ * - The destination CIDR blocks (**DstCidrBlock**) of route entries in the same route table must be unique.
+ * - If the specified destination CIDR block (**DstCidrBlock**) is an IP address, the system processes it with a 32-bit mask.
+ * - Multiple custom route entries can point to the same next hop (**NextHop**).
+ * - The next hop (**NextHop**) of a custom route entry must be in the same VPC as the route table.
  *
  * @param request CreateRouteEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6953,20 +6963,20 @@ CreateRouteEntriesResponse Client::createRouteEntriesWithOptions(const CreateRou
 }
 
 /**
- * @summary Adds custom routes in a batch to the route table of a VPC router.
+ * @summary Creates custom route entries in a route table of a VPC vRouter in a batch.
  *
- * @description - **CreateRouteEntries** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the status of a route:
- *   - If a route is in the **Creating** state, the route is being created.
- *   - If a route is in the **Created** state, the route is created.
- * - **CreateRouteEntries** does not support concurrent batch operations to add custom routes to the same VPC.
- * **Note the following when you add custom routes to the route table of a VPC router:**
- * - A route table can contain a maximum of 200 custom routes.
- * - The destination CIDR block (**DstCidrBlock**) of a custom route cannot be the same as, overlap with, or be a subset of the CIDR block of a vSwitch in the VPC.
- * - The destination CIDR block (**DstCidrBlock**) of a custom route cannot be 100.64.0.0/10 or a subset of 100.64.0.0/10.
- * - The destination CIDR blocks (**DstCidrBlock**) of routes in the same route table cannot be the same.
- * - An IP address specified as the destination CIDR block (**DstCidrBlock**) is processed with a 32-bit subnet mask.
- * - Multiple custom routes can point to the same next hop (**NextHop**).
- * - The next hop (**NextHop**) of a custom route must be in the same VPC as the route table.
+ * @description - **CreateRouteEntries** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the route has not been created yet. The system continues to run the task in the background. You can invoke [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the creation status of the route:
+ *     - If the route is in the **Creating** state, the route is being created.
+ *     - If the route is in the **Created** state, the route is created.
+ * - **CreateRouteEntries** does not support concurrent batch creation of custom route entries in the same VPC.
+ * **Before you add custom route entries to a route table of a VPC vRouter, take note of the following items:**
+ * - A route table can contain a maximum of 200 custom route entries.
+ * - The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot be the same as, contain, or be contained by the CIDR block of a vSwitch in the VPC.
+ * - The destination CIDR block (**DstCidrBlock**) of a custom route entry cannot point to or be contained by 100.64.0.0/10.
+ * - The destination CIDR blocks (**DstCidrBlock**) of route entries in the same route table must be unique.
+ * - If the specified destination CIDR block (**DstCidrBlock**) is an IP address, the system processes it with a 32-bit mask.
+ * - Multiple custom route entries can point to the same next hop (**NextHop**).
+ * - The next hop (**NextHop**) of a custom route entry must be in the same VPC as the route table.
  *
  * @param request CreateRouteEntriesRequest
  * @return CreateRouteEntriesResponse
@@ -6979,17 +6989,17 @@ CreateRouteEntriesResponse Client::createRouteEntries(const CreateRouteEntriesRe
 /**
  * @summary Creates a custom route entry on a vRouter or Virtual Border Router (VBR).
  *
- * @description - The **CreateRouteEntry** operation is asynchronous. After you send a request, the system returns an instance ID, but the custom route entry has not been created yet. The system continues to run the node in the background. You can invoke [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the status of the route:
+ * @description - **CreateRouteEntry** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the route has not been created yet. The system is still running the task in the background. You can invoke [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the route creation status:
  *     - If the route is in the **Creating** state, the route is being created.
- *     - If the route is in the **Created** state, the route is created.
- * - The **CreateRouteEntry** operation does not support concurrent creation of custom route entries in the same VPC or the same VBR.
- * - The **CreateRouteEntry** operation may return the **TaskConflict** error code in concurrent scenarios. Retry the operation as needed.
- * **Take note of the following items when you use this operation to add custom route entries to a route table of a vRouter:**
- * > When the route to be added is a prefix list route, the routing quota is calculated based on the sum of existing routes and the maximum number of entries in the prefix list route. The sum cannot exceed the routing quota.
+ *     - If the route is in the **Created** state, the route has been created.
+ * - **CreateRouteEntry** does not support concurrent creation of custom route entries in the same VPC or the same VBR.
+ * - **CreateRouteEntry** may return the **TaskConflict** error code in concurrent scenarios. Retry the operation as needed.
+ * **When you use this operation to add a custom route entry to a route table of a vRouter, take note of the following items:**
+ * > When the route to be added is a prefix list route, the route quota is calculated based on the sum of existing routes and the maximum number of entries in the prefix list route. The sum cannot exceed the route quota.
  * - A route table can contain up to 200 custom route entries.
- * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be the same as a vSwitch CIDR block in the VPC. The destination CIDR block can contain a vSwitch CIDR block but cannot be contained by a vSwitch CIDR block.
- * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry can be a more specific CIDR block than the cloud service system route CIDR block `100.64.0.0/10`, but cannot be the same as that CIDR block.
- * <notice>The system route with the destination CIDR block `100.64.0.0/10` is used for communication among cloud services within the VPC. Exercise caution when you configure a more specific route. Incorrect configurations may cause cloud services to become inaccessible.</notice>.
+ * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be the same as a vSwitch CIDR block in the VPC. It can contain a vSwitch CIDR block but cannot be contained by a vSwitch CIDR block.
+ * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry can be a more specific CIDR block than the cloud service system route CIDR block `100.64.0.0/10`, but cannot be the same as this CIDR block.
+ * <notice>The system route with the destination CIDR block `100.64.0.0/10` is used for communication among cloud services within the VPC. Exercise caution when you configure a more specific route. Incorrect configurations may cause cloud services to become inaccessible.</notice>
  * - The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
  * - If the specified destination CIDR block (**DestinationCidrBlock**) is an IP address, it is treated as a CIDR block with a 32-bit mask.
  * - Multiple custom route entries can point to the same next hop (**NextHopId**).
@@ -6998,12 +7008,12 @@ CreateRouteEntriesResponse Client::createRouteEntries(const CreateRouteEntriesRe
  *   * To add a non-ECMP custom route, specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters. Do not specify the **NextHopList** parameter.   
  *  
  *   * To add an ECMP route, specify the **DestinationCidrBlock** and **NextHopList** parameters. Do not specify the **NextHopType** or **NextHopId** parameter.
- * **Take note of the following items when you use this operation to add custom route entries to a route table of a Virtual Border Router (VBR):**
+ * **When you use this operation to add a custom route entry to a route table of a VBR, take note of the following items:**
  * - A route table can contain up to 200 custom route entries.  
  *        
  * - The **NextHopList** parameter is not supported.   
  *        
- * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry can be a more specific CIDR block than the cloud service system route CIDR block `100.64.0.0/10`, but cannot be the same as that CIDR block.
+ * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry can be a more specific CIDR block than the cloud service system route CIDR block `100.64.0.0/10`, but cannot be the same as this CIDR block.
  * <notice>The system route with the destination CIDR block `100.64.0.0/10` is used for communication among cloud services within the VPC. Exercise caution when you configure a more specific route. Incorrect configurations may cause cloud services to become inaccessible.</notice>
  *       
  * - The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.   
@@ -7014,9 +7024,9 @@ CreateRouteEntriesResponse Client::createRouteEntries(const CreateRouteEntriesRe
  *       
  * - The next hop (**NextHopId**) of a custom route entry must be a vRouter interface associated with the VBR.  
  *        
- * - You can create route entries on a VBR only when the VBR is in the **Active** state, the corresponding Express Connect circuit is in the **Enabled** state, and the circuit is not under overdue payment lock.  
+ * - You can create route entries on a VBR only when the VBR is in the **Active** state, the corresponding Express Connect circuit is in the **Enabled** state, and the circuit is not locked due to overdue payment.  
  *       
- * - Only non-ECMP route entries are supported. Specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters. Do not specify the **NextHopList** parameter.
+ * - Only Normal (non-ECMP) routes are supported. Specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters. Do not specify the **NextHopList** parameter.
  *
  * @param request CreateRouteEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7101,17 +7111,17 @@ CreateRouteEntryResponse Client::createRouteEntryWithOptions(const CreateRouteEn
 /**
  * @summary Creates a custom route entry on a vRouter or Virtual Border Router (VBR).
  *
- * @description - The **CreateRouteEntry** operation is asynchronous. After you send a request, the system returns an instance ID, but the custom route entry has not been created yet. The system continues to run the node in the background. You can invoke [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the status of the route:
+ * @description - **CreateRouteEntry** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the route has not been created yet. The system is still running the task in the background. You can invoke [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the route creation status:
  *     - If the route is in the **Creating** state, the route is being created.
- *     - If the route is in the **Created** state, the route is created.
- * - The **CreateRouteEntry** operation does not support concurrent creation of custom route entries in the same VPC or the same VBR.
- * - The **CreateRouteEntry** operation may return the **TaskConflict** error code in concurrent scenarios. Retry the operation as needed.
- * **Take note of the following items when you use this operation to add custom route entries to a route table of a vRouter:**
- * > When the route to be added is a prefix list route, the routing quota is calculated based on the sum of existing routes and the maximum number of entries in the prefix list route. The sum cannot exceed the routing quota.
+ *     - If the route is in the **Created** state, the route has been created.
+ * - **CreateRouteEntry** does not support concurrent creation of custom route entries in the same VPC or the same VBR.
+ * - **CreateRouteEntry** may return the **TaskConflict** error code in concurrent scenarios. Retry the operation as needed.
+ * **When you use this operation to add a custom route entry to a route table of a vRouter, take note of the following items:**
+ * > When the route to be added is a prefix list route, the route quota is calculated based on the sum of existing routes and the maximum number of entries in the prefix list route. The sum cannot exceed the route quota.
  * - A route table can contain up to 200 custom route entries.
- * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be the same as a vSwitch CIDR block in the VPC. The destination CIDR block can contain a vSwitch CIDR block but cannot be contained by a vSwitch CIDR block.
- * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry can be a more specific CIDR block than the cloud service system route CIDR block `100.64.0.0/10`, but cannot be the same as that CIDR block.
- * <notice>The system route with the destination CIDR block `100.64.0.0/10` is used for communication among cloud services within the VPC. Exercise caution when you configure a more specific route. Incorrect configurations may cause cloud services to become inaccessible.</notice>.
+ * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be the same as a vSwitch CIDR block in the VPC. It can contain a vSwitch CIDR block but cannot be contained by a vSwitch CIDR block.
+ * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry can be a more specific CIDR block than the cloud service system route CIDR block `100.64.0.0/10`, but cannot be the same as this CIDR block.
+ * <notice>The system route with the destination CIDR block `100.64.0.0/10` is used for communication among cloud services within the VPC. Exercise caution when you configure a more specific route. Incorrect configurations may cause cloud services to become inaccessible.</notice>
  * - The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.
  * - If the specified destination CIDR block (**DestinationCidrBlock**) is an IP address, it is treated as a CIDR block with a 32-bit mask.
  * - Multiple custom route entries can point to the same next hop (**NextHopId**).
@@ -7120,12 +7130,12 @@ CreateRouteEntryResponse Client::createRouteEntryWithOptions(const CreateRouteEn
  *   * To add a non-ECMP custom route, specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters. Do not specify the **NextHopList** parameter.   
  *  
  *   * To add an ECMP route, specify the **DestinationCidrBlock** and **NextHopList** parameters. Do not specify the **NextHopType** or **NextHopId** parameter.
- * **Take note of the following items when you use this operation to add custom route entries to a route table of a Virtual Border Router (VBR):**
+ * **When you use this operation to add a custom route entry to a route table of a VBR, take note of the following items:**
  * - A route table can contain up to 200 custom route entries.  
  *        
  * - The **NextHopList** parameter is not supported.   
  *        
- * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry can be a more specific CIDR block than the cloud service system route CIDR block `100.64.0.0/10`, but cannot be the same as that CIDR block.
+ * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry can be a more specific CIDR block than the cloud service system route CIDR block `100.64.0.0/10`, but cannot be the same as this CIDR block.
  * <notice>The system route with the destination CIDR block `100.64.0.0/10` is used for communication among cloud services within the VPC. Exercise caution when you configure a more specific route. Incorrect configurations may cause cloud services to become inaccessible.</notice>
  *       
  * - The destination CIDR blocks (**DestinationCidrBlock**) of route entries in the same route table must be unique.   
@@ -7136,9 +7146,9 @@ CreateRouteEntryResponse Client::createRouteEntryWithOptions(const CreateRouteEn
  *       
  * - The next hop (**NextHopId**) of a custom route entry must be a vRouter interface associated with the VBR.  
  *        
- * - You can create route entries on a VBR only when the VBR is in the **Active** state, the corresponding Express Connect circuit is in the **Enabled** state, and the circuit is not under overdue payment lock.  
+ * - You can create route entries on a VBR only when the VBR is in the **Active** state, the corresponding Express Connect circuit is in the **Enabled** state, and the circuit is not locked due to overdue payment.  
  *       
- * - Only non-ECMP route entries are supported. Specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters. Do not specify the **NextHopList** parameter.
+ * - Only Normal (non-ECMP) routes are supported. Specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters. Do not specify the **NextHopList** parameter.
  *
  * @param request CreateRouteEntryRequest
  * @return CreateRouteEntryResponse
@@ -7151,10 +7161,10 @@ CreateRouteEntryResponse Client::createRouteEntry(const CreateRouteEntryRequest 
 /**
  * @summary Creates a custom route table.
  *
- * @description - **CreateRouteTable**接口属于异步接口，即系统会返回一个实例ID，但该自定义路由表尚未创建完成，系统后台的创建任务仍在进行。您可以调用[DescribeRouteTableList](https://help.aliyun.com/document_detail/87602.html)查询自定义路由表的创建状态：
- *     - 当自定义路由表处于**Creating**状态时，表示自定义路由表创建中。
- *     - 当自定义路由表处于**Available**状态时，表示自定义路由表创建完成。
- * - **CreateRouteTable**接口不支持在同一个VPC中并发创建自定义路由表。
+ * @description - **CreateRouteTable** is an asynchronous operation. After you call this operation, the system returns an instance ID, but the custom route table has not been created yet. The creation task is still running in the background. You can call [DescribeRouteTableList](https://help.aliyun.com/document_detail/87602.html) to query the creation status of the custom route table:
+ *     - If the custom route table is in the **Creating** state, the custom route table is being created.
+ *     - If the custom route table is in the **Available** state, the custom route table is created.
+ * - **CreateRouteTable** does not support concurrent creation of custom route tables in the same VPC.
  *
  * @param request CreateRouteTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7231,10 +7241,10 @@ CreateRouteTableResponse Client::createRouteTableWithOptions(const CreateRouteTa
 /**
  * @summary Creates a custom route table.
  *
- * @description - **CreateRouteTable**接口属于异步接口，即系统会返回一个实例ID，但该自定义路由表尚未创建完成，系统后台的创建任务仍在进行。您可以调用[DescribeRouteTableList](https://help.aliyun.com/document_detail/87602.html)查询自定义路由表的创建状态：
- *     - 当自定义路由表处于**Creating**状态时，表示自定义路由表创建中。
- *     - 当自定义路由表处于**Available**状态时，表示自定义路由表创建完成。
- * - **CreateRouteTable**接口不支持在同一个VPC中并发创建自定义路由表。
+ * @description - **CreateRouteTable** is an asynchronous operation. After you call this operation, the system returns an instance ID, but the custom route table has not been created yet. The creation task is still running in the background. You can call [DescribeRouteTableList](https://help.aliyun.com/document_detail/87602.html) to query the creation status of the custom route table:
+ *     - If the custom route table is in the **Creating** state, the custom route table is being created.
+ *     - If the custom route table is in the **Available** state, the custom route table is created.
+ * - **CreateRouteTable** does not support concurrent creation of custom route tables in the same VPC.
  *
  * @param request CreateRouteTableRequest
  * @return CreateRouteTableResponse
@@ -7247,12 +7257,12 @@ CreateRouteTableResponse Client::createRouteTable(const CreateRouteTableRequest 
 /**
  * @summary Creates a route target group instance.
  *
- * @description - **CreateRouteTargetGroup** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the route target group instance is not yet created. The creation node continues in the background. You can invoke **ListRouteTargetGroup** to query the creation status of the routing target group:
+ * @description - **CreateRouteTargetGroup** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the routing target group instance is not yet created. The creation node continues in the background. You can invoke **ListRouteTargetGroup** to query the creation status of the routing target group:
  *     - If the routing target group is in the **Pending** state, the routing target group is being created.
  *     - If the routing target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the routing target group is created.
- * - **Active/standby pattern**: When you create a routing target group, configure primary and secondary instances that are in different zones and of the same type.
- * - **Primary instance**: The weight is 100. The primary instance handles all traffic under normal conditions and takes effect when health checks are successful.
- * - **Secondary instance**: The weight is 0. The secondary instance takes over traffic when the primary instance fails and serves as disaster recovery and backup.
+ * - **Active/standby pattern**: When you create a routing target group, you must configure primary and secondary instances that are in different zones and of the same type.
+ * - **Primary instance**: The weight is 100. The primary instance handles all traffic under normal conditions and takes effect when health checks pass.
+ * - **Secondary instance**: The weight is 0. The secondary instance takes over traffic when the primary instance fails, serving as disaster recovery and backup.
  *
  * @param request CreateRouteTargetGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7317,12 +7327,12 @@ CreateRouteTargetGroupResponse Client::createRouteTargetGroupWithOptions(const C
 /**
  * @summary Creates a route target group instance.
  *
- * @description - **CreateRouteTargetGroup** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the route target group instance is not yet created. The creation node continues in the background. You can invoke **ListRouteTargetGroup** to query the creation status of the routing target group:
+ * @description - **CreateRouteTargetGroup** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the routing target group instance is not yet created. The creation node continues in the background. You can invoke **ListRouteTargetGroup** to query the creation status of the routing target group:
  *     - If the routing target group is in the **Pending** state, the routing target group is being created.
  *     - If the routing target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the routing target group is created.
- * - **Active/standby pattern**: When you create a routing target group, configure primary and secondary instances that are in different zones and of the same type.
- * - **Primary instance**: The weight is 100. The primary instance handles all traffic under normal conditions and takes effect when health checks are successful.
- * - **Secondary instance**: The weight is 0. The secondary instance takes over traffic when the primary instance fails and serves as disaster recovery and backup.
+ * - **Active/standby pattern**: When you create a routing target group, you must configure primary and secondary instances that are in different zones and of the same type.
+ * - **Primary instance**: The weight is 100. The primary instance handles all traffic under normal conditions and takes effect when health checks pass.
+ * - **Secondary instance**: The weight is 0. The secondary instance takes over traffic when the primary instance fails, serving as disaster recovery and backup.
  *
  * @param request CreateRouteTargetGroupRequest
  * @return CreateRouteTargetGroupResponse
@@ -7335,13 +7345,14 @@ CreateRouteTargetGroupResponse Client::createRouteTargetGroup(const CreateRouteT
 /**
  * @summary Creates a router interface.
  *
- * @description When you call this operation, take note of the following limits:
- * *   You can create only one pair of interfaces to be connected between two routers.
- * *   You can create a maximum of five router interfaces for a router.
- * *   If your Alibaba Cloud account has a router interface with overdue payments, you cannot create new router interfaces.
- * *   Each destination CIDR block of route entries in the same route table must be unique.
- * *   A virtual border router (VBR) can serve only as a requester. The VBR must be in the Activated state.
- * *   You can call this operation to create subscription and pay-as-you-go router interfaces.
+ * @description When you call this operation to create a router interface, take note of the following items: 
+ * - A maximum of one pair of interconnected router interfaces can exist between any two routers.  
+ * - A maximum of five router interfaces can be created on a router.  
+ * - If your account has router interfaces with overdue payments, you cannot create router interfaces.  
+ * - Route entries in the same route table cannot have the same destination CIDR block (DestinationCidrBlock).   
+ * - A Virtual Border Router (VBR) can only be the requester and must be in the activated state.  
+ *       
+ * - You can use this operation to create subscription and pay-as-you-go router interfaces.
  *
  * @param request CreateRouterInterfaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7490,13 +7501,14 @@ CreateRouterInterfaceResponse Client::createRouterInterfaceWithOptions(const Cre
 /**
  * @summary Creates a router interface.
  *
- * @description When you call this operation, take note of the following limits:
- * *   You can create only one pair of interfaces to be connected between two routers.
- * *   You can create a maximum of five router interfaces for a router.
- * *   If your Alibaba Cloud account has a router interface with overdue payments, you cannot create new router interfaces.
- * *   Each destination CIDR block of route entries in the same route table must be unique.
- * *   A virtual border router (VBR) can serve only as a requester. The VBR must be in the Activated state.
- * *   You can call this operation to create subscription and pay-as-you-go router interfaces.
+ * @description When you call this operation to create a router interface, take note of the following items: 
+ * - A maximum of one pair of interconnected router interfaces can exist between any two routers.  
+ * - A maximum of five router interfaces can be created on a router.  
+ * - If your account has router interfaces with overdue payments, you cannot create router interfaces.  
+ * - Route entries in the same route table cannot have the same destination CIDR block (DestinationCidrBlock).   
+ * - A Virtual Border Router (VBR) can only be the requester and must be in the activated state.  
+ *       
+ * - You can use this operation to create subscription and pay-as-you-go router interfaces.
  *
  * @param request CreateRouterInterfaceRequest
  * @return CreateRouterInterfaceResponse
@@ -7507,17 +7519,17 @@ CreateRouterInterfaceResponse Client::createRouterInterface(const CreateRouterIn
 }
 
 /**
- * @summary Adds an SNAT entry to an SNAT table.
+ * @summary Calls the CreateSnatEntry operation to add an SNAT entry to an SNAT table.
  *
- * @description You can call this operation to add SNAT entries to Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways. In this topic, a **NAT** gateway refers to both gateway types.
- * Before you call this operation, take note of the following limits:
- * *   **CreateSnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of the task.
- *     *   If the SNAT entry is in the **Pending** state, the system is adding the SNAT entry. You can only query the status of the SNAT entry, and cannot perform other operations.
- *     *   If the SNAT entry is in the **Available** state, the SNAT entry is added.
- * *   You cannot repeatedly call the **CreateSnatEntry** operation to add an SNAT entry to an SNAT table within the specified period of time.
- * *   The vSwitch and Elastic Compute Service (ECS) instance specified in an SNAT entry must be created in the VPC where the NAT gateway is deployed.
- * *   Each vSwitch or ECS instance can be specified in only one SNAT entry.
- * *   If a high-availability virtual IP address (HAVIP) exists in a vSwitch, you cannot create SNAT entries.
+ * @description This operation can add SNAT entries for enhanced Internet NAT gateways and VPC NAT gateways. The term **NAT gateway** in this topic refers to both types without distinction.
+ * Before you call this operation to add an SNAT entry, take note of the following information:
+ * - **CreateSnatEntry** is an asynchronous operation. After you call this operation, the system returns an SNAT entry ID but the SNAT entry is not yet added. The system adds the SNAT entry in the background. You can call [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) to query the status of the SNAT entry:
+ *     - If the SNAT entry is in the **Pending** state, the SNAT entry is being added. In this state, you can only perform query operations and cannot perform other operations.
+ *     - If the SNAT entry is in the **Available** state, the SNAT entry is added.
+ * - The vSwitch and ECS instance specified in the SNAT entry must be in the VPC to which the NAT gateway belongs.
+ * - Each vSwitch and ECS instance can belong to only one SNAT entry.
+ *   
+ * - If a high-availability virtual IP address instance exists in the vSwitch, you cannot add an SNAT entry.
  *
  * @param request CreateSnatEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7600,17 +7612,17 @@ CreateSnatEntryResponse Client::createSnatEntryWithOptions(const CreateSnatEntry
 }
 
 /**
- * @summary Adds an SNAT entry to an SNAT table.
+ * @summary Calls the CreateSnatEntry operation to add an SNAT entry to an SNAT table.
  *
- * @description You can call this operation to add SNAT entries to Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways. In this topic, a **NAT** gateway refers to both gateway types.
- * Before you call this operation, take note of the following limits:
- * *   **CreateSnatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of the task.
- *     *   If the SNAT entry is in the **Pending** state, the system is adding the SNAT entry. You can only query the status of the SNAT entry, and cannot perform other operations.
- *     *   If the SNAT entry is in the **Available** state, the SNAT entry is added.
- * *   You cannot repeatedly call the **CreateSnatEntry** operation to add an SNAT entry to an SNAT table within the specified period of time.
- * *   The vSwitch and Elastic Compute Service (ECS) instance specified in an SNAT entry must be created in the VPC where the NAT gateway is deployed.
- * *   Each vSwitch or ECS instance can be specified in only one SNAT entry.
- * *   If a high-availability virtual IP address (HAVIP) exists in a vSwitch, you cannot create SNAT entries.
+ * @description This operation can add SNAT entries for enhanced Internet NAT gateways and VPC NAT gateways. The term **NAT gateway** in this topic refers to both types without distinction.
+ * Before you call this operation to add an SNAT entry, take note of the following information:
+ * - **CreateSnatEntry** is an asynchronous operation. After you call this operation, the system returns an SNAT entry ID but the SNAT entry is not yet added. The system adds the SNAT entry in the background. You can call [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) to query the status of the SNAT entry:
+ *     - If the SNAT entry is in the **Pending** state, the SNAT entry is being added. In this state, you can only perform query operations and cannot perform other operations.
+ *     - If the SNAT entry is in the **Available** state, the SNAT entry is added.
+ * - The vSwitch and ECS instance specified in the SNAT entry must be in the VPC to which the NAT gateway belongs.
+ * - Each vSwitch and ECS instance can belong to only one SNAT entry.
+ *   
+ * - If a high-availability virtual IP address instance exists in the vSwitch, you cannot add an SNAT entry.
  *
  * @param request CreateSnatEntryRequest
  * @return CreateSnatEntryResponse
@@ -7621,9 +7633,9 @@ CreateSnatEntryResponse Client::createSnatEntry(const CreateSnatEntryRequest &re
 }
 
 /**
- * @summary Creates an SSL-VPN client certificate by calling the CreateSslVpnClientCert operation.
+ * @summary Calls the CreateSslVpnClientCert operation to create an SSL client certificate.
  *
- * @description Before you create an SSL-VPN client certificate, make sure that an SSL-VPN server has been created for the VPN gateway instance. For more information, see [CreateSslVpnServer](https://help.aliyun.com/document_detail/2794075.html).
+ * @description Before you create an SSL client certificate, make sure that an SSL server has been created for the VPN gateway instance. For more information, see [CreateSslVpnServer](https://help.aliyun.com/document_detail/2794075.html).
  *
  * @param request CreateSslVpnClientCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7682,9 +7694,9 @@ CreateSslVpnClientCertResponse Client::createSslVpnClientCertWithOptions(const C
 }
 
 /**
- * @summary Creates an SSL-VPN client certificate by calling the CreateSslVpnClientCert operation.
+ * @summary Calls the CreateSslVpnClientCert operation to create an SSL client certificate.
  *
- * @description Before you create an SSL-VPN client certificate, make sure that an SSL-VPN server has been created for the VPN gateway instance. For more information, see [CreateSslVpnServer](https://help.aliyun.com/document_detail/2794075.html).
+ * @description Before you create an SSL client certificate, make sure that an SSL server has been created for the VPN gateway instance. For more information, see [CreateSslVpnServer](https://help.aliyun.com/document_detail/2794075.html).
  *
  * @param request CreateSslVpnClientCertRequest
  * @return CreateSslVpnClientCertResponse
@@ -7695,12 +7707,12 @@ CreateSslVpnClientCertResponse Client::createSslVpnClientCert(const CreateSslVpn
 }
 
 /**
- * @summary Creates an SSL server.
+ * @summary Creates an SSL-VPN server.
  *
- * @description - **CreateSslVpnServer** is an asynchronous operation. After you send a request, the system returns an instance ID but the SSL server has not been created yet. The creation task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the VPN gateway instance to determine the creation status of the SSL server:
- *   - If the VPN gateway instance is in the **updating** state, the SSL server is being created.
- *   - If the VPN gateway instance is in the **active** state, the SSL server is created.
- * - **CreateSslVpnServer** does not support concurrent creation of SSL servers under the same VPN gateway.
+ * @description - **CreateSslVpnServer** is an asynchronous operation. After you call this operation, the system returns an instance ID but the SSL-VPN server is not yet created. The creation task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the VPN gateway instance to determine the creation status of the SSL-VPN server:
+ *   - If the VPN gateway instance is in the **updating** state, the SSL-VPN server is being created.
+ *   - If the VPN gateway instance is in the **active** state, the SSL-VPN server is created.
+ * - **CreateSslVpnServer** does not support concurrent creation of SSL-VPN servers under the same VPN gateway.
  * ### Before you begin
  * - You have created a VPN gateway with the SSL-VPN feature enabled. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
  * - If you want to enable two-factor authentication for the SSL server, make sure that the VPN gateway instance supports this feature. You may need to upgrade the VPN gateway instance. For more information, see [SSL-VPN two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
@@ -7810,12 +7822,12 @@ CreateSslVpnServerResponse Client::createSslVpnServerWithOptions(const CreateSsl
 }
 
 /**
- * @summary Creates an SSL server.
+ * @summary Creates an SSL-VPN server.
  *
- * @description - **CreateSslVpnServer** is an asynchronous operation. After you send a request, the system returns an instance ID but the SSL server has not been created yet. The creation task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the VPN gateway instance to determine the creation status of the SSL server:
- *   - If the VPN gateway instance is in the **updating** state, the SSL server is being created.
- *   - If the VPN gateway instance is in the **active** state, the SSL server is created.
- * - **CreateSslVpnServer** does not support concurrent creation of SSL servers under the same VPN gateway.
+ * @description - **CreateSslVpnServer** is an asynchronous operation. After you call this operation, the system returns an instance ID but the SSL-VPN server is not yet created. The creation task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the VPN gateway instance to determine the creation status of the SSL-VPN server:
+ *   - If the VPN gateway instance is in the **updating** state, the SSL-VPN server is being created.
+ *   - If the VPN gateway instance is in the **active** state, the SSL-VPN server is created.
+ * - **CreateSslVpnServer** does not support concurrent creation of SSL-VPN servers under the same VPN gateway.
  * ### Before you begin
  * - You have created a VPN gateway with the SSL-VPN feature enabled. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
  * - If you want to enable two-factor authentication for the SSL server, make sure that the VPN gateway instance supports this feature. You may need to upgrade the VPN gateway instance. For more information, see [SSL-VPN two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
@@ -7829,9 +7841,9 @@ CreateSslVpnServerResponse Client::createSslVpnServer(const CreateSslVpnServerRe
 }
 
 /**
- * @summary Calls the CreateTrafficMirrorFilter operation to create a traffic mirror filter.
+ * @summary Invokes the CreateTrafficMirrorFilter operation to create a traffic mirror filter.
  *
- * @description The **CreateTrafficMirrorFilter** operation is an asynchronous operation. After you send the request, the system returns an instance ID but the traffic mirror filter is not yet created. The creation task is still running in the background. You can call [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the status of the traffic mirror filter:
+ * @description **CreateTrafficMirrorFilter** is an asynchronous operation. After you send a request, the system returns an instance ID but the traffic mirror filter is not yet created. The creation task is still running in the background. You can invoke [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the creation status of the traffic mirror filter:
  * - If the traffic mirror filter is in the **Creating** state, the traffic mirror filter is being created.
  * - If the traffic mirror filter is in the **Created** state, the traffic mirror filter is created.
  *
@@ -7912,9 +7924,9 @@ CreateTrafficMirrorFilterResponse Client::createTrafficMirrorFilterWithOptions(c
 }
 
 /**
- * @summary Calls the CreateTrafficMirrorFilter operation to create a traffic mirror filter.
+ * @summary Invokes the CreateTrafficMirrorFilter operation to create a traffic mirror filter.
  *
- * @description The **CreateTrafficMirrorFilter** operation is an asynchronous operation. After you send the request, the system returns an instance ID but the traffic mirror filter is not yet created. The creation task is still running in the background. You can call [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the status of the traffic mirror filter:
+ * @description **CreateTrafficMirrorFilter** is an asynchronous operation. After you send a request, the system returns an instance ID but the traffic mirror filter is not yet created. The creation task is still running in the background. You can invoke [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the creation status of the traffic mirror filter:
  * - If the traffic mirror filter is in the **Creating** state, the traffic mirror filter is being created.
  * - If the traffic mirror filter is in the **Created** state, the traffic mirror filter is created.
  *
@@ -7927,7 +7939,12 @@ CreateTrafficMirrorFilterResponse Client::createTrafficMirrorFilter(const Create
 }
 
 /**
- * @summary Creates an inbound or outbound rule for traffic mirror.
+ * @summary Invokes the CreateTrafficMirrorFilterRules operation to create inbound or outbound rules for a traffic mirror filter.
+ *
+ * @description - **CreateTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns an instance ID but the inbound or outbound traffic mirroring filter rule is not yet created. The creation node is still running in the background. You can invoke [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the creation status of the inbound or outbound traffic mirroring filter rule:
+ *     - If the inbound or outbound traffic mirroring filter rule is in the **Creating** state, the rule is being created.
+ *     - If the inbound or outbound traffic mirroring filter rule is in the **Created** state, the rule is created.
+ * - **CreateTrafficMirrorFilterRules** does not support concurrent creation of inbound or outbound traffic mirroring filter rules for the same traffic mirror filter.
  *
  * @param request CreateTrafficMirrorFilterRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7994,7 +8011,12 @@ CreateTrafficMirrorFilterRulesResponse Client::createTrafficMirrorFilterRulesWit
 }
 
 /**
- * @summary Creates an inbound or outbound rule for traffic mirror.
+ * @summary Invokes the CreateTrafficMirrorFilterRules operation to create inbound or outbound rules for a traffic mirror filter.
+ *
+ * @description - **CreateTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns an instance ID but the inbound or outbound traffic mirroring filter rule is not yet created. The creation node is still running in the background. You can invoke [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the creation status of the inbound or outbound traffic mirroring filter rule:
+ *     - If the inbound or outbound traffic mirroring filter rule is in the **Creating** state, the rule is being created.
+ *     - If the inbound or outbound traffic mirroring filter rule is in the **Created** state, the rule is created.
+ * - **CreateTrafficMirrorFilterRules** does not support concurrent creation of inbound or outbound traffic mirroring filter rules for the same traffic mirror filter.
  *
  * @param request CreateTrafficMirrorFilterRulesRequest
  * @return CreateTrafficMirrorFilterRulesResponse
@@ -8005,11 +8027,11 @@ CreateTrafficMirrorFilterRulesResponse Client::createTrafficMirrorFilterRules(co
 }
 
 /**
- * @summary Creates a traffic mirror session.
+ * @summary Creates a traffic mirror session by calling CreateTrafficMirrorSession.
  *
- * @description **CreateTrafficMirrorSession**接口属于异步接口，即系统返回一个实例ID，但该镜像会话尚未创建成功，系统后台的创建任务仍在进行。您可以调用[ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html)查询镜像会话的创建状态：
- * - 当镜像会话处于**Creating**状态时，表示镜像会话正在创建中。
- * - 当镜像会话处于**Created**状态时，表示镜像会话创建完成。
+ * @description **CreateTrafficMirrorSession** is an asynchronous operation. After you send a request, the system returns an instance ID while the traffic mirror session is still being created in the background. You can invoke [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) to query the creation status of the traffic mirror session:
+ * - If the traffic mirror session is in the **Creating** state, the traffic mirror session is being created.
+ * - If the traffic mirror session is in the **Created** state, the traffic mirror session is created.
  *
  * @param request CreateTrafficMirrorSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8112,11 +8134,11 @@ CreateTrafficMirrorSessionResponse Client::createTrafficMirrorSessionWithOptions
 }
 
 /**
- * @summary Creates a traffic mirror session.
+ * @summary Creates a traffic mirror session by calling CreateTrafficMirrorSession.
  *
- * @description **CreateTrafficMirrorSession**接口属于异步接口，即系统返回一个实例ID，但该镜像会话尚未创建成功，系统后台的创建任务仍在进行。您可以调用[ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html)查询镜像会话的创建状态：
- * - 当镜像会话处于**Creating**状态时，表示镜像会话正在创建中。
- * - 当镜像会话处于**Created**状态时，表示镜像会话创建完成。
+ * @description **CreateTrafficMirrorSession** is an asynchronous operation. After you send a request, the system returns an instance ID while the traffic mirror session is still being created in the background. You can invoke [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) to query the creation status of the traffic mirror session:
+ * - If the traffic mirror session is in the **Creating** state, the traffic mirror session is being created.
+ * - If the traffic mirror session is in the **Created** state, the traffic mirror session is created.
  *
  * @param request CreateTrafficMirrorSessionRequest
  * @return CreateTrafficMirrorSessionResponse
@@ -8129,17 +8151,18 @@ CreateTrafficMirrorSessionResponse Client::createTrafficMirrorSession(const Crea
 /**
  * @summary Creates a vSwitch.
  *
- * @description When you call this operation, take note of the following limits:
- * *   You can create at most 150 vSwitches in a virtual private cloud (VPC).
- * *   The first IP address and last three IP addresses of each vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
- * *   The number of instances in a vSwitch cannot exceed the remaining capacity of the VPC. The remaining capacity is the difference between 15,000 and the current number of instances.
- * *   Each instance can belong to only one vSwitch.
- * *   vSwitches do not support multicast or broadcast.
- * *   After you create a vSwitch, you cannot modify its CIDR block.
- * *   **CreateVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the status of the task.
- *     *   If the vSwitch is in the **Pending** state, the vSwitch is being configured.
- *     *   If the vSwitch is in the **Available** state, the vSwitch is available.
- * *   You cannot repeatedly call the **CreateVSwitch** operation to create a vSwitch in a VPC within the specified period of time.
+ * @description Before you begin:
+ * - The number of vSwitches in each VPC cannot exceed 150.
+ * - The first and last three IP addresses of each vSwitch CIDR block are reserved by the system. For example, the system reserved IP addresses of 192.168.1.0/24 are 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+ * - The number of cloud service instances in a vSwitch cannot exceed the remaining available cloud service instances in the VPC (15,000 minus the current number of cloud service instances).
+ * - A cloud service instance can belong to only one vSwitch.
+ * - vSwitches do not support multicast or broadcast.
+ * - After a vSwitch is created, you cannot modify its CIDR block.
+ * - The **CreateVSwitch** operation is asynchronous. After you send a request, the system returns an instance ID, but the vSwitch is not yet created. The background node is still in progress. You can invoke [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the creation status of the vSwitch:
+ *     - If the vSwitch is in the **Pending** state, the vSwitch is being configured.
+ *     - If the vSwitch is in the **Available** state, the vSwitch is active.
+ * - The **CreateVSwitch** operation does not support concurrent creation of vSwitches in the same VPC.
+ * - The **CreateVSwitch** operation does not support creating vSwitches with the CIDR block 100.64.0.0/10 or its subnets.
  *
  * @param request CreateVSwitchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8224,17 +8247,18 @@ CreateVSwitchResponse Client::createVSwitchWithOptions(const CreateVSwitchReques
 /**
  * @summary Creates a vSwitch.
  *
- * @description When you call this operation, take note of the following limits:
- * *   You can create at most 150 vSwitches in a virtual private cloud (VPC).
- * *   The first IP address and last three IP addresses of each vSwitch CIDR block are reserved. For example, if the CIDR block of a vSwitch is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
- * *   The number of instances in a vSwitch cannot exceed the remaining capacity of the VPC. The remaining capacity is the difference between 15,000 and the current number of instances.
- * *   Each instance can belong to only one vSwitch.
- * *   vSwitches do not support multicast or broadcast.
- * *   After you create a vSwitch, you cannot modify its CIDR block.
- * *   **CreateVSwitch** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the status of the task.
- *     *   If the vSwitch is in the **Pending** state, the vSwitch is being configured.
- *     *   If the vSwitch is in the **Available** state, the vSwitch is available.
- * *   You cannot repeatedly call the **CreateVSwitch** operation to create a vSwitch in a VPC within the specified period of time.
+ * @description Before you begin:
+ * - The number of vSwitches in each VPC cannot exceed 150.
+ * - The first and last three IP addresses of each vSwitch CIDR block are reserved by the system. For example, the system reserved IP addresses of 192.168.1.0/24 are 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+ * - The number of cloud service instances in a vSwitch cannot exceed the remaining available cloud service instances in the VPC (15,000 minus the current number of cloud service instances).
+ * - A cloud service instance can belong to only one vSwitch.
+ * - vSwitches do not support multicast or broadcast.
+ * - After a vSwitch is created, you cannot modify its CIDR block.
+ * - The **CreateVSwitch** operation is asynchronous. After you send a request, the system returns an instance ID, but the vSwitch is not yet created. The background node is still in progress. You can invoke [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the creation status of the vSwitch:
+ *     - If the vSwitch is in the **Pending** state, the vSwitch is being configured.
+ *     - If the vSwitch is in the **Available** state, the vSwitch is active.
+ * - The **CreateVSwitch** operation does not support concurrent creation of vSwitches in the same VPC.
+ * - The **CreateVSwitch** operation does not support creating vSwitches with the CIDR block 100.64.0.0/10 or its subnets.
  *
  * @param request CreateVSwitchRequest
  * @return CreateVSwitchResponse
@@ -8247,15 +8271,14 @@ CreateVSwitchResponse Client::createVSwitch(const CreateVSwitchRequest &request)
 /**
  * @summary Creates a reserved CIDR block for a vSwitch.
  *
- * @description ## [](#)Description
- * Take note of the following items:
- * *   You can create at most 10 reserved IPv4 CIDR blocks and 10 reserved IPv6 CIDR blocks for each vSwitch in a virtual private cloud (VPC).
- * *   After you create a reserved CIDR block for a vSwitch, the CIDR block cannot contain the IP address of the subnet gateway of the VPC to which the vSwitch belongs.
- * *   **CreateVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](https://help.aliyun.com/document_detail/610155.html) to query the status of the task:
- *     *   If the vSwitch is in the **Assigning** state, the reserved CIDR block is being created.
- *     *   If the vSwitch is in the **Assigned** state, the reserved CIDR block is created.
- * *   When you create a reserved IPv4 CIDR block for a vSwitch, the first IP address and the last three IP addresses of the vSwitch are reserved by the system. The four IP addresses will not be allocated.
- * *   When you create a reserved IPv6 CIDR block for a vSwitch, the first IP address and the last nine IP addresses of the vSwitch are reserved by the system. The 10 IP addresses will not be allocated. For example, if you create a reserved IPv4 CIDR block for a vSwitch whose CIDR block is 192.168.1.0/24, the reserved CIDR block cannot contain the following IP addresses: 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+ * @description When you invoke this operation to create a reserved CIDR block for a vSwitch, take note of the following items:
+ * - The maximum number of reserved IPv4 and IPv6 CIDR blocks in a VPC is 100 each.
+ * - A reserved CIDR block cannot contain the system reserved IP addresses of the vSwitch to which it belongs.
+ *     - IPv4 CIDR block: The first and last three IP addresses of the vSwitch are system reserved IP addresses.
+ *     - IPv6 CIDR block: The first and last nine IP addresses of the vSwitch are system reserved IP addresses.
+ * - The **CreateVSwitchCidrReservation** operation is asynchronous. After you send a request, the system returns an instance ID, but the reserved CIDR block for a vSwitch has not been created. The system continues to run the background node. You can invoke [ListVSwitchCidrReservations](https://help.aliyun.com/document_detail/610155.html) to query the creation status of the reserved CIDR block for a vSwitch:
+ *     - If the reserved CIDR block for a vSwitch is in the **Assigning** state, the reserved CIDR block for a vSwitch is being allocated.
+ *     - If the reserved CIDR block for a vSwitch is in the **Assigned** state, the reserved CIDR block for a vSwitch has been allocated.
  *
  * @param request CreateVSwitchCidrReservationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8344,15 +8367,14 @@ CreateVSwitchCidrReservationResponse Client::createVSwitchCidrReservationWithOpt
 /**
  * @summary Creates a reserved CIDR block for a vSwitch.
  *
- * @description ## [](#)Description
- * Take note of the following items:
- * *   You can create at most 10 reserved IPv4 CIDR blocks and 10 reserved IPv6 CIDR blocks for each vSwitch in a virtual private cloud (VPC).
- * *   After you create a reserved CIDR block for a vSwitch, the CIDR block cannot contain the IP address of the subnet gateway of the VPC to which the vSwitch belongs.
- * *   **CreateVSwitchCidrReservation** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListVSwitchCidrReservations](https://help.aliyun.com/document_detail/610155.html) to query the status of the task:
- *     *   If the vSwitch is in the **Assigning** state, the reserved CIDR block is being created.
- *     *   If the vSwitch is in the **Assigned** state, the reserved CIDR block is created.
- * *   When you create a reserved IPv4 CIDR block for a vSwitch, the first IP address and the last three IP addresses of the vSwitch are reserved by the system. The four IP addresses will not be allocated.
- * *   When you create a reserved IPv6 CIDR block for a vSwitch, the first IP address and the last nine IP addresses of the vSwitch are reserved by the system. The 10 IP addresses will not be allocated. For example, if you create a reserved IPv4 CIDR block for a vSwitch whose CIDR block is 192.168.1.0/24, the reserved CIDR block cannot contain the following IP addresses: 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
+ * @description When you invoke this operation to create a reserved CIDR block for a vSwitch, take note of the following items:
+ * - The maximum number of reserved IPv4 and IPv6 CIDR blocks in a VPC is 100 each.
+ * - A reserved CIDR block cannot contain the system reserved IP addresses of the vSwitch to which it belongs.
+ *     - IPv4 CIDR block: The first and last three IP addresses of the vSwitch are system reserved IP addresses.
+ *     - IPv6 CIDR block: The first and last nine IP addresses of the vSwitch are system reserved IP addresses.
+ * - The **CreateVSwitchCidrReservation** operation is asynchronous. After you send a request, the system returns an instance ID, but the reserved CIDR block for a vSwitch has not been created. The system continues to run the background node. You can invoke [ListVSwitchCidrReservations](https://help.aliyun.com/document_detail/610155.html) to query the creation status of the reserved CIDR block for a vSwitch:
+ *     - If the reserved CIDR block for a vSwitch is in the **Assigning** state, the reserved CIDR block for a vSwitch is being allocated.
+ *     - If the reserved CIDR block for a vSwitch is in the **Assigned** state, the reserved CIDR block for a vSwitch has been allocated.
  *
  * @param request CreateVSwitchCidrReservationRequest
  * @return CreateVSwitchCidrReservationResponse
@@ -8445,15 +8467,15 @@ CreateVbrHaResponse Client::createVbrHa(const CreateVbrHaRequest &request) {
 }
 
 /**
- * @summary Adds a destination-based route for an IPsec-VPN connection.
+ * @summary Calls the CreateVcoRouteEntry operation to add a destination route entry to an IPsec-VPN connection.
  *
- * @description - The IPsec-VPN connection must be attached to a transit router instance. For more information, see [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468249.html).  
- * - You cannot add a destination-based route with a destination CIDR block of 0.0.0.0/0.  
- * - Do not add destination-based routes with a destination CIDR block of 100.64.0.0/10, any subnet within 100.64.0.0/10, or any CIDR block that includes 100.64.0.0/10. Such route entries may cause the console to fail to display the status of the IPsec-VPN connection or cause IPsec tunnel negotiation to fail.  
- * - The **CreateVcoRouteEntry** API is asynchronous. The system immediately returns an instance ID, but the destination-based route entry is not yet created successfully. The creation task continues in the background. You can invoke [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the creation status of the destination-based route entry:  
- *     - If the IPsec-VPN connection is in the **updating** state, the destination-based route entry is being created.  
- *     - If the IPsec-VPN connection is in the **attached** state, the destination-based route entry has been created successfully.  
- * - The **CreateVcoRouteEntry** API does not support concurrent creation of destination-based route entries under the same IPsec-VPN connection.
+ * @description - The IPsec-VPN connection must be associated with a transit router instance. For more information, see [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468249.html).
+ * - Adding a destination route with a destination CIDR block of 0.0.0.0/0 is not supported.
+ * - Do not add a destination route with a destination CIDR block of 100.64.0.0/10, a subnet of 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10. Such route entries cause the console to fail to display the status of the IPsec-VPN connection or cause IPsec negotiation to fail.
+ * - **CreateVcoRouteEntry** is an asynchronous operation. After you send a request, the system returns an instance ID but the destination route entry is not yet created. The creation task is still running in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the creation status of the destination route entry:
+ *     - If the IPsec-VPN connection is in the **updating** state, the destination route entry is being created.
+ *     - If the IPsec-VPN connection is in the **attached** state, the destination route entry is created.
+ * - **CreateVcoRouteEntry** does not support concurrent creation of destination route entries for the same IPsec-VPN connection.
  *
  * @param request CreateVcoRouteEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8528,15 +8550,15 @@ CreateVcoRouteEntryResponse Client::createVcoRouteEntryWithOptions(const CreateV
 }
 
 /**
- * @summary Adds a destination-based route for an IPsec-VPN connection.
+ * @summary Calls the CreateVcoRouteEntry operation to add a destination route entry to an IPsec-VPN connection.
  *
- * @description - The IPsec-VPN connection must be attached to a transit router instance. For more information, see [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468249.html).  
- * - You cannot add a destination-based route with a destination CIDR block of 0.0.0.0/0.  
- * - Do not add destination-based routes with a destination CIDR block of 100.64.0.0/10, any subnet within 100.64.0.0/10, or any CIDR block that includes 100.64.0.0/10. Such route entries may cause the console to fail to display the status of the IPsec-VPN connection or cause IPsec tunnel negotiation to fail.  
- * - The **CreateVcoRouteEntry** API is asynchronous. The system immediately returns an instance ID, but the destination-based route entry is not yet created successfully. The creation task continues in the background. You can invoke [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the creation status of the destination-based route entry:  
- *     - If the IPsec-VPN connection is in the **updating** state, the destination-based route entry is being created.  
- *     - If the IPsec-VPN connection is in the **attached** state, the destination-based route entry has been created successfully.  
- * - The **CreateVcoRouteEntry** API does not support concurrent creation of destination-based route entries under the same IPsec-VPN connection.
+ * @description - The IPsec-VPN connection must be associated with a transit router instance. For more information, see [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468249.html).
+ * - Adding a destination route with a destination CIDR block of 0.0.0.0/0 is not supported.
+ * - Do not add a destination route with a destination CIDR block of 100.64.0.0/10, a subnet of 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10. Such route entries cause the console to fail to display the status of the IPsec-VPN connection or cause IPsec negotiation to fail.
+ * - **CreateVcoRouteEntry** is an asynchronous operation. After you send a request, the system returns an instance ID but the destination route entry is not yet created. The creation task is still running in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the creation status of the destination route entry:
+ *     - If the IPsec-VPN connection is in the **updating** state, the destination route entry is being created.
+ *     - If the IPsec-VPN connection is in the **attached** state, the destination route entry is created.
+ * - **CreateVcoRouteEntry** does not support concurrent creation of destination route entries for the same IPsec-VPN connection.
  *
  * @param request CreateVcoRouteEntryRequest
  * @return CreateVcoRouteEntryResponse
@@ -8547,9 +8569,9 @@ CreateVcoRouteEntryResponse Client::createVcoRouteEntry(const CreateVcoRouteEntr
 }
 
 /**
- * @summary Creates a virtual border router (VBR).
+ * @summary Creates a Virtual Border Router (VBR) instance by calling the CreateVirtualBorderRouter operation.
  *
- * @description After you create a VBR, the VBR is in the **active** state.
+ * @description After a VBR instance is created, the VBR instance status is **active**.
  *
  * @param request CreateVirtualBorderRouterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8664,9 +8686,9 @@ CreateVirtualBorderRouterResponse Client::createVirtualBorderRouterWithOptions(c
 }
 
 /**
- * @summary Creates a virtual border router (VBR).
+ * @summary Creates a Virtual Border Router (VBR) instance by calling the CreateVirtualBorderRouter operation.
  *
- * @description After you create a VBR, the VBR is in the **active** state.
+ * @description After a VBR instance is created, the VBR instance status is **active**.
  *
  * @param request CreateVirtualBorderRouterRequest
  * @return CreateVirtualBorderRouterResponse
@@ -8679,7 +8701,7 @@ CreateVirtualBorderRouterResponse Client::createVirtualBorderRouter(const Create
 /**
  * @summary Invokes the CreateVirtualPhysicalConnection operation to create shared Express Connect circuits.
  *
- * @description Before calling this operation, familiarize yourself with the creation process and environment requirements for shared Express Connect circuits. For more information, see [Overview of shared Express Connect circuits](https://help.aliyun.com/document_detail/146571.html) and [Partner operation guide](https://help.aliyun.com/document_detail/155987.html).
+ * @description Before calling this operation, understand the creation process and environment requirements for shared Express Connect circuits. For more information, see [Overview of shared Express Connect circuits](https://help.aliyun.com/document_detail/146571.html) and [Partner operation guide](https://help.aliyun.com/document_detail/155987.html).
  *
  * @param request CreateVirtualPhysicalConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8756,7 +8778,7 @@ CreateVirtualPhysicalConnectionResponse Client::createVirtualPhysicalConnectionW
 /**
  * @summary Invokes the CreateVirtualPhysicalConnection operation to create shared Express Connect circuits.
  *
- * @description Before calling this operation, familiarize yourself with the creation process and environment requirements for shared Express Connect circuits. For more information, see [Overview of shared Express Connect circuits](https://help.aliyun.com/document_detail/146571.html) and [Partner operation guide](https://help.aliyun.com/document_detail/155987.html).
+ * @description Before calling this operation, understand the creation process and environment requirements for shared Express Connect circuits. For more information, see [Overview of shared Express Connect circuits](https://help.aliyun.com/document_detail/146571.html) and [Partner operation guide](https://help.aliyun.com/document_detail/155987.html).
  *
  * @param request CreateVirtualPhysicalConnectionRequest
  * @return CreateVirtualPhysicalConnectionResponse
@@ -8769,16 +8791,18 @@ CreateVirtualPhysicalConnectionResponse Client::createVirtualPhysicalConnection(
 /**
  * @summary Creates a virtual private cloud (VPC).
  *
- * @description When you call this API, keep the following in mind:
- * - Each VPC can have only one primary IPv4 CIDR block. Add secondary IPv4 CIDR blocks to extend the address space.
- * - After the VPC is created, you can resize the IPv4 CIDR within the original range. Shrinking may fail if any allocated private IP addresses fall outside the target CIDR.
- * - Each VPC supports up to 300,000 private addresses for cloud resources. This quota cannot be increased.
- * - Creating a VPC automatically creates a router and a route table for that VPC.
- * - Each VPC supports up to three user-side CIDR blocks. If one block is a superset of another, the block with the shorter mask takes effect. For example, between `10.0.0.0/16` and `10.0.0.0/24`, `10.0.0.0/16` is the one that applies.
- * - CreateVpc is asynchronous: the response returns a VPC ID while creation continues in the background. Call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) for status:
- *   - **Creating**: The VPC is still being provisioned.
- *   - **Created**:**&#x20;**&#x54;he VPC is ready to use.
- * - You can create multiple non-default VPCs concurrently in the same region, subject to your account [quotas](https://help.aliyun.com/document_detail/27750.html).
+ * @description When you call this operation to create a VPC, take note of the following items:
+ * - A VPC can have only one primary IPv4 CIDR block. You can add IPv4 secondary CIDR blocks to expand the address space.
+ * - After a VPC is created, you can expand or shrink the original IPv4 CIDR block. When you shrink the IPv4 CIDR block of a VPC, if IP addresses already in use fall outside the target CIDR block, the modification fails.
+ * - Each VPC supports up to 300,000 private network IP addresses for cloud resources. This quota cannot be upgraded.
+ *   
+ * - After a VPC is created, a vRouter and a routing table are automatically created.
+ *   
+ * - Each VPC supports up to three user CIDR blocks. If multiple user CIDR blocks overlap, the CIDR block with the shorter mask takes effect. For example, between 10.0.0.0/16 and 10.0.0.0/24, 10.0.0.0/16 takes effect.
+ * - **CreateVpc** is an asynchronous operation. After you send a request, the system returns an instance ID, but the VPC is not yet created. The creation task is still running in the background. You can invoke [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) to query the VPC creation status:
+ *     - If the VPC is in the **Creating** state, the VPC is being created.
+ *     - If the VPC is in the **Created** state, the VPC is created.
+ * - **CreateVpc** supports concurrent creation of non-default VPCs in the same region, subject to [quota](https://help.aliyun.com/document_detail/27750.html) limits.
  *
  * @param request CreateVpcRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8891,16 +8915,18 @@ CreateVpcResponse Client::createVpcWithOptions(const CreateVpcRequest &request, 
 /**
  * @summary Creates a virtual private cloud (VPC).
  *
- * @description When you call this API, keep the following in mind:
- * - Each VPC can have only one primary IPv4 CIDR block. Add secondary IPv4 CIDR blocks to extend the address space.
- * - After the VPC is created, you can resize the IPv4 CIDR within the original range. Shrinking may fail if any allocated private IP addresses fall outside the target CIDR.
- * - Each VPC supports up to 300,000 private addresses for cloud resources. This quota cannot be increased.
- * - Creating a VPC automatically creates a router and a route table for that VPC.
- * - Each VPC supports up to three user-side CIDR blocks. If one block is a superset of another, the block with the shorter mask takes effect. For example, between `10.0.0.0/16` and `10.0.0.0/24`, `10.0.0.0/16` is the one that applies.
- * - CreateVpc is asynchronous: the response returns a VPC ID while creation continues in the background. Call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) for status:
- *   - **Creating**: The VPC is still being provisioned.
- *   - **Created**:**&#x20;**&#x54;he VPC is ready to use.
- * - You can create multiple non-default VPCs concurrently in the same region, subject to your account [quotas](https://help.aliyun.com/document_detail/27750.html).
+ * @description When you call this operation to create a VPC, take note of the following items:
+ * - A VPC can have only one primary IPv4 CIDR block. You can add IPv4 secondary CIDR blocks to expand the address space.
+ * - After a VPC is created, you can expand or shrink the original IPv4 CIDR block. When you shrink the IPv4 CIDR block of a VPC, if IP addresses already in use fall outside the target CIDR block, the modification fails.
+ * - Each VPC supports up to 300,000 private network IP addresses for cloud resources. This quota cannot be upgraded.
+ *   
+ * - After a VPC is created, a vRouter and a routing table are automatically created.
+ *   
+ * - Each VPC supports up to three user CIDR blocks. If multiple user CIDR blocks overlap, the CIDR block with the shorter mask takes effect. For example, between 10.0.0.0/16 and 10.0.0.0/24, 10.0.0.0/16 takes effect.
+ * - **CreateVpc** is an asynchronous operation. After you send a request, the system returns an instance ID, but the VPC is not yet created. The creation task is still running in the background. You can invoke [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) to query the VPC creation status:
+ *     - If the VPC is in the **Creating** state, the VPC is being created.
+ *     - If the VPC is in the **Created** state, the VPC is created.
+ * - **CreateVpc** supports concurrent creation of non-default VPCs in the same region, subject to [quota](https://help.aliyun.com/document_detail/27750.html) limits.
  *
  * @param request CreateVpcRequest
  * @return CreateVpcResponse
@@ -8911,12 +8937,12 @@ CreateVpcResponse Client::createVpc(const CreateVpcRequest &request) {
 }
 
 /**
- * @summary Creates a gateway endpoint.
+ * @summary Creates a VPC gateway endpoint.
  *
- * @description *   **CreateVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns an **EndpointId** and runs the task in the background. You can call the [ListVpcGatewayEndpoints](https://help.aliyun.com/document_detail/448682.html) operation to query the status of the task.
- *     *   If the gateway endpoint is in the **Creating** state, the gateway endpoint is being created.
- *     *   If the gateway endpoint is in the **Created** state, the gateway endpoint is created.
- * *   You cannot repeatedly call the **CreateVpcGatewayEndpoint** operation for the same endpoint service within the specified period of time.
+ * @description - **CreateVpcGatewayEndpoint** is an asynchronous operation. After you send a request, the system returns an **EndpointId** but the gateway endpoint is not yet created. The creation task continues to run in the background. You can call [ListVpcGatewayEndpoints](https://help.aliyun.com/document_detail/448682.html) to query the creation status of the gateway endpoint:
+ *     - If the gateway endpoint is in the **Creating** state, the gateway endpoint is being created.
+ *     - If the gateway endpoint is in the **Created** state, the gateway endpoint is created.
+ * - You cannot call **CreateVpcGatewayEndpoint** to concurrently create gateway endpoints for the same endpoint service.
  *
  * @param request CreateVpcGatewayEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8999,12 +9025,12 @@ CreateVpcGatewayEndpointResponse Client::createVpcGatewayEndpointWithOptions(con
 }
 
 /**
- * @summary Creates a gateway endpoint.
+ * @summary Creates a VPC gateway endpoint.
  *
- * @description *   **CreateVpcGatewayEndpoint** is an asynchronous operation. After a request is sent, the system returns an **EndpointId** and runs the task in the background. You can call the [ListVpcGatewayEndpoints](https://help.aliyun.com/document_detail/448682.html) operation to query the status of the task.
- *     *   If the gateway endpoint is in the **Creating** state, the gateway endpoint is being created.
- *     *   If the gateway endpoint is in the **Created** state, the gateway endpoint is created.
- * *   You cannot repeatedly call the **CreateVpcGatewayEndpoint** operation for the same endpoint service within the specified period of time.
+ * @description - **CreateVpcGatewayEndpoint** is an asynchronous operation. After you send a request, the system returns an **EndpointId** but the gateway endpoint is not yet created. The creation task continues to run in the background. You can call [ListVpcGatewayEndpoints](https://help.aliyun.com/document_detail/448682.html) to query the creation status of the gateway endpoint:
+ *     - If the gateway endpoint is in the **Creating** state, the gateway endpoint is being created.
+ *     - If the gateway endpoint is in the **Created** state, the gateway endpoint is created.
+ * - You cannot call **CreateVpcGatewayEndpoint** to concurrently create gateway endpoints for the same endpoint service.
  *
  * @param request CreateVpcGatewayEndpointRequest
  * @return CreateVpcGatewayEndpointResponse
@@ -9017,7 +9043,7 @@ CreateVpcGatewayEndpointResponse Client::createVpcGatewayEndpoint(const CreateVp
 /**
  * @summary Creates a prefix list.
  *
- * @description You cannot repeatedly call the **CreateVpcPrefixList** operation within the specified period of time.
+ * @description The **CreateVpcPrefixList** operation does not support concurrent creation of prefix lists within the same region.
  *
  * @param request CreateVpcPrefixListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9102,7 +9128,7 @@ CreateVpcPrefixListResponse Client::createVpcPrefixListWithOptions(const CreateV
 /**
  * @summary Creates a prefix list.
  *
- * @description You cannot repeatedly call the **CreateVpcPrefixList** operation within the specified period of time.
+ * @description The **CreateVpcPrefixList** operation does not support concurrent creation of prefix lists within the same region.
  *
  * @param request CreateVpcPrefixListRequest
  * @return CreateVpcPrefixListResponse
@@ -9113,14 +9139,14 @@ CreateVpcPrefixListResponse Client::createVpcPrefixList(const CreateVpcPrefixLis
 }
 
 /**
- * @summary Adds a shared port to a hosted connection.
+ * @summary Transforms the sharing mode of shared Express Connect circuits from cross-account Virtual Border Router (VBR) routing push to cross-account shared port push.
  *
- * @description If an Express Connect partner has created a virtual border router (VBR) for a tenant before, the Express Connect partner can push the Express Connect circuit that is associated with the VBR to the tenant account by adding a shared port for the tenant account. The service of the tenant is not interrupted in this process.
- * Preparations:
- * Before the Express Connect partner performs the operation, the Express Connect partner must notify the tenant and request the tenant to enable outbound data transfer billing. For more information, see [Enable outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html).
- * What to do next:
- * 1.  After the Express Connect partner performs the operation, a shared port is added for the tenant account. The tenant must call the [ConfirmPhysicalConnection](https://help.aliyun.com/document_detail/324198.html) operation to accept the shared port.
- * 2.  Then, the Express Connect partner must call the [AttachVbrToVpconn](https://help.aliyun.com/document_detail/324191.html) operation to associate the VBR with the newly added shared port that belongs to the tenant account.
+ * @description By invoking the CreateVpconnFromVbr operation, a partner can transform the sharing mode of shared Express Connect circuits used by a tenant from cross-account VBR push to cross-account shared port push. The transform procedure does not affect the tenant\\"s services.
+ * Before you execute the transform:
+ * The partner must notify the tenant about the service upgrade in advance and ensure that the tenant has enabled outbound traffic billing. For information about how to enable outbound traffic billing, see [Enable outbound traffic billing](https://help.aliyun.com/document_detail/274385.html).
+ * After the transform is complete:
+ * 1. A shared port is added to the tenant\\"s account. The tenant must invoke the [ConfirmPhysicalConnection](https://help.aliyun.com/document_detail/324198.html) operation to accept the shared port.
+ * 2. After the tenant accepts the shared port, the partner must invoke the [AttachVbrToVpconn](https://help.aliyun.com/document_detail/324191.html) operation to associate the VBR instance with the tenant\\"s shared Express Connect circuits instance.
  *
  * @param request CreateVpconnFromVbrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9167,14 +9193,14 @@ CreateVpconnFromVbrResponse Client::createVpconnFromVbrWithOptions(const CreateV
 }
 
 /**
- * @summary Adds a shared port to a hosted connection.
+ * @summary Transforms the sharing mode of shared Express Connect circuits from cross-account Virtual Border Router (VBR) routing push to cross-account shared port push.
  *
- * @description If an Express Connect partner has created a virtual border router (VBR) for a tenant before, the Express Connect partner can push the Express Connect circuit that is associated with the VBR to the tenant account by adding a shared port for the tenant account. The service of the tenant is not interrupted in this process.
- * Preparations:
- * Before the Express Connect partner performs the operation, the Express Connect partner must notify the tenant and request the tenant to enable outbound data transfer billing. For more information, see [Enable outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html).
- * What to do next:
- * 1.  After the Express Connect partner performs the operation, a shared port is added for the tenant account. The tenant must call the [ConfirmPhysicalConnection](https://help.aliyun.com/document_detail/324198.html) operation to accept the shared port.
- * 2.  Then, the Express Connect partner must call the [AttachVbrToVpconn](https://help.aliyun.com/document_detail/324191.html) operation to associate the VBR with the newly added shared port that belongs to the tenant account.
+ * @description By invoking the CreateVpconnFromVbr operation, a partner can transform the sharing mode of shared Express Connect circuits used by a tenant from cross-account VBR push to cross-account shared port push. The transform procedure does not affect the tenant\\"s services.
+ * Before you execute the transform:
+ * The partner must notify the tenant about the service upgrade in advance and ensure that the tenant has enabled outbound traffic billing. For information about how to enable outbound traffic billing, see [Enable outbound traffic billing](https://help.aliyun.com/document_detail/274385.html).
+ * After the transform is complete:
+ * 1. A shared port is added to the tenant\\"s account. The tenant must invoke the [ConfirmPhysicalConnection](https://help.aliyun.com/document_detail/324198.html) operation to accept the shared port.
+ * 2. After the tenant accepts the shared port, the partner must invoke the [AttachVbrToVpconn](https://help.aliyun.com/document_detail/324191.html) operation to associate the VBR instance with the tenant\\"s shared Express Connect circuits instance.
  *
  * @param request CreateVpconnFromVbrRequest
  * @return CreateVpconnFromVbrResponse
@@ -9185,14 +9211,15 @@ CreateVpconnFromVbrResponse Client::createVpconnFromVbr(const CreateVpconnFromVb
 }
 
 /**
- * @summary Invoke the CreateVpnAttachment API to create an IPsec-VPN connection for attaching a transit router instance.
+ * @summary Creates an IPsec-VPN connection for bindng to a transit router instance by calling the CreateVpnAttachment operation.
  *
  * @description >Notice: 
- * - In the scenario of attaching a transit router, IPsec-VPN connections have been upgraded to dual-tunnel mode. When creating an IPsec-VPN connection, in addition to required parameters, you can configure only the following request parameters related to dual-tunnel mode: **ClientToken**, **Name**, **NetworkType**, **EffectImmediately**, **Tags** array, **ResourceGroupId**, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**. For more information, see [Dual-Tunnel IPsec-VPN Connection Description for Attaching Transit Router Scenario](https://help.aliyun.com/document_detail/2853535.html).
- * - By default, an IPsec-VPN connection created by invoking the `CreateVpnAttachment` API is not attached to any resource. You can later attach it to a transit router instance by invoking the [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443993.html) API. After the attachment, the system assigns a gateway IP address to the IPsec-VPN connection. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) API to view this information.
- * ### Prerequisites
- * Before creating an IPsec-VPN connection, ensure that you have already created a customer gateway in the same Region where the IPsec-VPN connection will be created. For more information, see [CreateCustomerGateway](https://help.aliyun.com/document_detail/120368.html).
- * If you need to add Border Gateway Protocol (BGP) configuration to the IPsec-VPN connection, ensure that an autonomous system number has been added to the customer gateway.
+ * - In the transit router binding scenario, IPsec-VPN connections have been upgraded to dual-tunnel mode. When you create an IPsec-VPN connection, in addition to the required request parameters, only the following dual-tunnel mode-related request parameters are supported: **ClientToken**, **Name**, **NetworkType**, **EffectImmediately**, **Tags** array, **ResourceGroupId**, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**. For more information, see [Dual-tunnel IPsec-VPN connections bound to transit routers](https://help.aliyun.com/document_detail/2853535.html).
+ * - An IPsec-VPN connection created by calling the `CreateVpnAttachment` operation is not bound to any resource by default. You can call the [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443993.html) operation to bind the IPsec-VPN connection to a transit router instance. After the IPsec-VPN connection is bound to a transit router instance, the system allocates a gateway IP address to the IPsec-VPN connection. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to view the gateway IP address.
+ * ### Before you begin
+ * Before you create an IPsec-VPN connection, make sure that you have created a customer gateway in the region where the IPsec-VPN connection resides. For more information, see [CreateCustomerGateway](https://help.aliyun.com/document_detail/120368.html).
+ *         
+ * If you want to add BGP configurations to the IPsec-VPN connection, make sure that an autonomous system number has been added to the customer gateway.
  *
  * @param request CreateVpnAttachmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9325,14 +9352,15 @@ CreateVpnAttachmentResponse Client::createVpnAttachmentWithOptions(const CreateV
 }
 
 /**
- * @summary Invoke the CreateVpnAttachment API to create an IPsec-VPN connection for attaching a transit router instance.
+ * @summary Creates an IPsec-VPN connection for bindng to a transit router instance by calling the CreateVpnAttachment operation.
  *
  * @description >Notice: 
- * - In the scenario of attaching a transit router, IPsec-VPN connections have been upgraded to dual-tunnel mode. When creating an IPsec-VPN connection, in addition to required parameters, you can configure only the following request parameters related to dual-tunnel mode: **ClientToken**, **Name**, **NetworkType**, **EffectImmediately**, **Tags** array, **ResourceGroupId**, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**. For more information, see [Dual-Tunnel IPsec-VPN Connection Description for Attaching Transit Router Scenario](https://help.aliyun.com/document_detail/2853535.html).
- * - By default, an IPsec-VPN connection created by invoking the `CreateVpnAttachment` API is not attached to any resource. You can later attach it to a transit router instance by invoking the [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443993.html) API. After the attachment, the system assigns a gateway IP address to the IPsec-VPN connection. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) API to view this information.
- * ### Prerequisites
- * Before creating an IPsec-VPN connection, ensure that you have already created a customer gateway in the same Region where the IPsec-VPN connection will be created. For more information, see [CreateCustomerGateway](https://help.aliyun.com/document_detail/120368.html).
- * If you need to add Border Gateway Protocol (BGP) configuration to the IPsec-VPN connection, ensure that an autonomous system number has been added to the customer gateway.
+ * - In the transit router binding scenario, IPsec-VPN connections have been upgraded to dual-tunnel mode. When you create an IPsec-VPN connection, in addition to the required request parameters, only the following dual-tunnel mode-related request parameters are supported: **ClientToken**, **Name**, **NetworkType**, **EffectImmediately**, **Tags** array, **ResourceGroupId**, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**. For more information, see [Dual-tunnel IPsec-VPN connections bound to transit routers](https://help.aliyun.com/document_detail/2853535.html).
+ * - An IPsec-VPN connection created by calling the `CreateVpnAttachment` operation is not bound to any resource by default. You can call the [CreateTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443993.html) operation to bind the IPsec-VPN connection to a transit router instance. After the IPsec-VPN connection is bound to a transit router instance, the system allocates a gateway IP address to the IPsec-VPN connection. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to view the gateway IP address.
+ * ### Before you begin
+ * Before you create an IPsec-VPN connection, make sure that you have created a customer gateway in the region where the IPsec-VPN connection resides. For more information, see [CreateCustomerGateway](https://help.aliyun.com/document_detail/120368.html).
+ *         
+ * If you want to add BGP configurations to the IPsec-VPN connection, make sure that an autonomous system number has been added to the customer gateway.
  *
  * @param request CreateVpnAttachmentRequest
  * @return CreateVpnAttachmentResponse
@@ -9343,17 +9371,17 @@ CreateVpnAttachmentResponse Client::createVpnAttachment(const CreateVpnAttachmen
 }
 
 /**
- * @summary Invoke the CreateVpnConnection API to create an IPsec-VPN connection.
+ * @summary Creates an IPsec-VPN connection by calling the CreateVpnConnection operation.
  *
- * @description - If the VPN Gateway instance supports creating IPsec-VPN connections in dual-tunnel mode, when you invoke the `CreateVpnConnection` API, in addition to required parameters, you can also configure the following request parameters:  
- *     **ClientToken**, **Name**, **EffectImmediately**, **AutoConfigRoute**, **Tags** array, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.  
- *     For information about regions and zones that support creating IPsec-VPN connections in dual-tunnel mode, see [Upgrade IPsec-VPN connections to dual-tunnel mode](https://help.aliyun.com/document_detail/2358946.html).  
- * - If the VPN Gateway instance only supports creating IPsec-VPN connections in single-tunnel mode, when you invoke the `CreateVpnConnection` API, in addition to required parameters, you can also configure the following request parameters:  
- *     **ClientToken**, **CustomerGatewayId**, **Name**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, **RemoteCaCertificate**, and **Tags** array.  
- * - The **CreateVpnConnection** API is asynchronous. This means that the system returns an instance ID immediately, but the IPsec-VPN connection has not yet been successfully created, and the creation task continues in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the VPN Gateway instance and determine the creation status of the IPsec-VPN connection:  
- *     - If the VPN Gateway instance is in the **updating** status, the IPsec-VPN connection is being created.  
- *     - If the VPN Gateway instance is in the **active** status, the IPsec-VPN connection has been successfully created.  
- * - The **CreateVpnConnection** API does not support concurrent creation of IPsec-VPN connections under the same VPN Gateway.
+ * @description - If the VPN gateway instance supports creating IPsec-VPN connections in dual-tunnel mode, you can configure the following request parameters in addition to the required parameters when you call the `CreateVpnConnection` operation:
+ *     **ClientToken**, **Name**, **EffectImmediately**, **AutoConfigRoute**, **Tags** array, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.
+ *     For information about the regions and zones that support IPsec-VPN connections in dual-tunnel mode, see [Upgrade an IPsec-VPN connection to dual-tunnel mode](https://help.aliyun.com/document_detail/2358946.html).
+ * - If the VPN gateway instance supports only creating IPsec-VPN connections in single-tunnel mode, you can configure the following request parameters in addition to the required parameters when you call the `CreateVpnConnection` operation:
+ *      **ClientToken**, **CustomerGatewayId**, **Name**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, **RemoteCaCertificate**, and **Tags** array.
+ * - The **CreateVpnConnection** operation is asynchronous. After you send a request, the system returns an instance ID, but the IPsec-VPN connection is not yet created. The creation task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the VPN gateway instance to determine the creation status of the IPsec-VPN connection:
+ *     - If the VPN gateway instance is in the **updating** state, the IPsec-VPN connection is being created.
+ *     - If the VPN gateway instance is in the **active** state, the IPsec-VPN connection is created.
+ * - The **CreateVpnConnection** operation does not support concurrent creation of IPsec-VPN connections under the same VPN gateway.
  *
  * @param request CreateVpnConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9482,17 +9510,17 @@ CreateVpnConnectionResponse Client::createVpnConnectionWithOptions(const CreateV
 }
 
 /**
- * @summary Invoke the CreateVpnConnection API to create an IPsec-VPN connection.
+ * @summary Creates an IPsec-VPN connection by calling the CreateVpnConnection operation.
  *
- * @description - If the VPN Gateway instance supports creating IPsec-VPN connections in dual-tunnel mode, when you invoke the `CreateVpnConnection` API, in addition to required parameters, you can also configure the following request parameters:  
- *     **ClientToken**, **Name**, **EffectImmediately**, **AutoConfigRoute**, **Tags** array, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.  
- *     For information about regions and zones that support creating IPsec-VPN connections in dual-tunnel mode, see [Upgrade IPsec-VPN connections to dual-tunnel mode](https://help.aliyun.com/document_detail/2358946.html).  
- * - If the VPN Gateway instance only supports creating IPsec-VPN connections in single-tunnel mode, when you invoke the `CreateVpnConnection` API, in addition to required parameters, you can also configure the following request parameters:  
- *     **ClientToken**, **CustomerGatewayId**, **Name**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, **RemoteCaCertificate**, and **Tags** array.  
- * - The **CreateVpnConnection** API is asynchronous. This means that the system returns an instance ID immediately, but the IPsec-VPN connection has not yet been successfully created, and the creation task continues in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the VPN Gateway instance and determine the creation status of the IPsec-VPN connection:  
- *     - If the VPN Gateway instance is in the **updating** status, the IPsec-VPN connection is being created.  
- *     - If the VPN Gateway instance is in the **active** status, the IPsec-VPN connection has been successfully created.  
- * - The **CreateVpnConnection** API does not support concurrent creation of IPsec-VPN connections under the same VPN Gateway.
+ * @description - If the VPN gateway instance supports creating IPsec-VPN connections in dual-tunnel mode, you can configure the following request parameters in addition to the required parameters when you call the `CreateVpnConnection` operation:
+ *     **ClientToken**, **Name**, **EffectImmediately**, **AutoConfigRoute**, **Tags** array, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.
+ *     For information about the regions and zones that support IPsec-VPN connections in dual-tunnel mode, see [Upgrade an IPsec-VPN connection to dual-tunnel mode](https://help.aliyun.com/document_detail/2358946.html).
+ * - If the VPN gateway instance supports only creating IPsec-VPN connections in single-tunnel mode, you can configure the following request parameters in addition to the required parameters when you call the `CreateVpnConnection` operation:
+ *      **ClientToken**, **CustomerGatewayId**, **Name**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, **RemoteCaCertificate**, and **Tags** array.
+ * - The **CreateVpnConnection** operation is asynchronous. After you send a request, the system returns an instance ID, but the IPsec-VPN connection is not yet created. The creation task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the VPN gateway instance to determine the creation status of the IPsec-VPN connection:
+ *     - If the VPN gateway instance is in the **updating** state, the IPsec-VPN connection is being created.
+ *     - If the VPN gateway instance is in the **active** state, the IPsec-VPN connection is created.
+ * - The **CreateVpnConnection** operation does not support concurrent creation of IPsec-VPN connections under the same VPN gateway.
  *
  * @param request CreateVpnConnectionRequest
  * @return CreateVpnConnectionResponse
@@ -9503,11 +9531,11 @@ CreateVpnConnectionResponse Client::createVpnConnection(const CreateVpnConnectio
 }
 
 /**
- * @summary Creates a VPN gateway by calling the CreateVpnGateway operation.
+ * @summary Creates a VPN gateway.
  *
- * @description - Before you create a VPN gateway, we recommend that you familiarize yourself with the limits of VPN gateways. For more information, see [VPN gateway limits](https://help.aliyun.com/document_detail/65290.html).
+ * @description - Before you create a VPN gateway, familiarize yourself with the limits of VPN gateways. For more information, see [VPN gateway limits](https://help.aliyun.com/document_detail/65290.html).
  * - VPN gateway instances in some regions support only dual-tunnel IPsec-VPN connections by default. When you call the `CreateVpnGateway` operation to create a VPN gateway instance in these regions, you must specify the **VSwitchId** and **DisasterRecoveryVSwitchId** parameters in addition to the required parameters. For information about the regions and zones that support dual-tunnel IPsec-VPN connections, see [Upgrade an IPsec-VPN connection to dual-tunnel mode](https://help.aliyun.com/document_detail/2358946.html).
- * - **CreateVpnGateway** is an asynchronous operation. After you send a request, the system returns an instance ID but the VPN gateway is not yet created. The creation task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the creation status of the VPN gateway:
+ * - The **CreateVpnGateway** operation is asynchronous. After you call this operation, the system returns an instance ID, but the VPN gateway is not yet created. The creation task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the creation status of the VPN gateway:
  *         
  *     - If the VPN gateway is in the **provisioning** state, the VPN gateway is being created.
  *     - If the VPN gateway is in the **active** state, the VPN gateway is created.
@@ -9617,11 +9645,11 @@ CreateVpnGatewayResponse Client::createVpnGatewayWithOptions(const CreateVpnGate
 }
 
 /**
- * @summary Creates a VPN gateway by calling the CreateVpnGateway operation.
+ * @summary Creates a VPN gateway.
  *
- * @description - Before you create a VPN gateway, we recommend that you familiarize yourself with the limits of VPN gateways. For more information, see [VPN gateway limits](https://help.aliyun.com/document_detail/65290.html).
+ * @description - Before you create a VPN gateway, familiarize yourself with the limits of VPN gateways. For more information, see [VPN gateway limits](https://help.aliyun.com/document_detail/65290.html).
  * - VPN gateway instances in some regions support only dual-tunnel IPsec-VPN connections by default. When you call the `CreateVpnGateway` operation to create a VPN gateway instance in these regions, you must specify the **VSwitchId** and **DisasterRecoveryVSwitchId** parameters in addition to the required parameters. For information about the regions and zones that support dual-tunnel IPsec-VPN connections, see [Upgrade an IPsec-VPN connection to dual-tunnel mode](https://help.aliyun.com/document_detail/2358946.html).
- * - **CreateVpnGateway** is an asynchronous operation. After you send a request, the system returns an instance ID but the VPN gateway is not yet created. The creation task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the creation status of the VPN gateway:
+ * - The **CreateVpnGateway** operation is asynchronous. After you call this operation, the system returns an instance ID, but the VPN gateway is not yet created. The creation task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the creation status of the VPN gateway:
  *         
  *     - If the VPN gateway is in the **provisioning** state, the VPN gateway is being created.
  *     - If the VPN gateway is in the **active** state, the VPN gateway is created.
@@ -9635,18 +9663,18 @@ CreateVpnGatewayResponse Client::createVpnGateway(const CreateVpnGatewayRequest 
 }
 
 /**
- * @summary Creates a policy-based route for a VPN gateway.
+ * @summary Creates a policy-based route for a VPN gateway by calling the CreateVpnPbrRouteEntry operation.
  *
- * @description ### 前提条件
- * - 创建策略路由前，请确保您已经创建了IPsec连接。具体操作，请参见[CreateVpnConnection](https://help.aliyun.com/document_detail/120391.html)。
- * - 创建策略路由前，建议您先了解策略路由的使用限制、匹配规则等信息。更多信息，请参见[使用策略路由](https://help.aliyun.com/document_detail/110777.html)。
- * ### 使用限制
- * - 不支持添加目标网段为0.0.0.0/0的策略路由。
- * - 请勿添加目标网段为100.64.0.0/10、100.64.0.0/10下的子网段或者包含100.64.0.0/10网段的策略路由，该类策略路由会导致控制台无法显示IPsec连接的状态或者导致IPsec连接协商失败。
- * - **CreateVpnPbrRouteEntry**接口属于异步接口，即系统先返回策略路由的信息，但该策略路由尚未创建成功，系统后台的创建任务仍在进行。您可以调用[DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html)接口查询VPN网关实例状态，来确定策略路由的创建状态：
- *     - 当VPN网关实例处于**updating**状态时，表示策略路由正在创建中。
- *     - 当VPN网关实例处于**active**状态时，表示策略路由创建成功。
- * - **CreateVpnPbrRouteEntry**接口不支持在同一个VPN网关实例下并发创建策略路由。
+ * @description ### Before you begin
+ * - Before creating a policy-based route, make sure that you have created an IPsec-VPN connection. For more information, see [CreateVpnConnection](https://help.aliyun.com/document_detail/120391.html).
+ * - Before creating a policy-based route, we recommend that you understand the limits and matching rules of policy-based routes. For more information, see [Use policy-based routes](https://help.aliyun.com/document_detail/110777.html).
+ * ### Limits
+ * - Adding a policy-based route whose destination CIDR block is 0.0.0.0/0 is not supported.
+ * - Do not add a policy-based route whose destination CIDR block is 100.64.0.0/10, a subnet of 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10. Such policy-based routes cause the console to fail to display instance status of the IPsec-VPN connection or cause IPsec-VPN connection negotiation failures.
+ * - The **CreateVpnPbrRouteEntry** operation is asynchronous. After you call this operation, the system returns the information about the policy-based route, but the route has not been created yet. The system creates the route in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query instance status of the VPN gateway instance to determine the creation status of the policy-based route:
+ *     - If the VPN gateway instance is in the **updating** state, the policy-based route is being created.
+ *     - If the VPN gateway instance is in the **active** state, the policy-based route has been created.
+ * - The **CreateVpnPbrRouteEntry** operation does not support concurrent creation of policy-based routes for the same VPN gateway instance.
  *
  * @param request CreateVpnPbrRouteEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9737,18 +9765,18 @@ CreateVpnPbrRouteEntryResponse Client::createVpnPbrRouteEntryWithOptions(const C
 }
 
 /**
- * @summary Creates a policy-based route for a VPN gateway.
+ * @summary Creates a policy-based route for a VPN gateway by calling the CreateVpnPbrRouteEntry operation.
  *
- * @description ### 前提条件
- * - 创建策略路由前，请确保您已经创建了IPsec连接。具体操作，请参见[CreateVpnConnection](https://help.aliyun.com/document_detail/120391.html)。
- * - 创建策略路由前，建议您先了解策略路由的使用限制、匹配规则等信息。更多信息，请参见[使用策略路由](https://help.aliyun.com/document_detail/110777.html)。
- * ### 使用限制
- * - 不支持添加目标网段为0.0.0.0/0的策略路由。
- * - 请勿添加目标网段为100.64.0.0/10、100.64.0.0/10下的子网段或者包含100.64.0.0/10网段的策略路由，该类策略路由会导致控制台无法显示IPsec连接的状态或者导致IPsec连接协商失败。
- * - **CreateVpnPbrRouteEntry**接口属于异步接口，即系统先返回策略路由的信息，但该策略路由尚未创建成功，系统后台的创建任务仍在进行。您可以调用[DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html)接口查询VPN网关实例状态，来确定策略路由的创建状态：
- *     - 当VPN网关实例处于**updating**状态时，表示策略路由正在创建中。
- *     - 当VPN网关实例处于**active**状态时，表示策略路由创建成功。
- * - **CreateVpnPbrRouteEntry**接口不支持在同一个VPN网关实例下并发创建策略路由。
+ * @description ### Before you begin
+ * - Before creating a policy-based route, make sure that you have created an IPsec-VPN connection. For more information, see [CreateVpnConnection](https://help.aliyun.com/document_detail/120391.html).
+ * - Before creating a policy-based route, we recommend that you understand the limits and matching rules of policy-based routes. For more information, see [Use policy-based routes](https://help.aliyun.com/document_detail/110777.html).
+ * ### Limits
+ * - Adding a policy-based route whose destination CIDR block is 0.0.0.0/0 is not supported.
+ * - Do not add a policy-based route whose destination CIDR block is 100.64.0.0/10, a subnet of 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10. Such policy-based routes cause the console to fail to display instance status of the IPsec-VPN connection or cause IPsec-VPN connection negotiation failures.
+ * - The **CreateVpnPbrRouteEntry** operation is asynchronous. After you call this operation, the system returns the information about the policy-based route, but the route has not been created yet. The system creates the route in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query instance status of the VPN gateway instance to determine the creation status of the policy-based route:
+ *     - If the VPN gateway instance is in the **updating** state, the policy-based route is being created.
+ *     - If the VPN gateway instance is in the **active** state, the policy-based route has been created.
+ * - The **CreateVpnPbrRouteEntry** operation does not support concurrent creation of policy-based routes for the same VPN gateway instance.
  *
  * @param request CreateVpnPbrRouteEntryRequest
  * @return CreateVpnPbrRouteEntryResponse
@@ -9759,17 +9787,17 @@ CreateVpnPbrRouteEntryResponse Client::createVpnPbrRouteEntry(const CreateVpnPbr
 }
 
 /**
- * @summary Creates a destination route for a VPN gateway instance. After the destination route is created, the VPN gateway instance matches the destination IP address of traffic against destination routes and forwards the traffic based on the matched destination route.
+ * @summary Creates a destination route for a VPN gateway instance by calling the CreateVpnRouteEntry operation. After a destination route is created, the VPN gateway instance matches the destination route based on the destination IP address of the traffic and then forwards the traffic based on the matched destination route.
  *
  * @description ### Before you begin
  * - Before you create a destination route, make sure that you have created an IPsec-VPN connection. For more information, see [CreateVpnConnection](https://help.aliyun.com/document_detail/2526947.html).
  * - Before you create a destination route, we recommend that you understand the matching rules of destination routes. For more information, see [Configure destination routes](https://help.aliyun.com/document_detail/112476.html).
  * ### Limits
- * - Destination routes with a destination CIDR block of 0.0.0.0/0 are not supported.
- * - Do not add destination routes with a destination CIDR block of 100.64.0.0/10, a subnet of 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10. Such routing entries may cause the console to fail to display the status of IPsec-VPN connections or cause IPsec-VPN connection negotiation to be failed.
- * - The **CreateVpnRouteEntry** operation is asynchronous. After you invoke this operation, the system returns the destination route configuration, but the destination route has not been created yet. The background creation node is still in progress. You can invoke [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the creation status of the destination route:
+ * - Destination routes whose destination CIDR block is 0.0.0.0/0 are not supported.
+ * - Do not add destination routes whose destination CIDR block is 100.64.0.0/10, a subnet of 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10. These routes may cause the console to fail to display the status of IPsec-VPN connections or cause IPsec-VPN connection negotiation to be failed.
+ * - The **CreateVpnRouteEntry** operation is asynchronous. After you send a request, the system returns the destination route configuration but the destination route is not yet created. The creation node is still running in the background. You can invoke [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the creation status of the destination route:
  *     - If the VPN gateway instance is in the **updating** state, the destination route is being created.
- *     - If the VPN gateway instance is in the **active** state, the destination route has been created.
+ *     - If the VPN gateway instance is in the **active** state, the destination route is created.
  * - The **CreateVpnRouteEntry** operation does not support concurrent creation of destination routes for the same VPN gateway.
  *
  * @param request CreateVpnRouteEntryRequest
@@ -9853,17 +9881,17 @@ CreateVpnRouteEntryResponse Client::createVpnRouteEntryWithOptions(const CreateV
 }
 
 /**
- * @summary Creates a destination route for a VPN gateway instance. After the destination route is created, the VPN gateway instance matches the destination IP address of traffic against destination routes and forwards the traffic based on the matched destination route.
+ * @summary Creates a destination route for a VPN gateway instance by calling the CreateVpnRouteEntry operation. After a destination route is created, the VPN gateway instance matches the destination route based on the destination IP address of the traffic and then forwards the traffic based on the matched destination route.
  *
  * @description ### Before you begin
  * - Before you create a destination route, make sure that you have created an IPsec-VPN connection. For more information, see [CreateVpnConnection](https://help.aliyun.com/document_detail/2526947.html).
  * - Before you create a destination route, we recommend that you understand the matching rules of destination routes. For more information, see [Configure destination routes](https://help.aliyun.com/document_detail/112476.html).
  * ### Limits
- * - Destination routes with a destination CIDR block of 0.0.0.0/0 are not supported.
- * - Do not add destination routes with a destination CIDR block of 100.64.0.0/10, a subnet of 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10. Such routing entries may cause the console to fail to display the status of IPsec-VPN connections or cause IPsec-VPN connection negotiation to be failed.
- * - The **CreateVpnRouteEntry** operation is asynchronous. After you invoke this operation, the system returns the destination route configuration, but the destination route has not been created yet. The background creation node is still in progress. You can invoke [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the creation status of the destination route:
+ * - Destination routes whose destination CIDR block is 0.0.0.0/0 are not supported.
+ * - Do not add destination routes whose destination CIDR block is 100.64.0.0/10, a subnet of 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10. These routes may cause the console to fail to display the status of IPsec-VPN connections or cause IPsec-VPN connection negotiation to be failed.
+ * - The **CreateVpnRouteEntry** operation is asynchronous. After you send a request, the system returns the destination route configuration but the destination route is not yet created. The creation node is still running in the background. You can invoke [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the creation status of the destination route:
  *     - If the VPN gateway instance is in the **updating** state, the destination route is being created.
- *     - If the VPN gateway instance is in the **active** state, the destination route has been created.
+ *     - If the VPN gateway instance is in the **active** state, the destination route is created.
  * - The **CreateVpnRouteEntry** operation does not support concurrent creation of destination routes for the same VPN gateway.
  *
  * @param request CreateVpnRouteEntryRequest
@@ -9875,7 +9903,7 @@ CreateVpnRouteEntryResponse Client::createVpnRouteEntry(const CreateVpnRouteEntr
 }
 
 /**
- * @summary Deactivates a router interface.
+ * @summary Freezes a router interface by calling the DeactivateRouterInterface operation.
  *
  * @param request DeactivateRouterInterfaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9922,7 +9950,7 @@ DeactivateRouterInterfaceResponse Client::deactivateRouterInterfaceWithOptions(c
 }
 
 /**
- * @summary Deactivates a router interface.
+ * @summary Freezes a router interface by calling the DeactivateRouterInterface operation.
  *
  * @param request DeactivateRouterInterfaceRequest
  * @return DeactivateRouterInterfaceResponse
@@ -9933,12 +9961,12 @@ DeactivateRouterInterfaceResponse Client::deactivateRouterInterface(const Deacti
 }
 
 /**
- * @summary Disables a flow log. After a flow log is disabled, the system no longer captures the traffic information about a resource.
+ * @summary Stops a flow log instance. After the flow log is stopped, traffic of the specified resource is no longer captured.
  *
- * @description *   The **DeactiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
- *     *   If the flow log is in the **Deactivating** state, the flow log is being disabled.
- *     *   If the flow log is in the **Inactive** state, the flow log is disabled.
- * *   You cannot repeatedly call the **DeactiveFlowLog** operation to disable a flow log within the specified period of time.
+ * @description - **DeactiveFlowLog** is an asynchronous operation. After you send a request, the system returns a request ID. However, the flow log is not yet stopped, and the system is still processing the stop task in the background. You can call [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) to query the status of the flow log:
+ *     - If the flow log is in the **Deactivating** state, the flow log is being stopped.
+ *     - If the flow log is in the **Inactive** state, the flow log is stopped.
+ * - You cannot concurrently stop the same flow log by calling **DeactiveFlowLog**.
  *
  * @param request DeactiveFlowLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9989,12 +10017,12 @@ DeactiveFlowLogResponse Client::deactiveFlowLogWithOptions(const DeactiveFlowLog
 }
 
 /**
- * @summary Disables a flow log. After a flow log is disabled, the system no longer captures the traffic information about a resource.
+ * @summary Stops a flow log instance. After the flow log is stopped, traffic of the specified resource is no longer captured.
  *
- * @description *   The **DeactiveFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
- *     *   If the flow log is in the **Deactivating** state, the flow log is being disabled.
- *     *   If the flow log is in the **Inactive** state, the flow log is disabled.
- * *   You cannot repeatedly call the **DeactiveFlowLog** operation to disable a flow log within the specified period of time.
+ * @description - **DeactiveFlowLog** is an asynchronous operation. After you send a request, the system returns a request ID. However, the flow log is not yet stopped, and the system is still processing the stop task in the background. You can call [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) to query the status of the flow log:
+ *     - If the flow log is in the **Deactivating** state, the flow log is being stopped.
+ *     - If the flow log is in the **Inactive** state, the flow log is stopped.
+ * - You cannot concurrently stop the same flow log by calling **DeactiveFlowLog**.
  *
  * @param request DeactiveFlowLogRequest
  * @return DeactiveFlowLogResponse
@@ -10005,7 +10033,7 @@ DeactiveFlowLogResponse Client::deactiveFlowLog(const DeactiveFlowLogRequest &re
 }
 
 /**
- * @summary Deletes a Border Gateway Protocol (BGP) group.
+ * @summary Deletes a specified Border Gateway Protocol (BGP) group.
  *
  * @param request DeleteBgpGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10060,7 +10088,7 @@ DeleteBgpGroupResponse Client::deleteBgpGroupWithOptions(const DeleteBgpGroupReq
 }
 
 /**
- * @summary Deletes a Border Gateway Protocol (BGP) group.
+ * @summary Deletes a specified Border Gateway Protocol (BGP) group.
  *
  * @param request DeleteBgpGroupRequest
  * @return DeleteBgpGroupResponse
@@ -10141,7 +10169,7 @@ DeleteBgpNetworkResponse Client::deleteBgpNetwork(const DeleteBgpNetworkRequest 
 }
 
 /**
- * @summary Calls DeleteBgpPeer to delete a specified BGP peer.
+ * @summary Deletes a specified BGP peer.
  *
  * @param request DeleteBgpPeerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10196,7 +10224,7 @@ DeleteBgpPeerResponse Client::deleteBgpPeerWithOptions(const DeleteBgpPeerReques
 }
 
 /**
- * @summary Calls DeleteBgpPeer to delete a specified BGP peer.
+ * @summary Deletes a specified BGP peer.
  *
  * @param request DeleteBgpPeerRequest
  * @return DeleteBgpPeerResponse
@@ -10209,7 +10237,7 @@ DeleteBgpPeerResponse Client::deleteBgpPeer(const DeleteBgpPeerRequest &request)
 /**
  * @summary Deletes an Internet Shared Bandwidth instance.
  *
- * @description You cannot repeatedly call the **DeleteCommonBandwidthPackage** operation to delete an Internet Shared Bandwidth instance within the specified period of time.
+ * @description The **DeleteCommonBandwidthPackage** operation does not support concurrent deletion of the same Internet Shared Bandwidth instance.
  *
  * @param request DeleteCommonBandwidthPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10266,7 +10294,7 @@ DeleteCommonBandwidthPackageResponse Client::deleteCommonBandwidthPackageWithOpt
 /**
  * @summary Deletes an Internet Shared Bandwidth instance.
  *
- * @description You cannot repeatedly call the **DeleteCommonBandwidthPackage** operation to delete an Internet Shared Bandwidth instance within the specified period of time.
+ * @description The **DeleteCommonBandwidthPackage** operation does not support concurrent deletion of the same Internet Shared Bandwidth instance.
  *
  * @param request DeleteCommonBandwidthPackageRequest
  * @return DeleteCommonBandwidthPackageResponse
@@ -10277,9 +10305,9 @@ DeleteCommonBandwidthPackageResponse Client::deleteCommonBandwidthPackage(const 
 }
 
 /**
- * @summary Calls the DeleteCustomerGateway operation to delete a specified customer gateway.
+ * @summary Deletes a specified customer gateway.
  *
- * @description Before deleting a customer gateway, make sure that the customer gateway is not associated with any IPsec connections. To delete IPsec connections, see [DeleteVpnAttachment](https://help.aliyun.com/document_detail/2526938.html) or [DeleteVpnConnection](https://help.aliyun.com/document_detail/2526948.html).
+ * @description Before deleting a customer gateway, make sure that the customer gateway is not associated with any IPsec-VPN connections. To delete an IPsec-VPN connection, see [DeleteVpnAttachment](https://help.aliyun.com/document_detail/2526938.html) or [DeleteVpnConnection](https://help.aliyun.com/document_detail/2526948.html).
  *
  * @param request DeleteCustomerGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10334,9 +10362,9 @@ DeleteCustomerGatewayResponse Client::deleteCustomerGatewayWithOptions(const Del
 }
 
 /**
- * @summary Calls the DeleteCustomerGateway operation to delete a specified customer gateway.
+ * @summary Deletes a specified customer gateway.
  *
- * @description Before deleting a customer gateway, make sure that the customer gateway is not associated with any IPsec connections. To delete IPsec connections, see [DeleteVpnAttachment](https://help.aliyun.com/document_detail/2526938.html) or [DeleteVpnConnection](https://help.aliyun.com/document_detail/2526948.html).
+ * @description Before deleting a customer gateway, make sure that the customer gateway is not associated with any IPsec-VPN connections. To delete an IPsec-VPN connection, see [DeleteVpnAttachment](https://help.aliyun.com/document_detail/2526938.html) or [DeleteVpnConnection](https://help.aliyun.com/document_detail/2526948.html).
  *
  * @param request DeleteCustomerGatewayRequest
  * @return DeleteCustomerGatewayResponse
@@ -10349,11 +10377,10 @@ DeleteCustomerGatewayResponse Client::deleteCustomerGateway(const DeleteCustomer
 /**
  * @summary Deletes a DHCP options set.
  *
- * @description ## [](#)Description
- * *   **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetDhcpOptionsSet](https://help.aliyun.com/document_detail/189208.html) operation to query the status of the task.
- *     *   If the DHCP options set is in the **Deleting** state, the DHCP options set is being deleted.
- *     *   If you cannot query the DHCP options set, the DHCP options set is deleted.
- * *   You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a DHCP options set within the specified period of time.
+ * @description - **DeleteDhcpOptionsSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the DHCP options set is not yet deleted. The deletion task runs in the background. You can call [GetDhcpOptionsSet](https://help.aliyun.com/document_detail/448820.html) to query the deletion status of the DHCP options set:
+ *     - If the DHCP options set is in the **Deleting** state, the DHCP options set is being deleted.
+ *     - If the specified DHCP options set cannot be found, the DHCP options set is deleted.
+ * - **DeleteDhcpOptionsSet** does not support concurrent deletion of the same DHCP options set.
  *
  * @param request DeleteDhcpOptionsSetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10414,11 +10441,10 @@ DeleteDhcpOptionsSetResponse Client::deleteDhcpOptionsSetWithOptions(const Delet
 /**
  * @summary Deletes a DHCP options set.
  *
- * @description ## [](#)Description
- * *   **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetDhcpOptionsSet](https://help.aliyun.com/document_detail/189208.html) operation to query the status of the task.
- *     *   If the DHCP options set is in the **Deleting** state, the DHCP options set is being deleted.
- *     *   If you cannot query the DHCP options set, the DHCP options set is deleted.
- * *   You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a DHCP options set within the specified period of time.
+ * @description - **DeleteDhcpOptionsSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the DHCP options set is not yet deleted. The deletion task runs in the background. You can call [GetDhcpOptionsSet](https://help.aliyun.com/document_detail/448820.html) to query the deletion status of the DHCP options set:
+ *     - If the DHCP options set is in the **Deleting** state, the DHCP options set is being deleted.
+ *     - If the specified DHCP options set cannot be found, the DHCP options set is deleted.
+ * - **DeleteDhcpOptionsSet** does not support concurrent deletion of the same DHCP options set.
  *
  * @param request DeleteDhcpOptionsSetRequest
  * @return DeleteDhcpOptionsSetResponse
@@ -10431,7 +10457,7 @@ DeleteDhcpOptionsSetResponse Client::deleteDhcpOptionsSet(const DeleteDhcpOption
 /**
  * @summary Deletes a specified enhanced VPN gateway.
  *
- * @description > You cannot delete an enhanced VPN gateway that has an existing IPsec connection.
+ * @description > You cannot delete an enhanced VPN gateway that has existing IPsec-VPN connections.
  *
  * @param request DeleteEnhancedVpnGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10488,7 +10514,7 @@ DeleteEnhancedVpnGatewayResponse Client::deleteEnhancedVpnGatewayWithOptions(con
 /**
  * @summary Deletes a specified enhanced VPN gateway.
  *
- * @description > You cannot delete an enhanced VPN gateway that has an existing IPsec connection.
+ * @description > You cannot delete an enhanced VPN gateway that has existing IPsec-VPN connections.
  *
  * @param request DeleteEnhancedVpnGatewayRequest
  * @return DeleteEnhancedVpnGatewayResponse
@@ -10569,9 +10595,9 @@ DeleteExpressConnectResponse Client::deleteExpressConnect(const DeleteExpressCon
 }
 
 /**
- * @summary Calls the DeleteExpressConnectTrafficQos operation to delete an Express Connect traffic QoS policy.
+ * @summary Calls the DeleteExpressConnectTrafficQos operation to delete an Express Connect Quality of Service (QoS) policy.
  *
- * @description A QoS policy that is associated with an Express Connect circuit cannot be directly deleted. You must disassociate it first.
+ * @description A QoS policy that is associated with an Express Connect circuit cannot be directly deleted. You must dissociate the QoS policy from the Express Connect circuit first.
  *
  * @param request DeleteExpressConnectTrafficQosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10626,9 +10652,9 @@ DeleteExpressConnectTrafficQosResponse Client::deleteExpressConnectTrafficQosWit
 }
 
 /**
- * @summary Calls the DeleteExpressConnectTrafficQos operation to delete an Express Connect traffic QoS policy.
+ * @summary Calls the DeleteExpressConnectTrafficQos operation to delete an Express Connect Quality of Service (QoS) policy.
  *
- * @description A QoS policy that is associated with an Express Connect circuit cannot be directly deleted. You must disassociate it first.
+ * @description A QoS policy that is associated with an Express Connect circuit cannot be directly deleted. You must dissociate the QoS policy from the Express Connect circuit first.
  *
  * @param request DeleteExpressConnectTrafficQosRequest
  * @return DeleteExpressConnectTrafficQosResponse
@@ -10709,7 +10735,7 @@ DeleteExpressConnectTrafficQosQueueResponse Client::deleteExpressConnectTrafficQ
 }
 
 /**
- * @summary Calls the DeleteExpressConnectTrafficQosRule operation to delete an Express Connect QoS rule.
+ * @summary Deletes a QoS rule for Express Connect.
  *
  * @param request DeleteExpressConnectTrafficQosRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10772,7 +10798,7 @@ DeleteExpressConnectTrafficQosRuleResponse Client::deleteExpressConnectTrafficQo
 }
 
 /**
- * @summary Calls the DeleteExpressConnectTrafficQosRule operation to delete an Express Connect QoS rule.
+ * @summary Deletes a QoS rule for Express Connect.
  *
  * @param request DeleteExpressConnectTrafficQosRuleRequest
  * @return DeleteExpressConnectTrafficQosRuleResponse
@@ -10783,9 +10809,9 @@ DeleteExpressConnectTrafficQosRuleResponse Client::deleteExpressConnectTrafficQo
 }
 
 /**
- * @summary Deletes a failover test.
+ * @summary Deletes an Express Connect failover test job.
  *
- * @description You can delete only failover tests that are in the **Pending** or **Complete** state.
+ * @description Only failover test jobs in the **Pending** or **Completed** state can be deleted.
  *
  * @param request DeleteFailoverTestJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10840,9 +10866,9 @@ DeleteFailoverTestJobResponse Client::deleteFailoverTestJobWithOptions(const Del
 }
 
 /**
- * @summary Deletes a failover test.
+ * @summary Deletes an Express Connect failover test job.
  *
- * @description You can delete only failover tests that are in the **Pending** or **Complete** state.
+ * @description Only failover test jobs in the **Pending** or **Completed** state can be deleted.
  *
  * @param request DeleteFailoverTestJobRequest
  * @return DeleteFailoverTestJobResponse
@@ -10855,10 +10881,10 @@ DeleteFailoverTestJobResponse Client::deleteFailoverTestJob(const DeleteFailover
 /**
  * @summary Deletes a flow log.
  *
- * @description *   The **DeleteFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
- *     *   If the flow log is in the **Deleting** state, the flow log is being deleted.
- *     *   If you cannot query the flow log, the flow log is deleted.
- * *   You cannot repeatedly call the **DeleteFlowLog** operation to delete a flow log within the specified period of time.
+ * @description - **DeleteFlowLog** is an asynchronous operation. After you call this operation, the system returns an instance ID, but the flow log has not been deleted yet. The deletion task is still running in the background. You can call [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) to query the deletion status of the flow log:
+ *     - If the flow log is in the **Deleting** state, the flow log is being deleted.
+ *     - If the specified flow log cannot be found, the flow log is deleted.
+ * - **DeleteFlowLog** does not support concurrent deletion of the same flow log.
  *
  * @param request DeleteFlowLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10911,10 +10937,10 @@ DeleteFlowLogResponse Client::deleteFlowLogWithOptions(const DeleteFlowLogReques
 /**
  * @summary Deletes a flow log.
  *
- * @description *   The **DeleteFlowLog** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) operation to query the status of a flow log:
- *     *   If the flow log is in the **Deleting** state, the flow log is being deleted.
- *     *   If you cannot query the flow log, the flow log is deleted.
- * *   You cannot repeatedly call the **DeleteFlowLog** operation to delete a flow log within the specified period of time.
+ * @description - **DeleteFlowLog** is an asynchronous operation. After you call this operation, the system returns an instance ID, but the flow log has not been deleted yet. The deletion task is still running in the background. You can call [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) to query the deletion status of the flow log:
+ *     - If the flow log is in the **Deleting** state, the flow log is being deleted.
+ *     - If the specified flow log cannot be found, the flow log is deleted.
+ * - **DeleteFlowLog** does not support concurrent deletion of the same flow log.
  *
  * @param request DeleteFlowLogRequest
  * @return DeleteFlowLogResponse
@@ -10925,14 +10951,12 @@ DeleteFlowLogResponse Client::deleteFlowLog(const DeleteFlowLogRequest &request)
 }
 
 /**
- * @summary Deletes a DNAT entry.
+ * @summary Deletes a specified DNAT entry.
  *
- * @description ## [](#)Description
- * *   **DeleteForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) operation to query the status of the task.
- *     *   If the DNAT entry is in the **Deleting** state, the system is deleting the DNAT entry. In this case, you can only query the status of the DNAT entry, but cannot perform other operations.
- *     *   If the DNAT entry cannot be found, it is deleted.
- * >  If a DNAT table has DNAT entries in the **Pending** state, you cannot delete the DNAT entries.
- * *   You cannot repeatedly call the **DeleteForwardEntry** operation to delete a DNAT entry within the specified period of time.
+ * @description **DeleteForwardEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the DNAT entry is not yet deleted. The deletion task continues to run in the background. You can call [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) to query the status of the DNAT entry:
+ * - If the DNAT entry is in the **Deleting** state, the DNAT entry is being deleted. In this state, you can only perform query operations.
+ * - If the DNAT entry is no longer found, the DNAT entry is deleted.
+ * >  If a DNAT entry in the DNAT table is in the **Pending** state, you cannot delete any DNAT entries from the DNAT table.
  *
  * @param request DeleteForwardEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10991,14 +11015,12 @@ DeleteForwardEntryResponse Client::deleteForwardEntryWithOptions(const DeleteFor
 }
 
 /**
- * @summary Deletes a DNAT entry.
+ * @summary Deletes a specified DNAT entry.
  *
- * @description ## [](#)Description
- * *   **DeleteForwardEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) operation to query the status of the task.
- *     *   If the DNAT entry is in the **Deleting** state, the system is deleting the DNAT entry. In this case, you can only query the status of the DNAT entry, but cannot perform other operations.
- *     *   If the DNAT entry cannot be found, it is deleted.
- * >  If a DNAT table has DNAT entries in the **Pending** state, you cannot delete the DNAT entries.
- * *   You cannot repeatedly call the **DeleteForwardEntry** operation to delete a DNAT entry within the specified period of time.
+ * @description **DeleteForwardEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the DNAT entry is not yet deleted. The deletion task continues to run in the background. You can call [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) to query the status of the DNAT entry:
+ * - If the DNAT entry is in the **Deleting** state, the DNAT entry is being deleted. In this state, you can only perform query operations.
+ * - If the DNAT entry is no longer found, the DNAT entry is deleted.
+ * >  If a DNAT entry in the DNAT table is in the **Pending** state, you cannot delete any DNAT entries from the DNAT table.
  *
  * @param request DeleteForwardEntryRequest
  * @return DeleteForwardEntryResponse
@@ -11011,11 +11033,9 @@ DeleteForwardEntryResponse Client::deleteForwardEntry(const DeleteForwardEntryRe
 /**
  * @summary Deletes a FULLNAT entry.
  *
- * @description ## [](#)Description
- * **DeleteFullNatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
- * *   If the FULLNAT entry is in the **Deleting** state, the system is deleting the FULLNAT entry. In this case, you can query the status of the FULLNAT entry, but cannot perform other operations.
- * *   If the FULLNAT entry cannot be found, the FULLNAT entry is deleted.
- * You cannot repeatedly call the **DeleteFullNatEntry** operation to delete a FULLNAT entry within the specified period of time.
+ * @description **DeleteFullNatEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the FULLNAT entry is not yet deleted. The deletion task continues to run in the background. You can call [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) to query the status of the FULLNAT entry:
+ * - If the FULLNAT entry is in the **Deleting** state, the FULLNAT entry is being deleted. In this state, you can only perform query operations.
+ * - If the FULLNAT entry cannot be found, the FULLNAT entry is deleted.
  *
  * @param request DeleteFullNatEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11080,11 +11100,9 @@ DeleteFullNatEntryResponse Client::deleteFullNatEntryWithOptions(const DeleteFul
 /**
  * @summary Deletes a FULLNAT entry.
  *
- * @description ## [](#)Description
- * **DeleteFullNatEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
- * *   If the FULLNAT entry is in the **Deleting** state, the system is deleting the FULLNAT entry. In this case, you can query the status of the FULLNAT entry, but cannot perform other operations.
- * *   If the FULLNAT entry cannot be found, the FULLNAT entry is deleted.
- * You cannot repeatedly call the **DeleteFullNatEntry** operation to delete a FULLNAT entry within the specified period of time.
+ * @description **DeleteFullNatEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the FULLNAT entry is not yet deleted. The deletion task continues to run in the background. You can call [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) to query the status of the FULLNAT entry:
+ * - If the FULLNAT entry is in the **Deleting** state, the FULLNAT entry is being deleted. In this state, you can only perform query operations.
+ * - If the FULLNAT entry cannot be found, the FULLNAT entry is deleted.
  *
  * @param request DeleteFullNatEntryRequest
  * @return DeleteFullNatEntryResponse
@@ -11095,12 +11113,12 @@ DeleteFullNatEntryResponse Client::deleteFullNatEntry(const DeleteFullNatEntryRe
 }
 
 /**
- * @summary Deletes a GA instance.
+ * @summary Deletes an Alibaba Cloud Global Accelerator (GA) instance.
  *
- * @description When you call this operation, take note of the following items:
- * *   You can delete only pay-as-you-go instances.
- * *   Before you can delete a dedicated instance, disassociate the backend server from the instance first.
- * *   Before you can delete a shared instance, disassociate the elastic IP address (EIP) from the instance first.
+ * @description Before calling this operation, note the following: 
+ * - Only pay-as-you-go instances can be deleted.
+ * - To delete a dedicated instance, disassociate all backend servers from the instance before deletion.
+ * - To delete a shared instance, remove all EIPs from the instance before deletion.
  *
  * @param request DeleteGlobalAccelerationInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11151,12 +11169,12 @@ DeleteGlobalAccelerationInstanceResponse Client::deleteGlobalAccelerationInstanc
 }
 
 /**
- * @summary Deletes a GA instance.
+ * @summary Deletes an Alibaba Cloud Global Accelerator (GA) instance.
  *
- * @description When you call this operation, take note of the following items:
- * *   You can delete only pay-as-you-go instances.
- * *   Before you can delete a dedicated instance, disassociate the backend server from the instance first.
- * *   Before you can delete a shared instance, disassociate the elastic IP address (EIP) from the instance first.
+ * @description Before calling this operation, note the following: 
+ * - Only pay-as-you-go instances can be deleted.
+ * - To delete a dedicated instance, disassociate all backend servers from the instance before deletion.
+ * - To delete a shared instance, remove all EIPs from the instance before deletion.
  *
  * @param request DeleteGlobalAccelerationInstanceRequest
  * @return DeleteGlobalAccelerationInstanceResponse
@@ -11169,14 +11187,14 @@ DeleteGlobalAccelerationInstanceResponse Client::deleteGlobalAccelerationInstanc
 /**
  * @summary Deletes a high-availability virtual IP address (HaVip).
  *
- * @description Before you begin:
+ * @description When you call this operation to delete an HaVip, take note of the following items:
  * - The HaVip must be in the available state before it can be deleted.
  * - Make sure that no routes point to the HaVip that you want to delete.
  * - Make sure that the HaVip that you want to delete is not associated with any elastic IP address (EIP).
- * - The **DeleteHaVip** operation is asynchronous. After you send a request, the system returns a request ID. However, the HaVip is not yet deleted. The deletion task runs in the background. You can call [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) to query the deletion status of the HaVip:
+ * - **DeleteHaVip** is an asynchronous operation. After you send a request, the system returns a request ID. However, the HaVip is not yet deleted. The deletion task runs in the background. You can call [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) to query the deletion status of the HaVip:
  *     - If the HaVip is in the **Deleting** state, the HaVip is being deleted.
  *     - If the specified HaVip cannot be found, the HaVip is deleted.
- * - The **DeleteHaVip** operation does not support concurrent deletion of the same HaVip.
+ * - **DeleteHaVip** does not support concurrent deletion of the same HaVip.
  *
  * @param request DeleteHaVipRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11233,14 +11251,14 @@ DeleteHaVipResponse Client::deleteHaVipWithOptions(const DeleteHaVipRequest &req
 /**
  * @summary Deletes a high-availability virtual IP address (HaVip).
  *
- * @description Before you begin:
+ * @description When you call this operation to delete an HaVip, take note of the following items:
  * - The HaVip must be in the available state before it can be deleted.
  * - Make sure that no routes point to the HaVip that you want to delete.
  * - Make sure that the HaVip that you want to delete is not associated with any elastic IP address (EIP).
- * - The **DeleteHaVip** operation is asynchronous. After you send a request, the system returns a request ID. However, the HaVip is not yet deleted. The deletion task runs in the background. You can call [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) to query the deletion status of the HaVip:
+ * - **DeleteHaVip** is an asynchronous operation. After you send a request, the system returns a request ID. However, the HaVip is not yet deleted. The deletion task runs in the background. You can call [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) to query the deletion status of the HaVip:
  *     - If the HaVip is in the **Deleting** state, the HaVip is being deleted.
  *     - If the specified HaVip cannot be found, the HaVip is deleted.
- * - The **DeleteHaVip** operation does not support concurrent deletion of the same HaVip.
+ * - **DeleteHaVip** does not support concurrent deletion of the same HaVip.
  *
  * @param request DeleteHaVipRequest
  * @return DeleteHaVipResponse
@@ -11319,7 +11337,7 @@ DeleteIPv6TranslatorResponse Client::deleteIPv6Translator(const DeleteIPv6Transl
 /**
  * @deprecated OpenAPI DeleteIPv6TranslatorAclList is deprecated
  *
- * @summary Deletes an access control list (ACL). You can delete an ACL only when the ACL is not associated with IPv6 translation mappings.
+ * @summary Deletes an access control policy group. You can delete an access control policy group only when it is not associated with any IPv6 Translation Service mappings.
  *
  * @param request DeleteIPv6TranslatorAclListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11376,7 +11394,7 @@ DeleteIPv6TranslatorAclListResponse Client::deleteIPv6TranslatorAclListWithOptio
 /**
  * @deprecated OpenAPI DeleteIPv6TranslatorAclList is deprecated
  *
- * @summary Deletes an access control list (ACL). You can delete an ACL only when the ACL is not associated with IPv6 translation mappings.
+ * @summary Deletes an access control policy group. You can delete an access control policy group only when it is not associated with any IPv6 Translation Service mappings.
  *
  * @param request DeleteIPv6TranslatorAclListRequest
  * @return DeleteIPv6TranslatorAclListResponse
@@ -11389,7 +11407,7 @@ DeleteIPv6TranslatorAclListResponse Client::deleteIPv6TranslatorAclList(const De
 /**
  * @deprecated OpenAPI DeleteIPv6TranslatorEntry is deprecated
  *
- * @summary Deletes an IPv6 mapping entry.
+ * @summary Deletes an IPv6 Translation Service mapping entry.
  *
  * @param request DeleteIPv6TranslatorEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11450,7 +11468,7 @@ DeleteIPv6TranslatorEntryResponse Client::deleteIPv6TranslatorEntryWithOptions(c
 /**
  * @deprecated OpenAPI DeleteIPv6TranslatorEntry is deprecated
  *
- * @summary Deletes an IPv6 mapping entry.
+ * @summary Deletes an IPv6 Translation Service mapping entry.
  *
  * @param request DeleteIPv6TranslatorEntryRequest
  * @return DeleteIPv6TranslatorEntryResponse
@@ -11463,10 +11481,10 @@ DeleteIPv6TranslatorEntryResponse Client::deleteIPv6TranslatorEntry(const Delete
 /**
  * @summary Deletes an IPsec server.
  *
- * @description *   **DeleteIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the task.
- *     *   If the VPN gateway is in the **updating** state, the IPsec server is being deleted.
- *     *   If the VPN gateway is in the **active** state, the IPsec server is deleted.
- * *   You cannot call **DeleteIpsecServer** within the specified period of time.
+ * @description - **DeleteIpsecServer** is an asynchronous operation. After you send a request, the system returns a request ID. However, the IPsec server is not yet deleted. The deletion node is still running in the background. You can invoke [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the instance status of the VPN gateway and determine the deletion status of the IPsec server:
+ *     - If the VPN gateway instance is in the **updating** state, the IPsec server is being deleted.
+ *     - If the VPN gateway instance is in the **active** state, the IPsec server is deleted.
+ * - **DeleteIpsecServer** does not support concurrent deletion of IPsec servers under the same VPN gateway.
  *
  * @param request DeleteIpsecServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11511,10 +11529,10 @@ DeleteIpsecServerResponse Client::deleteIpsecServerWithOptions(const DeleteIpsec
 /**
  * @summary Deletes an IPsec server.
  *
- * @description *   **DeleteIpsecServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the task.
- *     *   If the VPN gateway is in the **updating** state, the IPsec server is being deleted.
- *     *   If the VPN gateway is in the **active** state, the IPsec server is deleted.
- * *   You cannot call **DeleteIpsecServer** within the specified period of time.
+ * @description - **DeleteIpsecServer** is an asynchronous operation. After you send a request, the system returns a request ID. However, the IPsec server is not yet deleted. The deletion node is still running in the background. You can invoke [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the instance status of the VPN gateway and determine the deletion status of the IPsec server:
+ *     - If the VPN gateway instance is in the **updating** state, the IPsec server is being deleted.
+ *     - If the VPN gateway instance is in the **active** state, the IPsec server is deleted.
+ * - **DeleteIpsecServer** does not support concurrent deletion of IPsec servers under the same VPN gateway.
  *
  * @param request DeleteIpsecServerRequest
  * @return DeleteIpsecServerResponse
@@ -11527,12 +11545,11 @@ DeleteIpsecServerResponse Client::deleteIpsecServer(const DeleteIpsecServerReque
 /**
  * @summary Deletes an IPv4 gateway.
  *
- * @description ### [](#)Description
- * *   Before you delete an IPv4 gateway, make sure that no route tables are associated with the IPv4 gateway.
- * *   **DeleteIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of the task.
- *     *   If the IPv4 gateway is in the **Deleting** state, the IPv4 gateway is being deleted.
- *     *   If the IPv4 gateway cannot be queried, the IPv4 gateway is deleted.
- * *   After you call the **DeleteIpv4Gateway** operation to delete an IPv4 gateway, you cannot call the operation again to delete the IPv4 gateway until the deletion task is complete.
+ * @description - Before you delete an IPv4 gateway, make sure that the route table associated with the IPv4 gateway is disassociated.
+ * - The **DeleteIpv4Gateway** operation is asynchronous. After you send a request, the system returns a **RequestId**, but the IPv4 gateway is not yet deleted. The deletion task continues to run in the background. You can call [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) to query the status of the IPv4 gateway.
+ *     - If the IPv4 gateway is in the **Deleting** state, the IPv4 gateway is being deleted.
+ *     - If the IPv4 gateway cannot be found, the IPv4 gateway is deleted.
+ * - The **DeleteIpv4Gateway** operation does not support concurrent deletion of the same IPv4 gateway.
  *
  * @param request DeleteIpv4GatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11601,12 +11618,11 @@ DeleteIpv4GatewayResponse Client::deleteIpv4GatewayWithOptions(const DeleteIpv4G
 /**
  * @summary Deletes an IPv4 gateway.
  *
- * @description ### [](#)Description
- * *   Before you delete an IPv4 gateway, make sure that no route tables are associated with the IPv4 gateway.
- * *   **DeleteIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of the task.
- *     *   If the IPv4 gateway is in the **Deleting** state, the IPv4 gateway is being deleted.
- *     *   If the IPv4 gateway cannot be queried, the IPv4 gateway is deleted.
- * *   After you call the **DeleteIpv4Gateway** operation to delete an IPv4 gateway, you cannot call the operation again to delete the IPv4 gateway until the deletion task is complete.
+ * @description - Before you delete an IPv4 gateway, make sure that the route table associated with the IPv4 gateway is disassociated.
+ * - The **DeleteIpv4Gateway** operation is asynchronous. After you send a request, the system returns a **RequestId**, but the IPv4 gateway is not yet deleted. The deletion task continues to run in the background. You can call [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) to query the status of the IPv4 gateway.
+ *     - If the IPv4 gateway is in the **Deleting** state, the IPv4 gateway is being deleted.
+ *     - If the IPv4 gateway cannot be found, the IPv4 gateway is deleted.
+ * - The **DeleteIpv4Gateway** operation does not support concurrent deletion of the same IPv4 gateway.
  *
  * @param request DeleteIpv4GatewayRequest
  * @return DeleteIpv4GatewayResponse
@@ -11617,12 +11633,12 @@ DeleteIpv4GatewayResponse Client::deleteIpv4Gateway(const DeleteIpv4GatewayReque
 }
 
 /**
- * @summary Deletes an egress-only rule.
+ * @summary Deletes an IPv6 egress-only rule.
  *
- * @description *   **DeleteIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6EgressOnlyRules](https://help.aliyun.com/document_detail/102208.html) operation to query the status of the task.
- *     *   If the egress-only rule is in the **Deleting** state, the egress-only rule is being deleted.
- *     *   If you cannot query the egress-only rule, the egress-only rule is deleted.
- * *   You cannot call the **DeleteIpv6EgressOnlyRule** within the specified period of time.
+ * @description - **DeleteIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID. However, the IPv6 egress-only rule is not immediately deleted. The deletion task runs in the background. You can call [DescribeIpv6EgressOnlyRules](https://help.aliyun.com/document_detail/102208.html) to query the deletion status of the IPv6 egress-only rule:
+ *     - If the IPv6 egress-only rule is in the **Deleting** state, the rule is being deleted.
+ *     - If the specified IPv6 egress-only rule cannot be found, the rule is deleted.
+ * - **DeleteIpv6EgressOnlyRule** does not support concurrent deletion of the same IPv6 egress-only rule.
  *
  * @param request DeleteIpv6EgressOnlyRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11685,12 +11701,12 @@ DeleteIpv6EgressOnlyRuleResponse Client::deleteIpv6EgressOnlyRuleWithOptions(con
 }
 
 /**
- * @summary Deletes an egress-only rule.
+ * @summary Deletes an IPv6 egress-only rule.
  *
- * @description *   **DeleteIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpv6EgressOnlyRules](https://help.aliyun.com/document_detail/102208.html) operation to query the status of the task.
- *     *   If the egress-only rule is in the **Deleting** state, the egress-only rule is being deleted.
- *     *   If you cannot query the egress-only rule, the egress-only rule is deleted.
- * *   You cannot call the **DeleteIpv6EgressOnlyRule** within the specified period of time.
+ * @description - **DeleteIpv6EgressOnlyRule** is an asynchronous operation. After a request is sent, the system returns a request ID. However, the IPv6 egress-only rule is not immediately deleted. The deletion task runs in the background. You can call [DescribeIpv6EgressOnlyRules](https://help.aliyun.com/document_detail/102208.html) to query the deletion status of the IPv6 egress-only rule:
+ *     - If the IPv6 egress-only rule is in the **Deleting** state, the rule is being deleted.
+ *     - If the specified IPv6 egress-only rule cannot be found, the rule is deleted.
+ * - **DeleteIpv6EgressOnlyRule** does not support concurrent deletion of the same IPv6 egress-only rule.
  *
  * @param request DeleteIpv6EgressOnlyRuleRequest
  * @return DeleteIpv6EgressOnlyRuleResponse
@@ -11703,11 +11719,11 @@ DeleteIpv6EgressOnlyRuleResponse Client::deleteIpv6EgressOnlyRule(const DeleteIp
 /**
  * @summary Deletes an IPv6 gateway.
  *
- * @description 删除IPv6网关前，请先删除仅主动出规则。更多信息，请参见[DeleteIpv6EgressOnlyRule](https://help.aliyun.com/document_detail/102201.html)。
- * - **DeleteIpv6Gateway**接口属于异步接口，即系统返回一个请求ID，但该IPv6网关尚未删除成功，系统后台的删除任务仍在进行。您可以调用[DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html)查询IPv6网关的删除状态：
- *     - 当IPv6网关处于**Deleting**状态时，表示IPv6网关正在删除中。
- *     - 当查询不到指定的IPv6网关时，表示IPv6网关删除成功。
- * - **DeleteIpv6Gateway**接口不支持并发删除同一个IPv6网关。
+ * @description Before you delete an IPv6 gateway, delete the IPv6 egress-only rules first. For more information, see [DeleteIpv6EgressOnlyRule](https://help.aliyun.com/document_detail/102201.html).
+ * - The **DeleteIpv6Gateway** operation is asynchronous. After a request is sent, the system returns a request ID. However, the IPv6 gateway is not yet deleted. The deletion task is still running in the background. You can call [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) to query the deletion status of the IPv6 gateway:
+ *     - If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
+ *     - If the specified IPv6 gateway cannot be found, the IPv6 gateway is deleted.
+ * - The **DeleteIpv6Gateway** operation does not support concurrent deletion of the same IPv6 gateway.
  *
  * @param request DeleteIpv6GatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11772,11 +11788,11 @@ DeleteIpv6GatewayResponse Client::deleteIpv6GatewayWithOptions(const DeleteIpv6G
 /**
  * @summary Deletes an IPv6 gateway.
  *
- * @description 删除IPv6网关前，请先删除仅主动出规则。更多信息，请参见[DeleteIpv6EgressOnlyRule](https://help.aliyun.com/document_detail/102201.html)。
- * - **DeleteIpv6Gateway**接口属于异步接口，即系统返回一个请求ID，但该IPv6网关尚未删除成功，系统后台的删除任务仍在进行。您可以调用[DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html)查询IPv6网关的删除状态：
- *     - 当IPv6网关处于**Deleting**状态时，表示IPv6网关正在删除中。
- *     - 当查询不到指定的IPv6网关时，表示IPv6网关删除成功。
- * - **DeleteIpv6Gateway**接口不支持并发删除同一个IPv6网关。
+ * @description Before you delete an IPv6 gateway, delete the IPv6 egress-only rules first. For more information, see [DeleteIpv6EgressOnlyRule](https://help.aliyun.com/document_detail/102201.html).
+ * - The **DeleteIpv6Gateway** operation is asynchronous. After a request is sent, the system returns a request ID. However, the IPv6 gateway is not yet deleted. The deletion task is still running in the background. You can call [DescribeIpv6GatewayAttribute](https://help.aliyun.com/document_detail/102226.html) to query the deletion status of the IPv6 gateway:
+ *     - If the IPv6 gateway is in the **Deleting** state, the IPv6 gateway is being deleted.
+ *     - If the specified IPv6 gateway cannot be found, the IPv6 gateway is deleted.
+ * - The **DeleteIpv6Gateway** operation does not support concurrent deletion of the same IPv6 gateway.
  *
  * @param request DeleteIpv6GatewayRequest
  * @return DeleteIpv6GatewayResponse
@@ -11787,7 +11803,7 @@ DeleteIpv6GatewayResponse Client::deleteIpv6Gateway(const DeleteIpv6GatewayReque
 }
 
 /**
- * @summary Calls the DeleteIpv6InternetBandwidth operation to delete Internet bandwidth.
+ * @summary Deletes the Internet bandwidth of an IPv6 address by calling the DeleteIpv6InternetBandwidth operation.
  *
  * @description The **DeleteIpv6InternetBandwidth** operation does not support concurrent deletion of the same Internet bandwidth.
  *
@@ -11856,7 +11872,7 @@ DeleteIpv6InternetBandwidthResponse Client::deleteIpv6InternetBandwidthWithOptio
 }
 
 /**
- * @summary Calls the DeleteIpv6InternetBandwidth operation to delete Internet bandwidth.
+ * @summary Deletes the Internet bandwidth of an IPv6 address by calling the DeleteIpv6InternetBandwidth operation.
  *
  * @description The **DeleteIpv6InternetBandwidth** operation does not support concurrent deletion of the same Internet bandwidth.
  *
@@ -11871,12 +11887,12 @@ DeleteIpv6InternetBandwidthResponse Client::deleteIpv6InternetBandwidth(const De
 /**
  * @summary Deletes a specified Internet NAT gateway.
  *
- * @description ## [](#)Description
- * *   **DeleteNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) to query the status of the task.
- *     *   If a NAT gateway is in the **Deleting** state, the NAT gateway is being deleted. In this case, you can query the NAT gateway but you cannot perform other operations.
- *     *   If the NAT gateway cannot be found, the NAT gateway is deleted.
- *         After you delete a NAT gateway, you cannot restore the NAT gateway. Proceed with caution.
- * *   You cannot repeatedly call the **DeleteNatGateway** operation to delete a NAT gateway within the specified period of time.
+ * @description **DeleteNatGateway** is an asynchronous operation. After you send a request, the system returns a request ID. However, the NAT gateway is not immediately deleted. The deletion task runs in the background. You can call [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) to query the status of the NAT gateway:
+ *    
+ * - If the NAT gateway is in the **Deleting** state, the NAT gateway is being deleted. In this state, you can only perform query operations.
+ * - If the NAT gateway cannot be found, the NAT gateway is deleted.
+ *        
+ * > The deletion of a NAT gateway is irreversible. Proceed with caution.
  *
  * @param request DeleteNatGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11933,12 +11949,12 @@ DeleteNatGatewayResponse Client::deleteNatGatewayWithOptions(const DeleteNatGate
 /**
  * @summary Deletes a specified Internet NAT gateway.
  *
- * @description ## [](#)Description
- * *   **DeleteNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) to query the status of the task.
- *     *   If a NAT gateway is in the **Deleting** state, the NAT gateway is being deleted. In this case, you can query the NAT gateway but you cannot perform other operations.
- *     *   If the NAT gateway cannot be found, the NAT gateway is deleted.
- *         After you delete a NAT gateway, you cannot restore the NAT gateway. Proceed with caution.
- * *   You cannot repeatedly call the **DeleteNatGateway** operation to delete a NAT gateway within the specified period of time.
+ * @description **DeleteNatGateway** is an asynchronous operation. After you send a request, the system returns a request ID. However, the NAT gateway is not immediately deleted. The deletion task runs in the background. You can call [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) to query the status of the NAT gateway:
+ *    
+ * - If the NAT gateway is in the **Deleting** state, the NAT gateway is being deleted. In this state, you can only perform query operations.
+ * - If the NAT gateway cannot be found, the NAT gateway is deleted.
+ *        
+ * > The deletion of a NAT gateway is irreversible. Proceed with caution.
  *
  * @param request DeleteNatGatewayRequest
  * @return DeleteNatGatewayResponse
@@ -12117,10 +12133,9 @@ DeleteNatIpCidrResponse Client::deleteNatIpCidr(const DeleteNatIpCidrRequest &re
 }
 
 /**
- * @summary Deletes a network access control list (ACL).
+ * @summary Deletes a network ACL.
  *
- * @description ## [](#)Description
- * You cannot repeatedly call the **DeleteNetworkAcl** operation within the specified period of time.
+ * @description The **DeleteNetworkAcl** operation does not support concurrent deletion of the same network ACL.
  *
  * @param request DeleteNetworkAclRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12183,10 +12198,9 @@ DeleteNetworkAclResponse Client::deleteNetworkAclWithOptions(const DeleteNetwork
 }
 
 /**
- * @summary Deletes a network access control list (ACL).
+ * @summary Deletes a network ACL.
  *
- * @description ## [](#)Description
- * You cannot repeatedly call the **DeleteNetworkAcl** operation within the specified period of time.
+ * @description The **DeleteNetworkAcl** operation does not support concurrent deletion of the same network ACL.
  *
  * @param request DeleteNetworkAclRequest
  * @return DeleteNetworkAclResponse
@@ -12197,9 +12211,9 @@ DeleteNetworkAclResponse Client::deleteNetworkAcl(const DeleteNetworkAclRequest 
 }
 
 /**
- * @summary Calls the DeletePhysicalConnection operation to delete an Express Connect circuit.
+ * @summary Deletes an Express Connect circuit connection.
  *
- * @description You can delete only Express Connect circuits that are in the **Allocated**, **Confirmed**, **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
+ * @description You can delete only Express Connect circuit connections that are in the **Allocated**, **Confirmed**, **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
  *
  * @param request DeletePhysicalConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12254,9 +12268,9 @@ DeletePhysicalConnectionResponse Client::deletePhysicalConnectionWithOptions(con
 }
 
 /**
- * @summary Calls the DeletePhysicalConnection operation to delete an Express Connect circuit.
+ * @summary Deletes an Express Connect circuit connection.
  *
- * @description You can delete only Express Connect circuits that are in the **Allocated**, **Confirmed**, **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
+ * @description You can delete only Express Connect circuit connections that are in the **Allocated**, **Confirmed**, **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
  *
  * @param request DeletePhysicalConnectionRequest
  * @return DeletePhysicalConnectionResponse
@@ -12270,11 +12284,11 @@ DeletePhysicalConnectionResponse Client::deletePhysicalConnection(const DeletePh
  * @summary Deletes an IP address pool.
  *
  * @description Before you call this operation, take note of the following items:
- * *   Before you delete an IP address pool, make sure that no IP address in the pool is being used.
- * *   **DeletePublicIpAddressPool** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPools](https://help.aliyun.com/document_detail/429433.html) operation to query the status of the task.
- *     *   If the IP address pool is in the **Deleting** state, the IP address pool is being deleted. In this state. you can only query the IP address pool and cannot perform other operations.
- *     *   If you cannot query the IP address pool, the IP address pool is deleted.
- * *   You cannot repeatedly call the **DeletePublicIpAddressPool** operation to delete an IP address pool within the specified period of time.
+ * - Before deleting an IP address pool, make sure that the IP addresses in the pool are not in use.
+ * - **DeletePublicIpAddressPool** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListPublicIpAddressPools](https://help.aliyun.com/document_detail/429433.html) to query the status of the IP address pool. 
+ *     - If the IP address pool is in the **Deleting** state, the IP address pool is being deleted. In this state, you can only perform query operations.
+ *     - If the IP address pool cannot be found, the IP address pool is deleted.
+ * - **DeletePublicIpAddressPool** does not support concurrent deletion of the same IP address pool.
  *
  * @param request DeletePublicIpAddressPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12336,11 +12350,11 @@ DeletePublicIpAddressPoolResponse Client::deletePublicIpAddressPoolWithOptions(c
  * @summary Deletes an IP address pool.
  *
  * @description Before you call this operation, take note of the following items:
- * *   Before you delete an IP address pool, make sure that no IP address in the pool is being used.
- * *   **DeletePublicIpAddressPool** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListPublicIpAddressPools](https://help.aliyun.com/document_detail/429433.html) operation to query the status of the task.
- *     *   If the IP address pool is in the **Deleting** state, the IP address pool is being deleted. In this state. you can only query the IP address pool and cannot perform other operations.
- *     *   If you cannot query the IP address pool, the IP address pool is deleted.
- * *   You cannot repeatedly call the **DeletePublicIpAddressPool** operation to delete an IP address pool within the specified period of time.
+ * - Before deleting an IP address pool, make sure that the IP addresses in the pool are not in use.
+ * - **DeletePublicIpAddressPool** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListPublicIpAddressPools](https://help.aliyun.com/document_detail/429433.html) to query the status of the IP address pool. 
+ *     - If the IP address pool is in the **Deleting** state, the IP address pool is being deleted. In this state, you can only perform query operations.
+ *     - If the IP address pool cannot be found, the IP address pool is deleted.
+ * - **DeletePublicIpAddressPool** does not support concurrent deletion of the same IP address pool.
  *
  * @param request DeletePublicIpAddressPoolRequest
  * @return DeletePublicIpAddressPoolResponse
@@ -12353,12 +12367,12 @@ DeletePublicIpAddressPoolResponse Client::deletePublicIpAddressPool(const Delete
 /**
  * @summary Deletes a CIDR block from an IP address pool by calling the DeletePublicIpAddressPoolCidrBlock operation.
  *
- * @description Before you call this operation, take note of the following items:
- * - Before you delete a CIDR block, make sure that the CIDR block is not in use.
- * - **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the deletion task in the background. You can call [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) to query the status of the CIDR block in the IP address pool. 
+ * @description Before you call this operation, take note of the following information:
+ * - Before deleting a CIDR block, make sure that the CIDR block is not in use.
+ * - **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID, but the CIDR block is not yet deleted. The deletion task continues to run in the background. You can call [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) to query the status of the CIDR block in the IP address pool. 
  *     - If the CIDR block is in the **Deleting** state, the CIDR block is being deleted. In this state, you can only perform query operations.
  *     - If the CIDR block cannot be found, the CIDR block is deleted.
- * - **DeletePublicIpAddressPoolCidrBlock** does not support concurrent deletion of the same CIDR block.
+ * - The **DeletePublicIpAddressPoolCidrBlock** operation does not support concurrent deletion of the same CIDR block.
  *
  * @param request DeletePublicIpAddressPoolCidrBlockRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12423,12 +12437,12 @@ DeletePublicIpAddressPoolCidrBlockResponse Client::deletePublicIpAddressPoolCidr
 /**
  * @summary Deletes a CIDR block from an IP address pool by calling the DeletePublicIpAddressPoolCidrBlock operation.
  *
- * @description Before you call this operation, take note of the following items:
- * - Before you delete a CIDR block, make sure that the CIDR block is not in use.
- * - **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the deletion task in the background. You can call [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) to query the status of the CIDR block in the IP address pool. 
+ * @description Before you call this operation, take note of the following information:
+ * - Before deleting a CIDR block, make sure that the CIDR block is not in use.
+ * - **DeletePublicIpAddressPoolCidrBlock** is an asynchronous operation. After a request is sent, the system returns a request ID, but the CIDR block is not yet deleted. The deletion task continues to run in the background. You can call [ListPublicIpAddressPoolCidrBlocks](https://help.aliyun.com/document_detail/429436.html) to query the status of the CIDR block in the IP address pool. 
  *     - If the CIDR block is in the **Deleting** state, the CIDR block is being deleted. In this state, you can only perform query operations.
  *     - If the CIDR block cannot be found, the CIDR block is deleted.
- * - **DeletePublicIpAddressPoolCidrBlock** does not support concurrent deletion of the same CIDR block.
+ * - The **DeletePublicIpAddressPoolCidrBlock** operation does not support concurrent deletion of the same CIDR block.
  *
  * @param request DeletePublicIpAddressPoolCidrBlockRequest
  * @return DeletePublicIpAddressPoolCidrBlockResponse
@@ -12439,15 +12453,15 @@ DeletePublicIpAddressPoolCidrBlockResponse Client::deletePublicIpAddressPoolCidr
 }
 
 /**
- * @summary Deletes multiple custom route entries at a time.
+ * @summary Batch deletes custom route entries.
  *
- * @description 调用本接口删除路由条目时，请注意： 
- * - 只有处于**Available**状态的路由条目可以被删除。  
- * - 路由表所在的VPC正在进行创建或删除交换机或路由条目时，无法删除路由条目。 
- * - **DeleteRouteEntries**接口属于异步接口，即系统会返回一个请求ID，但该路由条目尚未删除成功，系统后台的删除任务仍在进行。您可以调用[DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html)查询路由条目的删除状态：
- *     - 当路由条目处于**Deleting**状态时，表示路由条目正在删除中。
- *     - 当查询不到指定的路由条目时，表示路由条目删除成功。
- * - **DeleteRouteEntries**接口不支持在同一个VPC中并发批量删除路由表中的路由条目。
+ * @description When you call this operation to delete routing entries, note the following items: 
+ * - Only routing entries in the **Available** state can be deleted.  
+ * - Routing entries cannot be deleted if the VPC to which the route table belongs is creating or deleting a vSwitch or routing entries. 
+ * - The **DeleteRouteEntries** operation is asynchronous. After you send a request, the system returns a request ID, but the custom route entry is not yet deleted. The deletion task continues to run in the background. You can call [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the deletion status of the custom route entry:
+ *     - If the custom route entry is in the **Deleting** state, the custom route entry is being deleted.
+ *     - If the specified custom route entry cannot be found, the custom route entry is deleted.
+ * - The **DeleteRouteEntries** operation does not support concurrent batch deletion of routing entries from route tables in the same VPC.
  *
  * @param request DeleteRouteEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12506,15 +12520,15 @@ DeleteRouteEntriesResponse Client::deleteRouteEntriesWithOptions(const DeleteRou
 }
 
 /**
- * @summary Deletes multiple custom route entries at a time.
+ * @summary Batch deletes custom route entries.
  *
- * @description 调用本接口删除路由条目时，请注意： 
- * - 只有处于**Available**状态的路由条目可以被删除。  
- * - 路由表所在的VPC正在进行创建或删除交换机或路由条目时，无法删除路由条目。 
- * - **DeleteRouteEntries**接口属于异步接口，即系统会返回一个请求ID，但该路由条目尚未删除成功，系统后台的删除任务仍在进行。您可以调用[DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html)查询路由条目的删除状态：
- *     - 当路由条目处于**Deleting**状态时，表示路由条目正在删除中。
- *     - 当查询不到指定的路由条目时，表示路由条目删除成功。
- * - **DeleteRouteEntries**接口不支持在同一个VPC中并发批量删除路由表中的路由条目。
+ * @description When you call this operation to delete routing entries, note the following items: 
+ * - Only routing entries in the **Available** state can be deleted.  
+ * - Routing entries cannot be deleted if the VPC to which the route table belongs is creating or deleting a vSwitch or routing entries. 
+ * - The **DeleteRouteEntries** operation is asynchronous. After you send a request, the system returns a request ID, but the custom route entry is not yet deleted. The deletion task continues to run in the background. You can call [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the deletion status of the custom route entry:
+ *     - If the custom route entry is in the **Deleting** state, the custom route entry is being deleted.
+ *     - If the specified custom route entry cannot be found, the custom route entry is deleted.
+ * - The **DeleteRouteEntries** operation does not support concurrent batch deletion of routing entries from route tables in the same VPC.
  *
  * @param request DeleteRouteEntriesRequest
  * @return DeleteRouteEntriesResponse
@@ -12525,13 +12539,13 @@ DeleteRouteEntriesResponse Client::deleteRouteEntries(const DeleteRouteEntriesRe
 }
 
 /**
- * @summary Calls the DeleteRouteEntry operation to delete a route from the route table of a vRouter or Virtual Border Router (VBR).
+ * @summary Invokes the DeleteRouteEntry operation to delete a route from the route table of a VPC vRouter or Virtual Border Router (VBR).
  *
- * @description When you call this operation to delete a route, take note of the following items:
+ * @description When you call this operation to delete a route, note the following items:
  * - Only routes in the **Available** state can be deleted.
- * - A route cannot be deleted if the VPC that contains the route table is creating or deleting a vSwitch or route.
+ * - A route cannot be deleted if the VPC that contains the route table is creating or deleting a vSwitch or route entry.
  * - To delete a route from the route table of a VBR, call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the **NextHopId** of the route that you want to delete, and then call this operation to delete the route.
- * - The **DeleteRouteEntry** operation is asynchronous. After you send a request, the system returns a request ID, but the route has not been deleted yet. The deletion task runs in the background. You can call [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the deletion status of the route:
+ * - The **DeleteRouteEntry** operation is asynchronous. After you send a request, the system returns a request ID, but the route has not been deleted yet. The deletion task is still running in the background. You can call [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the deletion status of the route:
  *     - If the route is in the **Deleting** state, the route is being deleted.
  *     - If the specified route cannot be found, the route is deleted.
  * - The **DeleteRouteEntry** operation does not support concurrent deletion of routes from the route table within the same VPC or VBR.
@@ -12605,13 +12619,13 @@ DeleteRouteEntryResponse Client::deleteRouteEntryWithOptions(const DeleteRouteEn
 }
 
 /**
- * @summary Calls the DeleteRouteEntry operation to delete a route from the route table of a vRouter or Virtual Border Router (VBR).
+ * @summary Invokes the DeleteRouteEntry operation to delete a route from the route table of a VPC vRouter or Virtual Border Router (VBR).
  *
- * @description When you call this operation to delete a route, take note of the following items:
+ * @description When you call this operation to delete a route, note the following items:
  * - Only routes in the **Available** state can be deleted.
- * - A route cannot be deleted if the VPC that contains the route table is creating or deleting a vSwitch or route.
+ * - A route cannot be deleted if the VPC that contains the route table is creating or deleting a vSwitch or route entry.
  * - To delete a route from the route table of a VBR, call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the **NextHopId** of the route that you want to delete, and then call this operation to delete the route.
- * - The **DeleteRouteEntry** operation is asynchronous. After you send a request, the system returns a request ID, but the route has not been deleted yet. The deletion task runs in the background. You can call [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the deletion status of the route:
+ * - The **DeleteRouteEntry** operation is asynchronous. After you send a request, the system returns a request ID, but the route has not been deleted yet. The deletion task is still running in the background. You can call [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the deletion status of the route:
  *     - If the route is in the **Deleting** state, the route is being deleted.
  *     - If the specified route cannot be found, the route is deleted.
  * - The **DeleteRouteEntry** operation does not support concurrent deletion of routes from the route table within the same VPC or VBR.
@@ -12627,11 +12641,10 @@ DeleteRouteEntryResponse Client::deleteRouteEntry(const DeleteRouteEntryRequest 
 /**
  * @summary Deletes a custom route table.
  *
- * @description ## [](#)Description
- * *   **DeleteRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteTableList](https://help.aliyun.com/document_detail/87602.html) operation to query the status of the task.
- *     *   If the custom route table is in the **Deleting** state, the custom route table is being deleted.
- *     *   If you cannot query the custom route table, the custom route table is deleted.
- * *   You cannot repeatedly call the **DeleteRouteTable** operation to delete a custom route table within the specified period of time.
+ * @description - **DeleteRouteTable** is an asynchronous operation. After you call this operation, the system returns a request ID, but the custom route table is not yet deleted. The deletion task is still running in the background. You can call [DescribeRouteTableList](https://help.aliyun.com/document_detail/87602.html) to query the deletion status of the custom route table:
+ *     - If the custom route table is in the **Deleting** state, the custom route table is being deleted.
+ *     - If the specified custom route table cannot be found, the custom route table is deleted.
+ * - **DeleteRouteTable** does not support concurrent deletion of custom route tables in the same VPC.
  *
  * @param request DeleteRouteTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12688,11 +12701,10 @@ DeleteRouteTableResponse Client::deleteRouteTableWithOptions(const DeleteRouteTa
 /**
  * @summary Deletes a custom route table.
  *
- * @description ## [](#)Description
- * *   **DeleteRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeRouteTableList](https://help.aliyun.com/document_detail/87602.html) operation to query the status of the task.
- *     *   If the custom route table is in the **Deleting** state, the custom route table is being deleted.
- *     *   If you cannot query the custom route table, the custom route table is deleted.
- * *   You cannot repeatedly call the **DeleteRouteTable** operation to delete a custom route table within the specified period of time.
+ * @description - **DeleteRouteTable** is an asynchronous operation. After you call this operation, the system returns a request ID, but the custom route table is not yet deleted. The deletion task is still running in the background. You can call [DescribeRouteTableList](https://help.aliyun.com/document_detail/87602.html) to query the deletion status of the custom route table:
+ *     - If the custom route table is in the **Deleting** state, the custom route table is being deleted.
+ *     - If the specified custom route table cannot be found, the custom route table is deleted.
+ * - **DeleteRouteTable** does not support concurrent deletion of custom route tables in the same VPC.
  *
  * @param request DeleteRouteTableRequest
  * @return DeleteRouteTableResponse
@@ -12771,9 +12783,9 @@ DeleteRouteTargetGroupResponse Client::deleteRouteTargetGroup(const DeleteRouteT
 /**
  * @summary Deletes a router interface.
  *
- * @description When you call this operation, take note of the following limits:
- * *   You can delete only a router interface that is in the **Idle** or **Inactive** state.
- * *   Before you delete a router interface, you must delete all custom route entries destined for the router interface.
+ * @description When you invoke this operation to delete a router interface, take note of the following items: 
+ * - You can delete only router interfaces that are in the **Idle** or **Inactive** state. 
+ * - Before you delete a router interface, delete all custom route entries that point to it.
  *
  * @param request DeleteRouterInterfaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12830,9 +12842,9 @@ DeleteRouterInterfaceResponse Client::deleteRouterInterfaceWithOptions(const Del
 /**
  * @summary Deletes a router interface.
  *
- * @description When you call this operation, take note of the following limits:
- * *   You can delete only a router interface that is in the **Idle** or **Inactive** state.
- * *   Before you delete a router interface, you must delete all custom route entries destined for the router interface.
+ * @description When you invoke this operation to delete a router interface, take note of the following items: 
+ * - You can delete only router interfaces that are in the **Idle** or **Inactive** state. 
+ * - Before you delete a router interface, delete all custom route entries that point to it.
  *
  * @param request DeleteRouterInterfaceRequest
  * @return DeleteRouterInterfaceResponse
@@ -12843,12 +12855,12 @@ DeleteRouterInterfaceResponse Client::deleteRouterInterface(const DeleteRouterIn
 }
 
 /**
- * @summary Deletes an SNAT entry.
+ * @summary Deletes a specified SNAT entry.
  *
- * @description DeleteSnatEntry is an asynchronous operation. After you make a request, the ID of the request is returned but the specified SNAT entry is not deleted. The system deletes the SNAT entry in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of SNAT entries.
- * *   If the SNAT entries are in the **Deleting** state, the system is deleting the SNAT entries. In this case, you can only query the status of the SNAT entries, and cannot perform other operations.
- * *   If no SNAT entry is returned in the response, the SNAT entry is deleted.
- * If some SNAT entries are in the **Pending** state, you cannot delete these SNAT entries.
+ * @description **DeleteSnatEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the SNAT entry is not yet deleted. The deletion task continues to run in the background. You can call [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) to query the status of the SNAT entry:
+ * - If the SNAT entry is in the **Deleting** state, the SNAT entry is being deleted. In this state, you can only perform query operations.
+ * - If the returned SNAT entry list is empty, the SNAT entry is deleted.
+ * If a SNAT entry in the SNAT table is in the **Pending** state, you cannot delete SNAT entries from the SNAT table.
  *
  * @param request DeleteSnatEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12907,12 +12919,12 @@ DeleteSnatEntryResponse Client::deleteSnatEntryWithOptions(const DeleteSnatEntry
 }
 
 /**
- * @summary Deletes an SNAT entry.
+ * @summary Deletes a specified SNAT entry.
  *
- * @description DeleteSnatEntry is an asynchronous operation. After you make a request, the ID of the request is returned but the specified SNAT entry is not deleted. The system deletes the SNAT entry in the background. You can call the [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) operation to query the status of SNAT entries.
- * *   If the SNAT entries are in the **Deleting** state, the system is deleting the SNAT entries. In this case, you can only query the status of the SNAT entries, and cannot perform other operations.
- * *   If no SNAT entry is returned in the response, the SNAT entry is deleted.
- * If some SNAT entries are in the **Pending** state, you cannot delete these SNAT entries.
+ * @description **DeleteSnatEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the SNAT entry is not yet deleted. The deletion task continues to run in the background. You can call [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) to query the status of the SNAT entry:
+ * - If the SNAT entry is in the **Deleting** state, the SNAT entry is being deleted. In this state, you can only perform query operations.
+ * - If the returned SNAT entry list is empty, the SNAT entry is deleted.
+ * If a SNAT entry in the SNAT table is in the **Pending** state, you cannot delete SNAT entries from the SNAT table.
  *
  * @param request DeleteSnatEntryRequest
  * @return DeleteSnatEntryResponse
@@ -12925,11 +12937,11 @@ DeleteSnatEntryResponse Client::deleteSnatEntry(const DeleteSnatEntryRequest &re
 /**
  * @summary Deletes an SSL-VPN client certificate.
  *
- * @description - Deleting an SSL-VPN client certificate disconnects all clients under the SSL server from their SSL-VPN connections. If clients need to continue using SSL-VPN connections, they must re-initiate the SSL-VPN connections.
+ * @description - Deleting an SSL-VPN client certificate disconnects all clients under the SSL server from their SSL-VPN connections. If clients need to continue using SSL-VPN connections, they must re-initiate the connections.
  *   For example, if SSL-VPN client certificate 1 and SSL-VPN client certificate 2 are created under an SSL server, deleting SSL-VPN client certificate 1 disconnects all clients associated with both SSL-VPN client certificate 1 and SSL-VPN client certificate 2.
- *   - If clients associated with SSL-VPN client certificate 1 need to continue using SSL-VPN connections, they must install another certificate and then re-initiate the SSL-VPN connections.
- *   - If clients associated with SSL-VPN client certificate 2 need to continue using SSL-VPN connections, they only need to re-initiate the SSL-VPN connections.
- * - The **DeleteSslVpnClientCert** operation is asynchronous. After a request is sent, the system returns a request ID. However, the SSL-VPN client certificate is not immediately deleted. The deletion task runs in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the VPN gateway instance associated with the SSL server to check the deletion status of the SSL-VPN client certificate:
+ *   - If clients associated with SSL-VPN client certificate 1 need to continue using SSL-VPN connections, they must install another certificate and then re-initiate the connections.
+ *   - If clients associated with SSL-VPN client certificate 2 need to continue using SSL-VPN connections, they only need to re-initiate the connections.
+ * - The **DeleteSslVpnClientCert** operation is asynchronous. After a request is sent, the system returns a request ID, but the SSL-VPN client certificate is not yet deleted. The deletion task continues in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the VPN gateway instance associated with the SSL server to confirm the deletion status of the SSL-VPN client certificate:
  *     - If the VPN gateway instance is in the **updating** state, the SSL-VPN client certificate is being deleted.
  *     - If the VPN gateway instance is in the **active** state, the SSL-VPN client certificate is deleted.
  * - The **DeleteSslVpnClientCert** operation does not support concurrent deletion of SSL-VPN client certificates under the same VPN gateway instance.
@@ -12989,11 +13001,11 @@ DeleteSslVpnClientCertResponse Client::deleteSslVpnClientCertWithOptions(const D
 /**
  * @summary Deletes an SSL-VPN client certificate.
  *
- * @description - Deleting an SSL-VPN client certificate disconnects all clients under the SSL server from their SSL-VPN connections. If clients need to continue using SSL-VPN connections, they must re-initiate the SSL-VPN connections.
+ * @description - Deleting an SSL-VPN client certificate disconnects all clients under the SSL server from their SSL-VPN connections. If clients need to continue using SSL-VPN connections, they must re-initiate the connections.
  *   For example, if SSL-VPN client certificate 1 and SSL-VPN client certificate 2 are created under an SSL server, deleting SSL-VPN client certificate 1 disconnects all clients associated with both SSL-VPN client certificate 1 and SSL-VPN client certificate 2.
- *   - If clients associated with SSL-VPN client certificate 1 need to continue using SSL-VPN connections, they must install another certificate and then re-initiate the SSL-VPN connections.
- *   - If clients associated with SSL-VPN client certificate 2 need to continue using SSL-VPN connections, they only need to re-initiate the SSL-VPN connections.
- * - The **DeleteSslVpnClientCert** operation is asynchronous. After a request is sent, the system returns a request ID. However, the SSL-VPN client certificate is not immediately deleted. The deletion task runs in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the VPN gateway instance associated with the SSL server to check the deletion status of the SSL-VPN client certificate:
+ *   - If clients associated with SSL-VPN client certificate 1 need to continue using SSL-VPN connections, they must install another certificate and then re-initiate the connections.
+ *   - If clients associated with SSL-VPN client certificate 2 need to continue using SSL-VPN connections, they only need to re-initiate the connections.
+ * - The **DeleteSslVpnClientCert** operation is asynchronous. After a request is sent, the system returns a request ID, but the SSL-VPN client certificate is not yet deleted. The deletion task continues in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the VPN gateway instance associated with the SSL server to confirm the deletion status of the SSL-VPN client certificate:
  *     - If the VPN gateway instance is in the **updating** state, the SSL-VPN client certificate is being deleted.
  *     - If the VPN gateway instance is in the **active** state, the SSL-VPN client certificate is deleted.
  * - The **DeleteSslVpnClientCert** operation does not support concurrent deletion of SSL-VPN client certificates under the same VPN gateway instance.
@@ -13007,12 +13019,12 @@ DeleteSslVpnClientCertResponse Client::deleteSslVpnClientCert(const DeleteSslVpn
 }
 
 /**
- * @summary Deletes an SSL server.
+ * @summary Deletes an SSL server. After the SSL server is deleted, the system automatically deletes all SSL client certificates associated with the SSL server, and clients that have installed these SSL client certificates are automatically disconnected from the SSL-VPN connection.
  *
- * @description *   **DeleteSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the task.
- *     *   If the VPN gateway is in the **updating** state, the SSL server is being deleted.
- *     *   If the VPN gateway is in the **active** state, the SSL server is deleted.
- * *   You cannot repeatedly call the **DeleteSslVpnServer** operation to delete an SSL server from the same VPN gateway within the specified period of time.
+ * @description - **DeleteSslVpnServer** is an asynchronous operation. After you send a request, the system returns a request ID, but the SSL server has not yet been deleted. The deletion task continues to run in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the VPN gateway instance to determine the deletion status of the SSL server:
+ *     - If the VPN gateway instance is in the **updating** state, the SSL server is being deleted.
+ *     - If the VPN gateway instance is in the **active** state, the SSL server is deleted.
+ * - **DeleteSslVpnServer** does not support concurrent deletion of SSL server instances under the same VPN gateway.
  *
  * @param request DeleteSslVpnServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13067,12 +13079,12 @@ DeleteSslVpnServerResponse Client::deleteSslVpnServerWithOptions(const DeleteSsl
 }
 
 /**
- * @summary Deletes an SSL server.
+ * @summary Deletes an SSL server. After the SSL server is deleted, the system automatically deletes all SSL client certificates associated with the SSL server, and clients that have installed these SSL client certificates are automatically disconnected from the SSL-VPN connection.
  *
- * @description *   **DeleteSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the task.
- *     *   If the VPN gateway is in the **updating** state, the SSL server is being deleted.
- *     *   If the VPN gateway is in the **active** state, the SSL server is deleted.
- * *   You cannot repeatedly call the **DeleteSslVpnServer** operation to delete an SSL server from the same VPN gateway within the specified period of time.
+ * @description - **DeleteSslVpnServer** is an asynchronous operation. After you send a request, the system returns a request ID, but the SSL server has not yet been deleted. The deletion task continues to run in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the VPN gateway instance to determine the deletion status of the SSL server:
+ *     - If the VPN gateway instance is in the **updating** state, the SSL server is being deleted.
+ *     - If the VPN gateway instance is in the **active** state, the SSL server is deleted.
+ * - **DeleteSslVpnServer** does not support concurrent deletion of SSL server instances under the same VPN gateway.
  *
  * @param request DeleteSslVpnServerRequest
  * @return DeleteSslVpnServerResponse
@@ -13085,7 +13097,7 @@ DeleteSslVpnServerResponse Client::deleteSslVpnServer(const DeleteSslVpnServerRe
 /**
  * @summary Invokes the DeleteTrafficMirrorFilter operation to delete a traffic mirror filter.
  *
- * @description - **DeleteTrafficMirrorFilter** is an asynchronous operation. After you send a request, the system returns a request ID, but the traffic mirror filter is not yet deleted. The deletion task runs in the background. You can call [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the deletion status of the traffic mirror filter:
+ * @description - **DeleteTrafficMirrorFilter** is an asynchronous operation. After you send a request, the system returns a request ID, but the traffic mirror filter is not yet deleted. The deletion task runs in the background. You can invoke [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the deletion status of the traffic mirror filter:
  *     - If the traffic mirror filter is in the **Deleting** state, the traffic mirror filter is being deleted.
  *     - If the specified traffic mirror filter cannot be found, the traffic mirror filter is deleted.
  * - **DeleteTrafficMirrorFilter** does not support concurrent deletion of the same traffic mirror filter.
@@ -13149,7 +13161,7 @@ DeleteTrafficMirrorFilterResponse Client::deleteTrafficMirrorFilterWithOptions(c
 /**
  * @summary Invokes the DeleteTrafficMirrorFilter operation to delete a traffic mirror filter.
  *
- * @description - **DeleteTrafficMirrorFilter** is an asynchronous operation. After you send a request, the system returns a request ID, but the traffic mirror filter is not yet deleted. The deletion task runs in the background. You can call [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the deletion status of the traffic mirror filter:
+ * @description - **DeleteTrafficMirrorFilter** is an asynchronous operation. After you send a request, the system returns a request ID, but the traffic mirror filter is not yet deleted. The deletion task runs in the background. You can invoke [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the deletion status of the traffic mirror filter:
  *     - If the traffic mirror filter is in the **Deleting** state, the traffic mirror filter is being deleted.
  *     - If the specified traffic mirror filter cannot be found, the traffic mirror filter is deleted.
  * - **DeleteTrafficMirrorFilter** does not support concurrent deletion of the same traffic mirror filter.
@@ -13163,7 +13175,12 @@ DeleteTrafficMirrorFilterResponse Client::deleteTrafficMirrorFilter(const Delete
 }
 
 /**
- * @summary Deletes an inbound or outbound rule of a filter for traffic mirror.
+ * @summary Invokes the DeleteTrafficMirrorFilterRules operation to delete inbound or outbound rules of a traffic mirror filter.
+ *
+ * @description - **DeleteTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID, but the inbound or outbound rules of the traffic mirror filter have not been deleted yet. The deletion task is still running in the background. You can invoke [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the deletion status of the inbound or outbound rules of the traffic mirror filter:
+ *     - If the inbound or outbound rules of the traffic mirror filter are in the **Deleting** state, the rules are being deleted.
+ *     - If the specified inbound or outbound rules of the traffic mirror filter cannot be found, the rules have been deleted.
+ * - **DeleteTrafficMirrorFilterRules** does not support concurrent deletion of inbound or outbound rules of the same traffic mirror filter.
  *
  * @param request DeleteTrafficMirrorFilterRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13226,7 +13243,12 @@ DeleteTrafficMirrorFilterRulesResponse Client::deleteTrafficMirrorFilterRulesWit
 }
 
 /**
- * @summary Deletes an inbound or outbound rule of a filter for traffic mirror.
+ * @summary Invokes the DeleteTrafficMirrorFilterRules operation to delete inbound or outbound rules of a traffic mirror filter.
+ *
+ * @description - **DeleteTrafficMirrorFilterRules** is an asynchronous operation. After a request is sent, the system returns a request ID, but the inbound or outbound rules of the traffic mirror filter have not been deleted yet. The deletion task is still running in the background. You can invoke [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the deletion status of the inbound or outbound rules of the traffic mirror filter:
+ *     - If the inbound or outbound rules of the traffic mirror filter are in the **Deleting** state, the rules are being deleted.
+ *     - If the specified inbound or outbound rules of the traffic mirror filter cannot be found, the rules have been deleted.
+ * - **DeleteTrafficMirrorFilterRules** does not support concurrent deletion of inbound or outbound rules of the same traffic mirror filter.
  *
  * @param request DeleteTrafficMirrorFilterRulesRequest
  * @return DeleteTrafficMirrorFilterRulesResponse
@@ -13238,6 +13260,11 @@ DeleteTrafficMirrorFilterRulesResponse Client::deleteTrafficMirrorFilterRules(co
 
 /**
  * @summary Deletes a traffic mirror session.
+ *
+ * @description - **DeleteTrafficMirrorSession** is an asynchronous operation. After you send a request, the system returns a request ID. However, the traffic mirror session is not yet deleted. The deletion task runs in the background. You can call [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) to query the deletion status of the traffic mirror session:
+ *     - If the traffic mirror session is in the **Deleting** state, the traffic mirror session is being deleted.
+ *     - If the specified traffic mirror session cannot be found, the traffic mirror session is deleted.
+ * - **DeleteTrafficMirrorSession** does not support concurrent deletion of the same traffic mirror session.
  *
  * @param request DeleteTrafficMirrorSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13298,6 +13325,11 @@ DeleteTrafficMirrorSessionResponse Client::deleteTrafficMirrorSessionWithOptions
 /**
  * @summary Deletes a traffic mirror session.
  *
+ * @description - **DeleteTrafficMirrorSession** is an asynchronous operation. After you send a request, the system returns a request ID. However, the traffic mirror session is not yet deleted. The deletion task runs in the background. You can call [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) to query the deletion status of the traffic mirror session:
+ *     - If the traffic mirror session is in the **Deleting** state, the traffic mirror session is being deleted.
+ *     - If the specified traffic mirror session cannot be found, the traffic mirror session is deleted.
+ * - **DeleteTrafficMirrorSession** does not support concurrent deletion of the same traffic mirror session.
+ *
  * @param request DeleteTrafficMirrorSessionRequest
  * @return DeleteTrafficMirrorSessionResponse
  */
@@ -13307,16 +13339,16 @@ DeleteTrafficMirrorSessionResponse Client::deleteTrafficMirrorSession(const Dele
 }
 
 /**
- * @summary Deletes a VSwitch.
+ * @summary Invokes the DeleteVSwitch operation to delete a vSwitch.
  *
- * @description When you call this operation to delete a VSwitch, take note of the following items:
- * - Before you delete a VSwitch, you must release or migrate all resources in the VPC, including VSwitches, cloud product instances, router interfaces, and HaVip resources.
- * - Only VSwitches in the **Available** state can be deleted.
- * - A VSwitch cannot be deleted if the VPC to which it belongs is creating or deleting a VSwitch or route entry.
- * - The **DeleteVSwitch** operation is asynchronous. After you send a request, the system returns a request ID, but the VSwitch is not yet deleted. The deletion task is still running in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the deletion status of the VSwitch:
- *     - If the VSwitch is in the **Pending** state, the VSwitch is being deleted.
- *     - If the specified VSwitch cannot be found, the VSwitch is deleted.
- * - The **DeleteVSwitch** operation does not support concurrent deletion of the same VSwitch.
+ * @description Before you call this operation to delete a vSwitch, take note of the following items: 
+ * - Before deleting a vSwitch, release or move all resources in the VPC, including vSwitches, cloud service instances, router interfaces, and HaVips.  
+ * - Only vSwitches in the **Available** state can be deleted.  
+ * - A vSwitch cannot be deleted if the VPC to which it belongs is creating or deleting a vSwitch or route. 
+ * - The **DeleteVSwitch** operation is asynchronous. After you send a request, the system returns a request ID, but the vSwitch is not yet deleted. The deletion task is still running in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the deletion status of the vSwitch:
+ *     - If the vSwitch is in the **Pending** state, the vSwitch is being deleted.
+ *     - If the specified vSwitch cannot be found, the vSwitch is deleted.
+ * - The **DeleteVSwitch** operation does not support concurrent deletion of the same vSwitch.
  *
  * @param request DeleteVSwitchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13371,16 +13403,16 @@ DeleteVSwitchResponse Client::deleteVSwitchWithOptions(const DeleteVSwitchReques
 }
 
 /**
- * @summary Deletes a VSwitch.
+ * @summary Invokes the DeleteVSwitch operation to delete a vSwitch.
  *
- * @description When you call this operation to delete a VSwitch, take note of the following items:
- * - Before you delete a VSwitch, you must release or migrate all resources in the VPC, including VSwitches, cloud product instances, router interfaces, and HaVip resources.
- * - Only VSwitches in the **Available** state can be deleted.
- * - A VSwitch cannot be deleted if the VPC to which it belongs is creating or deleting a VSwitch or route entry.
- * - The **DeleteVSwitch** operation is asynchronous. After you send a request, the system returns a request ID, but the VSwitch is not yet deleted. The deletion task is still running in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the deletion status of the VSwitch:
- *     - If the VSwitch is in the **Pending** state, the VSwitch is being deleted.
- *     - If the specified VSwitch cannot be found, the VSwitch is deleted.
- * - The **DeleteVSwitch** operation does not support concurrent deletion of the same VSwitch.
+ * @description Before you call this operation to delete a vSwitch, take note of the following items: 
+ * - Before deleting a vSwitch, release or move all resources in the VPC, including vSwitches, cloud service instances, router interfaces, and HaVips.  
+ * - Only vSwitches in the **Available** state can be deleted.  
+ * - A vSwitch cannot be deleted if the VPC to which it belongs is creating or deleting a vSwitch or route. 
+ * - The **DeleteVSwitch** operation is asynchronous. After you send a request, the system returns a request ID, but the vSwitch is not yet deleted. The deletion task is still running in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the deletion status of the vSwitch:
+ *     - If the vSwitch is in the **Pending** state, the vSwitch is being deleted.
+ *     - If the specified vSwitch cannot be found, the vSwitch is deleted.
+ * - The **DeleteVSwitch** operation does not support concurrent deletion of the same vSwitch.
  *
  * @param request DeleteVSwitchRequest
  * @return DeleteVSwitchResponse
@@ -13391,13 +13423,12 @@ DeleteVSwitchResponse Client::deleteVSwitch(const DeleteVSwitchRequest &request)
 }
 
 /**
- * @summary Deletes a reserved CIDR block of a vSwitch.
+ * @summary Deletes a reserved vSwitch CIDR block.
  *
- * @description - 在您调用该接口删除交换机预留网段前，请确保从该预留网段给弹性网卡ENI（Elastic Network Interface）分配的前缀网段均已删除。如有请先调用[UnassignPrivateIpAddresses](https://help.aliyun.com/document_detail/85919.html)或[UnassignIpv6Addresses](https://help.aliyun.com/document_detail/98611.html)接口释放弹性网卡的IPv4或者IPv6地址。
- * - **DeleteVSwitchCidrReservation**接口属于异步接口，即系统会返回一个实例ID，但该交换机预留网段尚未删除成功，系统后台任务仍在进行中。您可以调用
- * [ListVSwitchCidrReservations](https://help.aliyun.com/document_detail/610155.html)查询交换机预留网段的删除状态：
- *     - 当交换机预留网段处于**Releasing**状态时，表示交换机预留网段正在释放中。
- *     - 当交换机预留网段处于**Released**状态时，表示交换机预留网段已释放。
+ * @description - Before you invoke this operation to delete a reserved vSwitch CIDR block, make sure that all prefix CIDR blocks allocated from the reserved CIDR block to elastic network interfaces (ENIs) are deleted. If any exist, first invoke [UnassignPrivateIpAddresses](https://help.aliyun.com/document_detail/85919.html) or [UnassignIpv6Addresses](https://help.aliyun.com/document_detail/98611.html) to release the IPv4 or IPv6 addresses of the ENI.
+ * - **DeleteVSwitchCidrReservation** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the reserved vSwitch CIDR block is not yet deleted. The background task is still in progress. You can invoke [ListVSwitchCidrReservations](https://help.aliyun.com/document_detail/610155.html) to query the deletion status of the reserved vSwitch CIDR block:
+ *     - If the reserved vSwitch CIDR block is in the **Releasing** state, the reserved vSwitch CIDR block is being released.
+ *     - If the reserved vSwitch CIDR block is in the **Released** state, the reserved vSwitch CIDR block is released.
  *
  * @param request DeleteVSwitchCidrReservationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13456,13 +13487,12 @@ DeleteVSwitchCidrReservationResponse Client::deleteVSwitchCidrReservationWithOpt
 }
 
 /**
- * @summary Deletes a reserved CIDR block of a vSwitch.
+ * @summary Deletes a reserved vSwitch CIDR block.
  *
- * @description - 在您调用该接口删除交换机预留网段前，请确保从该预留网段给弹性网卡ENI（Elastic Network Interface）分配的前缀网段均已删除。如有请先调用[UnassignPrivateIpAddresses](https://help.aliyun.com/document_detail/85919.html)或[UnassignIpv6Addresses](https://help.aliyun.com/document_detail/98611.html)接口释放弹性网卡的IPv4或者IPv6地址。
- * - **DeleteVSwitchCidrReservation**接口属于异步接口，即系统会返回一个实例ID，但该交换机预留网段尚未删除成功，系统后台任务仍在进行中。您可以调用
- * [ListVSwitchCidrReservations](https://help.aliyun.com/document_detail/610155.html)查询交换机预留网段的删除状态：
- *     - 当交换机预留网段处于**Releasing**状态时，表示交换机预留网段正在释放中。
- *     - 当交换机预留网段处于**Released**状态时，表示交换机预留网段已释放。
+ * @description - Before you invoke this operation to delete a reserved vSwitch CIDR block, make sure that all prefix CIDR blocks allocated from the reserved CIDR block to elastic network interfaces (ENIs) are deleted. If any exist, first invoke [UnassignPrivateIpAddresses](https://help.aliyun.com/document_detail/85919.html) or [UnassignIpv6Addresses](https://help.aliyun.com/document_detail/98611.html) to release the IPv4 or IPv6 addresses of the ENI.
+ * - **DeleteVSwitchCidrReservation** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the reserved vSwitch CIDR block is not yet deleted. The background task is still in progress. You can invoke [ListVSwitchCidrReservations](https://help.aliyun.com/document_detail/610155.html) to query the deletion status of the reserved vSwitch CIDR block:
+ *     - If the reserved vSwitch CIDR block is in the **Releasing** state, the reserved vSwitch CIDR block is being released.
+ *     - If the reserved vSwitch CIDR block is in the **Released** state, the reserved vSwitch CIDR block is released.
  *
  * @param request DeleteVSwitchCidrReservationRequest
  * @return DeleteVSwitchCidrReservationResponse
@@ -13539,12 +13569,12 @@ DeleteVbrHaResponse Client::deleteVbrHa(const DeleteVbrHaRequest &request) {
 }
 
 /**
- * @summary Calls the DeleteVcoRouteEntry operation to delete a destination route entry from an IPsec connection.
+ * @summary Deletes a destination route entry from an IPsec-VPN connection.
  *
- * @description - The **DeleteVcoRouteEntry** operation is asynchronous. After you send a request, the system returns a request ID, but the destination route entry is not immediately deleted. The deletion task runs in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the deletion status of the destination route entry:
- *     - If the IPsec connection is in the **updating** state, the destination route entry is being deleted.
- *     - If the IPsec connection is in the **attached** state, the destination route entry is deleted.
- * - The **DeleteVcoRouteEntry** operation does not support concurrent deletion of destination route entries from the same IPsec connection.
+ * @description - **DeleteVcoRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the destination route entry has not been deleted yet. The deletion task is still running in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the deletion status of the destination route entry:
+ *     - If the IPsec-VPN connection is in the **updating** state, the destination route entry is being deleted.
+ *     - If the IPsec-VPN connection is in the **attached** state, the destination route entry is deleted.
+ * - **DeleteVcoRouteEntry** does not support concurrent deletion of destination route entries for the same IPsec-VPN connection.
  *
  * @param request DeleteVcoRouteEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13611,12 +13641,12 @@ DeleteVcoRouteEntryResponse Client::deleteVcoRouteEntryWithOptions(const DeleteV
 }
 
 /**
- * @summary Calls the DeleteVcoRouteEntry operation to delete a destination route entry from an IPsec connection.
+ * @summary Deletes a destination route entry from an IPsec-VPN connection.
  *
- * @description - The **DeleteVcoRouteEntry** operation is asynchronous. After you send a request, the system returns a request ID, but the destination route entry is not immediately deleted. The deletion task runs in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the deletion status of the destination route entry:
- *     - If the IPsec connection is in the **updating** state, the destination route entry is being deleted.
- *     - If the IPsec connection is in the **attached** state, the destination route entry is deleted.
- * - The **DeleteVcoRouteEntry** operation does not support concurrent deletion of destination route entries from the same IPsec connection.
+ * @description - **DeleteVcoRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the destination route entry has not been deleted yet. The deletion task is still running in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the deletion status of the destination route entry:
+ *     - If the IPsec-VPN connection is in the **updating** state, the destination route entry is being deleted.
+ *     - If the IPsec-VPN connection is in the **attached** state, the destination route entry is deleted.
+ * - **DeleteVcoRouteEntry** does not support concurrent deletion of destination route entries for the same IPsec-VPN connection.
  *
  * @param request DeleteVcoRouteEntryRequest
  * @return DeleteVcoRouteEntryResponse
@@ -13627,12 +13657,12 @@ DeleteVcoRouteEntryResponse Client::deleteVcoRouteEntry(const DeleteVcoRouteEntr
 }
 
 /**
- * @summary Deletes a virtual border router (VBR).
+ * @summary Deletes a Virtual Border Router (VBR) instance.
  *
- * @description Before you call this operation, take note of the following limits:
- * *   Before you delete a VBR, you must delete all router interfaces of the VBR.
- * *   You can delete only a VBR in the **unconfirmed**, **active**, or **terminated** state.
- * *   The owner of an Express Connect circuit can delete a VBR that belongs to another account only if the VBR is in the **unconfirmed** state.
+ * @description Before you call the DeleteVirtualBorderRouter operation to delete a VBR instance, note the following: 
+ * - Before deleting a VBR instance, you must delete all router interfaces on the VBR instance. 
+ * - You can delete only VBR instances in the **unconfirmed**, **active**, or **terminated** state. 
+ * - A VBR instance owned by another account can be deleted by the Express Connect circuit owner only when the VBR instance is in the **unconfirmed** state.
  *
  * @param request DeleteVirtualBorderRouterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13687,12 +13717,12 @@ DeleteVirtualBorderRouterResponse Client::deleteVirtualBorderRouterWithOptions(c
 }
 
 /**
- * @summary Deletes a virtual border router (VBR).
+ * @summary Deletes a Virtual Border Router (VBR) instance.
  *
- * @description Before you call this operation, take note of the following limits:
- * *   Before you delete a VBR, you must delete all router interfaces of the VBR.
- * *   You can delete only a VBR in the **unconfirmed**, **active**, or **terminated** state.
- * *   The owner of an Express Connect circuit can delete a VBR that belongs to another account only if the VBR is in the **unconfirmed** state.
+ * @description Before you call the DeleteVirtualBorderRouter operation to delete a VBR instance, note the following: 
+ * - Before deleting a VBR instance, you must delete all router interfaces on the VBR instance. 
+ * - You can delete only VBR instances in the **unconfirmed**, **active**, or **terminated** state. 
+ * - A VBR instance owned by another account can be deleted by the Express Connect circuit owner only when the VBR instance is in the **unconfirmed** state.
  *
  * @param request DeleteVirtualBorderRouterRequest
  * @return DeleteVirtualBorderRouterResponse
@@ -13703,16 +13733,16 @@ DeleteVirtualBorderRouterResponse Client::deleteVirtualBorderRouter(const Delete
 }
 
 /**
- * @summary Calls the DeleteVpc operation to delete a Virtual Private Cloud (VPC).
+ * @summary Deletes a virtual private cloud (VPC).
  *
- * @description When calling this operation to delete a VPC, note the following:
- * - Before deleting a VPC, you must release or migrate all resources in the VPC, including vSwitches, cloud product instances, and high-availability virtual IP addresses (HAVIPs).
+ * @description When you call this operation to delete a VPC, take note of the following items: 
+ * - Before deleting a VPC, release or migrate all resources in the VPC, including vSwitches, cloud service instances, and high-availability virtual IP addresses.
  *   
- * - Only VPCs in the **Available** state can be deleted.
- * - The **DeleteVpc** operation is asynchronous. After a request is sent, a request ID is returned, but the VPC is not immediately deleted. The deletion task continues in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the deletion status of the VPC:
- *     - When the VPC is in the **Deleting** state, the VPC is being deleted.
- *     - When the specified VPC cannot be found, the VPC is deleted.
- * - The **DeleteVpc** operation does not support concurrent deletion of the same VPC.
+ * - Only VPCs in the **Available** state can be deleted.  
+ * - **DeleteVpc** is an asynchronous operation. After you send a request, the system returns a request ID, but the VPC is not yet deleted. The deletion task runs in the background. You can call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) to query the deletion status of the VPC:
+ *     - If the VPC is in the **Deleting** state, the VPC is being deleted.
+ *     - If the VPC cannot be found, the VPC is deleted.
+ * - **DeleteVpc** does not support concurrent deletion of the same VPC.
  *
  * @param request DeleteVpcRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13775,16 +13805,16 @@ DeleteVpcResponse Client::deleteVpcWithOptions(const DeleteVpcRequest &request, 
 }
 
 /**
- * @summary Calls the DeleteVpc operation to delete a Virtual Private Cloud (VPC).
+ * @summary Deletes a virtual private cloud (VPC).
  *
- * @description When calling this operation to delete a VPC, note the following:
- * - Before deleting a VPC, you must release or migrate all resources in the VPC, including vSwitches, cloud product instances, and high-availability virtual IP addresses (HAVIPs).
+ * @description When you call this operation to delete a VPC, take note of the following items: 
+ * - Before deleting a VPC, release or migrate all resources in the VPC, including vSwitches, cloud service instances, and high-availability virtual IP addresses.
  *   
- * - Only VPCs in the **Available** state can be deleted.
- * - The **DeleteVpc** operation is asynchronous. After a request is sent, a request ID is returned, but the VPC is not immediately deleted. The deletion task continues in the background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the deletion status of the VPC:
- *     - When the VPC is in the **Deleting** state, the VPC is being deleted.
- *     - When the specified VPC cannot be found, the VPC is deleted.
- * - The **DeleteVpc** operation does not support concurrent deletion of the same VPC.
+ * - Only VPCs in the **Available** state can be deleted.  
+ * - **DeleteVpc** is an asynchronous operation. After you send a request, the system returns a request ID, but the VPC is not yet deleted. The deletion task runs in the background. You can call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) to query the deletion status of the VPC:
+ *     - If the VPC is in the **Deleting** state, the VPC is being deleted.
+ *     - If the VPC cannot be found, the VPC is deleted.
+ * - **DeleteVpc** does not support concurrent deletion of the same VPC.
  *
  * @param request DeleteVpcRequest
  * @return DeleteVpcResponse
@@ -13867,7 +13897,7 @@ DeleteVpcGatewayEndpointResponse Client::deleteVpcGatewayEndpoint(const DeleteVp
 /**
  * @summary Deletes a prefix list.
  *
- * @description You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a prefix list within the specified period of time.
+ * @description The **DeleteVpcPrefixList** operation does not support concurrent deletion of the same prefix list instance.
  *
  * @param request DeleteVpcPrefixListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13928,7 +13958,7 @@ DeleteVpcPrefixListResponse Client::deleteVpcPrefixListWithOptions(const DeleteV
 /**
  * @summary Deletes a prefix list.
  *
- * @description You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a prefix list within the specified period of time.
+ * @description The **DeleteVpcPrefixList** operation does not support concurrent deletion of the same prefix list instance.
  *
  * @param request DeleteVpcPrefixListRequest
  * @return DeleteVpcPrefixListResponse
@@ -13939,7 +13969,7 @@ DeleteVpcPrefixListResponse Client::deleteVpcPrefixList(const DeleteVpcPrefixLis
 }
 
 /**
- * @summary Calls the DeleteVpnAttachment operation to delete an IPsec-VPN connection.
+ * @summary Deletes an IPsec-VPN connection by calling the DeleteVpnAttachment operation.
  *
  * @description - If the IPsec-VPN connection is associated with a transit router instance, disassociate the IPsec-VPN connection from the transit router instance before you delete the IPsec-VPN connection. For more information, see [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468251.html).
  * - If the IPsec-VPN connection is not associated with any resource, you can call the `DeleteVpnAttachment` operation to directly delete the IPsec-VPN connection.
@@ -13993,7 +14023,7 @@ DeleteVpnAttachmentResponse Client::deleteVpnAttachmentWithOptions(const DeleteV
 }
 
 /**
- * @summary Calls the DeleteVpnAttachment operation to delete an IPsec-VPN connection.
+ * @summary Deletes an IPsec-VPN connection by calling the DeleteVpnAttachment operation.
  *
  * @description - If the IPsec-VPN connection is associated with a transit router instance, disassociate the IPsec-VPN connection from the transit router instance before you delete the IPsec-VPN connection. For more information, see [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/468251.html).
  * - If the IPsec-VPN connection is not associated with any resource, you can call the `DeleteVpnAttachment` operation to directly delete the IPsec-VPN connection.
@@ -14007,13 +14037,13 @@ DeleteVpnAttachmentResponse Client::deleteVpnAttachment(const DeleteVpnAttachmen
 }
 
 /**
- * @summary Deletes an IPsec-VPN connection.
+ * @summary Deletes a specified IPsec-VPN connection.
  *
- * @description *   **DeleteVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of a VPN gateway.
- *     *   If a VPN gateway is in the **updating** state, the IPsec-VPN connection is being deleted.
- *     *   If a VPN gateway is in the **active** state, the IPsec-VPN connection has been deleted.
- * *   You cannot call the **DeleteVpnConnection** operation to delete multiple IPsec-VPN connections for a VPN gateway at a time.
- * >  After an IPsec-VPN connection between a data center and Alibaba Cloud is deleted, the connection between the data center and Alibaba Cloud is closed.
+ * @description - **DeleteVpnConnection** is an asynchronous operation. After you send a request, the system returns a request ID, but the IPsec-VPN connection is not yet deleted. The deletion task continues to run in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the VPN gateway instance and determine the deletion status of the IPsec-VPN connection:
+ *     - If the VPN gateway instance is in the **updating** state, the IPsec-VPN connection is being deleted.
+ *     - If the VPN gateway instance is in the **active** state, the IPsec-VPN connection is deleted.
+ * - **DeleteVpnConnection** does not support concurrent deletion of IPsec-VPN connections under the same VPN gateway.
+ * > After the IPsec-VPN connection is deleted, the connection between the on-premises data center and Alibaba Cloud is interrupted.
  *
  * @param request DeleteVpnConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14068,13 +14098,13 @@ DeleteVpnConnectionResponse Client::deleteVpnConnectionWithOptions(const DeleteV
 }
 
 /**
- * @summary Deletes an IPsec-VPN connection.
+ * @summary Deletes a specified IPsec-VPN connection.
  *
- * @description *   **DeleteVpnConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of a VPN gateway.
- *     *   If a VPN gateway is in the **updating** state, the IPsec-VPN connection is being deleted.
- *     *   If a VPN gateway is in the **active** state, the IPsec-VPN connection has been deleted.
- * *   You cannot call the **DeleteVpnConnection** operation to delete multiple IPsec-VPN connections for a VPN gateway at a time.
- * >  After an IPsec-VPN connection between a data center and Alibaba Cloud is deleted, the connection between the data center and Alibaba Cloud is closed.
+ * @description - **DeleteVpnConnection** is an asynchronous operation. After you send a request, the system returns a request ID, but the IPsec-VPN connection is not yet deleted. The deletion task continues to run in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the VPN gateway instance and determine the deletion status of the IPsec-VPN connection:
+ *     - If the VPN gateway instance is in the **updating** state, the IPsec-VPN connection is being deleted.
+ *     - If the VPN gateway instance is in the **active** state, the IPsec-VPN connection is deleted.
+ * - **DeleteVpnConnection** does not support concurrent deletion of IPsec-VPN connections under the same VPN gateway.
+ * > After the IPsec-VPN connection is deleted, the connection between the on-premises data center and Alibaba Cloud is interrupted.
  *
  * @param request DeleteVpnConnectionRequest
  * @return DeleteVpnConnectionResponse
@@ -14085,9 +14115,9 @@ DeleteVpnConnectionResponse Client::deleteVpnConnection(const DeleteVpnConnectio
 }
 
 /**
- * @summary Deletes a VPN gateway.
+ * @summary Deletes a specified VPN gateway.
  *
- * @description >  You cannot delete a VPN gateway associated with existing IPsec-VPN connections.
+ * @description > You cannot delete a VPN gateway that has existing IPsec-VPN connections.
  *
  * @param request DeleteVpnGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14142,9 +14172,9 @@ DeleteVpnGatewayResponse Client::deleteVpnGatewayWithOptions(const DeleteVpnGate
 }
 
 /**
- * @summary Deletes a VPN gateway.
+ * @summary Deletes a specified VPN gateway.
  *
- * @description >  You cannot delete a VPN gateway associated with existing IPsec-VPN connections.
+ * @description > You cannot delete a VPN gateway that has existing IPsec-VPN connections.
  *
  * @param request DeleteVpnGatewayRequest
  * @return DeleteVpnGatewayResponse
@@ -14157,7 +14187,7 @@ DeleteVpnGatewayResponse Client::deleteVpnGateway(const DeleteVpnGatewayRequest 
 /**
  * @summary Deletes a policy-based route by calling the DeleteVpnPbrRouteEntry operation.
  *
- * @description - **DeleteVpnPbrRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the policy-based routing is not yet deleted. The deletion node continues to run in the background. You can invoke the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the instance status of the VPN gateway to determine the deletion status of the policy-based routing:
+ * @description - **DeleteVpnPbrRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the policy-based route is not yet deleted. The deletion node continues to run in the background. You can invoke the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the instance status of the VPN gateway to determine the deletion status of the policy-based routing:
  *     - If the VPN gateway instance is in the **updating** state, the policy-based routing is being deleted.
  *     - If the VPN gateway instance is in the **active** state, the policy-based routing is deleted.
  * - **DeleteVpnPbrRouteEntry** does not support concurrent deletion of policy-based routing for the same VPN gateway instance.
@@ -14241,7 +14271,7 @@ DeleteVpnPbrRouteEntryResponse Client::deleteVpnPbrRouteEntryWithOptions(const D
 /**
  * @summary Deletes a policy-based route by calling the DeleteVpnPbrRouteEntry operation.
  *
- * @description - **DeleteVpnPbrRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the policy-based routing is not yet deleted. The deletion node continues to run in the background. You can invoke the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the instance status of the VPN gateway to determine the deletion status of the policy-based routing:
+ * @description - **DeleteVpnPbrRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the policy-based route is not yet deleted. The deletion node continues to run in the background. You can invoke the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the instance status of the VPN gateway to determine the deletion status of the policy-based routing:
  *     - If the VPN gateway instance is in the **updating** state, the policy-based routing is being deleted.
  *     - If the VPN gateway instance is in the **active** state, the policy-based routing is deleted.
  * - **DeleteVpnPbrRouteEntry** does not support concurrent deletion of policy-based routing for the same VPN gateway instance.
@@ -14255,12 +14285,12 @@ DeleteVpnPbrRouteEntryResponse Client::deleteVpnPbrRouteEntry(const DeleteVpnPbr
 }
 
 /**
- * @summary Deletes a destination-based route from a VPN gateway.
+ * @summary Deletes a VPN destination route by calling the DeleteVpnRouteEntry operation.
  *
- * @description *   **DeleteVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
- *     *   If a VPN gateway is in the **updating** state, the destination-based route is being deleted.
- *     *   If the VPN gateway is in the **active** state, the destination-based route is deleted.
- * *   You cannot repeatedly call **DeleteVpnRouteEntry** to delete a destination-based route from a VPN gateway within the specified period of time.
+ * @description - **DeleteVpnRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID. However, the VPN destination route is not yet deleted, and the deletion node is still running in the background. You can invoke [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the instance status of the VPN gateway and determine the deletion status of the VPN destination routing:
+ *     - If the VPN gateway instance is in the **updating** state, the VPN destination route is being deleted.
+ *     - If the VPN gateway instance is in the **active** state, the VPN destination route is deleted.
+ * - **DeleteVpnRouteEntry** does not support concurrent deletion of VPN destination routes for the same VPN gateway.
  *
  * @param request DeleteVpnRouteEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14331,12 +14361,12 @@ DeleteVpnRouteEntryResponse Client::deleteVpnRouteEntryWithOptions(const DeleteV
 }
 
 /**
- * @summary Deletes a destination-based route from a VPN gateway.
+ * @summary Deletes a VPN destination route by calling the DeleteVpnRouteEntry operation.
  *
- * @description *   **DeleteVpnRouteEntry** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
- *     *   If a VPN gateway is in the **updating** state, the destination-based route is being deleted.
- *     *   If the VPN gateway is in the **active** state, the destination-based route is deleted.
- * *   You cannot repeatedly call **DeleteVpnRouteEntry** to delete a destination-based route from a VPN gateway within the specified period of time.
+ * @description - **DeleteVpnRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID. However, the VPN destination route is not yet deleted, and the deletion node is still running in the background. You can invoke [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the instance status of the VPN gateway and determine the deletion status of the VPN destination routing:
+ *     - If the VPN gateway instance is in the **updating** state, the VPN destination route is being deleted.
+ *     - If the VPN gateway instance is in the **active** state, the VPN destination route is deleted.
+ * - **DeleteVpnRouteEntry** does not support concurrent deletion of VPN destination routes for the same VPN gateway.
  *
  * @param request DeleteVpnRouteEntryRequest
  * @return DeleteVpnRouteEntryResponse
@@ -14347,9 +14377,9 @@ DeleteVpnRouteEntryResponse Client::deleteVpnRouteEntry(const DeleteVpnRouteEntr
 }
 
 /**
- * @summary Enables or disables deletion protection for an instance.
+ * @summary Sets the deletion protection feature for an instance.
  *
- * @description ## Operation description
+ * @description ## API description
  * After you enable deletion protection for an instance, you cannot delete the instance. To delete the instance, disable deletion protection first.
  *
  * @param request DeletionProtectionRequest
@@ -14413,9 +14443,9 @@ DeletionProtectionResponse Client::deletionProtectionWithOptions(const DeletionP
 }
 
 /**
- * @summary Enables or disables deletion protection for an instance.
+ * @summary Sets the deletion protection feature for an instance.
  *
- * @description ## Operation description
+ * @description ## API description
  * After you enable deletion protection for an instance, you cannot delete the instance. To delete the instance, disable deletion protection first.
  *
  * @param request DeletionProtectionRequest
@@ -14427,7 +14457,7 @@ DeletionProtectionResponse Client::deletionProtection(const DeletionProtectionRe
 }
 
 /**
- * @summary Call the Describe95Traffic operation to query 95th percentile traffic data for Internet Shared Bandwidth billed based on the enhanced 95th percentile method.
+ * @summary Queries the 95th percentile traffic data of an Internet Shared Bandwidth instance that uses the enhanced 95th percentile billing method.
  *
  * @param request Describe95TrafficRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14486,7 +14516,7 @@ Describe95TrafficResponse Client::describe95TrafficWithOptions(const Describe95T
 }
 
 /**
- * @summary Call the Describe95Traffic operation to query 95th percentile traffic data for Internet Shared Bandwidth billed based on the enhanced 95th percentile method.
+ * @summary Queries the 95th percentile traffic data of an Internet Shared Bandwidth instance that uses the enhanced 95th percentile billing method.
  *
  * @param request Describe95TrafficRequest
  * @return Describe95TrafficResponse
@@ -14497,7 +14527,7 @@ Describe95TrafficResponse Client::describe95Traffic(const Describe95TrafficReque
 }
 
 /**
- * @summary Call the DescribeAccessPoints operation to query Express Connect access points in a specified region.
+ * @summary Queries the access points of Express Connect circuits in a specified region by calling the DescribeAccessPoints operation.
  *
  * @param request DescribeAccessPointsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14552,7 +14582,7 @@ DescribeAccessPointsResponse Client::describeAccessPointsWithOptions(const Descr
 }
 
 /**
- * @summary Call the DescribeAccessPoints operation to query Express Connect access points in a specified region.
+ * @summary Queries the access points of Express Connect circuits in a specified region by calling the DescribeAccessPoints operation.
  *
  * @param request DescribeAccessPointsRequest
  * @return DescribeAccessPointsResponse
@@ -14563,7 +14593,7 @@ DescribeAccessPointsResponse Client::describeAccessPoints(const DescribeAccessPo
 }
 
 /**
- * @summary Queries Border Gateway Protocol (BGP) groups in a region.
+ * @summary Queries BGP groups in a specified region.
  *
  * @param request DescribeBgpGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14630,7 +14660,7 @@ DescribeBgpGroupsResponse Client::describeBgpGroupsWithOptions(const DescribeBgp
 }
 
 /**
- * @summary Queries Border Gateway Protocol (BGP) groups in a region.
+ * @summary Queries BGP groups in a specified region.
  *
  * @param request DescribeBgpGroupsRequest
  * @return DescribeBgpGroupsResponse
@@ -14641,7 +14671,7 @@ DescribeBgpGroupsResponse Client::describeBgpGroups(const DescribeBgpGroupsReque
 }
 
 /**
- * @summary Queries advertised Border Gateway Protocol (BGP) networks.
+ * @summary Invokes DescribeBgpNetworks to query advertised Border Gateway Protocol (BGP) networks.
  *
  * @param request DescribeBgpNetworksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14700,7 +14730,7 @@ DescribeBgpNetworksResponse Client::describeBgpNetworksWithOptions(const Describ
 }
 
 /**
- * @summary Queries advertised Border Gateway Protocol (BGP) networks.
+ * @summary Invokes DescribeBgpNetworks to query advertised Border Gateway Protocol (BGP) networks.
  *
  * @param request DescribeBgpNetworksRequest
  * @return DescribeBgpNetworksResponse
@@ -14711,7 +14741,7 @@ DescribeBgpNetworksResponse Client::describeBgpNetworks(const DescribeBgpNetwork
 }
 
 /**
- * @summary Queries Border Gateway Protocol (BGP) peers in a region.
+ * @summary Queries BGP peers in a specified region.
  *
  * @param request DescribeBgpPeersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14782,7 +14812,7 @@ DescribeBgpPeersResponse Client::describeBgpPeersWithOptions(const DescribeBgpPe
 }
 
 /**
- * @summary Queries Border Gateway Protocol (BGP) peers in a region.
+ * @summary Queries BGP peers in a specified region.
  *
  * @param request DescribeBgpPeersRequest
  * @return DescribeBgpPeersResponse
@@ -14793,7 +14823,7 @@ DescribeBgpPeersResponse Client::describeBgpPeers(const DescribeBgpPeersRequest 
 }
 
 /**
- * @summary Queries a list of Internet Shared Bandwidth instances in a region.
+ * @summary Queries the list and information of Internet Shared Bandwidth instances in a specified region.
  *
  * @param request DescribeCommonBandwidthPackagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14876,7 +14906,7 @@ DescribeCommonBandwidthPackagesResponse Client::describeCommonBandwidthPackagesW
 }
 
 /**
- * @summary Queries a list of Internet Shared Bandwidth instances in a region.
+ * @summary Queries the list and information of Internet Shared Bandwidth instances in a specified region.
  *
  * @param request DescribeCommonBandwidthPackagesRequest
  * @return DescribeCommonBandwidthPackagesResponse
@@ -14887,7 +14917,7 @@ DescribeCommonBandwidthPackagesResponse Client::describeCommonBandwidthPackages(
 }
 
 /**
- * @summary Queries details of a customer gateway.
+ * @summary Queries the details of a created customer gateway.
  *
  * @param request DescribeCustomerGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14938,7 +14968,7 @@ DescribeCustomerGatewayResponse Client::describeCustomerGatewayWithOptions(const
 }
 
 /**
- * @summary Queries details of a customer gateway.
+ * @summary Queries the details of a created customer gateway.
  *
  * @param request DescribeCustomerGatewayRequest
  * @return DescribeCustomerGatewayResponse
@@ -15027,7 +15057,7 @@ DescribeCustomerGatewaysResponse Client::describeCustomerGateways(const Describe
 }
 
 /**
- * @summary Queries whether permissions on a virtual private cloud (VPC) are granted to a virtual border router (VBR).
+ * @summary Invokes the DescribeEcGrantRelation operation to query the authorization relationship of a VPC-connected instance to a VBR instance in a cross-account VBR uplink scenario.
  *
  * @param request DescribeEcGrantRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15074,7 +15104,7 @@ DescribeEcGrantRelationResponse Client::describeEcGrantRelationWithOptions(const
 }
 
 /**
- * @summary Queries whether permissions on a virtual private cloud (VPC) are granted to a virtual border router (VBR).
+ * @summary Invokes the DescribeEcGrantRelation operation to query the authorization relationship of a VPC-connected instance to a VBR instance in a cross-account VBR uplink scenario.
  *
  * @param request DescribeEcGrantRelationRequest
  * @return DescribeEcGrantRelationResponse
@@ -15085,9 +15115,9 @@ DescribeEcGrantRelationResponse Client::describeEcGrantRelation(const DescribeEc
 }
 
 /**
- * @summary Queries elastic IP addresses (EIPs) created in a region.
+ * @summary Queries Elastic IP Addresses (EIPs) created in a specified region.
  *
- * @description 本接口可以查询指定地域已创建的EIP信息，包括EIP的带宽峰值、计费方式，当前绑定的实例类型等。
+ * @description Queries information about EIPs created in a specified region, including the bandwidth peak, billing method, and the type of instance currently attached with each EIP.
  *
  * @param request DescribeEipAddressesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15214,9 +15244,9 @@ DescribeEipAddressesResponse Client::describeEipAddressesWithOptions(const Descr
 }
 
 /**
- * @summary Queries elastic IP addresses (EIPs) created in a region.
+ * @summary Queries Elastic IP Addresses (EIPs) created in a specified region.
  *
- * @description 本接口可以查询指定地域已创建的EIP信息，包括EIP的带宽峰值、计费方式，当前绑定的实例类型等。
+ * @description Queries information about EIPs created in a specified region, including the bandwidth peak, billing method, and the type of instance currently attached with each EIP.
  *
  * @param request DescribeEipAddressesRequest
  * @return DescribeEipAddressesResponse
@@ -15227,9 +15257,9 @@ DescribeEipAddressesResponse Client::describeEipAddresses(const DescribeEipAddre
 }
 
 /**
- * @summary Queries the gateway and subnet mask of an elastic IP address (EIP).
+ * @summary Queries the gateway and subnet mask information of an elastic IP address (EIP) by calling the DescribeEipGatewayInfo operation.
  *
- * @description You can query only EIPs that are associated with secondary elastic network interfaces (ENIs) in multi-EIP-to-ENI mode.
+ * @description Only EIPs that are associated with secondary elastic network interfaces (ENIs) in multi-EIP-to-ENI mode are supported.
  *
  * @param request DescribeEipGatewayInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15284,9 +15314,9 @@ DescribeEipGatewayInfoResponse Client::describeEipGatewayInfoWithOptions(const D
 }
 
 /**
- * @summary Queries the gateway and subnet mask of an elastic IP address (EIP).
+ * @summary Queries the gateway and subnet mask information of an elastic IP address (EIP) by calling the DescribeEipGatewayInfo operation.
  *
- * @description You can query only EIPs that are associated with secondary elastic network interfaces (ENIs) in multi-EIP-to-ENI mode.
+ * @description Only EIPs that are associated with secondary elastic network interfaces (ENIs) in multi-EIP-to-ENI mode are supported.
  *
  * @param request DescribeEipGatewayInfoRequest
  * @return DescribeEipGatewayInfoResponse
@@ -15297,9 +15327,9 @@ DescribeEipGatewayInfoResponse Client::describeEipGatewayInfo(const DescribeEipG
 }
 
 /**
- * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
+ * @summary Queries the monitoring data of an elastic IP address (EIP). You can query data for up to 31 days and retrieve a maximum of 400 data points per request.
  *
- * @description To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
+ * @description For a better experience when retrieving monitoring data, use the DescribeMetricList operation provided by CloudMonitor to query EIP-related data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP-related metrics](https://help.aliyun.com/document_detail/162874.html).
  *
  * @param request DescribeEipMonitorDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15362,9 +15392,9 @@ DescribeEipMonitorDataResponse Client::describeEipMonitorDataWithOptions(const D
 }
 
 /**
- * @summary Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
+ * @summary Queries the monitoring data of an elastic IP address (EIP). You can query data for up to 31 days and retrieve a maximum of 400 data points per request.
  *
- * @description To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
+ * @description For a better experience when retrieving monitoring data, use the DescribeMetricList operation provided by CloudMonitor to query EIP-related data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP-related metrics](https://help.aliyun.com/document_detail/162874.html).
  *
  * @param request DescribeEipMonitorDataRequest
  * @return DescribeEipMonitorDataResponse
@@ -15449,7 +15479,7 @@ DescribeEipSegmentResponse Client::describeEipSegment(const DescribeEipSegmentRe
 }
 
 /**
- * @summary Queries the quality of service (QoS) policies of Express Connect. The response can be displayed by page.
+ * @summary Queries Express Connect Quality of Service (QoS) policies. This operation supports pagination parameters.
  *
  * @param request DescribeExpressConnectTrafficQosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15524,7 +15554,7 @@ DescribeExpressConnectTrafficQosResponse Client::describeExpressConnectTrafficQo
 }
 
 /**
- * @summary Queries the quality of service (QoS) policies of Express Connect. The response can be displayed by page.
+ * @summary Queries Express Connect Quality of Service (QoS) policies. This operation supports pagination parameters.
  *
  * @param request DescribeExpressConnectTrafficQosRequest
  * @return DescribeExpressConnectTrafficQosResponse
@@ -15535,7 +15565,7 @@ DescribeExpressConnectTrafficQosResponse Client::describeExpressConnectTrafficQo
 }
 
 /**
- * @summary Queries Express Connect QoS queues by calling DescribeExpressConnectTrafficQosQueue.
+ * @summary Queries Express Connect QoS queues.
  *
  * @param request DescribeExpressConnectTrafficQosQueueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15598,7 +15628,7 @@ DescribeExpressConnectTrafficQosQueueResponse Client::describeExpressConnectTraf
 }
 
 /**
- * @summary Queries Express Connect QoS queues by calling DescribeExpressConnectTrafficQosQueue.
+ * @summary Queries Express Connect QoS queues.
  *
  * @param request DescribeExpressConnectTrafficQosQueueRequest
  * @return DescribeExpressConnectTrafficQosQueueResponse
@@ -15609,7 +15639,7 @@ DescribeExpressConnectTrafficQosQueueResponse Client::describeExpressConnectTraf
 }
 
 /**
- * @summary Queries quality of service (QoS) rules. Paging parameters are not supported.
+ * @summary Queries Express Connect traffic QoS rules. This operation does not support pagination parameters.
  *
  * @param request DescribeExpressConnectTrafficQosRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15676,7 +15706,7 @@ DescribeExpressConnectTrafficQosRuleResponse Client::describeExpressConnectTraff
 }
 
 /**
- * @summary Queries quality of service (QoS) rules. Paging parameters are not supported.
+ * @summary Queries Express Connect traffic QoS rules. This operation does not support pagination parameters.
  *
  * @param request DescribeExpressConnectTrafficQosRuleRequest
  * @return DescribeExpressConnectTrafficQosRuleResponse
@@ -15687,7 +15717,7 @@ DescribeExpressConnectTrafficQosRuleResponse Client::describeExpressConnectTraff
 }
 
 /**
- * @summary Queries failover tests.
+ * @summary Queries the details of an Express Connect failover test job by calling the DescribeFailoverTestJob operation.
  *
  * @param request DescribeFailoverTestJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15742,7 +15772,7 @@ DescribeFailoverTestJobResponse Client::describeFailoverTestJobWithOptions(const
 }
 
 /**
- * @summary Queries failover tests.
+ * @summary Queries the details of an Express Connect failover test job by calling the DescribeFailoverTestJob operation.
  *
  * @param request DescribeFailoverTestJobRequest
  * @return DescribeFailoverTestJobResponse
@@ -15753,7 +15783,7 @@ DescribeFailoverTestJobResponse Client::describeFailoverTestJob(const DescribeFa
 }
 
 /**
- * @summary Queries failover tests for Express Connect.
+ * @summary Queries failover test jobs of Express Connect in batches.
  *
  * @param request DescribeFailoverTestJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15816,7 +15846,7 @@ DescribeFailoverTestJobsResponse Client::describeFailoverTestJobsWithOptions(con
 }
 
 /**
- * @summary Queries failover tests for Express Connect.
+ * @summary Queries failover test jobs of Express Connect in batches.
  *
  * @param request DescribeFailoverTestJobsRequest
  * @return DescribeFailoverTestJobsResponse
@@ -15827,7 +15857,7 @@ DescribeFailoverTestJobsResponse Client::describeFailoverTestJobs(const Describe
 }
 
 /**
- * @summary Query flow logs.
+ * @summary Queries flow logs by calling the DescribeFlowLogs operation.
  *
  * @param request DescribeFlowLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15930,7 +15960,7 @@ DescribeFlowLogsResponse Client::describeFlowLogsWithOptions(const DescribeFlowL
 }
 
 /**
- * @summary Query flow logs.
+ * @summary Queries flow logs by calling the DescribeFlowLogs operation.
  *
  * @param request DescribeFlowLogsRequest
  * @return DescribeFlowLogsResponse
@@ -15941,7 +15971,7 @@ DescribeFlowLogsResponse Client::describeFlowLogs(const DescribeFlowLogsRequest 
 }
 
 /**
- * @summary Queries DNAT entries.
+ * @summary Queries DNAT entries that have been created by calling the DescribeForwardTableEntries operation.
  *
  * @param request DescribeForwardTableEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16032,7 +16062,7 @@ DescribeForwardTableEntriesResponse Client::describeForwardTableEntriesWithOptio
 }
 
 /**
- * @summary Queries DNAT entries.
+ * @summary Queries DNAT entries that have been created by calling the DescribeForwardTableEntries operation.
  *
  * @param request DescribeForwardTableEntriesRequest
  * @return DescribeForwardTableEntriesResponse
@@ -16043,7 +16073,7 @@ DescribeForwardTableEntriesResponse Client::describeForwardTableEntries(const De
 }
 
 /**
- * @summary Queries Global Accelerator (GA) instances.
+ * @summary Queries a list of created Alibaba Cloud Global Accelerator (GA) instances.
  *
  * @param request DescribeGlobalAccelerationInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16130,7 +16160,7 @@ DescribeGlobalAccelerationInstancesResponse Client::describeGlobalAccelerationIn
 }
 
 /**
- * @summary Queries Global Accelerator (GA) instances.
+ * @summary Queries a list of created Alibaba Cloud Global Accelerator (GA) instances.
  *
  * @param request DescribeGlobalAccelerationInstancesRequest
  * @return DescribeGlobalAccelerationInstancesResponse
@@ -16141,7 +16171,7 @@ DescribeGlobalAccelerationInstancesResponse Client::describeGlobalAccelerationIn
 }
 
 /**
- * @summary Queries cross-account authorization on virtual private clouds (VPCs), virtual border routers (VBRs), and Cloud Connect Network (CCN) instances.
+ * @summary Queries the cross-account authorization information of a specified network instance (VPC, VBR, or CCN) in Cloud Enterprise Network (CEN).
  *
  * @param request DescribeGrantRulesToCenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16212,7 +16242,7 @@ DescribeGrantRulesToCenResponse Client::describeGrantRulesToCenWithOptions(const
 }
 
 /**
- * @summary Queries cross-account authorization on virtual private clouds (VPCs), virtual border routers (VBRs), and Cloud Connect Network (CCN) instances.
+ * @summary Queries the cross-account authorization information of a specified network instance (VPC, VBR, or CCN) in Cloud Enterprise Network (CEN).
  *
  * @param request DescribeGrantRulesToCenRequest
  * @return DescribeGrantRulesToCenResponse
@@ -16223,7 +16253,7 @@ DescribeGrantRulesToCenResponse Client::describeGrantRulesToCen(const DescribeGr
 }
 
 /**
- * @summary Queries the cross-account authorization list of an Express Connect Router (ECR).
+ * @summary Queries the cross-account authorization list of Express Connect Router (ECR) for a VBR.
  *
  * @param request DescribeGrantRulesToEcrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16274,7 +16304,7 @@ DescribeGrantRulesToEcrResponse Client::describeGrantRulesToEcrWithOptions(const
 }
 
 /**
- * @summary Queries the cross-account authorization list of an Express Connect Router (ECR).
+ * @summary Queries the cross-account authorization list of Express Connect Router (ECR) for a VBR.
  *
  * @param request DescribeGrantRulesToEcrRequest
  * @return DescribeGrantRulesToEcrResponse
@@ -16285,7 +16315,7 @@ DescribeGrantRulesToEcrResponse Client::describeGrantRulesToEcr(const DescribeGr
 }
 
 /**
- * @summary Queries HaVips in a region.
+ * @summary Queries high-availability virtual IP addresses (HaVips) in a specified region.
  *
  * @param request DescribeHaVipsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16352,7 +16382,7 @@ DescribeHaVipsResponse Client::describeHaVipsWithOptions(const DescribeHaVipsReq
 }
 
 /**
- * @summary Queries HaVips in a region.
+ * @summary Queries high-availability virtual IP addresses (HaVips) in a specified region.
  *
  * @param request DescribeHaVipsRequest
  * @return DescribeHaVipsResponse
@@ -16363,7 +16393,7 @@ DescribeHaVipsResponse Client::describeHaVips(const DescribeHaVipsRequest &reque
 }
 
 /**
- * @summary Queries configurations about the fine-grained monitoring feature of an elastic IP address (EIP).
+ * @summary Queries the configuration information of high-precision second-level monitoring for an EIP.
  *
  * @param request DescribeHighDefinitionMonitorLogAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16418,7 +16448,7 @@ DescribeHighDefinitionMonitorLogAttributeResponse Client::describeHighDefinition
 }
 
 /**
- * @summary Queries configurations about the fine-grained monitoring feature of an elastic IP address (EIP).
+ * @summary Queries the configuration information of high-precision second-level monitoring for an EIP.
  *
  * @param request DescribeHighDefinitionMonitorLogAttributeRequest
  * @return DescribeHighDefinitionMonitorLogAttributeResponse
@@ -16429,7 +16459,7 @@ DescribeHighDefinitionMonitorLogAttributeResponse Client::describeHighDefinition
 }
 
 /**
- * @summary Queries the details of an access control list (ACL), including the specified IP addresses and associated IPv6 mapping entries.
+ * @summary Queries the details of an access control policy group, including the IP addresses in the group and the specific information about associated IPv6 Translation Service mapping entries.
  *
  * @param request DescribeIPv6TranslatorAclListAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16488,7 +16518,7 @@ DescribeIPv6TranslatorAclListAttributesResponse Client::describeIPv6TranslatorAc
 }
 
 /**
- * @summary Queries the details of an access control list (ACL), including the specified IP addresses and associated IPv6 mapping entries.
+ * @summary Queries the details of an access control policy group, including the IP addresses in the group and the specific information about associated IPv6 Translation Service mapping entries.
  *
  * @param request DescribeIPv6TranslatorAclListAttributesRequest
  * @return DescribeIPv6TranslatorAclListAttributesResponse
@@ -16501,7 +16531,7 @@ DescribeIPv6TranslatorAclListAttributesResponse Client::describeIPv6TranslatorAc
 /**
  * @deprecated OpenAPI DescribeIPv6TranslatorAclLists is deprecated
  *
- * @summary Queries access control lists (ACLs).
+ * @summary Queries created access control policy groups.
  *
  * @param request DescribeIPv6TranslatorAclListsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16566,7 +16596,7 @@ DescribeIPv6TranslatorAclListsResponse Client::describeIPv6TranslatorAclListsWit
 /**
  * @deprecated OpenAPI DescribeIPv6TranslatorAclLists is deprecated
  *
- * @summary Queries access control lists (ACLs).
+ * @summary Queries created access control policy groups.
  *
  * @param request DescribeIPv6TranslatorAclListsRequest
  * @return DescribeIPv6TranslatorAclListsResponse
@@ -16579,7 +16609,7 @@ DescribeIPv6TranslatorAclListsResponse Client::describeIPv6TranslatorAclLists(co
 /**
  * @deprecated OpenAPI DescribeIPv6TranslatorEntries is deprecated
  *
- * @summary Queries IPv6 mapping entries.
+ * @summary Queries IPv6 Translation mapping entries.
  *
  * @param request DescribeIPv6TranslatorEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16684,7 +16714,7 @@ DescribeIPv6TranslatorEntriesResponse Client::describeIPv6TranslatorEntriesWithO
 /**
  * @deprecated OpenAPI DescribeIPv6TranslatorEntries is deprecated
  *
- * @summary Queries IPv6 mapping entries.
+ * @summary Queries IPv6 Translation mapping entries.
  *
  * @param request DescribeIPv6TranslatorEntriesRequest
  * @return DescribeIPv6TranslatorEntriesResponse
@@ -16697,7 +16727,7 @@ DescribeIPv6TranslatorEntriesResponse Client::describeIPv6TranslatorEntries(cons
 /**
  * @deprecated OpenAPI DescribeIPv6Translators is deprecated
  *
- * @summary Queries IPv6 Translation Service instances.
+ * @summary Queries a list of created IPv6 Translation Service instances.
  *
  * @param request DescribeIPv6TranslatorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16786,7 +16816,7 @@ DescribeIPv6TranslatorsResponse Client::describeIPv6TranslatorsWithOptions(const
 /**
  * @deprecated OpenAPI DescribeIPv6Translators is deprecated
  *
- * @summary Queries IPv6 Translation Service instances.
+ * @summary Queries a list of created IPv6 Translation Service instances.
  *
  * @param request DescribeIPv6TranslatorsRequest
  * @return DescribeIPv6TranslatorsResponse
@@ -16797,7 +16827,7 @@ DescribeIPv6TranslatorsResponse Client::describeIPv6Translators(const DescribeIP
 }
 
 /**
- * @summary Queries IPv6 addresses in a region.
+ * @summary Queries a list of IPv6 addresses.
  *
  * @param request DescribeIpv6AddressesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16912,7 +16942,7 @@ DescribeIpv6AddressesResponse Client::describeIpv6AddressesWithOptions(const Des
 }
 
 /**
- * @summary Queries IPv6 addresses in a region.
+ * @summary Queries a list of IPv6 addresses.
  *
  * @param request DescribeIpv6AddressesRequest
  * @return DescribeIpv6AddressesResponse
@@ -17013,7 +17043,7 @@ DescribeIpv6EgressOnlyRulesResponse Client::describeIpv6EgressOnlyRules(const De
 }
 
 /**
- * @summary Queries the information about an IPv6 gateway, including the region, virtual private cloud (VPC), status, and billing method.
+ * @summary Queries the details of a specified IPv6 gateway, such as the region, VPC, running status, and billing method.
  *
  * @param request DescribeIpv6GatewayAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17068,7 +17098,7 @@ DescribeIpv6GatewayAttributeResponse Client::describeIpv6GatewayAttributeWithOpt
 }
 
 /**
- * @summary Queries the information about an IPv6 gateway, including the region, virtual private cloud (VPC), status, and billing method.
+ * @summary Queries the details of a specified IPv6 gateway, such as the region, VPC, running status, and billing method.
  *
  * @param request DescribeIpv6GatewayAttributeRequest
  * @return DescribeIpv6GatewayAttributeResponse
@@ -17079,7 +17109,7 @@ DescribeIpv6GatewayAttributeResponse Client::describeIpv6GatewayAttribute(const 
 }
 
 /**
- * @summary Queries IPv6 gateways created in a specified region by calling the DescribeIpv6Gateways operation.
+ * @summary Queries IPv6 gateways created in a specified region.
  *
  * @param request DescribeIpv6GatewaysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17158,7 +17188,7 @@ DescribeIpv6GatewaysResponse Client::describeIpv6GatewaysWithOptions(const Descr
 }
 
 /**
- * @summary Queries IPv6 gateways created in a specified region by calling the DescribeIpv6Gateways operation.
+ * @summary Queries IPv6 gateways created in a specified region.
  *
  * @param request DescribeIpv6GatewaysRequest
  * @return DescribeIpv6GatewaysResponse
@@ -17169,7 +17199,7 @@ DescribeIpv6GatewaysResponse Client::describeIpv6Gateways(const DescribeIpv6Gate
 }
 
 /**
- * @summary Queries the list of elastic network interfaces (ENIs) associated with a VPC NAT gateway when the VPC NAT gateway is referenced as an EPS resource by PrivateLink. This feature is currently unavailable.
+ * @summary Queries the list of elastic network interfaces (ENIs) associated with a VPC NAT gateway when the VPC NAT gateway is referenced as an EPS resource by PrivateLink. This feature is currently not available.
  *
  * @param request DescribeNatGatewayAssociateNetworkInterfacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17248,7 +17278,7 @@ DescribeNatGatewayAssociateNetworkInterfacesResponse Client::describeNatGatewayA
 }
 
 /**
- * @summary Queries the list of elastic network interfaces (ENIs) associated with a VPC NAT gateway when the VPC NAT gateway is referenced as an EPS resource by PrivateLink. This feature is currently unavailable.
+ * @summary Queries the list of elastic network interfaces (ENIs) associated with a VPC NAT gateway when the VPC NAT gateway is referenced as an EPS resource by PrivateLink. This feature is currently not available.
  *
  * @param request DescribeNatGatewayAssociateNetworkInterfacesRequest
  * @return DescribeNatGatewayAssociateNetworkInterfacesResponse
@@ -17259,9 +17289,9 @@ DescribeNatGatewayAssociateNetworkInterfacesResponse Client::describeNatGatewayA
 }
 
 /**
- * @summary Calls DescribeNatGateways to query the detailed information of NAT gateways that meet specified conditions in a specified region in list form.
+ * @summary Queries the details of NAT gateways that meet specified conditions in a specified region.
  *
- * @description This operation supports querying detailed information about Internet NAT gateways or VPC NAT gateways. The term "NAT gateway" used in this document does not distinguish between the two types.
+ * @description This operation allows you to query the details of Internet NAT gateways or VPC NAT gateways. In this topic, "NAT gateway" refers to both types without distinction.
  *
  * @param request DescribeNatGatewaysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17368,9 +17398,9 @@ DescribeNatGatewaysResponse Client::describeNatGatewaysWithOptions(const Describ
 }
 
 /**
- * @summary Calls DescribeNatGateways to query the detailed information of NAT gateways that meet specified conditions in a specified region in list form.
+ * @summary Queries the details of NAT gateways that meet specified conditions in a specified region.
  *
- * @description This operation supports querying detailed information about Internet NAT gateways or VPC NAT gateways. The term "NAT gateway" used in this document does not distinguish between the two types.
+ * @description This operation allows you to query the details of Internet NAT gateways or VPC NAT gateways. In this topic, "NAT gateway" refers to both types without distinction.
  *
  * @param request DescribeNatGatewaysRequest
  * @return DescribeNatGatewaysResponse
@@ -17381,7 +17411,7 @@ DescribeNatGatewaysResponse Client::describeNatGateways(const DescribeNatGateway
 }
 
 /**
- * @summary Queries network access control lists (ACLs).
+ * @summary Queries the details of a network ACL.
  *
  * @param request DescribeNetworkAclAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17440,7 +17470,7 @@ DescribeNetworkAclAttributesResponse Client::describeNetworkAclAttributesWithOpt
 }
 
 /**
- * @summary Queries network access control lists (ACLs).
+ * @summary Queries the details of a network ACL.
  *
  * @param request DescribeNetworkAclAttributesRequest
  * @return DescribeNetworkAclAttributesResponse
@@ -17451,7 +17481,7 @@ DescribeNetworkAclAttributesResponse Client::describeNetworkAclAttributes(const 
 }
 
 /**
- * @summary Queries network ACLs.
+ * @summary Queries a list of network ACLs by calling the DescribeNetworkAcls operation.
  *
  * @param request DescribeNetworkAclsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17538,7 +17568,7 @@ DescribeNetworkAclsResponse Client::describeNetworkAclsWithOptions(const Describ
 }
 
 /**
- * @summary Queries network ACLs.
+ * @summary Queries a list of network ACLs by calling the DescribeNetworkAcls operation.
  *
  * @param request DescribeNetworkAclsRequest
  * @return DescribeNetworkAclsResponse
@@ -17549,7 +17579,7 @@ DescribeNetworkAclsResponse Client::describeNetworkAcls(const DescribeNetworkAcl
 }
 
 /**
- * @summary Use `DescribePhysicalConnectionLOA` to query the LOA for a physical connection.
+ * @summary Queries the Letter of Authorization (LOA) information of an Express Connect circuit.
  *
  * @param request DescribePhysicalConnectionLOARequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17604,7 +17634,7 @@ DescribePhysicalConnectionLOAResponse Client::describePhysicalConnectionLOAWithO
 }
 
 /**
- * @summary Use `DescribePhysicalConnectionLOA` to query the LOA for a physical connection.
+ * @summary Queries the Letter of Authorization (LOA) information of an Express Connect circuit.
  *
  * @param request DescribePhysicalConnectionLOARequest
  * @return DescribePhysicalConnectionLOAResponse
@@ -17617,7 +17647,7 @@ DescribePhysicalConnectionLOAResponse Client::describePhysicalConnectionLOA(cons
 /**
  * @summary Queries information about Express Connect circuits in a specified region.
  *
- * @description By default, the system queries information about all Express Connect circuits in the specified region. You can use the filter options provided by the **DescribePhysicalConnections** operation to query information about specific Express Connect circuits. For the supported filter options, see the description of **Key** in the **request parameters** section of this topic.
+ * @description By default, the system queries information about all Express Connect circuits in the specified region. You can use the filter options provided by the **DescribePhysicalConnections** operation to query information about specific Express Connect circuits. For supported filter options, see the description of **Key** in the **request parameters** section of this topic.
  *
  * @param request DescribePhysicalConnectionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17694,7 +17724,7 @@ DescribePhysicalConnectionsResponse Client::describePhysicalConnectionsWithOptio
 /**
  * @summary Queries information about Express Connect circuits in a specified region.
  *
- * @description By default, the system queries information about all Express Connect circuits in the specified region. You can use the filter options provided by the **DescribePhysicalConnections** operation to query information about specific Express Connect circuits. For the supported filter options, see the description of **Key** in the **request parameters** section of this topic.
+ * @description By default, the system queries information about all Express Connect circuits in the specified region. You can use the filter options provided by the **DescribePhysicalConnections** operation to query information about specific Express Connect circuits. For supported filter options, see the description of **Key** in the **request parameters** section of this topic.
  *
  * @param request DescribePhysicalConnectionsRequest
  * @return DescribePhysicalConnectionsResponse
@@ -17705,9 +17735,9 @@ DescribePhysicalConnectionsResponse Client::describePhysicalConnections(const De
 }
 
 /**
- * @summary Queries the public IP address range of a virtual private cloud (VPC) in a region.
+ * @summary Queries the range of public IP addresses in a virtual private cloud (VPC) in a specified region.
  *
- * @description You cannot query the range of public IP addresses of a classic network by calling the **DescribePublicIpAddress** operation.
+ * @description You cannot call the **DescribePublicIpAddress** operation to query the range of public IP addresses in the classic network.
  *
  * @param request DescribePublicIpAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17770,9 +17800,9 @@ DescribePublicIpAddressResponse Client::describePublicIpAddressWithOptions(const
 }
 
 /**
- * @summary Queries the public IP address range of a virtual private cloud (VPC) in a region.
+ * @summary Queries the range of public IP addresses in a virtual private cloud (VPC) in a specified region.
  *
- * @description You cannot query the range of public IP addresses of a classic network by calling the **DescribePublicIpAddress** operation.
+ * @description You cannot call the **DescribePublicIpAddress** operation to query the range of public IP addresses in the classic network.
  *
  * @param request DescribePublicIpAddressRequest
  * @return DescribePublicIpAddressResponse
@@ -17783,7 +17813,7 @@ DescribePublicIpAddressResponse Client::describePublicIpAddress(const DescribePu
 }
 
 /**
- * @summary Queries available regions by calling the DescribeRegions operation.
+ * @summary Queries the available regions.
  *
  * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17834,7 +17864,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary Queries available regions by calling the DescribeRegions operation.
+ * @summary Queries the available regions.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -17845,9 +17875,9 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Calls DescribeRouteEntryList to query the list of route entries.
+ * @summary Queries a list of routes.
  *
- * @description Before calling the [DeleteRouteEntry](https://help.aliyun.com/document_detail/36013.html) operation to delete a route entry, you can call this operation to query the next hop information of the route entry to be deleted.
+ * @description Before you call [DeleteRouteEntry](https://help.aliyun.com/document_detail/36013.html) to delete a route, you can call this operation to query the next hop information of the route that you want to delete.
  *
  * @param request DescribeRouteEntryListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17946,9 +17976,9 @@ DescribeRouteEntryListResponse Client::describeRouteEntryListWithOptions(const D
 }
 
 /**
- * @summary Calls DescribeRouteEntryList to query the list of route entries.
+ * @summary Queries a list of routes.
  *
- * @description Before calling the [DeleteRouteEntry](https://help.aliyun.com/document_detail/36013.html) operation to delete a route entry, you can call this operation to query the next hop information of the route entry to be deleted.
+ * @description Before you call [DeleteRouteEntry](https://help.aliyun.com/document_detail/36013.html) to delete a route, you can call this operation to query the next hop information of the route that you want to delete.
  *
  * @param request DescribeRouteEntryListRequest
  * @return DescribeRouteEntryListResponse
@@ -17959,7 +17989,7 @@ DescribeRouteEntryListResponse Client::describeRouteEntryList(const DescribeRout
 }
 
 /**
- * @summary Queries route tables.
+ * @summary Queries a list of route tables by calling the DescribeRouteTableList operation.
  *
  * @param request DescribeRouteTableListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18046,7 +18076,7 @@ DescribeRouteTableListResponse Client::describeRouteTableListWithOptions(const D
 }
 
 /**
- * @summary Queries route tables.
+ * @summary Queries a list of route tables by calling the DescribeRouteTableList operation.
  *
  * @param request DescribeRouteTableListRequest
  * @return DescribeRouteTableListResponse
@@ -18059,7 +18089,7 @@ DescribeRouteTableListResponse Client::describeRouteTableList(const DescribeRout
 /**
  * @deprecated OpenAPI DescribeRouteTables is deprecated, please use Vpc::2016-04-28::DescribeRouteTableList instead.
  *
- * @summary Calls the DescribeRouteTables operation to query route tables.
+ * @summary Queries route tables.
  *
  * @param request DescribeRouteTablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18144,7 +18174,7 @@ DescribeRouteTablesResponse Client::describeRouteTablesWithOptions(const Describ
 /**
  * @deprecated OpenAPI DescribeRouteTables is deprecated, please use Vpc::2016-04-28::DescribeRouteTableList instead.
  *
- * @summary Calls the DescribeRouteTables operation to query route tables.
+ * @summary Queries route tables.
  *
  * @param request DescribeRouteTablesRequest
  * @return DescribeRouteTablesResponse
@@ -18213,7 +18243,7 @@ DescribeRouterInterfaceAttributeResponse Client::describeRouterInterfaceAttribut
 }
 
 /**
- * @summary Queries router interfaces in a specified region.
+ * @summary Queries router interfaces in a specified region by calling the DescribeRouterInterfaces operation.
  *
  * @param request DescribeRouterInterfacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18280,7 +18310,7 @@ DescribeRouterInterfacesResponse Client::describeRouterInterfacesWithOptions(con
 }
 
 /**
- * @summary Queries router interfaces in a specified region.
+ * @summary Queries router interfaces in a specified region by calling the DescribeRouterInterfaces operation.
  *
  * @param request DescribeRouterInterfacesRequest
  * @return DescribeRouterInterfacesResponse
@@ -18291,9 +18321,9 @@ DescribeRouterInterfacesResponse Client::describeRouterInterfaces(const Describe
 }
 
 /**
- * @summary Queries the GA instances that are associated with a specified backend server.
+ * @summary Queries the Alibaba Cloud Global Accelerator (GA) instances attached to a specified backend server.
  *
- * @description > You can call this operation to query only dedicated-bandwidth GA instances.
+ * @description > This operation supports only dedicated-bandwidth instances.
  *
  * @param request DescribeServerRelatedGlobalAccelerationInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18348,9 +18378,9 @@ DescribeServerRelatedGlobalAccelerationInstancesResponse Client::describeServerR
 }
 
 /**
- * @summary Queries the GA instances that are associated with a specified backend server.
+ * @summary Queries the Alibaba Cloud Global Accelerator (GA) instances attached to a specified backend server.
  *
- * @description > You can call this operation to query only dedicated-bandwidth GA instances.
+ * @description > This operation supports only dedicated-bandwidth instances.
  *
  * @param request DescribeServerRelatedGlobalAccelerationInstancesRequest
  * @return DescribeServerRelatedGlobalAccelerationInstancesResponse
@@ -18361,7 +18391,7 @@ DescribeServerRelatedGlobalAccelerationInstancesResponse Client::describeServerR
 }
 
 /**
- * @summary Queries SNAT entries.
+ * @summary Queries the SNAT entries that have been created.
  *
  * @param request DescribeSnatTableEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18448,7 +18478,7 @@ DescribeSnatTableEntriesResponse Client::describeSnatTableEntriesWithOptions(con
 }
 
 /**
- * @summary Queries SNAT entries.
+ * @summary Queries the SNAT entries that have been created.
  *
  * @param request DescribeSnatTableEntriesRequest
  * @return DescribeSnatTableEntriesResponse
@@ -18459,7 +18489,7 @@ DescribeSnatTableEntriesResponse Client::describeSnatTableEntries(const Describe
 }
 
 /**
- * @summary Queries the details of an SSL client certificate.
+ * @summary Queries the information about a specified SSL client certificate.
  *
  * @param request DescribeSslVpnClientCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18510,7 +18540,7 @@ DescribeSslVpnClientCertResponse Client::describeSslVpnClientCertWithOptions(con
 }
 
 /**
- * @summary Queries the details of an SSL client certificate.
+ * @summary Queries the information about a specified SSL client certificate.
  *
  * @param request DescribeSslVpnClientCertRequest
  * @return DescribeSslVpnClientCertResponse
@@ -18521,7 +18551,7 @@ DescribeSslVpnClientCertResponse Client::describeSslVpnClientCert(const Describe
 }
 
 /**
- * @summary Queries created SSL client certificates by calling the DescribeSslVpnClientCerts operation.
+ * @summary Queries the SSL client certificates that have been created.
  *
  * @param request DescribeSslVpnClientCertsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18592,7 +18622,7 @@ DescribeSslVpnClientCertsResponse Client::describeSslVpnClientCertsWithOptions(c
 }
 
 /**
- * @summary Queries created SSL client certificates by calling the DescribeSslVpnClientCerts operation.
+ * @summary Queries the SSL client certificates that have been created.
  *
  * @param request DescribeSslVpnClientCertsRequest
  * @return DescribeSslVpnClientCertsResponse
@@ -18679,7 +18709,7 @@ DescribeSslVpnClientsResponse Client::describeSslVpnClients(const DescribeSslVpn
 }
 
 /**
- * @summary Queries the SSL servers that have been created by calling the DescribeSslVpnServers operation.
+ * @summary Queries the SSL servers that have been created.
  *
  * @param request DescribeSslVpnServersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18750,7 +18780,7 @@ DescribeSslVpnServersResponse Client::describeSslVpnServersWithOptions(const Des
 }
 
 /**
- * @summary Queries the SSL servers that have been created by calling the DescribeSslVpnServers operation.
+ * @summary Queries the SSL servers that have been created.
  *
  * @param request DescribeSslVpnServersRequest
  * @return DescribeSslVpnServersResponse
@@ -18761,7 +18791,7 @@ DescribeSslVpnServersResponse Client::describeSslVpnServers(const DescribeSslVpn
 }
 
 /**
- * @summary Queries tag keys.
+ * @summary Calls the DescribeTagKeys operation to return tag keys.
  *
  * @param request DescribeTagKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18828,7 +18858,7 @@ DescribeTagKeysResponse Client::describeTagKeysWithOptions(const DescribeTagKeys
 }
 
 /**
- * @summary Queries tag keys.
+ * @summary Calls the DescribeTagKeys operation to return tag keys.
  *
  * @param request DescribeTagKeysRequest
  * @return DescribeTagKeysResponse
@@ -18839,7 +18869,7 @@ DescribeTagKeysResponse Client::describeTagKeys(const DescribeTagKeysRequest &re
 }
 
 /**
- * @summary Queries the tags of an Express Connect circuit.
+ * @summary Calls the DescribeTagKeysForExpressConnect operation to return the tag list of Express Connect.
  *
  * @param request DescribeTagKeysForExpressConnectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18906,7 +18936,7 @@ DescribeTagKeysForExpressConnectResponse Client::describeTagKeysForExpressConnec
 }
 
 /**
- * @summary Queries the tags of an Express Connect circuit.
+ * @summary Calls the DescribeTagKeysForExpressConnect operation to return the tag list of Express Connect.
  *
  * @param request DescribeTagKeysForExpressConnectRequest
  * @return DescribeTagKeysForExpressConnectResponse
@@ -19005,7 +19035,7 @@ DescribeTagsResponse Client::describeTags(const DescribeTagsRequest &request) {
 }
 
 /**
- * @summary Calls the DescribeVRouters operation to query the list of vRouters in a specified region.
+ * @summary Queries the list of vRouters in a specified region.
  *
  * @param request DescribeVRoutersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19064,7 +19094,7 @@ DescribeVRoutersResponse Client::describeVRoutersWithOptions(const DescribeVRout
 }
 
 /**
- * @summary Calls the DescribeVRouters operation to query the list of vRouters in a specified region.
+ * @summary Queries the list of vRouters in a specified region.
  *
  * @param request DescribeVRoutersRequest
  * @return DescribeVRoutersResponse
@@ -19075,7 +19105,7 @@ DescribeVRoutersResponse Client::describeVRouters(const DescribeVRoutersRequest 
 }
 
 /**
- * @summary Queries the detailed information about a vSwitch.
+ * @summary Queries the configuration information of a specified vSwitch by calling the DescribeVSwitchAttributes operation.
  *
  * @param request DescribeVSwitchAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19130,7 +19160,7 @@ DescribeVSwitchAttributesResponse Client::describeVSwitchAttributesWithOptions(c
 }
 
 /**
- * @summary Queries the detailed information about a vSwitch.
+ * @summary Queries the configuration information of a specified vSwitch by calling the DescribeVSwitchAttributes operation.
  *
  * @param request DescribeVSwitchAttributesRequest
  * @return DescribeVSwitchAttributesResponse
@@ -19141,7 +19171,7 @@ DescribeVSwitchAttributesResponse Client::describeVSwitchAttributes(const Descri
 }
 
 /**
- * @summary Queries the information about available vSwitches that are used for an internal network.
+ * @summary Queries networkable information. Internal networking is performed by vSwitch.
  *
  * @param request DescribeVSwitchesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19240,7 +19270,7 @@ DescribeVSwitchesResponse Client::describeVSwitchesWithOptions(const DescribeVSw
 }
 
 /**
- * @summary Queries the information about available vSwitches that are used for an internal network.
+ * @summary Queries networkable information. Internal networking is performed by vSwitch.
  *
  * @param request DescribeVSwitchesRequest
  * @return DescribeVSwitchesResponse
@@ -19251,7 +19281,7 @@ DescribeVSwitchesResponse Client::describeVSwitches(const DescribeVSwitchesReque
 }
 
 /**
- * @summary Queries virtual border router (VBR) failover groups.
+ * @summary Queries a created VBR failover group by calling the DescribeVbrHa operation.
  *
  * @param request DescribeVbrHaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19314,7 +19344,7 @@ DescribeVbrHaResponse Client::describeVbrHaWithOptions(const DescribeVbrHaReques
 }
 
 /**
- * @summary Queries virtual border router (VBR) failover groups.
+ * @summary Queries a created VBR failover group by calling the DescribeVbrHa operation.
  *
  * @param request DescribeVbrHaRequest
  * @return DescribeVbrHaResponse
@@ -19325,7 +19355,7 @@ DescribeVbrHaResponse Client::describeVbrHa(const DescribeVbrHaRequest &request)
 }
 
 /**
- * @summary Queries the routes of an IPsec-VPN connection.
+ * @summary Queries the route information of an IPsec-VPN connection by calling the DescribeVcoRouteEntries operation.
  *
  * @param request DescribeVcoRouteEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19388,7 +19418,7 @@ DescribeVcoRouteEntriesResponse Client::describeVcoRouteEntriesWithOptions(const
 }
 
 /**
- * @summary Queries the routes of an IPsec-VPN connection.
+ * @summary Queries the route information of an IPsec-VPN connection by calling the DescribeVcoRouteEntries operation.
  *
  * @param request DescribeVcoRouteEntriesRequest
  * @return DescribeVcoRouteEntriesResponse
@@ -19399,7 +19429,7 @@ DescribeVcoRouteEntriesResponse Client::describeVcoRouteEntries(const DescribeVc
 }
 
 /**
- * @summary Queries Virtual Border Router (VBR) instances that you have created.
+ * @summary Queries the Virtual Border Routers (VBRs) that you have created.
  *
  * @param request DescribeVirtualBorderRoutersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19466,7 +19496,7 @@ DescribeVirtualBorderRoutersResponse Client::describeVirtualBorderRoutersWithOpt
 }
 
 /**
- * @summary Queries Virtual Border Router (VBR) instances that you have created.
+ * @summary Queries the Virtual Border Routers (VBRs) that you have created.
  *
  * @param request DescribeVirtualBorderRoutersRequest
  * @return DescribeVirtualBorderRoutersResponse
@@ -19477,7 +19507,7 @@ DescribeVirtualBorderRoutersResponse Client::describeVirtualBorderRouters(const 
 }
 
 /**
- * @summary Query the virtual border routers (VBRs) under a specified Express Connect circuit, including VBRs owned by the Express Connect circuit owner and VBRs from other accounts.
+ * @summary Queries the Virtual Border Routers (VBRs) under a specified Express Connect circuit, including VBRs owned by the circuit owner and VBRs owned by other accounts.
  *
  * @param request DescribeVirtualBorderRoutersForPhysicalConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19536,7 +19566,7 @@ DescribeVirtualBorderRoutersForPhysicalConnectionResponse Client::describeVirtua
 }
 
 /**
- * @summary Query the virtual border routers (VBRs) under a specified Express Connect circuit, including VBRs owned by the Express Connect circuit owner and VBRs from other accounts.
+ * @summary Queries the Virtual Border Routers (VBRs) under a specified Express Connect circuit, including VBRs owned by the circuit owner and VBRs owned by other accounts.
  *
  * @param request DescribeVirtualBorderRoutersForPhysicalConnectionRequest
  * @return DescribeVirtualBorderRoutersForPhysicalConnectionResponse
@@ -19547,7 +19577,7 @@ DescribeVirtualBorderRoutersForPhysicalConnectionResponse Client::describeVirtua
 }
 
 /**
- * @summary Queries the configuration of a virtual private cloud (VPC).
+ * @summary Queries the configuration of a specified VPC.
  *
  * @param request DescribeVpcAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19606,7 +19636,7 @@ DescribeVpcAttributeResponse Client::describeVpcAttributeWithOptions(const Descr
 }
 
 /**
- * @summary Queries the configuration of a virtual private cloud (VPC).
+ * @summary Queries the configuration of a specified VPC.
  *
  * @param request DescribeVpcAttributeRequest
  * @return DescribeVpcAttributeResponse
@@ -19617,7 +19647,7 @@ DescribeVpcAttributeResponse Client::describeVpcAttribute(const DescribeVpcAttri
 }
 
 /**
- * @summary Queries the cross-account authorizations between a network instance and an Express Connect Router.
+ * @summary Queries the cross-account authorization information of an Express Connect Router (ECR) for a specified network instance.
  *
  * @param request DescribeVpcGrantRulesToEcrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19696,7 +19726,7 @@ DescribeVpcGrantRulesToEcrResponse Client::describeVpcGrantRulesToEcrWithOptions
 }
 
 /**
- * @summary Queries the cross-account authorizations between a network instance and an Express Connect Router.
+ * @summary Queries the cross-account authorization information of an Express Connect Router (ECR) for a specified network instance.
  *
  * @param request DescribeVpcGrantRulesToEcrRequest
  * @return DescribeVpcGrantRulesToEcrResponse
@@ -19883,7 +19913,7 @@ DescribeVpnAttachmentsResponse Client::describeVpnAttachments(const DescribeVpnA
 }
 
 /**
- * @summary Queries the detailed information about an IPsec-VPN connection.
+ * @summary Queries the information about a specified IPsec-VPN connection.
  *
  * @param request DescribeVpnConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19934,7 +19964,7 @@ DescribeVpnConnectionResponse Client::describeVpnConnectionWithOptions(const Des
 }
 
 /**
- * @summary Queries the detailed information about an IPsec-VPN connection.
+ * @summary Queries the information about a specified IPsec-VPN connection.
  *
  * @param request DescribeVpnConnectionRequest
  * @return DescribeVpnConnectionResponse
@@ -19945,7 +19975,7 @@ DescribeVpnConnectionResponse Client::describeVpnConnection(const DescribeVpnCon
 }
 
 /**
- * @summary Queries logs of IPsec-VPN connections.
+ * @summary Queries the log information of an IPsec-VPN connection by calling the DescribeVpnConnections operation.
  *
  * @param request DescribeVpnConnectionLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20020,7 +20050,7 @@ DescribeVpnConnectionLogsResponse Client::describeVpnConnectionLogsWithOptions(c
 }
 
 /**
- * @summary Queries logs of IPsec-VPN connections.
+ * @summary Queries the log information of an IPsec-VPN connection by calling the DescribeVpnConnections operation.
  *
  * @param request DescribeVpnConnectionLogsRequest
  * @return DescribeVpnConnectionLogsResponse
@@ -20187,7 +20217,7 @@ DescribeVpnCrossAccountAuthorizationsResponse Client::describeVpnCrossAccountAut
 }
 
 /**
- * @summary Queries the details of a specified VPN gateway by calling the DescribeVpnGateway operation.
+ * @summary Queries the details of a specified VPN gateway.
  *
  * @param request DescribeVpnGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20242,7 +20272,7 @@ DescribeVpnGatewayResponse Client::describeVpnGatewayWithOptions(const DescribeV
 }
 
 /**
- * @summary Queries the details of a specified VPN gateway by calling the DescribeVpnGateway operation.
+ * @summary Queries the details of a specified VPN gateway.
  *
  * @param request DescribeVpnGatewayRequest
  * @return DescribeVpnGatewayResponse
@@ -20253,7 +20283,7 @@ DescribeVpnGatewayResponse Client::describeVpnGateway(const DescribeVpnGatewayRe
 }
 
 /**
- * @summary Queries the list of zones that support IPsec-VPN connection deployment in a specified region by calling the DescribeVpnGatewayAvailableZones operation.
+ * @summary Queries the list of zones that support IPsec-VPN connection deployment in a specified region.
  *
  * @param request DescribeVpnGatewayAvailableZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20280,7 +20310,7 @@ DescribeVpnGatewayAvailableZonesResponse Client::describeVpnGatewayAvailableZone
 }
 
 /**
- * @summary Queries the list of zones that support IPsec-VPN connection deployment in a specified region by calling the DescribeVpnGatewayAvailableZones operation.
+ * @summary Queries the list of zones that support IPsec-VPN connection deployment in a specified region.
  *
  * @param request DescribeVpnGatewayAvailableZonesRequest
  * @return DescribeVpnGatewayAvailableZonesResponse
@@ -20291,7 +20321,7 @@ DescribeVpnGatewayAvailableZonesResponse Client::describeVpnGatewayAvailableZone
 }
 
 /**
- * @summary Queries VPN gateways in a region.
+ * @summary Queries VPN gateways created in a specified region by calling the DescribeVpnGateways operation.
  *
  * @param request DescribeVpnGatewaysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20378,7 +20408,7 @@ DescribeVpnGatewaysResponse Client::describeVpnGatewaysWithOptions(const Describ
 }
 
 /**
- * @summary Queries VPN gateways in a region.
+ * @summary Queries VPN gateways created in a specified region by calling the DescribeVpnGateways operation.
  *
  * @param request DescribeVpnGatewaysRequest
  * @return DescribeVpnGatewaysResponse
@@ -20389,7 +20419,7 @@ DescribeVpnGatewaysResponse Client::describeVpnGateways(const DescribeVpnGateway
 }
 
 /**
- * @summary Queries policy-based routes configured for a VPN gateway.
+ * @summary Queries the policy-based routes configured for a VPN gateway instance by calling the DescribeVpnPbrRouteEntries operation.
  *
  * @param request DescribeVpnPbrRouteEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20448,7 +20478,7 @@ DescribeVpnPbrRouteEntriesResponse Client::describeVpnPbrRouteEntriesWithOptions
 }
 
 /**
- * @summary Queries policy-based routes configured for a VPN gateway.
+ * @summary Queries the policy-based routes configured for a VPN gateway instance by calling the DescribeVpnPbrRouteEntries operation.
  *
  * @param request DescribeVpnPbrRouteEntriesRequest
  * @return DescribeVpnPbrRouteEntriesResponse
@@ -20459,7 +20489,7 @@ DescribeVpnPbrRouteEntriesResponse Client::describeVpnPbrRouteEntries(const Desc
 }
 
 /**
- * @summary Queries the destination route and BGP route information of a VPN gateway instance by calling the DescribeVpnRouteEntries operation.
+ * @summary Queries the destination route entries and BGP route entries of a VPN gateway instance.
  *
  * @param request DescribeVpnRouteEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20522,7 +20552,7 @@ DescribeVpnRouteEntriesResponse Client::describeVpnRouteEntriesWithOptions(const
 }
 
 /**
- * @summary Queries the destination route and BGP route information of a VPN gateway instance by calling the DescribeVpnRouteEntries operation.
+ * @summary Queries the destination route entries and BGP route entries of a VPN gateway instance.
  *
  * @param request DescribeVpnRouteEntriesRequest
  * @return DescribeVpnRouteEntriesResponse
@@ -20533,7 +20563,7 @@ DescribeVpnRouteEntriesResponse Client::describeVpnRouteEntries(const DescribeVp
 }
 
 /**
- * @summary Queries the log of an SSL server.
+ * @summary Queries the logs of an SSL server by calling the DescribeVpnSslServerLogs operation.
  *
  * @param request DescribeVpnSslServerLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20608,7 +20638,7 @@ DescribeVpnSslServerLogsResponse Client::describeVpnSslServerLogsWithOptions(con
 }
 
 /**
- * @summary Queries the log of an SSL server.
+ * @summary Queries the logs of an SSL server by calling the DescribeVpnSslServerLogs operation.
  *
  * @param request DescribeVpnSslServerLogsRequest
  * @return DescribeVpnSslServerLogsResponse
@@ -20619,7 +20649,7 @@ DescribeVpnSslServerLogsResponse Client::describeVpnSslServerLogs(const Describe
 }
 
 /**
- * @summary Queries zones in a region.
+ * @summary Queries the list of zones in a specified region.
  *
  * @param request DescribeZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20674,7 +20704,7 @@ DescribeZonesResponse Client::describeZonesWithOptions(const DescribeZonesReques
 }
 
 /**
- * @summary Queries zones in a region.
+ * @summary Queries the list of zones in a specified region.
  *
  * @param request DescribeZonesRequest
  * @return DescribeZonesResponse
@@ -20685,12 +20715,12 @@ DescribeZonesResponse Client::describeZones(const DescribeZonesRequest &request)
 }
 
 /**
- * @summary Disassociates a DHCP options set from a virtual private cloud (VPC).
+ * @summary Disassociates a DHCP options set from a VPC.
  *
- * @description - **DetachDhcpOptionsSetFromVpc**接口属于异步接口，即系统返回一个请求ID，但该DHCP选项集尚未解绑成功，系统后台的解绑任务仍在进行。您可以调用[DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html)查询DHCP选项集的解绑状态：
- *     - 当DHCP选项集处于**Pending**状态时，表示DHCP选项集正在解绑中。
- *     - 当DHCP选项集处于**UnUsed**状态时，表示DHCP选项集解绑成功。
- * - **DetachDhcpOptionsSetFromVpc**接口不支持在同一个VPC中并发解绑DHCP选项集。
+ * @description - **DetachDhcpOptionsSetFromVpc** is an asynchronous operation. After you send a request, the system returns a request ID. However, the DHCP options set is not yet disassociated. The disassociation task runs in the background. You can call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) to query the disassociation status of the DHCP options set:
+ *     - If the DHCP options set is in the **Pending** state, the DHCP options set is being disassociated.
+ *     - If the DHCP options set is in the **UnUsed** state, the DHCP options set is disassociated.
+ * - **DetachDhcpOptionsSetFromVpc** does not support concurrent disassociation of DHCP options sets from the same VPC.
  *
  * @param request DetachDhcpOptionsSetFromVpcRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20753,12 +20783,12 @@ DetachDhcpOptionsSetFromVpcResponse Client::detachDhcpOptionsSetFromVpcWithOptio
 }
 
 /**
- * @summary Disassociates a DHCP options set from a virtual private cloud (VPC).
+ * @summary Disassociates a DHCP options set from a VPC.
  *
- * @description - **DetachDhcpOptionsSetFromVpc**接口属于异步接口，即系统返回一个请求ID，但该DHCP选项集尚未解绑成功，系统后台的解绑任务仍在进行。您可以调用[DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html)查询DHCP选项集的解绑状态：
- *     - 当DHCP选项集处于**Pending**状态时，表示DHCP选项集正在解绑中。
- *     - 当DHCP选项集处于**UnUsed**状态时，表示DHCP选项集解绑成功。
- * - **DetachDhcpOptionsSetFromVpc**接口不支持在同一个VPC中并发解绑DHCP选项集。
+ * @description - **DetachDhcpOptionsSetFromVpc** is an asynchronous operation. After you send a request, the system returns a request ID. However, the DHCP options set is not yet disassociated. The disassociation task runs in the background. You can call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) to query the disassociation status of the DHCP options set:
+ *     - If the DHCP options set is in the **Pending** state, the DHCP options set is being disassociated.
+ *     - If the DHCP options set is in the **UnUsed** state, the DHCP options set is disassociated.
+ * - **DetachDhcpOptionsSetFromVpc** does not support concurrent disassociation of DHCP options sets from the same VPC.
  *
  * @param request DetachDhcpOptionsSetFromVpcRequest
  * @return DetachDhcpOptionsSetFromVpcResponse
@@ -20769,11 +20799,11 @@ DetachDhcpOptionsSetFromVpcResponse Client::detachDhcpOptionsSetFromVpc(const De
 }
 
 /**
- * @summary Diagnoses IPsec-VPN connections.
+ * @summary Diagnoses IPsec-VPN connections by calling the DiagnoseVpnConnections operation.
  *
- * @description *   If the IPsec-VPN connection is in single-tunnel mode, the request parameter `VpnConnectionIds` is required when you call the **DiagnoseVpnConnections** operation.
- * *   If the IPsec-VPN connection is in dual-tunnel mode, the request parameter `TunnelIds` is required when you call the **DiagnoseVpnConnections** operation.
- * *   After you call the **DiagnoseVpnConnections** operation, if the current IPsec-VPN connection is faulty, the operation returns the corresponding error code (**FailedReasonCode**) and log (**SourceLog**). You can troubleshoot based on the error code and log information. For more information, see [Common errors and troubleshooting methods for IPsec-VPN connections](https://help.aliyun.com/document_detail/477862.html).
+ * @description - If the IPsec-VPN connection is in single-tunnel mode, the request parameter `VpnConnectionIds` is required when you call the **DiagnoseVpnConnections** operation.
+ * - If the IPsec-VPN connection is in dual-tunnel mode, the request parameter `TunnelIds` is required when you call the **DiagnoseVpnConnections** operation.
+ * - After you call the **DiagnoseVpnConnections** operation, if the current IPsec-VPN connection has issues, the operation returns the corresponding error code (the **FailedReasonCode** response parameter) and log information (the **SourceLog** response parameter). You can troubleshoot issues based on the error code and log information. For more information, see [Common errors and troubleshooting methods for IPsec-VPN connections](https://help.aliyun.com/document_detail/477862.html).
  *
  * @param request DiagnoseVpnConnectionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20828,11 +20858,11 @@ DiagnoseVpnConnectionsResponse Client::diagnoseVpnConnectionsWithOptions(const D
 }
 
 /**
- * @summary Diagnoses IPsec-VPN connections.
+ * @summary Diagnoses IPsec-VPN connections by calling the DiagnoseVpnConnections operation.
  *
- * @description *   If the IPsec-VPN connection is in single-tunnel mode, the request parameter `VpnConnectionIds` is required when you call the **DiagnoseVpnConnections** operation.
- * *   If the IPsec-VPN connection is in dual-tunnel mode, the request parameter `TunnelIds` is required when you call the **DiagnoseVpnConnections** operation.
- * *   After you call the **DiagnoseVpnConnections** operation, if the current IPsec-VPN connection is faulty, the operation returns the corresponding error code (**FailedReasonCode**) and log (**SourceLog**). You can troubleshoot based on the error code and log information. For more information, see [Common errors and troubleshooting methods for IPsec-VPN connections](https://help.aliyun.com/document_detail/477862.html).
+ * @description - If the IPsec-VPN connection is in single-tunnel mode, the request parameter `VpnConnectionIds` is required when you call the **DiagnoseVpnConnections** operation.
+ * - If the IPsec-VPN connection is in dual-tunnel mode, the request parameter `TunnelIds` is required when you call the **DiagnoseVpnConnections** operation.
+ * - After you call the **DiagnoseVpnConnections** operation, if the current IPsec-VPN connection has issues, the operation returns the corresponding error code (the **FailedReasonCode** response parameter) and log information (the **SourceLog** response parameter). You can troubleshoot issues based on the error code and log information. For more information, see [Common errors and troubleshooting methods for IPsec-VPN connections](https://help.aliyun.com/document_detail/477862.html).
  *
  * @param request DiagnoseVpnConnectionsRequest
  * @return DiagnoseVpnConnectionsResponse
@@ -20843,9 +20873,9 @@ DiagnoseVpnConnectionsResponse Client::diagnoseVpnConnections(const DiagnoseVpnC
 }
 
 /**
- * @summary Diagnoses a VPN gateway.
+ * @summary Diagnoses a specified VPN gateway instance with one click by calling the DiagnoseVpnGateway operation.
  *
- * @description 仅部分地域下的VPN网关实例支持一键诊断功能。关于地域的更多信息，请参见[VPN网关功能支持的地域](https://help.aliyun.com/document_detail/430697.html)。
+ * @description Only VPN gateway instances in specific regions support the one-click diagnostics feature. For more information about regions, see [Regions that support VPN Gateway features](https://help.aliyun.com/document_detail/430697.html).
  *
  * @param request DiagnoseVpnGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20896,9 +20926,9 @@ DiagnoseVpnGatewayResponse Client::diagnoseVpnGatewayWithOptions(const DiagnoseV
 }
 
 /**
- * @summary Diagnoses a VPN gateway.
+ * @summary Diagnoses a specified VPN gateway instance with one click by calling the DiagnoseVpnGateway operation.
  *
- * @description 仅部分地域下的VPN网关实例支持一键诊断功能。关于地域的更多信息，请参见[VPN网关功能支持的地域](https://help.aliyun.com/document_detail/430697.html)。
+ * @description Only VPN gateway instances in specific regions support the one-click diagnostics feature. For more information about regions, see [Regions that support VPN Gateway features](https://help.aliyun.com/document_detail/430697.html).
  *
  * @param request DiagnoseVpnGatewayRequest
  * @return DiagnoseVpnGatewayResponse
@@ -20911,7 +20941,7 @@ DiagnoseVpnGatewayResponse Client::diagnoseVpnGateway(const DiagnoseVpnGatewayRe
 /**
  * @deprecated OpenAPI DisableVpcClassicLink is deprecated
  *
- * @summary Performs a shutdown of ClassicLink to disable ClassicLink.
+ * @summary Shuts down ClassicLink.
  *
  * @param request DisableVpcClassicLinkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20968,7 +20998,7 @@ DisableVpcClassicLinkResponse Client::disableVpcClassicLinkWithOptions(const Dis
 /**
  * @deprecated OpenAPI DisableVpcClassicLink is deprecated
  *
- * @summary Performs a shutdown of ClassicLink to disable ClassicLink.
+ * @summary Shuts down ClassicLink.
  *
  * @param request DisableVpcClassicLinkRequest
  * @return DisableVpcClassicLinkResponse
@@ -20981,7 +21011,7 @@ DisableVpcClassicLinkResponse Client::disableVpcClassicLink(const DisableVpcClas
 /**
  * @summary Dissociates a MACsec key from a dedicated Express Connect circuit port.
  *
- * @description - If you dissociate a key that is in the Associated state, the most recently activated key is automatically associated.
+ * @description - If you dissociate a key that is in the Associated state, the most recently effective key is automatically associated.
  * - If you dissociate a key that is in the Disassociated state, the key is deleted.
  *
  * @param request DisassociateMacSecKeyRequest
@@ -21023,7 +21053,7 @@ DisassociateMacSecKeyResponse Client::disassociateMacSecKeyWithOptions(const Dis
 /**
  * @summary Dissociates a MACsec key from a dedicated Express Connect circuit port.
  *
- * @description - If you dissociate a key that is in the Associated state, the most recently activated key is automatically associated.
+ * @description - If you dissociate a key that is in the Associated state, the most recently effective key is automatically associated.
  * - If you dissociate a key that is in the Disassociated state, the key is deleted.
  *
  * @param request DisassociateMacSecKeyRequest
@@ -21035,7 +21065,7 @@ DisassociateMacSecKeyResponse Client::disassociateMacSecKey(const DisassociateMa
 }
 
 /**
- * @summary Disassociates a gateway route table from an IPv4 gateway.
+ * @summary Disassociates a gateway route table from an IPv4 gateway or IPv6 gateway instance.
  *
  * @param request DissociateRouteTableFromGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21106,7 +21136,7 @@ DissociateRouteTableFromGatewayResponse Client::dissociateRouteTableFromGatewayW
 }
 
 /**
- * @summary Disassociates a gateway route table from an IPv4 gateway.
+ * @summary Disassociates a gateway route table from an IPv4 gateway or IPv6 gateway instance.
  *
  * @param request DissociateRouteTableFromGatewayRequest
  * @return DissociateRouteTableFromGatewayResponse
@@ -21117,7 +21147,7 @@ DissociateRouteTableFromGatewayResponse Client::dissociateRouteTableFromGateway(
 }
 
 /**
- * @summary Disassociates a gateway endpoint from a route table.
+ * @summary Disassociates a gateway endpoint from route tables by calling the DissociateRouteTablesFromVpcGatewayEndpoint operation.
  *
  * @param request DissociateRouteTablesFromVpcGatewayEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21180,7 +21210,7 @@ DissociateRouteTablesFromVpcGatewayEndpointResponse Client::dissociateRouteTable
 }
 
 /**
- * @summary Disassociates a gateway endpoint from a route table.
+ * @summary Disassociates a gateway endpoint from route tables by calling the DissociateRouteTablesFromVpcGatewayEndpoint operation.
  *
  * @param request DissociateRouteTablesFromVpcGatewayEndpointRequest
  * @return DissociateRouteTablesFromVpcGatewayEndpointResponse
@@ -21191,12 +21221,12 @@ DissociateRouteTablesFromVpcGatewayEndpointResponse Client::dissociateRouteTable
 }
 
 /**
- * @summary Disassociates a certificate from a VPN gateway.
+ * @summary Dissociates a VPN gateway from a certificate.
  *
- * @description *   **DissociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status the task.
- *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being disassociated from the VPN gateway.
- *     *   If the VPN gateway is in the **active** state, the SSL certificate is disassociated from the VPN gateway.
- * *   You cannot repeatedly call **DissociateVpnGatewayWithCertificate** within a specific period of time.
+ * @description - **DissociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request ID. However, the VPN gateway is not yet dissociated from the SSL certificate, and the dissociation task is still running in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the VPN gateway instance and check the dissociation status of the SSL certificate:
+ *     - If the VPN gateway is in the **updating** state, the SSL certificate is being dissociated.
+ *     - If the VPN gateway is in the **active** state, the SSL certificate is dissociated.
+ * - **DissociateVpnGatewayWithCertificate** does not support concurrent SSL certificate dissociation for the same VPN gateway.
  *
  * @param request DissociateVpnGatewayWithCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21247,12 +21277,12 @@ DissociateVpnGatewayWithCertificateResponse Client::dissociateVpnGatewayWithCert
 }
 
 /**
- * @summary Disassociates a certificate from a VPN gateway.
+ * @summary Dissociates a VPN gateway from a certificate.
  *
- * @description *   **DissociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status the task.
- *     *   If the VPN gateway is in the **updating** state, the SSL certificate is being disassociated from the VPN gateway.
- *     *   If the VPN gateway is in the **active** state, the SSL certificate is disassociated from the VPN gateway.
- * *   You cannot repeatedly call **DissociateVpnGatewayWithCertificate** within a specific period of time.
+ * @description - **DissociateVpnGatewayWithCertificate** is an asynchronous operation. After a request is sent, the system returns a request ID. However, the VPN gateway is not yet dissociated from the SSL certificate, and the dissociation task is still running in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the VPN gateway instance and check the dissociation status of the SSL certificate:
+ *     - If the VPN gateway is in the **updating** state, the SSL certificate is being dissociated.
+ *     - If the VPN gateway is in the **active** state, the SSL certificate is dissociated.
+ * - **DissociateVpnGatewayWithCertificate** does not support concurrent SSL certificate dissociation for the same VPN gateway.
  *
  * @param request DissociateVpnGatewayWithCertificateRequest
  * @return DissociateVpnGatewayWithCertificateResponse
@@ -21263,7 +21293,7 @@ DissociateVpnGatewayWithCertificateResponse Client::dissociateVpnGatewayWithCert
 }
 
 /**
- * @summary Queries the configuration of an IPsec-VPN connection.
+ * @summary Retrieves the configuration of an IPsec-VPN connection by calling the DownloadVpnConnectionConfig operation.
  *
  * @param request DownloadVpnConnectionConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21314,7 +21344,7 @@ DownloadVpnConnectionConfigResponse Client::downloadVpnConnectionConfigWithOptio
 }
 
 /**
- * @summary Queries the configuration of an IPsec-VPN connection.
+ * @summary Retrieves the configuration of an IPsec-VPN connection by calling the DownloadVpnConnectionConfig operation.
  *
  * @param request DownloadVpnConnectionConfigRequest
  * @return DownloadVpnConnectionConfigResponse
@@ -21325,13 +21355,13 @@ DownloadVpnConnectionConfigResponse Client::downloadVpnConnectionConfig(const Do
 }
 
 /**
- * @summary Enables a physical connection in the Confirmed state. After the operation is complete, the connection enters the Enabled state.
+ * @summary Enables an Express Connect circuit that is in the Confirmed state. After the circuit is enabled, it enters the Enabled state.
  *
- * @description Note the following when you call this API:
- * - You can enable only a physical connection that is in the **Confirmed** state.
- * - After the physical connection is enabled, it enters the **Enabled** state.
- * - This is an asynchronous API call. The system returns a request ID immediately, but the connection is enabled in the background. You can call [DescribePhysicalConnections](https://help.aliyun.com/document_detail/2982519.html) to query the connection status.
- * - Do not call **EnablePhysicalConnection** concurrently on the same physical connection in the **Confirmed** state.
+ * @description When you call this operation, take note of the following items:
+ * - You can enable only an Express Connect circuit that is in the **Confirmed** state.
+ * - After the circuit is enabled, it enters the **Enabled** state.
+ * - **EnablePhysicalConnection** is an asynchronous operation. After you send a request, the system returns an instance ID, but the Express Connect circuit is not yet enabled. The enabling task is still running in the background. You can call [DescribePhysicalConnections](https://help.aliyun.com/document_detail/2982519.html) to query the status of the Express Connect circuit.
+ * - **EnablePhysicalConnection** does not support concurrent enabling of the same Express Connect circuit that is in the **Confirmed** state.
  *
  * @param request EnablePhysicalConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21390,13 +21420,13 @@ EnablePhysicalConnectionResponse Client::enablePhysicalConnectionWithOptions(con
 }
 
 /**
- * @summary Enables a physical connection in the Confirmed state. After the operation is complete, the connection enters the Enabled state.
+ * @summary Enables an Express Connect circuit that is in the Confirmed state. After the circuit is enabled, it enters the Enabled state.
  *
- * @description Note the following when you call this API:
- * - You can enable only a physical connection that is in the **Confirmed** state.
- * - After the physical connection is enabled, it enters the **Enabled** state.
- * - This is an asynchronous API call. The system returns a request ID immediately, but the connection is enabled in the background. You can call [DescribePhysicalConnections](https://help.aliyun.com/document_detail/2982519.html) to query the connection status.
- * - Do not call **EnablePhysicalConnection** concurrently on the same physical connection in the **Confirmed** state.
+ * @description When you call this operation, take note of the following items:
+ * - You can enable only an Express Connect circuit that is in the **Confirmed** state.
+ * - After the circuit is enabled, it enters the **Enabled** state.
+ * - **EnablePhysicalConnection** is an asynchronous operation. After you send a request, the system returns an instance ID, but the Express Connect circuit is not yet enabled. The enabling task is still running in the background. You can call [DescribePhysicalConnections](https://help.aliyun.com/document_detail/2982519.html) to query the status of the Express Connect circuit.
+ * - **EnablePhysicalConnection** does not support concurrent enabling of the same Express Connect circuit that is in the **Confirmed** state.
  *
  * @param request EnablePhysicalConnectionRequest
  * @return EnablePhysicalConnectionResponse
@@ -21409,7 +21439,7 @@ EnablePhysicalConnectionResponse Client::enablePhysicalConnection(const EnablePh
 /**
  * @deprecated OpenAPI EnableVpcClassicLink is deprecated
  *
- * @summary Enables ClassicLink for a VPC.
+ * @summary Enables ClassicLink.
  *
  * @param request EnableVpcClassicLinkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21466,7 +21496,7 @@ EnableVpcClassicLinkResponse Client::enableVpcClassicLinkWithOptions(const Enabl
 /**
  * @deprecated OpenAPI EnableVpcClassicLink is deprecated
  *
- * @summary Enables ClassicLink for a VPC.
+ * @summary Enables ClassicLink.
  *
  * @param request EnableVpcClassicLinkRequest
  * @return EnableVpcClassicLinkResponse
@@ -21477,13 +21507,12 @@ EnableVpcClassicLinkResponse Client::enableVpcClassicLink(const EnableVpcClassic
 }
 
 /**
- * @summary Activates an IPv4 gateway.
+ * @summary Invokes the EnableVpcIpv4Gateway operation to activate IPv4 gateway.
  *
- * @description ## [](#)Description
- * *   **EnableVpcIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway.
- *     *   If the IPv4 gateway is in the **Activating** state, the IPv4 gateway is being activated.
- *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is activated.
- * *   You cannot repeatedly call the **EnableVpcIpv4Gateway** operation to activate an IPv4 gateway within the specified period of time.
+ * @description - The **EnableVpcIpv4Gateway** operation is asynchronous. After you send a request, the system returns a **RequestId**, but the IPv4 gateway is not yet activated. The activation task continues to run in the background. You can call [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) to query the status of the IPv4 gateway.
+ *     - If the IPv4 gateway is in the **Activating** state, the gateway is being activated.
+ *     - If the IPv4 gateway is in the **Created** state, the gateway is activated.
+ * - The **EnableVpcIpv4Gateway** operation does not support concurrent activation of the same IPv4 gateway.
  *
  * @param request EnableVpcIpv4GatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21550,13 +21579,12 @@ EnableVpcIpv4GatewayResponse Client::enableVpcIpv4GatewayWithOptions(const Enabl
 }
 
 /**
- * @summary Activates an IPv4 gateway.
+ * @summary Invokes the EnableVpcIpv4Gateway operation to activate IPv4 gateway.
  *
- * @description ## [](#)Description
- * *   **EnableVpcIpv4Gateway** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) operation to query the status of an IPv4 gateway.
- *     *   If the IPv4 gateway is in the **Activating** state, the IPv4 gateway is being activated.
- *     *   If the IPv4 gateway is in the **Created** state, the IPv4 gateway is activated.
- * *   You cannot repeatedly call the **EnableVpcIpv4Gateway** operation to activate an IPv4 gateway within the specified period of time.
+ * @description - The **EnableVpcIpv4Gateway** operation is asynchronous. After you send a request, the system returns a **RequestId**, but the IPv4 gateway is not yet activated. The activation task continues to run in the background. You can call [GetIpv4GatewayAttribute](https://help.aliyun.com/document_detail/407670.html) to query the status of the IPv4 gateway.
+ *     - If the IPv4 gateway is in the **Activating** state, the gateway is being activated.
+ *     - If the IPv4 gateway is in the **Created** state, the gateway is activated.
+ * - The **EnableVpcIpv4Gateway** operation does not support concurrent activation of the same IPv4 gateway.
  *
  * @param request EnableVpcIpv4GatewayRequest
  * @return EnableVpcIpv4GatewayResponse
@@ -21567,7 +21595,7 @@ EnableVpcIpv4GatewayResponse Client::enableVpcIpv4Gateway(const EnableVpcIpv4Gat
 }
 
 /**
- * @summary Queries a DHCP options set.
+ * @summary Queries a created DHCP options set by calling the GetDhcpOptionsSet operation.
  *
  * @param request GetDhcpOptionsSetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21618,7 +21646,7 @@ GetDhcpOptionsSetResponse Client::getDhcpOptionsSetWithOptions(const GetDhcpOpti
 }
 
 /**
- * @summary Queries a DHCP options set.
+ * @summary Queries a created DHCP options set by calling the GetDhcpOptionsSet operation.
  *
  * @param request GetDhcpOptionsSetRequest
  * @return GetDhcpOptionsSetResponse
@@ -21629,7 +21657,7 @@ GetDhcpOptionsSetResponse Client::getDhcpOptionsSet(const GetDhcpOptionsSetReque
 }
 
 /**
- * @summary Queries the activation status of the flow log feature by calling the GetFlowLogServiceStatus operation.
+ * @summary Queries the activation status of the flow log service by calling the GetFlowLogServiceStatus operation.
  *
  * @param request GetFlowLogServiceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21684,7 +21712,7 @@ GetFlowLogServiceStatusResponse Client::getFlowLogServiceStatusWithOptions(const
 }
 
 /**
- * @summary Queries the activation status of the flow log feature by calling the GetFlowLogServiceStatus operation.
+ * @summary Queries the activation status of the flow log service by calling the GetFlowLogServiceStatus operation.
  *
  * @param request GetFlowLogServiceStatusRequest
  * @return GetFlowLogServiceStatusResponse
@@ -21695,7 +21723,7 @@ GetFlowLogServiceStatusResponse Client::getFlowLogServiceStatus(const GetFlowLog
 }
 
 /**
- * @summary Queries an IPv4 gateway.
+ * @summary Calls the GetIpv4GatewayAttribute operation.
  *
  * @param request GetIpv4GatewayAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21750,7 +21778,7 @@ GetIpv4GatewayAttributeResponse Client::getIpv4GatewayAttributeWithOptions(const
 }
 
 /**
- * @summary Queries an IPv4 gateway.
+ * @summary Calls the GetIpv4GatewayAttribute operation.
  *
  * @param request GetIpv4GatewayAttributeRequest
  * @return GetIpv4GatewayAttributeResponse
@@ -21761,9 +21789,9 @@ GetIpv4GatewayAttributeResponse Client::getIpv4GatewayAttribute(const GetIpv4Gat
 }
 
 /**
- * @summary Queries the details of a NAT gateway instance.
+ * @summary Queries the information about a single NAT gateway instance.
  *
- * @description Queries a public NAT gateway or VPC NAT gateway. In this topic, NAT Gateway refers to either type.
+ * @description This operation queries the information about a single Internet NAT gateway or VPC NAT gateway. The term "NAT gateway" in this topic refers to both types without distinction.
  *
  * @param request GetNatGatewayAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21818,9 +21846,9 @@ GetNatGatewayAttributeResponse Client::getNatGatewayAttributeWithOptions(const G
 }
 
 /**
- * @summary Queries the details of a NAT gateway instance.
+ * @summary Queries the information about a single NAT gateway instance.
  *
- * @description Queries a public NAT gateway or VPC NAT gateway. In this topic, NAT Gateway refers to either type.
+ * @description This operation queries the information about a single Internet NAT gateway or VPC NAT gateway. The term "NAT gateway" in this topic refers to both types without distinction.
  *
  * @param request GetNatGatewayAttributeRequest
  * @return GetNatGatewayAttributeResponse
@@ -21831,9 +21859,10 @@ GetNatGatewayAttributeResponse Client::getNatGatewayAttribute(const GetNatGatewa
 }
 
 /**
- * @summary Checks whether outbound data transfer billing is enabled for the current account.
+ * @summary Queries whether outbound cloud traffic billing is enabled for the current account.
  *
- * @description You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html) and [Billing](https://help.aliyun.com/document_detail/54582.html).
+ * @description ### Usage notes
+ * You can call the GetPhysicalConnectionServiceStatus operation to check whether outbound traffic billing is enabled for the current account. For more information about outbound traffic billing, see [Enable outbound traffic billing](https://help.aliyun.com/document_detail/274385.html) and [Billing](https://help.aliyun.com/document_detail/54582.html).
  *
  * @param request GetPhysicalConnectionServiceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21880,9 +21909,10 @@ GetPhysicalConnectionServiceStatusResponse Client::getPhysicalConnectionServiceS
 }
 
 /**
- * @summary Checks whether outbound data transfer billing is enabled for the current account.
+ * @summary Queries whether outbound cloud traffic billing is enabled for the current account.
  *
- * @description You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html) and [Billing](https://help.aliyun.com/document_detail/54582.html).
+ * @description ### Usage notes
+ * You can call the GetPhysicalConnectionServiceStatus operation to check whether outbound traffic billing is enabled for the current account. For more information about outbound traffic billing, see [Enable outbound traffic billing](https://help.aliyun.com/document_detail/274385.html) and [Billing](https://help.aliyun.com/document_detail/54582.html).
  *
  * @param request GetPhysicalConnectionServiceStatusRequest
  * @return GetPhysicalConnectionServiceStatusResponse
@@ -21893,7 +21923,7 @@ GetPhysicalConnectionServiceStatusResponse Client::getPhysicalConnectionServiceS
 }
 
 /**
- * @summary Queries whether the IP address pool feature is enabled.
+ * @summary Queries the activation status of the IP address pool feature by calling the GetPublicIpAddressPoolServiceStatus operation.
  *
  * @param request GetPublicIpAddressPoolServiceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21948,7 +21978,7 @@ GetPublicIpAddressPoolServiceStatusResponse Client::getPublicIpAddressPoolServic
 }
 
 /**
- * @summary Queries whether the IP address pool feature is enabled.
+ * @summary Queries the activation status of the IP address pool feature by calling the GetPublicIpAddressPoolServiceStatus operation.
  *
  * @param request GetPublicIpAddressPoolServiceStatusRequest
  * @return GetPublicIpAddressPoolServiceStatusResponse
@@ -21959,9 +21989,9 @@ GetPublicIpAddressPoolServiceStatusResponse Client::getPublicIpAddressPoolServic
 }
 
 /**
- * @summary Get the route target group
+ * @summary Retrieves information about a route target group instance.
  *
- * @description Get the information of the route target group instance.
+ * @description Retrieves information about a route target group instance.
  *
  * @param request GetRouteTargetGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22004,9 +22034,9 @@ GetRouteTargetGroupResponse Client::getRouteTargetGroupWithOptions(const GetRout
 }
 
 /**
- * @summary Get the route target group
+ * @summary Retrieves information about a route target group instance.
  *
- * @description Get the information of the route target group instance.
+ * @description Retrieves information about a route target group instance.
  *
  * @param request GetRouteTargetGroupRequest
  * @return GetRouteTargetGroupResponse
@@ -22017,7 +22047,7 @@ GetRouteTargetGroupResponse Client::getRouteTargetGroup(const GetRouteTargetGrou
 }
 
 /**
- * @summary Queries the status of the traffic mirror feature.
+ * @summary Queries the status of the traffic mirroring feature by calling the GetTrafficMirrorServiceStatus operation.
  *
  * @param request GetTrafficMirrorServiceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22072,7 +22102,7 @@ GetTrafficMirrorServiceStatusResponse Client::getTrafficMirrorServiceStatusWithO
 }
 
 /**
- * @summary Queries the status of the traffic mirror feature.
+ * @summary Queries the status of the traffic mirroring feature by calling the GetTrafficMirrorServiceStatus operation.
  *
  * @param request GetTrafficMirrorServiceStatusRequest
  * @return GetTrafficMirrorServiceStatusResponse
@@ -22083,7 +22113,7 @@ GetTrafficMirrorServiceStatusResponse Client::getTrafficMirrorServiceStatus(cons
 }
 
 /**
- * @summary Queries the usage of a prefix list.
+ * @summary Queries the usage of a reserved CIDR block for a vSwitch.
  *
  * @param request GetVSwitchCidrReservationUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22142,7 +22172,7 @@ GetVSwitchCidrReservationUsageResponse Client::getVSwitchCidrReservationUsageWit
 }
 
 /**
- * @summary Queries the usage of a prefix list.
+ * @summary Queries the usage of a reserved CIDR block for a vSwitch.
  *
  * @param request GetVSwitchCidrReservationUsageRequest
  * @return GetVSwitchCidrReservationUsageResponse
@@ -22153,7 +22183,7 @@ GetVSwitchCidrReservationUsageResponse Client::getVSwitchCidrReservationUsage(co
 }
 
 /**
- * @summary Queries the attributes of a gateway endpoint.
+ * @summary Queries the attributes of a VPC gateway endpoint.
  *
  * @param request GetVpcGatewayEndpointAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22204,7 +22234,7 @@ GetVpcGatewayEndpointAttributeResponse Client::getVpcGatewayEndpointAttributeWit
 }
 
 /**
- * @summary Queries the attributes of a gateway endpoint.
+ * @summary Queries the attributes of a VPC gateway endpoint.
  *
  * @param request GetVpcGatewayEndpointAttributeRequest
  * @return GetVpcGatewayEndpointAttributeResponse
@@ -22215,7 +22245,7 @@ GetVpcGatewayEndpointAttributeResponse Client::getVpcGatewayEndpointAttribute(co
 }
 
 /**
- * @summary Queries the associations of a prefix list by calling the GetVpcPrefixListAssociations operation.
+ * @summary Queries the associations of a prefix list.
  *
  * @param request GetVpcPrefixListAssociationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22274,7 +22304,7 @@ GetVpcPrefixListAssociationsResponse Client::getVpcPrefixListAssociationsWithOpt
 }
 
 /**
- * @summary Queries the associations of a prefix list by calling the GetVpcPrefixListAssociations operation.
+ * @summary Queries the associations of a prefix list.
  *
  * @param request GetVpcPrefixListAssociationsRequest
  * @return GetVpcPrefixListAssociationsResponse
@@ -22285,7 +22315,7 @@ GetVpcPrefixListAssociationsResponse Client::getVpcPrefixListAssociations(const 
 }
 
 /**
- * @summary Queries the information about a prefix list.
+ * @summary Calls the GetVpcPrefixListEntries operation to query information about a specified prefix list.
  *
  * @param request GetVpcPrefixListEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22344,7 +22374,7 @@ GetVpcPrefixListEntriesResponse Client::getVpcPrefixListEntriesWithOptions(const
 }
 
 /**
- * @summary Queries the information about a prefix list.
+ * @summary Calls the GetVpcPrefixListEntries operation to query information about a specified prefix list.
  *
  * @param request GetVpcPrefixListEntriesRequest
  * @return GetVpcPrefixListEntriesResponse
@@ -22355,7 +22385,7 @@ GetVpcPrefixListEntriesResponse Client::getVpcPrefixListEntries(const GetVpcPref
 }
 
 /**
- * @summary Queries route types.
+ * @summary Queries the details of route types by calling the GetVpcRouteEntrySummary operation.
  *
  * @param request GetVpcRouteEntrySummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22414,7 +22444,7 @@ GetVpcRouteEntrySummaryResponse Client::getVpcRouteEntrySummaryWithOptions(const
 }
 
 /**
- * @summary Queries route types.
+ * @summary Queries the details of route types by calling the GetVpcRouteEntrySummary operation.
  *
  * @param request GetVpcRouteEntrySummaryRequest
  * @return GetVpcRouteEntrySummaryResponse
@@ -22483,11 +22513,11 @@ GetVpnGatewayDiagnoseResultResponse Client::getVpnGatewayDiagnoseResult(const Ge
 }
 
 /**
- * @summary Grants permissions to a CEN instance.
+ * @summary Grants permissions to a Cloud Enterprise Network (CEN) instance.
  *
- * @description - 在加载其他阿里云账号（主账号）的网络实例前，需要在网络实例所在的阿里云账号下为云企业网实例授权。
- * >**GrantInstanceToCen**接口是VPC的API，所以调用该接口需要使用`vpc.aliyuncs.com`域名。API version为`2016-04-28`。 
- * - **GrantInstanceToCen**接口不支持在同一个VPC、VBR或者CCN中并发为云企业网实例授权。
+ * @description - Before you attach a network instance that belongs to a different Alibaba Cloud account, you must grant permissions to the CEN instance under the Alibaba Cloud account to which the network instance belongs.
+ * >The **GrantInstanceToCen** operation is a VPC API operation. Therefore, you must use the `vpc.aliyuncs.com` endpoint to call this operation. The API version is `2016-04-28`. 
+ * - The **GrantInstanceToCen** operation does not support concurrent calls to grant permissions to a CEN instance for the same VPC, VBR, or CCN.
  *
  * @param request GrantInstanceToCenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22554,11 +22584,11 @@ GrantInstanceToCenResponse Client::grantInstanceToCenWithOptions(const GrantInst
 }
 
 /**
- * @summary Grants permissions to a CEN instance.
+ * @summary Grants permissions to a Cloud Enterprise Network (CEN) instance.
  *
- * @description - 在加载其他阿里云账号（主账号）的网络实例前，需要在网络实例所在的阿里云账号下为云企业网实例授权。
- * >**GrantInstanceToCen**接口是VPC的API，所以调用该接口需要使用`vpc.aliyuncs.com`域名。API version为`2016-04-28`。 
- * - **GrantInstanceToCen**接口不支持在同一个VPC、VBR或者CCN中并发为云企业网实例授权。
+ * @description - Before you attach a network instance that belongs to a different Alibaba Cloud account, you must grant permissions to the CEN instance under the Alibaba Cloud account to which the network instance belongs.
+ * >The **GrantInstanceToCen** operation is a VPC API operation. Therefore, you must use the `vpc.aliyuncs.com` endpoint to call this operation. The API version is `2016-04-28`. 
+ * - The **GrantInstanceToCen** operation does not support concurrent calls to grant permissions to a CEN instance for the same VPC, VBR, or CCN.
  *
  * @param request GrantInstanceToCenRequest
  * @return GrantInstanceToCenResponse
@@ -22569,9 +22599,9 @@ GrantInstanceToCenResponse Client::grantInstanceToCen(const GrantInstanceToCenRe
 }
 
 /**
- * @summary Calls the GrantInstanceToVbr operation to grant authorization of a VPC instance to a VBR instance for cross-account VBR uplink scenarios.
+ * @summary Invokes the GrantInstanceToVbr operation to grant authorization of a VPC-connected instance to a VBR instance for cross-account VBR uplink scenarios.
  *
- * @description When creating a cross-account VBR uplink connection, you must grant authorization of the VPC instance to the VBR instance.
+ * @description When creating a cross-account VBR uplink connection, you must grant authorization of the VPC-connected instance to the VBR instance.
  *
  * @param tmpReq GrantInstanceToVbrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22628,9 +22658,9 @@ GrantInstanceToVbrResponse Client::grantInstanceToVbrWithOptions(const GrantInst
 }
 
 /**
- * @summary Calls the GrantInstanceToVbr operation to grant authorization of a VPC instance to a VBR instance for cross-account VBR uplink scenarios.
+ * @summary Invokes the GrantInstanceToVbr operation to grant authorization of a VPC-connected instance to a VBR instance for cross-account VBR uplink scenarios.
  *
- * @description When creating a cross-account VBR uplink connection, you must grant authorization of the VPC instance to the VBR instance.
+ * @description When creating a cross-account VBR uplink connection, you must grant authorization of the VPC-connected instance to the VBR instance.
  *
  * @param request GrantInstanceToVbrRequest
  * @return GrantInstanceToVbrResponse
@@ -22641,7 +22671,7 @@ GrantInstanceToVbrResponse Client::grantInstanceToVbr(const GrantInstanceToVbrRe
 }
 
 /**
- * @summary Queries the access points for Express Connect circuits.
+ * @summary Calls the ListBusinessAccessPoints operation to query access point information for Express Connect circuits.
  *
  * @param request ListBusinessAccessPointsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22676,7 +22706,7 @@ ListBusinessAccessPointsResponse Client::listBusinessAccessPointsWithOptions(con
 }
 
 /**
- * @summary Queries the access points for Express Connect circuits.
+ * @summary Calls the ListBusinessAccessPoints operation to query access point information for Express Connect circuits.
  *
  * @param request ListBusinessAccessPointsRequest
  * @return ListBusinessAccessPointsResponse
@@ -22687,7 +22717,7 @@ ListBusinessAccessPointsResponse Client::listBusinessAccessPoints(const ListBusi
 }
 
 /**
- * @summary Queries the list of regions available for an Express Connect circuit.
+ * @summary Queries the list of regions where Express Connect circuits are available for purchase.
  *
  * @param request ListBusinessRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22718,7 +22748,7 @@ ListBusinessRegionsResponse Client::listBusinessRegionsWithOptions(const ListBus
 }
 
 /**
- * @summary Queries the list of regions available for an Express Connect circuit.
+ * @summary Queries the list of regions where Express Connect circuits are available for purchase.
  *
  * @param request ListBusinessRegionsRequest
  * @return ListBusinessRegionsResponse
@@ -22729,7 +22759,7 @@ ListBusinessRegionsResponse Client::listBusinessRegions(const ListBusinessRegion
 }
 
 /**
- * @summary Queries Dynamic Host Configuration Protocol (DHCP) options sets.
+ * @summary Queries a list of created DHCP options sets by calling the ListDhcpOptionsSets operation.
  *
  * @param request ListDhcpOptionsSetsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22804,7 +22834,7 @@ ListDhcpOptionsSetsResponse Client::listDhcpOptionsSetsWithOptions(const ListDhc
 }
 
 /**
- * @summary Queries Dynamic Host Configuration Protocol (DHCP) options sets.
+ * @summary Queries a list of created DHCP options sets by calling the ListDhcpOptionsSets operation.
  *
  * @param request ListDhcpOptionsSetsRequest
  * @return ListDhcpOptionsSetsResponse
@@ -22815,9 +22845,9 @@ ListDhcpOptionsSetsResponse Client::listDhcpOptionsSets(const ListDhcpOptionsSet
 }
 
 /**
- * @summary Queries the zones that support NAT gateways.
+ * @summary Queries the zones where NAT gateway resources are available by calling the ListEnhanhcedNatGatewayAvailableZones operation.
  *
- * @description You can call this operation to query zones that support NAT gateways, including Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways.
+ * @description This operation queries the zones available for Internet NAT gateway or VPC NAT gateway resources. In this topic, "NAT gateway" refers to both types without distinction.
  *
  * @param request ListEnhanhcedNatGatewayAvailableZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22876,9 +22906,9 @@ ListEnhanhcedNatGatewayAvailableZonesResponse Client::listEnhanhcedNatGatewayAva
 }
 
 /**
- * @summary Queries the zones that support NAT gateways.
+ * @summary Queries the zones where NAT gateway resources are available by calling the ListEnhanhcedNatGatewayAvailableZones operation.
  *
- * @description You can call this operation to query zones that support NAT gateways, including Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways.
+ * @description This operation queries the zones available for Internet NAT gateway or VPC NAT gateway resources. In this topic, "NAT gateway" refers to both types without distinction.
  *
  * @param request ListEnhanhcedNatGatewayAvailableZonesRequest
  * @return ListEnhanhcedNatGatewayAvailableZonesResponse
@@ -22889,7 +22919,7 @@ ListEnhanhcedNatGatewayAvailableZonesResponse Client::listEnhanhcedNatGatewayAva
 }
 
 /**
- * @summary Queries FULLNAT entries.
+ * @summary Queries the list of FULLNAT entries.
  *
  * @param request ListFullNatEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22980,7 +23010,7 @@ ListFullNatEntriesResponse Client::listFullNatEntriesWithOptions(const ListFullN
 }
 
 /**
- * @summary Queries FULLNAT entries.
+ * @summary Queries the list of FULLNAT entries.
  *
  * @param request ListFullNatEntriesRequest
  * @return ListFullNatEntriesResponse
@@ -22991,7 +23021,7 @@ ListFullNatEntriesResponse Client::listFullNatEntries(const ListFullNatEntriesRe
 }
 
 /**
- * @summary Queries the route entries in a gateway route table by calling the ListGatewayRouteTableEntries operation.
+ * @summary Queries the route entries in a gateway route table.
  *
  * @param request ListGatewayRouteTableEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23058,7 +23088,7 @@ ListGatewayRouteTableEntriesResponse Client::listGatewayRouteTableEntriesWithOpt
 }
 
 /**
- * @summary Queries the route entries in a gateway route table by calling the ListGatewayRouteTableEntries operation.
+ * @summary Queries the route entries in a gateway route table.
  *
  * @param request ListGatewayRouteTableEntriesRequest
  * @return ListGatewayRouteTableEntriesResponse
@@ -23069,7 +23099,7 @@ ListGatewayRouteTableEntriesResponse Client::listGatewayRouteTableEntries(const 
 }
 
 /**
- * @summary Queries the most recent region list.
+ * @summary Queries region information by calling the ListGeographicSubRegions operation.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListGeographicSubRegionsResponse
@@ -23091,7 +23121,7 @@ ListGeographicSubRegionsResponse Client::listGeographicSubRegionsWithOptions(con
 }
 
 /**
- * @summary Queries the most recent region list.
+ * @summary Queries region information by calling the ListGeographicSubRegions operation.
  *
  * @return ListGeographicSubRegionsResponse
  */
@@ -23101,7 +23131,7 @@ ListGeographicSubRegionsResponse Client::listGeographicSubRegions() {
 }
 
 /**
- * @summary Queries the logs of an IPsec server.
+ * @summary Queries the logs of an IPsec server by calling the ListIpsecServerLogs operation.
  *
  * @param request ListIpsecServerLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23156,7 +23186,7 @@ ListIpsecServerLogsResponse Client::listIpsecServerLogsWithOptions(const ListIps
 }
 
 /**
- * @summary Queries the logs of an IPsec server.
+ * @summary Queries the logs of an IPsec server by calling the ListIpsecServerLogs operation.
  *
  * @param request ListIpsecServerLogsRequest
  * @return ListIpsecServerLogsResponse
@@ -23167,7 +23197,7 @@ ListIpsecServerLogsResponse Client::listIpsecServerLogs(const ListIpsecServerLog
 }
 
 /**
- * @summary Queries IPsec servers.
+ * @summary Queries the IPsec servers that have been created.
  *
  * @param request ListIpsecServersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23222,7 +23252,7 @@ ListIpsecServersResponse Client::listIpsecServersWithOptions(const ListIpsecServ
 }
 
 /**
- * @summary Queries IPsec servers.
+ * @summary Queries the IPsec servers that have been created.
  *
  * @param request ListIpsecServersRequest
  * @return ListIpsecServersResponse
@@ -23233,7 +23263,7 @@ ListIpsecServersResponse Client::listIpsecServers(const ListIpsecServersRequest 
 }
 
 /**
- * @summary Queries IPv4 gateways.
+ * @summary Queries a list of IPv4 gateway instances.
  *
  * @param request ListIpv4GatewaysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23312,7 +23342,7 @@ ListIpv4GatewaysResponse Client::listIpv4GatewaysWithOptions(const ListIpv4Gatew
 }
 
 /**
- * @summary Queries IPv4 gateways.
+ * @summary Queries a list of IPv4 gateway instances.
  *
  * @param request ListIpv4GatewaysRequest
  * @return ListIpv4GatewaysResponse
@@ -23323,7 +23353,7 @@ ListIpv4GatewaysResponse Client::listIpv4Gateways(const ListIpv4GatewaysRequest 
 }
 
 /**
- * @summary Queries the CIDR blocks of a specified NAT gateway.
+ * @summary Queries a list of NAT CIDR blocks.
  *
  * @param request ListNatIpCidrsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23410,7 +23440,7 @@ ListNatIpCidrsResponse Client::listNatIpCidrsWithOptions(const ListNatIpCidrsReq
 }
 
 /**
- * @summary Queries the CIDR blocks of a specified NAT gateway.
+ * @summary Queries a list of NAT CIDR blocks.
  *
  * @param request ListNatIpCidrsRequest
  * @return ListNatIpCidrsResponse
@@ -23421,7 +23451,7 @@ ListNatIpCidrsResponse Client::listNatIpCidrs(const ListNatIpCidrsRequest &reque
 }
 
 /**
- * @summary Queries the IP addresses on a NAT gateway.
+ * @summary Queries a list of NAT IP addresses.
  *
  * @param request ListNatIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23516,7 +23546,7 @@ ListNatIpsResponse Client::listNatIpsWithOptions(const ListNatIpsRequest &reques
 }
 
 /**
- * @summary Queries the IP addresses on a NAT gateway.
+ * @summary Queries a list of NAT IP addresses.
  *
  * @param request ListNatIpsRequest
  * @return ListNatIpsResponse
@@ -23527,7 +23557,7 @@ ListNatIpsResponse Client::listNatIps(const ListNatIpsRequest &request) {
 }
 
 /**
- * @summary Queries he connection features supported by a Express Connect circuit.
+ * @summary Queries the device-level capabilities supported by an Express Connect circuit.
  *
  * @param request ListPhysicalConnectionFeaturesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23582,7 +23612,7 @@ ListPhysicalConnectionFeaturesResponse Client::listPhysicalConnectionFeaturesWit
 }
 
 /**
- * @summary Queries he connection features supported by a Express Connect circuit.
+ * @summary Queries the device-level capabilities supported by an Express Connect circuit.
  *
  * @param request ListPhysicalConnectionFeaturesRequest
  * @return ListPhysicalConnectionFeaturesResponse
@@ -23593,7 +23623,7 @@ ListPhysicalConnectionFeaturesResponse Client::listPhysicalConnectionFeatures(co
 }
 
 /**
- * @summary Queries prefix lists.
+ * @summary Queries information about prefix lists.
  *
  * @param request ListPrefixListsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23664,7 +23694,7 @@ ListPrefixListsResponse Client::listPrefixListsWithOptions(const ListPrefixLists
 }
 
 /**
- * @summary Queries prefix lists.
+ * @summary Queries information about prefix lists.
  *
  * @param request ListPrefixListsRequest
  * @return ListPrefixListsResponse
@@ -23675,7 +23705,7 @@ ListPrefixListsResponse Client::listPrefixLists(const ListPrefixListsRequest &re
 }
 
 /**
- * @summary Queries CIDR blocks in an IP address pool.
+ * @summary Queries the CIDR block information in an IP address pool.
  *
  * @param request ListPublicIpAddressPoolCidrBlocksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23742,7 +23772,7 @@ ListPublicIpAddressPoolCidrBlocksResponse Client::listPublicIpAddressPoolCidrBlo
 }
 
 /**
- * @summary Queries CIDR blocks in an IP address pool.
+ * @summary Queries the CIDR block information in an IP address pool.
  *
  * @param request ListPublicIpAddressPoolCidrBlocksRequest
  * @return ListPublicIpAddressPoolCidrBlocksResponse
@@ -23753,7 +23783,7 @@ ListPublicIpAddressPoolCidrBlocksResponse Client::listPublicIpAddressPoolCidrBlo
 }
 
 /**
- * @summary Queries available IP address pools.
+ * @summary Queries information about available IP address pools.
  *
  * @param request ListPublicIpAddressPoolsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23840,7 +23870,7 @@ ListPublicIpAddressPoolsResponse Client::listPublicIpAddressPoolsWithOptions(con
 }
 
 /**
- * @summary Queries available IP address pools.
+ * @summary Queries information about available IP address pools.
  *
  * @param request ListPublicIpAddressPoolsRequest
  * @return ListPublicIpAddressPoolsResponse
@@ -23851,9 +23881,9 @@ ListPublicIpAddressPoolsResponse Client::listPublicIpAddressPools(const ListPubl
 }
 
 /**
- * @summary Batch query for route target groups
+ * @summary Queries a list of route target groups.
  *
- * @description Lists the route target groups.
+ * @description Queries a list of route target groups.
  *
  * @param request ListRouteTargetGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23916,9 +23946,9 @@ ListRouteTargetGroupsResponse Client::listRouteTargetGroupsWithOptions(const Lis
 }
 
 /**
- * @summary Batch query for route target groups
+ * @summary Queries a list of route target groups.
  *
- * @description Lists the route target groups.
+ * @description Queries a list of route target groups.
  *
  * @param request ListRouteTargetGroupsRequest
  * @return ListRouteTargetGroupsResponse
@@ -23929,12 +23959,12 @@ ListRouteTargetGroupsResponse Client::listRouteTargetGroups(const ListRouteTarge
 }
 
 /**
- * @summary Query the list of tags that are bound to cloud resources.
+ * @summary Queries the tags that are bound to cloud resources.
  *
- * @description - You must specify at least the **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) parameter in the request to determine the query object.
- * - **Tag.N** is a tag of the resource, which consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error is returned.
- * - If you specify both **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all the specified tag key-value pairs.
- * - If you specify multiple tag key-value pairs, the results contain resources that include all the specified key-value pairs.
+ * @description - Specify at least **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) in the request to determine the query object.
+ * - **Tag.N** is a tag of the resource, which consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values associated with the tag key are returned. If you specify only **Tag.N.Value**, an error is returned.
+ * - If you specify both **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified tag key-value pairs.
+ * - If you specify multiple tag key-value pairs, the returned results contain resources that include all specified key-value pairs.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24001,12 +24031,12 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Query the list of tags that are bound to cloud resources.
+ * @summary Queries the tags that are bound to cloud resources.
  *
- * @description - You must specify at least the **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) parameter in the request to determine the query object.
- * - **Tag.N** is a tag of the resource, which consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error is returned.
- * - If you specify both **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all the specified tag key-value pairs.
- * - If you specify multiple tag key-value pairs, the results contain resources that include all the specified key-value pairs.
+ * @description - Specify at least **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) in the request to determine the query object.
+ * - **Tag.N** is a tag of the resource, which consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values associated with the tag key are returned. If you specify only **Tag.N.Value**, an error is returned.
+ * - If you specify both **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified tag key-value pairs.
+ * - If you specify multiple tag key-value pairs, the returned results contain resources that include all specified key-value pairs.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -24017,13 +24047,12 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Queries the tags that are added to an Express Connect circuit.
+ * @summary Queries the tags that are bound to Express Connect resources by calling the ListTagResourcesForExpressConnect operation.
  *
- * @description ## [](#)
- * *   If you want to query a specific object, you must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request.
- * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
- * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
- * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+ * @description - To specify the objects to query, set **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) in the request parameters.
+ * - **Tag.N** is a tag of a resource and consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error is returned.
+ * - If you specify both **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified tag key-value pairs.
+ * - If you specify multiple tag key-value pairs, the returned results contain resources that include all specified key-value pairs.
  *
  * @param request ListTagResourcesForExpressConnectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24090,13 +24119,12 @@ ListTagResourcesForExpressConnectResponse Client::listTagResourcesForExpressConn
 }
 
 /**
- * @summary Queries the tags that are added to an Express Connect circuit.
+ * @summary Queries the tags that are bound to Express Connect resources by calling the ListTagResourcesForExpressConnect operation.
  *
- * @description ## [](#)
- * *   If you want to query a specific object, you must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request.
- * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
- * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
- * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+ * @description - To specify the objects to query, set **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) in the request parameters.
+ * - **Tag.N** is a tag of a resource and consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values associated with the specified tag key are returned. If you specify only **Tag.N.Value**, an error is returned.
+ * - If you specify both **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified tag key-value pairs.
+ * - If you specify multiple tag key-value pairs, the returned results contain resources that include all specified key-value pairs.
  *
  * @param request ListTagResourcesForExpressConnectRequest
  * @return ListTagResourcesForExpressConnectResponse
@@ -24107,7 +24135,7 @@ ListTagResourcesForExpressConnectResponse Client::listTagResourcesForExpressConn
 }
 
 /**
- * @summary Queries filters for traffic mirror.
+ * @summary Queries traffic mirror filters.
  *
  * @param request ListTrafficMirrorFiltersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24178,7 +24206,7 @@ ListTrafficMirrorFiltersResponse Client::listTrafficMirrorFiltersWithOptions(con
 }
 
 /**
- * @summary Queries filters for traffic mirror.
+ * @summary Queries traffic mirror filters.
  *
  * @param request ListTrafficMirrorFiltersRequest
  * @return ListTrafficMirrorFiltersResponse
@@ -24189,7 +24217,7 @@ ListTrafficMirrorFiltersResponse Client::listTrafficMirrorFilters(const ListTraf
 }
 
 /**
- * @summary Queries the details of a traffic mirror session.
+ * @summary Queries the details of traffic mirror sessions.
  *
  * @param request ListTrafficMirrorSessionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24284,7 +24312,7 @@ ListTrafficMirrorSessionsResponse Client::listTrafficMirrorSessionsWithOptions(c
 }
 
 /**
- * @summary Queries the details of a traffic mirror session.
+ * @summary Queries the details of traffic mirror sessions.
  *
  * @param request ListTrafficMirrorSessionsRequest
  * @return ListTrafficMirrorSessionsResponse
@@ -24295,7 +24323,7 @@ ListTrafficMirrorSessionsResponse Client::listTrafficMirrorSessions(const ListTr
 }
 
 /**
- * @summary Queries the CIDR reservation information about vSwitches.
+ * @summary Queries reserved CIDR blocks for a vSwitch.
  *
  * @param request ListVSwitchCidrReservationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24370,7 +24398,7 @@ ListVSwitchCidrReservationsResponse Client::listVSwitchCidrReservationsWithOptio
 }
 
 /**
- * @summary Queries the CIDR reservation information about vSwitches.
+ * @summary Queries reserved CIDR blocks for a vSwitch.
  *
  * @param request ListVSwitchCidrReservationsRequest
  * @return ListVSwitchCidrReservationsResponse
@@ -24381,7 +24409,7 @@ ListVSwitchCidrReservationsResponse Client::listVSwitchCidrReservations(const Li
 }
 
 /**
- * @summary Call the ListVirtualPhysicalConnections operation to query virtual physical connections.
+ * @summary Queries information about shared Express Connect circuits by calling the ListVirtualPhysicalConnections operation.
  *
  * @param request ListVirtualPhysicalConnectionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24456,7 +24484,7 @@ ListVirtualPhysicalConnectionsResponse Client::listVirtualPhysicalConnectionsWit
 }
 
 /**
- * @summary Call the ListVirtualPhysicalConnections operation to query virtual physical connections.
+ * @summary Queries information about shared Express Connect circuits by calling the ListVirtualPhysicalConnections operation.
  *
  * @param request ListVirtualPhysicalConnectionsRequest
  * @return ListVirtualPhysicalConnectionsResponse
@@ -24467,7 +24495,7 @@ ListVirtualPhysicalConnectionsResponse Client::listVirtualPhysicalConnections(co
 }
 
 /**
- * @summary Queries available endpoint services.
+ * @summary Queries the endpoint services that are available to you.
  *
  * @param request ListVpcEndpointServicesByEndUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24526,7 +24554,7 @@ ListVpcEndpointServicesByEndUserResponse Client::listVpcEndpointServicesByEndUse
 }
 
 /**
- * @summary Queries available endpoint services.
+ * @summary Queries the endpoint services that are available to you.
  *
  * @param request ListVpcEndpointServicesByEndUserRequest
  * @return ListVpcEndpointServicesByEndUserResponse
@@ -24537,7 +24565,7 @@ ListVpcEndpointServicesByEndUserResponse Client::listVpcEndpointServicesByEndUse
 }
 
 /**
- * @summary Queries gateway endpoints.
+ * @summary Queries a list of created VPC gateway endpoints.
  *
  * @param request ListVpcGatewayEndpointsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24616,7 +24644,7 @@ ListVpcGatewayEndpointsResponse Client::listVpcGatewayEndpointsWithOptions(const
 }
 
 /**
- * @summary Queries gateway endpoints.
+ * @summary Queries a list of created VPC gateway endpoints.
  *
  * @param request ListVpcGatewayEndpointsRequest
  * @return ListVpcGatewayEndpointsResponse
@@ -24627,7 +24655,7 @@ ListVpcGatewayEndpointsResponse Client::listVpcGatewayEndpoints(const ListVpcGat
 }
 
 /**
- * @summary Query the route publishing status
+ * @summary Queries the route publish status.
  *
  * @param request ListVpcPublishedRouteEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24702,7 +24730,7 @@ ListVpcPublishedRouteEntriesResponse Client::listVpcPublishedRouteEntriesWithOpt
 }
 
 /**
- * @summary Query the route publishing status
+ * @summary Queries the route publish status.
  *
  * @param request ListVpcPublishedRouteEntriesRequest
  * @return ListVpcPublishedRouteEntriesResponse
@@ -24713,13 +24741,13 @@ ListVpcPublishedRouteEntriesResponse Client::listVpcPublishedRouteEntries(const 
 }
 
 /**
- * @summary Queries the association between VPN gateways and certificates in a region.
+ * @summary Queries the associations between VPN gateway instances and certificates in a specified region.
  *
- * @description When you call **ListVpnCertificateAssociations**, take note of the following information:
- * *   If you specify only **RegionId**, the SSL certificates associated with all VPN gateways in the specified region are queried.
- * *   If you specify **RegionId** and **CertificateType**, the SSL certificates of the specified type that are associated with the VPN gateways in the specified region are queried.
- * *   If you specify **RegionId** and **VpnGatewayId**, the SSL certificates associated with the specified VPN gateway in the specified region are queried.
- * *   If you specify **RegionId** and **CertificateId**, the VPN gateways associated with the specified SSL certificate in the specified region are queried.
+ * @description When you call **ListVpnCertificateAssociations**:
+ * - If you specify only the **RegionId** parameter, all associations between VPN gateway instances and SSL certificates in the specified region are queried.
+ * - If you specify the **RegionId** and **CertificateType** parameters, the associations between VPN gateway instances and SSL certificates of the specified certificate type in the specified region are queried.
+ * - If you specify the **RegionId** and **VpnGatewayId** parameters, the associations between the specified VPN gateway instances and SSL certificates in the specified region are queried.
+ * - If you specify the **RegionId** and **CertificateId** parameters, the associations between the specified SSL certificates and VPN gateway instances in the specified region are queried.
  *
  * @param request ListVpnCertificateAssociationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24770,13 +24798,13 @@ ListVpnCertificateAssociationsResponse Client::listVpnCertificateAssociationsWit
 }
 
 /**
- * @summary Queries the association between VPN gateways and certificates in a region.
+ * @summary Queries the associations between VPN gateway instances and certificates in a specified region.
  *
- * @description When you call **ListVpnCertificateAssociations**, take note of the following information:
- * *   If you specify only **RegionId**, the SSL certificates associated with all VPN gateways in the specified region are queried.
- * *   If you specify **RegionId** and **CertificateType**, the SSL certificates of the specified type that are associated with the VPN gateways in the specified region are queried.
- * *   If you specify **RegionId** and **VpnGatewayId**, the SSL certificates associated with the specified VPN gateway in the specified region are queried.
- * *   If you specify **RegionId** and **CertificateId**, the VPN gateways associated with the specified SSL certificate in the specified region are queried.
+ * @description When you call **ListVpnCertificateAssociations**:
+ * - If you specify only the **RegionId** parameter, all associations between VPN gateway instances and SSL certificates in the specified region are queried.
+ * - If you specify the **RegionId** and **CertificateType** parameters, the associations between VPN gateway instances and SSL certificates of the specified certificate type in the specified region are queried.
+ * - If you specify the **RegionId** and **VpnGatewayId** parameters, the associations between the specified VPN gateway instances and SSL certificates in the specified region are queried.
+ * - If you specify the **RegionId** and **CertificateId** parameters, the associations between the specified SSL certificates and VPN gateway instances in the specified region are queried.
  *
  * @param request ListVpnCertificateAssociationsRequest
  * @return ListVpnCertificateAssociationsResponse
@@ -24787,7 +24815,7 @@ ListVpnCertificateAssociationsResponse Client::listVpnCertificateAssociations(co
 }
 
 /**
- * @summary Modifies the configuration of a Border Gateway Protocol (BGP) group.
+ * @summary Modifies the configurations of a BGP group by calling the ModifyBgpGroupAttribute operation.
  *
  * @param request ModifyBgpGroupAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24874,7 +24902,7 @@ ModifyBgpGroupAttributeResponse Client::modifyBgpGroupAttributeWithOptions(const
 }
 
 /**
- * @summary Modifies the configuration of a Border Gateway Protocol (BGP) group.
+ * @summary Modifies the configurations of a BGP group by calling the ModifyBgpGroupAttribute operation.
  *
  * @param request ModifyBgpGroupAttributeRequest
  * @return ModifyBgpGroupAttributeResponse
@@ -24885,7 +24913,7 @@ ModifyBgpGroupAttributeResponse Client::modifyBgpGroupAttribute(const ModifyBgpG
 }
 
 /**
- * @summary Modifies the configuration of a BGP peer.
+ * @summary Modifies the attributes of a BGP peer.
  *
  * @param request ModifyBgpPeerAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24956,7 +24984,7 @@ ModifyBgpPeerAttributeResponse Client::modifyBgpPeerAttributeWithOptions(const M
 }
 
 /**
- * @summary Modifies the configuration of a BGP peer.
+ * @summary Modifies the attributes of a BGP peer.
  *
  * @param request ModifyBgpPeerAttributeRequest
  * @return ModifyBgpPeerAttributeResponse
@@ -25037,14 +25065,14 @@ ModifyCommonBandwidthPackageAttributeResponse Client::modifyCommonBandwidthPacka
 }
 
 /**
- * @summary Sets the maximum bandwidth of an EIP that is associated with an Internet Shared Bandwidth instance.
+ * @summary Sets the maximum available bandwidth for an EIP that has been added to an Internet Shared Bandwidth instance.
  *
- * @description You can call the **ModifyCommonBandwidthPackageIpBandwidth** operation to set the maximum bandwidth of an EIP that is associated with an Internet Shared Bandwidth instance. This prevents an EIP from exhausting the bandwidth resources of an Internet Shared Bandwidth instance.
- * For example, two EIPs are associated with an Internet Shared Bandwidth instance whose maximum bandwidth is 800 Mbit/s. In this case, you can set the maximum bandwidth of one EIP to 500 Mbit/s and that of the other EIP to 400 Mbit/s. After you set the maximum bandwidth values, the first EIP cannot consume bandwidth higher than 500 Mbit/s. The second EIP cannot consume bandwidth higher than 400 Mbit/s.
- * When you call this operation, take note of the following items:
- * *   This operation is valid only for EIPs that are associated with Elastic Compute Service (ECS) instances. This operation is invalid for EIPs that are associated with Server Load Balancer (SLB) instances, NAT gateways, secondary elastic network interfaces (ENIs), or high-availability virtual IP addresses (HAVIPs).
- * *   This operation is in public preview. You can call this operation to set the maximum bandwidth of EIPs only if the EIPs are associated with an Internet Shared Bandwidth instance. The feature is not supported in the console.
- * *   You cannot repeatedly call this operation to set the maximum bandwidth of an EIP within the specified period of time.
+ * @description By calling the **ModifyCommonBandwidthPackageIpBandwidth** operation, you can flexibly allocate the maximum available bandwidth for each EIP added to an Internet Shared Bandwidth instance, preventing the bandwidth from being consumed by a single EIP.
+ * For example, if two EIPs are added to an 800 Mbps Internet Shared Bandwidth instance, you can set the maximum available bandwidth to 500 Mbps for the first EIP and 400 Mbps for the second EIP. After the configuration, the available bandwidth of the first EIP does not exceed 500 Mbps, and the available bandwidth of the second EIP does not exceed 400 Mbps.
+ * Before you begin:
+ * - This operation takes effect only when the EIP is associated with an ECS instance. The configuration does not take effect when the EIP is attached to a CLB instance, NAT gateway, secondary elastic network interface (ENI), or high-availability virtual IP address (HAVIP). This feature is not active in those scenarios.
+ * - This operation is in public preview and can only be used through the API to set the maximum available bandwidth for an EIP that has been added to an Internet Shared Bandwidth instance. The console does not support this feature.
+ * - This operation does not support concurrent requests to set the maximum available bandwidth for the same EIP.
  *
  * @param request ModifyCommonBandwidthPackageIpBandwidthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25103,14 +25131,14 @@ ModifyCommonBandwidthPackageIpBandwidthResponse Client::modifyCommonBandwidthPac
 }
 
 /**
- * @summary Sets the maximum bandwidth of an EIP that is associated with an Internet Shared Bandwidth instance.
+ * @summary Sets the maximum available bandwidth for an EIP that has been added to an Internet Shared Bandwidth instance.
  *
- * @description You can call the **ModifyCommonBandwidthPackageIpBandwidth** operation to set the maximum bandwidth of an EIP that is associated with an Internet Shared Bandwidth instance. This prevents an EIP from exhausting the bandwidth resources of an Internet Shared Bandwidth instance.
- * For example, two EIPs are associated with an Internet Shared Bandwidth instance whose maximum bandwidth is 800 Mbit/s. In this case, you can set the maximum bandwidth of one EIP to 500 Mbit/s and that of the other EIP to 400 Mbit/s. After you set the maximum bandwidth values, the first EIP cannot consume bandwidth higher than 500 Mbit/s. The second EIP cannot consume bandwidth higher than 400 Mbit/s.
- * When you call this operation, take note of the following items:
- * *   This operation is valid only for EIPs that are associated with Elastic Compute Service (ECS) instances. This operation is invalid for EIPs that are associated with Server Load Balancer (SLB) instances, NAT gateways, secondary elastic network interfaces (ENIs), or high-availability virtual IP addresses (HAVIPs).
- * *   This operation is in public preview. You can call this operation to set the maximum bandwidth of EIPs only if the EIPs are associated with an Internet Shared Bandwidth instance. The feature is not supported in the console.
- * *   You cannot repeatedly call this operation to set the maximum bandwidth of an EIP within the specified period of time.
+ * @description By calling the **ModifyCommonBandwidthPackageIpBandwidth** operation, you can flexibly allocate the maximum available bandwidth for each EIP added to an Internet Shared Bandwidth instance, preventing the bandwidth from being consumed by a single EIP.
+ * For example, if two EIPs are added to an 800 Mbps Internet Shared Bandwidth instance, you can set the maximum available bandwidth to 500 Mbps for the first EIP and 400 Mbps for the second EIP. After the configuration, the available bandwidth of the first EIP does not exceed 500 Mbps, and the available bandwidth of the second EIP does not exceed 400 Mbps.
+ * Before you begin:
+ * - This operation takes effect only when the EIP is associated with an ECS instance. The configuration does not take effect when the EIP is attached to a CLB instance, NAT gateway, secondary elastic network interface (ENI), or high-availability virtual IP address (HAVIP). This feature is not active in those scenarios.
+ * - This operation is in public preview and can only be used through the API to set the maximum available bandwidth for an EIP that has been added to an Internet Shared Bandwidth instance. The console does not support this feature.
+ * - This operation does not support concurrent requests to set the maximum available bandwidth for the same EIP.
  *
  * @param request ModifyCommonBandwidthPackageIpBandwidthRequest
  * @return ModifyCommonBandwidthPackageIpBandwidthResponse
@@ -25121,13 +25149,13 @@ ModifyCommonBandwidthPackageIpBandwidthResponse Client::modifyCommonBandwidthPac
 }
 
 /**
- * @summary Calls the ModifyCommonBandwidthPackageSpec operation to modify the peak bandwidth of an Internet Shared Bandwidth instance.
+ * @summary Modifies the maximum bandwidth of an Internet Shared Bandwidth instance.
  *
  * @description Before you call this operation, take note of the following information:
- * - **ModifyCommonBandwidthPackageSpec** is an asynchronous operation. After you send a request, the system returns a request ID, but the peak bandwidth of the Internet Shared Bandwidth instance has not been modified yet. The modification task is still running in the background. You can call [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) to query the status of the Internet Shared Bandwidth instance.
- *     - If the Internet Shared Bandwidth instance is in the **Modifying** state, the peak bandwidth is being modified. In this state, you can only perform query operations and cannot perform other operations.
- *     - If the Internet Shared Bandwidth instance is in the **Available** state, the peak bandwidth has been modified.
- * - **ModifyCommonBandwidthPackageSpec** does not support concurrent modifications to the peak bandwidth of the same Internet Shared Bandwidth instance.
+ * - **ModifyCommonBandwidthPackageSpec** is an asynchronous operation. After a request is sent, the system returns a request ID, but the maximum bandwidth of the Internet Shared Bandwidth instance has not been modified yet. The modification task is still running in the background. You can call [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) to query the status of the Internet Shared Bandwidth instance.
+ *     - If the Internet Shared Bandwidth instance is in the **Modifying** state, the maximum bandwidth is being modified. In this state, you can only perform query operations and cannot perform other operations.
+ *     - If the Internet Shared Bandwidth instance is in the **Available** state, the maximum bandwidth has been modified.
+ * - **ModifyCommonBandwidthPackageSpec** does not support concurrent modifications to the maximum bandwidth of the same Internet Shared Bandwidth instance.
  *
  * @param request ModifyCommonBandwidthPackageSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25182,13 +25210,13 @@ ModifyCommonBandwidthPackageSpecResponse Client::modifyCommonBandwidthPackageSpe
 }
 
 /**
- * @summary Calls the ModifyCommonBandwidthPackageSpec operation to modify the peak bandwidth of an Internet Shared Bandwidth instance.
+ * @summary Modifies the maximum bandwidth of an Internet Shared Bandwidth instance.
  *
  * @description Before you call this operation, take note of the following information:
- * - **ModifyCommonBandwidthPackageSpec** is an asynchronous operation. After you send a request, the system returns a request ID, but the peak bandwidth of the Internet Shared Bandwidth instance has not been modified yet. The modification task is still running in the background. You can call [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) to query the status of the Internet Shared Bandwidth instance.
- *     - If the Internet Shared Bandwidth instance is in the **Modifying** state, the peak bandwidth is being modified. In this state, you can only perform query operations and cannot perform other operations.
- *     - If the Internet Shared Bandwidth instance is in the **Available** state, the peak bandwidth has been modified.
- * - **ModifyCommonBandwidthPackageSpec** does not support concurrent modifications to the peak bandwidth of the same Internet Shared Bandwidth instance.
+ * - **ModifyCommonBandwidthPackageSpec** is an asynchronous operation. After a request is sent, the system returns a request ID, but the maximum bandwidth of the Internet Shared Bandwidth instance has not been modified yet. The modification task is still running in the background. You can call [DescribeCommonBandwidthPackages](https://help.aliyun.com/document_detail/120309.html) to query the status of the Internet Shared Bandwidth instance.
+ *     - If the Internet Shared Bandwidth instance is in the **Modifying** state, the maximum bandwidth is being modified. In this state, you can only perform query operations and cannot perform other operations.
+ *     - If the Internet Shared Bandwidth instance is in the **Available** state, the maximum bandwidth has been modified.
+ * - **ModifyCommonBandwidthPackageSpec** does not support concurrent modifications to the maximum bandwidth of the same Internet Shared Bandwidth instance.
  *
  * @param request ModifyCommonBandwidthPackageSpecRequest
  * @return ModifyCommonBandwidthPackageSpecResponse
@@ -25289,7 +25317,7 @@ ModifyCustomerGatewayAttributeResponse Client::modifyCustomerGatewayAttribute(co
 }
 
 /**
- * @summary Modifies the name, description, and bandwidth limit of a specified elastic IP address (EIP).
+ * @summary Modifies the name, description, and peak bandwidth of a specified elastic IP address (EIP).
  *
  * @param request ModifyEipAddressAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25352,7 +25380,7 @@ ModifyEipAddressAttributeResponse Client::modifyEipAddressAttributeWithOptions(c
 }
 
 /**
- * @summary Modifies the name, description, and bandwidth limit of a specified elastic IP address (EIP).
+ * @summary Modifies the name, description, and peak bandwidth of a specified elastic IP address (EIP).
  *
  * @param request ModifyEipAddressAttributeRequest
  * @return ModifyEipAddressAttributeResponse
@@ -25363,7 +25391,7 @@ ModifyEipAddressAttributeResponse Client::modifyEipAddressAttribute(const Modify
 }
 
 /**
- * @summary Modifies the EIP forwarding mode.
+ * @summary Modifies the forwarding mode of an Elastic IP Address (EIP).
  *
  * @param request ModifyEipForwardModeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25422,7 +25450,7 @@ ModifyEipForwardModeResponse Client::modifyEipForwardModeWithOptions(const Modif
 }
 
 /**
- * @summary Modifies the EIP forwarding mode.
+ * @summary Modifies the forwarding mode of an Elastic IP Address (EIP).
  *
  * @param request ModifyEipForwardModeRequest
  * @return ModifyEipForwardModeResponse
@@ -25433,7 +25461,7 @@ ModifyEipForwardModeResponse Client::modifyEipForwardMode(const ModifyEipForward
 }
 
 /**
- * @summary Modifies the configuration of an Express Cloud Connect (ECC) instance.
+ * @summary Modifies an Express Cloud Connection (ECC) instance.
  *
  * @param request ModifyExpressCloudConnectionAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25504,7 +25532,7 @@ ModifyExpressCloudConnectionAttributeResponse Client::modifyExpressCloudConnecti
 }
 
 /**
- * @summary Modifies the configuration of an Express Cloud Connect (ECC) instance.
+ * @summary Modifies an Express Cloud Connection (ECC) instance.
  *
  * @param request ModifyExpressCloudConnectionAttributeRequest
  * @return ModifyExpressCloudConnectionAttributeResponse
@@ -25515,7 +25543,7 @@ ModifyExpressCloudConnectionAttributeResponse Client::modifyExpressCloudConnecti
 }
 
 /**
- * @summary Modifies the bandwidth of an Express Cloud Connect (ECC) instance.
+ * @summary Modifies the bandwidth of an Express Cloud Connection (ECC) instance.
  *
  * @param request ModifyExpressCloudConnectionBandwidthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25570,7 +25598,7 @@ ModifyExpressCloudConnectionBandwidthResponse Client::modifyExpressCloudConnecti
 }
 
 /**
- * @summary Modifies the bandwidth of an Express Cloud Connect (ECC) instance.
+ * @summary Modifies the bandwidth of an Express Cloud Connection (ECC) instance.
  *
  * @param request ModifyExpressCloudConnectionBandwidthRequest
  * @return ModifyExpressCloudConnectionBandwidthResponse
@@ -25581,12 +25609,12 @@ ModifyExpressCloudConnectionBandwidthResponse Client::modifyExpressCloudConnecti
 }
 
 /**
- * @summary Modifies an Express Connect Quality of Service (QoS) policy. You can also use this operation to associate dedicated Express Connect circuits.
+ * @summary Calls the ModifyExpressConnectTrafficQos operation to modify an Express Connect Quality of Service (QoS) policy. You can also use this operation to associate dedicated Express Connect circuits.
  *
  * @description - Only dedicated Express Connect circuits that are in the Normal state and do not have overdue payments can be associated. Shared Express Connect circuit ports and Virtual Border Router (VBR) instances are not supported.
- * - When you associate dedicated Express Connect circuits, only full replacement is supported. To disassociate all circuits, pass an empty string.
- * - If a dedicated Express Connect circuit has shared Express Connect circuits or cross-account VBRs, you must be added to the whitelist before you can associate the circuit.
- * - The device on which the dedicated Express Connect circuit resides must support the QoS feature before the circuit can be associated.
+ * - When associating dedicated Express Connect circuits, only full operations are supported. To dissociate all circuits, pass an empty string.
+ * - If a dedicated Express Connect circuit has shared Express Connect circuits or cross-account VBRs, you must apply for a whitelist before you can associate it.
+ * - The device on which the dedicated Express Connect circuit resides must support the QoS feature before association.
  * - If a single VBR is associated with multiple Express Connect circuits, you must associate all Express Connect circuits of the VBR at the same time.
  *
  * @param request ModifyExpressConnectTrafficQosRequest
@@ -25658,12 +25686,12 @@ ModifyExpressConnectTrafficQosResponse Client::modifyExpressConnectTrafficQosWit
 }
 
 /**
- * @summary Modifies an Express Connect Quality of Service (QoS) policy. You can also use this operation to associate dedicated Express Connect circuits.
+ * @summary Calls the ModifyExpressConnectTrafficQos operation to modify an Express Connect Quality of Service (QoS) policy. You can also use this operation to associate dedicated Express Connect circuits.
  *
  * @description - Only dedicated Express Connect circuits that are in the Normal state and do not have overdue payments can be associated. Shared Express Connect circuit ports and Virtual Border Router (VBR) instances are not supported.
- * - When you associate dedicated Express Connect circuits, only full replacement is supported. To disassociate all circuits, pass an empty string.
- * - If a dedicated Express Connect circuit has shared Express Connect circuits or cross-account VBRs, you must be added to the whitelist before you can associate the circuit.
- * - The device on which the dedicated Express Connect circuit resides must support the QoS feature before the circuit can be associated.
+ * - When associating dedicated Express Connect circuits, only full operations are supported. To dissociate all circuits, pass an empty string.
+ * - If a dedicated Express Connect circuit has shared Express Connect circuits or cross-account VBRs, you must apply for a whitelist before you can associate it.
+ * - The device on which the dedicated Express Connect circuit resides must support the QoS feature before association.
  * - If a single VBR is associated with multiple Express Connect circuits, you must associate all Express Connect circuits of the VBR at the same time.
  *
  * @param request ModifyExpressConnectTrafficQosRequest
@@ -25675,7 +25703,7 @@ ModifyExpressConnectTrafficQosResponse Client::modifyExpressConnectTrafficQos(co
 }
 
 /**
- * @summary Modifies a quality of service (QoS) queue.
+ * @summary Invokes the ModifyExpressConnectTrafficQosQueue operation to modify an Express Connect QoS queue.
  *
  * @param request ModifyExpressConnectTrafficQosQueueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25746,7 +25774,7 @@ ModifyExpressConnectTrafficQosQueueResponse Client::modifyExpressConnectTrafficQ
 }
 
 /**
- * @summary Modifies a quality of service (QoS) queue.
+ * @summary Invokes the ModifyExpressConnectTrafficQosQueue operation to modify an Express Connect QoS queue.
  *
  * @param request ModifyExpressConnectTrafficQosQueueRequest
  * @return ModifyExpressConnectTrafficQosQueueResponse
@@ -25757,7 +25785,7 @@ ModifyExpressConnectTrafficQosQueueResponse Client::modifyExpressConnectTrafficQ
 }
 
 /**
- * @summary Modifies a quality of service (QoS) rule.
+ * @summary Modifies a QoS rule for Express Connect.
  *
  * @param request ModifyExpressConnectTrafficQosRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25868,7 +25896,7 @@ ModifyExpressConnectTrafficQosRuleResponse Client::modifyExpressConnectTrafficQo
 }
 
 /**
- * @summary Modifies a quality of service (QoS) rule.
+ * @summary Modifies a QoS rule for Express Connect.
  *
  * @param request ModifyExpressConnectTrafficQosRuleRequest
  * @return ModifyExpressConnectTrafficQosRuleResponse
@@ -25879,12 +25907,12 @@ ModifyExpressConnectTrafficQosRuleResponse Client::modifyExpressConnectTrafficQo
 }
 
 /**
- * @summary Modifies the name and description of a flow log.
+ * @summary Calls the ModifyFlowLogAttribute operation to modify the name and description of a flow log.
  *
- * @description - **ModifyFlowLogAttribute**接口属于异步接口，即系统会返回一个请求ID，但该流日志尚未修改成功，系统后台的修改任务仍在进行。您可以调用[DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html)查询流日志的修改状态：
- *     - 当流日志处于**Modifying**状态时，表示流日志正在修改中。
- *     - 当流日志处于**Active**或者**Inactive**状态时，表示流日志修改成功。
- * - **ModifyFlowLogAttribute**接口不支持并发修改同一个流日志的属性。
+ * @description - **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID, but the flow log has not been modified yet. The modification task is still running in the background. You can call [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) to query the modification status of the flow log:
+ *     - If the flow log is in the **Modifying** state, the flow log is being modified.
+ *     - If the flow log is in the **Active** or **Inactive** state, the flow log has been modified.
+ * - **ModifyFlowLogAttribute** does not support concurrent modifications to the same flow log.
  *
  * @param request ModifyFlowLogAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25911,6 +25939,10 @@ ModifyFlowLogAttributeResponse Client::modifyFlowLogAttributeWithOptions(const M
 
   if (!!request.hasIpVersion()) {
     query["IpVersion"] = request.getIpVersion();
+  }
+
+  if (!!request.hasLogFormat()) {
+    query["LogFormat"] = request.getLogFormat();
   }
 
   if (!!request.hasOwnerAccount()) {
@@ -25951,12 +25983,12 @@ ModifyFlowLogAttributeResponse Client::modifyFlowLogAttributeWithOptions(const M
 }
 
 /**
- * @summary Modifies the name and description of a flow log.
+ * @summary Calls the ModifyFlowLogAttribute operation to modify the name and description of a flow log.
  *
- * @description - **ModifyFlowLogAttribute**接口属于异步接口，即系统会返回一个请求ID，但该流日志尚未修改成功，系统后台的修改任务仍在进行。您可以调用[DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html)查询流日志的修改状态：
- *     - 当流日志处于**Modifying**状态时，表示流日志正在修改中。
- *     - 当流日志处于**Active**或者**Inactive**状态时，表示流日志修改成功。
- * - **ModifyFlowLogAttribute**接口不支持并发修改同一个流日志的属性。
+ * @description - **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID, but the flow log has not been modified yet. The modification task is still running in the background. You can call [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) to query the modification status of the flow log:
+ *     - If the flow log is in the **Modifying** state, the flow log is being modified.
+ *     - If the flow log is in the **Active** or **Inactive** state, the flow log has been modified.
+ * - **ModifyFlowLogAttribute** does not support concurrent modifications to the same flow log.
  *
  * @param request ModifyFlowLogAttributeRequest
  * @return ModifyFlowLogAttributeResponse
@@ -25969,10 +26001,10 @@ ModifyFlowLogAttributeResponse Client::modifyFlowLogAttribute(const ModifyFlowLo
 /**
  * @summary Modifies a specified DNAT entry.
  *
- * @description - **ModifyForwardEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the DNAT entry has not been modified yet. The modification task runs in the background. You can call [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) to query the status of the DNAT entry:
- *     - If the DNAT entry is in the **Pending** state, the DNAT entry is being modified. In this state, you can only perform query operations.
- *     - If the DNAT entry is in the **Available** state, the DNAT entry is modified.
- * - **ModifyForwardEntry** does not support concurrent modifications of a DNAT entry within the same DNAT table.
+ * @description - **ModifyForwardEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the DNAT entry has not been modified yet. The modification task is still running in the background. You can call [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) to query the status of the DNAT entry:
+ *     - If the DNAT entry is in the **Pending** state, the DNAT entry is being modified. In this state, you can only perform query operations and cannot perform other operations.
+ *     - If the DNAT entry is in the **Available** state, the DNAT entry has been modified.
+ * - **ModifyForwardEntry** does not support concurrent modifications of the same DNAT entry.
  *
  * @param request ModifyForwardEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26065,10 +26097,10 @@ ModifyForwardEntryResponse Client::modifyForwardEntryWithOptions(const ModifyFor
 /**
  * @summary Modifies a specified DNAT entry.
  *
- * @description - **ModifyForwardEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the DNAT entry has not been modified yet. The modification task runs in the background. You can call [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) to query the status of the DNAT entry:
- *     - If the DNAT entry is in the **Pending** state, the DNAT entry is being modified. In this state, you can only perform query operations.
- *     - If the DNAT entry is in the **Available** state, the DNAT entry is modified.
- * - **ModifyForwardEntry** does not support concurrent modifications of a DNAT entry within the same DNAT table.
+ * @description - **ModifyForwardEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the DNAT entry has not been modified yet. The modification task is still running in the background. You can call [DescribeForwardTableEntries](https://help.aliyun.com/document_detail/36053.html) to query the status of the DNAT entry:
+ *     - If the DNAT entry is in the **Pending** state, the DNAT entry is being modified. In this state, you can only perform query operations and cannot perform other operations.
+ *     - If the DNAT entry is in the **Available** state, the DNAT entry has been modified.
+ * - **ModifyForwardEntry** does not support concurrent modifications of the same DNAT entry.
  *
  * @param request ModifyForwardEntryRequest
  * @return ModifyForwardEntryResponse
@@ -26081,11 +26113,10 @@ ModifyForwardEntryResponse Client::modifyForwardEntry(const ModifyForwardEntryRe
 /**
  * @summary Modifies a FULLNAT entry.
  *
- * @description ## [](#)
- * *   **ModifyFullNatEntryAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
- *     *   **Modifying**: indicates that the system is modifying the FULLNAT entry. You can query the FULLNAT entry, but cannot perform other operations.
- *     *   **Available**: indicates that the FULLNAT entry is modified.
- * *   You cannot repeatedly call the **ModifyFullNatEntryAttribute** operation to modify a FULLNAT entry within the specified period of time.
+ * @description - **ModifyFullNatEntryAttribute** is an asynchronous operation. After you send a request, the system returns a request ID, but the FULLNAT entry is not yet modified. The modification task runs in the background. You can call [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) to query the modification status of the FULLNAT entry:
+ *     - If the FULLNAT entry is in the **Modifying** state, the FULLNAT entry is being modified. In this state, you can only perform query operations.
+ *     - If the FULLNAT entry is in the **Available** state, the FULLNAT entry is modified.
+ * - **ModifyFullNatEntryAttribute** does not support concurrent modifications of a specified FULLNAT entry within the same FULLNAT table.
  *
  * @param request ModifyFullNatEntryAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26186,11 +26217,10 @@ ModifyFullNatEntryAttributeResponse Client::modifyFullNatEntryAttributeWithOptio
 /**
  * @summary Modifies a FULLNAT entry.
  *
- * @description ## [](#)
- * *   **ModifyFullNatEntryAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) operation to query the status of a FULLNAT entry.
- *     *   **Modifying**: indicates that the system is modifying the FULLNAT entry. You can query the FULLNAT entry, but cannot perform other operations.
- *     *   **Available**: indicates that the FULLNAT entry is modified.
- * *   You cannot repeatedly call the **ModifyFullNatEntryAttribute** operation to modify a FULLNAT entry within the specified period of time.
+ * @description - **ModifyFullNatEntryAttribute** is an asynchronous operation. After you send a request, the system returns a request ID, but the FULLNAT entry is not yet modified. The modification task runs in the background. You can call [ListFullNatEntries](https://help.aliyun.com/document_detail/348779.html) to query the modification status of the FULLNAT entry:
+ *     - If the FULLNAT entry is in the **Modifying** state, the FULLNAT entry is being modified. In this state, you can only perform query operations.
+ *     - If the FULLNAT entry is in the **Available** state, the FULLNAT entry is modified.
+ * - **ModifyFullNatEntryAttribute** does not support concurrent modifications of a specified FULLNAT entry within the same FULLNAT table.
  *
  * @param request ModifyFullNatEntryAttributeRequest
  * @return ModifyFullNatEntryAttributeResponse
@@ -26201,7 +26231,7 @@ ModifyFullNatEntryAttributeResponse Client::modifyFullNatEntryAttribute(const Mo
 }
 
 /**
- * @summary Modifies the name and description of a Global Accelerator (GA) instance.
+ * @summary Modifies the name and description of an Alibaba Cloud Global Accelerator (GA) instance.
  *
  * @param request ModifyGlobalAccelerationInstanceAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26260,7 +26290,7 @@ ModifyGlobalAccelerationInstanceAttributesResponse Client::modifyGlobalAccelerat
 }
 
 /**
- * @summary Modifies the name and description of a Global Accelerator (GA) instance.
+ * @summary Modifies the name and description of an Alibaba Cloud Global Accelerator (GA) instance.
  *
  * @param request ModifyGlobalAccelerationInstanceAttributesRequest
  * @return ModifyGlobalAccelerationInstanceAttributesResponse
@@ -26271,10 +26301,10 @@ ModifyGlobalAccelerationInstanceAttributesResponse Client::modifyGlobalAccelerat
 }
 
 /**
- * @summary Modifies the maximum bandwidth of a Global Accelerator (GA) instance.
+ * @summary Invokes the ModifyGlobalAccelerationInstanceSpec operation to modify the bandwidth of an Alibaba Cloud Global Accelerator (GA) instance.
  *
- * @description ## Usage notes
- * You cannot call this operation to modify the maximum bandwidth of a subscription GA instance.
+ * @description ## Operation description
+ * This operation does not support modifying the bandwidth of a subscription Alibaba Cloud Global Accelerator (GA) instance.
  *
  * @param request ModifyGlobalAccelerationInstanceSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26329,10 +26359,10 @@ ModifyGlobalAccelerationInstanceSpecResponse Client::modifyGlobalAccelerationIns
 }
 
 /**
- * @summary Modifies the maximum bandwidth of a Global Accelerator (GA) instance.
+ * @summary Invokes the ModifyGlobalAccelerationInstanceSpec operation to modify the bandwidth of an Alibaba Cloud Global Accelerator (GA) instance.
  *
- * @description ## Usage notes
- * You cannot call this operation to modify the maximum bandwidth of a subscription GA instance.
+ * @description ## Operation description
+ * This operation does not support modifying the bandwidth of a subscription Alibaba Cloud Global Accelerator (GA) instance.
  *
  * @param request ModifyGlobalAccelerationInstanceSpecRequest
  * @return ModifyGlobalAccelerationInstanceSpecResponse
@@ -26343,9 +26373,9 @@ ModifyGlobalAccelerationInstanceSpecResponse Client::modifyGlobalAccelerationIns
 }
 
 /**
- * @summary Modifies the name and description of a high-availability virtual IP address (HaVip).
+ * @summary Modifies the name and description of a HaVip.
  *
- * @description **ModifyHaVipAttribute**不支持并发修改同一个HaVip的名称和描述。
+ * @description **ModifyHaVipAttribute** does not support concurrent modifications to the name and description of the same HaVip.
  *
  * @param request ModifyHaVipAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26408,9 +26438,9 @@ ModifyHaVipAttributeResponse Client::modifyHaVipAttributeWithOptions(const Modif
 }
 
 /**
- * @summary Modifies the name and description of a high-availability virtual IP address (HaVip).
+ * @summary Modifies the name and description of a HaVip.
  *
- * @description **ModifyHaVipAttribute**不支持并发修改同一个HaVip的名称和描述。
+ * @description **ModifyHaVipAttribute** does not support concurrent modifications to the name and description of the same HaVip.
  *
  * @param request ModifyHaVipAttributeRequest
  * @return ModifyHaVipAttributeResponse
@@ -26423,7 +26453,7 @@ ModifyHaVipAttributeResponse Client::modifyHaVipAttribute(const ModifyHaVipAttri
 /**
  * @deprecated OpenAPI ModifyIPv6TranslatorAclAttribute is deprecated
  *
- * @summary Modifies the name of an access control list (ACL).
+ * @summary Modifies the name of an access control policy group.
  *
  * @param request ModifyIPv6TranslatorAclAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26484,7 +26514,7 @@ ModifyIPv6TranslatorAclAttributeResponse Client::modifyIPv6TranslatorAclAttribut
 /**
  * @deprecated OpenAPI ModifyIPv6TranslatorAclAttribute is deprecated
  *
- * @summary Modifies the name of an access control list (ACL).
+ * @summary Modifies the name of an access control policy group.
  *
  * @param request ModifyIPv6TranslatorAclAttributeRequest
  * @return ModifyIPv6TranslatorAclAttributeResponse
@@ -26495,7 +26525,7 @@ ModifyIPv6TranslatorAclAttributeResponse Client::modifyIPv6TranslatorAclAttribut
 }
 
 /**
- * @summary Modifies an IP entry in an access control list (ACL).
+ * @summary Modifies an IP entry in an access control policy group.
  *
  * @param request ModifyIPv6TranslatorAclListEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26554,7 +26584,7 @@ ModifyIPv6TranslatorAclListEntryResponse Client::modifyIPv6TranslatorAclListEntr
 }
 
 /**
- * @summary Modifies an IP entry in an access control list (ACL).
+ * @summary Modifies an IP entry in an access control policy group.
  *
  * @param request ModifyIPv6TranslatorAclListEntryRequest
  * @return ModifyIPv6TranslatorAclListEntryResponse
@@ -26639,7 +26669,7 @@ ModifyIPv6TranslatorAttributeResponse Client::modifyIPv6TranslatorAttribute(cons
 }
 
 /**
- * @summary Modifies the maximum bandwidth of an IPv6 Translation Service instance.
+ * @summary Modifies the bandwidth of an IPv6 Translation Service instance.
  *
  * @param request ModifyIPv6TranslatorBandwidthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26702,7 +26732,7 @@ ModifyIPv6TranslatorBandwidthResponse Client::modifyIPv6TranslatorBandwidthWithO
 }
 
 /**
- * @summary Modifies the maximum bandwidth of an IPv6 Translation Service instance.
+ * @summary Modifies the bandwidth of an IPv6 Translation Service instance.
  *
  * @param request ModifyIPv6TranslatorBandwidthRequest
  * @return ModifyIPv6TranslatorBandwidthResponse
@@ -26715,7 +26745,7 @@ ModifyIPv6TranslatorBandwidthResponse Client::modifyIPv6TranslatorBandwidth(cons
 /**
  * @deprecated OpenAPI ModifyIPv6TranslatorEntry is deprecated
  *
- * @summary Modifies an IPv6 mapping entry.
+ * @summary Modifies an IPv6 Translation Service mapping entry.
  *
  * @param request ModifyIPv6TranslatorEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26808,7 +26838,7 @@ ModifyIPv6TranslatorEntryResponse Client::modifyIPv6TranslatorEntryWithOptions(c
 /**
  * @deprecated OpenAPI ModifyIPv6TranslatorEntry is deprecated
  *
- * @summary Modifies an IPv6 mapping entry.
+ * @summary Modifies an IPv6 Translation Service mapping entry.
  *
  * @param request ModifyIPv6TranslatorEntryRequest
  * @return ModifyIPv6TranslatorEntryResponse
@@ -27073,10 +27103,9 @@ ModifyIpv6InternetBandwidthResponse Client::modifyIpv6InternetBandwidth(const Mo
 }
 
 /**
- * @summary Modifies the name and description of a NAT gateway.
+ * @summary Modifies the attributes of a NAT gateway.
  *
- * @description ## [](#)Description
- * You can call this operation to query an Internet NAT gateway or a virtual private cloud (VPC) NAT gateway. The term NAT gateway in this topic refers to both NAT gateway types.
+ * @description The NAT gateways queried by this operation include Internet NAT gateways and VPC NAT gateways. The term "NAT gateway" in this topic is not specific to either type.
  *
  * @param tmpReq ModifyNatGatewayAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27157,10 +27186,9 @@ ModifyNatGatewayAttributeResponse Client::modifyNatGatewayAttributeWithOptions(c
 }
 
 /**
- * @summary Modifies the name and description of a NAT gateway.
+ * @summary Modifies the attributes of a NAT gateway.
  *
- * @description ## [](#)Description
- * You can call this operation to query an Internet NAT gateway or a virtual private cloud (VPC) NAT gateway. The term NAT gateway in this topic refers to both NAT gateway types.
+ * @description The NAT gateways queried by this operation include Internet NAT gateways and VPC NAT gateways. The term "NAT gateway" in this topic is not specific to either type.
  *
  * @param request ModifyNatGatewayAttributeRequest
  * @return ModifyNatGatewayAttributeResponse
@@ -27171,19 +27199,20 @@ ModifyNatGatewayAttributeResponse Client::modifyNatGatewayAttribute(const Modify
 }
 
 /**
- * @summary Upgrades a subscription Internet NAT gateway.
+ * @summary Modifies the specification of a subscription Internet NAT gateway by calling the ModifyNatGatewaySpec operation.
  *
- * @description - You cannot call this operation to downgrade a subscription Internet NAT gateway. You can downgrade a subscription Internet NAT gateway only in the console.
- * - When you call this operation to upgrade a subscription Internet NAT gateway, an order is generated. After you complete the payment in the order center, the Internet NAT gateway is upgraded.
- * - **ModifyNatGatewaySpec** is an asynchronous operation. After you make a request, the ID of the request is returned but the Internet NAT gateway is not upgraded. The system upgrades the NAT gateway in the background. You can call the [DescribeNatGateways](/help/en/virtual-private-cloud/latest/describenatgateways) operation to query the status of an Internet NAT gateway.    - If an Internet NAT gateway is in the **Modifying** state, the NAT gateway is being upgraded. In this case, you can only query the NAT gateway but cannot perform other operations.
- *   - If an Internet NAT gateway is in the **Available** state, the Internet NAT gateway is upgraded.
- * - You cannot repeatedly call the **ModifyNatGatewaySpec** operation to resize a pay-by-specification NAT gateway.
- * Internet NAT gateways are available in different sizes. The size of an Internet NAT gateway determines the SNAT performance, which includes the maximum number of connections and the number of new connections per second. However, the size of a NAT gateway does not affect the data throughput. The following table describes the correlations between different sizes of Internet NAT gateways and SNAT performance metrics.  
- * | Size | Maximum number of connections | Number of new connections per second |
- * | ---- | ----------------------------- | ------------------------------------ |
- * | Small | 10,000 | 1,000 |
- * | Medium | 50,000 | 5,000 |
- * | Large | 200,000 | 10,000 |
+ * @description - The **ModifyNatGatewaySpec** operation does not support downgrading the specification of a subscription Internet NAT gateway. Perform the downgrade in the console.
+ * - When you call the **ModifyNatGatewaySpec** operation to upgrade the specification of a subscription Internet NAT gateway, an upgrade order is generated. Complete the payment in the Order Center for the upgrade to take effect.
+ * -  The **ModifyNatGatewaySpec** operation is asynchronous. After you call this operation, the system returns a request ID, but the specification change of the Internet NAT gateway is not yet complete because the task is still running in the background. You can call [DescribeNatGateways](https://help.aliyun.com/document_detail/2522327.html) to query the status of the Internet NAT gateway:
+ *     - If the Internet NAT gateway is in the **Modifying** state, the specification change is in progress. In this state, you can only perform query operations.
+ *     - If the Internet NAT gateway is in the **Available** state, the specification change is complete.
+ * - The **ModifyNatGatewaySpec** operation does not support concurrent specification changes for NAT gateway instances that are billed by specification.
+ * Internet NAT gateways are available in different specifications. The specification of an Internet NAT gateway affects the maximum number of connections and the number of new connections per second for the SNAT feature, but does not affect data throughput. The following table describes the relationship between Internet NAT gateway specifications and SNAT performance.
+ * | Specification   | Maximum connections | New connections per second
+ * | ------------- |------------   | ------------   | 
+ * | Small      | 10,000       |1,000 
+ * | Medium      | 50,000     |   5,000 
+ * | Large | 200,000      |    10,000
  *
  * @param request ModifyNatGatewaySpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27246,19 +27275,20 @@ ModifyNatGatewaySpecResponse Client::modifyNatGatewaySpecWithOptions(const Modif
 }
 
 /**
- * @summary Upgrades a subscription Internet NAT gateway.
+ * @summary Modifies the specification of a subscription Internet NAT gateway by calling the ModifyNatGatewaySpec operation.
  *
- * @description - You cannot call this operation to downgrade a subscription Internet NAT gateway. You can downgrade a subscription Internet NAT gateway only in the console.
- * - When you call this operation to upgrade a subscription Internet NAT gateway, an order is generated. After you complete the payment in the order center, the Internet NAT gateway is upgraded.
- * - **ModifyNatGatewaySpec** is an asynchronous operation. After you make a request, the ID of the request is returned but the Internet NAT gateway is not upgraded. The system upgrades the NAT gateway in the background. You can call the [DescribeNatGateways](/help/en/virtual-private-cloud/latest/describenatgateways) operation to query the status of an Internet NAT gateway.    - If an Internet NAT gateway is in the **Modifying** state, the NAT gateway is being upgraded. In this case, you can only query the NAT gateway but cannot perform other operations.
- *   - If an Internet NAT gateway is in the **Available** state, the Internet NAT gateway is upgraded.
- * - You cannot repeatedly call the **ModifyNatGatewaySpec** operation to resize a pay-by-specification NAT gateway.
- * Internet NAT gateways are available in different sizes. The size of an Internet NAT gateway determines the SNAT performance, which includes the maximum number of connections and the number of new connections per second. However, the size of a NAT gateway does not affect the data throughput. The following table describes the correlations between different sizes of Internet NAT gateways and SNAT performance metrics.  
- * | Size | Maximum number of connections | Number of new connections per second |
- * | ---- | ----------------------------- | ------------------------------------ |
- * | Small | 10,000 | 1,000 |
- * | Medium | 50,000 | 5,000 |
- * | Large | 200,000 | 10,000 |
+ * @description - The **ModifyNatGatewaySpec** operation does not support downgrading the specification of a subscription Internet NAT gateway. Perform the downgrade in the console.
+ * - When you call the **ModifyNatGatewaySpec** operation to upgrade the specification of a subscription Internet NAT gateway, an upgrade order is generated. Complete the payment in the Order Center for the upgrade to take effect.
+ * -  The **ModifyNatGatewaySpec** operation is asynchronous. After you call this operation, the system returns a request ID, but the specification change of the Internet NAT gateway is not yet complete because the task is still running in the background. You can call [DescribeNatGateways](https://help.aliyun.com/document_detail/2522327.html) to query the status of the Internet NAT gateway:
+ *     - If the Internet NAT gateway is in the **Modifying** state, the specification change is in progress. In this state, you can only perform query operations.
+ *     - If the Internet NAT gateway is in the **Available** state, the specification change is complete.
+ * - The **ModifyNatGatewaySpec** operation does not support concurrent specification changes for NAT gateway instances that are billed by specification.
+ * Internet NAT gateways are available in different specifications. The specification of an Internet NAT gateway affects the maximum number of connections and the number of new connections per second for the SNAT feature, but does not affect data throughput. The following table describes the relationship between Internet NAT gateway specifications and SNAT performance.
+ * | Specification   | Maximum connections | New connections per second
+ * | ------------- |------------   | ------------   | 
+ * | Small      | 10,000       |1,000 
+ * | Medium      | 50,000     |   5,000 
+ * | Large | 200,000      |    10,000
  *
  * @param request ModifyNatGatewaySpecRequest
  * @return ModifyNatGatewaySpecResponse
@@ -27271,8 +27301,7 @@ ModifyNatGatewaySpecResponse Client::modifyNatGatewaySpec(const ModifyNatGateway
 /**
  * @summary Modifies the name and description of a NAT IP address.
  *
- * @description ## [](#)Description
- * You cannot repeatedly call the **ModifyNatIpAttribute** operation to modify the name and description of a NAT IP address within the specified period of time.
+ * @description The **ModifyNatIpAttribute** operation does not support concurrent modifications to the name and description of the same NAT IP address.
  *
  * @param request ModifyNatIpAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27345,8 +27374,7 @@ ModifyNatIpAttributeResponse Client::modifyNatIpAttributeWithOptions(const Modif
 /**
  * @summary Modifies the name and description of a NAT IP address.
  *
- * @description ## [](#)Description
- * You cannot repeatedly call the **ModifyNatIpAttribute** operation to modify the name and description of a NAT IP address within the specified period of time.
+ * @description The **ModifyNatIpAttribute** operation does not support concurrent modifications to the name and description of the same NAT IP address.
  *
  * @param request ModifyNatIpAttributeRequest
  * @return ModifyNatIpAttributeResponse
@@ -27443,7 +27471,7 @@ ModifyNatIpCidrAttributeResponse Client::modifyNatIpCidrAttribute(const ModifyNa
 }
 
 /**
- * @summary Modifies the attributes of a network access control list (ACL).
+ * @summary Modifies the attributes of a network ACL.
  *
  * @param request ModifyNetworkAclAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27514,7 +27542,7 @@ ModifyNetworkAclAttributesResponse Client::modifyNetworkAclAttributesWithOptions
 }
 
 /**
- * @summary Modifies the attributes of a network access control list (ACL).
+ * @summary Modifies the attributes of a network ACL.
  *
  * @param request ModifyNetworkAclAttributesRequest
  * @return ModifyNetworkAclAttributesResponse
@@ -27527,10 +27555,10 @@ ModifyNetworkAclAttributesResponse Client::modifyNetworkAclAttributes(const Modi
 /**
  * @summary Modifies the configurations of an Express Connect circuit.
  *
- * @description When you call this operation, take note of the following limits:
- * *   If an Express Connect circuit is in the **Initial**, **Enabled**, or **Rejected** state, you can modify the specifications of the Express Connect circuit and the ID of the redundant circuit.
- * *   If an Express Connect circuit is in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state, you cannot modify the specifications of the Express Connect circuit.
- * *   After you modify the specifications of an Express Connect circuit that is in the **Rejected** state, the Express Connect circuit enters the **Initial** state.
+ * @description When you call this operation, take note of the following items: 
+ * - You can modify the specifications and redundant circuit ID only for Express Connect circuits in the **Initial**, **Enabled**, or **Rejected** state.  
+ * - You cannot modify Express Connect circuits in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state.  
+ * - An Express Connect circuit in the **Rejected** state enters the **Initial** state after it is modified.
  *
  * @param request ModifyPhysicalConnectionAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27623,10 +27651,10 @@ ModifyPhysicalConnectionAttributeResponse Client::modifyPhysicalConnectionAttrib
 /**
  * @summary Modifies the configurations of an Express Connect circuit.
  *
- * @description When you call this operation, take note of the following limits:
- * *   If an Express Connect circuit is in the **Initial**, **Enabled**, or **Rejected** state, you can modify the specifications of the Express Connect circuit and the ID of the redundant circuit.
- * *   If an Express Connect circuit is in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state, you cannot modify the specifications of the Express Connect circuit.
- * *   After you modify the specifications of an Express Connect circuit that is in the **Rejected** state, the Express Connect circuit enters the **Initial** state.
+ * @description When you call this operation, take note of the following items: 
+ * - You can modify the specifications and redundant circuit ID only for Express Connect circuits in the **Initial**, **Enabled**, or **Rejected** state.  
+ * - You cannot modify Express Connect circuits in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state.  
+ * - An Express Connect circuit in the **Rejected** state enters the **Initial** state after it is modified.
  *
  * @param request ModifyPhysicalConnectionAttributeRequest
  * @return ModifyPhysicalConnectionAttributeResponse
@@ -27637,10 +27665,10 @@ ModifyPhysicalConnectionAttributeResponse Client::modifyPhysicalConnectionAttrib
 }
 
 /**
- * @summary Calls the ModifyRouteEntry operation to modify the name, description, and next hop of a custom route entry.
+ * @summary Invokes the ModifyRouteEntry operation to modify custom route entry name, description, and route next hop.
  *
  * @description - The **ModifyRouteEntry** operation does not support concurrent modifications to the name and description of the same custom route entry.
- * - The **ModifyRouteEntry** operation may return the **TaskConflict** error code in concurrent scenarios. Retry as appropriate.
+ * - The **ModifyRouteEntry** operation may return the **TaskConflict** error code in concurrent scenarios. Retry the operation as needed.
  *
  * @param request ModifyRouteEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27719,10 +27747,10 @@ ModifyRouteEntryResponse Client::modifyRouteEntryWithOptions(const ModifyRouteEn
 }
 
 /**
- * @summary Calls the ModifyRouteEntry operation to modify the name, description, and next hop of a custom route entry.
+ * @summary Invokes the ModifyRouteEntry operation to modify custom route entry name, description, and route next hop.
  *
  * @description - The **ModifyRouteEntry** operation does not support concurrent modifications to the name and description of the same custom route entry.
- * - The **ModifyRouteEntry** operation may return the **TaskConflict** error code in concurrent scenarios. Retry as appropriate.
+ * - The **ModifyRouteEntry** operation may return the **TaskConflict** error code in concurrent scenarios. Retry the operation as needed.
  *
  * @param request ModifyRouteEntryRequest
  * @return ModifyRouteEntryResponse
@@ -27733,12 +27761,12 @@ ModifyRouteEntryResponse Client::modifyRouteEntry(const ModifyRouteEntryRequest 
 }
 
 /**
- * @summary Modifies the name and description of a route table.
+ * @summary Modifies the name or description of a route table, or specifies whether to receive dynamic routes.
  *
- * @description **ModifyRouteTableAttributes**接口不支持并发修改同一个路由表的属性，如名称、描述，或是否接收动态路由。
- * 当调用**ModifyRouteTableAttributes**接口开启或关闭传播路由时，请注意：
- * - 开启或者关闭传播路由操作是异步操作。
- * - 开启或者关闭传播路由操作的完成时间与传播路由数量相关。
+ * @description The **ModifyRouteTableAttributes** operation does not support concurrent modifications to the attributes of the same route table, such as the name, description, or whether to receive dynamic routes.
+ * When you call the **ModifyRouteTableAttributes** operation to enable or disable route propagation, note the following:
+ * - Enabling or disabling route propagation is an asynchronous operation.
+ * - The time required to enable or disable route propagation depends on the number of propagated routes.
  *
  * @param request ModifyRouteTableAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27801,12 +27829,12 @@ ModifyRouteTableAttributesResponse Client::modifyRouteTableAttributesWithOptions
 }
 
 /**
- * @summary Modifies the name and description of a route table.
+ * @summary Modifies the name or description of a route table, or specifies whether to receive dynamic routes.
  *
- * @description **ModifyRouteTableAttributes**接口不支持并发修改同一个路由表的属性，如名称、描述，或是否接收动态路由。
- * 当调用**ModifyRouteTableAttributes**接口开启或关闭传播路由时，请注意：
- * - 开启或者关闭传播路由操作是异步操作。
- * - 开启或者关闭传播路由操作的完成时间与传播路由数量相关。
+ * @description The **ModifyRouteTableAttributes** operation does not support concurrent modifications to the attributes of the same route table, such as the name, description, or whether to receive dynamic routes.
+ * When you call the **ModifyRouteTableAttributes** operation to enable or disable route propagation, note the following:
+ * - Enabling or disabling route propagation is an asynchronous operation.
+ * - The time required to enable or disable route propagation depends on the number of propagated routes.
  *
  * @param request ModifyRouteTableAttributesRequest
  * @return ModifyRouteTableAttributesResponse
@@ -27919,9 +27947,9 @@ ModifyRouterInterfaceAttributeResponse Client::modifyRouterInterfaceAttribute(co
 }
 
 /**
- * @summary Modifies the specification of a router interface by calling the ModifyRouterInterfaceSpec operation.
+ * @summary Modifies the specification of a router interface.
  *
- * @description After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state. 
+ * @description After you call this operation, the router interface enters the Activating (**Activating**) state. After the activation succeeds, the router interface enters the Active (**Active**) state. 
  *       
  * > You cannot modify the specification of a router interface that has an overdue payment.
  *
@@ -27982,9 +28010,9 @@ ModifyRouterInterfaceSpecResponse Client::modifyRouterInterfaceSpecWithOptions(c
 }
 
 /**
- * @summary Modifies the specification of a router interface by calling the ModifyRouterInterfaceSpec operation.
+ * @summary Modifies the specification of a router interface.
  *
- * @description After you call this operation, the router interface enters the **Activating** state. After the router interface is activated, it enters the **Active** state. 
+ * @description After you call this operation, the router interface enters the Activating (**Activating**) state. After the activation succeeds, the router interface enters the Active (**Active**) state. 
  *       
  * > You cannot modify the specification of a router interface that has an overdue payment.
  *
@@ -28001,9 +28029,9 @@ ModifyRouterInterfaceSpecResponse Client::modifyRouterInterfaceSpec(const Modify
  *
  * @description **ModifySnatEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the SNAT entry has not been modified yet. The modification task is still running in the background. You can call [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) to query the status of the SNAT entry:
  * - If the SNAT entry is in the **Pending** state, the SNAT entry is being modified. In this state, you can only perform query operations and cannot perform other operations.
- * - If the SNAT entry is in the **Available** state, the SNAT entry has been modified.
- * > If any SNAT entry in an SNAT table is in the **Pending** state, you cannot modify SNAT entries in the SNAT table.
- * The **ModifySnatEntry** operation does not support concurrent modifications of a specified SNAT entry within the same SNAT entry instance.
+ * - If the SNAT entry is in the **Available** state, the SNAT entry is modified.
+ * > If a SNAT entry in the SNAT table is in the **Pending** state, you cannot modify SNAT entries in the SNAT table.
+ * **ModifySnatEntry** does not support concurrent modifications of a specified SNAT entry within the same SNAT entry instance.
  *
  * @param request ModifySnatEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28086,9 +28114,9 @@ ModifySnatEntryResponse Client::modifySnatEntryWithOptions(const ModifySnatEntry
  *
  * @description **ModifySnatEntry** is an asynchronous operation. After you send a request, the system returns a request ID, but the SNAT entry has not been modified yet. The modification task is still running in the background. You can call [DescribeSnatTableEntries](https://help.aliyun.com/document_detail/42677.html) to query the status of the SNAT entry:
  * - If the SNAT entry is in the **Pending** state, the SNAT entry is being modified. In this state, you can only perform query operations and cannot perform other operations.
- * - If the SNAT entry is in the **Available** state, the SNAT entry has been modified.
- * > If any SNAT entry in an SNAT table is in the **Pending** state, you cannot modify SNAT entries in the SNAT table.
- * The **ModifySnatEntry** operation does not support concurrent modifications of a specified SNAT entry within the same SNAT entry instance.
+ * - If the SNAT entry is in the **Available** state, the SNAT entry is modified.
+ * > If a SNAT entry in the SNAT table is in the **Pending** state, you cannot modify SNAT entries in the SNAT table.
+ * **ModifySnatEntry** does not support concurrent modifications of a specified SNAT entry within the same SNAT entry instance.
  *
  * @param request ModifySnatEntryRequest
  * @return ModifySnatEntryResponse
@@ -28099,7 +28127,7 @@ ModifySnatEntryResponse Client::modifySnatEntry(const ModifySnatEntryRequest &re
 }
 
 /**
- * @summary Modifies the name of an SSL-VPN client certificate.
+ * @summary Calls the ModifySslVpnClientCert operation to modify the name of an SSL-VPN client certificate.
  *
  * @param request ModifySslVpnClientCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28158,7 +28186,7 @@ ModifySslVpnClientCertResponse Client::modifySslVpnClientCertWithOptions(const M
 }
 
 /**
- * @summary Modifies the name of an SSL-VPN client certificate.
+ * @summary Calls the ModifySslVpnClientCert operation to modify the name of an SSL-VPN client certificate.
  *
  * @param request ModifySslVpnClientCertRequest
  * @return ModifySslVpnClientCertResponse
@@ -28169,14 +28197,14 @@ ModifySslVpnClientCertResponse Client::modifySslVpnClientCert(const ModifySslVpn
 }
 
 /**
- * @summary Calls the ModifySslVpnServer operation to modify the configuration of an SSL-VPN server.
+ * @summary Modifies the configuration of an SSL-VPN server.
  *
- * @description - If you want to enable two-factor authentication for the SSL server, first make sure the VPN gateway instance supports this feature. You may need to upgrade the VPN gateway instance. For more information, see [SSL-VPN two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
- * - When only the **Name** of the SSL-VPN server is modified, this operation is synchronous. If configurations other than **Name** are also modified, this operation is asynchronous.
- * - When the **ModifySslVpnServer** operation is asynchronous, the system first returns a request ID, but the configuration of the SSL-VPN server has not been modified yet, and the modification task is still in progress in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the VPN gateway instance associated with the SSL-VPN server to confirm the modification status of the SSL-VPN server configuration:
- *     - When the VPN gateway instance is in the **updating** state, the configuration of the SSL-VPN server is being modified.
- *     - When the VPN gateway instance is in the **active** state, the configuration of the SSL-VPN server has been modified successfully.
- * - The **ModifySslVpnServer** operation does not support concurrent modification of SSL-VPN server configurations under the same VPN gateway.
+ * @description - If you want to enable two-factor identity authentication for the SSL server, make sure that the VPN gateway instance supports this feature. You may need to upgrade the VPN gateway instance. For more information, see [SSL-VPN two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
+ * - When you modify only the **Name** of the SSL-VPN server, this operation is synchronous. If you modify any configuration other than **Name**, this operation is asynchronous.
+ * - When **ModifySslVpnServer** is asynchronous, the system returns a request ID first, but the configuration of the SSL-VPN server has not been modified yet. The modification task continues in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the VPN gateway instance associated with the SSL-VPN server to check the modification status:
+ *     - If the VPN gateway instance is in the **updating** state, the configuration of the SSL-VPN server is being modified.
+ *     - If the VPN gateway instance is in the **active** state, the configuration of the SSL-VPN server has been modified.
+ * - The **ModifySslVpnServer** operation does not support concurrent modifications to the configuration of SSL-VPN servers under the same VPN gateway.
  *
  * @param request ModifySslVpnServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28283,14 +28311,14 @@ ModifySslVpnServerResponse Client::modifySslVpnServerWithOptions(const ModifySsl
 }
 
 /**
- * @summary Calls the ModifySslVpnServer operation to modify the configuration of an SSL-VPN server.
+ * @summary Modifies the configuration of an SSL-VPN server.
  *
- * @description - If you want to enable two-factor authentication for the SSL server, first make sure the VPN gateway instance supports this feature. You may need to upgrade the VPN gateway instance. For more information, see [SSL-VPN two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
- * - When only the **Name** of the SSL-VPN server is modified, this operation is synchronous. If configurations other than **Name** are also modified, this operation is asynchronous.
- * - When the **ModifySslVpnServer** operation is asynchronous, the system first returns a request ID, but the configuration of the SSL-VPN server has not been modified yet, and the modification task is still in progress in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the VPN gateway instance associated with the SSL-VPN server to confirm the modification status of the SSL-VPN server configuration:
- *     - When the VPN gateway instance is in the **updating** state, the configuration of the SSL-VPN server is being modified.
- *     - When the VPN gateway instance is in the **active** state, the configuration of the SSL-VPN server has been modified successfully.
- * - The **ModifySslVpnServer** operation does not support concurrent modification of SSL-VPN server configurations under the same VPN gateway.
+ * @description - If you want to enable two-factor identity authentication for the SSL server, make sure that the VPN gateway instance supports this feature. You may need to upgrade the VPN gateway instance. For more information, see [SSL-VPN two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
+ * - When you modify only the **Name** of the SSL-VPN server, this operation is synchronous. If you modify any configuration other than **Name**, this operation is asynchronous.
+ * - When **ModifySslVpnServer** is asynchronous, the system returns a request ID first, but the configuration of the SSL-VPN server has not been modified yet. The modification task continues in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the VPN gateway instance associated with the SSL-VPN server to check the modification status:
+ *     - If the VPN gateway instance is in the **updating** state, the configuration of the SSL-VPN server is being modified.
+ *     - If the VPN gateway instance is in the **active** state, the configuration of the SSL-VPN server has been modified.
+ * - The **ModifySslVpnServer** operation does not support concurrent modifications to the configuration of SSL-VPN servers under the same VPN gateway.
  *
  * @param request ModifySslVpnServerRequest
  * @return ModifySslVpnServerResponse
@@ -28301,7 +28329,7 @@ ModifySslVpnServerResponse Client::modifySslVpnServer(const ModifySslVpnServerRe
 }
 
 /**
- * @summary Calls the ModifyTunnelAttribute operation to modify the tunnel configuration of a highly available VPN gateway.
+ * @summary Calls the ModifyTunnelAttribute operation to modify the tunnel configuration of a high-availability VPN gateway.
  *
  * @param request ModifyTunnelAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28364,7 +28392,7 @@ ModifyTunnelAttributeResponse Client::modifyTunnelAttributeWithOptions(const Mod
 }
 
 /**
- * @summary Calls the ModifyTunnelAttribute operation to modify the tunnel configuration of a highly available VPN gateway.
+ * @summary Calls the ModifyTunnelAttribute operation to modify the tunnel configuration of a high-availability VPN gateway.
  *
  * @param request ModifyTunnelAttributeRequest
  * @return ModifyTunnelAttributeResponse
@@ -28377,7 +28405,7 @@ ModifyTunnelAttributeResponse Client::modifyTunnelAttribute(const ModifyTunnelAt
 /**
  * @summary Modifies the name and description of a vRouter.
  *
- * @description You cannot repeatedly call the **ModifyVRouterAttribute** operation within a specific period of time.
+ * @description The **ModifyVRouterAttribute** operation does not support concurrent modifications to the name and description of the same vRouter.
  *
  * @param request ModifyVRouterAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28438,7 +28466,7 @@ ModifyVRouterAttributeResponse Client::modifyVRouterAttributeWithOptions(const M
 /**
  * @summary Modifies the name and description of a vRouter.
  *
- * @description You cannot repeatedly call the **ModifyVRouterAttribute** operation within a specific period of time.
+ * @description The **ModifyVRouterAttribute** operation does not support concurrent modifications to the name and description of the same vRouter.
  *
  * @param request ModifyVRouterAttributeRequest
  * @return ModifyVRouterAttributeResponse
@@ -28449,12 +28477,12 @@ ModifyVRouterAttributeResponse Client::modifyVRouterAttribute(const ModifyVRoute
 }
 
 /**
- * @summary Modifies the name, description, and IPv6 settings of a vSwitch.
+ * @summary Modifies the configuration of a specified vSwitch.
  *
- * @description - **ModifyVSwitchAttribute**接口属于异步接口，即系统会返回一个请求ID，但该交换机的配置信息尚未修改成功，系统后台的修改任务仍在进行。您可以调用[DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html)查询交换机的修改状态：
- *     - 当交换机的状态处于**Pending**状态时，表示交换机的配置信息正在修改中。
- *     - 当交换机状态处于**Available**状态时，表示交换机可用。
- * - **ModifyVSwitchAttribute**接口不支持并发修改同一个交换机的配置信息。
+ * @description - **ModifyVSwitchAttribute** is an asynchronous operation. After you call this operation, the system returns a request ID, but the vSwitch configuration has not been modified yet. The modification task is still running in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the modification status of the vSwitch:
+ *     - If the vSwitch is in the **Pending** state, the configuration is being modified.
+ *     - If the vSwitch is in the **Available** state, the vSwitch is available.
+ * - **ModifyVSwitchAttribute** does not support concurrent modifications to the same vSwitch.
  *
  * @param request ModifyVSwitchAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28525,12 +28553,12 @@ ModifyVSwitchAttributeResponse Client::modifyVSwitchAttributeWithOptions(const M
 }
 
 /**
- * @summary Modifies the name, description, and IPv6 settings of a vSwitch.
+ * @summary Modifies the configuration of a specified vSwitch.
  *
- * @description - **ModifyVSwitchAttribute**接口属于异步接口，即系统会返回一个请求ID，但该交换机的配置信息尚未修改成功，系统后台的修改任务仍在进行。您可以调用[DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html)查询交换机的修改状态：
- *     - 当交换机的状态处于**Pending**状态时，表示交换机的配置信息正在修改中。
- *     - 当交换机状态处于**Available**状态时，表示交换机可用。
- * - **ModifyVSwitchAttribute**接口不支持并发修改同一个交换机的配置信息。
+ * @description - **ModifyVSwitchAttribute** is an asynchronous operation. After you call this operation, the system returns a request ID, but the vSwitch configuration has not been modified yet. The modification task is still running in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the modification status of the vSwitch:
+ *     - If the vSwitch is in the **Pending** state, the configuration is being modified.
+ *     - If the vSwitch is in the **Available** state, the vSwitch is available.
+ * - **ModifyVSwitchAttribute** does not support concurrent modifications to the same vSwitch.
  *
  * @param request ModifyVSwitchAttributeRequest
  * @return ModifyVSwitchAttributeResponse
@@ -28541,9 +28569,9 @@ ModifyVSwitchAttributeResponse Client::modifyVSwitchAttribute(const ModifyVSwitc
 }
 
 /**
- * @summary Modify the name and description of a reserved CIDR block for a vSwitch.
+ * @summary Modifies the name and description of a reserved CIDR block for a vSwitch.
  *
- * @description The **ModifyVSwitchCidrReservationAttribute** API does not support concurrent modification of the name and description of a reserved CIDR block within the same vSwitch.
+ * @description The **ModifyVSwitchCidrReservationAttribute** operation does not support concurrently modifying the name and description of a reserved CIDR block within the same vSwitch.
  *
  * @param request ModifyVSwitchCidrReservationAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28610,9 +28638,9 @@ ModifyVSwitchCidrReservationAttributeResponse Client::modifyVSwitchCidrReservati
 }
 
 /**
- * @summary Modify the name and description of a reserved CIDR block for a vSwitch.
+ * @summary Modifies the name and description of a reserved CIDR block for a vSwitch.
  *
- * @description The **ModifyVSwitchCidrReservationAttribute** API does not support concurrent modification of the name and description of a reserved CIDR block within the same vSwitch.
+ * @description The **ModifyVSwitchCidrReservationAttribute** operation does not support concurrently modifying the name and description of a reserved CIDR block within the same vSwitch.
  *
  * @param request ModifyVSwitchCidrReservationAttributeRequest
  * @return ModifyVSwitchCidrReservationAttributeResponse
@@ -28623,12 +28651,12 @@ ModifyVSwitchCidrReservationAttributeResponse Client::modifyVSwitchCidrReservati
 }
 
 /**
- * @summary Modifies the weight of a destination-based route for an IPsec-VPN connection.
+ * @summary Modifies the weight of a destination route entry for an IPsec-VPN connection.
  *
- * @description *   **ModifyVcoRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) operation to query the status of the associated IPsec-VPN connection and determine whether the weight of the specified destination-based route is modified.
- *     *   If the IPsec-VPN connection is in the **updating** state, the weight of the destination-based route is being modified.
- *     *   If the IPsec-VPN connection is in the **attached** state, the weight of the destination-based route is modified.
- * *   You cannot repeatedly call the **ModifyVcoRouteEntryWeight** operation for the same IPsec-VPN connection within the specified period of time.
+ * @description - **ModifyVcoRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID, but the weight of the destination route entry has not been modified yet. The modification task is still running in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the modification status of the destination route entry weight:
+ *     - If the IPsec-VPN connection is in the **updating** state, the weight of the destination route entry is being modified.
+ *     - If the IPsec-VPN connection is in the **attached** state, the weight of the destination route entry has been modified.
+ * - **ModifyVcoRouteEntryWeight** does not support concurrent modifications of destination route entry weights for the same IPsec-VPN connection.
  *
  * @param request ModifyVcoRouteEntryWeightRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28699,12 +28727,12 @@ ModifyVcoRouteEntryWeightResponse Client::modifyVcoRouteEntryWeightWithOptions(c
 }
 
 /**
- * @summary Modifies the weight of a destination-based route for an IPsec-VPN connection.
+ * @summary Modifies the weight of a destination route entry for an IPsec-VPN connection.
  *
- * @description *   **ModifyVcoRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) operation to query the status of the associated IPsec-VPN connection and determine whether the weight of the specified destination-based route is modified.
- *     *   If the IPsec-VPN connection is in the **updating** state, the weight of the destination-based route is being modified.
- *     *   If the IPsec-VPN connection is in the **attached** state, the weight of the destination-based route is modified.
- * *   You cannot repeatedly call the **ModifyVcoRouteEntryWeight** operation for the same IPsec-VPN connection within the specified period of time.
+ * @description - **ModifyVcoRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID, but the weight of the destination route entry has not been modified yet. The modification task is still running in the background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the modification status of the destination route entry weight:
+ *     - If the IPsec-VPN connection is in the **updating** state, the weight of the destination route entry is being modified.
+ *     - If the IPsec-VPN connection is in the **attached** state, the weight of the destination route entry has been modified.
+ * - **ModifyVcoRouteEntryWeight** does not support concurrent modifications of destination route entry weights for the same IPsec-VPN connection.
  *
  * @param request ModifyVcoRouteEntryWeightRequest
  * @return ModifyVcoRouteEntryWeightResponse
@@ -28715,14 +28743,14 @@ ModifyVcoRouteEntryWeightResponse Client::modifyVcoRouteEntryWeight(const Modify
 }
 
 /**
- * @summary You can invoke the ModifyVirtualBorderRouterAttribute API to modify the configuration of a virtual border router (VBR).
+ * @summary Modifies the configuration of a Virtual Border Router (VBR).
  *
- * @description * **VlanId** can only be modified by the owner of the Express Connect circuit.
- * * The same VLAN ID under the same Express Connect circuit cannot be used by two VBRs simultaneously.
- * * A VBR in the **terminated** status retains its VLAN ID exclusively for 7 days, during which no other VBR can use it. After 7 days, the VLAN ID becomes available for other VBRs.
- * * VBR instances owned by other accounts cannot configure **LocalGatewayIp**, **PeerGatewayIp**, or **PeeringSubnetMask**.
- * * **PeeringSubnetMask** supports subnet masks from /24 to /30 (255.255.255.0 to 255.255.255.252).
- * * **LocalGatewayIp** and **PeerGatewayIp** must belong to the same network segment. For example: LocalGatewayIp: 192.168.XX.XX, PeerGatewayIp: 192.168.XX.XX, PeeringSubnetMask: 255.255.255.248.
+ * @description * **VlanId** can be modified only by the owner of the Express Connect circuit.
+ * * The same VLAN ID on the same Express Connect circuit cannot be used by two VBRs at the same time.
+ * * A VBR that enters the **terminated** state automatically retains its VLAN ID for 7 days, during which other VBRs cannot use the VLAN ID. After 7 days, the VLAN ID can be used by other VBRs.
+ * * For VBR instances owned by other accounts, you cannot configure **LocalGatewayIp**, **PeerGatewayIp**, or **PeeringSubnetMask**.
+ * * **PeeringSubnetMask** supports 24 to 30 bits (255.255.255.0 to 255.255.255.252).
+ * * **LocalGatewayIp** and **PeerGatewayIp** must be in the same CIDR block. For example, LocalGatewayIp: 192.168.XX.XX, PeerGatewayIp: 192.168.XX.XX, PeeringSubnetMask: 255.255.255.248.
  *
  * @param request ModifyVirtualBorderRouterAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28849,14 +28877,14 @@ ModifyVirtualBorderRouterAttributeResponse Client::modifyVirtualBorderRouterAttr
 }
 
 /**
- * @summary You can invoke the ModifyVirtualBorderRouterAttribute API to modify the configuration of a virtual border router (VBR).
+ * @summary Modifies the configuration of a Virtual Border Router (VBR).
  *
- * @description * **VlanId** can only be modified by the owner of the Express Connect circuit.
- * * The same VLAN ID under the same Express Connect circuit cannot be used by two VBRs simultaneously.
- * * A VBR in the **terminated** status retains its VLAN ID exclusively for 7 days, during which no other VBR can use it. After 7 days, the VLAN ID becomes available for other VBRs.
- * * VBR instances owned by other accounts cannot configure **LocalGatewayIp**, **PeerGatewayIp**, or **PeeringSubnetMask**.
- * * **PeeringSubnetMask** supports subnet masks from /24 to /30 (255.255.255.0 to 255.255.255.252).
- * * **LocalGatewayIp** and **PeerGatewayIp** must belong to the same network segment. For example: LocalGatewayIp: 192.168.XX.XX, PeerGatewayIp: 192.168.XX.XX, PeeringSubnetMask: 255.255.255.248.
+ * @description * **VlanId** can be modified only by the owner of the Express Connect circuit.
+ * * The same VLAN ID on the same Express Connect circuit cannot be used by two VBRs at the same time.
+ * * A VBR that enters the **terminated** state automatically retains its VLAN ID for 7 days, during which other VBRs cannot use the VLAN ID. After 7 days, the VLAN ID can be used by other VBRs.
+ * * For VBR instances owned by other accounts, you cannot configure **LocalGatewayIp**, **PeerGatewayIp**, or **PeeringSubnetMask**.
+ * * **PeeringSubnetMask** supports 24 to 30 bits (255.255.255.0 to 255.255.255.252).
+ * * **LocalGatewayIp** and **PeerGatewayIp** must be in the same CIDR block. For example, LocalGatewayIp: 192.168.XX.XX, PeerGatewayIp: 192.168.XX.XX, PeeringSubnetMask: 255.255.255.248.
  *
  * @param request ModifyVirtualBorderRouterAttributeRequest
  * @return ModifyVirtualBorderRouterAttributeResponse
@@ -28867,10 +28895,10 @@ ModifyVirtualBorderRouterAttributeResponse Client::modifyVirtualBorderRouterAttr
 }
 
 /**
- * @summary Modifies the name and description of a virtual private cloud (VPC).
+ * @summary Modifies the configuration of a specified VPC.
  *
- * @description ## [](#)Description
- * You cannot repeatedly call the **ModifyVpcAttribute** operation to modify the name and description of a VPC within the specified period of time.
+ * @description * The **ModifyVpcAttribute** operation does not support concurrent modifications to the configuration of the same VPC.
+ * * The **ModifyVpcAttribute** operation can enable IPv6 for a VPC. However, you cannot modify the IPv6 CIDR block or IPv6 address type for a VPC that already has IPv6 enabled.
  *
  * @param request ModifyVpcAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28949,10 +28977,10 @@ ModifyVpcAttributeResponse Client::modifyVpcAttributeWithOptions(const ModifyVpc
 }
 
 /**
- * @summary Modifies the name and description of a virtual private cloud (VPC).
+ * @summary Modifies the configuration of a specified VPC.
  *
- * @description ## [](#)Description
- * You cannot repeatedly call the **ModifyVpcAttribute** operation to modify the name and description of a VPC within the specified period of time.
+ * @description * The **ModifyVpcAttribute** operation does not support concurrent modifications to the configuration of the same VPC.
+ * * The **ModifyVpcAttribute** operation can enable IPv6 for a VPC. However, you cannot modify the IPv6 CIDR block or IPv6 address type for a VPC that already has IPv6 enabled.
  *
  * @param request ModifyVpcAttributeRequest
  * @return ModifyVpcAttributeResponse
@@ -28965,11 +28993,11 @@ ModifyVpcAttributeResponse Client::modifyVpcAttribute(const ModifyVpcAttributeRe
 /**
  * @summary Modifies the configuration of a prefix list.
  *
- * @description - **ModifyVpcPrefixList**接口属于异步接口，即系统返回一个请求ID，但该前缀列表实例的配置信息尚未修改成功，系统后台的修改任务仍在进行。您可以调用[ListPrefixLists](https://help.aliyun.com/document_detail/311535.html)查询前缀列表实例的状态。
- *     - 当前缀列表实例处于**Modifying**状态时，表示前缀列表实例的配置信息正在修改中。
- *     - 当前缀列表实例处于**Created**状态时，表示前缀列表实例的配置信息修改成功。
- *     - 前缀列表实例的配置信息修改成功后，您可以调用[GetVpcPrefixListAssociations](https://help.aliyun.com/document_detail/445478.html)接口查询前缀列表的关联关系来确定关联的资源是否使用的是修改后的CIDR地址块，当前缀列表的关联状态即**Status**参数取值为**Created**时，表示关联的资源使用的CIDR地址块为修改后的CIDR地址块。
- * - **ModifyVpcPrefixList**接口不支持并发修改同一个前缀列表实例的配置信息。
+ * @description - **ModifyVpcPrefixList** is an asynchronous operation. After you send a request, the system returns a request ID, but the prefix list instance configuration has not been modified yet. The modification node continues to run in the background. You can invoke [ListPrefixLists](https://help.aliyun.com/document_detail/311535.html) to query the status of the prefix list instance.
+ *     - If the prefix list instance is in the **Modifying** state, the configuration is being modified.
+ *     - If the prefix list instance is in the **Created** state, the configuration has been modified.
+ *     - After the configuration is modified, you can invoke [GetVpcPrefixListAssociations](https://help.aliyun.com/document_detail/445478.html) to query the associations of the prefix list and check whether the associated resources use the updated Classless Inter-Domain Routing blocks. If the **Status** parameter of the prefix list association is **Created**, the associated resources use the updated Classless Inter-Domain Routing blocks.
+ * - **ModifyVpcPrefixList** does not support concurrent modifications to the same prefix list instance.
  *
  * @param request ModifyVpcPrefixListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29050,11 +29078,11 @@ ModifyVpcPrefixListResponse Client::modifyVpcPrefixListWithOptions(const ModifyV
 /**
  * @summary Modifies the configuration of a prefix list.
  *
- * @description - **ModifyVpcPrefixList**接口属于异步接口，即系统返回一个请求ID，但该前缀列表实例的配置信息尚未修改成功，系统后台的修改任务仍在进行。您可以调用[ListPrefixLists](https://help.aliyun.com/document_detail/311535.html)查询前缀列表实例的状态。
- *     - 当前缀列表实例处于**Modifying**状态时，表示前缀列表实例的配置信息正在修改中。
- *     - 当前缀列表实例处于**Created**状态时，表示前缀列表实例的配置信息修改成功。
- *     - 前缀列表实例的配置信息修改成功后，您可以调用[GetVpcPrefixListAssociations](https://help.aliyun.com/document_detail/445478.html)接口查询前缀列表的关联关系来确定关联的资源是否使用的是修改后的CIDR地址块，当前缀列表的关联状态即**Status**参数取值为**Created**时，表示关联的资源使用的CIDR地址块为修改后的CIDR地址块。
- * - **ModifyVpcPrefixList**接口不支持并发修改同一个前缀列表实例的配置信息。
+ * @description - **ModifyVpcPrefixList** is an asynchronous operation. After you send a request, the system returns a request ID, but the prefix list instance configuration has not been modified yet. The modification node continues to run in the background. You can invoke [ListPrefixLists](https://help.aliyun.com/document_detail/311535.html) to query the status of the prefix list instance.
+ *     - If the prefix list instance is in the **Modifying** state, the configuration is being modified.
+ *     - If the prefix list instance is in the **Created** state, the configuration has been modified.
+ *     - After the configuration is modified, you can invoke [GetVpcPrefixListAssociations](https://help.aliyun.com/document_detail/445478.html) to query the associations of the prefix list and check whether the associated resources use the updated Classless Inter-Domain Routing blocks. If the **Status** parameter of the prefix list association is **Created**, the associated resources use the updated Classless Inter-Domain Routing blocks.
+ * - **ModifyVpcPrefixList** does not support concurrent modifications to the same prefix list instance.
  *
  * @param request ModifyVpcPrefixListRequest
  * @return ModifyVpcPrefixListResponse
@@ -29067,13 +29095,13 @@ ModifyVpcPrefixListResponse Client::modifyVpcPrefixList(const ModifyVpcPrefixLis
 /**
  * @summary Modifies the configuration of an IPsec-VPN connection.
  *
- * @description *   When you modify a IPsec-VPN connection in dual-tunnel mode, you can configure the following parameters in addition to the required request parameters: **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **AutoConfigRoute**, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.
- * *   When you modify a IPsec-VPN connection in single tunnel mode, you can configure the following parameters in addition to the required request parameters: **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, and **CustomerGatewayId**.
- * *   **ModifyVpnAttachmentAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) operation to query the status of the task:
- *     *   If the IPsec-VPN connection is in the **updating** state, the IPsec-VPN connection is being modified.
- *     *   If the IPsec-VPN connection is in the **attached** state, the IPsec-VPN connection is modified.
- * *   You cannot concurrently call **ModifyVpnAttachmentAttribute** within the specified period of time.
- * *   You cannot call **ModifyVpnAttachmentAttribute** to modify the gateway type of an IPsec-VPN connection.
+ * @description - When you modify a dual-tunnel IPsec-VPN connection, in addition to the required parameters, you can configure the following request parameters: **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, the **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.
+ * - When you modify a single-tunnel IPsec-VPN connection, in addition to the required parameters, you can configure the following request parameters: **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, and **CustomerGatewayId**.
+ * - **ModifyVpnAttachmentAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID. However, the operation is still being performed in the system background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the modification status of the IPsec-VPN connection:
+ *     - If the IPsec-VPN connection is in the **updating** state, the configuration is being modified.
+ *     - If the IPsec-VPN connection is in the **attached** state, the configuration has been modified.
+ * - **ModifyVpnAttachmentAttribute** does not support concurrent modification of the IPsec-VPN connection configuration.
+ * - When you call **ModifyVpnAttachmentAttribute**, you cannot modify the gateway type of the IPsec-VPN connection.
  *
  * @param request ModifyVpnAttachmentAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29196,13 +29224,13 @@ ModifyVpnAttachmentAttributeResponse Client::modifyVpnAttachmentAttributeWithOpt
 /**
  * @summary Modifies the configuration of an IPsec-VPN connection.
  *
- * @description *   When you modify a IPsec-VPN connection in dual-tunnel mode, you can configure the following parameters in addition to the required request parameters: **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **AutoConfigRoute**, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.
- * *   When you modify a IPsec-VPN connection in single tunnel mode, you can configure the following parameters in addition to the required request parameters: **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, and **CustomerGatewayId**.
- * *   **ModifyVpnAttachmentAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) operation to query the status of the task:
- *     *   If the IPsec-VPN connection is in the **updating** state, the IPsec-VPN connection is being modified.
- *     *   If the IPsec-VPN connection is in the **attached** state, the IPsec-VPN connection is modified.
- * *   You cannot concurrently call **ModifyVpnAttachmentAttribute** within the specified period of time.
- * *   You cannot call **ModifyVpnAttachmentAttribute** to modify the gateway type of an IPsec-VPN connection.
+ * @description - When you modify a dual-tunnel IPsec-VPN connection, in addition to the required parameters, you can configure the following request parameters: **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, the **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.
+ * - When you modify a single-tunnel IPsec-VPN connection, in addition to the required parameters, you can configure the following request parameters: **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, and **CustomerGatewayId**.
+ * - **ModifyVpnAttachmentAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID. However, the operation is still being performed in the system background. You can call [DescribeVpnConnection](https://help.aliyun.com/document_detail/53046.html) to query the modification status of the IPsec-VPN connection:
+ *     - If the IPsec-VPN connection is in the **updating** state, the configuration is being modified.
+ *     - If the IPsec-VPN connection is in the **attached** state, the configuration has been modified.
+ * - **ModifyVpnAttachmentAttribute** does not support concurrent modification of the IPsec-VPN connection configuration.
+ * - When you call **ModifyVpnAttachmentAttribute**, you cannot modify the gateway type of the IPsec-VPN connection.
  *
  * @param request ModifyVpnAttachmentAttributeRequest
  * @return ModifyVpnAttachmentAttributeResponse
@@ -29215,14 +29243,14 @@ ModifyVpnAttachmentAttributeResponse Client::modifyVpnAttachmentAttribute(const 
 /**
  * @summary Modifies the configuration of an IPsec-VPN connection.
  *
- * @description *   If you want to modify a IPsec-VPN connection in dual-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
- *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **AutoConfigRoute**, **TunnelOptionsSpecification**, and **EnableTunnelsBgp**.
- * *   If you want to modify a IPsec-VPN connection in single-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
- *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, and **RemoteCaCertificate**.
- * *   **ModifyVpnConnectionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and modifies the configuration of the IPsec-VPN connection in the backend. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of a VPN gateway.
- *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
- *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec-VPN connection is modified.
- * *   You cannot repeatedly call the **ModifyVpnConnectionAttribute** operation for the same VPN gateway within the specified period of time.
+ * @description - To modify a dual-tunnel IPsec-VPN connection, the `ModifyVpnConnectionAttribute` operation supports the following request parameters in addition to the required parameters:
+ *    **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **AutoConfigRoute**, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.
+ * - To modify a single-tunnel IPsec-VPN connection, the `ModifyVpnConnectionAttribute` operation supports the following request parameters in addition to the required parameters:
+ *      **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, and **RemoteCaCertificate**.
+ * - The **ModifyVpnConnectionAttribute** operation is asynchronous. After a request is sent, the system returns a request ID. However, the configuration of the IPsec-VPN connection is not yet modified. The modification node runs in the background. You can invoke [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the instance status of the VPN gateway to determine the modification status of the IPsec-VPN connection configuration:
+ *     - If the VPN gateway instance is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
+ *     - If the VPN gateway instance is in the **active** state, the configuration of the IPsec-VPN connection is modified.
+ * - The **ModifyVpnConnectionAttribute** operation does not support concurrent modifications to IPsec-VPN connection configurations under the same VPN gateway.
  *
  * @param request ModifyVpnConnectionAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29341,14 +29369,14 @@ ModifyVpnConnectionAttributeResponse Client::modifyVpnConnectionAttributeWithOpt
 /**
  * @summary Modifies the configuration of an IPsec-VPN connection.
  *
- * @description *   If you want to modify a IPsec-VPN connection in dual-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
- *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **AutoConfigRoute**, **TunnelOptionsSpecification**, and **EnableTunnelsBgp**.
- * *   If you want to modify a IPsec-VPN connection in single-tunnel mode, call the `ModifyVpnConnectionAttribute` operation. You can modify the required parameters and the following request parameters:
- *     **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, and **RemoteCaCertificate**.
- * *   **ModifyVpnConnectionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and modifies the configuration of the IPsec-VPN connection in the backend. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of a VPN gateway.
- *     *   If the VPN gateway is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
- *     *   If the VPN gateway is in the **active** state, the configuration of the IPsec-VPN connection is modified.
- * *   You cannot repeatedly call the **ModifyVpnConnectionAttribute** operation for the same VPN gateway within the specified period of time.
+ * @description - To modify a dual-tunnel IPsec-VPN connection, the `ModifyVpnConnectionAttribute` operation supports the following request parameters in addition to the required parameters:
+ *    **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **AutoConfigRoute**, **TunnelOptionsSpecification** array, and **EnableTunnelsBgp**.
+ * - To modify a single-tunnel IPsec-VPN connection, the `ModifyVpnConnectionAttribute` operation supports the following request parameters in addition to the required parameters:
+ *      **ClientToken**, **Name**, **LocalSubnet**, **RemoteSubnet**, **EffectImmediately**, **IkeConfig**, **IpsecConfig**, **HealthCheckConfig**, **AutoConfigRoute**, **EnableDpd**, **EnableNatTraversal**, **BgpConfig**, and **RemoteCaCertificate**.
+ * - The **ModifyVpnConnectionAttribute** operation is asynchronous. After a request is sent, the system returns a request ID. However, the configuration of the IPsec-VPN connection is not yet modified. The modification node runs in the background. You can invoke [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the instance status of the VPN gateway to determine the modification status of the IPsec-VPN connection configuration:
+ *     - If the VPN gateway instance is in the **updating** state, the configuration of the IPsec-VPN connection is being modified.
+ *     - If the VPN gateway instance is in the **active** state, the configuration of the IPsec-VPN connection is modified.
+ * - The **ModifyVpnConnectionAttribute** operation does not support concurrent modifications to IPsec-VPN connection configurations under the same VPN gateway.
  *
  * @param request ModifyVpnConnectionAttributeRequest
  * @return ModifyVpnConnectionAttributeResponse
@@ -29447,17 +29475,17 @@ ModifyVpnGatewayAttributeResponse Client::modifyVpnGatewayAttribute(const Modify
 }
 
 /**
- * @summary Modifies the weight and policy priority of a policy-based route by calling the ModifyVpnPbrRouteEntryAttribute operation.
+ * @summary Modifies the weight and policy priority of a policy-based route.
  *
- * @description - **ModifyVpnPbrRouteEntryAttribute** is used to modify both the weight and policy priority of a policy-based route that supports policy priority.
- *     - To modify only the weight of a policy-based route, call the [ModifyVpnPbrRouteEntryWeight](https://help.aliyun.com/document_detail/127249.html) operation.
- *     - To modify only the policy priority of a policy-based route, call the [ModifyVpnPbrRouteEntryPriority](https://help.aliyun.com/document_detail/466870.html) operation.
+ * @description - The **ModifyVpnPbrRouteEntryAttribute** operation is used to modify both the weight and policy priority of a policy-based route that supports policy priority.
+ *     - If you only need to modify the weight of a policy-based route, call the [ModifyVpnPbrRouteEntryWeight](https://help.aliyun.com/document_detail/127249.html) operation.
+ *     - If you only need to modify the policy priority of a policy-based route, call the [ModifyVpnPbrRouteEntryPriority](https://help.aliyun.com/document_detail/466870.html) operation.
  *     - If your policy-based route does not support policy priority, you can only call the [ModifyVpnPbrRouteEntryWeight](https://help.aliyun.com/document_detail/127249.html) operation to modify the weight of the policy-based route.
  *   > For VPN gateway instances that support dual-tunnel mode IPsec-VPN connections, you can only call this operation to modify the priority of policy-based routes.
- * - **ModifyVpnPbrRouteEntryAttribute** is an asynchronous operation. After you send a request, the system returns a request ID, but the policy-based route has not been modified yet. The modification node is still running in the background. You can invoke the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the instance status of the VPN gateway to determine the modification status of the policy-based routing:
+ * - The **ModifyVpnPbrRouteEntryAttribute** operation is asynchronous. After you send a request, the system returns a request ID, but the policy-based route has not been modified yet. The modification node is still running in the background. You can invoke the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the instance status of the VPN gateway to determine the modification status of the policy-based routing:
  *     - If the VPN gateway instance is in the **updating** state, the policy-based route is being modified.
  *     - If the VPN gateway instance is in the **active** state, the policy-based route has been modified.
- * - **ModifyVpnPbrRouteEntryAttribute** does not support concurrent modifications of policy-based routes under the same VPN gateway instance.
+ * - The **ModifyVpnPbrRouteEntryAttribute** operation does not support concurrent modifications of policy-based routes on the same VPN gateway instance.
  *
  * @param request ModifyVpnPbrRouteEntryAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29540,17 +29568,17 @@ ModifyVpnPbrRouteEntryAttributeResponse Client::modifyVpnPbrRouteEntryAttributeW
 }
 
 /**
- * @summary Modifies the weight and policy priority of a policy-based route by calling the ModifyVpnPbrRouteEntryAttribute operation.
+ * @summary Modifies the weight and policy priority of a policy-based route.
  *
- * @description - **ModifyVpnPbrRouteEntryAttribute** is used to modify both the weight and policy priority of a policy-based route that supports policy priority.
- *     - To modify only the weight of a policy-based route, call the [ModifyVpnPbrRouteEntryWeight](https://help.aliyun.com/document_detail/127249.html) operation.
- *     - To modify only the policy priority of a policy-based route, call the [ModifyVpnPbrRouteEntryPriority](https://help.aliyun.com/document_detail/466870.html) operation.
+ * @description - The **ModifyVpnPbrRouteEntryAttribute** operation is used to modify both the weight and policy priority of a policy-based route that supports policy priority.
+ *     - If you only need to modify the weight of a policy-based route, call the [ModifyVpnPbrRouteEntryWeight](https://help.aliyun.com/document_detail/127249.html) operation.
+ *     - If you only need to modify the policy priority of a policy-based route, call the [ModifyVpnPbrRouteEntryPriority](https://help.aliyun.com/document_detail/466870.html) operation.
  *     - If your policy-based route does not support policy priority, you can only call the [ModifyVpnPbrRouteEntryWeight](https://help.aliyun.com/document_detail/127249.html) operation to modify the weight of the policy-based route.
  *   > For VPN gateway instances that support dual-tunnel mode IPsec-VPN connections, you can only call this operation to modify the priority of policy-based routes.
- * - **ModifyVpnPbrRouteEntryAttribute** is an asynchronous operation. After you send a request, the system returns a request ID, but the policy-based route has not been modified yet. The modification node is still running in the background. You can invoke the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the instance status of the VPN gateway to determine the modification status of the policy-based routing:
+ * - The **ModifyVpnPbrRouteEntryAttribute** operation is asynchronous. After you send a request, the system returns a request ID, but the policy-based route has not been modified yet. The modification node is still running in the background. You can invoke the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the instance status of the VPN gateway to determine the modification status of the policy-based routing:
  *     - If the VPN gateway instance is in the **updating** state, the policy-based route is being modified.
  *     - If the VPN gateway instance is in the **active** state, the policy-based route has been modified.
- * - **ModifyVpnPbrRouteEntryAttribute** does not support concurrent modifications of policy-based routes under the same VPN gateway instance.
+ * - The **ModifyVpnPbrRouteEntryAttribute** operation does not support concurrent modifications of policy-based routes on the same VPN gateway instance.
  *
  * @param request ModifyVpnPbrRouteEntryAttributeRequest
  * @return ModifyVpnPbrRouteEntryAttributeResponse
@@ -29561,12 +29589,12 @@ ModifyVpnPbrRouteEntryAttributeResponse Client::modifyVpnPbrRouteEntryAttribute(
 }
 
 /**
- * @summary Calls the ModifyVpnPbrRouteEntryPriority operation to modify the priority of a policy-based route.
+ * @summary Invokes the ModifyVpnPbrRouteEntryPriority operation to modify the policy priority of a policy-based routing entry.
  *
- * @description - The **ModifyVpnPbrRouteEntryPriority** operation is asynchronous. After you send the request, the system returns a request ID, but the policy-based route has not been modified yet. The modification task is still running in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the VPN gateway instance to determine the modification status of the policy-based route:
- *     - If the VPN gateway instance is in the **updating** state, the policy-based route is being modified.
- *     - If the VPN gateway instance is in the **active** state, the policy-based route is modified.
- * - The **ModifyVpnPbrRouteEntryPriority** operation does not support concurrent modifications to policy-based routes of the same VPN gateway instance.
+ * @description - **ModifyVpnPbrRouteEntryPriority** is an asynchronous operation. After you send a request, the system returns a request ID, but the policy-based routing entry has not been modified yet. The modification node is still running in the background. You can invoke the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the instance status of the VPN gateway to determine the modification status of the policy-based routing entry:
+ *     - If the VPN gateway instance is in the **updating** state, the policy-based routing entry is being modified.
+ *     - If the VPN gateway instance is in the **active** state, the policy-based routing entry has been modified.
+ * - **ModifyVpnPbrRouteEntryPriority** does not support concurrent modifications of policy-based routing entries on the same VPN gateway instance.
  *
  * @param request ModifyVpnPbrRouteEntryPriorityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29645,12 +29673,12 @@ ModifyVpnPbrRouteEntryPriorityResponse Client::modifyVpnPbrRouteEntryPriorityWit
 }
 
 /**
- * @summary Calls the ModifyVpnPbrRouteEntryPriority operation to modify the priority of a policy-based route.
+ * @summary Invokes the ModifyVpnPbrRouteEntryPriority operation to modify the policy priority of a policy-based routing entry.
  *
- * @description - The **ModifyVpnPbrRouteEntryPriority** operation is asynchronous. After you send the request, the system returns a request ID, but the policy-based route has not been modified yet. The modification task is still running in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the VPN gateway instance to determine the modification status of the policy-based route:
- *     - If the VPN gateway instance is in the **updating** state, the policy-based route is being modified.
- *     - If the VPN gateway instance is in the **active** state, the policy-based route is modified.
- * - The **ModifyVpnPbrRouteEntryPriority** operation does not support concurrent modifications to policy-based routes of the same VPN gateway instance.
+ * @description - **ModifyVpnPbrRouteEntryPriority** is an asynchronous operation. After you send a request, the system returns a request ID, but the policy-based routing entry has not been modified yet. The modification node is still running in the background. You can invoke the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the instance status of the VPN gateway to determine the modification status of the policy-based routing entry:
+ *     - If the VPN gateway instance is in the **updating** state, the policy-based routing entry is being modified.
+ *     - If the VPN gateway instance is in the **active** state, the policy-based routing entry has been modified.
+ * - **ModifyVpnPbrRouteEntryPriority** does not support concurrent modifications of policy-based routing entries on the same VPN gateway instance.
  *
  * @param request ModifyVpnPbrRouteEntryPriorityRequest
  * @return ModifyVpnPbrRouteEntryPriorityResponse
@@ -29661,12 +29689,14 @@ ModifyVpnPbrRouteEntryPriorityResponse Client::modifyVpnPbrRouteEntryPriority(co
 }
 
 /**
- * @summary Modifies the weight of a policy-based route of a VPN gateway.
+ * @summary Modifies the weight of a VPN policy-based route.
  *
- * @description *   **ModifyVpnPbrRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
- *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
- *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
- * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryWeight** operation for the same VPN gateway within the specified period of time.
+ * @description > This operation applies only to VPN gateway instances that support IPsec-VPN connections in single-tunnel mode. For VPN gateway instances that support IPsec-VPN connections in dual-tunnel mode, the weight does not take effect even if this operation is called successfully.
+ * - If active/standby policy-based routing exists on a VPN gateway instance and you want to modify the weight of the active policy-based route, delete the standby policy-based route first, modify the active policy-based route, and then reconfigure the standby policy-based route. If you want to modify the weight of the standby policy-based route, delete the active policy-based route first, modify the standby policy-based route, and then reconfigure the active policy-based route. To delete a policy-based route, see [DeleteVpnPbrRouteEntry](https://help.aliyun.com/document_detail/2526956.html).
+ * - **ModifyVpnPbrRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the node in the background. You can invoke [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the instance status of the VPN gateway, to determine the modification status of the policy-based routing:
+ *     - If the VPN gateway instance is in the **updating** state, the policy-based routing is being modified.
+ *     - If the VPN gateway instance is in the **active** state, the policy-based routing is modified.
+ * - **ModifyVpnPbrRouteEntryWeight** does not support concurrent modifications of policy-based routing on the same VPN gateway instance.
  *
  * @param request ModifyVpnPbrRouteEntryWeightRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29749,12 +29779,14 @@ ModifyVpnPbrRouteEntryWeightResponse Client::modifyVpnPbrRouteEntryWeightWithOpt
 }
 
 /**
- * @summary Modifies the weight of a policy-based route of a VPN gateway.
+ * @summary Modifies the weight of a VPN policy-based route.
  *
- * @description *   **ModifyVpnPbrRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
- *     *   If a VPN gateway is in the **updating** state, the policy-based route entry is being modified.
- *     *   If a VPN gateway is in the **active** state, the policy-based route entry is modified.
- * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryWeight** operation for the same VPN gateway within the specified period of time.
+ * @description > This operation applies only to VPN gateway instances that support IPsec-VPN connections in single-tunnel mode. For VPN gateway instances that support IPsec-VPN connections in dual-tunnel mode, the weight does not take effect even if this operation is called successfully.
+ * - If active/standby policy-based routing exists on a VPN gateway instance and you want to modify the weight of the active policy-based route, delete the standby policy-based route first, modify the active policy-based route, and then reconfigure the standby policy-based route. If you want to modify the weight of the standby policy-based route, delete the active policy-based route first, modify the standby policy-based route, and then reconfigure the active policy-based route. To delete a policy-based route, see [DeleteVpnPbrRouteEntry](https://help.aliyun.com/document_detail/2526956.html).
+ * - **ModifyVpnPbrRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the node in the background. You can invoke [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the instance status of the VPN gateway, to determine the modification status of the policy-based routing:
+ *     - If the VPN gateway instance is in the **updating** state, the policy-based routing is being modified.
+ *     - If the VPN gateway instance is in the **active** state, the policy-based routing is modified.
+ * - **ModifyVpnPbrRouteEntryWeight** does not support concurrent modifications of policy-based routing on the same VPN gateway instance.
  *
  * @param request ModifyVpnPbrRouteEntryWeightRequest
  * @return ModifyVpnPbrRouteEntryWeightResponse
@@ -29765,13 +29797,14 @@ ModifyVpnPbrRouteEntryWeightResponse Client::modifyVpnPbrRouteEntryWeight(const 
 }
 
 /**
- * @summary Modifies the weight of a destination-based route.
+ * @summary Modifies the weight of a destination route by calling the ModifyVpnRouteEntryWeight operation.
  *
- * @description *   In scenarios where a VPN gateway has an active and a standby destination-based route, if you need to modify the weight of the active destination-based route, you must first delete the standby destination-based route. After you modify the active destination-based route, configure a standby destination-based route. If you need to modify the weight of the standby destination-based route, you also need to delete the active destination-based route first. After you modify the standby destination-based route, configure an active destination-based route. For more information about how to delete a destination-based route, see [DeleteVpnRouteEntry](https://help.aliyun.com/document_detail/2526961.html).
- * *   **ModifyVpnRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
- *     *   If the VPN gateway is in the **updating** state, the weight of the destination-based route is being modified.
- *     *   If the VPN gateway is in the **active** state, the weight of the destination-based route is modified.
- * *   You cannot repeatedly call the **ModifyVpnRouteEntryWeight** operation to modify the weight of destination-based route for the same VPN gateway within the specified period of time.
+ * @description > This operation is applicable only to VPN gateway instances that support IPsec-VPN connections in single-tunnel mode. For VPN gateway instances that support IPsec-VPN connections in dual-tunnel mode, the weight does not take effect even if you successfully modify it by calling this operation.
+ * - If active/standby destination routes exist on a VPN gateway instance and you want to modify the weight of the active destination route, delete the standby destination route first. After the active destination route is modified, reconfigure the standby destination route. If you want to modify the weight of the standby destination route, delete the active destination route first. After the standby destination route is modified, reconfigure the active destination route. To delete a destination route, see [DeleteVpnRouteEntry](https://help.aliyun.com/document_detail/2526961.html).
+ * - The **ModifyVpnRouteEntryWeight** operation is asynchronous. After a request is sent, the system returns a request ID. However, the weight of the VPN destination route is not yet modified, and the modification task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the modification status of the weight:
+ *     - If the VPN destination route is in the **updating** state, the weight is being modified.
+ *     - If the VPN destination route is in the **active** state, the weight is modified.
+ * - The **ModifyVpnRouteEntryWeight** operation does not support concurrent weight modifications for destination routes on the same VPN gateway.
  *
  * @param request ModifyVpnRouteEntryWeightRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29846,13 +29879,14 @@ ModifyVpnRouteEntryWeightResponse Client::modifyVpnRouteEntryWeightWithOptions(c
 }
 
 /**
- * @summary Modifies the weight of a destination-based route.
+ * @summary Modifies the weight of a destination route by calling the ModifyVpnRouteEntryWeight operation.
  *
- * @description *   In scenarios where a VPN gateway has an active and a standby destination-based route, if you need to modify the weight of the active destination-based route, you must first delete the standby destination-based route. After you modify the active destination-based route, configure a standby destination-based route. If you need to modify the weight of the standby destination-based route, you also need to delete the active destination-based route first. After you modify the standby destination-based route, configure an active destination-based route. For more information about how to delete a destination-based route, see [DeleteVpnRouteEntry](https://help.aliyun.com/document_detail/2526961.html).
- * *   **ModifyVpnRouteEntryWeight** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
- *     *   If the VPN gateway is in the **updating** state, the weight of the destination-based route is being modified.
- *     *   If the VPN gateway is in the **active** state, the weight of the destination-based route is modified.
- * *   You cannot repeatedly call the **ModifyVpnRouteEntryWeight** operation to modify the weight of destination-based route for the same VPN gateway within the specified period of time.
+ * @description > This operation is applicable only to VPN gateway instances that support IPsec-VPN connections in single-tunnel mode. For VPN gateway instances that support IPsec-VPN connections in dual-tunnel mode, the weight does not take effect even if you successfully modify it by calling this operation.
+ * - If active/standby destination routes exist on a VPN gateway instance and you want to modify the weight of the active destination route, delete the standby destination route first. After the active destination route is modified, reconfigure the standby destination route. If you want to modify the weight of the standby destination route, delete the active destination route first. After the standby destination route is modified, reconfigure the active destination route. To delete a destination route, see [DeleteVpnRouteEntry](https://help.aliyun.com/document_detail/2526961.html).
+ * - The **ModifyVpnRouteEntryWeight** operation is asynchronous. After a request is sent, the system returns a request ID. However, the weight of the VPN destination route is not yet modified, and the modification task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the modification status of the weight:
+ *     - If the VPN destination route is in the **updating** state, the weight is being modified.
+ *     - If the VPN destination route is in the **active** state, the weight is modified.
+ * - The **ModifyVpnRouteEntryWeight** operation does not support concurrent weight modifications for destination routes on the same VPN gateway.
  *
  * @param request ModifyVpnRouteEntryWeightRequest
  * @return ModifyVpnRouteEntryWeightResponse
@@ -29865,7 +29899,7 @@ ModifyVpnRouteEntryWeightResponse Client::modifyVpnRouteEntryWeight(const Modify
 /**
  * @summary Modifies the resource group to which a cloud resource belongs.
  *
- * @description The **ChangeResourceGroup** operation does not support concurrent modifications of the resource group for Express Connect circuit resources within the same Express Connect circuit instance.
+ * @description The **ChangeResourceGroup** operation does not support concurrent modifications to the resource group of Express Connect circuit resources within the same Express Connect circuit instance.
  *
  * @param request MoveResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29926,7 +29960,7 @@ MoveResourceGroupResponse Client::moveResourceGroupWithOptions(const MoveResourc
 /**
  * @summary Modifies the resource group to which a cloud resource belongs.
  *
- * @description The **ChangeResourceGroup** operation does not support concurrent modifications of the resource group for Express Connect circuit resources within the same Express Connect circuit instance.
+ * @description The **ChangeResourceGroup** operation does not support concurrent modifications to the resource group of Express Connect circuit resources within the same Express Connect circuit instance.
  *
  * @param request MoveResourceGroupRequest
  * @return MoveResourceGroupResponse
@@ -30007,10 +30041,10 @@ MoveVpnResourceGroupResponse Client::moveVpnResourceGroup(const MoveVpnResourceG
 }
 
 /**
- * @summary Enables the flow log feature.
+ * @summary Activates the flow log service.
  *
- * @description *   You cannot repeatedly call the **OpenFlowLogService** operation within the specified period of time by using an Alibaba Cloud account.
- * *   You can call the [GetFlowLogServiceStatus](https://help.aliyun.com/document_detail/449624.html) operation to query the status of the flow log feature.
+ * @description - The **OpenFlowLogService** operation does not support concurrent activation of the flow log service within the same Alibaba Cloud account.
+ * - You can call the [GetFlowLogServiceStatus](https://help.aliyun.com/document_detail/449624.html) operation to query the activation status of the flow log service.
  *
  * @param request OpenFlowLogServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30065,10 +30099,10 @@ OpenFlowLogServiceResponse Client::openFlowLogServiceWithOptions(const OpenFlowL
 }
 
 /**
- * @summary Enables the flow log feature.
+ * @summary Activates the flow log service.
  *
- * @description *   You cannot repeatedly call the **OpenFlowLogService** operation within the specified period of time by using an Alibaba Cloud account.
- * *   You can call the [GetFlowLogServiceStatus](https://help.aliyun.com/document_detail/449624.html) operation to query the status of the flow log feature.
+ * @description - The **OpenFlowLogService** operation does not support concurrent activation of the flow log service within the same Alibaba Cloud account.
+ * - You can call the [GetFlowLogServiceStatus](https://help.aliyun.com/document_detail/449624.html) operation to query the activation status of the flow log service.
  *
  * @param request OpenFlowLogServiceRequest
  * @return OpenFlowLogServiceResponse
@@ -30079,7 +30113,7 @@ OpenFlowLogServiceResponse Client::openFlowLogService(const OpenFlowLogServiceRe
 }
 
 /**
- * @summary Enables billing for outbound data transfer.
+ * @summary Calls the OpenPhysicalConnectionService operation to enable the outbound traffic service.
  *
  * @param request OpenPhysicalConnectionServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30126,7 +30160,7 @@ OpenPhysicalConnectionServiceResponse Client::openPhysicalConnectionServiceWithO
 }
 
 /**
- * @summary Enables billing for outbound data transfer.
+ * @summary Calls the OpenPhysicalConnectionService operation to enable the outbound traffic service.
  *
  * @param request OpenPhysicalConnectionServiceRequest
  * @return OpenPhysicalConnectionServiceResponse
@@ -30137,7 +30171,7 @@ OpenPhysicalConnectionServiceResponse Client::openPhysicalConnectionService(cons
 }
 
 /**
- * @summary Calls the OpenPublicIpAddressPoolService operation to activate the IP address pool feature.
+ * @summary Activates the IP address pool feature by calling the OpenPublicIpAddressPoolService operation.
  *
  * @description - The **OpenPublicIpAddressPoolService** operation does not support concurrent activation of the IP address pool feature within the same Alibaba Cloud account.
  * - You can call the GetPublicIpAddressPoolServiceStatu operation to query the activation status of the IP address pool feature.
@@ -30195,7 +30229,7 @@ OpenPublicIpAddressPoolServiceResponse Client::openPublicIpAddressPoolServiceWit
 }
 
 /**
- * @summary Calls the OpenPublicIpAddressPoolService operation to activate the IP address pool feature.
+ * @summary Activates the IP address pool feature by calling the OpenPublicIpAddressPoolService operation.
  *
  * @description - The **OpenPublicIpAddressPoolService** operation does not support concurrent activation of the IP address pool feature within the same Alibaba Cloud account.
  * - You can call the GetPublicIpAddressPoolServiceStatu operation to query the activation status of the IP address pool feature.
@@ -30209,9 +30243,9 @@ OpenPublicIpAddressPoolServiceResponse Client::openPublicIpAddressPoolService(co
 }
 
 /**
- * @summary Enables traffic mirror.
+ * @summary Activates the traffic mirroring feature.
  *
- * @description 流量镜像功能是按照地域粒度开通，**OpenTrafficMirrorService**接口不支持在同一个地域内并发开通流量镜像功能。
+ * @description The traffic mirroring feature is activated on a per-region basis. The OpenTrafficMirrorService operation does not support concurrent activation of the traffic mirroring feature within the same region.
  *
  * @param request OpenTrafficMirrorServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30266,9 +30300,9 @@ OpenTrafficMirrorServiceResponse Client::openTrafficMirrorServiceWithOptions(con
 }
 
 /**
- * @summary Enables traffic mirror.
+ * @summary Activates the traffic mirroring feature.
  *
- * @description 流量镜像功能是按照地域粒度开通，**OpenTrafficMirrorService**接口不支持在同一个地域内并发开通流量镜像功能。
+ * @description The traffic mirroring feature is activated on a per-region basis. The OpenTrafficMirrorService operation does not support concurrent activation of the traffic mirroring feature within the same region.
  *
  * @param request OpenTrafficMirrorServiceRequest
  * @return OpenTrafficMirrorServiceResponse
@@ -30279,7 +30313,7 @@ OpenTrafficMirrorServiceResponse Client::openTrafficMirrorService(const OpenTraf
 }
 
 /**
- * @summary Publish VPC Routes
+ * @summary Publishes VPC routes to external components.
  *
  * @param request PublishVpcRouteEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30346,7 +30380,7 @@ PublishVpcRouteEntriesResponse Client::publishVpcRouteEntriesWithOptions(const P
 }
 
 /**
- * @summary Publish VPC Routes
+ * @summary Publishes VPC routes to external components.
  *
  * @param request PublishVpcRouteEntriesRequest
  * @return PublishVpcRouteEntriesResponse
@@ -30357,7 +30391,7 @@ PublishVpcRouteEntriesResponse Client::publishVpcRouteEntries(const PublishVpcRo
 }
 
 /**
- * @summary Calls the PublishVpnRouteEntry operation to publish destination routes or policy routes to the system route table of a VPC, or withdraw published destination routes or policy routes from the VPC system route table.
+ * @summary Publishes a destination-based route or policy-based route to the system route table of a VPC, or withdraws a published destination-based route or policy-based route from the system route table of a VPC.
  *
  * @param request PublishVpnRouteEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30428,7 +30462,7 @@ PublishVpnRouteEntryResponse Client::publishVpnRouteEntryWithOptions(const Publi
 }
 
 /**
- * @summary Calls the PublishVpnRouteEntry operation to publish destination routes or policy routes to the system route table of a VPC, or withdraw published destination routes or policy routes from the VPC system route table.
+ * @summary Publishes a destination-based route or policy-based route to the system route table of a VPC, or withdraws a published destination-based route or policy-based route from the system route table of a VPC.
  *
  * @param request PublishVpnRouteEntryRequest
  * @return PublishVpnRouteEntryResponse
@@ -30439,10 +30473,10 @@ PublishVpnRouteEntryResponse Client::publishVpnRouteEntry(const PublishVpnRouteE
 }
 
 /**
- * @summary Recovers access to an Express Connect circuit by calling the RecoverPhysicalConnection operation.
+ * @summary Recovers the access of an Express Connect circuit by calling the RecoverPhysicalConnection operation.
  *
- * @description ### Operation description
- * You can call the RecoverPhysicalConnection operation to recover access to an Express Connect circuit that has been terminated. Currently, only shared Express Connect circuits can be recovered.
+ * @description ### Usage notes
+ * You can call the RecoverPhysicalConnection operation to recover the access of an Express Connect circuit that has been terminated. Currently, only shared Express Connect circuits can be recovered.
  *
  * @param request RecoverPhysicalConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30485,10 +30519,10 @@ RecoverPhysicalConnectionResponse Client::recoverPhysicalConnectionWithOptions(c
 }
 
 /**
- * @summary Recovers access to an Express Connect circuit by calling the RecoverPhysicalConnection operation.
+ * @summary Recovers the access of an Express Connect circuit by calling the RecoverPhysicalConnection operation.
  *
- * @description ### Operation description
- * You can call the RecoverPhysicalConnection operation to recover access to an Express Connect circuit that has been terminated. Currently, only shared Express Connect circuits can be recovered.
+ * @description ### Usage notes
+ * You can call the RecoverPhysicalConnection operation to recover the access of an Express Connect circuit that has been terminated. Currently, only shared Express Connect circuits can be recovered.
  *
  * @param request RecoverPhysicalConnectionRequest
  * @return RecoverPhysicalConnectionResponse
@@ -30499,12 +30533,13 @@ RecoverPhysicalConnectionResponse Client::recoverPhysicalConnection(const Recove
 }
 
 /**
- * @summary Enables a disabled virtual border router (VBR).
+ * @summary Recovers a Virtual Border Router (VBR) instance that has been terminated.
  *
- * @description After you call this operation, the VBR changes from the **terminated** state to the **recovering** state. After the operation is performed, the VBR enters the **active** state.
- * When you call this operation, take note of the following items:
- * *   Only the owner of the Express Connect circuit can call this operation.
- * *   The Express Connect circuit to which the VBR connects must be in the **Enabled** state.
+ * @description After you call this operation, the VBR changes from the **terminated** state to the **recovering** state. After the VBR is recovered, it enters the **active** state.
+ * Before you call this operation to recover a VBR, take note of the following items: 
+ *       
+ * - Only the owner of the Express Connect circuit can call this operation.  
+ * - The Express Connect circuit to which the VBR belongs must be in the **Enabled** state.
  *
  * @param request RecoverVirtualBorderRouterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30559,12 +30594,13 @@ RecoverVirtualBorderRouterResponse Client::recoverVirtualBorderRouterWithOptions
 }
 
 /**
- * @summary Enables a disabled virtual border router (VBR).
+ * @summary Recovers a Virtual Border Router (VBR) instance that has been terminated.
  *
- * @description After you call this operation, the VBR changes from the **terminated** state to the **recovering** state. After the operation is performed, the VBR enters the **active** state.
- * When you call this operation, take note of the following items:
- * *   Only the owner of the Express Connect circuit can call this operation.
- * *   The Express Connect circuit to which the VBR connects must be in the **Enabled** state.
+ * @description After you call this operation, the VBR changes from the **terminated** state to the **recovering** state. After the VBR is recovered, it enters the **active** state.
+ * Before you call this operation to recover a VBR, take note of the following items: 
+ *       
+ * - Only the owner of the Express Connect circuit can call this operation.  
+ * - The Express Connect circuit to which the VBR belongs must be in the **Enabled** state.
  *
  * @param request RecoverVirtualBorderRouterRequest
  * @return RecoverVirtualBorderRouterResponse
@@ -30575,16 +30611,16 @@ RecoverVirtualBorderRouterResponse Client::recoverVirtualBorderRouter(const Reco
 }
 
 /**
- * @summary Releases an elastic IP address (EIP).
+ * @summary Releases a specified Elastic IP Address (EIP).
  *
- * @description Before you call this operation, take note of the following items:
- * *   Before you release an EIP, make sure that the EIP meets the following requirements:
- *     *   You can release only an EIP that is in the **Available** state.
- *     *   You can release only a pay-as-you-go EIP. You cannot release a subscription EIP.
- * *   **ReleaseEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task:
- *     *   If the EIP is in the **Releasing** state, the EIP is being released. In this state, you can only query the EIP and cannot perform other operations.
- *     *   If you cannot query the EIP, the EIP is released.
- * *   You cannot repeatedly call the **ReleaseEipAddress** operation to release an EIP within the specified period of time.
+ * @description Before you invoke this operation, take note of the following items:
+ * - Before releasing an EIP, make sure the following conditions are met:
+ *     - Only EIPs in the **Available** state can be released.
+ *     - Only EIPs that use the pay-as-you-go billing method can be released. Subscription EIPs cannot be released.
+ * - The **ReleaseEipAddress** operation is asynchronous. After you send a request, the system returns a request ID, but the EIP instance has not been released yet. The release node is still running in the background. You can invoke [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) to query the status of the EIP instance:
+ *     - If the EIP instance is in the **Releasing** state, the EIP instance is being released. In this state, you can only execute query operations.
+ *     - If the EIP instance cannot be found, the EIP instance has been released.
+ * - The **ReleaseEipAddress** operation does not support concurrent release of the same EIP instance.
  *
  * @param request ReleaseEipAddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30635,16 +30671,16 @@ ReleaseEipAddressResponse Client::releaseEipAddressWithOptions(const ReleaseEipA
 }
 
 /**
- * @summary Releases an elastic IP address (EIP).
+ * @summary Releases a specified Elastic IP Address (EIP).
  *
- * @description Before you call this operation, take note of the following items:
- * *   Before you release an EIP, make sure that the EIP meets the following requirements:
- *     *   You can release only an EIP that is in the **Available** state.
- *     *   You can release only a pay-as-you-go EIP. You cannot release a subscription EIP.
- * *   **ReleaseEipAddress** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) operation to query the status of the task:
- *     *   If the EIP is in the **Releasing** state, the EIP is being released. In this state, you can only query the EIP and cannot perform other operations.
- *     *   If you cannot query the EIP, the EIP is released.
- * *   You cannot repeatedly call the **ReleaseEipAddress** operation to release an EIP within the specified period of time.
+ * @description Before you invoke this operation, take note of the following items:
+ * - Before releasing an EIP, make sure the following conditions are met:
+ *     - Only EIPs in the **Available** state can be released.
+ *     - Only EIPs that use the pay-as-you-go billing method can be released. Subscription EIPs cannot be released.
+ * - The **ReleaseEipAddress** operation is asynchronous. After you send a request, the system returns a request ID, but the EIP instance has not been released yet. The release node is still running in the background. You can invoke [DescribeEipAddresses](https://help.aliyun.com/document_detail/120193.html) to query the status of the EIP instance:
+ *     - If the EIP instance is in the **Releasing** state, the EIP instance is being released. In this state, you can only execute query operations.
+ *     - If the EIP instance cannot be found, the EIP instance has been released.
+ * - The **ReleaseEipAddress** operation does not support concurrent release of the same EIP instance.
  *
  * @param request ReleaseEipAddressRequest
  * @return ReleaseEipAddressResponse
@@ -30655,15 +30691,15 @@ ReleaseEipAddressResponse Client::releaseEipAddress(const ReleaseEipAddressReque
 }
 
 /**
- * @summary Releases a contiguous Elastic IP Address (EIP) group by calling ReleaseEipSegmentAddress.
+ * @summary Releases contiguous elastic IP addresses (EIPs) by calling ReleaseEipSegmentAddress.
  *
  * @description - The **ReleaseEipSegmentAddress** operation releases all EIPs in a contiguous EIP group.
  * - Before you call **ReleaseEipSegmentAddress**, make sure that:
  *      - All EIPs in the contiguous EIP group are in the unassociated state. To disassociate an EIP from a cloud resource, call [UnassociateEipAddress](https://help.aliyun.com/document_detail/2518066.html).
- *      - All EIPs in the contiguous EIP group are not added to an Internet Shared Bandwidth instance. To remove an EIP from an Internet Shared Bandwidth instance, call [RemoveCommonBandwidthPackageIp](https://help.aliyun.com/document_detail/2518602.html).
- * -  **ReleaseEipSegmentAddress** is an asynchronous operation. After you send a request, the system returns a request ID, but the contiguous EIP group is not yet released. The release task continues to run in the background. You can call [DescribeEipSegment](https://help.aliyun.com/document_detail/156063.html) to query the status of the contiguous EIP group: 
- *     - If the contiguous EIP group is in the **Releasing** state, the EIPs are being released. In this state, you can only perform query operations.
- *     - If the contiguous EIP group cannot be found, the EIPs have been released.
+ *      - No EIPs in the contiguous EIP group are added to an Internet Shared Bandwidth instance. To remove an EIP from an Internet Shared Bandwidth instance, call [RemoveCommonBandwidthPackageIp](https://help.aliyun.com/document_detail/2518602.html).
+ * -  **ReleaseEipSegmentAddress** is an asynchronous operation. After you call this operation, the system returns a request ID, but the contiguous EIPs are not yet released. The release task continues to run in the background. You can call [DescribeEipSegment](https://help.aliyun.com/document_detail/156063.html) to query the status of the contiguous EIP group: 
+ *     - If the contiguous EIP group is in the **Releasing** state, the contiguous EIPs are being released. In this state, you can only perform query operations.
+ *     - If the contiguous EIP group cannot be found, the contiguous EIPs are released.
  * - **ReleaseEipSegmentAddress** does not support concurrent release of the same contiguous EIP group.
  *
  * @param request ReleaseEipSegmentAddressRequest
@@ -30719,15 +30755,15 @@ ReleaseEipSegmentAddressResponse Client::releaseEipSegmentAddressWithOptions(con
 }
 
 /**
- * @summary Releases a contiguous Elastic IP Address (EIP) group by calling ReleaseEipSegmentAddress.
+ * @summary Releases contiguous elastic IP addresses (EIPs) by calling ReleaseEipSegmentAddress.
  *
  * @description - The **ReleaseEipSegmentAddress** operation releases all EIPs in a contiguous EIP group.
  * - Before you call **ReleaseEipSegmentAddress**, make sure that:
  *      - All EIPs in the contiguous EIP group are in the unassociated state. To disassociate an EIP from a cloud resource, call [UnassociateEipAddress](https://help.aliyun.com/document_detail/2518066.html).
- *      - All EIPs in the contiguous EIP group are not added to an Internet Shared Bandwidth instance. To remove an EIP from an Internet Shared Bandwidth instance, call [RemoveCommonBandwidthPackageIp](https://help.aliyun.com/document_detail/2518602.html).
- * -  **ReleaseEipSegmentAddress** is an asynchronous operation. After you send a request, the system returns a request ID, but the contiguous EIP group is not yet released. The release task continues to run in the background. You can call [DescribeEipSegment](https://help.aliyun.com/document_detail/156063.html) to query the status of the contiguous EIP group: 
- *     - If the contiguous EIP group is in the **Releasing** state, the EIPs are being released. In this state, you can only perform query operations.
- *     - If the contiguous EIP group cannot be found, the EIPs have been released.
+ *      - No EIPs in the contiguous EIP group are added to an Internet Shared Bandwidth instance. To remove an EIP from an Internet Shared Bandwidth instance, call [RemoveCommonBandwidthPackageIp](https://help.aliyun.com/document_detail/2518602.html).
+ * -  **ReleaseEipSegmentAddress** is an asynchronous operation. After you call this operation, the system returns a request ID, but the contiguous EIPs are not yet released. The release task continues to run in the background. You can call [DescribeEipSegment](https://help.aliyun.com/document_detail/156063.html) to query the status of the contiguous EIP group: 
+ *     - If the contiguous EIP group is in the **Releasing** state, the contiguous EIPs are being released. In this state, you can only perform query operations.
+ *     - If the contiguous EIP group cannot be found, the contiguous EIPs are released.
  * - **ReleaseEipSegmentAddress** does not support concurrent release of the same contiguous EIP group.
  *
  * @param request ReleaseEipSegmentAddressRequest
@@ -30739,7 +30775,7 @@ ReleaseEipSegmentAddressResponse Client::releaseEipSegmentAddress(const ReleaseE
 }
 
 /**
- * @summary Releases an idle IPv6 address.
+ * @summary Releases an IPv6 address that is not associated with an instance.
  *
  * @param request ReleaseIpv6AddressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30802,7 +30838,7 @@ ReleaseIpv6AddressResponse Client::releaseIpv6AddressWithOptions(const ReleaseIp
 }
 
 /**
- * @summary Releases an idle IPv6 address.
+ * @summary Releases an IPv6 address that is not associated with an instance.
  *
  * @param request ReleaseIpv6AddressRequest
  * @return ReleaseIpv6AddressResponse
@@ -30813,7 +30849,7 @@ ReleaseIpv6AddressResponse Client::releaseIpv6Address(const ReleaseIpv6AddressRe
 }
 
 /**
- * @summary Disassociates an EIP from an Internet Shared Bandwidth instance.
+ * @summary Removes an elastic IP address (EIP) from an Internet Shared Bandwidth instance.
  *
  * @param request RemoveCommonBandwidthPackageIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30876,7 +30912,7 @@ RemoveCommonBandwidthPackageIpResponse Client::removeCommonBandwidthPackageIpWit
 }
 
 /**
- * @summary Disassociates an EIP from an Internet Shared Bandwidth instance.
+ * @summary Removes an elastic IP address (EIP) from an Internet Shared Bandwidth instance.
  *
  * @param request RemoveCommonBandwidthPackageIpRequest
  * @return RemoveCommonBandwidthPackageIpResponse
@@ -30887,7 +30923,7 @@ RemoveCommonBandwidthPackageIpResponse Client::removeCommonBandwidthPackageIp(co
 }
 
 /**
- * @summary Invoke the RemoveGlobalAccelerationInstanceIp API to remove an elastic IP address (EIP) from a bandwidth-sharing instance.
+ * @summary Removes an EIP from an Internet Shared Bandwidth instance.
  *
  * @param request RemoveGlobalAccelerationInstanceIpRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30942,7 +30978,7 @@ RemoveGlobalAccelerationInstanceIpResponse Client::removeGlobalAccelerationInsta
 }
 
 /**
- * @summary Invoke the RemoveGlobalAccelerationInstanceIp API to remove an elastic IP address (EIP) from a bandwidth-sharing instance.
+ * @summary Removes an EIP from an Internet Shared Bandwidth instance.
  *
  * @param request RemoveGlobalAccelerationInstanceIpRequest
  * @return RemoveGlobalAccelerationInstanceIpResponse
@@ -30953,7 +30989,7 @@ RemoveGlobalAccelerationInstanceIpResponse Client::removeGlobalAccelerationInsta
 }
 
 /**
- * @summary Deletes an IP entry from an ACL.
+ * @summary Deletes an IP entry from an access control policy group.
  *
  * @param request RemoveIPv6TranslatorAclListEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31012,7 +31048,7 @@ RemoveIPv6TranslatorAclListEntryResponse Client::removeIPv6TranslatorAclListEntr
 }
 
 /**
- * @summary Deletes an IP entry from an ACL.
+ * @summary Deletes an IP entry from an access control policy group.
  *
  * @param request RemoveIPv6TranslatorAclListEntryRequest
  * @return RemoveIPv6TranslatorAclListEntryResponse
@@ -31023,12 +31059,12 @@ RemoveIPv6TranslatorAclListEntryResponse Client::removeIPv6TranslatorAclListEntr
 }
 
 /**
- * @summary Deletes a traffic mirror source from a traffic mirror session.
+ * @summary Removes traffic mirror sources from a traffic mirror session.
  *
- * @description - **RemoveSourcesFromTrafficMirrorSession**接口属于异步接口，即系统返回一个请求ID，但该镜像源尚未删除成功，系统后台的删除任务仍在进行。您可以调用[ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html)查询镜像会话的状态：
- *     - 当镜像会话处于**Modifying**状态时，表示镜像源正在删除中。
- *     - 当镜像会话处于**Created**状态时，表示镜像源删除成功。
- * - **RemoveSourcesFromTrafficMirrorSession**接口不支持并发删除同一个镜像会话中的镜像源。
+ * @description - **RemoveSourcesFromTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID, but the traffic mirror sources have not been removed yet. The removal task is still running in the background. You can call [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) to query the status of the traffic mirror session:
+ *     - If the traffic mirror session is in the **Modifying** state, the traffic mirror sources are being removed.
+ *     - If the traffic mirror session is in the **Created** state, the traffic mirror sources have been removed.
+ * - **RemoveSourcesFromTrafficMirrorSession** does not support concurrent removal of traffic mirror sources from the same traffic mirror session.
  *
  * @param request RemoveSourcesFromTrafficMirrorSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31091,12 +31127,12 @@ RemoveSourcesFromTrafficMirrorSessionResponse Client::removeSourcesFromTrafficMi
 }
 
 /**
- * @summary Deletes a traffic mirror source from a traffic mirror session.
+ * @summary Removes traffic mirror sources from a traffic mirror session.
  *
- * @description - **RemoveSourcesFromTrafficMirrorSession**接口属于异步接口，即系统返回一个请求ID，但该镜像源尚未删除成功，系统后台的删除任务仍在进行。您可以调用[ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html)查询镜像会话的状态：
- *     - 当镜像会话处于**Modifying**状态时，表示镜像源正在删除中。
- *     - 当镜像会话处于**Created**状态时，表示镜像源删除成功。
- * - **RemoveSourcesFromTrafficMirrorSession**接口不支持并发删除同一个镜像会话中的镜像源。
+ * @description - **RemoveSourcesFromTrafficMirrorSession** is an asynchronous operation. After a request is sent, the system returns a request ID, but the traffic mirror sources have not been removed yet. The removal task is still running in the background. You can call [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) to query the status of the traffic mirror session:
+ *     - If the traffic mirror session is in the **Modifying** state, the traffic mirror sources are being removed.
+ *     - If the traffic mirror session is in the **Created** state, the traffic mirror sources have been removed.
+ * - **RemoveSourcesFromTrafficMirrorSession** does not support concurrent removal of traffic mirror sources from the same traffic mirror session.
  *
  * @param request RemoveSourcesFromTrafficMirrorSessionRequest
  * @return RemoveSourcesFromTrafficMirrorSessionResponse
@@ -31107,12 +31143,12 @@ RemoveSourcesFromTrafficMirrorSessionResponse Client::removeSourcesFromTrafficMi
 }
 
 /**
- * @summary Replaces the DHCP options set that is associated with a virtual private cloud (VPC).
+ * @summary Calls the ReplaceVpcDhcpOptionsSet operation to change the DHCP options set associated with a VPC.
  *
- * @description *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
- *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being replaced.
- *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is replaced.
- * *   You cannot repeatedly call the **ReplaceVpcDhcpOptionsSet** operation to replace the DHCP options set associated with a VPC within the specified period of time.
+ * @description - **ReplaceVpcDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID. However, the DHCP options set has not been changed yet because the change task is still running in the background. You can call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) to query the change status of the DHCP options set:
+ *     - If the DHCP options set is in the **Pending** state, the DHCP options set is being changed.
+ *     - If the DHCP options set is in the **InUse** state, the DHCP options set has been changed.
+ * - **ReplaceVpcDhcpOptionsSet** does not support concurrent changes to the DHCP options set associated with the same VPC.
  *
  * @param request ReplaceVpcDhcpOptionsSetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31175,12 +31211,12 @@ ReplaceVpcDhcpOptionsSetResponse Client::replaceVpcDhcpOptionsSetWithOptions(con
 }
 
 /**
- * @summary Replaces the DHCP options set that is associated with a virtual private cloud (VPC).
+ * @summary Calls the ReplaceVpcDhcpOptionsSet operation to change the DHCP options set associated with a VPC.
  *
- * @description *   The **ReplaceVpcDhcpOptionsSet** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
- *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being replaced.
- *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is replaced.
- * *   You cannot repeatedly call the **ReplaceVpcDhcpOptionsSet** operation to replace the DHCP options set associated with a VPC within the specified period of time.
+ * @description - **ReplaceVpcDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID. However, the DHCP options set has not been changed yet because the change task is still running in the background. You can call [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) to query the change status of the DHCP options set:
+ *     - If the DHCP options set is in the **Pending** state, the DHCP options set is being changed.
+ *     - If the DHCP options set is in the **InUse** state, the DHCP options set has been changed.
+ * - **ReplaceVpcDhcpOptionsSet** does not support concurrent changes to the DHCP options set associated with the same VPC.
  *
  * @param request ReplaceVpcDhcpOptionsSetRequest
  * @return ReplaceVpcDhcpOptionsSetResponse
@@ -31191,14 +31227,16 @@ ReplaceVpcDhcpOptionsSetResponse Client::replaceVpcDhcpOptionsSet(const ReplaceV
 }
 
 /**
- * @summary Re-applies a prefix list.
+ * @summary Retries the delivery of the latest prefix list by calling the RetryVpcPrefixListAssociation operation.
  *
- * @description *   If you modify the information about a prefix list but the modification is not automatically applied to the route table that is associated with the prefix list, you can call this operation to apply the latest prefix list to the associated route table.
- * *   The **RetryVpcPrefixListAssociation** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetVpcPrefixListAssociations](https://help.aliyun.com/document_detail/445478.html) to check whether the prefix list is re-applied.
- *     *   If the prefix list is in the **Modifying** state, the prefix list is being re-applied.
- *     *   If the prefix list is in the **ModifyFailed** state, the prefix list fails to be re-applied.
- *     *   If the prefix list is in the **Created** state, the prefix list is re-applied.
- * *   After you call the **RetryVpcPrefixListAssociation** operation to re-apply a prefix list, you cannot call the operation again until the current task is complete.
+ * @description - After you modify the information of a prefix list instance, if the route table associated with the prefix list instance does not automatically update the prefix list instance information, you can call this operation to redeliver the latest prefix list instance to the associated route table.
+ * - The **RetryVpcPrefixListAssociation** operation is asynchronous. After you send a request, the system returns a request ID, but the latest prefix list instance has not been redelivered yet. The redelivery task is still running in the background. You can call [GetVpcPrefixListAssociations](https://help.aliyun.com/document_detail/445478.html) to query the latest delivery status of the prefix list instance:
+ *     - If the delivery status is **Modifying**, the latest prefix list instance is being redelivered.
+ *     - If the delivery status is **ModifyFailed**, the latest prefix list instance failed to be redelivered.
+ *     - If the delivery status is **Created**, the latest prefix list instance is redelivered.
+ * - The **RetryVpcPrefixListAssociation** operation does not support concurrent retry delivery of the latest prefix list instance for the same prefix list.
+ * ## Scenarios
+ * When you modify a prefix list instance, the modification succeeds as long as the CIDR blocks are valid, no conflicting CIDR blocks exist, and the maximum number of entries for the prefix list instance is not exceeded. However, the reference may fail due to issues on the referencing side, such as quota limits or a route conflict with existing routing entries. After you resolve the failed issue on the referencing side, invoke the **RetryVpcPrefixListAssociation** operation to redeliver the latest prefix list instance.
  *
  * @param request RetryVpcPrefixListAssociationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31265,14 +31303,16 @@ RetryVpcPrefixListAssociationResponse Client::retryVpcPrefixListAssociationWithO
 }
 
 /**
- * @summary Re-applies a prefix list.
+ * @summary Retries the delivery of the latest prefix list by calling the RetryVpcPrefixListAssociation operation.
  *
- * @description *   If you modify the information about a prefix list but the modification is not automatically applied to the route table that is associated with the prefix list, you can call this operation to apply the latest prefix list to the associated route table.
- * *   The **RetryVpcPrefixListAssociation** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetVpcPrefixListAssociations](https://help.aliyun.com/document_detail/445478.html) to check whether the prefix list is re-applied.
- *     *   If the prefix list is in the **Modifying** state, the prefix list is being re-applied.
- *     *   If the prefix list is in the **ModifyFailed** state, the prefix list fails to be re-applied.
- *     *   If the prefix list is in the **Created** state, the prefix list is re-applied.
- * *   After you call the **RetryVpcPrefixListAssociation** operation to re-apply a prefix list, you cannot call the operation again until the current task is complete.
+ * @description - After you modify the information of a prefix list instance, if the route table associated with the prefix list instance does not automatically update the prefix list instance information, you can call this operation to redeliver the latest prefix list instance to the associated route table.
+ * - The **RetryVpcPrefixListAssociation** operation is asynchronous. After you send a request, the system returns a request ID, but the latest prefix list instance has not been redelivered yet. The redelivery task is still running in the background. You can call [GetVpcPrefixListAssociations](https://help.aliyun.com/document_detail/445478.html) to query the latest delivery status of the prefix list instance:
+ *     - If the delivery status is **Modifying**, the latest prefix list instance is being redelivered.
+ *     - If the delivery status is **ModifyFailed**, the latest prefix list instance failed to be redelivered.
+ *     - If the delivery status is **Created**, the latest prefix list instance is redelivered.
+ * - The **RetryVpcPrefixListAssociation** operation does not support concurrent retry delivery of the latest prefix list instance for the same prefix list.
+ * ## Scenarios
+ * When you modify a prefix list instance, the modification succeeds as long as the CIDR blocks are valid, no conflicting CIDR blocks exist, and the maximum number of entries for the prefix list instance is not exceeded. However, the reference may fail due to issues on the referencing side, such as quota limits or a route conflict with existing routing entries. After you resolve the failed issue on the referencing side, invoke the **RetryVpcPrefixListAssociation** operation to redeliver the latest prefix list instance.
  *
  * @param request RetryVpcPrefixListAssociationRequest
  * @return RetryVpcPrefixListAssociationResponse
@@ -31283,10 +31323,10 @@ RetryVpcPrefixListAssociationResponse Client::retryVpcPrefixListAssociation(cons
 }
 
 /**
- * @summary Revokes the permissions granted to a Cloud Enterprise Network (CEN) instance on a network instance.
+ * @summary Revokes the authorization of a network instance for a specified Cloud Enterprise Network (CEN) instance.
  *
- * @description - **RevokeInstanceFromCen**接口是VPC的API，所以调用该接口必须使用`vpc.aliyuncs.com`域名。API version为`2016-04-28`。
- * - **RevokeInstanceFromCen**接口不支持在同一个VPC、VBR或者CCN中并发撤销网络实例对指定云企业网实例的授权。
+ * @description - The **RevokeInstanceFromCen** operation is a VPC API operation. Therefore, you must use the `vpc.aliyuncs.com` endpoint to call this operation. The API version is `2016-04-28`.
+ * - The **RevokeInstanceFromCen** operation does not support concurrent revocation of authorization of a network instance for a specified CEN instance within the same VPC, VBR, or CCN.
  *
  * @param request RevokeInstanceFromCenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31353,10 +31393,10 @@ RevokeInstanceFromCenResponse Client::revokeInstanceFromCenWithOptions(const Rev
 }
 
 /**
- * @summary Revokes the permissions granted to a Cloud Enterprise Network (CEN) instance on a network instance.
+ * @summary Revokes the authorization of a network instance for a specified Cloud Enterprise Network (CEN) instance.
  *
- * @description - **RevokeInstanceFromCen**接口是VPC的API，所以调用该接口必须使用`vpc.aliyuncs.com`域名。API version为`2016-04-28`。
- * - **RevokeInstanceFromCen**接口不支持在同一个VPC、VBR或者CCN中并发撤销网络实例对指定云企业网实例的授权。
+ * @description - The **RevokeInstanceFromCen** operation is a VPC API operation. Therefore, you must use the `vpc.aliyuncs.com` endpoint to call this operation. The API version is `2016-04-28`.
+ * - The **RevokeInstanceFromCen** operation does not support concurrent revocation of authorization of a network instance for a specified CEN instance within the same VPC, VBR, or CCN.
  *
  * @param request RevokeInstanceFromCenRequest
  * @return RevokeInstanceFromCenResponse
@@ -31367,7 +31407,7 @@ RevokeInstanceFromCenResponse Client::revokeInstanceFromCen(const RevokeInstance
 }
 
 /**
- * @summary Revokes the permissions granted to a virtual border router (VBR) on a virtual private cloud (VPC).
+ * @summary Invokes the RevokeInstanceFromVbr operation to revoke the authorization of a VPC-connected instance on a VBR instance in a cross-account VBR uplink scenario.
  *
  * @param tmpReq RevokeInstanceFromVbrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31424,7 +31464,7 @@ RevokeInstanceFromVbrResponse Client::revokeInstanceFromVbrWithOptions(const Rev
 }
 
 /**
- * @summary Revokes the permissions granted to a virtual border router (VBR) on a virtual private cloud (VPC).
+ * @summary Invokes the RevokeInstanceFromVbr operation to revoke the authorization of a VPC-connected instance on a VBR instance in a cross-account VBR uplink scenario.
  *
  * @param request RevokeInstanceFromVbrRequest
  * @return RevokeInstanceFromVbrResponse
@@ -31435,7 +31475,7 @@ RevokeInstanceFromVbrResponse Client::revokeInstanceFromVbr(const RevokeInstance
 }
 
 /**
- * @summary If your application for a Letter of Authorization (LOA) by calling the ApplyPhysicalConnectionLOA operation is denied, you can call this operation to apply again.
+ * @summary Reapplies for a Letter of Authorization (LOA) if a previous LOA application submitted by calling the ApplyPhysicalConnectionLOA operation was rejected.
  *
  * @param request SecondApplyPhysicalConnectionLOARequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31518,7 +31558,7 @@ SecondApplyPhysicalConnectionLOAResponse Client::secondApplyPhysicalConnectionLO
 }
 
 /**
- * @summary If your application for a Letter of Authorization (LOA) by calling the ApplyPhysicalConnectionLOA operation is denied, you can call this operation to apply again.
+ * @summary Reapplies for a Letter of Authorization (LOA) if a previous LOA application submitted by calling the ApplyPhysicalConnectionLOA operation was rejected.
  *
  * @param request SecondApplyPhysicalConnectionLOARequest
  * @return SecondApplyPhysicalConnectionLOAResponse
@@ -31529,9 +31569,9 @@ SecondApplyPhysicalConnectionLOAResponse Client::secondApplyPhysicalConnectionLO
 }
 
 /**
- * @summary Configures fine-grained monitoring for an elastic IP address (EIP).
+ * @summary Configures high-definition second-level monitoring for an EIP.
  *
- * @description You cannot repeatedly call **SetHighDefinitionMonitorLogStatus** within a specific period of time.
+ * @description The **SetHighDefinitionMonitorLogStatus** operation does not support concurrent configuration of high-definition second-level monitoring for the same EIP instance.
  *
  * @param request SetHighDefinitionMonitorLogStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31598,9 +31638,9 @@ SetHighDefinitionMonitorLogStatusResponse Client::setHighDefinitionMonitorLogSta
 }
 
 /**
- * @summary Configures fine-grained monitoring for an elastic IP address (EIP).
+ * @summary Configures high-definition second-level monitoring for an EIP.
  *
- * @description You cannot repeatedly call **SetHighDefinitionMonitorLogStatus** within a specific period of time.
+ * @description The **SetHighDefinitionMonitorLogStatus** operation does not support concurrent configuration of high-definition second-level monitoring for the same EIP instance.
  *
  * @param request SetHighDefinitionMonitorLogStatusRequest
  * @return SetHighDefinitionMonitorLogStatusResponse
@@ -31611,9 +31651,9 @@ SetHighDefinitionMonitorLogStatusResponse Client::setHighDefinitionMonitorLogSta
 }
 
 /**
- * @summary Calls the StartFailoverTestJob operation to start an Express Connect failover test job.
+ * @summary Calls the StartFailoverTestJob operation to start an Express Connect disaster recovery drill task.
  *
- * @description You can start only failover test jobs that are in the **Pending** state.
+ * @description Only disaster recovery drill tasks in the **Pending** state can be started.
  *
  * @param request StartFailoverTestJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31668,9 +31708,9 @@ StartFailoverTestJobResponse Client::startFailoverTestJobWithOptions(const Start
 }
 
 /**
- * @summary Calls the StartFailoverTestJob operation to start an Express Connect failover test job.
+ * @summary Calls the StartFailoverTestJob operation to start an Express Connect disaster recovery drill task.
  *
- * @description You can start only failover test jobs that are in the **Pending** state.
+ * @description Only disaster recovery drill tasks in the **Pending** state can be started.
  *
  * @param request StartFailoverTestJobRequest
  * @return StartFailoverTestJobResponse
@@ -31681,9 +31721,9 @@ StartFailoverTestJobResponse Client::startFailoverTestJob(const StartFailoverTes
 }
 
 /**
- * @summary Terminates a failover test.
+ * @summary Calls the StopFailoverTestJob operation to stop an Express Connect failover test job.
  *
- * @description 只支持结束处于**演练中**状态的故障演练任务。
+ * @description Only failover test jobs in the **Testing** state can be stopped.
  *
  * @param request StopFailoverTestJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31738,9 +31778,9 @@ StopFailoverTestJobResponse Client::stopFailoverTestJobWithOptions(const StopFai
 }
 
 /**
- * @summary Terminates a failover test.
+ * @summary Calls the StopFailoverTestJob operation to stop an Express Connect failover test job.
  *
- * @description 只支持结束处于**演练中**状态的故障演练任务。
+ * @description Only failover test jobs in the **Testing** state can be stopped.
  *
  * @param request StopFailoverTestJobRequest
  * @return StopFailoverTestJobResponse
@@ -31751,9 +31791,9 @@ StopFailoverTestJobResponse Client::stopFailoverTestJob(const StopFailoverTestJo
 }
 
 /**
- * @summary Switch Active and Standby For RouteTargetGroup.
+ * @summary Performs an active/standby switchover for a route target group.
  *
- * @description Switch Active and Standby For RouteTargetGroup.
+ * @description Performs an active/standby switchover for a route target group.
  *
  * @param request SwitchActiveRouteTargetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31796,9 +31836,9 @@ SwitchActiveRouteTargetResponse Client::switchActiveRouteTargetWithOptions(const
 }
 
 /**
- * @summary Switch Active and Standby For RouteTargetGroup.
+ * @summary Performs an active/standby switchover for a route target group.
  *
- * @description Switch Active and Standby For RouteTargetGroup.
+ * @description Performs an active/standby switchover for a route target group.
  *
  * @param request SwitchActiveRouteTargetRequest
  * @return SwitchActiveRouteTargetResponse
@@ -31809,16 +31849,16 @@ SwitchActiveRouteTargetResponse Client::switchActiveRouteTarget(const SwitchActi
 }
 
 /**
- * @summary Creates and adds tags to resources.
+ * @summary Creates and binds tags to specified resources.
  *
- * @description Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following limits:
- * *   The keys of tags that are added to the same instance must be unique.
- * *   You cannot create tags without adding them to instances. All tags must be added to instances.
- * *   Tag information is not shared across regions.
- *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
- * *   Virtual private clouds (VPCs), route tables, vSwitches, and elastic IP addresses (EIPs) that belong to the same Alibaba Cloud account and are deployed in the same region share tag information with each other.
- *     For example, if you added a tag to a VPC, the tag is available to vSwitches, route tables, and EIPs that belong to the same account and are deployed in the same region in which the VPC is created. You can select this tag from the editing page without the need to enter the tag again. You can modify the key and the value of a tag or remove a tag from an instance. After you delete an instance, all tags that are added to the instance are deleted.
- * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
+ * @description Labels are marks that you allocate to instances. Each label consists of a key-value pair. The following rules apply to labels: 
+ * - Each label key must be unique on an instance.
+ * - Empty labels that are not attached to instances are not supported. Labels must be attached to instances.
+ * - Label information is not shared across regions. 
+ *     For example, labels created in the China (Hangzhou) region are not visible in the China (Shanghai) region.
+ * - Within the same account and region, label information is shared among virtual private clouds (VPCs), route tables, vSwitches, and elastic IP addresses (EIPs). 
+ *     For example, if a virtual private cloud (VPC) is attached with a label within the same account and region, you can directly select and attach that label to a vSwitch, route table, or EIP on the label editing page without manually entering the label key-value information. You can modify the key and value of a label, or delete labels from instances at any time. If you delete an instance, all labels attached to the instance are also deleted.
+ * - A maximum of 20 labels can be attached to a single instance. Before attaching labels, Alibaba Cloud verifies the number of existing labels on the resource. If the limit is exceeded, an error message is returned.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31877,16 +31917,16 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Creates and adds tags to resources.
+ * @summary Creates and binds tags to specified resources.
  *
- * @description Tags are used to classify instances. Each tag consists of a key-value pair. Before you use tags, take note of the following limits:
- * *   The keys of tags that are added to the same instance must be unique.
- * *   You cannot create tags without adding them to instances. All tags must be added to instances.
- * *   Tag information is not shared across regions.
- *     For example, you cannot view the tags that are created in the China (Hangzhou) region from the China (Shanghai) region.
- * *   Virtual private clouds (VPCs), route tables, vSwitches, and elastic IP addresses (EIPs) that belong to the same Alibaba Cloud account and are deployed in the same region share tag information with each other.
- *     For example, if you added a tag to a VPC, the tag is available to vSwitches, route tables, and EIPs that belong to the same account and are deployed in the same region in which the VPC is created. You can select this tag from the editing page without the need to enter the tag again. You can modify the key and the value of a tag or remove a tag from an instance. After you delete an instance, all tags that are added to the instance are deleted.
- * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
+ * @description Labels are marks that you allocate to instances. Each label consists of a key-value pair. The following rules apply to labels: 
+ * - Each label key must be unique on an instance.
+ * - Empty labels that are not attached to instances are not supported. Labels must be attached to instances.
+ * - Label information is not shared across regions. 
+ *     For example, labels created in the China (Hangzhou) region are not visible in the China (Shanghai) region.
+ * - Within the same account and region, label information is shared among virtual private clouds (VPCs), route tables, vSwitches, and elastic IP addresses (EIPs). 
+ *     For example, if a virtual private cloud (VPC) is attached with a label within the same account and region, you can directly select and attach that label to a vSwitch, route table, or EIP on the label editing page without manually entering the label key-value information. You can modify the key and value of a label, or delete labels from instances at any time. If you delete an instance, all labels attached to the instance are also deleted.
+ * - A maximum of 20 labels can be attached to a single instance. Before attaching labels, Alibaba Cloud verifies the number of existing labels on the resource. If the limit is exceeded, an error message is returned.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -31897,11 +31937,11 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Creates and binds tags to specified Express Connect circuit instances by calling the TagResourcesForExpressConnect operation.
+ * @summary Creates and binds tags to specified Express Connect circuit instances.
  *
  * @description Tags are labels that you assign to instances. Each tag consists of a key-value pair. Take note of the following items when you use tags: 
- * - The tag key of each tag on an instance must be unique.
- * - Tags cannot exist without being bound to an instance. Empty tags that are not bound to instances are not supported.
+ * - Each tag key (Key) must be unique on an instance.
+ * - Empty tags that are not bound to instances are not supported. A tag must be bound to an instance.
  * - Tag information is not shared across regions. 
  *     For example, tags created in the China (Hangzhou) region are not visible in the China (Shanghai) region.
  * - You can bind up to 20 tags to a single instance. Before binding tags, Alibaba Cloud checks the number of existing tags on the resource. If the limit is exceeded, an error message is returned.
@@ -31963,11 +32003,11 @@ TagResourcesForExpressConnectResponse Client::tagResourcesForExpressConnectWithO
 }
 
 /**
- * @summary Creates and binds tags to specified Express Connect circuit instances by calling the TagResourcesForExpressConnect operation.
+ * @summary Creates and binds tags to specified Express Connect circuit instances.
  *
  * @description Tags are labels that you assign to instances. Each tag consists of a key-value pair. Take note of the following items when you use tags: 
- * - The tag key of each tag on an instance must be unique.
- * - Tags cannot exist without being bound to an instance. Empty tags that are not bound to instances are not supported.
+ * - Each tag key (Key) must be unique on an instance.
+ * - Empty tags that are not bound to instances are not supported. A tag must be bound to an instance.
  * - Tag information is not shared across regions. 
  *     For example, tags created in the China (Hangzhou) region are not visible in the China (Shanghai) region.
  * - You can bind up to 20 tags to a single instance. Before binding tags, Alibaba Cloud checks the number of existing tags on the resource. If the limit is exceeded, an error message is returned.
@@ -31981,11 +32021,12 @@ TagResourcesForExpressConnectResponse Client::tagResourcesForExpressConnect(cons
 }
 
 /**
- * @summary Disables an Express Connect circuit after it is enabled.
+ * @summary Terminates access to an Express Connect circuit after the circuit is enabled.
  *
- * @description After you call this operation, the specified Express Connect circuit changes to the **Terminating** state. After the Express Connect circuit is disabled, it changes to the **Terminated** state. When you call this operation, take note of the following limits:
- * *   You can only disable an Express Connect circuit that is in the **Enabled** state.
- * *   Before you disable an Express Connect circuit, you must delete the virtual border routers (VBRs) associated with it.
+ * @description After you call the TerminatePhysicalConnection operation, the Express Connect circuit enters the **Terminating** state. After the operation is complete, the circuit enters the **Terminated** state.
+ * When you call this operation to terminate an Express Connect circuit, note the following items:
+ * - You can terminate only an Express Connect circuit that is in the **Enabled** state.
+ * - Before you terminate an Express Connect circuit, you must delete the VBR associated with it.
  *
  * @param request TerminatePhysicalConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32040,11 +32081,12 @@ TerminatePhysicalConnectionResponse Client::terminatePhysicalConnectionWithOptio
 }
 
 /**
- * @summary Disables an Express Connect circuit after it is enabled.
+ * @summary Terminates access to an Express Connect circuit after the circuit is enabled.
  *
- * @description After you call this operation, the specified Express Connect circuit changes to the **Terminating** state. After the Express Connect circuit is disabled, it changes to the **Terminated** state. When you call this operation, take note of the following limits:
- * *   You can only disable an Express Connect circuit that is in the **Enabled** state.
- * *   Before you disable an Express Connect circuit, you must delete the virtual border routers (VBRs) associated with it.
+ * @description After you call the TerminatePhysicalConnection operation, the Express Connect circuit enters the **Terminating** state. After the operation is complete, the circuit enters the **Terminated** state.
+ * When you call this operation to terminate an Express Connect circuit, note the following items:
+ * - You can terminate only an Express Connect circuit that is in the **Enabled** state.
+ * - Before you terminate an Express Connect circuit, you must delete the VBR associated with it.
  *
  * @param request TerminatePhysicalConnectionRequest
  * @return TerminatePhysicalConnectionResponse
@@ -32055,10 +32097,10 @@ TerminatePhysicalConnectionResponse Client::terminatePhysicalConnection(const Te
 }
 
 /**
- * @summary Terminates a virtual border router (VBR).
+ * @summary Terminates a Virtual Border Router (VBR).
  *
- * @description After you call this operation, the VBR enters the **terminating** state from the **active** state. After the VBR is terminated, the VBR enters the **terminated** state.
- * >  Only the owner of an Express Connect circuit can call this operation.
+ * @description After you call this operation, the VBR changes from the **active** state to the **terminating** state. After the VBR is terminated, it enters the **terminated** state. 
+ * > Only the owner of the Express Connect circuit can call this operation.
  *
  * @param request TerminateVirtualBorderRouterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32113,10 +32155,10 @@ TerminateVirtualBorderRouterResponse Client::terminateVirtualBorderRouterWithOpt
 }
 
 /**
- * @summary Terminates a virtual border router (VBR).
+ * @summary Terminates a Virtual Border Router (VBR).
  *
- * @description After you call this operation, the VBR enters the **terminating** state from the **active** state. After the VBR is terminated, the VBR enters the **terminated** state.
- * >  Only the owner of an Express Connect circuit can call this operation.
+ * @description After you call this operation, the VBR changes from the **active** state to the **terminating** state. After the VBR is terminated, it enters the **terminated** state. 
+ * > Only the owner of the Express Connect circuit can call this operation.
  *
  * @param request TerminateVirtualBorderRouterRequest
  * @return TerminateVirtualBorderRouterResponse
@@ -32189,7 +32231,7 @@ TransformEipSegmentToPublicIpAddressPoolResponse Client::transformEipSegmentToPu
 }
 
 /**
- * @summary Removes tags from resources.
+ * @summary Unbinds tags from a specified list of resources.
  *
  * @param request UnTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32252,7 +32294,7 @@ UnTagResourcesResponse Client::unTagResourcesWithOptions(const UnTagResourcesReq
 }
 
 /**
- * @summary Removes tags from resources.
+ * @summary Unbinds tags from a specified list of resources.
  *
  * @param request UnTagResourcesRequest
  * @return UnTagResourcesResponse
@@ -32355,7 +32397,7 @@ UnassociateEipAddressResponse Client::unassociateEipAddress(const UnassociateEip
 }
 
 /**
- * @summary Disassociates a Global Accelerator (GA) instance from a backend server.
+ * @summary Invokes the UnassociateGlobalAccelerationInstance operation to disassociate a backend service instance from an Alibaba Cloud Global Accelerator (GA) instance.
  *
  * @param request UnassociateGlobalAccelerationInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32410,7 +32452,7 @@ UnassociateGlobalAccelerationInstanceResponse Client::unassociateGlobalAccelerat
 }
 
 /**
- * @summary Disassociates a Global Accelerator (GA) instance from a backend server.
+ * @summary Invokes the UnassociateGlobalAccelerationInstance operation to disassociate a backend service instance from an Alibaba Cloud Global Accelerator (GA) instance.
  *
  * @param request UnassociateGlobalAccelerationInstanceRequest
  * @return UnassociateGlobalAccelerationInstanceResponse
@@ -32421,15 +32463,15 @@ UnassociateGlobalAccelerationInstanceResponse Client::unassociateGlobalAccelerat
 }
 
 /**
- * @summary Disassociates a high-availability virtual IP address (HaVip) from an Elastic Compute Service (ECS) in a virtual private cloud (VPC) or from an elastic network interface (ENI).
+ * @summary Invokes the UnassociateHaVip operation to disassociate a high-availability virtual IP address (HaVip) from an ECS instance or network interface controller (NIC) in a virtual private cloud (VPC).
  *
- * @description 在调用本接口将HaVip与专有网络ECS实例或弹性网卡解绑时，请注意： 
- * - 要解绑的ECS实例的状态必须为**运行中**或**停止**。 
- * - 要解绑的HaVip状态必须为**Available**或**InUse**。
- * - **UnassociateHaVip**接口属于异步接口，即系统会返回一个请求ID，但该HaVip尚未解绑成功，系统后台的解绑任务仍在进行。您可以调用[DescribeHaVips](https://help.aliyun.com/document_detail/114611.html)查询HaVip的解绑状态：
- *     - 当HaVip处于**Unassociating**状态时，表示HaVip正在解绑中。
- *     - 当HaVip处于**Inuse**或者**Available**状态时，表示HaVip解绑成功。
- * - **UnassociateHaVip**接口不支持并发解绑同一个HaVip。
+ * @description When you invoke this operation to disassociate an HaVip from an ECS instance or network interface controller (NIC) in a virtual private cloud (VPC), take note of the following items: 
+ * - The ECS instance to be disassociated must be in the **Running** or **Stopped** state. 
+ * - The HaVip to be disassociated must be in the **Available** or **InUse** state.
+ * - The **UnassociateHaVip** operation is asynchronous. After you send a request, the system returns a request ID, but the HaVip is not yet disassociated. The disassociation task is still running in the background. You can invoke [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) to query the disassociation status of the HaVip:
+ *     - If the HaVip is in the **Unassociating** state, the HaVip is being disassociated.
+ *     - If the HaVip is in the **Inuse** or **Available** state, the HaVip is disassociated.
+ * - The **UnassociateHaVip** operation does not support concurrent disassociation of the same HaVip.
  *
  * @param request UnassociateHaVipRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32496,15 +32538,15 @@ UnassociateHaVipResponse Client::unassociateHaVipWithOptions(const UnassociateHa
 }
 
 /**
- * @summary Disassociates a high-availability virtual IP address (HaVip) from an Elastic Compute Service (ECS) in a virtual private cloud (VPC) or from an elastic network interface (ENI).
+ * @summary Invokes the UnassociateHaVip operation to disassociate a high-availability virtual IP address (HaVip) from an ECS instance or network interface controller (NIC) in a virtual private cloud (VPC).
  *
- * @description 在调用本接口将HaVip与专有网络ECS实例或弹性网卡解绑时，请注意： 
- * - 要解绑的ECS实例的状态必须为**运行中**或**停止**。 
- * - 要解绑的HaVip状态必须为**Available**或**InUse**。
- * - **UnassociateHaVip**接口属于异步接口，即系统会返回一个请求ID，但该HaVip尚未解绑成功，系统后台的解绑任务仍在进行。您可以调用[DescribeHaVips](https://help.aliyun.com/document_detail/114611.html)查询HaVip的解绑状态：
- *     - 当HaVip处于**Unassociating**状态时，表示HaVip正在解绑中。
- *     - 当HaVip处于**Inuse**或者**Available**状态时，表示HaVip解绑成功。
- * - **UnassociateHaVip**接口不支持并发解绑同一个HaVip。
+ * @description When you invoke this operation to disassociate an HaVip from an ECS instance or network interface controller (NIC) in a virtual private cloud (VPC), take note of the following items: 
+ * - The ECS instance to be disassociated must be in the **Running** or **Stopped** state. 
+ * - The HaVip to be disassociated must be in the **Available** or **InUse** state.
+ * - The **UnassociateHaVip** operation is asynchronous. After you send a request, the system returns a request ID, but the HaVip is not yet disassociated. The disassociation task is still running in the background. You can invoke [DescribeHaVips](https://help.aliyun.com/document_detail/114611.html) to query the disassociation status of the HaVip:
+ *     - If the HaVip is in the **Unassociating** state, the HaVip is being disassociated.
+ *     - If the HaVip is in the **Inuse** or **Available** state, the HaVip is disassociated.
+ * - The **UnassociateHaVip** operation does not support concurrent disassociation of the same HaVip.
  *
  * @param request UnassociateHaVipRequest
  * @return UnassociateHaVipResponse
@@ -32515,13 +32557,12 @@ UnassociateHaVipResponse Client::unassociateHaVip(const UnassociateHaVipRequest 
 }
 
 /**
- * @summary Disassociates a network access control list (ACL) from a vSwitch.
+ * @summary Disassociates a network ACL from a vSwitch by calling the UnassociateNetworkAcl operation.
  *
- * @description ## [](#)Description
- * *   **UnassociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of the task.
- *     *   If the network ACL is in the **UNBINDING** state, the network ACL is being disassociated from the vSwitch.
- *     *   If the network ACL is in the **UNBINDED** state, the network ACL is disassociated from the vSwitch.
- * *   You cannot repeatedly call the **UnassociateNetworkAcl** operation to disassociate a network ACL from a vSwitch within the specified period of time.
+ * @description - **UnassociateNetworkAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the network ACL is not yet disassociated from the vSwitch. The disassociation task is still running in the background. You can call [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) to query the disassociation status of the network ACL and the vSwitch:
+ *     - If the network ACL and the vSwitch are in the **UNBINDING** state, the disassociation is in progress.
+ *     - If no binding record is found, the network ACL is disassociated from the vSwitch.
+ * - **UnassociateNetworkAcl** does not support concurrent disassociation of vSwitches from the same network ACL.
  *
  * @param request UnassociateNetworkAclRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32588,13 +32629,12 @@ UnassociateNetworkAclResponse Client::unassociateNetworkAclWithOptions(const Una
 }
 
 /**
- * @summary Disassociates a network access control list (ACL) from a vSwitch.
+ * @summary Disassociates a network ACL from a vSwitch by calling the UnassociateNetworkAcl operation.
  *
- * @description ## [](#)Description
- * *   **UnassociateNetworkAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) operation to query the status of the task.
- *     *   If the network ACL is in the **UNBINDING** state, the network ACL is being disassociated from the vSwitch.
- *     *   If the network ACL is in the **UNBINDED** state, the network ACL is disassociated from the vSwitch.
- * *   You cannot repeatedly call the **UnassociateNetworkAcl** operation to disassociate a network ACL from a vSwitch within the specified period of time.
+ * @description - **UnassociateNetworkAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the network ACL is not yet disassociated from the vSwitch. The disassociation task is still running in the background. You can call [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) to query the disassociation status of the network ACL and the vSwitch:
+ *     - If the network ACL and the vSwitch are in the **UNBINDING** state, the disassociation is in progress.
+ *     - If no binding record is found, the network ACL is disassociated from the vSwitch.
+ * - **UnassociateNetworkAcl** does not support concurrent disassociation of vSwitches from the same network ACL.
  *
  * @param request UnassociateNetworkAclRequest
  * @return UnassociateNetworkAclResponse
@@ -32605,7 +32645,7 @@ UnassociateNetworkAclResponse Client::unassociateNetworkAcl(const UnassociateNet
 }
 
 /**
- * @summary Disassociates a virtual border router (VBR) from an Express Connect circuit.
+ * @summary Disassociates a Virtual Border Router (VBR) from an Express Connect circuit.
  *
  * @param request UnassociatePhysicalConnectionFromVirtualBorderRouterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32664,7 +32704,7 @@ UnassociatePhysicalConnectionFromVirtualBorderRouterResponse Client::unassociate
 }
 
 /**
- * @summary Disassociates a virtual border router (VBR) from an Express Connect circuit.
+ * @summary Disassociates a Virtual Border Router (VBR) from an Express Connect circuit.
  *
  * @param request UnassociatePhysicalConnectionFromVirtualBorderRouterRequest
  * @return UnassociatePhysicalConnectionFromVirtualBorderRouterResponse
@@ -32675,13 +32715,12 @@ UnassociatePhysicalConnectionFromVirtualBorderRouterResponse Client::unassociate
 }
 
 /**
- * @summary Disassociates a route table from a vSwitch.
+ * @summary Disassociates a route table from a vSwitch by calling the UnassociateRouteTable operation.
  *
- * @description ## [](#)References
- * *   **UnassociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task.
- *     *   If the vSwitch is in the **Pending** state, the route table is being disassociated.
- *     *   If the vSwitch is in the **Available** state, the route table is disassociated.
- * *   You cannot repeatedly call the **UnassociateRouteTable** operation to disassociate a route table from a vSwitch within the specified period of time.
+ * @description - **UnassociateRouteTable** is an asynchronous operation. After you call this operation, the system returns a request ID, but the route table has not been disassociated yet. The disassociation task is still running in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the disassociation status of the route table:
+ *     - If the vSwitch is in the **Pending** state, the route table is being disassociated.
+ *     - If the vSwitch is in the **Available** state, the route table is disassociated.
+ * - **UnassociateRouteTable** does not support concurrent disassociation of the same route table from the same vSwitch.
  *
  * @param request UnassociateRouteTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32744,13 +32783,12 @@ UnassociateRouteTableResponse Client::unassociateRouteTableWithOptions(const Una
 }
 
 /**
- * @summary Disassociates a route table from a vSwitch.
+ * @summary Disassociates a route table from a vSwitch by calling the UnassociateRouteTable operation.
  *
- * @description ## [](#)References
- * *   **UnassociateRouteTable** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the status of the task.
- *     *   If the vSwitch is in the **Pending** state, the route table is being disassociated.
- *     *   If the vSwitch is in the **Available** state, the route table is disassociated.
- * *   You cannot repeatedly call the **UnassociateRouteTable** operation to disassociate a route table from a vSwitch within the specified period of time.
+ * @description - **UnassociateRouteTable** is an asynchronous operation. After you call this operation, the system returns a request ID, but the route table has not been disassociated yet. The disassociation task is still running in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the disassociation status of the route table:
+ *     - If the vSwitch is in the **Pending** state, the route table is being disassociated.
+ *     - If the vSwitch is in the **Available** state, the route table is disassociated.
+ * - **UnassociateRouteTable** does not support concurrent disassociation of the same route table from the same vSwitch.
  *
  * @param request UnassociateRouteTableRequest
  * @return UnassociateRouteTableResponse
@@ -32761,10 +32799,10 @@ UnassociateRouteTableResponse Client::unassociateRouteTable(const UnassociateRou
 }
 
 /**
- * @summary Removes a secondary CIDR block from a virtual private cloud (VPC).
+ * @summary Calls the UnassociateVpcCidrBlock operation to delete a secondary CIDR block from a VPC.
  *
- * @description - 删除VPC的附加网段前，请先删除以附加网段创建的交换机。更多信息，请参见[DeleteVSwitch](https://help.aliyun.com/document_detail/35746.html)。
- * - **UnassociateVpcCidrBlock**接口不支持在同一个VPC下并发删除附加网段。
+ * @description - Before you delete a secondary CIDR block from a VPC, delete the vSwitches created with the secondary CIDR block. For more information, see [DeleteVSwitch](https://help.aliyun.com/document_detail/35746.html).
+ * - The **UnassociateVpcCidrBlock** operation does not support concurrently deleting secondary CIDR blocks from the same VPC.
  *
  * @param request UnassociateVpcCidrBlockRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32827,10 +32865,10 @@ UnassociateVpcCidrBlockResponse Client::unassociateVpcCidrBlockWithOptions(const
 }
 
 /**
- * @summary Removes a secondary CIDR block from a virtual private cloud (VPC).
+ * @summary Calls the UnassociateVpcCidrBlock operation to delete a secondary CIDR block from a VPC.
  *
- * @description - 删除VPC的附加网段前，请先删除以附加网段创建的交换机。更多信息，请参见[DeleteVSwitch](https://help.aliyun.com/document_detail/35746.html)。
- * - **UnassociateVpcCidrBlock**接口不支持在同一个VPC下并发删除附加网段。
+ * @description - Before you delete a secondary CIDR block from a VPC, delete the vSwitches created with the secondary CIDR block. For more information, see [DeleteVSwitch](https://help.aliyun.com/document_detail/35746.html).
+ * - The **UnassociateVpcCidrBlock** operation does not support concurrently deleting secondary CIDR blocks from the same VPC.
  *
  * @param request UnassociateVpcCidrBlockRequest
  * @return UnassociateVpcCidrBlockResponse
@@ -32841,7 +32879,7 @@ UnassociateVpcCidrBlockResponse Client::unassociateVpcCidrBlock(const Unassociat
 }
 
 /**
- * @summary Removes tags from an Express Connect circuit at a time.
+ * @summary Unbinds tags from a specified list of Express Connect resources.
  *
  * @param request UntagResourcesForExpressConnectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32904,7 +32942,7 @@ UntagResourcesForExpressConnectResponse Client::untagResourcesForExpressConnectW
 }
 
 /**
- * @summary Removes tags from an Express Connect circuit at a time.
+ * @summary Unbinds tags from a specified list of Express Connect resources.
  *
  * @param request UntagResourcesForExpressConnectRequest
  * @return UntagResourcesForExpressConnectResponse
@@ -32915,7 +32953,7 @@ UntagResourcesForExpressConnectResponse Client::untagResourcesForExpressConnect(
 }
 
 /**
- * @summary Modifies the configuration of a DHCP options set.
+ * @summary Modifies the configuration of a DHCP options set by calling the UpdateDhcpOptionsSetAttribute operation.
  *
  * @param request UpdateDhcpOptionsSetAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32998,7 +33036,7 @@ UpdateDhcpOptionsSetAttributeResponse Client::updateDhcpOptionsSetAttributeWithO
 }
 
 /**
- * @summary Modifies the configuration of a DHCP options set.
+ * @summary Modifies the configuration of a DHCP options set by calling the UpdateDhcpOptionsSetAttribute operation.
  *
  * @param request UpdateDhcpOptionsSetAttributeRequest
  * @return UpdateDhcpOptionsSetAttributeResponse
@@ -33009,12 +33047,12 @@ UpdateDhcpOptionsSetAttributeResponse Client::updateDhcpOptionsSetAttribute(cons
 }
 
 /**
- * @summary Call UpdateEnhancedVpnGateway to modify the name, description, or automatic route propagation of an enhanced VPN gateway.
+ * @summary Invokes the UpdateEnhancedVpnGateway operation to modify the name, description, or routing automatic propagation feature of an enhanced VPN gateway.
  *
- * @description - **UpdateEnhancedVpnGateway** is an asynchronous API. A call returns information about the Enhanced VPN Gateway, but the configuration is updated in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to check the status of the update:
- *   - If the Enhanced VPN Gateway\\"s status is **updating**, the configuration update is in progress.
- *   - If the Enhanced VPN Gateway\\"s status is **active**, the configuration update is complete.
- * - **UpdateEnhancedVpnGateway** does not support concurrent updates on the same Enhanced VPN Gateway.
+ * @description - **UpdateEnhancedVpnGateway** is an asynchronous operation. After you call this operation, the system returns the information about the enhanced VPN gateway, but the configuration has not been modified yet. The modification task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the modification status of the enhanced VPN gateway:
+ *   - If the enhanced VPN gateway is in the **updating** state, the configuration is being modified.
+ *   - If the enhanced VPN gateway is in the **active** state, the configuration has been modified.
+ * - **UpdateEnhancedVpnGateway** does not support concurrent modifications to the same enhanced VPN gateway.
  *
  * @param request UpdateEnhancedVpnGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -33081,12 +33119,12 @@ UpdateEnhancedVpnGatewayResponse Client::updateEnhancedVpnGatewayWithOptions(con
 }
 
 /**
- * @summary Call UpdateEnhancedVpnGateway to modify the name, description, or automatic route propagation of an enhanced VPN gateway.
+ * @summary Invokes the UpdateEnhancedVpnGateway operation to modify the name, description, or routing automatic propagation feature of an enhanced VPN gateway.
  *
- * @description - **UpdateEnhancedVpnGateway** is an asynchronous API. A call returns information about the Enhanced VPN Gateway, but the configuration is updated in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to check the status of the update:
- *   - If the Enhanced VPN Gateway\\"s status is **updating**, the configuration update is in progress.
- *   - If the Enhanced VPN Gateway\\"s status is **active**, the configuration update is complete.
- * - **UpdateEnhancedVpnGateway** does not support concurrent updates on the same Enhanced VPN Gateway.
+ * @description - **UpdateEnhancedVpnGateway** is an asynchronous operation. After you call this operation, the system returns the information about the enhanced VPN gateway, but the configuration has not been modified yet. The modification task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the modification status of the enhanced VPN gateway:
+ *   - If the enhanced VPN gateway is in the **updating** state, the configuration is being modified.
+ *   - If the enhanced VPN gateway is in the **active** state, the configuration has been modified.
+ * - **UpdateEnhancedVpnGateway** does not support concurrent modifications to the same enhanced VPN gateway.
  *
  * @param request UpdateEnhancedVpnGatewayRequest
  * @return UpdateEnhancedVpnGatewayResponse
@@ -33097,9 +33135,9 @@ UpdateEnhancedVpnGatewayResponse Client::updateEnhancedVpnGateway(const UpdateEn
 }
 
 /**
- * @summary Updates a failover test.
+ * @summary Updates a failover test job for Express Connect by calling the UpdateFailoverTestJob operation.
  *
- * @description 只支持更新处于**待演练**状态的故障演练任务。
+ * @description Only failover test jobs in the **Pending** state can be updated.
  *
  * @param request UpdateFailoverTestJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -33174,9 +33212,9 @@ UpdateFailoverTestJobResponse Client::updateFailoverTestJobWithOptions(const Upd
 }
 
 /**
- * @summary Updates a failover test.
+ * @summary Updates a failover test job for Express Connect by calling the UpdateFailoverTestJob operation.
  *
- * @description 只支持更新处于**待演练**状态的故障演练任务。
+ * @description Only failover test jobs in the **Pending** state can be updated.
  *
  * @param request UpdateFailoverTestJobRequest
  * @return UpdateFailoverTestJobResponse
@@ -33285,13 +33323,13 @@ UpdateGatewayRouteTableEntryAttributeResponse Client::updateGatewayRouteTableEnt
 }
 
 /**
- * @summary Modifies the configuration of an IPsec server.
+ * @summary Updates the configuration of an IPsec server by calling the UpdateIpsecServer operation.
  *
- * @description *   If you modify only **IpsecServerName** of the IPsec server, this operation is synchronous. If you modify other parameters besides **IpsecServerName**, this operation is asynchronous.
- * *   If **UpdateIpsecServer** is an asynchronous operation, after a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the task.
- *     *   If the VPN gateway is in the **updating** state, the IPsec server is being modified.
- *     *   If the VPN gateway is in the **active** state, the IPsec server is modified.
- * *   You cannot repeatedly call **UpdateIpsecServer** within the specified period of time.
+ * @description - If you modify only the **IpsecServerName** of the IPsec server, this operation is synchronous. If you modify configurations other than **IpsecServerName**, this operation is asynchronous.
+ * - When the **UpdateIpsecServer** operation is asynchronous, the system returns a request ID first, but the IPsec server configuration has not been modified yet because the modification task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the VPN gateway instance to determine the modification status of the IPsec server configuration:
+ *     - If the VPN gateway instance is in the **updating** state, the IPsec server configuration is being modified.
+ *     - If the VPN gateway instance is in the **active** state, the IPsec server configuration has been modified.
+ * - The **UpdateIpsecServer** operation does not support concurrent modifications to IPsec server configurations under the same VPN gateway.
  *
  * @param request UpdateIpsecServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -33366,13 +33404,13 @@ UpdateIpsecServerResponse Client::updateIpsecServerWithOptions(const UpdateIpsec
 }
 
 /**
- * @summary Modifies the configuration of an IPsec server.
+ * @summary Updates the configuration of an IPsec server by calling the UpdateIpsecServer operation.
  *
- * @description *   If you modify only **IpsecServerName** of the IPsec server, this operation is synchronous. If you modify other parameters besides **IpsecServerName**, this operation is asynchronous.
- * *   If **UpdateIpsecServer** is an asynchronous operation, after a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the task.
- *     *   If the VPN gateway is in the **updating** state, the IPsec server is being modified.
- *     *   If the VPN gateway is in the **active** state, the IPsec server is modified.
- * *   You cannot repeatedly call **UpdateIpsecServer** within the specified period of time.
+ * @description - If you modify only the **IpsecServerName** of the IPsec server, this operation is synchronous. If you modify configurations other than **IpsecServerName**, this operation is asynchronous.
+ * - When the **UpdateIpsecServer** operation is asynchronous, the system returns a request ID first, but the IPsec server configuration has not been modified yet because the modification task is still running in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the status of the VPN gateway instance to determine the modification status of the IPsec server configuration:
+ *     - If the VPN gateway instance is in the **updating** state, the IPsec server configuration is being modified.
+ *     - If the VPN gateway instance is in the **active** state, the IPsec server configuration has been modified.
+ * - The **UpdateIpsecServer** operation does not support concurrent modifications to IPsec server configurations under the same VPN gateway.
  *
  * @param request UpdateIpsecServerRequest
  * @return UpdateIpsecServerResponse
@@ -33383,9 +33421,9 @@ UpdateIpsecServerResponse Client::updateIpsecServer(const UpdateIpsecServerReque
 }
 
 /**
- * @summary Modifies the description or name of an IPv4 gateway.
+ * @summary Modifies the name or description of an IPv4 gateway.
  *
- * @description You cannot repeatedly call the **UpdateIpv4GatewayAttribute** operation to modify the name or description of an IPv4 gateway within the specified period of time.
+ * @description The **UpdateIpv4GatewayAttribute** operation does not support concurrent modifications to the name or description of the same IPv4 gateway.
  *
  * @param request UpdateIpv4GatewayAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -33456,9 +33494,9 @@ UpdateIpv4GatewayAttributeResponse Client::updateIpv4GatewayAttributeWithOptions
 }
 
 /**
- * @summary Modifies the description or name of an IPv4 gateway.
+ * @summary Modifies the name or description of an IPv4 gateway.
  *
- * @description You cannot repeatedly call the **UpdateIpv4GatewayAttribute** operation to modify the name or description of an IPv4 gateway within the specified period of time.
+ * @description The **UpdateIpv4GatewayAttribute** operation does not support concurrent modifications to the name or description of the same IPv4 gateway.
  *
  * @param request UpdateIpv4GatewayAttributeRequest
  * @return UpdateIpv4GatewayAttributeResponse
@@ -33471,17 +33509,18 @@ UpdateIpv4GatewayAttributeResponse Client::updateIpv4GatewayAttribute(const Upda
 /**
  * @deprecated OpenAPI UpdateNatGatewayNatType is deprecated
  *
- * @summary Upgrades a standard NAT gateway to an enhanced NAT gateway.
+ * @summary Switches a standard NAT gateway to an enhanced NAT gateway.
  *
- * @description Before you call this operation, take note of the following limits:
- * *   **UpdateNatGatewayNatType** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the NAT gateway is still being upgraded in the backend. You can call the GetNatGatewayConvertStatus operation to query the upgrade progress of a NAT gateway. For more information, see [GetNatGatewayConvertStatus](https://help.aliyun.com/document_detail/184744.html).
- *     *   If the NAT gateway is in the **processing** state, the NAT gateway is being upgraded. You can only query the status of the NAT gateway but cannot perform other operations.
- *     *   If the NAT gateway is in the **successful** state, the NAT gateway is upgraded.
- *     *   If the NAT gateway is in the **failed** state, the system failed to upgrade the NAT gateway.
- * *   You cannot repeatedly call the **UpdateNatGatewayNatType** operation for the same VPN gateway within the specified period of time.
- * *   The billing method and billable items remain the same after the upgrade.
- * *   It takes about five minutes to upgrade a standard NAT gateway to an enhanced NAT gateway. During the upgrade, transient connection errors may occur once or twice. The service can be recovered by reconnection. You can determine whether to enable automatic reconnection or use manual reconnection based on your business requirements.
- * *   You can only upgrade standard NAT gateways to enhanced NAT gateways. You are not allowed to downgrade enhanced NAT gateways to standard NAT gateways.
+ * @description ## Operation description
+ * Before you invoke the UpdateNatGatewayNatType operation, take note of the following information:
+ * - **UpdateNatGatewayNatType** is an asynchronous operation. After you send a request, the system returns a request ID, but the NAT gateway type has not been upgraded yet. The upgrade node is still running in the background. You can invoke GetNatGatewayConvertStatus to query the upgrade status of the NAT gateway. For more information, see [GetNatGatewayConvertStatus](https://help.aliyun.com/document_detail/184744.html).
+ *     - If the upgrade status is **processing**, the NAT gateway is being upgraded. In this state, you can only execute query operations and cannot execute other operations.
+ *     - If the upgrade status is **successful**, the NAT gateway type has been upgraded.
+ *     - If the upgrade status is **failed**, the NAT gateway type failed to be upgraded.
+ * - The **UpdateNatGatewayNatType** operation does not support concurrent upgrades of the NAT gateway type for the same NAT gateway.
+ * - Enhanced NAT gateways and standard NAT gateways have the same billing. The billable methods do not change during or after the upgrade procedure.
+ * - Each resource upgrade procedure may take up to 5 minutes. During the upgrade, 1 to 2 transient connections that last a few seconds may occur. Use the reconnection mechanism to recover the service. Whether the reconnection mechanism is automatic or manual depends on the service itself.
+ * - You can only upgrade a standard NAT gateway to an enhanced NAT gateway. You cannot downgrade an enhanced NAT gateway to a standard NAT gateway.
  *
  * @param request UpdateNatGatewayNatTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -33554,17 +33593,18 @@ UpdateNatGatewayNatTypeResponse Client::updateNatGatewayNatTypeWithOptions(const
 /**
  * @deprecated OpenAPI UpdateNatGatewayNatType is deprecated
  *
- * @summary Upgrades a standard NAT gateway to an enhanced NAT gateway.
+ * @summary Switches a standard NAT gateway to an enhanced NAT gateway.
  *
- * @description Before you call this operation, take note of the following limits:
- * *   **UpdateNatGatewayNatType** is an asynchronous operation. After you send a request to call this operation, the system returns a request ID and the NAT gateway is still being upgraded in the backend. You can call the GetNatGatewayConvertStatus operation to query the upgrade progress of a NAT gateway. For more information, see [GetNatGatewayConvertStatus](https://help.aliyun.com/document_detail/184744.html).
- *     *   If the NAT gateway is in the **processing** state, the NAT gateway is being upgraded. You can only query the status of the NAT gateway but cannot perform other operations.
- *     *   If the NAT gateway is in the **successful** state, the NAT gateway is upgraded.
- *     *   If the NAT gateway is in the **failed** state, the system failed to upgrade the NAT gateway.
- * *   You cannot repeatedly call the **UpdateNatGatewayNatType** operation for the same VPN gateway within the specified period of time.
- * *   The billing method and billable items remain the same after the upgrade.
- * *   It takes about five minutes to upgrade a standard NAT gateway to an enhanced NAT gateway. During the upgrade, transient connection errors may occur once or twice. The service can be recovered by reconnection. You can determine whether to enable automatic reconnection or use manual reconnection based on your business requirements.
- * *   You can only upgrade standard NAT gateways to enhanced NAT gateways. You are not allowed to downgrade enhanced NAT gateways to standard NAT gateways.
+ * @description ## Operation description
+ * Before you invoke the UpdateNatGatewayNatType operation, take note of the following information:
+ * - **UpdateNatGatewayNatType** is an asynchronous operation. After you send a request, the system returns a request ID, but the NAT gateway type has not been upgraded yet. The upgrade node is still running in the background. You can invoke GetNatGatewayConvertStatus to query the upgrade status of the NAT gateway. For more information, see [GetNatGatewayConvertStatus](https://help.aliyun.com/document_detail/184744.html).
+ *     - If the upgrade status is **processing**, the NAT gateway is being upgraded. In this state, you can only execute query operations and cannot execute other operations.
+ *     - If the upgrade status is **successful**, the NAT gateway type has been upgraded.
+ *     - If the upgrade status is **failed**, the NAT gateway type failed to be upgraded.
+ * - The **UpdateNatGatewayNatType** operation does not support concurrent upgrades of the NAT gateway type for the same NAT gateway.
+ * - Enhanced NAT gateways and standard NAT gateways have the same billing. The billable methods do not change during or after the upgrade procedure.
+ * - Each resource upgrade procedure may take up to 5 minutes. During the upgrade, 1 to 2 transient connections that last a few seconds may occur. Use the reconnection mechanism to recover the service. Whether the reconnection mechanism is automatic or manual depends on the service itself.
+ * - You can only upgrade a standard NAT gateway to an enhanced NAT gateway. You cannot downgrade an enhanced NAT gateway to a standard NAT gateway.
  *
  * @param request UpdateNatGatewayNatTypeRequest
  * @return UpdateNatGatewayNatTypeResponse
@@ -33575,12 +33615,12 @@ UpdateNatGatewayNatTypeResponse Client::updateNatGatewayNatType(const UpdateNatG
 }
 
 /**
- * @summary Updates the rules of a network access control list (ACL).
+ * @summary Invokes the UpdateNetworkAclEntries operation to update network ACL rules.
  *
- * @description - **UpdateNetworkAclEntries**接口属于异步接口，即系统返回一个请求ID，但该网络ACL规则尚未更新成功，系统后台的更新任务仍在进行。您可以调用[DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html)查询网络ACL规则的更新状态：
- *     - 当网络ACL规则处于**Modifying**状态时，表示网络ACL规则正在更新中。
- *     - 当网络ACL规则处于**Available**状态时，表示网络ACL规则更新成功。
- * - **UpdateNetworkAclEntries**接口不支持并发更新同一个网络ACL规则。
+ * @description - **UpdateNetworkAclEntries** is an asynchronous operation. After you send a request, the system returns a request ID. However, the network ACL rules are not yet updated. The update task is still running in the background. You can call [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) to query the update status of the network ACL rules:
+ *     - If the network ACL rules are in the **Modifying** state, the rules are being updated.
+ *     - If the network ACL rules are in the **Available** state, the rules are updated.
+ * - **UpdateNetworkAclEntries** does not support concurrent updates to the same network ACL rules.
  *
  * @param request UpdateNetworkAclEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -33659,12 +33699,12 @@ UpdateNetworkAclEntriesResponse Client::updateNetworkAclEntriesWithOptions(const
 }
 
 /**
- * @summary Updates the rules of a network access control list (ACL).
+ * @summary Invokes the UpdateNetworkAclEntries operation to update network ACL rules.
  *
- * @description - **UpdateNetworkAclEntries**接口属于异步接口，即系统返回一个请求ID，但该网络ACL规则尚未更新成功，系统后台的更新任务仍在进行。您可以调用[DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html)查询网络ACL规则的更新状态：
- *     - 当网络ACL规则处于**Modifying**状态时，表示网络ACL规则正在更新中。
- *     - 当网络ACL规则处于**Available**状态时，表示网络ACL规则更新成功。
- * - **UpdateNetworkAclEntries**接口不支持并发更新同一个网络ACL规则。
+ * @description - **UpdateNetworkAclEntries** is an asynchronous operation. After you send a request, the system returns a request ID. However, the network ACL rules are not yet updated. The update task is still running in the background. You can call [DescribeNetworkAclAttributes](https://help.aliyun.com/document_detail/116542.html) to query the update status of the network ACL rules:
+ *     - If the network ACL rules are in the **Modifying** state, the rules are being updated.
+ *     - If the network ACL rules are in the **Available** state, the rules are updated.
+ * - **UpdateNetworkAclEntries** does not support concurrent updates to the same network ACL rules.
  *
  * @param request UpdateNetworkAclEntriesRequest
  * @return UpdateNetworkAclEntriesResponse
@@ -33675,9 +33715,9 @@ UpdateNetworkAclEntriesResponse Client::updateNetworkAclEntries(const UpdateNetw
 }
 
 /**
- * @summary Modifies the attributes of an IP address pool.
+ * @summary Modifies the attributes of an IP address pool by calling the UpdatePublicIpAddressPoolAttribute operation.
  *
- * @description You cannot repeatedly call the **UpdatePublicIpAddressPoolAttribute** operation to modify the attributes of an IP address pool within the specified period of time.
+ * @description The **UpdatePublicIpAddressPoolAttribute** operation does not support concurrent modifications to the attributes of the same IP address pool.
  *
  * @param request UpdatePublicIpAddressPoolAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -33744,9 +33784,9 @@ UpdatePublicIpAddressPoolAttributeResponse Client::updatePublicIpAddressPoolAttr
 }
 
 /**
- * @summary Modifies the attributes of an IP address pool.
+ * @summary Modifies the attributes of an IP address pool by calling the UpdatePublicIpAddressPoolAttribute operation.
  *
- * @description You cannot repeatedly call the **UpdatePublicIpAddressPoolAttribute** operation to modify the attributes of an IP address pool within the specified period of time.
+ * @description The **UpdatePublicIpAddressPoolAttribute** operation does not support concurrent modifications to the attributes of the same IP address pool.
  *
  * @param request UpdatePublicIpAddressPoolAttributeRequest
  * @return UpdatePublicIpAddressPoolAttributeResponse
@@ -33759,7 +33799,7 @@ UpdatePublicIpAddressPoolAttributeResponse Client::updatePublicIpAddressPoolAttr
 /**
  * @summary Updates the information of a route target group instance, including the name, description, and disabled members.
  *
- * @description - **UpdateRouteTargetGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the route target group has not been updated yet. The update task is still running in the background. You can call ListRouteTargetGroup to query the update status of the route target group:
+ * @description - **UpdateRouteTargetGroup** is an asynchronous operation. After you call this operation, the system returns a request ID, but the route target group has not been updated yet. The update task is still running in the background. You can call ListRouteTargetGroup to query the update status of the route target group:
  *     - If the route target group is in the **Updating** state, the route target group is being updated.
  *     - If the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the route target group has been updated.
  *
@@ -33814,7 +33854,7 @@ UpdateRouteTargetGroupResponse Client::updateRouteTargetGroupWithOptions(const U
 /**
  * @summary Updates the information of a route target group instance, including the name, description, and disabled members.
  *
- * @description - **UpdateRouteTargetGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the route target group has not been updated yet. The update task is still running in the background. You can call ListRouteTargetGroup to query the update status of the route target group:
+ * @description - **UpdateRouteTargetGroup** is an asynchronous operation. After you call this operation, the system returns a request ID, but the route target group has not been updated yet. The update task is still running in the background. You can call ListRouteTargetGroup to query the update status of the route target group:
  *     - If the route target group is in the **Updating** state, the route target group is being updated.
  *     - If the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the route target group has been updated.
  *
@@ -33827,7 +33867,9 @@ UpdateRouteTargetGroupResponse Client::updateRouteTargetGroup(const UpdateRouteT
 }
 
 /**
- * @summary Modifies the configuration of a filter for traffic mirror.
+ * @summary Invokes the UpdateTrafficMirrorFilterAttribute operation to modify the configuration of a traffic mirror filter.
+ *
+ * @description The **UpdateTrafficMirrorFilterAttribute** operation does not support concurrent modifications to the configuration of the same traffic mirror filter.
  *
  * @param request UpdateTrafficMirrorFilterAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -33894,7 +33936,9 @@ UpdateTrafficMirrorFilterAttributeResponse Client::updateTrafficMirrorFilterAttr
 }
 
 /**
- * @summary Modifies the configuration of a filter for traffic mirror.
+ * @summary Invokes the UpdateTrafficMirrorFilterAttribute operation to modify the configuration of a traffic mirror filter.
+ *
+ * @description The **UpdateTrafficMirrorFilterAttribute** operation does not support concurrent modifications to the configuration of the same traffic mirror filter.
  *
  * @param request UpdateTrafficMirrorFilterAttributeRequest
  * @return UpdateTrafficMirrorFilterAttributeResponse
@@ -33905,12 +33949,12 @@ UpdateTrafficMirrorFilterAttributeResponse Client::updateTrafficMirrorFilterAttr
 }
 
 /**
- * @summary Modifies the configuration of an inbound or outbound rule for traffic mirror.
+ * @summary Invokes the UpdateTrafficMirrorFilterRuleAttribute operation to modify the configuration of an inbound or outbound rule of a traffic mirroring filter.
  *
- * @description - The **UpdateTrafficMirrorFilterRuleAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of an inbound or outbound rule:
- *   - If the rule is in the **Modifying** state, the rule is being modified.
- *   - If the rule is in the **Created** state, the rule is modified.
- * - You cannot repeatedly call the **UpdateTrafficMirrorFilterRuleAttribute** operation to modify an inbound or outbound rule within the specified period of time.
+ * @description - **UpdateTrafficMirrorFilterRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the node in the background. You can invoke [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the status of an inbound or outbound rule of a traffic mirroring filter:
+ *     - If the inbound or outbound rule is in the **Modifying** state, the configuration of the rule is being modified.
+ *     - If the inbound or outbound rule is in the **Created** state, the configuration of the rule is modified.
+ * - **UpdateTrafficMirrorFilterRuleAttribute** does not support concurrent modification of the same inbound or outbound rule of a traffic mirroring filter.
  *
  * @param request UpdateTrafficMirrorFilterRuleAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -33997,12 +34041,12 @@ UpdateTrafficMirrorFilterRuleAttributeResponse Client::updateTrafficMirrorFilter
 }
 
 /**
- * @summary Modifies the configuration of an inbound or outbound rule for traffic mirror.
+ * @summary Invokes the UpdateTrafficMirrorFilterRuleAttribute operation to modify the configuration of an inbound or outbound rule of a traffic mirroring filter.
  *
- * @description - The **UpdateTrafficMirrorFilterRuleAttribute** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) operation to query the status of an inbound or outbound rule:
- *   - If the rule is in the **Modifying** state, the rule is being modified.
- *   - If the rule is in the **Created** state, the rule is modified.
- * - You cannot repeatedly call the **UpdateTrafficMirrorFilterRuleAttribute** operation to modify an inbound or outbound rule within the specified period of time.
+ * @description - **UpdateTrafficMirrorFilterRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the node in the background. You can invoke [ListTrafficMirrorFilters](https://help.aliyun.com/document_detail/261353.html) to query the status of an inbound or outbound rule of a traffic mirroring filter:
+ *     - If the inbound or outbound rule is in the **Modifying** state, the configuration of the rule is being modified.
+ *     - If the inbound or outbound rule is in the **Created** state, the configuration of the rule is modified.
+ * - **UpdateTrafficMirrorFilterRuleAttribute** does not support concurrent modification of the same inbound or outbound rule of a traffic mirroring filter.
  *
  * @param request UpdateTrafficMirrorFilterRuleAttributeRequest
  * @return UpdateTrafficMirrorFilterRuleAttributeResponse
@@ -34014,6 +34058,11 @@ UpdateTrafficMirrorFilterRuleAttributeResponse Client::updateTrafficMirrorFilter
 
 /**
  * @summary Modifies the configuration of a traffic mirror session.
+ *
+ * @description - **UpdateTrafficMirrorSessionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID. However, the configuration of the traffic mirror session is not yet modified. The modification task runs in the background. You can call [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) to query the modification status of the traffic mirror session:
+ *     - If the traffic mirror session is in the **Modifying** state, the configuration is being modified.
+ *     - If the traffic mirror session is in the **Created** state, the configuration is modified.
+ * - **UpdateTrafficMirrorSessionAttribute** does not support concurrent modifications to the same traffic mirror session.
  *
  * @param request UpdateTrafficMirrorSessionAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -34110,6 +34159,11 @@ UpdateTrafficMirrorSessionAttributeResponse Client::updateTrafficMirrorSessionAt
 /**
  * @summary Modifies the configuration of a traffic mirror session.
  *
+ * @description - **UpdateTrafficMirrorSessionAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID. However, the configuration of the traffic mirror session is not yet modified. The modification task runs in the background. You can call [ListTrafficMirrorSessions](https://help.aliyun.com/document_detail/261367.html) to query the modification status of the traffic mirror session:
+ *     - If the traffic mirror session is in the **Modifying** state, the configuration is being modified.
+ *     - If the traffic mirror session is in the **Created** state, the configuration is modified.
+ * - **UpdateTrafficMirrorSessionAttribute** does not support concurrent modifications to the same traffic mirror session.
+ *
  * @param request UpdateTrafficMirrorSessionAttributeRequest
  * @return UpdateTrafficMirrorSessionAttributeResponse
  */
@@ -34119,7 +34173,7 @@ UpdateTrafficMirrorSessionAttributeResponse Client::updateTrafficMirrorSessionAt
 }
 
 /**
- * @summary Calls the UpdateVirtualBorderBandwidth operation to update the bandwidth throttling for both the upstream and downstream routing directions on a Virtual Border Router (VBR).
+ * @summary Invokes the UpdateVirtualBorderBandwidth operation to update the bandwidth throttling for both the upload and download directions on a Virtual Border Router.
  *
  * @param request UpdateVirtualBorderBandwidthRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -34178,7 +34232,7 @@ UpdateVirtualBorderBandwidthResponse Client::updateVirtualBorderBandwidthWithOpt
 }
 
 /**
- * @summary Calls the UpdateVirtualBorderBandwidth operation to update the bandwidth throttling for both the upstream and downstream routing directions on a Virtual Border Router (VBR).
+ * @summary Invokes the UpdateVirtualBorderBandwidth operation to update the bandwidth throttling for both the upload and download directions on a Virtual Border Router.
  *
  * @param request UpdateVirtualBorderBandwidthRequest
  * @return UpdateVirtualBorderBandwidthResponse
@@ -34189,7 +34243,7 @@ UpdateVirtualBorderBandwidthResponse Client::updateVirtualBorderBandwidth(const 
 }
 
 /**
- * @summary This operation modifies a virtual physical connection.
+ * @summary Invokes the UpdateVirtualPhysicalConnection operation to modify shared Express Connect circuit information.
  *
  * @param request UpdateVirtualPhysicalConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -34240,7 +34294,7 @@ UpdateVirtualPhysicalConnectionResponse Client::updateVirtualPhysicalConnectionW
 }
 
 /**
- * @summary This operation modifies a virtual physical connection.
+ * @summary Invokes the UpdateVirtualPhysicalConnection operation to modify shared Express Connect circuit information.
  *
  * @param request UpdateVirtualPhysicalConnectionRequest
  * @return UpdateVirtualPhysicalConnectionResponse
@@ -34251,12 +34305,12 @@ UpdateVirtualPhysicalConnectionResponse Client::updateVirtualPhysicalConnection(
 }
 
 /**
- * @summary Modifies the configuration of a gateway endpoint.
+ * @summary Calls the UpdateVpcGatewayEndpointAttribute operation to update the configuration of a VPC gateway endpoint.
  *
- * @description *   **UpdateVpcGatewayEndpointAttribute** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](https://help.aliyun.com/document_detail/311017.html) operation to query the status of the task.
- *     *   If the gateway endpoint is in the **Updating** state, it is being modified.
- *     *   If the gateway endpoint is in the **Created** state, it is modified.
- * *   You cannot call the **UpdateVpcGatewayEndpointAttribute** operation within a specific period of time.
+ * @description - **UpdateVpcGatewayEndpointAttribute** is an asynchronous operation. After you send a request, the system returns a **RequestId**, but the configuration of the gateway endpoint has not been updated yet. The update task is still running in the background. You can call [GetVpcGatewayEndpointAttribute](https://help.aliyun.com/document_detail/311017.html) to query the status of the gateway endpoint.
+ *     - If the gateway endpoint is in the **Updating** state, the configuration is being updated.
+ *     - If the gateway endpoint is in the **Created** state, the configuration has been updated.
+ * - **UpdateVpcGatewayEndpointAttribute** does not support concurrent updates to the same gateway endpoint.
  *
  * @param request UpdateVpcGatewayEndpointAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -34327,12 +34381,12 @@ UpdateVpcGatewayEndpointAttributeResponse Client::updateVpcGatewayEndpointAttrib
 }
 
 /**
- * @summary Modifies the configuration of a gateway endpoint.
+ * @summary Calls the UpdateVpcGatewayEndpointAttribute operation to update the configuration of a VPC gateway endpoint.
  *
- * @description *   **UpdateVpcGatewayEndpointAttribute** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the [GetVpcGatewayEndpointAttribute](https://help.aliyun.com/document_detail/311017.html) operation to query the status of the task.
- *     *   If the gateway endpoint is in the **Updating** state, it is being modified.
- *     *   If the gateway endpoint is in the **Created** state, it is modified.
- * *   You cannot call the **UpdateVpcGatewayEndpointAttribute** operation within a specific period of time.
+ * @description - **UpdateVpcGatewayEndpointAttribute** is an asynchronous operation. After you send a request, the system returns a **RequestId**, but the configuration of the gateway endpoint has not been updated yet. The update task is still running in the background. You can call [GetVpcGatewayEndpointAttribute](https://help.aliyun.com/document_detail/311017.html) to query the status of the gateway endpoint.
+ *     - If the gateway endpoint is in the **Updating** state, the configuration is being updated.
+ *     - If the gateway endpoint is in the **Created** state, the configuration has been updated.
+ * - **UpdateVpcGatewayEndpointAttribute** does not support concurrent updates to the same gateway endpoint.
  *
  * @param request UpdateVpcGatewayEndpointAttributeRequest
  * @return UpdateVpcGatewayEndpointAttributeResponse
@@ -34417,7 +34471,7 @@ VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse Client::vpcDescribeVpcNatG
 }
 
 /**
- * @summary Withdraw advertised Virtual Private Cloud (VPC) routes.
+ * @summary Withdraws a VPC published routing entry.
  *
  * @param request WithdrawVpcPublishedRouteEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -34484,7 +34538,7 @@ WithdrawVpcPublishedRouteEntriesResponse Client::withdrawVpcPublishedRouteEntrie
 }
 
 /**
- * @summary Withdraw advertised Virtual Private Cloud (VPC) routes.
+ * @summary Withdraws a VPC published routing entry.
  *
  * @param request WithdrawVpcPublishedRouteEntriesRequest
  * @return WithdrawVpcPublishedRouteEntriesResponse

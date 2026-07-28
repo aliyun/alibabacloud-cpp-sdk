@@ -116,24 +116,25 @@ namespace Models
     shared_ptr<string> creationTime_ {};
     // The description of the VBR failover group.
     // 
-    // The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
+    // The description must be 2 to 256 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
     // The name of the VBR failover group.
     shared_ptr<string> name_ {};
-    // The ID of the other VBR in the VBR failover group.
+    // The instance ID of the other VBR in the VBR failover group.
     shared_ptr<string> peerVbrId_ {};
-    // The ID of the region in which the VBR is deployed.
+    // The region ID of the VBR.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the VBR failover group.
+    // The status of the VBR failover group. Valid values:
     // 
-    // *   **Creating**
-    // *   **Active**
+    // - **Creating**: being created.
+    // 
+    // - **Active**: Normal.
     shared_ptr<string> status_ {};
-    // The ID of the VBR failover group.
+    // The VBR failover group instance ID.
     shared_ptr<string> vbrHaId_ {};
-    // The VBR ID.
+    // The VBR instance ID.
     shared_ptr<string> vbrId_ {};
   };
 

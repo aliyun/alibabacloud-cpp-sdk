@@ -140,25 +140,25 @@ namespace Models
 
 
     protected:
-      // The cause of the error.
+      // The error reason.
       shared_ptr<string> failedReason_ {};
       // The error code.
       shared_ptr<string> failedReasonCode_ {};
-      // The timestamp when the current error occurred on the IPsec-VPN connection. Unit: millisecond.
+      // The timestamp when the current error occurred on the IPsec-VPN connection. Unit: milliseconds.
       // 
-      // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The timestamp is in UNIX format and represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC to the time when the current error occurred on the IPsec-VPN connection.
       shared_ptr<int64_t> failedTime_ {};
-      // If the values of the parameters configured for the IPsec-VPN connection and the peer gateway device do not match, this parameter indicates the value of the parameters configured for the IPsec-VPN connection.
+      // The parameter value configured on the IPsec-VPN connection when the parameter values configured on the IPsec-VPN connection and the peer gateway device do not match.
       shared_ptr<string> mismatchLocalParam_ {};
-      // If the parameter values configured for the IPsec-VPN connection and the peer gateway device do not match, this parameter indicates the value of the parameter configured for the peer gateway device.
+      // The parameter value configured on the peer gateway device when the parameter values configured on the IPsec-VPN connection and the peer gateway device do not match.
       shared_ptr<string> mismatchRemoteParam_ {};
-      // The error level. Valid values:
+      // The severity level of the current error.
       // 
-      // *   **Critical**
-      // *   **Warn**
-      // *   **Normal**
+      // - **Critical**: Critical. Troubleshoot the issue immediately.
+      // - **Warn**: Warning. Troubleshoot the issue as soon as possible.
+      // - **Normal**: Normal.
       shared_ptr<string> severity_ {};
-      // The log information about the error.
+      // The log information related to the current error.
       shared_ptr<string> sourceLog_ {};
       // The tunnel ID.
       shared_ptr<string> tunnelId_ {};
@@ -206,15 +206,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of entries returned.
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
-    // The diagnostic information.
+    // The diagnostic information list of IPsec-VPN connections.
     shared_ptr<vector<DiagnoseVpnConnectionsResponseBody::VpnConnections>> vpnConnections_ {};
   };
 

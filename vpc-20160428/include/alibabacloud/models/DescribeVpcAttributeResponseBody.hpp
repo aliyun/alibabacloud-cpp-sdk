@@ -822,13 +822,14 @@ namespace Models
     shared_ptr<DescribeVpcAttributeResponseBody::AssociatedPropagationSources> associatedPropagationSources_ {};
     // The IPv4 CIDR block of the VPC.
     shared_ptr<string> cidrBlock_ {};
-    // Indicates whether the ClassicLink feature is enabled. Valid values:
+    // Indicates whether ClassicLink is enabled. Valid values:
     // 
-    // *   **true**
-    // *   **false** (default)
+    // - **true**: ClassicLink is enabled.
+    // 
+    // - **false** (default): ClassicLink is not enabled.
     shared_ptr<bool> classicLinkEnabled_ {};
     shared_ptr<DescribeVpcAttributeResponseBody::CloudResources> cloudResources_ {};
-    // The time when the VPC was created.
+    // The creation time of the VPC.
     shared_ptr<string> creationTime_ {};
     // The description of the VPC.
     shared_ptr<string> description_ {};
@@ -836,49 +837,53 @@ namespace Models
     shared_ptr<string> dhcpOptionsSetId_ {};
     // The status of the DHCP options set. Valid values:
     // 
-    // *   **Available**
-    // *   **InUse**
-    // *   **Deleted**
-    // *   **Pending**
+    // - **Available**: active.
+    // 
+    // - **InUse**: in use.
+    // 
+    // - **Deleted**: deleted.
+    // 
+    // - **Pending**: being configured.
     shared_ptr<string> dhcpOptionsSetStatus_ {};
-    // Indicates whether DNS hostname is enabled.
+    // Indicates whether DNS hostnames are enabled.
     shared_ptr<string> dnsHostnameStatus_ {};
-    // Indicates whether the VPC enables IPv6 .
-    // - true
-    // - false
+    // Indicates whether IPv6 is enabled.
     shared_ptr<bool> enabledIpv6_ {};
-    // The ID of the IPv4 gateway.
+    // The instance ID of the IPv4 gateway.
     shared_ptr<string> ipv4GatewayId_ {};
     // The IPv6 CIDR block of the VPC.
     shared_ptr<string> ipv6CidrBlock_ {};
     shared_ptr<DescribeVpcAttributeResponseBody::Ipv6CidrBlocks> ipv6CidrBlocks_ {};
     // Indicates whether the VPC is the default VPC. Valid values:
     // 
-    // *   **true**
-    // *   **false** (default)
+    // - **true**: The VPC is the default VPC.
+    // 
+    // - **false** (default): The VPC is not the default VPC.
     shared_ptr<bool> isDefault_ {};
-    // The ID of the Alibaba Cloud account to which the VPC belongs.
+    // The ID of the account to which the VPC belongs.
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region to which the VPC belongs.
+    // The region ID of the VPC.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<DescribeVpcAttributeResponseBody::SecondaryCidrBlocks> secondaryCidrBlocks_ {};
     // The status of the VPC. Valid values:
     // 
-    // *   **Available**
-    // *   **Pending**
-    shared_ptr<string> status_ {};
-    // Indicates whether the VPC supports IPv4 gateways.
+    // - **Available**: active.
     // 
-    // *   **true**
-    // *   **false**
+    // - **Pending**: being configured.
+    shared_ptr<string> status_ {};
+    // Indicates whether the VPC operates in centralized control with IPv4 gateway mode.
+    // - **true**: The VPC operates in centralized control with IPv4 gateway mode, where Internet traffic is centrally managed by the IPv4 gateway (activated after the IPv4 gateway is created and routing is configured), or the VPC is a private network-only VPC (the IPv4 gateway is deleted in private mode).
+    // - **false**: The VPC operates in Direct Internet Access mode (access mode).
+    // 
+    // > For details, see [IPv4 gateway](https://help.aliyun.com/document_detail/376445.html).
     shared_ptr<bool> supportIpv4Gateway_ {};
     shared_ptr<DescribeVpcAttributeResponseBody::Tags> tags_ {};
     shared_ptr<DescribeVpcAttributeResponseBody::UserCidrs> userCidrs_ {};
-    // The ID of the vRouter that belongs to the VPC.
+    // The ID of the vRouter in the VPC.
     shared_ptr<string> VRouterId_ {};
     shared_ptr<DescribeVpcAttributeResponseBody::VSwitchIds> vSwitchIds_ {};
     // The ID of the VPC.

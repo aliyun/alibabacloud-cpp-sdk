@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(FlowLogName, flowLogName_);
       DARABONBA_PTR_TO_JSON(IpVersion, ipVersion_);
+      DARABONBA_PTR_TO_JSON(LogFormat, logFormat_);
       DARABONBA_PTR_TO_JSON(LogStoreName, logStoreName_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(FlowLogName, flowLogName_);
       DARABONBA_PTR_FROM_JSON(IpVersion, ipVersion_);
+      DARABONBA_PTR_FROM_JSON(LogFormat, logFormat_);
       DARABONBA_PTR_FROM_JSON(LogStoreName, logStoreName_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -100,21 +102,21 @@ namespace Models
 
 
     protected:
-      // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the resource. You can specify up to 20 tag keys. Do not specify an empty string.
       // 
-      // The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag value of the resource. You can specify up to 20 tag values. You can specify an empty string.
       // 
-      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
     virtual bool empty() const override { return this->aggregationInterval_ == nullptr
-        && this->description_ == nullptr && this->flowLogName_ == nullptr && this->ipVersion_ == nullptr && this->logStoreName_ == nullptr && this->ownerAccount_ == nullptr
-        && this->ownerId_ == nullptr && this->projectName_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->resourceType_ == nullptr && this->tag_ == nullptr && this->trafficPath_ == nullptr
-        && this->trafficType_ == nullptr; };
+        && this->description_ == nullptr && this->flowLogName_ == nullptr && this->ipVersion_ == nullptr && this->logFormat_ == nullptr && this->logStoreName_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->projectName_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->resourceType_ == nullptr && this->tag_ == nullptr
+        && this->trafficPath_ == nullptr && this->trafficType_ == nullptr; };
     // aggregationInterval Field Functions 
     bool hasAggregationInterval() const { return this->aggregationInterval_ != nullptr;};
     void deleteAggregationInterval() { this->aggregationInterval_ = nullptr;};
@@ -141,6 +143,13 @@ namespace Models
     void deleteIpVersion() { this->ipVersion_ = nullptr;};
     inline string getIpVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
     inline CreateFlowLogRequest& setIpVersion(string ipVersion) { DARABONBA_PTR_SET_VALUE(ipVersion_, ipVersion) };
+
+
+    // logFormat Field Functions 
+    bool hasLogFormat() const { return this->logFormat_ != nullptr;};
+    void deleteLogFormat() { this->logFormat_ = nullptr;};
+    inline string getLogFormat() const { DARABONBA_PTR_GET_DEFAULT(logFormat_, "") };
+    inline CreateFlowLogRequest& setLogFormat(string logFormat) { DARABONBA_PTR_SET_VALUE(logFormat_, logFormat) };
 
 
     // logStoreName Field Functions 
@@ -251,6 +260,7 @@ namespace Models
     shared_ptr<string> flowLogName_ {};
     // The IP version of the traffic captured by the flow log.
     shared_ptr<string> ipVersion_ {};
+    shared_ptr<string> logFormat_ {};
     // The name of the Logstore that stores the captured traffic.
     // - The Logstore name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
     // - The name must start and end with a lowercase letter or digit.
@@ -269,13 +279,13 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The ID of the resource from which to capture traffic.
+    // The ID of the resource whose traffic you want to capture.
     // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of resource from which to capture traffic. Valid values:
+    // The type of the resource whose traffic you want to capture. Valid values:
     // 
     // - **NetworkInterface**: network interface controller (NIC).
     //   

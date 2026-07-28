@@ -201,17 +201,17 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for paging queries. Default value: **10**. Valid values: **1** to **50**.
+    // The number of entries per page in a paging query. Default value: **10**. Valid values: **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the IPsec-VPN connection. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group to which the IPsec-VPN connection belongs.
     // 
-    // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the resource group ID.
+    // You can call [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) to query resource group IDs.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

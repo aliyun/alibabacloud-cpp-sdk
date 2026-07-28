@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the reserved CIDR block.
+    // The instance ID of the reserved CIDR block for a vSwitch.
     shared_ptr<string> vSwitchCidrReservationId_ {};
   };
 

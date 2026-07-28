@@ -169,57 +169,57 @@ namespace Models
   protected:
     // The authentication key of the BGP group.
     shared_ptr<string> authKey_ {};
-    // The BGP group ID.
+    // The ID of the BGP group.
     // 
     // This parameter is required.
     shared_ptr<string> bgpGroupId_ {};
-    // Specifies whether to clear the secret key. Valid values:
+    // Specifies whether to clear the authentication key. Valid values:
     // 
-    // *   **true**
-    // *   **false** (default)
+    // - **true**: Yes.
+    // - **false** (default): No.
     shared_ptr<bool> clearAuthKey_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // The BGP group description.
+    // The description of the BGP group.
     // 
-    // The description must be 2 to 256 characters in length. It must start with a letter and cannot start with `http://` or `https://`.
+    // The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // Specifies whether to use a fake AS number. Valid values:
+    // Specifies whether to use a fake ASN. Valid values:
     // 
-    // *   **false** (default)
-    // *   **true**
+    // - **false** (default): No.
+    // - **true**: Yes.
     // 
-    // > A router that runs BGP typically belongs to only one AS. If you need to replace an AS with a new one, but you cannot immediately modify BGP configurations due to business requirements, you can specify a fake AS number to establish a connection with the local end. This ensures service continuity in scenarios such as AS migration or AS merging.
+    // > A router that runs BGP can belong to only one AS. When you need to replace an existing AS with a new one (for example, during AS migration or merger with another AS) and cannot immediately modify the BGP configuration due to business constraints, you can specify a fake ASN to establish a connection with the local end to ensure service continuity.
     shared_ptr<bool> isFakeAsn_ {};
-    // The custom autonomous system number (ASN) of the BGP on the Alibaba Cloud side. Valid values:
+    // The custom Alibaba Cloud-side BGP autonomous system number (ASN). Valid values:
     // 
-    // *   **45104**
-    // *   **64512~65534**
-    // *   **4200000000~4294967294**
+    // - **45104**
+    // - **64512 to 65534**
+    // - **4200000000 to 4294967294**
     // 
-    // >  **65025** is reserved by Alibaba Cloud. Alibaba Cloud uses **45104** as the **local ASN** by default. Custom **local ASNs** may cause loops in multi-line scenarios. Proceed with caution.
+    // > **65025** is reserved by Alibaba Cloud. The Alibaba Cloud side uses **45104** as the default **LocalAsn** value. Using a custom **LocalAsn** value in multi-ISP access scenarios may cause BGP routing loops. Evaluate the risks before you use this feature.
     shared_ptr<int64_t> localAsn_ {};
-    // The BGP group name.
+    // The name of the BGP group. 
     // 
-    // The name must be 2 to 128 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+    // The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ASN of the gateway device in the data center.
+    // The ASN of the on-premises device.
     shared_ptr<int64_t> peerAsn_ {};
-    // The region ID of the BGP group.
+    // The region ID of the BGP group. 
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The maximum number of routes supported by a BGP peer. Default value: **110**.
+    // The maximum number of routes for a BGP peer. Unit: entries. Default value: **110**.
     shared_ptr<int32_t> routeQuota_ {};
   };
 

@@ -112,17 +112,17 @@ namespace Models
 
 
   protected:
-    // The ID of the ACL.
+    // The ID of the access control policy group.
     shared_ptr<string> aclId_ {};
-    // The name of the ACL.
+    // The name of the access control policy group.
     shared_ptr<string> aclName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region of the ACL.
+    // The region of the access control policy group.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

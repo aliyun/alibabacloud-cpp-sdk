@@ -84,13 +84,13 @@ namespace Models
 
 
   protected:
-    // The ID of the IPv6 gateway that you want to query.
+    // The ID of the IPv6 gateway to query.
     // 
     // This parameter is required.
     shared_ptr<string> ipv6GatewayId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the IPv6 gateway is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // The region ID of the IPv6 gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

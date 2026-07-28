@@ -105,17 +105,17 @@ namespace Models
   protected:
     // The description of the vRouter.
     // 
-    // The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
+    // The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the vRouter.
+    // The region ID of the vRouter to modify.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The vRouter ID.
+    // The ID of the vRouter.
     // 
     // This parameter is required.
     shared_ptr<string> VRouterId_ {};

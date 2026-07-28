@@ -62,7 +62,7 @@ namespace Models
 
 
     protected:
-      // The ID of the inbound rule.
+      // The instance ID of the inbound rule.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -94,7 +94,7 @@ namespace Models
 
 
     protected:
-      // The ID of the outbound rule.
+      // The instance ID of the outbound rule.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -130,7 +130,7 @@ namespace Models
     shared_ptr<vector<CreateTrafficMirrorFilterRulesResponseBody::EgressRules>> egressRules_ {};
     // The list of inbound rules.
     shared_ptr<vector<CreateTrafficMirrorFilterRulesResponseBody::IngressRules>> ingressRules_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

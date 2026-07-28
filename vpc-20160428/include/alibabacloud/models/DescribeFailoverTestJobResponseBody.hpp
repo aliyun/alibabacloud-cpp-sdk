@@ -145,38 +145,43 @@ namespace Models
 
 
     protected:
-      // The description of the failover test.
+      // The description of the failover test job.
       // 
-      // The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
+      // The description is 0 to 256 characters in length and cannot start with `http://` or `https://`.
       shared_ptr<string> description_ {};
-      // The duration of the failover test. Unit: minutes. Valid values: **1 to 4320**.
+      // The failover test duration. Unit: minutes. Valid values: **1 to 4320**.
       shared_ptr<string> jobDuration_ {};
-      // The ID of the failover test.
+      // The ID of the failover test job.
       shared_ptr<string> jobId_ {};
-      // Indicates whether the failover test is performed immediately. Valid values:
+      // The failover test type. Valid values:
       // 
-      // *   **StartNow**
-      // *   **StartLater**
+      // - **StartNow**: starts immediately. The failover test starts immediately after the job is created.
+      // 
+      // - **StartLater**: starts later. Only the job is created without starting the test.
       shared_ptr<string> jobType_ {};
-      // The name of the failover test.
+      // The name of the failover test job.
       // 
-      // The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
+      // The name is 0 to 128 characters in length and cannot start with `http://` or `https://`.
       shared_ptr<string> name_ {};
-      // The IDs of failover test resources.
+      // The list of failover test resource IDs.
       shared_ptr<vector<string>> resourceId_ {};
-      // The type of failover test resource. Only **PHYSICALCONNECTION** is returned.
+      // The resource type for the failover test. Valid values: **PHYSICALCONNECTION**: Express Connect circuit.
       shared_ptr<string> resourceType_ {};
-      // The start time of the failover test. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The start time of the failover test job. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
       shared_ptr<string> startTime_ {};
-      // The status of the failover test. Valid values:
+      // The status of the failover test job. Valid values:
       // 
-      // *   **Init**
-      // *   **Starting**
-      // *   **Testing**
-      // *   **Stopping**
-      // *   **Stopped**
+      // - **Init**: pending.
+      // 
+      // - **Starting**: starting.
+      // 
+      // - **Testing**: in progress.
+      // 
+      // - **Stopping**: stopping.
+      // 
+      // - **Stopped**: completed.
       shared_ptr<string> status_ {};
-      // The end time of the failover test. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The end time of the failover test job. The time is displayed in UTC in the YYYY-MM-DDThh:mm:ssZ format.
       shared_ptr<string> stopTime_ {};
     };
 
@@ -199,7 +204,7 @@ namespace Models
 
 
   protected:
-    // The failover test.
+    // The failover test job.
     shared_ptr<DescribeFailoverTestJobResponseBody::FailoverTestJobModel> failoverTestJobModel_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

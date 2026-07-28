@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The ID of the IP address pool.
+    // The instance ID of the IPAM pool.
     shared_ptr<string> publicIpAddressPoolId_ {};
-    // The ID of the IP address pool.
+    // The instance ID of the IPAM pool.
     shared_ptr<string> pulbicIpAddressPoolId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

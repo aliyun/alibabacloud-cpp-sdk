@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The name of the enhanced VPN gateway.
+    // The name of the VPN gateway.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the enhanced VPN gateway instance.
+    // The instance ID of the enhanced VPN gateway.
     shared_ptr<string> vpnGatewayId_ {};
   };
 

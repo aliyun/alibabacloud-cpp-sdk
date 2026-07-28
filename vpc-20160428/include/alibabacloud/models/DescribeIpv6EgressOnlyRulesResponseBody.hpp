@@ -196,7 +196,7 @@ namespace Models
     shared_ptr<DescribeIpv6EgressOnlyRulesResponseBody::Ipv6EgressOnlyRules> ipv6EgressOnlyRules_ {};
     // The page number of the list to return. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Maximum value: **50**. Default value: **10**.
+    // The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

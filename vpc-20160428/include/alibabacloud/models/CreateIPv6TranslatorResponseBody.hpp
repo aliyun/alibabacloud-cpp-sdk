@@ -79,7 +79,7 @@ namespace Models
     shared_ptr<string> ipv6TranslatorId_ {};
     // The name of the IPv6 Translation Service instance.
     shared_ptr<string> name_ {};
-    // The order ID.
+    // The order ID for creating the IPv6 Translation Service instance.
     shared_ptr<int64_t> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

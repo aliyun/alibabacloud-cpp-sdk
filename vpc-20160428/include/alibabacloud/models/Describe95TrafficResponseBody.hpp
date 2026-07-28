@@ -203,25 +203,20 @@ namespace Models
 
 
     protected:
-      // The peak bandwidth of the Internet Shared Bandwidth instance on the queried date. Unit: Mbps.
+      // The peak bandwidth of the Internet Shared Bandwidth instance on the queried date. Unit: Mbit/s.
       shared_ptr<int64_t> bandwidth_ {};
-      // The daily peak bandwidth. Unit: Mbps.
+      // The daily peak bandwidth. Unit: Mbit/s.
       // 
-      // <props="china">
-      // 
-      // For more information, see [Daily peak bandwidth](https://help.aliyun.com/document_detail/89729.html).
+      // <props="china">For more information, see [Daily peak bandwidth](https://help.aliyun.com/document_detail/89729.html).
       shared_ptr<string> fifthPeakBandwidth_ {};
       // The resource ID.
       shared_ptr<string> instanceId_ {};
-      // The billing method of the Internet Shared Bandwidth instance on the queried date. Valid values:
-      // 
-      // - **PayBy95**: pay-by-enhanced-95th-percentile
-      // 
-      // - **PayByBandwidth**: pay-by-bandwidth
-      // 
-      // - **PayByDominantTraffic**: pay-by-dominant-traffic
+      // The billable methods of the Internet Shared Bandwidth instance on the queried date. Valid values:
+      // - **PayBy95**: enhanced 95th percentile billing.
+      // - **PayByBandwidth**: pay-by-bandwidth.
+      // - **PayByDominantTraffic**: pay-by-dominant-traffic.
       shared_ptr<string> internetChargeType_ {};
-      // The minimum bandwidth commitment of the Internet Shared Bandwidth instance on the queried date. Unit: Mbps.
+      // The minimum guaranteed bandwidth of the Internet Shared Bandwidth instance on the queried date. Unit: Mbit/s.
       shared_ptr<string> minimumConsumeBandwidth_ {};
       shared_ptr<Traffic95Summary::Traffic95DetailList> traffic95DetailList_ {};
     };
@@ -247,7 +242,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The bandwidth statistics for Internet Shared Bandwidth billed by enhanced 95th percentile.
+    // The bandwidth statistics information of the Internet Shared Bandwidth instance that uses the enhanced 95th percentile billing method.
     shared_ptr<Describe95TrafficResponseBody::Traffic95Summary> traffic95Summary_ {};
   };
 

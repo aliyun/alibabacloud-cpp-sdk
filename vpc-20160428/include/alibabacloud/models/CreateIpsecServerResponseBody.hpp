@@ -86,17 +86,17 @@ namespace Models
   protected:
     // The time when the IPsec server was created.
     // 
-    // T is used as a delimiter. Z indicates that the time is in UTC.
+    // T is the separator and Z indicates UTC.
     shared_ptr<string> creationTime_ {};
-    // The IPsec server ID.
+    // The ID of the IPsec server.
     shared_ptr<string> ipsecServerId_ {};
-    // The IPsec server name.
+    // The name of the IPsec server.
     shared_ptr<string> ipsecServerName_ {};
-    // The ID of the region where the VPN gateway is deployed.
+    // The region ID of the VPN gateway.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the VPN gateway.
+    // The instance ID of the VPN gateway.
     shared_ptr<string> vpnGatewayId_ {};
   };
 

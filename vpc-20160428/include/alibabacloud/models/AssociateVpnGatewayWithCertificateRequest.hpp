@@ -84,37 +84,38 @@ namespace Models
 
 
   protected:
-    // The ID of the certificate.
+    // The certificate ID.
     // 
     // This parameter is required.
     shared_ptr<string> certificateId_ {};
-    // The type of the certificate. Valid values:
+    // The certificate type. Valid values:
     // 
-    // *   **Encryption**
-    // *   **Signature**
+    // - **Encryption**: specifies the SSL certificate as the encryption certificate.
+    // - **Signature**: specifies the SSL certificate as the signing certificate.
     // 
     // This parameter is required.
     shared_ptr<string> certificateType_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
     // 
-    // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run, without performing the actual request. Valid values:
+    // Specifies whether to perform a dry run. Valid values:
     // 
-    // *   **true**: performs a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request passes the dry run, a request ID is returned. Otherwise, an error message is returned.
-    // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the operation is performed.
+    // - **true**: performs a dry run without performing the actual request. The system checks the required parameters, request syntax, and instance status. If the check fails, the corresponding error is returned. If the check succeeds, the corresponding request ID is returned.
+    // 
+    // - **false** (default): sends the request. After the request passes the check, the VPN gateway is associated with the certificate.
     shared_ptr<bool> dryRun_ {};
     // The region ID of the VPN gateway.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the VPN gateway.
+    // The instance ID of the VPN gateway.
     // 
-    // > You can associate only VPN gateways of the SM type with certificates.
+    // >Only Chinese SM VPN gateways support certificate attachment.
     // 
     // This parameter is required.
     shared_ptr<string> vpnGatewayId_ {};

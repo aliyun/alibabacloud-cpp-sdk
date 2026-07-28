@@ -50,11 +50,10 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the VLAN ID of the virtual physical connection was successfully modified.
+    // Indicates whether the VLAN ID of the shared Express Connect circuit is modified.
     // 
-    // - **true**: The VLAN ID was modified.
-    // 
-    // - **false**: The VLAN ID was not modified.
+    // - **true**: The VLAN ID is modified.
+    // - **false**: The VLAN ID failed to be modified.
     shared_ptr<string> success_ {};
   };
 

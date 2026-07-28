@@ -161,12 +161,12 @@ namespace Models
       shared_ptr<string> resourceUid_ {};
       // The association status of the prefix list. Valid values:
       // 
-      // - **Created**: The association is created.
-      // - **ModifyFailed**: The association is not updated to the latest version.
-      // - **Creating**: The association is being created.
-      // - **Modifying**: The association is being modified.
-      // - **Deleting**: The association is being deleted.
-      // - **Deleted**: The association is deleted.
+      // - **Created**: succeeded.
+      // - **ModifyFailed**: not associated with the latest version.
+      // - **Creating**: being created.
+      // - **Modifying**: being modified.
+      // - **Deleting**: being deleted.
+      // - **Deleted**: deleted.
       shared_ptr<string> status_ {};
     };
 
@@ -213,7 +213,7 @@ namespace Models
     // The number of entries returned.
     shared_ptr<int64_t> count_ {};
     // The pagination token. Valid values:
-    // - If **NextToken** is empty, no subsequent query exists.
+    // - If **NextToken** is empty, no subsequent query is required.
     // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The association information of the prefix list.

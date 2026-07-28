@@ -71,6 +71,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(FlowLogId, flowLogId_);
           DARABONBA_PTR_TO_JSON(FlowLogName, flowLogName_);
           DARABONBA_PTR_TO_JSON(IpVersion, ipVersion_);
+          DARABONBA_PTR_TO_JSON(LogFormat, logFormat_);
           DARABONBA_PTR_TO_JSON(LogStoreName, logStoreName_);
           DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
           DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -93,6 +94,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(FlowLogId, flowLogId_);
           DARABONBA_PTR_FROM_JSON(FlowLogName, flowLogName_);
           DARABONBA_PTR_FROM_JSON(IpVersion, ipVersion_);
+          DARABONBA_PTR_FROM_JSON(LogFormat, logFormat_);
           DARABONBA_PTR_FROM_JSON(LogStoreName, logStoreName_);
           DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
           DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -226,9 +228,9 @@ namespace Models
 
         virtual bool empty() const override { return this->aggregationInterval_ == nullptr
         && this->businessStatus_ == nullptr && this->creationTime_ == nullptr && this->description_ == nullptr && this->flowLogDeliverErrorMessage_ == nullptr && this->flowLogDeliverStatus_ == nullptr
-        && this->flowLogId_ == nullptr && this->flowLogName_ == nullptr && this->ipVersion_ == nullptr && this->logStoreName_ == nullptr && this->projectName_ == nullptr
-        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceId_ == nullptr && this->resourceType_ == nullptr && this->serviceType_ == nullptr
-        && this->status_ == nullptr && this->tags_ == nullptr && this->trafficPath_ == nullptr && this->trafficType_ == nullptr; };
+        && this->flowLogId_ == nullptr && this->flowLogName_ == nullptr && this->ipVersion_ == nullptr && this->logFormat_ == nullptr && this->logStoreName_ == nullptr
+        && this->projectName_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceId_ == nullptr && this->resourceType_ == nullptr
+        && this->serviceType_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->trafficPath_ == nullptr && this->trafficType_ == nullptr; };
         // aggregationInterval Field Functions 
         bool hasAggregationInterval() const { return this->aggregationInterval_ != nullptr;};
         void deleteAggregationInterval() { this->aggregationInterval_ = nullptr;};
@@ -290,6 +292,13 @@ namespace Models
         void deleteIpVersion() { this->ipVersion_ = nullptr;};
         inline string getIpVersion() const { DARABONBA_PTR_GET_DEFAULT(ipVersion_, "") };
         inline FlowLog& setIpVersion(string ipVersion) { DARABONBA_PTR_SET_VALUE(ipVersion_, ipVersion) };
+
+
+        // logFormat Field Functions 
+        bool hasLogFormat() const { return this->logFormat_ != nullptr;};
+        void deleteLogFormat() { this->logFormat_ = nullptr;};
+        inline string getLogFormat() const { DARABONBA_PTR_GET_DEFAULT(logFormat_, "") };
+        inline FlowLog& setLogFormat(string logFormat) { DARABONBA_PTR_SET_VALUE(logFormat_, logFormat) };
 
 
         // logStoreName Field Functions 
@@ -383,6 +392,7 @@ namespace Models
         shared_ptr<string> flowLogId_ {};
         shared_ptr<string> flowLogName_ {};
         shared_ptr<string> ipVersion_ {};
+        shared_ptr<string> logFormat_ {};
         shared_ptr<string> logStoreName_ {};
         shared_ptr<string> projectName_ {};
         shared_ptr<string> regionId_ {};
@@ -460,15 +470,16 @@ namespace Models
     shared_ptr<DescribeFlowLogsResponseBody::FlowLogs> flowLogs_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of items per page in a paginated query.
+    // The number of entries per page in paging queries.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Values:
-    // - **true**: The call was successful.
+    // Indicates whether the call is successful. Valid values:
+    // 
+    // - **true**: The call is successful.
     // - **false**: The call failed.
     shared_ptr<string> success_ {};
-    // The number of entries in the queried flow log list.
+    // The total number of entries returned.
     shared_ptr<string> totalCount_ {};
   };
 

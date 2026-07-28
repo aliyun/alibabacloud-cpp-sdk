@@ -236,13 +236,13 @@ namespace Models
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system uses the **RequestId** as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
     // The second vSwitch associated with the VPN VPC-connected instance.
     // 
     // - If the current region supports dual-tunnel IPsec-VPN connections, this parameter is required.
-    // - You must specify two vSwitches in different zones within the VPC associated with the VPN VPC-connected instance to implement zone-level disaster recovery for IPsec-VPN connections.
-    // - For regions that support only one zone, zone-level disaster recovery is not supported. Specify two different vSwitches in the same zone to achieve high availability for IPsec-VPN connections. You can also specify the same vSwitch.
+    // - You must specify two vSwitches in different zones from the VPC associated with the VPN VPC-connected instance to implement zone-level disaster recovery for IPsec-VPN connections.
+    // - For regions that support only one zone, zone-level disaster recovery is not supported. Specify two different vSwitches in the same zone to implement high availability for IPsec-VPN connections. You can also specify the same vSwitch.
     // 
     // For information about the regions and zones that support dual-tunnel IPsec-VPN connections, see [Upgrade an IPsec-VPN connection to dual-tunnel mode](https://help.aliyun.com/document_detail/2358946.html).
     shared_ptr<string> disasterRecoveryVSwitchId_ {};
@@ -258,9 +258,9 @@ namespace Models
     // 
     // - **false** (default): disables the SSL-VPN feature.
     shared_ptr<bool> enableSsl_ {};
-    // <props="china">The billing method of the VPN gateway. Set the value to **PREPAY**, which specifies the subscription billing method.
-    // <props="intl">The billing method of the VPN gateway. Set the value to **POSTPAY**, which specifies the pay-as-you-go billing method.
-    // <props="partner">The billing method of the VPN gateway. Set the value to **POSTPAY**, which specifies the pay-as-you-go billing method.
+    // <props="china">The billing method of the VPN gateway. Set the value to **PREPAY** (subscription).
+    // <props="intl">The billing method of the VPN gateway. Set the value to **POSTPAY** (pay-as-you-go billing method).
+    // <props="partner">The billing method of the VPN gateway. Set the value to **POSTPAY** (pay-as-you-go billing method).
     // 
     // <props="china">This parameter is required when you create a VPN gateway.
     shared_ptr<string> instanceChargeType_ {};
@@ -278,7 +278,7 @@ namespace Models
     // The subscription duration. Unit: months. Valid values: **1** to **9**, **12**, **24**, and **36**.
     // 
     // <props="china">
-    // > This parameter is required if **InstanceChargeType** is set to **PREPAY**..
+    // > This parameter is required if the **InstanceChargeType** parameter is set to **PREPAY**.
     shared_ptr<int32_t> period_ {};
     // The region ID of the VPN gateway. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
@@ -288,9 +288,9 @@ namespace Models
     // 
     // - You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource group IDs.
     // - If you do not specify a resource group ID, the VPN gateway belongs to the default resource group after it is created.
-    // - After the VPN gateway is created, if you create SSL servers, SSL client certificates, IPsec servers, or IPsec-VPN connections (when the IPsec-VPN connection is associated with the VPN gateway) under the VPN gateway, these resources belong to the same resource group as the VPN gateway. The resource group of these resources cannot be modified.
+    // - After the VPN gateway is created, if you create SSL servers, SSL client certificates, IPsec servers, or IPsec-VPN connections (when the IPsec-VPN connection is bindded to the VPN gateway) under the VPN gateway, these resources belong to the same resource group as the VPN gateway. The resource group of these resources cannot be modified.
     // 
-    //   If you change the resource group of the VPN gateway, the resource group of the preceding resources is also changed.
+    //   If you modify the resource group of the VPN gateway, the resource group of the preceding resources is also modified.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
@@ -299,7 +299,7 @@ namespace Models
     // The vSwitch associated with the VPN gateway instance. 
     // 
     // - In regions that support dual-tunnel IPsec-VPN connections, this parameter is required. You must specify a vSwitch and also specify the **DisasterRecoveryVSwitchId** parameter.
-    // - In regions that support only single-tunnel IPsec-VPN connections, if you do not specify a vSwitch, the system automatically selects a vSwitch from the VPC.
+    // - In regions that support single-tunnel IPsec-VPN connections, if you do not specify a vSwitch, the system automatically selects a vSwitch from the VPC.
     shared_ptr<string> vSwitchId_ {};
     // The ID of the VPC-connected instance to which the VPN gateway belongs.
     // 
@@ -307,7 +307,7 @@ namespace Models
     shared_ptr<string> vpcId_ {};
     // The type of the VPN gateway. Valid values:
     // - **Normal** (default): standard.
-    // <props="china">- **NationalStandard**: Chinese SM-based..
+    // <props="china">- **NationalStandard**: Chinese SM-based.
     shared_ptr<string> vpnType_ {};
   };
 

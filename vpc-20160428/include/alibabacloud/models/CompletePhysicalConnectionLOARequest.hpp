@@ -142,37 +142,35 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the value, but you must ensure that it is unique among different requests.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests.
     // 
-    // >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** of each API request may be different.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
     shared_ptr<string> clientToken_ {};
     // Specifies whether the construction is completed. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // * **true**: The construction is completed.
+    // * **false**: Line O&M.
     shared_ptr<bool> finishWork_ {};
-    // The ID of the Express Connect circuit.
+    // The instance ID of the Express Connect circuit.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The circuit code provided by the connectivity provider.
+    // The line code of the telecommunications service provider.
     shared_ptr<string> lineCode_ {};
-    // The label of the cable in the data center.
+    // The cable label in the data center building.
     shared_ptr<string> lineLabel_ {};
-    // The contact information about line O\\&M.
+    // The O&M contact information of the line.
     shared_ptr<string> lineSPContactInfo_ {};
-    // The ISP. Valid values:
-    // 
-    // *   **China Telecom**
-    // *   **China Unicom**
-    // *   **China Mobile**
-    // *   **Other ISPs in China**
+    // The telecommunications service provider. Valid values:
+    // - **中国电信**
+    // - **中国联通**
+    // - **中国移动**
+    // - **中国其他**
     shared_ptr<string> lineServiceProvider_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the Express Connect circuit.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

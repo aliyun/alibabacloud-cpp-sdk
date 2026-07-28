@@ -84,20 +84,20 @@ namespace Models
 
 
   protected:
-    // The ID of the instance whose fine-grained monitoring configurations you want to query.
+    // The instance ID for which high-precision second-level monitoring is queried.
     shared_ptr<string> instanceId_ {};
-    // The type of instance for which you want to query fine-grained monitoring. Only **EIP** may be returned.
+    // The type of the instance for which high-precision second-level monitoring is queried. The value is **EIP**.
     shared_ptr<string> instanceType_ {};
-    // The name of the project.
+    // The name of the LogProject.
     shared_ptr<string> logProject_ {};
-    // The name of the Logstore.
+    // The name of the LogStore.
     shared_ptr<string> logStore_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation is performed. Valid values:
+    // Indicates whether the call was successful.
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<string> success_ {};
   };
 

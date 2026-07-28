@@ -250,53 +250,59 @@ namespace Models
 
 
     protected:
-      // The time when the session is created.
+      // The time when the traffic mirror session was created.
       shared_ptr<string> creationTime_ {};
-      // Indicates whether the traffic mirror session was enabled.
+      // Indicates whether the traffic mirror session is enabled. Valid values:
       // 
-      // *   **false** 
-      // *   **true**
+      // - **false** (default): The traffic mirror session is not enabled.
+      // 
+      // - **true**: The traffic mirror session is enabled.
       shared_ptr<bool> enabled_ {};
-      // The maximum transmission unit.
+      // The length of the original packet to be mirrored (excluding the VXLAN packet length). Default value: **1500**. Valid values: **64** to **8500**. Unit: bytes.
+      // - This parameter affects the packet length received by the traffic mirror destination. For more information, see the mirrored packet length and MTU limits in [Traffic mirroring overview](https://help.aliyun.com/document_detail/207513.html).
+      // 
+      // - This parameter is available only in specific regions. For more information, see the mirrored packet length parameter description in [Create and manage traffic mirrors](https://help.aliyun.com/document_detail/207514.html).
       shared_ptr<int32_t> packetLength_ {};
       // The priority of the traffic mirror session.
       // 
       // A smaller value indicates a higher priority.
       shared_ptr<int32_t> priority_ {};
-      // The ID of the resource group to which the traffic mirror session belongs.
+      // The ID of the resource group to which the traffic mirroring session belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The tag list.
+      // The tags.
       shared_ptr<vector<TrafficMirrorSessions::Tags>> tags_ {};
-      // The ID of the filter.
+      // The instance ID of the traffic mirror filter.
       shared_ptr<string> trafficMirrorFilterId_ {};
-      // The status of the traffic mirror session.
+      // The business status of the traffic mirror session. Valid values:
       // 
-      // *   **Normal**
-      // *   **FinancialLocked**
+      // - **Normal**: Normal.
+      // 
+      // - **FinancialLocked**: financial lock.
       shared_ptr<string> trafficMirrorSessionBusinessStatus_ {};
       // The description of the traffic mirror session.
       shared_ptr<string> trafficMirrorSessionDescription_ {};
-      // The ID of the traffic mirror session.
+      // The instance ID of the traffic mirror session.
       shared_ptr<string> trafficMirrorSessionId_ {};
       // The name of the traffic mirror session.
       shared_ptr<string> trafficMirrorSessionName_ {};
       // The status of the traffic mirror session. Valid values:
       // 
-      // *   **Creating**
-      // *   **Created**
-      // *   **Modifying**
-      // *   **Deleting**
+      // - **Creating**: being created.
+      // - **Created**: created.
+      // - **Modifying**: being modified.
+      // - **Deleting**: being deleted.
       shared_ptr<string> trafficMirrorSessionStatus_ {};
-      // The ID of the traffic mirror source.
+      // The instance IDs of the traffic mirror sources.
       shared_ptr<vector<string>> trafficMirrorSourceIds_ {};
-      // The ID of the traffic mirror destination.
+      // The instance ID of the traffic mirror destination.
       shared_ptr<string> trafficMirrorTargetId_ {};
-      // The type of the traffic mirror destination. Valid values:
+      // The traffic mirror destination type. Valid values:
       // 
-      // *   **NetworkInterface**: an elastic network interface (ENI)
-      // *   **SLB**: an internal-facing Server Load Balancer (SLB) instance
+      // - **NetworkInterface**: network interface controller (NIC).
+      // 
+      // - **SLB**: internal-facing SLB instance.
       shared_ptr<string> trafficMirrorTargetType_ {};
-      // You can specify VNIs to distinguish different mirrored traffic.
+      // The VNI used to distinguish different mirrored data.
       shared_ptr<int32_t> virtualNetworkId_ {};
     };
 
@@ -333,16 +339,15 @@ namespace Models
 
 
   protected:
-    // The token that is used for the next query. Valid values:
-    // 
-    // *   If no value is returned for **NextToken**, no next queries are sent.
-    // *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // - If **NextToken** is empty, no next query exists.
+    // - If **NextToken** has a value, the value is the token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<string> totalCount_ {};
-    // The details about the traffic mirror session.
+    // The details of traffic mirror sessions.
     shared_ptr<vector<ListTrafficMirrorSessionsResponseBody::TrafficMirrorSessions>> trafficMirrorSessions_ {};
   };
 
