@@ -180,19 +180,33 @@ namespace Models
 
 
     protected:
+      // Total number of devices
       shared_ptr<int32_t> deviceCount_ {};
+      // Total ACU count for the Ray Cluster Head of the Embodied Intelligence platform
       shared_ptr<double> headAcu_ {};
+      // Number of vCPU cores for the Ray Cluster Head node on the Intelligent Embodiment platform
       shared_ptr<int32_t> headCpu_ {};
+      // Ray Cluster Head specification of the Embodied Intelligence platform
       shared_ptr<string> headSpecName_ {};
+      // Total number of ACUs actually deployed on the Intelligent Embodiment platform
       shared_ptr<double> totalAcu_ {};
+      // Total number of vCPU cores actually deployed on the Intelligent Embodiment platform
       shared_ptr<int32_t> totalDeployedCpu_ {};
+      // Total target number of vCPU cores
       shared_ptr<int32_t> totalTargetCpu_ {};
+      // Total ACU count for the Embodied Intelligence platform
       shared_ptr<double> webserverAcu_ {};
+      // Total number of vCPU cores for the Embodied Intelligence platform
       shared_ptr<int32_t> webserverCpu_ {};
+      // Webserver specification of the Embodied Intelligence platform.
       shared_ptr<string> webserverSpecName_ {};
+      // Total ACU count per Ray Cluster Worker of the Embodied Intelligence platform
       shared_ptr<double> workerAcu_ {};
+      // Total number of Ray Cluster Worker nodes on the Intelligent Embodiment platform
       shared_ptr<int32_t> workerCount_ {};
+      // Number of vCPU cores per Ray Cluster Worker of the Embodied Intelligence platform
       shared_ptr<int32_t> workerCpu_ {};
+      // Ray Cluster Worker specification of the Embodied Intelligence platform
       shared_ptr<string> workerSpecName_ {};
     };
 
@@ -215,6 +229,7 @@ namespace Models
 
 
   protected:
+    // List of specification recommendations.
     shared_ptr<vector<DescribeEapDeviceResourceAllocationResponseBody::Items>> items_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -91,6 +91,7 @@ namespace Models
 
 
       protected:
+        // The OSS standard storage usage. Unit: bytes.
         shared_ptr<int64_t> standardStorageSize_ {};
       };
 
@@ -122,6 +123,7 @@ namespace Models
 
 
       protected:
+        // The NAS standard storage usage. Unit: bytes.
         shared_ptr<int64_t> meteredSize_ {};
       };
 
@@ -146,7 +148,9 @@ namespace Models
 
 
     protected:
+      // The NAS storage usage.
       shared_ptr<StorageUsage::Nas> nas_ {};
+      // The OSS storage usage.
       shared_ptr<StorageUsage::Oss> oss_ {};
     };
 
@@ -188,7 +192,9 @@ namespace Models
 
 
     protected:
+      // The upstream bandwidth traffic over the public network. Unit: bytes.
       shared_ptr<int64_t> totalBytesIn_ {};
+      // The downstream bandwidth traffic over the public network. Unit: bytes.
       shared_ptr<int64_t> totalBytesOut_ {};
     };
 
@@ -239,8 +245,11 @@ namespace Models
 
 
     protected:
+      // The GPU allocation unit.
       shared_ptr<int32_t> allocatedUnit_ {};
+      // The GPU model.
       shared_ptr<string> gpuModel_ {};
+      // The number of GPUs of this model currently in use.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -368,12 +377,17 @@ namespace Models
 
   protected:
     shared_ptr<GetEmbodiedAIPlatformResourceUsageInfoResponseBody::AcuDetails> acuDetails_ {};
+    // The GPU usage details.
     shared_ptr<vector<GetEmbodiedAIPlatformResourceUsageInfoResponseBody::GpuDetails>> gpuDetails_ {};
+    // The maximum number of embodiments that can be registered.
     shared_ptr<int64_t> maxRegisteredDevices_ {};
+    // The number of registered embodiments.
     shared_ptr<int64_t> registeredDeviceCount_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The network resource usage information.
     shared_ptr<GetEmbodiedAIPlatformResourceUsageInfoResponseBody::SlbTraffic> slbTraffic_ {};
+    // The storage resource usage information.
     shared_ptr<GetEmbodiedAIPlatformResourceUsageInfoResponseBody::StorageUsage> storageUsage_ {};
   };
 

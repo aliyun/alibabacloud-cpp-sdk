@@ -21,7 +21,7 @@ namespace ADBAI20250812
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 创建指标平台
+       * @summary Creates a metric analysis platform.
        *
        * @param tmpReq CreateAgentPlatformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace ADBAI20250812
       Models::CreateAgentPlatformResponse createAgentPlatformWithOptions(const Models::CreateAgentPlatformRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建指标平台
+       * @summary Creates a metric analysis platform.
        *
        * @param request CreateAgentPlatformRequest
        * @return CreateAgentPlatformResponse
@@ -38,7 +38,9 @@ namespace ADBAI20250812
       Models::CreateAgentPlatformResponse createAgentPlatform(const Models::CreateAgentPlatformRequest &request);
 
       /**
-       * @summary 创建具身智能平台
+       * @summary Creates an embodied intelligence multimodal data platform.
+       *
+       * @description Queries the actual resource amount corresponding to the backend of the instance ontology count.
        *
        * @param tmpReq CreateEmbodiedAIPlatformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +49,9 @@ namespace ADBAI20250812
       Models::CreateEmbodiedAIPlatformResponse createEmbodiedAIPlatformWithOptions(const Models::CreateEmbodiedAIPlatformRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建具身智能平台
+       * @summary Creates an embodied intelligence multimodal data platform.
+       *
+       * @description Queries the actual resource amount corresponding to the backend of the instance ontology count.
        *
        * @param request CreateEmbodiedAIPlatformRequest
        * @return CreateEmbodiedAIPlatformResponse
@@ -55,7 +59,7 @@ namespace ADBAI20250812
       Models::CreateEmbodiedAIPlatformResponse createEmbodiedAIPlatform(const Models::CreateEmbodiedAIPlatformRequest &request);
 
       /**
-       * @summary 删除指标平台
+       * @summary Deletes a metrics platform.
        *
        * @param request DeleteAgentPlatformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +68,7 @@ namespace ADBAI20250812
       Models::DeleteAgentPlatformResponse deleteAgentPlatformWithOptions(const Models::DeleteAgentPlatformRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除指标平台
+       * @summary Deletes a metrics platform.
        *
        * @param request DeleteAgentPlatformRequest
        * @return DeleteAgentPlatformResponse
@@ -72,7 +76,7 @@ namespace ADBAI20250812
       Models::DeleteAgentPlatformResponse deleteAgentPlatform(const Models::DeleteAgentPlatformRequest &request);
 
       /**
-       * @summary 删除具身智能平台
+       * @summary Deletes an embodied intelligence platform.
        *
        * @param request DeleteEmbodiedAIPlatformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +85,7 @@ namespace ADBAI20250812
       Models::DeleteEmbodiedAIPlatformResponse deleteEmbodiedAIPlatformWithOptions(const Models::DeleteEmbodiedAIPlatformRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除具身智能平台
+       * @summary Deletes an embodied intelligence platform.
        *
        * @param request DeleteEmbodiedAIPlatformRequest
        * @return DeleteEmbodiedAIPlatformResponse
@@ -89,7 +93,9 @@ namespace ADBAI20250812
       Models::DeleteEmbodiedAIPlatformResponse deleteEmbodiedAIPlatform(const Models::DeleteEmbodiedAIPlatformRequest &request);
 
       /**
-       * @summary 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+       * @summary Queries multi-turn conversations for instance kernel diagnostics.
+       *
+       * @description Queries multi-turn conversations for instance kernel diagnostics.
        *
        * @param request DescribeChatMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +104,9 @@ namespace ADBAI20250812
       FutureGenerator<Models::DescribeChatMessageResponse> describeChatMessageWithSSE(const Models::DescribeChatMessageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+       * @summary Queries multi-turn conversations for instance kernel diagnostics.
+       *
+       * @description Queries multi-turn conversations for instance kernel diagnostics.
        *
        * @param request DescribeChatMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -107,7 +115,9 @@ namespace ADBAI20250812
       Models::DescribeChatMessageResponse describeChatMessageWithOptions(const Models::DescribeChatMessageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+       * @summary Queries multi-turn conversations for instance kernel diagnostics.
+       *
+       * @description Queries multi-turn conversations for instance kernel diagnostics.
        *
        * @param request DescribeChatMessageRequest
        * @return DescribeChatMessageResponse
@@ -115,7 +125,9 @@ namespace ADBAI20250812
       Models::DescribeChatMessageResponse describeChatMessage(const Models::DescribeChatMessageRequest &request);
 
       /**
-       * @summary 查询具身智能平台设备资源分配方案
+       * @summary Query the resource allocation plan for Embodied Intelligence platform devices
+       *
+       * @description Used to view the actual resource amount corresponding to the backend of the instance ontology count
        *
        * @param request DescribeEapDeviceResourceAllocationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -124,7 +136,9 @@ namespace ADBAI20250812
       Models::DescribeEapDeviceResourceAllocationResponse describeEapDeviceResourceAllocationWithOptions(const Models::DescribeEapDeviceResourceAllocationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询具身智能平台设备资源分配方案
+       * @summary Query the resource allocation plan for Embodied Intelligence platform devices
+       *
+       * @description Used to view the actual resource amount corresponding to the backend of the instance ontology count
        *
        * @param request DescribeEapDeviceResourceAllocationRequest
        * @return DescribeEapDeviceResourceAllocationResponse
@@ -132,7 +146,7 @@ namespace ADBAI20250812
       Models::DescribeEapDeviceResourceAllocationResponse describeEapDeviceResourceAllocation(const Models::DescribeEapDeviceResourceAllocationRequest &request);
 
       /**
-       * @summary 查询具身智能平台
+       * @summary Queries embodied intelligence multimodal data platforms.
        *
        * @param request DescribeEmbodiedAIPlatformsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -141,7 +155,7 @@ namespace ADBAI20250812
       Models::DescribeEmbodiedAIPlatformsResponse describeEmbodiedAIPlatformsWithOptions(const Models::DescribeEmbodiedAIPlatformsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询具身智能平台
+       * @summary Queries embodied intelligence multimodal data platforms.
        *
        * @param request DescribeEmbodiedAIPlatformsRequest
        * @return DescribeEmbodiedAIPlatformsResponse
@@ -149,7 +163,7 @@ namespace ADBAI20250812
       Models::DescribeEmbodiedAIPlatformsResponse describeEmbodiedAIPlatforms(const Models::DescribeEmbodiedAIPlatformsRequest &request);
 
       /**
-       * @summary 查询具身智能平台资源用量
+       * @summary Queries the resource usage information of an embodied intelligence platform.
        *
        * @param request GetEmbodiedAIPlatformResourceUsageInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -158,7 +172,7 @@ namespace ADBAI20250812
       Models::GetEmbodiedAIPlatformResourceUsageInfoResponse getEmbodiedAIPlatformResourceUsageInfoWithOptions(const Models::GetEmbodiedAIPlatformResourceUsageInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询具身智能平台资源用量
+       * @summary Queries the resource usage information of an embodied intelligence platform.
        *
        * @param request GetEmbodiedAIPlatformResourceUsageInfoRequest
        * @return GetEmbodiedAIPlatformResourceUsageInfoResponse
@@ -166,7 +180,7 @@ namespace ADBAI20250812
       Models::GetEmbodiedAIPlatformResourceUsageInfoResponse getEmbodiedAIPlatformResourceUsageInfo(const Models::GetEmbodiedAIPlatformResourceUsageInfoRequest &request);
 
       /**
-       * @summary 解锁具身智能平台
+       * @summary Locks an embodied intelligence platform.
        *
        * @param request LockEmbodiedAIPlatformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -175,7 +189,7 @@ namespace ADBAI20250812
       Models::LockEmbodiedAIPlatformResponse lockEmbodiedAIPlatformWithOptions(const Models::LockEmbodiedAIPlatformRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解锁具身智能平台
+       * @summary Locks an embodied intelligence platform.
        *
        * @param request LockEmbodiedAIPlatformRequest
        * @return LockEmbodiedAIPlatformResponse
@@ -183,7 +197,7 @@ namespace ADBAI20250812
       Models::LockEmbodiedAIPlatformResponse lockEmbodiedAIPlatform(const Models::LockEmbodiedAIPlatformRequest &request);
 
       /**
-       * @summary 修改变配指标平台
+       * @summary Upgrades or downgrades the specifications of a metric platform.
        *
        * @param tmpReq ModifyAgentPlatformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -192,7 +206,7 @@ namespace ADBAI20250812
       Models::ModifyAgentPlatformResponse modifyAgentPlatformWithOptions(const Models::ModifyAgentPlatformRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改变配指标平台
+       * @summary Upgrades or downgrades the specifications of a metric platform.
        *
        * @param request ModifyAgentPlatformRequest
        * @return ModifyAgentPlatformResponse
@@ -200,7 +214,7 @@ namespace ADBAI20250812
       Models::ModifyAgentPlatformResponse modifyAgentPlatform(const Models::ModifyAgentPlatformRequest &request);
 
       /**
-       * @summary 变配具身智能平台
+       * @summary Modifies the specifications of an embodied intelligence platform.
        *
        * @param tmpReq ModifyEmbodiedAIPlatformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -209,7 +223,7 @@ namespace ADBAI20250812
       Models::ModifyEmbodiedAIPlatformResponse modifyEmbodiedAIPlatformWithOptions(const Models::ModifyEmbodiedAIPlatformRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 变配具身智能平台
+       * @summary Modifies the specifications of an embodied intelligence platform.
        *
        * @param request ModifyEmbodiedAIPlatformRequest
        * @return ModifyEmbodiedAIPlatformResponse
@@ -217,7 +231,7 @@ namespace ADBAI20250812
       Models::ModifyEmbodiedAIPlatformResponse modifyEmbodiedAIPlatform(const Models::ModifyEmbodiedAIPlatformRequest &request);
 
       /**
-       * @summary 重置具身智能平台密码
+       * @summary Resets the admin password for the embodied intelligence platform.
        *
        * @param request ResetEmbodiedAIPlatformPasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -226,7 +240,7 @@ namespace ADBAI20250812
       Models::ResetEmbodiedAIPlatformPasswordResponse resetEmbodiedAIPlatformPasswordWithOptions(const Models::ResetEmbodiedAIPlatformPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重置具身智能平台密码
+       * @summary Resets the admin password for the embodied intelligence platform.
        *
        * @param request ResetEmbodiedAIPlatformPasswordRequest
        * @return ResetEmbodiedAIPlatformPasswordResponse
@@ -234,7 +248,7 @@ namespace ADBAI20250812
       Models::ResetEmbodiedAIPlatformPasswordResponse resetEmbodiedAIPlatformPassword(const Models::ResetEmbodiedAIPlatformPasswordRequest &request);
 
       /**
-       * @summary 解锁具身智能平台
+       * @summary Unlocks an embodied intelligence platform.
        *
        * @param request UnlockEmbodiedAIPlatformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -243,7 +257,7 @@ namespace ADBAI20250812
       Models::UnlockEmbodiedAIPlatformResponse unlockEmbodiedAIPlatformWithOptions(const Models::UnlockEmbodiedAIPlatformRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解锁具身智能平台
+       * @summary Unlocks an embodied intelligence platform.
        *
        * @param request UnlockEmbodiedAIPlatformRequest
        * @return UnlockEmbodiedAIPlatformResponse

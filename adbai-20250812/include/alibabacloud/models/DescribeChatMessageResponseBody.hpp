@@ -124,9 +124,13 @@ namespace Models
 
 
     protected:
+      // The parameters of the data API operation that is called.
       shared_ptr<string> arguments_ {};
+      // The ID of the data API operation that is called.
       shared_ptr<string> callId_ {};
+      // The name of the data API operation that is called.
       shared_ptr<string> name_ {};
+      // The output of the data API operation that is called.
       shared_ptr<string> output_ {};
     };
 
@@ -214,8 +218,11 @@ namespace Models
 
 
       protected:
+        // The ID of the data API operation that is called.
         shared_ptr<string> callId_ {};
+        // The name of the data API operation that is called.
         shared_ptr<string> name_ {};
+        // The output of the data API operation that is called.
         shared_ptr<string> output_ {};
       };
 
@@ -295,15 +302,25 @@ namespace Models
 
 
     protected:
+      // The result set.
       shared_ptr<Content::Data> data_ {};
+      // Indicates whether the content is incremental.
       shared_ptr<bool> delta_ {};
+      // The error message.
       shared_ptr<string> error_ {};
+      // The index.
       shared_ptr<int64_t> index_ {};
+      // The message ID.
       shared_ptr<string> msgId_ {};
+      // The message object.
       shared_ptr<string> object_ {};
+      // The sequence number of the message.
       shared_ptr<int64_t> sequenceNumber_ {};
+      // The message status.
       shared_ptr<string> status_ {};
+      // The text content.
       shared_ptr<string> text_ {};
+      // The message type.
       shared_ptr<string> type_ {};
     };
 
@@ -457,25 +474,45 @@ namespace Models
 
 
   protected:
+    // The backend error code.
     shared_ptr<string> code_ {};
+    // The completion time.
     shared_ptr<string> completedAt_ {};
+    // The task content.
     shared_ptr<vector<DescribeChatMessageResponseBody::Content>> content_ {};
+    // The creation time.
     shared_ptr<string> createdAt_ {};
+    // The result set.
     shared_ptr<DescribeChatMessageResponseBody::Data> data_ {};
+    // Indicates whether the content is incremental.
     shared_ptr<bool> delta_ {};
+    // The error message.
     shared_ptr<string> error_ {};
+    // The message ID.
     shared_ptr<string> id_ {};
+    // The index.
     shared_ptr<int64_t> index_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The message ID.
     shared_ptr<string> msgId_ {};
+    // The message object.
     shared_ptr<string> object_ {};
+    // The content output.
     shared_ptr<string> output_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The message role.
     shared_ptr<string> role_ {};
+    // The sequence number of the message.
     shared_ptr<int64_t> sequenceNumber_ {};
+    // The session ID.
     shared_ptr<string> sessionId_ {};
+    // The message status.
     shared_ptr<string> status_ {};
+    // The text content.
     shared_ptr<string> text_ {};
+    // The message type.
     shared_ptr<string> type_ {};
   };
 

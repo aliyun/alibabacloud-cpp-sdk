@@ -385,12 +385,19 @@ namespace Models
 
 
         protected:
+          // The allocation unit.
           shared_ptr<string> allocateUnit_ {};
+          // The name of the worker group.
           shared_ptr<string> groupName_ {};
+          // The maximum number of workers.
           shared_ptr<int32_t> maxWorkerQuantity_ {};
+          // The minimum number of workers.
           shared_ptr<int32_t> minWorkerQuantity_ {};
+          // The disk size of each worker.
           shared_ptr<string> workerDiskCapacity_ {};
+          // The worker resource model.
           shared_ptr<string> workerSpecName_ {};
+          // The Ray worker resource type.
           shared_ptr<string> workerSpecType_ {};
         };
 
@@ -456,13 +463,24 @@ namespace Models
 
 
       protected:
+        // The Ray cluster type. Valid values:
+        // 
+        // - BASIC: basic type without high availability.
+        // - HIGH_AVAILABILITY: high-availability type.
         shared_ptr<string> category_ {};
+        // The disk size of the head node.
         shared_ptr<string> headDiskCapacity_ {};
+        // The node specifications of the head node.
         shared_ptr<string> headSpec_ {};
+        // The resource type of the head node.
         shared_ptr<string> headSpecType_ {};
+        // The Ray cluster address.
         shared_ptr<string> rayClusterAddress_ {};
+        // The Ray Dashboard address.
         shared_ptr<string> rayDashboardAddress_ {};
+        // The Ray Grafana address.
         shared_ptr<string> rayGrafanaAddress_ {};
+        // The list of Ray worker group configurations.
         shared_ptr<vector<RayConfig::WorkerGroups>> workerGroups_ {};
       };
 
@@ -504,7 +522,9 @@ namespace Models
 
 
       protected:
+        // The public network access address of the platform webserver.
         shared_ptr<string> webserverAddress_ {};
+        // The webserver specification of the platform.
         shared_ptr<string> webserverSpecName_ {};
       };
 
@@ -567,12 +587,18 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
+      // The webserver configuration of the platform.
       shared_ptr<Platforms::EapConfig> eapConfig_ {};
+      // The lake storage name.
       shared_ptr<string> ossBucketName_ {};
+      // The platform name.
       shared_ptr<string> platformName_ {};
+      // The Ray specification information of the platform.
       shared_ptr<Platforms::RayConfig> rayConfig_ {};
       shared_ptr<Platforms::RayTrainConfig> rayTrainConfig_ {};
+      // The running status.
       shared_ptr<string> state_ {};
     };
 
@@ -631,12 +657,19 @@ namespace Models
 
 
   protected:
+    // Use the paged query parameters PageSize, PageNumber, and TotalCount for paging.
     shared_ptr<int32_t> maxResults_ {};
+    // Use the paged query parameters PageSize, PageNumber, and TotalCount for paging.
     shared_ptr<string> nextToken_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The list of embodied intelligence multimodal data platforms.
     shared_ptr<vector<DescribeEmbodiedAIPlatformsResponseBody::Platforms>> platforms_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of platforms.
     shared_ptr<int64_t> totalCount_ {};
   };
 

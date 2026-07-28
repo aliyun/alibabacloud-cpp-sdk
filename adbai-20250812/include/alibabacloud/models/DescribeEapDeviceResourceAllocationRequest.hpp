@@ -57,9 +57,16 @@ namespace Models
 
 
   protected:
+    // Instance cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // Total number of devices
     shared_ptr<int32_t> deviceCount_ {};
+    // Region ID where the instance is located.
+    // 
+    // > You can invoke the DescribeRegions API to view the region ID of a specified Data Lakehouse Edition cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

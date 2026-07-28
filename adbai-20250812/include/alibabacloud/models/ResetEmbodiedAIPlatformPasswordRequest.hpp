@@ -66,12 +66,22 @@ namespace Models
 
 
   protected:
+    // The cluster ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The new password for the admin user of the embodied intelligence platform.
+    // 
     // This parameter is required.
     shared_ptr<string> password_ {};
+    // The name of the embodied intelligence multimodal data platform.
+    // 
     // This parameter is required.
     shared_ptr<string> platformName_ {};
+    // The region ID of the instance.
+    // 
+    // > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

@@ -75,13 +75,24 @@ namespace Models
 
 
   protected:
+    // The instance cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The end of the time range for querying network resource usage. Format: yyyy-MM-ddTHH:mmZ.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> endTime_ {};
+    // The name of the embodied intelligence platform.
     shared_ptr<string> platformName_ {};
+    // The region ID of the instance.
+    // 
+    // > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The start of the time range for querying network resource usage. Format: yyyy-MM-ddTHH:mmZ.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> startTime_ {};
   };

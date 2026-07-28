@@ -344,12 +344,19 @@ namespace Models
 
 
       protected:
+        // The allocation unit.
         shared_ptr<string> allocateUnit_ {};
+        // The name of the worker group.
         shared_ptr<string> groupName_ {};
+        // The maximum number of workers.
         shared_ptr<int32_t> maxWorkerQuantity_ {};
+        // The minimum number of workers.
         shared_ptr<int32_t> minWorkerQuantity_ {};
+        // The disk size of the worker node.
         shared_ptr<string> workerDiskCapacity_ {};
+        // The node specifications of the worker node.
         shared_ptr<string> workerSpecName_ {};
+        // The resource type of the worker node.
         shared_ptr<string> workerSpecType_ {};
       };
 
@@ -379,8 +386,15 @@ namespace Models
 
 
     protected:
+      // The type of the Ray cluster. Valid values:
+      // 
+      // - BASIC: basic type, which does not support high availability.
+      // 
+      // - HIGH_AVAILABILITY: high-availability type.
       shared_ptr<string> category_ {};
+      // The node specifications of the head node.
       shared_ptr<string> headSpec_ {};
+      // The configuration information of Ray worker groups.
       shared_ptr<vector<RayConfig::WorkerGroups>> workerGroups_ {};
     };
 
@@ -441,15 +455,26 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> deviceCount_ {};
+    // The name of the embodied intelligence multimodal data platform.
+    // > The name can contain lowercase letters, digits, and underscores (_). It must start with a letter and end with a letter or digit. The name can be up to 16 characters in length.
+    // 
     // This parameter is required.
     shared_ptr<string> platformName_ {};
+    // The Ray specification information of the platform.
     shared_ptr<ModifyEmbodiedAIPlatformRequest::RayConfig> rayConfig_ {};
     shared_ptr<ModifyEmbodiedAIPlatformRequest::RayTrainConfig> rayTrainConfig_ {};
+    // The region ID.
+    // 
+    // > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The Webserver specification of the platform.
     shared_ptr<string> webserverSpecName_ {};
   };
 

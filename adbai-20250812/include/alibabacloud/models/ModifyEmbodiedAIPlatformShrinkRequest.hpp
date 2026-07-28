@@ -94,15 +94,26 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     shared_ptr<string> deviceCount_ {};
+    // The name of the embodied intelligence multimodal data platform.
+    // > The name can contain lowercase letters, digits, and underscores (_). It must start with a letter and end with a letter or digit. The name can be up to 16 characters in length.
+    // 
     // This parameter is required.
     shared_ptr<string> platformName_ {};
+    // The Ray specification information of the platform.
     shared_ptr<string> rayConfigShrink_ {};
     shared_ptr<string> rayTrainConfigShrink_ {};
+    // The region ID.
+    // 
+    // > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The Webserver specification of the platform.
     shared_ptr<string> webserverSpecName_ {};
   };
 

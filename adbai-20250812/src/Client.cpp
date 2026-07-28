@@ -18,7 +18,15 @@ namespace ADBAI20250812
 {
 
 AlibabaCloud::ADBAI20250812::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-shenzhen" , "adbai.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai" , "adbai.cn-shanghai.aliyuncs.com"},
+    {"cn-hangzhou" , "adbai.cn-hangzhou.aliyuncs.com"},
+    {"cn-beijing" , "adbai.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-1" , "adbai.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-1" , "adbai.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("adbai", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -37,7 +45,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 创建指标平台
+ * @summary Creates a metric analysis platform.
  *
  * @param tmpReq CreateAgentPlatformRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -86,7 +94,7 @@ CreateAgentPlatformResponse Client::createAgentPlatformWithOptions(const CreateA
 }
 
 /**
- * @summary 创建指标平台
+ * @summary Creates a metric analysis platform.
  *
  * @param request CreateAgentPlatformRequest
  * @return CreateAgentPlatformResponse
@@ -97,7 +105,9 @@ CreateAgentPlatformResponse Client::createAgentPlatform(const CreateAgentPlatfor
 }
 
 /**
- * @summary 创建具身智能平台
+ * @summary Creates an embodied intelligence multimodal data platform.
+ *
+ * @description Queries the actual resource amount corresponding to the backend of the instance ontology count.
  *
  * @param tmpReq CreateEmbodiedAIPlatformRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -162,7 +172,9 @@ CreateEmbodiedAIPlatformResponse Client::createEmbodiedAIPlatformWithOptions(con
 }
 
 /**
- * @summary 创建具身智能平台
+ * @summary Creates an embodied intelligence multimodal data platform.
+ *
+ * @description Queries the actual resource amount corresponding to the backend of the instance ontology count.
  *
  * @param request CreateEmbodiedAIPlatformRequest
  * @return CreateEmbodiedAIPlatformResponse
@@ -173,7 +185,7 @@ CreateEmbodiedAIPlatformResponse Client::createEmbodiedAIPlatform(const CreateEm
 }
 
 /**
- * @summary 删除指标平台
+ * @summary Deletes a metrics platform.
  *
  * @param request DeleteAgentPlatformRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -212,7 +224,7 @@ DeleteAgentPlatformResponse Client::deleteAgentPlatformWithOptions(const DeleteA
 }
 
 /**
- * @summary 删除指标平台
+ * @summary Deletes a metrics platform.
  *
  * @param request DeleteAgentPlatformRequest
  * @return DeleteAgentPlatformResponse
@@ -223,7 +235,7 @@ DeleteAgentPlatformResponse Client::deleteAgentPlatform(const DeleteAgentPlatfor
 }
 
 /**
- * @summary 删除具身智能平台
+ * @summary Deletes an embodied intelligence platform.
  *
  * @param request DeleteEmbodiedAIPlatformRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -262,7 +274,7 @@ DeleteEmbodiedAIPlatformResponse Client::deleteEmbodiedAIPlatformWithOptions(con
 }
 
 /**
- * @summary 删除具身智能平台
+ * @summary Deletes an embodied intelligence platform.
  *
  * @param request DeleteEmbodiedAIPlatformRequest
  * @return DeleteEmbodiedAIPlatformResponse
@@ -273,7 +285,9 @@ DeleteEmbodiedAIPlatformResponse Client::deleteEmbodiedAIPlatform(const DeleteEm
 }
 
 /**
- * @summary 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+ * @summary Queries multi-turn conversations for instance kernel diagnostics.
+ *
+ * @description Queries multi-turn conversations for instance kernel diagnostics.
  *
  * @param request DescribeChatMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -292,6 +306,10 @@ FutureGenerator<DescribeChatMessageResponse> Client::describeChatMessageWithSSE(
 
   if (!!request.hasSessionId()) {
     query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasSkill()) {
+    query["Skill"] = request.getSkill();
   }
 
   if (!!request.hasTimezone()) {
@@ -330,7 +348,9 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+ * @summary Queries multi-turn conversations for instance kernel diagnostics.
+ *
+ * @description Queries multi-turn conversations for instance kernel diagnostics.
  *
  * @param request DescribeChatMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -349,6 +369,10 @@ DescribeChatMessageResponse Client::describeChatMessageWithOptions(const Describ
 
   if (!!request.hasSessionId()) {
     query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasSkill()) {
+    query["Skill"] = request.getSkill();
   }
 
   if (!!request.hasTimezone()) {
@@ -373,7 +397,9 @@ DescribeChatMessageResponse Client::describeChatMessageWithOptions(const Describ
 }
 
 /**
- * @summary 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+ * @summary Queries multi-turn conversations for instance kernel diagnostics.
+ *
+ * @description Queries multi-turn conversations for instance kernel diagnostics.
  *
  * @param request DescribeChatMessageRequest
  * @return DescribeChatMessageResponse
@@ -384,7 +410,9 @@ DescribeChatMessageResponse Client::describeChatMessage(const DescribeChatMessag
 }
 
 /**
- * @summary 查询具身智能平台设备资源分配方案
+ * @summary Query the resource allocation plan for Embodied Intelligence platform devices
+ *
+ * @description Used to view the actual resource amount corresponding to the backend of the instance ontology count
  *
  * @param request DescribeEapDeviceResourceAllocationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -423,7 +451,9 @@ DescribeEapDeviceResourceAllocationResponse Client::describeEapDeviceResourceAll
 }
 
 /**
- * @summary 查询具身智能平台设备资源分配方案
+ * @summary Query the resource allocation plan for Embodied Intelligence platform devices
+ *
+ * @description Used to view the actual resource amount corresponding to the backend of the instance ontology count
  *
  * @param request DescribeEapDeviceResourceAllocationRequest
  * @return DescribeEapDeviceResourceAllocationResponse
@@ -434,7 +464,7 @@ DescribeEapDeviceResourceAllocationResponse Client::describeEapDeviceResourceAll
 }
 
 /**
- * @summary 查询具身智能平台
+ * @summary Queries embodied intelligence multimodal data platforms.
  *
  * @param request DescribeEmbodiedAIPlatformsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -501,7 +531,7 @@ DescribeEmbodiedAIPlatformsResponse Client::describeEmbodiedAIPlatformsWithOptio
 }
 
 /**
- * @summary 查询具身智能平台
+ * @summary Queries embodied intelligence multimodal data platforms.
  *
  * @param request DescribeEmbodiedAIPlatformsRequest
  * @return DescribeEmbodiedAIPlatformsResponse
@@ -512,7 +542,7 @@ DescribeEmbodiedAIPlatformsResponse Client::describeEmbodiedAIPlatforms(const De
 }
 
 /**
- * @summary 查询具身智能平台资源用量
+ * @summary Queries the resource usage information of an embodied intelligence platform.
  *
  * @param request GetEmbodiedAIPlatformResourceUsageInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -559,7 +589,7 @@ GetEmbodiedAIPlatformResourceUsageInfoResponse Client::getEmbodiedAIPlatformReso
 }
 
 /**
- * @summary 查询具身智能平台资源用量
+ * @summary Queries the resource usage information of an embodied intelligence platform.
  *
  * @param request GetEmbodiedAIPlatformResourceUsageInfoRequest
  * @return GetEmbodiedAIPlatformResourceUsageInfoResponse
@@ -570,7 +600,7 @@ GetEmbodiedAIPlatformResourceUsageInfoResponse Client::getEmbodiedAIPlatformReso
 }
 
 /**
- * @summary 解锁具身智能平台
+ * @summary Locks an embodied intelligence platform.
  *
  * @param request LockEmbodiedAIPlatformRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -609,7 +639,7 @@ LockEmbodiedAIPlatformResponse Client::lockEmbodiedAIPlatformWithOptions(const L
 }
 
 /**
- * @summary 解锁具身智能平台
+ * @summary Locks an embodied intelligence platform.
  *
  * @param request LockEmbodiedAIPlatformRequest
  * @return LockEmbodiedAIPlatformResponse
@@ -620,7 +650,7 @@ LockEmbodiedAIPlatformResponse Client::lockEmbodiedAIPlatform(const LockEmbodied
 }
 
 /**
- * @summary 修改变配指标平台
+ * @summary Upgrades or downgrades the specifications of a metric platform.
  *
  * @param tmpReq ModifyAgentPlatformRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -669,7 +699,7 @@ ModifyAgentPlatformResponse Client::modifyAgentPlatformWithOptions(const ModifyA
 }
 
 /**
- * @summary 修改变配指标平台
+ * @summary Upgrades or downgrades the specifications of a metric platform.
  *
  * @param request ModifyAgentPlatformRequest
  * @return ModifyAgentPlatformResponse
@@ -680,7 +710,7 @@ ModifyAgentPlatformResponse Client::modifyAgentPlatform(const ModifyAgentPlatfor
 }
 
 /**
- * @summary 变配具身智能平台
+ * @summary Modifies the specifications of an embodied intelligence platform.
  *
  * @param tmpReq ModifyEmbodiedAIPlatformRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -745,7 +775,7 @@ ModifyEmbodiedAIPlatformResponse Client::modifyEmbodiedAIPlatformWithOptions(con
 }
 
 /**
- * @summary 变配具身智能平台
+ * @summary Modifies the specifications of an embodied intelligence platform.
  *
  * @param request ModifyEmbodiedAIPlatformRequest
  * @return ModifyEmbodiedAIPlatformResponse
@@ -756,7 +786,7 @@ ModifyEmbodiedAIPlatformResponse Client::modifyEmbodiedAIPlatform(const ModifyEm
 }
 
 /**
- * @summary 重置具身智能平台密码
+ * @summary Resets the admin password for the embodied intelligence platform.
  *
  * @param request ResetEmbodiedAIPlatformPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -799,7 +829,7 @@ ResetEmbodiedAIPlatformPasswordResponse Client::resetEmbodiedAIPlatformPasswordW
 }
 
 /**
- * @summary 重置具身智能平台密码
+ * @summary Resets the admin password for the embodied intelligence platform.
  *
  * @param request ResetEmbodiedAIPlatformPasswordRequest
  * @return ResetEmbodiedAIPlatformPasswordResponse
@@ -810,7 +840,7 @@ ResetEmbodiedAIPlatformPasswordResponse Client::resetEmbodiedAIPlatformPassword(
 }
 
 /**
- * @summary 解锁具身智能平台
+ * @summary Unlocks an embodied intelligence platform.
  *
  * @param request UnlockEmbodiedAIPlatformRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -849,7 +879,7 @@ UnlockEmbodiedAIPlatformResponse Client::unlockEmbodiedAIPlatformWithOptions(con
 }
 
 /**
- * @summary 解锁具身智能平台
+ * @summary Unlocks an embodied intelligence platform.
  *
  * @param request UnlockEmbodiedAIPlatformRequest
  * @return UnlockEmbodiedAIPlatformResponse

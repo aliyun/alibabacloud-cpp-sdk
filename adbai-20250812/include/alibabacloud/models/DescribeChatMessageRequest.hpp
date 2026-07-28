@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Query, query_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
+      DARABONBA_PTR_TO_JSON(Skill, skill_);
       DARABONBA_PTR_TO_JSON(Timezone, timezone_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeChatMessageRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Query, query_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
+      DARABONBA_PTR_FROM_JSON(Skill, skill_);
       DARABONBA_PTR_FROM_JSON(Timezone, timezone_);
     };
     DescribeChatMessageRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->query_ == nullptr
-        && this->regionId_ == nullptr && this->sessionId_ == nullptr && this->timezone_ == nullptr; };
+        && this->regionId_ == nullptr && this->sessionId_ == nullptr && this->skill_ == nullptr && this->timezone_ == nullptr; };
     // query Field Functions 
     bool hasQuery() const { return this->query_ != nullptr;};
     void deleteQuery() { this->query_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline DescribeChatMessageRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
+    // skill Field Functions 
+    bool hasSkill() const { return this->skill_ != nullptr;};
+    void deleteSkill() { this->skill_ = nullptr;};
+    inline string getSkill() const { DARABONBA_PTR_GET_DEFAULT(skill_, "") };
+    inline DescribeChatMessageRequest& setSkill(string skill) { DARABONBA_PTR_SET_VALUE(skill_, skill) };
+
+
     // timezone Field Functions 
     bool hasTimezone() const { return this->timezone_ != nullptr;};
     void deleteTimezone() { this->timezone_ = nullptr;};
@@ -66,11 +75,18 @@ namespace Models
 
 
   protected:
+    // The question statement submitted by the user.
+    // 
     // This parameter is required.
     shared_ptr<string> query_ {};
+    // The Alibaba Cloud region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The session ID.
     shared_ptr<string> sessionId_ {};
+    shared_ptr<string> skill_ {};
+    // The time zone.
     shared_ptr<string> timezone_ {};
   };
 

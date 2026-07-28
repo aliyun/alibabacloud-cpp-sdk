@@ -133,8 +133,11 @@ namespace Models
 
 
         protected:
+          // The instance ID of the image repository.
           shared_ptr<string> instanceId_ {};
+          // The list of namespaces.
           shared_ptr<vector<string>> namespaces_ {};
+          // The address of the image repository instance.
           shared_ptr<string> registry_ {};
         };
 
@@ -149,6 +152,7 @@ namespace Models
 
 
       protected:
+        // The image repository configuration.
         shared_ptr<TerminalConfig::AcrConfig> acrConfig_ {};
       };
 
@@ -199,8 +203,11 @@ namespace Models
 
 
       protected:
+        // The allocation unit.
         shared_ptr<string> allocateUnit_ {};
+        // The number of GPU cards.
         shared_ptr<int64_t> count_ {};
+        // The GPU model.
         shared_ptr<string> specName_ {};
       };
 
@@ -232,8 +239,11 @@ namespace Models
 
 
     protected:
+      // The number of CPU ACUs to purchase.
       shared_ptr<int64_t> cpuAcu_ {};
+      // The list of GPU model specifications to purchase.
       shared_ptr<vector<RayTrainConfig::GpuSpecs>> gpuSpecs_ {};
+      // The development machine configuration.
       shared_ptr<RayTrainConfig::TerminalConfig> terminalConfig_ {};
     };
 
@@ -344,12 +354,19 @@ namespace Models
 
 
       protected:
+        // The allocation unit.
         shared_ptr<string> allocateUnit_ {};
+        // The name of the worker group.
         shared_ptr<string> groupName_ {};
+        // The maximum number of workers.
         shared_ptr<int32_t> maxWorkerQuantity_ {};
+        // The minimum number of workers.
         shared_ptr<int32_t> minWorkerQuantity_ {};
+        // The disk size of the worker node.
         shared_ptr<string> workerDiskCapacity_ {};
+        // The node specifications of the worker node.
         shared_ptr<string> workerSpecName_ {};
+        // The resource type of the worker node.
         shared_ptr<string> workerSpecType_ {};
       };
 
@@ -379,8 +396,15 @@ namespace Models
 
 
     protected:
+      // The Ray cluster type. Valid values:
+      // 
+      // - BASIC: basic type, non-high-availability.
+      // 
+      // - HIGH_AVAILABILITY: high-availability type.
       shared_ptr<string> category_ {};
+      // The node specifications of the head node.
       shared_ptr<string> headSpec_ {};
+      // The list of Ray worker group configurations.
       shared_ptr<vector<RayConfig::WorkerGroups>> workerGroups_ {};
     };
 
@@ -441,15 +465,28 @@ namespace Models
 
 
   protected:
+    // The instance cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The ontology count.
     shared_ptr<int32_t> deviceCount_ {};
+    // The name of the embodied intelligence multimodal data platform.
+    // > The name can contain lowercase letters, digits, and underscores. It must start with a letter and end with a letter or digit. The name can be up to 16 characters in length.
+    // 
     // This parameter is required.
     shared_ptr<string> platformName_ {};
+    // The Ray specification information of the platform.
     shared_ptr<CreateEmbodiedAIPlatformRequest::RayConfig> rayConfig_ {};
+    // The development and training resource configuration.
     shared_ptr<CreateEmbodiedAIPlatformRequest::RayTrainConfig> rayTrainConfig_ {};
+    // The region ID.
+    // 
+    // > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The webserver specification of the platform.
     shared_ptr<string> webserverSpecName_ {};
   };
 

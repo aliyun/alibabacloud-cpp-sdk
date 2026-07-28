@@ -57,10 +57,18 @@ namespace Models
 
 
   protected:
+    // The instance cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The name of the intelligent alert event recording. The name must be fewer than 48 characters in length and can contain letters, digits, and the following special characters: hyphens (-), underscores (_), at signs (@), periods (.), and colons (:).
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The region ID.
+    // 
+    // > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

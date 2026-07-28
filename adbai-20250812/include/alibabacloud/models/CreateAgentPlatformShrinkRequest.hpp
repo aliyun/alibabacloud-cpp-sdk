@@ -66,12 +66,21 @@ namespace Models
 
 
   protected:
+    // The parameters required to create the metric analysis platform.
+    // 
     // This parameter is required.
     shared_ptr<string> aiPlatformConfigShrink_ {};
+    // The instance cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The name of the metric analysis platform.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The region ID.
+    // 
+    // > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
     shared_ptr<string> regionId_ {};
   };
 

@@ -121,19 +121,35 @@ namespace Models
 
 
   protected:
+    // The cluster ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The end time of platform creation, used to filter query results. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> endTime_ {};
+    // Use PageSize and PageNumber for pagination.
     shared_ptr<int32_t> maxResults_ {};
+    // Use PageSize and PageNumber for pagination.
     shared_ptr<string> nextToken_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page in a paged query. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
+    // The name of the embodied intelligence multimodal data platform.
     shared_ptr<string> platformName_ {};
+    // The region ID of the instance.
+    // 
+    // > You can call the DescribeRegions operation to query the region ID of a specified Data Lakehouse Edition cluster.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The start time of platform creation, used to filter query results. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> startTime_ {};
+    // The running status of the platform.
     shared_ptr<string> state_ {};
   };
 
