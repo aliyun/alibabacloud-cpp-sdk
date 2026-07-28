@@ -62,8 +62,11 @@ namespace Models
 
 
   protected:
+    // The pod name. Required when Scope is set to pods.
     shared_ptr<vector<string>> podNames_ {};
+    // The role information. Required when Scope is set to roles.
     shared_ptr<vector<string>> roles_ {};
+    // The send scope.
     shared_ptr<string> scope_ {};
   };
 

@@ -38,6 +38,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PipelineId, pipelineId_);
       DARABONBA_PTR_TO_JSON(ReasonSearch, reasonSearch_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
+      DARABONBA_PTR_TO_JSON(ResourceIds, resourceIds_);
       DARABONBA_PTR_TO_JSON(ResourceQuotaName, resourceQuotaName_);
       DARABONBA_PTR_TO_JSON(ShowOwn, showOwn_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
@@ -76,6 +77,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PipelineId, pipelineId_);
       DARABONBA_PTR_FROM_JSON(ReasonSearch, reasonSearch_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
+      DARABONBA_PTR_FROM_JSON(ResourceIds, resourceIds_);
       DARABONBA_PTR_FROM_JSON(ResourceQuotaName, resourceQuotaName_);
       DARABONBA_PTR_FROM_JSON(ShowOwn, showOwn_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
@@ -105,9 +107,10 @@ namespace Models
         && this->enableAssignNode_ == nullptr && this->endTime_ == nullptr && this->fromAllWorkspaces_ == nullptr && this->imageSearch_ == nullptr && this->jobId_ == nullptr
         && this->jobIds_ == nullptr && this->jobType_ == nullptr && this->numericRangeField_ == nullptr && this->numericRangeMax_ == nullptr && this->numericRangeMin_ == nullptr
         && this->order_ == nullptr && this->oversoldInfo_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->paymentType_ == nullptr
-        && this->pipelineId_ == nullptr && this->reasonSearch_ == nullptr && this->resourceId_ == nullptr && this->resourceQuotaName_ == nullptr && this->showOwn_ == nullptr
-        && this->sortBy_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->templateId_ == nullptr
-        && this->timeRangeField_ == nullptr && this->userCommandSearch_ == nullptr && this->userIdForFilter_ == nullptr && this->username_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->pipelineId_ == nullptr && this->reasonSearch_ == nullptr && this->resourceId_ == nullptr && this->resourceIds_ == nullptr && this->resourceQuotaName_ == nullptr
+        && this->showOwn_ == nullptr && this->sortBy_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr
+        && this->templateId_ == nullptr && this->timeRangeField_ == nullptr && this->userCommandSearch_ == nullptr && this->userIdForFilter_ == nullptr && this->username_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -276,6 +279,13 @@ namespace Models
     inline ListJobsRequest& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
+    // resourceIds Field Functions 
+    bool hasResourceIds() const { return this->resourceIds_ != nullptr;};
+    void deleteResourceIds() { this->resourceIds_ = nullptr;};
+    inline string getResourceIds() const { DARABONBA_PTR_GET_DEFAULT(resourceIds_, "") };
+    inline ListJobsRequest& setResourceIds(string resourceIds) { DARABONBA_PTR_SET_VALUE(resourceIds_, resourceIds) };
+
+
     // resourceQuotaName Field Functions 
     bool hasResourceQuotaName() const { return this->resourceQuotaName_ != nullptr;};
     void deleteResourceQuotaName() { this->resourceQuotaName_ = nullptr;};
@@ -378,13 +388,13 @@ namespace Models
     shared_ptr<string> displayName_ {};
     // The search mode for DisplayName. Default value: wildcard match.
     shared_ptr<string> displayNameSearchMode_ {};
-    // Filters jobs based on whether running on specified nodes is enabled.
+    // Specifies whether to filter jobs that have assigned-node execution enabled.
     shared_ptr<string> enableAssignNode_ {};
-    // The end time of the query range. Jobs are filtered by creation time. Default value: the current time.
+    // The end time of the query range. The job creation time is used for filtering. Default value: the current time.
     shared_ptr<string> endTime_ {};
     // Specifies whether to retrieve jobs across all workspaces. This parameter must be used together with `ShowOwn=true` to query jobs recently submitted by the current user.
     shared_ptr<bool> fromAllWorkspaces_ {};
-    // Retrieves nodes by performing a full-text index on the images field. Supports Chinese and English tokenization.
+    // Uses full-text index to retrieve the images field. Supports Chinese and English tokenization.
     shared_ptr<string> imageSearch_ {};
     // The job ID. Fuzzy match is not supported. Case-insensitive. Wildcards are not supported.
     // Default value: empty, which indicates all job IDs.
@@ -415,22 +425,23 @@ namespace Models
     // - AcceptQuotaOverSold-true (true indicates the job actually used off-peak resources)
     // - AcceptQuotaOverSold-false (false indicates the job actually used guaranteed resources)
     shared_ptr<string> oversoldInfo_ {};
-    // The page number to return in a paged query. Minimum value: 1. Default value: 1.
+    // The page number to return in a paged query. Minimum value: 1. Default value: 1. Paging starts from page 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of jobs to return per page.
     shared_ptr<int32_t> pageSize_ {};
     // The resource type. Valid values:
-    // - PrePaid: resource quota
-    // - Spot: preemptible resources
-    // - PostPaid: public resources
+    // - PrePaid: resource quota.
+    // - Spot: preemptible resources.
+    // - PostPaid: public resources.
     shared_ptr<string> paymentType_ {};
-    // Filters jobs created by the specified workflow ID.
+    // Filters jobs created by the specified pipeline ID.
     shared_ptr<string> pipelineId_ {};
-    // Retrieves nodes by performing a full-text index on the node failed reason field. Supports Chinese and English tokenization.
+    // Uses full-text index to retrieve the node failed reason field. Supports Chinese and English tokenization.
     shared_ptr<string> reasonSearch_ {};
-    // The resource group ID. For information about how to query the dedicated resource group ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
+    // The resource group ID. For information about how to obtain the dedicated resource group ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
     shared_ptr<string> resourceId_ {};
-    // Filters the job list by the resource quota name. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by resource quota.
+    shared_ptr<string> resourceIds_ {};
+    // The name of the resource quota, used to filter the job list. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by resource quota.
     shared_ptr<string> resourceQuotaName_ {};
     // Specifies whether to return only jobs submitted by the current user.
     shared_ptr<bool> showOwn_ {};
@@ -442,7 +453,7 @@ namespace Models
     // - GmtCreateTime
     // - GmtFinishTime
     shared_ptr<string> sortBy_ {};
-    // The start time of the query range. Jobs are filtered by creation time. Default value: the current time minus 7 days. If neither StartTime nor EndTime is specified, jobs created in the last 7 days are returned by default.
+    // The start time of the query range. The job creation time is used for filtering. Default value: the current time minus 7 days. If neither StartTime nor EndTime is specified, jobs created in the last 7 days are returned by default.
     shared_ptr<string> startTime_ {};
     // The job status. Valid values:
     // - Creating
@@ -461,17 +472,17 @@ namespace Models
     shared_ptr<string> status_ {};
     // The tags used for filtering.
     shared_ptr<map<string, string>> tags_ {};
-    // The template ID. Filters jobs created from the specified template.
+    // The template ID, used to filter jobs created from the specified template.
     shared_ptr<string> templateId_ {};
     // The time field used for StartTime/EndTime filtering. Default value: creation time.
     shared_ptr<string> timeRangeField_ {};
-    // Retrieves nodes by performing a full-text index on the user_command field. Supports Chinese and English tokenization.
+    // Uses full-text index to retrieve the user_command field. Supports Chinese and English tokenization.
     shared_ptr<string> userCommandSearch_ {};
-    // Filters the job list by the user ID of the job submitter.
+    // The user ID of the job submitter, used to filter the job list.
     shared_ptr<string> userIdForFilter_ {};
-    // Filters the job list by the username of the job submitter. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by username.
+    // The username of the job submitter, used to filter the job list. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by username.
     shared_ptr<string> username_ {};
-    // The workspace ID. <props="china">For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+    // The workspace ID.<props="china"> For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

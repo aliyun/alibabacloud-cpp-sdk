@@ -29,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(SubStatus, subStatus_);
       DARABONBA_PTR_TO_JSON(Type, type_);
+      DARABONBA_PTR_TO_JSON(supportedProfilingTypes, supportedProfilingTypes_);
     };
     friend void from_json(const Darabonba::Json& j, PodItem& obj) { 
       DARABONBA_PTR_FROM_JSON(GmtCreateTime, gmtCreateTime_);
@@ -44,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(SubStatus, subStatus_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
+      DARABONBA_PTR_FROM_JSON(supportedProfilingTypes, supportedProfilingTypes_);
     };
     PodItem() = default ;
     PodItem(const PodItem &) = default ;
@@ -59,7 +61,7 @@ namespace Models
     virtual bool empty() const override { return this->gmtCreateTime_ == nullptr
         && this->gmtFinishTime_ == nullptr && this->gmtStartTime_ == nullptr && this->historyPods_ == nullptr && this->ip_ == nullptr && this->nodeName_ == nullptr
         && this->podId_ == nullptr && this->podIp_ == nullptr && this->podIps_ == nullptr && this->podUid_ == nullptr && this->status_ == nullptr
-        && this->subStatus_ == nullptr && this->type_ == nullptr; };
+        && this->subStatus_ == nullptr && this->type_ == nullptr && this->supportedProfilingTypes_ == nullptr; };
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
@@ -155,6 +157,13 @@ namespace Models
     inline PodItem& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+    // supportedProfilingTypes Field Functions 
+    bool hasSupportedProfilingTypes() const { return this->supportedProfilingTypes_ != nullptr;};
+    void deleteSupportedProfilingTypes() { this->supportedProfilingTypes_ = nullptr;};
+    inline string getSupportedProfilingTypes() const { DARABONBA_PTR_GET_DEFAULT(supportedProfilingTypes_, "") };
+    inline PodItem& setSupportedProfilingTypes(string supportedProfilingTypes) { DARABONBA_PTR_SET_VALUE(supportedProfilingTypes_, supportedProfilingTypes) };
+
+
   protected:
     shared_ptr<string> gmtCreateTime_ {};
     shared_ptr<string> gmtFinishTime_ {};
@@ -169,6 +178,7 @@ namespace Models
     shared_ptr<string> status_ {};
     shared_ptr<string> subStatus_ {};
     shared_ptr<string> type_ {};
+    shared_ptr<string> supportedProfilingTypes_ {};
   };
 
   } // namespace Models

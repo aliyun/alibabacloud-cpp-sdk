@@ -29,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_TO_JSON(AutoScalingSpec, autoScalingSpec_);
       DARABONBA_PTR_TO_JSON(ConsiderInSuccessPolicy, considerInSuccessPolicy_);
+      DARABONBA_PTR_TO_JSON(Driver, driver_);
       DARABONBA_PTR_TO_JSON(EcsSpec, ecsSpec_);
       DARABONBA_PTR_TO_JSON(ElasticSpotSpecs, elasticSpotSpecs_);
       DARABONBA_PTR_TO_JSON(ExtraPodSpec, extraPodSpec_);
@@ -54,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_FROM_JSON(AutoScalingSpec, autoScalingSpec_);
       DARABONBA_PTR_FROM_JSON(ConsiderInSuccessPolicy, considerInSuccessPolicy_);
+      DARABONBA_PTR_FROM_JSON(Driver, driver_);
       DARABONBA_PTR_FROM_JSON(EcsSpec, ecsSpec_);
       DARABONBA_PTR_FROM_JSON(ElasticSpotSpecs, elasticSpotSpecs_);
       DARABONBA_PTR_FROM_JSON(ExtraPodSpec, extraPodSpec_);
@@ -87,11 +89,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assignNodeSpec_ == nullptr
-        && this->autoScalingSpec_ == nullptr && this->considerInSuccessPolicy_ == nullptr && this->ecsSpec_ == nullptr && this->elasticSpotSpecs_ == nullptr && this->extraPodSpec_ == nullptr
-        && this->hyperNodeSchedulingConfig_ == nullptr && this->image_ == nullptr && this->imageConfig_ == nullptr && this->isCheif_ == nullptr && this->isChief_ == nullptr
-        && this->localMountSpecs_ == nullptr && this->oversoldType_ == nullptr && this->podCount_ == nullptr && this->quotaId_ == nullptr && this->resourceConfig_ == nullptr
-        && this->restartPolicy_ == nullptr && this->serviceSpec_ == nullptr && this->spotSpec_ == nullptr && this->startupDependencies_ == nullptr && this->systemDisk_ == nullptr
-        && this->type_ == nullptr && this->useSpotInstance_ == nullptr; };
+        && this->autoScalingSpec_ == nullptr && this->considerInSuccessPolicy_ == nullptr && this->driver_ == nullptr && this->ecsSpec_ == nullptr && this->elasticSpotSpecs_ == nullptr
+        && this->extraPodSpec_ == nullptr && this->hyperNodeSchedulingConfig_ == nullptr && this->image_ == nullptr && this->imageConfig_ == nullptr && this->isCheif_ == nullptr
+        && this->isChief_ == nullptr && this->localMountSpecs_ == nullptr && this->oversoldType_ == nullptr && this->podCount_ == nullptr && this->quotaId_ == nullptr
+        && this->resourceConfig_ == nullptr && this->restartPolicy_ == nullptr && this->serviceSpec_ == nullptr && this->spotSpec_ == nullptr && this->startupDependencies_ == nullptr
+        && this->systemDisk_ == nullptr && this->type_ == nullptr && this->useSpotInstance_ == nullptr; };
     // assignNodeSpec Field Functions 
     bool hasAssignNodeSpec() const { return this->assignNodeSpec_ != nullptr;};
     void deleteAssignNodeSpec() { this->assignNodeSpec_ = nullptr;};
@@ -115,6 +117,13 @@ namespace Models
     void deleteConsiderInSuccessPolicy() { this->considerInSuccessPolicy_ = nullptr;};
     inline bool getConsiderInSuccessPolicy() const { DARABONBA_PTR_GET_DEFAULT(considerInSuccessPolicy_, false) };
     inline JobSpec& setConsiderInSuccessPolicy(bool considerInSuccessPolicy) { DARABONBA_PTR_SET_VALUE(considerInSuccessPolicy_, considerInSuccessPolicy) };
+
+
+    // driver Field Functions 
+    bool hasDriver() const { return this->driver_ != nullptr;};
+    void deleteDriver() { this->driver_ = nullptr;};
+    inline string getDriver() const { DARABONBA_PTR_GET_DEFAULT(driver_, "") };
+    inline JobSpec& setDriver(string driver) { DARABONBA_PTR_SET_VALUE(driver_, driver) };
 
 
     // ecsSpec Field Functions 
@@ -278,12 +287,13 @@ namespace Models
 
 
   protected:
-    // The scheduling node assignment configuration.
+    // The assigned scheduling node configuration.
     shared_ptr<AssignNodeSpec> assignNodeSpec_ {};
     // The auto scaling configuration.
     shared_ptr<AutoScalingSpec> autoScalingSpec_ {};
-    // Specifies whether to consider this role when determining job success. This parameter takes effect only when the success policy is set to Partial.
+    // Specifies whether this role is considered when determining job success. This parameter takes effect only when the success policy is set to Partial.
     shared_ptr<bool> considerInSuccessPolicy_ {};
+    shared_ptr<string> driver_ {};
     // The hardware specifications of the worker. Visit [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html) for the detailed list of specifications.>Notice: Prices vary depending on the specifications.
     shared_ptr<string> ecsSpec_ {};
     shared_ptr<vector<ElasticSpotSpec>> elasticSpotSpecs_ {};
@@ -315,7 +325,7 @@ namespace Models
     // The dependencies required before this role starts.
     shared_ptr<vector<StartupDependency>> startupDependencies_ {};
     shared_ptr<SystemDisk> systemDisk_ {};
-    // Type is closely related to Job Type. Different Job Types support different Worker Types.
+    // Type is closely related to Job Type. Different job types support different worker types.
     // 
     // - **TFJob**: Supports Chief, PS, Worker, Evaluator, and GraphLearn.
     // 

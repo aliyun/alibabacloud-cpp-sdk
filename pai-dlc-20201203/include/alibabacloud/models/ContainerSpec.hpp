@@ -5,6 +5,7 @@
 #include <vector>
 #include <alibabacloud/models/EnvVar.hpp>
 #include <alibabacloud/models/ResourceRequirements.hpp>
+#include <alibabacloud/models/SecurityContext.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Image, image_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Resources, resources_);
+      DARABONBA_PTR_TO_JSON(SecurityContext, securityContext_);
       DARABONBA_PTR_TO_JSON(WorkingDir, workingDir_);
     };
     friend void from_json(const Darabonba::Json& j, ContainerSpec& obj) { 
@@ -31,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Image, image_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Resources, resources_);
+      DARABONBA_PTR_FROM_JSON(SecurityContext, securityContext_);
       DARABONBA_PTR_FROM_JSON(WorkingDir, workingDir_);
     };
     ContainerSpec() = default ;
@@ -46,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->args_ == nullptr
         && this->command_ == nullptr && this->env_ == nullptr && this->image_ == nullptr && this->name_ == nullptr && this->resources_ == nullptr
-        && this->workingDir_ == nullptr; };
+        && this->securityContext_ == nullptr && this->workingDir_ == nullptr; };
     // args Field Functions 
     bool hasArgs() const { return this->args_ != nullptr;};
     void deleteArgs() { this->args_ = nullptr;};
@@ -97,6 +100,15 @@ namespace Models
     inline ContainerSpec& setResources(ResourceRequirements && resources) { DARABONBA_PTR_SET_RVALUE(resources_, resources) };
 
 
+    // securityContext Field Functions 
+    bool hasSecurityContext() const { return this->securityContext_ != nullptr;};
+    void deleteSecurityContext() { this->securityContext_ = nullptr;};
+    inline const SecurityContext & getSecurityContext() const { DARABONBA_PTR_GET_CONST(securityContext_, SecurityContext) };
+    inline SecurityContext getSecurityContext() { DARABONBA_PTR_GET(securityContext_, SecurityContext) };
+    inline ContainerSpec& setSecurityContext(const SecurityContext & securityContext) { DARABONBA_PTR_SET_VALUE(securityContext_, securityContext) };
+    inline ContainerSpec& setSecurityContext(SecurityContext && securityContext) { DARABONBA_PTR_SET_RVALUE(securityContext_, securityContext) };
+
+
     // workingDir Field Functions 
     bool hasWorkingDir() const { return this->workingDir_ != nullptr;};
     void deleteWorkingDir() { this->workingDir_ = nullptr;};
@@ -117,6 +129,7 @@ namespace Models
     shared_ptr<string> name_ {};
     // The container resources.
     shared_ptr<ResourceRequirements> resources_ {};
+    shared_ptr<SecurityContext> securityContext_ {};
     // The working directory in the container.
     shared_ptr<string> workingDir_ {};
   };

@@ -69,6 +69,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UserVpc, userVpc_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
       DARABONBA_PTR_TO_JSON(WorkspaceName, workspaceName_);
+      DARABONBA_PTR_TO_JSON(supportedProfilingTypes, supportedProfilingTypes_);
     };
     friend void from_json(const Darabonba::Json& j, GetJobResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
@@ -118,6 +119,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(UserVpc, userVpc_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceName, workspaceName_);
+      DARABONBA_PTR_FROM_JSON(supportedProfilingTypes, supportedProfilingTypes_);
     };
     GetJobResponseBody() = default ;
     GetJobResponseBody(const GetJobResponseBody &) = default ;
@@ -199,8 +201,8 @@ namespace Models
     protected:
       // The default routing. This parameter is valid only for general computing resources. Valid values:
       // 
-      // eth0: uses the default network interface controller (NIC) to access external networks through the public gateway.
-      // eth1: uses the user elastic network interfaces (ENIs) to access external networks through the private gateway.
+      // eth0: uses the default network interface controller (NIC) to access external networks through a public gateway.
+      // eth1: uses the user elastic network interfaces (ENIs) to access external networks through a private gateway.
       shared_ptr<string> defaultRoute_ {};
       // The extended CIDR blocks, for example, 192.168.0.1/24.
       shared_ptr<vector<string>> extendedCidrs_ {};
@@ -351,7 +353,7 @@ namespace Models
 
 
       protected:
-        // The job-level blacklist.
+        // The job blacklist.
         shared_ptr<bool> addJobLevelBlacklist_ {};
         // The node blacklist.
         shared_ptr<bool> addNodeToBlacklist_ {};
@@ -457,7 +459,7 @@ namespace Models
       shared_ptr<string> occurTime_ {};
       // The reason.
       shared_ptr<string> reason_ {};
-      // The restart duration, in seconds.
+      // The restart duration.
       shared_ptr<int64_t> restartDurationInSec_ {};
       // The restart failure reason.
       shared_ptr<string> restartFailReason_ {};
@@ -485,6 +487,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(SubStatus, subStatus_);
         DARABONBA_PTR_TO_JSON(Type, type_);
+        DARABONBA_PTR_TO_JSON(supportedProfilingTypes, supportedProfilingTypes_);
       };
       friend void from_json(const Darabonba::Json& j, Pods& obj) { 
         DARABONBA_PTR_FROM_JSON(Duration, duration_);
@@ -501,6 +504,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(SubStatus, subStatus_);
         DARABONBA_PTR_FROM_JSON(Type, type_);
+        DARABONBA_PTR_FROM_JSON(supportedProfilingTypes, supportedProfilingTypes_);
       };
       Pods() = default ;
       Pods(const Pods &) = default ;
@@ -529,6 +533,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Status, status_);
           DARABONBA_PTR_TO_JSON(SubStatus, subStatus_);
           DARABONBA_PTR_TO_JSON(Type, type_);
+          DARABONBA_PTR_TO_JSON(supportedProfilingTypes, supportedProfilingTypes_);
         };
         friend void from_json(const Darabonba::Json& j, HistoryPods& obj) { 
           DARABONBA_PTR_FROM_JSON(Duration, duration_);
@@ -544,6 +549,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Status, status_);
           DARABONBA_PTR_FROM_JSON(SubStatus, subStatus_);
           DARABONBA_PTR_FROM_JSON(Type, type_);
+          DARABONBA_PTR_FROM_JSON(supportedProfilingTypes, supportedProfilingTypes_);
         };
         HistoryPods() = default ;
         HistoryPods(const HistoryPods &) = default ;
@@ -559,7 +565,7 @@ namespace Models
         virtual bool empty() const override { return this->duration_ == nullptr
         && this->gmtCreateTime_ == nullptr && this->gmtFinishTime_ == nullptr && this->gmtStartTime_ == nullptr && this->ip_ == nullptr && this->nodeName_ == nullptr
         && this->podId_ == nullptr && this->podIps_ == nullptr && this->podUid_ == nullptr && this->resourceType_ == nullptr && this->status_ == nullptr
-        && this->subStatus_ == nullptr && this->type_ == nullptr; };
+        && this->subStatus_ == nullptr && this->type_ == nullptr && this->supportedProfilingTypes_ == nullptr; };
         // duration Field Functions 
         bool hasDuration() const { return this->duration_ != nullptr;};
         void deleteDuration() { this->duration_ = nullptr;};
@@ -653,6 +659,13 @@ namespace Models
         inline HistoryPods& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+        // supportedProfilingTypes Field Functions 
+        bool hasSupportedProfilingTypes() const { return this->supportedProfilingTypes_ != nullptr;};
+        void deleteSupportedProfilingTypes() { this->supportedProfilingTypes_ = nullptr;};
+        inline string getSupportedProfilingTypes() const { DARABONBA_PTR_GET_DEFAULT(supportedProfilingTypes_, "") };
+        inline HistoryPods& setSupportedProfilingTypes(string supportedProfilingTypes) { DARABONBA_PTR_SET_VALUE(supportedProfilingTypes_, supportedProfilingTypes) };
+
+
       protected:
         // The pod running duration.
         shared_ptr<double> duration_ {};
@@ -682,12 +695,13 @@ namespace Models
         shared_ptr<string> subStatus_ {};
         // The pod type.
         shared_ptr<string> type_ {};
+        shared_ptr<string> supportedProfilingTypes_ {};
       };
 
       virtual bool empty() const override { return this->duration_ == nullptr
         && this->gmtCreateTime_ == nullptr && this->gmtFinishTime_ == nullptr && this->gmtStartTime_ == nullptr && this->historyPods_ == nullptr && this->ip_ == nullptr
         && this->nodeName_ == nullptr && this->podId_ == nullptr && this->podIps_ == nullptr && this->podUid_ == nullptr && this->resourceType_ == nullptr
-        && this->status_ == nullptr && this->subStatus_ == nullptr && this->type_ == nullptr; };
+        && this->status_ == nullptr && this->subStatus_ == nullptr && this->type_ == nullptr && this->supportedProfilingTypes_ == nullptr; };
       // duration Field Functions 
       bool hasDuration() const { return this->duration_ != nullptr;};
       void deleteDuration() { this->duration_ = nullptr;};
@@ -790,22 +804,29 @@ namespace Models
       inline Pods& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+      // supportedProfilingTypes Field Functions 
+      bool hasSupportedProfilingTypes() const { return this->supportedProfilingTypes_ != nullptr;};
+      void deleteSupportedProfilingTypes() { this->supportedProfilingTypes_ = nullptr;};
+      inline string getSupportedProfilingTypes() const { DARABONBA_PTR_GET_DEFAULT(supportedProfilingTypes_, "") };
+      inline Pods& setSupportedProfilingTypes(string supportedProfilingTypes) { DARABONBA_PTR_SET_VALUE(supportedProfilingTypes_, supportedProfilingTypes) };
+
+
     protected:
       // The pod running duration.
       shared_ptr<double> duration_ {};
       // The pod creation time (UTC).
       shared_ptr<string> gmtCreateTime_ {};
-      // The node finish time (UTC).
+      // The pod finish time (UTC).
       shared_ptr<string> gmtFinishTime_ {};
-      // The node start time (UTC).
+      // The pod start time (UTC).
       shared_ptr<string> gmtStartTime_ {};
       // The historical pods.
       shared_ptr<vector<Pods::HistoryPods>> historyPods_ {};
-      // The network IP address of the node.
+      // The network IP address of the pod.
       shared_ptr<string> ip_ {};
       // The node name.
       shared_ptr<string> nodeName_ {};
-      // The node ID. You can use this ID with the GetPodLogs and GetPodEvents APIs to retrieve detailed logs and events for the node.
+      // The pod ID. You can use this ID with the GetPodLogs and GetPodEvents APIs to retrieve detailed logs and events of the pod.
       shared_ptr<string> podId_ {};
       // The IP addresses of the pod.
       shared_ptr<vector<PodNetworkInterface>> podIps_ {};
@@ -813,7 +834,7 @@ namespace Models
       shared_ptr<string> podUid_ {};
       // The pod resource usage type.
       shared_ptr<string> resourceType_ {};
-      // The node status. Valid values:
+      // The pod status. Valid values:
       // 
       // - Pending
       // - Running
@@ -825,8 +846,9 @@ namespace Models
       // - Normal
       // - Evicted
       shared_ptr<string> subStatus_ {};
-      // The node type, which corresponds to a JobSpec in the JobSpecs parameter of CreateJob.
+      // The pod type, which corresponds to a JobSpec in the JobSpecs parameter of CreateJob.
       shared_ptr<string> type_ {};
+      shared_ptr<string> supportedProfilingTypes_ {};
     };
 
     class DataSources : public Darabonba::Model {
@@ -1012,7 +1034,7 @@ namespace Models
         && this->restartRecord_ == nullptr && this->restartTimes_ == nullptr && this->roleSystemEnvs_ == nullptr && this->schedulingStrategy_ == nullptr && this->settings_ == nullptr
         && this->status_ == nullptr && this->statusHistory_ == nullptr && this->subStatus_ == nullptr && this->tenantId_ == nullptr && this->thirdpartyLibDir_ == nullptr
         && this->thirdpartyLibs_ == nullptr && this->userCommand_ == nullptr && this->userId_ == nullptr && this->userVpc_ == nullptr && this->workspaceId_ == nullptr
-        && this->workspaceName_ == nullptr; };
+        && this->workspaceName_ == nullptr && this->supportedProfilingTypes_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -1372,10 +1394,17 @@ namespace Models
     inline GetJobResponseBody& setWorkspaceName(string workspaceName) { DARABONBA_PTR_SET_VALUE(workspaceName_, workspaceName) };
 
 
+    // supportedProfilingTypes Field Functions 
+    bool hasSupportedProfilingTypes() const { return this->supportedProfilingTypes_ != nullptr;};
+    void deleteSupportedProfilingTypes() { this->supportedProfilingTypes_ = nullptr;};
+    inline string getSupportedProfilingTypes() const { DARABONBA_PTR_GET_DEFAULT(supportedProfilingTypes_, "") };
+    inline GetJobResponseBody& setSupportedProfilingTypes(string supportedProfilingTypes) { DARABONBA_PTR_SET_VALUE(supportedProfilingTypes_, supportedProfilingTypes) };
+
+
   protected:
     // The visibility of the job. Valid values:
-    // - PUBLIC: Visible to all members in the workspace.
-    // - PRIVATE (default): Visible only to you and administrators in the workspace.
+    // - PUBLIC: Visible to all users in this workspace.
+    // - PRIVATE (default): Visible only to you and administrators in this workspace.
     shared_ptr<string> accessibility_ {};
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
@@ -1415,15 +1444,15 @@ namespace Models
     shared_ptr<string> jobId_ {};
     // The job replica statuses.
     shared_ptr<vector<JobReplicaStatus>> jobReplicaStatuses_ {};
-    // The node configurations in the job. For more information, see the **JobSpecs** parameter in the CreateJob API.
+    // The node configurations in the job. Refer to **JobSpecs** in the CreateJob API.
     shared_ptr<vector<JobSpec>> jobSpecs_ {};
     // The job type. Specified by the JobType parameter in the [CreateJob](https://help.aliyun.com/document_detail/459672.html) API.
     shared_ptr<string> jobType_ {};
-    // All nodes running in the job.
+    // All pods running in the job.
     shared_ptr<vector<GetJobResponseBody::Pods>> pods_ {};
     // The priority of the job. Valid values: 1 to 9.
     shared_ptr<int32_t> priority_ {};
-    // The status detail code, which categorizes the sub-status under the current status (Status).
+    // The status detail code, which is a classification of the sub-status under the current status (Status).
     shared_ptr<string> reasonCode_ {};
     // The detailed description of the status.
     shared_ptr<string> reasonMessage_ {};
@@ -1464,7 +1493,7 @@ namespace Models
     shared_ptr<string> subStatus_ {};
     // The tenant ID.
     shared_ptr<string> tenantId_ {};
-    // The folder that contains the third-party library (requirements.txt) file.
+    // The folder where the third-party library (requirements.txt) file is located.
     shared_ptr<string> thirdpartyLibDir_ {};
     // The list of third-party Python libraries to install.
     shared_ptr<vector<string>> thirdpartyLibs_ {};
@@ -1478,6 +1507,7 @@ namespace Models
     shared_ptr<string> workspaceId_ {};
     // The name of the workspace to which the job belongs.
     shared_ptr<string> workspaceName_ {};
+    shared_ptr<string> supportedProfilingTypes_ {};
   };
 
   } // namespace Models

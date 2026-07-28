@@ -281,24 +281,24 @@ namespace Models
     shared_ptr<string> caller_ {};
     // The DataJuicer task configuration.
     shared_ptr<DataJuicerConfig> dataJuicerConfig_ {};
-    // Specifies whether to skip the inventory check. Valid values:
+    // Specifies whether to skip inventory check. Valid values:
     // - true
     // - false
     shared_ptr<bool> disableEcsStockCheck_ {};
     // The NVIDIA driver configuration.
     shared_ptr<string> driver_ {};
-    // The CPU affinity setting. This setting takes effect only when general-purpose subscription computing resources are used.
+    // The CPU affinity setting. This setting is effective only when using general computing subscription resources.
     shared_ptr<bool> enableCPUAffinity_ {};
     shared_ptr<bool> enableDSWDev_ {};
     // Specifies whether to enable fault tolerance monitoring for the job. Valid values:
     // - true
     // - false
     shared_ptr<bool> enableErrorMonitoringInAIMaster_ {};
-    // Specifies whether OSS append writes are allowed. Valid values:
+    // Specifies whether to allow OSS append write. Valid values:
     // - true
     // - false
     shared_ptr<bool> enableOssAppend_ {};
-    // Specifies whether the job is allowed to use RDMA. Valid values:
+    // Specifies whether to allow the job to use RDMA. Valid values:
     // - true
     // - false
     shared_ptr<bool> enableRDMA_ {};
@@ -306,19 +306,19 @@ namespace Models
     // - true
     // - false
     shared_ptr<bool> enableSanityCheck_ {};
-    // Specifies whether the job is allowed to use tidal resources. Valid values:
+    // Specifies whether to allow the job to use tidal resources. Valid values:
     // - true
     // - false
     shared_ptr<bool> enableTideResource_ {};
-    // The configuration parameters for fault tolerance monitoring after it is enabled. For example, you can specify whether to enable log hang-based detection.
+    // The configuration parameters for fault tolerance monitoring after it is enabled, such as whether to enable log hang-based detection.
     shared_ptr<string> errorMonitoringArgs_ {};
-    // The duration (in minutes) for which the job is retained after it ends.
+    // The retention duration after job completion, in minutes.
     shared_ptr<int32_t> jobReservedMinutes_ {};
-    // The retention policy after the job ends.
+    // The retention policy after job completion.
     shared_ptr<string> jobReservedPolicy_ {};
-    // The output model configuration. This parameter currently takes effect only in federated training scenarios.
+    // The output model configuration. This parameter is currently effective only in federated training scenarios.
     shared_ptr<ModelConfig> modelConfig_ {};
-    // The oversold resource usage mode for the job (not accepted, acceptable, or only accepted).
+    // The oversold resource usage mode for the job (reject/accept/only accept).
     shared_ptr<string> oversoldType_ {};
     // The workflow ID.
     shared_ptr<string> pipelineId_ {};

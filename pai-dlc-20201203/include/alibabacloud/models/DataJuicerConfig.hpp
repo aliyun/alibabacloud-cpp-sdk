@@ -69,20 +69,19 @@ namespace Models
 
 
   protected:
-    // The command type.
+    // The command type. Valid values:
     // 
-    // - shell: A shell command.
-    // 
-    // - config: The YAML configuration for DataJuicer.
+    // - shell: shell command.
+    // - config: DataJuicer YAML configuration.
     shared_ptr<string> commandType_ {};
-    // Specifies whether to enable resource estimation.
+    // Specifies whether to enable resource estimation. When resource estimation is enabled, the execution mode must be distributed, and the command type must be config (DataJuicer YAML configuration).
     shared_ptr<bool> enableResourceEstimation_ {};
-    // The execution mode.
+    // The execution mode. Valid values:
     // 
-    // - standalone: Single node.
-    // 
-    // - distributed: Distributed.
+    // - standalone: single-node.
+    // - distributed: distributed.
     shared_ptr<string> executionMode_ {};
+    // The resource estimation limit. This parameter takes effect only when resource estimation is enabled.
     shared_ptr<ResourceLimit> resourceLimit_ {};
   };
 

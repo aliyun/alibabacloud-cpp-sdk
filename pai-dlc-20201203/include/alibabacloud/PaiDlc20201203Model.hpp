@@ -12,6 +12,9 @@
 #include <alibabacloud/models/CodeSourceItem.hpp>
 #include <alibabacloud/models/EnvVar.hpp>
 #include <alibabacloud/models/ResourceRequirements.hpp>
+#include <alibabacloud/models/SecurityContextCapabilities.hpp>
+#include <alibabacloud/models/SeccompProfile.hpp>
+#include <alibabacloud/models/SecurityContext.hpp>
 #include <alibabacloud/models/ContainerSpec.hpp>
 #include <alibabacloud/models/CredentialRole.hpp>
 #include <alibabacloud/models/CredentialConfigItem.hpp>
@@ -28,9 +31,6 @@
 #include <alibabacloud/models/ElasticSpotSpec.hpp>
 #include <alibabacloud/models/EventInfo.hpp>
 #include <alibabacloud/models/Lifecycle.hpp>
-#include <alibabacloud/models/SecurityContextCapabilities.hpp>
-#include <alibabacloud/models/SeccompProfile.hpp>
-#include <alibabacloud/models/SecurityContext.hpp>
 #include <alibabacloud/models/ExtraPodSpec.hpp>
 #include <alibabacloud/models/FreeResourceClusterControlItem.hpp>
 #include <alibabacloud/models/FreeResourceDetail.hpp>

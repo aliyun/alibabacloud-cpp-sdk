@@ -83,6 +83,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkingDir, workingDir_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
       DARABONBA_PTR_TO_JSON(WorkspaceName, workspaceName_);
+      DARABONBA_PTR_TO_JSON(supportedProfilingTypes, supportedProfilingTypes_);
     };
     friend void from_json(const Darabonba::Json& j, JobItem& obj) { 
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
@@ -146,6 +147,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(WorkingDir, workingDir_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceName, workspaceName_);
+      DARABONBA_PTR_FROM_JSON(supportedProfilingTypes, supportedProfilingTypes_);
     };
     JobItem() = default ;
     JobItem(const JobItem &) = default ;
@@ -225,9 +227,7 @@ namespace Models
 
 
     protected:
-      // The default routing. Valid values:
-      // - eth0: uses the default network interface controller (NIC) to access external networks through the public gateway.
-      // - eth1: uses the user elastic network interfaces (ENIs) to access external networks through the private gateway.
+      // The default route. Valid values:
       shared_ptr<string> defaultRoute_ {};
       // The extended CIDR blocks to connect.
       shared_ptr<vector<string>> extendedCidrs_ {};
@@ -343,7 +343,7 @@ namespace Models
       shared_ptr<string> branch_ {};
       // The code source configuration ID.
       shared_ptr<string> codeSourceId_ {};
-      // The commit ID of the code repository used for this job.
+      // The commit ID of the code repository used by this job.
       shared_ptr<string> commit_ {};
       // The local mount path of the code.
       shared_ptr<string> mountPath_ {};
@@ -361,7 +361,8 @@ namespace Models
         && this->schedulingStrategy_ == nullptr && this->settings_ == nullptr && this->status_ == nullptr && this->statusHistory_ == nullptr && this->subStatus_ == nullptr
         && this->systemEnvs_ == nullptr && this->templateId_ == nullptr && this->templateName_ == nullptr && this->tenantId_ == nullptr && this->thirdpartyLibDir_ == nullptr
         && this->thirdpartyLibs_ == nullptr && this->useOversoldResource_ == nullptr && this->userCommand_ == nullptr && this->userId_ == nullptr && this->userScript_ == nullptr
-        && this->userVpc_ == nullptr && this->username_ == nullptr && this->workingDir_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr; };
+        && this->userVpc_ == nullptr && this->username_ == nullptr && this->workingDir_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr
+        && this->supportedProfilingTypes_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -817,6 +818,13 @@ namespace Models
     inline JobItem& setWorkspaceName(string workspaceName) { DARABONBA_PTR_SET_VALUE(workspaceName_, workspaceName) };
 
 
+    // supportedProfilingTypes Field Functions 
+    bool hasSupportedProfilingTypes() const { return this->supportedProfilingTypes_ != nullptr;};
+    void deleteSupportedProfilingTypes() { this->supportedProfilingTypes_ = nullptr;};
+    inline string getSupportedProfilingTypes() const { DARABONBA_PTR_GET_DEFAULT(supportedProfilingTypes_, "") };
+    inline JobItem& setSupportedProfilingTypes(string supportedProfilingTypes) { DARABONBA_PTR_SET_VALUE(supportedProfilingTypes_, supportedProfilingTypes) };
+
+
   protected:
     // The visibility.
     shared_ptr<string> accessibility_ {};
@@ -836,59 +844,48 @@ namespace Models
     shared_ptr<JobElasticSpec> elasticSpec_ {};
     // Indicates whether PreemptibleJob is enabled.
     shared_ptr<bool> enablePreemptibleJob_ {};
-    // Indicates whether Debugger analysis is enabled.
+    // Indicates whether debugger analysis is enabled.
     shared_ptr<bool> enabledDebugger_ {};
-    // The environment variables injected at job runtime.
+    // The environment variables injected into the job at runtime.
     shared_ptr<map<string, string>> envs_ {};
-    // The time when the job was created, in UTC format.
+    // The job creation time in UTC format.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time when the job failed, in UTC format.
+    // The time when the job failed (UTC).
     shared_ptr<string> gmtFailedTime_ {};
-    // The time when the job finished, in UTC format.
+    // The time when the job finished (UTC).
     shared_ptr<string> gmtFinishTime_ {};
-    // The time when the job was last modified, in UTC format.
+    // The time when the job was modified (UTC).
     shared_ptr<string> gmtModifiedTime_ {};
-    // The time when the job started running, in UTC format.
+    // The time when the job started running in UTC format.
     shared_ptr<string> gmtRunningTime_ {};
-    // The time when the job was stopped, in UTC format.
+    // The time when the job was stopped (UTC).
     shared_ptr<string> gmtStoppedTime_ {};
-    // The time when the job was submitted, in UTC format.
+    // The job submission time in UTC format.
     shared_ptr<string> gmtSubmittedTime_ {};
-    // The time when the job completed successfully, in UTC format.
+    // The time when the job completed successfully in UTC format.
     shared_ptr<string> gmtSuccessedTime_ {};
     // Indicates whether the job is deleted.
     shared_ptr<bool> isDeleted_ {};
     // The job ID.
     shared_ptr<string> jobId_ {};
-    // The maximum running duration of the job.
+    // The maximum job running duration.
     shared_ptr<int64_t> jobMaxRunningTimeMinutes_ {};
     shared_ptr<vector<JobReplicaStatus>> jobReplicaStatuses_ {};
-    // The node configurations of the job at runtime.
+    // The node configurations for the job at runtime.
     shared_ptr<vector<JobSpec>> jobSpecs_ {};
     // The job type. Valid values:
-    // - TFJob
-    // - PyTorchJob
-    // - MPIJob
-    // - XGBoostJob
-    // - OneFlowJob
-    // - ElasticBatchJob
-    // - RayJob
-    // - SlurmJob
     shared_ptr<string> jobType_ {};
     // The number of nodes.
     shared_ptr<string> nodeCount_ {};
     // The node names.
     shared_ptr<vector<string>> nodeNames_ {};
-    // The pods.
+    // Pods。
     shared_ptr<vector<PodItem>> pods_ {};
     // The job priority.
     shared_ptr<int32_t> priority_ {};
-    // The reason code for the current job status. Valid values:
-    // - InvalidParameter
-    // - JobSucceeded
-    // - JobStoppedByUser
+    // The reason code for the job entering its current status. Valid values:
     shared_ptr<string> reasonCode_ {};
-    // The detailed description of the reason for the current job status.
+    // The detailed description of the reason for the job entering its current status.
     shared_ptr<string> reasonMessage_ {};
     // The requested CPU resources.
     shared_ptr<int64_t> requestCPU_ {};
@@ -902,7 +899,7 @@ namespace Models
     shared_ptr<string> resourceLevel_ {};
     // The name of the resource on which the job runs.
     shared_ptr<string> resourceName_ {};
-    // The resource quota name.
+    // The resource name.
     shared_ptr<string> resourceQuotaName_ {};
     // The resource type. Valid values: ECS, Lingjun, and ACS.
     shared_ptr<string> resourceType_ {};
@@ -913,20 +910,18 @@ namespace Models
     // The additional parameters of the job.
     shared_ptr<JobSettings> settings_ {};
     // The job status. Valid values:
-    // - Succeeded
-    // - Failed
     shared_ptr<string> status_ {};
-    // The job status transition history.
+    // The job status transition information.
     shared_ptr<vector<StatusTransitionItem>> statusHistory_ {};
-    // The job substatus, such as the preemption retry status.
+    // The job sub-status, such as preemption retry status.
     shared_ptr<string> subStatus_ {};
-    // The system environment variable configurations.
+    // The system environment variable configuration.
     shared_ptr<map<string, string>> systemEnvs_ {};
     shared_ptr<string> templateId_ {};
     shared_ptr<string> templateName_ {};
     // The tenant ID.
     shared_ptr<string> tenantId_ {};
-    // The directory where the third-party library file Requirements.txt is located.
+    // The directory where the third-party library file requirements.txt is located.
     shared_ptr<string> thirdpartyLibDir_ {};
     // The list of third-party Python libraries installed before the job runs.
     shared_ptr<vector<string>> thirdpartyLibs_ {};
@@ -940,7 +935,7 @@ namespace Models
     shared_ptr<string> userScript_ {};
     // The user VPC.
     shared_ptr<JobItem::UserVpc> userVpc_ {};
-    // The username of the user who submitted the job.
+    // The username of the job submitter.
     shared_ptr<string> username_ {};
     // The working directory.
     shared_ptr<string> workingDir_ {};
@@ -948,6 +943,7 @@ namespace Models
     shared_ptr<string> workspaceId_ {};
     // The name of the workspace to which the job belongs.
     shared_ptr<string> workspaceName_ {};
+    shared_ptr<string> supportedProfilingTypes_ {};
   };
 
   } // namespace Models
