@@ -37,6 +37,9 @@
 #include <alibabacloud/models/BindPolarClawAgentRequest.hpp>
 #include <alibabacloud/models/BindPolarClawAgentResponseBody.hpp>
 #include <alibabacloud/models/BindPolarClawAgentResponse.hpp>
+#include <alibabacloud/models/BindResourceControlRequest.hpp>
+#include <alibabacloud/models/BindResourceControlResponseBody.hpp>
+#include <alibabacloud/models/BindResourceControlResponse.hpp>
 #include <alibabacloud/models/CancelActiveOperationTasksRequest.hpp>
 #include <alibabacloud/models/CancelActiveOperationTasksResponseBody.hpp>
 #include <alibabacloud/models/CancelActiveOperationTasksResponse.hpp>
@@ -230,6 +233,9 @@
 #include <alibabacloud/models/CreateRateLimitPolicyRequest.hpp>
 #include <alibabacloud/models/CreateRateLimitPolicyResponseBody.hpp>
 #include <alibabacloud/models/CreateRateLimitPolicyResponse.hpp>
+#include <alibabacloud/models/CreateResourceControlRequest.hpp>
+#include <alibabacloud/models/CreateResourceControlResponseBody.hpp>
+#include <alibabacloud/models/CreateResourceControlResponse.hpp>
 #include <alibabacloud/models/CreateServiceLinkedRoleRequest.hpp>
 #include <alibabacloud/models/CreateServiceLinkedRoleResponseBody.hpp>
 #include <alibabacloud/models/CreateServiceLinkedRoleResponse.hpp>
@@ -372,6 +378,9 @@
 #include <alibabacloud/models/DeleteRateLimitPolicyRequest.hpp>
 #include <alibabacloud/models/DeleteRateLimitPolicyResponseBody.hpp>
 #include <alibabacloud/models/DeleteRateLimitPolicyResponse.hpp>
+#include <alibabacloud/models/DeleteResourceControlRequest.hpp>
+#include <alibabacloud/models/DeleteResourceControlResponseBody.hpp>
+#include <alibabacloud/models/DeleteResourceControlResponse.hpp>
 #include <alibabacloud/models/DeleteSQLRateLimitingRulesRequest.hpp>
 #include <alibabacloud/models/DeleteSQLRateLimitingRulesResponseBody.hpp>
 #include <alibabacloud/models/DeleteSQLRateLimitingRulesResponse.hpp>
@@ -472,6 +481,9 @@
 #include <alibabacloud/models/DescribeApplicationSessionIdsRequest.hpp>
 #include <alibabacloud/models/DescribeApplicationSessionIdsResponseBody.hpp>
 #include <alibabacloud/models/DescribeApplicationSessionIdsResponse.hpp>
+#include <alibabacloud/models/DescribeApplicationUsageRequest.hpp>
+#include <alibabacloud/models/DescribeApplicationUsageResponseBody.hpp>
+#include <alibabacloud/models/DescribeApplicationUsageResponse.hpp>
 #include <alibabacloud/models/DescribeApplicationsRequest.hpp>
 #include <alibabacloud/models/DescribeApplicationsResponseBody.hpp>
 #include <alibabacloud/models/DescribeApplicationsResponse.hpp>
@@ -975,6 +987,10 @@
 #include <alibabacloud/models/ModifyApplicationDescriptionRequest.hpp>
 #include <alibabacloud/models/ModifyApplicationDescriptionResponseBody.hpp>
 #include <alibabacloud/models/ModifyApplicationDescriptionResponse.hpp>
+#include <alibabacloud/models/ModifyApplicationEndpointAddressRequest.hpp>
+#include <alibabacloud/models/ModifyApplicationEndpointAddressShrinkRequest.hpp>
+#include <alibabacloud/models/ModifyApplicationEndpointAddressResponseBody.hpp>
+#include <alibabacloud/models/ModifyApplicationEndpointAddressResponse.hpp>
 #include <alibabacloud/models/ModifyApplicationParameterRequest.hpp>
 #include <alibabacloud/models/ModifyApplicationParameterShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyApplicationParameterResponseBody.hpp>
@@ -1149,6 +1165,9 @@
 #include <alibabacloud/models/ModifyRateLimitPolicyRequest.hpp>
 #include <alibabacloud/models/ModifyRateLimitPolicyResponseBody.hpp>
 #include <alibabacloud/models/ModifyRateLimitPolicyResponse.hpp>
+#include <alibabacloud/models/ModifyResourceControlRequest.hpp>
+#include <alibabacloud/models/ModifyResourceControlResponseBody.hpp>
+#include <alibabacloud/models/ModifyResourceControlResponse.hpp>
 #include <alibabacloud/models/ModifyResourcePackageRequest.hpp>
 #include <alibabacloud/models/ModifyResourcePackageResponseBody.hpp>
 #include <alibabacloud/models/ModifyResourcePackageResponse.hpp>
@@ -1262,6 +1281,9 @@
 #include <alibabacloud/models/UnbindPolarClawAgentRequest.hpp>
 #include <alibabacloud/models/UnbindPolarClawAgentResponseBody.hpp>
 #include <alibabacloud/models/UnbindPolarClawAgentResponse.hpp>
+#include <alibabacloud/models/UnbindResourceControlRequest.hpp>
+#include <alibabacloud/models/UnbindResourceControlResponseBody.hpp>
+#include <alibabacloud/models/UnbindResourceControlResponse.hpp>
 #include <alibabacloud/models/UninstallPolarClawPluginRequest.hpp>
 #include <alibabacloud/models/UninstallPolarClawPluginResponseBody.hpp>
 #include <alibabacloud/models/UninstallPolarClawPluginResponse.hpp>
@@ -1295,6 +1317,9 @@
 #include <alibabacloud/models/UpdatePolarClawSkillShrinkRequest.hpp>
 #include <alibabacloud/models/UpdatePolarClawSkillResponseBody.hpp>
 #include <alibabacloud/models/UpdatePolarClawSkillResponse.hpp>
+#include <alibabacloud/models/UpgradeApplicationVersionRequest.hpp>
+#include <alibabacloud/models/UpgradeApplicationVersionResponseBody.hpp>
+#include <alibabacloud/models/UpgradeApplicationVersionResponse.hpp>
 #include <alibabacloud/models/UpgradeDBClusterVersionRequest.hpp>
 #include <alibabacloud/models/UpgradeDBClusterVersionResponseBody.hpp>
 #include <alibabacloud/models/UpgradeDBClusterVersionResponse.hpp>

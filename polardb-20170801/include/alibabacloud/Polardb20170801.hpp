@@ -256,6 +256,29 @@ namespace Polardb20170801
       Models::BindPolarClawAgentResponse bindPolarClawAgent(const Models::BindPolarClawAgentRequest &request);
 
       /**
+       * @summary Associates resource control.
+       *
+       * @description ## Operation description
+       * This API operation associates an agent (specified by `AgentId`) of PolarClaw (identified by `ApplicationId`) with a specified communication channel (`Channel`). You can also specify an account ID (`ChannelAccountId`) within the channel.
+       *
+       * @param request BindResourceControlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BindResourceControlResponse
+       */
+      Models::BindResourceControlResponse bindResourceControlWithOptions(const Models::BindResourceControlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Associates resource control.
+       *
+       * @description ## Operation description
+       * This API operation associates an agent (specified by `AgentId`) of PolarClaw (identified by `ApplicationId`) with a specified communication channel (`Channel`). You can also specify an account ID (`ChannelAccountId`) within the channel.
+       *
+       * @param request BindResourceControlRequest
+       * @return BindResourceControlResponse
+       */
+      Models::BindResourceControlResponse bindResourceControl(const Models::BindResourceControlRequest &request);
+
+      /**
        * @summary Cancels O\\\\\\&M events at a time.
        *
        * @param request CancelActiveOperationTasksRequest
@@ -1457,6 +1480,29 @@ namespace Polardb20170801
       Models::CreateRateLimitPolicyResponse createRateLimitPolicy(const Models::CreateRateLimitPolicyRequest &request);
 
       /**
+       * @summary Creates a resource control.
+       *
+       * @description ## Operation description
+       * You can call this operation to define and create a cron job. The cron job is triggered periodically based on a specified schedule and carries specific messages or instructions. Advanced options such as custom execution frequency, time zone settings, and alert mechanisms for failures are supported. You can also configure the message content, target channel, and recipients.
+       *
+       * @param request CreateResourceControlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateResourceControlResponse
+       */
+      Models::CreateResourceControlResponse createResourceControlWithOptions(const Models::CreateResourceControlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a resource control.
+       *
+       * @description ## Operation description
+       * You can call this operation to define and create a cron job. The cron job is triggered periodically based on a specified schedule and carries specific messages or instructions. Advanced options such as custom execution frequency, time zone settings, and alert mechanisms for failures are supported. You can also configure the message content, target channel, and recipients.
+       *
+       * @param request CreateResourceControlRequest
+       * @return CreateResourceControlResponse
+       */
+      Models::CreateResourceControlResponse createResourceControl(const Models::CreateResourceControlRequest &request);
+
+      /**
        * @summary Ccreates a service-linked role.
        *
        * @param request CreateServiceLinkedRoleRequest
@@ -2352,6 +2398,27 @@ namespace Polardb20170801
       Models::DeleteRateLimitPolicyResponse deleteRateLimitPolicy(const Models::DeleteRateLimitPolicyRequest &request);
 
       /**
+       * @summary Deletes a resource control.
+       *
+       * @description > The cluster must be in the Running state. Otherwise, the operation fails.
+       *
+       * @param request DeleteResourceControlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteResourceControlResponse
+       */
+      Models::DeleteResourceControlResponse deleteResourceControlWithOptions(const Models::DeleteResourceControlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a resource control.
+       *
+       * @description > The cluster must be in the Running state. Otherwise, the operation fails.
+       *
+       * @param request DeleteResourceControlRequest
+       * @return DeleteResourceControlResponse
+       */
+      Models::DeleteResourceControlResponse deleteResourceControl(const Models::DeleteResourceControlRequest &request);
+
+      /**
        * @summary Deletes SQL throttling rules.
        *
        * @param request DeleteSQLRateLimitingRulesRequest
@@ -2935,6 +3002,23 @@ namespace Polardb20170801
        * @return DescribeApplicationSessionIdsResponse
        */
       Models::DescribeApplicationSessionIdsResponse describeApplicationSessionIds(const Models::DescribeApplicationSessionIdsRequest &request);
+
+      /**
+       * @summary Queries the usage of an AI application.
+       *
+       * @param request DescribeApplicationUsageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeApplicationUsageResponse
+       */
+      Models::DescribeApplicationUsageResponse describeApplicationUsageWithOptions(const Models::DescribeApplicationUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the usage of an AI application.
+       *
+       * @param request DescribeApplicationUsageRequest
+       * @return DescribeApplicationUsageResponse
+       */
+      Models::DescribeApplicationUsageResponse describeApplicationUsage(const Models::DescribeApplicationUsageRequest &request);
 
       /**
        * @summary Gets the list of applications for all PolarDB instances in a specified region.
@@ -5974,6 +6058,23 @@ namespace Polardb20170801
       Models::ModifyApplicationDescriptionResponse modifyApplicationDescription(const Models::ModifyApplicationDescriptionRequest &request);
 
       /**
+       * @summary Modifies the endpoint address of a PolarDB application.
+       *
+       * @param tmpReq ModifyApplicationEndpointAddressRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyApplicationEndpointAddressResponse
+       */
+      Models::ModifyApplicationEndpointAddressResponse modifyApplicationEndpointAddressWithOptions(const Models::ModifyApplicationEndpointAddressRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the endpoint address of a PolarDB application.
+       *
+       * @param request ModifyApplicationEndpointAddressRequest
+       * @return ModifyApplicationEndpointAddressResponse
+       */
+      Models::ModifyApplicationEndpointAddressResponse modifyApplicationEndpointAddress(const Models::ModifyApplicationEndpointAddressRequest &request);
+
+      /**
        * @summary Modifies the configuration parameters of a sub-component within a specified PolarDB application.
        *
        * @param tmpReq ModifyApplicationParameterRequest
@@ -7007,6 +7108,27 @@ namespace Polardb20170801
       Models::ModifyRateLimitPolicyResponse modifyRateLimitPolicy(const Models::ModifyRateLimitPolicyRequest &request);
 
       /**
+       * @summary Modifies resource control.
+       *
+       * @description > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+       *
+       * @param request ModifyResourceControlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyResourceControlResponse
+       */
+      Models::ModifyResourceControlResponse modifyResourceControlWithOptions(const Models::ModifyResourceControlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies resource control.
+       *
+       * @description > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+       *
+       * @param request ModifyResourceControlRequest
+       * @return ModifyResourceControlResponse
+       */
+      Models::ModifyResourceControlResponse modifyResourceControl(const Models::ModifyResourceControlRequest &request);
+
+      /**
        * @summary Modifies a cross-cloud resource plan.
        *
        * @param request ModifyResourcePackageRequest
@@ -7672,6 +7794,29 @@ namespace Polardb20170801
       Models::UnbindPolarClawAgentResponse unbindPolarClawAgent(const Models::UnbindPolarClawAgentRequest &request);
 
       /**
+       * @summary Unbinds a resource control.
+       *
+       * @description > * Only the privileged user of a PolarDB for MySQL cluster can be reset.
+       * > * If the privileged user encounters issues, such as permissions being unexpectedly revoked (REVOKE), you can reset the permissions of the privileged user to restore it to normal.
+       *
+       * @param request UnbindResourceControlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UnbindResourceControlResponse
+       */
+      Models::UnbindResourceControlResponse unbindResourceControlWithOptions(const Models::UnbindResourceControlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Unbinds a resource control.
+       *
+       * @description > * Only the privileged user of a PolarDB for MySQL cluster can be reset.
+       * > * If the privileged user encounters issues, such as permissions being unexpectedly revoked (REVOKE), you can reset the permissions of the privileged user to restore it to normal.
+       *
+       * @param request UnbindResourceControlRequest
+       * @return UnbindResourceControlResponse
+       */
+      Models::UnbindResourceControlResponse unbindResourceControl(const Models::UnbindResourceControlRequest &request);
+
+      /**
        * @summary Uninstalls a PolarClaw plugin.
        *
        * @param request UninstallPolarClawPluginRequest
@@ -7823,6 +7968,23 @@ namespace Polardb20170801
        * @return UpdatePolarClawSkillResponse
        */
       Models::UpdatePolarClawSkillResponse updatePolarClawSkill(const Models::UpdatePolarClawSkillRequest &request);
+
+      /**
+       * @summary Upgrades an application to a new version.
+       *
+       * @param request UpgradeApplicationVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpgradeApplicationVersionResponse
+       */
+      Models::UpgradeApplicationVersionResponse upgradeApplicationVersionWithOptions(const Models::UpgradeApplicationVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Upgrades an application to a new version.
+       *
+       * @param request UpgradeApplicationVersionRequest
+       * @return UpgradeApplicationVersionResponse
+       */
+      Models::UpgradeApplicationVersionResponse upgradeApplicationVersion(const Models::UpgradeApplicationVersionRequest &request);
 
       /**
        * @summary Upgrades the kernel version of a PolarDB for MySQL cluster.

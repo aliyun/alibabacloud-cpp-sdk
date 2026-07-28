@@ -785,6 +785,70 @@ BindPolarClawAgentResponse Client::bindPolarClawAgent(const BindPolarClawAgentRe
 }
 
 /**
+ * @summary Associates resource control.
+ *
+ * @description ## Operation description
+ * This API operation associates an agent (specified by `AgentId`) of PolarClaw (identified by `ApplicationId`) with a specified communication channel (`Channel`). You can also specify an account ID (`ChannelAccountId`) within the channel.
+ *
+ * @param request BindResourceControlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BindResourceControlResponse
+ */
+BindResourceControlResponse Client::bindResourceControlWithOptions(const BindResourceControlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceControlName()) {
+    query["ResourceControlName"] = request.getResourceControlName();
+  }
+
+  if (!!request.hasTargetType()) {
+    query["TargetType"] = request.getTargetType();
+  }
+
+  if (!!request.hasTargetValue()) {
+    query["TargetValue"] = request.getTargetValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BindResourceControl"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BindResourceControlResponse>();
+}
+
+/**
+ * @summary Associates resource control.
+ *
+ * @description ## Operation description
+ * This API operation associates an agent (specified by `AgentId`) of PolarClaw (identified by `ApplicationId`) with a specified communication channel (`Channel`). You can also specify an account ID (`ChannelAccountId`) within the channel.
+ *
+ * @param request BindResourceControlRequest
+ * @return BindResourceControlResponse
+ */
+BindResourceControlResponse Client::bindResourceControl(const BindResourceControlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return bindResourceControlWithOptions(request, runtime);
+}
+
+/**
  * @summary Cancels O\\\\\\&M events at a time.
  *
  * @param request CancelActiveOperationTasksRequest
@@ -5961,6 +6025,70 @@ CreateRateLimitPolicyResponse Client::createRateLimitPolicy(const CreateRateLimi
 }
 
 /**
+ * @summary Creates a resource control.
+ *
+ * @description ## Operation description
+ * You can call this operation to define and create a cron job. The cron job is triggered periodically based on a specified schedule and carries specific messages or instructions. Advanced options such as custom execution frequency, time zone settings, and alert mechanisms for failures are supported. You can also configure the message content, target channel, and recipients.
+ *
+ * @param request CreateResourceControlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateResourceControlResponse
+ */
+CreateResourceControlResponse Client::createResourceControlWithOptions(const CreateResourceControlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCpuCount()) {
+    query["CpuCount"] = request.getCpuCount();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasMaxCpu()) {
+    query["MaxCpu"] = request.getMaxCpu();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceControlName()) {
+    query["ResourceControlName"] = request.getResourceControlName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateResourceControl"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateResourceControlResponse>();
+}
+
+/**
+ * @summary Creates a resource control.
+ *
+ * @description ## Operation description
+ * You can call this operation to define and create a cron job. The cron job is triggered periodically based on a specified schedule and carries specific messages or instructions. Advanced options such as custom execution frequency, time zone settings, and alert mechanisms for failures are supported. You can also configure the message content, target channel, and recipients.
+ *
+ * @param request CreateResourceControlRequest
+ * @return CreateResourceControlResponse
+ */
+CreateResourceControlResponse Client::createResourceControl(const CreateResourceControlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createResourceControlWithOptions(request, runtime);
+}
+
+/**
  * @summary Ccreates a service-linked role.
  *
  * @param request CreateServiceLinkedRoleRequest
@@ -8765,6 +8893,60 @@ DeleteRateLimitPolicyResponse Client::deleteRateLimitPolicy(const DeleteRateLimi
 }
 
 /**
+ * @summary Deletes a resource control.
+ *
+ * @description > The cluster must be in the Running state. Otherwise, the operation fails.
+ *
+ * @param request DeleteResourceControlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteResourceControlResponse
+ */
+DeleteResourceControlResponse Client::deleteResourceControlWithOptions(const DeleteResourceControlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceControlName()) {
+    query["ResourceControlName"] = request.getResourceControlName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteResourceControl"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteResourceControlResponse>();
+}
+
+/**
+ * @summary Deletes a resource control.
+ *
+ * @description > The cluster must be in the Running state. Otherwise, the operation fails.
+ *
+ * @param request DeleteResourceControlRequest
+ * @return DeleteResourceControlResponse
+ */
+DeleteResourceControlResponse Client::deleteResourceControl(const DeleteResourceControlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteResourceControlWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes SQL throttling rules.
  *
  * @param request DeleteSQLRateLimitingRulesRequest
@@ -10974,6 +11156,52 @@ DescribeApplicationSessionIdsResponse Client::describeApplicationSessionIdsWithO
 DescribeApplicationSessionIdsResponse Client::describeApplicationSessionIds(const DescribeApplicationSessionIdsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeApplicationSessionIdsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the usage of an AI application.
+ *
+ * @param request DescribeApplicationUsageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApplicationUsageResponse
+ */
+DescribeApplicationUsageResponse Client::describeApplicationUsageWithOptions(const DescribeApplicationUsageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasDays()) {
+    query["Days"] = request.getDays();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApplicationUsage"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApplicationUsageResponse>();
+}
+
+/**
+ * @summary Queries the usage of an AI application.
+ *
+ * @param request DescribeApplicationUsageRequest
+ * @return DescribeApplicationUsageResponse
+ */
+DescribeApplicationUsageResponse Client::describeApplicationUsage(const DescribeApplicationUsageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApplicationUsageWithOptions(request, runtime);
 }
 
 /**
@@ -22196,6 +22424,70 @@ ModifyApplicationDescriptionResponse Client::modifyApplicationDescription(const 
 }
 
 /**
+ * @summary Modifies the endpoint address of a PolarDB application.
+ *
+ * @param tmpReq ModifyApplicationEndpointAddressRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyApplicationEndpointAddressResponse
+ */
+ModifyApplicationEndpointAddressResponse Client::modifyApplicationEndpointAddressWithOptions(const ModifyApplicationEndpointAddressRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyApplicationEndpointAddressShrinkRequest request = ModifyApplicationEndpointAddressShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNewPorts()) {
+    request.setNewPortsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNewPorts(), "NewPorts", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasEndpointId()) {
+    query["EndpointId"] = request.getEndpointId();
+  }
+
+  if (!!request.hasNetType()) {
+    query["NetType"] = request.getNetType();
+  }
+
+  if (!!request.hasNewConnectionStringPrefix()) {
+    query["NewConnectionStringPrefix"] = request.getNewConnectionStringPrefix();
+  }
+
+  if (!!request.hasNewPortsShrink()) {
+    query["NewPorts"] = request.getNewPortsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyApplicationEndpointAddress"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyApplicationEndpointAddressResponse>();
+}
+
+/**
+ * @summary Modifies the endpoint address of a PolarDB application.
+ *
+ * @param request ModifyApplicationEndpointAddressRequest
+ * @return ModifyApplicationEndpointAddressResponse
+ */
+ModifyApplicationEndpointAddressResponse Client::modifyApplicationEndpointAddress(const ModifyApplicationEndpointAddressRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyApplicationEndpointAddressWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the configuration parameters of a sub-component within a specified PolarDB application.
  *
  * @param tmpReq ModifyApplicationParameterRequest
@@ -26584,6 +26876,68 @@ ModifyRateLimitPolicyResponse Client::modifyRateLimitPolicy(const ModifyRateLimi
 }
 
 /**
+ * @summary Modifies resource control.
+ *
+ * @description > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+ *
+ * @param request ModifyResourceControlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyResourceControlResponse
+ */
+ModifyResourceControlResponse Client::modifyResourceControlWithOptions(const ModifyResourceControlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCpuCount()) {
+    query["CpuCount"] = request.getCpuCount();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasMaxCpu()) {
+    query["MaxCpu"] = request.getMaxCpu();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceControlName()) {
+    query["ResourceControlName"] = request.getResourceControlName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyResourceControl"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyResourceControlResponse>();
+}
+
+/**
+ * @summary Modifies resource control.
+ *
+ * @description > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+ *
+ * @param request ModifyResourceControlRequest
+ * @return ModifyResourceControlResponse
+ */
+ModifyResourceControlResponse Client::modifyResourceControl(const ModifyResourceControlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyResourceControlWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies a cross-cloud resource plan.
  *
  * @param request ModifyResourcePackageRequest
@@ -28874,6 +29228,70 @@ UnbindPolarClawAgentResponse Client::unbindPolarClawAgent(const UnbindPolarClawA
 }
 
 /**
+ * @summary Unbinds a resource control.
+ *
+ * @description > * Only the privileged user of a PolarDB for MySQL cluster can be reset.
+ * > * If the privileged user encounters issues, such as permissions being unexpectedly revoked (REVOKE), you can reset the permissions of the privileged user to restore it to normal.
+ *
+ * @param request UnbindResourceControlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UnbindResourceControlResponse
+ */
+UnbindResourceControlResponse Client::unbindResourceControlWithOptions(const UnbindResourceControlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceControlName()) {
+    query["ResourceControlName"] = request.getResourceControlName();
+  }
+
+  if (!!request.hasTargetType()) {
+    query["TargetType"] = request.getTargetType();
+  }
+
+  if (!!request.hasTargetValue()) {
+    query["TargetValue"] = request.getTargetValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UnbindResourceControl"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UnbindResourceControlResponse>();
+}
+
+/**
+ * @summary Unbinds a resource control.
+ *
+ * @description > * Only the privileged user of a PolarDB for MySQL cluster can be reset.
+ * > * If the privileged user encounters issues, such as permissions being unexpectedly revoked (REVOKE), you can reset the permissions of the privileged user to restore it to normal.
+ *
+ * @param request UnbindResourceControlRequest
+ * @return UnbindResourceControlResponse
+ */
+UnbindResourceControlResponse Client::unbindResourceControl(const UnbindResourceControlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return unbindResourceControlWithOptions(request, runtime);
+}
+
+/**
  * @summary Uninstalls a PolarClaw plugin.
  *
  * @param request UninstallPolarClawPluginRequest
@@ -29533,6 +29951,52 @@ UpdatePolarClawSkillResponse Client::updatePolarClawSkillWithOptions(const Updat
 UpdatePolarClawSkillResponse Client::updatePolarClawSkill(const UpdatePolarClawSkillRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updatePolarClawSkillWithOptions(request, runtime);
+}
+
+/**
+ * @summary Upgrades an application to a new version.
+ *
+ * @param request UpgradeApplicationVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpgradeApplicationVersionResponse
+ */
+UpgradeApplicationVersionResponse Client::upgradeApplicationVersionWithOptions(const UpgradeApplicationVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasUpgradePolicy()) {
+    query["UpgradePolicy"] = request.getUpgradePolicy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpgradeApplicationVersion"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpgradeApplicationVersionResponse>();
+}
+
+/**
+ * @summary Upgrades an application to a new version.
+ *
+ * @param request UpgradeApplicationVersionRequest
+ * @return UpgradeApplicationVersionResponse
+ */
+UpgradeApplicationVersionResponse Client::upgradeApplicationVersion(const UpgradeApplicationVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upgradeApplicationVersionWithOptions(request, runtime);
 }
 
 /**
