@@ -49,6 +49,9 @@
 #include <alibabacloud/models/ListCommandRequest.hpp>
 #include <alibabacloud/models/ListCommandResponseBody.hpp>
 #include <alibabacloud/models/ListCommandResponse.hpp>
+#include <alibabacloud/models/ListDomainRequest.hpp>
+#include <alibabacloud/models/ListDomainResponseBody.hpp>
+#include <alibabacloud/models/ListDomainResponse.hpp>
 #include <alibabacloud/models/ListMmAppRequest.hpp>
 #include <alibabacloud/models/ListMmAppResponseBody.hpp>
 #include <alibabacloud/models/ListMmAppResponse.hpp>

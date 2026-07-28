@@ -259,6 +259,23 @@ namespace SfmMultiModalApp20250909
       Models::ListCommandResponse listCommand(const Models::ListCommandRequest &request);
 
       /**
+       * @summary 指令类型列表查询
+       *
+       * @param request ListDomainRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDomainResponse
+       */
+      Models::ListDomainResponse listDomainWithOptions(const Models::ListDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 指令类型列表查询
+       *
+       * @param request ListDomainRequest
+       * @return ListDomainResponse
+       */
+      Models::ListDomainResponse listDomain(const Models::ListDomainRequest &request);
+
+      /**
        * @summary 获取多模态应用列表
        *
        * @param request ListMmAppRequest

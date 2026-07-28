@@ -43,12 +43,14 @@ namespace Models
     class ModelConfig : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ModelConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(AppType, appType_);
         DARABONBA_PTR_TO_JSON(HistoryLimit, historyLimit_);
         DARABONBA_PTR_TO_JSON(ModelType, modelType_);
         DARABONBA_PTR_TO_JSON(OpenWebSearch, openWebSearch_);
         DARABONBA_PTR_TO_JSON(TextModal, textModal_);
       };
       friend void from_json(const Darabonba::Json& j, ModelConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(AppType, appType_);
         DARABONBA_PTR_FROM_JSON(HistoryLimit, historyLimit_);
         DARABONBA_PTR_FROM_JSON(ModelType, modelType_);
         DARABONBA_PTR_FROM_JSON(OpenWebSearch, openWebSearch_);
@@ -65,8 +67,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->historyLimit_ == nullptr
-        && this->modelType_ == nullptr && this->openWebSearch_ == nullptr && this->textModal_ == nullptr; };
+      virtual bool empty() const override { return this->appType_ == nullptr
+        && this->historyLimit_ == nullptr && this->modelType_ == nullptr && this->openWebSearch_ == nullptr && this->textModal_ == nullptr; };
+      // appType Field Functions 
+      bool hasAppType() const { return this->appType_ != nullptr;};
+      void deleteAppType() { this->appType_ = nullptr;};
+      inline string getAppType() const { DARABONBA_PTR_GET_DEFAULT(appType_, "") };
+      inline ModelConfig& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
+
+
       // historyLimit Field Functions 
       bool hasHistoryLimit() const { return this->historyLimit_ != nullptr;};
       void deleteHistoryLimit() { this->historyLimit_ = nullptr;};
@@ -96,6 +105,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> appType_ {};
       shared_ptr<int32_t> historyLimit_ {};
       shared_ptr<string> modelType_ {};
       shared_ptr<bool> openWebSearch_ {};

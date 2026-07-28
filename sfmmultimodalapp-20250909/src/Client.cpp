@@ -886,6 +886,60 @@ ListCommandResponse Client::listCommand(const ListCommandRequest &request) {
 }
 
 /**
+ * @summary 指令类型列表查询
+ *
+ * @param request ListDomainRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDomainResponse
+ */
+ListDomainResponse Client::listDomainWithOptions(const ListDomainRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDomain"},
+    {"version" , "2025-09-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDomainResponse>();
+}
+
+/**
+ * @summary 指令类型列表查询
+ *
+ * @param request ListDomainRequest
+ * @return ListDomainResponse
+ */
+ListDomainResponse Client::listDomain(const ListDomainRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDomainWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取多模态应用列表
  *
  * @param request ListMmAppRequest
