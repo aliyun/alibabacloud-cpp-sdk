@@ -43,29 +43,21 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(Dialogues, dialogues_);
         DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
-        DARABONBA_PTR_TO_JSON(InputTokens, inputTokens_);
         DARABONBA_PTR_TO_JSON(LlmRequestId, llmRequestId_);
-        DARABONBA_PTR_TO_JSON(OutputTokens, outputTokens_);
         DARABONBA_PTR_TO_JSON(Response, response_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
-        DARABONBA_PTR_TO_JSON(TotalTokens, totalTokens_);
-        DARABONBA_PTR_TO_JSON(TyxmPlusCount, tyxmPlusCount_);
-        DARABONBA_PTR_TO_JSON(TyxmTurboCount, tyxmTurboCount_);
+        DARABONBA_PTR_TO_JSON(Usage, usage_);
         DARABONBA_PTR_TO_JSON(Vid, vid_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(Dialogues, dialogues_);
         DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
-        DARABONBA_PTR_FROM_JSON(InputTokens, inputTokens_);
         DARABONBA_PTR_FROM_JSON(LlmRequestId, llmRequestId_);
-        DARABONBA_PTR_FROM_JSON(OutputTokens, outputTokens_);
         DARABONBA_PTR_FROM_JSON(Response, response_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
-        DARABONBA_PTR_FROM_JSON(TotalTokens, totalTokens_);
-        DARABONBA_PTR_FROM_JSON(TyxmPlusCount, tyxmPlusCount_);
-        DARABONBA_PTR_FROM_JSON(TyxmTurboCount, tyxmTurboCount_);
+        DARABONBA_PTR_FROM_JSON(Usage, usage_);
         DARABONBA_PTR_FROM_JSON(Vid, vid_);
       };
       Data() = default ;
@@ -79,6 +71,78 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Usage : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Usage& obj) { 
+          DARABONBA_PTR_TO_JSON(InputTokens, inputTokens_);
+          DARABONBA_PTR_TO_JSON(OutputTokens, outputTokens_);
+          DARABONBA_PTR_TO_JSON(TotalTokens, totalTokens_);
+          DARABONBA_PTR_TO_JSON(TymxPlusCount, tymxPlusCount_);
+          DARABONBA_PTR_TO_JSON(TymxTurboCount, tymxTurboCount_);
+        };
+        friend void from_json(const Darabonba::Json& j, Usage& obj) { 
+          DARABONBA_PTR_FROM_JSON(InputTokens, inputTokens_);
+          DARABONBA_PTR_FROM_JSON(OutputTokens, outputTokens_);
+          DARABONBA_PTR_FROM_JSON(TotalTokens, totalTokens_);
+          DARABONBA_PTR_FROM_JSON(TymxPlusCount, tymxPlusCount_);
+          DARABONBA_PTR_FROM_JSON(TymxTurboCount, tymxTurboCount_);
+        };
+        Usage() = default ;
+        Usage(const Usage &) = default ;
+        Usage(Usage &&) = default ;
+        Usage(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Usage() = default ;
+        Usage& operator=(const Usage &) = default ;
+        Usage& operator=(Usage &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->inputTokens_ == nullptr
+        && this->outputTokens_ == nullptr && this->totalTokens_ == nullptr && this->tymxPlusCount_ == nullptr && this->tymxTurboCount_ == nullptr; };
+        // inputTokens Field Functions 
+        bool hasInputTokens() const { return this->inputTokens_ != nullptr;};
+        void deleteInputTokens() { this->inputTokens_ = nullptr;};
+        inline string getInputTokens() const { DARABONBA_PTR_GET_DEFAULT(inputTokens_, "") };
+        inline Usage& setInputTokens(string inputTokens) { DARABONBA_PTR_SET_VALUE(inputTokens_, inputTokens) };
+
+
+        // outputTokens Field Functions 
+        bool hasOutputTokens() const { return this->outputTokens_ != nullptr;};
+        void deleteOutputTokens() { this->outputTokens_ = nullptr;};
+        inline string getOutputTokens() const { DARABONBA_PTR_GET_DEFAULT(outputTokens_, "") };
+        inline Usage& setOutputTokens(string outputTokens) { DARABONBA_PTR_SET_VALUE(outputTokens_, outputTokens) };
+
+
+        // totalTokens Field Functions 
+        bool hasTotalTokens() const { return this->totalTokens_ != nullptr;};
+        void deleteTotalTokens() { this->totalTokens_ = nullptr;};
+        inline string getTotalTokens() const { DARABONBA_PTR_GET_DEFAULT(totalTokens_, "") };
+        inline Usage& setTotalTokens(string totalTokens) { DARABONBA_PTR_SET_VALUE(totalTokens_, totalTokens) };
+
+
+        // tymxPlusCount Field Functions 
+        bool hasTymxPlusCount() const { return this->tymxPlusCount_ != nullptr;};
+        void deleteTymxPlusCount() { this->tymxPlusCount_ = nullptr;};
+        inline string getTymxPlusCount() const { DARABONBA_PTR_GET_DEFAULT(tymxPlusCount_, "") };
+        inline Usage& setTymxPlusCount(string tymxPlusCount) { DARABONBA_PTR_SET_VALUE(tymxPlusCount_, tymxPlusCount) };
+
+
+        // tymxTurboCount Field Functions 
+        bool hasTymxTurboCount() const { return this->tymxTurboCount_ != nullptr;};
+        void deleteTymxTurboCount() { this->tymxTurboCount_ = nullptr;};
+        inline string getTymxTurboCount() const { DARABONBA_PTR_GET_DEFAULT(tymxTurboCount_, "") };
+        inline Usage& setTymxTurboCount(string tymxTurboCount) { DARABONBA_PTR_SET_VALUE(tymxTurboCount_, tymxTurboCount) };
+
+
+      protected:
+        shared_ptr<string> inputTokens_ {};
+        shared_ptr<string> outputTokens_ {};
+        shared_ptr<string> totalTokens_ {};
+        shared_ptr<string> tymxPlusCount_ {};
+        shared_ptr<string> tymxTurboCount_ {};
+      };
+
       class Response : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Response& obj) { 
@@ -469,9 +533,9 @@ namespace Models
 
 
           protected:
-            // The tag dimension.
+            // The label dimension.
             shared_ptr<string> dimension_ {};
-            // Indicates whether the tag is matched.
+            // Indicates whether the label is matched.
             shared_ptr<bool> isMatch_ {};
             // The sentences referenced in the reasoning.
             shared_ptr<vector<string>> originalUtterances_ {};
@@ -492,7 +556,7 @@ namespace Models
 
 
         protected:
-          // The list of tags.
+          // The list of labels.
           shared_ptr<vector<TagCategoryResponse::TagCategoryVoList>> tagCategoryVoList_ {};
         };
 
@@ -575,7 +639,7 @@ namespace Models
           protected:
             // The inspection dimension.
             shared_ptr<string> dimension_ {};
-            // Indicates whether the tag is matched.
+            // Indicates whether the label is matched.
             shared_ptr<bool> isMatch_ {};
             // The sentences referenced in the reasoning.
             shared_ptr<vector<string>> originalUtterances_ {};
@@ -675,13 +739,13 @@ namespace Models
 
 
           protected:
-            // The field name.
+            // The property name.
             shared_ptr<string> name_ {};
             // The sentences referenced in the reasoning.
             shared_ptr<vector<int32_t>> originalUtterances_ {};
             // The reasoning for the judgment.
             shared_ptr<string> remarks_ {};
-            // The field value.
+            // The property value.
             shared_ptr<string> value_ {};
           };
 
@@ -696,7 +760,7 @@ namespace Models
 
 
         protected:
-          // The list of fields.
+          // The list of properties.
           shared_ptr<vector<FieldResponse::FieldVoList>> fieldVoList_ {};
         };
 
@@ -782,7 +846,7 @@ namespace Models
       protected:
         // The result of the custom prompt.
         shared_ptr<Response::CustomerPromptResponse> customerPromptResponse_ {};
-        // The field extraction result.
+        // The property extraction result.
         shared_ptr<Response::FieldResponse> fieldResponse_ {};
         // The service quality inspection result.
         shared_ptr<Response::ServiceInspectionResponse> serviceInspectionResponse_ {};
@@ -885,9 +949,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->dialogues_ == nullptr
-        && this->errorMessage_ == nullptr && this->inputTokens_ == nullptr && this->llmRequestId_ == nullptr && this->outputTokens_ == nullptr && this->response_ == nullptr
-        && this->status_ == nullptr && this->taskId_ == nullptr && this->totalTokens_ == nullptr && this->tyxmPlusCount_ == nullptr && this->tyxmTurboCount_ == nullptr
-        && this->vid_ == nullptr; };
+        && this->errorMessage_ == nullptr && this->llmRequestId_ == nullptr && this->response_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr
+        && this->usage_ == nullptr && this->vid_ == nullptr; };
       // dialogues Field Functions 
       bool hasDialogues() const { return this->dialogues_ != nullptr;};
       void deleteDialogues() { this->dialogues_ = nullptr;};
@@ -904,25 +967,11 @@ namespace Models
       inline Data& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
-      // inputTokens Field Functions 
-      bool hasInputTokens() const { return this->inputTokens_ != nullptr;};
-      void deleteInputTokens() { this->inputTokens_ = nullptr;};
-      inline string getInputTokens() const { DARABONBA_PTR_GET_DEFAULT(inputTokens_, "") };
-      inline Data& setInputTokens(string inputTokens) { DARABONBA_PTR_SET_VALUE(inputTokens_, inputTokens) };
-
-
       // llmRequestId Field Functions 
       bool hasLlmRequestId() const { return this->llmRequestId_ != nullptr;};
       void deleteLlmRequestId() { this->llmRequestId_ = nullptr;};
       inline string getLlmRequestId() const { DARABONBA_PTR_GET_DEFAULT(llmRequestId_, "") };
       inline Data& setLlmRequestId(string llmRequestId) { DARABONBA_PTR_SET_VALUE(llmRequestId_, llmRequestId) };
-
-
-      // outputTokens Field Functions 
-      bool hasOutputTokens() const { return this->outputTokens_ != nullptr;};
-      void deleteOutputTokens() { this->outputTokens_ = nullptr;};
-      inline string getOutputTokens() const { DARABONBA_PTR_GET_DEFAULT(outputTokens_, "") };
-      inline Data& setOutputTokens(string outputTokens) { DARABONBA_PTR_SET_VALUE(outputTokens_, outputTokens) };
 
 
       // response Field Functions 
@@ -948,25 +997,13 @@ namespace Models
       inline Data& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
-      // totalTokens Field Functions 
-      bool hasTotalTokens() const { return this->totalTokens_ != nullptr;};
-      void deleteTotalTokens() { this->totalTokens_ = nullptr;};
-      inline string getTotalTokens() const { DARABONBA_PTR_GET_DEFAULT(totalTokens_, "") };
-      inline Data& setTotalTokens(string totalTokens) { DARABONBA_PTR_SET_VALUE(totalTokens_, totalTokens) };
-
-
-      // tyxmPlusCount Field Functions 
-      bool hasTyxmPlusCount() const { return this->tyxmPlusCount_ != nullptr;};
-      void deleteTyxmPlusCount() { this->tyxmPlusCount_ = nullptr;};
-      inline string getTyxmPlusCount() const { DARABONBA_PTR_GET_DEFAULT(tyxmPlusCount_, "") };
-      inline Data& setTyxmPlusCount(string tyxmPlusCount) { DARABONBA_PTR_SET_VALUE(tyxmPlusCount_, tyxmPlusCount) };
-
-
-      // tyxmTurboCount Field Functions 
-      bool hasTyxmTurboCount() const { return this->tyxmTurboCount_ != nullptr;};
-      void deleteTyxmTurboCount() { this->tyxmTurboCount_ = nullptr;};
-      inline string getTyxmTurboCount() const { DARABONBA_PTR_GET_DEFAULT(tyxmTurboCount_, "") };
-      inline Data& setTyxmTurboCount(string tyxmTurboCount) { DARABONBA_PTR_SET_VALUE(tyxmTurboCount_, tyxmTurboCount) };
+      // usage Field Functions 
+      bool hasUsage() const { return this->usage_ != nullptr;};
+      void deleteUsage() { this->usage_ = nullptr;};
+      inline const Data::Usage & getUsage() const { DARABONBA_PTR_GET_CONST(usage_, Data::Usage) };
+      inline Data::Usage getUsage() { DARABONBA_PTR_GET(usage_, Data::Usage) };
+      inline Data& setUsage(const Data::Usage & usage) { DARABONBA_PTR_SET_VALUE(usage_, usage) };
+      inline Data& setUsage(Data::Usage && usage) { DARABONBA_PTR_SET_RVALUE(usage_, usage) };
 
 
       // vid Field Functions 
@@ -979,29 +1016,20 @@ namespace Models
     protected:
       shared_ptr<vector<Data::Dialogues>> dialogues_ {};
       shared_ptr<string> errorMessage_ {};
-      // The number of input tokens.
-      shared_ptr<string> inputTokens_ {};
       // The request ID returned by the large language model service.
       shared_ptr<string> llmRequestId_ {};
-      // The number of output tokens.
-      shared_ptr<string> outputTokens_ {};
       // The result of the computation task.
       shared_ptr<Data::Response> response_ {};
       // The task status. Valid values:
       // 
-      // - 1: pending
-      // - 2: running
-      // - 3: succeeded
-      // - 4: failed
+      // - 1: pending.
+      // - 2: running.
+      // - 3: succeeded.
+      // - 4: failed.
       shared_ptr<string> status_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The total number of tokens.
-      shared_ptr<string> totalTokens_ {};
-      // The number of times the plus model is used.
-      shared_ptr<string> tyxmPlusCount_ {};
-      // The number of times the turbo model is used.
-      shared_ptr<string> tyxmTurboCount_ {};
+      shared_ptr<Data::Usage> usage_ {};
       // The session ID.
       shared_ptr<string> vid_ {};
     };
@@ -1054,10 +1082,10 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. You can use this field to determine whether the request succeeded:
+    // Indicates whether the request was successful. You can use this field to determine whether the request was successful:
     // 
-    // - **true**: The request succeeded.
-    // - **false/null**: The request failed.
+    // - **true**: successful.
+    // - **false/null**: failed.
     shared_ptr<string> success_ {};
   };
 

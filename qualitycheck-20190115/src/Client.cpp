@@ -1382,52 +1382,6 @@ DeleteDataSetResponse Client::deleteDataSet(const DeleteDataSetRequest &request)
 }
 
 /**
- * @summary Delete a speech recognition quality check task.
- *
- * @param request DeletePrecisionTaskRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return DeletePrecisionTaskResponse
- */
-DeletePrecisionTaskResponse Client::deletePrecisionTaskWithOptions(const DeletePrecisionTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.getBaseMeAgentId();
-  }
-
-  if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.getJsonStr();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "DeletePrecisionTask"},
-    {"version" , "2019-01-15"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DeletePrecisionTaskResponse>();
-}
-
-/**
- * @summary Delete a speech recognition quality check task.
- *
- * @param request DeletePrecisionTaskRequest
- * @return DeletePrecisionTaskResponse
- */
-DeletePrecisionTaskResponse Client::deletePrecisionTask(const DeletePrecisionTaskRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return deletePrecisionTaskWithOptions(request, runtime);
-}
-
-/**
  * @summary You can delete a quality check plan from the Quality Check Plan Management page by clicking the Delete button on the right side of the plan. The Apsara Stack API endpoint is ip:port/api/qcs/DeleteQualityCheckScheme.json.
  *
  * @param request DeleteQualityCheckSchemeRequest
@@ -2061,7 +2015,7 @@ GetAgentResponse Client::getAgent(const GetAgentRequest &request) {
 }
 
 /**
- * @summary Retrieves the task result of an agent node.
+ * @summary Retrieves the task result of an Agent node.
  *
  * @param request GetAgentTaskResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2096,7 +2050,7 @@ GetAgentTaskResultResponse Client::getAgentTaskResultWithOptions(const GetAgentT
 }
 
 /**
- * @summary Retrieves the task result of an agent node.
+ * @summary Retrieves the task result of an Agent node.
  *
  * @param request GetAgentTaskResultRequest
  * @return GetAgentTaskResultResponse
@@ -2426,52 +2380,6 @@ GetNextResultToVerifyResponse Client::getNextResultToVerifyWithOptions(const Get
 GetNextResultToVerifyResponse Client::getNextResultToVerify(const GetNextResultToVerifyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getNextResultToVerifyWithOptions(request, runtime);
-}
-
-/**
- * @summary Retrieves the details of a (speech recognition) detection task.
- *
- * @param request GetPrecisionTaskRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return GetPrecisionTaskResponse
- */
-GetPrecisionTaskResponse Client::getPrecisionTaskWithOptions(const GetPrecisionTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.getBaseMeAgentId();
-  }
-
-  if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.getJsonStr();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "GetPrecisionTask"},
-    {"version" , "2019-01-15"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<GetPrecisionTaskResponse>();
-}
-
-/**
- * @summary Retrieves the details of a (speech recognition) detection task.
- *
- * @param request GetPrecisionTaskRequest
- * @return GetPrecisionTaskResponse
- */
-GetPrecisionTaskResponse Client::getPrecisionTask(const GetPrecisionTaskRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return getPrecisionTaskWithOptions(request, runtime);
 }
 
 /**
@@ -3055,56 +2963,6 @@ GetSchemeTaskConfigResponse Client::getSchemeTaskConfig(const GetSchemeTaskConfi
 }
 
 /**
- * @deprecated OpenAPI GetScoreInfo is deprecated
- *
- * @summary Retrieves information about all scoring items.
- *
- * @param request GetScoreInfoRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return GetScoreInfoResponse
- */
-GetScoreInfoResponse Client::getScoreInfoWithOptions(const GetScoreInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.getBaseMeAgentId();
-  }
-
-  if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.getJsonStr();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "GetScoreInfo"},
-    {"version" , "2019-01-15"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<GetScoreInfoResponse>();
-}
-
-/**
- * @deprecated OpenAPI GetScoreInfo is deprecated
- *
- * @summary Retrieves information about all scoring items.
- *
- * @param request GetScoreInfoRequest
- * @return GetScoreInfoResponse
- */
-GetScoreInfoResponse Client::getScoreInfo(const GetScoreInfoRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return getScoreInfoWithOptions(request, runtime);
-}
-
-/**
  * @deprecated OpenAPI GetSkillGroupConfig is deprecated
  *
  * @summary Retrieves the configuration that is specified by its ID.
@@ -3490,52 +3348,6 @@ ListDataSetResponse Client::listDataSetWithOptions(const ListDataSetRequest &req
 ListDataSetResponse Client::listDataSet(const ListDataSetRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listDataSetWithOptions(request, runtime);
-}
-
-/**
- * @summary Retrieve the list of speech recognition precision tasks. Set the service endpoint to Hangzhou (cn-hangzhou).
- *
- * @param request ListPrecisionTaskRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return ListPrecisionTaskResponse
- */
-ListPrecisionTaskResponse Client::listPrecisionTaskWithOptions(const ListPrecisionTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.getBaseMeAgentId();
-  }
-
-  if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.getJsonStr();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "ListPrecisionTask"},
-    {"version" , "2019-01-15"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<ListPrecisionTaskResponse>();
-}
-
-/**
- * @summary Retrieve the list of speech recognition precision tasks. Set the service endpoint to Hangzhou (cn-hangzhou).
- *
- * @param request ListPrecisionTaskRequest
- * @return ListPrecisionTaskResponse
- */
-ListPrecisionTaskResponse Client::listPrecisionTask(const ListPrecisionTaskRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return listPrecisionTaskWithOptions(request, runtime);
 }
 
 /**
@@ -4459,52 +4271,6 @@ SubmitComplaintResponse Client::submitComplaintWithOptions(const SubmitComplaint
 SubmitComplaintResponse Client::submitComplaint(const SubmitComplaintRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitComplaintWithOptions(request, runtime);
-}
-
-/**
- * @summary Creates a speech recognition evaluation task. The service endpoint is China East 1 (Hangzhou) (cn-hangzhou).
- *
- * @param request SubmitPrecisionTaskRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return SubmitPrecisionTaskResponse
- */
-SubmitPrecisionTaskResponse Client::submitPrecisionTaskWithOptions(const SubmitPrecisionTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.getBaseMeAgentId();
-  }
-
-  if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.getJsonStr();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "SubmitPrecisionTask"},
-    {"version" , "2019-01-15"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<SubmitPrecisionTaskResponse>();
-}
-
-/**
- * @summary Creates a speech recognition evaluation task. The service endpoint is China East 1 (Hangzhou) (cn-hangzhou).
- *
- * @param request SubmitPrecisionTaskRequest
- * @return SubmitPrecisionTaskResponse
- */
-SubmitPrecisionTaskResponse Client::submitPrecisionTask(const SubmitPrecisionTaskRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return submitPrecisionTaskWithOptions(request, runtime);
 }
 
 /**
@@ -5957,98 +5723,6 @@ UploadRuleResponse Client::uploadRuleWithOptions(const UploadRuleRequest &reques
 UploadRuleResponse Client::uploadRule(const UploadRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return uploadRuleWithOptions(request, runtime);
-}
-
-/**
- * @summary Saves the verification result of a single file.
- *
- * @param request VerifyFileRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return VerifyFileResponse
- */
-VerifyFileResponse Client::verifyFileWithOptions(const VerifyFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.getBaseMeAgentId();
-  }
-
-  if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.getJsonStr();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "VerifyFile"},
-    {"version" , "2019-01-15"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<VerifyFileResponse>();
-}
-
-/**
- * @summary Saves the verification result of a single file.
- *
- * @param request VerifyFileRequest
- * @return VerifyFileResponse
- */
-VerifyFileResponse Client::verifyFile(const VerifyFileRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return verifyFileWithOptions(request, runtime);
-}
-
-/**
- * @summary Save the verification result for a single sentence.
- *
- * @param request VerifySentenceRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return VerifySentenceResponse
- */
-VerifySentenceResponse Client::verifySentenceWithOptions(const VerifySentenceRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasBaseMeAgentId()) {
-    query["BaseMeAgentId"] = request.getBaseMeAgentId();
-  }
-
-  if (!!request.hasJsonStr()) {
-    query["JsonStr"] = request.getJsonStr();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "VerifySentence"},
-    {"version" , "2019-01-15"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<VerifySentenceResponse>();
-}
-
-/**
- * @summary Save the verification result for a single sentence.
- *
- * @param request VerifySentenceRequest
- * @return VerifySentenceResponse
- */
-VerifySentenceResponse Client::verifySentence(const VerifySentenceRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return verifySentenceWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Qualitycheck20190115

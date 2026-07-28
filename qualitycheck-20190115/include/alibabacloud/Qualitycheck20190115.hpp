@@ -531,23 +531,6 @@ namespace Qualitycheck20190115
       Models::DeleteDataSetResponse deleteDataSet(const Models::DeleteDataSetRequest &request);
 
       /**
-       * @summary Delete a speech recognition quality check task.
-       *
-       * @param request DeletePrecisionTaskRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeletePrecisionTaskResponse
-       */
-      Models::DeletePrecisionTaskResponse deletePrecisionTaskWithOptions(const Models::DeletePrecisionTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Delete a speech recognition quality check task.
-       *
-       * @param request DeletePrecisionTaskRequest
-       * @return DeletePrecisionTaskResponse
-       */
-      Models::DeletePrecisionTaskResponse deletePrecisionTask(const Models::DeletePrecisionTaskRequest &request);
-
-      /**
        * @summary You can delete a quality check plan from the Quality Check Plan Management page by clicking the Delete button on the right side of the plan. The Apsara Stack API endpoint is ip:port/api/qcs/DeleteQualityCheckScheme.json.
        *
        * @param request DeleteQualityCheckSchemeRequest
@@ -769,7 +752,7 @@ namespace Qualitycheck20190115
       Models::GetAgentResponse getAgent(const Models::GetAgentRequest &request);
 
       /**
-       * @summary Retrieves the task result of an agent node.
+       * @summary Retrieves the task result of an Agent node.
        *
        * @param request GetAgentTaskResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -778,7 +761,7 @@ namespace Qualitycheck20190115
       Models::GetAgentTaskResultResponse getAgentTaskResultWithOptions(const Models::GetAgentTaskResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the task result of an agent node.
+       * @summary Retrieves the task result of an Agent node.
        *
        * @param request GetAgentTaskResultRequest
        * @return GetAgentTaskResultResponse
@@ -903,23 +886,6 @@ namespace Qualitycheck20190115
        * @return GetNextResultToVerifyResponse
        */
       Models::GetNextResultToVerifyResponse getNextResultToVerify(const Models::GetNextResultToVerifyRequest &request);
-
-      /**
-       * @summary Retrieves the details of a (speech recognition) detection task.
-       *
-       * @param request GetPrecisionTaskRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetPrecisionTaskResponse
-       */
-      Models::GetPrecisionTaskResponse getPrecisionTaskWithOptions(const Models::GetPrecisionTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Retrieves the details of a (speech recognition) detection task.
-       *
-       * @param request GetPrecisionTaskRequest
-       * @return GetPrecisionTaskResponse
-       */
-      Models::GetPrecisionTaskResponse getPrecisionTask(const Models::GetPrecisionTaskRequest &request);
 
       /**
        * @summary This operation implements the query feature in quality check plan management on the frontend. The Apsara Stack URL is ip:port/api/qcs/GetQualityCheckScheme.json.
@@ -1116,27 +1082,6 @@ namespace Qualitycheck20190115
       Models::GetSchemeTaskConfigResponse getSchemeTaskConfig(const Models::GetSchemeTaskConfigRequest &request);
 
       /**
-       * @deprecated OpenAPI GetScoreInfo is deprecated
-       *
-       * @summary Retrieves information about all scoring items.
-       *
-       * @param request GetScoreInfoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetScoreInfoResponse
-       */
-      Models::GetScoreInfoResponse getScoreInfoWithOptions(const Models::GetScoreInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @deprecated OpenAPI GetScoreInfo is deprecated
-       *
-       * @summary Retrieves information about all scoring items.
-       *
-       * @param request GetScoreInfoRequest
-       * @return GetScoreInfoResponse
-       */
-      Models::GetScoreInfoResponse getScoreInfo(const Models::GetScoreInfoRequest &request);
-
-      /**
        * @deprecated OpenAPI GetSkillGroupConfig is deprecated
        *
        * @summary Retrieves the configuration that is specified by its ID.
@@ -1291,23 +1236,6 @@ namespace Qualitycheck20190115
        * @return ListDataSetResponse
        */
       Models::ListDataSetResponse listDataSet(const Models::ListDataSetRequest &request);
-
-      /**
-       * @summary Retrieve the list of speech recognition precision tasks. Set the service endpoint to Hangzhou (cn-hangzhou).
-       *
-       * @param request ListPrecisionTaskRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListPrecisionTaskResponse
-       */
-      Models::ListPrecisionTaskResponse listPrecisionTaskWithOptions(const Models::ListPrecisionTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Retrieve the list of speech recognition precision tasks. Set the service endpoint to Hangzhou (cn-hangzhou).
-       *
-       * @param request ListPrecisionTaskRequest
-       * @return ListPrecisionTaskResponse
-       */
-      Models::ListPrecisionTaskResponse listPrecisionTask(const Models::ListPrecisionTaskRequest &request);
 
       /**
        * @summary Retrieves a list of quality check schemes.
@@ -1609,23 +1537,6 @@ namespace Qualitycheck20190115
        * @return SubmitComplaintResponse
        */
       Models::SubmitComplaintResponse submitComplaint(const Models::SubmitComplaintRequest &request);
-
-      /**
-       * @summary Creates a speech recognition evaluation task. The service endpoint is China East 1 (Hangzhou) (cn-hangzhou).
-       *
-       * @param request SubmitPrecisionTaskRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return SubmitPrecisionTaskResponse
-       */
-      Models::SubmitPrecisionTaskResponse submitPrecisionTaskWithOptions(const Models::SubmitPrecisionTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Creates a speech recognition evaluation task. The service endpoint is China East 1 (Hangzhou) (cn-hangzhou).
-       *
-       * @param request SubmitPrecisionTaskRequest
-       * @return SubmitPrecisionTaskResponse
-       */
-      Models::SubmitPrecisionTaskResponse submitPrecisionTask(const Models::SubmitPrecisionTaskRequest &request);
 
       /**
        * @summary Create a new dataset quality check task.
@@ -2244,40 +2155,6 @@ namespace Qualitycheck20190115
        * @return UploadRuleResponse
        */
       Models::UploadRuleResponse uploadRule(const Models::UploadRuleRequest &request);
-
-      /**
-       * @summary Saves the verification result of a single file.
-       *
-       * @param request VerifyFileRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return VerifyFileResponse
-       */
-      Models::VerifyFileResponse verifyFileWithOptions(const Models::VerifyFileRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Saves the verification result of a single file.
-       *
-       * @param request VerifyFileRequest
-       * @return VerifyFileResponse
-       */
-      Models::VerifyFileResponse verifyFile(const Models::VerifyFileRequest &request);
-
-      /**
-       * @summary Save the verification result for a single sentence.
-       *
-       * @param request VerifySentenceRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return VerifySentenceResponse
-       */
-      Models::VerifySentenceResponse verifySentenceWithOptions(const Models::VerifySentenceRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Save the verification result for a single sentence.
-       *
-       * @param request VerifySentenceRequest
-       * @return VerifySentenceResponse
-       */
-      Models::VerifySentenceResponse verifySentence(const Models::VerifySentenceRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Qualitycheck20190115

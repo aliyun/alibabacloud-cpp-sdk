@@ -99,9 +99,6 @@
 #include <alibabacloud/models/DeleteDataSetRequest.hpp>
 #include <alibabacloud/models/DeleteDataSetResponseBody.hpp>
 #include <alibabacloud/models/DeleteDataSetResponse.hpp>
-#include <alibabacloud/models/DeletePrecisionTaskRequest.hpp>
-#include <alibabacloud/models/DeletePrecisionTaskResponseBody.hpp>
-#include <alibabacloud/models/DeletePrecisionTaskResponse.hpp>
 #include <alibabacloud/models/DeleteQualityCheckSchemeRequest.hpp>
 #include <alibabacloud/models/DeleteQualityCheckSchemeResponseBody.hpp>
 #include <alibabacloud/models/DeleteQualityCheckSchemeResponse.hpp>
@@ -162,9 +159,6 @@
 #include <alibabacloud/models/GetNextResultToVerifyRequest.hpp>
 #include <alibabacloud/models/GetNextResultToVerifyResponseBody.hpp>
 #include <alibabacloud/models/GetNextResultToVerifyResponse.hpp>
-#include <alibabacloud/models/GetPrecisionTaskRequest.hpp>
-#include <alibabacloud/models/GetPrecisionTaskResponseBody.hpp>
-#include <alibabacloud/models/GetPrecisionTaskResponse.hpp>
 #include <alibabacloud/models/GetQualityCheckSchemeRequest.hpp>
 #include <alibabacloud/models/GetQualityCheckSchemeResponseBody.hpp>
 #include <alibabacloud/models/GetQualityCheckSchemeResponse.hpp>
@@ -195,9 +189,6 @@
 #include <alibabacloud/models/GetSchemeTaskConfigRequest.hpp>
 #include <alibabacloud/models/GetSchemeTaskConfigResponseBody.hpp>
 #include <alibabacloud/models/GetSchemeTaskConfigResponse.hpp>
-#include <alibabacloud/models/GetScoreInfoRequest.hpp>
-#include <alibabacloud/models/GetScoreInfoResponseBody.hpp>
-#include <alibabacloud/models/GetScoreInfoResponse.hpp>
 #include <alibabacloud/models/GetSkillGroupConfigRequest.hpp>
 #include <alibabacloud/models/GetSkillGroupConfigResponseBody.hpp>
 #include <alibabacloud/models/GetSkillGroupConfigResponse.hpp>
@@ -222,9 +213,6 @@
 #include <alibabacloud/models/ListDataSetRequest.hpp>
 #include <alibabacloud/models/ListDataSetResponseBody.hpp>
 #include <alibabacloud/models/ListDataSetResponse.hpp>
-#include <alibabacloud/models/ListPrecisionTaskRequest.hpp>
-#include <alibabacloud/models/ListPrecisionTaskResponseBody.hpp>
-#include <alibabacloud/models/ListPrecisionTaskResponse.hpp>
 #include <alibabacloud/models/ListQualityCheckSchemeRequest.hpp>
 #include <alibabacloud/models/ListQualityCheckSchemeResponseBody.hpp>
 #include <alibabacloud/models/ListQualityCheckSchemeResponse.hpp>
@@ -274,9 +262,6 @@
 #include <alibabacloud/models/SubmitComplaintRequest.hpp>
 #include <alibabacloud/models/SubmitComplaintResponseBody.hpp>
 #include <alibabacloud/models/SubmitComplaintResponse.hpp>
-#include <alibabacloud/models/SubmitPrecisionTaskRequest.hpp>
-#include <alibabacloud/models/SubmitPrecisionTaskResponseBody.hpp>
-#include <alibabacloud/models/SubmitPrecisionTaskResponse.hpp>
 #include <alibabacloud/models/SubmitQualityCheckTaskRequest.hpp>
 #include <alibabacloud/models/SubmitQualityCheckTaskResponseBody.hpp>
 #include <alibabacloud/models/SubmitQualityCheckTaskResponse.hpp>
@@ -361,11 +346,5 @@
 #include <alibabacloud/models/UploadRuleRequest.hpp>
 #include <alibabacloud/models/UploadRuleResponseBody.hpp>
 #include <alibabacloud/models/UploadRuleResponse.hpp>
-#include <alibabacloud/models/VerifyFileRequest.hpp>
-#include <alibabacloud/models/VerifyFileResponseBody.hpp>
-#include <alibabacloud/models/VerifyFileResponse.hpp>
-#include <alibabacloud/models/VerifySentenceRequest.hpp>
-#include <alibabacloud/models/VerifySentenceResponseBody.hpp>
-#include <alibabacloud/models/VerifySentenceResponse.hpp>
 
 #endif
