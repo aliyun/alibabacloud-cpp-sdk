@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the inspection task.
+    // 
     // This parameter is required.
     shared_ptr<string> inspectionTaskId_ {};
   };

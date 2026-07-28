@@ -166,12 +166,26 @@ namespace Models
 
 
       protected:
+        // The description of the abnormal item.
         shared_ptr<string> abnormality_ {};
+        // The metadata of the resource that corresponds to the abnormal item.
         shared_ptr<string> metadata_ {};
+        // The cause of the abnormality.
         shared_ptr<string> reason_ {};
         shared_ptr<string> reasonCode_ {};
+        // The inspection item is abnormal.
         shared_ptr<string> recommendationCode_ {};
+        // The risk level. Valid values:
+        // 
+        // - **HighRisk**
+        // 
+        // - **MediumRisk**
+        // 
+        // - **LowRisk**
+        // 
+        // - **NoRisk**
         shared_ptr<string> riskLevel_ {};
+        // The optimization suggestions.
         shared_ptr<string> suggestion_ {};
         shared_ptr<string> suggestionCode_ {};
       };
@@ -214,7 +228,17 @@ namespace Models
 
 
       protected:
+        // The number of risks at the specified risk level in the inspection report.
         shared_ptr<int32_t> count_ {};
+        // The risk level. Valid values:
+        // 
+        // - **HighRisk**
+        // 
+        // - **MediumRisk**
+        // 
+        // - **LowRisk**
+        // 
+        // - **NoRisk**
         shared_ptr<string> riskLevel_ {};
       };
 
@@ -282,13 +306,20 @@ namespace Models
 
 
     protected:
+      // The category of the check item.
       shared_ptr<string> categoryCode_ {};
+      // The code of the check item.
       shared_ptr<string> checkItemCode_ {};
+      // The name of the check item.
       shared_ptr<string> checkItemName_ {};
+      // The list of check results that indicates the number of risks at each risk level.
       shared_ptr<vector<CheckItemList::CheckResultList>> checkResultList_ {};
+      // The description of the check item.
       shared_ptr<string> description_ {};
       shared_ptr<string> descriptionCode_ {};
+      // The list of results for abnormal check items.
       shared_ptr<vector<CheckItemList::RecommendationList>> recommendationList_ {};
+      // The resource type associated with the check item.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -339,11 +370,17 @@ namespace Models
 
 
   protected:
+    // The list of check items.
     shared_ptr<vector<DescribeNisInspectionReportCheckItemsResponseBody::CheckItemList>> checkItemList_ {};
+    // The ID of the inspection report.
     shared_ptr<string> inspectionReportId_ {};
+    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

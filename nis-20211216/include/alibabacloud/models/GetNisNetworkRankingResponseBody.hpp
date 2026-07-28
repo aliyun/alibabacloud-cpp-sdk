@@ -47,11 +47,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DestinationPort, destinationPort_);
         DARABONBA_PTR_TO_JSON(DestinationRegionNo, destinationRegionNo_);
         DARABONBA_PTR_TO_JSON(DestinationZone, destinationZone_);
+        DARABONBA_PTR_TO_JSON(GlobalCountryCode, globalCountryCode_);
+        DARABONBA_PTR_TO_JSON(GlobalProvinceCode, globalProvinceCode_);
         DARABONBA_PTR_TO_JSON(IP, IP_);
         DARABONBA_PTR_TO_JSON(InBps, inBps_);
         DARABONBA_PTR_TO_JSON(InPps, inPps_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(Isp, isp_);
+        DARABONBA_PTR_TO_JSON(LineType, lineType_);
         DARABONBA_PTR_TO_JSON(NewSessionPerSecond, newSessionPerSecond_);
         DARABONBA_PTR_TO_JSON(OutBps, outBps_);
         DARABONBA_PTR_TO_JSON(OutPps, outPps_);
@@ -64,6 +67,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
         DARABONBA_PTR_TO_JSON(SourceIsp, sourceIsp_);
         DARABONBA_PTR_TO_JSON(SourcePort, sourcePort_);
+        DARABONBA_PTR_TO_JSON(SourceRegion, sourceRegion_);
         DARABONBA_PTR_TO_JSON(SourceZone, sourceZone_);
         DARABONBA_PTR_TO_JSON(VbrId, vbrId_);
       };
@@ -80,11 +84,14 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DestinationPort, destinationPort_);
         DARABONBA_PTR_FROM_JSON(DestinationRegionNo, destinationRegionNo_);
         DARABONBA_PTR_FROM_JSON(DestinationZone, destinationZone_);
+        DARABONBA_PTR_FROM_JSON(GlobalCountryCode, globalCountryCode_);
+        DARABONBA_PTR_FROM_JSON(GlobalProvinceCode, globalProvinceCode_);
         DARABONBA_PTR_FROM_JSON(IP, IP_);
         DARABONBA_PTR_FROM_JSON(InBps, inBps_);
         DARABONBA_PTR_FROM_JSON(InPps, inPps_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(Isp, isp_);
+        DARABONBA_PTR_FROM_JSON(LineType, lineType_);
         DARABONBA_PTR_FROM_JSON(NewSessionPerSecond, newSessionPerSecond_);
         DARABONBA_PTR_FROM_JSON(OutBps, outBps_);
         DARABONBA_PTR_FROM_JSON(OutPps, outPps_);
@@ -97,6 +104,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
         DARABONBA_PTR_FROM_JSON(SourceIsp, sourceIsp_);
         DARABONBA_PTR_FROM_JSON(SourcePort, sourcePort_);
+        DARABONBA_PTR_FROM_JSON(SourceRegion, sourceRegion_);
         DARABONBA_PTR_FROM_JSON(SourceZone, sourceZone_);
         DARABONBA_PTR_FROM_JSON(VbrId, vbrId_);
       };
@@ -114,10 +122,11 @@ namespace Models
       virtual bool empty() const override { return this->activeSessionCount_ == nullptr
         && this->asn_ == nullptr && this->attachmentId_ == nullptr && this->bandwidthPackageId_ == nullptr && this->byteCount_ == nullptr && this->city_ == nullptr
         && this->country_ == nullptr && this->destinationIp_ == nullptr && this->destinationIsp_ == nullptr && this->destinationPort_ == nullptr && this->destinationRegionNo_ == nullptr
-        && this->destinationZone_ == nullptr && this->IP_ == nullptr && this->inBps_ == nullptr && this->inPps_ == nullptr && this->instanceId_ == nullptr
-        && this->isp_ == nullptr && this->newSessionPerSecond_ == nullptr && this->outBps_ == nullptr && this->outPps_ == nullptr && this->packetCount_ == nullptr
-        && this->protocol_ == nullptr && this->province_ == nullptr && this->RTT_ == nullptr && this->regionNo_ == nullptr && this->retransmitRate_ == nullptr
-        && this->sourceIp_ == nullptr && this->sourceIsp_ == nullptr && this->sourcePort_ == nullptr && this->sourceZone_ == nullptr && this->vbrId_ == nullptr; };
+        && this->destinationZone_ == nullptr && this->globalCountryCode_ == nullptr && this->globalProvinceCode_ == nullptr && this->IP_ == nullptr && this->inBps_ == nullptr
+        && this->inPps_ == nullptr && this->instanceId_ == nullptr && this->isp_ == nullptr && this->lineType_ == nullptr && this->newSessionPerSecond_ == nullptr
+        && this->outBps_ == nullptr && this->outPps_ == nullptr && this->packetCount_ == nullptr && this->protocol_ == nullptr && this->province_ == nullptr
+        && this->RTT_ == nullptr && this->regionNo_ == nullptr && this->retransmitRate_ == nullptr && this->sourceIp_ == nullptr && this->sourceIsp_ == nullptr
+        && this->sourcePort_ == nullptr && this->sourceRegion_ == nullptr && this->sourceZone_ == nullptr && this->vbrId_ == nullptr; };
       // activeSessionCount Field Functions 
       bool hasActiveSessionCount() const { return this->activeSessionCount_ != nullptr;};
       void deleteActiveSessionCount() { this->activeSessionCount_ = nullptr;};
@@ -202,6 +211,20 @@ namespace Models
       inline Data& setDestinationZone(string destinationZone) { DARABONBA_PTR_SET_VALUE(destinationZone_, destinationZone) };
 
 
+      // globalCountryCode Field Functions 
+      bool hasGlobalCountryCode() const { return this->globalCountryCode_ != nullptr;};
+      void deleteGlobalCountryCode() { this->globalCountryCode_ = nullptr;};
+      inline string getGlobalCountryCode() const { DARABONBA_PTR_GET_DEFAULT(globalCountryCode_, "") };
+      inline Data& setGlobalCountryCode(string globalCountryCode) { DARABONBA_PTR_SET_VALUE(globalCountryCode_, globalCountryCode) };
+
+
+      // globalProvinceCode Field Functions 
+      bool hasGlobalProvinceCode() const { return this->globalProvinceCode_ != nullptr;};
+      void deleteGlobalProvinceCode() { this->globalProvinceCode_ = nullptr;};
+      inline string getGlobalProvinceCode() const { DARABONBA_PTR_GET_DEFAULT(globalProvinceCode_, "") };
+      inline Data& setGlobalProvinceCode(string globalProvinceCode) { DARABONBA_PTR_SET_VALUE(globalProvinceCode_, globalProvinceCode) };
+
+
       // IP Field Functions 
       bool hasIP() const { return this->IP_ != nullptr;};
       void deleteIP() { this->IP_ = nullptr;};
@@ -235,6 +258,13 @@ namespace Models
       void deleteIsp() { this->isp_ = nullptr;};
       inline string getIsp() const { DARABONBA_PTR_GET_DEFAULT(isp_, "") };
       inline Data& setIsp(string isp) { DARABONBA_PTR_SET_VALUE(isp_, isp) };
+
+
+      // lineType Field Functions 
+      bool hasLineType() const { return this->lineType_ != nullptr;};
+      void deleteLineType() { this->lineType_ = nullptr;};
+      inline string getLineType() const { DARABONBA_PTR_GET_DEFAULT(lineType_, "") };
+      inline Data& setLineType(string lineType) { DARABONBA_PTR_SET_VALUE(lineType_, lineType) };
 
 
       // newSessionPerSecond Field Functions 
@@ -321,6 +351,13 @@ namespace Models
       inline Data& setSourcePort(string sourcePort) { DARABONBA_PTR_SET_VALUE(sourcePort_, sourcePort) };
 
 
+      // sourceRegion Field Functions 
+      bool hasSourceRegion() const { return this->sourceRegion_ != nullptr;};
+      void deleteSourceRegion() { this->sourceRegion_ = nullptr;};
+      inline string getSourceRegion() const { DARABONBA_PTR_GET_DEFAULT(sourceRegion_, "") };
+      inline Data& setSourceRegion(string sourceRegion) { DARABONBA_PTR_SET_VALUE(sourceRegion_, sourceRegion) };
+
+
       // sourceZone Field Functions 
       bool hasSourceZone() const { return this->sourceZone_ != nullptr;};
       void deleteSourceZone() { this->sourceZone_ = nullptr;};
@@ -336,36 +373,71 @@ namespace Models
 
 
     protected:
+      // The number of concurrent connections.
       shared_ptr<double> activeSessionCount_ {};
+      // The autonomous system number (ASN) of the client ISP.
       shared_ptr<string> asn_ {};
+      // The transit router attachment ID.
       shared_ptr<string> attachmentId_ {};
+      // The bandwidth package instance ID.
       shared_ptr<string> bandwidthPackageId_ {};
+      // The traffic volume in bytes.
       shared_ptr<double> byteCount_ {};
+      // The city where the client is located.
       shared_ptr<string> city_ {};
+      // The country where the client is located.
       shared_ptr<string> country_ {};
+      // The destination IP address.
       shared_ptr<string> destinationIp_ {};
+      // The destination ISP.
       shared_ptr<string> destinationIsp_ {};
+      // The destination port.
       shared_ptr<string> destinationPort_ {};
+      // The destination region ID.
       shared_ptr<string> destinationRegionNo_ {};
+      // The destination zone for probing.
       shared_ptr<string> destinationZone_ {};
+      shared_ptr<string> globalCountryCode_ {};
+      shared_ptr<string> globalProvinceCode_ {};
+      // The IP address.
       shared_ptr<string> IP_ {};
+      // The inbound bandwidth. Unit: bit/s.
       shared_ptr<double> inBps_ {};
+      // The inbound packet rate. Unit: packets per second.
       shared_ptr<double> inPps_ {};
+      // The cloud resource instance ID corresponding to each scenario. For example, in the cross-region network traffic analysis scenario, this represents the CEN ID. In the public network scenario, this represents the EIP ID, ECS instance ID, or CLB ID.
       shared_ptr<string> instanceId_ {};
+      // The ISP of the client.
       shared_ptr<string> isp_ {};
+      shared_ptr<string> lineType_ {};
+      // The number of new connections per second.
       shared_ptr<double> newSessionPerSecond_ {};
+      // The outbound bandwidth. Unit: bit/s.
       shared_ptr<double> outBps_ {};
+      // The outbound packet rate. Unit: packets per second.
       shared_ptr<double> outPps_ {};
+      // The number of traffic packets.
       shared_ptr<double> packetCount_ {};
+      // The network protocol.
       shared_ptr<string> protocol_ {};
+      // The province or state where the client is located.
       shared_ptr<string> province_ {};
+      // The latency. Unit: ms.
       shared_ptr<double> RTT_ {};
+      // The Alibaba Cloud region ID.
       shared_ptr<string> regionNo_ {};
+      // The retransmission rate of TCP packets.
       shared_ptr<double> retransmitRate_ {};
+      // The source IP address.
       shared_ptr<string> sourceIp_ {};
+      // The source Internet Service Provider (ISP).
       shared_ptr<string> sourceIsp_ {};
+      // The source port.
       shared_ptr<string> sourcePort_ {};
+      shared_ptr<string> sourceRegion_ {};
+      // The source zone for probing.
       shared_ptr<string> sourceZone_ {};
+      // The instance ID of the virtual border router (VBR).
       shared_ptr<string> vbrId_ {};
     };
 
@@ -388,7 +460,9 @@ namespace Models
 
 
   protected:
+    // The collection of cloud network metric ranking data.
     shared_ptr<vector<GetNisNetworkRankingResponseBody::Data>> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

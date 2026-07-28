@@ -90,7 +90,9 @@ namespace Models
 
 
     protected:
+      // The name of the filter condition.
       shared_ptr<string> name_ {};
+      // The value of the filter condition.
       shared_ptr<string> value_ {};
     };
 
@@ -187,22 +189,37 @@ namespace Models
 
 
   protected:
+    // The member account IDs explicitly passed.
     shared_ptr<vector<string>> accountIds_ {};
+    // The start timestamp, in **ms**. If not specified, the last hour is queried by default.
     shared_ptr<int64_t> beginTime_ {};
+    // The network traffic direction based on Alibaba Cloud resources. Valid values:
+    // 
     // This parameter is required.
     shared_ptr<string> direction_ {};
+    // The end timestamp, in **ms**. If not specified, the last hour is queried by default. If only BeginTime is specified, the one hour after BeginTime is queried.
     shared_ptr<int64_t> endTime_ {};
+    // Specifies filter conditions for focused network traffic analysis.
     shared_ptr<vector<GetNisNetworkRankingRequest::Filter>> filter_ {};
+    // The dimension for metric ranking. Valid values vary by scenario:
+    // 
     // This parameter is required.
     shared_ptr<string> groupBy_ {};
+    // The metric for ranking Internet traffic. Case-sensitive. Valid values:
+    // 
     // This parameter is required.
     shared_ptr<string> orderBy_ {};
-    // This parameter is required.
+    // The region where the resource resides.
     shared_ptr<string> regionNo_ {};
+    // The Alibaba Cloud network resource type used for traffic forwarding. Valid values:
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The sort order. Default value: desc. Valid values:
     shared_ptr<string> sort_ {};
+    // The number of top-ranked entries to display. Default value: **10**. Maximum value: **100**.
     shared_ptr<int32_t> topN_ {};
+    // Specifies whether to use multi-account access mode. This is a reserved parameter and is not currently supported.
     shared_ptr<bool> useCrossAccount_ {};
   };
 

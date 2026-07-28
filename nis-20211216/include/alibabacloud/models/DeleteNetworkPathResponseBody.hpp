@@ -51,6 +51,7 @@ namespace Models
     // Result of operation.
     // 
     // - **true**: Delete Success.
+    // 
     // - **false**: Delete Fail.
     shared_ptr<bool> data_ {};
     // The request ID.

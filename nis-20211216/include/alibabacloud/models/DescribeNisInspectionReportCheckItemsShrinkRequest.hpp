@@ -94,13 +94,21 @@ namespace Models
 
 
   protected:
+    // The category of the check item.
     shared_ptr<string> categoryCode_ {};
+    // The ID of the inspection report.
+    // 
     // This parameter is required.
     shared_ptr<string> inspectionReportId_ {};
+    // The language of the content. Valid values: zh-CN and en-US.
     shared_ptr<string> language_ {};
+    // The maximum number of entries to return on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token that is used in the next request to retrieve a new page of results. Set this parameter to the NextToken value returned from the previous call.
     shared_ptr<string> nextToken_ {};
+    // The resource type.
     shared_ptr<string> resourceTypeShrink_ {};
+    // A collection of risk levels.
     shared_ptr<string> riskLevelShrink_ {};
   };
 

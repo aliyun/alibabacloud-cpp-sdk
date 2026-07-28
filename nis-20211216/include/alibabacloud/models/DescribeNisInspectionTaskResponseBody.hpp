@@ -88,7 +88,9 @@ namespace Models
 
 
     protected:
+      // The inspection rule.
       shared_ptr<string> checkScope_ {};
+      // The resource type.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -175,16 +177,35 @@ namespace Models
 
 
   protected:
+    // The configuration of the inspected resources.
     shared_ptr<vector<DescribeNisInspectionTaskResponseBody::CheckResourceList>> checkResourceList_ {};
+    // The time when the task was created.
     shared_ptr<string> createTime_ {};
+    // The inspection interval. The unit is **day**.
     shared_ptr<string> inspectionInterval_ {};
+    // The name of the inspection task.
     shared_ptr<string> inspectionName_ {};
+    // The type of inspection plan for the task. Valid values: basic and customized.
     shared_ptr<string> inspectionProject_ {};
+    // The ID of the inspection task.
     shared_ptr<string> inspectionTaskId_ {};
+    // The time when the inspection task was triggered.
     shared_ptr<string> inspectionTriggerTime_ {};
+    // The ID of the latest report.
     shared_ptr<string> lastUpdateReportId_ {};
+    // The time when the task was last updated.
     shared_ptr<string> lastUpdateTime_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The running status of the task.
+    // 
+    // Creating
+    // 
+    // Active
+    // 
+    // Running
+    // 
+    // Inactive
     shared_ptr<string> status_ {};
   };
 

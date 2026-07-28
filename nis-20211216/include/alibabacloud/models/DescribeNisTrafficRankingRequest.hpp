@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. Set this parameter to the value of NextToken returned by the previous API call.
     shared_ptr<string> nextToken_ {};
+    // The ID of the traffic ranking analysis result. Set this parameter to the value returned by the StartNisTrafficRanking operation.
+    // 
     // This parameter is required.
     shared_ptr<string> nisTrafficRankingId_ {};
   };

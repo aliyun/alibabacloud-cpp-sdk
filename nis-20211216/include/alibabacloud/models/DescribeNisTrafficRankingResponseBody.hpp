@@ -66,6 +66,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(NetworkInterfaceId, networkInterfaceId_);
         DARABONBA_PTR_TO_JSON(Packets, packets_);
+        DARABONBA_PTR_TO_JSON(PacketsIncrease, packetsIncrease_);
+        DARABONBA_PTR_TO_JSON(PacketsIncreaseRatio, packetsIncreaseRatio_);
         DARABONBA_PTR_TO_JSON(PacketsLostBlackhole, packetsLostBlackhole_);
         DARABONBA_PTR_TO_JSON(PacketsLostNoRoute, packetsLostNoRoute_);
         DARABONBA_PTR_TO_JSON(PacketsLostTTLExpired, packetsLostTTLExpired_);
@@ -73,6 +75,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PublicIpAddress, publicIpAddress_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(RoundTripTime, roundTripTime_);
+        DARABONBA_PTR_TO_JSON(RoundTripTimeIncrease, roundTripTimeIncrease_);
         DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
         DARABONBA_PTR_TO_JSON(SourcePort, sourcePort_);
         DARABONBA_PTR_TO_JSON(SourceRegionNo, sourceRegionNo_);
@@ -115,6 +118,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(NetworkInterfaceId, networkInterfaceId_);
         DARABONBA_PTR_FROM_JSON(Packets, packets_);
+        DARABONBA_PTR_FROM_JSON(PacketsIncrease, packetsIncrease_);
+        DARABONBA_PTR_FROM_JSON(PacketsIncreaseRatio, packetsIncreaseRatio_);
         DARABONBA_PTR_FROM_JSON(PacketsLostBlackhole, packetsLostBlackhole_);
         DARABONBA_PTR_FROM_JSON(PacketsLostNoRoute, packetsLostNoRoute_);
         DARABONBA_PTR_FROM_JSON(PacketsLostTTLExpired, packetsLostTTLExpired_);
@@ -122,6 +127,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PublicIpAddress, publicIpAddress_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(RoundTripTime, roundTripTime_);
+        DARABONBA_PTR_FROM_JSON(RoundTripTimeIncrease, roundTripTimeIncrease_);
         DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
         DARABONBA_PTR_FROM_JSON(SourcePort, sourcePort_);
         DARABONBA_PTR_FROM_JSON(SourceRegionNo, sourceRegionNo_);
@@ -158,12 +164,12 @@ namespace Models
         && this->cenId_ == nullptr && this->clientAsn_ == nullptr && this->clientCity_ == nullptr && this->clientCountry_ == nullptr && this->clientIsp_ == nullptr
         && this->clientProvince_ == nullptr && this->destinationIp_ == nullptr && this->destinationPort_ == nullptr && this->destinationRegionNo_ == nullptr && this->direction_ == nullptr
         && this->dscp_ == nullptr && this->ecsId_ == nullptr && this->instanceId_ == nullptr && this->networkInterfaceId_ == nullptr && this->packets_ == nullptr
-        && this->packetsLostBlackhole_ == nullptr && this->packetsLostNoRoute_ == nullptr && this->packetsLostTTLExpired_ == nullptr && this->protocol_ == nullptr && this->publicIpAddress_ == nullptr
-        && this->regionId_ == nullptr && this->roundTripTime_ == nullptr && this->sourceIp_ == nullptr && this->sourcePort_ == nullptr && this->sourceRegionNo_ == nullptr
-        && this->trafficPath_ == nullptr && this->transitRouterAttachmentId_ == nullptr && this->transitRouterDestinationAccountId_ == nullptr && this->transitRouterDestinationAvailableZone_ == nullptr && this->transitRouterDestinationNetworkInterface_ == nullptr
-        && this->transitRouterDestinationResourceId_ == nullptr && this->transitRouterDestinationVSwitchId_ == nullptr && this->transitRouterId_ == nullptr && this->transitRouterPairAttachmentId_ == nullptr && this->transitRouterSourceAccountId_ == nullptr
-        && this->transitRouterSourceAvailableZone_ == nullptr && this->transitRouterSourceNetworkInterface_ == nullptr && this->transitRouterSourceResourceId_ == nullptr && this->transitRouterSourceVSwitchId_ == nullptr && this->vSwitchId_ == nullptr
-        && this->vpcId_ == nullptr; };
+        && this->packetsIncrease_ == nullptr && this->packetsIncreaseRatio_ == nullptr && this->packetsLostBlackhole_ == nullptr && this->packetsLostNoRoute_ == nullptr && this->packetsLostTTLExpired_ == nullptr
+        && this->protocol_ == nullptr && this->publicIpAddress_ == nullptr && this->regionId_ == nullptr && this->roundTripTime_ == nullptr && this->roundTripTimeIncrease_ == nullptr
+        && this->sourceIp_ == nullptr && this->sourcePort_ == nullptr && this->sourceRegionNo_ == nullptr && this->trafficPath_ == nullptr && this->transitRouterAttachmentId_ == nullptr
+        && this->transitRouterDestinationAccountId_ == nullptr && this->transitRouterDestinationAvailableZone_ == nullptr && this->transitRouterDestinationNetworkInterface_ == nullptr && this->transitRouterDestinationResourceId_ == nullptr && this->transitRouterDestinationVSwitchId_ == nullptr
+        && this->transitRouterId_ == nullptr && this->transitRouterPairAttachmentId_ == nullptr && this->transitRouterSourceAccountId_ == nullptr && this->transitRouterSourceAvailableZone_ == nullptr && this->transitRouterSourceNetworkInterface_ == nullptr
+        && this->transitRouterSourceResourceId_ == nullptr && this->transitRouterSourceVSwitchId_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
       // bindingResourceId Field Functions 
       bool hasBindingResourceId() const { return this->bindingResourceId_ != nullptr;};
       void deleteBindingResourceId() { this->bindingResourceId_ = nullptr;};
@@ -311,6 +317,20 @@ namespace Models
       inline FlowRankingList& setPackets(double packets) { DARABONBA_PTR_SET_VALUE(packets_, packets) };
 
 
+      // packetsIncrease Field Functions 
+      bool hasPacketsIncrease() const { return this->packetsIncrease_ != nullptr;};
+      void deletePacketsIncrease() { this->packetsIncrease_ = nullptr;};
+      inline double getPacketsIncrease() const { DARABONBA_PTR_GET_DEFAULT(packetsIncrease_, 0.0) };
+      inline FlowRankingList& setPacketsIncrease(double packetsIncrease) { DARABONBA_PTR_SET_VALUE(packetsIncrease_, packetsIncrease) };
+
+
+      // packetsIncreaseRatio Field Functions 
+      bool hasPacketsIncreaseRatio() const { return this->packetsIncreaseRatio_ != nullptr;};
+      void deletePacketsIncreaseRatio() { this->packetsIncreaseRatio_ = nullptr;};
+      inline double getPacketsIncreaseRatio() const { DARABONBA_PTR_GET_DEFAULT(packetsIncreaseRatio_, 0.0) };
+      inline FlowRankingList& setPacketsIncreaseRatio(double packetsIncreaseRatio) { DARABONBA_PTR_SET_VALUE(packetsIncreaseRatio_, packetsIncreaseRatio) };
+
+
       // packetsLostBlackhole Field Functions 
       bool hasPacketsLostBlackhole() const { return this->packetsLostBlackhole_ != nullptr;};
       void deletePacketsLostBlackhole() { this->packetsLostBlackhole_ = nullptr;};
@@ -358,6 +378,13 @@ namespace Models
       void deleteRoundTripTime() { this->roundTripTime_ = nullptr;};
       inline double getRoundTripTime() const { DARABONBA_PTR_GET_DEFAULT(roundTripTime_, 0.0) };
       inline FlowRankingList& setRoundTripTime(double roundTripTime) { DARABONBA_PTR_SET_VALUE(roundTripTime_, roundTripTime) };
+
+
+      // roundTripTimeIncrease Field Functions 
+      bool hasRoundTripTimeIncrease() const { return this->roundTripTimeIncrease_ != nullptr;};
+      void deleteRoundTripTimeIncrease() { this->roundTripTimeIncrease_ = nullptr;};
+      inline double getRoundTripTimeIncrease() const { DARABONBA_PTR_GET_DEFAULT(roundTripTimeIncrease_, 0.0) };
+      inline FlowRankingList& setRoundTripTimeIncrease(double roundTripTimeIncrease) { DARABONBA_PTR_SET_VALUE(roundTripTimeIncrease_, roundTripTimeIncrease) };
 
 
       // sourceIp Field Functions 
@@ -494,52 +521,156 @@ namespace Models
 
 
     protected:
+      // The instance resource to which the EIP is bound.
+      //    - This field is returned only when Internet Shared Bandwidth metric analysis is queried.
       shared_ptr<string> bindingResourceId_ {};
+      // The type of the instance resource to which the EIP is attached.
+      //    - This field is returned only when Internet Shared Bandwidth metric analysis is queried.
+      //    - Valid values:
+      //       - EIP_ECS: Elastic Compute Service (ECS) instance type.
+      //       - EIP_ENI: Server Load Balancer (SLB) instance type.
+      //       - EIP_NAT: NAT gateway instance type.
+      //       - EIP_SLB: elastic network interface (ENI) instance type.
+      //       - HAVIP_ECS: high availability (HA) virtual IP address type.
+      //       - TARGET_IP: IP address type.
       shared_ptr<string> bindingResourceType_ {};
+      // The bandwidth.
+      //    - This field is returned for VPC, TR, or Internet Shared Bandwidth analysis.
       shared_ptr<double> bytes_ {};
+      // The bandwidth increase.
+      //    - This field is returned only when TrafficScenario is set to TRFlowlog and the Order by field is BytesIncrease or BytesIncreaseRatio.
       shared_ptr<double> bytesIncrease_ {};
+      // The bandwidth increase ratio.
+      //    - This field is returned only when TrafficScenario is set to TRFlowlog and the Order by field is BytesIncrease or BytesIncreaseRatio.
       shared_ptr<double> bytesIncreaseRatio_ {};
+      // The traffic proportion.
+      //    - This field is returned only when TR or VPC flow log analysis is performed.
       shared_ptr<double> bytesRate_ {};
+      // The CEN instance ID.
       shared_ptr<string> cenId_ {};
+      // The autonomous system number.
+      //   - This field is returned only when VPC flow log analysis is performed for the VPC Internet scenario.
       shared_ptr<string> clientAsn_ {};
+      // The city where the client is located.
+      //   - This field is returned only when VPC flow log analysis is performed for the VPC Internet scenario.
       shared_ptr<string> clientCity_ {};
+      // The country where the client is located.
+      //   - This field is returned only when VPC flow log analysis is performed for the VPC Internet scenario.
       shared_ptr<string> clientCountry_ {};
+      // The network service provider.
+      //   - This field is returned only when VPC flow log analysis is performed for the VPC Internet scenario.
       shared_ptr<string> clientIsp_ {};
+      // The province where the client is located.
+      //   - This field is returned only when VPC flow log analysis is performed for the VPC Internet scenario.
       shared_ptr<string> clientProvince_ {};
+      // The destination IP address.
+      //    - This field is returned only when 2-tuple analysis is performed for TR or VPC flow log analysis.
       shared_ptr<string> destinationIp_ {};
+      // The destination port.
+      //    - This field is returned only when 5-tuple analysis is performed for TR or VPC flow log analysis.
       shared_ptr<string> destinationPort_ {};
+      // The destination region ID.
+      //    - This field is returned only when TR flow log analysis is performed.
       shared_ptr<string> destinationRegionNo_ {};
+      // The traffic direction based on the Alibaba Cloud network resource instance. Valid values:
+      // - **in**: inbound traffic.
+      // - **out**: outbound traffic.
       shared_ptr<string> direction_ {};
+      // The Differentiated Services Code Point (DSCP) value.
+      //    - This field is returned only when TR flow log analysis is performed.
       shared_ptr<string> dscp_ {};
+      // The ECS instance ID of the management node.
+      //    - This field is returned only when VPC flow log analysis is performed.
       shared_ptr<string> ecsId_ {};
+      // The EIP ID associated with the Internet Shared Bandwidth instance.
+      //    - This field is returned only when Internet Shared Bandwidth metric analysis is queried.
       shared_ptr<string> instanceId_ {};
+      // The elastic network interface (ENI) ID.
+      //    - This field is returned only when VPC flow log analysis is performed.
       shared_ptr<string> networkInterfaceId_ {};
+      // The number of packets.
+      //    - This field is returned for VPC, TR, or CBWP flow log analysis.
       shared_ptr<double> packets_ {};
+      shared_ptr<double> packetsIncrease_ {};
+      shared_ptr<double> packetsIncreaseRatio_ {};
+      // The number of packets dropped due to blackhole routing.
+      //    - This field is returned only when TR flow log analysis is performed.
       shared_ptr<double> packetsLostBlackhole_ {};
+      // The number of packets dropped due to no route.
+      //    - This field is returned only when TR flow log analysis is performed.
       shared_ptr<double> packetsLostNoRoute_ {};
+      // The number of packets dropped due to TTL expiration.
+      //    - This field is returned only when TR flow log analysis is performed.
       shared_ptr<double> packetsLostTTLExpired_ {};
+      // The network protocol.
+      //    - This field is returned only when 5-tuple analysis is performed for TR or VPC flow log analysis.
       shared_ptr<string> protocol_ {};
+      // The public IP address of the associated EIP.
+      //    - This field is returned only when Internet Shared Bandwidth metric analysis is queried.
       shared_ptr<string> publicIpAddress_ {};
+      // The region where the flow log resides.
+      //   - This field is returned only when VPC flow log analysis is performed.
       shared_ptr<string> regionId_ {};
+      // The TCP RTT.
+      //    - This field is returned only when VPC flow log analysis is performed.
       shared_ptr<double> roundTripTime_ {};
+      shared_ptr<double> roundTripTimeIncrease_ {};
+      // The source IP address.
+      //    - This field is returned only when 2-tuple analysis is performed for TR or VPC flow log analysis.
       shared_ptr<string> sourceIp_ {};
+      // The source port.
+      //    - This field is returned only when 5-tuple analysis is performed for TR or VPC flow log analysis.
       shared_ptr<string> sourcePort_ {};
+      // The source region ID.
+      //    - This field is returned only when TR flow log analysis is performed.
       shared_ptr<string> sourceRegionNo_ {};
+      // The traffic path.
+      //    - This field is returned only when 2-tuple or 5-tuple analysis is performed for VPC flow log analysis.
       shared_ptr<string> trafficPath_ {};
+      // The network instance connection ID.
+      //    - This field is returned only when TR flow log analysis is performed.
       shared_ptr<string> transitRouterAttachmentId_ {};
+      // The account ID of the destination cloud resource instance connected to the transit router.
+      //    - This field is returned only when TR flow log analysis is performed.
       shared_ptr<string> transitRouterDestinationAccountId_ {};
+      // The zone of the destination resource connected to the transit router.
+      //    - This field is returned only for the VPC connection traffic scenario under TR flow log analysis.
       shared_ptr<string> transitRouterDestinationAvailableZone_ {};
+      // The ENI ID of the destination resource connected to the transit router.
+      //    - This field is returned only for the VPC connection traffic scenario under TR flow log analysis.
       shared_ptr<string> transitRouterDestinationNetworkInterface_ {};
+      // The ID of the destination cloud resource instance connected to the transit router.
+      //    - This field is returned only when TR flow log analysis is performed.
       shared_ptr<string> transitRouterDestinationResourceId_ {};
+      // The vSwitch ID of the destination resource connected to the transit router.
+      //    - This field is returned only for the VPC connection traffic scenario under TR flow log analysis.
       shared_ptr<string> transitRouterDestinationVSwitchId_ {};
+      // The transit router instance ID.
+      //    - This field is returned only when TR flow log analysis is performed.
       shared_ptr<string> transitRouterId_ {};
+      // The transit router peering connection instance ID.
+      //    - This field is returned only when TR flow log analysis is performed.
       shared_ptr<string> transitRouterPairAttachmentId_ {};
+      // The account ID of the source cloud resource instance connected to the transit router.
+      //    - This field is returned only when TR flow log analysis is performed.
       shared_ptr<string> transitRouterSourceAccountId_ {};
+      // The zone of the source resource connected to the transit router.
+      //    - This field is returned only for the VPC connection traffic scenario under TR flow log analysis.
       shared_ptr<string> transitRouterSourceAvailableZone_ {};
+      // The ENI ID of the source resource connected to the transit router.
+      //    - This field is returned only for the VPC connection traffic scenario under TR flow log analysis.
       shared_ptr<string> transitRouterSourceNetworkInterface_ {};
+      // The ID of the source cloud resource instance connected to the transit router.
+      //    - This field is returned only when TR flow log analysis is performed.
       shared_ptr<string> transitRouterSourceResourceId_ {};
+      // The vSwitch ID of the source resource connected to the transit router.
+      //    - This field is returned only for the VPC connection traffic scenario under TR flow log analysis.
       shared_ptr<string> transitRouterSourceVSwitchId_ {};
+      // The vSwitch ID.
+      //    - This field is returned only when VPC flow log analysis is performed.
       shared_ptr<string> vSwitchId_ {};
+      // The virtual private cloud (VPC) ID.
+      //    - This field is returned only when VPC flow log analysis is performed.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -598,12 +729,19 @@ namespace Models
 
 
   protected:
+    // The list of traffic ranking analysis results.
     shared_ptr<vector<DescribeNisTrafficRankingResponseBody::FlowRankingList>> flowRankingList_ {};
+    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
+    // The ID of the traffic ranking analysis result.
     shared_ptr<string> nisTrafficRankingId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task running status.
     shared_ptr<string> status_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

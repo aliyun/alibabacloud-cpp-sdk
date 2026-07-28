@@ -91,7 +91,9 @@ namespace Models
 
 
       protected:
+        // The timestamp of the data in milliseconds.
         shared_ptr<int64_t> timeStamp_ {};
+        // The metric value.
         shared_ptr<double> value_ {};
       };
 
@@ -114,7 +116,9 @@ namespace Models
 
 
     protected:
+      // The collection of metric trends data.
       shared_ptr<vector<Data::Metrics>> metrics_ {};
+      // The unit.
       shared_ptr<string> unit_ {};
     };
 
@@ -137,7 +141,9 @@ namespace Models
 
 
   protected:
+    // The cloud network metric trends data object.
     shared_ptr<GetNisNetworkMetricsResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

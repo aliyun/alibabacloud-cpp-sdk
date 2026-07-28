@@ -62,6 +62,10 @@
 #include <alibabacloud/models/GetNisNetworkRankingShrinkRequest.hpp>
 #include <alibabacloud/models/GetNisNetworkRankingResponseBody.hpp>
 #include <alibabacloud/models/GetNisNetworkRankingResponse.hpp>
+#include <alibabacloud/models/GetNisTrafficMetricsRequest.hpp>
+#include <alibabacloud/models/GetNisTrafficMetricsShrinkRequest.hpp>
+#include <alibabacloud/models/GetNisTrafficMetricsResponseBody.hpp>
+#include <alibabacloud/models/GetNisTrafficMetricsResponse.hpp>
 #include <alibabacloud/models/GetTransitRouterFlowTopNRequest.hpp>
 #include <alibabacloud/models/GetTransitRouterFlowTopNShrinkRequest.hpp>
 #include <alibabacloud/models/GetTransitRouterFlowTopNResponseBody.hpp>

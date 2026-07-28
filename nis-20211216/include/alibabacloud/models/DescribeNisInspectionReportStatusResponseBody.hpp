@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The end time.
     shared_ptr<string> endTime_ {};
+    // The type of inspection plan used for the task.
     shared_ptr<string> inspectionProject_ {};
+    // The ID of the inspection report.
     shared_ptr<string> inspectionReportId_ {};
+    // The ID of the inspection task.
     shared_ptr<string> inspectionTaskId_ {};
+    // The name of the inspection task.
     shared_ptr<string> inspectionTaskName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The start time.
     shared_ptr<string> startTime_ {};
+    // The status of the inspection report.
     shared_ptr<string> status_ {};
   };
 

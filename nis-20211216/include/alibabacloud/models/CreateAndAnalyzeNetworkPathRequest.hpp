@@ -123,9 +123,11 @@ namespace Models
   protected:
     // The protocol type. Valid values:
     // 
-    // *   **tcp**: Transmission Control Protocol (TCP)
-    // *   **udp**: User Datagram Protocol (UDP)
-    // *   **icmp**: Internet Control Message Protocol (ICMP)
+    // - **tcp**: Transmission Control Protocol (TCP)
+    // 
+    // - **udp**: User Datagram Protocol (UDP)
+    // 
+    // - **icmp**: Internet Control Message Protocol (ICMP)
     shared_ptr<string> protocol_ {};
     // The ID of the region for which you want to initiate a task for analyzing network reachability.
     shared_ptr<string> regionId_ {};
@@ -139,11 +141,15 @@ namespace Models
     shared_ptr<int32_t> sourcePort_ {};
     // The type of the source resource. Valid values:
     // 
-    // *   **ecs**: the Elastic Compute Service (ECS) instance
-    // *   **internetIp**: the public IP address
-    // *   **vsw**: the vSwitch
-    // *   **vpn**: the VPN gateway
-    // *   **vbr**: the virtual border router (VBR)
+    // - **ecs**: the Elastic Compute Service (ECS) instance
+    // 
+    // - **internetIp**: the public IP address
+    // 
+    // - **vsw**: the vSwitch
+    // 
+    // - **vpn**: the VPN gateway
+    // 
+    // - **vbr**: the virtual border router (VBR)
     // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
@@ -155,12 +161,17 @@ namespace Models
     shared_ptr<int32_t> targetPort_ {};
     // The type of the destination resource. Valid values:
     // 
-    // *   **ecs**: the ECS instance
-    // *   **internetIp**: the public IP address
-    // *   **vsw**: the vSwitch
-    // *   **vpn**: the VPN gateway
-    // *   **vbr**: the VBR
-    // *   **clb**: the Classic Load Balancer (CLB) instance
+    // - **ecs**: the ECS instance
+    // 
+    // - **internetIp**: the public IP address
+    // 
+    // - **vsw**: the vSwitch
+    // 
+    // - **vpn**: the VPN gateway
+    // 
+    // - **vbr**: the VBR
+    // 
+    // - **clb**: the Classic Load Balancer (CLB) instance
     shared_ptr<string> targetType_ {};
   };
 

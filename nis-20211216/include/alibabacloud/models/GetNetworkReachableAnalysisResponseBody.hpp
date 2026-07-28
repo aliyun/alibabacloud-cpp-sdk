@@ -126,15 +126,19 @@ namespace Models
     shared_ptr<string> networkReachableAnalysisResult_ {};
     // The state of the task for analyzing network reachability. Valid values:
     // 
-    // *   **init**: The task is in progress.
-    // *   **finish**: The task is complete.
-    // *   **error**: An analysis error occurred.
-    // *   **timeout**: The task timed out.
+    // - **init**: The task is in progress.
+    // 
+    // - **finish**: The task is complete.
+    // 
+    // - **error**: An analysis error occurred.
+    // 
+    // - **timeout**: The task timed out.
     shared_ptr<string> networkReachableAnalysisStatus_ {};
     // Indicates whether the network path is reachable. Valid values:
     // 
-    // *   **true**: The network path is reachable.
-    // *   **false**: The network path is unreachable.
+    // - **true**: The network path is reachable.
+    // 
+    // - **false**: The network path is unreachable.
     shared_ptr<bool> reachable_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

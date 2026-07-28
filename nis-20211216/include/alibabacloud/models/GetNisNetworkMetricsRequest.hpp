@@ -86,7 +86,9 @@ namespace Models
 
 
     protected:
+      // The name of the filter condition.
       shared_ptr<string> name_ {};
+      // The value of the filter condition.
       shared_ptr<string> value_ {};
     };
 
@@ -168,19 +170,60 @@ namespace Models
 
 
   protected:
+    // Explicitly passes sub-account IDs.
     shared_ptr<vector<string>> accountIds_ {};
+    // The start time, in **ms**, in **UNIX** timestamp format. If not specified, the most recent 1 hour is queried by default. The earliest start time is 7 days ago.
     shared_ptr<int64_t> beginTime_ {};
+    // The collection of metric query parameters for specific business scenarios. For metric description of each scenario, see [GetNisNetworkMetrics](https://help.aliyun.com/document_detail/2833348.html).
+    // 
     // This parameter is required.
     shared_ptr<vector<GetNisNetworkMetricsRequest::Dimensions>> dimensions_ {};
+    // The end time, in **ms**, in **UNIX** timestamp format. If not specified, the most recent 1 hour is queried by default. If only BeginTime is specified, the 1 hour after BeginTime is queried. The maximum time span between the end time and start time is 24 hours.
     shared_ptr<int64_t> endTime_ {};
+    // The metric name. Valid values:
+    // 
+    // -   bps: bits per second.
+    // -   pps: packets per second.
+    // -   rtt: round-trip time when establishing a TCP connection.
+    // -   RetransmitRate: retransmission rate.
+    // -   RatelimitDropPps: rate of packets dropped due to throttling.
+    // -   ActiveSessionCount: concurrent sessions.
+    // -   NewSessionPerSecond: new sessions per second.
+    // -   BandwidthUtilization: bandwidth utilization.
+    // -   passRate: inspection pass rate.
+    // > If no RTT data is available within the selected time range, the connection is a persistent connection and no initial connection was established during that period.
+    // 
     // This parameter is required.
     shared_ptr<string> metricName_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
+    // Analyzes traffic by the Alibaba Cloud network resource type used for traffic forwarding. Valid values:
+    // 
+    // - AccessInternetIpV4: all Alibaba Cloud public IPv4 addresses.
+    // - AccessInternetIpV4Limited: all region-throttled Alibaba Cloud public IPv4 addresses.
+    // - ElasticIP: Elastic IP Address (EIP) (IPv4).
+    // - PublicIpEcs: static public IP address bound to an ECS instance (IPv4).
+    // - PublicIpClb: static public IP address bound to a CLB instance (IPv4).
+    // - NAT: public traffic through SNAT.
+    // - TR: traffic through Cloud Enterprise Network (CEN) transit routers.
+    // - TRAttachment: traffic through CEN connection instances, including intra-region and inter-region connections. Intra-region connections have inbound and outbound directions. Inter-region connections have only the outbound direction.
+    // - VBR: traffic through virtual border routers.
+    // - GA: traffic through Global Accelerator.
+    // - InternetProbing: Internet quality probing data.
+    // - IntranetProbing: internal network quality probing data.
+    // - NisInspectionHistoryReportScore: inspection history scores.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The sort order. Default value: TimestampAscending. Valid values:
+    // 
+    // - TimestampAscending: sorts by time in ascending order.
+    // - TimestampDescending: sorts by time in descending order.
     shared_ptr<string> scanBy_ {};
     shared_ptr<int32_t> stepMinutes_ {};
+    // Specifies whether to use cross-account access mode. This is a reserved parameter and is not currently supported.
     shared_ptr<bool> useCrossAccount_ {};
   };
 

@@ -123,9 +123,13 @@ namespace Models
 
 
       protected:
+        // The number of resources associated with the risk.
         shared_ptr<int32_t> resourceCount_ {};
+        // The number of risks.
         shared_ptr<int32_t> riskCount_ {};
+        // The risk level.
         shared_ptr<string> riskLevel_ {};
+        // The risk type.
         shared_ptr<string> riskType_ {};
       };
 
@@ -167,7 +171,9 @@ namespace Models
 
 
       protected:
+        // The pass rate.
         shared_ptr<double> passRate_ {};
+        // The scope of the pass rate.
         shared_ptr<string> passRateScope_ {};
       };
 
@@ -206,9 +212,13 @@ namespace Models
 
 
     protected:
+      // The number of inspection items.
       shared_ptr<int32_t> checkItemCount_ {};
+      // The number of inspected resources.
       shared_ptr<int32_t> checkResourceCount_ {};
+      // The pass rate summary.
       shared_ptr<vector<Summary::PassRateSummary>> passRateSummary_ {};
+      // The risk summary.
       shared_ptr<vector<Summary::RiskSummary>> riskSummary_ {};
     };
 
@@ -267,12 +277,27 @@ namespace Models
 
 
   protected:
+    // The end time.
     shared_ptr<string> endTime_ {};
+    // The ID of the inspection report.
     shared_ptr<string> inspectionReportId_ {};
+    // The ID of the inspection task.
     shared_ptr<string> inspectionTaskId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The start time.
     shared_ptr<string> startTime_ {};
+    // The status of the task. Valid values:
+    // 
+    // - Creating
+    // 
+    // - Active
+    // 
+    // - Running
+    // 
+    // - Inactive
     shared_ptr<string> status_ {};
+    // The summary information.
     shared_ptr<DescribeNisInspectionReportSummaryResponseBody::Summary> summary_ {};
   };
 

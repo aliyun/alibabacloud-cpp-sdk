@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The result of the deletion.
     shared_ptr<bool> data_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

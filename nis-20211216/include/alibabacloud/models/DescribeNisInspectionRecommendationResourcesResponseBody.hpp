@@ -87,8 +87,11 @@ namespace Models
 
 
     protected:
+      // The details of the abnormal item.
       shared_ptr<string> analysisData_ {};
+      // The ID of the abnormal instance.
       shared_ptr<string> resourceId_ {};
+      // The name of the instance.
       shared_ptr<string> resourceName_ {};
     };
 
@@ -139,11 +142,17 @@ namespace Models
 
 
   protected:
+    // The ID of the inspection report.
     shared_ptr<string> inspectionReportId_ {};
+    // The maximum number of entries returned on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to start the next query.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of resources.
     shared_ptr<vector<DescribeNisInspectionRecommendationResourcesResponseBody::ResourceList>> resourceList_ {};
+    // The total number of resources.
     shared_ptr<int32_t> totalCount_ {};
   };
 

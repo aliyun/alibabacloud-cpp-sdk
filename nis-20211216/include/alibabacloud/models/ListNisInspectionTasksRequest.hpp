@@ -84,11 +84,25 @@ namespace Models
 
 
   protected:
+    // The name of the network inspection task.
     shared_ptr<string> inspectionName_ {};
+    // The type of inspection solution that the network inspection task uses. Valid values: basic and customized.
     shared_ptr<string> inspectionProject_ {};
+    // The ID of the network inspection task.
     shared_ptr<string> inspectionTaskId_ {};
+    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. Set this parameter to the NextToken value returned from a previous call.
     shared_ptr<string> nextToken_ {};
+    // The running status of the task. Valid values:
+    // 
+    // - Creating
+    // 
+    // - Active
+    // 
+    // - Running
+    // 
+    // - Inactive
     shared_ptr<string> status_ {};
   };
 

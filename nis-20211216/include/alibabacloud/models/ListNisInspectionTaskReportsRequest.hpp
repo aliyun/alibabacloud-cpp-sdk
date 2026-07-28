@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The ID of the inspection task.
+    // 
     // This parameter is required.
     shared_ptr<string> inspectionTaskId_ {};
+    // The number of entries to return on each page. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. You do not need to specify this parameter for the first query.
     shared_ptr<string> nextToken_ {};
   };
 

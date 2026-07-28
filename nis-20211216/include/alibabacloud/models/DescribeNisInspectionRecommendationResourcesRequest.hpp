@@ -75,11 +75,18 @@ namespace Models
 
 
   protected:
+    // The ID of the inspection report.
+    // 
     // This parameter is required.
     shared_ptr<string> inspectionReportId_ {};
+    // The language to use.
     shared_ptr<string> language_ {};
+    // The maximum number of entries to return on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to query the next page of results. Set this parameter to the NextToken value returned from the last API call.
     shared_ptr<string> nextToken_ {};
+    // The recommendation code for the abnormal item.
+    // 
     // This parameter is required.
     shared_ptr<string> recommendationCode_ {};
   };

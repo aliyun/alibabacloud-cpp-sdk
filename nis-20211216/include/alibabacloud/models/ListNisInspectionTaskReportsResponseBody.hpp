@@ -66,6 +66,7 @@ namespace Models
 
 
     protected:
+      // The ID of the inspection report.
       shared_ptr<string> inspectionReportId_ {};
     };
 
@@ -109,10 +110,15 @@ namespace Models
 
 
   protected:
+    // The list of inspection reports.
     shared_ptr<vector<ListNisInspectionTaskReportsResponseBody::InspectionReportList>> inspectionReportList_ {};
+    // The number of entries returned per page. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // A pagination token. It can be used in the next request to retrieve a new page of results. If this parameter is not returned, it indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

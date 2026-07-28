@@ -112,11 +112,25 @@ namespace Models
 
 
     protected:
+      // The time when the task was created.
       shared_ptr<string> createTime_ {};
+      // The name of the network inspection task.
       shared_ptr<string> inspectionName_ {};
+      // The type of inspection solution that the network inspection task uses. Valid values: basic and customized.
       shared_ptr<string> inspectionProject_ {};
+      // The ID of the network inspection task.
       shared_ptr<string> inspectionTaskId_ {};
+      // The ID of the latest report.
       shared_ptr<string> lastUpdateReportId_ {};
+      // The running status of the task. Valid values:
+      // 
+      // Creating: The task is being created.
+      // 
+      // - Active
+      // 
+      // - Running
+      // 
+      // - Inactive
       shared_ptr<string> status_ {};
     };
 
@@ -160,10 +174,15 @@ namespace Models
 
 
   protected:
+    // The list of network inspection tasks.
     shared_ptr<vector<ListNisInspectionTasksResponseBody::InspectionTaskList>> inspectionTaskList_ {};
+    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. If the value of this parameter is not empty, it indicates that there are more results to retrieve. If this parameter is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

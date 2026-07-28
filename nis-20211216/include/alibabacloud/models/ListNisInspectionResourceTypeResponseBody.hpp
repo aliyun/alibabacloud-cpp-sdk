@@ -60,6 +60,7 @@ namespace Models
 
 
     protected:
+      // The resource type.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -82,7 +83,9 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The resource types for inspection.
     shared_ptr<vector<ListNisInspectionResourceTypeResponseBody::ResourceTypeList>> resourceTypeList_ {};
   };
 

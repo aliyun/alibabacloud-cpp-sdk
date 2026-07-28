@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The result ID of this traffic ranking analysis. Call the DescribeNisTrafficRanking operation to obtain the final analysis result.
     shared_ptr<string> nisTrafficRankingId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
