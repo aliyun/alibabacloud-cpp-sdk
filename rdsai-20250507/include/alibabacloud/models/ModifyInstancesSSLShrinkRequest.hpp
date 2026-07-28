@@ -84,30 +84,28 @@ namespace Models
 
 
   protected:
-    // The certificate type. Only **custom** is supported.
-    // 
-    // >  This parameter is required if **SSLEnabled** is set to **1**.
+    // The certificate type. Currently, only **custom** is supported, which indicates a custom certificate.
+    // > This parameter is required when **SSLEnabled** is set to **1**.
     shared_ptr<string> CAType_ {};
-    // The information about the RDS Supabase instances that you want to configure. You can specify up to 10 instances.
+    // The list of instance IDs of AI applications. A maximum of 10 instance IDs are supported.
     // 
     // This parameter is required.
     shared_ptr<string> instanceNamesShrink_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // Enables or disables SSL. Valid values:
-    // 
-    // *   **1**: enable
-    // *   **0**: disable
+    // Specifies whether to enable or disable SSL. Valid values:
+    // * **1**: Enable.
+    // * **0**: Disable.
     // 
     // This parameter is required.
     shared_ptr<int32_t> SSLEnabled_ {};
-    // The content of the custom certificate.
+    // The custom certificate content.
     // 
-    // >  This parameter is required if **CAType** is set to **custom**.
+    // > This parameter is required when **CAType** is set to **custom**.
     shared_ptr<string> serverCert_ {};
     // The private key of the certificate.
     // 
-    // >  This parameter is required if **CAType** is set to **custom**.
+    // > This parameter is required when **CAType** is set to **custom**.
     shared_ptr<string> serverKey_ {};
   };
 

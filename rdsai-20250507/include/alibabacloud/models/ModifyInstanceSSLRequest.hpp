@@ -105,12 +105,12 @@ namespace Models
     // The region ID.
     shared_ptr<string> regionId_ {};
     // Specifies whether to enable or disable SSL. Valid values:
-    // * **1**: Enable SSL.
-    // * **0**: Disable SSL.
+    // * **1**: Enable.
+    // * **0**: Disable.
     // 
     // This parameter is required.
     shared_ptr<int32_t> SSLEnabled_ {};
-    // The content of the custom certificate.
+    // The custom certificate content.
     // 
     // > This parameter is required when **CAType** is set to **custom**.
     shared_ptr<string> serverCert_ {};

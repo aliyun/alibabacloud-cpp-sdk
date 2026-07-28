@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BranchName, branchName_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(SSLExpiredTime, SSLExpiredTime_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyInstanceSSLResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(SSLExpiredTime, SSLExpiredTime_);
     };
     ModifyInstanceSSLResponseBody() = default ;
     ModifyInstanceSSLResponseBody(const ModifyInstanceSSLResponseBody &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->branchName_ == nullptr
-        && this->instanceName_ == nullptr && this->requestId_ == nullptr; };
+        && this->instanceName_ == nullptr && this->requestId_ == nullptr && this->SSLExpiredTime_ == nullptr; };
     // branchName Field Functions 
     bool hasBranchName() const { return this->branchName_ != nullptr;};
     void deleteBranchName() { this->branchName_ = nullptr;};
@@ -56,12 +58,20 @@ namespace Models
     inline ModifyInstanceSSLResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // SSLExpiredTime Field Functions 
+    bool hasSSLExpiredTime() const { return this->SSLExpiredTime_ != nullptr;};
+    void deleteSSLExpiredTime() { this->SSLExpiredTime_ = nullptr;};
+    inline string getSSLExpiredTime() const { DARABONBA_PTR_GET_DEFAULT(SSLExpiredTime_, "") };
+    inline ModifyInstanceSSLResponseBody& setSSLExpiredTime(string SSLExpiredTime) { DARABONBA_PTR_SET_VALUE(SSLExpiredTime_, SSLExpiredTime) };
+
+
   protected:
     shared_ptr<string> branchName_ {};
     // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    shared_ptr<string> SSLExpiredTime_ {};
   };
 
   } // namespace Models

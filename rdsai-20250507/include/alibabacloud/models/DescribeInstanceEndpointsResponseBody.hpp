@@ -42,12 +42,14 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const InstanceEndpoints& obj) { 
         DARABONBA_PTR_TO_JSON(ConnectionString, connectionString_);
+        DARABONBA_PTR_TO_JSON(Domain, domain_);
         DARABONBA_PTR_TO_JSON(IP, IP_);
         DARABONBA_PTR_TO_JSON(IpType, ipType_);
         DARABONBA_PTR_TO_JSON(Port, port_);
       };
       friend void from_json(const Darabonba::Json& j, InstanceEndpoints& obj) { 
         DARABONBA_PTR_FROM_JSON(ConnectionString, connectionString_);
+        DARABONBA_PTR_FROM_JSON(Domain, domain_);
         DARABONBA_PTR_FROM_JSON(IP, IP_);
         DARABONBA_PTR_FROM_JSON(IpType, ipType_);
         DARABONBA_PTR_FROM_JSON(Port, port_);
@@ -64,12 +66,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->connectionString_ == nullptr
-        && this->IP_ == nullptr && this->ipType_ == nullptr && this->port_ == nullptr; };
+        && this->domain_ == nullptr && this->IP_ == nullptr && this->ipType_ == nullptr && this->port_ == nullptr; };
       // connectionString Field Functions 
       bool hasConnectionString() const { return this->connectionString_ != nullptr;};
       void deleteConnectionString() { this->connectionString_ = nullptr;};
       inline string getConnectionString() const { DARABONBA_PTR_GET_DEFAULT(connectionString_, "") };
       inline InstanceEndpoints& setConnectionString(string connectionString) { DARABONBA_PTR_SET_VALUE(connectionString_, connectionString) };
+
+
+      // domain Field Functions 
+      bool hasDomain() const { return this->domain_ != nullptr;};
+      void deleteDomain() { this->domain_ = nullptr;};
+      inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+      inline InstanceEndpoints& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
       // IP Field Functions 
@@ -96,6 +105,7 @@ namespace Models
     protected:
       // The endpoint.
       shared_ptr<string> connectionString_ {};
+      shared_ptr<string> domain_ {};
       // The IP address.
       shared_ptr<string> IP_ {};
       // The network type. Valid values:

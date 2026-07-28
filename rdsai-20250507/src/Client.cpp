@@ -1656,7 +1656,7 @@ DescribeInstanceRAGConfigResponse Client::describeInstanceRAGConfig(const Descri
 /**
  * @summary Queries the SSL configuration of an RDS AI application instance.
  *
- * @description ### Applicable engine
+ * @description ### Supported engine
  * RDS PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -1700,7 +1700,7 @@ DescribeInstanceSSLResponse Client::describeInstanceSSLWithOptions(const Describ
 /**
  * @summary Queries the SSL configuration of an RDS AI application instance.
  *
- * @description ### Applicable engine
+ * @description ### Supported engine
  * RDS PostgreSQL
  * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -3607,11 +3607,11 @@ ModifyInstanceStorageConfigResponse Client::modifyInstanceStorageConfig(const Mo
 }
 
 /**
- * @summary Modifies the SSL settings of RDS Supabase instances in batches.
+ * @summary Batch modifies the SSL configurations of RDS AI application instances.
  *
- * @description ### 适用引擎
+ * @description ### Applicable engine
  * RDS PostgreSQL
- * ### 相关功能文档
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param tmpReq ModifyInstancesSSLRequest
@@ -3669,11 +3669,11 @@ ModifyInstancesSSLResponse Client::modifyInstancesSSLWithOptions(const ModifyIns
 }
 
 /**
- * @summary Modifies the SSL settings of RDS Supabase instances in batches.
+ * @summary Batch modifies the SSL configurations of RDS AI application instances.
  *
- * @description ### 适用引擎
+ * @description ### Applicable engine
  * RDS PostgreSQL
- * ### 相关功能文档
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ModifyInstancesSSLRequest

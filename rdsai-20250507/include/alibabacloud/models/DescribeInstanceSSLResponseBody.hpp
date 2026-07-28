@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(SSLEnabled, SSLEnabled_);
+      DARABONBA_PTR_TO_JSON(SSLExpiredTime, SSLExpiredTime_);
       DARABONBA_PTR_TO_JSON(ServerCert, serverCert_);
       DARABONBA_PTR_TO_JSON(ServerKey, serverKey_);
     };
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(SSLEnabled, SSLEnabled_);
+      DARABONBA_PTR_FROM_JSON(SSLExpiredTime, SSLExpiredTime_);
       DARABONBA_PTR_FROM_JSON(ServerCert, serverCert_);
       DARABONBA_PTR_FROM_JSON(ServerKey, serverKey_);
     };
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->branchName_ == nullptr
-        && this->CAType_ == nullptr && this->instanceName_ == nullptr && this->requestId_ == nullptr && this->SSLEnabled_ == nullptr && this->serverCert_ == nullptr
-        && this->serverKey_ == nullptr; };
+        && this->CAType_ == nullptr && this->instanceName_ == nullptr && this->requestId_ == nullptr && this->SSLEnabled_ == nullptr && this->SSLExpiredTime_ == nullptr
+        && this->serverCert_ == nullptr && this->serverKey_ == nullptr; };
     // branchName Field Functions 
     bool hasBranchName() const { return this->branchName_ != nullptr;};
     void deleteBranchName() { this->branchName_ = nullptr;};
@@ -79,6 +81,13 @@ namespace Models
     inline DescribeInstanceSSLResponseBody& setSSLEnabled(string SSLEnabled) { DARABONBA_PTR_SET_VALUE(SSLEnabled_, SSLEnabled) };
 
 
+    // SSLExpiredTime Field Functions 
+    bool hasSSLExpiredTime() const { return this->SSLExpiredTime_ != nullptr;};
+    void deleteSSLExpiredTime() { this->SSLExpiredTime_ = nullptr;};
+    inline string getSSLExpiredTime() const { DARABONBA_PTR_GET_DEFAULT(SSLExpiredTime_, "") };
+    inline DescribeInstanceSSLResponseBody& setSSLExpiredTime(string SSLExpiredTime) { DARABONBA_PTR_SET_VALUE(SSLExpiredTime_, SSLExpiredTime) };
+
+
     // serverCert Field Functions 
     bool hasServerCert() const { return this->serverCert_ != nullptr;};
     void deleteServerCert() { this->serverCert_ = nullptr;};
@@ -105,6 +114,7 @@ namespace Models
     // * **1**: Enabled.
     // * **0**: Disabled.
     shared_ptr<string> SSLEnabled_ {};
+    shared_ptr<string> SSLExpiredTime_ {};
     // The custom certificate content.
     shared_ptr<string> serverCert_ {};
     // The private key of the certificate.
