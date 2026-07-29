@@ -117,14 +117,14 @@ namespace Models
     // total Field Functions 
     bool hasTotal() const { return this->total_ != nullptr;};
     void deleteTotal() { this->total_ = nullptr;};
-    inline string getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, "") };
-    inline ListAssetCategoriesResponseBody& setTotal(string total) { DARABONBA_PTR_SET_VALUE(total_, total) };
+    inline int64_t getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, 0L) };
+    inline ListAssetCategoriesResponseBody& setTotal(int64_t total) { DARABONBA_PTR_SET_VALUE(total_, total) };
 
 
   protected:
     shared_ptr<vector<ListAssetCategoriesResponseBody::Categories>> categories_ {};
     shared_ptr<string> requestId_ {};
-    shared_ptr<string> total_ {};
+    shared_ptr<int64_t> total_ {};
   };
 
   } // namespace Models

@@ -43,14 +43,12 @@ namespace Models
     class MediaInfoList : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const MediaInfoList& obj) { 
-        DARABONBA_PTR_TO_JSON(CustomFields, customFields_);
         DARABONBA_PTR_TO_JSON(FileInfoList, fileInfoList_);
         DARABONBA_PTR_TO_JSON(MediaBasicInfo, mediaBasicInfo_);
         DARABONBA_PTR_TO_JSON(MediaDynamicInfo, mediaDynamicInfo_);
         DARABONBA_PTR_TO_JSON(MediaId, mediaId_);
       };
       friend void from_json(const Darabonba::Json& j, MediaInfoList& obj) { 
-        DARABONBA_PTR_FROM_JSON(CustomFields, customFields_);
         DARABONBA_PTR_FROM_JSON(FileInfoList, fileInfoList_);
         DARABONBA_PTR_FROM_JSON(MediaBasicInfo, mediaBasicInfo_);
         DARABONBA_PTR_FROM_JSON(MediaDynamicInfo, mediaDynamicInfo_);
@@ -71,11 +69,9 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const MediaDynamicInfo& obj) { 
           DARABONBA_PTR_TO_JSON(DynamicMetaData, dynamicMetaData_);
-          DARABONBA_PTR_TO_JSON(MediaExtraInfo, mediaExtraInfo_);
         };
         friend void from_json(const Darabonba::Json& j, MediaDynamicInfo& obj) { 
           DARABONBA_PTR_FROM_JSON(DynamicMetaData, dynamicMetaData_);
-          DARABONBA_PTR_FROM_JSON(MediaExtraInfo, mediaExtraInfo_);
         };
         MediaDynamicInfo() = default ;
         MediaDynamicInfo(const MediaDynamicInfo &) = default ;
@@ -88,110 +84,15 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        class MediaExtraInfo : public Darabonba::Model {
-        public:
-          friend void to_json(Darabonba::Json& j, const MediaExtraInfo& obj) { 
-            DARABONBA_PTR_TO_JSON(AiAuditJobId, aiAuditJobId_);
-            DARABONBA_PTR_TO_JSON(AiAuditLabel, aiAuditLabel_);
-            DARABONBA_PTR_TO_JSON(AiAuditResult, aiAuditResult_);
-            DARABONBA_PTR_TO_JSON(AiAuditStatus, aiAuditStatus_);
-            DARABONBA_PTR_TO_JSON(AiAuditTemplate, aiAuditTemplate_);
-            DARABONBA_PTR_TO_JSON(ManualAuditResult, manualAuditResult_);
-            DARABONBA_PTR_TO_JSON(ManualAuditStatus, manualAuditStatus_);
-          };
-          friend void from_json(const Darabonba::Json& j, MediaExtraInfo& obj) { 
-            DARABONBA_PTR_FROM_JSON(AiAuditJobId, aiAuditJobId_);
-            DARABONBA_PTR_FROM_JSON(AiAuditLabel, aiAuditLabel_);
-            DARABONBA_PTR_FROM_JSON(AiAuditResult, aiAuditResult_);
-            DARABONBA_PTR_FROM_JSON(AiAuditStatus, aiAuditStatus_);
-            DARABONBA_PTR_FROM_JSON(AiAuditTemplate, aiAuditTemplate_);
-            DARABONBA_PTR_FROM_JSON(ManualAuditResult, manualAuditResult_);
-            DARABONBA_PTR_FROM_JSON(ManualAuditStatus, manualAuditStatus_);
-          };
-          MediaExtraInfo() = default ;
-          MediaExtraInfo(const MediaExtraInfo &) = default ;
-          MediaExtraInfo(MediaExtraInfo &&) = default ;
-          MediaExtraInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
-          virtual ~MediaExtraInfo() = default ;
-          MediaExtraInfo& operator=(const MediaExtraInfo &) = default ;
-          MediaExtraInfo& operator=(MediaExtraInfo &&) = default ;
-          virtual void validate() const override {
-          };
-          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
-          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->aiAuditJobId_ == nullptr
-        && this->aiAuditLabel_ == nullptr && this->aiAuditResult_ == nullptr && this->aiAuditStatus_ == nullptr && this->aiAuditTemplate_ == nullptr && this->manualAuditResult_ == nullptr
-        && this->manualAuditStatus_ == nullptr; };
-          // aiAuditJobId Field Functions 
-          bool hasAiAuditJobId() const { return this->aiAuditJobId_ != nullptr;};
-          void deleteAiAuditJobId() { this->aiAuditJobId_ = nullptr;};
-          inline string getAiAuditJobId() const { DARABONBA_PTR_GET_DEFAULT(aiAuditJobId_, "") };
-          inline MediaExtraInfo& setAiAuditJobId(string aiAuditJobId) { DARABONBA_PTR_SET_VALUE(aiAuditJobId_, aiAuditJobId) };
-
-
-          // aiAuditLabel Field Functions 
-          bool hasAiAuditLabel() const { return this->aiAuditLabel_ != nullptr;};
-          void deleteAiAuditLabel() { this->aiAuditLabel_ = nullptr;};
-          inline string getAiAuditLabel() const { DARABONBA_PTR_GET_DEFAULT(aiAuditLabel_, "") };
-          inline MediaExtraInfo& setAiAuditLabel(string aiAuditLabel) { DARABONBA_PTR_SET_VALUE(aiAuditLabel_, aiAuditLabel) };
-
-
-          // aiAuditResult Field Functions 
-          bool hasAiAuditResult() const { return this->aiAuditResult_ != nullptr;};
-          void deleteAiAuditResult() { this->aiAuditResult_ = nullptr;};
-          inline string getAiAuditResult() const { DARABONBA_PTR_GET_DEFAULT(aiAuditResult_, "") };
-          inline MediaExtraInfo& setAiAuditResult(string aiAuditResult) { DARABONBA_PTR_SET_VALUE(aiAuditResult_, aiAuditResult) };
-
-
-          // aiAuditStatus Field Functions 
-          bool hasAiAuditStatus() const { return this->aiAuditStatus_ != nullptr;};
-          void deleteAiAuditStatus() { this->aiAuditStatus_ = nullptr;};
-          inline string getAiAuditStatus() const { DARABONBA_PTR_GET_DEFAULT(aiAuditStatus_, "") };
-          inline MediaExtraInfo& setAiAuditStatus(string aiAuditStatus) { DARABONBA_PTR_SET_VALUE(aiAuditStatus_, aiAuditStatus) };
-
-
-          // aiAuditTemplate Field Functions 
-          bool hasAiAuditTemplate() const { return this->aiAuditTemplate_ != nullptr;};
-          void deleteAiAuditTemplate() { this->aiAuditTemplate_ = nullptr;};
-          inline string getAiAuditTemplate() const { DARABONBA_PTR_GET_DEFAULT(aiAuditTemplate_, "") };
-          inline MediaExtraInfo& setAiAuditTemplate(string aiAuditTemplate) { DARABONBA_PTR_SET_VALUE(aiAuditTemplate_, aiAuditTemplate) };
-
-
-          // manualAuditResult Field Functions 
-          bool hasManualAuditResult() const { return this->manualAuditResult_ != nullptr;};
-          void deleteManualAuditResult() { this->manualAuditResult_ = nullptr;};
-          inline string getManualAuditResult() const { DARABONBA_PTR_GET_DEFAULT(manualAuditResult_, "") };
-          inline MediaExtraInfo& setManualAuditResult(string manualAuditResult) { DARABONBA_PTR_SET_VALUE(manualAuditResult_, manualAuditResult) };
-
-
-          // manualAuditStatus Field Functions 
-          bool hasManualAuditStatus() const { return this->manualAuditStatus_ != nullptr;};
-          void deleteManualAuditStatus() { this->manualAuditStatus_ = nullptr;};
-          inline string getManualAuditStatus() const { DARABONBA_PTR_GET_DEFAULT(manualAuditStatus_, "") };
-          inline MediaExtraInfo& setManualAuditStatus(string manualAuditStatus) { DARABONBA_PTR_SET_VALUE(manualAuditStatus_, manualAuditStatus) };
-
-
-        protected:
-          shared_ptr<string> aiAuditJobId_ {};
-          shared_ptr<string> aiAuditLabel_ {};
-          shared_ptr<string> aiAuditResult_ {};
-          shared_ptr<string> aiAuditStatus_ {};
-          shared_ptr<string> aiAuditTemplate_ {};
-          shared_ptr<string> manualAuditResult_ {};
-          shared_ptr<string> manualAuditStatus_ {};
-        };
-
         class DynamicMetaData : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const DynamicMetaData& obj) { 
             DARABONBA_PTR_TO_JSON(Data, data_);
             DARABONBA_PTR_TO_JSON(EntityId, entityId_);
-            DARABONBA_PTR_TO_JSON(Type, type_);
           };
           friend void from_json(const Darabonba::Json& j, DynamicMetaData& obj) { 
             DARABONBA_PTR_FROM_JSON(Data, data_);
             DARABONBA_PTR_FROM_JSON(EntityId, entityId_);
-            DARABONBA_PTR_FROM_JSON(Type, type_);
           };
           DynamicMetaData() = default ;
           DynamicMetaData(const DynamicMetaData &) = default ;
@@ -205,7 +106,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->data_ == nullptr
-        && this->entityId_ == nullptr && this->type_ == nullptr; };
+        && this->entityId_ == nullptr; };
           // data Field Functions 
           bool hasData() const { return this->data_ != nullptr;};
           void deleteData() { this->data_ = nullptr;};
@@ -220,21 +121,12 @@ namespace Models
           inline DynamicMetaData& setEntityId(string entityId) { DARABONBA_PTR_SET_VALUE(entityId_, entityId) };
 
 
-          // type Field Functions 
-          bool hasType() const { return this->type_ != nullptr;};
-          void deleteType() { this->type_ = nullptr;};
-          inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
-          inline DynamicMetaData& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
-
-
         protected:
           shared_ptr<string> data_ {};
           shared_ptr<string> entityId_ {};
-          shared_ptr<string> type_ {};
         };
 
-        virtual bool empty() const override { return this->dynamicMetaData_ == nullptr
-        && this->mediaExtraInfo_ == nullptr; };
+        virtual bool empty() const override { return this->dynamicMetaData_ == nullptr; };
         // dynamicMetaData Field Functions 
         bool hasDynamicMetaData() const { return this->dynamicMetaData_ != nullptr;};
         void deleteDynamicMetaData() { this->dynamicMetaData_ = nullptr;};
@@ -244,18 +136,8 @@ namespace Models
         inline MediaDynamicInfo& setDynamicMetaData(MediaDynamicInfo::DynamicMetaData && dynamicMetaData) { DARABONBA_PTR_SET_RVALUE(dynamicMetaData_, dynamicMetaData) };
 
 
-        // mediaExtraInfo Field Functions 
-        bool hasMediaExtraInfo() const { return this->mediaExtraInfo_ != nullptr;};
-        void deleteMediaExtraInfo() { this->mediaExtraInfo_ = nullptr;};
-        inline const MediaDynamicInfo::MediaExtraInfo & getMediaExtraInfo() const { DARABONBA_PTR_GET_CONST(mediaExtraInfo_, MediaDynamicInfo::MediaExtraInfo) };
-        inline MediaDynamicInfo::MediaExtraInfo getMediaExtraInfo() { DARABONBA_PTR_GET(mediaExtraInfo_, MediaDynamicInfo::MediaExtraInfo) };
-        inline MediaDynamicInfo& setMediaExtraInfo(const MediaDynamicInfo::MediaExtraInfo & mediaExtraInfo) { DARABONBA_PTR_SET_VALUE(mediaExtraInfo_, mediaExtraInfo) };
-        inline MediaDynamicInfo& setMediaExtraInfo(MediaDynamicInfo::MediaExtraInfo && mediaExtraInfo) { DARABONBA_PTR_SET_RVALUE(mediaExtraInfo_, mediaExtraInfo) };
-
-
       protected:
         shared_ptr<MediaDynamicInfo::DynamicMetaData> dynamicMetaData_ {};
-        shared_ptr<MediaDynamicInfo::MediaExtraInfo> mediaExtraInfo_ {};
       };
 
       class MediaBasicInfo : public Darabonba::Model {
@@ -680,15 +562,8 @@ namespace Models
         shared_ptr<FileInfoList::FileBasicInfo> fileBasicInfo_ {};
       };
 
-      virtual bool empty() const override { return this->customFields_ == nullptr
-        && this->fileInfoList_ == nullptr && this->mediaBasicInfo_ == nullptr && this->mediaDynamicInfo_ == nullptr && this->mediaId_ == nullptr; };
-      // customFields Field Functions 
-      bool hasCustomFields() const { return this->customFields_ != nullptr;};
-      void deleteCustomFields() { this->customFields_ = nullptr;};
-      inline string getCustomFields() const { DARABONBA_PTR_GET_DEFAULT(customFields_, "") };
-      inline MediaInfoList& setCustomFields(string customFields) { DARABONBA_PTR_SET_VALUE(customFields_, customFields) };
-
-
+      virtual bool empty() const override { return this->fileInfoList_ == nullptr
+        && this->mediaBasicInfo_ == nullptr && this->mediaDynamicInfo_ == nullptr && this->mediaId_ == nullptr; };
       // fileInfoList Field Functions 
       bool hasFileInfoList() const { return this->fileInfoList_ != nullptr;};
       void deleteFileInfoList() { this->fileInfoList_ = nullptr;};
@@ -724,7 +599,6 @@ namespace Models
 
 
     protected:
-      shared_ptr<string> customFields_ {};
       shared_ptr<vector<MediaInfoList::FileInfoList>> fileInfoList_ {};
       shared_ptr<MediaInfoList::MediaBasicInfo> mediaBasicInfo_ {};
       shared_ptr<MediaInfoList::MediaDynamicInfo> mediaDynamicInfo_ {};

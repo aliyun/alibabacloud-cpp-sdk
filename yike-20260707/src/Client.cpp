@@ -380,6 +380,9 @@ GetMediaResponse Client::getMedia(const GetMediaRequest &request) {
 /**
  * @summary 查询媒资内容理解作业
  *
+ * @description ## 请求说明
+ * 该API用于查询媒资内容理解作业。
+ *
  * @param request GetMediaComprehensionJobRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetMediaComprehensionJobResponse
@@ -410,6 +413,9 @@ GetMediaComprehensionJobResponse Client::getMediaComprehensionJobWithOptions(con
 
 /**
  * @summary 查询媒资内容理解作业
+ *
+ * @description ## 请求说明
+ * 该API用于查询媒资内容理解作业。
  *
  * @param request GetMediaComprehensionJobRequest
  * @return GetMediaComprehensionJobResponse
@@ -463,6 +469,83 @@ GetVideoGenerationJobResponse Client::getVideoGenerationJobWithOptions(const Get
 GetVideoGenerationJobResponse Client::getVideoGenerationJob(const GetVideoGenerationJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getVideoGenerationJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取一刻主账户会员计划及积分情况
+ *
+ * @param request GetYikeAccountCreditRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetYikeAccountCreditResponse
+ */
+GetYikeAccountCreditResponse Client::getYikeAccountCreditWithOptions(const GetYikeAccountCreditRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetYikeAccountCredit"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetYikeAccountCreditResponse>();
+}
+
+/**
+ * @summary 获取一刻主账户会员计划及积分情况
+ *
+ * @param request GetYikeAccountCreditRequest
+ * @return GetYikeAccountCreditResponse
+ */
+GetYikeAccountCreditResponse Client::getYikeAccountCredit(const GetYikeAccountCreditRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getYikeAccountCreditWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询一刻任务实际消耗积分
+ *
+ * @param request GetYikeJobCreditRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetYikeJobCreditResponse
+ */
+GetYikeJobCreditResponse Client::getYikeJobCreditWithOptions(const GetYikeJobCreditRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasJobId()) {
+    body["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetYikeJobCredit"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetYikeJobCreditResponse>();
+}
+
+/**
+ * @summary 查询一刻任务实际消耗积分
+ *
+ * @param request GetYikeJobCreditRequest
+ * @return GetYikeJobCreditResponse
+ */
+GetYikeJobCreditResponse Client::getYikeJobCredit(const GetYikeJobCreditRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getYikeJobCreditWithOptions(request, runtime);
 }
 
 /**
@@ -621,10 +704,6 @@ SearchMediaResponse Client::searchMediaWithOptions(const SearchMediaRequest &req
     query["CategoryId"] = request.getCategoryId();
   }
 
-  if (!!request.hasEntityId()) {
-    query["EntityId"] = request.getEntityId();
-  }
-
   if (!!request.hasMatch()) {
     query["Match"] = request.getMatch();
   }
@@ -639,10 +718,6 @@ SearchMediaResponse Client::searchMediaWithOptions(const SearchMediaRequest &req
 
   if (!!request.hasScrollToken()) {
     query["ScrollToken"] = request.getScrollToken();
-  }
-
-  if (!!request.hasSearchLibName()) {
-    query["SearchLibName"] = request.getSearchLibName();
   }
 
   if (!!request.hasSortBy()) {
@@ -758,6 +833,9 @@ SubmitImageGenerationJobResponse Client::submitImageGenerationJob(const SubmitIm
 /**
  * @summary 提交媒资内容理解作业
  *
+ * @description ## 请求说明
+ * 该API用于根据提供的媒资文件（比如视频链接）进行内容理解。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+ *
  * @param request SubmitMediaComprehensionJobRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SubmitMediaComprehensionJobResponse
@@ -792,6 +870,9 @@ SubmitMediaComprehensionJobResponse Client::submitMediaComprehensionJobWithOptio
 
 /**
  * @summary 提交媒资内容理解作业
+ *
+ * @description ## 请求说明
+ * 该API用于根据提供的媒资文件（比如视频链接）进行内容理解。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
  *
  * @param request SubmitMediaComprehensionJobRequest
  * @return SubmitMediaComprehensionJobResponse
@@ -881,6 +962,94 @@ SubmitVideoGenerationJobResponse Client::submitVideoGenerationJobWithOptions(con
 SubmitVideoGenerationJobResponse Client::submitVideoGenerationJob(const SubmitVideoGenerationJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitVideoGenerationJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 提交视频翻译任务
+ *
+ * @description ## 请求说明
+ * - 该 API 支持多种视频翻译功能，包括字幕翻译和声音翻译。
+ * - `JobType` 参数定义了任务类型，如 `SubtitleTranslate`和`VoiceTranslate` 。
+ * - `Input` 和 `Output` 参数分别指定了输入资源和输出路径。
+ * - `JobParameters` 包含了语言配置和其他能力开关，如 `SourceLanguage`、`TargetLanguage`、`NeedDetext` 和 `NeedVisualTranslate` 等。
+ * - `EditingConfig` 可以用来指定最终剪辑合成的样式配置。
+ * - `ClientToken` 是一个可选参数，用于保证请求的幂等性。
+ * - 请确保所有必填字段都已正确填写，否则可能会导致请求失败。
+ *
+ * @param request SubmitVideoTranslationJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitVideoTranslationJobResponse
+ */
+SubmitVideoTranslationJobResponse Client::submitVideoTranslationJobWithOptions(const SubmitVideoTranslationJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInput()) {
+    body["Input"] = request.getInput();
+  }
+
+  if (!!request.hasJobParameters()) {
+    body["JobParameters"] = request.getJobParameters();
+  }
+
+  if (!!request.hasJobType()) {
+    body["JobType"] = request.getJobType();
+  }
+
+  if (!!request.hasOutput()) {
+    body["Output"] = request.getOutput();
+  }
+
+  if (!!request.hasTitle()) {
+    body["Title"] = request.getTitle();
+  }
+
+  if (!!request.hasUserData()) {
+    body["UserData"] = request.getUserData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SubmitVideoTranslationJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitVideoTranslationJobResponse>();
+}
+
+/**
+ * @summary 提交视频翻译任务
+ *
+ * @description ## 请求说明
+ * - 该 API 支持多种视频翻译功能，包括字幕翻译和声音翻译。
+ * - `JobType` 参数定义了任务类型，如 `SubtitleTranslate`和`VoiceTranslate` 。
+ * - `Input` 和 `Output` 参数分别指定了输入资源和输出路径。
+ * - `JobParameters` 包含了语言配置和其他能力开关，如 `SourceLanguage`、`TargetLanguage`、`NeedDetext` 和 `NeedVisualTranslate` 等。
+ * - `EditingConfig` 可以用来指定最终剪辑合成的样式配置。
+ * - `ClientToken` 是一个可选参数，用于保证请求的幂等性。
+ * - 请确保所有必填字段都已正确填写，否则可能会导致请求失败。
+ *
+ * @param request SubmitVideoTranslationJobRequest
+ * @return SubmitVideoTranslationJobResponse
+ */
+SubmitVideoTranslationJobResponse Client::submitVideoTranslationJob(const SubmitVideoTranslationJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitVideoTranslationJobWithOptions(request, runtime);
 }
 
 /**

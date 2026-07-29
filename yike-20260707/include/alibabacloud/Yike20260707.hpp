@@ -162,6 +162,9 @@ namespace Yike20260707
       /**
        * @summary 查询媒资内容理解作业
        *
+       * @description ## 请求说明
+       * 该API用于查询媒资内容理解作业。
+       *
        * @param request GetMediaComprehensionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetMediaComprehensionJobResponse
@@ -170,6 +173,9 @@ namespace Yike20260707
 
       /**
        * @summary 查询媒资内容理解作业
+       *
+       * @description ## 请求说明
+       * 该API用于查询媒资内容理解作业。
        *
        * @param request GetMediaComprehensionJobRequest
        * @return GetMediaComprehensionJobResponse
@@ -192,6 +198,40 @@ namespace Yike20260707
        * @return GetVideoGenerationJobResponse
        */
       Models::GetVideoGenerationJobResponse getVideoGenerationJob(const Models::GetVideoGenerationJobRequest &request);
+
+      /**
+       * @summary 获取一刻主账户会员计划及积分情况
+       *
+       * @param request GetYikeAccountCreditRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYikeAccountCreditResponse
+       */
+      Models::GetYikeAccountCreditResponse getYikeAccountCreditWithOptions(const Models::GetYikeAccountCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取一刻主账户会员计划及积分情况
+       *
+       * @param request GetYikeAccountCreditRequest
+       * @return GetYikeAccountCreditResponse
+       */
+      Models::GetYikeAccountCreditResponse getYikeAccountCredit(const Models::GetYikeAccountCreditRequest &request);
+
+      /**
+       * @summary 查询一刻任务实际消耗积分
+       *
+       * @param request GetYikeJobCreditRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYikeJobCreditResponse
+       */
+      Models::GetYikeJobCreditResponse getYikeJobCreditWithOptions(const Models::GetYikeJobCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询一刻任务实际消耗积分
+       *
+       * @param request GetYikeJobCreditRequest
+       * @return GetYikeJobCreditResponse
+       */
+      Models::GetYikeJobCreditResponse getYikeJobCredit(const Models::GetYikeJobCreditRequest &request);
 
       /**
        * @summary 导入媒资
@@ -270,6 +310,9 @@ namespace Yike20260707
       /**
        * @summary 提交媒资内容理解作业
        *
+       * @description ## 请求说明
+       * 该API用于根据提供的媒资文件（比如视频链接）进行内容理解。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+       *
        * @param request SubmitMediaComprehensionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SubmitMediaComprehensionJobResponse
@@ -278,6 +321,9 @@ namespace Yike20260707
 
       /**
        * @summary 提交媒资内容理解作业
+       *
+       * @description ## 请求说明
+       * 该API用于根据提供的媒资文件（比如视频链接）进行内容理解。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
        *
        * @param request SubmitMediaComprehensionJobRequest
        * @return SubmitMediaComprehensionJobResponse
@@ -300,6 +346,41 @@ namespace Yike20260707
        * @return SubmitVideoGenerationJobResponse
        */
       Models::SubmitVideoGenerationJobResponse submitVideoGenerationJob(const Models::SubmitVideoGenerationJobRequest &request);
+
+      /**
+       * @summary 提交视频翻译任务
+       *
+       * @description ## 请求说明
+       * - 该 API 支持多种视频翻译功能，包括字幕翻译和声音翻译。
+       * - `JobType` 参数定义了任务类型，如 `SubtitleTranslate`和`VoiceTranslate` 。
+       * - `Input` 和 `Output` 参数分别指定了输入资源和输出路径。
+       * - `JobParameters` 包含了语言配置和其他能力开关，如 `SourceLanguage`、`TargetLanguage`、`NeedDetext` 和 `NeedVisualTranslate` 等。
+       * - `EditingConfig` 可以用来指定最终剪辑合成的样式配置。
+       * - `ClientToken` 是一个可选参数，用于保证请求的幂等性。
+       * - 请确保所有必填字段都已正确填写，否则可能会导致请求失败。
+       *
+       * @param request SubmitVideoTranslationJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitVideoTranslationJobResponse
+       */
+      Models::SubmitVideoTranslationJobResponse submitVideoTranslationJobWithOptions(const Models::SubmitVideoTranslationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交视频翻译任务
+       *
+       * @description ## 请求说明
+       * - 该 API 支持多种视频翻译功能，包括字幕翻译和声音翻译。
+       * - `JobType` 参数定义了任务类型，如 `SubtitleTranslate`和`VoiceTranslate` 。
+       * - `Input` 和 `Output` 参数分别指定了输入资源和输出路径。
+       * - `JobParameters` 包含了语言配置和其他能力开关，如 `SourceLanguage`、`TargetLanguage`、`NeedDetext` 和 `NeedVisualTranslate` 等。
+       * - `EditingConfig` 可以用来指定最终剪辑合成的样式配置。
+       * - `ClientToken` 是一个可选参数，用于保证请求的幂等性。
+       * - 请确保所有必填字段都已正确填写，否则可能会导致请求失败。
+       *
+       * @param request SubmitVideoTranslationJobRequest
+       * @return SubmitVideoTranslationJobResponse
+       */
+      Models::SubmitVideoTranslationJobResponse submitVideoTranslationJob(const Models::SubmitVideoTranslationJobRequest &request);
 
       /**
        * @summary 更新媒资分类

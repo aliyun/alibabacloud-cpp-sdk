@@ -29,6 +29,12 @@
 #include <alibabacloud/models/GetVideoGenerationJobRequest.hpp>
 #include <alibabacloud/models/GetVideoGenerationJobResponseBody.hpp>
 #include <alibabacloud/models/GetVideoGenerationJobResponse.hpp>
+#include <alibabacloud/models/GetYikeAccountCreditRequest.hpp>
+#include <alibabacloud/models/GetYikeAccountCreditResponseBody.hpp>
+#include <alibabacloud/models/GetYikeAccountCreditResponse.hpp>
+#include <alibabacloud/models/GetYikeJobCreditRequest.hpp>
+#include <alibabacloud/models/GetYikeJobCreditResponseBody.hpp>
+#include <alibabacloud/models/GetYikeJobCreditResponse.hpp>
 #include <alibabacloud/models/ImportMediaRequest.hpp>
 #include <alibabacloud/models/ImportMediaResponseBody.hpp>
 #include <alibabacloud/models/ImportMediaResponse.hpp>
@@ -47,6 +53,9 @@
 #include <alibabacloud/models/SubmitVideoGenerationJobRequest.hpp>
 #include <alibabacloud/models/SubmitVideoGenerationJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitVideoGenerationJobResponse.hpp>
+#include <alibabacloud/models/SubmitVideoTranslationJobRequest.hpp>
+#include <alibabacloud/models/SubmitVideoTranslationJobResponseBody.hpp>
+#include <alibabacloud/models/SubmitVideoTranslationJobResponse.hpp>
 #include <alibabacloud/models/UpdateAssetCategoryRequest.hpp>
 #include <alibabacloud/models/UpdateAssetCategoryResponseBody.hpp>
 #include <alibabacloud/models/UpdateAssetCategoryResponse.hpp>
