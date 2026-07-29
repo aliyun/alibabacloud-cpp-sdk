@@ -843,8 +843,16 @@ SubmitImageGenerationJobResponse Client::submitImageGenerationJob(const SubmitIm
 SubmitMediaComprehensionJobResponse Client::submitMediaComprehensionJobWithOptions(const SubmitMediaComprehensionJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasInput()) {
+    query["Input"] = request.getInput();
+  }
+
   if (!!request.hasJobParams()) {
     query["JobParams"] = request.getJobParams();
+  }
+
+  if (!!request.hasJobType()) {
+    query["JobType"] = request.getJobType();
   }
 
   if (!!request.hasUserData()) {

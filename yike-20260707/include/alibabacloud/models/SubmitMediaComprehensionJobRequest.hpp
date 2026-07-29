@@ -13,11 +13,15 @@ namespace Models
   class SubmitMediaComprehensionJobRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SubmitMediaComprehensionJobRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Input, input_);
       DARABONBA_PTR_TO_JSON(JobParams, jobParams_);
+      DARABONBA_PTR_TO_JSON(JobType, jobType_);
       DARABONBA_PTR_TO_JSON(UserData, userData_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitMediaComprehensionJobRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Input, input_);
       DARABONBA_PTR_FROM_JSON(JobParams, jobParams_);
+      DARABONBA_PTR_FROM_JSON(JobType, jobType_);
       DARABONBA_PTR_FROM_JSON(UserData, userData_);
     };
     SubmitMediaComprehensionJobRequest() = default ;
@@ -31,13 +35,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->jobParams_ == nullptr
-        && this->userData_ == nullptr; };
+    virtual bool empty() const override { return this->input_ == nullptr
+        && this->jobParams_ == nullptr && this->jobType_ == nullptr && this->userData_ == nullptr; };
+    // input Field Functions 
+    bool hasInput() const { return this->input_ != nullptr;};
+    void deleteInput() { this->input_ = nullptr;};
+    inline string getInput() const { DARABONBA_PTR_GET_DEFAULT(input_, "") };
+    inline SubmitMediaComprehensionJobRequest& setInput(string input) { DARABONBA_PTR_SET_VALUE(input_, input) };
+
+
     // jobParams Field Functions 
     bool hasJobParams() const { return this->jobParams_ != nullptr;};
     void deleteJobParams() { this->jobParams_ = nullptr;};
     inline string getJobParams() const { DARABONBA_PTR_GET_DEFAULT(jobParams_, "") };
     inline SubmitMediaComprehensionJobRequest& setJobParams(string jobParams) { DARABONBA_PTR_SET_VALUE(jobParams_, jobParams) };
+
+
+    // jobType Field Functions 
+    bool hasJobType() const { return this->jobType_ != nullptr;};
+    void deleteJobType() { this->jobType_ = nullptr;};
+    inline string getJobType() const { DARABONBA_PTR_GET_DEFAULT(jobType_, "") };
+    inline SubmitMediaComprehensionJobRequest& setJobType(string jobType) { DARABONBA_PTR_SET_VALUE(jobType_, jobType) };
 
 
     // userData Field Functions 
@@ -48,7 +66,9 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> input_ {};
     shared_ptr<string> jobParams_ {};
+    shared_ptr<string> jobType_ {};
     shared_ptr<string> userData_ {};
   };
 
