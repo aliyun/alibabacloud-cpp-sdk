@@ -84,15 +84,26 @@ namespace Models
 
 
   protected:
+    // End user.
     shared_ptr<string> endUserId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // Duration of the session change.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> sessionChangeTime_ {};
+    // Session ID.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    // Session status.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionStatus_ {};
   };

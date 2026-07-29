@@ -14,6 +14,7 @@ namespace Models
   class DescribeUserResourcesResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeUserResourcesResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AgentBriefSummary, agentBriefSummary_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(QueryFailedResourceTypes, queryFailedResourceTypes_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeUserResourcesResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AgentBriefSummary, agentBriefSummary_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(QueryFailedResourceTypes, queryFailedResourceTypes_);
@@ -46,6 +48,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Resources& obj) { 
         DARABONBA_PTR_TO_JSON(AccessType, accessType_);
+        DARABONBA_PTR_TO_JSON(AgentImUrl, agentImUrl_);
         DARABONBA_PTR_TO_JSON(AliUid, aliUid_);
         DARABONBA_PTR_TO_JSON(AppId, appId_);
         DARABONBA_PTR_TO_JSON(AuthMode, authMode_);
@@ -91,6 +94,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SessionType, sessionType_);
         DARABONBA_PTR_TO_JSON(Sessions, sessions_);
         DARABONBA_PTR_TO_JSON(SubPayType, subPayType_);
+        DARABONBA_PTR_TO_JSON(SupportAgentIm, supportAgentIm_);
         DARABONBA_PTR_TO_JSON(SupportHibernation, supportHibernation_);
         DARABONBA_PTR_TO_JSON(SupportedActions, supportedActions_);
         DARABONBA_PTR_TO_JSON(ThemeColor, themeColor_);
@@ -99,6 +103,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Resources& obj) { 
         DARABONBA_PTR_FROM_JSON(AccessType, accessType_);
+        DARABONBA_PTR_FROM_JSON(AgentImUrl, agentImUrl_);
         DARABONBA_PTR_FROM_JSON(AliUid, aliUid_);
         DARABONBA_PTR_FROM_JSON(AppId, appId_);
         DARABONBA_PTR_FROM_JSON(AuthMode, authMode_);
@@ -144,6 +149,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SessionType, sessionType_);
         DARABONBA_PTR_FROM_JSON(Sessions, sessions_);
         DARABONBA_PTR_FROM_JSON(SubPayType, subPayType_);
+        DARABONBA_PTR_FROM_JSON(SupportAgentIm, supportAgentIm_);
         DARABONBA_PTR_FROM_JSON(SupportHibernation, supportHibernation_);
         DARABONBA_PTR_FROM_JSON(SupportedActions, supportedActions_);
         DARABONBA_PTR_FROM_JSON(ThemeColor, themeColor_);
@@ -164,12 +170,14 @@ namespace Models
       class Sessions : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Sessions& obj) { 
+          DARABONBA_PTR_TO_JSON(LastClientIp, lastClientIp_);
           DARABONBA_PTR_TO_JSON(NickName, nickName_);
           DARABONBA_PTR_TO_JSON(ResourceSessionStartTime, resourceSessionStartTime_);
           DARABONBA_PTR_TO_JSON(UserId, userId_);
           DARABONBA_PTR_TO_JSON(UserPrincipalName, userPrincipalName_);
         };
         friend void from_json(const Darabonba::Json& j, Sessions& obj) { 
+          DARABONBA_PTR_FROM_JSON(LastClientIp, lastClientIp_);
           DARABONBA_PTR_FROM_JSON(NickName, nickName_);
           DARABONBA_PTR_FROM_JSON(ResourceSessionStartTime, resourceSessionStartTime_);
           DARABONBA_PTR_FROM_JSON(UserId, userId_);
@@ -186,8 +194,15 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->nickName_ == nullptr
-        && this->resourceSessionStartTime_ == nullptr && this->userId_ == nullptr && this->userPrincipalName_ == nullptr; };
+        virtual bool empty() const override { return this->lastClientIp_ == nullptr
+        && this->nickName_ == nullptr && this->resourceSessionStartTime_ == nullptr && this->userId_ == nullptr && this->userPrincipalName_ == nullptr; };
+        // lastClientIp Field Functions 
+        bool hasLastClientIp() const { return this->lastClientIp_ != nullptr;};
+        void deleteLastClientIp() { this->lastClientIp_ = nullptr;};
+        inline string getLastClientIp() const { DARABONBA_PTR_GET_DEFAULT(lastClientIp_, "") };
+        inline Sessions& setLastClientIp(string lastClientIp) { DARABONBA_PTR_SET_VALUE(lastClientIp_, lastClientIp) };
+
+
         // nickName Field Functions 
         bool hasNickName() const { return this->nickName_ != nullptr;};
         void deleteNickName() { this->nickName_ = nullptr;};
@@ -217,13 +232,14 @@ namespace Models
 
 
       protected:
-        // 用户的昵称。
+        shared_ptr<string> lastClientIp_ {};
+        // The nickname of the user.
         shared_ptr<string> nickName_ {};
-        // The timestamp when the resource session was established.
+        // The time when the resource session was connected.
         shared_ptr<string> resourceSessionStartTime_ {};
-        // The username used to log on to the resource.
+        // The username logged on to the resource.
         shared_ptr<string> userId_ {};
-        // The User Principal Name (UPN) of the resource-bound user (if applicable). This parameter is returned only when you query the current user\\"s sessions.
+        // The User Principal Name (UPN) of the user bound to the resource, if available. This value is populated only for the session of the currently queried user.
         shared_ptr<string> userPrincipalName_ {};
       };
 
@@ -349,15 +365,15 @@ namespace Models
 
 
       protected:
-        // The ID of the check task.
+        // The check ID.
         shared_ptr<string> checkId_ {};
-        // The patch numbers.
+        // The patch number list information.
         shared_ptr<string> kbListString_ {};
-        // The number of packets.
+        // The number of packages.
         shared_ptr<int32_t> packageCount_ {};
-        // The patch packages.
+        // The list of patch package information.
         shared_ptr<vector<OsUpdate::Packages>> packages_ {};
-        // The update categorization URL.
+        // The update catalog URL.
         shared_ptr<string> updateCatalogUrl_ {};
       };
 
@@ -474,23 +490,23 @@ namespace Models
       protected:
         // The channel.
         shared_ptr<string> channel_ {};
-        // The current version number of the cloud computer\\"s image.
+        // The version number of the current image on the cloud desktop.
         shared_ptr<string> currentAppVersion_ {};
-        // Specifies whether to implement a forced update.
+        // Indicates whether the upgrade is mandatory.
         shared_ptr<bool> force_ {};
-        // The target version number of the cloud computer\\"s image.
+        // The version number available for upgrade on the cloud desktop.
         shared_ptr<string> newAppVersion_ {};
-        // The latest version available for updating the component disk.
+        // The component disk version number available for upgrade.
         shared_ptr<string> newDcdVersion_ {};
         // The project name.
         shared_ptr<string> project_ {};
-        // The version description of the cloud computer\\"s image.
+        // The release note for the available upgrade version.
         shared_ptr<string> releaseNote_ {};
-        // The English release note for the new image version.
+        // The English release note for the available upgrade version.
         shared_ptr<string> releaseNoteEn_ {};
-        // The Japanese release note for the new image version.
+        // The Japanese release note for the available upgrade version.
         shared_ptr<string> releaseNoteJp_ {};
-        // The size of the update package for the cloud computer image. Unit: KB.
+        // The installation package size of the available upgrade version. Unit: KB.
         shared_ptr<string> size_ {};
       };
 
@@ -587,19 +603,19 @@ namespace Models
 
 
       protected:
-        // Indicates whether to allow end users to configure scheduled tasks on clients.
+        // Indicates whether the client is allowed to configure this setting.
         shared_ptr<string> allowClientSetting_ {};
-        // The cron expression specified in the scheduled task.
+        // The cron expression of the scheduled task.
         shared_ptr<string> cronExpression_ {};
-        // Indicates whether to forcibly execute the scheduled task.
+        // Indicates whether the task is forcibly executed.
         shared_ptr<bool> enforce_ {};
-        // The time when the scheduled task is executed.
+        // The execution time.
         shared_ptr<string> executionTime_ {};
-        // The interval at which the scheduled task is executed.
+        // The interval of the scheduled task.
         shared_ptr<int32_t> interval_ {};
-        // The type of the scheduled action.
+        // The operation type.
         shared_ptr<string> operationType_ {};
-        // The reset option.
+        // The reset type.
         shared_ptr<string> resetType_ {};
         // The task type.
         shared_ptr<string> timerType_ {};
@@ -735,43 +751,29 @@ namespace Models
 
 
       protected:
-        // The ID of the instance order.
+        // The order instance ID.
         shared_ptr<string> orderInstanceId_ {};
-        // The time when the package was created.
+        // The creation time.
         shared_ptr<string> packageCreationTime_ {};
-        // The expiration time of the package.
+        // The expiration time.
         shared_ptr<string> packageExpiredTime_ {};
         // The package ID.
         shared_ptr<string> packageId_ {};
-        // The package status.
+        // The status.
         shared_ptr<string> packageStatus_ {};
-        // The package type.
-        // 
-        // Valid values:
-        // 
-        // *   FREE_PACKAGE: a free package.
-        // *   NORMAL_PACKAGE: a paid package (120-hour computing plan).
-        // *   POSTPAID_PACKAGE: a pay-as-you-go package (200-hour computing plan).
-        // *   Duration: an hourly package.
+        // The duration package type.
         shared_ptr<string> packageType_ {};
-        // The policy for the cloud computer status once the monthly package quota is exhausted.
-        // 
-        // Valid values:
-        // 
-        // *   Shutdown: The cloud computer enters the Stopped or Hibernated state.
-        // *   PostPaid: The cloud computer continues providing services that are billed on the pay-as-you-go basis.
+        // The cloud desktop status policy after the monthly quota of the plan is used up.
         shared_ptr<string> packageUsedUpStrategy_ {};
-        // The package\\"s effective end time for the current month.
+        // The end time of the current monthly package.
         shared_ptr<string> periodEndTime_ {};
-        // The package\\"s effective start time for the current month.
+        // The start time of the current monthly package.
         shared_ptr<string> periodStartTime_ {};
-        // The maximum fee for the package in the second phase.
-        // 
-        // >  This parameter is returned if you set ResourceType to `POSTPAID_PACKAG` or `FREE_PACKAGE`.
+        // The cap amount for the second-phase package.
         shared_ptr<float> postPaidLimitFee_ {};
         // The total duration.
         shared_ptr<int64_t> totalDuration_ {};
-        // The subscription duration consumed.
+        // The used duration.
         shared_ptr<int64_t> usedDuration_ {};
       };
 
@@ -815,31 +817,34 @@ namespace Models
       protected:
         // The client type.
         shared_ptr<string> clientType_ {};
-        // The status.
-        // 
-        // Valid values:
-        // 
-        // *   OFF
-        // *   ON
+        // The support status.
         shared_ptr<string> status_ {};
       };
 
       virtual bool empty() const override { return this->accessType_ == nullptr
-        && this->aliUid_ == nullptr && this->appId_ == nullptr && this->authMode_ == nullptr && this->categoryId_ == nullptr && this->categoryType_ == nullptr
-        && this->cdsName_ == nullptr && this->centerResourceId_ == nullptr && this->chargeType_ == nullptr && this->clients_ == nullptr && this->connectionProperties_ == nullptr
-        && this->createTime_ == nullptr && this->desktopDurationList_ == nullptr && this->desktopTimers_ == nullptr && this->expiredTime_ == nullptr && this->externalDomainId_ == nullptr
-        && this->externalUserId_ == nullptr && this->fotaUpdate_ == nullptr && this->globalStatus_ == nullptr && this->hasUpgrade_ == nullptr && this->hibernationBeta_ == nullptr
-        && this->icon_ == nullptr && this->lastStartTime_ == nullptr && this->localName_ == nullptr && this->managementStatuses_ == nullptr && this->officeSiteId_ == nullptr
-        && this->orderStatus_ == nullptr && this->os_ == nullptr && this->osDescription_ == nullptr && this->osType_ == nullptr && this->osUpdate_ == nullptr
-        && this->productType_ == nullptr && this->protocolType_ == nullptr && this->realDesktopId_ == nullptr && this->regionId_ == nullptr && this->regionLocation_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->resourceId_ == nullptr && this->resourceLevel_ == nullptr && this->resourceName_ == nullptr && this->resourceSessionStatus_ == nullptr
-        && this->resourceStatus_ == nullptr && this->resourceType_ == nullptr && this->sessionType_ == nullptr && this->sessions_ == nullptr && this->subPayType_ == nullptr
-        && this->supportHibernation_ == nullptr && this->supportedActions_ == nullptr && this->themeColor_ == nullptr && this->userCustomName_ == nullptr && this->version_ == nullptr; };
+        && this->agentImUrl_ == nullptr && this->aliUid_ == nullptr && this->appId_ == nullptr && this->authMode_ == nullptr && this->categoryId_ == nullptr
+        && this->categoryType_ == nullptr && this->cdsName_ == nullptr && this->centerResourceId_ == nullptr && this->chargeType_ == nullptr && this->clients_ == nullptr
+        && this->connectionProperties_ == nullptr && this->createTime_ == nullptr && this->desktopDurationList_ == nullptr && this->desktopTimers_ == nullptr && this->expiredTime_ == nullptr
+        && this->externalDomainId_ == nullptr && this->externalUserId_ == nullptr && this->fotaUpdate_ == nullptr && this->globalStatus_ == nullptr && this->hasUpgrade_ == nullptr
+        && this->hibernationBeta_ == nullptr && this->icon_ == nullptr && this->lastStartTime_ == nullptr && this->localName_ == nullptr && this->managementStatuses_ == nullptr
+        && this->officeSiteId_ == nullptr && this->orderStatus_ == nullptr && this->os_ == nullptr && this->osDescription_ == nullptr && this->osType_ == nullptr
+        && this->osUpdate_ == nullptr && this->productType_ == nullptr && this->protocolType_ == nullptr && this->realDesktopId_ == nullptr && this->regionId_ == nullptr
+        && this->regionLocation_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceId_ == nullptr && this->resourceLevel_ == nullptr && this->resourceName_ == nullptr
+        && this->resourceSessionStatus_ == nullptr && this->resourceStatus_ == nullptr && this->resourceType_ == nullptr && this->sessionType_ == nullptr && this->sessions_ == nullptr
+        && this->subPayType_ == nullptr && this->supportAgentIm_ == nullptr && this->supportHibernation_ == nullptr && this->supportedActions_ == nullptr && this->themeColor_ == nullptr
+        && this->userCustomName_ == nullptr && this->version_ == nullptr; };
       // accessType Field Functions 
       bool hasAccessType() const { return this->accessType_ != nullptr;};
       void deleteAccessType() { this->accessType_ = nullptr;};
       inline string getAccessType() const { DARABONBA_PTR_GET_DEFAULT(accessType_, "") };
       inline Resources& setAccessType(string accessType) { DARABONBA_PTR_SET_VALUE(accessType_, accessType) };
+
+
+      // agentImUrl Field Functions 
+      bool hasAgentImUrl() const { return this->agentImUrl_ != nullptr;};
+      void deleteAgentImUrl() { this->agentImUrl_ = nullptr;};
+      inline string getAgentImUrl() const { DARABONBA_PTR_GET_DEFAULT(agentImUrl_, "") };
+      inline Resources& setAgentImUrl(string agentImUrl) { DARABONBA_PTR_SET_VALUE(agentImUrl_, agentImUrl) };
 
 
       // aliUid Field Functions 
@@ -1171,6 +1176,13 @@ namespace Models
       inline Resources& setSubPayType(string subPayType) { DARABONBA_PTR_SET_VALUE(subPayType_, subPayType) };
 
 
+      // supportAgentIm Field Functions 
+      bool hasSupportAgentIm() const { return this->supportAgentIm_ != nullptr;};
+      void deleteSupportAgentIm() { this->supportAgentIm_ = nullptr;};
+      inline bool getSupportAgentIm() const { DARABONBA_PTR_GET_DEFAULT(supportAgentIm_, false) };
+      inline Resources& setSupportAgentIm(bool supportAgentIm) { DARABONBA_PTR_SET_VALUE(supportAgentIm_, supportAgentIm) };
+
+
       // supportHibernation Field Functions 
       bool hasSupportHibernation() const { return this->supportHibernation_ != nullptr;};
       void deleteSupportHibernation() { this->supportHibernation_ = nullptr;};
@@ -1210,211 +1222,270 @@ namespace Models
 
     protected:
       // The access type.
-      // 
-      // Valid values:
-      // 
-      // *   INTERNET: access over the Internet.
-      // *   VPC: access over an enterprise VPC.
-      // *   ANY: access over the Internet or an enterprise VPC.
       shared_ptr<string> accessType_ {};
-      // The ID of the Alibaba Cloud account.
+      shared_ptr<string> agentImUrl_ {};
+      // The Alibaba Cloud account ID.
       shared_ptr<int64_t> aliUid_ {};
-      // The app ID. This parameter is for apps only.
+      // The application ID. This parameter is specific to resources of the App type.
       shared_ptr<string> appId_ {};
-      // The authorization mode of the cloud app.
-      // 
-      // Valid values:
-      // 
-      // *   App: authorizes access to apps.
-      // *   AppInstanceGroup: authorizes access to delivery groups.
-      // *   Session: authorizes access to sessions.
+      // The cloud application authorization mode.
       shared_ptr<string> authMode_ {};
-      // The level-2 resource category. This parameter is for apps only.
+      // The secondary category of the resource. This parameter is specific to resources of the App type.
       shared_ptr<int32_t> categoryId_ {};
-      // The level-1 resource category. This parameter is for apps only.
+      // The primary category of the resource. This parameter is specific to resources of the App type.
       shared_ptr<int32_t> categoryType_ {};
-      // The drive name. This parameter is for enterprise drives only.
+      // The cloud drive name. This parameter is specific to resources of the CloudDrive type.
       shared_ptr<string> cdsName_ {};
-      // The ID of the centralized resource.
+      // The centralized resource ID.
       shared_ptr<string> centerResourceId_ {};
       // The billing method.
-      // 
-      // Valid values:
-      // 
-      // *   Postpaid (default): pay-as-you-go.
-      // *   PrePaid: subscription.
       shared_ptr<string> chargeType_ {};
-      // The client types supported by resources.
+      // The list of client types supported by the resource.
       shared_ptr<vector<Resources::Clients>> clients_ {};
-      // The connection attributes in JSON format. The client does not need to process the attributes; they are directly passed to the resource management center when the app resource is created.
+      // The connection properties in JSON string format. The client does not need to parse the content. The value is passed directly to the central resource management service when the application resource establishes a connection.
       shared_ptr<string> connectionProperties_ {};
       // The time when the resource was created.
       shared_ptr<string> createTime_ {};
-      // The cloud computer plans.
+      // The list of cloud desktop package information.
       shared_ptr<vector<Resources::DesktopDurationList>> desktopDurationList_ {};
-      // The scheduled tasks for cloud computers.
+      // The list of Cloud Desktop scheduled task settings.
       shared_ptr<vector<Resources::DesktopTimers>> desktopTimers_ {};
-      // The expiration time of the subscription resource.
+      // The expiration time of subscription resources.
       shared_ptr<string> expiredTime_ {};
-      // The ID of the external domain. This parameter is for enterprise drives only.
+      // The external domain ID. This parameter is specific to resources of the CloudDrive type.
       shared_ptr<string> externalDomainId_ {};
-      // The ID of the external user. This parameter is for enterprise drives only.
+      // The external user ID. This parameter is specific to resources of the CloudDrive type.
       shared_ptr<string> externalUserId_ {};
-      // The update info of the cloud computer.
+      // The cloud desktop upgrade information.
       shared_ptr<Resources::FotaUpdate> fotaUpdate_ {};
-      // Indicates whether cross-region access is supported. This parameter is for enterprise drives only.
+      // Indicates whether cross-region access is supported. This parameter is specific to resources of the CloudDrive type.
       shared_ptr<bool> globalStatus_ {};
-      // Indicates whether an update exists.
+      // Indicates whether an update is available.
       shared_ptr<bool> hasUpgrade_ {};
-      // Indicates whether this is a beta version of the hibernation feature.
-      // 
-      // Valid values:
-      // 
-      // *   true
-      // *   false
+      // Indicates whether the resource is a hibernation beta version.
       shared_ptr<bool> hibernationBeta_ {};
-      // The resource icon. This parameter is for apps only.
+      // The resource icon URL. This parameter is specific to resources of the App type.
       shared_ptr<string> icon_ {};
-      // The time when the resource was last started.
+      // The last time the resource was started.
       shared_ptr<string> lastStartTime_ {};
       // The region name.
       shared_ptr<string> localName_ {};
-      // The management status.
+      // The list of management statuses.
       shared_ptr<vector<string>> managementStatuses_ {};
       // The office network ID.
       shared_ptr<string> officeSiteId_ {};
       // The order status.
-      // 
-      // Valid values:
-      // 
-      // *   Ceased: Your account has an overdue payment.
-      // *   Released: The order is closed.
-      // *   Expired: The subscription resource has expired.
-      // *   Normal: The order is normal.
       shared_ptr<string> orderStatus_ {};
-      // The OS platform.
+      // The operating system platform information.
       shared_ptr<string> os_ {};
-      // The description of the OS platform.
+      // The operating system platform description.
       shared_ptr<string> osDescription_ {};
-      // The OS type.
-      // 
-      // Valid values:
-      // 
-      // *   Linux
-      // *   Windows
-      // *   Android
+      // The operating system type.
       shared_ptr<string> osType_ {};
-      // The update info of the OS.
+      // The operating system upgrade information.
       shared_ptr<Resources::OsUpdate> osUpdate_ {};
-      // The service type.
-      // 
-      // Valid values:
-      // 
-      // *   CloudDesktop: regular cloud computers or cloud computer shares.
-      // *   CloudApp: App Streaming
-      // *   CloudBrowser: Cloud Browser.
-      // *   AndroidCloud: Cloud Phone.
+      // The product type.
       shared_ptr<string> productType_ {};
       // The protocol type.
-      // 
-      // Valid values:
-      // 
-      // *   HDX
-      // *   ASP
       shared_ptr<string> protocolType_ {};
-      // The real ID of the cloud computer (from a share). This parameter is returned only when the cloud computer share has ongoing sessions.
+      // The real cloud desktop ID of the shared cloud desktop. This value exists only when the shared cloud desktop has an active session.
       shared_ptr<string> realDesktopId_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The geographical location.
-      // 
-      // Valid values:
-      // 
-      // *   Mainland: regions in the Chinese mainland.
-      // *   Overseas: regions outside the Chinese mainland, including China (Hong Kong).
+      // The region location.
       shared_ptr<string> regionLocation_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
       // The resource ID.
       shared_ptr<string> resourceId_ {};
       // The resource level.
-      // 
-      // Valid values:
-      // 
-      // *   Center: a centralized resource.
-      // *   Region: a unit resource.
       shared_ptr<string> resourceLevel_ {};
       // The resource name.
       shared_ptr<string> resourceName_ {};
       // The session status.
-      // 
-      // Valid values:
-      // 
-      // *   Unknown
-      // *   Connected
-      // *   Disconnected
       shared_ptr<string> resourceSessionStatus_ {};
       // The resource status.
-      // 
-      // Valid values:
-      // 
-      // *   Unknown: The resource status is unknown.
-      // *   Stopped: The resource is stopped.
-      // *   Failed: The resource failed to be created.
-      // *   Starting: The resource is being started.
-      // *   Rebuilding: The resource is changing.
-      // *   Running: The resource is running.
-      // *   Stopping: The resource is being stopped.
-      // *   FotaUpdating: The image is being updated.
-      // *   Pending: The resource is still being prepared.
-      // *   Deleting: The resource is being deleted.
-      // *   Unavailable: The resource is unavailable.
       shared_ptr<string> resourceStatus_ {};
       // The resource type.
-      // 
-      // Valid values:
-      // 
-      // *   App: cloud apps including App Streaming, Cloud Phone, and Cloud Browser.
-      // *   Desktop: cloud computers.
-      // *   DesktopGroup: cloud computer shares.
-      // *   CloudDrive: enterprise drives.
       shared_ptr<string> resourceType_ {};
       // The session type.
-      // 
-      // Valid values:
-      // 
-      // *   SINGLE_SESSION
-      // *   MULTIPLE_SESSION
       shared_ptr<string> sessionType_ {};
-      // The sessions established between users and resources.
+      // The list of resource user session information.
       shared_ptr<vector<Resources::Sessions>> sessions_ {};
       // The sub-billing method.
-      // 
-      // Valid values:
-      // 
-      // *   monthPackage: monthly subscription.
-      // *   PrePaid: hourly plans.
       shared_ptr<string> subPayType_ {};
+      shared_ptr<bool> supportAgentIm_ {};
       // Indicates whether hibernation is supported.
-      // 
-      // Valid values:
-      // 
-      // *   true
-      // *   false
       shared_ptr<bool> supportHibernation_ {};
-      // The supported actions. This parameter is returned only for cloud computers or phones.
+      // The list of supported action types. Currently supported only for cloud phones and cloud desktops (including shared cloud desktops).
       shared_ptr<vector<string>> supportedActions_ {};
-      // The theme color of the resource. This parameter is for apps only.
+      // The resource theme color. This parameter is specific to resources of the App type.
       shared_ptr<string> themeColor_ {};
-      // The custom name of the resource.
+      // The user-defined name.
       shared_ptr<string> userCustomName_ {};
-      // The resource version. This parameter is for apps only.
+      // The resource version. This parameter is specific to resources of the App type.
       shared_ptr<string> version_ {};
     };
 
-    virtual bool empty() const override { return this->maxResults_ == nullptr
-        && this->nextToken_ == nullptr && this->queryFailedResourceTypes_ == nullptr && this->rankVersion_ == nullptr && this->requestId_ == nullptr && this->resources_ == nullptr
+    class AgentBriefSummary : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const AgentBriefSummary& obj) { 
+        DARABONBA_PTR_TO_JSON(AgentBriefs, agentBriefs_);
+        DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
+      };
+      friend void from_json(const Darabonba::Json& j, AgentBriefSummary& obj) { 
+        DARABONBA_PTR_FROM_JSON(AgentBriefs, agentBriefs_);
+        DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
+      };
+      AgentBriefSummary() = default ;
+      AgentBriefSummary(const AgentBriefSummary &) = default ;
+      AgentBriefSummary(AgentBriefSummary &&) = default ;
+      AgentBriefSummary(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~AgentBriefSummary() = default ;
+      AgentBriefSummary& operator=(const AgentBriefSummary &) = default ;
+      AgentBriefSummary& operator=(AgentBriefSummary &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class AgentBriefs : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AgentBriefs& obj) { 
+          DARABONBA_PTR_TO_JSON(AgentPlatform, agentPlatform_);
+          DARABONBA_PTR_TO_JSON(AgentProvider, agentProvider_);
+          DARABONBA_PTR_TO_JSON(AvatarNoResourceUrl, avatarNoResourceUrl_);
+          DARABONBA_PTR_TO_JSON(AvatarUrl, avatarUrl_);
+          DARABONBA_PTR_TO_JSON(Count, count_);
+          DARABONBA_PTR_TO_JSON(DisplayName, displayName_);
+          DARABONBA_PTR_TO_JSON(SubTitle, subTitle_);
+          DARABONBA_PTR_TO_JSON(Url, url_);
+        };
+        friend void from_json(const Darabonba::Json& j, AgentBriefs& obj) { 
+          DARABONBA_PTR_FROM_JSON(AgentPlatform, agentPlatform_);
+          DARABONBA_PTR_FROM_JSON(AgentProvider, agentProvider_);
+          DARABONBA_PTR_FROM_JSON(AvatarNoResourceUrl, avatarNoResourceUrl_);
+          DARABONBA_PTR_FROM_JSON(AvatarUrl, avatarUrl_);
+          DARABONBA_PTR_FROM_JSON(Count, count_);
+          DARABONBA_PTR_FROM_JSON(DisplayName, displayName_);
+          DARABONBA_PTR_FROM_JSON(SubTitle, subTitle_);
+          DARABONBA_PTR_FROM_JSON(Url, url_);
+        };
+        AgentBriefs() = default ;
+        AgentBriefs(const AgentBriefs &) = default ;
+        AgentBriefs(AgentBriefs &&) = default ;
+        AgentBriefs(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AgentBriefs() = default ;
+        AgentBriefs& operator=(const AgentBriefs &) = default ;
+        AgentBriefs& operator=(AgentBriefs &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->agentPlatform_ == nullptr
+        && this->agentProvider_ == nullptr && this->avatarNoResourceUrl_ == nullptr && this->avatarUrl_ == nullptr && this->count_ == nullptr && this->displayName_ == nullptr
+        && this->subTitle_ == nullptr && this->url_ == nullptr; };
+        // agentPlatform Field Functions 
+        bool hasAgentPlatform() const { return this->agentPlatform_ != nullptr;};
+        void deleteAgentPlatform() { this->agentPlatform_ = nullptr;};
+        inline string getAgentPlatform() const { DARABONBA_PTR_GET_DEFAULT(agentPlatform_, "") };
+        inline AgentBriefs& setAgentPlatform(string agentPlatform) { DARABONBA_PTR_SET_VALUE(agentPlatform_, agentPlatform) };
+
+
+        // agentProvider Field Functions 
+        bool hasAgentProvider() const { return this->agentProvider_ != nullptr;};
+        void deleteAgentProvider() { this->agentProvider_ = nullptr;};
+        inline string getAgentProvider() const { DARABONBA_PTR_GET_DEFAULT(agentProvider_, "") };
+        inline AgentBriefs& setAgentProvider(string agentProvider) { DARABONBA_PTR_SET_VALUE(agentProvider_, agentProvider) };
+
+
+        // avatarNoResourceUrl Field Functions 
+        bool hasAvatarNoResourceUrl() const { return this->avatarNoResourceUrl_ != nullptr;};
+        void deleteAvatarNoResourceUrl() { this->avatarNoResourceUrl_ = nullptr;};
+        inline string getAvatarNoResourceUrl() const { DARABONBA_PTR_GET_DEFAULT(avatarNoResourceUrl_, "") };
+        inline AgentBriefs& setAvatarNoResourceUrl(string avatarNoResourceUrl) { DARABONBA_PTR_SET_VALUE(avatarNoResourceUrl_, avatarNoResourceUrl) };
+
+
+        // avatarUrl Field Functions 
+        bool hasAvatarUrl() const { return this->avatarUrl_ != nullptr;};
+        void deleteAvatarUrl() { this->avatarUrl_ = nullptr;};
+        inline string getAvatarUrl() const { DARABONBA_PTR_GET_DEFAULT(avatarUrl_, "") };
+        inline AgentBriefs& setAvatarUrl(string avatarUrl) { DARABONBA_PTR_SET_VALUE(avatarUrl_, avatarUrl) };
+
+
+        // count Field Functions 
+        bool hasCount() const { return this->count_ != nullptr;};
+        void deleteCount() { this->count_ = nullptr;};
+        inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+        inline AgentBriefs& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
+
+
+        // displayName Field Functions 
+        bool hasDisplayName() const { return this->displayName_ != nullptr;};
+        void deleteDisplayName() { this->displayName_ = nullptr;};
+        inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+        inline AgentBriefs& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
+
+
+        // subTitle Field Functions 
+        bool hasSubTitle() const { return this->subTitle_ != nullptr;};
+        void deleteSubTitle() { this->subTitle_ = nullptr;};
+        inline string getSubTitle() const { DARABONBA_PTR_GET_DEFAULT(subTitle_, "") };
+        inline AgentBriefs& setSubTitle(string subTitle) { DARABONBA_PTR_SET_VALUE(subTitle_, subTitle) };
+
+
+        // url Field Functions 
+        bool hasUrl() const { return this->url_ != nullptr;};
+        void deleteUrl() { this->url_ = nullptr;};
+        inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+        inline AgentBriefs& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
+
+
+      protected:
+        shared_ptr<string> agentPlatform_ {};
+        shared_ptr<string> agentProvider_ {};
+        shared_ptr<string> avatarNoResourceUrl_ {};
+        shared_ptr<string> avatarUrl_ {};
+        shared_ptr<int32_t> count_ {};
+        shared_ptr<string> displayName_ {};
+        shared_ptr<string> subTitle_ {};
+        shared_ptr<string> url_ {};
+      };
+
+      virtual bool empty() const override { return this->agentBriefs_ == nullptr
         && this->totalCount_ == nullptr; };
+      // agentBriefs Field Functions 
+      bool hasAgentBriefs() const { return this->agentBriefs_ != nullptr;};
+      void deleteAgentBriefs() { this->agentBriefs_ = nullptr;};
+      inline const vector<AgentBriefSummary::AgentBriefs> & getAgentBriefs() const { DARABONBA_PTR_GET_CONST(agentBriefs_, vector<AgentBriefSummary::AgentBriefs>) };
+      inline vector<AgentBriefSummary::AgentBriefs> getAgentBriefs() { DARABONBA_PTR_GET(agentBriefs_, vector<AgentBriefSummary::AgentBriefs>) };
+      inline AgentBriefSummary& setAgentBriefs(const vector<AgentBriefSummary::AgentBriefs> & agentBriefs) { DARABONBA_PTR_SET_VALUE(agentBriefs_, agentBriefs) };
+      inline AgentBriefSummary& setAgentBriefs(vector<AgentBriefSummary::AgentBriefs> && agentBriefs) { DARABONBA_PTR_SET_RVALUE(agentBriefs_, agentBriefs) };
+
+
+      // totalCount Field Functions 
+      bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+      void deleteTotalCount() { this->totalCount_ = nullptr;};
+      inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+      inline AgentBriefSummary& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+    protected:
+      shared_ptr<vector<AgentBriefSummary::AgentBriefs>> agentBriefs_ {};
+      shared_ptr<int32_t> totalCount_ {};
+    };
+
+    virtual bool empty() const override { return this->agentBriefSummary_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->queryFailedResourceTypes_ == nullptr && this->rankVersion_ == nullptr && this->requestId_ == nullptr
+        && this->resources_ == nullptr && this->totalCount_ == nullptr; };
+    // agentBriefSummary Field Functions 
+    bool hasAgentBriefSummary() const { return this->agentBriefSummary_ != nullptr;};
+    void deleteAgentBriefSummary() { this->agentBriefSummary_ = nullptr;};
+    inline const DescribeUserResourcesResponseBody::AgentBriefSummary & getAgentBriefSummary() const { DARABONBA_PTR_GET_CONST(agentBriefSummary_, DescribeUserResourcesResponseBody::AgentBriefSummary) };
+    inline DescribeUserResourcesResponseBody::AgentBriefSummary getAgentBriefSummary() { DARABONBA_PTR_GET(agentBriefSummary_, DescribeUserResourcesResponseBody::AgentBriefSummary) };
+    inline DescribeUserResourcesResponseBody& setAgentBriefSummary(const DescribeUserResourcesResponseBody::AgentBriefSummary & agentBriefSummary) { DARABONBA_PTR_SET_VALUE(agentBriefSummary_, agentBriefSummary) };
+    inline DescribeUserResourcesResponseBody& setAgentBriefSummary(DescribeUserResourcesResponseBody::AgentBriefSummary && agentBriefSummary) { DARABONBA_PTR_SET_RVALUE(agentBriefSummary_, agentBriefSummary) };
+
+
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -1469,19 +1540,20 @@ namespace Models
 
 
   protected:
-    // 返回最大数量。
+    shared_ptr<DescribeUserResourcesResponseBody::AgentBriefSummary> agentBriefSummary_ {};
+    // The maximum number of results returned.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token used to start the next query. An empty NextToken indicates that there is no next page.
     shared_ptr<string> nextToken_ {};
-    // The resource types that failed to be queried.
+    // The list of resource types that failed to be queried.
     shared_ptr<vector<string>> queryFailedResourceTypes_ {};
-    // The version number of the ranking data.
+    // The ranking data version number.
     shared_ptr<int64_t> rankVersion_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resources.
+    // The list of resource details.
     shared_ptr<vector<DescribeUserResourcesResponseBody::Resources>> resources_ {};
-    // 总数。
+    // The total count.
     shared_ptr<int32_t> totalCount_ {};
   };
 

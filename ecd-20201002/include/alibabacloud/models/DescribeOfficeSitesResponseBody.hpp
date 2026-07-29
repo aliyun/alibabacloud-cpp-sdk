@@ -129,11 +129,19 @@ namespace Models
       shared_ptr<int64_t> aliUid_ {};
       // biztype
       shared_ptr<int32_t> bizType_ {};
+      // The allowed connection types for accessing the office network.
+      // 
+      // > The VPC connection type depends on the Alibaba Cloud PrivateLink service, which incurs no fee. When this parameter is set to VPC or Any, the system automatically enables the PrivateLink service for you.
       shared_ptr<string> desktopAccessType_ {};
+      // The endpoint used when connecting to cloud desktops through a VPC.
       shared_ptr<string> desktopVpcEndpoint_ {};
+      // Office network ID.
       shared_ptr<string> officeSiteId_ {};
+      // The type of account system used by the office network.
       shared_ptr<string> officeSiteType_ {};
+      // User Account BID.
       shared_ptr<string> providerId_ {};
+      // SSO connection.
       shared_ptr<string> ssoServiceUrl_ {};
     };
 
@@ -158,6 +166,7 @@ namespace Models
   protected:
     // The office networks.
     shared_ptr<vector<DescribeOfficeSitesResponseBody::OfficeSites>> officeSites_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

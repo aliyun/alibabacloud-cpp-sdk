@@ -23,6 +23,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LoginToken, loginToken_);
       DARABONBA_PTR_TO_JSON(NextStage, nextStage_);
       DARABONBA_PTR_TO_JSON(NickName, nickName_);
+      DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
+      DARABONBA_PTR_TO_JSON(OfficeSiteName, officeSiteName_);
       DARABONBA_PTR_TO_JSON(PasswordStrategy, passwordStrategy_);
       DARABONBA_PTR_TO_JSON(Phone, phone_);
       DARABONBA_PTR_TO_JSON(Props, props_);
@@ -45,6 +47,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LoginToken, loginToken_);
       DARABONBA_PTR_FROM_JSON(NextStage, nextStage_);
       DARABONBA_PTR_FROM_JSON(NickName, nickName_);
+      DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
+      DARABONBA_PTR_FROM_JSON(OfficeSiteName, officeSiteName_);
       DARABONBA_PTR_FROM_JSON(PasswordStrategy, passwordStrategy_);
       DARABONBA_PTR_FROM_JSON(Phone, phone_);
       DARABONBA_PTR_FROM_JSON(Props, props_);
@@ -125,13 +129,13 @@ namespace Models
 
 
     protected:
-      // The email used for authentication.
+      // The email address used for identity verification when risk verification is triggered.
       shared_ptr<string> email_ {};
-      // The duration of the lock.
+      // The account lockout duration.
       shared_ptr<int64_t> lastLockDuration_ {};
-      // Whether the account is locked or not.
+      // Indicates whether the account is locked.
       shared_ptr<string> locked_ {};
-      // The mobile number used for authentication.
+      // The phone number used for identity verification when risk verification is triggered.
       shared_ptr<string> phone_ {};
     };
 
@@ -175,17 +179,18 @@ namespace Models
 
 
     protected:
-      // > This is a parameter only for internal use.
+      // > This is an internal field and is not available for public use.
       shared_ptr<vector<string>> tenantAlternativeChars_ {};
-      // > This is a parameter only for internal use.
+      // > This is an internal field and is not available for public use.
       shared_ptr<string> tenantPasswordLength_ {};
     };
 
     virtual bool empty() const override { return this->email_ == nullptr
         && this->endUserId_ == nullptr && this->industry_ == nullptr && this->keepAliveToken_ == nullptr && this->label_ == nullptr && this->loginToken_ == nullptr
-        && this->nextStage_ == nullptr && this->nickName_ == nullptr && this->passwordStrategy_ == nullptr && this->phone_ == nullptr && this->props_ == nullptr
-        && this->qrCodePng_ == nullptr && this->reason_ == nullptr && this->requestId_ == nullptr && this->riskVerifyInfo_ == nullptr && this->secret_ == nullptr
-        && this->sessionId_ == nullptr && this->tenantId_ == nullptr && this->windowDisplayMode_ == nullptr && this->wyId_ == nullptr; };
+        && this->nextStage_ == nullptr && this->nickName_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->passwordStrategy_ == nullptr
+        && this->phone_ == nullptr && this->props_ == nullptr && this->qrCodePng_ == nullptr && this->reason_ == nullptr && this->requestId_ == nullptr
+        && this->riskVerifyInfo_ == nullptr && this->secret_ == nullptr && this->sessionId_ == nullptr && this->tenantId_ == nullptr && this->windowDisplayMode_ == nullptr
+        && this->wyId_ == nullptr; };
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
@@ -240,6 +245,20 @@ namespace Models
     void deleteNickName() { this->nickName_ = nullptr;};
     inline string getNickName() const { DARABONBA_PTR_GET_DEFAULT(nickName_, "") };
     inline GetLoginTokenResponseBody& setNickName(string nickName) { DARABONBA_PTR_SET_VALUE(nickName_, nickName) };
+
+
+    // officeSiteId Field Functions 
+    bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
+    void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
+    inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
+    inline GetLoginTokenResponseBody& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
+
+
+    // officeSiteName Field Functions 
+    bool hasOfficeSiteName() const { return this->officeSiteName_ != nullptr;};
+    void deleteOfficeSiteName() { this->officeSiteName_ = nullptr;};
+    inline string getOfficeSiteName() const { DARABONBA_PTR_GET_DEFAULT(officeSiteName_, "") };
+    inline GetLoginTokenResponseBody& setOfficeSiteName(string officeSiteName) { DARABONBA_PTR_SET_VALUE(officeSiteName_, officeSiteName) };
 
 
     // passwordStrategy Field Functions 
@@ -333,53 +352,55 @@ namespace Models
 
 
   protected:
-    // The email address of the user. The system returns the email address in the return value of the LoginToken parameter after the user logs on to the client.
+    // The email address of the user. This value is returned with the LoginToken after logon.    
     // 
-    // *   For a convenience user, the return value is the email address specified when the administrator creates the convenience user.
-    // *   For an AD user, the return value is in the following format: `Username@Name of the AD domain`.
+    // - For a convenience user, the email address specified when the convenience user was created is returned.
+    // - For an AD user, the value is returned in the format of `username@AD domain name`.
     shared_ptr<string> email_ {};
-    // The account of the convenience user or the AD user.
+    // The convenience account username or AD username.
     shared_ptr<string> endUserId_ {};
-    // > This is a parameter only for internal use.
+    // > This is an internal field and is not available for public use.
     shared_ptr<string> industry_ {};
-    // The token used to keep the user logged on. After the user logs on to the client and select the Keep Logon option, `KeepAliveToken` is returned when you call the operation. If the user does not select the Keep Logon option, null is returned.
+    // The token used to keep the logon session alive. After a successful logon with the keep-alive option enabled, the operation returns a `KeepAliveToken`. If the keep-alive option is not enabled, an empty value is returned.
     shared_ptr<string> keepAliveToken_ {};
-    // The attribute of the convenience user. For an AD user, null is returned.
+    // The property of the convenience user. If the user is an AD user, an empty value is returned.
     shared_ptr<string> label_ {};
-    // The logon token.
+    // The logon credential.
     shared_ptr<string> loginToken_ {};
-    // The next stage that is expected to enter. For example, an administrator enables MFA in the EDS console. When an end user enters the password, that is, the end user completes the `ADPassword` stage, this parameter returns `MFAVerify`. This indicates that MFA is required.
+    // The expected next stage. For example, if the administrator has enabled MFA authentication in the Elastic Desktop Service console, after the username and password authentication is passed (the `ADPassword` stage), this parameter returns `MFAVerify`, indicating that MFA authentication is required.
     // 
-    // >  For more information about the authentication stages, see the `CurrentStage` parameter.
+    // > For more information about each authentication stage, see the parameter description of the `CurrentStage` request parameter of this operation.
     shared_ptr<string> nextStage_ {};
     shared_ptr<string> nickName_ {};
-    // > This is a parameter only for internal use.
+    shared_ptr<string> officeSiteId_ {};
+    shared_ptr<string> officeSiteName_ {};
+    // > This is an internal field and is not available for public use.
     shared_ptr<GetLoginTokenResponseBody::PasswordStrategy> passwordStrategy_ {};
-    // Enter the mobile number of the convenience user. For an AD user, null is returned.
+    // The phone number of the convenience user. If the user is an AD user, an empty value is returned.
     shared_ptr<string> phone_ {};
-    // > This is a parameter only for internal use.
+    // > This is an internal field and is not available for public use.
     shared_ptr<map<string, string>> props_ {};
-    // The QR code that is generated when the virtual MFA device is bound. The value is encoded in Base64. This parameter can be empty. This parameter is required only when the CurrentStage parameter is set to `MFABind`.
+    // The QR code of the secret key used when attaching a virtual MFA device. The value uses Base64 encoding. This value can be empty and is used in the `MFABind` stage.
     // 
-    // > For more information about each authentication stage, see the parameter description of the request parameter `CurrentStage`.
+    // > For more information about each authentication stage, see the parameter description of the `CurrentStage` request parameter of this operation.
     shared_ptr<string> qrCodePng_ {};
-    // > This is a parameter only for internal use.
+    // > This is an internal field and is not available for public use.
     shared_ptr<string> reason_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Risk identification information regarding the signin process.
+    // The logon risk identification information.
     shared_ptr<GetLoginTokenResponseBody::RiskVerifyInfo> riskVerifyInfo_ {};
-    // The key that is generated when you bind the virtual MFA device. This parameter is required when the CurrentStage parameter is set to `MFABind`.
+    // The secret key used when attaching a virtual MFA device. This value is used in the `MFABind` stage.
     // 
-    // > For more information about each authentication stage, see the parameter description of the request parameter `CurrentStage`.
+    // > For more information about each authentication stage, see the parameter description of the `CurrentStage` request parameter of this operation.
     shared_ptr<string> secret_ {};
-    // The ID of the session. The ID is returned the first time you call the `GetLoginToken` operation in the session. If MFA is required, you must specify this parameter in subsequent stages.
+    // The session ID. This value is returned only when `GetLoginToken` is invoked for the first time within the same session. For subsequent stages that require multiple authentications, pass in this parameter.
     // 
-    // > For more information about each authentication stage, see the parameter description of the request parameter `CurrentStage`.
+    // > For more information about each authentication stage, see the parameter description of the `CurrentStage` request parameter of this operation.
     shared_ptr<string> sessionId_ {};
-    // The ID of the Alibaba Cloud account. The ID is used for hardware client authentication.
+    // The Alibaba Cloud account ID. This value is used for hardware terminal identification.
     shared_ptr<int64_t> tenantId_ {};
-    // > This is a parameter only for internal use.
+    // > This is an internal field and is not available for public use.
     shared_ptr<string> windowDisplayMode_ {};
     shared_ptr<string> wyId_ {};
   };

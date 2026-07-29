@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The encrypted password.
+    // Encrypted password.
     shared_ptr<string> encryptedPassword_ {};
-    // The index.
+    // Index.
     shared_ptr<int32_t> index_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

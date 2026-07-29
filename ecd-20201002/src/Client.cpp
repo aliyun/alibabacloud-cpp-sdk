@@ -18,6 +18,32 @@ namespace Ecd20201002
 
 AlibabaCloud::Ecd20201002::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"us-west-1" , "ecd.us-west-1.aliyuncs.com"},
+    {"us-east-1" , "ecd.us-east-1.aliyuncs.com"},
+    {"me-east-1" , "ecd.me-east-1.aliyuncs.com"},
+    {"me-central-1" , "ecd.me-central-1.aliyuncs.com"},
+    {"eu-west-1" , "ecd.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "ecd.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "ecd.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "ecd.cn-wulanchabu.aliyuncs.com"},
+    {"cn-shenzhen" , "ecd.cn-shenzhen.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "ecd.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-shanghai" , "ecd.cn-shanghai.aliyuncs.com"},
+    {"cn-qingdao" , "ecd.cn-qingdao.aliyuncs.com"},
+    {"cn-nanjing" , "ecd.cn-nanjing.aliyuncs.com"},
+    {"cn-hongkong" , "ecd.cn-hongkong.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "ecd.cn-hangzhou-finance.aliyuncs.com"},
+    {"cn-hangzhou" , "ecd.cn-hangzhou.aliyuncs.com"},
+    {"cn-guangzhou" , "ecd.cn-guangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "ecd.cn-chengdu.aliyuncs.com"},
+    {"cn-beijing" , "ecd.cn-beijing.aliyuncs.com"},
+    {"ap-southeast-7" , "ecd.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-6" , "ecd.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-5" , "ecd.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-1" , "ecd.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-1" , "ecd.ap-northeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("ecd", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -338,10 +364,10 @@ DescribeFingerPrintTemplatesResponse Client::describeFingerPrintTemplates(const 
 }
 
 /**
- * @summary Queries the details of cloud computers. Currently, only the region corresponding to the Chinese mainland can be queried (excluding: Nanjing-local region-shutting down).
+ * @summary Query detailed information about cloud desktops across multiple regions. You can query only regions in the Chinese mainland (excluding Nanjing – Local Region – Shutting Down).
  *
- * @description *   This API is a centralized domain name. The endpoint is in the China (Shanghai) region. You cannot call this API operation in other regions.
- * *   The cloud computer status information in this interface has a delay of 1 to 3 seconds from the actual value.
+ * @description - This API uses a centralized domain name with its endpoint in Shanghai. You cannot call this API from other regions.
+ * - The cloud desktop status returned by this API may be delayed by 1 to 3 seconds.
  *
  * @param request DescribeGlobalDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -448,10 +474,10 @@ DescribeGlobalDesktopsResponse Client::describeGlobalDesktopsWithOptions(const D
 }
 
 /**
- * @summary Queries the details of cloud computers. Currently, only the region corresponding to the Chinese mainland can be queried (excluding: Nanjing-local region-shutting down).
+ * @summary Query detailed information about cloud desktops across multiple regions. You can query only regions in the Chinese mainland (excluding Nanjing – Local Region – Shutting Down).
  *
- * @description *   This API is a centralized domain name. The endpoint is in the China (Shanghai) region. You cannot call this API operation in other regions.
- * *   The cloud computer status information in this interface has a delay of 1 to 3 seconds from the actual value.
+ * @description - This API uses a centralized domain name with its endpoint in Shanghai. You cannot call this API from other regions.
+ * - The cloud desktop status returned by this API may be delayed by 1 to 3 seconds.
  *
  * @param request DescribeGlobalDesktopsRequest
  * @return DescribeGlobalDesktopsResponse
@@ -462,7 +488,7 @@ DescribeGlobalDesktopsResponse Client::describeGlobalDesktops(const DescribeGlob
 }
 
 /**
- * @summary Queries office networks.
+ * @summary Query the details of an office network.
  *
  * @param request DescribeOfficeSitesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -505,7 +531,7 @@ DescribeOfficeSitesResponse Client::describeOfficeSitesWithOptions(const Describ
 }
 
 /**
- * @summary Queries office networks.
+ * @summary Query the details of an office network.
  *
  * @param request DescribeOfficeSitesRequest
  * @return DescribeOfficeSitesResponse
@@ -628,9 +654,9 @@ DescribeSnapshotsResponse Client::describeSnapshots(const DescribeSnapshotsReque
 }
 
 /**
- * @summary Queries user resources.
+ * @summary Queries the list of resources owned by a user.
  *
- * @description Before you call this operation, verify supported resource and service types in Alibaba Cloud Workspace.
+ * @description Make sure that you are familiar with the resource types and product types of WUYING before you call this operation.
  *
  * @param request DescribeUserResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -769,9 +795,9 @@ DescribeUserResourcesResponse Client::describeUserResourcesWithOptions(const Des
 }
 
 /**
- * @summary Queries user resources.
+ * @summary Queries the list of resources owned by a user.
  *
- * @description Before you call this operation, verify supported resource and service types in Alibaba Cloud Workspace.
+ * @description Make sure that you are familiar with the resource types and product types of WUYING before you call this operation.
  *
  * @param request DescribeUserResourcesRequest
  * @return DescribeUserResourcesResponse
@@ -848,7 +874,7 @@ EncryptPasswordResponse Client::encryptPassword(const EncryptPasswordRequest &re
 }
 
 /**
- * @summary Retrieves the logon tokens for enterprise drives.
+ * @summary Obtain the logon credential for Enterprise File Gateway.
  *
  * @param request GetCloudDriveServiceMountTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -895,7 +921,7 @@ GetCloudDriveServiceMountTokenResponse Client::getCloudDriveServiceMountTokenWit
 }
 
 /**
- * @summary Retrieves the logon tokens for enterprise drives.
+ * @summary Obtain the logon credential for Enterprise File Gateway.
  *
  * @param request GetCloudDriveServiceMountTokenRequest
  * @return GetCloudDriveServiceMountTokenResponse
@@ -906,9 +932,9 @@ GetCloudDriveServiceMountTokenResponse Client::getCloudDriveServiceMountToken(co
 }
 
 /**
- * @summary Retrieves the credential that is used to connect to a cloud computer.
+ * @summary Obtains a connection ticket for a cloud computer.
  *
- * @description The first time you call this operation, the system returns a task ID in the `TaskID` parameter. Use the task ID indicated in the `TaskID` parameter to continue calling this operation until the value of the `TaskStatus` parameter becomes `FINISHED` or `FAILED`. When `TaskStatus` becomes `FINISHED`, the value of the `Ticket` parameter is the ticket that is used to connect the client to the cloud computer.
+ * @description The first time you call this operation, it returns a `TaskID`. You can use this `TaskID` to call the operation again until `TaskStatus` changes to `FINISHED` or `FAILED`. If `TaskStatus` is `FINISHED`, the `Ticket` value is the connection ticket that the client uses to connect to the cloud computer.
  *
  * @param request GetConnectionTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1003,9 +1029,9 @@ GetConnectionTicketResponse Client::getConnectionTicketWithOptions(const GetConn
 }
 
 /**
- * @summary Retrieves the credential that is used to connect to a cloud computer.
+ * @summary Obtains a connection ticket for a cloud computer.
  *
- * @description The first time you call this operation, the system returns a task ID in the `TaskID` parameter. Use the task ID indicated in the `TaskID` parameter to continue calling this operation until the value of the `TaskStatus` parameter becomes `FINISHED` or `FAILED`. When `TaskStatus` becomes `FINISHED`, the value of the `Ticket` parameter is the ticket that is used to connect the client to the cloud computer.
+ * @description The first time you call this operation, it returns a `TaskID`. You can use this `TaskID` to call the operation again until `TaskStatus` changes to `FINISHED` or `FAILED`. If `TaskStatus` is `FINISHED`, the `Ticket` value is the connection ticket that the client uses to connect to the cloud computer.
  *
  * @param request GetConnectionTicketRequest
  * @return GetConnectionTicketResponse
@@ -1016,7 +1042,7 @@ GetConnectionTicketResponse Client::getConnectionTicket(const GetConnectionTicke
 }
 
 /**
- * @summary Obtains logon credentials.
+ * @summary Retrieves logon credentials.
  *
  * @param tmpReq GetLoginTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1129,7 +1155,7 @@ GetLoginTokenResponse Client::getLoginTokenWithOptions(const GetLoginTokenReques
 }
 
 /**
- * @summary Obtains logon credentials.
+ * @summary Retrieves logon credentials.
  *
  * @param request GetLoginTokenRequest
  * @return GetLoginTokenResponse
@@ -1137,56 +1163,6 @@ GetLoginTokenResponse Client::getLoginTokenWithOptions(const GetLoginTokenReques
 GetLoginTokenResponse Client::getLoginToken(const GetLoginTokenRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getLoginTokenWithOptions(request, runtime);
-}
-
-/**
- * @summary Verifies whether the client\\"s logon session is still active.
- *
- * @param request IsKeepAliveRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return IsKeepAliveResponse
- */
-IsKeepAliveResponse Client::isKeepAliveWithOptions(const IsKeepAliveRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasClientId()) {
-    query["ClientId"] = request.getClientId();
-  }
-
-  if (!!request.hasOfficeSiteId()) {
-    query["OfficeSiteId"] = request.getOfficeSiteId();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "IsKeepAlive"},
-    {"version" , "2020-10-02"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "Anonymous"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<IsKeepAliveResponse>();
-}
-
-/**
- * @summary Verifies whether the client\\"s logon session is still active.
- *
- * @param request IsKeepAliveRequest
- * @return IsKeepAliveResponse
- */
-IsKeepAliveResponse Client::isKeepAlive(const IsKeepAliveRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return isKeepAliveWithOptions(request, runtime);
 }
 
 /**
@@ -1240,7 +1216,7 @@ QueryEdsAgentReportConfigResponse Client::queryEdsAgentReportConfig(const QueryE
 }
 
 /**
- * @summary Restart cloud computers.
+ * @summary You can restart one or more cloud desktops.
  *
  * @param request RebootDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1311,7 +1287,7 @@ RebootDesktopsResponse Client::rebootDesktopsWithOptions(const RebootDesktopsReq
 }
 
 /**
- * @summary Restart cloud computers.
+ * @summary You can restart one or more cloud desktops.
  *
  * @param request RebootDesktopsRequest
  * @return RebootDesktopsResponse
@@ -1322,6 +1298,10 @@ RebootDesktopsResponse Client::rebootDesktops(const RebootDesktopsRequest &reque
 }
 
 /**
+ * @summary Purge the logon credential.
+ *
+ * @description The validity period of a logon credential (LoginToken) is 8 hours. If the end user does not log off from the client within 8 hours, the client must purge the logon credential.
+ *
  * @param request RefreshLoginTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RefreshLoginTokenResponse
@@ -1375,6 +1355,10 @@ RefreshLoginTokenResponse Client::refreshLoginTokenWithOptions(const RefreshLogi
 }
 
 /**
+ * @summary Purge the logon credential.
+ *
+ * @description The validity period of a logon credential (LoginToken) is 8 hours. If the end user does not log off from the client within 8 hours, the client must purge the logon credential.
+ *
  * @param request RefreshLoginTokenRequest
  * @return RefreshLoginTokenResponse
  */
@@ -1438,6 +1422,8 @@ ReportEdsAgentInfoResponse Client::reportEdsAgentInfo(const ReportEdsAgentInfoRe
 }
 
 /**
+ * @summary Report session status.
+ *
  * @param request ReportSessionStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ReportSessionStatusResponse
@@ -1487,6 +1473,8 @@ ReportSessionStatusResponse Client::reportSessionStatusWithOptions(const ReportS
 }
 
 /**
+ * @summary Report session status.
+ *
  * @param request ReportSessionStatusRequest
  * @return ReportSessionStatusResponse
  */
@@ -1978,9 +1966,9 @@ StartRecordContentResponse Client::startRecordContent(const StartRecordContentRe
 }
 
 /**
- * @summary Stops cloud computers.
+ * @summary Stops one or more cloud computers.
  *
- * @description The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
+ * @description You can stop only cloud computers that are in the Running state. After you call this operation, their state changes to Stopped.
  *
  * @param request StopDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2051,9 +2039,9 @@ StopDesktopsResponse Client::stopDesktopsWithOptions(const StopDesktopsRequest &
 }
 
 /**
- * @summary Stops cloud computers.
+ * @summary Stops one or more cloud computers.
  *
- * @description The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
+ * @description You can stop only cloud computers that are in the Running state. After you call this operation, their state changes to Stopped.
  *
  * @param request StopDesktopsRequest
  * @return StopDesktopsResponse

@@ -46,9 +46,6 @@
 #include <alibabacloud/models/GetLoginTokenShrinkRequest.hpp>
 #include <alibabacloud/models/GetLoginTokenResponseBody.hpp>
 #include <alibabacloud/models/GetLoginTokenResponse.hpp>
-#include <alibabacloud/models/IsKeepAliveRequest.hpp>
-#include <alibabacloud/models/IsKeepAliveResponseBody.hpp>
-#include <alibabacloud/models/IsKeepAliveResponse.hpp>
 #include <alibabacloud/models/QueryEdsAgentReportConfigRequest.hpp>
 #include <alibabacloud/models/QueryEdsAgentReportConfigResponseBody.hpp>
 #include <alibabacloud/models/QueryEdsAgentReportConfigResponse.hpp>

@@ -105,13 +105,17 @@ namespace Models
 
 
     protected:
+      // Enterprise File Gateway domain name.
       shared_ptr<string> domainId_ {};
+      // Expiration Time.
       shared_ptr<string> expiredAfter_ {};
+      // Current status of the Enterprise File Gateway user.
       shared_ptr<string> status_ {};
       // The token.
       shared_ptr<string> token_ {};
       // The total capacity of the enterprise drive. Unit: GiB
       shared_ptr<int64_t> totalSize_ {};
+      // Used capacity. Unit: GiB.
       shared_ptr<int64_t> usedSize_ {};
     };
 
@@ -134,6 +138,7 @@ namespace Models
 
 
   protected:
+    // Request ID.
     shared_ptr<string> requestId_ {};
     // The tokens.
     shared_ptr<GetCloudDriveServiceMountTokenResponseBody::Token> token_ {};

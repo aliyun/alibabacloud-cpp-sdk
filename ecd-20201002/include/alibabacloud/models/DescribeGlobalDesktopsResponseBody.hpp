@@ -171,7 +171,7 @@ namespace Models
       protected:
         // End user information.
         shared_ptr<string> endUserId_ {};
-        // The time when the session was created.
+        // Time when the session was created.
         shared_ptr<string> establishmentTime_ {};
       };
 
@@ -286,24 +286,24 @@ namespace Models
 
 
       protected:
-        // Subscription Channel
+        // Subscription channel.
         shared_ptr<string> channel_ {};
-        // The current version number of the cloud computer.
+        // Current version number of the cloud desktop.
         shared_ptr<string> currentAppVersion_ {};
-        // Whether to force upgrade.
+        // Whether the upgrade is forced.
         shared_ptr<bool> force_ {};
-        // The version number of the application after the update.
+        // New application version number after the update.
         shared_ptr<string> newAppVersion_ {};
         shared_ptr<string> newDcdVersion_ {};
-        // The name of the project.
+        // Project name.
         shared_ptr<string> project_ {};
-        // The description of the version that can be upgraded.
+        // Description of the upgradable version.
         shared_ptr<string> releaseNote_ {};
-        // The English release note for the new image version.
+        // English description of the upgradable version.
         shared_ptr<string> releaseNoteEn_ {};
-        // The Japanese release note for the new image version.
+        // Japanese description of the upgradable version.
         shared_ptr<string> releaseNoteJp_ {};
-        // The size of the update package for the cloud computer image. Unit: MiB.
+        // Size of the upgradable version package, in MiB.
         shared_ptr<string> size_ {};
       };
 
@@ -354,16 +354,11 @@ namespace Models
 
 
       protected:
-        // The disk ID.
+        // Disk ID.
         shared_ptr<string> diskId_ {};
-        // The disk size. Unit: GiB.
+        // Disk size, in GiB.
         shared_ptr<int32_t> diskSize_ {};
-        // The disk type.
-        // 
-        // Valid value:
-        // 
-        // *   SYSTEM: a system disk.
-        // *   DATA: a data disk.
+        // Disk type.
         shared_ptr<string> diskType_ {};
       };
 
@@ -460,45 +455,23 @@ namespace Models
 
 
       protected:
-        // Whether to allow clients to set policies.
+        // Whether clients can set policies.
         shared_ptr<bool> allowClientSetting_ {};
-        // The CRON expression for the scheduled task.
+        // Cron expression for the scheduled task.
         // 
-        // For example, a `0 0 4 1/1 * ?` indicates that the operation is executed every day from 4:00 a.m. on the first day of each month.
+        // Example: `0 0 4 1/1 * ?` means run daily starting at 4:00 AM on the first day of each month.
         shared_ptr<string> cronExpression_ {};
-        // Indicates whether to forcibly execute the scheduled task. To `true` indicates that cloud computer and connection status detection are ignored, and scheduled tasks are forcibly executed.
+        // Whether to enforce execution. If `true`, the scheduled task runs regardless of cloud desktop or connection status.
         shared_ptr<bool> enforce_ {};
-        // The task duration.
+        // Task execution time.
         shared_ptr<string> executionTime_ {};
-        // The interval at which the monitoring data was queried. Unit: seconds.
+        // Time interval, in seconds.
         shared_ptr<int32_t> interval_ {};
-        // The type of the scheduled task.
-        // 
-        // Valid values:
-        // 
-        // *   HIBERNATE
-        // *   SHUTDOWN
+        // Scheduled task type.
         shared_ptr<string> operationType_ {};
-        // For a reset task, you must set the reset type.
-        // 
-        // Valid values:
-        // 
-        // *   RESET_TYPE_SYSTEM: resets the system disk.
-        // *   RESET_TYPE_USER_DISK: resets the data disk.
-        // *   RESET_TYPE_BOTH: resets the system disk and data disk.
+        // Reset type for reset tasks.
         shared_ptr<string> resetType_ {};
-        // The type of the scheduled task.
-        // 
-        // Valid values:
-        // 
-        // *   NoOperationDisconnect: scheduled disconnection upon inactivity.
-        // *   NoConnectShutdown: connectionless shutdown.
-        // *   TimerBoot: scheduled start.
-        // *   TimerReset: scheduled reset.
-        // *   NoOperationShutdown: scheduled shutdown upon inactivity.
-        // *   TimerShutdown: Stops the cloud computers on schedule.
-        // *   NoOperationReboot: scheduled restart upon inactivity.
-        // *   TimerReboot: scheduled restart.
+        // Scheduled task type.
         shared_ptr<string> timerType_ {};
       };
 
@@ -540,23 +513,9 @@ namespace Models
 
 
       protected:
-        // The client type.
-        // 
-        // Valid values:
-        // 
-        // *   html5: the web client.
-        // *   android: the Android client.
-        // *   linux: Linux client.
-        // *   ios: the iOS client.
-        // *   windows: the Windows client.
-        // *   macos: the macOS client.
+        // Client type.
         shared_ptr<string> clientType_ {};
-        // The status of the client.
-        // 
-        // Valid values:
-        // 
-        // *   OFF: does not allow logon.
-        // *   ON: allows logon.
+        // Client status.
         shared_ptr<string> status_ {};
       };
 
@@ -864,128 +823,87 @@ namespace Models
 
 
     protected:
-      // The billing method of the cloud computer pool.
-      // 
-      // Valid value:
-      // 
-      // *   PostPaid: pay-as-you-go
-      // *   PrePaid: subscription
+      // Billing method.
       shared_ptr<string> chargeType_ {};
-      // The information about the supported clients.
+      // Supported client information.
       shared_ptr<vector<Desktops::Clients>> clients_ {};
-      // The state of the endpoint connection.
-      // 
-      // Valid values:
-      // 
-      // *   Connected
-      // *   Disconnecting
-      // *   Pending.
-      // *   Connecting.
-      // *   Disconnected.
-      // *   Deleting
+      // Endpoint connection status.
       shared_ptr<string> connectionStatus_ {};
-      // The number of vCPUs.
+      // Number of CPUs.
       shared_ptr<int32_t> cpu_ {};
-      // The time when the cloud computer was created.
+      // Time when the cloud desktop was created.
       shared_ptr<string> creationTime_ {};
-      // The ID of the cloud computer share.
+      // Shared cloud desktop ID.
       shared_ptr<string> desktopGroupId_ {};
-      // The cloud compute ID.
+      // Cloud desktop ID.
       shared_ptr<string> desktopId_ {};
-      // The cloud computer name.
+      // Cloud desktop name.
       shared_ptr<string> desktopName_ {};
-      // The cloud computer status.
+      // Cloud desktop status.
       shared_ptr<string> desktopStatus_ {};
-      // The cloud computer timer object.
+      // Cloud desktop timer object.
       shared_ptr<vector<Desktops::DesktopTimers>> desktopTimers_ {};
-      // The cloud computer type.
+      // Cloud desktop specification.
       shared_ptr<string> desktopType_ {};
-      // The network ID of the office. Same as `OfficeSiteId`.
+      // Office site ID. Same as `OfficeSiteId`.
       shared_ptr<string> directoryId_ {};
-      // The disks.
+      // Disk information.
       shared_ptr<vector<Desktops::Disks>> disks_ {};
-      // The names of end users.
+      // End user name.
       shared_ptr<string> endUserId_ {};
-      // The list of end user.
+      // List of end users.
       shared_ptr<vector<string>> endUserIds_ {};
-      // The expiration time of the cloud computer.
+      // Time when the cloud desktop expires.
       // 
-      // *   For a cloud computer that is a package year or month, the return value is meaningful.
-      // *   For pay-as-you-go cloud computers, the `2099-12-31T15:59Z` is returned.
+      // - Valid for subscription cloud desktops.
+      // 
+      // - For pay-as-you-go cloud desktops, always returns `2099-12-31T15:59Z`.
       shared_ptr<string> expiredTime_ {};
-      // The information about image update.
+      // Image update information.
       shared_ptr<Desktops::FotaUpdate> fotaUpdate_ {};
-      // The GPU memory size. For GPU-accelerated cloud computers, this return value is significant. Unit: MB.
+      // GPU memory size. Valid for GPU cloud desktops. Unit: MB.
       shared_ptr<int32_t> gpuMemory_ {};
-      // Indicates whether this is a beta version of the hibernation feature.
+      // Whether this is a hibernation beta version.
       shared_ptr<bool> hibernationBeta_ {};
-      // The hostname of the cloud desktop.
+      // Host name.
       shared_ptr<string> hostName_ {};
-      // The image ID.
+      // Image ID.
       shared_ptr<string> imageId_ {};
-      // The time when the cloud desktop was last started.
+      // Last startup time — the most recent time the cloud desktop started.
       shared_ptr<string> lastStartTime_ {};
-      // The region name.
+      // Region name.
       shared_ptr<string> localName_ {};
-      // The list of cloud computer status.
+      // List of cloud desktop management statuses.
       shared_ptr<vector<string>> managementFlags_ {};
-      // The memory of the cloud computer. Unit: MiB.
+      // Cloud desktop memory size, in MiB.
       shared_ptr<int64_t> memory_ {};
-      // The IP address of the ENI.
+      // Network interface IP address.
       shared_ptr<string> networkInterfaceIp_ {};
-      // The IDs of the office networks.
+      // Office site ID.
       shared_ptr<string> officeSiteId_ {};
-      // OS Type
+      // Operating system type
       shared_ptr<string> os_ {};
       shared_ptr<string> osDescription_ {};
-      // The operating system.
-      // 
-      // Valid value:
-      // 
-      // *   Linux
-      // *   Windows
+      // Operating system type.
       shared_ptr<string> osType_ {};
-      // The OS platform.
-      // 
-      // Valid value:
-      // 
-      // *   Ubuntu
-      // *   UOS
-      // *   CentOS
-      // *   Windows Server 2019
-      // *   Windows Server 2016
+      // Operating system platform.
       shared_ptr<string> platform_ {};
-      // The cloud computer policy ID.
+      // Cloud desktop policy ID.
       shared_ptr<string> policyGroupId_ {};
-      // The type of the protocol.
-      // 
-      // Valid value:
-      // 
-      // *   High-definition Experience (HDX)
-      // *   ASP
+      // Protocol type.
       shared_ptr<string> protocolType_ {};
-      // If a shared cloud computer is assigned a real cloud computer, the ID of the cloud computer is displayed.
+      // If this is a shared cloud desktop and a real cloud desktop has been assigned, this field shows the cloud desktop ID.
       shared_ptr<string> realDesktopId_ {};
-      // The region ID.
+      // Region ID.
       shared_ptr<string> regionId_ {};
       shared_ptr<string> regionLocation_ {};
-      // The type of the session.
-      // 
-      // Valid value:
-      // 
-      // *   SINGLE_SESSION
-      // *   MULTIPLE_SESSION
+      // Session type.
       shared_ptr<string> sessionType_ {};
-      // The list of session information.
+      // List of session information.
       shared_ptr<vector<Desktops::Sessions>> sessions_ {};
-      // Indicates whether hibernation is supported.
-      // 
-      // Valid values:
-      // 
-      // *   true: supported
-      // *   false: not supported
+      // Whether hibernation is supported.
       shared_ptr<bool> supportHibernation_ {};
-      // The custom cloud computer name.
+      // User-defined cloud desktop name.
       shared_ptr<string> userCustomName_ {};
     };
 
@@ -1015,11 +933,11 @@ namespace Models
 
 
   protected:
-    // The details about the cloud computer.
+    // Detailed cloud desktop information.
     shared_ptr<vector<DescribeGlobalDesktopsResponseBody::Desktops>> desktops_ {};
-    // The token used to start the next query. If NextToken is empty, it indicates that there is no next query.
+    // Token that marks the start of the next query. If NextToken is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

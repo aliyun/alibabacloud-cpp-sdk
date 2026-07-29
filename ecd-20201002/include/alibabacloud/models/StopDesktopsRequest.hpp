@@ -133,30 +133,30 @@ namespace Models
 
 
   protected:
-    // The client ID. The system generates a unique ID for each client.
+    // A unique ID that the client generates.
     // 
     // This parameter is required.
     shared_ptr<string> clientId_ {};
-    // The operating system (OS) of the device that runs the Alibaba Cloud Workspace client (hereinafter referred to as WUYING client).
+    // The operating system of the device where the client runs.
     shared_ptr<string> clientOS_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence of a request?](https://help.aliyun.com/document_detail/25693.html)
+    // A client token to ensure idempotence. Generate a unique ASCII string for each request. The string must be no more than 64 characters long. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The client version. If you use a WUYING client, you can view the client version in the **About** dialog box on the client logon page.
+    // The client version. If you use the WUYING Workspace client, find this value in the **About** dialog box on the logon screen.
     shared_ptr<string> clientVersion_ {};
-    // The IDs of the cloud computers. You can specify the IDs of 1 to 20 cloud computers.
+    // The IDs of the cloud computers. You can specify from 1 to 20 IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> desktopId_ {};
-    // The logon token.
+    // The logon credential.
     shared_ptr<string> loginToken_ {};
     shared_ptr<bool> osUpdate_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
+    // The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to get a list of regions where WUYING Workspace is available.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The session ID.
     shared_ptr<string> sessionId_ {};
-    // The logon token.
+    // The logon credential.
     shared_ptr<string> sessionToken_ {};
     shared_ptr<string> uuid_ {};
   };

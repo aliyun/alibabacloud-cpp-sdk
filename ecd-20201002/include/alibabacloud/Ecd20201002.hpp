@@ -102,10 +102,10 @@ namespace Ecd20201002
       Models::DescribeFingerPrintTemplatesResponse describeFingerPrintTemplates(const Models::DescribeFingerPrintTemplatesRequest &request);
 
       /**
-       * @summary Queries the details of cloud computers. Currently, only the region corresponding to the Chinese mainland can be queried (excluding: Nanjing-local region-shutting down).
+       * @summary Query detailed information about cloud desktops across multiple regions. You can query only regions in the Chinese mainland (excluding Nanjing – Local Region – Shutting Down).
        *
-       * @description *   This API is a centralized domain name. The endpoint is in the China (Shanghai) region. You cannot call this API operation in other regions.
-       * *   The cloud computer status information in this interface has a delay of 1 to 3 seconds from the actual value.
+       * @description - This API uses a centralized domain name with its endpoint in Shanghai. You cannot call this API from other regions.
+       * - The cloud desktop status returned by this API may be delayed by 1 to 3 seconds.
        *
        * @param request DescribeGlobalDesktopsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -114,10 +114,10 @@ namespace Ecd20201002
       Models::DescribeGlobalDesktopsResponse describeGlobalDesktopsWithOptions(const Models::DescribeGlobalDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of cloud computers. Currently, only the region corresponding to the Chinese mainland can be queried (excluding: Nanjing-local region-shutting down).
+       * @summary Query detailed information about cloud desktops across multiple regions. You can query only regions in the Chinese mainland (excluding Nanjing – Local Region – Shutting Down).
        *
-       * @description *   This API is a centralized domain name. The endpoint is in the China (Shanghai) region. You cannot call this API operation in other regions.
-       * *   The cloud computer status information in this interface has a delay of 1 to 3 seconds from the actual value.
+       * @description - This API uses a centralized domain name with its endpoint in Shanghai. You cannot call this API from other regions.
+       * - The cloud desktop status returned by this API may be delayed by 1 to 3 seconds.
        *
        * @param request DescribeGlobalDesktopsRequest
        * @return DescribeGlobalDesktopsResponse
@@ -125,7 +125,7 @@ namespace Ecd20201002
       Models::DescribeGlobalDesktopsResponse describeGlobalDesktops(const Models::DescribeGlobalDesktopsRequest &request);
 
       /**
-       * @summary Queries office networks.
+       * @summary Query the details of an office network.
        *
        * @param request DescribeOfficeSitesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -134,7 +134,7 @@ namespace Ecd20201002
       Models::DescribeOfficeSitesResponse describeOfficeSitesWithOptions(const Models::DescribeOfficeSitesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries office networks.
+       * @summary Query the details of an office network.
        *
        * @param request DescribeOfficeSitesRequest
        * @return DescribeOfficeSitesResponse
@@ -172,9 +172,9 @@ namespace Ecd20201002
       Models::DescribeSnapshotsResponse describeSnapshots(const Models::DescribeSnapshotsRequest &request);
 
       /**
-       * @summary Queries user resources.
+       * @summary Queries the list of resources owned by a user.
        *
-       * @description Before you call this operation, verify supported resource and service types in Alibaba Cloud Workspace.
+       * @description Make sure that you are familiar with the resource types and product types of WUYING before you call this operation.
        *
        * @param request DescribeUserResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,9 +183,9 @@ namespace Ecd20201002
       Models::DescribeUserResourcesResponse describeUserResourcesWithOptions(const Models::DescribeUserResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries user resources.
+       * @summary Queries the list of resources owned by a user.
        *
-       * @description Before you call this operation, verify supported resource and service types in Alibaba Cloud Workspace.
+       * @description Make sure that you are familiar with the resource types and product types of WUYING before you call this operation.
        *
        * @param request DescribeUserResourcesRequest
        * @return DescribeUserResourcesResponse
@@ -210,7 +210,7 @@ namespace Ecd20201002
       Models::EncryptPasswordResponse encryptPassword(const Models::EncryptPasswordRequest &request);
 
       /**
-       * @summary Retrieves the logon tokens for enterprise drives.
+       * @summary Obtain the logon credential for Enterprise File Gateway.
        *
        * @param request GetCloudDriveServiceMountTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -219,7 +219,7 @@ namespace Ecd20201002
       Models::GetCloudDriveServiceMountTokenResponse getCloudDriveServiceMountTokenWithOptions(const Models::GetCloudDriveServiceMountTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the logon tokens for enterprise drives.
+       * @summary Obtain the logon credential for Enterprise File Gateway.
        *
        * @param request GetCloudDriveServiceMountTokenRequest
        * @return GetCloudDriveServiceMountTokenResponse
@@ -227,9 +227,9 @@ namespace Ecd20201002
       Models::GetCloudDriveServiceMountTokenResponse getCloudDriveServiceMountToken(const Models::GetCloudDriveServiceMountTokenRequest &request);
 
       /**
-       * @summary Retrieves the credential that is used to connect to a cloud computer.
+       * @summary Obtains a connection ticket for a cloud computer.
        *
-       * @description The first time you call this operation, the system returns a task ID in the `TaskID` parameter. Use the task ID indicated in the `TaskID` parameter to continue calling this operation until the value of the `TaskStatus` parameter becomes `FINISHED` or `FAILED`. When `TaskStatus` becomes `FINISHED`, the value of the `Ticket` parameter is the ticket that is used to connect the client to the cloud computer.
+       * @description The first time you call this operation, it returns a `TaskID`. You can use this `TaskID` to call the operation again until `TaskStatus` changes to `FINISHED` or `FAILED`. If `TaskStatus` is `FINISHED`, the `Ticket` value is the connection ticket that the client uses to connect to the cloud computer.
        *
        * @param request GetConnectionTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -238,9 +238,9 @@ namespace Ecd20201002
       Models::GetConnectionTicketResponse getConnectionTicketWithOptions(const Models::GetConnectionTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the credential that is used to connect to a cloud computer.
+       * @summary Obtains a connection ticket for a cloud computer.
        *
-       * @description The first time you call this operation, the system returns a task ID in the `TaskID` parameter. Use the task ID indicated in the `TaskID` parameter to continue calling this operation until the value of the `TaskStatus` parameter becomes `FINISHED` or `FAILED`. When `TaskStatus` becomes `FINISHED`, the value of the `Ticket` parameter is the ticket that is used to connect the client to the cloud computer.
+       * @description The first time you call this operation, it returns a `TaskID`. You can use this `TaskID` to call the operation again until `TaskStatus` changes to `FINISHED` or `FAILED`. If `TaskStatus` is `FINISHED`, the `Ticket` value is the connection ticket that the client uses to connect to the cloud computer.
        *
        * @param request GetConnectionTicketRequest
        * @return GetConnectionTicketResponse
@@ -248,7 +248,7 @@ namespace Ecd20201002
       Models::GetConnectionTicketResponse getConnectionTicket(const Models::GetConnectionTicketRequest &request);
 
       /**
-       * @summary Obtains logon credentials.
+       * @summary Retrieves logon credentials.
        *
        * @param tmpReq GetLoginTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -257,29 +257,12 @@ namespace Ecd20201002
       Models::GetLoginTokenResponse getLoginTokenWithOptions(const Models::GetLoginTokenRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains logon credentials.
+       * @summary Retrieves logon credentials.
        *
        * @param request GetLoginTokenRequest
        * @return GetLoginTokenResponse
        */
       Models::GetLoginTokenResponse getLoginToken(const Models::GetLoginTokenRequest &request);
-
-      /**
-       * @summary Verifies whether the client\\"s logon session is still active.
-       *
-       * @param request IsKeepAliveRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return IsKeepAliveResponse
-       */
-      Models::IsKeepAliveResponse isKeepAliveWithOptions(const Models::IsKeepAliveRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Verifies whether the client\\"s logon session is still active.
-       *
-       * @param request IsKeepAliveRequest
-       * @return IsKeepAliveResponse
-       */
-      Models::IsKeepAliveResponse isKeepAlive(const Models::IsKeepAliveRequest &request);
 
       /**
        * @summary 查询Agent需要上报的配置信息
@@ -299,7 +282,7 @@ namespace Ecd20201002
       Models::QueryEdsAgentReportConfigResponse queryEdsAgentReportConfig(const Models::QueryEdsAgentReportConfigRequest &request);
 
       /**
-       * @summary Restart cloud computers.
+       * @summary You can restart one or more cloud desktops.
        *
        * @param request RebootDesktopsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -308,7 +291,7 @@ namespace Ecd20201002
       Models::RebootDesktopsResponse rebootDesktopsWithOptions(const Models::RebootDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restart cloud computers.
+       * @summary You can restart one or more cloud desktops.
        *
        * @param request RebootDesktopsRequest
        * @return RebootDesktopsResponse
@@ -316,6 +299,10 @@ namespace Ecd20201002
       Models::RebootDesktopsResponse rebootDesktops(const Models::RebootDesktopsRequest &request);
 
       /**
+       * @summary Purge the logon credential.
+       *
+       * @description The validity period of a logon credential (LoginToken) is 8 hours. If the end user does not log off from the client within 8 hours, the client must purge the logon credential.
+       *
        * @param request RefreshLoginTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RefreshLoginTokenResponse
@@ -323,6 +310,10 @@ namespace Ecd20201002
       Models::RefreshLoginTokenResponse refreshLoginTokenWithOptions(const Models::RefreshLoginTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Purge the logon credential.
+       *
+       * @description The validity period of a logon credential (LoginToken) is 8 hours. If the end user does not log off from the client within 8 hours, the client must purge the logon credential.
+       *
        * @param request RefreshLoginTokenRequest
        * @return RefreshLoginTokenResponse
        */
@@ -346,6 +337,8 @@ namespace Ecd20201002
       Models::ReportEdsAgentInfoResponse reportEdsAgentInfo(const Models::ReportEdsAgentInfoRequest &request);
 
       /**
+       * @summary Report session status.
+       *
        * @param request ReportSessionStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ReportSessionStatusResponse
@@ -353,6 +346,8 @@ namespace Ecd20201002
       Models::ReportSessionStatusResponse reportSessionStatusWithOptions(const Models::ReportSessionStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Report session status.
+       *
        * @param request ReportSessionStatusRequest
        * @return ReportSessionStatusResponse
        */
@@ -470,9 +465,9 @@ namespace Ecd20201002
       Models::StartRecordContentResponse startRecordContent(const Models::StartRecordContentRequest &request);
 
       /**
-       * @summary Stops cloud computers.
+       * @summary Stops one or more cloud computers.
        *
-       * @description The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
+       * @description You can stop only cloud computers that are in the Running state. After you call this operation, their state changes to Stopped.
        *
        * @param request StopDesktopsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -481,9 +476,9 @@ namespace Ecd20201002
       Models::StopDesktopsResponse stopDesktopsWithOptions(const Models::StopDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops cloud computers.
+       * @summary Stops one or more cloud computers.
        *
-       * @description The cloud computers that you want to stop must be in the Running state. After you call this operation, the cloud computers enter the Stopped state.
+       * @description You can stop only cloud computers that are in the Running state. After you call this operation, their state changes to Stopped.
        *
        * @param request StopDesktopsRequest
        * @return StopDesktopsResponse

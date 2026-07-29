@@ -105,13 +105,29 @@ namespace Models
   protected:
     shared_ptr<string> desktopId_ {};
     shared_ptr<string> p2PToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The ticket used to connect to the user instance. Before you use the ticket, decode its content from Base64, save it as an .ica file, and then open the file. The following code provides a Python example:
+    // 
+    // ```
+    // import base64
+    // response = {
+    //     "Ticket": "W0VuY29kaW5nXQ0KSW5wdXRFbmNvZGluZz1V********",
+    //     "RequestId": "1CBAFFAB-B697-4049-A9B1-67E1FC5F****",
+    // }
+    // f = open (\\"xxx.ica\\", \\"w\\")
+    // out = base64.b64decode(response[\\"Ticket\\"])
+    // f.write(out)
+    // f.close()
+    // ```
     shared_ptr<string> taskCode_ {};
-    // The ID of the task to connect to the cloud computer.
+    // The ID of the cloud computer connection task.
     shared_ptr<string> taskId_ {};
+    // The ID of the cloud computer connection task.
     shared_ptr<string> taskMessage_ {};
+    // The task status.
     shared_ptr<string> taskStatus_ {};
-    // The credentials for connecting to the cloud computer.
+    // The connection ticket for the cloud computer.
     shared_ptr<string> ticket_ {};
   };
 
