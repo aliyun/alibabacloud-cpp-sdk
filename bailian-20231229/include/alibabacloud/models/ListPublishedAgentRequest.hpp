@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTPUBLISHEDAGENTREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_LISTPUBLISHEDAGENTREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -15,10 +16,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListPublishedAgentRequest& obj) { 
       DARABONBA_PTR_TO_JSON(pageNo, pageNo_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(subTypes, subTypes_);
     };
     friend void from_json(const Darabonba::Json& j, ListPublishedAgentRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(pageNo, pageNo_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(subTypes, subTypes_);
     };
     ListPublishedAgentRequest() = default ;
     ListPublishedAgentRequest(const ListPublishedAgentRequest &) = default ;
@@ -32,7 +35,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageNo_ == nullptr
-        && this->pageSize_ == nullptr; };
+        && this->pageSize_ == nullptr && this->subTypes_ == nullptr; };
     // pageNo Field Functions 
     bool hasPageNo() const { return this->pageNo_ != nullptr;};
     void deletePageNo() { this->pageNo_ = nullptr;};
@@ -47,9 +50,19 @@ namespace Models
     inline ListPublishedAgentRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // subTypes Field Functions 
+    bool hasSubTypes() const { return this->subTypes_ != nullptr;};
+    void deleteSubTypes() { this->subTypes_ = nullptr;};
+    inline const vector<string> & getSubTypes() const { DARABONBA_PTR_GET_CONST(subTypes_, vector<string>) };
+    inline vector<string> getSubTypes() { DARABONBA_PTR_GET(subTypes_, vector<string>) };
+    inline ListPublishedAgentRequest& setSubTypes(const vector<string> & subTypes) { DARABONBA_PTR_SET_VALUE(subTypes_, subTypes) };
+    inline ListPublishedAgentRequest& setSubTypes(vector<string> && subTypes) { DARABONBA_PTR_SET_RVALUE(subTypes_, subTypes) };
+
+
   protected:
     shared_ptr<int32_t> pageNo_ {};
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<vector<string>> subTypes_ {};
   };
 
   } // namespace Models

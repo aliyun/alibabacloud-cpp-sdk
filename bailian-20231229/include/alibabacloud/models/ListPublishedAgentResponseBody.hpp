@@ -70,16 +70,22 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const List& obj) { 
           DARABONBA_PTR_TO_JSON(applicationConfig, applicationConfig_);
           DARABONBA_PTR_TO_JSON(code, code_);
+          DARABONBA_PTR_TO_JSON(description, description_);
           DARABONBA_PTR_TO_JSON(instructions, instructions_);
           DARABONBA_PTR_TO_JSON(modelId, modelId_);
           DARABONBA_PTR_TO_JSON(name, name_);
+          DARABONBA_PTR_TO_JSON(subType, subType_);
+          DARABONBA_PTR_TO_JSON(type, type_);
         };
         friend void from_json(const Darabonba::Json& j, List& obj) { 
           DARABONBA_PTR_FROM_JSON(applicationConfig, applicationConfig_);
           DARABONBA_PTR_FROM_JSON(code, code_);
+          DARABONBA_PTR_FROM_JSON(description, description_);
           DARABONBA_PTR_FROM_JSON(instructions, instructions_);
           DARABONBA_PTR_FROM_JSON(modelId, modelId_);
           DARABONBA_PTR_FROM_JSON(name, name_);
+          DARABONBA_PTR_FROM_JSON(subType, subType_);
+          DARABONBA_PTR_FROM_JSON(type, type_);
         };
         List() = default ;
         List(const List &) = default ;
@@ -512,7 +518,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->applicationConfig_ == nullptr
-        && this->code_ == nullptr && this->instructions_ == nullptr && this->modelId_ == nullptr && this->name_ == nullptr; };
+        && this->code_ == nullptr && this->description_ == nullptr && this->instructions_ == nullptr && this->modelId_ == nullptr && this->name_ == nullptr
+        && this->subType_ == nullptr && this->type_ == nullptr; };
         // applicationConfig Field Functions 
         bool hasApplicationConfig() const { return this->applicationConfig_ != nullptr;};
         void deleteApplicationConfig() { this->applicationConfig_ = nullptr;};
@@ -527,6 +534,13 @@ namespace Models
         void deleteCode() { this->code_ = nullptr;};
         inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
         inline List& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline List& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
         // instructions Field Functions 
@@ -550,12 +564,29 @@ namespace Models
         inline List& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+        // subType Field Functions 
+        bool hasSubType() const { return this->subType_ != nullptr;};
+        void deleteSubType() { this->subType_ = nullptr;};
+        inline string getSubType() const { DARABONBA_PTR_GET_DEFAULT(subType_, "") };
+        inline List& setSubType(string subType) { DARABONBA_PTR_SET_VALUE(subType_, subType) };
+
+
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline int32_t getType() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
+        inline List& setType(int32_t type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
       protected:
         shared_ptr<List::ApplicationConfig> applicationConfig_ {};
         shared_ptr<string> code_ {};
+        shared_ptr<string> description_ {};
         shared_ptr<string> instructions_ {};
         shared_ptr<string> modelId_ {};
         shared_ptr<string> name_ {};
+        shared_ptr<string> subType_ {};
+        shared_ptr<int32_t> type_ {};
       };
 
       virtual bool empty() const override { return this->list_ == nullptr

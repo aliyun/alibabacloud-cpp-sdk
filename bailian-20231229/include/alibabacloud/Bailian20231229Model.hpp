@@ -160,6 +160,7 @@
 #include <alibabacloud/models/ListPromptTemplatesResponseBody.hpp>
 #include <alibabacloud/models/ListPromptTemplatesResponse.hpp>
 #include <alibabacloud/models/ListPublishedAgentRequest.hpp>
+#include <alibabacloud/models/ListPublishedAgentShrinkRequest.hpp>
 #include <alibabacloud/models/ListPublishedAgentResponseBody.hpp>
 #include <alibabacloud/models/ListPublishedAgentResponse.hpp>
 #include <alibabacloud/models/RetrieveRequest.hpp>
