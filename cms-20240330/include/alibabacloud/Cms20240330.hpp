@@ -457,6 +457,40 @@ namespace Cms20240330
       Models::CreateServiceRecordResponse createServiceRecord(const string &workspace, const string &serviceId, const Models::CreateServiceRecordRequest &request);
 
       /**
+       * @summary Creates a ServiceTask (heap dump or LiveDebug diagnostic task) for a specified application.
+       *
+       * @description Creates a service task for an application in a specified workspace.
+       * Common use cases:
+       * - heapdump: Triggers a JVM heap dump.
+       * - LiveDebug Probe: Dynamically instruments a target method (log, snapshot, metric, span, etc.).
+       * - LiveDebug Command: Performs a one-time active inspection (OGNL, decompilation, thread/memory information, etc.).
+       * - LiveDebug Code Replace: Performs hot code replacement.
+       * After successful creation, a taskId is returned. You can manage the task by using GetServiceTask, ListServiceTask, or DeleteServiceTask. After a LiveDebug task is created, the configuration is synchronously delivered to ConfigServer.
+       *
+       * @param request CreateServiceTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateServiceTaskResponse
+       */
+      Models::CreateServiceTaskResponse createServiceTaskWithOptions(const string &workspace, const string &serviceId, const Models::CreateServiceTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a ServiceTask (heap dump or LiveDebug diagnostic task) for a specified application.
+       *
+       * @description Creates a service task for an application in a specified workspace.
+       * Common use cases:
+       * - heapdump: Triggers a JVM heap dump.
+       * - LiveDebug Probe: Dynamically instruments a target method (log, snapshot, metric, span, etc.).
+       * - LiveDebug Command: Performs a one-time active inspection (OGNL, decompilation, thread/memory information, etc.).
+       * - LiveDebug Code Replace: Performs hot code replacement.
+       * After successful creation, a taskId is returned. You can manage the task by using GetServiceTask, ListServiceTask, or DeleteServiceTask. After a LiveDebug task is created, the configuration is synchronously delivered to ConfigServer.
+       *
+       * @param request CreateServiceTaskRequest
+       * @return CreateServiceTaskResponse
+       */
+      Models::CreateServiceTaskResponse createServiceTask(const string &workspace, const string &serviceId, const Models::CreateServiceTaskRequest &request);
+
+      /**
        * @summary To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
        *
        * @param request CreateTicketRequest
@@ -923,6 +957,32 @@ namespace Cms20240330
        * @return DeleteServiceRecordResponse
        */
       Models::DeleteServiceRecordResponse deleteServiceRecord(const string &workspace, const string &serviceId, const Models::DeleteServiceRecordRequest &request);
+
+      /**
+       * @summary Deletes a specified ServiceTask under a specified application.
+       *
+       * @description Deletes a specified service task by taskId.
+       * heapdump: Simultaneously deletes the corresponding heap dump record.
+       * LiveDebug: After deleting the task record, synchronously updates the live_debug aggregation configuration on ConfigServer.
+       *
+       * @param request DeleteServiceTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteServiceTaskResponse
+       */
+      Models::DeleteServiceTaskResponse deleteServiceTaskWithOptions(const string &workspace, const string &serviceId, const string &taskId, const Models::DeleteServiceTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a specified ServiceTask under a specified application.
+       *
+       * @description Deletes a specified service task by taskId.
+       * heapdump: Simultaneously deletes the corresponding heap dump record.
+       * LiveDebug: After deleting the task record, synchronously updates the live_debug aggregation configuration on ConfigServer.
+       *
+       * @param request DeleteServiceTaskRequest
+       * @return DeleteServiceTaskResponse
+       */
+      Models::DeleteServiceTaskResponse deleteServiceTask(const string &workspace, const string &serviceId, const string &taskId, const Models::DeleteServiceTaskRequest &request);
 
       /**
        * @summary Deletes a Umodel configuration.
@@ -1689,6 +1749,30 @@ namespace Cms20240330
       Models::GetServiceRecordResponse getServiceRecord(const string &workspace, const string &serviceId, const Models::GetServiceRecordRequest &request);
 
       /**
+       * @summary 查询ServiceTask
+       *
+       * @description 根据 taskId 查询单个服务任务详情。
+       * 返回内容随 type 变化：heapdump 返回堆转储任务信息；LiveDebug 返回任务记录及 taskConfig（extraInfo）等字段。
+       *
+       * @param request GetServiceTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetServiceTaskResponse
+       */
+      Models::GetServiceTaskResponse getServiceTaskWithOptions(const string &workspace, const string &serviceId, const string &taskId, const Models::GetServiceTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询ServiceTask
+       *
+       * @description 根据 taskId 查询单个服务任务详情。
+       * 返回内容随 type 变化：heapdump 返回堆转储任务信息；LiveDebug 返回任务记录及 taskConfig（extraInfo）等字段。
+       *
+       * @param request GetServiceTaskRequest
+       * @return GetServiceTaskResponse
+       */
+      Models::GetServiceTaskResponse getServiceTask(const string &workspace, const string &serviceId, const string &taskId, const Models::GetServiceTaskRequest &request);
+
+      /**
        * @summary Retrieves the configuration of a Umodel.
        *
        * @description Retrieves the configuration of a Umodel.
@@ -2339,6 +2423,36 @@ namespace Cms20240330
        * @return ListServiceRecordsResponse
        */
       Models::ListServiceRecordsResponse listServiceRecords(const string &workspace, const Models::ListServiceRecordsRequest &request);
+
+      /**
+       * @summary 列举ServiceTask
+       *
+       * @description 按任务类型列举应用下的服务任务。
+       * - type=heapdump：返回堆转储任务列表
+       * - type=pprof：返回 pprof dump 列表（需配合 searchCondition）
+       * - type=live_debug_*：返回对应 LiveDebug 任务列表
+       * 支持 nextToken / maxResults 分页，以及 searchCondition 过滤。
+       *
+       * @param request ListServiceTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListServiceTaskResponse
+       */
+      Models::ListServiceTaskResponse listServiceTaskWithOptions(const string &workspace, const string &serviceId, const Models::ListServiceTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列举ServiceTask
+       *
+       * @description 按任务类型列举应用下的服务任务。
+       * - type=heapdump：返回堆转储任务列表
+       * - type=pprof：返回 pprof dump 列表（需配合 searchCondition）
+       * - type=live_debug_*：返回对应 LiveDebug 任务列表
+       * 支持 nextToken / maxResults 分页，以及 searchCondition 过滤。
+       *
+       * @param request ListServiceTaskRequest
+       * @return ListServiceTaskResponse
+       */
+      Models::ListServiceTaskResponse listServiceTask(const string &workspace, const string &serviceId, const Models::ListServiceTaskRequest &request);
 
       /**
        * @summary Queries a list of application observability services.

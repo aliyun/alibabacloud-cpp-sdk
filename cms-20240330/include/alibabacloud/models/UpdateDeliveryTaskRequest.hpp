@@ -87,12 +87,9 @@ namespace Models
 
 
     protected:
-      // The detailed configuration of the delivery target. The meanings of the key/value pairs vary depending on the sinkType.
+      // The detailed configuration of the delivery target. The meanings of key/value pairs vary depending on the sinkType.
       shared_ptr<map<string, string>> sinkConfigs_ {};
-      // The delivery target type. Valid values:
-      // - AcsMaxCompute: MaxCompute.
-      // - AcsKafka: Message Queue for Apache Kafka.
-      // - Prometheus: Managed Service for Prometheus.
+      // The delivery target type.
       shared_ptr<string> sinkType_ {};
     };
 
@@ -173,24 +170,23 @@ namespace Models
     shared_ptr<string> dataSourceId_ {};
     // The additional labels attached to all delivered metrics. The key is the label name and the value is the label value.
     shared_ptr<map<string, string>> externalLabels_ {};
-    // The metric filter conditions. The entire value is replaced and not incrementally merged.
+    // The metric filter conditions. The entire value is replaced and incremental merging is not performed.
     shared_ptr<map<string, string>> labelFilters_ {};
-    // The metric filtering mode. Valid values:
-    // - Deny: denied.
-    // - Allow: allowed.
+    // The metric filtering mode.
     shared_ptr<string> labelFiltersType_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The list of delivery targets.
     shared_ptr<vector<UpdateDeliveryTaskRequest::SinkList>> sinkList_ {};
-    // The task status. This parameter is used to start or stop the task. Valid values:
-    // - Running: running.
-    // - Enable: enabled.
-    // - Disable: disabled.
+    // The task status. This parameter is used to start or stop a task. Valid values:
+    // 
+    // - Enable: enables the task.
+    // - Disable: disables the task.
+    // - Running: the task is running.
     shared_ptr<string> status_ {};
     // The task description.
     shared_ptr<string> taskDescription_ {};
-    // The task name. The name can contain letters, digits, underscores (_), and hyphens (-), and can also contain Chinese characters.
+    // The task name. The name can contain letters, digits, underscores (_), and hyphens (-), and can be in Chinese.
     shared_ptr<string> taskName_ {};
   };
 

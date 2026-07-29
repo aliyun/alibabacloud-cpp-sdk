@@ -262,6 +262,9 @@
 #include <alibabacloud/models/CreateServiceRecordRequest.hpp>
 #include <alibabacloud/models/CreateServiceRecordResponseBody.hpp>
 #include <alibabacloud/models/CreateServiceRecordResponse.hpp>
+#include <alibabacloud/models/CreateServiceTaskRequest.hpp>
+#include <alibabacloud/models/CreateServiceTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateServiceTaskResponse.hpp>
 #include <alibabacloud/models/CreateTicketRequest.hpp>
 #include <alibabacloud/models/CreateTicketResponseBody.hpp>
 #include <alibabacloud/models/CreateTicketResponse.hpp>
@@ -337,6 +340,9 @@
 #include <alibabacloud/models/DeleteServiceRecordRequest.hpp>
 #include <alibabacloud/models/DeleteServiceRecordResponseBody.hpp>
 #include <alibabacloud/models/DeleteServiceRecordResponse.hpp>
+#include <alibabacloud/models/DeleteServiceTaskRequest.hpp>
+#include <alibabacloud/models/DeleteServiceTaskResponseBody.hpp>
+#include <alibabacloud/models/DeleteServiceTaskResponse.hpp>
 #include <alibabacloud/models/DeleteUmodelRequest.hpp>
 #include <alibabacloud/models/DeleteUmodelResponseBody.hpp>
 #include <alibabacloud/models/DeleteUmodelResponse.hpp>
@@ -451,6 +457,9 @@
 #include <alibabacloud/models/GetServiceRecordRequest.hpp>
 #include <alibabacloud/models/GetServiceRecordResponseBody.hpp>
 #include <alibabacloud/models/GetServiceRecordResponse.hpp>
+#include <alibabacloud/models/GetServiceTaskRequest.hpp>
+#include <alibabacloud/models/GetServiceTaskResponseBody.hpp>
+#include <alibabacloud/models/GetServiceTaskResponse.hpp>
 #include <alibabacloud/models/GetUmodelRequest.hpp>
 #include <alibabacloud/models/GetUmodelResponseBody.hpp>
 #include <alibabacloud/models/GetUmodelResponse.hpp>
@@ -560,6 +569,9 @@
 #include <alibabacloud/models/ListServiceRecordsRequest.hpp>
 #include <alibabacloud/models/ListServiceRecordsResponseBody.hpp>
 #include <alibabacloud/models/ListServiceRecordsResponse.hpp>
+#include <alibabacloud/models/ListServiceTaskRequest.hpp>
+#include <alibabacloud/models/ListServiceTaskResponseBody.hpp>
+#include <alibabacloud/models/ListServiceTaskResponse.hpp>
 #include <alibabacloud/models/ListServicesRequest.hpp>
 #include <alibabacloud/models/ListServicesShrinkRequest.hpp>
 #include <alibabacloud/models/ListServicesResponseBody.hpp>
