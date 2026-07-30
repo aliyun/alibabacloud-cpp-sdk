@@ -258,7 +258,7 @@ namespace Models
       shared_ptr<string> desktopStatus_ {};
       // The cloud desktop specifications.
       shared_ptr<string> desktopType_ {};
-      // The time when the cloud desktop expires. This value is returned only for cloud desktops whose billable methods is subscription.
+      // The time when the cloud desktop expires. This value is returned only for cloud desktops that use the subscription billable method.
       shared_ptr<string> expiredTime_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
@@ -278,7 +278,7 @@ namespace Models
       shared_ptr<string> resourceGroupId_ {};
       // The resource group name.
       shared_ptr<string> resourceGroupName_ {};
-      // The start time of the cloud desktop.
+      // The time when the cloud desktop was started.
       shared_ptr<string> startTime_ {};
     };
 

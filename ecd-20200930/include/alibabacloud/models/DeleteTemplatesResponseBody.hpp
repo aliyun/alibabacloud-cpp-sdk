@@ -84,23 +84,20 @@ namespace Models
 
 
   protected:
-    // The information about the request denial..
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The modification result. If the request was successful, `success` is returned. If the request failed, an error message is returned.
+    // The operation result. The value `success` indicates success. Otherwise, an error message is returned.
     shared_ptr<string> code_ {};
-    // The description of the error code.
+    // The error code description.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned. This parameter is not returned if the value of Code is `success`.
+    // The error message. This parameter is not returned if Code is `success`.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful. Valid values:
     // 
-    // Valid values:
-    // 
-    // - true: The request is successful.
-    // 
-    // - false: The request failed.
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

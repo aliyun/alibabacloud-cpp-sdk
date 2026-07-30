@@ -94,32 +94,25 @@ namespace Models
 
 
   protected:
-    // The enterprise drive ID.
+    // The enterprise cloud disk ID.
     // 
     // This parameter is required.
     shared_ptr<string> cdsId_ {};
-    // The processing policy when a file with the same name appears.
-    // 
-    // Valid values:
-    // 
-    // *   refuse: If you want to create a file that uses the same name as an existing file in the cloud, the system denies your request and returns the details of the existing file.
-    // *   auto_rename: automatically renames a file if the file has the same name as an existing file in the cloud. By default, the current point in time is appended to the end of the original file name. Example: xxx20240102_150405.
-    // *   ignore: allows the file to be with the same name.
-    // *   over_write: After you create a file that uses the same name as an existing file in the cloud, the new file overwrites the existing file.
+    // The conflict resolution policy when a file with the same name exists.
     shared_ptr<string> conflictPolicy_ {};
-    // The ID of the user who uses the network disk.
+    // The ID of the user who uses the cloud disk.
     shared_ptr<string> endUserId_ {};
-    // The ID of the file. You can call the [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) operation to query the ID of the file.
+    // The file ID. You can call [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) to query the ID of the file.
     // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
-    // The name of the file.
+    // The file name.
     // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
-    // The ID of the team space.
+    // The team space ID.
     shared_ptr<string> groupId_ {};
-    // The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

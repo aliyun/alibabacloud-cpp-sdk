@@ -91,12 +91,11 @@ namespace Models
     // The query interval. Unit: seconds. Valid values:
     // 
     // - 60
-    // 
     // - 120
     shared_ptr<int32_t> period_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // Specifies to search for session information by region ID. This parameter is used to filter desktop information of a specific region.
+    // The region ID used to filter desktop information for a specified region.
     shared_ptr<string> searchRegionId_ {};
     // The beginning of the time range to query.
     shared_ptr<string> startTime_ {};

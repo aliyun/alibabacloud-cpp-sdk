@@ -203,60 +203,37 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The Alibaba Cloud account ID.
       shared_ptr<string> aliUid_ {};
-      // The description of the storage resource.
+      // The storage resource description.
       shared_ptr<string> description_ {};
-      // The ID of the storage resource.
+      // The storage resource ID.
       shared_ptr<string> domainId_ {};
-      // The ID of the user-level storage resource.
+      // The user-level storage resource ID.
       shared_ptr<string> driveId_ {};
-      // The ID of the external user-level storage resource.
-      // 
-      // > A value is returned for this parameter only if ResourceType is set to PDS.
+      // The external user-level storage resource ID.
+      // > This parameter is returned only when the storage resource type is PDS.
       shared_ptr<string> externalDriveId_ {};
-      // The ID of the external user.
+      // The external user ID.
       shared_ptr<string> externalUserId_ {};
-      // The time when the storage resource was created.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the storage resource was last modified.
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // The ID.
+      // ID。
       shared_ptr<string> id_ {};
-      // The name of the storage resource.
+      // The storage resource name.
       shared_ptr<string> name_ {};
       // > This parameter is deprecated.
       shared_ptr<bool> profileRoaming_ {};
       // The status of the user-level storage resource.
-      // 
-      // Valid values:
-      // 
-      // - INIT: initializing
-      // 
-      // - MAINTAIN: maintaining
-      // 
-      // - DELETING
-      // 
-      // - INVALID
-      // 
-      // - NORMAL
-      // 
-      // - FAIL: failed
       shared_ptr<string> status_ {};
-      // The total amount of the user-level storage resource capacity.
-      // 
+      // The total capacity of the user-level storage resource.
       // > Unit: bytes.
       shared_ptr<int64_t> totalSize_ {};
-      // The usage of the storage resource.
-      // 
-      // Valid values:
-      // 
-      // - DESKTOP: data disk space
-      // 
-      // - USER_PROFILE: space for personal data of the user
+      // The purpose of the storage resource.
       shared_ptr<string> type_ {};
-      // The amount of user-level storage resource capacity used.
-      // 
+      // The used capacity of the user-level storage resource.
       // > Unit: bytes.
       shared_ptr<int64_t> usedSize_ {};
       // The user ID.
@@ -303,13 +280,13 @@ namespace Models
 
 
   protected:
-    // The response code. The value 200 indicates that the request was successful.
+    // The response code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
     // The user-level storage resource.
     shared_ptr<CreateDriveResponseBody::Drive> drive_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

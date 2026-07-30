@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The date for which to query data, in YYYY-MM-DD format. Default: the previous day (T-1).
+    // The statistical date. Format: "YYYY-MM-DD". Default value: T-1.
     shared_ptr<string> dataDate_ {};
   };
 

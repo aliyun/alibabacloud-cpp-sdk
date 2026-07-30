@@ -432,9 +432,9 @@ namespace Models
       // - Windows
       // - Linux
       shared_ptr<string> osType_ {};
-      // The specific operating system version.
+      // The specific operating system model.
       shared_ptr<string> platform_ {};
-      // The protocol type. Valid values:
+      // The protocol type.
       // 
       // - HDX
       // - ASP

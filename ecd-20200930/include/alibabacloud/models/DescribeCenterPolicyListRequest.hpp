@@ -121,10 +121,10 @@ namespace Models
     // This parameter is required.
     shared_ptr<int32_t> businessType_ {};
     shared_ptr<string> modelLibrary_ {};
-    // The page number of the current page in a paged query. Paging starts from page 1.    
+    // The page number of the current page in a paging query.    
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of entries per page in a paged query. Paging is used to return results in batches.
+    // The maximum number of entries per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
     // The list of cloud desktop policy IDs.
     shared_ptr<vector<string>> policyGroupId_ {};

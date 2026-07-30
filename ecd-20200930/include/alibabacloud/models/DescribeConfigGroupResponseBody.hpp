@@ -171,44 +171,29 @@ namespace Models
 
 
     protected:
-      // The number of resources that are bound to the configuration group.
+      // The number of resources bound to the configuration group.
       shared_ptr<int32_t> bindCount_ {};
-      // The number of bound cloud computers.
+      // The quantity information of resources bound to the configuration group.
       shared_ptr<map<string, int32_t>> bindCountMap_ {};
       // The description of the configuration group.
       shared_ptr<string> description_ {};
-      // The ID of the configuration group.
+      // The configuration group ID.
       shared_ptr<string> groupId_ {};
-      // Used for frontend display. The system scheduled task description uses a code.
+      // Used for frontend display. The code for the system scheduled task description.
       shared_ptr<string> innerTimerDesc_ {};
-      // Used for frontend display; maps the system scheduled task name to a code.
+      // Used for frontend display. The mapping code for the system scheduled task name.
       shared_ptr<string> innerTimerName_ {};
-      // Used for system scheduled task checks. The current scheduled task does not support detach or attach operations.
+      // Used by system scheduled task check. The current scheduled task does not support unbinding or binding.
       shared_ptr<bool> isBind_ {};
-      // Used for system scheduled task checks. The current scheduled task does not support modification.
+      // Used by system scheduled task check. The current scheduled task does not support modification.
       shared_ptr<bool> isUpdate_ {};
-      // The name of the configuration group.
+      // The configuration group name.
       shared_ptr<string> name_ {};
-      // The service type of the configuration group.
-      // 
-      // Valid values:
-      // 
-      // *   CLOUD_DESKTOP: the cloud computer service.
+      // The product type used by the configuration group.
       shared_ptr<string> productType_ {};
-      // The state of the configuration group.
-      // 
-      // Valid values:
-      // 
-      // *   AVAILABLE: The configuration group is available.
-      // *   UNAVAILABLE: The configuration group is deleted.
-      // *   DELETING: The configuration group is being deleted.
-      // *   UPDATING: The configuration group is being modified.
+      // The configuration group status.
       shared_ptr<string> status_ {};
-      // The type of the configuration group.
-      // 
-      // Valid values:
-      // 
-      // *   Timer: the scheduled task type.
+      // The configuration group type.
       shared_ptr<string> type_ {};
     };
 
@@ -252,15 +237,15 @@ namespace Models
 
 
   protected:
-    // The configuration groups.
+    // The configuration group information.
     shared_ptr<vector<DescribeConfigGroupResponseBody::Data>> data_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of query results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

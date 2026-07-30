@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The result of the operation. A value of `success` indicates that the operation was successful. Otherwise, an error message is returned.
+    // The execution result. The value `success` indicates success. Otherwise, an error message is returned.
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message. This parameter is not returned if the value of Code is `success`.
+    // The error message. This parameter is not returned when Code is `success`.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful. Valid values: true and false.
+    // Indicates whether the operation was successful. Valid values: true: The operation was successful. false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

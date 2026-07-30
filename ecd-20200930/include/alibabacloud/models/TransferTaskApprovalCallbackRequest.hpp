@@ -66,18 +66,13 @@ namespace Models
 
 
   protected:
-    // The name of the OSS bucket where the file resides.
+    // The name of the bucket where the file is stored.
     shared_ptr<string> ossBucketName_ {};
-    // The region where the OSS bucket storing the file resides.
+    // The region of the bucket where the file is stored.
     shared_ptr<string> ossBucketRegionId_ {};
     // The approval result.
-    // 
-    // Valid values:
-    // 
-    // *   Approved
-    // *   Rejected
     shared_ptr<string> result_ {};
-    // The ID of the transmission task.
+    // The ID of the transfer task.
     shared_ptr<string> taskId_ {};
   };
 

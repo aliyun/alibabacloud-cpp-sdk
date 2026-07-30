@@ -56,6 +56,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(OfficeSites, officeSites_);
         DARABONBA_PTR_TO_JSON(ProductType, productType_);
         DARABONBA_PTR_TO_JSON(ProfileCompatible, profileCompatible_);
+        DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(Scene, scene_);
         DARABONBA_PTR_TO_JSON(SizeQuota, sizeQuota_);
@@ -83,6 +84,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(OfficeSites, officeSites_);
         DARABONBA_PTR_FROM_JSON(ProductType, productType_);
         DARABONBA_PTR_FROM_JSON(ProfileCompatible, profileCompatible_);
+        DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(Scene, scene_);
         DARABONBA_PTR_FROM_JSON(SizeQuota, sizeQuota_);
@@ -139,9 +141,9 @@ namespace Models
 
 
       protected:
-        // The ID of the office network.
+        // The office network ID.
         shared_ptr<string> officeSiteId_ {};
-        // The name of the office network.
+        // The office network name.
         shared_ptr<string> officeSiteName_ {};
       };
 
@@ -183,9 +185,9 @@ namespace Models
 
 
       protected:
-        // The ID of the desktop group.
+        // The shared cloud computer ID.
         shared_ptr<string> desktopGroupId_ {};
-        // The name of the desktop group.
+        // The shared cloud computer name.
         shared_ptr<string> desktopGroupName_ {};
       };
 
@@ -227,9 +229,9 @@ namespace Models
 
 
       protected:
-        // The ID of the application delivery group.
+        // The delivery group ID.
         shared_ptr<string> appInstanceGroupId_ {};
-        // The name of the application delivery group.
+        // The delivery group name.
         shared_ptr<string> appInstanceGroupName_ {};
       };
 
@@ -237,8 +239,8 @@ namespace Models
         && this->appInstanceGroups_ == nullptr && this->capacity_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->desktopGroups_ == nullptr
         && this->encryptionEnabled_ == nullptr && this->fileSystemId_ == nullptr && this->fileSystemName_ == nullptr && this->fileSystemStatus_ == nullptr && this->fileSystemType_ == nullptr
         && this->meteredSize_ == nullptr && this->mountTargetDomain_ == nullptr && this->mountTargetStatus_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr
-        && this->officeSites_ == nullptr && this->productType_ == nullptr && this->profileCompatible_ == nullptr && this->regionId_ == nullptr && this->scene_ == nullptr
-        && this->sizeQuota_ == nullptr && this->storageType_ == nullptr && this->supportAcl_ == nullptr && this->zoneId_ == nullptr; };
+        && this->officeSites_ == nullptr && this->productType_ == nullptr && this->profileCompatible_ == nullptr && this->protocolType_ == nullptr && this->regionId_ == nullptr
+        && this->scene_ == nullptr && this->sizeQuota_ == nullptr && this->storageType_ == nullptr && this->supportAcl_ == nullptr && this->zoneId_ == nullptr; };
       // allowOperateUserDrive Field Functions 
       bool hasAllowOperateUserDrive() const { return this->allowOperateUserDrive_ != nullptr;};
       void deleteAllowOperateUserDrive() { this->allowOperateUserDrive_ = nullptr;};
@@ -378,6 +380,13 @@ namespace Models
       inline FileSystems& setProfileCompatible(bool profileCompatible) { DARABONBA_PTR_SET_VALUE(profileCompatible_, profileCompatible) };
 
 
+      // protocolType Field Functions 
+      bool hasProtocolType() const { return this->protocolType_ != nullptr;};
+      void deleteProtocolType() { this->protocolType_ = nullptr;};
+      inline string getProtocolType() const { DARABONBA_PTR_GET_DEFAULT(protocolType_, "") };
+      inline FileSystems& setProtocolType(string protocolType) { DARABONBA_PTR_SET_VALUE(protocolType_, protocolType) };
+
+
       // regionId Field Functions 
       bool hasRegionId() const { return this->regionId_ != nullptr;};
       void deleteRegionId() { this->regionId_ = nullptr;};
@@ -421,57 +430,57 @@ namespace Models
 
 
     protected:
-      // > This parameter is not publicly available.
+      // > This field is not publicly available.
       shared_ptr<bool> allowOperateUserDrive_ {};
-      // The application delivery groups associated with the UPM-supported NAS file system.
+      // The list of cloud application delivery group objects bound to the UPM-supported NAS file system.
       shared_ptr<vector<FileSystems::AppInstanceGroups>> appInstanceGroups_ {};
-      // The storage capacity of the NAS file system, in GiB.
+      // The total capacity of the NAS file system. Unit: GiB.
       // 
-      // - If the storage type is capacity type, the capacity is 10 PiB (10,485,760 GiB).
-      // 
-      // - If the storage type is performance type, the capacity is 1 PiB (1,048,576 GiB).
+      // - If the storage type is Capacity, the capacity is fixed at 10 PiB (10485760 GiB).
+      // - If the storage type is Performance, the capacity is fixed at 1 PiB (1048576 GiB).
       shared_ptr<int64_t> capacity_ {};
-      // The creation time of the NAS file system.
+      // The time when the NAS file system was created.
       shared_ptr<string> createTime_ {};
-      // The description of the NAS file system.
+      // The NAS file system description.
       shared_ptr<string> description_ {};
-      // The desktop groups associated with the UPM-supported NAS file system.
+      // The list of shared cloud computer objects bound to the UPM-supported NAS file system.
       shared_ptr<vector<FileSystems::DesktopGroups>> desktopGroups_ {};
       // Indicates whether disk encryption is enabled.
       shared_ptr<bool> encryptionEnabled_ {};
-      // The ID of the NAS file system.
+      // The NAS file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The name of the NAS file system.
+      // The NAS file system name.
       shared_ptr<string> fileSystemName_ {};
-      // The status of the NAS file system.
+      // The NAS file system status.
       shared_ptr<string> fileSystemStatus_ {};
-      // The type of the NAS file system. Currently, only the standard type is supported. The value is always `standard`.
+      // The type of the NAS file system. Currently, only the general-purpose type is supported, which is `standard`.
       shared_ptr<string> fileSystemType_ {};
-      // The amount of storage used by the NAS file system, in bytes.
+      // The used capacity of the NAS file system. Unit: bytes.
       shared_ptr<int64_t> meteredSize_ {};
-      // The domain name of the mount target.
+      // The mount target domain name.
       shared_ptr<string> mountTargetDomain_ {};
-      // The status of the mount target.
+      // The mount target status.
       shared_ptr<string> mountTargetStatus_ {};
-      // The ID of the office network.
+      // The office network ID.
       shared_ptr<string> officeSiteId_ {};
-      // The name of the office network.
+      // The office network name.
       shared_ptr<string> officeSiteName_ {};
-      // The office networks associated with the file system.
+      // The list of office networks.
       shared_ptr<vector<FileSystems::OfficeSites>> officeSites_ {};
       shared_ptr<string> productType_ {};
       // Indicates whether the User Profile Management (UPM) feature is supported.
       shared_ptr<bool> profileCompatible_ {};
+      shared_ptr<string> protocolType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The use case of the NAS file system.
+      // The storage mode of the NAS file system.
       shared_ptr<string> scene_ {};
       shared_ptr<int64_t> sizeQuota_ {};
       // The storage type of the NAS file system.
       shared_ptr<string> storageType_ {};
-      // Indicates whether the Server Message Block (SMB) access control list (ACL) feature is supported.
+      // Indicates whether the SMB ACL feature is supported.
       shared_ptr<bool> supportAcl_ {};
-      // The ID of the zone.
+      // The zone.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -501,9 +510,9 @@ namespace Models
 
 
   protected:
-    // The details of the NAS file systems.
+    // The NAS file system information.
     shared_ptr<vector<DescribeNASFileSystemsResponseBody::FileSystems>> fileSystems_ {};
-    // The token for the next page of results. If this parameter is empty, no more results are available.
+    // The pagination token for the next query. If NextToken is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

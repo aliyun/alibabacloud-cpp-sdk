@@ -214,12 +214,12 @@ namespace Models
 
   protected:
     shared_ptr<string> businessChannel_ {};
-    // The cloud desktop IDs. You can specify 1 to 100 IDs.
+    // The cloud desktop ID. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> desktopId_ {};
     // The cloud desktop name.
     shared_ptr<string> desktopName_ {};
     shared_ptr<vector<string>> desktopStatusList_ {};
-    // The cloud desktop type. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the supported cloud desktop type IDs.
+    // The cloud desktop specification. You can call [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) to query the supported specification IDs for cloud desktops.
     shared_ptr<string> desktopType_ {};
     // The end time. The maximum interval between the start time and end time is 30 days. Supported format:
     // - Format: YYYY-MM-DDThh:mm:ssZ.
@@ -229,16 +229,16 @@ namespace Models
     shared_ptr<vector<string>> excludeDesktopStatusList_ {};
     // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // The sort field. If not specified, results are sorted by creation time in descending order. Valid values:
+    // The sort field. If this parameter is not specified, results are sorted by creation time in descending order. Valid values:
     // 
     // - uptime: sorts by cloud desktop uptime.
     shared_ptr<string> orderBy_ {};
-    // The page number for a paged query.    
+    // The page number of the current page in a paged query. Paging starts from page 1.    
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. Valid values:
+    // The region ID.
     // - Shanghai
     // - Singapore
     // 

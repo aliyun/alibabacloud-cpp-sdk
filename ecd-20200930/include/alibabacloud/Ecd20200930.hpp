@@ -350,7 +350,7 @@ namespace Ecd20200930
       Models::BatchModifyEntitlementResponse batchModifyEntitlement(const Models::BatchModifyEntitlementRequest &request);
 
       /**
-       * @summary Binds a configuration group to resources.
+       * @summary Associates a configuration group with a cloud computer or resource group.
        *
        * @param request BindConfigGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -359,7 +359,7 @@ namespace Ecd20200930
       Models::BindConfigGroupResponse bindConfigGroupWithOptions(const Models::BindConfigGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds a configuration group to resources.
+       * @summary Associates a configuration group with a cloud computer or resource group.
        *
        * @param request BindConfigGroupRequest
        * @return BindConfigGroupResponse
@@ -794,7 +794,7 @@ namespace Ecd20200930
       Models::CreateCloudDriveUsersResponse createCloudDriveUsers(const Models::CreateCloudDriveUsersRequest &request);
 
       /**
-       * @summary Create a configuration group. A configuration group contains settings for scheduled tasks on cloud desktops.
+       * @summary Creates a configuration group. A configuration group contains the configuration information of scheduled tasks in a cloud computer center.
        *
        * @param request CreateConfigGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -803,7 +803,7 @@ namespace Ecd20200930
       Models::CreateConfigGroupResponse createConfigGroupWithOptions(const Models::CreateConfigGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a configuration group. A configuration group contains settings for scheduled tasks on cloud desktops.
+       * @summary Creates a configuration group. A configuration group contains the configuration information of scheduled tasks in a cloud computer center.
        *
        * @param request CreateConfigGroupRequest
        * @return CreateConfigGroupResponse
@@ -1129,18 +1129,12 @@ namespace Ecd20200930
       Models::CreateImageResponse createImage(const Models::CreateImageRequest &request);
 
       /**
-       * @summary Create a NAS file system.
+       * @summary Creates a NAS file system.
        *
-       * @description <props="china">
-       * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
-       * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
-       * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase resource packages to offset the storage usage.
-       * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
-       * <props="intl">
-       * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
-       * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
-       * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase storage packages to offset the storage usage.
-       * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
+       * @description - You can create one NAS file system for each standard office network to enable file sharing among cloud computers within the office network.
+       * - The system performs automatic creation of a general-purpose NAS file system (with storage-optimized and compute-optimized instance storage types, offering capacities of 10 PiB and 1 PiB respectively) and generates a default mount target.
+       * - The NAS file system uses pay-as-you-go billing by default. You are charged based on the actual storage usage. You can also purchase resource plans to offset the storage usage.
+       * For more information, see [Create shared storage NAS](https://help.aliyun.com/document_detail/214481.html).
        *
        * @param request CreateNASFileSystemRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1149,18 +1143,12 @@ namespace Ecd20200930
       Models::CreateNASFileSystemResponse createNASFileSystemWithOptions(const Models::CreateNASFileSystemRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a NAS file system.
+       * @summary Creates a NAS file system.
        *
-       * @description <props="china">
-       * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
-       * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
-       * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase resource packages to offset the storage usage.
-       * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
-       * <props="intl">
-       * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
-       * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
-       * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase storage packages to offset the storage usage.
-       * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
+       * @description - You can create one NAS file system for each standard office network to enable file sharing among cloud computers within the office network.
+       * - The system performs automatic creation of a general-purpose NAS file system (with storage-optimized and compute-optimized instance storage types, offering capacities of 10 PiB and 1 PiB respectively) and generates a default mount target.
+       * - The NAS file system uses pay-as-you-go billing by default. You are charged based on the actual storage usage. You can also purchase resource plans to offset the storage usage.
+       * For more information, see [Create shared storage NAS](https://help.aliyun.com/document_detail/214481.html).
        *
        * @param request CreateNASFileSystemRequest
        * @return CreateNASFileSystemResponse
@@ -1396,11 +1384,11 @@ namespace Ecd20200930
       Models::CreateSubnetResponse createSubnet(const Models::CreateSubnetRequest &request);
 
       /**
-       * @summary Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
+       * @summary Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
        *
-       * @description When you call this operation, take note of the following item:
-       * - Most parameters in templates are optional. When you create a template, Elastic Desktop Service (EDS) does not validate the existence or correctness of the parameter values you specify. The parameter values in the template are only verified when you use the template to create cloud computers.
-       * - For parameters that include the region attribute in the template, it\\"s important to note that if the specified region doesn\\"t match the region where the template is used to create a cloud computer, those parameters will not take effect.
+       * @description When you call this operation, note the following items:
+       * - Most parameters in an instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. The validity of parameter values is verified only when you create an instance.
+       * - For parameters that have region attributes in the template, if the region does not match when you use the template to create a cloud computer, these parameters do not take effect.
        *
        * @param request CreateTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1409,16 +1397,37 @@ namespace Ecd20200930
       Models::CreateTemplateResponse createTemplateWithOptions(const Models::CreateTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
+       * @summary Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
        *
-       * @description When you call this operation, take note of the following item:
-       * - Most parameters in templates are optional. When you create a template, Elastic Desktop Service (EDS) does not validate the existence or correctness of the parameter values you specify. The parameter values in the template are only verified when you use the template to create cloud computers.
-       * - For parameters that include the region attribute in the template, it\\"s important to note that if the specified region doesn\\"t match the region where the template is used to create a cloud computer, those parameters will not take effect.
+       * @description When you call this operation, note the following items:
+       * - Most parameters in an instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. The validity of parameter values is verified only when you create an instance.
+       * - For parameters that have region attributes in the template, if the region does not match when you use the template to create a cloud computer, these parameters do not take effect.
        *
        * @param request CreateTemplateRequest
        * @return CreateTemplateResponse
        */
       Models::CreateTemplateResponse createTemplate(const Models::CreateTemplateRequest &request);
+
+      /**
+       * @summary Creates a virtual bridge.
+       *
+       * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device the next time they log on to a Cloud Desktop.
+       *
+       * @param request CreateVirtualBridgeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateVirtualBridgeResponse
+       */
+      Models::CreateVirtualBridgeResponse createVirtualBridgeWithOptions(const Models::CreateVirtualBridgeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a virtual bridge.
+       *
+       * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device the next time they log on to a Cloud Desktop.
+       *
+       * @param request CreateVirtualBridgeRequest
+       * @return CreateVirtualBridgeResponse
+       */
+      Models::CreateVirtualBridgeResponse createVirtualBridge(const Models::CreateVirtualBridgeRequest &request);
 
       /**
        * @summary Deletes an automatic snapshot policy.
@@ -1624,7 +1633,7 @@ namespace Ecd20200930
       Models::DeleteDirectoriesResponse deleteDirectories(const Models::DeleteDirectoriesRequest &request);
 
       /**
-       * @summary Deletes a drive.
+       * @summary Deletes a cloud drive.
        *
        * @param request DeleteDriveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1633,7 +1642,7 @@ namespace Ecd20200930
       Models::DeleteDriveResponse deleteDriveWithOptions(const Models::DeleteDriveRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a drive.
+       * @summary Deletes a cloud drive.
        *
        * @param request DeleteDriveRequest
        * @return DeleteDriveResponse
@@ -1926,9 +1935,9 @@ namespace Ecd20200930
       Models::DeleteSubnetResponse deleteSubnet(const Models::DeleteSubnetRequest &request);
 
       /**
-       * @summary Deletes custom cloud computer templates.
+       * @summary Deletes a custom cloud computer template.
        *
-       * @description Deleting a template does not affect cloud computers created from it or the associated resources.
+       * @description After the template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
        *
        * @param request DeleteTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1937,14 +1946,35 @@ namespace Ecd20200930
       Models::DeleteTemplatesResponse deleteTemplatesWithOptions(const Models::DeleteTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes custom cloud computer templates.
+       * @summary Deletes a custom cloud computer template.
        *
-       * @description Deleting a template does not affect cloud computers created from it or the associated resources.
+       * @description After the template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
        *
        * @param request DeleteTemplatesRequest
        * @return DeleteTemplatesResponse
        */
       Models::DeleteTemplatesResponse deleteTemplates(const Models::DeleteTemplatesRequest &request);
+
+      /**
+       * @summary Modifies the status of a virtual bridge.
+       *
+       * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to Cloud Desktop.
+       *
+       * @param request DeleteVirtualBridgeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteVirtualBridgeResponse
+       */
+      Models::DeleteVirtualBridgeResponse deleteVirtualBridgeWithOptions(const Models::DeleteVirtualBridgeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the status of a virtual bridge.
+       *
+       * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to Cloud Desktop.
+       *
+       * @param request DeleteVirtualBridgeRequest
+       * @return DeleteVirtualBridgeResponse
+       */
+      Models::DeleteVirtualBridgeResponse deleteVirtualBridge(const Models::DeleteVirtualBridgeRequest &request);
 
       /**
        * @summary Removes a virtual multi-factor authentication (MFA) device that is associated with an Active Directory (AD) account.
@@ -2053,7 +2083,7 @@ namespace Ecd20200930
       Models::DescribeCensResponse describeCens(const Models::DescribeCensRequest &request);
 
       /**
-       * @summary Queries the details of region-free policies.
+       * @summary Queries the details of regionless policies.
        *
        * @param request DescribeCenterPolicyListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2062,7 +2092,7 @@ namespace Ecd20200930
       Models::DescribeCenterPolicyListResponse describeCenterPolicyListWithOptions(const Models::DescribeCenterPolicyListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of region-free policies.
+       * @summary Queries the details of regionless policies.
        *
        * @param request DescribeCenterPolicyListRequest
        * @return DescribeCenterPolicyListResponse
@@ -2180,7 +2210,7 @@ namespace Ecd20200930
       Models::DescribeCloudDriveUsersResponse describeCloudDriveUsers(const Models::DescribeCloudDriveUsersRequest &request);
 
       /**
-       * @summary Query the configuration group list information.
+       * @summary Queries the list of configuration groups.
        *
        * @param request DescribeConfigGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2189,7 +2219,7 @@ namespace Ecd20200930
       Models::DescribeConfigGroupResponse describeConfigGroupWithOptions(const Models::DescribeConfigGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the configuration group list information.
+       * @summary Queries the list of configuration groups.
        *
        * @param request DescribeConfigGroupRequest
        * @return DescribeConfigGroupResponse
@@ -2267,7 +2297,7 @@ namespace Ecd20200930
       /**
        * @summary Queries the list and metadata of cloud desktops across all regions.
        *
-       * @description This is a centralized API that only supports queries from the Shanghai and Singapore sites.
+       * @description This is a centralized API operation that supports queries only from the Shanghai and Singapore sites.
        *
        * @param request DescribeDesktopMetadataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2278,7 +2308,7 @@ namespace Ecd20200930
       /**
        * @summary Queries the list and metadata of cloud desktops across all regions.
        *
-       * @description This is a centralized API that only supports queries from the Shanghai and Singapore sites.
+       * @description This is a centralized API operation that supports queries only from the Shanghai and Singapore sites.
        *
        * @param request DescribeDesktopMetadataRequest
        * @return DescribeDesktopMetadataResponse
@@ -2460,7 +2490,7 @@ namespace Ecd20200930
       Models::DescribeDrivesResponse describeDrives(const Models::DescribeDrivesRequest &request);
 
       /**
-       * @summary Queries data report export tasks.
+       * @summary Queries the list of data report export tasks.
        *
        * @param request DescribeEcdReportTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2469,7 +2499,7 @@ namespace Ecd20200930
       Models::DescribeEcdReportTasksResponse describeEcdReportTasksWithOptions(const Models::DescribeEcdReportTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries data report export tasks.
+       * @summary Queries the list of data report export tasks.
        *
        * @param request DescribeEcdReportTasksRequest
        * @return DescribeEcdReportTasksResponse
@@ -2545,7 +2575,7 @@ namespace Ecd20200930
       Models::DescribeFotaTasksResponse describeFotaTasks(const Models::DescribeFotaTasksRequest &request);
 
       /**
-       * @summary Queries the basic information of all recent cloud desktops and their usage duration records.
+       * @summary Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
        *
        * @description - China site users should select Shanghai as the region. International site users should select Singapore.
        * - By default, both deleted and non-deleted cloud desktops are queried.
@@ -2559,7 +2589,7 @@ namespace Ecd20200930
       Models::DescribeGlobalDesktopRecordsResponse describeGlobalDesktopRecordsWithOptions(const Models::DescribeGlobalDesktopRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the basic information of all recent cloud desktops and their usage duration records.
+       * @summary Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
        *
        * @description - China site users should select Shanghai as the region. International site users should select Singapore.
        * - By default, both deleted and non-deleted cloud desktops are queried.
@@ -2572,9 +2602,9 @@ namespace Ecd20200930
       Models::DescribeGlobalDesktopRecordsResponse describeGlobalDesktopRecords(const Models::DescribeGlobalDesktopRecordsRequest &request);
 
       /**
-       * @summary Queries for batch information from the execution history of scheduled tasks and returns aggregated results.
+       * @summary Queries the batch information of scheduled task execution history and returns aggregated execution results.
        *
-       * @description - This API uses a centralized endpoint. You can call this API only from the China (Shanghai) or Singapore (Singapore) regions.
+       * @description - This operation uses a centralized endpoint. The access points are Shanghai or Singapore. Calls from other regions are not supported.
        *
        * @param request DescribeGlobalTimerBatchesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2583,9 +2613,9 @@ namespace Ecd20200930
       Models::DescribeGlobalTimerBatchesResponse describeGlobalTimerBatchesWithOptions(const Models::DescribeGlobalTimerBatchesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries for batch information from the execution history of scheduled tasks and returns aggregated results.
+       * @summary Queries the batch information of scheduled task execution history and returns aggregated execution results.
        *
-       * @description - This API uses a centralized endpoint. You can call this API only from the China (Shanghai) or Singapore (Singapore) regions.
+       * @description - This operation uses a centralized endpoint. The access points are Shanghai or Singapore. Calls from other regions are not supported.
        *
        * @param request DescribeGlobalTimerBatchesRequest
        * @return DescribeGlobalTimerBatchesResponse
@@ -2593,7 +2623,7 @@ namespace Ecd20200930
       Models::DescribeGlobalTimerBatchesResponse describeGlobalTimerBatches(const Models::DescribeGlobalTimerBatchesRequest &request);
 
       /**
-       * @summary This operation queries the scheduled task execution records for EDS across all regions.
+       * @summary Queries the execution records of scheduled tasks for cloud computers across regions.
        *
        * @param request DescribeGlobalTimerRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2602,7 +2632,7 @@ namespace Ecd20200930
       Models::DescribeGlobalTimerRecordsResponse describeGlobalTimerRecordsWithOptions(const Models::DescribeGlobalTimerRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation queries the scheduled task execution records for EDS across all regions.
+       * @summary Queries the execution records of scheduled tasks for cloud computers across regions.
        *
        * @param request DescribeGlobalTimerRecordsRequest
        * @return DescribeGlobalTimerRecordsResponse
@@ -2756,7 +2786,7 @@ namespace Ecd20200930
       Models::DescribeModificationPriceResponse describeModificationPrice(const Models::DescribeModificationPriceRequest &request);
 
       /**
-       * @summary Queries NAS file systems.
+       * @summary Queries NAS file system information.
        *
        * @param request DescribeNASFileSystemsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2765,7 +2795,7 @@ namespace Ecd20200930
       Models::DescribeNASFileSystemsResponse describeNASFileSystemsWithOptions(const Models::DescribeNASFileSystemsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries NAS file systems.
+       * @summary Queries NAS file system information.
        *
        * @param request DescribeNASFileSystemsRequest
        * @return DescribeNASFileSystemsResponse
@@ -2807,6 +2837,33 @@ namespace Ecd20200930
       Models::DescribeNetworkPackagesResponse describeNetworkPackages(const Models::DescribeNetworkPackagesRequest &request);
 
       /**
+       * @summary Queries virtual bridge information.
+       *
+       * @description Before deleting an office network, ensure that the following operations are completed:
+       * - All cloud computers in the office network are released.
+       * - Related data that needs to be retained is backed up.
+       * >Warning: Related resources and data cannot be recovered after deletion. Proceed with caution.
+       *
+       * @param request DescribeOfficeSiteBridgeInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOfficeSiteBridgeInfoResponse
+       */
+      Models::DescribeOfficeSiteBridgeInfoResponse describeOfficeSiteBridgeInfoWithOptions(const Models::DescribeOfficeSiteBridgeInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries virtual bridge information.
+       *
+       * @description Before deleting an office network, ensure that the following operations are completed:
+       * - All cloud computers in the office network are released.
+       * - Related data that needs to be retained is backed up.
+       * >Warning: Related resources and data cannot be recovered after deletion. Proceed with caution.
+       *
+       * @param request DescribeOfficeSiteBridgeInfoRequest
+       * @return DescribeOfficeSiteBridgeInfoResponse
+       */
+      Models::DescribeOfficeSiteBridgeInfoResponse describeOfficeSiteBridgeInfo(const Models::DescribeOfficeSiteBridgeInfoRequest &request);
+
+      /**
        * @summary Gets all properties of an office network, including its ID, name, status, and creation time.
        *
        * @param request DescribeOfficeSitesRequest
@@ -2824,9 +2881,9 @@ namespace Ecd20200930
       Models::DescribeOfficeSitesResponse describeOfficeSites(const Models::DescribeOfficeSitesRequest &request);
 
       /**
-       * @summary Queries metrics such as the online user count and the assigned user count.
+       * @summary Queries metrics such as the number of online users and the number of users with assigned desktops.
        *
-       * @description Before you call this operation, make sure that you are familiar with the resource types and product types of Elastic Desktop Service.
+       * @description Make sure that you are familiar with the resource types and product types of WUYING Workspace before you call this operation.
        *
        * @param request DescribeOnlineUserCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2835,9 +2892,9 @@ namespace Ecd20200930
       Models::DescribeOnlineUserCountResponse describeOnlineUserCountWithOptions(const Models::DescribeOnlineUserCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries metrics such as the online user count and the assigned user count.
+       * @summary Queries metrics such as the number of online users and the number of users with assigned desktops.
        *
-       * @description Before you call this operation, make sure that you are familiar with the resource types and product types of Elastic Desktop Service.
+       * @description Make sure that you are familiar with the resource types and product types of WUYING Workspace before you call this operation.
        *
        * @param request DescribeOnlineUserCountRequest
        * @return DescribeOnlineUserCountResponse
@@ -3100,10 +3157,10 @@ namespace Ecd20200930
       Models::DescribeSecurityGroupAttributeResponse describeSecurityGroupAttribute(const Models::DescribeSecurityGroupAttributeRequest &request);
 
       /**
-       * @summary Queries the session statistics of a region.
+       * @summary Queries session statistics information across all regions.
        *
-       * @description - This is a central operation and can be called only by using services in the China (Shanghai) region.
-       * - You can query session statistics for the past hour.
+       * @description - This is a centralized API operation that can be called only through the service in the China (Shanghai) region.
+       * - You can query real-time statistics for up to 1 hour.
        *
        * @param request DescribeSessionStatisticRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3112,10 +3169,10 @@ namespace Ecd20200930
       Models::DescribeSessionStatisticResponse describeSessionStatisticWithOptions(const Models::DescribeSessionStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the session statistics of a region.
+       * @summary Queries session statistics information across all regions.
        *
-       * @description - This is a central operation and can be called only by using services in the China (Shanghai) region.
-       * - You can query session statistics for the past hour.
+       * @description - This is a centralized API operation that can be called only through the service in the China (Shanghai) region.
+       * - You can query real-time statistics for up to 1 hour.
        *
        * @param request DescribeSessionStatisticRequest
        * @return DescribeSessionStatisticResponse
@@ -3191,7 +3248,7 @@ namespace Ecd20200930
       Models::DescribeTemplatesResponse describeTemplates(const Models::DescribeTemplatesRequest &request);
 
       /**
-       * @summary Retrieves details for a specified configuration group.
+       * @summary Queries the details of a specified configuration group.
        *
        * @param request DescribeTimerGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3200,7 +3257,7 @@ namespace Ecd20200930
       Models::DescribeTimerGroupResponse describeTimerGroupWithOptions(const Models::DescribeTimerGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves details for a specified configuration group.
+       * @summary Queries the details of a specified configuration group.
        *
        * @param request DescribeTimerGroupRequest
        * @return DescribeTimerGroupResponse
@@ -3544,9 +3601,9 @@ namespace Ecd20200930
       Models::GetAsyncTaskResponse getAsyncTask(const Models::GetAsyncTaskRequest &request);
 
       /**
-       * @summary Obtains the credential that is used to connect to a cloud desktop.
+       * @summary Retrieves the connection credential for a cloud computer.
        *
-       * @description The cloud computer must be in the Running state. The ticket obtained by calling this operation will expire in 10 minutes.
+       * @description The cloud computer must be in the Running state. The ticket obtained by calling this operation expires after 10 minutes.
        *
        * @param request GetConnectionTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3555,9 +3612,9 @@ namespace Ecd20200930
       Models::GetConnectionTicketResponse getConnectionTicketWithOptions(const Models::GetConnectionTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the credential that is used to connect to a cloud desktop.
+       * @summary Retrieves the connection credential for a cloud computer.
        *
-       * @description The cloud computer must be in the Running state. The ticket obtained by calling this operation will expire in 10 minutes.
+       * @description The cloud computer must be in the Running state. The ticket obtained by calling this operation expires after 10 minutes.
        *
        * @param request GetConnectionTicketRequest
        * @return GetConnectionTicketResponse
@@ -3824,6 +3881,27 @@ namespace Ecd20200930
       Models::ListUserAdOrganizationUnitsResponse listUserAdOrganizationUnits(const Models::ListUserAdOrganizationUnitsRequest &request);
 
       /**
+       * @summary Queries a list of virtual bridges.
+       *
+       * @description After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the Wuying terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+       *
+       * @param request ListVirtualBridgesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVirtualBridgesResponse
+       */
+      Models::ListVirtualBridgesResponse listVirtualBridgesWithOptions(const Models::ListVirtualBridgesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a list of virtual bridges.
+       *
+       * @description After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the Wuying terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+       *
+       * @param request ListVirtualBridgesRequest
+       * @return ListVirtualBridgesResponse
+       */
+      Models::ListVirtualBridgesResponse listVirtualBridges(const Models::ListVirtualBridgesRequest &request);
+
+      /**
        * @summary Locks a multi-factor authentication (MFA) device that is in the NORMAL state.
        *
        * @description After a virtual MFA device is locked, its status changes to LOCKED. The Active Directory (AD) user who uses the virtual MFA device is unable to pass MFA and is therefore unable to log on to the client. You can call the [UnlockVirtualMFADevice](https://help.aliyun.com/document_detail/206212.html) operation to unlock the device.
@@ -3980,7 +4058,7 @@ namespace Ecd20200930
       Models::ModifyBundleResponse modifyBundle(const Models::ModifyBundleRequest &request);
 
       /**
-       * @summary Modifies the attributes of a disk file or folder, such as the file name.
+       * @summary Modifies the attributes of a cloud disk file or folder, such as the file name.
        *
        * @param request ModifyCdsFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3989,7 +4067,7 @@ namespace Ecd20200930
       Models::ModifyCdsFileResponse modifyCdsFileWithOptions(const Models::ModifyCdsFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the attributes of a disk file or folder, such as the file name.
+       * @summary Modifies the attributes of a cloud disk file or folder, such as the file name.
        *
        * @param request ModifyCdsFileRequest
        * @return ModifyCdsFileResponse
@@ -4090,7 +4168,7 @@ namespace Ecd20200930
       Models::ModifyCloudDriveUsersResponse modifyCloudDriveUsers(const Models::ModifyCloudDriveUsersRequest &request);
 
       /**
-       * @summary Modifies the basic information of a configuration group.
+       * @summary Modifies the basic information of a configuration group, including the name and description.
        *
        * @param request ModifyConfigGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4099,7 +4177,7 @@ namespace Ecd20200930
       Models::ModifyConfigGroupResponse modifyConfigGroupWithOptions(const Models::ModifyConfigGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the basic information of a configuration group.
+       * @summary Modifies the basic information of a configuration group, including the name and description.
        *
        * @param request ModifyConfigGroupRequest
        * @return ModifyConfigGroupResponse
@@ -4340,10 +4418,10 @@ namespace Ecd20200930
       Models::ModifyDesktopsPolicyGroupResponse modifyDesktopsPolicyGroup(const Models::ModifyDesktopsPolicyGroupRequest &request);
 
       /**
-       * @summary Modify the performance level of a cloud desktop\\"s system disk or data disk.
+       * @summary Modifies the performance level of the system cloud disk or data cloud disk of a cloud computer.
        *
-       * @description When you create a WUYING Workspace, you can define its specifications using a custom template. Graphics and High-frequency workspaces use Enhanced SSDs (ESSDs) by default, which lets you set the disk capacity and performance level. You can modify the performance level of the system disk or data disk as needed.
-       * > Only Graphics and High-frequency WUYING Workspaces support modifying the disk performance level.
+       * @description When you create a cloud computer, you can select specifications by creating a custom template. Enterprise Graphics or High Frequency Office cloud computers use ESSDs by default and support setting disk capacity and performance level (PL). You can change the performance level (PL) of the system cloud disk or data cloud disk as needed.
+       * > Only Enterprise Graphics and High Frequency Office cloud computers support changing disk performance levels.
        *
        * @param request ModifyDiskSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4352,10 +4430,10 @@ namespace Ecd20200930
       Models::ModifyDiskSpecResponse modifyDiskSpecWithOptions(const Models::ModifyDiskSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify the performance level of a cloud desktop\\"s system disk or data disk.
+       * @summary Modifies the performance level of the system cloud disk or data cloud disk of a cloud computer.
        *
-       * @description When you create a WUYING Workspace, you can define its specifications using a custom template. Graphics and High-frequency workspaces use Enhanced SSDs (ESSDs) by default, which lets you set the disk capacity and performance level. You can modify the performance level of the system disk or data disk as needed.
-       * > Only Graphics and High-frequency WUYING Workspaces support modifying the disk performance level.
+       * @description When you create a cloud computer, you can select specifications by creating a custom template. Enterprise Graphics or High Frequency Office cloud computers use ESSDs by default and support setting disk capacity and performance level (PL). You can change the performance level (PL) of the system cloud disk or data cloud disk as needed.
+       * > Only Enterprise Graphics and High Frequency Office cloud computers support changing disk performance levels.
        *
        * @param request ModifyDiskSpecRequest
        * @return ModifyDiskSpecResponse
@@ -4454,9 +4532,9 @@ namespace Ecd20200930
       Models::ModifyImagePermissionResponse modifyImagePermission(const Models::ModifyImagePermissionRequest &request);
 
       /**
-       * @summary Modifies the mount target of a File Storage NAS (NAS) file system.
+       * @summary Modifies the mount target of a NAS file system.
        *
-       * @description When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) operation to create a mount target.
+       * @description When a NAS file system is created, the system automatically generates a mount target. By default, the mount target does not need to be modified. If the mount target is accidentally deleted, you need to specify a new mount target for the NAS file system of the workspace. You can call [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) to create a mount target.
        *
        * @param request ModifyNASDefaultMountTargetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4465,9 +4543,9 @@ namespace Ecd20200930
       Models::ModifyNASDefaultMountTargetResponse modifyNASDefaultMountTargetWithOptions(const Models::ModifyNASDefaultMountTargetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the mount target of a File Storage NAS (NAS) file system.
+       * @summary Modifies the mount target of a NAS file system.
        *
-       * @description When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) operation to create a mount target.
+       * @description When a NAS file system is created, the system automatically generates a mount target. By default, the mount target does not need to be modified. If the mount target is accidentally deleted, you need to specify a new mount target for the NAS file system of the workspace. You can call [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) to create a mount target.
        *
        * @param request ModifyNASDefaultMountTargetRequest
        * @return ModifyNASDefaultMountTargetResponse
@@ -4545,6 +4623,27 @@ namespace Ecd20200930
        * @return ModifyOfficeSiteAttributeResponse
        */
       Models::ModifyOfficeSiteAttributeResponse modifyOfficeSiteAttribute(const Models::ModifyOfficeSiteAttributeRequest &request);
+
+      /**
+       * @summary Modifies the bridge information for behavior management.
+       *
+       * @description Only AD office networks in the `ERROR` or `REGISTERING` state support modifications to domain name and DNS-related parameters, including `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
+       *
+       * @param request ModifyOfficeSiteBridgeInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyOfficeSiteBridgeInfoResponse
+       */
+      Models::ModifyOfficeSiteBridgeInfoResponse modifyOfficeSiteBridgeInfoWithOptions(const Models::ModifyOfficeSiteBridgeInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the bridge information for behavior management.
+       *
+       * @description Only AD office networks in the `ERROR` or `REGISTERING` state support modifications to domain name and DNS-related parameters, including `DomainName`, `SubDomainName`, `DnsAddress.N`, and `SubDomainDnsAddress.N`.
+       *
+       * @param request ModifyOfficeSiteBridgeInfoRequest
+       * @return ModifyOfficeSiteBridgeInfoResponse
+       */
+      Models::ModifyOfficeSiteBridgeInfoResponse modifyOfficeSiteBridgeInfo(const Models::ModifyOfficeSiteBridgeInfoRequest &request);
 
       /**
        * @summary Enables or disables the communication between cloud computers in an office network (formerly workspace). If you enable the communication between cloud computers in an office network, the cloud computers can access each other.
@@ -4683,10 +4782,9 @@ namespace Ecd20200930
       Models::ModifySecurityGroupAttributeResponse modifySecurityGroupAttribute(const Models::ModifySecurityGroupAttributeRequest &request);
 
       /**
-       * @summary Modifies all parameters of a custom WUYING Workspace template.
+       * @summary Modifies all parameters of a custom cloud computer template.
        *
-       * @description >Warning: 
-       * This operation updates all parameters. To ensure compatibility with the default upgrade logic, any parameter that you do not specify is set to empty.
+       * @description >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in templates, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
        *
        * @param request ModifyTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4695,10 +4793,9 @@ namespace Ecd20200930
       Models::ModifyTemplateResponse modifyTemplateWithOptions(const Models::ModifyTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies all parameters of a custom WUYING Workspace template.
+       * @summary Modifies all parameters of a custom cloud computer template.
        *
-       * @description >Warning: 
-       * This operation updates all parameters. To ensure compatibility with the default upgrade logic, any parameter that you do not specify is set to empty.
+       * @description >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in templates, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
        *
        * @param request ModifyTemplateRequest
        * @return ModifyTemplateResponse
@@ -4706,9 +4803,9 @@ namespace Ecd20200930
       Models::ModifyTemplateResponse modifyTemplate(const Models::ModifyTemplateRequest &request);
 
       /**
-       * @summary Modifies the basic information of a custom cloud computer template, including the template name and template description.
+       * @summary Modifies the basic information of a custom cloud computer template, including the template name and description.
        *
-       * @description This operation allows you to modify only the name and description of a custom cloud computer template. To change other parameters of the template, call the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
+       * @description This operation only modifies the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
        *
        * @param request ModifyTemplateBaseInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4717,9 +4814,9 @@ namespace Ecd20200930
       Models::ModifyTemplateBaseInfoResponse modifyTemplateBaseInfoWithOptions(const Models::ModifyTemplateBaseInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the basic information of a custom cloud computer template, including the template name and template description.
+       * @summary Modifies the basic information of a custom cloud computer template, including the template name and description.
        *
-       * @description This operation allows you to modify only the name and description of a custom cloud computer template. To change other parameters of the template, call the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
+       * @description This operation only modifies the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
        *
        * @param request ModifyTemplateBaseInfoRequest
        * @return ModifyTemplateBaseInfoResponse
@@ -4727,7 +4824,7 @@ namespace Ecd20200930
       Models::ModifyTemplateBaseInfoResponse modifyTemplateBaseInfo(const Models::ModifyTemplateBaseInfoRequest &request);
 
       /**
-       * @summary Modify configuration group settings, such as those for scheduled tasks.
+       * @summary Modifies the settings of a configuration group, such as scheduled task configurations.
        *
        * @param request ModifyTimerGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4736,7 +4833,7 @@ namespace Ecd20200930
       Models::ModifyTimerGroupResponse modifyTimerGroupWithOptions(const Models::ModifyTimerGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify configuration group settings, such as those for scheduled tasks.
+       * @summary Modifies the settings of a configuration group, such as scheduled task configurations.
        *
        * @param request ModifyTimerGroupRequest
        * @return ModifyTimerGroupResponse
@@ -4782,6 +4879,48 @@ namespace Ecd20200930
       Models::ModifyUserToDesktopGroupResponse modifyUserToDesktopGroup(const Models::ModifyUserToDesktopGroupRequest &request);
 
       /**
+       * @summary Changes the specifications of a virtual bridge.
+       *
+       * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a cloud desktop.
+       *
+       * @param request ModifyVirtualBridgeLevelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyVirtualBridgeLevelResponse
+       */
+      Models::ModifyVirtualBridgeLevelResponse modifyVirtualBridgeLevelWithOptions(const Models::ModifyVirtualBridgeLevelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Changes the specifications of a virtual bridge.
+       *
+       * @description Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a cloud desktop.
+       *
+       * @param request ModifyVirtualBridgeLevelRequest
+       * @return ModifyVirtualBridgeLevelResponse
+       */
+      Models::ModifyVirtualBridgeLevelResponse modifyVirtualBridgeLevel(const Models::ModifyVirtualBridgeLevelRequest &request);
+
+      /**
+       * @summary Modifies the status of a virtual bridge.
+       *
+       * @description Only custom images in the active (Available) state can be modified.
+       *
+       * @param request ModifyVirtualBridgeStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyVirtualBridgeStatusResponse
+       */
+      Models::ModifyVirtualBridgeStatusResponse modifyVirtualBridgeStatusWithOptions(const Models::ModifyVirtualBridgeStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the status of a virtual bridge.
+       *
+       * @description Only custom images in the active (Available) state can be modified.
+       *
+       * @param request ModifyVirtualBridgeStatusRequest
+       * @return ModifyVirtualBridgeStatusResponse
+       */
+      Models::ModifyVirtualBridgeStatusResponse modifyVirtualBridgeStatus(const Models::ModifyVirtualBridgeStatusRequest &request);
+
+      /**
        * @summary Moves a file or folder in a cloud disk to a new location.
        *
        * @param request MoveCdsFileRequest
@@ -4799,12 +4938,12 @@ namespace Ecd20200930
       Models::MoveCdsFileResponse moveCdsFile(const Models::MoveCdsFileRequest &request);
 
       /**
-       * @summary Queries the historical daily and monthly active user counts for a specified date.
+       * @summary Queries the historical daily active user count and monthly active user count for a specified date.
        *
-       * @description ## Usage notes
-       * - The `AliUid` parameter is automatically resolved from your AccessKey pair and does not need to be specified in the request.
-       * - The `BusinessChannel` parameter defaults to Enterprise Edition, but you can select other business channels.
-       * - By default, the query returns data for the previous day (T-1). To query for a different day, use the `DataDate` parameter in YYYY-MM-DD format.
+       * @description ## Request description
+       * - The `AliUid` parameter is automatically parsed from the AK/SK and does not need to be manually provided.
+       * - `BusinessChannel` defaults to Enterprise Edition, but you can also select other business channels.
+       * - `DataDate` supports a custom statistical date and defaults to the previous day (T-1). Ensure that the input format is "YYYY-MM-DD".
        *
        * @param request QueryHistoryActiveUserCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4813,12 +4952,12 @@ namespace Ecd20200930
       Models::QueryHistoryActiveUserCountResponse queryHistoryActiveUserCountWithOptions(const Models::QueryHistoryActiveUserCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the historical daily and monthly active user counts for a specified date.
+       * @summary Queries the historical daily active user count and monthly active user count for a specified date.
        *
-       * @description ## Usage notes
-       * - The `AliUid` parameter is automatically resolved from your AccessKey pair and does not need to be specified in the request.
-       * - The `BusinessChannel` parameter defaults to Enterprise Edition, but you can select other business channels.
-       * - By default, the query returns data for the previous day (T-1). To query for a different day, use the `DataDate` parameter in YYYY-MM-DD format.
+       * @description ## Request description
+       * - The `AliUid` parameter is automatically parsed from the AK/SK and does not need to be manually provided.
+       * - `BusinessChannel` defaults to Enterprise Edition, but you can also select other business channels.
+       * - `DataDate` supports a custom statistical date and defaults to the previous day (T-1). Ensure that the input format is "YYYY-MM-DD".
        *
        * @param request QueryHistoryActiveUserCountRequest
        * @return QueryHistoryActiveUserCountResponse
@@ -4859,14 +4998,15 @@ namespace Ecd20200930
       Models::QueryHistoryAvgMetricListResponse queryHistoryAvgMetricList(const Models::QueryHistoryAvgMetricListRequest &request);
 
       /**
-       * @summary Queries the historical distribution of a specific metric over a specified time period.
+       * @summary Queries the historical distribution of a specific metric within a specified time range.
        *
-       * @description ## Request
-       * This API queries the value distribution for specific metrics, such as CPU usage and memory usage, within a given date range. You can define custom value ranges for more detailed statistics. The API supports both the enterprise edition and commercial edition. By default, it returns statistics for the previous day (T-1).
-       * - **BusinessChannel**: Defaults to the enterprise edition. The commercial edition is also available.
-       * - **StartDate & EndDate**: Both default to T-1 (the previous day). The date must be in the `YYYY-MM-DD` format.
-       * - **MetricName**: The metric to query. For a list of valid metrics, see the parameter description in this topic.
-       * - **Ranges**: Defines multiple value ranges for a more detailed analysis. For each range, you can set a minimum value, a maximum value, and whether to include these boundary values.
+       * @description ## Operation description
+       * This API operation queries the value distribution of a specific monitoring metrics (such as CPU usage or memory usage) within a specified date range. You can obtain more detailed statistics by defining custom value ranges. Two business channels are supported: Enterprise Edition and Commercial Edition. By default, T-1 (yesterday) data statistics are used.
+       * - **BusinessChannel**: Enterprise Edition by default. Commercial Edition is optional.
+       * - **StartDate & EndDate**: Default value is T-1, which is yesterday\\"s date. The format must be "YYYY-MM-DD".
+       * - **MetricName**: The name of the specific metric to query. Refer to the valid metric list provided in the documentation.
+       * - **Ranges**: Allows you to define multiple custom value ranges for more granular data analytics. Each range can have a minimum value, a maximum value, and whether to include border values.
+       * ## Settings
        *
        * @param request QueryHistoryMetricDistributionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4875,14 +5015,15 @@ namespace Ecd20200930
       Models::QueryHistoryMetricDistributionResponse queryHistoryMetricDistributionWithOptions(const Models::QueryHistoryMetricDistributionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the historical distribution of a specific metric over a specified time period.
+       * @summary Queries the historical distribution of a specific metric within a specified time range.
        *
-       * @description ## Request
-       * This API queries the value distribution for specific metrics, such as CPU usage and memory usage, within a given date range. You can define custom value ranges for more detailed statistics. The API supports both the enterprise edition and commercial edition. By default, it returns statistics for the previous day (T-1).
-       * - **BusinessChannel**: Defaults to the enterprise edition. The commercial edition is also available.
-       * - **StartDate & EndDate**: Both default to T-1 (the previous day). The date must be in the `YYYY-MM-DD` format.
-       * - **MetricName**: The metric to query. For a list of valid metrics, see the parameter description in this topic.
-       * - **Ranges**: Defines multiple value ranges for a more detailed analysis. For each range, you can set a minimum value, a maximum value, and whether to include these boundary values.
+       * @description ## Operation description
+       * This API operation queries the value distribution of a specific monitoring metrics (such as CPU usage or memory usage) within a specified date range. You can obtain more detailed statistics by defining custom value ranges. Two business channels are supported: Enterprise Edition and Commercial Edition. By default, T-1 (yesterday) data statistics are used.
+       * - **BusinessChannel**: Enterprise Edition by default. Commercial Edition is optional.
+       * - **StartDate & EndDate**: Default value is T-1, which is yesterday\\"s date. The format must be "YYYY-MM-DD".
+       * - **MetricName**: The name of the specific metric to query. Refer to the valid metric list provided in the documentation.
+       * - **Ranges**: Allows you to define multiple custom value ranges for more granular data analytics. Each range can have a minimum value, a maximum value, and whether to include border values.
+       * ## Settings
        *
        * @param request QueryHistoryMetricDistributionRequest
        * @return QueryHistoryMetricDistributionResponse
@@ -4890,15 +5031,15 @@ namespace Ecd20200930
       Models::QueryHistoryMetricDistributionResponse queryHistoryMetricDistribution(const Models::QueryHistoryMetricDistributionRequest &request);
 
       /**
-       * @summary Queries and ranks historical usage duration by end user or desktop.
+       * @summary Queries and sorts historical usage duration by user or desktop dimension.
        *
-       * @description ## Usage notes
-       * - **Date range**: You can query data within the last 90 days.
-       * - **Pagination**: This operation uses the`NextToken` parameter for pagination. To retrieve the next page of results, use the `NextToken` value from the previous response.
-       * - **Default and maximum limits**: This operation returns 5 records by default, with a maximum of 200 records per page.
-       * - **Authentication**: This operation uses an AccessKey for authentication.
-       * - **Caller account information**: You do not need to specify an Alibaba Cloud account ID (AliUid). The system automatically resolves it.
-       * - **Billing**: This API operation is free of charge.
+       * @description ## Request description
+       * - **Date range**: Supports querying data within a maximum of 90 days.
+       * - **Paged query**: Pagination is implemented through the `NextToken` parameter, which is obtained from the previous response.
+       * - **Default and maximum limits**: 5 records are returned by default, with a maximum of 200.
+       * - **Authentication**: Uses AccessKey for identity verification.
+       * - **Caller account information**: You do not need to manually pass in AliUid. The system automatically parses it.
+       * - **Billing**: This API call is free of charge.
        *
        * @param request QueryHistoryUsageDurationRankRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4907,15 +5048,15 @@ namespace Ecd20200930
       Models::QueryHistoryUsageDurationRankResponse queryHistoryUsageDurationRankWithOptions(const Models::QueryHistoryUsageDurationRankRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries and ranks historical usage duration by end user or desktop.
+       * @summary Queries and sorts historical usage duration by user or desktop dimension.
        *
-       * @description ## Usage notes
-       * - **Date range**: You can query data within the last 90 days.
-       * - **Pagination**: This operation uses the`NextToken` parameter for pagination. To retrieve the next page of results, use the `NextToken` value from the previous response.
-       * - **Default and maximum limits**: This operation returns 5 records by default, with a maximum of 200 records per page.
-       * - **Authentication**: This operation uses an AccessKey for authentication.
-       * - **Caller account information**: You do not need to specify an Alibaba Cloud account ID (AliUid). The system automatically resolves it.
-       * - **Billing**: This API operation is free of charge.
+       * @description ## Request description
+       * - **Date range**: Supports querying data within a maximum of 90 days.
+       * - **Paged query**: Pagination is implemented through the `NextToken` parameter, which is obtained from the previous response.
+       * - **Default and maximum limits**: 5 records are returned by default, with a maximum of 200.
+       * - **Authentication**: Uses AccessKey for identity verification.
+       * - **Caller account information**: You do not need to manually pass in AliUid. The system automatically parses it.
+       * - **Billing**: This API call is free of charge.
        *
        * @param request QueryHistoryUsageDurationRankRequest
        * @return QueryHistoryUsageDurationRankResponse
@@ -5111,6 +5252,27 @@ namespace Ecd20200930
       Models::RenewNetworkPackagesResponse renewNetworkPackages(const Models::RenewNetworkPackagesRequest &request);
 
       /**
+       * @summary Renews a virtual bridge.
+       *
+       * @description After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the WUYING terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+       *
+       * @param request RenewVirtualBridgeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RenewVirtualBridgeResponse
+       */
+      Models::RenewVirtualBridgeResponse renewVirtualBridgeWithOptions(const Models::RenewVirtualBridgeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Renews a virtual bridge.
+       *
+       * @description After the device is locked, the status of the MFA device changes to locked (LOCKED), and the corresponding AD account cannot log on to the WUYING terminal because the MFA device cannot be authenticated. You can call [UnlockVirtualMFADevice](~~UnlockVirtualMFADevice~~) to unlock the device.
+       *
+       * @param request RenewVirtualBridgeRequest
+       * @return RenewVirtualBridgeResponse
+       */
+      Models::RenewVirtualBridgeResponse renewVirtualBridge(const Models::RenewVirtualBridgeRequest &request);
+
+      /**
        * @summary Resets cloud desktops in a shared cloud desktop group.
        *
        * @description > This operation applies only to shared cloud desktops. It does not support resetting standard cloud desktops.
@@ -5132,9 +5294,9 @@ namespace Ecd20200930
       Models::ResetDesktopsResponse resetDesktops(const Models::ResetDesktopsRequest &request);
 
       /**
-       * @summary Resets the mount target of a File Storage NAS (NAS) file system.
+       * @summary Resets the mount point of a NAS file system.
        *
-       * @description When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
+       * @description When a NAS file system is created, the system automatically generates a mount point. By default, the mount point does not need to be modified. If the mount point is in an inactive state, you need to reset the mount point of the NAS file system.
        *
        * @param request ResetNASDefaultMountTargetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5143,9 +5305,9 @@ namespace Ecd20200930
       Models::ResetNASDefaultMountTargetResponse resetNASDefaultMountTargetWithOptions(const Models::ResetNASDefaultMountTargetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resets the mount target of a File Storage NAS (NAS) file system.
+       * @summary Resets the mount point of a NAS file system.
        *
-       * @description When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
+       * @description When a NAS file system is created, the system automatically generates a mount point. By default, the mount point does not need to be modified. If the mount point is in an inactive state, you need to reset the mount point of the NAS file system.
        *
        * @param request ResetNASDefaultMountTargetRequest
        * @return ResetNASDefaultMountTargetResponse
@@ -5235,7 +5397,7 @@ namespace Ecd20200930
       Models::SendVerifyCodeResponse sendVerifyCode(const Models::SendVerifyCodeRequest &request);
 
       /**
-       * @summary Configures an auto scaling policy for a multi-session cloud computer. Elastic Desktop Service allows multiple end users to share a cloud computer in a multi-session cloud computer pool. This helps save costs.
+       * @summary Sets an automatic scaling policy for multi-session cloud computers. Multi-session cloud computers allow multiple users to connect to the same cloud computer simultaneously, which reduces costs.
        *
        * @param request SetDesktopGroupScaleTimerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5244,7 +5406,7 @@ namespace Ecd20200930
       Models::SetDesktopGroupScaleTimerResponse setDesktopGroupScaleTimerWithOptions(const Models::SetDesktopGroupScaleTimerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures an auto scaling policy for a multi-session cloud computer. Elastic Desktop Service allows multiple end users to share a cloud computer in a multi-session cloud computer pool. This helps save costs.
+       * @summary Sets an automatic scaling policy for multi-session cloud computers. Multi-session cloud computers allow multiple users to connect to the same cloud computer simultaneously, which reduces costs.
        *
        * @param request SetDesktopGroupScaleTimerRequest
        * @return SetDesktopGroupScaleTimerResponse
@@ -5467,7 +5629,7 @@ namespace Ecd20200930
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Queries the transmission and approval result for a submitted file.
+       * @summary Submits the approval result for a file transfer task.
        *
        * @param request TransferTaskApprovalCallbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5476,7 +5638,7 @@ namespace Ecd20200930
       Models::TransferTaskApprovalCallbackResponse transferTaskApprovalCallbackWithOptions(const Models::TransferTaskApprovalCallbackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the transmission and approval result for a submitted file.
+       * @summary Submits the approval result for a file transfer task.
        *
        * @param request TransferTaskApprovalCallbackRequest
        * @return TransferTaskApprovalCallbackResponse

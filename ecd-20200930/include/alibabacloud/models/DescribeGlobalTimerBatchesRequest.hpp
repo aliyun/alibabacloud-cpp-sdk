@@ -101,30 +101,23 @@ namespace Models
     shared_ptr<string> groupId_ {};
     // The maximum number of entries to return.
     shared_ptr<string> maxResults_ {};
-    // The token used to retrieve the next page of results. Set this parameter to the `NextToken` value from a previous response.
+    // The pagination token for the next query. An empty value indicates that there are no more results.
     shared_ptr<string> nextToken_ {};
     // The region ID.
-    // 
-    // - China (Shanghai)
-    // 
-    // - Singapore (Singapore)
+    // - Shanghai
+    // - Singapore
     shared_ptr<string> regionId_ {};
     shared_ptr<vector<string>> resourceTypes_ {};
-    // The ID of the region where the cloud computers are located. This parameter filters the results to include only cloud computers in the specified region.
+    // The region ID used for searching. Filters cloud desktop information for the specified region.
     shared_ptr<string> searchRegionId_ {};
-    // The type of the scheduled task. This operation returns batch information for timer-based scheduled tasks only.
+    // The type of task to query. Only scheduled tasks have batch information available.
     // 
-    // - `TimerBoot`: scheduled startup
-    // 
-    // - `TimerShutdown`: scheduled shutdown
-    // 
-    // - `TimerReboot`: scheduled reboot
-    // 
-    // - `TimerReset`: scheduled reset
-    // 
-    // - `TimerMaintenance`: scheduled maintenance
-    // 
-    // - `TimerHibernate`: scheduled hibernation
+    // - TimerBoot: scheduled startup
+    // - TimerShutdown: scheduled shutdown
+    // - TimerReboot: scheduled restart
+    // - TimerReset: scheduled reset
+    // - TimerMaintenance: scheduled maintenance
+    // - TimerHibernate: scheduled hibernation
     shared_ptr<string> timerType_ {};
   };
 

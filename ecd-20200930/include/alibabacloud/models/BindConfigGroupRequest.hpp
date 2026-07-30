@@ -90,23 +90,13 @@ namespace Models
 
 
     protected:
-      // The service type of the resource.
-      // 
-      // Valid value:
-      // 
-      // - CLOUD_DESKTOP: the cloud computer service.
+      // The product type to which the resource belongs.
       shared_ptr<string> productType_ {};
-      // The ID of the resource.
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The region ID of the resource.
+      // The region where the resource resides.
       shared_ptr<string> resourceRegionId_ {};
-      // The type of the resource.
-      // 
-      // Valid values:
-      // 
-      // - RESOURCE_GROUP: the resource group
-      // 
-      // - CLOUD_DESKTOP: the cloud computer service.
+      // The resource type.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -136,13 +126,13 @@ namespace Models
 
 
   protected:
-    // The ID of the configuration group.
+    // The configuration group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The ID of the region. Set the value to `cn-shanghai`.
+    // The region ID. This operation is not region-specific. Set this parameter to `cn-shanghai`.
     shared_ptr<string> regionId_ {};
-    // The resources to which you want to bind the configuration group.
+    // The resource information to associate.
     // 
     // This parameter is required.
     shared_ptr<vector<BindConfigGroupRequest::ResourceInfos>> resourceInfos_ {};

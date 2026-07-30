@@ -185,10 +185,11 @@ namespace Models
     shared_ptr<string> imageId_ {};
     // Specifies whether the response includes cloud desktops in shared cloud desktop groups.
     shared_ptr<bool> includeDesktopGroup_ {};
-    // >This parameter is not yet available.
+    // >This parameter is not yet available for use.
     shared_ptr<string> keyword_ {};
     // The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The private IP address.
     shared_ptr<string> networkInterfaceIp_ {};
     // The token for the next query. An empty value indicates that there are no more results.
     shared_ptr<string> nextToken_ {};

@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The response code. The value 200 indicates that the request was successful.
+    // The response code. 200 indicates success.
     shared_ptr<string> code_ {};
-    // Indicates whether the delete operation was successful.
+    // The deletion result.
     shared_ptr<bool> data_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

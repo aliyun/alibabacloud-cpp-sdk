@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // > This parameter is for internal use only.
+    // > This parameter is not publicly available.
     shared_ptr<int32_t> bizType_ {};
-    // The office site ID.
+    // The workspace ID.
     shared_ptr<string> officeSiteId_ {};
-    // The region ID.
+    // The region ID of the service.
     shared_ptr<string> regionId_ {};
-    // The ID of the region to search. This filters the results to show only resources from the specified region.
+    // The region ID used to filter cloud resource information for the specified region.
     shared_ptr<string> searchRegionId_ {};
   };
 

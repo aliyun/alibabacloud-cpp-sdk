@@ -418,7 +418,7 @@ namespace Models
         shared_ptr<int64_t> usbRedirectType_ {};
         // The USB redirection rule type.
         shared_ptr<int64_t> usbRuleType_ {};
-        // The vendor ID. For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+        // The vendor ID. See [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
         shared_ptr<string> vendorId_ {};
       };
 
@@ -622,7 +622,7 @@ namespace Models
         shared_ptr<string> devicePid_ {};
         // The peripheral device type.
         shared_ptr<string> deviceType_ {};
-        // The vendor ID. For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+        // The vendor ID. See [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
         shared_ptr<string> deviceVid_ {};
         // The link optimization instruction.
         shared_ptr<string> optCommand_ {};
@@ -803,19 +803,19 @@ namespace Models
 
 
       protected:
-        // The target of the security group control rule, which is an IPv4 CIDR block.
+        // The object of the security group rule, which is an IPv4 CIDR block.
         shared_ptr<string> cidrIp_ {};
-        // The description of the security group control rule.
+        // The description of the security group rule.
         shared_ptr<string> description_ {};
-        // The protocol type of the security group control rule.
+        // The protocol type of the security group rule.
         shared_ptr<string> ipProtocol_ {};
-        // The authorization policy of the security group control rule.
+        // The authorization policy of the security group rule.
         shared_ptr<string> policy_ {};
-        // The port range of the security group control rule.
+        // The port range of the security group rule.
         shared_ptr<string> portRange_ {};
-        // The priority of the security group control rule. A smaller value indicates a higher priority.
+        // The priority of the security group rule. A smaller value indicates a higher priority.
         shared_ptr<string> priority_ {};
-        // The direction of the security group control rule.
+        // The direction of the security group rule.
         shared_ptr<string> type_ {};
       };
 
@@ -857,7 +857,7 @@ namespace Models
 
 
       protected:
-        // The client access IP CIDR block, in IPv4 CIDR notation.
+        // The client access IP CIDR block in IPv4 CIDR format.
         shared_ptr<string> cidrIp_ {};
         // The description of the client access IP CIDR block.
         shared_ptr<string> description_ {};
@@ -1962,7 +1962,7 @@ namespace Models
       shared_ptr<string> appContentProtection_ {};
       // The client access IP whitelist.
       shared_ptr<vector<DescribePolicyGroups::AuthorizeAccessPolicyRules>> authorizeAccessPolicyRules_ {};
-      // The list of security group control rules.
+      // The list of security group rules.
       shared_ptr<vector<DescribePolicyGroups::AuthorizeSecurityPolicyRules>> authorizeSecurityPolicyRules_ {};
       shared_ptr<string> autoReconnect_ {};
       // Indicates whether local camera redirection is enabled.
@@ -2049,7 +2049,7 @@ namespace Models
       shared_ptr<string> kmsServerConfig_ {};
       // The local drive mapping permission.
       shared_ptr<string> localDrive_ {};
-      // The maximum reconnection retry time when the cloud desktop is disconnected due to external reasons. Valid values: 30 to 7200. Unit: seconds.
+      // The maximum reconnection retry time when the cloud desktop is disconnected due to objective reasons. Valid values: 30 to 7200. Unit: seconds.
       shared_ptr<int32_t> maxReconnectTime_ {};
       // The memory throttling duration of a single process. Valid values: 30 to 120. Unit: seconds.
       shared_ptr<int32_t> memoryDownGradeDuration_ {};
@@ -2064,12 +2064,12 @@ namespace Models
       shared_ptr<int32_t> memorySampleDuration_ {};
       // The memory usage percentage of a single process. Valid values: 30 to 60.
       shared_ptr<int32_t> memorySingleRateLimit_ {};
-      // Indicates whether the restart button is provided in the cloud desktop floating ball when connecting through a mobile client (Android client<props="china"> and iOS client).
+      // Indicates whether the restart button is provided in the cloud desktop floating ball when connecting through mobile clients (Android client<props="china"> and iOS client).
       // 
       // > Applicable only to mobile clients V7.4 or later.
       shared_ptr<string> mobileRestart_ {};
       shared_ptr<string> mobileSafeMenu_ {};
-      // Indicates whether the shutdown button is provided in the cloud desktop floating ball when connecting through a mobile client (Android client<props="china"> and iOS client).
+      // Indicates whether the shutdown button is provided in the cloud desktop floating ball when connecting through mobile clients (Android client<props="china"> and iOS client).
       // 
       // > Applicable only to mobile clients V7.4 or later.
       shared_ptr<string> mobileShutdown_ {};
@@ -2086,7 +2086,7 @@ namespace Models
       // The network redirection policy details.
       // 
       // > This feature is in invitational preview and is not publicly available.
-      // >.
+      // >
       shared_ptr<vector<DescribePolicyGroups::NetRedirectRule>> netRedirectRule_ {};
       shared_ptr<string> networkPrinter_ {};
       // The no-operation disconnect setting.
@@ -2109,7 +2109,7 @@ namespace Models
       shared_ptr<string> qualityEnhancement_ {};
       // Indicates whether custom screen recording is enabled.
       shared_ptr<string> recordContent_ {};
-      // The expiration period of custom screen recording files. Default value: 30. Unit: days.
+      // The expiration time of custom screen recording files. Default value: 30 days.
       shared_ptr<int64_t> recordContentExpires_ {};
       // The screen recording duration after an event is detected in screen recording audit. Unit: minutes. Valid values: 10 to 60.
       shared_ptr<int32_t> recordEventDuration_ {};
@@ -2121,19 +2121,19 @@ namespace Models
       shared_ptr<string> recording_ {};
       // The option for recording cloud desktop audio.
       shared_ptr<string> recordingAudio_ {};
-      // The duration of each screen recording file. Unit: minutes. Recording files are automatically split and uploaded to the storage space based on the specified duration. Files are rolled over when they reach 300 MB.
+      // The duration of screen recording files. Unit: minutes. Recording files are automatically split and uploaded to the storage space based on the specified duration. Files are rolled over when they reach 300 MB.
       shared_ptr<int32_t> recordingDuration_ {};
-      // The screen recording end time, in the format of HH:MM:SS. This value is meaningful only when Recording is set to period.
+      // The screen recording end time in the format of HH:MM:SS. This value is meaningful only when Recording is set to period.
       shared_ptr<string> recordingEndTime_ {};
       // The retention period of screen recording files. Valid values: 1 to 180. Unit: days.
       shared_ptr<int64_t> recordingExpires_ {};
       // The screen recording frame rate. Unit: FPS (frames per second).
       shared_ptr<int64_t> recordingFps_ {};
-      // The screen recording start time, in the format of HH:MM:SS. This value is meaningful only when Recording is set to period.
+      // The screen recording start time in the format of HH:MM:SS. This value is meaningful only when Recording is set to period.
       shared_ptr<string> recordingStartTime_ {};
       // Indicates whether end users are notified that screen recording is enabled.
       shared_ptr<string> recordingUserNotify_ {};
-      // The notification message displayed to end users about screen recording.
+      // The notification message displayed to end users about screen recording being enabled.
       shared_ptr<string> recordingUserNotifyMessage_ {};
       // The keyboard and mouse control permission for remote assistance.
       shared_ptr<string> remoteCoordinate_ {};
@@ -2189,7 +2189,7 @@ namespace Models
       shared_ptr<string> watermarkAntiCam_ {};
       // The watermark font color. Valid values: 0 to 16777215.
       shared_ptr<int32_t> watermarkColor_ {};
-      // If the `WatermarkType` parameter is set to `custom`, you must also specify the custom text content by using the `WatermarkCustomText` parameter.
+      // If the WatermarkType parameter is set to `custom`, you must also specify the custom text content by using the WatermarkCustomText parameter.
       shared_ptr<string> watermarkCustomText_ {};
       // The watermark tilt angle. Valid values: -10 to -30.
       shared_ptr<double> watermarkDegree_ {};

@@ -68,13 +68,13 @@ namespace Models
   protected:
     // The description of the configuration group.
     shared_ptr<string> description_ {};
-    // The ID of the configuration group.
+    // The configuration group ID.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The name of the configuration group.
+    // The configuration group name.
     shared_ptr<string> name_ {};
-    // The ID of the region. Set the value to `cn-shanghai`.
+    // The region ID. This operation is not region-specific. Set this parameter to `cn-shanghai`.
     shared_ptr<string> regionId_ {};
   };
 

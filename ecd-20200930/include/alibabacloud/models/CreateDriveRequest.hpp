@@ -121,39 +121,25 @@ namespace Models
 
 
   protected:
-    // The ID of your Alibaba Cloud account.
+    // The Alibaba Cloud account ID.
     shared_ptr<int64_t> aliUid_ {};
     // The description of the user-level storage resource.
     shared_ptr<string> description_ {};
-    // The ID of the storage resource.
-    // 
-    // > Call the DescribeDrives operation to retrieve the storage resource ID.
+    // The storage resource ID.
+    // > You can call the DescribeDrives operation to obtain this value.
     shared_ptr<string> domainId_ {};
     // The name of the user-level storage resource.
     shared_ptr<string> driveName_ {};
-    // The ID of the external storage resource.
-    // 
-    // > Call the DescribeDrives operation to retrieve the external storage resource ID.
+    // The external storage resource ID.
+    // > You can call the DescribeDrives operation to obtain this value.
     shared_ptr<string> externalDomainId_ {};
     // > This parameter is deprecated.
     shared_ptr<bool> profileRoaming_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The type of the storage resource.
-    // 
-    // Valid values:
-    // 
-    // - NAS: File Storage NAS
-    // 
-    // - PDS: Drive and Photo Service
+    // The storage resource type.
     shared_ptr<string> resourceType_ {};
-    // The usage of the storage resource.
-    // 
-    // Valid values:
-    // 
-    // - DESKTOP: data disk space
-    // 
-    // - USER_PROFILE: space for personal data of the user
+    // The purpose of the storage resource.
     shared_ptr<string> type_ {};
     // The user ID.
     shared_ptr<string> userId_ {};

@@ -98,21 +98,17 @@ namespace Models
 
   protected:
     shared_ptr<string> businessChannel_ {};
-    // The number of the page to return. Pages start from page 1. Default value: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries returned per page. Maximum value: 200.
+    // The number of entries per page. Maximum value: 200.
     shared_ptr<int32_t> pageSize_ {};
     // The task status.
     shared_ptr<vector<string>> status_ {};
-    // The sub-type of the report export task.
+    // The subtype of the report task.
     shared_ptr<string> subType_ {};
-    // The ID of the report export task.
+    // The report task ID.
     shared_ptr<string> taskId_ {};
-    // The type of the report.
-    // 
-    // Valid value:
-    // 
-    // - RESOURCE_REPORT
+    // The report type.
     shared_ptr<string> taskType_ {};
   };
 

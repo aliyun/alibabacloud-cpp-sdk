@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EncryptType, encryptType_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
+      DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(StorageType, storageType_);
     };
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EncryptType, encryptType_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
+      DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
     };
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->encryptType_ == nullptr && this->name_ == nullptr && this->officeSiteId_ == nullptr && this->regionId_ == nullptr && this->storageType_ == nullptr; };
+        && this->encryptType_ == nullptr && this->name_ == nullptr && this->officeSiteId_ == nullptr && this->protocolType_ == nullptr && this->regionId_ == nullptr
+        && this->storageType_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -69,6 +72,13 @@ namespace Models
     inline CreateNASFileSystemRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
+    // protocolType Field Functions 
+    bool hasProtocolType() const { return this->protocolType_ != nullptr;};
+    void deleteProtocolType() { this->protocolType_ = nullptr;};
+    inline string getProtocolType() const { DARABONBA_PTR_GET_DEFAULT(protocolType_, "") };
+    inline CreateNASFileSystemRequest& setProtocolType(string protocolType) { DARABONBA_PTR_SET_VALUE(protocolType_, protocolType) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -84,28 +94,22 @@ namespace Models
 
 
   protected:
-    // Description of the NAS file system.
+    // The description of the NAS file system.
     shared_ptr<string> description_ {};
-    // Whether the file system is encrypted. Uses KMS service-managed keys to encrypt the file system\\"s on-disk data. No decryption is required when reading and writing encrypted data.
+    // Specifies whether the file system uses a KMS-managed key to encrypt data stored on the file system. Encrypted data does not need to be decrypted during read and write operations.
     shared_ptr<string> encryptType_ {};
-    // Name of the NAS file system.
-    // The file name must follow these rules:
-    // 
-    // - Length: 2 to 128 English or Chinese characters.
-    // 
-    // - Must start with an uppercase or lowercase letter or a Chinese character, cannot start with http\\:// or https\\://.
-    // 
-    // - Can include numbers, underscores (_), or hyphens (-).
+    // The NAS file system name. The name must meet the following requirements: The name must be 2 to 128 characters in length and can contain letters and Chinese characters. The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The name can contain digits, underscores (_), or hyphens (-).
     shared_ptr<string> name_ {};
-    // Workspace ID.
+    // The office network ID.
     // 
     // This parameter is required.
     shared_ptr<string> officeSiteId_ {};
-    // Region ID.
+    shared_ptr<string> protocolType_ {};
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Storage specification type of the NAS file system.
+    // The storage type of the NAS file system.
     shared_ptr<string> storageType_ {};
   };
 

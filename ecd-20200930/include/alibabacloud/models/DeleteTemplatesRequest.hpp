@@ -53,7 +53,7 @@ namespace Models
   protected:
     // > This parameter is not publicly available.
     shared_ptr<string> bizType_ {};
-    // The IDs of the templates that you want to delete.
+    // The list of template IDs to delete.
     shared_ptr<vector<string>> templateIds_ {};
   };
 

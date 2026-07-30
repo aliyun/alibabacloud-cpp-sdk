@@ -72,7 +72,7 @@ namespace Models
 
 
     protected:
-      // The total number of sessions in the time range.
+      // The total number of sessions within the interval.
       shared_ptr<int64_t> count_ {};
       // The point in time.
       shared_ptr<int64_t> timePoint_ {};
@@ -106,9 +106,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The statistics.
+    // The statistics information.
     shared_ptr<vector<DescribeSessionStatisticResponseBody::Statistic>> statistic_ {};
-    // The total number of sessions returned.
+    // The total number of entries returned.
     shared_ptr<string> totalCount_ {};
   };
 

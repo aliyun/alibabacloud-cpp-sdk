@@ -120,17 +120,17 @@ namespace Models
 
 
     protected:
-      // The ID of the batch.
+      // The batch ID of the scheduled task execution.
       shared_ptr<string> batchId_ {};
-      // The time when the batch was created.
+      // The time when the record was created.
       shared_ptr<string> createTime_ {};
-      // The number of failed tasks.
+      // The number of tasks that failed to execute.
       shared_ptr<int32_t> failedCount_ {};
-      // The number of running tasks.
+      // The number of tasks that are currently running.
       shared_ptr<int32_t> runningCount_ {};
-      // The number of skipped tasks.
+      // The number of tasks that were skipped.
       shared_ptr<int32_t> skippedCount_ {};
-      // The number of successfully executed tasks.
+      // The total number of tasks that were executed successfully.
       shared_ptr<int32_t> succeedCount_ {};
       // The type of the scheduled task.
       shared_ptr<string> timerType_ {};
@@ -171,11 +171,11 @@ namespace Models
   protected:
     // The total number of entries.
     shared_ptr<int32_t> count_ {};
-    // The token to use to retrieve the next page of results. This parameter is returned only when more results are available.
+    // The pagination token for the next query. An empty value indicates that there are no more results.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // A list of batches.
+    // The list of results.
     shared_ptr<vector<DescribeGlobalTimerBatchesResponseBody::Results>> results_ {};
   };
 

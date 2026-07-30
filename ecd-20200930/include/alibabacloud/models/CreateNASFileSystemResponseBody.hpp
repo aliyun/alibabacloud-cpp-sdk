@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // ID of the NAS file system.
+    // The NAS file system ID.
     shared_ptr<string> fileSystemId_ {};
-    // Name of the NAS file system.
+    // The NAS file system name.
     shared_ptr<string> fileSystemName_ {};
-    // Mount point domain.
+    // The mount target domain name.
     shared_ptr<string> mountTargetDomain_ {};
-    // Workspace ID.
+    // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

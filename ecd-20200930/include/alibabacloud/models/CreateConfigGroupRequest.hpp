@@ -277,16 +277,16 @@ namespace Models
 
 
       protected:
-        // The execution time for a one-time scheduled task, specified as a UNIX timestamp in milliseconds.
+        // The specified time point for executing a scheduled task. After this parameter is specified, the scheduled task is executed at the specified time point.
         shared_ptr<int64_t> appointmentTimer_ {};
         shared_ptr<bool> createSnapshot_ {};
         shared_ptr<string> endCronExpression_ {};
         shared_ptr<bool> enforce_ {};
-        // The image ID for a scheduled task that changes the image of a cloud desktop.
+        // The image ID to change to. This parameter is used for image change scheduled tasks.
         shared_ptr<string> imageId_ {};
         shared_ptr<int32_t> interval_ {};
         shared_ptr<vector<string>> ipSegments_ {};
-        // The amount of inactive time, in seconds, before the screen automatically locks. This parameter applies only to Active Directory desktops.
+        // The lock screen time point for the no-operation lock screen feature. This parameter cannot be used for non-AD desktops.
         shared_ptr<int32_t> lockScreenTime_ {};
         shared_ptr<int32_t> notificationTime_ {};
         shared_ptr<string> operationType_ {};
@@ -386,31 +386,29 @@ namespace Models
 
 
     protected:
-      // Whether to allow end users to configure the scheduled task.
+      // Specifies whether to allow end users to configure scheduled tasks on their own.
       shared_ptr<bool> allowClientSetting_ {};
-      // The cron expression for the scheduled task.
+      // The cron expression of the scheduled task.
       // 
-      // >Notice: 
-      // 
-      // The cron expression is based on UTC. For example, to run a task at 00:00 China Standard Time (UTC+8) every day, set this parameter to `0 0 16 ? * 1,2,3,4,5,6,7`.
+      // >Notice: Specify the time in UTC. For example, to specify 00:00 (UTC+8) every day, use 0 0 16 ? * 1,2,3,4,5,6,7.</notice>
       shared_ptr<string> cronExpression_ {};
-      // Whether to forcefully execute the scheduled task.
+      // Specifies whether to forcibly execute the task.
       shared_ptr<bool> enforce_ {};
       // The time interval, in minutes.
       shared_ptr<int32_t> interval_ {};
       shared_ptr<int32_t> notificationTime_ {};
-      // The operation to perform for the scheduled task. This parameter is valid only when `TimerType` is set to `NoConnect`.
+      // The operation type of the scheduled task. Currently, only disconnect scheduled tasks support this parameter.
       shared_ptr<string> operationType_ {};
-      // The process whitelist for smart detection. If a process from this whitelist is running, the inactivity-based scheduled task does not run.
+      // The process whitelist for intelligent detection of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not triggered.
       shared_ptr<vector<string>> processWhitelist_ {};
-      // The reset type for the cloud desktop.
+      // The reset type of the cloud computer.
       shared_ptr<string> resetType_ {};
       shared_ptr<vector<ConfigTimers::SegmentTimers>> segmentTimers_ {};
       // The type of the scheduled task.
       // 
       // This parameter is required.
       shared_ptr<string> timerType_ {};
-      // The trigger condition for inactivity-based scheduled tasks.
+      // The trigger configuration type of the no-operation scheduled task.
       shared_ptr<string> triggerType_ {};
     };
 
@@ -461,7 +459,7 @@ namespace Models
 
 
   protected:
-    // An array of scheduled task configurations.
+    // The configuration information of scheduled tasks. This parameter is a list.
     shared_ptr<vector<CreateConfigGroupRequest::ConfigTimers>> configTimers_ {};
     // The description of the configuration group.
     shared_ptr<string> description_ {};
@@ -469,11 +467,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The product to which the configuration group applies.
+    // The product type used by the configuration group.
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
-    // The region ID. This feature is not region-specific. You must set this parameter to cn-shanghai.
+    // The region ID. This feature is not region-specific. Set this parameter to `cn-shanghai`.
     shared_ptr<string> regionId_ {};
     // The type of the configuration group.
     // 

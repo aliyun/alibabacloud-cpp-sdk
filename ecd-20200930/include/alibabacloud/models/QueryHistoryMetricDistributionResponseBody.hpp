@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of data points in this value range.
+      // The count.
       shared_ptr<int32_t> count_ {};
-      // The range label that you defined in the request.
+      // The range label.
       shared_ptr<string> label_ {};
-      // The maximum value of the value range.
+      // The maximum value.
       shared_ptr<float> max_ {};
-      // The minimum value of the value range.
+      // The minimum value.
       shared_ptr<float> min_ {};
     };
 
@@ -126,11 +126,11 @@ namespace Models
 
 
   protected:
-    // An array of objects, each representing the distribution data for a specific value range.
+    // The distribution list corresponding to resource monitoring.
     shared_ptr<vector<QueryHistoryMetricDistributionResponseBody::DistributionList>> distributionList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of data points that match the query.
+    // The total number of query results.
     shared_ptr<int64_t> totalCount_ {};
   };
 

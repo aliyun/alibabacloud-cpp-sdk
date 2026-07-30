@@ -156,33 +156,25 @@ namespace Models
     protected:
       // The download URL of the report file.
       shared_ptr<string> downloadUrl_ {};
-      // The error code returned.
+      // The error code.
       shared_ptr<string> errorCode_ {};
       // The error message.
       shared_ptr<string> errorMsg_ {};
-      // The time when the task was created.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the task was last modified.
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
       // The progress of the report export task. Unit: %.
       shared_ptr<float> progress_ {};
-      // The name of the report file.
+      // The report file name.
       shared_ptr<string> reportFileName_ {};
-      // The task status.
+      // The report task status.
       shared_ptr<string> status_ {};
-      // The sub-type of the report export task.
-      // 
-      // Valid value:
-      // 
-      // - DESKTOP: cloud computer
+      // The subtype of the report task.
       shared_ptr<string> subType_ {};
-      // The ID of the report export task.
+      // The report task ID.
       shared_ptr<string> taskId_ {};
-      // The type of the report.
-      // 
-      // Valid value:
-      // 
-      // - RESOURCE_REPORT
+      // The report type.
       shared_ptr<string> taskType_ {};
     };
 
@@ -212,7 +204,7 @@ namespace Models
 
 
   protected:
-    // The report export tasks.
+    // The list of report tasks.
     shared_ptr<vector<DescribeEcdReportTasksResponseBody::ExportTaskList>> exportTaskList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

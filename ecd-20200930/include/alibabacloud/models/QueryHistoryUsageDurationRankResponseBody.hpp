@@ -110,17 +110,21 @@ namespace Models
 
 
     protected:
-      // The **charge type**. Valid values: `POST_PAID` (post-paid), `PRE_PAID` (pre-paid), `MONTH_PACKAGE` (monthly subscription), and `DURATION` (duration package).
+      // The billing type. Valid values:
+      // - POST_PAID: pay-as-you-go.
+      // - PRE_PAID: subscription.
+      // - MONTH_PACKAGE: monthly package.
+      // - DURATION: duration-based package.
       shared_ptr<string> chargeType_ {};
-      // **The ID of the cloud desktop.**
+      // The cloud desktop ID.
       shared_ptr<string> desktopId_ {};
-      // **The name of the cloud desktop.**
+      // The cloud desktop name.
       shared_ptr<string> desktopName_ {};
-      // **The end user ID.**
+      // The end user ID.
       shared_ptr<string> endUserId_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The **usage duration**, in seconds. Note: This is a `Long` value. Ensure your client can handle the precision.
+      // The usage duration, in seconds. This value is of the Long type. Handle precision conversion on the frontend.
       shared_ptr<int64_t> usageDuration_ {};
     };
 
@@ -157,13 +161,13 @@ namespace Models
 
 
   protected:
-    // The token used to retrieve the next page of results. If this parameter is not returned, there are no more results.
+    // The paging token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of matching entries.
+    // The total number of query results.
     shared_ptr<int32_t> totalCount_ {};
-    // A list of usage duration metrics.
+    // The list of user usage duration metrics.
     shared_ptr<vector<QueryHistoryUsageDurationRankResponseBody::UsageDurationList>> usageDurationList_ {};
   };
 

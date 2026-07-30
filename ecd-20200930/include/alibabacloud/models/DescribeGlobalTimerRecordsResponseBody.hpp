@@ -193,27 +193,30 @@ namespace Models
 
 
     protected:
-      // The type of action performed.
+      // The type of action that was performed.
       shared_ptr<string> actionType_ {};
       // The batch ID of the scheduled task execution.
       shared_ptr<string> batchId_ {};
-      // The recorded information during the execution of the scheduled task.
+      // The record information during the execution of the scheduled task.
       shared_ptr<string> context_ {};
       // The time when the record was created.
       shared_ptr<string> createTime_ {};
-      // The cloud desktop ID.
+      // The cloud computer ID.
       shared_ptr<string> desktopId_ {};
-      // The cloud desktop name.
+      // The cloud computer name.
       shared_ptr<string> desktopName_ {};
+      // The display result name.
       shared_ptr<string> displayResultName_ {};
       // The time when the task ended.
       shared_ptr<string> finishTime_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       shared_ptr<string> resourceParentId_ {};
+      // Specifies whether the task can be retried.
       shared_ptr<bool> retryable_ {};
-      // The scheduled task group ID.
+      // The ID of the scheduled task group.
       shared_ptr<string> timerGroupId_ {};
+      // The timer record ID.
       shared_ptr<string> timerRecordId_ {};
       // The execution result of the scheduled task.
       shared_ptr<string> timerResult_ {};
@@ -254,13 +257,13 @@ namespace Models
 
 
   protected:
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> count_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If this parameter is empty, all results have been returned.
+    // The token for the next query. If NextToken is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned results.
+    // The result information.
     shared_ptr<vector<DescribeGlobalTimerRecordsResponseBody::Results>> results_ {};
   };
 

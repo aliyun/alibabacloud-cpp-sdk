@@ -257,15 +257,15 @@ namespace Models
 
 
       protected:
-        // Timestamp for scheduled task execution. The task runs at the specified time.
+        // The specified time point for fixed-time scheduled task execution. After this parameter is specified, the scheduled task is executed at the specified time point.
         shared_ptr<int64_t> appointmentTimer_ {};
         shared_ptr<string> endCronExpression_ {};
         shared_ptr<bool> enforce_ {};
-        // Image ID for image-change scheduled tasks.
+        // The image ID to change to. This parameter is used for image change scheduled tasks.
         shared_ptr<string> imageId_ {};
         shared_ptr<int32_t> interval_ {};
         shared_ptr<vector<string>> ipSegments_ {};
-        // Lock screen time for inactivity-based lock screen. Not supported for non-AD desktops.
+        // The lock screen time point for the no-operation lock screen feature. This parameter is not supported for non-AD desktops.
         shared_ptr<int32_t> lockScreenTime_ {};
         shared_ptr<int32_t> notificationTime_ {};
         shared_ptr<string> operationType_ {};
@@ -364,27 +364,27 @@ namespace Models
 
 
     protected:
-      // Specifies whether to allow end users to configure scheduled tasks.
+      // Specifies whether to allow end users to configure scheduled tasks on their own.
       shared_ptr<bool> allowClientSetting_ {};
-      // The Cron expression for the scheduled task.
+      // The cron expression of the scheduled task.
       // 
-      // > The Cron expression must be in UTC. For example, to schedule a task for 00:00 daily in China Standard Time (UTC+8), set this parameter to `0 0 16 ? * 1,2,3,4,5,6,7`.
+      // > Specify the time in UTC. For example, to schedule a task at 00:00 (UTC+8) every day, set this parameter to 0 0 16 ? * 1,2,3,4,5,6,7.
       shared_ptr<string> cronExpression_ {};
-      // Specifies whether to force execution. If this parameter is set to `true`, the scheduled task runs regardless of the desktop and connection status.
+      // Specifies whether to forcefully execute the task. If set to true, the scheduled task is forcefully executed regardless of the desktop and connection status.
       shared_ptr<bool> enforce_ {};
-      // The interval, in minutes.
+      // The time interval, in minutes.
       shared_ptr<int32_t> interval_ {};
       shared_ptr<int32_t> notificationTime_ {};
-      // The operation to perform. This parameter applies only if `TimerType` is set to `NoConnect`.
+      // The operation type of the scheduled task. Currently, only disconnect scheduled tasks support this parameter.
       shared_ptr<string> operationType_ {};
-      // The process whitelist for advanced inactivity detection. The scheduled task is not triggered if a process from this list is running.
+      // The process whitelist for intelligent detection of no-operation scheduled tasks. If a specified process is running, the no-operation scheduled task is not triggered.
       shared_ptr<vector<string>> processWhitelist_ {};
-      // Specifies which disks to reset.
+      // The reset type, which determines whether to reset and the scope of cloud disks to reset.
       shared_ptr<string> resetType_ {};
       shared_ptr<vector<ConfigTimers::SegmentTimers>> segmentTimers_ {};
-      // The type of the scheduled task.
+      // The scheduled task type.
       shared_ptr<string> timerType_ {};
-      // The method for detecting inactivity.
+      // The trigger configuration type for no-operation scheduled tasks.
       shared_ptr<string> triggerType_ {};
     };
 
@@ -428,7 +428,7 @@ namespace Models
 
 
   protected:
-    // The scheduled task configurations.
+    // The configuration information of scheduled tasks.
     shared_ptr<vector<ModifyTimerGroupRequest::ConfigTimers>> configTimers_ {};
     // The description of the configuration group.
     shared_ptr<string> description_ {};
@@ -436,9 +436,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The name of the configuration group.
+    // The configuration group name.
     shared_ptr<string> name_ {};
-    // The region ID. This feature is not tied to a specific region, but you must set this parameter to `cn-shanghai`.
+    // The region ID. This feature is not region-specific. Set this parameter to `cn-shanghai`.
     shared_ptr<string> regionId_ {};
   };
 

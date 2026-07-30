@@ -117,31 +117,23 @@ namespace Models
 
 
   protected:
-    // The ID of the configuration group.
+    // The configuration group ID.
     shared_ptr<string> groupId_ {};
-    // The IDs of the configuration groups.
+    // The list of configuration group IDs.
     shared_ptr<vector<string>> groupIds_ {};
-    // The name of the configuration group.
+    // The configuration group name.
     shared_ptr<string> name_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The service type of the configuration group.
-    // 
-    // Valid value:
-    // 
-    // *   CLOUD_DESKTOP: the cloud computer service.
+    // The product type used by the configuration group.
     shared_ptr<string> productType_ {};
-    // The ID of the region. Set the value to `cn-shanghai`.
+    // The region ID. This feature is not region-specific. Set this parameter to `cn-shanghai`.
     shared_ptr<string> regionId_ {};
-    // The status of the configuration groups.
+    // The list of configuration group statuses.
     shared_ptr<vector<string>> statuses_ {};
-    // The type of the configuration group.
-    // 
-    // Valid value:
-    // 
-    // *   Timer: the scheduled task type.
+    // The configuration group type.
     shared_ptr<string> type_ {};
   };
 

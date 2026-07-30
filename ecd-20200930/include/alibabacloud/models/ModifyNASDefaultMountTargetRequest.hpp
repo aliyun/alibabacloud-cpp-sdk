@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the NAS file system.
+    // The NAS file system ID.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The domain name of the mount target.
+    // The mount target domain name.
     // 
     // This parameter is required.
     shared_ptr<string> mountTargetDomain_ {};
-    // The region ID.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

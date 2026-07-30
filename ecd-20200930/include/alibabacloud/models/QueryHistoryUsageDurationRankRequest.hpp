@@ -77,13 +77,13 @@ namespace Models
   protected:
     // The business type.
     shared_ptr<int32_t> bizType_ {};
-    // The end date of the query in `YYYY-MM-DD` format. You can query data within the last 90 days.
+    // The end date of the query. Format: YYYY-MM-DD. Supports querying data within a maximum of 90 days.
     shared_ptr<string> endDate_ {};
-    // The number of entries to return. The default value is 5, and the maximum value is 200.
+    // The number of results to return. Default value: 5. Maximum value: 200.
     shared_ptr<int32_t> limit_ {};
-    // The token that is used to retrieve the next page of results. You can obtain this token from the response to the previous request.
+    // The paging token for the next query. Obtained from the previous response.
     shared_ptr<string> nextToken_ {};
-    // The start date of the query in `YYYY-MM-DD` format. You can query data within the last 90 days.
+    // The start date of the query. Format: YYYY-MM-DD. Supports querying data within a maximum of 90 days.
     shared_ptr<string> startDate_ {};
   };
 

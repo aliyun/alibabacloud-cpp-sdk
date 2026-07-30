@@ -167,32 +167,30 @@ namespace Models
 
 
   protected:
-    // The batch ID for a scheduled task execution.
+    // The batch ID of the scheduled task execution.
     shared_ptr<string> batchId_ {};
-    // A list of cloud desktop IDs.
+    // The list of cloud computer IDs.
     shared_ptr<vector<string>> desktopIds_ {};
+    // The display result name.
     shared_ptr<string> displayResultName_ {};
-    // The scheduled task group ID.
+    // The ID of the scheduled task group.
     shared_ptr<string> groupId_ {};
-    // The number of entries per page.
-    // 
-    // Maximum value: 100.
-    // 
-    // Default value: 10.
+    // The number of entries per page for a paged query.
     shared_ptr<string> maxResults_ {};
-    // The token used to start the next query.
+    // The pagination token for the next query.
     shared_ptr<string> nextToken_ {};
-    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to list the regions available in Elastic Desktop Service.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Wuying Workspace.
     shared_ptr<string> regionId_ {};
     shared_ptr<vector<string>> resourceTypes_ {};
-    // Filters the results by execution status. Valid values:
+    // Filters results by execution result.
     shared_ptr<string> resultCategory_ {};
+    // Specifies whether the task can be retried.
     shared_ptr<bool> retryable_ {};
-    // The ID of the region to filter by. Only records for cloud desktops in this region are returned.
+    // The region ID used to filter cloud computer information for a specified region.
     shared_ptr<string> searchRegionId_ {};
-    // The execution result of the scheduled task. Valid values:
+    // The execution result of the scheduled task.
     shared_ptr<string> timerResult_ {};
-    // The types of scheduled tasks.
+    // The list of scheduled tasks.
     shared_ptr<vector<string>> timerTypes_ {};
     shared_ptr<vector<string>> wuyingServerIds_ {};
   };

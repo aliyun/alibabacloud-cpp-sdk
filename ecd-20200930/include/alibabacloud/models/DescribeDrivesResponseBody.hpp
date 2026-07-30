@@ -137,9 +137,9 @@ namespace Models
 
 
       protected:
-        // The ID of the cloud computer pool.
+        // The cloud computer pool ID.
         shared_ptr<string> desktopGroupId_ {};
-        // The name of the cloud computer pool.
+        // The cloud computer pool name.
         shared_ptr<string> desktopGroupName_ {};
       };
 
@@ -291,70 +291,50 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The Alibaba Cloud account ID.
       shared_ptr<int64_t> aliUid_ {};
-      // The introduction to the storage resource.
+      // The storage resource description.
       shared_ptr<string> description_ {};
       // The number of associated cloud computer pools.
-      // 
-      // >  This parameter is returned only if ResourceType is set to NAS and Type is set to USER_PROFILE.
+      // > This parameter is returned only when the storage resource is NAS and the purpose is USER_PROFILE.
       shared_ptr<int32_t> desktopGroupCount_ {};
-      // The details of the associated cloud computers.
-      // 
-      // >  This parameter is returned only if ResourceType is set to NAS and Type is set to USER_PROFILE.
+      // The list of associated cloud computer pool details.
+      // > This parameter is returned only when the storage resource is NAS and the purpose is USER_PROFILE.
       shared_ptr<vector<Drives::DesktopGroups>> desktopGroups_ {};
-      // The ID of the storage resource.
+      // The storage resource ID.
       shared_ptr<string> domainId_ {};
-      // The ID of the user-level storage resource.
+      // The user-level storage resource ID.
       shared_ptr<string> driveId_ {};
-      // Indicates whether the UPM feature is enabled.
+      // Indicates whether the User Profile Management (UPM) feature is enabled.
       shared_ptr<bool> enableProfileManagement_ {};
-      // The ID of the external storage resource.
-      // 
-      // *   If ResourceType is set to NAS, the NAS ID is returned for this parameter.
-      // *   If ResourceType is set to PDS, the PDS ID is returned for this parameter.
+      // The external storage resource ID.
+      // - If the storage resource is NAS, this parameter returns the NAS ID.
+      // - If the storage resource is PDS, this parameter returns the PDS ID.
       shared_ptr<string> externalDomainId_ {};
-      // The ID of the storage resource at the external user level.
-      // 
-      // >  This parameter is returned only if ResourceType is set to PDS.
+      // The external user-level storage resource ID.
+      // > This parameter is returned only when the storage resource is PDS.
       shared_ptr<string> externalDriveId_ {};
-      // The ID of the external user.
-      // 
-      // >  This parameter is returned only if ResourceType is set to PDS.
+      // The external user ID.
+      // > This parameter is returned only when the storage resource is PDS.
       shared_ptr<string> externalUserId_ {};
-      // The time when the storage resource was created.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the storage resource was modified.
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // The user ID.
-      // 
-      // >  You can ignore this parameter.
+      // The ID.
+      // > You can ignore this parameter.
       shared_ptr<string> id_ {};
-      // The name of the storage resource.
+      // The storage resource name.
       shared_ptr<string> name_ {};
-      // >  This parameter is deprecated.
+      // > This parameter is deprecated.
       shared_ptr<bool> profileRoaming_ {};
       // The status of the user-level storage resource.
-      // 
-      // Valid values:
-      // 
-      // *   INIT: initializing
-      // *   MAINTAIN: maintaining
-      // *   DELETING: deleting
-      // *   INVALID: invalid
-      // *   NORMAL: normal
-      // *   FAIL: failed
       shared_ptr<string> status_ {};
-      // The total amount of user-level storage capacity.
+      // The total capacity of the user-level storage resource.
       shared_ptr<int64_t> totalSize_ {};
-      // The usage of the storage resource.
-      // 
-      // Valid values:
-      // 
-      // *   DESKTOP: data disk space
-      // *   USER_PROFILE: personal data space
+      // The purpose of the storage resource.
       shared_ptr<string> type_ {};
-      // The amount of user-level storage capacity used.
+      // The used capacity of the user-level storage resource.
       shared_ptr<int64_t> usedSize_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
@@ -415,15 +395,15 @@ namespace Models
 
 
   protected:
-    // The response code. The value 200 indicates that the request was successful.
+    // The response code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
-    // The total number of storage resources.
+    // The total number of entries.
     shared_ptr<int32_t> count_ {};
-    // The user-level storage resources.
+    // The list of user-level storage resources.
     shared_ptr<vector<DescribeDrivesResponseBody::Drives>> drives_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The pagination token for the next query. An empty value indicates that there are no more results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -240,19 +240,19 @@ namespace Models
 
 
     protected:
-      // The ID of the workspace.
+      // The office network ID.
       shared_ptr<string> officeSiteId_ {};
-      // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to obtain a list of regions that WUYING Workspace supports.
+      // The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by Elastic Desktop Service.
       shared_ptr<string> regionId_ {};
-      // The ID of the cloud desktop instance type.
+      // The cloud computer specification ID.
       shared_ptr<string> resourceInstanceType_ {};
       // The ID of the automatic snapshot policy.
       shared_ptr<string> snapshotPolicyId_ {};
-      // The ID of the vSwitch.
+      // The subnet ID.
       shared_ptr<string> subnetId_ {};
-      // Specifies whether to enable disk encryption.
+      // Specifies whether to enable cloud disk encryption.
       shared_ptr<bool> volumeEncryptionEnable_ {};
-      // The ID of the KMS key to use when disk encryption is enabled.
+      // The ID of the KMS key used when cloud disk encryption is enabled.
       shared_ptr<string> volumeEncryptionKey_ {};
     };
 
@@ -294,9 +294,9 @@ namespace Models
 
 
     protected:
-      // The performance level of the data disk. The default value is `AutoPL`.
+      // The performance level of the data cloud disk. Default value: `AutoPL`.
       shared_ptr<string> performanceLevel_ {};
-      // The size of the data disk. Unit: GiB. The value must be between 40 and 2040, inclusive. The step size is 10 GiB.
+      // The size of the data cloud disk. Unit: GiB. Valid values: 40 to 2040. The value must be a multiple of 10.
       shared_ptr<int32_t> size_ {};
     };
 
@@ -465,37 +465,36 @@ namespace Models
     shared_ptr<bool> autoRenew_ {};
     shared_ptr<string> chargeType_ {};
     shared_ptr<vector<ModifyTemplateRequest::DataDiskList>> dataDiskList_ {};
-    // The default language to set when the WUYING Workspace starts. This parameter is valid only when you create a WUYING Workspace from an OS image.
+    // The default language that is set when the cloud computer starts. This parameter takes effect only when a system image is used to create the cloud computer.
     shared_ptr<string> defaultLanguage_ {};
     // The description of the template. The description must meet the following requirements:
     // 
-    // - It must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
-    // 
-    // - It can contain Chinese characters, letters, digits, spaces, and special characters. Use line breaks to start a new line.
+    // - The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+    // - The description can contain Chinese characters, letters, digits, spaces, and special characters. Line breaks are supported.
     shared_ptr<string> description_ {};
-    // The ID of the WUYING Workspace image. You can find the ID on the Image Management page. OS images and custom images are supported.
+    // The ID of the cloud computer image. You can query the ID on the image management page. System images and custom images are supported.
     shared_ptr<string> imageId_ {};
     shared_ptr<int32_t> period_ {};
     shared_ptr<string> periodUnit_ {};
     // The ID of the global policy.
     shared_ptr<string> policyGroupId_ {};
     shared_ptr<bool> postPaidAfterUsedUp_ {};
-    // The region-specific template configurations. You can specify configurations for multiple regions. The system matches the configuration based on the specific region.
+    // The region-specific template configurations. Multiple configurations are supported. The configuration that matches the specific region is used.
     // 
-    // > You can specify configurations for up to 20 regions.
+    // > A maximum of 20 region configurations are supported.
     shared_ptr<vector<ModifyTemplateRequest::RegionConfigList>> regionConfigList_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Tags for the cloud computer, in key-value format. You can specify up to 20 tags.
+    // The tags of the cloud computer in key-value format. A maximum of 20 tags can be specified.
     shared_ptr<vector<ModifyTemplateRequest::ResourceTagList>> resourceTagList_ {};
     shared_ptr<vector<ModifyTemplateRequest::SiteConfigList>> siteConfigList_ {};
-    // The type of the system disk.
+    // The type of the system cloud disk.
     // 
-    // > Enhanced SSD (ESSD) disks are supported only by cloud computers with high clock speeds and powerful graphics capabilities.
+    // > Only high-frequency and GPU-accelerated cloud computer specifications support ESSD cloud disks.
     shared_ptr<string> systemDiskPerformanceLevel_ {};
-    // The size of the system disk. Unit: GiB. The value must be between 40 and 500, inclusive. The step size is 10 GiB.
+    // The size of the system cloud disk. Unit: GiB. Valid values: 40 to 500. The value must be a multiple of 10.
     // 
-    // > The system disk size cannot be smaller than the size of the image.
+    // > The system cloud disk size cannot be smaller than the size of the configured image.
     shared_ptr<int32_t> systemDiskSize_ {};
     // The template ID.
     // 
@@ -503,13 +502,11 @@ namespace Models
     shared_ptr<string> templateId_ {};
     // The name of the template. The name must meet the following requirements:
     // 
-    // - It must be 2 to 126 characters in length.
-    // 
-    // - It must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
-    // 
-    // - It can contain letters, digits, Chinese characters, colons (:), underscores (_), and hyphens (-). It cannot contain periods (.).
+    // - The name must be 2 to 126 characters in length and can contain letters and Chinese characters.
+    // - The name must start with a letter or a Chinese character. The name cannot start with `http://` or `https://`.
+    // - The name can contain letters, digits, Chinese characters, colons (:), underscores (_), or hyphens (-). Periods (.) are not supported.
     shared_ptr<string> templateName_ {};
-    // The ID of the configuration group.
+    // The configuration group ID.
     shared_ptr<string> timerGroupId_ {};
     shared_ptr<int32_t> userDuration_ {};
   };

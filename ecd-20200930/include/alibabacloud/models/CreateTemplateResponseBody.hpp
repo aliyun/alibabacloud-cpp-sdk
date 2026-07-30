@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The execution result of the operation. If the request was successful, `success` is returned. If the request failed, an error message is returned.
+    // The execution result. A value of `success` indicates success. Otherwise, an error message is returned.
     shared_ptr<string> code_ {};
-    // The template ID.
+    // The template ID returned after the template is created.
     shared_ptr<string> data_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The creation result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> success_ {};
   };
 

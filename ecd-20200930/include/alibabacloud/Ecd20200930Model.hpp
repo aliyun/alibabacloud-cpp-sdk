@@ -199,6 +199,9 @@
 #include <alibabacloud/models/CreateTemplateRequest.hpp>
 #include <alibabacloud/models/CreateTemplateResponseBody.hpp>
 #include <alibabacloud/models/CreateTemplateResponse.hpp>
+#include <alibabacloud/models/CreateVirtualBridgeRequest.hpp>
+#include <alibabacloud/models/CreateVirtualBridgeResponseBody.hpp>
+#include <alibabacloud/models/CreateVirtualBridgeResponse.hpp>
 #include <alibabacloud/models/DeleteAutoSnapshotPolicyRequest.hpp>
 #include <alibabacloud/models/DeleteAutoSnapshotPolicyResponseBody.hpp>
 #include <alibabacloud/models/DeleteAutoSnapshotPolicyResponse.hpp>
@@ -283,6 +286,9 @@
 #include <alibabacloud/models/DeleteTemplatesRequest.hpp>
 #include <alibabacloud/models/DeleteTemplatesResponseBody.hpp>
 #include <alibabacloud/models/DeleteTemplatesResponse.hpp>
+#include <alibabacloud/models/DeleteVirtualBridgeRequest.hpp>
+#include <alibabacloud/models/DeleteVirtualBridgeResponseBody.hpp>
+#include <alibabacloud/models/DeleteVirtualBridgeResponse.hpp>
 #include <alibabacloud/models/DeleteVirtualMFADeviceRequest.hpp>
 #include <alibabacloud/models/DeleteVirtualMFADeviceResponseBody.hpp>
 #include <alibabacloud/models/DeleteVirtualMFADeviceResponse.hpp>
@@ -427,6 +433,9 @@
 #include <alibabacloud/models/DescribeNetworkPackagesRequest.hpp>
 #include <alibabacloud/models/DescribeNetworkPackagesResponseBody.hpp>
 #include <alibabacloud/models/DescribeNetworkPackagesResponse.hpp>
+#include <alibabacloud/models/DescribeOfficeSiteBridgeInfoRequest.hpp>
+#include <alibabacloud/models/DescribeOfficeSiteBridgeInfoResponseBody.hpp>
+#include <alibabacloud/models/DescribeOfficeSiteBridgeInfoResponse.hpp>
 #include <alibabacloud/models/DescribeOfficeSitesRequest.hpp>
 #include <alibabacloud/models/DescribeOfficeSitesResponseBody.hpp>
 #include <alibabacloud/models/DescribeOfficeSitesResponse.hpp>
@@ -599,6 +608,9 @@
 #include <alibabacloud/models/ListUserAdOrganizationUnitsRequest.hpp>
 #include <alibabacloud/models/ListUserAdOrganizationUnitsResponseBody.hpp>
 #include <alibabacloud/models/ListUserAdOrganizationUnitsResponse.hpp>
+#include <alibabacloud/models/ListVirtualBridgesRequest.hpp>
+#include <alibabacloud/models/ListVirtualBridgesResponseBody.hpp>
+#include <alibabacloud/models/ListVirtualBridgesResponse.hpp>
 #include <alibabacloud/models/LockVirtualMFADeviceRequest.hpp>
 #include <alibabacloud/models/LockVirtualMFADeviceResponseBody.hpp>
 #include <alibabacloud/models/LockVirtualMFADeviceResponse.hpp>
@@ -704,6 +716,9 @@
 #include <alibabacloud/models/ModifyOfficeSiteAttributeRequest.hpp>
 #include <alibabacloud/models/ModifyOfficeSiteAttributeResponseBody.hpp>
 #include <alibabacloud/models/ModifyOfficeSiteAttributeResponse.hpp>
+#include <alibabacloud/models/ModifyOfficeSiteBridgeInfoRequest.hpp>
+#include <alibabacloud/models/ModifyOfficeSiteBridgeInfoResponseBody.hpp>
+#include <alibabacloud/models/ModifyOfficeSiteBridgeInfoResponse.hpp>
 #include <alibabacloud/models/ModifyOfficeSiteCrossDesktopAccessRequest.hpp>
 #include <alibabacloud/models/ModifyOfficeSiteCrossDesktopAccessResponseBody.hpp>
 #include <alibabacloud/models/ModifyOfficeSiteCrossDesktopAccessResponse.hpp>
@@ -743,6 +758,12 @@
 #include <alibabacloud/models/ModifyUserToDesktopGroupRequest.hpp>
 #include <alibabacloud/models/ModifyUserToDesktopGroupResponseBody.hpp>
 #include <alibabacloud/models/ModifyUserToDesktopGroupResponse.hpp>
+#include <alibabacloud/models/ModifyVirtualBridgeLevelRequest.hpp>
+#include <alibabacloud/models/ModifyVirtualBridgeLevelResponseBody.hpp>
+#include <alibabacloud/models/ModifyVirtualBridgeLevelResponse.hpp>
+#include <alibabacloud/models/ModifyVirtualBridgeStatusRequest.hpp>
+#include <alibabacloud/models/ModifyVirtualBridgeStatusResponseBody.hpp>
+#include <alibabacloud/models/ModifyVirtualBridgeStatusResponse.hpp>
 #include <alibabacloud/models/MoveCdsFileRequest.hpp>
 #include <alibabacloud/models/MoveCdsFileResponseBody.hpp>
 #include <alibabacloud/models/MoveCdsFileResponse.hpp>
@@ -790,6 +811,9 @@
 #include <alibabacloud/models/RenewNetworkPackagesRequest.hpp>
 #include <alibabacloud/models/RenewNetworkPackagesResponseBody.hpp>
 #include <alibabacloud/models/RenewNetworkPackagesResponse.hpp>
+#include <alibabacloud/models/RenewVirtualBridgeRequest.hpp>
+#include <alibabacloud/models/RenewVirtualBridgeResponseBody.hpp>
+#include <alibabacloud/models/RenewVirtualBridgeResponse.hpp>
 #include <alibabacloud/models/ResetDesktopsRequest.hpp>
 #include <alibabacloud/models/ResetDesktopsResponseBody.hpp>
 #include <alibabacloud/models/ResetDesktopsResponse.hpp>
