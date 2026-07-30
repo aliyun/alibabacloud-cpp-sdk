@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(tag, tag_);
+      DARABONBA_PTR_TO_JSON(vpcId, vpcId_);
     };
     friend void from_json(const Darabonba::Json& j, ListGatewaysRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(tag, tag_);
+      DARABONBA_PTR_FROM_JSON(vpcId, vpcId_);
     };
     ListGatewaysRequest() = default ;
     ListGatewaysRequest(const ListGatewaysRequest &) = default ;
@@ -90,7 +92,7 @@ namespace Models
 
     virtual bool empty() const override { return this->gatewayId_ == nullptr
         && this->gatewayType_ == nullptr && this->keyword_ == nullptr && this->name_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->tag_ == nullptr; };
+        && this->resourceGroupId_ == nullptr && this->tag_ == nullptr && this->vpcId_ == nullptr; };
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
@@ -149,12 +151,19 @@ namespace Models
     inline ListGatewaysRequest& setTag(vector<ListGatewaysRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
+    // vpcId Field Functions 
+    bool hasVpcId() const { return this->vpcId_ != nullptr;};
+    void deleteVpcId() { this->vpcId_ = nullptr;};
+    inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline ListGatewaysRequest& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
+
+
   protected:
     // The gateway ID for exact match query.
     shared_ptr<string> gatewayId_ {};
     // The gateway type.
     shared_ptr<string> gatewayType_ {};
-    // The keyword for full match search. Case-insensitive.
+    // The keyword for full match search. The search is case-insensitive.
     shared_ptr<string> keyword_ {};
     // The gateway name for exact match query.
     shared_ptr<string> name_ {};
@@ -162,10 +171,12 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The list of tags.
     shared_ptr<vector<ListGatewaysRequest::Tag>> tag_ {};
+    // The virtual private cloud (VPC) ID.
+    shared_ptr<string> vpcId_ {};
   };
 
   } // namespace Models

@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The list of consumer IDs to add to the consumer group.
     shared_ptr<vector<string>> consumerIds_ {};
   };
 

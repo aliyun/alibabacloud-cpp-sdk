@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The gateway type. Valid values: API or AI.
     shared_ptr<string> gatewayType_ {};
+    // The fuzzy match condition for the consumer group name.
     shared_ptr<string> nameLike_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -115,7 +115,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> attachResourceType_ {};
-    // The configuration information. The value is a JSON string.
+    // The configuration information. A JSON string.
     // 
     // This parameter is required.
     shared_ptr<string> config_ {};

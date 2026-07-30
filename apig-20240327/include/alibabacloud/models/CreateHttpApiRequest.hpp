@@ -332,7 +332,7 @@ namespace Models
     shared_ptr<int32_t> firstByteTimeout_ {};
     // The HTTP Ingress API configuration. This parameter is required and cannot be nil when type is set to HttpIngress. This parameter is not required for other types.
     shared_ptr<CreateHttpApiRequest::IngressConfig> ingressConfig_ {};
-    // The model category. This parameter is optional when type is set to LLM or Ai. This parameter is not required for other types.
+    // The model category. This parameter is optional when type is set to LLM or Ai. This parameter is not required for other types. Valid values:
     shared_ptr<string> modelCategory_ {};
     // The API name.
     // 

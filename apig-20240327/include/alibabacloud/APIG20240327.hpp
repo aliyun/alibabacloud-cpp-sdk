@@ -77,7 +77,7 @@ namespace APIG20240327
       Models::AddGatewaySecurityGroupRuleResponse addGatewaySecurityGroupRule(const string &gatewayId, const Models::AddGatewaySecurityGroupRuleRequest &request);
 
       /**
-       * @summary 批量添加消费者组成员
+       * @summary Adds members to a consumer group in batches.
        *
        * @param request BatchAddConsumerGroupConsumersRequest
        * @param headers map
@@ -87,7 +87,7 @@ namespace APIG20240327
       Models::BatchAddConsumerGroupConsumersResponse batchAddConsumerGroupConsumersWithOptions(const string &consumerGroupId, const Models::BatchAddConsumerGroupConsumersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量添加消费者组成员
+       * @summary Adds members to a consumer group in batches.
        *
        * @param request BatchAddConsumerGroupConsumersRequest
        * @return BatchAddConsumerGroupConsumersResponse
@@ -113,7 +113,7 @@ namespace APIG20240327
       Models::BatchDeleteConsumerAuthorizationRuleResponse batchDeleteConsumerAuthorizationRule(const Models::BatchDeleteConsumerAuthorizationRuleRequest &request);
 
       /**
-       * @summary 批量移除消费者组成员
+       * @summary Removes consumer group members in batches.
        *
        * @param request BatchRemoveConsumerGroupConsumersRequest
        * @param headers map
@@ -123,7 +123,7 @@ namespace APIG20240327
       Models::BatchRemoveConsumerGroupConsumersResponse batchRemoveConsumerGroupConsumersWithOptions(const string &consumerGroupId, const Models::BatchRemoveConsumerGroupConsumersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量移除消费者组成员
+       * @summary Removes consumer group members in batches.
        *
        * @param request BatchRemoveConsumerGroupConsumersRequest
        * @return BatchRemoveConsumerGroupConsumersResponse
@@ -149,10 +149,10 @@ namespace APIG20240327
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary 创建AI模型卡片
+       * @summary Creates an AI model card.
        *
-       * @description 在指定AI网关实例的已有模型供应商下创建模型卡片。目标网关必须存在、属于当前账号且类型为AI网关，modelProvider必须引用该网关中已存在的模型供应商。
-       * 同一AI网关实例、同一模型供应商下的modelName必须唯一；单个网关实例最多可创建1000张模型卡片。credit当前仅支持fixed类型，费用单位为Credits/百万Token；未传时type默认为fixed，各项费用默认为0。availablePaths中的每一项必须同时包含path和type。
+       * @description Performs model creation for a model card under an existing model provider in a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider must reference an existing model provider in the gateway.
+       * The modelName must be unique within the same AI gateway instance and the same model provider. A maximum of 1000 model cards can be created per gateway instance. The credit parameter currently supports only the fixed type, and the cost unit is Credits per million tokens. If not specified, type defaults to fixed and all cost values default to 0. Each item in availablePaths must include both path and type.
        *
        * @param request CreateAiModelCardRequest
        * @param headers map
@@ -162,10 +162,10 @@ namespace APIG20240327
       Models::CreateAiModelCardResponse createAiModelCardWithOptions(const Models::CreateAiModelCardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建AI模型卡片
+       * @summary Creates an AI model card.
        *
-       * @description 在指定AI网关实例的已有模型供应商下创建模型卡片。目标网关必须存在、属于当前账号且类型为AI网关，modelProvider必须引用该网关中已存在的模型供应商。
-       * 同一AI网关实例、同一模型供应商下的modelName必须唯一；单个网关实例最多可创建1000张模型卡片。credit当前仅支持fixed类型，费用单位为Credits/百万Token；未传时type默认为fixed，各项费用默认为0。availablePaths中的每一项必须同时包含path和type。
+       * @description Performs model creation for a model card under an existing model provider in a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider must reference an existing model provider in the gateway.
+       * The modelName must be unique within the same AI gateway instance and the same model provider. A maximum of 1000 model cards can be created per gateway instance. The credit parameter currently supports only the fixed type, and the cost unit is Credits per million tokens. If not specified, type defaults to fixed and all cost values default to 0. Each item in availablePaths must include both path and type.
        *
        * @param request CreateAiModelCardRequest
        * @return CreateAiModelCardResponse
@@ -173,7 +173,7 @@ namespace APIG20240327
       Models::CreateAiModelCardResponse createAiModelCard(const Models::CreateAiModelCardRequest &request);
 
       /**
-       * @summary 创建AI模型供应商
+       * @summary Creates an AI model provider.
        *
        * @param request CreateAiModelProviderRequest
        * @param headers map
@@ -183,7 +183,7 @@ namespace APIG20240327
       Models::CreateAiModelProviderResponse createAiModelProviderWithOptions(const Models::CreateAiModelProviderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建AI模型供应商
+       * @summary Creates an AI model provider.
        *
        * @param request CreateAiModelProviderRequest
        * @return CreateAiModelProviderResponse
@@ -247,6 +247,13 @@ namespace APIG20240327
       /**
        * @summary Creates consumer authorization rules.
        *
+       * @description Prerequisites: Before creating consumer authorization rules, prepare resources according to the following dependency chain (the corresponding creation API and ID passing relationships are shown in parentheses):
+       * Gateway instance (CreateGateway → gatewayId, gw- prefix)
+       * Environment (A default environment is automatically created with the gateway. You can also use CreateEnvironment → environmentId, env- prefix, which requires the gatewayId from step 1)
+       * HTTP API (CreateHttpApi → httpApiId, api- prefix)
+       * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, belongs to the API in step 3. Then publish to the environment in step 2 by using DeployHttpApi. Unpublished routes cannot be authorized)
+       * Consumer (CreateConsumer → consumerId, cs- prefix. Or consumer group consumerGroupId, csg- prefix. Use either consumerId or consumerGroupId)
+       *
        * @param request CreateConsumerAuthorizationRulesRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -257,13 +264,20 @@ namespace APIG20240327
       /**
        * @summary Creates consumer authorization rules.
        *
+       * @description Prerequisites: Before creating consumer authorization rules, prepare resources according to the following dependency chain (the corresponding creation API and ID passing relationships are shown in parentheses):
+       * Gateway instance (CreateGateway → gatewayId, gw- prefix)
+       * Environment (A default environment is automatically created with the gateway. You can also use CreateEnvironment → environmentId, env- prefix, which requires the gatewayId from step 1)
+       * HTTP API (CreateHttpApi → httpApiId, api- prefix)
+       * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, belongs to the API in step 3. Then publish to the environment in step 2 by using DeployHttpApi. Unpublished routes cannot be authorized)
+       * Consumer (CreateConsumer → consumerId, cs- prefix. Or consumer group consumerGroupId, csg- prefix. Use either consumerId or consumerGroupId)
+       *
        * @param request CreateConsumerAuthorizationRulesRequest
        * @return CreateConsumerAuthorizationRulesResponse
        */
       Models::CreateConsumerAuthorizationRulesResponse createConsumerAuthorizationRules(const Models::CreateConsumerAuthorizationRulesRequest &request);
 
       /**
-       * @summary 创建消费者组
+       * @summary Creates a consumer group.
        *
        * @param request CreateConsumerGroupRequest
        * @param headers map
@@ -273,7 +287,7 @@ namespace APIG20240327
       Models::CreateConsumerGroupResponse createConsumerGroupWithOptions(const Models::CreateConsumerGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建消费者组
+       * @summary Creates a consumer group.
        *
        * @param request CreateConsumerGroupRequest
        * @return CreateConsumerGroupResponse
@@ -559,7 +573,7 @@ namespace APIG20240327
       Models::CreateSourceResponse createSource(const Models::CreateSourceRequest &request);
 
       /**
-       * @summary 删除AI模型卡片
+       * @summary Deletes an AI model card.
        *
        * @param request DeleteAiModelCardRequest
        * @param headers map
@@ -569,7 +583,7 @@ namespace APIG20240327
       Models::DeleteAiModelCardResponse deleteAiModelCardWithOptions(const string &modelCardId, const Models::DeleteAiModelCardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除AI模型卡片
+       * @summary Deletes an AI model card.
        *
        * @param request DeleteAiModelCardRequest
        * @return DeleteAiModelCardResponse
@@ -577,7 +591,7 @@ namespace APIG20240327
       Models::DeleteAiModelCardResponse deleteAiModelCard(const string &modelCardId, const Models::DeleteAiModelCardRequest &request);
 
       /**
-       * @summary 删除AI模型供应商
+       * @summary Deletes an AI model provider.
        *
        * @param request DeleteAiModelProviderRequest
        * @param headers map
@@ -587,7 +601,7 @@ namespace APIG20240327
       Models::DeleteAiModelProviderResponse deleteAiModelProviderWithOptions(const string &modelProviderId, const Models::DeleteAiModelProviderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除AI模型供应商
+       * @summary Deletes an AI model provider.
        *
        * @param request DeleteAiModelProviderRequest
        * @return DeleteAiModelProviderResponse
@@ -627,7 +641,7 @@ namespace APIG20240327
       Models::DeleteConsumerAuthorizationRuleResponse deleteConsumerAuthorizationRule(const string &consumerAuthorizationRuleId, const string &consumerId);
 
       /**
-       * @summary 删除消费者组
+       * @summary Deletes a consumer group.
        *
        * @param request DeleteConsumerGroupRequest
        * @param headers map
@@ -637,7 +651,7 @@ namespace APIG20240327
       Models::DeleteConsumerGroupResponse deleteConsumerGroupWithOptions(const string &consumerGroupId, const Models::DeleteConsumerGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除消费者组
+       * @summary Deletes a consumer group.
        *
        * @param request DeleteConsumerGroupRequest
        * @return DeleteConsumerGroupResponse
@@ -1005,7 +1019,7 @@ namespace APIG20240327
       Models::ExportHttpApiResponse exportHttpApi(const string &httpApiId, const Models::ExportHttpApiRequest &request);
 
       /**
-       * @summary 查询AI模型卡片详情
+       * @summary Queries the details of an AI model card.
        *
        * @param request GetAiModelCardRequest
        * @param headers map
@@ -1015,7 +1029,7 @@ namespace APIG20240327
       Models::GetAiModelCardResponse getAiModelCardWithOptions(const string &modelCardId, const Models::GetAiModelCardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询AI模型卡片详情
+       * @summary Queries the details of an AI model card.
        *
        * @param request GetAiModelCardRequest
        * @return GetAiModelCardResponse
@@ -1023,7 +1037,7 @@ namespace APIG20240327
       Models::GetAiModelCardResponse getAiModelCard(const string &modelCardId, const Models::GetAiModelCardRequest &request);
 
       /**
-       * @summary 查询AI模型供应商详情
+       * @summary Queries the details of an AI model provider.
        *
        * @param request GetAiModelProviderRequest
        * @param headers map
@@ -1033,7 +1047,7 @@ namespace APIG20240327
       Models::GetAiModelProviderResponse getAiModelProviderWithOptions(const string &modelProviderId, const Models::GetAiModelProviderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询AI模型供应商详情
+       * @summary Queries the details of an AI model provider.
        *
        * @param request GetAiModelProviderRequest
        * @return GetAiModelProviderResponse
@@ -1073,7 +1087,7 @@ namespace APIG20240327
       Models::GetConsumerAuthorizationRuleResponse getConsumerAuthorizationRule(const string &consumerAuthorizationRuleId, const string &consumerId);
 
       /**
-       * @summary 查询消费者组
+       * @summary Queries a consumer group.
        *
        * @param request GetConsumerGroupRequest
        * @param headers map
@@ -1083,7 +1097,7 @@ namespace APIG20240327
       Models::GetConsumerGroupResponse getConsumerGroupWithOptions(const string &consumerGroupId, const Models::GetConsumerGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询消费者组
+       * @summary Queries a consumer group.
        *
        * @param request GetConsumerGroupRequest
        * @return GetConsumerGroupResponse
@@ -1401,7 +1415,7 @@ namespace APIG20240327
       Models::GetSecretValueResponse getSecretValue(const string &name);
 
       /**
-       * @summary Retrieves the details of a service.
+       * @summary Gets service details.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1410,7 +1424,7 @@ namespace APIG20240327
       Models::GetServiceResponse getServiceWithOptions(const string &serviceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a service.
+       * @summary Gets service details.
        *
        * @return GetServiceResponse
        */
@@ -1487,7 +1501,7 @@ namespace APIG20240327
       Models::InstallPluginResponse installPlugin(const Models::InstallPluginRequest &request);
 
       /**
-       * @summary 查询AI模型卡片列表
+       * @summary Queries the list of AI model cards.
        *
        * @param request ListAiModelCardsRequest
        * @param headers map
@@ -1497,7 +1511,7 @@ namespace APIG20240327
       Models::ListAiModelCardsResponse listAiModelCardsWithOptions(const Models::ListAiModelCardsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询AI模型卡片列表
+       * @summary Queries the list of AI model cards.
        *
        * @param request ListAiModelCardsRequest
        * @return ListAiModelCardsResponse
@@ -1505,7 +1519,7 @@ namespace APIG20240327
       Models::ListAiModelCardsResponse listAiModelCards(const Models::ListAiModelCardsRequest &request);
 
       /**
-       * @summary 查询AI模型供应商列表
+       * @summary Queries the list of AI model providers.
        *
        * @param request ListAiModelProvidersRequest
        * @param headers map
@@ -1515,7 +1529,7 @@ namespace APIG20240327
       Models::ListAiModelProvidersResponse listAiModelProvidersWithOptions(const Models::ListAiModelProvidersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询AI模型供应商列表
+       * @summary Queries the list of AI model providers.
        *
        * @param request ListAiModelProvidersRequest
        * @return ListAiModelProvidersResponse
@@ -1541,7 +1555,7 @@ namespace APIG20240327
       Models::ListConsumerAuthorizationRulesResponse listConsumerAuthorizationRules(const string &consumerId, const Models::ListConsumerAuthorizationRulesRequest &request);
 
       /**
-       * @summary 查询消费者组成员列表
+       * @summary Queries the member list of a consumer group.
        *
        * @param request ListConsumerGroupConsumersRequest
        * @param headers map
@@ -1551,7 +1565,7 @@ namespace APIG20240327
       Models::ListConsumerGroupConsumersResponse listConsumerGroupConsumersWithOptions(const string &consumerGroupId, const Models::ListConsumerGroupConsumersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询消费者组成员列表
+       * @summary Queries the member list of a consumer group.
        *
        * @param request ListConsumerGroupConsumersRequest
        * @return ListConsumerGroupConsumersResponse
@@ -1559,7 +1573,7 @@ namespace APIG20240327
       Models::ListConsumerGroupConsumersResponse listConsumerGroupConsumers(const string &consumerGroupId, const Models::ListConsumerGroupConsumersRequest &request);
 
       /**
-       * @summary 查询消费者组列表
+       * @summary Queries the list of consumer groups.
        *
        * @param request ListConsumerGroupsRequest
        * @param headers map
@@ -1569,7 +1583,7 @@ namespace APIG20240327
       Models::ListConsumerGroupsResponse listConsumerGroupsWithOptions(const Models::ListConsumerGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询消费者组列表
+       * @summary Queries the list of consumer groups.
        *
        * @param request ListConsumerGroupsRequest
        * @return ListConsumerGroupsResponse
@@ -2209,7 +2223,7 @@ namespace APIG20240327
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary 更新AI模型卡片
+       * @summary Updates an AI model card.
        *
        * @param request UpdateAiModelCardRequest
        * @param headers map
@@ -2219,7 +2233,7 @@ namespace APIG20240327
       Models::UpdateAiModelCardResponse updateAiModelCardWithOptions(const string &modelCardId, const Models::UpdateAiModelCardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新AI模型卡片
+       * @summary Updates an AI model card.
        *
        * @param request UpdateAiModelCardRequest
        * @return UpdateAiModelCardResponse
@@ -2227,7 +2241,7 @@ namespace APIG20240327
       Models::UpdateAiModelCardResponse updateAiModelCard(const string &modelCardId, const Models::UpdateAiModelCardRequest &request);
 
       /**
-       * @summary 更新AI模型供应商
+       * @summary Updates an AI model provider.
        *
        * @param request UpdateAiModelProviderRequest
        * @param headers map
@@ -2237,7 +2251,7 @@ namespace APIG20240327
       Models::UpdateAiModelProviderResponse updateAiModelProviderWithOptions(const string &modelProviderId, const Models::UpdateAiModelProviderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新AI模型供应商
+       * @summary Updates an AI model provider.
        *
        * @param request UpdateAiModelProviderRequest
        * @return UpdateAiModelProviderResponse
@@ -2299,7 +2313,7 @@ namespace APIG20240327
       Models::UpdateConsumerAuthorizationRuleResponse updateConsumerAuthorizationRule(const string &consumerId, const string &consumerAuthorizationRuleId, const Models::UpdateConsumerAuthorizationRuleRequest &request);
 
       /**
-       * @summary 更新消费者组
+       * @summary Updates a consumer group.
        *
        * @param request UpdateConsumerGroupRequest
        * @param headers map
@@ -2309,7 +2323,7 @@ namespace APIG20240327
       Models::UpdateConsumerGroupResponse updateConsumerGroupWithOptions(const string &consumerGroupId, const Models::UpdateConsumerGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新消费者组
+       * @summary Updates a consumer group.
        *
        * @param request UpdateConsumerGroupRequest
        * @return UpdateConsumerGroupResponse

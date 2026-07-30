@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The consumer group description.
     shared_ptr<string> description_ {};
+    // The consumer group name.
     shared_ptr<string> name_ {};
   };
 

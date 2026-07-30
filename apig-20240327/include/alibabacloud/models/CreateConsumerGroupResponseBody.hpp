@@ -73,7 +73,9 @@ namespace Models
 
 
     protected:
+      // The consumer group ID.
       shared_ptr<string> consumerGroupId_ {};
+      // The gateway type. Valid values: API or AI.
       shared_ptr<string> gatewayType_ {};
     };
 
@@ -110,9 +112,13 @@ namespace Models
 
 
   protected:
+    // The response status code. Ok is returned if the request is successful.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<CreateConsumerGroupResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

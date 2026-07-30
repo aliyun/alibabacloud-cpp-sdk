@@ -109,10 +109,15 @@ namespace Models
 
 
     protected:
+      // The maximum number of input tokens supported by the model. The value must be greater than or equal to 0.
       shared_ptr<int64_t> maxInputTokens_ {};
+      // The maximum number of output tokens supported by the model. The value must be greater than or equal to 0.
       shared_ptr<int64_t> maxOutputTokens_ {};
+      // The maximum total number of context tokens supported by the model. The value must be greater than or equal to 0.
       shared_ptr<int64_t> maxTokens_ {};
+      // The list of input modalities supported by the model. The list contains up to 16 items, and each item must not be empty.
       shared_ptr<vector<string>> supportedInputModalities_ {};
+      // The list of output modalities supported by the model. The list contains up to 16 items, and each item must not be empty.
       shared_ptr<vector<string>> supportedOutputModalities_ {};
     };
 
@@ -172,9 +177,13 @@ namespace Models
 
 
     protected:
+      // The cache hit token cost in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
       shared_ptr<float> cacheCost_ {};
+      // The input token cost in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
       shared_ptr<float> inputCost_ {};
+      // The output token cost in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
       shared_ptr<float> outputCost_ {};
+      // The billing type. Only fixed is supported. Default value: fixed.
       shared_ptr<string> type_ {};
     };
 
@@ -216,7 +225,9 @@ namespace Models
 
 
     protected:
+      // The model invocation path. Maximum length: 2048 characters.
       shared_ptr<string> path_ {};
+      // The protocol type of the path. Maximum length: 64 characters.
       shared_ptr<string> type_ {};
     };
 
@@ -273,12 +284,20 @@ namespace Models
 
 
   protected:
+    // The list of invocation paths supported by the model. Each item must include both path and type. The list is overwritten as a whole during updates.
     shared_ptr<vector<UpdateAiModelCardRequest::AvailablePaths>> availablePaths_ {};
+    // The credit billing information of the model. Only the fixed type is supported. The unit is Credits per million tokens. If not specified, all cost values default to 0.
     shared_ptr<UpdateAiModelCardRequest::Credit> credit_ {};
+    // The model capability switches. Keys must be model capability names supported by the API gateway. Values are Boolean.
     Darabonba::Json features_ {};
+    // The token limits and input/output modality information of the model.
     shared_ptr<UpdateAiModelCardRequest::Meta> meta_ {};
+    // The model name. The name must be unique within the same AI gateway instance and model provider. Maximum length: 256 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};
+    // The model provider identifier. The value must reference an existing model provider in the target AI gateway instance. Maximum length: 128 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> modelProvider_ {};
   };

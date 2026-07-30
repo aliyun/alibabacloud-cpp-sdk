@@ -13,10 +13,12 @@ namespace Models
   class GetGatewayQuotaRuleSubjectUsageRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetGatewayQuotaRuleSubjectUsageRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(filterFailedRequests, filterFailedRequests_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
     };
     friend void from_json(const Darabonba::Json& j, GetGatewayQuotaRuleSubjectUsageRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(filterFailedRequests, filterFailedRequests_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr; };
+    virtual bool empty() const override { return this->filterFailedRequests_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
+    // filterFailedRequests Field Functions 
+    bool hasFilterFailedRequests() const { return this->filterFailedRequests_ != nullptr;};
+    void deleteFilterFailedRequests() { this->filterFailedRequests_ = nullptr;};
+    inline bool getFilterFailedRequests() const { DARABONBA_PTR_GET_DEFAULT(filterFailedRequests_, false) };
+    inline GetGatewayQuotaRuleSubjectUsageRequest& setFilterFailedRequests(bool filterFailedRequests) { DARABONBA_PTR_SET_VALUE(filterFailedRequests_, filterFailedRequests) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -48,6 +57,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> filterFailedRequests_ {};
     // The page number of the detailed consumption (request) records of the consumer within the cycle.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of detailed consumption (request) records per page for the consumer within the cycle. Maximum value: 10.

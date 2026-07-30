@@ -84,6 +84,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(modelName, modelName_);
           DARABONBA_PTR_TO_JSON(modelProvider, modelProvider_);
           DARABONBA_PTR_TO_JSON(source, source_);
+          DARABONBA_PTR_TO_JSON(sourceURL, sourceURL_);
           DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
         };
         friend void from_json(const Darabonba::Json& j, ModelCards& obj) { 
@@ -96,6 +97,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(modelName, modelName_);
           DARABONBA_PTR_FROM_JSON(modelProvider, modelProvider_);
           DARABONBA_PTR_FROM_JSON(source, source_);
+          DARABONBA_PTR_FROM_JSON(sourceURL, sourceURL_);
           DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
         };
         ModelCards() = default ;
@@ -178,10 +180,15 @@ namespace Models
 
 
         protected:
+          // The maximum number of input tokens.
           shared_ptr<int64_t> maxInputTokens_ {};
+          // The maximum number of output tokens.
           shared_ptr<int64_t> maxOutputTokens_ {};
+          // The maximum total number of tokens.
           shared_ptr<int64_t> maxTokens_ {};
+          // The supported input modalities.
           shared_ptr<vector<string>> supportedInputModalities_ {};
+          // The supported output modalities.
           shared_ptr<vector<string>> supportedOutputModalities_ {};
         };
 
@@ -241,9 +248,13 @@ namespace Models
 
 
         protected:
+          // The credits consumption coefficient for cached tokens.
           shared_ptr<float> cacheCost_ {};
+          // The credits consumption coefficient for input tokens.
           shared_ptr<float> inputCost_ {};
+          // The credits consumption coefficient for output tokens.
           shared_ptr<float> outputCost_ {};
+          // The credits billing type.
           shared_ptr<string> type_ {};
         };
 
@@ -285,13 +296,15 @@ namespace Models
 
 
         protected:
+          // The API path.
           shared_ptr<string> path_ {};
+          // The path type.
           shared_ptr<string> type_ {};
         };
 
         virtual bool empty() const override { return this->availablePaths_ == nullptr
         && this->credit_ == nullptr && this->features_ == nullptr && this->gatewayId_ == nullptr && this->meta_ == nullptr && this->modelCardId_ == nullptr
-        && this->modelName_ == nullptr && this->modelProvider_ == nullptr && this->source_ == nullptr && this->updateTime_ == nullptr; };
+        && this->modelName_ == nullptr && this->modelProvider_ == nullptr && this->source_ == nullptr && this->sourceURL_ == nullptr && this->updateTime_ == nullptr; };
         // availablePaths Field Functions 
         bool hasAvailablePaths() const { return this->availablePaths_ != nullptr;};
         void deleteAvailablePaths() { this->availablePaths_ = nullptr;};
@@ -363,6 +376,13 @@ namespace Models
         inline ModelCards& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
+        // sourceURL Field Functions 
+        bool hasSourceURL() const { return this->sourceURL_ != nullptr;};
+        void deleteSourceURL() { this->sourceURL_ = nullptr;};
+        inline string getSourceURL() const { DARABONBA_PTR_GET_DEFAULT(sourceURL_, "") };
+        inline ModelCards& setSourceURL(string sourceURL) { DARABONBA_PTR_SET_VALUE(sourceURL_, sourceURL) };
+
+
         // updateTime Field Functions 
         bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
         void deleteUpdateTime() { this->updateTime_ = nullptr;};
@@ -371,15 +391,27 @@ namespace Models
 
 
       protected:
+        // The list of available paths for the model.
         shared_ptr<vector<ModelCards::AvailablePaths>> availablePaths_ {};
+        // The model credits consumption configuration.
         shared_ptr<ModelCards::Credit> credit_ {};
+        // The model capability features.
         Darabonba::Json features_ {};
+        // The gateway instance ID to which the model card belongs.
         shared_ptr<string> gatewayId_ {};
+        // The model metadata.
         shared_ptr<ModelCards::Meta> meta_ {};
+        // The model card ID.
         shared_ptr<string> modelCardId_ {};
+        // The model name.
         shared_ptr<string> modelName_ {};
+        // The model provider identifier to which the model card belongs.
         shared_ptr<string> modelProvider_ {};
+        // The model source.
         shared_ptr<string> source_ {};
+        // The URL of the model metadata.
+        shared_ptr<string> sourceURL_ {};
+        // The last update time in the yyyy-MM-ddTHH:mm:ssZ format.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -454,14 +486,23 @@ namespace Models
 
 
     protected:
+      // The list of services bound to the provider.
       shared_ptr<vector<ServiceInfo>> boundServices_ {};
+      // The display name of the model provider.
       shared_ptr<string> displayName_ {};
+      // The gateway instance ID.
       shared_ptr<string> gatewayId_ {};
+      // The list of model cards under the provider.
       shared_ptr<vector<Data::ModelCards>> modelCards_ {};
+      // The number of models under the provider.
       shared_ptr<int32_t> modelCount_ {};
+      // The model provider ID.
       shared_ptr<string> modelProviderId_ {};
+      // The model provider identifier.
       shared_ptr<string> provider_ {};
+      // The provider source type.
       shared_ptr<string> source_ {};
+      // The last update time in the yyyy-MM-ddTHH:mm:ssZ format.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -498,9 +539,13 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response struct.
     shared_ptr<CreateAiModelProviderResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

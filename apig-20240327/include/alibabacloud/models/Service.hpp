@@ -22,15 +22,18 @@ namespace Models
       DARABONBA_PTR_TO_JSON(agentServiceConfig, agentServiceConfig_);
       DARABONBA_PTR_TO_JSON(aiServiceConfig, aiServiceConfig_);
       DARABONBA_PTR_TO_JSON(createTimestamp, createTimestamp_);
+      DARABONBA_PTR_TO_JSON(dnsServers, dnsServers_);
       DARABONBA_PTR_TO_JSON(expressType, expressType_);
       DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(groupName, groupName_);
       DARABONBA_PTR_TO_JSON(healthCheck, healthCheck_);
       DARABONBA_PTR_TO_JSON(healthStatus, healthStatus_);
+      DARABONBA_PTR_TO_JSON(healthyPanicThreshold, healthyPanicThreshold_);
       DARABONBA_PTR_TO_JSON(labelDetails, labelDetails_);
       DARABONBA_PTR_TO_JSON(modelProviderId, modelProviderId_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(namespace, namespace_);
+      DARABONBA_PTR_TO_JSON(outlierDetection, outlierDetection_);
       DARABONBA_PTR_TO_JSON(outlierEndpoints, outlierEndpoints_);
       DARABONBA_PTR_TO_JSON(ports, ports_);
       DARABONBA_PTR_TO_JSON(protocol, protocol_);
@@ -49,15 +52,18 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(agentServiceConfig, agentServiceConfig_);
       DARABONBA_PTR_FROM_JSON(aiServiceConfig, aiServiceConfig_);
       DARABONBA_PTR_FROM_JSON(createTimestamp, createTimestamp_);
+      DARABONBA_PTR_FROM_JSON(dnsServers, dnsServers_);
       DARABONBA_PTR_FROM_JSON(expressType, expressType_);
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(groupName, groupName_);
       DARABONBA_PTR_FROM_JSON(healthCheck, healthCheck_);
       DARABONBA_PTR_FROM_JSON(healthStatus, healthStatus_);
+      DARABONBA_PTR_FROM_JSON(healthyPanicThreshold, healthyPanicThreshold_);
       DARABONBA_PTR_FROM_JSON(labelDetails, labelDetails_);
       DARABONBA_PTR_FROM_JSON(modelProviderId, modelProviderId_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(namespace, namespace_);
+      DARABONBA_PTR_FROM_JSON(outlierDetection, outlierDetection_);
       DARABONBA_PTR_FROM_JSON(outlierEndpoints, outlierEndpoints_);
       DARABONBA_PTR_FROM_JSON(ports, ports_);
       DARABONBA_PTR_FROM_JSON(protocol, protocol_);
@@ -219,7 +225,7 @@ namespace Models
 
 
     protected:
-      // The port name.
+      // The name of the port.
       shared_ptr<string> name_ {};
       // The port number.
       shared_ptr<int32_t> port_ {};
@@ -227,12 +233,85 @@ namespace Models
       shared_ptr<string> protocol_ {};
     };
 
+    class OutlierDetection : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const OutlierDetection& obj) { 
+        DARABONBA_PTR_TO_JSON(baseEjectionTime, baseEjectionTime_);
+        DARABONBA_PTR_TO_JSON(enable, enable_);
+        DARABONBA_PTR_TO_JSON(failurePercentageMinimumHosts, failurePercentageMinimumHosts_);
+        DARABONBA_PTR_TO_JSON(failurePercentageThreshold, failurePercentageThreshold_);
+        DARABONBA_PTR_TO_JSON(interval, interval_);
+      };
+      friend void from_json(const Darabonba::Json& j, OutlierDetection& obj) { 
+        DARABONBA_PTR_FROM_JSON(baseEjectionTime, baseEjectionTime_);
+        DARABONBA_PTR_FROM_JSON(enable, enable_);
+        DARABONBA_PTR_FROM_JSON(failurePercentageMinimumHosts, failurePercentageMinimumHosts_);
+        DARABONBA_PTR_FROM_JSON(failurePercentageThreshold, failurePercentageThreshold_);
+        DARABONBA_PTR_FROM_JSON(interval, interval_);
+      };
+      OutlierDetection() = default ;
+      OutlierDetection(const OutlierDetection &) = default ;
+      OutlierDetection(OutlierDetection &&) = default ;
+      OutlierDetection(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~OutlierDetection() = default ;
+      OutlierDetection& operator=(const OutlierDetection &) = default ;
+      OutlierDetection& operator=(OutlierDetection &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->baseEjectionTime_ == nullptr
+        && this->enable_ == nullptr && this->failurePercentageMinimumHosts_ == nullptr && this->failurePercentageThreshold_ == nullptr && this->interval_ == nullptr; };
+      // baseEjectionTime Field Functions 
+      bool hasBaseEjectionTime() const { return this->baseEjectionTime_ != nullptr;};
+      void deleteBaseEjectionTime() { this->baseEjectionTime_ = nullptr;};
+      inline int32_t getBaseEjectionTime() const { DARABONBA_PTR_GET_DEFAULT(baseEjectionTime_, 0) };
+      inline OutlierDetection& setBaseEjectionTime(int32_t baseEjectionTime) { DARABONBA_PTR_SET_VALUE(baseEjectionTime_, baseEjectionTime) };
+
+
+      // enable Field Functions 
+      bool hasEnable() const { return this->enable_ != nullptr;};
+      void deleteEnable() { this->enable_ = nullptr;};
+      inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+      inline OutlierDetection& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
+
+
+      // failurePercentageMinimumHosts Field Functions 
+      bool hasFailurePercentageMinimumHosts() const { return this->failurePercentageMinimumHosts_ != nullptr;};
+      void deleteFailurePercentageMinimumHosts() { this->failurePercentageMinimumHosts_ = nullptr;};
+      inline int32_t getFailurePercentageMinimumHosts() const { DARABONBA_PTR_GET_DEFAULT(failurePercentageMinimumHosts_, 0) };
+      inline OutlierDetection& setFailurePercentageMinimumHosts(int32_t failurePercentageMinimumHosts) { DARABONBA_PTR_SET_VALUE(failurePercentageMinimumHosts_, failurePercentageMinimumHosts) };
+
+
+      // failurePercentageThreshold Field Functions 
+      bool hasFailurePercentageThreshold() const { return this->failurePercentageThreshold_ != nullptr;};
+      void deleteFailurePercentageThreshold() { this->failurePercentageThreshold_ = nullptr;};
+      inline int32_t getFailurePercentageThreshold() const { DARABONBA_PTR_GET_DEFAULT(failurePercentageThreshold_, 0) };
+      inline OutlierDetection& setFailurePercentageThreshold(int32_t failurePercentageThreshold) { DARABONBA_PTR_SET_VALUE(failurePercentageThreshold_, failurePercentageThreshold) };
+
+
+      // interval Field Functions 
+      bool hasInterval() const { return this->interval_ != nullptr;};
+      void deleteInterval() { this->interval_ = nullptr;};
+      inline int32_t getInterval() const { DARABONBA_PTR_GET_DEFAULT(interval_, 0) };
+      inline OutlierDetection& setInterval(int32_t interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
+
+
+    protected:
+      shared_ptr<int32_t> baseEjectionTime_ {};
+      shared_ptr<bool> enable_ {};
+      shared_ptr<int32_t> failurePercentageMinimumHosts_ {};
+      shared_ptr<int32_t> failurePercentageThreshold_ {};
+      shared_ptr<int32_t> interval_ {};
+    };
+
     virtual bool empty() const override { return this->addresses_ == nullptr
-        && this->agentServiceConfig_ == nullptr && this->aiServiceConfig_ == nullptr && this->createTimestamp_ == nullptr && this->expressType_ == nullptr && this->gatewayId_ == nullptr
-        && this->groupName_ == nullptr && this->healthCheck_ == nullptr && this->healthStatus_ == nullptr && this->labelDetails_ == nullptr && this->modelProviderId_ == nullptr
-        && this->name_ == nullptr && this->namespace_ == nullptr && this->outlierEndpoints_ == nullptr && this->ports_ == nullptr && this->protocol_ == nullptr
-        && this->qualifier_ == nullptr && this->resourceGroupId_ == nullptr && this->runtimeDetailErrorCode_ == nullptr && this->runtimeDetailStatus_ == nullptr && this->serviceId_ == nullptr
-        && this->sourceType_ == nullptr && this->unhealthyEndpoints_ == nullptr && this->updateTimestamp_ == nullptr && this->versions_ == nullptr; };
+        && this->agentServiceConfig_ == nullptr && this->aiServiceConfig_ == nullptr && this->createTimestamp_ == nullptr && this->dnsServers_ == nullptr && this->expressType_ == nullptr
+        && this->gatewayId_ == nullptr && this->groupName_ == nullptr && this->healthCheck_ == nullptr && this->healthStatus_ == nullptr && this->healthyPanicThreshold_ == nullptr
+        && this->labelDetails_ == nullptr && this->modelProviderId_ == nullptr && this->name_ == nullptr && this->namespace_ == nullptr && this->outlierDetection_ == nullptr
+        && this->outlierEndpoints_ == nullptr && this->ports_ == nullptr && this->protocol_ == nullptr && this->qualifier_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->runtimeDetailErrorCode_ == nullptr && this->runtimeDetailStatus_ == nullptr && this->serviceId_ == nullptr && this->sourceType_ == nullptr && this->unhealthyEndpoints_ == nullptr
+        && this->updateTimestamp_ == nullptr && this->versions_ == nullptr; };
     // addresses Field Functions 
     bool hasAddresses() const { return this->addresses_ != nullptr;};
     void deleteAddresses() { this->addresses_ = nullptr;};
@@ -265,6 +344,15 @@ namespace Models
     void deleteCreateTimestamp() { this->createTimestamp_ = nullptr;};
     inline int64_t getCreateTimestamp() const { DARABONBA_PTR_GET_DEFAULT(createTimestamp_, 0L) };
     inline Service& setCreateTimestamp(int64_t createTimestamp) { DARABONBA_PTR_SET_VALUE(createTimestamp_, createTimestamp) };
+
+
+    // dnsServers Field Functions 
+    bool hasDnsServers() const { return this->dnsServers_ != nullptr;};
+    void deleteDnsServers() { this->dnsServers_ = nullptr;};
+    inline const vector<string> & getDnsServers() const { DARABONBA_PTR_GET_CONST(dnsServers_, vector<string>) };
+    inline vector<string> getDnsServers() { DARABONBA_PTR_GET(dnsServers_, vector<string>) };
+    inline Service& setDnsServers(const vector<string> & dnsServers) { DARABONBA_PTR_SET_VALUE(dnsServers_, dnsServers) };
+    inline Service& setDnsServers(vector<string> && dnsServers) { DARABONBA_PTR_SET_RVALUE(dnsServers_, dnsServers) };
 
 
     // expressType Field Functions 
@@ -304,6 +392,13 @@ namespace Models
     inline Service& setHealthStatus(string healthStatus) { DARABONBA_PTR_SET_VALUE(healthStatus_, healthStatus) };
 
 
+    // healthyPanicThreshold Field Functions 
+    bool hasHealthyPanicThreshold() const { return this->healthyPanicThreshold_ != nullptr;};
+    void deleteHealthyPanicThreshold() { this->healthyPanicThreshold_ = nullptr;};
+    inline float getHealthyPanicThreshold() const { DARABONBA_PTR_GET_DEFAULT(healthyPanicThreshold_, 0.0) };
+    inline Service& setHealthyPanicThreshold(float healthyPanicThreshold) { DARABONBA_PTR_SET_VALUE(healthyPanicThreshold_, healthyPanicThreshold) };
+
+
     // labelDetails Field Functions 
     bool hasLabelDetails() const { return this->labelDetails_ != nullptr;};
     void deleteLabelDetails() { this->labelDetails_ = nullptr;};
@@ -332,6 +427,15 @@ namespace Models
     void deleteNamespace() { this->namespace_ = nullptr;};
     inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline Service& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
+
+
+    // outlierDetection Field Functions 
+    bool hasOutlierDetection() const { return this->outlierDetection_ != nullptr;};
+    void deleteOutlierDetection() { this->outlierDetection_ = nullptr;};
+    inline const Service::OutlierDetection & getOutlierDetection() const { DARABONBA_PTR_GET_CONST(outlierDetection_, Service::OutlierDetection) };
+    inline Service::OutlierDetection getOutlierDetection() { DARABONBA_PTR_GET(outlierDetection_, Service::OutlierDetection) };
+    inline Service& setOutlierDetection(const Service::OutlierDetection & outlierDetection) { DARABONBA_PTR_SET_VALUE(outlierDetection_, outlierDetection) };
+    inline Service& setOutlierDetection(Service::OutlierDetection && outlierDetection) { DARABONBA_PTR_SET_RVALUE(outlierDetection_, outlierDetection) };
 
 
     // outlierEndpoints Field Functions 
@@ -427,7 +531,7 @@ namespace Models
 
 
   protected:
-    // The address information, including IP addresses or domain names.
+    // The address information, including IP addresses or domain name lists.
     shared_ptr<vector<string>> addresses_ {};
     // The agent service configuration.
     shared_ptr<AgentServiceConfig> agentServiceConfig_ {};
@@ -435,25 +539,26 @@ namespace Models
     shared_ptr<AiServiceConfig> aiServiceConfig_ {};
     // The time when the service was created.
     shared_ptr<int64_t> createTimestamp_ {};
-    // The CloudFlow execution mode.
+    shared_ptr<vector<string>> dnsServers_ {};
+    // The execution mode of CloudFlow.
     shared_ptr<string> expressType_ {};
     // The gateway instance ID.
     shared_ptr<string> gatewayId_ {};
-    // The service group name.
+    // The name of the service group.
     shared_ptr<string> groupName_ {};
     // The health check configuration.
     shared_ptr<ServiceHealthCheck> healthCheck_ {};
-    // The health check status. Valid values:
-    // - Healthy
-    // - Unhealthy
+    // The health check status. Valid values: Healthy and Unhealthy.
     shared_ptr<string> healthStatus_ {};
+    shared_ptr<float> healthyPanicThreshold_ {};
     // The label information of the service.
     shared_ptr<vector<LabelDetail>> labelDetails_ {};
     shared_ptr<string> modelProviderId_ {};
-    // The service name.
+    // The name of the service.
     shared_ptr<string> name_ {};
     // The namespace.
     shared_ptr<string> namespace_ {};
+    shared_ptr<Service::OutlierDetection> outlierDetection_ {};
     // The circuit-broken endpoints.
     shared_ptr<vector<string>> outlierEndpoints_ {};
     // The list of port information.

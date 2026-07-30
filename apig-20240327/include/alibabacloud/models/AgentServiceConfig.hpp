@@ -204,9 +204,9 @@ namespace Models
 
 
     protected:
-      // apiKey
+      // The API key.
       shared_ptr<string> apiKey_ {};
-      // API key generation mode.
+      // The key generation mode.
       shared_ptr<string> apiKeyGenerateMode_ {};
     };
 
@@ -282,17 +282,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> address_ {};
-    // User-defined configuration
+    // The custom configuration. Required when provider is set to custom.
     shared_ptr<AgentServiceConfig::CustomConfig> customConfig_ {};
-    // The Model Studio service configuration.
+    // The DashScope service configuration. Required when provider is set to qwen. The appCredentials parameter cannot be empty, and each entry must have non-empty appId and apiKey values.
     shared_ptr<AgentServiceConfig::DashScopeConfig> dashScopeConfig_ {};
-    // The Dify service configuration.
+    // The Dify service configuration. Required when provider is set to dify. The botType and apiKey parameters cannot be empty.
     shared_ptr<AgentServiceConfig::DifyConfig> difyConfig_ {};
     // Specifies whether to enable health check.
     shared_ptr<bool> enableHealthCheck_ {};
-    // Whether to enable outlier detection
+    // Specifies whether to enable outlier detection.
     shared_ptr<bool> enableOutlierDetection_ {};
-    // The protocol.
+    // The list of communication protocols.
     shared_ptr<vector<string>> protocols_ {};
     // The service provider.
     // 

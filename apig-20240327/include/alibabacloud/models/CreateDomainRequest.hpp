@@ -161,35 +161,35 @@ namespace Models
 
 
   protected:
-    // The CA certificate identifier. This parameter is required for Dedicated+HTTPS.
+    // The CA certificate identifier. Optional for Dedicated+HTTPS. Not allowed for Serverless. Not validated for Dedicated+HTTP.
     shared_ptr<string> caCertIdentifier_ {};
-    // The certificate identifier.
+    // The certificate identifier. Required for Dedicated+HTTPS and must pass submission validation. Not allowed for Serverless. Not validated for Dedicated+HTTP.
     shared_ptr<string> certIdentifier_ {};
-    // The client CA certificate.
+    // The client CA certificate. Conditionally required for Dedicated+HTTPS when MTLSEnabled is set to true. Not allowed for Serverless. Not validated for Dedicated+HTTP.
     shared_ptr<string> clientCACert_ {};
-    // The domain name scope.
+    // The domain name scope. Optional. If not specified, the default value is Dedicated.
     shared_ptr<string> domainScope_ {};
-    // Specifies whether to enable forced HTTPS redirect for the HTTPS protocol type. This parameter is required for Serverless and for Dedicated+HTTPS. This parameter is not validated for Dedicated+HTTP.
+    // Specifies whether to enable forced HTTPS redirect for the HTTPS protocol type. This parameter is required for Serverless and for Dedicated+HTTPS. It is not validated for Dedicated+HTTP.
     shared_ptr<bool> forceHttps_ {};
-    // The gateway type.
+    // The gateway type. Optional. If not specified, the default value is API.
     shared_ptr<string> gatewayType_ {};
-    // The HTTP/2 setting.
+    // The HTTP/2 setting. Optional for Dedicated+HTTPS. If not specified, the default value is GlobalConfig. Not allowed for Serverless.
     shared_ptr<string> http2Option_ {};
-    // Specifies whether to enable mTLS mutual authentication.
+    // Specifies whether to enable mTLS mutual authentication. Optional for Dedicated+HTTPS. When set to true, ClientCACert is required. Not allowed for Serverless.
     shared_ptr<bool> mTLSEnabled_ {};
     // The domain name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The protocol type supported by the domain name. This parameter is required for Dedicated and only allows HTTP or HTTPS. This parameter is not allowed for Serverless.
+    // The protocol type supported by the domain name. This parameter is required for Dedicated and must not be specified for Serverless.
     shared_ptr<string> protocol_ {};
     // The [resource group ID](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
-    // The cipher suite configuration.
+    // The cipher suite configuration. Optional for Dedicated+HTTPS and must pass cipher suite validation. Not allowed for Serverless. Set to empty for Dedicated+HTTP.
     shared_ptr<TlsCipherSuitesConfig> tlsCipherSuitesConfig_ {};
-    // The maximum TLS protocol version. TLS 1.3 is the maximum supported version.
+    // The maximum TLS protocol version. Optional for Dedicated+HTTPS. If not specified, the value is derived from TlsMin and must be greater than or equal to TlsMin. Not allowed for Serverless.
     shared_ptr<string> tlsMax_ {};
-    // The minimum TLS protocol version. TLS 1.0 is the minimum supported version.
+    // The minimum TLS protocol version. Optional for Dedicated+HTTPS. If not specified, the default value is TLS 1.0. Valid values range from TLS 1.0 to TLS 1.3, compatible with TLSv1.x. Not allowed for Serverless.
     shared_ptr<string> tlsMin_ {};
   };
 

@@ -99,7 +99,7 @@ namespace Models
     protected:
       // The port name.
       shared_ptr<string> name_ {};
-      // The port.
+      // The port number.
       shared_ptr<int32_t> port_ {};
       // The protocol.
       shared_ptr<string> protocol_ {};
@@ -170,7 +170,7 @@ namespace Models
 
 
     protected:
-      // The initial ejection duration. This is the initial isolation duration after a node is ejected (for example, 30 seconds). The isolation duration is calculated by using the formula: k × base_ejection_time (k starts at 1). Each ejection increases the isolation duration (k is incremented by 1). If consecutive checks are normal, the isolation duration is gradually reduced (k is decremented by 1).
+      // The base ejection time. This is the initial isolation duration after a node is ejected (for example, 30 seconds). The isolation time is calculated using the formula: k × base_ejection_time (where k starts at 1). Each ejection increases the isolation time (k is incremented by one). If consecutive checks are healthy, the isolation time is gradually reduced (k is decremented by one).
       shared_ptr<int32_t> baseEjectionTime_ {};
       // enable
       shared_ptr<bool> enable_ {};
@@ -178,7 +178,7 @@ namespace Models
       // 
       // When the proportion of healthy nodes in the service is greater than the panic threshold, health checks function normally and requests are sent only to healthy nodes, not to ejected nodes. When the proportion of healthy nodes in the service is less than or equal to the panic threshold, health checks are effectively disabled and requests are sent to all nodes, including ejected nodes.
       shared_ptr<int32_t> failurePercentageMinimumHosts_ {};
-      // The failure percentage threshold. When the percentage of failed requests on a node reaches this threshold, the system triggers the ejection mechanism for the node.
+      // The failure percentage threshold. When the proportion of failed requests for a node reaches this threshold, the system triggers the ejection mechanism for that node.
       shared_ptr<int32_t> failurePercentageThreshold_ {};
       // The detection interval.
       shared_ptr<int32_t> interval_ {};

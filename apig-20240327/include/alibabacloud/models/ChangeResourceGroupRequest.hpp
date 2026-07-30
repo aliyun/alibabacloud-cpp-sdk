@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The ID of the destination resource group.
+    // The ID of the destination resource group. You can view resource group IDs in the Resource Management console.
     shared_ptr<string> resourceGroupId_ {};
-    // The resource ID.
+    // The ID of the resource to be moved. The value must match the specified ResourceType.
     shared_ptr<string> resourceId_ {};
-    // The resource type.
+    // The resource type. The value is case-sensitive and must exactly match one of the valid values.
     shared_ptr<string> resourceType_ {};
-    // The service name. Set this parameter to apig.
+    // The cloud service identifier. Fixed as APIG. You generally do not need to specify this parameter.
     shared_ptr<string> service_ {};
   };
 

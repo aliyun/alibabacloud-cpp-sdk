@@ -119,12 +119,19 @@ namespace Models
 
 
     protected:
+      // The number of consumers in the consumer group.
       shared_ptr<int64_t> consumerCount_ {};
+      // The consumer group ID.
       shared_ptr<string> consumerGroupId_ {};
+      // The creation time of the consumer group, in Unix millisecond timestamp.
       shared_ptr<int64_t> createTimestamp_ {};
+      // The consumer group description.
       shared_ptr<string> description_ {};
+      // The gateway type. Valid values: API or AI.
       shared_ptr<string> gatewayType_ {};
+      // The consumer group name.
       shared_ptr<string> name_ {};
+      // The update time of the consumer group, in Unix millisecond timestamp.
       shared_ptr<int64_t> updateTimestamp_ {};
     };
 
@@ -161,9 +168,13 @@ namespace Models
 
 
   protected:
+    // The response status code. Ok is returned if the request is successful.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<GetConsumerGroupResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

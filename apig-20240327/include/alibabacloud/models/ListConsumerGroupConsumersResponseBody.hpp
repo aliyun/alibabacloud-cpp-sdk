@@ -135,11 +135,17 @@ namespace Models
 
 
       protected:
+        // The consumer ID.
         shared_ptr<string> consumerId_ {};
+        // The consumer deployment status. Valid values: Processing, Failed, and Success.
         shared_ptr<string> deployStatus_ {};
+        // The consumer description.
         shared_ptr<string> description_ {};
+        // Indicates whether the consumer is enabled.
         shared_ptr<bool> enable_ {};
+        // The time when the consumer joined the consumer group, in Unix millisecond timestamp.
         shared_ptr<int64_t> joinTimestamp_ {};
+        // The consumer name.
         shared_ptr<string> name_ {};
       };
 
@@ -176,9 +182,13 @@ namespace Models
 
 
     protected:
+      // The consumer group member list.
       shared_ptr<vector<Data::Items>> items_ {};
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of consumers that match the filter conditions.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -215,9 +225,13 @@ namespace Models
 
 
   protected:
+    // The response status code. Ok is returned if the request is successful.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<ListConsumerGroupConsumersResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

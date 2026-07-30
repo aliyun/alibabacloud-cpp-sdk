@@ -18,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(provider, provider_);
       DARABONBA_PTR_TO_JSON(serviceIds, serviceIds_);
+      DARABONBA_PTR_TO_JSON(clientToken, clientToken_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAiModelProviderRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(displayName, displayName_);
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(provider, provider_);
       DARABONBA_PTR_FROM_JSON(serviceIds, serviceIds_);
+      DARABONBA_PTR_FROM_JSON(clientToken, clientToken_);
     };
     CreateAiModelProviderRequest() = default ;
     CreateAiModelProviderRequest(const CreateAiModelProviderRequest &) = default ;
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->displayName_ == nullptr
-        && this->gatewayId_ == nullptr && this->provider_ == nullptr && this->serviceIds_ == nullptr; };
+        && this->gatewayId_ == nullptr && this->provider_ == nullptr && this->serviceIds_ == nullptr && this->clientToken_ == nullptr; };
     // displayName Field Functions 
     bool hasDisplayName() const { return this->displayName_ != nullptr;};
     void deleteDisplayName() { this->displayName_ = nullptr;};
@@ -68,14 +70,30 @@ namespace Models
     inline CreateAiModelProviderRequest& setServiceIds(vector<string> && serviceIds) { DARABONBA_PTR_SET_RVALUE(serviceIds_, serviceIds) };
 
 
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline CreateAiModelProviderRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
   protected:
+    // The display name of the model provider.
+    // 
     // This parameter is required.
     shared_ptr<string> displayName_ {};
+    // The gateway instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> gatewayId_ {};
+    // The model provider identifier.
+    // 
     // This parameter is required.
     shared_ptr<string> provider_ {};
+    // The list of service IDs to bind to the provider.
     shared_ptr<vector<string>> serviceIds_ {};
+    // The client token that is used to ensure the idempotence of the request.
+    shared_ptr<string> clientToken_ {};
   };
 
   } // namespace Models
