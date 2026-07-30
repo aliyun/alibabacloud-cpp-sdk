@@ -112,13 +112,27 @@ namespace Models
 
 
     protected:
-      // Password  forced update
+      // The password forced update status. By default, this feature is disabled. Valid values:
+      // 
+      // - `enabled`: Enables the feature.
+      // 
+      // - `disabled`: Disables the feature.
       shared_ptr<string> passwordForcedUpdateStatus_ {};
-      // Password policy
+      // The priority of the password initialization policy. Valid values:
+      // 
+      // - `global`: Uses the instance-level password initialization policy and ignores the custom settings in this request. For more information, see the password initialization policy configuration in the IDaaS console.
+      // 
+      // - `custom`: Uses the custom password initialization policy defined in this request. This includes settings for forced password updates, the initialization type, and notification channels.
       shared_ptr<string> passwordInitializationPolicyPriority_ {};
-      // Password Initialization Type
+      // The password initialization type. Valid values:
+      // 
+      // - `random`: A randomly generated password.
       shared_ptr<string> passwordInitializationType_ {};
-      // User Notification Channels
+      // The user notification channels. Valid values:
+      // 
+      // - `email`: Email
+      // 
+      // - `sms`: SMS
       shared_ptr<vector<string>> userNotificationChannels_ {};
     };
 
@@ -160,9 +174,9 @@ namespace Models
 
 
     protected:
-      // Field name
+      // The name of the custom field. You can view the field\\"s data type and value range in the IDaaS console.
       shared_ptr<string> fieldName_ {};
-      // Filed value
+      // The value of the custom field.
       shared_ptr<string> fieldValue_ {};
     };
 
@@ -266,33 +280,33 @@ namespace Models
 
 
   protected:
-    // Custom fields
+    // A list of custom fields for the account.
     shared_ptr<vector<CreateUserRequest::CustomFields>> customFields_ {};
-    // The description of the account. The description can be up to 256 characters in length.
+    // The account description. The maximum length is 256 characters.
     shared_ptr<string> description_ {};
-    // The display name of the account. The display name can be up to 64 characters in length.
+    // The display name. The maximum length is 128 characters.
     shared_ptr<string> displayName_ {};
-    // The email address of the user who owns the account.
+    // The email address. The local-part of the address can contain uppercase and lowercase letters, digits, periods (`.`), underscores (`_`), and hyphens (`-`). The maximum length is 128 characters.
     shared_ptr<string> email_ {};
-    // Indicates whether the email address is verified. This field is required if an email address is specified. If you have no special requirement, set this parameter to true.
+    // Specifies whether the email is verified. This parameter is required if `email` is set. Typically, set this to `true`.
     shared_ptr<bool> emailVerified_ {};
-    // The password of the account. For information about the password rules, go to the Create User panel in the Identity as a Service (IDaaS) console.
+    // The account password. For password complexity rules, see the password policy in the IDaaS console.
     shared_ptr<string> password_ {};
-    // Configure the initial password
+    // The password initialization configuration.
     shared_ptr<CreateUserRequest::PasswordInitializationConfig> passwordInitializationConfig_ {};
-    // The mobile number of the user who owns the account.
+    // The account phone number. It must be 6 to 15 digits long.
     shared_ptr<string> phoneNumber_ {};
-    // Indicates whether the mobile number is verified. This field is required if a mobile number is specified. If you have no special requirement, set this parameter to true.
+    // Specifies whether the phone number is verified. This parameter is required if `phoneNumber` is set. Typically, set this to `true`.
     shared_ptr<bool> phoneNumberVerified_ {};
-    // The country code of the mobile number. For example, the country code of China is 86 without 00 or +. This parameter is required if a mobile number is specified.
+    // The phone region code. For example, the code for the Chinese mainland is `86`. Do not include a `00` prefix or a plus sign (`+`). This parameter is required if `phoneNumber` is set.
     shared_ptr<string> phoneRegion_ {};
     // The ID of the primary organizational unit.
     // 
     // This parameter is required.
     shared_ptr<string> primaryOrganizationalUnitId_ {};
-    // The external ID of the account. The external ID can be used to map external data to the data of the account in EIAM of Identity as a Service (IDaaS). By default, the external ID is the account ID.
+    // The external user ID, used to associate the account with an external system. The maximum length is 128 characters. If unspecified, it defaults to the account ID.
     shared_ptr<string> userExternalId_ {};
-    // The username of the account.
+    // The username. It can contain letters, digits, and the following special characters: underscore (`_`), period (`.`), at sign (`@`), and hyphen (`-`). The maximum length is 256 characters.
     // 
     // This parameter is required.
     shared_ptr<string> username_ {};

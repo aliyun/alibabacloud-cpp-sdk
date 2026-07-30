@@ -91,7 +91,9 @@ namespace Models
 
 
     protected:
+      // The derived short token of the JWT.
       shared_ptr<string> derivedShortToken_ {};
+      // JWT content.
       shared_ptr<string> jwtValue_ {};
     };
 
@@ -193,19 +195,39 @@ namespace Models
 
 
   protected:
+    // Authentication token ID.
     shared_ptr<string> authenticationTokenId_ {};
+    // Authentication token type.
+    // 
+    // > The value is fixed as `jwt`, indicating a JWT authentication token.
     shared_ptr<string> authenticationTokenType_ {};
+    // Authentication token consumer ID.
     shared_ptr<string> consumerId_ {};
+    // Authentication token consumer type. Valid values:
+    // 
+    // - application: Application
+    // 
+    // - custom: Custom type
     shared_ptr<string> consumerType_ {};
+    // The creation time of the authentication token, UNIX timestamp, in milliseconds.
     shared_ptr<int64_t> createTime_ {};
+    // Authentication token creator ID.
     shared_ptr<string> creatorId_ {};
+    // Authentication token creator type. Valid values:
+    // 
+    // - application: Application
     shared_ptr<string> creatorType_ {};
+    // Credential provider ID.
     shared_ptr<string> credentialProviderId_ {};
+    // Authentication token expiration time, UNIX timestamp, in milliseconds.
     shared_ptr<int64_t> expirationTime_ {};
-    // EIAM实例ID。
+    // Instance ID.
     shared_ptr<string> instanceId_ {};
+    // JWT authentication token content.
     shared_ptr<GenerateJwtAuthenticationTokenResponseBody::JwtContent> jwtContent_ {};
+    // Whether the authentication token is revoked.
     shared_ptr<bool> revoked_ {};
+    // The update time of the authentication token, UNIX timestamp, in milliseconds.
     shared_ptr<int64_t> updateTime_ {};
   };
 

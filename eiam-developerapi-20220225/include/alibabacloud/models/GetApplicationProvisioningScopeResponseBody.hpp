@@ -53,8 +53,9 @@ namespace Models
 
 
   protected:
+    // The list of group IDs.
     shared_ptr<vector<string>> groupIds_ {};
-    // The IDs of organizational units.
+    // The list of organization IDs.
     shared_ptr<vector<string>> organizationalUnitIds_ {};
   };
 

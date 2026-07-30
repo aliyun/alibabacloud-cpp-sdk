@@ -52,6 +52,10 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
+    // Authentication information. The format is `Bearer ${access_token}`.
+    // 
+    // > Use an access token issued by IDaaS.
+    // 
     // This parameter is required.
     shared_ptr<string> authorization_ {};
   };

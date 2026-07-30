@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The account ID.
+    // The user ID.
     shared_ptr<string> userId_ {};
   };
 

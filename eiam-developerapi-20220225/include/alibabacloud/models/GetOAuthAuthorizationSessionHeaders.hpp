@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_ADDUSERTOORGANIZATIONALUNITSHEADERS_HPP_
-#define ALIBABACLOUD_MODELS_ADDUSERTOORGANIZATIONALUNITSHEADERS_HPP_
+#ifndef ALIBABACLOUD_MODELS_GETOAUTHAUTHORIZATIONSESSIONHEADERS_HPP_
+#define ALIBABACLOUD_MODELS_GETOAUTHAUTHORIZATIONSESSIONHEADERS_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
 using namespace std;
@@ -11,23 +11,23 @@ namespace EiamDeveloperapi20220225
 {
 namespace Models
 {
-  class AddUserToOrganizationalUnitsHeaders : public Darabonba::Model {
+  class GetOAuthAuthorizationSessionHeaders : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const AddUserToOrganizationalUnitsHeaders& obj) { 
+    friend void to_json(Darabonba::Json& j, const GetOAuthAuthorizationSessionHeaders& obj) { 
       DARABONBA_PTR_TO_JSON(commonHeaders, commonHeaders_);
       DARABONBA_PTR_TO_JSON(Authorization, authorization_);
     };
-    friend void from_json(const Darabonba::Json& j, AddUserToOrganizationalUnitsHeaders& obj) { 
+    friend void from_json(const Darabonba::Json& j, GetOAuthAuthorizationSessionHeaders& obj) { 
       DARABONBA_PTR_FROM_JSON(commonHeaders, commonHeaders_);
       DARABONBA_PTR_FROM_JSON(Authorization, authorization_);
     };
-    AddUserToOrganizationalUnitsHeaders() = default ;
-    AddUserToOrganizationalUnitsHeaders(const AddUserToOrganizationalUnitsHeaders &) = default ;
-    AddUserToOrganizationalUnitsHeaders(AddUserToOrganizationalUnitsHeaders &&) = default ;
-    AddUserToOrganizationalUnitsHeaders(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~AddUserToOrganizationalUnitsHeaders() = default ;
-    AddUserToOrganizationalUnitsHeaders& operator=(const AddUserToOrganizationalUnitsHeaders &) = default ;
-    AddUserToOrganizationalUnitsHeaders& operator=(AddUserToOrganizationalUnitsHeaders &&) = default ;
+    GetOAuthAuthorizationSessionHeaders() = default ;
+    GetOAuthAuthorizationSessionHeaders(const GetOAuthAuthorizationSessionHeaders &) = default ;
+    GetOAuthAuthorizationSessionHeaders(GetOAuthAuthorizationSessionHeaders &&) = default ;
+    GetOAuthAuthorizationSessionHeaders(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetOAuthAuthorizationSessionHeaders() = default ;
+    GetOAuthAuthorizationSessionHeaders& operator=(const GetOAuthAuthorizationSessionHeaders &) = default ;
+    GetOAuthAuthorizationSessionHeaders& operator=(GetOAuthAuthorizationSessionHeaders &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -39,21 +39,22 @@ namespace Models
     void deleteCommonHeaders() { this->commonHeaders_ = nullptr;};
     inline const map<string, string> & getCommonHeaders() const { DARABONBA_PTR_GET_CONST(commonHeaders_, map<string, string>) };
     inline map<string, string> getCommonHeaders() { DARABONBA_PTR_GET(commonHeaders_, map<string, string>) };
-    inline AddUserToOrganizationalUnitsHeaders& setCommonHeaders(const map<string, string> & commonHeaders) { DARABONBA_PTR_SET_VALUE(commonHeaders_, commonHeaders) };
-    inline AddUserToOrganizationalUnitsHeaders& setCommonHeaders(map<string, string> && commonHeaders) { DARABONBA_PTR_SET_RVALUE(commonHeaders_, commonHeaders) };
+    inline GetOAuthAuthorizationSessionHeaders& setCommonHeaders(const map<string, string> & commonHeaders) { DARABONBA_PTR_SET_VALUE(commonHeaders_, commonHeaders) };
+    inline GetOAuthAuthorizationSessionHeaders& setCommonHeaders(map<string, string> && commonHeaders) { DARABONBA_PTR_SET_RVALUE(commonHeaders_, commonHeaders) };
 
 
     // authorization Field Functions 
     bool hasAuthorization() const { return this->authorization_ != nullptr;};
     void deleteAuthorization() { this->authorization_ = nullptr;};
     inline string getAuthorization() const { DARABONBA_PTR_GET_DEFAULT(authorization_, "") };
-    inline AddUserToOrganizationalUnitsHeaders& setAuthorization(string authorization) { DARABONBA_PTR_SET_VALUE(authorization_, authorization) };
+    inline GetOAuthAuthorizationSessionHeaders& setAuthorization(string authorization) { DARABONBA_PTR_SET_VALUE(authorization_, authorization) };
 
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
-    // The authentication information.
-    // Format: Bearer ${access_token}.
+    // The authentication information. Format: Bearer ${access_token}.
+    // 
+    // > Enter the Access Token issued by IDaaS.
     // 
     // This parameter is required.
     shared_ptr<string> authorization_ {};

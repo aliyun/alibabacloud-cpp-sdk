@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the organizational unit.
+    // The organization ID.
     shared_ptr<string> organizationalUnitId_ {};
-    // The page number. Default value: 1.
+    // The page number. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 20. Valid values: 1 to 100.
+    // The number of records to return on each page. The default value is 20. The value must be in the range of 1 to 100.
     shared_ptr<int32_t> pageSize_ {};
   };
 

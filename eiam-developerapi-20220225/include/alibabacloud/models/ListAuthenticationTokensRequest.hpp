@@ -84,13 +84,21 @@ namespace Models
 
 
   protected:
+    // ID of the authentication token consumer.
+    // 
     // This parameter is required.
     shared_ptr<string> consumerId_ {};
+    // Credential provider identifier.
+    // 
     // This parameter is required.
     shared_ptr<string> credentialProviderIdentifier_ {};
+    // Indicates whether the authentication token is expired.
     shared_ptr<bool> expired_ {};
+    // Maximum number of records to return in this paged query.
     shared_ptr<int64_t> maxResults_ {};
+    // Token that marks the start of the next page in a paged query.
     shared_ptr<string> nextToken_ {};
+    // Indicates whether the authentication token is revoked.
     shared_ptr<bool> revoked_ {};
   };
 

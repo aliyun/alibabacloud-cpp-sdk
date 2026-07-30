@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Indicates whether the authentication token is valid.
     shared_ptr<bool> active_ {};
   };
 

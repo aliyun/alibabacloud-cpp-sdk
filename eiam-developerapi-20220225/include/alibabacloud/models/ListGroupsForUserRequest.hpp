@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The number of entries per page. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // nextToken
+    // The token to retrieve the next page of results. Leave this parameter empty to query from the first page.
     shared_ptr<string> nextToken_ {};
   };
 

@@ -64,6 +64,10 @@
 #include <alibabacloud/models/GetGroupRequest.hpp>
 #include <alibabacloud/models/GetGroupResponseBody.hpp>
 #include <alibabacloud/models/GetGroupResponse.hpp>
+#include <alibabacloud/models/GetOAuthAuthorizationSessionHeaders.hpp>
+#include <alibabacloud/models/GetOAuthAuthorizationSessionRequest.hpp>
+#include <alibabacloud/models/GetOAuthAuthorizationSessionResponseBody.hpp>
+#include <alibabacloud/models/GetOAuthAuthorizationSessionResponse.hpp>
 #include <alibabacloud/models/GetOrganizationalUnitHeaders.hpp>
 #include <alibabacloud/models/GetOrganizationalUnitRequest.hpp>
 #include <alibabacloud/models/GetOrganizationalUnitResponseBody.hpp>

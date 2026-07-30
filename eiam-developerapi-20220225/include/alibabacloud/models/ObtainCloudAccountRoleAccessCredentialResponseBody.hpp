@@ -45,11 +45,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(accessCredentialExpiresAt, accessCredentialExpiresAt_);
         DARABONBA_PTR_TO_JSON(alibabaCloudStsToken, alibabaCloudStsToken_);
         DARABONBA_PTR_TO_JSON(awsStsToken, awsStsToken_);
+        DARABONBA_PTR_TO_JSON(tencentCloudStsToken, tencentCloudStsToken_);
       };
       friend void from_json(const Darabonba::Json& j, CloudAccountRoleAccessCredential& obj) { 
         DARABONBA_PTR_FROM_JSON(accessCredentialExpiresAt, accessCredentialExpiresAt_);
         DARABONBA_PTR_FROM_JSON(alibabaCloudStsToken, alibabaCloudStsToken_);
         DARABONBA_PTR_FROM_JSON(awsStsToken, awsStsToken_);
+        DARABONBA_PTR_FROM_JSON(tencentCloudStsToken, tencentCloudStsToken_);
       };
       CloudAccountRoleAccessCredential() = default ;
       CloudAccountRoleAccessCredential(const CloudAccountRoleAccessCredential &) = default ;
@@ -62,6 +64,68 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class TencentCloudStsToken : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const TencentCloudStsToken& obj) { 
+          DARABONBA_PTR_TO_JSON(expiration, expiration_);
+          DARABONBA_PTR_TO_JSON(tmpSecretId, tmpSecretId_);
+          DARABONBA_PTR_TO_JSON(tmpSecretKey, tmpSecretKey_);
+          DARABONBA_PTR_TO_JSON(token, token_);
+        };
+        friend void from_json(const Darabonba::Json& j, TencentCloudStsToken& obj) { 
+          DARABONBA_PTR_FROM_JSON(expiration, expiration_);
+          DARABONBA_PTR_FROM_JSON(tmpSecretId, tmpSecretId_);
+          DARABONBA_PTR_FROM_JSON(tmpSecretKey, tmpSecretKey_);
+          DARABONBA_PTR_FROM_JSON(token, token_);
+        };
+        TencentCloudStsToken() = default ;
+        TencentCloudStsToken(const TencentCloudStsToken &) = default ;
+        TencentCloudStsToken(TencentCloudStsToken &&) = default ;
+        TencentCloudStsToken(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~TencentCloudStsToken() = default ;
+        TencentCloudStsToken& operator=(const TencentCloudStsToken &) = default ;
+        TencentCloudStsToken& operator=(TencentCloudStsToken &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->expiration_ == nullptr
+        && this->tmpSecretId_ == nullptr && this->tmpSecretKey_ == nullptr && this->token_ == nullptr; };
+        // expiration Field Functions 
+        bool hasExpiration() const { return this->expiration_ != nullptr;};
+        void deleteExpiration() { this->expiration_ = nullptr;};
+        inline string getExpiration() const { DARABONBA_PTR_GET_DEFAULT(expiration_, "") };
+        inline TencentCloudStsToken& setExpiration(string expiration) { DARABONBA_PTR_SET_VALUE(expiration_, expiration) };
+
+
+        // tmpSecretId Field Functions 
+        bool hasTmpSecretId() const { return this->tmpSecretId_ != nullptr;};
+        void deleteTmpSecretId() { this->tmpSecretId_ = nullptr;};
+        inline string getTmpSecretId() const { DARABONBA_PTR_GET_DEFAULT(tmpSecretId_, "") };
+        inline TencentCloudStsToken& setTmpSecretId(string tmpSecretId) { DARABONBA_PTR_SET_VALUE(tmpSecretId_, tmpSecretId) };
+
+
+        // tmpSecretKey Field Functions 
+        bool hasTmpSecretKey() const { return this->tmpSecretKey_ != nullptr;};
+        void deleteTmpSecretKey() { this->tmpSecretKey_ = nullptr;};
+        inline string getTmpSecretKey() const { DARABONBA_PTR_GET_DEFAULT(tmpSecretKey_, "") };
+        inline TencentCloudStsToken& setTmpSecretKey(string tmpSecretKey) { DARABONBA_PTR_SET_VALUE(tmpSecretKey_, tmpSecretKey) };
+
+
+        // token Field Functions 
+        bool hasToken() const { return this->token_ != nullptr;};
+        void deleteToken() { this->token_ = nullptr;};
+        inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+        inline TencentCloudStsToken& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
+
+
+      protected:
+        shared_ptr<string> expiration_ {};
+        shared_ptr<string> tmpSecretId_ {};
+        shared_ptr<string> tmpSecretKey_ {};
+        shared_ptr<string> token_ {};
+      };
+
       class AwsStsToken : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const AwsStsToken& obj) { 
@@ -118,9 +182,13 @@ namespace Models
 
 
       protected:
+        // The access key ID.
         shared_ptr<string> accessKeyId_ {};
+        // The expiration time of the STS Token (UTC).
         shared_ptr<string> expiration_ {};
+        // The secret access key.
         shared_ptr<string> secretAccessKey_ {};
+        // The session token of the temporary credentials.
         shared_ptr<string> sessionToken_ {};
       };
 
@@ -180,14 +248,18 @@ namespace Models
 
 
       protected:
+        // The access key ID.
         shared_ptr<string> accessKeyId_ {};
+        // The access key secret.
         shared_ptr<string> accessKeySecret_ {};
+        // The expiration time of the token (UTC).
         shared_ptr<string> expiration_ {};
+        // The security token.
         shared_ptr<string> securityToken_ {};
       };
 
       virtual bool empty() const override { return this->accessCredentialExpiresAt_ == nullptr
-        && this->alibabaCloudStsToken_ == nullptr && this->awsStsToken_ == nullptr; };
+        && this->alibabaCloudStsToken_ == nullptr && this->awsStsToken_ == nullptr && this->tencentCloudStsToken_ == nullptr; };
       // accessCredentialExpiresAt Field Functions 
       bool hasAccessCredentialExpiresAt() const { return this->accessCredentialExpiresAt_ != nullptr;};
       void deleteAccessCredentialExpiresAt() { this->accessCredentialExpiresAt_ = nullptr;};
@@ -213,10 +285,24 @@ namespace Models
       inline CloudAccountRoleAccessCredential& setAwsStsToken(CloudAccountRoleAccessCredential::AwsStsToken && awsStsToken) { DARABONBA_PTR_SET_RVALUE(awsStsToken_, awsStsToken) };
 
 
+      // tencentCloudStsToken Field Functions 
+      bool hasTencentCloudStsToken() const { return this->tencentCloudStsToken_ != nullptr;};
+      void deleteTencentCloudStsToken() { this->tencentCloudStsToken_ = nullptr;};
+      inline const CloudAccountRoleAccessCredential::TencentCloudStsToken & getTencentCloudStsToken() const { DARABONBA_PTR_GET_CONST(tencentCloudStsToken_, CloudAccountRoleAccessCredential::TencentCloudStsToken) };
+      inline CloudAccountRoleAccessCredential::TencentCloudStsToken getTencentCloudStsToken() { DARABONBA_PTR_GET(tencentCloudStsToken_, CloudAccountRoleAccessCredential::TencentCloudStsToken) };
+      inline CloudAccountRoleAccessCredential& setTencentCloudStsToken(const CloudAccountRoleAccessCredential::TencentCloudStsToken & tencentCloudStsToken) { DARABONBA_PTR_SET_VALUE(tencentCloudStsToken_, tencentCloudStsToken) };
+      inline CloudAccountRoleAccessCredential& setTencentCloudStsToken(CloudAccountRoleAccessCredential::TencentCloudStsToken && tencentCloudStsToken) { DARABONBA_PTR_SET_RVALUE(tencentCloudStsToken_, tencentCloudStsToken) };
+
+
     protected:
+      // The expiration time of the temporary access credentials for the cloud account role, in UNIX timestamp format and in seconds.
       shared_ptr<int64_t> accessCredentialExpiresAt_ {};
+      // The temporary identity credentials (STS Token) for assuming an Alibaba Cloud RAM role.
+      // > This field is returned only when the cloud account type associated with the cloud account role is Alibaba Cloud (alibaba_cloud).
       shared_ptr<CloudAccountRoleAccessCredential::AlibabaCloudStsToken> alibabaCloudStsToken_ {};
+      // The STS Token representing an AWS role.
       shared_ptr<CloudAccountRoleAccessCredential::AwsStsToken> awsStsToken_ {};
+      shared_ptr<CloudAccountRoleAccessCredential::TencentCloudStsToken> tencentCloudStsToken_ {};
     };
 
     virtual bool empty() const override { return this->cloudAccountId_ == nullptr
@@ -266,11 +352,18 @@ namespace Models
 
 
   protected:
+    // The cloud account ID.
     shared_ptr<string> cloudAccountId_ {};
+    // The temporary access credentials for assuming the cloud account role.
     shared_ptr<ObtainCloudAccountRoleAccessCredentialResponseBody::CloudAccountRoleAccessCredential> cloudAccountRoleAccessCredential_ {};
+    // The business identifier of the cloud account role.
     shared_ptr<string> cloudAccountRoleExternalId_ {};
+    // The cloud account role ID.
     shared_ptr<string> cloudAccountRoleId_ {};
+    // The cloud account role name.
     shared_ptr<string> cloudAccountRoleName_ {};
+    // The cloud account type. Valid values:
+    // - alibaba_cloud: Alibaba Cloud.
     shared_ptr<string> cloudAccountVendorType_ {};
   };
 

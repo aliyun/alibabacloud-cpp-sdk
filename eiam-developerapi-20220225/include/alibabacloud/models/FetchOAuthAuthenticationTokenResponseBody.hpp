@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(expirationTime, expirationTime_);
       DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(oauthAccessTokenContent, oauthAccessTokenContent_);
+      DARABONBA_PTR_TO_JSON(oauthAuthorizationSession, oauthAuthorizationSession_);
       DARABONBA_PTR_TO_JSON(revoked, revoked_);
       DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
     };
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(expirationTime, expirationTime_);
       DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(oauthAccessTokenContent, oauthAccessTokenContent_);
+      DARABONBA_PTR_FROM_JSON(oauthAuthorizationSession, oauthAuthorizationSession_);
       DARABONBA_PTR_FROM_JSON(revoked, revoked_);
       DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
     };
@@ -53,6 +55,72 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class OauthAuthorizationSession : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const OauthAuthorizationSession& obj) { 
+        DARABONBA_PTR_TO_JSON(authorizationUrl, authorizationUrl_);
+        DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
+        DARABONBA_PTR_TO_JSON(sessionStatus, sessionStatus_);
+        DARABONBA_PTR_TO_JSON(sessionUri, sessionUri_);
+      };
+      friend void from_json(const Darabonba::Json& j, OauthAuthorizationSession& obj) { 
+        DARABONBA_PTR_FROM_JSON(authorizationUrl, authorizationUrl_);
+        DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
+        DARABONBA_PTR_FROM_JSON(sessionStatus, sessionStatus_);
+        DARABONBA_PTR_FROM_JSON(sessionUri, sessionUri_);
+      };
+      OauthAuthorizationSession() = default ;
+      OauthAuthorizationSession(const OauthAuthorizationSession &) = default ;
+      OauthAuthorizationSession(OauthAuthorizationSession &&) = default ;
+      OauthAuthorizationSession(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~OauthAuthorizationSession() = default ;
+      OauthAuthorizationSession& operator=(const OauthAuthorizationSession &) = default ;
+      OauthAuthorizationSession& operator=(OauthAuthorizationSession &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->authorizationUrl_ == nullptr
+        && this->sessionId_ == nullptr && this->sessionStatus_ == nullptr && this->sessionUri_ == nullptr; };
+      // authorizationUrl Field Functions 
+      bool hasAuthorizationUrl() const { return this->authorizationUrl_ != nullptr;};
+      void deleteAuthorizationUrl() { this->authorizationUrl_ = nullptr;};
+      inline string getAuthorizationUrl() const { DARABONBA_PTR_GET_DEFAULT(authorizationUrl_, "") };
+      inline OauthAuthorizationSession& setAuthorizationUrl(string authorizationUrl) { DARABONBA_PTR_SET_VALUE(authorizationUrl_, authorizationUrl) };
+
+
+      // sessionId Field Functions 
+      bool hasSessionId() const { return this->sessionId_ != nullptr;};
+      void deleteSessionId() { this->sessionId_ = nullptr;};
+      inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+      inline OauthAuthorizationSession& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
+
+
+      // sessionStatus Field Functions 
+      bool hasSessionStatus() const { return this->sessionStatus_ != nullptr;};
+      void deleteSessionStatus() { this->sessionStatus_ = nullptr;};
+      inline string getSessionStatus() const { DARABONBA_PTR_GET_DEFAULT(sessionStatus_, "") };
+      inline OauthAuthorizationSession& setSessionStatus(string sessionStatus) { DARABONBA_PTR_SET_VALUE(sessionStatus_, sessionStatus) };
+
+
+      // sessionUri Field Functions 
+      bool hasSessionUri() const { return this->sessionUri_ != nullptr;};
+      void deleteSessionUri() { this->sessionUri_ = nullptr;};
+      inline string getSessionUri() const { DARABONBA_PTR_GET_DEFAULT(sessionUri_, "") };
+      inline OauthAuthorizationSession& setSessionUri(string sessionUri) { DARABONBA_PTR_SET_VALUE(sessionUri_, sessionUri) };
+
+
+    protected:
+      // The user authorization URL.
+      shared_ptr<string> authorizationUrl_ {};
+      // The authorization session ID.
+      shared_ptr<string> sessionId_ {};
+      // The authorization session status.
+      shared_ptr<string> sessionStatus_ {};
+      // The authorization session URI.
+      shared_ptr<string> sessionUri_ {};
+    };
+
     class OauthAccessTokenContent : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const OauthAccessTokenContent& obj) { 
@@ -100,15 +168,18 @@ namespace Models
 
 
     protected:
+      // The access_token field in the OAuth protocol token endpoint response.
       shared_ptr<string> accessTokenValue_ {};
+      // The scope field in the OAuth protocol token endpoint response.
       shared_ptr<string> scope_ {};
+      // The token_type field in the OAuth protocol token endpoint response.
       shared_ptr<string> tokenType_ {};
     };
 
     virtual bool empty() const override { return this->authenticationTokenId_ == nullptr
         && this->authenticationTokenType_ == nullptr && this->consumerId_ == nullptr && this->consumerType_ == nullptr && this->createTime_ == nullptr && this->creatorId_ == nullptr
         && this->creatorType_ == nullptr && this->credentialProviderId_ == nullptr && this->expirationTime_ == nullptr && this->instanceId_ == nullptr && this->oauthAccessTokenContent_ == nullptr
-        && this->revoked_ == nullptr && this->updateTime_ == nullptr; };
+        && this->oauthAuthorizationSession_ == nullptr && this->revoked_ == nullptr && this->updateTime_ == nullptr; };
     // authenticationTokenId Field Functions 
     bool hasAuthenticationTokenId() const { return this->authenticationTokenId_ != nullptr;};
     void deleteAuthenticationTokenId() { this->authenticationTokenId_ = nullptr;};
@@ -188,6 +259,15 @@ namespace Models
     inline FetchOAuthAuthenticationTokenResponseBody& setOauthAccessTokenContent(FetchOAuthAuthenticationTokenResponseBody::OauthAccessTokenContent && oauthAccessTokenContent) { DARABONBA_PTR_SET_RVALUE(oauthAccessTokenContent_, oauthAccessTokenContent) };
 
 
+    // oauthAuthorizationSession Field Functions 
+    bool hasOauthAuthorizationSession() const { return this->oauthAuthorizationSession_ != nullptr;};
+    void deleteOauthAuthorizationSession() { this->oauthAuthorizationSession_ = nullptr;};
+    inline const FetchOAuthAuthenticationTokenResponseBody::OauthAuthorizationSession & getOauthAuthorizationSession() const { DARABONBA_PTR_GET_CONST(oauthAuthorizationSession_, FetchOAuthAuthenticationTokenResponseBody::OauthAuthorizationSession) };
+    inline FetchOAuthAuthenticationTokenResponseBody::OauthAuthorizationSession getOauthAuthorizationSession() { DARABONBA_PTR_GET(oauthAuthorizationSession_, FetchOAuthAuthenticationTokenResponseBody::OauthAuthorizationSession) };
+    inline FetchOAuthAuthenticationTokenResponseBody& setOauthAuthorizationSession(const FetchOAuthAuthenticationTokenResponseBody::OauthAuthorizationSession & oauthAuthorizationSession) { DARABONBA_PTR_SET_VALUE(oauthAuthorizationSession_, oauthAuthorizationSession) };
+    inline FetchOAuthAuthenticationTokenResponseBody& setOauthAuthorizationSession(FetchOAuthAuthenticationTokenResponseBody::OauthAuthorizationSession && oauthAuthorizationSession) { DARABONBA_PTR_SET_RVALUE(oauthAuthorizationSession_, oauthAuthorizationSession) };
+
+
     // revoked Field Functions 
     bool hasRevoked() const { return this->revoked_ != nullptr;};
     void deleteRevoked() { this->revoked_ = nullptr;};
@@ -203,19 +283,35 @@ namespace Models
 
 
   protected:
+    // The authentication token ID.
     shared_ptr<string> authenticationTokenId_ {};
+    // The authentication token type.
+    // 
+    // > The value is fixed as `oauth_access_token`, indicating an OAuth Access Token type authentication token.
     shared_ptr<string> authenticationTokenType_ {};
+    // The consumer ID of the authentication token.
     shared_ptr<string> consumerId_ {};
+    // The consumer type of the authentication token.
     shared_ptr<string> consumerType_ {};
+    // The creation time of the authentication token. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createTime_ {};
+    // The creator ID of the authentication token.
     shared_ptr<string> creatorId_ {};
+    // The creator type of the authentication token.
     shared_ptr<string> creatorType_ {};
+    // The credential provider ID.
     shared_ptr<string> credentialProviderId_ {};
+    // The expiration time of the authentication token. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> expirationTime_ {};
-    // EIAM实例ID。
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The content of the OAuth Access Token type authentication token.
     shared_ptr<FetchOAuthAuthenticationTokenResponseBody::OauthAccessTokenContent> oauthAccessTokenContent_ {};
+    // The authorization session of the OAuth user_federation flow. Returned during first-time authorization or when user interaction is required.
+    shared_ptr<FetchOAuthAuthenticationTokenResponseBody::OauthAuthorizationSession> oauthAuthorizationSession_ {};
+    // Indicates whether the authentication token is revoked.
     shared_ptr<bool> revoked_ {};
+    // The update time of the authentication token. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> updateTime_ {};
   };
 

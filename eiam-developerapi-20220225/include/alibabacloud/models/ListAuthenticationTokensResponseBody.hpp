@@ -166,18 +166,39 @@ namespace Models
 
 
     protected:
+      // Authentication token ID.
       shared_ptr<string> authenticationTokenId_ {};
+      // Authentication token type. Valid values:
+      // 
+      // - jwt: JWT authentication token
+      // 
+      // - oauth_access_token: OAuth Access Token authentication token
       shared_ptr<string> authenticationTokenType_ {};
+      // ID of the authentication token consumer.
       shared_ptr<string> consumerId_ {};
+      // Type of the authentication token consumer. Valid values:
+      // 
+      // - application: Application
+      // 
+      // - custom: Custom type
       shared_ptr<string> consumerType_ {};
+      // Creation time of the authentication token, as a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
+      // ID of the authentication token creator.
       shared_ptr<string> creatorId_ {};
+      // Type of the authentication token creator. Valid values:
+      // 
+      // - application: Application
       shared_ptr<string> creatorType_ {};
+      // Credential provider ID.
       shared_ptr<string> credentialProviderId_ {};
+      // Expiration time of the authentication token, as a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> expirationTime_ {};
-      // EIAM实例ID。
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
+      // Indicates whether the authentication token is revoked.
       shared_ptr<bool> revoked_ {};
+      // Last update time of the authentication token, as a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -214,10 +235,13 @@ namespace Models
 
 
   protected:
-    // 资源实体列表。
+    // List of resource entities.
     shared_ptr<vector<ListAuthenticationTokensResponseBody::Entities>> entities_ {};
+    // Maximum number of records returned in this query.
     shared_ptr<int64_t> maxResults_ {};
+    // Token returned by this call. Use it for the next paged query to get the next page.
     shared_ptr<string> nextToken_ {};
+    // Total number of resource entities that match the query criteria.
     shared_ptr<int64_t> totalCount_ {};
   };
 

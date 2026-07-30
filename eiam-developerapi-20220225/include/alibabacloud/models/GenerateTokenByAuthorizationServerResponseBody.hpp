@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // Access credential.
     shared_ptr<string> accessToken_ {};
+    // Expiration time of the access credential, as a UNIX timestamp in seconds.
     shared_ptr<int64_t> expiresAt_ {};
+    // Validity period of the access credential, in seconds.
     shared_ptr<int64_t> expiresIn_ {};
+    // Identity credential.
     shared_ptr<string> idToken_ {};
+    // Refresh token.
     shared_ptr<string> refreshToken_ {};
+    // Scope.
     shared_ptr<string> scope_ {};
+    // Token type.
     shared_ptr<string> tokenType_ {};
   };
 

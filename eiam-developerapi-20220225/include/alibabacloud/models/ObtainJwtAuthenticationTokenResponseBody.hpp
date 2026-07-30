@@ -91,7 +91,9 @@ namespace Models
 
 
     protected:
+      // A short token derived from the JWT.
       shared_ptr<string> derivedShortToken_ {};
+      // The JWT content.
       shared_ptr<string> jwtValue_ {};
     };
 
@@ -193,19 +195,39 @@ namespace Models
 
 
   protected:
+    // The ID of the authentication token.
     shared_ptr<string> authenticationTokenId_ {};
+    // The type of the authentication token.
+    // 
+    // > The value is always `jwt`, indicating a JWT-based authentication token.
     shared_ptr<string> authenticationTokenType_ {};
+    // The ID of the authentication token consumer.
     shared_ptr<string> consumerId_ {};
+    // The type of entity that consumes the authentication token. Valid values:
+    // 
+    // - `application`: The token is consumed by an application.
+    // 
+    // - `custom`: Indicates a user-defined consumer.
     shared_ptr<string> consumerType_ {};
+    // The creation time of the authentication token, provided as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> createTime_ {};
+    // The ID of the authentication token\\"s creator.
     shared_ptr<string> creatorId_ {};
+    // The type of the entity that created the authentication token. Valid value:
+    // 
+    // - `application`: The token was created by an application.
     shared_ptr<string> creatorType_ {};
+    // The ID of the credential provider.
     shared_ptr<string> credentialProviderId_ {};
+    // The expiration time of the authentication token, provided as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> expirationTime_ {};
-    // EIAM实例ID。
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The content of the JWT-based authentication token.
     shared_ptr<ObtainJwtAuthenticationTokenResponseBody::JwtContent> jwtContent_ {};
+    // Indicates whether the authentication token has been revoked.
     shared_ptr<bool> revoked_ {};
+    // The time the authentication token was last updated, provided as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> updateTime_ {};
   };
 

@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // The organizational unit IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> organizationalUnitIds_ {};
   };

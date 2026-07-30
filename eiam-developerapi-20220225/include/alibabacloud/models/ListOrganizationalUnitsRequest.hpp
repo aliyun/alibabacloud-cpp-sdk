@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: 1.
+    // The page number. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 20. Valid values: 1 to 100.
+    // The number of records on each page. The default value is 20. The value can range from 1 to 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the parent organizational unit.
+    // The parent organization ID.
     // 
     // This parameter is required.
     shared_ptr<string> parentId_ {};

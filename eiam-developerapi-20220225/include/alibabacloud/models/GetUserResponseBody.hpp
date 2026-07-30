@@ -461,10 +461,13 @@ namespace Models
     shared_ptr<string> userSourceId_ {};
     // The source type of the account. Valid values:
     // 
-    // *   build_in: The account was created in IDaaS.
-    // *   ding_talk: The account was imported from DingTalk.
-    // *   ad: The account was imported from Microsoft Active Directory (AD).
-    // *   ldap: The account was imported from a Lightweight Directory Access Protocol (LDAP) service.
+    // - build_in: The account was created in IDaaS.
+    // 
+    // - ding_talk: The account was imported from DingTalk.
+    // 
+    // - ad: The account was imported from Microsoft Active Directory (AD).
+    // 
+    // - ldap: The account was imported from a Lightweight Directory Access Protocol (LDAP) service.
     shared_ptr<string> userSourceType_ {};
     // The username of the account.
     shared_ptr<string> username_ {};

@@ -48,8 +48,17 @@ namespace Models
 
 
   protected:
+    // Original authentication token.
+    // 
+    // > You can pass either the original authentication token or a derived short token.
+    // 
     // This parameter is required.
     shared_ptr<string> token_ {};
+    // Authentication token type hint.
+    // 
+    // >Notice: 
+    // 
+    // Currently, no value is required.
     shared_ptr<string> tokenTypeHint_ {};
   };
 

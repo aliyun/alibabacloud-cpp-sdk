@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The primary organization ID.
+    // 
     // This parameter is required.
     shared_ptr<string> organizationalUnitId_ {};
   };

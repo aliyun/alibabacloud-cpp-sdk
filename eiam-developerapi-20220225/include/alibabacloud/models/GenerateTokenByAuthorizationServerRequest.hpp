@@ -176,23 +176,41 @@ namespace Models
 
 
   protected:
+    // Federated application credential name.
     shared_ptr<string> applicationFederatedCredentialName_ {};
+    // Client assertion.
     shared_ptr<string> clientAssertion_ {};
+    // Client assertion type.
     shared_ptr<string> clientAssertionType_ {};
+    // Client ID.
+    // 
     // This parameter is required.
     shared_ptr<string> clientId_ {};
+    // Client key.
     shared_ptr<string> clientSecret_ {};
+    // Client certificate.
     shared_ptr<string> clientX509_ {};
+    // Intermediate certificate list.
     shared_ptr<string> clientX509Chain_ {};
+    // Authorization code. Required when grant_type is authorization_code.
     shared_ptr<string> code_ {};
+    // You can validate the code.
     shared_ptr<string> codeVerifier_ {};
+    // Device code. Required when grant_type is urn:ietf:params:oauth:grant-type:device_code.
     shared_ptr<string> deviceCode_ {};
+    // Grant type.
+    // 
     // This parameter is required.
     shared_ptr<string> grantType_ {};
+    // Password.
     shared_ptr<string> password_ {};
+    // Redirection URI. Required when grant_type is authorization_code. Must match the redirect_uri used in the authorization code request.
     shared_ptr<string> redirectUri_ {};
+    // Refresh token.
     shared_ptr<string> refreshToken_ {};
+    // Scope.
     shared_ptr<string> scope_ {};
+    // Username.
     shared_ptr<string> username_ {};
   };
 

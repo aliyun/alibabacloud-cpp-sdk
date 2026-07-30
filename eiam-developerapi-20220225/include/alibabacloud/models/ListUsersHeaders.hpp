@@ -52,7 +52,7 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
-    // The authentication information. The value is in the Bearer ${access_token} format. Example: Bearer ATxxxx.
+    // The authentication information. Format: Bearer ${access_token}. Example: Bearer ATxxxx.
     // 
     // This parameter is required.
     shared_ptr<string> authorization_ {};

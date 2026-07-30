@@ -86,15 +86,17 @@ namespace Models
   protected:
     // The access token.
     shared_ptr<string> accessToken_ {};
-    // The time when the token expires. This value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The expiration time. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> expiresAt_ {};
-    // The remaining validity period of the token. Unit: seconds.
+    // The validity period of the token in seconds.
     shared_ptr<int64_t> expiresIn_ {};
     // The ID token.
     shared_ptr<string> idToken_ {};
     // The refresh token.
     shared_ptr<string> refreshToken_ {};
-    // The type of the token. Valid values: Basic Bearer
+    // The token type. Valid values:
+    // Basic - Basic type
+    // Bearer - Bearer type
     shared_ptr<string> tokenType_ {};
   };
 

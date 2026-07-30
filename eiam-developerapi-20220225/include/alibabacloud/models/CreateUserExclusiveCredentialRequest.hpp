@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(credentialScenarioLabel, credentialScenarioLabel_);
       DARABONBA_PTR_TO_JSON(credentialType, credentialType_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(returnCiphertext, returnCiphertext_);
     };
     friend void from_json(const Darabonba::Json& j, CreateUserExclusiveCredentialRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(credentialContent, credentialContent_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(credentialScenarioLabel, credentialScenarioLabel_);
       DARABONBA_PTR_FROM_JSON(credentialType, credentialType_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(returnCiphertext, returnCiphertext_);
     };
     CreateUserExclusiveCredentialRequest() = default ;
     CreateUserExclusiveCredentialRequest(const CreateUserExclusiveCredentialRequest &) = default ;
@@ -88,6 +90,8 @@ namespace Models
 
 
       protected:
+        // The value of the API Key.
+        // 
         // This parameter is required.
         shared_ptr<string> apiKey_ {};
       };
@@ -103,12 +107,13 @@ namespace Models
 
 
     protected:
+      // The credential content for the API Key credential type.
       shared_ptr<CredentialContent::ApiKeyContent> apiKeyContent_ {};
     };
 
     virtual bool empty() const override { return this->credentialContent_ == nullptr
         && this->credentialExternalId_ == nullptr && this->credentialIdentifier_ == nullptr && this->credentialName_ == nullptr && this->credentialScenarioLabel_ == nullptr && this->credentialType_ == nullptr
-        && this->description_ == nullptr; };
+        && this->description_ == nullptr && this->returnCiphertext_ == nullptr; };
     // credentialContent Field Functions 
     bool hasCredentialContent() const { return this->credentialContent_ != nullptr;};
     void deleteCredentialContent() { this->credentialContent_ = nullptr;};
@@ -160,18 +165,40 @@ namespace Models
     inline CreateUserExclusiveCredentialRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+    // returnCiphertext Field Functions 
+    bool hasReturnCiphertext() const { return this->returnCiphertext_ != nullptr;};
+    void deleteReturnCiphertext() { this->returnCiphertext_ = nullptr;};
+    inline bool getReturnCiphertext() const { DARABONBA_PTR_GET_DEFAULT(returnCiphertext_, false) };
+    inline CreateUserExclusiveCredentialRequest& setReturnCiphertext(bool returnCiphertext) { DARABONBA_PTR_SET_VALUE(returnCiphertext_, returnCiphertext) };
+
+
   protected:
+    // The credential content.
+    // 
     // This parameter is required.
     shared_ptr<CreateUserExclusiveCredentialRequest::CredentialContent> credentialContent_ {};
     shared_ptr<string> credentialExternalId_ {};
+    // The credential identifier.
+    // 
     // This parameter is required.
     shared_ptr<string> credentialIdentifier_ {};
+    // The credential name.
+    // 
     // This parameter is required.
     shared_ptr<string> credentialName_ {};
+    // The scenarios label of the credential. Valid values:
+    // - llm: large language model.
+    // - saas: third-party SaaS service.
     shared_ptr<string> credentialScenarioLabel_ {};
+    // The credential type. Valid values:
+    // - api_key: API Key authentication credential.
+    // - oauth_client: OAuth client authentication credential.
+    // 
     // This parameter is required.
     shared_ptr<string> credentialType_ {};
+    // The credential description.
     shared_ptr<string> description_ {};
+    shared_ptr<bool> returnCiphertext_ {};
   };
 
   } // namespace Models

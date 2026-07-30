@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the authentication token.
+    // 
     // This parameter is required.
     shared_ptr<string> authenticationTokenId_ {};
+    // The ID of the authentication token consumer.
+    // 
     // This parameter is required.
     shared_ptr<string> consumerId_ {};
   };

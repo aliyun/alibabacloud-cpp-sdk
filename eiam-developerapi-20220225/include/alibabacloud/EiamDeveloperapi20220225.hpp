@@ -21,7 +21,7 @@ namespace EiamDeveloperapi20220225
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 将账户加入多个组织
+       * @summary Adds an EIAM account to one or more EIAM organizations. These organizations serve as subordinate organizations for the account. If the account is already a member of a specified organization, no update is performed.
        *
        * @param request AddUserToOrganizationalUnitsRequest
        * @param headers AddUserToOrganizationalUnitsHeaders
@@ -31,7 +31,7 @@ namespace EiamDeveloperapi20220225
       Models::AddUserToOrganizationalUnitsResponse addUserToOrganizationalUnitsWithOptions(const string &instanceId, const string &applicationId, const string &userId, const Models::AddUserToOrganizationalUnitsRequest &request, const Models::AddUserToOrganizationalUnitsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将账户加入多个组织
+       * @summary Adds an EIAM account to one or more EIAM organizations. These organizations serve as subordinate organizations for the account. If the account is already a member of a specified organization, no update is performed.
        *
        * @param request AddUserToOrganizationalUnitsRequest
        * @return AddUserToOrganizationalUnitsResponse
@@ -93,7 +93,7 @@ namespace EiamDeveloperapi20220225
       Models::CreateOrganizationalUnitResponse createOrganizationalUnit(const string &instanceId, const string &applicationId, const Models::CreateOrganizationalUnitRequest &request);
 
       /**
-       * @summary Creates an Employee Identity and Access Management (EIAM) account in an organizational unit.
+       * @summary Creates a new EIAM account in a specified organization.
        *
        * @param request CreateUserRequest
        * @param headers CreateUserHeaders
@@ -103,7 +103,7 @@ namespace EiamDeveloperapi20220225
       Models::CreateUserResponse createUserWithOptions(const string &instanceId, const string &applicationId, const Models::CreateUserRequest &request, const Models::CreateUserHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an Employee Identity and Access Management (EIAM) account in an organizational unit.
+       * @summary Creates a new EIAM account in a specified organization.
        *
        * @param request CreateUserRequest
        * @return CreateUserResponse
@@ -111,7 +111,11 @@ namespace EiamDeveloperapi20220225
       Models::CreateUserResponse createUser(const string &instanceId, const string &applicationId, const Models::CreateUserRequest &request);
 
       /**
-       * @summary 创建账户专属凭据。
+       * @summary Creates an account-specific credential.
+       *
+       * @description This API uses an Access Token issued by IDaaS for identity authentication and authorization.
+       * Ensure that the Access Token you provide has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
+       * > The corresponding scope is `urn:cloud:idaas:pam|credential:manage`.
        *
        * @param request CreateUserExclusiveCredentialRequest
        * @param headers CreateUserExclusiveCredentialHeaders
@@ -121,7 +125,11 @@ namespace EiamDeveloperapi20220225
       Models::CreateUserExclusiveCredentialResponse createUserExclusiveCredentialWithOptions(const string &instanceId, const Models::CreateUserExclusiveCredentialRequest &request, const Models::CreateUserExclusiveCredentialHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建账户专属凭据。
+       * @summary Creates an account-specific credential.
+       *
+       * @description This API uses an Access Token issued by IDaaS for identity authentication and authorization.
+       * Ensure that the Access Token you provide has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
+       * > The corresponding scope is `urn:cloud:idaas:pam|credential:manage`.
        *
        * @param request CreateUserExclusiveCredentialRequest
        * @return CreateUserExclusiveCredentialResponse
@@ -219,7 +227,11 @@ namespace EiamDeveloperapi20220225
       Models::EnableUserResponse enableUser(const string &instanceId, const string &applicationId, const string &userId, const Models::EnableUserRequest &request);
 
       /**
-       * @summary 拉取一个有效的OAuth认证令牌。
+       * @summary Retrieves a valid OAuth authentication token.
+       *
+       * @description This API authenticates and authorizes requests based on an Access Token issued by IDaaS.
+       * Ensure that the Access Token you provide has the function authorization to "obtain authentication token" for the IDaaS built-in PAM application (Privileged Access Management).
+       * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:obtain`.
        *
        * @param request FetchOAuthAuthenticationTokenRequest
        * @param headers FetchOAuthAuthenticationTokenHeaders
@@ -229,7 +241,11 @@ namespace EiamDeveloperapi20220225
       Models::FetchOAuthAuthenticationTokenResponse fetchOAuthAuthenticationTokenWithOptions(const string &instanceId, const Models::FetchOAuthAuthenticationTokenRequest &request, const Models::FetchOAuthAuthenticationTokenHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 拉取一个有效的OAuth认证令牌。
+       * @summary Retrieves a valid OAuth authentication token.
+       *
+       * @description This API authenticates and authorizes requests based on an Access Token issued by IDaaS.
+       * Ensure that the Access Token you provide has the function authorization to "obtain authentication token" for the IDaaS built-in PAM application (Privileged Access Management).
+       * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:obtain`.
        *
        * @param request FetchOAuthAuthenticationTokenRequest
        * @return FetchOAuthAuthenticationTokenResponse
@@ -255,7 +271,11 @@ namespace EiamDeveloperapi20220225
       Models::GenerateDeviceCodeResponse generateDeviceCode(const string &instanceId, const string &applicationId, const Models::GenerateDeviceCodeRequest &request);
 
       /**
-       * @summary 生成一个有效的JWT认证令牌。
+       * @summary Generates a JSON Web Token (JWT) authentication token.
+       *
+       * @description This API performs identity authentication and authorization using the Access Token issued by IDaaS.
+       * Ensure that the provided Access Token has the authorization to access the "Obtain Authentication Token" feature of the built-in Privileged Access Management (PAM) application in IDaaS.
+       * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:obtain`.
        *
        * @param request GenerateJwtAuthenticationTokenRequest
        * @param headers GenerateJwtAuthenticationTokenHeaders
@@ -265,7 +285,11 @@ namespace EiamDeveloperapi20220225
       Models::GenerateJwtAuthenticationTokenResponse generateJwtAuthenticationTokenWithOptions(const string &instanceId, const Models::GenerateJwtAuthenticationTokenRequest &request, const Models::GenerateJwtAuthenticationTokenHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成一个有效的JWT认证令牌。
+       * @summary Generates a JSON Web Token (JWT) authentication token.
+       *
+       * @description This API performs identity authentication and authorization using the Access Token issued by IDaaS.
+       * Ensure that the provided Access Token has the authorization to access the "Obtain Authentication Token" feature of the built-in Privileged Access Management (PAM) application in IDaaS.
+       * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:obtain`.
        *
        * @param request GenerateJwtAuthenticationTokenRequest
        * @return GenerateJwtAuthenticationTokenResponse
@@ -273,9 +297,93 @@ namespace EiamDeveloperapi20220225
       Models::GenerateJwtAuthenticationTokenResponse generateJwtAuthenticationToken(const string &instanceId, const Models::GenerateJwtAuthenticationTokenRequest &request);
 
       /**
-       * @summary Generates a token for accessing an application in an instance.
+       * @summary Generates an access token for an application in a specified IDaaS instance based on credential information.
        *
-       * @description The following authorization types are supported: authorization code, device code, refresh token, and client credentials.
+       * @description The following methods are supported: Authorization Code, Device Flow, Refresh Token, Client Credentials, and Password.
+       * ### 1. Authorization Code
+       * Scenario: This is the standard OAuth 2.0 authorization code flow, which is suitable for web applications with frontend interaction.
+       * Example call:
+       * ```
+       * POST /v2/{instanceId}/{applicationId}/oauth2/token
+       * Content-Type: application/x-www-form-urlencoded
+       * grant_type=authorization_code
+       * &code={authorization_code}
+       * &redirect_uri={redirect_uri}
+       * &client_id={client_id}
+       * &client_secret={client_secret}
+       * ```
+       * Parameters:
+       * ● code: The authorization code obtained from the authorization endpoint.
+       * ● redirect_uri: Must be the same as the redirect_uri that was used to obtain the authorization code.
+       * ### 1.1 Authorization Code for public clients
+       * Scenario: This scenario is suitable for applications that cannot securely store a secret, such as single-page applications (SPAs) or native applications. In this flow, a client_secret is not required, but you must use the Proof Key for Code Exchange (PKCE) mechanism. Example call:
+       * ```
+       * POST /v2/{instanceId}/{applicationId}/oauth2/token
+       * Content-Type: application/x-www-form-urlencoded
+       * grant_type=authorization_code
+       * &code={authorization_code}
+       * &redirect_uri={redirect_uri}
+       * &client_id={client_id}
+       * &code_verifier={code_verifier}
+       * ```
+       * Parameters:
+       * ● code_verifier: The code verifier for the PKCE mechanism. The client generates it when initiating an authorization request and uses it to derive the \\`code_challenge\\`. When exchanging for a token, you must submit this value. It must be identical to the value used to generate the \\`code_challenge\\`.
+       * Java example for generating a code_verifier and code_challenge:
+       * ```java
+       * String codeVerifier = Base64.getUrlEncoder().withoutPadding().encodeToString(new SecureRandom().generateSeed(43));
+       * String codeChallenge = Base64.getUrlEncoder().withoutPadding().encodeToString(java.security.MessageDigest.getInstance("SHA-256").digest(codeVerifier.getBytes()));
+       * ```
+       * ### 2. Device Flow
+       * Scenario: This scenario is suitable for input-constrained devices, such as TVs and IoT devices. Example call:
+       * ```
+       * POST /v2/{instanceId}/{applicationId}/oauth2/token
+       * Content-Type: application/x-www-form-urlencoded
+       * grant_type=urn:ietf:params:oauth:grant-type:device_code
+       * &device_code={device_code}
+       * &client_id={client_id}
+       * &client_secret={client_secret}
+       * ```
+       * To obtain the device code, first call `/oauth2/device/code` to retrieve the device_code and user_code.
+       * ### 2.1 Device Flow for public clients
+       * Scenario: This scenario is used when interactive logon is not convenient and the client is a public client. Example call:
+       * ```
+       * POST /v2/{instanceId}/{applicationId}/oauth2/token
+       * Content-Type: application/x-www-form-urlencoded
+       * grant_type=urn:ietf:params:oauth:grant-type:device_code
+       * &device_code={device_code}
+       * &client_id={client_id}
+       * ```
+       * ### 3. Refresh Token
+       * Scenario: This scenario uses a refresh_token to obtain a new access_token. Example call:
+       * ```
+       * POST /v2/{instanceId}/{applicationId}/oauth2/token
+       * Content-Type: application/x-www-form-urlencoded
+       * grant_type=refresh_token
+       * &refresh_token={refresh_token}
+       * &client_id={client_id}
+       * &client_secret={client_secret}
+       * ```
+       * ### 4. Client Credentials
+       * Scenario: This scenario is for server-to-server authentication without user involvement. Example call:
+       * ```
+       * POST /v2/{instanceId}/{applicationId}/oauth2/token
+       * Content-Type: application/x-www-form-urlencoded
+       * grant_type=client_credentials
+       * &client_id={client_id}
+       * &client_secret={client_secret}
+       * &scope={scope}
+       * ```
+       * ### 5. Password
+       * Scenario: This scenario uses traditional username and password authentication. Use this method with caution. Example call:
+       * ```
+       * POST /v2/{instanceId}/{applicationId}/oauth2/token
+       * Content-Type: application/x-www-form-urlencoded
+       * grant_type=password
+       * &username={username}
+       * &password={password}
+       * &client_id={client_id}
+       * &scope={scope}
+       * ```
        *
        * @param request GenerateTokenRequest
        * @param headers map
@@ -285,9 +393,93 @@ namespace EiamDeveloperapi20220225
       Models::GenerateTokenResponse generateTokenWithOptions(const string &instanceId, const string &applicationId, const Models::GenerateTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Generates a token for accessing an application in an instance.
+       * @summary Generates an access token for an application in a specified IDaaS instance based on credential information.
        *
-       * @description The following authorization types are supported: authorization code, device code, refresh token, and client credentials.
+       * @description The following methods are supported: Authorization Code, Device Flow, Refresh Token, Client Credentials, and Password.
+       * ### 1. Authorization Code
+       * Scenario: This is the standard OAuth 2.0 authorization code flow, which is suitable for web applications with frontend interaction.
+       * Example call:
+       * ```
+       * POST /v2/{instanceId}/{applicationId}/oauth2/token
+       * Content-Type: application/x-www-form-urlencoded
+       * grant_type=authorization_code
+       * &code={authorization_code}
+       * &redirect_uri={redirect_uri}
+       * &client_id={client_id}
+       * &client_secret={client_secret}
+       * ```
+       * Parameters:
+       * ● code: The authorization code obtained from the authorization endpoint.
+       * ● redirect_uri: Must be the same as the redirect_uri that was used to obtain the authorization code.
+       * ### 1.1 Authorization Code for public clients
+       * Scenario: This scenario is suitable for applications that cannot securely store a secret, such as single-page applications (SPAs) or native applications. In this flow, a client_secret is not required, but you must use the Proof Key for Code Exchange (PKCE) mechanism. Example call:
+       * ```
+       * POST /v2/{instanceId}/{applicationId}/oauth2/token
+       * Content-Type: application/x-www-form-urlencoded
+       * grant_type=authorization_code
+       * &code={authorization_code}
+       * &redirect_uri={redirect_uri}
+       * &client_id={client_id}
+       * &code_verifier={code_verifier}
+       * ```
+       * Parameters:
+       * ● code_verifier: The code verifier for the PKCE mechanism. The client generates it when initiating an authorization request and uses it to derive the \\`code_challenge\\`. When exchanging for a token, you must submit this value. It must be identical to the value used to generate the \\`code_challenge\\`.
+       * Java example for generating a code_verifier and code_challenge:
+       * ```java
+       * String codeVerifier = Base64.getUrlEncoder().withoutPadding().encodeToString(new SecureRandom().generateSeed(43));
+       * String codeChallenge = Base64.getUrlEncoder().withoutPadding().encodeToString(java.security.MessageDigest.getInstance("SHA-256").digest(codeVerifier.getBytes()));
+       * ```
+       * ### 2. Device Flow
+       * Scenario: This scenario is suitable for input-constrained devices, such as TVs and IoT devices. Example call:
+       * ```
+       * POST /v2/{instanceId}/{applicationId}/oauth2/token
+       * Content-Type: application/x-www-form-urlencoded
+       * grant_type=urn:ietf:params:oauth:grant-type:device_code
+       * &device_code={device_code}
+       * &client_id={client_id}
+       * &client_secret={client_secret}
+       * ```
+       * To obtain the device code, first call `/oauth2/device/code` to retrieve the device_code and user_code.
+       * ### 2.1 Device Flow for public clients
+       * Scenario: This scenario is used when interactive logon is not convenient and the client is a public client. Example call:
+       * ```
+       * POST /v2/{instanceId}/{applicationId}/oauth2/token
+       * Content-Type: application/x-www-form-urlencoded
+       * grant_type=urn:ietf:params:oauth:grant-type:device_code
+       * &device_code={device_code}
+       * &client_id={client_id}
+       * ```
+       * ### 3. Refresh Token
+       * Scenario: This scenario uses a refresh_token to obtain a new access_token. Example call:
+       * ```
+       * POST /v2/{instanceId}/{applicationId}/oauth2/token
+       * Content-Type: application/x-www-form-urlencoded
+       * grant_type=refresh_token
+       * &refresh_token={refresh_token}
+       * &client_id={client_id}
+       * &client_secret={client_secret}
+       * ```
+       * ### 4. Client Credentials
+       * Scenario: This scenario is for server-to-server authentication without user involvement. Example call:
+       * ```
+       * POST /v2/{instanceId}/{applicationId}/oauth2/token
+       * Content-Type: application/x-www-form-urlencoded
+       * grant_type=client_credentials
+       * &client_id={client_id}
+       * &client_secret={client_secret}
+       * &scope={scope}
+       * ```
+       * ### 5. Password
+       * Scenario: This scenario uses traditional username and password authentication. Use this method with caution. Example call:
+       * ```
+       * POST /v2/{instanceId}/{applicationId}/oauth2/token
+       * Content-Type: application/x-www-form-urlencoded
+       * grant_type=password
+       * &username={username}
+       * &password={password}
+       * &client_id={client_id}
+       * &scope={scope}
+       * ```
        *
        * @param request GenerateTokenRequest
        * @return GenerateTokenResponse
@@ -295,7 +487,7 @@ namespace EiamDeveloperapi20220225
       Models::GenerateTokenResponse generateToken(const string &instanceId, const string &applicationId, const Models::GenerateTokenRequest &request);
 
       /**
-       * @summary 实例级授权服务器 Token 端点
+       * @summary The token endpoint for an instance-level authorization server.
        *
        * @param request GenerateTokenByAuthorizationServerRequest
        * @param headers map
@@ -305,7 +497,7 @@ namespace EiamDeveloperapi20220225
       Models::GenerateTokenByAuthorizationServerResponse generateTokenByAuthorizationServerWithOptions(const string &instanceId, const string &authorizationServerId, const Models::GenerateTokenByAuthorizationServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 实例级授权服务器 Token 端点
+       * @summary The token endpoint for an instance-level authorization server.
        *
        * @param request GenerateTokenByAuthorizationServerRequest
        * @return GenerateTokenByAuthorizationServerResponse
@@ -313,10 +505,9 @@ namespace EiamDeveloperapi20220225
       Models::GenerateTokenByAuthorizationServerResponse generateTokenByAuthorizationServer(const string &instanceId, const string &authorizationServerId, const Models::GenerateTokenByAuthorizationServerRequest &request);
 
       /**
-       * @summary Queries the synchronization scope of an application in an instance.
+       * @summary The GetApplicationProvisioningScope operation retrieves the synchronization scope of an application in a specific instance.
        *
-       * @description > 
-       * *   You can go to the Applications page in the IDaaS console to set the synchronization scope. After an application is created, the application has the permission to call this operation by default.
+       * @description > - You can set the synchronization scope in Application Management in the IDaaS console. After you create an application, you have permission to call this API by default.
        *
        * @param request GetApplicationProvisioningScopeRequest
        * @param headers GetApplicationProvisioningScopeHeaders
@@ -326,10 +517,9 @@ namespace EiamDeveloperapi20220225
       Models::GetApplicationProvisioningScopeResponse getApplicationProvisioningScopeWithOptions(const string &instanceId, const string &applicationId, const Models::GetApplicationProvisioningScopeRequest &request, const Models::GetApplicationProvisioningScopeHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the synchronization scope of an application in an instance.
+       * @summary The GetApplicationProvisioningScope operation retrieves the synchronization scope of an application in a specific instance.
        *
-       * @description > 
-       * *   You can go to the Applications page in the IDaaS console to set the synchronization scope. After an application is created, the application has the permission to call this operation by default.
+       * @description > - You can set the synchronization scope in Application Management in the IDaaS console. After you create an application, you have permission to call this API by default.
        *
        * @param request GetApplicationProvisioningScopeRequest
        * @return GetApplicationProvisioningScopeResponse
@@ -337,7 +527,7 @@ namespace EiamDeveloperapi20220225
       Models::GetApplicationProvisioningScopeResponse getApplicationProvisioningScope(const string &instanceId, const string &applicationId, const Models::GetApplicationProvisioningScopeRequest &request);
 
       /**
-       * @summary Queries the details of a group.
+       * @summary Retrieves the details of a group.
        *
        * @param request GetGroupRequest
        * @param headers GetGroupHeaders
@@ -347,7 +537,7 @@ namespace EiamDeveloperapi20220225
       Models::GetGroupResponse getGroupWithOptions(const string &instanceId, const string &applicationId, const string &groupId, const Models::GetGroupRequest &request, const Models::GetGroupHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a group.
+       * @summary Retrieves the details of a group.
        *
        * @param request GetGroupRequest
        * @return GetGroupResponse
@@ -355,7 +545,25 @@ namespace EiamDeveloperapi20220225
       Models::GetGroupResponse getGroup(const string &instanceId, const string &applicationId, const string &groupId, const Models::GetGroupRequest &request);
 
       /**
-       * @summary Queries the information of an organizational unit.
+       * @summary Queries the current status and authorization result of an OAuth authorization session.
+       *
+       * @param request GetOAuthAuthorizationSessionRequest
+       * @param headers GetOAuthAuthorizationSessionHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetOAuthAuthorizationSessionResponse
+       */
+      Models::GetOAuthAuthorizationSessionResponse getOAuthAuthorizationSessionWithOptions(const string &instanceId, const Models::GetOAuthAuthorizationSessionRequest &request, const Models::GetOAuthAuthorizationSessionHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the current status and authorization result of an OAuth authorization session.
+       *
+       * @param request GetOAuthAuthorizationSessionRequest
+       * @return GetOAuthAuthorizationSessionResponse
+       */
+      Models::GetOAuthAuthorizationSessionResponse getOAuthAuthorizationSession(const string &instanceId, const Models::GetOAuthAuthorizationSessionRequest &request);
+
+      /**
+       * @summary Retrieves the information about an organizational unit.
        *
        * @param request GetOrganizationalUnitRequest
        * @param headers GetOrganizationalUnitHeaders
@@ -365,7 +573,7 @@ namespace EiamDeveloperapi20220225
       Models::GetOrganizationalUnitResponse getOrganizationalUnitWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const Models::GetOrganizationalUnitRequest &request, const Models::GetOrganizationalUnitHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of an organizational unit.
+       * @summary Retrieves the information about an organizational unit.
        *
        * @param request GetOrganizationalUnitRequest
        * @return GetOrganizationalUnitResponse
@@ -391,7 +599,7 @@ namespace EiamDeveloperapi20220225
       Models::GetOrganizationalUnitIdByExternalIdResponse getOrganizationalUnitIdByExternalId(const string &instanceId, const string &applicationId, const Models::GetOrganizationalUnitIdByExternalIdRequest &request);
 
       /**
-       * @summary Queries the details of an Employee Identity and Access Management (EIAM) account.
+       * @summary Retrieves the details of an Employee Identity and Access Management (EIAM) account.
        *
        * @param request GetUserRequest
        * @param headers GetUserHeaders
@@ -401,7 +609,7 @@ namespace EiamDeveloperapi20220225
       Models::GetUserResponse getUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const Models::GetUserRequest &request, const Models::GetUserHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an Employee Identity and Access Management (EIAM) account.
+       * @summary Retrieves the details of an Employee Identity and Access Management (EIAM) account.
        *
        * @param request GetUserRequest
        * @return GetUserResponse
@@ -481,7 +689,7 @@ namespace EiamDeveloperapi20220225
       Models::GetUserIdByUsernameResponse getUserIdByUsername(const string &instanceId, const string &applicationId, const Models::GetUserIdByUsernameRequest &request);
 
       /**
-       * @summary Queries the information of a user by using the user token.
+       * @summary Retrieves the information about a user by using the user token.
        *
        * @param request GetUserInfoRequest
        * @param headers GetUserInfoHeaders
@@ -491,7 +699,7 @@ namespace EiamDeveloperapi20220225
       Models::GetUserInfoResponse getUserInfoWithOptions(const string &instanceId, const string &applicationId, const Models::GetUserInfoRequest &request, const Models::GetUserInfoHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of a user by using the user token.
+       * @summary Retrieves the information about a user by using the user token.
        *
        * @param request GetUserInfoRequest
        * @return GetUserInfoResponse
@@ -499,7 +707,11 @@ namespace EiamDeveloperapi20220225
       Models::GetUserInfoResponse getUserInfo(const string &instanceId, const string &applicationId, const Models::GetUserInfoRequest &request);
 
       /**
-       * @summary 列举认证令牌。
+       * @summary Lists authentication tokens.
+       *
+       * @description This API uses an Access Token issued by IDaaS for identity authentication and authorization.
+       * Ensure that the Access Token you provide has the Query authentication tokens permission for the built-in Privileged Access Management (PAM) application in IDaaS.
+       * > The required scope is `urn:cloud:idaas:pam|authentication_token:read`.
        *
        * @param request ListAuthenticationTokensRequest
        * @param headers ListAuthenticationTokensHeaders
@@ -509,7 +721,11 @@ namespace EiamDeveloperapi20220225
       Models::ListAuthenticationTokensResponse listAuthenticationTokensWithOptions(const string &instanceId, const Models::ListAuthenticationTokensRequest &request, const Models::ListAuthenticationTokensHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举认证令牌。
+       * @summary Lists authentication tokens.
+       *
+       * @description This API uses an Access Token issued by IDaaS for identity authentication and authorization.
+       * Ensure that the Access Token you provide has the Query authentication tokens permission for the built-in Privileged Access Management (PAM) application in IDaaS.
+       * > The required scope is `urn:cloud:idaas:pam|authentication_token:read`.
        *
        * @param request ListAuthenticationTokensRequest
        * @return ListAuthenticationTokensResponse
@@ -517,7 +733,7 @@ namespace EiamDeveloperapi20220225
       Models::ListAuthenticationTokensResponse listAuthenticationTokens(const string &instanceId, const Models::ListAuthenticationTokensRequest &request);
 
       /**
-       * @summary Queries information about Employee Identity and Access Management (EIAM) groups by page.
+       * @summary Retrieves information about Employee Identity and Access Management (EIAM) groups by page.
        *
        * @param request ListGroupsRequest
        * @param headers ListGroupsHeaders
@@ -527,7 +743,7 @@ namespace EiamDeveloperapi20220225
       Models::ListGroupsResponse listGroupsWithOptions(const string &instanceId, const string &applicationId, const Models::ListGroupsRequest &request, const Models::ListGroupsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about Employee Identity and Access Management (EIAM) groups by page.
+       * @summary Retrieves information about Employee Identity and Access Management (EIAM) groups by page.
        *
        * @param request ListGroupsRequest
        * @return ListGroupsResponse
@@ -535,7 +751,7 @@ namespace EiamDeveloperapi20220225
       Models::ListGroupsResponse listGroups(const string &instanceId, const string &applicationId, const Models::ListGroupsRequest &request);
 
       /**
-       * @summary 获取账户关联组列表
+       * @summary Lists the groups that an EIAM user is a member of.
        *
        * @param request ListGroupsForUserRequest
        * @param headers ListGroupsForUserHeaders
@@ -545,7 +761,7 @@ namespace EiamDeveloperapi20220225
       Models::ListGroupsForUserResponse listGroupsForUserWithOptions(const string &instanceId, const string &applicationId, const string &userId, const Models::ListGroupsForUserRequest &request, const Models::ListGroupsForUserHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取账户关联组列表
+       * @summary Lists the groups that an EIAM user is a member of.
        *
        * @param request ListGroupsForUserRequest
        * @return ListGroupsForUserResponse
@@ -553,7 +769,7 @@ namespace EiamDeveloperapi20220225
       Models::ListGroupsForUserResponse listGroupsForUser(const string &instanceId, const string &applicationId, const string &userId, const Models::ListGroupsForUserRequest &request);
 
       /**
-       * @summary Queries the information of all the parent organizational units of an organizational unit.
+       * @summary Retrieves the information about all the parent organizational units of an organizational unit.
        *
        * @param request ListOrganizationalUnitParentIdsRequest
        * @param headers ListOrganizationalUnitParentIdsHeaders
@@ -563,7 +779,7 @@ namespace EiamDeveloperapi20220225
       Models::ListOrganizationalUnitParentIdsResponse listOrganizationalUnitParentIdsWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const Models::ListOrganizationalUnitParentIdsRequest &request, const Models::ListOrganizationalUnitParentIdsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of all the parent organizational units of an organizational unit.
+       * @summary Retrieves the information about all the parent organizational units of an organizational unit.
        *
        * @param request ListOrganizationalUnitParentIdsRequest
        * @return ListOrganizationalUnitParentIdsResponse
@@ -571,7 +787,14 @@ namespace EiamDeveloperapi20220225
       Models::ListOrganizationalUnitParentIdsResponse listOrganizationalUnitParentIds(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const Models::ListOrganizationalUnitParentIdsRequest &request);
 
       /**
-       * @summary Queries the information of Employee Identity and Access Management (EIAM) organizational units by page.
+       * @summary Performs a paged query to retrieve organization information from EIAM.
+       *
+       * @description To retrieve the direct child organizations of the root organization, set the request parameter as follows:
+       * ```
+       * {
+       *   "parentOrganizationalUnitId": "ou_root"
+       * }
+       * ```
        *
        * @param request ListOrganizationalUnitsRequest
        * @param headers ListOrganizationalUnitsHeaders
@@ -581,7 +804,14 @@ namespace EiamDeveloperapi20220225
       Models::ListOrganizationalUnitsResponse listOrganizationalUnitsWithOptions(const string &instanceId, const string &applicationId, const Models::ListOrganizationalUnitsRequest &request, const Models::ListOrganizationalUnitsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of Employee Identity and Access Management (EIAM) organizational units by page.
+       * @summary Performs a paged query to retrieve organization information from EIAM.
+       *
+       * @description To retrieve the direct child organizations of the root organization, set the request parameter as follows:
+       * ```
+       * {
+       *   "parentOrganizationalUnitId": "ou_root"
+       * }
+       * ```
        *
        * @param request ListOrganizationalUnitsRequest
        * @return ListOrganizationalUnitsResponse
@@ -589,7 +819,7 @@ namespace EiamDeveloperapi20220225
       Models::ListOrganizationalUnitsResponse listOrganizationalUnits(const string &instanceId, const string &applicationId, const Models::ListOrganizationalUnitsRequest &request);
 
       /**
-       * @summary Queries the information of Employee Identity and Access Management (EIAM) accounts by page.
+       * @summary Performs a paged query for EIAM account information.
        *
        * @param request ListUsersRequest
        * @param headers ListUsersHeaders
@@ -599,7 +829,7 @@ namespace EiamDeveloperapi20220225
       Models::ListUsersResponse listUsersWithOptions(const string &instanceId, const string &applicationId, const Models::ListUsersRequest &request, const Models::ListUsersHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of Employee Identity and Access Management (EIAM) accounts by page.
+       * @summary Performs a paged query for EIAM account information.
        *
        * @param request ListUsersRequest
        * @return ListUsersResponse
@@ -625,7 +855,11 @@ namespace EiamDeveloperapi20220225
       Models::ListUsersForGroupResponse listUsersForGroup(const string &instanceId, const string &applicationId, const string &groupId, const Models::ListUsersForGroupRequest &request);
 
       /**
-       * @summary 获取云角色（CloudAccountRole）的临时访问凭证
+       * @summary Retrieves temporary access credentials for a cloud account role (CloudAccountRole).
+       *
+       * @description This API authenticates and authorizes requests based on an Access Token issued by IDaaS.
+       * Ensure that the Access Token has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+       * > The corresponding scope is `urn:cloud:idaas:pam|cloud_account_role:obtain_access_credential`.
        *
        * @param request ObtainCloudAccountRoleAccessCredentialRequest
        * @param headers ObtainCloudAccountRoleAccessCredentialHeaders
@@ -635,7 +869,11 @@ namespace EiamDeveloperapi20220225
       Models::ObtainCloudAccountRoleAccessCredentialResponse obtainCloudAccountRoleAccessCredentialWithOptions(const string &instanceId, const Models::ObtainCloudAccountRoleAccessCredentialRequest &request, const Models::ObtainCloudAccountRoleAccessCredentialHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取云角色（CloudAccountRole）的临时访问凭证
+       * @summary Retrieves temporary access credentials for a cloud account role (CloudAccountRole).
+       *
+       * @description This API authenticates and authorizes requests based on an Access Token issued by IDaaS.
+       * Ensure that the Access Token has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+       * > The corresponding scope is `urn:cloud:idaas:pam|cloud_account_role:obtain_access_credential`.
        *
        * @param request ObtainCloudAccountRoleAccessCredentialRequest
        * @return ObtainCloudAccountRoleAccessCredentialResponse
@@ -643,7 +881,11 @@ namespace EiamDeveloperapi20220225
       Models::ObtainCloudAccountRoleAccessCredentialResponse obtainCloudAccountRoleAccessCredential(const string &instanceId, const Models::ObtainCloudAccountRoleAccessCredentialRequest &request);
 
       /**
-       * @summary 获取凭据明文。
+       * @summary Retrieves the plaintext of a secret.
+       *
+       * @description This API uses an access token from IDaaS for authentication and authorization.
+       * The access token must have permissions to obtain static credentials for the built-in privileged access management (PAM) application in IDaaS.
+       * > The required scope is `urn:cloud:idaas:pam|credential:obtain`.
        *
        * @param request ObtainCredentialRequest
        * @param headers ObtainCredentialHeaders
@@ -653,7 +895,11 @@ namespace EiamDeveloperapi20220225
       Models::ObtainCredentialResponse obtainCredentialWithOptions(const string &instanceId, const Models::ObtainCredentialRequest &request, const Models::ObtainCredentialHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取凭据明文。
+       * @summary Retrieves the plaintext of a secret.
+       *
+       * @description This API uses an access token from IDaaS for authentication and authorization.
+       * The access token must have permissions to obtain static credentials for the built-in privileged access management (PAM) application in IDaaS.
+       * > The required scope is `urn:cloud:idaas:pam|credential:obtain`.
        *
        * @param request ObtainCredentialRequest
        * @return ObtainCredentialResponse
@@ -661,7 +907,11 @@ namespace EiamDeveloperapi20220225
       Models::ObtainCredentialResponse obtainCredential(const string &instanceId, const Models::ObtainCredentialRequest &request);
 
       /**
-       * @summary 获取JWT认证令牌明文。
+       * @summary Obtains a JWT authentication token.
+       *
+       * @description This API requires an access token issued by IDaaS for authentication and authorization.
+       * The provided access token must have permission to obtain authentication tokens for the built-in privileged access management (PAM) application in IDaaS.
+       * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:obtain`.
        *
        * @param request ObtainJwtAuthenticationTokenRequest
        * @param headers ObtainJwtAuthenticationTokenHeaders
@@ -671,7 +921,11 @@ namespace EiamDeveloperapi20220225
       Models::ObtainJwtAuthenticationTokenResponse obtainJwtAuthenticationTokenWithOptions(const string &instanceId, const Models::ObtainJwtAuthenticationTokenRequest &request, const Models::ObtainJwtAuthenticationTokenHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取JWT认证令牌明文。
+       * @summary Obtains a JWT authentication token.
+       *
+       * @description This API requires an access token issued by IDaaS for authentication and authorization.
+       * The provided access token must have permission to obtain authentication tokens for the built-in privileged access management (PAM) application in IDaaS.
+       * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:obtain`.
        *
        * @param request ObtainJwtAuthenticationTokenRequest
        * @return ObtainJwtAuthenticationTokenResponse
@@ -679,7 +933,7 @@ namespace EiamDeveloperapi20220225
       Models::ObtainJwtAuthenticationTokenResponse obtainJwtAuthenticationToken(const string &instanceId, const Models::ObtainJwtAuthenticationTokenRequest &request);
 
       /**
-       * @summary 使用派生短令牌查询对应的JWT认证令牌详情。
+       * @summary Obtain a JWT authentication token using a derived short token.
        *
        * @param request ObtainJwtAuthenticationTokenByDerivedShortTokenRequest
        * @param headers map
@@ -689,7 +943,7 @@ namespace EiamDeveloperapi20220225
       Models::ObtainJwtAuthenticationTokenByDerivedShortTokenResponse obtainJwtAuthenticationTokenByDerivedShortTokenWithOptions(const string &instanceId, const Models::ObtainJwtAuthenticationTokenByDerivedShortTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 使用派生短令牌查询对应的JWT认证令牌详情。
+       * @summary Obtain a JWT authentication token using a derived short token.
        *
        * @param request ObtainJwtAuthenticationTokenByDerivedShortTokenRequest
        * @return ObtainJwtAuthenticationTokenByDerivedShortTokenResponse
@@ -759,7 +1013,13 @@ namespace EiamDeveloperapi20220225
       Models::PatchUserResponse patchUser(const string &instanceId, const string &applicationId, const string &userId, const Models::PatchUserRequest &request);
 
       /**
-       * @summary 恢复一个认证令牌。
+       * @summary Reinstate an authentication token.
+       *
+       * @description This API uses an IDaaS-issued Access Token for identity authentication and authorization.
+       * Ensure that the Access Token you provide has the Manage authentication tokens permission for the IDaaS built-in Privileged Access Management (PAM) application.
+       * > The required scope is `urn:cloud:idaas:pam|authentication_token:manage`.
+       * >Notice: 
+       * Only JWT authentication tokens support this operation.
        *
        * @param request ReinstateAuthenticationTokenRequest
        * @param headers ReinstateAuthenticationTokenHeaders
@@ -769,7 +1029,13 @@ namespace EiamDeveloperapi20220225
       Models::ReinstateAuthenticationTokenResponse reinstateAuthenticationTokenWithOptions(const string &instanceId, const Models::ReinstateAuthenticationTokenRequest &request, const Models::ReinstateAuthenticationTokenHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 恢复一个认证令牌。
+       * @summary Reinstate an authentication token.
+       *
+       * @description This API uses an IDaaS-issued Access Token for identity authentication and authorization.
+       * Ensure that the Access Token you provide has the Manage authentication tokens permission for the IDaaS built-in Privileged Access Management (PAM) application.
+       * > The required scope is `urn:cloud:idaas:pam|authentication_token:manage`.
+       * >Notice: 
+       * Only JWT authentication tokens support this operation.
        *
        * @param request ReinstateAuthenticationTokenRequest
        * @return ReinstateAuthenticationTokenResponse
@@ -777,7 +1043,13 @@ namespace EiamDeveloperapi20220225
       Models::ReinstateAuthenticationTokenResponse reinstateAuthenticationToken(const string &instanceId, const Models::ReinstateAuthenticationTokenRequest &request);
 
       /**
-       * @summary 基于使用者吊销认证令牌。
+       * @summary Reinstate an authentication token for a consumer.
+       *
+       * @description This API uses an access token issued by IDaaS to perform identity authentication and authorization.
+       * Ensure that the provided access token is authorized to access the Manage Authentication Token feature in the IDaaS built-in PAM (Privileged Access Management) application.
+       * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:manage`.
+       * >Notice: 
+       * This operation supports only JWT-type authentication tokens.
        *
        * @param request ReinstateAuthenticationTokenByConsumerRequest
        * @param headers ReinstateAuthenticationTokenByConsumerHeaders
@@ -787,7 +1059,13 @@ namespace EiamDeveloperapi20220225
       Models::ReinstateAuthenticationTokenByConsumerResponse reinstateAuthenticationTokenByConsumerWithOptions(const string &instanceId, const Models::ReinstateAuthenticationTokenByConsumerRequest &request, const Models::ReinstateAuthenticationTokenByConsumerHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 基于使用者吊销认证令牌。
+       * @summary Reinstate an authentication token for a consumer.
+       *
+       * @description This API uses an access token issued by IDaaS to perform identity authentication and authorization.
+       * Ensure that the provided access token is authorized to access the Manage Authentication Token feature in the IDaaS built-in PAM (Privileged Access Management) application.
+       * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:manage`.
+       * >Notice: 
+       * This operation supports only JWT-type authentication tokens.
        *
        * @param request ReinstateAuthenticationTokenByConsumerRequest
        * @return ReinstateAuthenticationTokenByConsumerResponse
@@ -795,7 +1073,7 @@ namespace EiamDeveloperapi20220225
       Models::ReinstateAuthenticationTokenByConsumerResponse reinstateAuthenticationTokenByConsumer(const string &instanceId, const Models::ReinstateAuthenticationTokenByConsumerRequest &request);
 
       /**
-       * @summary 将账户从多个组织移除【不支持移除主组织】
+       * @summary Removes an EIAM account from one or more EIAM organizational units. The operation succeeds even if the account is not in the specified organizational units.
        *
        * @param request RemoveUserFromOrganizationalUnitsRequest
        * @param headers RemoveUserFromOrganizationalUnitsHeaders
@@ -805,7 +1083,7 @@ namespace EiamDeveloperapi20220225
       Models::RemoveUserFromOrganizationalUnitsResponse removeUserFromOrganizationalUnitsWithOptions(const string &instanceId, const string &applicationId, const string &userId, const Models::RemoveUserFromOrganizationalUnitsRequest &request, const Models::RemoveUserFromOrganizationalUnitsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将账户从多个组织移除【不支持移除主组织】
+       * @summary Removes an EIAM account from one or more EIAM organizational units. The operation succeeds even if the account is not in the specified organizational units.
        *
        * @param request RemoveUserFromOrganizationalUnitsRequest
        * @return RemoveUserFromOrganizationalUnitsResponse
@@ -831,7 +1109,13 @@ namespace EiamDeveloperapi20220225
       Models::RemoveUsersFromGroupResponse removeUsersFromGroup(const string &instanceId, const string &applicationId, const string &groupId, const Models::RemoveUsersFromGroupRequest &request);
 
       /**
-       * @summary 吊销一个认证令牌。
+       * @summary Revokes an authentication token.
+       *
+       * @description This API uses an Access Token issued by IDaaS to perform identity authentication and authorization.
+       * Ensure that the Access Token is authorized to access the "Manage Authentication Tokens" feature of the built-in Privileged Access Management (PAM) application in IDaaS.
+       * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:manage`.
+       * >Notice: 
+       * This operation currently supports only JWT authentication tokens.
        *
        * @param request RevokeAuthenticationTokenRequest
        * @param headers RevokeAuthenticationTokenHeaders
@@ -841,7 +1125,13 @@ namespace EiamDeveloperapi20220225
       Models::RevokeAuthenticationTokenResponse revokeAuthenticationTokenWithOptions(const string &instanceId, const Models::RevokeAuthenticationTokenRequest &request, const Models::RevokeAuthenticationTokenHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 吊销一个认证令牌。
+       * @summary Revokes an authentication token.
+       *
+       * @description This API uses an Access Token issued by IDaaS to perform identity authentication and authorization.
+       * Ensure that the Access Token is authorized to access the "Manage Authentication Tokens" feature of the built-in Privileged Access Management (PAM) application in IDaaS.
+       * > The corresponding scope is `urn:cloud:idaas:pam|authentication_token:manage`.
+       * >Notice: 
+       * This operation currently supports only JWT authentication tokens.
        *
        * @param request RevokeAuthenticationTokenRequest
        * @return RevokeAuthenticationTokenResponse
@@ -849,7 +1139,13 @@ namespace EiamDeveloperapi20220225
       Models::RevokeAuthenticationTokenResponse revokeAuthenticationToken(const string &instanceId, const Models::RevokeAuthenticationTokenRequest &request);
 
       /**
-       * @summary 基于使用者吊销认证令牌。
+       * @summary Revokes an authentication token for a consumer.
+       *
+       * @description This API uses an access token issued by IDaaS to authenticate and authorize requests.
+       * Make sure that the access token you provide has the \\"Manage authentication tokens\\" permission for the built-in Privileged Access Management (PAM) application in IDaaS.
+       * > The required scope is `urn:cloud:idaas:pam|authentication_token:manage`.
+       * >Notice: 
+       * This operation can revoke only JWT authentication tokens.
        *
        * @param request RevokeAuthenticationTokenByConsumerRequest
        * @param headers RevokeAuthenticationTokenByConsumerHeaders
@@ -859,7 +1155,13 @@ namespace EiamDeveloperapi20220225
       Models::RevokeAuthenticationTokenByConsumerResponse revokeAuthenticationTokenByConsumerWithOptions(const string &instanceId, const Models::RevokeAuthenticationTokenByConsumerRequest &request, const Models::RevokeAuthenticationTokenByConsumerHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 基于使用者吊销认证令牌。
+       * @summary Revokes an authentication token for a consumer.
+       *
+       * @description This API uses an access token issued by IDaaS to authenticate and authorize requests.
+       * Make sure that the access token you provide has the \\"Manage authentication tokens\\" permission for the built-in Privileged Access Management (PAM) application in IDaaS.
+       * > The required scope is `urn:cloud:idaas:pam|authentication_token:manage`.
+       * >Notice: 
+       * This operation can revoke only JWT authentication tokens.
        *
        * @param request RevokeAuthenticationTokenByConsumerRequest
        * @return RevokeAuthenticationTokenByConsumerResponse
@@ -885,7 +1187,7 @@ namespace EiamDeveloperapi20220225
       Models::RevokeTokenResponse revokeToken(const string &instanceId, const string &applicationId, const Models::RevokeTokenRequest &request);
 
       /**
-       * @summary 将指定组织设置为账户主组织，移除旧主组织，加入新主组织。
+       * @summary Sets the primary organization for an EIAM account. This operation removes the account from the old primary organization and adds it to the new one.
        *
        * @param request SetUserPrimaryOrganizationalUnitRequest
        * @param headers SetUserPrimaryOrganizationalUnitHeaders
@@ -895,7 +1197,7 @@ namespace EiamDeveloperapi20220225
       Models::SetUserPrimaryOrganizationalUnitResponse setUserPrimaryOrganizationalUnitWithOptions(const string &instanceId, const string &applicationId, const string &userId, const Models::SetUserPrimaryOrganizationalUnitRequest &request, const Models::SetUserPrimaryOrganizationalUnitHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将指定组织设置为账户主组织，移除旧主组织，加入新主组织。
+       * @summary Sets the primary organization for an EIAM account. This operation removes the account from the old primary organization and adds it to the new one.
        *
        * @param request SetUserPrimaryOrganizationalUnitRequest
        * @return SetUserPrimaryOrganizationalUnitResponse
@@ -903,7 +1205,7 @@ namespace EiamDeveloperapi20220225
       Models::SetUserPrimaryOrganizationalUnitResponse setUserPrimaryOrganizationalUnit(const string &instanceId, const string &applicationId, const string &userId, const Models::SetUserPrimaryOrganizationalUnitRequest &request);
 
       /**
-       * @summary 更新账户密码
+       * @summary Updates the password for a specified EIAM account.
        *
        * @param request UpdateUserPasswordRequest
        * @param headers UpdateUserPasswordHeaders
@@ -913,7 +1215,7 @@ namespace EiamDeveloperapi20220225
       Models::UpdateUserPasswordResponse updateUserPasswordWithOptions(const string &instanceId, const string &applicationId, const string &userId, const Models::UpdateUserPasswordRequest &request, const Models::UpdateUserPasswordHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新账户密码
+       * @summary Updates the password for a specified EIAM account.
        *
        * @param request UpdateUserPasswordRequest
        * @return UpdateUserPasswordResponse
@@ -921,7 +1223,10 @@ namespace EiamDeveloperapi20220225
       Models::UpdateUserPasswordResponse updateUserPassword(const string &instanceId, const string &applicationId, const string &userId, const Models::UpdateUserPasswordRequest &request);
 
       /**
-       * @summary 校验认证令牌是否有效。
+       * @summary Validates an authentication token.
+       *
+       * @description >Notice: 
+       * This operation is supported only for JSON Web Token (JWT) authentication tokens.
        *
        * @param request ValidateAuthenticationTokenRequest
        * @param headers map
@@ -931,7 +1236,10 @@ namespace EiamDeveloperapi20220225
       Models::ValidateAuthenticationTokenResponse validateAuthenticationTokenWithOptions(const string &instanceId, const Models::ValidateAuthenticationTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 校验认证令牌是否有效。
+       * @summary Validates an authentication token.
+       *
+       * @description >Notice: 
+       * This operation is supported only for JSON Web Token (JWT) authentication tokens.
        *
        * @param request ValidateAuthenticationTokenRequest
        * @return ValidateAuthenticationTokenResponse

@@ -13,10 +13,12 @@ namespace Models
   class CreateUserExclusiveCredentialResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateUserExclusiveCredentialResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(credentialCiphertext, credentialCiphertext_);
       DARABONBA_PTR_TO_JSON(credentialId, credentialId_);
       DARABONBA_PTR_TO_JSON(credentialIdentifier, credentialIdentifier_);
     };
     friend void from_json(const Darabonba::Json& j, CreateUserExclusiveCredentialResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(credentialCiphertext, credentialCiphertext_);
       DARABONBA_PTR_FROM_JSON(credentialId, credentialId_);
       DARABONBA_PTR_FROM_JSON(credentialIdentifier, credentialIdentifier_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->credentialId_ == nullptr
-        && this->credentialIdentifier_ == nullptr; };
+    virtual bool empty() const override { return this->credentialCiphertext_ == nullptr
+        && this->credentialId_ == nullptr && this->credentialIdentifier_ == nullptr; };
+    // credentialCiphertext Field Functions 
+    bool hasCredentialCiphertext() const { return this->credentialCiphertext_ != nullptr;};
+    void deleteCredentialCiphertext() { this->credentialCiphertext_ = nullptr;};
+    inline string getCredentialCiphertext() const { DARABONBA_PTR_GET_DEFAULT(credentialCiphertext_, "") };
+    inline CreateUserExclusiveCredentialResponseBody& setCredentialCiphertext(string credentialCiphertext) { DARABONBA_PTR_SET_VALUE(credentialCiphertext_, credentialCiphertext) };
+
+
     // credentialId Field Functions 
     bool hasCredentialId() const { return this->credentialId_ != nullptr;};
     void deleteCredentialId() { this->credentialId_ = nullptr;};
@@ -48,8 +57,10 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> credentialCiphertext_ {};
+    // The credential ID.
     shared_ptr<string> credentialId_ {};
-    // 凭据标识。
+    // The credential identifier.
     shared_ptr<string> credentialIdentifier_ {};
   };
 

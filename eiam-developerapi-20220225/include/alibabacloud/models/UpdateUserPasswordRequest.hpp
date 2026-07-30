@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The new password. For the password requirements, see the password policy in the console.
     shared_ptr<string> password_ {};
   };
 

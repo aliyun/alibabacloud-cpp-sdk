@@ -106,9 +106,11 @@ namespace Models
       shared_ptr<string> fieldValue_ {};
       // The operation to be performed on the field. Valid values:
       // 
-      // *   add
-      // *   replace If you leave the value of the extended field empty, the replace operation is converted to an add operation.
-      // *   remove
+      // - add
+      // 
+      // - replace If you leave the value of the extended field empty, the replace operation is converted to an add operation.
+      // 
+      // - remove
       shared_ptr<string> operation_ {};
       // The type of the operation. This parameter is deprecated. Replace it with operation.
       shared_ptr<string> operator_ {};

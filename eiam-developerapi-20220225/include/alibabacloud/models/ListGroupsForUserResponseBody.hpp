@@ -92,9 +92,13 @@ namespace Models
 
 
     protected:
+      // The group ID.
       shared_ptr<string> groupId_ {};
+      // The source ID of the group membership.
       shared_ptr<string> groupMemberRelationSourceId_ {};
+      // The source type of the group membership.
       shared_ptr<string> groupMemberRelationSourceType_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -131,9 +135,13 @@ namespace Models
 
 
   protected:
+    // The data object.
     shared_ptr<vector<ListGroupsForUserResponseBody::Data>> data_ {};
+    // The maximum number of entries returned on each page.
     shared_ptr<int64_t> maxResults_ {};
+    // The token to retrieve the next page of results. If this parameter is not returned, all results have been returned.
     shared_ptr<string> nextToken_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

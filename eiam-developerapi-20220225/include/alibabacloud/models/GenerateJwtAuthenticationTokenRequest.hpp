@@ -99,14 +99,28 @@ namespace Models
 
 
   protected:
+    // The \\`aud\\` field of the JWT.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> audiences_ {};
+    // Credential provider identity.
+    // 
     // This parameter is required.
     shared_ptr<string> credentialProviderIdentifier_ {};
+    // Custom claims.
+    // 
+    // >Notice: 
+    // 
+    // Key-value pairs. Keys must be strings.
     Darabonba::Json customClaims_ {};
+    // The validity period of the JWT, in seconds.
     shared_ptr<int32_t> expiration_ {};
+    // Whether the generated JWT needs to include a "derived short token".
     shared_ptr<bool> includeDerivedShortToken_ {};
+    // The \\`iss\\` field of the JWT.
     shared_ptr<string> issuer_ {};
+    // The \\`sub\\` field of the JWT.
+    // 
     // This parameter is required.
     shared_ptr<string> subject_ {};
   };
