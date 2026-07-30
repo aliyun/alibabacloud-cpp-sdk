@@ -191,7 +191,7 @@ namespace AgentLoop20260520
       /**
        * @summary Creates an experiment plan.
        *
-       * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start execution.
+       * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
        *
        * @param request CreateExperimentPlanRequest
        * @param headers map
@@ -203,7 +203,7 @@ namespace AgentLoop20260520
       /**
        * @summary Creates an experiment plan.
        *
-       * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start execution.
+       * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
        *
        * @param request CreateExperimentPlanRequest
        * @return CreateExperimentPlanResponse
@@ -637,9 +637,9 @@ namespace AgentLoop20260520
       Models::GetEvaluatorSkillResponse getEvaluatorSkill(const string &name, const string &skillName, const Models::GetEvaluatorSkillRequest &request);
 
       /**
-       * @summary Query an experiment plan
+       * @summary Queries an experiment plan.
        *
-       * @description Calls the GetExperimentPlan operation to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
+       * @description Calls GetExperimentPlan to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
        *
        * @param request GetExperimentPlanRequest
        * @param headers map
@@ -649,9 +649,9 @@ namespace AgentLoop20260520
       Models::GetExperimentPlanResponse getExperimentPlanWithOptions(const string &agentSpace, const string &planId, const Models::GetExperimentPlanRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query an experiment plan
+       * @summary Queries an experiment plan.
        *
-       * @description Calls the GetExperimentPlan operation to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
+       * @description Calls GetExperimentPlan to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
        *
        * @param request GetExperimentPlanRequest
        * @return GetExperimentPlanResponse
@@ -791,12 +791,12 @@ namespace AgentLoop20260520
       /**
        * @summary Queries a list of datasets.
        *
-       * @param request ListDatasetsRequest
+       * @param tmpReq ListDatasetsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListDatasetsResponse
        */
-      Models::ListDatasetsResponse listDatasetsWithOptions(const string &agentSpace, const Models::ListDatasetsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListDatasetsResponse listDatasetsWithOptions(const string &agentSpace, const Models::ListDatasetsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries a list of datasets.

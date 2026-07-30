@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTDATASETSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_LISTDATASETSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -46,6 +47,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(datasetName, datasetName_);
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(isFavorite, isFavorite_);
+        DARABONBA_PTR_TO_JSON(labels, labels_);
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
         DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
       };
@@ -55,6 +57,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(datasetName, datasetName_);
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(isFavorite, isFavorite_);
+        DARABONBA_PTR_FROM_JSON(labels, labels_);
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
         DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
       };
@@ -70,8 +73,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->agentSpace_ == nullptr
-        && this->createTime_ == nullptr && this->datasetName_ == nullptr && this->description_ == nullptr && this->isFavorite_ == nullptr && this->regionId_ == nullptr
-        && this->updateTime_ == nullptr; };
+        && this->createTime_ == nullptr && this->datasetName_ == nullptr && this->description_ == nullptr && this->isFavorite_ == nullptr && this->labels_ == nullptr
+        && this->regionId_ == nullptr && this->updateTime_ == nullptr; };
       // agentSpace Field Functions 
       bool hasAgentSpace() const { return this->agentSpace_ != nullptr;};
       void deleteAgentSpace() { this->agentSpace_ = nullptr;};
@@ -107,6 +110,15 @@ namespace Models
       inline Datasets& setIsFavorite(bool isFavorite) { DARABONBA_PTR_SET_VALUE(isFavorite_, isFavorite) };
 
 
+      // labels Field Functions 
+      bool hasLabels() const { return this->labels_ != nullptr;};
+      void deleteLabels() { this->labels_ = nullptr;};
+      inline const map<string, vector<string>> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, map<string, vector<string>>) };
+      inline map<string, vector<string>> getLabels() { DARABONBA_PTR_GET(labels_, map<string, vector<string>>) };
+      inline Datasets& setLabels(const map<string, vector<string>> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
+      inline Datasets& setLabels(map<string, vector<string>> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
+
+
       // regionId Field Functions 
       bool hasRegionId() const { return this->regionId_ != nullptr;};
       void deleteRegionId() { this->regionId_ = nullptr;};
@@ -133,6 +145,7 @@ namespace Models
       // The dataset description.
       shared_ptr<string> description_ {};
       shared_ptr<bool> isFavorite_ {};
+      shared_ptr<map<string, vector<string>>> labels_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The update time.

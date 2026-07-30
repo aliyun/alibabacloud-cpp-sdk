@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETDATASETRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <vector>
 #include <alibabacloud/models/IndexKey.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(datasetName, datasetName_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(isFavorite, isFavorite_);
+      DARABONBA_PTR_TO_JSON(labels, labels_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(schema, schema_);
@@ -31,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(datasetName, datasetName_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(isFavorite, isFavorite_);
+      DARABONBA_PTR_FROM_JSON(labels, labels_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(schema, schema_);
@@ -48,8 +51,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentSpace_ == nullptr
-        && this->createTime_ == nullptr && this->datasetName_ == nullptr && this->description_ == nullptr && this->isFavorite_ == nullptr && this->regionId_ == nullptr
-        && this->requestId_ == nullptr && this->schema_ == nullptr && this->updateTime_ == nullptr; };
+        && this->createTime_ == nullptr && this->datasetName_ == nullptr && this->description_ == nullptr && this->isFavorite_ == nullptr && this->labels_ == nullptr
+        && this->regionId_ == nullptr && this->requestId_ == nullptr && this->schema_ == nullptr && this->updateTime_ == nullptr; };
     // agentSpace Field Functions 
     bool hasAgentSpace() const { return this->agentSpace_ != nullptr;};
     void deleteAgentSpace() { this->agentSpace_ = nullptr;};
@@ -83,6 +86,15 @@ namespace Models
     void deleteIsFavorite() { this->isFavorite_ = nullptr;};
     inline bool getIsFavorite() const { DARABONBA_PTR_GET_DEFAULT(isFavorite_, false) };
     inline GetDatasetResponseBody& setIsFavorite(bool isFavorite) { DARABONBA_PTR_SET_VALUE(isFavorite_, isFavorite) };
+
+
+    // labels Field Functions 
+    bool hasLabels() const { return this->labels_ != nullptr;};
+    void deleteLabels() { this->labels_ = nullptr;};
+    inline const map<string, vector<string>> & getLabels() const { DARABONBA_PTR_GET_CONST(labels_, map<string, vector<string>>) };
+    inline map<string, vector<string>> getLabels() { DARABONBA_PTR_GET(labels_, map<string, vector<string>>) };
+    inline GetDatasetResponseBody& setLabels(const map<string, vector<string>> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
+    inline GetDatasetResponseBody& setLabels(map<string, vector<string>> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
 
 
     // regionId Field Functions 
@@ -127,6 +139,7 @@ namespace Models
     // The dataset description.
     shared_ptr<string> description_ {};
     shared_ptr<bool> isFavorite_ {};
+    shared_ptr<map<string, vector<string>>> labels_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The request ID.

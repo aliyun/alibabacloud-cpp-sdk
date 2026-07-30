@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(experimentCount, experimentCount_);
       DARABONBA_PTR_TO_JSON(experimentType, experimentType_);
+      DARABONBA_PTR_TO_JSON(pipelineName, pipelineName_);
       DARABONBA_PTR_TO_JSON(planId, planId_);
       DARABONBA_PTR_TO_JSON(planName, planName_);
       DARABONBA_PTR_TO_JSON(querySql, querySql_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(experimentCount, experimentCount_);
       DARABONBA_PTR_FROM_JSON(experimentType, experimentType_);
+      DARABONBA_PTR_FROM_JSON(pipelineName, pipelineName_);
       DARABONBA_PTR_FROM_JSON(planId, planId_);
       DARABONBA_PTR_FROM_JSON(planName, planName_);
       DARABONBA_PTR_FROM_JSON(querySql, querySql_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
-        && this->datasetId_ == nullptr && this->description_ == nullptr && this->experimentCount_ == nullptr && this->experimentType_ == nullptr && this->planId_ == nullptr
-        && this->planName_ == nullptr && this->querySql_ == nullptr && this->status_ == nullptr && this->updatedAt_ == nullptr; };
+        && this->datasetId_ == nullptr && this->description_ == nullptr && this->experimentCount_ == nullptr && this->experimentType_ == nullptr && this->pipelineName_ == nullptr
+        && this->planId_ == nullptr && this->planName_ == nullptr && this->querySql_ == nullptr && this->status_ == nullptr && this->updatedAt_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -83,6 +85,13 @@ namespace Models
     void deleteExperimentType() { this->experimentType_ = nullptr;};
     inline string getExperimentType() const { DARABONBA_PTR_GET_DEFAULT(experimentType_, "") };
     inline ExperimentPlanData& setExperimentType(string experimentType) { DARABONBA_PTR_SET_VALUE(experimentType_, experimentType) };
+
+
+    // pipelineName Field Functions 
+    bool hasPipelineName() const { return this->pipelineName_ != nullptr;};
+    void deletePipelineName() { this->pipelineName_ = nullptr;};
+    inline string getPipelineName() const { DARABONBA_PTR_GET_DEFAULT(pipelineName_, "") };
+    inline ExperimentPlanData& setPipelineName(string pipelineName) { DARABONBA_PTR_SET_VALUE(pipelineName_, pipelineName) };
 
 
     // planId Field Functions 
@@ -126,6 +135,7 @@ namespace Models
     shared_ptr<string> description_ {};
     shared_ptr<int32_t> experimentCount_ {};
     shared_ptr<string> experimentType_ {};
+    shared_ptr<string> pipelineName_ {};
     shared_ptr<string> planId_ {};
     shared_ptr<string> planName_ {};
     shared_ptr<string> querySql_ {};

@@ -141,6 +141,7 @@
 #include <alibabacloud/models/ListContextStoresResponseBody.hpp>
 #include <alibabacloud/models/ListContextStoresResponse.hpp>
 #include <alibabacloud/models/ListDatasetsRequest.hpp>
+#include <alibabacloud/models/ListDatasetsShrinkRequest.hpp>
 #include <alibabacloud/models/ListDatasetsResponseBody.hpp>
 #include <alibabacloud/models/ListDatasetsResponse.hpp>
 #include <alibabacloud/models/ListEvaluationRunsRequest.hpp>

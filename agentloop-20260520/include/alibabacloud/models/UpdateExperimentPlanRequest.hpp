@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(experimentType, experimentType_);
       DARABONBA_PTR_TO_JSON(experiments, experiments_);
       DARABONBA_ANY_TO_JSON(input, input_);
+      DARABONBA_PTR_TO_JSON(pipelineName, pipelineName_);
       DARABONBA_PTR_TO_JSON(planName, planName_);
       DARABONBA_PTR_TO_JSON(querySql, querySql_);
       DARABONBA_PTR_TO_JSON(selectedItemIds, selectedItemIds_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(experimentType, experimentType_);
       DARABONBA_PTR_FROM_JSON(experiments, experiments_);
       DARABONBA_ANY_FROM_JSON(input, input_);
+      DARABONBA_PTR_FROM_JSON(pipelineName, pipelineName_);
       DARABONBA_PTR_FROM_JSON(planName, planName_);
       DARABONBA_PTR_FROM_JSON(querySql, querySql_);
       DARABONBA_PTR_FROM_JSON(selectedItemIds, selectedItemIds_);
@@ -52,7 +54,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetId_ == nullptr
         && this->datasetProject_ == nullptr && this->description_ == nullptr && this->evaluators_ == nullptr && this->experimentType_ == nullptr && this->experiments_ == nullptr
-        && this->input_ == nullptr && this->planName_ == nullptr && this->querySql_ == nullptr && this->selectedItemIds_ == nullptr; };
+        && this->input_ == nullptr && this->pipelineName_ == nullptr && this->planName_ == nullptr && this->querySql_ == nullptr && this->selectedItemIds_ == nullptr; };
     // datasetId Field Functions 
     bool hasDatasetId() const { return this->datasetId_ != nullptr;};
     void deleteDatasetId() { this->datasetId_ = nullptr;};
@@ -108,6 +110,13 @@ namespace Models
     inline UpdateExperimentPlanRequest& setInput(Darabonba::Json && input) { DARABONBA_SET_RVALUE(input_, input) };
 
 
+    // pipelineName Field Functions 
+    bool hasPipelineName() const { return this->pipelineName_ != nullptr;};
+    void deletePipelineName() { this->pipelineName_ = nullptr;};
+    inline string getPipelineName() const { DARABONBA_PTR_GET_DEFAULT(pipelineName_, "") };
+    inline UpdateExperimentPlanRequest& setPipelineName(string pipelineName) { DARABONBA_PTR_SET_VALUE(pipelineName_, pipelineName) };
+
+
     // planName Field Functions 
     bool hasPlanName() const { return this->planName_ != nullptr;};
     void deletePlanName() { this->planName_ = nullptr;};
@@ -146,6 +155,7 @@ namespace Models
     shared_ptr<vector<ExperimentConfig>> experiments_ {};
     // Optional.
     Darabonba::Json input_ {};
+    shared_ptr<string> pipelineName_ {};
     // The experiment plan name.
     shared_ptr<string> planName_ {};
     // The custom query SQL clause in partial dataset mode.

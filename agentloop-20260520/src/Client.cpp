@@ -627,7 +627,7 @@ CreateEvaluatorSkillResponse Client::createEvaluatorSkill(const string &name, co
 /**
  * @summary Creates an experiment plan.
  *
- * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start execution.
+ * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
  *
  * @param request CreateExperimentPlanRequest
  * @param headers map
@@ -659,6 +659,10 @@ CreateExperimentPlanResponse Client::createExperimentPlanWithOptions(const strin
 
   if (!!request.hasInput()) {
     body["input"] = request.getInput();
+  }
+
+  if (!!request.hasPipelineName()) {
+    body["pipelineName"] = request.getPipelineName();
   }
 
   if (!!request.hasPlanName()) {
@@ -694,7 +698,7 @@ CreateExperimentPlanResponse Client::createExperimentPlanWithOptions(const strin
 /**
  * @summary Creates an experiment plan.
  *
- * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start execution.
+ * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
  *
  * @param request CreateExperimentPlanRequest
  * @return CreateExperimentPlanResponse
@@ -1781,9 +1785,9 @@ GetEvaluatorSkillResponse Client::getEvaluatorSkill(const string &name, const st
 }
 
 /**
- * @summary Query an experiment plan
+ * @summary Queries an experiment plan.
  *
- * @description Calls the GetExperimentPlan operation to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
+ * @description Calls GetExperimentPlan to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
  *
  * @param request GetExperimentPlanRequest
  * @param headers map
@@ -1810,9 +1814,9 @@ GetExperimentPlanResponse Client::getExperimentPlanWithOptions(const string &age
 }
 
 /**
- * @summary Query an experiment plan
+ * @summary Queries an experiment plan.
  *
- * @description Calls the GetExperimentPlan operation to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
+ * @description Calls GetExperimentPlan to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
  *
  * @param request GetExperimentPlanRequest
  * @return GetExperimentPlanResponse
@@ -2163,16 +2167,26 @@ ListContextStoresResponse Client::listContextStores(const string &agentSpace, co
 /**
  * @summary Queries a list of datasets.
  *
- * @param request ListDatasetsRequest
+ * @param tmpReq ListDatasetsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListDatasetsResponse
  */
-ListDatasetsResponse Client::listDatasetsWithOptions(const string &agentSpace, const ListDatasetsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListDatasetsResponse Client::listDatasetsWithOptions(const string &agentSpace, const ListDatasetsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListDatasetsShrinkRequest request = ListDatasetsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasLabels()) {
+    request.setLabelsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLabels(), "labels", "json"));
+  }
+
   json query = {};
   if (!!request.hasDatasetName()) {
     query["datasetName"] = request.getDatasetName();
+  }
+
+  if (!!request.hasLabelsShrink()) {
+    query["labels"] = request.getLabelsShrink();
   }
 
   if (!!request.hasMaxResults()) {
@@ -3525,6 +3539,10 @@ UpdateExperimentPlanResponse Client::updateExperimentPlanWithOptions(const strin
 
   if (!!request.hasInput()) {
     body["input"] = request.getInput();
+  }
+
+  if (!!request.hasPipelineName()) {
+    body["pipelineName"] = request.getPipelineName();
   }
 
   if (!!request.hasPlanName()) {
