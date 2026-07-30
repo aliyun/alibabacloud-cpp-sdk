@@ -467,12 +467,13 @@ namespace Models
     // 
     // - **false**: No.
     shared_ptr<bool> buyInAliyun_ {};
-    // The certificate content that uses a non-Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
+    // The certificate content that uses a non-Chinese cryptographic algorithm. This field is returned when the CertFilter parameter is set to false, and is not returned when set to true.
     shared_ptr<string> cert_ {};
     // The certificate chain information.
     shared_ptr<vector<GetUserCertificateDetailResponseBody::CertChain>> certChain_ {};
     // The certificate ID appended with "-cn-hangzhou". For example, if the certificate ID is 123, the CertIdentifier is "123-cn-hangzhou".
     shared_ptr<string> certIdentifier_ {};
+    // The SHA-2 algorithm value of the certificate.
     shared_ptr<string> certSha2_ {};
     // The city where the company or organization of the certificate purchaser is located.
     shared_ptr<string> city_ {};
@@ -480,11 +481,11 @@ namespace Models
     shared_ptr<string> common_ {};
     // The country where the company or organization of the certificate purchaser is located.
     shared_ptr<string> country_ {};
-    // The encryption certificate content in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
+    // The encryption certificate content in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter parameter is set to false, and is not returned when set to true.
     shared_ptr<string> encryptCert_ {};
-    // The private key of the encryption certificate in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
+    // The private key of the encryption certificate in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter parameter is set to false, and is not returned when set to true.
     shared_ptr<string> encryptPrivateKey_ {};
-    // The certificate expiration date, in the format of YYYY-MM-DD.
+    // The certificate expiration date in the format of YYYY-MM-DD.
     shared_ptr<string> endDate_ {};
     // Indicates whether the certificate has expired. Valid values:
     // - **true**: The certificate has expired.
@@ -498,7 +499,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The certification authority.
     shared_ptr<string> issuer_ {};
-    // The private key that uses a non-Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
+    // The private key that uses a non-Chinese cryptographic algorithm. This field is returned when the CertFilter parameter is set to false, and is not returned when set to true.
     shared_ptr<string> key_ {};
     // The certificate name.
     shared_ptr<string> name_ {};
@@ -512,7 +513,7 @@ namespace Models
     shared_ptr<string> orgName_ {};
     // The province where the company or organization of the certificate purchaser is located.
     shared_ptr<string> province_ {};
-    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use this ID to troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request, which can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
@@ -522,11 +523,11 @@ namespace Models
     shared_ptr<string> serialNo_ {};
     // The SHA-2 value of the certificate.
     shared_ptr<string> sha2_ {};
-    // The signing certificate content in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
+    // The signing certificate content in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter parameter is set to false, and is not returned when set to true.
     shared_ptr<string> signCert_ {};
-    // The private key of the signing certificate in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter request parameter is set to false, and is not returned when set to true.
+    // The private key of the signing certificate in PEM format that uses a Chinese cryptographic algorithm. This field is returned when the CertFilter parameter is set to false, and is not returned when set to true.
     shared_ptr<string> signPrivateKey_ {};
-    // The certificate issuance date, in the format of YYYY-MM-DD.
+    // The certificate issuance date in the format of YYYY-MM-DD.
     shared_ptr<string> startDate_ {};
     // The tag list.
     shared_ptr<vector<GetUserCertificateDetailResponseBody::Tags>> tags_ {};

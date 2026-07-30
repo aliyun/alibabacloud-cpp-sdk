@@ -304,11 +304,11 @@ namespace Models
       shared_ptr<string> autoReissue_ {};
       // The CA brand. Valid values: WoSign, CFCA, DigiCert, GeoTrust, GlobalSign, vTrus, and Alibaba.
       shared_ptr<string> brand_ {};
-      // The global certificate ID, in the format of certificate ID + "-" + site region ID. This ID is commonly used across Alibaba Cloud services.
+      // The global certificate ID in the format of certificate ID + "-" + site region ID. This ID is commonly used across Alibaba Cloud services.
       // - For the China site: certificate ID + "-cn-hangzhou"
       // - For the China site: certificate ID + "-ap-southeast-1"
       // 
-      // For example, if the certificate ID is 123, the CertIdentifier on the China site is "123-cn-hangzhou", and the CertIdentifier on the International site is "123-ap-southeast-1".
+      // For example, if the certificate ID is 123, the CertIdentifier for the China site is "123-cn-hangzhou", and the CertIdentifier for the International site is "123-ap-southeast-1".
       shared_ptr<string> certIdentifier_ {};
       // The domain name of the latest issued certificate.
       shared_ptr<string> certificateDomain_ {};
@@ -316,11 +316,11 @@ namespace Models
       shared_ptr<int64_t> certificateId_ {};
       // The certificate name.
       shared_ptr<string> certificateName_ {};
-      // The end time of the latest certificate, in timestamp format. If no certificate has been issued, this field is empty.
+      // The end time of the latest certificate. The value is a UNIX timestamp accurate to seconds. If no certificate has been issued, this field is empty.
       shared_ptr<int64_t> certificateNotAfter_ {};
-      // The start time of the latest certificate, in timestamp format. If no certificate has been issued, this field is empty.
+      // The start time of the latest certificate. The value is a UNIX timestamp accurate to seconds. If no certificate has been issued, this field is empty.
       shared_ptr<int64_t> certificateNotBefore_ {};
-      // The revocation time of the latest certificate, in timestamp format.
+      // The revocation time of the latest certificate. The value is a UNIX timestamp accurate to seconds.
       shared_ptr<int64_t> certificateRevokeTime_ {};
       // The status of the certificate. Valid values:
       // - **issued**: Issued.
@@ -334,11 +334,11 @@ namespace Models
       shared_ptr<string> domain_ {};
       // The number of exact-match domain names.
       shared_ptr<int32_t> fullDomainCount_ {};
-      // The expiration time of the instance, in timestamp format. If no certificate has been issued, this field is empty.
+      // The expiration time of the instance. The value is a UNIX timestamp accurate to seconds. If no certificate has been issued, this field is empty.
       shared_ptr<int64_t> instanceEndTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The start time of the instance, in timestamp format. If no certificate has been issued, this field is empty.
+      // The start time of the instance. The value is a UNIX timestamp accurate to seconds. If no certificate has been issued, this field is empty.
       shared_ptr<int64_t> instanceStartTime_ {};
       // The instance type. Valid values:
       // - BUY: official certificate.
@@ -351,9 +351,9 @@ namespace Models
       // - **ECC_256**
       // - **SM2**
       shared_ptr<string> keyAlgorithm_ {};
-      // The end time of the instance purchase, in timestamp format. Used to determine the purchase duration of the instance.
+      // The end time of the instance purchase. The value is a UNIX timestamp accurate to seconds. Used to determine the purchase duration of the instance.
       shared_ptr<int64_t> orderEndTime_ {};
-      // The start time of the instance purchase, in timestamp format. Used to determine the refund time limit.
+      // The start time of the instance purchase. The value is a UNIX timestamp accurate to seconds. Used to determine the refund time limit.
       shared_ptr<int64_t> orderStartTime_ {};
       // The result returned by the CA during the last certificate operation.
       shared_ptr<string> pendingResult_ {};
@@ -362,13 +362,13 @@ namespace Models
       // The purchased instance specification.
       shared_ptr<string> spec_ {};
       // The instance status. Valid values:
-      // - **inactive**: pending use.
-      // - **pending**: under review. The latest certificate is being reviewed.
-      // - **willExpire**: about to expire.
-      // - **expired**: expired.
-      // - **refund**: refunded.
-      // - **normal**: normal.
-      // - **closed**: closed and unavailable.
+      // - **inactive**: Pending use.
+      // - **pending**: Under review. The latest certificate is being reviewed.
+      // - **willExpire**: About to expire.
+      // - **expired**: Expired.
+      // - **refund**: Refunded.
+      // - **normal**: Normal.
+      // - **closed**: Closed and unavailable.
       shared_ptr<string> status_ {};
       // The list of cloud services to which the latest certificate is deployed.
       shared_ptr<vector<string>> usingProductList_ {};
@@ -416,13 +416,13 @@ namespace Models
 
 
   protected:
-    // The current page number in a paged query.
+    // The current page number in the paged query.
     shared_ptr<int32_t> currentPage_ {};
     // The list of instances.
     shared_ptr<vector<ListInstancesResponseBody::InstanceList>> instanceList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of records per page.
+    // The number of records displayed per page.
     shared_ptr<int32_t> showSize_ {};
     // The total number of instances.
     shared_ptr<int64_t> totalCount_ {};

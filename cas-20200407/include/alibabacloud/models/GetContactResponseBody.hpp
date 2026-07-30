@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETCONTACTRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETCONTACTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MobileStatus, mobileStatus_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(WebhookList, webhookList_);
       DARABONBA_PTR_TO_JSON(Webhooks, webhooks_);
     };
     friend void from_json(const Darabonba::Json& j, GetContactResponseBody& obj) { 
@@ -32,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MobileStatus, mobileStatus_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(WebhookList, webhookList_);
       DARABONBA_PTR_FROM_JSON(Webhooks, webhooks_);
     };
     GetContactResponseBody() = default ;
@@ -47,7 +50,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contactId_ == nullptr
         && this->email_ == nullptr && this->emailStatus_ == nullptr && this->idCard_ == nullptr && this->mobile_ == nullptr && this->mobileStatus_ == nullptr
-        && this->name_ == nullptr && this->requestId_ == nullptr && this->webhooks_ == nullptr; };
+        && this->name_ == nullptr && this->requestId_ == nullptr && this->webhookList_ == nullptr && this->webhooks_ == nullptr; };
     // contactId Field Functions 
     bool hasContactId() const { return this->contactId_ != nullptr;};
     void deleteContactId() { this->contactId_ = nullptr;};
@@ -104,6 +107,15 @@ namespace Models
     inline GetContactResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // webhookList Field Functions 
+    bool hasWebhookList() const { return this->webhookList_ != nullptr;};
+    void deleteWebhookList() { this->webhookList_ = nullptr;};
+    inline const vector<string> & getWebhookList() const { DARABONBA_PTR_GET_CONST(webhookList_, vector<string>) };
+    inline vector<string> getWebhookList() { DARABONBA_PTR_GET(webhookList_, vector<string>) };
+    inline GetContactResponseBody& setWebhookList(const vector<string> & webhookList) { DARABONBA_PTR_SET_VALUE(webhookList_, webhookList) };
+    inline GetContactResponseBody& setWebhookList(vector<string> && webhookList) { DARABONBA_PTR_SET_RVALUE(webhookList_, webhookList) };
+
+
     // webhooks Field Functions 
     bool hasWebhooks() const { return this->webhooks_ != nullptr;};
     void deleteWebhooks() { this->webhooks_ = nullptr;};
@@ -118,7 +130,7 @@ namespace Models
     shared_ptr<string> email_ {};
     // Indicates whether the email address is verified.
     shared_ptr<int32_t> emailStatus_ {};
-    // The ID card number of the contact. This parameter is required for the CFCA certificate brand and is not required for other brands.
+    // The ID card number of the contact. This is required for the CFCA certificate brand and not required for other brands.
     shared_ptr<string> idCard_ {};
     // The phone number of the contact.
     shared_ptr<string> mobile_ {};
@@ -128,7 +140,9 @@ namespace Models
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The webhook URLs of DingTalk, WeCom, or Lark chatbots. The value is a string in list format.
+    // The webhook URLs of DingTalk, WeCom, or Lark chatbots, in list format.
+    shared_ptr<vector<string>> webhookList_ {};
+    // The webhook URLs of DingTalk, WeCom, or Lark chatbots, in list format as a string.
     shared_ptr<string> webhooks_ {};
   };
 

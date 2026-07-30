@@ -49,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Mobile, mobile_);
         DARABONBA_PTR_TO_JSON(MobileStatus, mobileStatus_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(WebhookList, webhookList_);
         DARABONBA_PTR_TO_JSON(Webhooks, webhooks_);
       };
       friend void from_json(const Darabonba::Json& j, ContactList& obj) { 
@@ -58,6 +59,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Mobile, mobile_);
         DARABONBA_PTR_FROM_JSON(MobileStatus, mobileStatus_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(WebhookList, webhookList_);
         DARABONBA_PTR_FROM_JSON(Webhooks, webhooks_);
       };
       ContactList() = default ;
@@ -73,7 +75,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->contactId_ == nullptr
         && this->email_ == nullptr && this->emailStatus_ == nullptr && this->mobile_ == nullptr && this->mobileStatus_ == nullptr && this->name_ == nullptr
-        && this->webhooks_ == nullptr; };
+        && this->webhookList_ == nullptr && this->webhooks_ == nullptr; };
       // contactId Field Functions 
       bool hasContactId() const { return this->contactId_ != nullptr;};
       void deleteContactId() { this->contactId_ = nullptr;};
@@ -116,6 +118,15 @@ namespace Models
       inline ContactList& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // webhookList Field Functions 
+      bool hasWebhookList() const { return this->webhookList_ != nullptr;};
+      void deleteWebhookList() { this->webhookList_ = nullptr;};
+      inline const vector<string> & getWebhookList() const { DARABONBA_PTR_GET_CONST(webhookList_, vector<string>) };
+      inline vector<string> getWebhookList() { DARABONBA_PTR_GET(webhookList_, vector<string>) };
+      inline ContactList& setWebhookList(const vector<string> & webhookList) { DARABONBA_PTR_SET_VALUE(webhookList_, webhookList) };
+      inline ContactList& setWebhookList(vector<string> && webhookList) { DARABONBA_PTR_SET_RVALUE(webhookList_, webhookList) };
+
+
       // webhooks Field Functions 
       bool hasWebhooks() const { return this->webhooks_ != nullptr;};
       void deleteWebhooks() { this->webhooks_ = nullptr;};
@@ -136,6 +147,8 @@ namespace Models
       shared_ptr<int32_t> mobileStatus_ {};
       // The contact name.
       shared_ptr<string> name_ {};
+      // The webhook URL.
+      shared_ptr<vector<string>> webhookList_ {};
       // The webhook URL.
       shared_ptr<string> webhooks_ {};
     };

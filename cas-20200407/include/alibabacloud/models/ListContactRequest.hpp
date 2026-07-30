@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The current page number for paged queries. Default value: **1**.
+    // The current page number for pagination. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The search keyword, such as a keyword in the name, email address, or phone number.
+    // The search keyword. For example, a keyword in the name, email address, or phone number.
     shared_ptr<string> keyword_ {};
     // The number of contacts to display per page in a paged query.
     shared_ptr<int32_t> showSize_ {};

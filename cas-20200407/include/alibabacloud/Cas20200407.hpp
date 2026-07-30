@@ -920,7 +920,7 @@ namespace Cas20200407
       /**
        * @summary Retrieves the details of a certificate, including basic information and public/private key content. You can use this operation to download the certificate content and private key.
        *
-       * @description The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
+       * @description The China single-user QPS limit for this operation is 100 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request GetUserCertificateDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -931,7 +931,7 @@ namespace Cas20200407
       /**
        * @summary Retrieves the details of a certificate, including basic information and public/private key content. You can use this operation to download the certificate content and private key.
        *
-       * @description The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
+       * @description The China single-user QPS limit for this operation is 100 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
        *
        * @param request GetUserCertificateDetailRequest
        * @return GetUserCertificateDetailResponse
@@ -1078,7 +1078,7 @@ namespace Cas20200407
       Models::ListCompaniesResponse listCompanies(const Models::ListCompaniesRequest &request);
 
       /**
-       * @summary Retrieves a list of contacts.
+       * @summary Retrieves the list of contacts.
        *
        * @param request ListContactRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1087,7 +1087,7 @@ namespace Cas20200407
       Models::ListContactResponse listContactWithOptions(const Models::ListContactRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of contacts.
+       * @summary Retrieves the list of contacts.
        *
        * @param request ListContactRequest
        * @return ListContactResponse
