@@ -48,8 +48,15 @@ namespace Models
 
 
   protected:
+    // The category ID. You can obtain the category ID by using one of the following methods:
+    // 
+    // - When you create a category by calling the CreateAssetCategory operation, the category ID is the value of CategoryId in the response.
+    // - When you query categories by calling the ListAssetCategories operation, the category ID is the value of CategoryId in the corresponding entry in the response.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> categoryId_ {};
+    // The updated category name.
+    // 
     // This parameter is required.
     shared_ptr<string> categoryName_ {};
   };

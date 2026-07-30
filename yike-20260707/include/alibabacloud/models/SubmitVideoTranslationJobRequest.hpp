@@ -103,17 +103,36 @@ namespace Models
 
 
   protected:
+    // The user-level idempotency key.
     shared_ptr<string> clientToken_ {};
+    // The job description.
     shared_ptr<string> description_ {};
+    // The input configuration JSON string:
+    // - Video
+    // - Audio
+    // - Subtitle
+    // 
+    // <notice>Currently, only OSS addresses under the calling account are supported as input.</notice>
+    // 
     // This parameter is required.
     shared_ptr<string> input_ {};
+    // The job parameters JSON string.
+    // 
     // This parameter is required.
     shared_ptr<string> jobParameters_ {};
+    // The job type. Valid values:
+    // - SubtitleTranslate
+    // - VoiceTranslate
+    // 
     // This parameter is required.
     shared_ptr<string> jobType_ {};
+    // The output configuration JSON string.
+    // 
     // This parameter is required.
     shared_ptr<string> output_ {};
+    // If not specified, the service generates a default title.
     shared_ptr<string> title_ {};
+    // The custom user data JSON string.
     shared_ptr<string> userData_ {};
   };
 

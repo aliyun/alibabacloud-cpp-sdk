@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to delete the physical files at the same time.
     shared_ptr<bool> deletePhysicalFiles_ {};
+    // Not supported.
     shared_ptr<string> inputURLs_ {};
+    // The media asset IDs, separated by commas. Invalid IDs are added to the IgnoredList.
     shared_ptr<string> mediaIds_ {};
   };
 

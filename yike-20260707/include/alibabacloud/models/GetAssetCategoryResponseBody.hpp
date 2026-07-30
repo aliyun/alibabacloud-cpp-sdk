@@ -101,10 +101,15 @@ namespace Models
 
 
     protected:
+      // The category ID.
       shared_ptr<int64_t> categoryId_ {};
+      // The category name.
       shared_ptr<string> categoryName_ {};
+      // The category level.
       shared_ptr<int64_t> level_ {};
+      // The parent category ID.
       shared_ptr<int64_t> parentId_ {};
+      // The total number of subcategories.
       shared_ptr<int64_t> subTotal_ {};
     };
 
@@ -164,9 +169,16 @@ namespace Models
 
 
     protected:
+      // The category ID.
       shared_ptr<int64_t> categoryId_ {};
+      // The category name.
       shared_ptr<string> categoryName_ {};
+      // The category level. Valid values:
+      // - **0**: level-1 category.
+      // - **1**: level-2 category.
+      // - **2**: level-3 category.
       shared_ptr<int64_t> level_ {};
+      // The parent category ID.
       shared_ptr<int64_t> parentId_ {};
     };
 
@@ -205,9 +217,13 @@ namespace Models
 
 
   protected:
+    // The category details.
     shared_ptr<GetAssetCategoryResponseBody::Category> category_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of subcategories.
     shared_ptr<vector<GetAssetCategoryResponseBody::SubCategories>> subCategories_ {};
+    // The number of subcategories.
     shared_ptr<int64_t> subTotal_ {};
   };
 

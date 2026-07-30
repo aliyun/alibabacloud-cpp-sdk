@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The validity period of the signed file access URL. Unit: seconds.
     shared_ptr<int64_t> authTimeout_ {};
+    // The IDs of the media assets to query, separated by commas.
     shared_ptr<string> mediaIds_ {};
   };
 

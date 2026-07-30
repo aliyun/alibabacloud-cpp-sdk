@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // `data.JobId`
     shared_ptr<string> jobId_ {};
+    // `requestId`
     shared_ptr<string> requestId_ {};
   };
 

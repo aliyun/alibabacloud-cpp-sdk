@@ -150,17 +150,29 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> categoryId_ {};
+    // The cover image URL. This parameter is valid only for video media assets.
     shared_ptr<string> coverURL_ {};
+    // The description of the media asset.
     shared_ptr<string> description_ {};
+    // The dynamic metadata.
     shared_ptr<string> dynamicMetaData_ {};
+    // The entity ID.
     shared_ptr<string> entityId_ {};
+    // The media asset source. Set this parameter to url.
     shared_ptr<string> importSource_ {};
+    // The URL of the media asset.
     shared_ptr<string> inputURL_ {};
+    // The tags of the media asset. Separate multiple tags with commas.
     shared_ptr<string> mediaTags_ {};
+    // The type of the media asset.
     shared_ptr<string> mediaType_ {};
+    // Specifies whether to overwrite existing media assets.
     shared_ptr<bool> overwrite_ {};
+    // The configuration for registering the media asset.
     shared_ptr<string> registerConfig_ {};
+    // The title of the media asset.
     shared_ptr<string> title_ {};
+    // The user data. The maximum size is 1024 bytes.
     shared_ptr<string> userData_ {};
   };
 

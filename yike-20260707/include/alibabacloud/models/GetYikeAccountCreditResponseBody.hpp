@@ -80,8 +80,16 @@ namespace Models
 
 
     protected:
+      // The end time.
       shared_ptr<string> endTime_ {};
+      // The membership level. Valid values:
+      // 
+      // - basic: Basic Edition.
+      // - standard: Standard Edition.
+      // - professional: Ultimate Edition.
+      // - ultra: Ultra Edition.
       shared_ptr<string> membership_ {};
+      // The start time.
       shared_ptr<string> startTime_ {};
     };
 
@@ -159,11 +167,17 @@ namespace Models
 
 
     protected:
+      // The total granted credits.
       shared_ptr<double> grantedCreditQuota_ {};
+      // The remaining granted credits.
       shared_ptr<double> grantedCreditQuotaUsage_ {};
+      // The total credits of the booster pack.
       shared_ptr<double> packCreditQuota_ {};
+      // The remaining credits of the booster pack.
       shared_ptr<double> packCreditQuotaUsage_ {};
+      // The total credits of the membership plan.
       shared_ptr<double> resourceCreditQuota_ {};
+      // The remaining credits of the membership plan.
       shared_ptr<double> resourceCreditQuotaUsage_ {};
     };
 
@@ -195,8 +209,11 @@ namespace Models
 
 
   protected:
+    // The credit information.
     shared_ptr<GetYikeAccountCreditResponseBody::CreditInfo> creditInfo_ {};
+    // The membership information.
     shared_ptr<GetYikeAccountCreditResponseBody::MembershipInfo> membershipInfo_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

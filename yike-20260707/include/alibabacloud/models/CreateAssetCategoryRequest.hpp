@@ -48,8 +48,15 @@ namespace Models
 
 
   protected:
+    // The category name.
+    // 
+    // Maximum length: 64 bytes.
+    // 
+    // UTF-8 encoding.
+    // 
     // This parameter is required.
     shared_ptr<string> categoryName_ {};
+    // The parent category ID.
     shared_ptr<int64_t> parentId_ {};
   };
 

@@ -87,9 +87,13 @@ namespace Models
 
 
     protected:
+      // The ID of the created category.
       shared_ptr<int64_t> categoryId_ {};
+      // The media asset category information.
       shared_ptr<string> categoryName_ {};
+      // The category level. The first-level category has a level of 0, the second-level category has a level of 1, and the third-level category has a level of 2.
       shared_ptr<int64_t> level_ {};
+      // The parent category ID. If the ParentId parameter is set to empty or a value less than 1, the default return value is -1, which indicates that the created category is a root directory.
       shared_ptr<int64_t> parentId_ {};
     };
 
@@ -112,7 +116,9 @@ namespace Models
 
 
   protected:
+    // The media asset category information.
     shared_ptr<CreateAssetCategoryResponseBody::Category> category_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

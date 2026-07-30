@@ -122,7 +122,9 @@ namespace Models
 
 
         protected:
+          // The dynamic metadata content.
           shared_ptr<string> data_ {};
+          // The entity ID.
           shared_ptr<string> entityId_ {};
         };
 
@@ -137,6 +139,7 @@ namespace Models
 
 
       protected:
+        // The dynamic metadata.
         shared_ptr<MediaDynamicInfo::DynamicMetaData> dynamicMetaData_ {};
       };
 
@@ -343,25 +346,45 @@ namespace Models
 
 
       protected:
+        // The business type of the media asset.
         shared_ptr<string> businessType_ {};
+        // The category ID.
         shared_ptr<int64_t> categoryId_ {};
+        // The category name.
         shared_ptr<string> categoryName_ {};
+        // The cover URL.
         shared_ptr<string> coverURL_ {};
+        // The time when the media asset was created.
         shared_ptr<string> createTime_ {};
+        // The content description.
         shared_ptr<string> description_ {};
+        // The entity ID.
         shared_ptr<string> entityId_ {};
+        // The media asset URL.
         shared_ptr<string> inputURL_ {};
+        // The media asset ID.
         shared_ptr<string> mediaId_ {};
+        // The tags.
         shared_ptr<string> mediaTags_ {};
+        // The media type of the media asset.
         shared_ptr<string> mediaType_ {};
+        // The time when the media asset was last modified.
         shared_ptr<string> modifiedTime_ {};
+        // The snapshots.
         shared_ptr<string> snapshots_ {};
+        // The source of the media asset.
         shared_ptr<string> source_ {};
+        // The sprite images.
         shared_ptr<string> spriteImages_ {};
+        // The resource status.
         shared_ptr<string> status_ {};
+        // The title.
         shared_ptr<string> title_ {};
+        // The transcoding status.
         shared_ptr<string> transcodeStatus_ {};
+        // The upload source of the media asset.
         shared_ptr<string> uploadSource_ {};
+        // The user data.
         shared_ptr<string> userData_ {};
       };
 
@@ -532,19 +555,33 @@ namespace Models
 
 
         protected:
+          // The bitrate.
           shared_ptr<string> bitrate_ {};
+          // The creation time.
           shared_ptr<string> createTime_ {};
+          // The duration.
           shared_ptr<string> duration_ {};
+          // The file name.
           shared_ptr<string> fileName_ {};
+          // The file size, in bytes.
           shared_ptr<string> fileSize_ {};
+          // The file status.
           shared_ptr<string> fileStatus_ {};
+          // The file type.
           shared_ptr<string> fileType_ {};
+          // The OSS URL of the file.
           shared_ptr<string> fileUrl_ {};
+          // The container format.
           shared_ptr<string> formatName_ {};
+          // The height.
           shared_ptr<string> height_ {};
+          // The image set information.
           shared_ptr<string> imagesInput_ {};
+          // The modification time.
           shared_ptr<string> modifiedTime_ {};
+          // The storage region of the file.
           shared_ptr<string> region_ {};
+          // The width.
           shared_ptr<string> width_ {};
         };
 
@@ -559,6 +596,7 @@ namespace Models
 
 
       protected:
+        // The basic file information, including duration and size.
         shared_ptr<FileInfoList::FileBasicInfo> fileBasicInfo_ {};
       };
 
@@ -599,9 +637,13 @@ namespace Models
 
 
     protected:
+      // The list of media files.
       shared_ptr<vector<MediaInfoList::FileInfoList>> fileInfoList_ {};
+      // The basic information of the media asset.
       shared_ptr<MediaInfoList::MediaBasicInfo> mediaBasicInfo_ {};
+      // The dynamic data of the media asset.
       shared_ptr<MediaInfoList::MediaDynamicInfo> mediaDynamicInfo_ {};
+      // The media asset ID.
       shared_ptr<string> mediaId_ {};
     };
 
@@ -652,11 +694,17 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<string> code_ {};
+    // The collection of media assets that meet the specified criteria.
     shared_ptr<vector<SearchMediaResponseBody::MediaInfoList>> mediaInfoList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The pagination token.
     shared_ptr<string> scrollToken_ {};
+    // Indicates whether the call was successful.
     shared_ptr<string> success_ {};
+    // The total number of media assets that meet the specified criteria.
     shared_ptr<int64_t> total_ {};
   };
 

@@ -118,12 +118,25 @@ namespace Models
 
 
     protected:
+      // The error code. This parameter is returned when the job is in the `Failed` state.
       shared_ptr<string> errorCode_ {};
+      // The error message. This parameter is returned when the job is in the Failed state.
       shared_ptr<string> errorMessage_ {};
+      // The job ID.
       shared_ptr<string> jobId_ {};
+      // The media asset ID.
       shared_ptr<string> mediaId_ {};
+      // The analysis result, which is a JSON string.
       shared_ptr<string> result_ {};
+      // The file status. Valid values:
+      // 
+      // - **Created**: Created.
+      // - **Executing**: Executing.
+      // - **Finished**: Finished.
+      // - **Failed**: Failed.
+      // - **Deleted**: Deleted.
       shared_ptr<string> state_ {};
+      // The user-defined parameter, which is a JSON-formatted string.
       shared_ptr<string> userData_ {};
     };
 
@@ -203,11 +216,23 @@ namespace Models
 
 
     protected:
+      // The error code. This parameter is returned when the job is in the Failed state.
       shared_ptr<string> errorCode_ {};
+      // The error message. This parameter is returned when the job is in the Failed state.
       shared_ptr<string> errorMessage_ {};
+      // The list of media asset IDs. If the input is a URL, the media asset ID registered after input is returned.
       shared_ptr<vector<string>> mediaIds_ {};
+      // The URL of the analysis result file. The file content is in JSON format.
       shared_ptr<string> result_ {};
+      // The file status. Valid values:
+      // 
+      // - **Created**: Created.
+      // - **Executing**: Executing.
+      // - **Finished**: Finished.
+      // - **Failed**: Failed.
+      // - **Deleted**: Deleted.
       shared_ptr<string> status_ {};
+      // The user-defined parameter, which is a JSON-formatted string.
       shared_ptr<string> userData_ {};
     };
 
@@ -239,8 +264,11 @@ namespace Models
 
 
   protected:
+    // The media asset content understanding result object.
     shared_ptr<GetMediaComprehensionJobResponseBody::Job> job_ {};
+    // The media asset content understanding object. This parameter is deprecated.
     shared_ptr<GetMediaComprehensionJobResponseBody::MediaComprehensionJob> mediaComprehensionJob_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

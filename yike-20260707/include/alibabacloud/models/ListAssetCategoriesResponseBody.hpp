@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // The category ID.
       shared_ptr<int64_t> categoryId_ {};
+      // The category name.
       shared_ptr<string> categoryName_ {};
+      // The category level. A level-1 category has a value of 0, a level-2 category has a value of 1, and a level-3 category has a value of 2.
       shared_ptr<string> level_ {};
+      // The parent category ID.
       shared_ptr<int64_t> parentId_ {};
     };
 
@@ -122,8 +126,11 @@ namespace Models
 
 
   protected:
+    // The list of categories on the current page.
     shared_ptr<vector<ListAssetCategoriesResponseBody::Categories>> categories_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of categories.
     shared_ptr<int64_t> total_ {};
   };
 

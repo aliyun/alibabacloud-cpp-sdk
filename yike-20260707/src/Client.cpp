@@ -40,10 +40,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 批量获取媒资信息
+ * @summary Retrieves information about multiple media assets in a batch.
  *
- * @description ## 请求说明
- * 该API用于查询媒资内容理解作业。
+ * @description ## Request description.
  *
  * @param request BatchGetMediasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -78,10 +77,9 @@ BatchGetMediasResponse Client::batchGetMediasWithOptions(const BatchGetMediasReq
 }
 
 /**
- * @summary 批量获取媒资信息
+ * @summary Retrieves information about multiple media assets in a batch.
  *
- * @description ## 请求说明
- * 该API用于查询媒资内容理解作业。
+ * @description ## Request description.
  *
  * @param request BatchGetMediasRequest
  * @return BatchGetMediasResponse
@@ -92,9 +90,9 @@ BatchGetMediasResponse Client::batchGetMedias(const BatchGetMediasRequest &reque
 }
 
 /**
- * @summary 创建分类
+ * @summary Creates a media asset category.
  *
- * @description 分类最多支持三级分类，每级分类最多支持创建 100 个子分类。
+ * @description Categories support up to three levels, and each level supports up to 100 subcategories.
  *
  * @param request CreateAssetCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -129,9 +127,9 @@ CreateAssetCategoryResponse Client::createAssetCategoryWithOptions(const CreateA
 }
 
 /**
- * @summary 创建分类
+ * @summary Creates a media asset category.
  *
- * @description 分类最多支持三级分类，每级分类最多支持创建 100 个子分类。
+ * @description Categories support up to three levels, and each level supports up to 100 subcategories.
  *
  * @param request CreateAssetCategoryRequest
  * @return CreateAssetCategoryResponse
@@ -142,9 +140,9 @@ CreateAssetCategoryResponse Client::createAssetCategory(const CreateAssetCategor
 }
 
 /**
- * @summary 删除分类
+ * @summary Deletes a media asset category.
  *
- * @description 此接口会同时删除其子分类（包括二级分类和三级分类），请慎重操作。
+ * @description This operation also deletes all subcategories (including second-level and third-level categories). Proceed with caution.
  *
  * @param request DeleteAssetCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -175,9 +173,9 @@ DeleteAssetCategoryResponse Client::deleteAssetCategoryWithOptions(const DeleteA
 }
 
 /**
- * @summary 删除分类
+ * @summary Deletes a media asset category.
  *
- * @description 此接口会同时删除其子分类（包括二级分类和三级分类），请慎重操作。
+ * @description This operation also deletes all subcategories (including second-level and third-level categories). Proceed with caution.
  *
  * @param request DeleteAssetCategoryRequest
  * @return DeleteAssetCategoryResponse
@@ -188,7 +186,7 @@ DeleteAssetCategoryResponse Client::deleteAssetCategory(const DeleteAssetCategor
 }
 
 /**
- * @summary 删除媒资信息
+ * @summary Deletes media asset information.
  *
  * @param request DeleteMediasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -227,7 +225,7 @@ DeleteMediasResponse Client::deleteMediasWithOptions(const DeleteMediasRequest &
 }
 
 /**
- * @summary 删除媒资信息
+ * @summary Deletes media asset information.
  *
  * @param request DeleteMediasRequest
  * @return DeleteMediasResponse
@@ -238,7 +236,7 @@ DeleteMediasResponse Client::deleteMedias(const DeleteMediasRequest &request) {
 }
 
 /**
- * @summary 查询分类
+ * @summary Retrieves the information of a specified category and the list of its subcategories (immediate child categories).
  *
  * @param request GetAssetCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -269,7 +267,7 @@ GetAssetCategoryResponse Client::getAssetCategoryWithOptions(const GetAssetCateg
 }
 
 /**
- * @summary 查询分类
+ * @summary Retrieves the information of a specified category and the list of its subcategories (immediate child categories).
  *
  * @param request GetAssetCategoryRequest
  * @return GetAssetCategoryResponse
@@ -280,7 +278,7 @@ GetAssetCategoryResponse Client::getAssetCategory(const GetAssetCategoryRequest 
 }
 
 /**
- * @summary 查询图片生成任务
+ * @summary Queries an image generation task.
  *
  * @param request GetImageGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -311,7 +309,7 @@ GetImageGenerationJobResponse Client::getImageGenerationJobWithOptions(const Get
 }
 
 /**
- * @summary 查询图片生成任务
+ * @summary Queries an image generation task.
  *
  * @param request GetImageGenerationJobRequest
  * @return GetImageGenerationJobResponse
@@ -378,10 +376,10 @@ GetMediaResponse Client::getMedia(const GetMediaRequest &request) {
 }
 
 /**
- * @summary 查询媒资内容理解作业
+ * @summary Queries a media asset content understanding job.
  *
- * @description ## 请求说明
- * 该API用于查询媒资内容理解作业。
+ * @description ## Description
+ * This API is used to query a media asset content understanding job.
  *
  * @param request GetMediaComprehensionJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -412,10 +410,10 @@ GetMediaComprehensionJobResponse Client::getMediaComprehensionJobWithOptions(con
 }
 
 /**
- * @summary 查询媒资内容理解作业
+ * @summary Queries a media asset content understanding job.
  *
- * @description ## 请求说明
- * 该API用于查询媒资内容理解作业。
+ * @description ## Description
+ * This API is used to query a media asset content understanding job.
  *
  * @param request GetMediaComprehensionJobRequest
  * @return GetMediaComprehensionJobResponse
@@ -426,7 +424,49 @@ GetMediaComprehensionJobResponse Client::getMediaComprehensionJob(const GetMedia
 }
 
 /**
- * @summary 查询视频生成任务
+ * @summary Queries a creative script generation task.
+ *
+ * @param request GetRemakeScriptJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRemakeScriptJobResponse
+ */
+GetRemakeScriptJobResponse Client::getRemakeScriptJobWithOptions(const GetRemakeScriptJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRemakeScriptJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRemakeScriptJobResponse>();
+}
+
+/**
+ * @summary Queries a creative script generation task.
+ *
+ * @param request GetRemakeScriptJobRequest
+ * @return GetRemakeScriptJobResponse
+ */
+GetRemakeScriptJobResponse Client::getRemakeScriptJob(const GetRemakeScriptJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getRemakeScriptJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a video generation task.
  *
  * @param request GetVideoGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -461,7 +501,7 @@ GetVideoGenerationJobResponse Client::getVideoGenerationJobWithOptions(const Get
 }
 
 /**
- * @summary 查询视频生成任务
+ * @summary Queries a video generation task.
  *
  * @param request GetVideoGenerationJobRequest
  * @return GetVideoGenerationJobResponse
@@ -472,7 +512,49 @@ GetVideoGenerationJobResponse Client::getVideoGenerationJob(const GetVideoGenera
 }
 
 /**
- * @summary 获取一刻主账户会员计划及积分情况
+ * @summary 查询爆款新视频渲染任务
+ *
+ * @param request GetVideoRenderJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVideoRenderJobResponse
+ */
+GetVideoRenderJobResponse Client::getVideoRenderJobWithOptions(const GetVideoRenderJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetVideoRenderJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVideoRenderJobResponse>();
+}
+
+/**
+ * @summary 查询爆款新视频渲染任务
+ *
+ * @param request GetVideoRenderJobRequest
+ * @return GetVideoRenderJobResponse
+ */
+GetVideoRenderJobResponse Client::getVideoRenderJob(const GetVideoRenderJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getVideoRenderJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the membership plan and credit information for a Yike primary account.
  *
  * @param request GetYikeAccountCreditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -496,7 +578,7 @@ GetYikeAccountCreditResponse Client::getYikeAccountCreditWithOptions(const GetYi
 }
 
 /**
- * @summary 获取一刻主账户会员计划及积分情况
+ * @summary Retrieves the membership plan and credit information for a Yike primary account.
  *
  * @param request GetYikeAccountCreditRequest
  * @return GetYikeAccountCreditResponse
@@ -507,7 +589,7 @@ GetYikeAccountCreditResponse Client::getYikeAccountCredit(const GetYikeAccountCr
 }
 
 /**
- * @summary 查询一刻任务实际消耗积分
+ * @summary Queries the actual credit consumption of a task.
  *
  * @param request GetYikeJobCreditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -538,7 +620,7 @@ GetYikeJobCreditResponse Client::getYikeJobCreditWithOptions(const GetYikeJobCre
 }
 
 /**
- * @summary 查询一刻任务实际消耗积分
+ * @summary Queries the actual credit consumption of a task.
  *
  * @param request GetYikeJobCreditRequest
  * @return GetYikeJobCreditResponse
@@ -549,10 +631,10 @@ GetYikeJobCreditResponse Client::getYikeJobCredit(const GetYikeJobCreditRequest 
 }
 
 /**
- * @summary 导入媒资
+ * @summary Imports a media asset.
  *
- * @description ## 请求说明
- * 该API用于查询媒资内容理解作业。
+ * @description ## Operation description
+ * This API is used to query media content understanding jobs.
  *
  * @param request ImportMediaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -631,10 +713,10 @@ ImportMediaResponse Client::importMediaWithOptions(const ImportMediaRequest &req
 }
 
 /**
- * @summary 导入媒资
+ * @summary Imports a media asset.
  *
- * @description ## 请求说明
- * 该API用于查询媒资内容理解作业。
+ * @description ## Operation description
+ * This API is used to query media content understanding jobs.
  *
  * @param request ImportMediaRequest
  * @return ImportMediaResponse
@@ -645,7 +727,7 @@ ImportMediaResponse Client::importMedia(const ImportMediaRequest &request) {
 }
 
 /**
- * @summary 列出分类
+ * @summary Retrieves a paginated list of categories.
  *
  * @param request ListAssetCategoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -680,7 +762,7 @@ ListAssetCategoriesResponse Client::listAssetCategoriesWithOptions(const ListAss
 }
 
 /**
- * @summary 列出分类
+ * @summary Retrieves a paginated list of categories.
  *
  * @param request ListAssetCategoriesRequest
  * @return ListAssetCategoriesResponse
@@ -691,7 +773,7 @@ ListAssetCategoriesResponse Client::listAssetCategories(const ListAssetCategorie
 }
 
 /**
- * @summary 搜索媒资
+ * @summary Returns media asset information that matches the specified filter conditions.
  *
  * @param request SearchMediaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -742,7 +824,7 @@ SearchMediaResponse Client::searchMediaWithOptions(const SearchMediaRequest &req
 }
 
 /**
- * @summary 搜索媒资
+ * @summary Returns media asset information that matches the specified filter conditions.
  *
  * @param request SearchMediaRequest
  * @return SearchMediaResponse
@@ -753,7 +835,7 @@ SearchMediaResponse Client::searchMedia(const SearchMediaRequest &request) {
 }
 
 /**
- * @summary 提交图像生成接口
+ * @summary Submits an image generation task.
  *
  * @param request SubmitImageGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -820,7 +902,7 @@ SubmitImageGenerationJobResponse Client::submitImageGenerationJobWithOptions(con
 }
 
 /**
- * @summary 提交图像生成接口
+ * @summary Submits an image generation task.
  *
  * @param request SubmitImageGenerationJobRequest
  * @return SubmitImageGenerationJobResponse
@@ -891,7 +973,61 @@ SubmitMediaComprehensionJobResponse Client::submitMediaComprehensionJob(const Su
 }
 
 /**
- * @summary 提交视频生成接口
+ * @summary 提交爆款复刻新脚本生成任务
+ *
+ * @description 该 API 用于根据内容理解的结果与新商品/模特信息，仿写生成新的口播脚本。此外，支持通过UserData字段传递自定义参数，在回调时原样返回。
+ *
+ * @param request SubmitRemakeScriptJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitRemakeScriptJobResponse
+ */
+SubmitRemakeScriptJobResponse Client::submitRemakeScriptJobWithOptions(const SubmitRemakeScriptJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRemakeParams()) {
+    query["RemakeParams"] = request.getRemakeParams();
+  }
+
+  if (!!request.hasRemakeType()) {
+    query["RemakeType"] = request.getRemakeType();
+  }
+
+  if (!!request.hasUserData()) {
+    query["UserData"] = request.getUserData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitRemakeScriptJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitRemakeScriptJobResponse>();
+}
+
+/**
+ * @summary 提交爆款复刻新脚本生成任务
+ *
+ * @description 该 API 用于根据内容理解的结果与新商品/模特信息，仿写生成新的口播脚本。此外，支持通过UserData字段传递自定义参数，在回调时原样返回。
+ *
+ * @param request SubmitRemakeScriptJobRequest
+ * @return SubmitRemakeScriptJobResponse
+ */
+SubmitRemakeScriptJobResponse Client::submitRemakeScriptJob(const SubmitRemakeScriptJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitRemakeScriptJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Submits a video generation task.
  *
  * @param request SubmitVideoGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -962,7 +1098,7 @@ SubmitVideoGenerationJobResponse Client::submitVideoGenerationJobWithOptions(con
 }
 
 /**
- * @summary 提交视频生成接口
+ * @summary Submits a video generation task.
  *
  * @param request SubmitVideoGenerationJobRequest
  * @return SubmitVideoGenerationJobResponse
@@ -973,16 +1109,66 @@ SubmitVideoGenerationJobResponse Client::submitVideoGenerationJob(const SubmitVi
 }
 
 /**
- * @summary 提交视频翻译任务
+ * @summary 提交爆款新视频渲染任务
  *
- * @description ## 请求说明
- * - 该 API 支持多种视频翻译功能，包括字幕翻译和声音翻译。
- * - `JobType` 参数定义了任务类型，如 `SubtitleTranslate`和`VoiceTranslate` 。
- * - `Input` 和 `Output` 参数分别指定了输入资源和输出路径。
- * - `JobParameters` 包含了语言配置和其他能力开关，如 `SourceLanguage`、`TargetLanguage`、`NeedDetext` 和 `NeedVisualTranslate` 等。
- * - `EditingConfig` 可以用来指定最终剪辑合成的样式配置。
- * - `ClientToken` 是一个可选参数，用于保证请求的幂等性。
- * - 请确保所有必填字段都已正确填写，否则可能会导致请求失败。
+ * @param request SubmitVideoRenderJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitVideoRenderJobResponse
+ */
+SubmitVideoRenderJobResponse Client::submitVideoRenderJobWithOptions(const SubmitVideoRenderJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasScript()) {
+    query["Script"] = request.getScript();
+  }
+
+  if (!!request.hasSettings()) {
+    query["Settings"] = request.getSettings();
+  }
+
+  if (!!request.hasUserData()) {
+    query["UserData"] = request.getUserData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitVideoRenderJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitVideoRenderJobResponse>();
+}
+
+/**
+ * @summary 提交爆款新视频渲染任务
+ *
+ * @param request SubmitVideoRenderJobRequest
+ * @return SubmitVideoRenderJobResponse
+ */
+SubmitVideoRenderJobResponse Client::submitVideoRenderJob(const SubmitVideoRenderJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitVideoRenderJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Submits a video translation task that supports subtitle translation, voice translation, and on-screen text translation.
+ *
+ * @description ## Request description
+ * - This API supports multiple video translation features, including subtitle translation and voice translation.
+ * - The `JobType` parameter defines the task type, such as `SubtitleTranslate` and `VoiceTranslate`.
+ * - The `Input` and `Output` parameters specify the input resource and output path, respectively.
+ * - `JobParameters` contains language configuration and other feature switches, such as `SourceLanguage`, `TargetLanguage`, `NeedDetext`, and `NeedVisualTranslate`.
+ * - `EditingConfig` can be used to specify the style configuration for the final editing and compositing.
+ * - `ClientToken` is an optional parameter used to ensure the idempotence of the request.
+ * - Ensure that all required fields are correctly filled in. Otherwise, the request may fail.
  *
  * @param request SubmitVideoTranslationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1041,16 +1227,16 @@ SubmitVideoTranslationJobResponse Client::submitVideoTranslationJobWithOptions(c
 }
 
 /**
- * @summary 提交视频翻译任务
+ * @summary Submits a video translation task that supports subtitle translation, voice translation, and on-screen text translation.
  *
- * @description ## 请求说明
- * - 该 API 支持多种视频翻译功能，包括字幕翻译和声音翻译。
- * - `JobType` 参数定义了任务类型，如 `SubtitleTranslate`和`VoiceTranslate` 。
- * - `Input` 和 `Output` 参数分别指定了输入资源和输出路径。
- * - `JobParameters` 包含了语言配置和其他能力开关，如 `SourceLanguage`、`TargetLanguage`、`NeedDetext` 和 `NeedVisualTranslate` 等。
- * - `EditingConfig` 可以用来指定最终剪辑合成的样式配置。
- * - `ClientToken` 是一个可选参数，用于保证请求的幂等性。
- * - 请确保所有必填字段都已正确填写，否则可能会导致请求失败。
+ * @description ## Request description
+ * - This API supports multiple video translation features, including subtitle translation and voice translation.
+ * - The `JobType` parameter defines the task type, such as `SubtitleTranslate` and `VoiceTranslate`.
+ * - The `Input` and `Output` parameters specify the input resource and output path, respectively.
+ * - `JobParameters` contains language configuration and other feature switches, such as `SourceLanguage`, `TargetLanguage`, `NeedDetext`, and `NeedVisualTranslate`.
+ * - `EditingConfig` can be used to specify the style configuration for the final editing and compositing.
+ * - `ClientToken` is an optional parameter used to ensure the idempotence of the request.
+ * - Ensure that all required fields are correctly filled in. Otherwise, the request may fail.
  *
  * @param request SubmitVideoTranslationJobRequest
  * @return SubmitVideoTranslationJobResponse
@@ -1061,9 +1247,9 @@ SubmitVideoTranslationJobResponse Client::submitVideoTranslationJob(const Submit
 }
 
 /**
- * @summary 更新媒资分类
+ * @summary Updates a media asset category.
  *
- * @description 创建媒资分类后，可调用本接口通过分类 ID 来定位并更新媒资分类的名称。
+ * @description After you create a media asset category, you can call this operation to locate and update the name of the media asset category by category ID.
  *
  * @param request UpdateAssetCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1098,9 +1284,9 @@ UpdateAssetCategoryResponse Client::updateAssetCategoryWithOptions(const UpdateA
 }
 
 /**
- * @summary 更新媒资分类
+ * @summary Updates a media asset category.
  *
- * @description 创建媒资分类后，可调用本接口通过分类 ID 来定位并更新媒资分类的名称。
+ * @description After you create a media asset category, you can call this operation to locate and update the name of the media asset category by category ID.
  *
  * @param request UpdateAssetCategoryRequest
  * @return UpdateAssetCategoryResponse
@@ -1111,10 +1297,10 @@ UpdateAssetCategoryResponse Client::updateAssetCategory(const UpdateAssetCategor
 }
 
 /**
- * @summary UpdateMedia
+ * @summary Updates media asset information.
  *
- * @description ## 请求说明
- * 该API用于查询媒资内容理解作业。
+ * @description ## Request description
+ * This API is used to query media content understanding jobs.
  *
  * @param request UpdateMediaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1181,10 +1367,10 @@ UpdateMediaResponse Client::updateMediaWithOptions(const UpdateMediaRequest &req
 }
 
 /**
- * @summary UpdateMedia
+ * @summary Updates media asset information.
  *
- * @description ## 请求说明
- * 该API用于查询媒资内容理解作业。
+ * @description ## Request description
+ * This API is used to query media content understanding jobs.
  *
  * @param request UpdateMediaRequest
  * @return UpdateMediaResponse
