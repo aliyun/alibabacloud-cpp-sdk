@@ -90,6 +90,8 @@ namespace Models
     // - Public: a public network.
     shared_ptr<string> DBInstanceNetType_ {};
     // The ID of the region.
+    // 
+    // This parameter is required.
     shared_ptr<string> regionId_ {};
   };
 

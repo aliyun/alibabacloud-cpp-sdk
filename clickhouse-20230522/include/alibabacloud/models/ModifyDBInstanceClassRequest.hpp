@@ -251,6 +251,8 @@ namespace Models
     // The minimum capacity per node for serverless autoscaling. Valid values: 4 to 32.
     shared_ptr<int32_t> nodeScaleMin_ {};
     // The region ID.
+    // 
+    // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The maximum capacity for serverless autoscaling.
     shared_ptr<int64_t> scaleMax_ {};

@@ -90,6 +90,8 @@ namespace Models
     // >  We recommend that you set the value to 0.
     shared_ptr<string> modifyMode_ {};
     // The region ID.
+    // 
+    // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The IP addresses and CIDR blocks in the whitelist.
     shared_ptr<string> securityIPList_ {};

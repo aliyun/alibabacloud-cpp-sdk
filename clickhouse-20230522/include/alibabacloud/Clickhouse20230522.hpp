@@ -616,7 +616,7 @@ namespace Clickhouse20230522
       Models::DescribeLangfuseOrgMembershipsResponse describeLangfuseOrgMemberships(const Models::DescribeLangfuseOrgMembershipsRequest &request);
 
       /**
-       * @summary 查询Langfuse实例组织列表
+       * @summary Queries the list of organizations for a Langfuse instance.
        *
        * @param request DescribeLangfuseOrgsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -625,7 +625,7 @@ namespace Clickhouse20230522
       Models::DescribeLangfuseOrgsResponse describeLangfuseOrgsWithOptions(const Models::DescribeLangfuseOrgsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Langfuse实例组织列表
+       * @summary Queries the list of organizations for a Langfuse instance.
        *
        * @param request DescribeLangfuseOrgsRequest
        * @return DescribeLangfuseOrgsResponse

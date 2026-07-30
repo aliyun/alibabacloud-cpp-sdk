@@ -75,6 +75,8 @@ namespace Models
     // The query ID.
     shared_ptr<string> initialQueryId_ {};
     // The region ID.
+    // 
+    // This parameter is required.
     shared_ptr<string> regionId_ {};
   };
 

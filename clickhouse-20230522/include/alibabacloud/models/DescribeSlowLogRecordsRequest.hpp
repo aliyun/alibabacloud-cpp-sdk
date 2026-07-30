@@ -124,6 +124,8 @@ namespace Models
     // The minimum duration, in milliseconds, for a slow SQL query to be returned. The minimum value is **1000**.
     shared_ptr<string> queryDurationMs_ {};
     // The region ID.
+    // 
+    // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The start time of the query. The time must be in UTC and in `yyyy-MM-dd HH:mm:ss` format.
     shared_ptr<string> startTime_ {};

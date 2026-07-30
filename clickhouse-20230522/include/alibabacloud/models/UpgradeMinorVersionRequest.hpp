@@ -80,6 +80,8 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The region ID.
+    // 
+    // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The update time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 

@@ -113,9 +113,13 @@ namespace Models
 
 
       protected:
+        // The time when the Langfuse organization was created.
         shared_ptr<string> createdAt_ {};
+        // The Langfuse organization name.
         shared_ptr<string> name_ {};
+        // The Langfuse organization ID.
         shared_ptr<string> organizationId_ {};
+        // The time when the Langfuse organization was last updated.
         shared_ptr<string> updatedAt_ {};
       };
 
@@ -152,9 +156,13 @@ namespace Models
 
 
     protected:
+      // The Langfuse organization information.
       shared_ptr<vector<Data::Organizations>> organizations_ {};
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of records per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -177,7 +185,9 @@ namespace Models
 
 
   protected:
+    // The returned result.
     shared_ptr<DescribeLangfuseOrgsResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

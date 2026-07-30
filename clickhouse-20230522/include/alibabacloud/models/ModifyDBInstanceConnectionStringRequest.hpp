@@ -120,6 +120,8 @@ namespace Models
     //   This parameter is not supported for clusters that were upgraded to kernel version 24.10.1.11098_1 or later from an earlier version.
     shared_ptr<string> disablePorts_ {};
     // The region ID.
+    // 
+    // This parameter is required.
     shared_ptr<string> regionId_ {};
   };
 

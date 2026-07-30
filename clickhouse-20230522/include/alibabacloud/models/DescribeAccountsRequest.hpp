@@ -89,6 +89,8 @@ namespace Models
     // The product code.
     shared_ptr<string> product_ {};
     // The region ID.
+    // 
+    // This parameter is required.
     shared_ptr<string> regionId_ {};
   };
 
