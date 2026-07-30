@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_QUERYASYNCTASKRESULTRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_QUERYASYNCTASKRESULTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <map>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -44,13 +43,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Result, result_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
-        DARABONBA_PTR_TO_JSON(UsageMap, usageMap_);
+        DARABONBA_ANY_TO_JSON(UsageMap, usageMap_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(Result, result_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
-        DARABONBA_PTR_FROM_JSON(UsageMap, usageMap_);
+        DARABONBA_ANY_FROM_JSON(UsageMap, usageMap_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -89,10 +88,10 @@ namespace Models
       // usageMap Field Functions 
       bool hasUsageMap() const { return this->usageMap_ != nullptr;};
       void deleteUsageMap() { this->usageMap_ = nullptr;};
-      inline const map<string, int64_t> & getUsageMap() const { DARABONBA_PTR_GET_CONST(usageMap_, map<string, int64_t>) };
-      inline map<string, int64_t> getUsageMap() { DARABONBA_PTR_GET(usageMap_, map<string, int64_t>) };
-      inline Data& setUsageMap(const map<string, int64_t> & usageMap) { DARABONBA_PTR_SET_VALUE(usageMap_, usageMap) };
-      inline Data& setUsageMap(map<string, int64_t> && usageMap) { DARABONBA_PTR_SET_RVALUE(usageMap_, usageMap) };
+      inline       const Darabonba::Json & getUsageMap() const { DARABONBA_GET(usageMap_) };
+      Darabonba::Json & getUsageMap() { DARABONBA_GET(usageMap_) };
+      inline Data& setUsageMap(const Darabonba::Json & usageMap) { DARABONBA_SET_VALUE(usageMap_, usageMap) };
+      inline Data& setUsageMap(Darabonba::Json && usageMap) { DARABONBA_SET_RVALUE(usageMap_, usageMap) };
 
 
     protected:
@@ -103,7 +102,7 @@ namespace Models
       // The ID of the downstream task.
       shared_ptr<string> taskId_ {};
       // The usage information.
-      shared_ptr<map<string, int64_t>> usageMap_ {};
+      Darabonba::Json usageMap_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr

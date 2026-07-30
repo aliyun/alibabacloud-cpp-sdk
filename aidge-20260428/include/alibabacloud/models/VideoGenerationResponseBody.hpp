@@ -1,7 +1,8 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_DOCUMENTTRANSLATERESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_DOCUMENTTRANSLATERESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_VIDEOGENERATIONRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_VIDEOGENERATIONRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -10,29 +11,29 @@ namespace Aidge20260428
 {
 namespace Models
 {
-  class DocumentTranslateResponseBody : public Darabonba::Model {
+  class VideoGenerationResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const DocumentTranslateResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const VideoGenerationResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, DocumentTranslateResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, VideoGenerationResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    DocumentTranslateResponseBody() = default ;
-    DocumentTranslateResponseBody(const DocumentTranslateResponseBody &) = default ;
-    DocumentTranslateResponseBody(DocumentTranslateResponseBody &&) = default ;
-    DocumentTranslateResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~DocumentTranslateResponseBody() = default ;
-    DocumentTranslateResponseBody& operator=(const DocumentTranslateResponseBody &) = default ;
-    DocumentTranslateResponseBody& operator=(DocumentTranslateResponseBody &&) = default ;
+    VideoGenerationResponseBody() = default ;
+    VideoGenerationResponseBody(const VideoGenerationResponseBody &) = default ;
+    VideoGenerationResponseBody(VideoGenerationResponseBody &&) = default ;
+    VideoGenerationResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~VideoGenerationResponseBody() = default ;
+    VideoGenerationResponseBody& operator=(const VideoGenerationResponseBody &) = default ;
+    VideoGenerationResponseBody& operator=(VideoGenerationResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -41,9 +42,11 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+        DARABONBA_PTR_TO_JSON(UsageMap, usageMap_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+        DARABONBA_PTR_FROM_JSON(UsageMap, usageMap_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -56,7 +59,8 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->taskId_ == nullptr; };
+      virtual bool empty() const override { return this->taskId_ == nullptr
+        && this->usageMap_ == nullptr; };
       // taskId Field Functions 
       bool hasTaskId() const { return this->taskId_ != nullptr;};
       void deleteTaskId() { this->taskId_ = nullptr;};
@@ -64,9 +68,18 @@ namespace Models
       inline Data& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
+      // usageMap Field Functions 
+      bool hasUsageMap() const { return this->usageMap_ != nullptr;};
+      void deleteUsageMap() { this->usageMap_ = nullptr;};
+      inline const map<string, int64_t> & getUsageMap() const { DARABONBA_PTR_GET_CONST(usageMap_, map<string, int64_t>) };
+      inline map<string, int64_t> getUsageMap() { DARABONBA_PTR_GET(usageMap_, map<string, int64_t>) };
+      inline Data& setUsageMap(const map<string, int64_t> & usageMap) { DARABONBA_PTR_SET_VALUE(usageMap_, usageMap) };
+      inline Data& setUsageMap(map<string, int64_t> && usageMap) { DARABONBA_PTR_SET_RVALUE(usageMap_, usageMap) };
+
+
     protected:
-      // The unique identifier of the asynchronous task, used to query the task status and result.
       shared_ptr<string> taskId_ {};
+      shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
@@ -75,49 +88,44 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline DocumentTranslateResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline VideoGenerationResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const DocumentTranslateResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, DocumentTranslateResponseBody::Data) };
-    inline DocumentTranslateResponseBody::Data getData() { DARABONBA_PTR_GET(data_, DocumentTranslateResponseBody::Data) };
-    inline DocumentTranslateResponseBody& setData(const DocumentTranslateResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline DocumentTranslateResponseBody& setData(DocumentTranslateResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const VideoGenerationResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, VideoGenerationResponseBody::Data) };
+    inline VideoGenerationResponseBody::Data getData() { DARABONBA_PTR_GET(data_, VideoGenerationResponseBody::Data) };
+    inline VideoGenerationResponseBody& setData(const VideoGenerationResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline VideoGenerationResponseBody& setData(VideoGenerationResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline DocumentTranslateResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline VideoGenerationResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline DocumentTranslateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline VideoGenerationResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline DocumentTranslateResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline VideoGenerationResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    // The response code.
     shared_ptr<string> code_ {};
-    // The asynchronous task information.
-    shared_ptr<DocumentTranslateResponseBody::Data> data_ {};
-    // The error message. Not returned for successful calls.
+    shared_ptr<VideoGenerationResponseBody::Data> data_ {};
     shared_ptr<string> message_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. true: successful. false: failed.
     shared_ptr<bool> success_ {};
   };
 

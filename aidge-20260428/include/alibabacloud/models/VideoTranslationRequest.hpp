@@ -69,11 +69,18 @@ namespace Models
 
 
   protected:
+    // The array of translation capabilities. Valid values: ["visual"].
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> capabilities_ {};
+    // The source language. This parameter is optional. Default value: auto (automatic detection).
     shared_ptr<string> sourceLanguage_ {};
+    // The target language. This parameter is required.
+    // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
+    // The video URL (MP4/MOV, ≤ 200 MB).
+    // 
     // This parameter is required.
     shared_ptr<string> videoUrl_ {};
   };
