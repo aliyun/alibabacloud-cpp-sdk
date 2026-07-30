@@ -40,6 +40,7 @@ namespace Models
     class Result : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Result& obj) { 
+        DARABONBA_PTR_TO_JSON(failBizCode, failBizCode_);
         DARABONBA_PTR_TO_JSON(failCode, failCode_);
         DARABONBA_PTR_TO_JSON(failMsg, failMsg_);
         DARABONBA_PTR_TO_JSON(status, status_);
@@ -47,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(videoUrl, videoUrl_);
       };
       friend void from_json(const Darabonba::Json& j, Result& obj) { 
+        DARABONBA_PTR_FROM_JSON(failBizCode, failBizCode_);
         DARABONBA_PTR_FROM_JSON(failCode, failCode_);
         DARABONBA_PTR_FROM_JSON(failMsg, failMsg_);
         DARABONBA_PTR_FROM_JSON(status, status_);
@@ -64,8 +66,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->failCode_ == nullptr
-        && this->failMsg_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->videoUrl_ == nullptr; };
+      virtual bool empty() const override { return this->failBizCode_ == nullptr
+        && this->failCode_ == nullptr && this->failMsg_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->videoUrl_ == nullptr; };
+      // failBizCode Field Functions 
+      bool hasFailBizCode() const { return this->failBizCode_ != nullptr;};
+      void deleteFailBizCode() { this->failBizCode_ = nullptr;};
+      inline string getFailBizCode() const { DARABONBA_PTR_GET_DEFAULT(failBizCode_, "") };
+      inline Result& setFailBizCode(string failBizCode) { DARABONBA_PTR_SET_VALUE(failBizCode_, failBizCode) };
+
+
       // failCode Field Functions 
       bool hasFailCode() const { return this->failCode_ != nullptr;};
       void deleteFailCode() { this->failCode_ = nullptr;};
@@ -102,6 +111,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> failBizCode_ {};
       shared_ptr<string> failCode_ {};
       shared_ptr<string> failMsg_ {};
       shared_ptr<string> status_ {};
@@ -151,7 +161,6 @@ namespace Models
   protected:
     shared_ptr<string> errorCode_ {};
     shared_ptr<string> errorMsg_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<CheckTuringTaskResponseBody::Result> result_ {};
     shared_ptr<bool> success_ {};

@@ -110,7 +110,6 @@ namespace Models
   protected:
     shared_ptr<string> errorCode_ {};
     shared_ptr<string> errorMsg_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<SubmitTuringTaskResponseBody::Result> result_ {};
     shared_ptr<bool> success_ {};
