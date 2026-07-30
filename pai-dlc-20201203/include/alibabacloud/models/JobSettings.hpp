@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DataJuicerConfig, dataJuicerConfig_);
       DARABONBA_PTR_TO_JSON(DisableEcsStockCheck, disableEcsStockCheck_);
       DARABONBA_PTR_TO_JSON(Driver, driver_);
+      DARABONBA_PTR_TO_JSON(ElasticSpotJobMaxRestartTimes, elasticSpotJobMaxRestartTimes_);
       DARABONBA_PTR_TO_JSON(EnableCPUAffinity, enableCPUAffinity_);
       DARABONBA_PTR_TO_JSON(EnableDSWDev, enableDSWDev_);
       DARABONBA_PTR_TO_JSON(EnableErrorMonitoringInAIMaster, enableErrorMonitoringInAIMaster_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DataJuicerConfig, dataJuicerConfig_);
       DARABONBA_PTR_FROM_JSON(DisableEcsStockCheck, disableEcsStockCheck_);
       DARABONBA_PTR_FROM_JSON(Driver, driver_);
+      DARABONBA_PTR_FROM_JSON(ElasticSpotJobMaxRestartTimes, elasticSpotJobMaxRestartTimes_);
       DARABONBA_PTR_FROM_JSON(EnableCPUAffinity, enableCPUAffinity_);
       DARABONBA_PTR_FROM_JSON(EnableDSWDev, enableDSWDev_);
       DARABONBA_PTR_FROM_JSON(EnableErrorMonitoringInAIMaster, enableErrorMonitoringInAIMaster_);
@@ -82,10 +84,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->advancedSettings_ == nullptr
         && this->allocateAllRDMADevices_ == nullptr && this->allowUnschedulableNodes_ == nullptr && this->businessUserId_ == nullptr && this->caller_ == nullptr && this->dataJuicerConfig_ == nullptr
-        && this->disableEcsStockCheck_ == nullptr && this->driver_ == nullptr && this->enableCPUAffinity_ == nullptr && this->enableDSWDev_ == nullptr && this->enableErrorMonitoringInAIMaster_ == nullptr
-        && this->enableOssAppend_ == nullptr && this->enableRDMA_ == nullptr && this->enableSanityCheck_ == nullptr && this->enableTideResource_ == nullptr && this->errorMonitoringArgs_ == nullptr
-        && this->jobReservedMinutes_ == nullptr && this->jobReservedPolicy_ == nullptr && this->modelConfig_ == nullptr && this->oversoldType_ == nullptr && this->pipelineId_ == nullptr
-        && this->sanityCheckArgs_ == nullptr && this->shell_ == nullptr && this->tags_ == nullptr && this->terminationGracePeriodSeconds_ == nullptr; };
+        && this->disableEcsStockCheck_ == nullptr && this->driver_ == nullptr && this->elasticSpotJobMaxRestartTimes_ == nullptr && this->enableCPUAffinity_ == nullptr && this->enableDSWDev_ == nullptr
+        && this->enableErrorMonitoringInAIMaster_ == nullptr && this->enableOssAppend_ == nullptr && this->enableRDMA_ == nullptr && this->enableSanityCheck_ == nullptr && this->enableTideResource_ == nullptr
+        && this->errorMonitoringArgs_ == nullptr && this->jobReservedMinutes_ == nullptr && this->jobReservedPolicy_ == nullptr && this->modelConfig_ == nullptr && this->oversoldType_ == nullptr
+        && this->pipelineId_ == nullptr && this->sanityCheckArgs_ == nullptr && this->shell_ == nullptr && this->tags_ == nullptr && this->terminationGracePeriodSeconds_ == nullptr; };
     // advancedSettings Field Functions 
     bool hasAdvancedSettings() const { return this->advancedSettings_ != nullptr;};
     void deleteAdvancedSettings() { this->advancedSettings_ = nullptr;};
@@ -144,6 +146,13 @@ namespace Models
     void deleteDriver() { this->driver_ = nullptr;};
     inline string getDriver() const { DARABONBA_PTR_GET_DEFAULT(driver_, "") };
     inline JobSettings& setDriver(string driver) { DARABONBA_PTR_SET_VALUE(driver_, driver) };
+
+
+    // elasticSpotJobMaxRestartTimes Field Functions 
+    bool hasElasticSpotJobMaxRestartTimes() const { return this->elasticSpotJobMaxRestartTimes_ != nullptr;};
+    void deleteElasticSpotJobMaxRestartTimes() { this->elasticSpotJobMaxRestartTimes_ = nullptr;};
+    inline int32_t getElasticSpotJobMaxRestartTimes() const { DARABONBA_PTR_GET_DEFAULT(elasticSpotJobMaxRestartTimes_, 0) };
+    inline JobSettings& setElasticSpotJobMaxRestartTimes(int32_t elasticSpotJobMaxRestartTimes) { DARABONBA_PTR_SET_VALUE(elasticSpotJobMaxRestartTimes_, elasticSpotJobMaxRestartTimes) };
 
 
     // enableCPUAffinity Field Functions 
@@ -287,6 +296,7 @@ namespace Models
     shared_ptr<bool> disableEcsStockCheck_ {};
     // The NVIDIA driver configuration.
     shared_ptr<string> driver_ {};
+    shared_ptr<int32_t> elasticSpotJobMaxRestartTimes_ {};
     // The CPU affinity setting. This setting is effective only when using general computing subscription resources.
     shared_ptr<bool> enableCPUAffinity_ {};
     shared_ptr<bool> enableDSWDev_ {};
@@ -316,7 +326,7 @@ namespace Models
     shared_ptr<int32_t> jobReservedMinutes_ {};
     // The retention policy after job completion.
     shared_ptr<string> jobReservedPolicy_ {};
-    // The output model configuration. This parameter is currently effective only in federated training scenarios.
+    // The output model configuration. This parameter is currently effective only in joint training scenarios.
     shared_ptr<ModelConfig> modelConfig_ {};
     // The oversold resource usage mode for the job (reject/accept/only accept).
     shared_ptr<string> oversoldType_ {};

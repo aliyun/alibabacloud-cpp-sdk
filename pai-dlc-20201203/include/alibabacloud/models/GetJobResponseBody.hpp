@@ -200,11 +200,8 @@ namespace Models
 
     protected:
       // The default routing. This parameter is valid only for general computing resources. Valid values:
-      // 
-      // eth0: uses the default network interface controller (NIC) to access external networks through a public gateway.
-      // eth1: uses the user elastic network interfaces (ENIs) to access external networks through a private gateway.
       shared_ptr<string> defaultRoute_ {};
-      // The extended CIDR blocks, for example, 192.168.0.1/24.
+      // The extended CIDR blocks. Example: 192.168.0.1/24.
       shared_ptr<vector<string>> extendedCidrs_ {};
       // The ID of the user security group.
       shared_ptr<string> securityGroupId_ {};
@@ -361,13 +358,13 @@ namespace Models
         shared_ptr<string> detailErrorMsg_ {};
         // The error code.
         shared_ptr<string> errorCode_ {};
-        // The fault message.
+        // The fault error message.
         shared_ptr<string> errorMsg_ {};
         // The error source.
         shared_ptr<string> errorSource_ {};
         // The node.
         shared_ptr<string> node_ {};
-        // The instance.
+        // The pod.
         shared_ptr<string> pod_ {};
         // Indicates whether a restart is triggered.
         shared_ptr<bool> triggerRestart_ {};
@@ -449,19 +446,19 @@ namespace Models
 
 
     protected:
-      // The list of fault information.
+      // The list of fault error messages.
       shared_ptr<vector<RestartRecord::DetailErrorInfoList>> detailErrorInfoList_ {};
-      // The job restart count.
+      // The number of job restarts.
       shared_ptr<int64_t> jobRestartCount_ {};
       // The phase in which the event occurred.
       shared_ptr<string> occurPhase_ {};
       // The time when the event occurred.
       shared_ptr<string> occurTime_ {};
-      // The reason.
+      // The reason for the restart.
       shared_ptr<string> reason_ {};
-      // The restart duration.
+      // The restart duration, in seconds.
       shared_ptr<int64_t> restartDurationInSec_ {};
-      // The restart failure reason.
+      // The reason for the restart failure.
       shared_ptr<string> restartFailReason_ {};
       shared_ptr<string> restartLevelType_ {};
       // The restart status.
@@ -667,7 +664,7 @@ namespace Models
 
 
       protected:
-        // The pod running duration.
+        // The pod duration.
         shared_ptr<double> duration_ {};
         // The pod creation time (UTC).
         shared_ptr<string> gmtCreateTime_ {};
@@ -681,7 +678,7 @@ namespace Models
         shared_ptr<string> nodeName_ {};
         // Pod ID。
         shared_ptr<string> podId_ {};
-        // The IP addresses of the pod.
+        // The pod IP addresses.
         shared_ptr<vector<PodNetworkInterface>> podIps_ {};
         // Pod UID。
         shared_ptr<string> podUid_ {};
@@ -689,9 +686,7 @@ namespace Models
         shared_ptr<string> resourceType_ {};
         // The pod status.
         shared_ptr<string> status_ {};
-        // The pod sub-status, such as preemption status. Valid values:
-        // - Normal
-        // - Evicted
+        // The pod substatus, such as preemption status. Valid values:
         shared_ptr<string> subStatus_ {};
         // The pod type.
         shared_ptr<string> type_ {};
@@ -812,7 +807,7 @@ namespace Models
 
 
     protected:
-      // The pod running duration.
+      // The pod duration.
       shared_ptr<double> duration_ {};
       // The pod creation time (UTC).
       shared_ptr<string> gmtCreateTime_ {};
@@ -820,33 +815,25 @@ namespace Models
       shared_ptr<string> gmtFinishTime_ {};
       // The pod start time (UTC).
       shared_ptr<string> gmtStartTime_ {};
-      // The historical pods.
+      // The history pods.
       shared_ptr<vector<Pods::HistoryPods>> historyPods_ {};
       // The network IP address of the pod.
       shared_ptr<string> ip_ {};
       // The node name.
       shared_ptr<string> nodeName_ {};
-      // The pod ID. You can use this ID with the GetPodLogs and GetPodEvents APIs to retrieve detailed logs and events of the pod.
+      // The pod ID. You can use this ID with the GetPodLogs and GetPodEvents APIs to retrieve detailed logs and events for the pod.
       shared_ptr<string> podId_ {};
-      // The IP addresses of the pod.
+      // The pod IP addresses.
       shared_ptr<vector<PodNetworkInterface>> podIps_ {};
       // Pod UID。
       shared_ptr<string> podUid_ {};
       // The pod resource usage type.
       shared_ptr<string> resourceType_ {};
       // The pod status. Valid values:
-      // 
-      // - Pending
-      // - Running
-      // - Succeeded
-      // - Failed
-      // - Unknown
       shared_ptr<string> status_ {};
-      // The pod sub-status, such as preemption status. Valid values:
-      // - Normal
-      // - Evicted
+      // The pod substatus, such as preemption status. Valid values:
       shared_ptr<string> subStatus_ {};
-      // The pod type, which corresponds to a JobSpec in the JobSpecs parameter of CreateJob.
+      // The pod type, which corresponds to a JobSpec in JobSpecs of CreateJob.
       shared_ptr<string> type_ {};
       shared_ptr<string> supportedProfilingTypes_ {};
     };
@@ -900,7 +887,7 @@ namespace Models
     protected:
       // The data source ID.
       shared_ptr<string> dataSourceId_ {};
-      // The local mount path. This is an optional parameter. If left empty, the mount path specified in the data source is used.
+      // The local mount path. This is an optional parameter. The default value is empty, which indicates that the mount path in the data source is used.
       shared_ptr<string> mountPath_ {};
       // The data source path.
       shared_ptr<string> uri_ {};
@@ -1402,9 +1389,7 @@ namespace Models
 
 
   protected:
-    // The visibility of the job. Valid values:
-    // - PUBLIC: Visible to all users in this workspace.
-    // - PRIVATE (default): Visible only to you and administrators in this workspace.
+    // The visibility of the task. Valid values:
     shared_ptr<string> accessibility_ {};
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
@@ -1418,11 +1403,11 @@ namespace Models
     shared_ptr<string> description_ {};
     // The job name.
     shared_ptr<string> displayName_ {};
-    // The job running duration, in seconds.
+    // The job duration, in seconds.
     shared_ptr<int64_t> duration_ {};
     // The elastic job parameters.
     shared_ptr<JobElasticSpec> elasticSpec_ {};
-    // Indicates whether the debugger is enabled for the job.
+    // Specifies whether the debugger task is enabled.
     shared_ptr<bool> enabledDebugger_ {};
     // The environment variable configuration.
     shared_ptr<map<string, string>> envs_ {};
@@ -1430,7 +1415,7 @@ namespace Models
     shared_ptr<string> gmtCreateTime_ {};
     // The time when the job failed (UTC).
     shared_ptr<string> gmtFailedTime_ {};
-    // The job finish time (UTC).
+    // The time when the task finished (UTC).
     shared_ptr<string> gmtFinishTime_ {};
     // The time when the job started running (UTC).
     shared_ptr<string> gmtRunningTime_ {};
@@ -1454,42 +1439,29 @@ namespace Models
     shared_ptr<int32_t> priority_ {};
     // The status detail code, which is a classification of the sub-status under the current status (Status).
     shared_ptr<string> reasonCode_ {};
-    // The detailed description of the status.
+    // The detailed description of the status detail.
     shared_ptr<string> reasonMessage_ {};
     // The request ID, used for diagnostics and troubleshooting.
     shared_ptr<string> requestId_ {};
     // The ID of the resource group in which the job runs.
     shared_ptr<string> resourceId_ {};
-    // The resource level used by the job at runtime.
+    // The resource level used when the job runs.
     shared_ptr<string> resourceLevel_ {};
     // The resource type. Valid values: ECS, Lingjun, ACS.
     shared_ptr<string> resourceType_ {};
     // The job restart records.
     shared_ptr<vector<GetJobResponseBody::RestartRecord>> restartRecord_ {};
-    // The number of retries used and the maximum number of retries for the job.
+    // The used retry count and maximum retry count for the job.
     shared_ptr<string> restartTimes_ {};
     shared_ptr<map<string, Darabonba::Json>> roleSystemEnvs_ {};
     shared_ptr<string> schedulingStrategy_ {};
-    // The additional parameter settings of the job.
+    // The additional parameter settings for the job.
     shared_ptr<JobSettings> settings_ {};
     // The job running status. Valid values:
-    // - Creating
-    // - Queuing
-    // - Bidding (currently only for Lingjun spot jobs)
-    // - EnvPreparing
-    // - SanityChecking
-    // - Running
-    // - Restarting
-    // - Stopping
-    // - SucceededReserving
-    // - FailedReserving
-    // - Succeeded
-    // - Failed
-    // - Stopped
     shared_ptr<string> status_ {};
-    // The historical statuses.
+    // The status history.
     shared_ptr<vector<StatusTransitionItem>> statusHistory_ {};
-    // The job sub-status, such as preemption retry status.
+    // The job substatus, such as preemption retry status.
     shared_ptr<string> subStatus_ {};
     // The tenant ID.
     shared_ptr<string> tenantId_ {};

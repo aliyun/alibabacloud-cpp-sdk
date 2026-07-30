@@ -787,7 +787,7 @@ GetDashboardResponse Client::getDashboard(const string &jobId, const GetDashboar
 }
 
 /**
- * @summary Retrieves the detailed configuration and runtime information of a job.
+ * @summary Retrieves the detailed configuration and runtime information of a node.
  *
  * @param request GetJobRequest
  * @param headers map
@@ -820,7 +820,7 @@ GetJobResponse Client::getJobWithOptions(const string &JobId, const GetJobReques
 }
 
 /**
- * @summary Retrieves the detailed configuration and runtime information of a job.
+ * @summary Retrieves the detailed configuration and runtime information of a node.
  *
  * @param request GetJobRequest
  * @return GetJobResponse

@@ -229,7 +229,7 @@ namespace PaiDlc20201203
       Models::GetDashboardResponse getDashboard(const string &jobId, const Models::GetDashboardRequest &request);
 
       /**
-       * @summary Retrieves the detailed configuration and runtime information of a job.
+       * @summary Retrieves the detailed configuration and runtime information of a node.
        *
        * @param request GetJobRequest
        * @param headers map
@@ -239,7 +239,7 @@ namespace PaiDlc20201203
       Models::GetJobResponse getJobWithOptions(const string &JobId, const Models::GetJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the detailed configuration and runtime information of a job.
+       * @summary Retrieves the detailed configuration and runtime information of a node.
        *
        * @param request GetJobRequest
        * @return GetJobResponse
