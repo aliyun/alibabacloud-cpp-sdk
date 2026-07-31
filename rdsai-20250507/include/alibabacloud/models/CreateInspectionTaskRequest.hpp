@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ReportRegionId, reportRegionId_);
       DARABONBA_PTR_TO_JSON(ReportType, reportType_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateInspectionTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ReportRegionId, reportRegionId_);
       DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
     };
     CreateInspectionTaskRequest() = default ;
     CreateInspectionTaskRequest(const CreateInspectionTaskRequest &) = default ;
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
         && this->inspectionItems_ == nullptr && this->instanceIds_ == nullptr && this->regionId_ == nullptr && this->reportLanguage_ == nullptr && this->reportRegionId_ == nullptr
-        && this->reportType_ == nullptr && this->startTime_ == nullptr; };
+        && this->reportType_ == nullptr && this->startTime_ == nullptr && this->templateId_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
@@ -102,48 +104,40 @@ namespace Models
     inline CreateInspectionTaskRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
+    // templateId Field Functions 
+    bool hasTemplateId() const { return this->templateId_ != nullptr;};
+    void deleteTemplateId() { this->templateId_ = nullptr;};
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline CreateInspectionTaskRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
+
+
   protected:
-    // The end of the inspection time range. The time must be in UTC and formatted as YYYY-MM-DDTHH:mm:ssZ. If StartTime and EndTime are not specified, the inspection covers the last 24 hours.
+    // The end time of the inspection range. Format: YYYY-MM-DDTHH:mm:ssZ (UTC). Default value: the current time.
     shared_ptr<string> endTime_ {};
-    // The inspection items to run, separated by commas. If this parameter is omitted, all inspection items are run.
-    // 
-    // ### Inspection items
-    // 
-    // - `instance_info` (instance information)
-    // 
-    // - `resource_usage` (resource usage)
-    // 
-    // - `connection_session_management` (connection and session management)
-    // 
-    // - `performance_metrics` (performance metrics)
-    // 
-    // - `slow_query_analysis` (slow query analysis)
-    // 
-    // - `error_log_analysis` (error log analysis)
-    // 
-    // - `lock_wait_deadlock_analysis` (lock wait and deadlock analysis)
-    // 
-    // - `backup_recovery_analysis` (backup and recovery analysis)
-    // 
-    // - `high_availability_disaster_recovery_analysis` (high availability and disaster recovery inspection)
-    // 
-    // - `security_configuration_analysis` (security configuration inspection)
-    // 
-    // - `storage_engine_analysis` (storage engine inspection)
-    // 
-    // - `schema_object_analysis` (schema and object inspection)
+    // The list of inspection items. Separate multiple values with commas (,). If this parameter is left empty or not specified, all inspection items are executed.
+    // ### Available inspection items:
+    // * instance_info (instance information)
+    // * resource_usage (resource usage)
+    // * connection_session_management (connection and session management)
+    // * performance_metrics (performance metrics)
+    // * slow_query_analysis (slow query analysis)
+    // * error_log_analysis (error log analysis)
+    // * lock_wait_deadlock_analysis (lock wait and deadlock analysis)
+    // * backup_recovery_analysis (backup and recovery analysis)
+    // * high_availability_disaster_recovery_analysis (high availability and disaster recovery inspection)
+    // * security_configuration_analysis (security configuration inspection)
+    // * storage_engine_analysis (storage engine inspection)
+    // * schema_object_analysis (schema and object inspection)
     shared_ptr<string> inspectionItems_ {};
-    // The IDs of the instances to inspect. Separate multiple instance IDs with a comma.
+    // The list of associated instance IDs. Separate multiple IDs with commas (,).
     shared_ptr<string> instanceIds_ {};
-    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The language of the inspection report. Valid values are zh-CN (Simplified Chinese) and en-US (English). The default value is en-US.
     shared_ptr<string> reportLanguage_ {};
     shared_ptr<string> reportRegionId_ {};
-    // The format of the inspection report. Valid values are pdf and json. The default value is pdf.
     shared_ptr<string> reportType_ {};
-    // The beginning of the inspection time range. The time must be in UTC and formatted as YYYY-MM-DDTHH:mm:ssZ. If StartTime and EndTime are not specified, the inspection covers the last 24 hours.
+    // The start time of the inspection range. Format: YYYY-MM-DDTHH:mm:ssZ (UTC). Default value: 24 hours before the current time.
     shared_ptr<string> startTime_ {};
+    shared_ptr<string> templateId_ {};
   };
 
   } // namespace Models

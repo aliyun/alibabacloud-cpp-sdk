@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The instance ID of the AI application.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

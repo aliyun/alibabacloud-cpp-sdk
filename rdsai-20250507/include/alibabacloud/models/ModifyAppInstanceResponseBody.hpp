@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The module status.
       shared_ptr<string> status_ {};
+      // The module type.
       shared_ptr<string> type_ {};
     };
 
@@ -112,8 +114,11 @@ namespace Models
 
   protected:
     shared_ptr<string> branchName_ {};
+    // The list of modules.
     shared_ptr<vector<ModifyAppInstanceResponseBody::Components>> components_ {};
+    // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

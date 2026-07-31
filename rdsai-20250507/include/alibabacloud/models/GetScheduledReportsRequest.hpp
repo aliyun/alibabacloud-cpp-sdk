@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The end time of the query range. The time must be in the YYYY-MM-DDTHH:mm:ssZ format.
+    // The end time for filtering (format: YYYY-MM-DDTHH:mm:ssZ). If not specified, no end time filter is applied.
     shared_ptr<string> endTime_ {};
-    // The page number. The default value is 1.
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. The default value is 20, and the maximum value is 100.
+    // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the inspection task.
+    // The inspection task ID.
     // 
     // This parameter is required.
     shared_ptr<string> scheduledId_ {};
-    // The start time of the query range. The time must be in the YYYY-MM-DDTHH:mm:ssZ format.
+    // The start time for filtering (format: YYYY-MM-DDTHH:mm:ssZ). If not specified, no start time filter is applied.
     shared_ptr<string> startTime_ {};
   };
 

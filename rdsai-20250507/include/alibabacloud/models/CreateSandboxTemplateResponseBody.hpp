@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

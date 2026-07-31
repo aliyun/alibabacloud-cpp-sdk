@@ -56,6 +56,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ReportType, reportType_);
         DARABONBA_PTR_TO_JSON(ScheduledId, scheduledId_);
         DARABONBA_PTR_TO_JSON(TaskStartTime, taskStartTime_);
+        DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
+        DARABONBA_PTR_TO_JSON(TemplateName, templateName_);
         DARABONBA_PTR_TO_JSON(TimeRange, timeRange_);
       };
       friend void from_json(const Darabonba::Json& j, Schedules& obj) { 
@@ -70,6 +72,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
         DARABONBA_PTR_FROM_JSON(ScheduledId, scheduledId_);
         DARABONBA_PTR_FROM_JSON(TaskStartTime, taskStartTime_);
+        DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
+        DARABONBA_PTR_FROM_JSON(TemplateName, templateName_);
         DARABONBA_PTR_FROM_JSON(TimeRange, timeRange_);
       };
       Schedules() = default ;
@@ -86,7 +90,7 @@ namespace Models
       virtual bool empty() const override { return this->createTime_ == nullptr
         && this->description_ == nullptr && this->frequency_ == nullptr && this->inspectionItems_ == nullptr && this->instanceCount_ == nullptr && this->name_ == nullptr
         && this->regionId_ == nullptr && this->reportLanguage_ == nullptr && this->reportType_ == nullptr && this->scheduledId_ == nullptr && this->taskStartTime_ == nullptr
-        && this->timeRange_ == nullptr; };
+        && this->templateId_ == nullptr && this->templateName_ == nullptr && this->timeRange_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -164,6 +168,20 @@ namespace Models
       inline Schedules& setTaskStartTime(string taskStartTime) { DARABONBA_PTR_SET_VALUE(taskStartTime_, taskStartTime) };
 
 
+      // templateId Field Functions 
+      bool hasTemplateId() const { return this->templateId_ != nullptr;};
+      void deleteTemplateId() { this->templateId_ = nullptr;};
+      inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+      inline Schedules& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
+
+
+      // templateName Field Functions 
+      bool hasTemplateName() const { return this->templateName_ != nullptr;};
+      void deleteTemplateName() { this->templateName_ = nullptr;};
+      inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+      inline Schedules& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
+
+
       // timeRange Field Functions 
       bool hasTimeRange() const { return this->timeRange_ != nullptr;};
       void deleteTimeRange() { this->timeRange_ = nullptr;};
@@ -172,43 +190,36 @@ namespace Models
 
 
     protected:
-      // The time the task was created, in UTC.
+      // The creation time.
       shared_ptr<string> createTime_ {};
-      // The description of the inspection.
+      // The inspection description.
       shared_ptr<string> description_ {};
-      // The inspection frequency. Multiple values are separated by commas. The default is DAILY. Valid values:
-      // 
-      // - DAILY: Every day
-      // 
-      // - Monday: Monday
-      // 
-      // - Tuesday: Tuesday
-      // 
-      // - Wednesday: Wednesday
-      // 
-      // - Thursday: Thursday
-      // 
-      // - Friday: Friday
-      // 
-      // - Saturday: Saturday
-      // 
-      // - Sunday: Sunday
-      // 
-      // ### Note: The DAILY setting overrides any specified days of the week. For example, if you specify DAILY,Monday, the inspection runs daily.
+      // The new inspection frequency. Separate multiple values with commas (,). Default value: DAILY. Valid values:
+      // * DAILY: every day
+      // * Monday: Monday
+      // * Tuesday: Tuesday
+      // * Wednesday: Wednesday
+      // * Thursday: Thursday
+      // * Friday: Friday
+      // * Saturday: Saturday
+      // * Sunday: Sunday
+      // ### Note: DAILY overrides weekly values. For example, if you specify DAILY,Monday, the backend uses DAILY as the inspection frequency.
       shared_ptr<string> frequency_ {};
       shared_ptr<string> inspectionItems_ {};
-      // The number of instances in the task.
+      // The number of task instances.
       shared_ptr<int64_t> instanceCount_ {};
-      // The name of the task.
+      // The task name.
       shared_ptr<string> name_ {};
       shared_ptr<string> regionId_ {};
       shared_ptr<string> reportLanguage_ {};
       shared_ptr<string> reportType_ {};
       // The ID of the scheduled inspection configuration.
       shared_ptr<string> scheduledId_ {};
-      // The task start time, in UTC.
+      // The actual start time of the task.
       shared_ptr<string> taskStartTime_ {};
-      // The inspection time range in hours. Default: 24. Valid values: 1 to 168.
+      shared_ptr<string> templateId_ {};
+      shared_ptr<string> templateName_ {};
+      // The inspection time range. Default value: the last 24 hours. Valid values: 1 to 168 (up to 7 days).
       shared_ptr<string> timeRange_ {};
     };
 
@@ -275,11 +286,11 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of scheduled inspection tasks.
+    // The list of scheduled inspection tasks.
     shared_ptr<vector<ListScheduledTasksResponseBody::Schedules>> schedules_ {};
-    // Indicates whether the request was successful.
+    // The request result.
     shared_ptr<bool> success_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

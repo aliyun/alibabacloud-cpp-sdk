@@ -101,10 +101,15 @@ namespace Models
 
 
     protected:
+      // The default number of CPUs for sandboxes created by using this template.
       shared_ptr<string> defaultCpu_ {};
+      // The default memory size for sandboxes created by using this template. The unit ends with Gi.
       shared_ptr<string> defaultMemory_ {};
+      // The default number of prewarmed sandboxes.
       shared_ptr<int64_t> defaultReplicas_ {};
+      // The description of the sandbox template.
       shared_ptr<string> description_ {};
+      // The name of the sandbox template.
       shared_ptr<string> name_ {};
     };
 
@@ -141,9 +146,13 @@ namespace Models
 
 
   protected:
+    // A reserved parameter. You do not need to specify this parameter.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that indicates the position from which the query starts. Set this parameter to empty to start from the beginning.
     shared_ptr<string> nextToken_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The sandbox templates.
     shared_ptr<vector<DescribeCommonSandboxTemplatesResponseBody::Templates>> templates_ {};
   };
 

@@ -131,7 +131,7 @@ namespace RdsAi20250507
       Models::CreateCustomAgentResponse createCustomAgent(const Models::CreateCustomAgentRequest &request);
 
       /**
-       * @summary Creates an inspection task for one or more instances.
+       * @summary Creates a batch instance inspection task.
        *
        * @param request CreateInspectionTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -140,7 +140,7 @@ namespace RdsAi20250507
       Models::CreateInspectionTaskResponse createInspectionTaskWithOptions(const Models::CreateInspectionTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an inspection task for one or more instances.
+       * @summary Creates a batch instance inspection task.
        *
        * @param request CreateInspectionTaskRequest
        * @return CreateInspectionTaskResponse
@@ -171,11 +171,11 @@ namespace RdsAi20250507
       Models::CreateMOUsageDetailExportResponse createMOUsageDetailExport(const Models::CreateMOUsageDetailExportRequest &request);
 
       /**
-       * @summary 创建沙箱模板
+       * @summary Creates a sandbox template.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS Supabase
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request CreateSandboxTemplateRequest
@@ -185,11 +185,11 @@ namespace RdsAi20250507
       Models::CreateSandboxTemplateResponse createSandboxTemplateWithOptions(const Models::CreateSandboxTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建沙箱模板
+       * @summary Creates a sandbox template.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS Supabase
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request CreateSandboxTemplateRequest
@@ -198,12 +198,12 @@ namespace RdsAi20250507
       Models::CreateSandboxTemplateResponse createSandboxTemplate(const Models::CreateSandboxTemplateRequest &request);
 
       /**
-       * @summary Creates a scheduled inspection task for one or more instances.
+       * @summary Creates a scheduled inspection configuration for batch instances.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engine
        * RDS PostgreSQL
        * ### Related feature documentation
-       * >Warning: This API operation may incur charges. Please read the related feature documentation carefully before you proceed.
+       * >Warning: This API operation incurs fees. Read the related feature documentation before you perform this operation.
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request CreateScheduledTaskRequest
@@ -213,12 +213,12 @@ namespace RdsAi20250507
       Models::CreateScheduledTaskResponse createScheduledTaskWithOptions(const Models::CreateScheduledTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a scheduled inspection task for one or more instances.
+       * @summary Creates a scheduled inspection configuration for batch instances.
        *
-       * @description ### Supported engines
+       * @description ### Applicable engine
        * RDS PostgreSQL
        * ### Related feature documentation
-       * >Warning: This API operation may incur charges. Please read the related feature documentation carefully before you proceed.
+       * >Warning: This API operation incurs fees. Read the related feature documentation before you perform this operation.
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request CreateScheduledTaskRequest
@@ -315,11 +315,11 @@ namespace RdsAi20250507
       Models::DeleteCustomAgentResponse deleteCustomAgent(const Models::DeleteCustomAgentRequest &request);
 
       /**
-       * @summary 删除沙箱模板
+       * @summary Deletes a sandbox template.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS Supabase
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request DeleteSandboxTemplateRequest
@@ -329,11 +329,11 @@ namespace RdsAi20250507
       Models::DeleteSandboxTemplateResponse deleteSandboxTemplateWithOptions(const Models::DeleteSandboxTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除沙箱模板
+       * @summary Deletes a sandbox template.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS Supabase
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request DeleteSandboxTemplateRequest
@@ -430,11 +430,11 @@ namespace RdsAi20250507
       Models::DescribeAppInstancesResponse describeAppInstances(const Models::DescribeAppInstancesRequest &request);
 
       /**
-       * @summary 查询已支持的沙箱模板列表
+       * @summary Queries the list of supported sandbox templates.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS Supabase
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request DescribeCommonSandboxTemplatesRequest
@@ -444,11 +444,11 @@ namespace RdsAi20250507
       Models::DescribeCommonSandboxTemplatesResponse describeCommonSandboxTemplatesWithOptions(const Models::DescribeCommonSandboxTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询已支持的沙箱模板列表
+       * @summary Queries the list of supported sandbox templates.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS Supabase
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request DescribeCommonSandboxTemplatesRequest
@@ -875,7 +875,7 @@ namespace RdsAi20250507
       Models::GetCustomAgentResponse getCustomAgent(const Models::GetCustomAgentRequest &request);
 
       /**
-       * @summary Queries the content of a specified inspection report.
+       * @summary Retrieves the details of an inspection report by report ID.
        *
        * @param request GetInspectionReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -884,7 +884,7 @@ namespace RdsAi20250507
       Models::GetInspectionReportResponse getInspectionReportWithOptions(const Models::GetInspectionReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the content of a specified inspection report.
+       * @summary Retrieves the details of an inspection report by report ID.
        *
        * @param request GetInspectionReportRequest
        * @return GetInspectionReportResponse
@@ -947,7 +947,7 @@ namespace RdsAi20250507
       Models::GetScheduledInstancesResponse getScheduledInstances(const Models::GetScheduledInstancesRequest &request);
 
       /**
-       * @summary Retrieves all inspection reports for a specified scheduled task. You can filter the results by time range and use pagination.
+       * @summary Queries all inspection reports under a specified scheduled task, with support for time range filtering and pagination.
        *
        * @param request GetScheduledReportsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -956,7 +956,7 @@ namespace RdsAi20250507
       Models::GetScheduledReportsResponse getScheduledReportsWithOptions(const Models::GetScheduledReportsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves all inspection reports for a specified scheduled task. You can filter the results by time range and use pagination.
+       * @summary Queries all inspection reports under a specified scheduled task, with support for time range filtering and pagination.
        *
        * @param request GetScheduledReportsRequest
        * @return GetScheduledReportsResponse
@@ -981,7 +981,7 @@ namespace RdsAi20250507
       Models::GetSkillResponse getSkill(const Models::GetSkillRequest &request);
 
       /**
-       * @summary Retrieves paginated standalone inspection reports on a specified user\\"s non-scheduled tasks.
+       * @summary Queries the list of individual inspection reports for all non-scheduled tasks under a specified user, with pagination support.
        *
        * @param request GetStandAloneReportsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -990,7 +990,7 @@ namespace RdsAi20250507
       Models::GetStandAloneReportsResponse getStandAloneReportsWithOptions(const Models::GetStandAloneReportsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves paginated standalone inspection reports on a specified user\\"s non-scheduled tasks.
+       * @summary Queries the list of individual inspection reports for all non-scheduled tasks under a specified user, with pagination support.
        *
        * @param request GetStandAloneReportsRequest
        * @return GetStandAloneReportsResponse
@@ -1076,7 +1076,7 @@ namespace RdsAi20250507
       Models::ListLLMTokenUsageResponse listLLMTokenUsage(const Models::ListLLMTokenUsageRequest &request);
 
       /**
-       * @summary Lists basic information about all inspection configurations for the specified user ID.
+       * @summary Queries the list of basic information about all inspection configurations under a specified user UID.
        *
        * @param request ListScheduledTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1085,7 +1085,7 @@ namespace RdsAi20250507
       Models::ListScheduledTasksResponse listScheduledTasksWithOptions(const Models::ListScheduledTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists basic information about all inspection configurations for the specified user ID.
+       * @summary Queries the list of basic information about all inspection configurations under a specified user UID.
        *
        * @param request ListScheduledTasksRequest
        * @return ListScheduledTasksResponse
@@ -1110,11 +1110,11 @@ namespace RdsAi20250507
       Models::ListSkillResponse listSkill(const Models::ListSkillRequest &request);
 
       /**
-       * @summary 修改RDS AI应用实例
+       * @summary Modifies the modules of an RDS AI application instance.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param tmpReq ModifyAppInstanceRequest
@@ -1124,11 +1124,11 @@ namespace RdsAi20250507
       Models::ModifyAppInstanceResponse modifyAppInstanceWithOptions(const Models::ModifyAppInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改RDS AI应用实例
+       * @summary Modifies the modules of an RDS AI application instance.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request ModifyAppInstanceRequest
@@ -1325,11 +1325,11 @@ namespace RdsAi20250507
       Models::ModifyMessagesFeedbacksResponse modifyMessagesFeedbacks(const Models::ModifyMessagesFeedbacksRequest &request);
 
       /**
-       * @summary 修改沙箱模板
+       * @summary Modifies a sandbox template.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS Supabase
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request ModifySandboxTemplateRequest
@@ -1339,11 +1339,11 @@ namespace RdsAi20250507
       Models::ModifySandboxTemplateResponse modifySandboxTemplateWithOptions(const Models::ModifySandboxTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改沙箱模板
+       * @summary Modifies a sandbox template.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS Supabase
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request ModifySandboxTemplateRequest
@@ -1438,11 +1438,11 @@ namespace RdsAi20250507
       Models::ResetApiKeyResponse resetApiKey(const Models::ResetApiKeyRequest &request);
 
       /**
-       * @summary 重置RDS AI实例的Keys
+       * @summary Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are adapted accordingly.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request ResetInstanceKeysRequest
@@ -1452,11 +1452,11 @@ namespace RdsAi20250507
       Models::ResetInstanceKeysResponse resetInstanceKeysWithOptions(const Models::ResetInstanceKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重置RDS AI实例的Keys
+       * @summary Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are adapted accordingly.
        *
-       * @description ### 适用引擎
+       * @description ### Applicable engine
        * RDS PostgreSQL
-       * ### 相关功能文档
+       * ### Related documentation
        * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
        *
        * @param request ResetInstanceKeysRequest

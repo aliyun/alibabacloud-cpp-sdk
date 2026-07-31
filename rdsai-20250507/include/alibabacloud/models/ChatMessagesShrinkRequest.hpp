@@ -78,7 +78,7 @@ namespace Models
     // The conversation ID.
     shared_ptr<string> conversationId_ {};
     shared_ptr<string> eventMode_ {};
-    // The task inputs.
+    // The task input.
     shared_ptr<string> inputsShrink_ {};
     // The parent message ID.
     shared_ptr<string> parentMessageId_ {};

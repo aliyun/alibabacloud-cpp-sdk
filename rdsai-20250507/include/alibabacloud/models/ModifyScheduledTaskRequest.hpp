@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ReportLanguage, reportLanguage_);
       DARABONBA_PTR_TO_JSON(ScheduledId, scheduledId_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
       DARABONBA_PTR_TO_JSON(TimeRange, timeRange_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyScheduledTaskRequest& obj) { 
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ReportLanguage, reportLanguage_);
       DARABONBA_PTR_FROM_JSON(ScheduledId, scheduledId_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
       DARABONBA_PTR_FROM_JSON(TimeRange, timeRange_);
     };
     ModifyScheduledTaskRequest() = default ;
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
         && this->frequency_ == nullptr && this->inspectionItems_ == nullptr && this->instanceIds_ == nullptr && this->name_ == nullptr && this->reportLanguage_ == nullptr
-        && this->scheduledId_ == nullptr && this->startTime_ == nullptr && this->timeRange_ == nullptr; };
+        && this->scheduledId_ == nullptr && this->startTime_ == nullptr && this->templateId_ == nullptr && this->timeRange_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -104,6 +106,13 @@ namespace Models
     inline ModifyScheduledTaskRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
+    // templateId Field Functions 
+    bool hasTemplateId() const { return this->templateId_ != nullptr;};
+    void deleteTemplateId() { this->templateId_ = nullptr;};
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline ModifyScheduledTaskRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
+
+
     // timeRange Field Functions 
     bool hasTimeRange() const { return this->timeRange_ != nullptr;};
     void deleteTimeRange() { this->timeRange_ = nullptr;};
@@ -114,28 +123,19 @@ namespace Models
   protected:
     // The new description of the inspection configuration.
     shared_ptr<string> description_ {};
-    // The new inspection frequency. Separate multiple values with a comma (,). The default value is DAILY. Valid values:
-    // 
-    // - DAILY: Every day
-    // 
-    // - Monday: Every Monday
-    // 
-    // - Tuesday: Every Tuesday
-    // 
-    // - Wednesday: Every Wednesday
-    // 
-    // - Thursday: Every Thursday
-    // 
-    // - Friday: Every Friday
-    // 
-    // - Saturday: Every Saturday
-    // 
-    // - Sunday: Every Sunday
-    // 
-    // ### Note: `DAILY` overrides all other day-of-the-week settings. For example, if you specify `DAILY,Monday`, the system uses `DAILY` as the inspection frequency.
+    // The new inspection frequency. Separate multiple values with commas (,). Default value: DAILY. Valid values:
+    // * DAILY: every day
+    // * Monday: Monday
+    // * Tuesday: Tuesday
+    // * Wednesday: Wednesday
+    // * Thursday: Thursday
+    // * Friday: Friday
+    // * Saturday: Saturday
+    // * Sunday: Sunday
+    // ### Note: DAILY overrides weekly values. For example, if you specify DAILY,Monday, the backend uses DAILY as the inspection frequency.
     shared_ptr<string> frequency_ {};
     shared_ptr<string> inspectionItems_ {};
-    // The new instance IDs to associate with the task. Separate multiple IDs with a comma (,).
+    // The new list of associated instance IDs. Separate multiple values with commas (,).
     shared_ptr<string> instanceIds_ {};
     // The new name of the inspection configuration.
     shared_ptr<string> name_ {};
@@ -144,9 +144,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> scheduledId_ {};
-    // The new time to run the inspection task. The time must be in the `HH:mm:ssZ` format and in UTC.
+    // The new time to execute the inspection task. Format: HH:mm:ssZ (UTC).
     shared_ptr<string> startTime_ {};
-    // The inspection time range in hours. The default is 24, which means data from the last 24 hours is inspected. Valid values: 1 to 168. The maximum supported range is 7 days.
+    shared_ptr<string> templateId_ {};
+    // The inspection time range. Default value: the last 24 hours. Valid values: 1 to 168 (up to 7 days).
     shared_ptr<string> timeRange_ {};
   };
 

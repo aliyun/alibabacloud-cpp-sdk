@@ -84,12 +84,20 @@ namespace Models
 
 
   protected:
+    // The number of CPUs for sandboxes created from this template. Valid values: 1 to 4.
     shared_ptr<string> defaultCpu_ {};
+    // The memory size for sandboxes created from this template. Unit: Gi. Valid values: 1Gi to 8Gi.
     shared_ptr<string> defaultMemory_ {};
+    // The instance ID of the AI application.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The initial number of instances. Valid values: 1 to 1000.
     shared_ptr<int64_t> replicas_ {};
+    // The sandbox template ID.
+    // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};
   };

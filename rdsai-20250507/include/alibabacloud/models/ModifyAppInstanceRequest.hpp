@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // The module status.
       shared_ptr<string> status_ {};
+      // The module type.
       shared_ptr<string> type_ {};
     };
 
@@ -140,11 +142,15 @@ namespace Models
 
   protected:
     shared_ptr<string> branchName_ {};
+    // The idempotency parameter.
     shared_ptr<string> clientToken_ {};
+    // The list of modules.
     shared_ptr<vector<ModifyAppInstanceRequest::Components>> components_ {};
     shared_ptr<string> DBInstanceName_ {};
     shared_ptr<string> instanceClass_ {};
+    // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

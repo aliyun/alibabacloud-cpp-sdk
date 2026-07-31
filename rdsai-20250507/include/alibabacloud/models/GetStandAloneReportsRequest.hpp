@@ -75,14 +75,14 @@ namespace Models
 
 
   protected:
-    // The end of the query\\"s time range. The time must be in UTC and in the `YYYY-MM-DDTHH:mm:ssZ` format. If omitted, no end time filter is applied.
+    // The end time for filtering (format: YYYY-MM-DDTHH:mm:ssZ). If not specified, no filtering is applied.
     shared_ptr<string> endTime_ {};
-    // The number of the page to return. The default value is 1.
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page. Default: 20. Maximum: 100.
+    // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> reportType_ {};
-    // The start of the query\\"s time range. The time must be in UTC and in the `YYYY-MM-DDTHH:mm:ssZ` format. If omitted, no start time filter is applied.
+    // The start time for filtering (format: YYYY-MM-DDTHH:mm:ssZ). If not specified, no filtering is applied.
     shared_ptr<string> startTime_ {};
   };
 

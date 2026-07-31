@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ReportRegionId, reportRegionId_);
       DARABONBA_PTR_TO_JSON(ReportType, reportType_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
       DARABONBA_PTR_TO_JSON(TimeRange, timeRange_);
     };
     friend void from_json(const Darabonba::Json& j, CreateScheduledTaskRequest& obj) { 
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ReportRegionId, reportRegionId_);
       DARABONBA_PTR_FROM_JSON(ReportType, reportType_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
       DARABONBA_PTR_FROM_JSON(TimeRange, timeRange_);
     };
     CreateScheduledTaskRequest() = default ;
@@ -51,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
         && this->frequency_ == nullptr && this->inspectionItems_ == nullptr && this->instanceIds_ == nullptr && this->name_ == nullptr && this->regionId_ == nullptr
-        && this->reportLanguage_ == nullptr && this->reportRegionId_ == nullptr && this->reportType_ == nullptr && this->startTime_ == nullptr && this->timeRange_ == nullptr; };
+        && this->reportLanguage_ == nullptr && this->reportRegionId_ == nullptr && this->reportType_ == nullptr && this->startTime_ == nullptr && this->templateId_ == nullptr
+        && this->timeRange_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -122,6 +125,13 @@ namespace Models
     inline CreateScheduledTaskRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
+    // templateId Field Functions 
+    bool hasTemplateId() const { return this->templateId_ != nullptr;};
+    void deleteTemplateId() { this->templateId_ = nullptr;};
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline CreateScheduledTaskRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
+
+
     // timeRange Field Functions 
     bool hasTimeRange() const { return this->timeRange_ != nullptr;};
     void deleteTimeRange() { this->timeRange_ = nullptr;};
@@ -132,44 +142,33 @@ namespace Models
   protected:
     // The description of the scheduled inspection task.
     shared_ptr<string> description_ {};
-    // The inspection frequency. Use commas (,) to separate multiple values. The default is DAILY. Valid values:
-    // 
-    // - DAILY: Every day
-    // 
-    // - Monday: Monday
-    // 
-    // - Tuesday: Tuesday
-    // 
-    // - Wednesday: Wednesday
-    // 
-    // - Thursday: Thursday
-    // 
-    // - Friday: Friday
-    // 
-    // - Saturday: Saturday
-    // 
-    // - Sunday: Sunday
-    // 
-    // ### Note: DAILY overrides weekly values. For example, if you enter DAILY,Monday, the system uses DAILY as the inspection frequency.
+    // The inspection frequency. Separate multiple values with commas (,). Default value: DAILY. Valid values:
+    // * DAILY: every day.
+    // * Monday: Monday.
+    // * Tuesday: Tuesday.
+    // * Wednesday: Wednesday.
+    // * Thursday: Thursday.
+    // * Friday: Friday.
+    // * Saturday: Saturday.
+    // * Sunday: Sunday.
+    // ### Note: DAILY overrides weekly values. For example, if you specify DAILY,Monday, the system uses DAILY as the inspection frequency.
     shared_ptr<string> frequency_ {};
     shared_ptr<string> inspectionItems_ {};
-    // The IDs of the instances for the task. Use commas (,) to separate multiple IDs.
+    // The list of associated instance IDs. Separate multiple IDs with commas (,).
     shared_ptr<string> instanceIds_ {};
-    // The name of the scheduled inspection task. The maximum length is 64 characters.
+    // The name of the scheduled inspection task. The name can be up to 64 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The ID of the region.
     shared_ptr<string> regionId_ {};
-    // The report language. The default value is zh-CN. Supported values: zh-CN, zh-TW, ja-JP, and en-US.
+    // The report language. Default value: zh-CN. Valid values: zh-CN, zh-TW, ja-JP, and en-US.
     shared_ptr<string> reportLanguage_ {};
-    // The ID of the region where the report is stored.
     shared_ptr<string> reportRegionId_ {};
-    // The type of the report.
     shared_ptr<string> reportType_ {};
-    // The execution time for the scheduled inspection task. Specify the time in the HH:mm:ssZ format (UTC time). The default is 02:00:00Z.
+    // The time to run the inspection task. Format: HH:mm:ssZ (UTC). Default value: 02:00:00Z.
     shared_ptr<string> startTime_ {};
-    // The time range of data to inspect, in hours. Valid values are from 1 to 168 (7 days). The default is 24.
+    shared_ptr<string> templateId_ {};
+    // The time range for the inspection. Default value: the last 24 hours. Valid values: 1 to 168 (up to 7 days).
     shared_ptr<string> timeRange_ {};
   };
 

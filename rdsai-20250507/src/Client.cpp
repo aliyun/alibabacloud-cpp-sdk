@@ -492,7 +492,7 @@ CreateCustomAgentResponse Client::createCustomAgent(const CreateCustomAgentReque
 }
 
 /**
- * @summary Creates an inspection task for one or more instances.
+ * @summary Creates a batch instance inspection task.
  *
  * @param request CreateInspectionTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -533,6 +533,10 @@ CreateInspectionTaskResponse Client::createInspectionTaskWithOptions(const Creat
     query["StartTime"] = request.getStartTime();
   }
 
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -551,7 +555,7 @@ CreateInspectionTaskResponse Client::createInspectionTaskWithOptions(const Creat
 }
 
 /**
- * @summary Creates an inspection task for one or more instances.
+ * @summary Creates a batch instance inspection task.
  *
  * @param request CreateInspectionTaskRequest
  * @return CreateInspectionTaskResponse
@@ -630,11 +634,11 @@ CreateMOUsageDetailExportResponse Client::createMOUsageDetailExport(const Create
 }
 
 /**
- * @summary 创建沙箱模板
+ * @summary Creates a sandbox template.
  *
- * @description ### 适用引擎
+ * @description ### Applicable engine
  * RDS Supabase
- * ### 相关功能文档
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request CreateSandboxTemplateRequest
@@ -690,11 +694,11 @@ CreateSandboxTemplateResponse Client::createSandboxTemplateWithOptions(const Cre
 }
 
 /**
- * @summary 创建沙箱模板
+ * @summary Creates a sandbox template.
  *
- * @description ### 适用引擎
+ * @description ### Applicable engine
  * RDS Supabase
- * ### 相关功能文档
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request CreateSandboxTemplateRequest
@@ -706,12 +710,12 @@ CreateSandboxTemplateResponse Client::createSandboxTemplate(const CreateSandboxT
 }
 
 /**
- * @summary Creates a scheduled inspection task for one or more instances.
+ * @summary Creates a scheduled inspection configuration for batch instances.
  *
- * @description ### Supported engines
+ * @description ### Applicable engine
  * RDS PostgreSQL
  * ### Related feature documentation
- * >Warning: This API operation may incur charges. Please read the related feature documentation carefully before you proceed.
+ * >Warning: This API operation incurs fees. Read the related feature documentation before you perform this operation.
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request CreateScheduledTaskRequest
@@ -761,6 +765,10 @@ CreateScheduledTaskResponse Client::createScheduledTaskWithOptions(const CreateS
     query["StartTime"] = request.getStartTime();
   }
 
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
+  }
+
   if (!!request.hasTimeRange()) {
     query["TimeRange"] = request.getTimeRange();
   }
@@ -783,12 +791,12 @@ CreateScheduledTaskResponse Client::createScheduledTaskWithOptions(const CreateS
 }
 
 /**
- * @summary Creates a scheduled inspection task for one or more instances.
+ * @summary Creates a scheduled inspection configuration for batch instances.
  *
- * @description ### Supported engines
+ * @description ### Applicable engine
  * RDS PostgreSQL
  * ### Related feature documentation
- * >Warning: This API operation may incur charges. Please read the related feature documentation carefully before you proceed.
+ * >Warning: This API operation incurs fees. Read the related feature documentation before you perform this operation.
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request CreateScheduledTaskRequest
@@ -1026,11 +1034,11 @@ DeleteCustomAgentResponse Client::deleteCustomAgent(const DeleteCustomAgentReque
 }
 
 /**
- * @summary 删除沙箱模板
+ * @summary Deletes a sandbox template.
  *
- * @description ### 适用引擎
+ * @description ### Applicable engine
  * RDS Supabase
- * ### 相关功能文档
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DeleteSandboxTemplateRequest
@@ -1070,11 +1078,11 @@ DeleteSandboxTemplateResponse Client::deleteSandboxTemplateWithOptions(const Del
 }
 
 /**
- * @summary 删除沙箱模板
+ * @summary Deletes a sandbox template.
  *
- * @description ### 适用引擎
+ * @description ### Applicable engine
  * RDS Supabase
- * ### 相关功能文档
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DeleteSandboxTemplateRequest
@@ -1298,11 +1306,11 @@ DescribeAppInstancesResponse Client::describeAppInstances(const DescribeAppInsta
 }
 
 /**
- * @summary 查询已支持的沙箱模板列表
+ * @summary Queries the list of supported sandbox templates.
  *
- * @description ### 适用引擎
+ * @description ### Applicable engine
  * RDS Supabase
- * ### 相关功能文档
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeCommonSandboxTemplatesRequest
@@ -1342,11 +1350,11 @@ DescribeCommonSandboxTemplatesResponse Client::describeCommonSandboxTemplatesWit
 }
 
 /**
- * @summary 查询已支持的沙箱模板列表
+ * @summary Queries the list of supported sandbox templates.
  *
- * @description ### 适用引擎
+ * @description ### Applicable engine
  * RDS Supabase
- * ### 相关功能文档
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request DescribeCommonSandboxTemplatesRequest
@@ -2444,7 +2452,7 @@ GetCustomAgentResponse Client::getCustomAgent(const GetCustomAgentRequest &reque
 }
 
 /**
- * @summary Queries the content of a specified inspection report.
+ * @summary Retrieves the details of an inspection report by report ID.
  *
  * @param request GetInspectionReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2483,7 +2491,7 @@ GetInspectionReportResponse Client::getInspectionReportWithOptions(const GetInsp
 }
 
 /**
- * @summary Queries the content of a specified inspection report.
+ * @summary Retrieves the details of an inspection report by report ID.
  *
  * @param request GetInspectionReportRequest
  * @return GetInspectionReportResponse
@@ -2637,7 +2645,7 @@ GetScheduledInstancesResponse Client::getScheduledInstances(const GetScheduledIn
 }
 
 /**
- * @summary Retrieves all inspection reports for a specified scheduled task. You can filter the results by time range and use pagination.
+ * @summary Queries all inspection reports under a specified scheduled task, with support for time range filtering and pagination.
  *
  * @param request GetScheduledReportsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2684,7 +2692,7 @@ GetScheduledReportsResponse Client::getScheduledReportsWithOptions(const GetSche
 }
 
 /**
- * @summary Retrieves all inspection reports for a specified scheduled task. You can filter the results by time range and use pagination.
+ * @summary Queries all inspection reports under a specified scheduled task, with support for time range filtering and pagination.
  *
  * @param request GetScheduledReportsRequest
  * @return GetScheduledReportsResponse
@@ -2741,7 +2749,7 @@ GetSkillResponse Client::getSkill(const GetSkillRequest &request) {
 }
 
 /**
- * @summary Retrieves paginated standalone inspection reports on a specified user\\"s non-scheduled tasks.
+ * @summary Queries the list of individual inspection reports for all non-scheduled tasks under a specified user, with pagination support.
  *
  * @param request GetStandAloneReportsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2788,7 +2796,7 @@ GetStandAloneReportsResponse Client::getStandAloneReportsWithOptions(const GetSt
 }
 
 /**
- * @summary Retrieves paginated standalone inspection reports on a specified user\\"s non-scheduled tasks.
+ * @summary Queries the list of individual inspection reports for all non-scheduled tasks under a specified user, with pagination support.
  *
  * @param request GetStandAloneReportsRequest
  * @return GetStandAloneReportsResponse
@@ -2997,7 +3005,7 @@ ListLLMTokenUsageResponse Client::listLLMTokenUsage(const ListLLMTokenUsageReque
 }
 
 /**
- * @summary Lists basic information about all inspection configurations for the specified user ID.
+ * @summary Queries the list of basic information about all inspection configurations under a specified user UID.
  *
  * @param request ListScheduledTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3036,7 +3044,7 @@ ListScheduledTasksResponse Client::listScheduledTasksWithOptions(const ListSched
 }
 
 /**
- * @summary Lists basic information about all inspection configurations for the specified user ID.
+ * @summary Queries the list of basic information about all inspection configurations under a specified user UID.
  *
  * @param request ListScheduledTasksRequest
  * @return ListScheduledTasksResponse
@@ -3097,11 +3105,11 @@ ListSkillResponse Client::listSkill(const ListSkillRequest &request) {
 }
 
 /**
- * @summary 修改RDS AI应用实例
+ * @summary Modifies the modules of an RDS AI application instance.
  *
- * @description ### 适用引擎
+ * @description ### Applicable engine
  * RDS PostgreSQL
- * ### 相关功能文档
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param tmpReq ModifyAppInstanceRequest
@@ -3163,11 +3171,11 @@ ModifyAppInstanceResponse Client::modifyAppInstanceWithOptions(const ModifyAppIn
 }
 
 /**
- * @summary 修改RDS AI应用实例
+ * @summary Modifies the modules of an RDS AI application instance.
  *
- * @description ### 适用引擎
+ * @description ### Applicable engine
  * RDS PostgreSQL
- * ### 相关功能文档
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ModifyAppInstanceRequest
@@ -3735,11 +3743,11 @@ ModifyMessagesFeedbacksResponse Client::modifyMessagesFeedbacks(const ModifyMess
 }
 
 /**
- * @summary 修改沙箱模板
+ * @summary Modifies a sandbox template.
  *
- * @description ### 适用引擎
+ * @description ### Applicable engine
  * RDS Supabase
- * ### 相关功能文档
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ModifySandboxTemplateRequest
@@ -3791,11 +3799,11 @@ ModifySandboxTemplateResponse Client::modifySandboxTemplateWithOptions(const Mod
 }
 
 /**
- * @summary 修改沙箱模板
+ * @summary Modifies a sandbox template.
  *
- * @description ### 适用引擎
+ * @description ### Applicable engine
  * RDS Supabase
- * ### 相关功能文档
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ModifySandboxTemplateRequest
@@ -3846,6 +3854,10 @@ ModifyScheduledTaskResponse Client::modifyScheduledTaskWithOptions(const ModifyS
 
   if (!!request.hasStartTime()) {
     query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTimeRange()) {
@@ -4041,11 +4053,11 @@ ResetApiKeyResponse Client::resetApiKey(const ResetApiKeyRequest &request) {
 }
 
 /**
- * @summary 重置RDS AI实例的Keys
+ * @summary Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are adapted accordingly.
  *
- * @description ### 适用引擎
+ * @description ### Applicable engine
  * RDS PostgreSQL
- * ### 相关功能文档
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ResetInstanceKeysRequest
@@ -4081,11 +4093,11 @@ ResetInstanceKeysResponse Client::resetInstanceKeysWithOptions(const ResetInstan
 }
 
 /**
- * @summary 重置RDS AI实例的Keys
+ * @summary Resets the keys of an RDS AI instance, including AnonKey, ServiceKey, and JwtSecret. After the reset, the old keys and secret become invalid immediately. Ensure that your applications are adapted accordingly.
  *
- * @description ### 适用引擎
+ * @description ### Applicable engine
  * RDS PostgreSQL
- * ### 相关功能文档
+ * ### Related documentation
  * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
  *
  * @param request ResetInstanceKeysRequest

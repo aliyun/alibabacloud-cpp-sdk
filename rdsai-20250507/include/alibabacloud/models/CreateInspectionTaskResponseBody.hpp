@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The ID of the inspection task.
+      // The inspection task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -100,13 +100,13 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The result.
     shared_ptr<CreateInspectionTaskResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // The request result.
     shared_ptr<bool> success_ {};
   };
 

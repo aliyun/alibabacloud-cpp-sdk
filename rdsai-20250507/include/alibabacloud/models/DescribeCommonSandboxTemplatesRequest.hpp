@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // A reserved parameter. You do not need to specify this parameter.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that indicates the position from which the query starts. Set this parameter to empty to start from the beginning.
     shared_ptr<string> nextToken_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

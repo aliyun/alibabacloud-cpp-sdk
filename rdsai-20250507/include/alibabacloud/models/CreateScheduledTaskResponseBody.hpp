@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Provides details about the request outcome, such as a success message or an error description.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the scheduled inspection task.
+    // The ID of the scheduled inspection configuration.
     shared_ptr<string> scheduledId_ {};
-    // Indicates whether the request succeeded. A value of true indicates success.
+    // The request result.
     shared_ptr<bool> success_ {};
   };
 

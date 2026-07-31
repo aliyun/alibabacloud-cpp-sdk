@@ -166,7 +166,7 @@ namespace Models
     // The conversation ID.
     shared_ptr<string> conversationId_ {};
     shared_ptr<string> eventMode_ {};
-    // The task inputs.
+    // The task input.
     shared_ptr<ChatMessagesRequest::Inputs> inputs_ {};
     // The parent message ID.
     shared_ptr<string> parentMessageId_ {};

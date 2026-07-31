@@ -54,6 +54,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(StartTime, startTime_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+        DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
+        DARABONBA_PTR_TO_JSON(TemplateName, templateName_);
       };
       friend void from_json(const Darabonba::Json& j, Reports& obj) { 
         DARABONBA_PTR_FROM_JSON(CreatedTime, createdTime_);
@@ -65,6 +67,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+        DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
+        DARABONBA_PTR_FROM_JSON(TemplateName, templateName_);
       };
       Reports() = default ;
       Reports(const Reports &) = default ;
@@ -79,7 +83,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createdTime_ == nullptr
         && this->endTime_ == nullptr && this->inspectionItems_ == nullptr && this->regionId_ == nullptr && this->reportLanguage_ == nullptr && this->reportType_ == nullptr
-        && this->startTime_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr; };
+        && this->startTime_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->templateId_ == nullptr && this->templateName_ == nullptr; };
       // createdTime Field Functions 
       bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
       void deleteCreatedTime() { this->createdTime_ = nullptr;};
@@ -143,22 +147,37 @@ namespace Models
       inline Reports& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
+      // templateId Field Functions 
+      bool hasTemplateId() const { return this->templateId_ != nullptr;};
+      void deleteTemplateId() { this->templateId_ = nullptr;};
+      inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+      inline Reports& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
+
+
+      // templateName Field Functions 
+      bool hasTemplateName() const { return this->templateName_ != nullptr;};
+      void deleteTemplateName() { this->templateName_ = nullptr;};
+      inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+      inline Reports& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
+
+
     protected:
-      // The time the inspection task was created.
+      // The creation time.
       shared_ptr<string> createdTime_ {};
-      // The end time of the inspection. The time is in UTC and uses the `YYYY-MM-DDTHH:mm:ssZ` format.
+      // The inspection end time (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> endTime_ {};
       shared_ptr<string> inspectionItems_ {};
-      // The ID of the region.
       shared_ptr<string> regionId_ {};
       shared_ptr<string> reportLanguage_ {};
       shared_ptr<string> reportType_ {};
-      // The start time of the inspection. The time is in UTC and uses the `YYYY-MM-DDTHH:mm:ssZ` format.
+      // The inspection start time (format: YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> startTime_ {};
-      // The status of the inspection task.
+      // The status.
       shared_ptr<string> status_ {};
-      // The ID of the inspection task.
+      // The inspection report ID.
       shared_ptr<string> taskId_ {};
+      shared_ptr<string> templateId_ {};
+      shared_ptr<string> templateName_ {};
     };
 
     virtual bool empty() const override { return this->message_ == nullptr
@@ -218,17 +237,17 @@ namespace Models
   protected:
     // The response message.
     shared_ptr<string> message_ {};
-    // The page number. The default value is 1.
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. The default value is 20 and the maximum value is 100.
+    // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // A list of inspection reports.
+    // The list of reports.
     shared_ptr<vector<GetStandAloneReportsResponseBody::Reports>> reports_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // The request result.
     shared_ptr<bool> success_ {};
-    // The total number of entries across all pages.
+    // The total number of records.
     shared_ptr<int64_t> totalCount_ {};
   };
 
