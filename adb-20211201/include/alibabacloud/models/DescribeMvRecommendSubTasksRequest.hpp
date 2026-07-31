@@ -112,31 +112,34 @@ namespace Models
 
 
   protected:
-    // Fixed system value (non-modifiable).
+    // A static value. This parameter cannot be modified.
     shared_ptr<string> actionInner_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // Fixed system value (non-modifiable).
+    // A static value. This parameter cannot be modified.
     shared_ptr<string> from_ {};
-    // The sorting field. Valid values for Type:
+    // The sorting criteria.
+    // Valid values for \\`Type\\`:
     // 
-    // *   Asc.
-    // *   Desc.
+    // - Asc
     // 
-    // Valid values for Field:
+    // - Desc
     // 
-    // *   StartTime;
-    // *   EndTime;
+    // Valid values for \\`Field\\`:
+    // 
+    // - StartTime
+    // 
+    // - EndTime
     shared_ptr<string> orderBy_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The subtask ID.
     shared_ptr<int64_t> subtaskId_ {};
-    // The name of the recommendation task.
+    // The name of the materialized view recommendation task.
     shared_ptr<string> taskName_ {};
   };
 

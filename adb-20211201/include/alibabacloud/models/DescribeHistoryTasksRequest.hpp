@@ -17,12 +17,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FromStartTime, fromStartTime_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
-      DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
-      DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(TaskType, taskType_);
@@ -34,12 +32,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FromStartTime, fromStartTime_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
-      DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
-      DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(TaskType, taskType_);
@@ -58,9 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fromExecTime_ == nullptr
-        && this->fromStartTime_ == nullptr && this->instanceId_ == nullptr && this->instanceType_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerId_ == nullptr && this->status_ == nullptr
-        && this->taskId_ == nullptr && this->taskType_ == nullptr && this->toExecTime_ == nullptr && this->toStartTime_ == nullptr; };
+        && this->fromStartTime_ == nullptr && this->instanceId_ == nullptr && this->instanceType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->taskType_ == nullptr
+        && this->toExecTime_ == nullptr && this->toStartTime_ == nullptr; };
     // fromExecTime Field Functions 
     bool hasFromExecTime() const { return this->fromExecTime_ != nullptr;};
     void deleteFromExecTime() { this->fromExecTime_ = nullptr;};
@@ -89,13 +85,6 @@ namespace Models
     inline DescribeHistoryTasksRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
-    // ownerId Field Functions 
-    bool hasOwnerId() const { return this->ownerId_ != nullptr;};
-    void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
-    inline DescribeHistoryTasksRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
-
-
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -122,13 +111,6 @@ namespace Models
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
     inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeHistoryTasksRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
-
-
-    // resourceOwnerId Field Functions 
-    bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
-    void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
-    inline DescribeHistoryTasksRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // status Field Functions 
@@ -177,7 +159,6 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The instance type. The value is fixed to Instance.
     shared_ptr<string> instanceType_ {};
-    shared_ptr<int64_t> ownerId_ {};
     // The number of the page to return. Valid range: positive integers. Default value: 1
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values: 10 to 100. Default value: 10.
@@ -186,7 +167,6 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // Resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    shared_ptr<int64_t> resourceOwnerId_ {};
     // The state of the task. Valid values:
     // 
     // *   **Scheduled**

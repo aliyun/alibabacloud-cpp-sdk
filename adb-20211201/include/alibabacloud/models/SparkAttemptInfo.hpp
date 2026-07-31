@@ -78,10 +78,27 @@ namespace Models
 
 
   protected:
+    // The attempt ID of the Spark application.
     shared_ptr<string> attemptId_ {};
+    // The information about the Spark application.
     shared_ptr<Detail> detail_ {};
+    // The alert message returned, such as task execution failure or insufficient resources. If no alert occurs, null is returned.
     shared_ptr<string> message_ {};
+    // The attempt priority of the Spark application.
     shared_ptr<string> priority_ {};
+    // The state of the Spark application. Valid values:
+    // 
+    // *   **SUBMITTED**
+    // *   **STARTING**
+    // *   **RUNNING**
+    // *   **FAILING**
+    // *   **FAILED**
+    // *   **KILLING**
+    // *   **KILLED**
+    // *   **SUCCEEDING**
+    // *   **COMPLETED**
+    // *   **FATAL**
+    // *   **UNKNOWN**
     shared_ptr<string> state_ {};
   };
 

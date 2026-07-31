@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // Fixed system value (non-modifiable).
+    // A static field. This parameter cannot be modified.
     shared_ptr<string> actionInner_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // Fixed system value (non-modifiable).
+    // A static field. This parameter cannot be modified.
     shared_ptr<string> from_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the recommendation task.
+    // The name of the materialized view recommendation task.
     shared_ptr<string> taskName_ {};
   };
 

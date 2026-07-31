@@ -112,36 +112,35 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The instance ID.
     shared_ptr<string> DBClusterId_ {};
-    // The owner of the view.
+    // The owner.
     shared_ptr<string> filterOwner_ {};
-    // The name of the view.
+    // The view name.
     shared_ptr<string> filterViewName_ {};
-    // The type of the view.
+    // The view type.
     // 
     // Valid values:
     // 
-    // \\-VIRTUAL_VIEW
+    // - VIRTUAL_VIEW
+    // - MATERIALIZED_VIEW
     // 
-    // \\-MATERIALIZED_VIEW
-    // 
-    // This parameter is empty by default.
+    // Default value: empty.
     shared_ptr<string> filterViewType_ {};
-    // The field used for sorting. Valid values for Type:
+    // The sort field.
     // 
-    // *   Asc.
-    // *   Desc.
+    // Valid values for the sort order:
+    // - Asc
+    // - Desc
     // 
-    // Valid values for Field:
-    // 
-    // *   StartTime.
-    // *   EndTime;
-    // *   ScheduledStartTime;
+    // Valid values for the sort field:
+    // - StartTime
+    // - EndTime
+    // - ScheduledStartTime
     shared_ptr<string> orderBy_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

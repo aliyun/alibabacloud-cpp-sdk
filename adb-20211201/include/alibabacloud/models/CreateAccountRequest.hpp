@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEACCOUNTREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEACCOUNTREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AccountType, accountType_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(Engine, engine_);
+      DARABONBA_PTR_TO_JSON(RamUserList, ramUserList_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAccountRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountDescription, accountDescription_);
@@ -27,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AccountType, accountType_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(Engine, engine_);
+      DARABONBA_PTR_FROM_JSON(RamUserList, ramUserList_);
     };
     CreateAccountRequest() = default ;
     CreateAccountRequest(const CreateAccountRequest &) = default ;
@@ -40,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountDescription_ == nullptr
-        && this->accountName_ == nullptr && this->accountPassword_ == nullptr && this->accountType_ == nullptr && this->DBClusterId_ == nullptr && this->engine_ == nullptr; };
+        && this->accountName_ == nullptr && this->accountPassword_ == nullptr && this->accountType_ == nullptr && this->DBClusterId_ == nullptr && this->engine_ == nullptr
+        && this->ramUserList_ == nullptr; };
     // accountDescription Field Functions 
     bool hasAccountDescription() const { return this->accountDescription_ != nullptr;};
     void deleteAccountDescription() { this->accountDescription_ = nullptr;};
@@ -83,45 +87,51 @@ namespace Models
     inline CreateAccountRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
+    // ramUserList Field Functions 
+    bool hasRamUserList() const { return this->ramUserList_ != nullptr;};
+    void deleteRamUserList() { this->ramUserList_ = nullptr;};
+    inline const vector<string> & getRamUserList() const { DARABONBA_PTR_GET_CONST(ramUserList_, vector<string>) };
+    inline vector<string> getRamUserList() { DARABONBA_PTR_GET(ramUserList_, vector<string>) };
+    inline CreateAccountRequest& setRamUserList(const vector<string> & ramUserList) { DARABONBA_PTR_SET_VALUE(ramUserList_, ramUserList) };
+    inline CreateAccountRequest& setRamUserList(vector<string> && ramUserList) { DARABONBA_PTR_SET_RVALUE(ramUserList_, ramUserList) };
+
+
   protected:
     // The description of the account.
-    // 
-    // *   The description cannot start with `http://` or `https://`.
-    // *   The description can be up to 256 characters in length.
+    // - Cannot start with `http://` or `https://`.
+    // - Cannot exceed 256 characters in length.
     shared_ptr<string> accountDescription_ {};
-    // The name of the database account.
-    // 
-    // *   The name must start with a lowercase letter and end with a lowercase letter or a digit.
-    // *   The name can contain lowercase letters, digits, and underscores (_).
-    // *   The name must be 2 to 16 characters in length.
-    // *   Reserved account names such as root, admin, and opsadmin cannot be used.
+    // The name of the database account. The name must meet the following requirements:
+    // - Starts with a lowercase letter and ends with a lowercase letter or digit.
+    // - Contains only lowercase letters, digits, or underscores (_).
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
     // The password of the database account.
-    // 
-    // *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-    // *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
-    // *   The password must be 8 to 32 characters in length.
+    // - Must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+    // - Special characters include: `!@#$%^&*()_+-=`
+    // - Must be 8 to 32 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> accountPassword_ {};
-    // The type of the database account. Valid values:
-    // 
-    // *   **Normal**: standard account.
-    // *   **Super**: privileged account.
+    // The type of the account. Valid values:
+    // - **Normal**: standard account.
+    // - **Super**: privileged account.
     // 
     // This parameter is required.
     shared_ptr<string> accountType_ {};
-    // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The database engine of the cluster. Valid values:
+    // The database engine. Valid values:
     // 
-    // *   **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-    // *   **Clickhouse**: the wide table engine.
+    // - **AnalyticDB** (default): AnalyticDB for MySQL engine.
+    // - **Clickhouse**: wide table engine.
     shared_ptr<string> engine_ {};
+    // The list of Alibaba Cloud Resource Access Management (RAM) user IDs to attach. Currently, only one RAM user can be attached.
+    shared_ptr<vector<string>> ramUserList_ {};
   };
 
   } // namespace Models

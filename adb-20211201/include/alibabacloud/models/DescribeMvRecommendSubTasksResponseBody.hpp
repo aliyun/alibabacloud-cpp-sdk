@@ -97,13 +97,13 @@ namespace Models
 
 
     protected:
-      // The list of recommended tasks to be executed.
+      // The list of materialized view recommendation task executions.
       shared_ptr<vector<OpenStructMvRecommendSubTaskModel>> mvRecommendSubTaskModels_ {};
       // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -151,11 +151,11 @@ namespace Models
     shared_ptr<DescribeMvRecommendSubTasksResponseBody::Data> data_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

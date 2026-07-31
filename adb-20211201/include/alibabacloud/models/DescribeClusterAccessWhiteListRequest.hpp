@@ -57,10 +57,12 @@ namespace Models
 
 
   protected:
-    // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
   };

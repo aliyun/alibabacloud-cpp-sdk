@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The array of webhooks.
+    // The webhook array.
     shared_ptr<string> webhookShrink_ {};
   };
 

@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The code of the returned result.
+    // The response code.
     shared_ptr<string> code_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
@@ -104,7 +104,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

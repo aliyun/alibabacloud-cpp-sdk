@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // The creation time.
     shared_ptr<string> createdTime_ {};
+    // Description.
     shared_ptr<string> description_ {};
+    // Last execution time.
     shared_ptr<string> lastRunAt_ {};
+    // The minimum number of slow queries that match the pattern.
     shared_ptr<int32_t> minRewriteQueryCount_ {};
+    // The number of minimum acceleration patterns.
     shared_ptr<int32_t> minRewriteQueryPattern_ {};
+    // The time range for scanning data. Unit: days. Default value: 3.
     shared_ptr<int32_t> scanQueriesRange_ {};
+    // The execution schedule of the task.
     shared_ptr<string> schedulingSettings_ {};
+    // The wait threshold for slow queries.
     shared_ptr<int32_t> slowQueryThreshold_ {};
+    // The name of the recommendation task.
     shared_ptr<string> taskName_ {};
   };
 

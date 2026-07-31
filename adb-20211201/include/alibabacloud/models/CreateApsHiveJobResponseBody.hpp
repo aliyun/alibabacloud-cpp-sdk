@@ -84,23 +84,21 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The API status code or POP error code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The data returned for the workload.
     shared_ptr<string> data_ {};
-    // The response code. The status code 200 indicates that the request was successful.
+    // The HTTP status code. A value of 200 indicates that the request was successful.
     shared_ptr<string> httpStatusCode_ {};
-    // The returned message. Valid values:
-    // 
-    // *   If the request was successful, a success message is returned.
-    // *   If the request failed, an error message is returned.
+    // The additional information about the result. Valid values:
+    // - If the request was successful, **Success** is returned.
+    // - If the request failed, the specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // - **True**: The request was successful.
+    // - **False**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

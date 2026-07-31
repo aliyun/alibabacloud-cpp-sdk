@@ -105,15 +105,15 @@ namespace Models
 
 
     protected:
-      // Signing key
+      // The signing key.
       shared_ptr<string> key_ {};
-      // The name of the webhook.
+      // The webhook name.
       shared_ptr<string> name_ {};
       // The request URL.
       shared_ptr<string> url_ {};
-      // The ID of the webhook that you want to delete.
+      // The webhook ID.
       shared_ptr<string> webhookId_ {};
-      // Webhook type.
+      // The webhook type.
       shared_ptr<string> webhookType_ {};
     };
 
@@ -164,17 +164,17 @@ namespace Models
 
 
   protected:
-    // API status or POP error code.
+    // The API status code or POP error code.
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The array of webhooks.
+    // The webhook array.
     shared_ptr<vector<ListApsWebhookResponseBody::Webhook>> webhook_ {};
   };
 

@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The cluster ID.
     // 
-    // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to view the details of all AnalyticDB for MySQL clusters in the destination region, including the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};

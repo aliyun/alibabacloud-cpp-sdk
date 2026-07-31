@@ -510,55 +510,103 @@ namespace Models
 
 
   protected:
+    // The archive type.
     shared_ptr<string> archiveType_ {};
+    // The block size.
     shared_ptr<int64_t> blockSize_ {};
+    // The bucket ID.
     shared_ptr<int64_t> bucket_ {};
+    // The number of buckets.
     shared_ptr<int64_t> bucketCount_ {};
+    // The column information.
     shared_ptr<vector<FieldSchemaModel>> cols_ {};
+    // The description.
     shared_ptr<string> comment_ {};
+    // The compression method.
     shared_ptr<string> compression_ {};
+    // The time when the table was created.
     shared_ptr<string> createTime_ {};
     shared_ptr<string> createdBySource_ {};
     shared_ptr<string> createdByUser_ {};
+    // The current version.
     shared_ptr<int64_t> currentVersion_ {};
+    // The name of the logical database.
     shared_ptr<string> dbName_ {};
+    // Indicates whether the dictionary is encrypted.
     shared_ptr<bool> dictEncode_ {};
+    // The distribution columns.
     shared_ptr<vector<FieldSchemaModel>> distributeColumns_ {};
+    // The distribution type.
     shared_ptr<string> distributeType_ {};
+    // Indicates whether DFS is allowed.
     shared_ptr<bool> enableDfs_ {};
+    // The number of hot partitions.
     shared_ptr<int64_t> hotPartitionCount_ {};
+    // The indexes.
     shared_ptr<vector<CstoreIndexModel>> indexes_ {};
+    // Indicates whether the index is a full index.
     shared_ptr<bool> isAllIndex_ {};
+    // Indicates whether the table is a full-text index dictionary.
     shared_ptr<bool> isFulltextDict_ {};
+    // The maximum column ID.
     shared_ptr<int64_t> maxColumnId_ {};
+    // The parameters.
     shared_ptr<map<string, string>> parameters_ {};
+    // The information about the partition key column.
     shared_ptr<string> partitionColumn_ {};
+    // The number of partitions.
     shared_ptr<int64_t> partitionCount_ {};
+    // The partition keys.
     shared_ptr<vector<FieldSchemaModel>> partitionKeys_ {};
+    // The partition type.
     shared_ptr<string> partitionType_ {};
+    // The name of the physical database.
     shared_ptr<string> physicalDatabaseName_ {};
+    // The name of the physical table.
     shared_ptr<string> physicalTableName_ {};
+    // The previous version.
     shared_ptr<int64_t> previousVersion_ {};
+    // The raw table name.
     shared_ptr<string> rawTableName_ {};
+    // The routing columns.
     shared_ptr<vector<FieldSchemaModel>> routeColumns_ {};
+    // The effective routing column.
     shared_ptr<FieldSchemaModel> routeEffectiveColumn_ {};
+    // The routing type.
     shared_ptr<string> routeType_ {};
+    // The routing engine type.
     shared_ptr<string> rtEngineType_ {};
+    // Indicates whether to route all indexes.
     shared_ptr<bool> rtIndexAll_ {};
+    // The routing mode type.
     shared_ptr<string> rtModeType_ {};
+    // The description of the storage.
     shared_ptr<StorageDescriptorModel> sd_ {};
+    // The storage policy.
     shared_ptr<string> storagePolicy_ {};
+    // The information about the subpartition column.
     shared_ptr<string> subpartitionColumn_ {};
+    // The number of subpartitions.
     shared_ptr<int64_t> subpartitionCount_ {};
+    // The subpartition type.
     shared_ptr<string> subpartitionType_ {};
+    // The name of the table engine.
     shared_ptr<string> tableEngineName_ {};
+    // The name of the logical table.
     shared_ptr<string> tableName_ {};
+    // The table type.
     shared_ptr<string> tableType_ {};
+    // The table ID.
     shared_ptr<int64_t> tblId_ {};
+    // Indicates whether the table is a temporary table.
     shared_ptr<bool> temporary_ {};
+    // The time when the table was last updated.
     shared_ptr<string> updateTime_ {};
+    // The normalized SQL statement that is used to create the view.
     shared_ptr<string> viewExpandedText_ {};
+    // The SQL statement used to create the view.
     shared_ptr<string> viewOriginalText_ {};
+    // The security mode of the view.
     shared_ptr<string> viewSecurityMode_ {};
   };
 

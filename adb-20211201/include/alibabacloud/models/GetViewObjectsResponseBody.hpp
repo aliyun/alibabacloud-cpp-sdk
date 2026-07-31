@@ -97,15 +97,14 @@ namespace Models
 
 
     protected:
-      // The page number. Pages start from page 1. Default value: **1**.
+      // The page number. The value is a positive integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
       shared_ptr<int64_t> pageNumber_ {};
       // The number of entries per page. Valid values:
-      // 
-      // *   **30** (default)
-      // *   **50**
-      // *   **100**
+      // * **30** (default).
+      // * **50**.
+      // * **100**.
       shared_ptr<int64_t> pageSize_ {};
-      // The queried views.
+      // The result array.
       shared_ptr<vector<TableSummaryModel>> tableSummaryModels_ {};
       // The total number of entries returned.
       shared_ptr<int64_t> totalCount_ {};
@@ -151,15 +150,14 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response struct.
     shared_ptr<GetViewObjectsResponseBody::Data> data_ {};
-    // The page number. Pages start from page 1. Default value: **1**.
+    // The page number. The value is a positive integer that is greater than 0 and does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Valid values:
-    // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // * **30** (default).
+    // * **50**.
+    // * **100**.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

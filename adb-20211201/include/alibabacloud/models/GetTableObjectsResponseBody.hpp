@@ -97,17 +97,16 @@ namespace Models
 
 
     protected:
-      // The number of the returned page. The value is an integer that is greater than 0. Default value: **1**.
+      // The page number. The value is a positive integer. Default value: **1**.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries returned per page. Default value: 30. Valid values:
-      // 
-      // *   **30**
-      // *   **50**
-      // *   **100**
+      // The number of entries per page. Valid values:
+      // - **30** (default)
+      // - **50**
+      // - **100**.
       shared_ptr<int64_t> pageSize_ {};
-      // Details of the tables.
+      // The result array.
       shared_ptr<vector<TableSummaryModel>> tableSummaryModels_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -151,19 +150,18 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<GetTableObjectsResponseBody::Data> data_ {};
-    // The number of the returned page. The value is an integer that is greater than 0. Default value: **1**.
+    // The page number. The value is a positive integer. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned per page. Default value: 30. Valid values:
-    // 
-    // *   **30**
-    // *   **50**
-    // *   **100**
+    // The number of entries per page. Valid values:
+    // - **30** (default)
+    // - **50**
+    // - **100**.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

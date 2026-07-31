@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // The date on which you want to apply the suggestion. Format: yyyyMMdd.
+    // The date when the suggestions were generated. Format: yyyyMMdd.
     shared_ptr<int64_t> adviceDate_ {};
-    // The IDs of the suggestions that you want to apply. Separate multiple IDs with commas (,).
+    // The list of suggestion IDs to apply in batches. Separate multiple suggestion IDs with commas (,).
     shared_ptr<string> adviceIdList_ {};
+    // The adoption type.
     shared_ptr<string> applyType_ {};
+    // Specifies whether to immediately start a build task.
     shared_ptr<bool> buildImmediately_ {};
     // The cluster ID.
-    // 
-    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};

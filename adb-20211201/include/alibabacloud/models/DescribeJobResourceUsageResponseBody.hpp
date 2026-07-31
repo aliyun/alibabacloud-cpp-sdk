@@ -73,6 +73,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(JobId, jobId_);
           DARABONBA_PTR_TO_JSON(JobStartTime, jobStartTime_);
           DARABONBA_PTR_TO_JSON(ResourceGroupName, resourceGroupName_);
+          DARABONBA_PTR_TO_JSON(SparkAppName, sparkAppName_);
           DARABONBA_PTR_TO_JSON(UseCachePool, useCachePool_);
         };
         friend void from_json(const Darabonba::Json& j, JobAcuUsage& obj) { 
@@ -81,6 +82,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(JobId, jobId_);
           DARABONBA_PTR_FROM_JSON(JobStartTime, jobStartTime_);
           DARABONBA_PTR_FROM_JSON(ResourceGroupName, resourceGroupName_);
+          DARABONBA_PTR_FROM_JSON(SparkAppName, sparkAppName_);
           DARABONBA_PTR_FROM_JSON(UseCachePool, useCachePool_);
         };
         JobAcuUsage() = default ;
@@ -159,20 +161,21 @@ namespace Models
 
 
         protected:
-          // The number of ACUs for the elastic resources.
+          // The number of elastic ACU resources.
           shared_ptr<float> elasticAcuNumber_ {};
-          // The number of ACUs for the reserved resources.
+          // The number of reserved ACU resources.
           shared_ptr<float> reservedAcuNumber_ {};
-          // The number of spot ACUs.
+          // The number of spot instance ACU resources.
           shared_ptr<float> spotAcuNumber_ {};
-          // The percent of spot ACUs.
+          // The percentage of spot instance resources in the total elastic resources.
           shared_ptr<float> spotAcuPercentage_ {};
-          // The total number of ACUs.
+          // The total number of ACU resources.
           shared_ptr<float> totalAcuNumber_ {};
         };
 
         virtual bool empty() const override { return this->acuUsageDetail_ == nullptr
-        && this->jobEndTime_ == nullptr && this->jobId_ == nullptr && this->jobStartTime_ == nullptr && this->resourceGroupName_ == nullptr && this->useCachePool_ == nullptr; };
+        && this->jobEndTime_ == nullptr && this->jobId_ == nullptr && this->jobStartTime_ == nullptr && this->resourceGroupName_ == nullptr && this->sparkAppName_ == nullptr
+        && this->useCachePool_ == nullptr; };
         // acuUsageDetail Field Functions 
         bool hasAcuUsageDetail() const { return this->acuUsageDetail_ != nullptr;};
         void deleteAcuUsageDetail() { this->acuUsageDetail_ = nullptr;};
@@ -210,6 +213,13 @@ namespace Models
         inline JobAcuUsage& setResourceGroupName(string resourceGroupName) { DARABONBA_PTR_SET_VALUE(resourceGroupName_, resourceGroupName) };
 
 
+        // sparkAppName Field Functions 
+        bool hasSparkAppName() const { return this->sparkAppName_ != nullptr;};
+        void deleteSparkAppName() { this->sparkAppName_ = nullptr;};
+        inline string getSparkAppName() const { DARABONBA_PTR_GET_DEFAULT(sparkAppName_, "") };
+        inline JobAcuUsage& setSparkAppName(string sparkAppName) { DARABONBA_PTR_SET_VALUE(sparkAppName_, sparkAppName) };
+
+
         // useCachePool Field Functions 
         bool hasUseCachePool() const { return this->useCachePool_ != nullptr;};
         void deleteUseCachePool() { this->useCachePool_ = nullptr;};
@@ -218,16 +228,18 @@ namespace Models
 
 
       protected:
-        // The ACU usage.
+        // The ACU resource usage details.
         shared_ptr<JobAcuUsage::AcuUsageDetail> acuUsageDetail_ {};
-        // The end time of the job. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+        // The end time of the job. Format: yyyy-MM-ddTHH:mmZ (UTC).
         shared_ptr<string> jobEndTime_ {};
         // The job ID.
         shared_ptr<string> jobId_ {};
-        // The start time of the job. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+        // The start time of the job. Format: yyyy-MM-ddTHH:mmZ (UTC).
         shared_ptr<string> jobStartTime_ {};
         // The name of the job resource group.
         shared_ptr<string> resourceGroupName_ {};
+        shared_ptr<string> sparkAppName_ {};
+        // Indicates whether the hot pool is used.
         shared_ptr<bool> useCachePool_ {};
       };
 
@@ -286,16 +298,20 @@ namespace Models
 
 
     protected:
-      // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+      // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+      // <props="intl">The ID of the Data Lakehouse Edition cluster.
       shared_ptr<string> DBClusterId_ {};
-      // The end time of the query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The end time. Format: yyyy-MM-ddTHH:mmZ (UTC).
       shared_ptr<string> endTime_ {};
-      // The AnalyticDB compute unit (ACU) usage of the job resource group.
+      // The ACU usage of the job resource group.
       shared_ptr<vector<Data::JobAcuUsage>> jobAcuUsage_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The start time of the query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The start time. Format: yyyy-MM-ddTHH:mmZ (UTC).
       shared_ptr<string> startTime_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -325,9 +341,9 @@ namespace Models
 
 
   protected:
-    // The HTTP status code.
+    // The API status or POP error code.
     shared_ptr<int32_t> code_ {};
-    // The queried resource usage.
+    // The returned data.
     shared_ptr<DescribeJobResourceUsageResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // The logical name of the column.
     shared_ptr<string> columnName_ {};
+    // The time when the column was created. The time is displayed in UTC.
     shared_ptr<string> createTime_ {};
+    // The description of the column.
     shared_ptr<string> description_ {};
+    // Indicates whether the column is the distribution key.
     shared_ptr<bool> distributeKey_ {};
+    // Indicates whether the column can be empty.
     shared_ptr<bool> nullable_ {};
+    // Indicates whether the column is the partition key.
     shared_ptr<bool> partitionKey_ {};
+    // Indicates whether the column is the primary key.
     shared_ptr<bool> primaryKey_ {};
+    // The logical name of the database.
     shared_ptr<string> schemaName_ {};
+    // The logical name of the table.
     shared_ptr<string> tableName_ {};
+    // The data type of the column.
     shared_ptr<string> type_ {};
+    // The time when the column was updated. The time is displayed in UTC.
     shared_ptr<string> updateTime_ {};
   };
 

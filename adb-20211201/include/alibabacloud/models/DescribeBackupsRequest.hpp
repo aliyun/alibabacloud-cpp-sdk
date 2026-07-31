@@ -132,32 +132,36 @@ namespace Models
   protected:
     // The backup set ID.
     shared_ptr<string> backupId_ {};
-    // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
-    // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition clusters within a region.
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all clusters in a specific region.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC. The end time must be later than the start time.
+    // The end of the time range to query. The end time must be later than the start time. Specify the time in the \\`yyyy-MM-ddTHH:mmZ\\` format.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Pages start from page 1. Default value: 1
+    // The page number. The value must be a positive integer that does not exceed the maximum value of the integer data type. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values:
+    // The number of entries to return on each page. Valid values:
     // 
-    // *   30
-    // *   50
-    // *   100
+    // - 30
+    // 
+    // - 50
+    // 
+    // - 100
     // 
     // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
+    // Specifies whether to query only cross-region backups. Set the value to true to query only cross-region backups. Set the value to false to query only local backups.
     shared_ptr<bool> remote_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+    // The beginning of the time range to query. Specify the time in the \\`yyyy-MM-ddTHH:mmZ\\` format.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

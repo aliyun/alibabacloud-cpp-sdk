@@ -121,14 +121,23 @@ namespace Models
 
 
   protected:
+    // The order of index columns.
     shared_ptr<vector<string>> columnOrds_ {};
+    // The time when the index was created.
     shared_ptr<string> createTime_ {};
+    // The logical name of the database.
     shared_ptr<string> databaseName_ {};
+    // The index columns.
     shared_ptr<vector<FieldSchemaModel>> indexColumns_ {};
+    // The name of the index.
     shared_ptr<string> indexName_ {};
+    // The type of the index.
     shared_ptr<string> indexType_ {};
+    // The properties.
     shared_ptr<map<string, string>> options_ {};
+    // The physical name of the table.
     shared_ptr<string> physicalTableName_ {};
+    // The time when the index was updated.
     shared_ptr<string> updateTime_ {};
   };
 

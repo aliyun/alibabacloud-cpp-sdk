@@ -59,10 +59,9 @@ namespace Models
 
 
     protected:
-      // Indicates whether the application template is created. Valid values:
-      // 
-      // *   **True**
-      // *   **False**
+      // Indicates whether the creation is successful. Valid values:
+      // - **True**: Successful.
+      // - **False**: Failed.
       shared_ptr<bool> succeeded_ {};
     };
 
@@ -85,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The creation result.
+    // The result of creating the application template.
     shared_ptr<CreateSparkTemplateResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -117,13 +117,13 @@ namespace Models
 
 
       protected:
-        // The name of the column.
+        // The column name.
         shared_ptr<string> column_ {};
-        // The name of the database.
+        // The database name.
         shared_ptr<string> database_ {};
-        // The description of the permission object.
+        // The description.
         shared_ptr<string> description_ {};
-        // The name of the table.
+        // The table name.
         shared_ptr<string> table_ {};
       };
 
@@ -155,11 +155,11 @@ namespace Models
 
 
     protected:
-      // The objects on which the permission takes effect, including databases, tables, columns, and additional descriptions.
+      // The privilege object, which specifies the database, table, column, and description.
       shared_ptr<Data::PrivilegeObject> privilegeObject_ {};
-      // The permission level of the permission. Valid values: `Global`, `Database`, `Table`, and `Column`. You can call the `DescribeEnabledPrivileges` parameter to query the permission level of a specific permission.
+      // The privilege level. Valid values: `Global`, `Database`, `Table`, and `Column`. The `DescribeEnabledPrivileges` API returns this value.
       shared_ptr<string> privilegeType_ {};
-      // The name of the permission. You can call the `DescribeEnabledPrivileges` operation to query the name of the permission.
+      // A list of privileges.
       shared_ptr<vector<string>> privileges_ {};
     };
 
@@ -203,15 +203,15 @@ namespace Models
 
 
   protected:
-    // Details of the permissions.
+    // A list of privilege details.
     shared_ptr<vector<DescribeAccountPrivilegesResponseBody::Data>> data_ {};
-    // The page number of the returned page.
+    // The page number. This value matches the `PageNumber` input parameter.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page. This value matches the `PageSize` input parameter.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total count of privileges at the specified privilege level.
     shared_ptr<int64_t> totalCount_ {};
   };
 

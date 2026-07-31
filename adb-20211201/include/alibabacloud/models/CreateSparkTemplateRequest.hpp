@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The application type. Valid values:
+    // The templatetype of the application. Valid values:
+    // - **SQL**: SQL application
+    // - **STREAMING**: streaming application
+    // - **BATCH**: batch application
     // 
-    // *   **SQL**
-    // *   **STREAMING**
-    // *   **BATCH**
-    // 
-    // >  You do not need to specify this parameter when Type is set to folder.
+    // > You do not need to configure this parameter when the application template type is folder.
     shared_ptr<string> appType_ {};
-    // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
@@ -91,16 +91,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The ID of the directory to which the application template belongs.
-    // 
-    // >  You can call the [GetSparkTemplateFolderTree](https://help.aliyun.com/document_detail/456218.html) operation to query the directory ID.
+    // The ID of the folder to which the application template belongs.
+    // > Call the [GetSparkTemplateFolderTree](https://help.aliyun.com/document_detail/456218.html) operation to query the folder ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> parentId_ {};
-    // The type of the application template. Valid values:
-    // 
-    // *   **folder**: directory.
-    // *   **file**: application.
+    // The templatetype of the application template. Valid values:
+    // - **folder**: folder
+    // - **file**: application
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

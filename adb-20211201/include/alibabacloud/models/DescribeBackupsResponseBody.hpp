@@ -181,25 +181,15 @@ namespace Models
 
 
       protected:
-        // The end time of the backup.
         shared_ptr<string> backupEndTime_ {};
         shared_ptr<string> backupExpiredTime_ {};
-        // The backup set ID.
         shared_ptr<string> backupId_ {};
-        // The backup method. Snapshot is returned.
         shared_ptr<string> backupMethod_ {};
         shared_ptr<string> backupRegion_ {};
-        // The size of the backup set. Unit: bytes.
         shared_ptr<int32_t> backupSize_ {};
-        // The start time of the backup.
         shared_ptr<string> backupStartTime_ {};
         shared_ptr<string> backupStatus_ {};
-        // The backup type. Valid values:
-        // 
-        // *   **FullBackup**
-        // *   **IncrementalBackup**
         shared_ptr<string> backupType_ {};
-        // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
         shared_ptr<string> DBClusterId_ {};
         shared_ptr<string> parentBackupId_ {};
       };
@@ -273,17 +263,18 @@ namespace Models
 
 
   protected:
+    // The free backup space. Unit: bytes.
     shared_ptr<int64_t> freeBackupSize_ {};
-    // The queried backup sets.
     shared_ptr<DescribeBackupsResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
+    // The number of backup sets on the current page.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total size of the backup sets. Unit: bytes.
     shared_ptr<int64_t> totalBackupSize_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

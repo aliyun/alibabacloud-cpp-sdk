@@ -94,25 +94,24 @@ namespace Models
 
 
   protected:
-    // The HTTP status code or the error code.
+    // The API status or POP error code.
     shared_ptr<string> code_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The information about the cluster resource usage.
+    // The detailed resource usage of the cluster.
     shared_ptr<string> data_ {};
-    // The response code. The status code 200 indicates that the request was successful.
+    // The HTTP status code returned. A value of 200 indicates that the request was successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The returned message. Valid values:
-    // 
-    // *   If the request was successful, a success message is returned.****
-    // *   If the request failed, an error message is returned.
+    // The additional information of the call result. Valid values:
+    // - If the request was successful, **Success** is returned. 
+    // - If the request failed, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the dry run succeeds. Valid values:
+    // The precheck result. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **success**: The check passed.
+    // - **false**: The check failed.
     shared_ptr<bool> success_ {};
   };
 

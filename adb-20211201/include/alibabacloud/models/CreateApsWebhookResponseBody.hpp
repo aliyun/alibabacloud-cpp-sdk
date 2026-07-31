@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // The code returned for the request.
+    // The response code.
     shared_ptr<string> code_ {};
-    // The returned result.
+    // The returned data.
     shared_ptr<string> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

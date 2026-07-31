@@ -130,12 +130,11 @@ namespace Models
 
 
         protected:
-          // The name of the metric.
+          // The key of the metric.
           shared_ptr<string> keyName_ {};
-          // Specifies whether to select the metric. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
+          // Specifies whether the metric is selected. Valid values:
+          // - **true**
+          // - **false**
           shared_ptr<bool> selected_ {};
         };
 
@@ -159,13 +158,12 @@ namespace Models
 
       protected:
         // The name of the metric category. Valid values:
-        // 
-        // *   **Node**
-        // *   **DiskData**
-        // *   **WorkLoad**
-        // *   **ResourceGroup**
+        // * **Node**: node resource metrics.
+        // * **DiskData**: disk metrics.
+        // * **WorkLoad**: workload metrics.
+        // * **ResourceGroup**: resource group metrics.
         shared_ptr<string> category_ {};
-        // The metrics.
+        // The list of metrics.
         shared_ptr<vector<Categories::Keys>> keys_ {};
       };
 
@@ -195,14 +193,13 @@ namespace Models
 
 
     protected:
-      // The metric categories.
+      // The list of metric categories.
       shared_ptr<vector<ViewDetail::Categories>> categories_ {};
-      // Specifies whether to enable the filter interaction feature. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether the linkage chart is enabled. Valid values:
+      // - **true**
+      // - **false**
       shared_ptr<bool> chartLinked_ {};
-      // The number of charts to display in each row.
+      // The number of charts displayed per row.
       shared_ptr<int32_t> chartsPerLine_ {};
     };
 
@@ -282,34 +279,36 @@ namespace Models
 
 
   protected:
-    // The type of the view.
-    shared_ptr<string> createFromViewType_ {};
-    // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+    // The type of the original monitoring dashboard from which the current monitoring dashboard is copied. Valid values:
     // 
-    // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/612397.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition clusters within a region.
+    // - **Basic**: basic dashboard.
+    // - **Advanced**: advanced dashboard.
+    shared_ptr<string> createFromViewType_ {};
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The ID of the Data Lakehouse Edition cluster.
+    // 
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/612397.html) operation to query the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies whether to populate the names of the metrics in the original monitoring view when you view the monitoring view. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Specifies whether to populate the keys from the original monitoring dashboard when viewing the monitoring dashboard. Valid values:
+    // - **true**
+    // - **false**
     shared_ptr<bool> fillOriginViewKeys_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.
-    // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the supported regions and zones, including region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The information about the monitoring view.
+    // The details of the monitoring dashboard.
     // 
     // This parameter is required.
     shared_ptr<CreatePerformanceViewRequest::ViewDetail> viewDetail_ {};
-    // The name of the view.
+    // The name of the monitoring dashboard.
     // 
     // This parameter is required.
     shared_ptr<string> viewName_ {};

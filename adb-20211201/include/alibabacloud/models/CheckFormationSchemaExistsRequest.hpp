@@ -1,0 +1,95 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CHECKFORMATIONSCHEMAEXISTSREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_CHECKFORMATIONSCHEMAEXISTSREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Adb20211201
+{
+namespace Models
+{
+  class CheckFormationSchemaExistsRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CheckFormationSchemaExistsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_TO_JSON(PrefixMode, prefixMode_);
+      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(Schema, schema_);
+    };
+    friend void from_json(const Darabonba::Json& j, CheckFormationSchemaExistsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_FROM_JSON(PrefixMode, prefixMode_);
+      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(Schema, schema_);
+    };
+    CheckFormationSchemaExistsRequest() = default ;
+    CheckFormationSchemaExistsRequest(const CheckFormationSchemaExistsRequest &) = default ;
+    CheckFormationSchemaExistsRequest(CheckFormationSchemaExistsRequest &&) = default ;
+    CheckFormationSchemaExistsRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CheckFormationSchemaExistsRequest() = default ;
+    CheckFormationSchemaExistsRequest& operator=(const CheckFormationSchemaExistsRequest &) = default ;
+    CheckFormationSchemaExistsRequest& operator=(CheckFormationSchemaExistsRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->DBClusterId_ == nullptr
+        && this->prefixMode_ == nullptr && this->regionId_ == nullptr && this->schema_ == nullptr; };
+    // DBClusterId Field Functions 
+    bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
+    void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline CheckFormationSchemaExistsRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
+
+
+    // prefixMode Field Functions 
+    bool hasPrefixMode() const { return this->prefixMode_ != nullptr;};
+    void deletePrefixMode() { this->prefixMode_ = nullptr;};
+    inline bool getPrefixMode() const { DARABONBA_PTR_GET_DEFAULT(prefixMode_, false) };
+    inline CheckFormationSchemaExistsRequest& setPrefixMode(bool prefixMode) { DARABONBA_PTR_SET_VALUE(prefixMode_, prefixMode) };
+
+
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline CheckFormationSchemaExistsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    // schema Field Functions 
+    bool hasSchema() const { return this->schema_ != nullptr;};
+    void deleteSchema() { this->schema_ = nullptr;};
+    inline string getSchema() const { DARABONBA_PTR_GET_DEFAULT(schema_, "") };
+    inline CheckFormationSchemaExistsRequest& setSchema(string schema) { DARABONBA_PTR_SET_VALUE(schema_, schema) };
+
+
+  protected:
+    // The cluster ID.
+    // 
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the cluster IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters in a region.
+    // 
+    // This parameter is required.
+    shared_ptr<string> DBClusterId_ {};
+    // Specifies whether to enable prefix mode. Valid values:
+    // 
+    // - true: Enable prefix mode.
+    // - false: Disable prefix mode.
+    // 
+    // This parameter is required.
+    shared_ptr<bool> prefixMode_ {};
+    // RegionId
+    // 
+    // This parameter is required.
+    shared_ptr<string> regionId_ {};
+    // schema 。
+    // 
+    // This parameter is required.
+    shared_ptr<string> schema_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Adb20211201
+#endif

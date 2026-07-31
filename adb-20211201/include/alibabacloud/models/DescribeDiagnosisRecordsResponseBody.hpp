@@ -143,7 +143,9 @@ namespace Models
 
 
       protected:
+        // The property name.
         shared_ptr<string> name_ {};
+        // The property value.
         shared_ptr<string> value_ {};
       };
 
@@ -333,67 +335,73 @@ namespace Models
     protected:
       // The source IP address.
       shared_ptr<string> clientIp_ {};
-      // The total execution duration. Unit: milliseconds.
+      // The total execution duration of the query. Unit: milliseconds.
       // 
-      // >  This value is the cumulative value of the `QueuedTime`, `TotalPlanningTime`, and `ExecutionTime` parameters.
+      // > This duration is the sum of `QueuedTime`, `TotalPlanningTime`, and `ExecutionTime`.
       shared_ptr<int64_t> cost_ {};
-      // The name of the database on which the SQL statement is executed.
+      // The name of the database where the SQL statement is executed.
       shared_ptr<string> database_ {};
-      // The number of rows written to the table by an extract-transform-load (ETL) job.
+      // The number of rows written to a table in an ETL task.
       shared_ptr<int64_t> etlWriteRows_ {};
-      // The execution duration. Unit: milliseconds.
+      // The execution duration of the query. Unit: milliseconds (ms).
       shared_ptr<int64_t> executionTime_ {};
       // The amount of returned data. Unit: bytes.
       shared_ptr<int64_t> outputDataSize_ {};
-      // The number of rows returned.
+      // The number of returned rows.
       shared_ptr<int64_t> outputRows_ {};
+      // The ID of the SQL pattern.
+      // 
+      // > Call the [DescribePatternPerformance](https://help.aliyun.com/document_detail/612503.html) operation to view the detailed execution metrics of the SQL pattern within a specified time range.
       shared_ptr<string> patternId_ {};
       // The peak memory. Unit: bytes.
       shared_ptr<int64_t> peakMemory_ {};
       // The query ID.
       shared_ptr<string> processId_ {};
-      // The query properties.
+      // The list of properties that are in effect for the current query.
       // 
-      // >  For information about common properties, see [Config and hint configuration parameters](https://help.aliyun.com/document_detail/408955.html).
+      // > For a list of common properties, see [Config and Hint configuration parameters](https://help.aliyun.com/document_detail/408955.html).
       shared_ptr<vector<Querys::QueryProperties>> queryProperties_ {};
-      // The amount of time that is consumed for queuing. Unit: milliseconds.
+      // The amount of time that the query waited in a queue before execution. Unit: milliseconds (ms).
       shared_ptr<int64_t> queueTime_ {};
-      // The IP address and port number of the AnalyticDB for MySQL frontend node on which the SQL statement is executed.
+      // The IP address and port number of the AnalyticDB for MySQL frontend node that is used to execute the SQL statement.
       shared_ptr<string> rcHost_ {};
-      // The execution duration rank of operators that are used in the SQL statement.
+      // The ranking of the execution duration of an operator in the SQL statement.
       // 
-      // >  This parameter is returned only for SQL statements whose `Status` parameter is `running`.
+      // > This parameter is returned only for SQL statements that are in the `running` state.
       shared_ptr<int32_t> resourceCostRank_ {};
-      // The resource group to which the SQL statement belongs.
+      // The resource pool to which the SQL statement belongs.
       shared_ptr<string> resourceGroup_ {};
-      // The queried SQL statement.
+      // The details of the SQL statement.
       // 
-      // >  For performance considerations, an SQL statement cannot exceed 5,120 characters in length. Otherwise, the SQL statement is truncated. You can call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/308212.html) operation to download the information about SQL statements that meet a query condition for an AnalyticDB for MySQL cluster, including the complete SQL statements.
+      // > For performance, an SQL statement can be up to 5,120 characters long. Longer statements are truncated. Call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/308212.html) operation to download the summary information of SQL statements that meet the specified conditions, including the complete SQL statements.
       shared_ptr<string> SQL_ {};
-      // Indicates whether the SQL statement is truncated. Valid values:
+      // Indicates whether the length of the query result exceeds the threshold. If the length exceeds the threshold, the query result is truncated. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The length of the query result exceeds the threshold.
+      // 
+      // - **false**: The length of the query result does not exceed the threshold.
       shared_ptr<bool> SQLTruncated_ {};
-      // The maximum length of the SQL statement. 5120 is returned. Unit: characters. SQL statements that exceed this limit are truncated.
+      // The truncation threshold for the SQL statement. The value is fixed at 5,120 characters. SQL statements that exceed this limit are truncated.
       shared_ptr<int64_t> SQLTruncatedThreshold_ {};
-      // The number of rows scanned.
+      // The number of scanned rows.
       shared_ptr<int64_t> scanRows_ {};
       // The amount of scanned data. Unit: bytes.
       shared_ptr<int64_t> scanSize_ {};
-      // The execution start time of the SQL statement. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The start time of the SQL execution. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> startTime_ {};
       // The state of the SQL statement. Valid values:
       // 
-      // *   **running**
-      // *   **finished**
-      // *   **failed**
+      // - **running**: The statement is running.
+      // 
+      // - **finished**: The statement is complete.
+      // 
+      // - **failed**: The statement failed to be executed.
       shared_ptr<string> status_ {};
-      // The amount of time that is consumed to generate an execution plan. Unit: milliseconds.
+      // The amount of time that was required to generate the execution plan. Unit: milliseconds (ms).
       shared_ptr<int64_t> totalPlanningTime_ {};
-      // The total number of stages generated.
+      // The total number of stages generated for the query.
       shared_ptr<int32_t> totalStages_ {};
-      // The username that is used to execute the SQL statements.
+      // The username used to execute the SQL statement.
       shared_ptr<string> userName_ {};
     };
 
@@ -437,19 +445,21 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page 1. Default value: **1**.
+    // The page number. The value is an integer that is greater than 0. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
     // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // - **30** (default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
-    // The queried SQL statements.
+    // The list of SQL statement details.
     shared_ptr<vector<DescribeDiagnosisRecordsResponseBody::Querys>> querys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

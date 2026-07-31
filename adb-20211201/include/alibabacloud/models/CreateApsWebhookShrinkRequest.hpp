@@ -70,15 +70,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The type of the task. Valid value: Task type. SLS or OSS Export Task: ResultExport.
+    // The task type. Valid values:
+    // 
+    // ResultExport: SLS/OSS export task.
     // 
     // This parameter is required.
     shared_ptr<string> jobType_ {};
-    // The ID of the region in which to create the dedicated block storage cluster.
+    // The region ID of the cluster.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The array of webhooks.
+    // The webhook array.
     shared_ptr<string> webhookShrink_ {};
   };
 

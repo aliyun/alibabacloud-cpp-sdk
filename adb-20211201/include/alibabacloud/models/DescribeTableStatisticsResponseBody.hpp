@@ -191,38 +191,17 @@ namespace Models
 
 
       protected:
-        // The size of cold data. Unit: bytes.
-        // 
-        // >  This parameter is supported only for AnalyticDB for MySQL clusters of V3.1.3.4 or later.
         shared_ptr<int64_t> coldDataSize_ {};
-        // The data size of the table. Unit: bytes.
         shared_ptr<int64_t> dataSize_ {};
-        // The size of hot data. Unit: bytes.
         shared_ptr<int64_t> hotDataSize_ {};
-        // The data size of indexes. Unit: bytes.
         shared_ptr<int64_t> indexSize_ {};
-        // The data size of other data. Unit: bytes.
         shared_ptr<int64_t> otherSize_ {};
-        // The number of partitions.
         shared_ptr<int64_t> partitionCount_ {};
-        // The data size of the primary key index. Unit: bytes.
         shared_ptr<int64_t> primaryKeyIndexSize_ {};
-        // The number of rows in the table.
         shared_ptr<int64_t> rowCount_ {};
-        // The name of the database.
         shared_ptr<string> schemaName_ {};
-        // The percentage of the table size. Unit: %.
-        // 
-        // >  Formula: Table storage percentage = Total data size of a table/Total data size of the cluster × 100%.
         shared_ptr<double> spaceRatio_ {};
-        // The name of the table.
         shared_ptr<string> tableName_ {};
-        // The total data size of the table. Unit: bytes.
-        // 
-        // >  The following formulas can be used to calculate the total data size:
-        // 
-        // *   Formula 1: Total data size = Hot data size + Cold data size.
-        // *   Formula 2: Total data size = Data size of table records + Data size of regular indexes + Data size of primary key indexes + Data size of other data.
         shared_ptr<int64_t> totalSize_ {};
       };
 
@@ -297,7 +276,6 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // The queried table statistics.
     shared_ptr<DescribeTableStatisticsResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};

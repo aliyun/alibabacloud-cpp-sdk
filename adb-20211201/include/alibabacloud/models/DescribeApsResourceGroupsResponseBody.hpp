@@ -147,30 +147,35 @@ namespace Models
       protected:
         // Indicates whether the resource group is available. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **True**
+        // 
+        // - **False**
         shared_ptr<bool> available_ {};
+        // The resource gradient values.
         shared_ptr<vector<int64_t>> cuOptions_ {};
         // The name of the resource group.
         shared_ptr<string> groupName_ {};
         // The type of the resource group. Valid values:
         // 
-        // *   **Interactive**
-        // *   **Job**
+        // - **Interactive**
         // 
-        // >  For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/428610.html).
+        // - **Job**
+        // 
+        // > For more information about resource groups in Data Lakehouse Edition, see [Resource groups](https://help.aliyun.com/document_detail/428610.html).
         shared_ptr<string> groupType_ {};
-        // The amount of remaining computing resources. Unit: ACUs.
+        // The remaining computing resources, in ACU.
         shared_ptr<int32_t> leftComputeResource_ {};
-        // The maximum amount of reserved computing resources. Unit: ACUs.
+        // The maximum reserved computing resources, in ACU.
         // 
-        // *   If the value of GroupType is **Interactive**, the amount of reserved computing resources that are not allocated in the cluster is returned in increments of 16 ACUs.
-        // *   If the value of GroupType is **Job**, the amount of reserved computing resources that are not allocated in the cluster is returned in increments of 8 ACUs.
+        // - If GroupType is **Interactive**, the maximum reserved computing resources are the current unallocated resources of the cluster, and the step size is 16 ACU.
+        // 
+        // - If GroupType is **Job**, the maximum reserved computing resources are the current unallocated resources of the cluster, and the step size is 8 ACU.
         shared_ptr<int32_t> maxComputeResource_ {};
-        // The minimum amount of reserved computing resources. Unit: ACUs.
+        // The minimum reserved computing resources, in ACU.
         // 
-        // *   If the value of GroupType is **Interactive**, 16 is returned.
-        // *   If the value of GroupType is **Job**, 0 is returned.
+        // - If GroupType is **Interactive**, the minimum reserved computing resources are 16 ACU.
+        // 
+        // - If GroupType is **Job**, the minimum reserved computing resources are 0 ACU.
         shared_ptr<int32_t> minComputeResource_ {};
       };
 
@@ -193,12 +198,13 @@ namespace Models
 
 
     protected:
-      // The queried resource groups.
+      // The resource groups.
       shared_ptr<vector<Data::ResourceGroups>> resourceGroups_ {};
-      // The step size of resources. Unit: AnalyticDB compute units (ACUs).
+      // The step size of the resource group, in ACU.
       // 
-      // *   If the value of GroupType is **Interactive**, 16 is returned.
-      // *   If the value of GroupType is **Job**, 8 is returned.
+      // - If GroupType is **Interactive**, the step size is 16 ACU.
+      // 
+      // - If GroupType is **Job**, the step size is 8 ACU.
       shared_ptr<int64_t> step_ {};
     };
 
@@ -242,21 +248,23 @@ namespace Models
 
 
   protected:
-    // The queried resource groups.
+    // The information about the resource groups.
     shared_ptr<DescribeApsResourceGroupsResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
-    // The returned message.
+    // Additional information about the call. Valid values:
     // 
-    // *   If the request was successful, a success message is returned.
-    // *   If the request failed, an error message is returned.
+    // - Success is returned if the request is successful.
+    // 
+    // - An error code is returned if the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **True**
+    // 
+    // - **False**
     shared_ptr<bool> success_ {};
   };
 

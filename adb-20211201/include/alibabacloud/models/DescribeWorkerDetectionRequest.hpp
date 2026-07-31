@@ -113,29 +113,26 @@ namespace Models
 
   protected:
     // The cluster ID.
-    // 
-    // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the details of all AnalyticDB for MySQL clusters in a region, including the cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
+    // The end of the query time range. Specify the time in the <i>yyyy-MM-ddTHH:mmZ</i> format (UTC).
     shared_ptr<string> endTime_ {};
-    // The language. Valid values:
-    // 
-    // *   **zh** (default): simplified Chinese.
-    // *   **en**: English
+    // The display language of suggestions. Valid values:
+    // - **zh**: simplified Chinese (default).
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.
-    // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612293.html) operation to query the most recent region list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612293.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
+    // The beginning of the query time range. Specify the time in the <i>yyyy-MM-ddTHH:mmZ</i> format (UTC).
     shared_ptr<string> startTime_ {};
   };
 

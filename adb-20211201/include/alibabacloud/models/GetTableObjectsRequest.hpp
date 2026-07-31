@@ -121,58 +121,50 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The description of the table.
+    // The description.
     shared_ptr<string> filterDescription_ {};
-    // The owner of the table.
+    // The owner.
     shared_ptr<string> filterOwner_ {};
-    // The name of the table.
+    // The table name.
     shared_ptr<string> filterTblName_ {};
-    // The type of the table.
-    // 
+    // The table type.
     // Valid values:
     // 
-    // DIMENSION_TABLE
-    // 
-    // FACT_TABLE
-    // 
-    // EXTERNAL_TABLE
+    // - DIMENSION_TABLE
+    // - FACT_TABLE
+    // - EXTERNAL_TABLE
     // 
     // Default value: null.
     shared_ptr<string> filterTblType_ {};
-    // The order in which the fields to be returned are sorted.
+    // The sorting field.
     // 
-    // Valid values:
+    // Valid values for Type:
+    // - Asc
+    // - Desc
     // 
-    // *   Asc
-    // *   Desc
+    // Valid values for Field:
+    // - TableName
+    // - TableSize
+    // - CreateTime
+    // - UpdateTime
     // 
-    // Values for fields:
-    // 
-    // TableName
-    // 
-    // TableSize
-    // 
-    // CreateTime
-    // 
-    // UpdateTime
-    // 
-    // Default value: {"Type": "Desc","Field": "TableName"};
+    // Default value: {"Type": "Desc","Field": "TableName"}.
     shared_ptr<string> orderBy_ {};
-    // The number of the page to return. The value is an integer that is greater than 0. Default value: **1**.
+    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values:
+    // The number of entries per page. Valid values:
     // 
-    // *   30
-    // *   50
-    // *   100
+    // - 30
+    // - 50
+    // - 100
     // 
     // Default value: 30.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the region in which the cluster resides.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

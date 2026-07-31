@@ -127,17 +127,17 @@ namespace Models
 
 
     protected:
-      // Specifies whether the data source is a cross-account resource.
+      // Specifies whether cross-account access is enabled.
       shared_ptr<bool> across_ {};
-      // The name of the cross-account role.
+      // The role name for cross-account access.
       shared_ptr<string> acrossRole_ {};
-      // The cross-account UID.
+      // The UID of the cross-account.
       shared_ptr<string> acrossUid_ {};
-      // The SLS project.
+      // The Simple Log Service (SLS) project.
       shared_ptr<string> project_ {};
-      // The region ID.
+      // The region ID of the source cluster.
       shared_ptr<string> sourceRegionId_ {};
-      // The name of the SLS Logstore.
+      // sls logstore。
       shared_ptr<string> store_ {};
     };
 
@@ -215,17 +215,17 @@ namespace Models
 
 
     protected:
-      // The URL used to connect to the read-only instance.
+      // The read-only instance endpoint.
       shared_ptr<string> connectUrl_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The password of the database account of the instance.
+      // The password.
       shared_ptr<string> password_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The security group ID.
+      // The security group.
       shared_ptr<string> securityGroup_ {};
-      // The name of the database account of the instance.
+      // The username.
       shared_ptr<string> userName_ {};
     };
 
@@ -257,7 +257,7 @@ namespace Models
 
 
     protected:
-      // The instance ID.
+      // The OceanBase cluster ID.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -363,16 +363,16 @@ namespace Models
 
 
     protected:
-      // Specifies whether the data source is a cross-account resource. Valid values:
+      // Specifies whether cross-account access is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The current network instance is a cross-account resource.
+      // - **false**: The current network instance is a resource within the current account.
       shared_ptr<bool> across_ {};
-      // The name of the cross-account role.
+      // The cross-account role.
       shared_ptr<string> acrossRole_ {};
-      // The cross-account UID.
+      // The UID of the cross-account.
       shared_ptr<string> acrossUid_ {};
-      // The URL used to connect to the custom ApsaraDB RDS for MySQL instance.
+      // The custom RDS endpoint.
       shared_ptr<string> connectUrl_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -380,9 +380,9 @@ namespace Models
       shared_ptr<string> password_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The security group ID.
+      // The security group.
       shared_ptr<string> securityGroup_ {};
-      // The username used to access the instance.
+      // The username.
       shared_ptr<string> userName_ {};
     };
 
@@ -424,9 +424,9 @@ namespace Models
 
 
     protected:
-      // The ID of the Apache Kafka instance.
+      // The Kafka instance ID.
       shared_ptr<string> kafkaClusterId_ {};
-      // The topic of the Apache Kafka instance.
+      // The assigned Kafka topic name.
       shared_ptr<string> kafkaTopic_ {};
     };
 
@@ -495,13 +495,13 @@ namespace Models
 
 
     protected:
-      // The cluster ID.
+      // The instance ID.
       shared_ptr<string> clusterId_ {};
-      // The configuration of the host.
+      // The host configuration.
       shared_ptr<string> hostConfig_ {};
-      // The URL of the Hive Metastore.
+      // The MetaStore endpoint.
       shared_ptr<string> metaStoreUri_ {};
-      // The security group ID.
+      // The security group.
       shared_ptr<string> securityGroup_ {};
       // The vSwitch ID.
       shared_ptr<string> vswitch_ {};
@@ -545,9 +545,9 @@ namespace Models
 
 
     protected:
-      // The token that is used to access Databricks.
+      // The access token.
       shared_ptr<string> accessToken_ {};
-      // The URL of the workspace.
+      // The workspace URL.
       shared_ptr<string> workspaceURL_ {};
     };
 
@@ -665,35 +665,35 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The information about the Databricks data source.
+    // The Databricks data source information.
     shared_ptr<CreateApsDatasoureRequest::DatabricksInfo> databricksInfo_ {};
-    // The description of the data source.
+    // The data source description.
     shared_ptr<string> datasourceDescription_ {};
-    // The name of the data source.
+    // The data source name.
     // 
     // This parameter is required.
     shared_ptr<string> datasourceName_ {};
-    // The type of the data source.
+    // The data source type.
     // 
     // This parameter is required.
     shared_ptr<string> datasourceType_ {};
-    // The information about the Hive data source.
+    // The Hive data source information.
     shared_ptr<CreateApsDatasoureRequest::HiveInfo> hiveInfo_ {};
-    // The information about the source Apache Kafka instance.
+    // The Kafka information.
     shared_ptr<CreateApsDatasoureRequest::KafkaInfo> kafkaInfo_ {};
     // The mode.
     shared_ptr<string> mode_ {};
-    // The information about the source PolarDB for MySQL cluster.
+    // The PolarDB for MySQL data source information.
     shared_ptr<CreateApsDatasoureRequest::PolarDBMysqlInfo> polarDBMysqlInfo_ {};
-    // The information about the source PolarDB-X instance.
+    // The PolarDB-X data source information.
     shared_ptr<CreateApsDatasoureRequest::PolarDBXInfo> polarDBXInfo_ {};
-    // The information about the source ApsaraDB RDS for MySQL instance.
+    // The ApsaraDB RDS for MySQL data source information.
     shared_ptr<CreateApsDatasoureRequest::RdsMysqlInfo> rdsMysqlInfo_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The information about the source Simple Log Service (SLS) instance or cluster.
+    // The Simple Log Service (SLS) information for the data source to be created.
     shared_ptr<CreateApsDatasoureRequest::SlsInfo> slsInfo_ {};
   };
 

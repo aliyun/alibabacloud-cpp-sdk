@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The data volume.
     shared_ptr<string> dataVolumn_ {};
+    // Indicates whether binary logging is enabled for the table.
     shared_ptr<bool> enableBinlog_ {};
+    // The database name.
     shared_ptr<string> schemaName_ {};
+    // The table name.
     shared_ptr<string> tableName_ {};
   };
 

@@ -125,47 +125,46 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The owner of the view.
+    // The owner.
     shared_ptr<string> filterOwner_ {};
-    // The name of the view.
+    // The view name.
     shared_ptr<string> filterViewName_ {};
-    // The type of the view.
+    // The view type.
     // 
     // Valid values:
     // 
-    // \\-VIRTUAL_VIEW
-    // 
-    // \\-MATERIALIZED_VIEW
+    // - VIRTUAL_VIEW
+    // - MATERIALIZED_VIEW
     // 
     // Default value: null.
     shared_ptr<string> filterViewType_ {};
-    // The order in which you want to sort the query results. Valid values for Type:
+    // The sorting field.
     // 
-    // *   Asc
-    // *   Desc
+    // Valid values for Type:
+    // - Asc
+    // - Desc
     // 
-    // Valid values for Field: -ViewName
-    // 
-    // \\-CreateTime
-    // 
-    // \\-UpdateTime
+    // Valid values for Field:
+    // - ViewName
+    // - CreateTime
+    // - UpdateTime
     // 
     // Default value: {"Type": "Desc","Field": "ViewName"}.
     shared_ptr<string> orderBy_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Valid values:
-    // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // * **30** (default).
+    // * **50**.
+    // * **100**.
     shared_ptr<int64_t> pageSize_ {};
-    // The region ID of the cluster.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The name of the database.
+    // The database name.
     shared_ptr<string> schemaName_ {};
+    // Specifies whether to display the base table information of materialized views.
     shared_ptr<bool> showMvBaseTable_ {};
   };
 

@@ -149,29 +149,28 @@ namespace Models
 
 
   protected:
-    // The advanced configurations.
+    // The advanced configuration.
     shared_ptr<string> advancedConfig_ {};
-    // The policy to handle tables with the same name in the destination cluster.
+    // The policy for handling databases and tables with the same name at the destination.
     shared_ptr<string> conflictStrategy_ {};
-    // The ID of the AnalyticDB for MySQL cluster.
+    // The AnalyticDB for MySQL cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The data source ID.
     shared_ptr<int64_t> datasourceId_ {};
-    // The number of AnalyticDB compute units (ACUs) required for data migration.
+    // The number of AnalyticDB compute units (ACUs) required for the migration.
     // 
     // This parameter is required.
     shared_ptr<string> fullComputeUnit_ {};
-    // The path of the destination data lakehouse in an Object Storage Service (OSS) bucket.
+    // The destination lakehouse address, which is a full OSS path.
     // 
     // This parameter is required.
     shared_ptr<string> ossLocation_ {};
-    // The number of tasks that are allowed in parallel.
+    // The number of parallel tasks.
     shared_ptr<int32_t> parallelism_ {};
-    // The region ID.
-    // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+    // The region ID of the O&M event.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the regions and zones supported by AnalyticDB for MySQL, including region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -179,13 +178,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> resourceGroup_ {};
-    // The expression that allows objects to be synchronized.
+    // The expression that specifies the objects allowed for synchronization.
     shared_ptr<string> syncAllowExpression_ {};
-    // The expression that denies objects to be synchronized.
+    // The expression that specifies the objects allowed for synchronization.
     shared_ptr<string> syncDenyExpression_ {};
     // The destination type.
     shared_ptr<string> targetType_ {};
-    // The name of the workload.
+    // The workload name.
     // 
     // This parameter is required.
     shared_ptr<string> workloadName_ {};

@@ -153,35 +153,35 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The information about the Databricks data source.
+    // The Databricks data source information.
     shared_ptr<string> databricksInfoShrink_ {};
-    // The description of the data source.
+    // The data source description.
     shared_ptr<string> datasourceDescription_ {};
-    // The name of the data source.
+    // The data source name.
     // 
     // This parameter is required.
     shared_ptr<string> datasourceName_ {};
-    // The type of the data source.
+    // The data source type.
     // 
     // This parameter is required.
     shared_ptr<string> datasourceType_ {};
-    // The information about the Hive data source.
+    // The Hive data source information.
     shared_ptr<string> hiveInfoShrink_ {};
-    // The information about the source Apache Kafka instance.
+    // The Kafka information.
     shared_ptr<string> kafkaInfoShrink_ {};
     // The mode.
     shared_ptr<string> mode_ {};
-    // The information about the source PolarDB for MySQL cluster.
+    // The PolarDB for MySQL data source information.
     shared_ptr<string> polarDBMysqlInfoShrink_ {};
-    // The information about the source PolarDB-X instance.
+    // The PolarDB-X data source information.
     shared_ptr<string> polarDBXInfoShrink_ {};
-    // The information about the source ApsaraDB RDS for MySQL instance.
+    // The ApsaraDB RDS for MySQL data source information.
     shared_ptr<string> rdsMysqlInfoShrink_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The information about the source Simple Log Service (SLS) instance or cluster.
+    // The Simple Log Service (SLS) information for the data source to be created.
     shared_ptr<string> slsInfoShrink_ {};
   };
 

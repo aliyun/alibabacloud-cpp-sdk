@@ -134,13 +134,13 @@ namespace Models
 
 
         protected:
-          // The name of the column.
+          // The column name.
           shared_ptr<string> column_ {};
-          // The name of the database.
+          // The database name.
           shared_ptr<string> database_ {};
-          // The description of the permission object.
+          // Description of the permission object.
           shared_ptr<string> description_ {};
-          // The name of the table.
+          // The table name.
           shared_ptr<string> table_ {};
         };
 
@@ -172,11 +172,11 @@ namespace Models
 
 
       protected:
-        // The objects on which the permission takes effect, including databases, tables, and columns. If Global is returned for the PrivilegeType parameter, an empty string is returned for this parameter.
+        // The permission object, represented as a trituple of database, table, and column. All fields are empty for Global-level permissions.
         shared_ptr<Result::PrivilegeObject> privilegeObject_ {};
-        // The permission level of the database account. You can call the `DescribeEnabledPrivileges` operation to query the permission level of the database account.
+        // The permission level, returned by the `DescribeEnabledPrivileges` operation.
         shared_ptr<string> privilegeType_ {};
-        // The name of the permission, which is the same as the permission name returned by the `DescribeEnabledPrivileges` operation.
+        // List of permissions.
         shared_ptr<vector<string>> privileges_ {};
       };
 
@@ -206,11 +206,11 @@ namespace Models
 
 
     protected:
-      // Indicates the position where the results are truncated. When a value of `true` is returned for the `Truncated` parameter, this parameter is present and contains the value to use for the Marker parameter in a subsequent call.
+      // If the `Truncated` field in the response is `true`, pass this value in subsequent calls to retrieve the next set of results.
       shared_ptr<string> marker_ {};
-      // The permissions.
+      // List of permissions.
       shared_ptr<vector<Data::Result>> result_ {};
-      // Indicates whether the results are truncated. If the results are truncated, a value of `true` is returned. In this case, you must call this operation again to obtain all the results until a value of `false` is returned for this parameter.
+      // If the response is truncated, this field is `true`. Continue calling this operation until this field becomes `false`.
       shared_ptr<bool> truncated_ {};
     };
 
@@ -233,9 +233,9 @@ namespace Models
 
 
   protected:
-    // Details of the permissions.
+    // Permission details.
     shared_ptr<DescribeAccountAllPrivilegesResponseBody::Data> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

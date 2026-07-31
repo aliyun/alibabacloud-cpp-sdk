@@ -94,47 +94,41 @@ namespace Models
 
 
   protected:
-    // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
-    // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
+    // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all clusters in a region.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The order by which to sort query results. Specify the parameter value in the JSON string format. Example: `[{"Field":"TableSchema","Type":"Asc"}]`. Fields in the request parameter:
+    // Sorts the query results by a specified field. The value is a JSON string. Example: `[{"Field":"TableSchema","Type":"Asc"}]`.
+    // - `Field` specifies the field by which to sort. Valid values:
+    //     - `TableSchema`: the name of the database to which the table belongs.
+    //     - `TableName`: the table name.
+    //     - `AccessCount`: the number of times the table is accessed.
+    // - `Type` specifies the sort order. Valid values:
+    //     - `Asc`: ascending order.
+    //     - `Desc`: descending order.
     // 
-    // *   `Field` specifies the field by which to sort the query results. Valid values:
-    // 
-    //     *   `TableSchema`: the name of the database to which the table belongs.
-    //     *   `TableName`: the name of the table.
-    //     *   `AccessCount`: the number of accesses to the table.
-    // 
-    // *   `Type` specifies the sorting order. Valid values:
-    // 
-    //     *   `Asc`: ascending order.
-    //     *   `Desc`: descending order.
-    // 
-    // >  If you do not specify this parameter, query results are sorted in ascending order based on the database and the table.
+    // > If this parameter is not specified, the results are sorted by the database name of the table in ascending order by default.
     shared_ptr<string> order_ {};
-    // The page number. Pages start from 1. Default value: **1**.
+    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
-    // 
-    // *   **10** (default)
-    // *   **30**
-    // *   **50**
-    // *   **100**
+    // - **10** (default)
+    // - **30**
+    // - **50**
+    // - **100**
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the cluster.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-    // 
-    // >  Only data within the last 30 days can be queried.
+    // The beginning of the time range to query, in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+    // > Only data within the last 30 days can be queried.
     shared_ptr<string> startTime_ {};
     // The name of the table.
-    // 
-    // >  If you leave this parameter empty, the number of accesses to all tables in the cluster on a date is returned.
+    // > If this parameter is left empty, the access frequency data of all tables in the cluster within the specified date range is returned.
     shared_ptr<string> tableName_ {};
   };
 

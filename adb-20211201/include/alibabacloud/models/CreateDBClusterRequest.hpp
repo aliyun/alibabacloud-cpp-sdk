@@ -1,0 +1,483 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CREATEDBCLUSTERREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_CREATEDBCLUSTERREQUEST_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Adb20211201
+{
+namespace Models
+{
+  class CreateDBClusterRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CreateDBClusterRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AINodeNumber, AINodeNumber_);
+      DARABONBA_PTR_TO_JSON(AINodeSpec, AINodeSpec_);
+      DARABONBA_PTR_TO_JSON(BackupSetId, backupSetId_);
+      DARABONBA_PTR_TO_JSON(CloneSourceRegionId, cloneSourceRegionId_);
+      DARABONBA_PTR_TO_JSON(ComputeResource, computeResource_);
+      DARABONBA_PTR_TO_JSON(DBClusterDescription, DBClusterDescription_);
+      DARABONBA_PTR_TO_JSON(DBClusterNetworkType, DBClusterNetworkType_);
+      DARABONBA_PTR_TO_JSON(DBClusterVersion, DBClusterVersion_);
+      DARABONBA_PTR_TO_JSON(DiskEncryption, diskEncryption_);
+      DARABONBA_PTR_TO_JSON(EnableDefaultResourcePool, enableDefaultResourcePool_);
+      DARABONBA_PTR_TO_JSON(EnableSSL, enableSSL_);
+      DARABONBA_PTR_TO_JSON(KmsId, kmsId_);
+      DARABONBA_PTR_TO_JSON(PayType, payType_);
+      DARABONBA_PTR_TO_JSON(Period, period_);
+      DARABONBA_PTR_TO_JSON(ProductForm, productForm_);
+      DARABONBA_PTR_TO_JSON(ProductVersion, productVersion_);
+      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ReservedNodeCount, reservedNodeCount_);
+      DARABONBA_PTR_TO_JSON(ReservedNodeSize, reservedNodeSize_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(RestoreToTime, restoreToTime_);
+      DARABONBA_PTR_TO_JSON(RestoreType, restoreType_);
+      DARABONBA_PTR_TO_JSON(SecondaryVSwitchId, secondaryVSwitchId_);
+      DARABONBA_PTR_TO_JSON(SecondaryZoneId, secondaryZoneId_);
+      DARABONBA_PTR_TO_JSON(SourceDbClusterId, sourceDbClusterId_);
+      DARABONBA_PTR_TO_JSON(StorageResource, storageResource_);
+      DARABONBA_PTR_TO_JSON(Tag, tag_);
+      DARABONBA_PTR_TO_JSON(UsedTime, usedTime_);
+      DARABONBA_PTR_TO_JSON(VPCId, VPCId_);
+      DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
+    };
+    friend void from_json(const Darabonba::Json& j, CreateDBClusterRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AINodeNumber, AINodeNumber_);
+      DARABONBA_PTR_FROM_JSON(AINodeSpec, AINodeSpec_);
+      DARABONBA_PTR_FROM_JSON(BackupSetId, backupSetId_);
+      DARABONBA_PTR_FROM_JSON(CloneSourceRegionId, cloneSourceRegionId_);
+      DARABONBA_PTR_FROM_JSON(ComputeResource, computeResource_);
+      DARABONBA_PTR_FROM_JSON(DBClusterDescription, DBClusterDescription_);
+      DARABONBA_PTR_FROM_JSON(DBClusterNetworkType, DBClusterNetworkType_);
+      DARABONBA_PTR_FROM_JSON(DBClusterVersion, DBClusterVersion_);
+      DARABONBA_PTR_FROM_JSON(DiskEncryption, diskEncryption_);
+      DARABONBA_PTR_FROM_JSON(EnableDefaultResourcePool, enableDefaultResourcePool_);
+      DARABONBA_PTR_FROM_JSON(EnableSSL, enableSSL_);
+      DARABONBA_PTR_FROM_JSON(KmsId, kmsId_);
+      DARABONBA_PTR_FROM_JSON(PayType, payType_);
+      DARABONBA_PTR_FROM_JSON(Period, period_);
+      DARABONBA_PTR_FROM_JSON(ProductForm, productForm_);
+      DARABONBA_PTR_FROM_JSON(ProductVersion, productVersion_);
+      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ReservedNodeCount, reservedNodeCount_);
+      DARABONBA_PTR_FROM_JSON(ReservedNodeSize, reservedNodeSize_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(RestoreToTime, restoreToTime_);
+      DARABONBA_PTR_FROM_JSON(RestoreType, restoreType_);
+      DARABONBA_PTR_FROM_JSON(SecondaryVSwitchId, secondaryVSwitchId_);
+      DARABONBA_PTR_FROM_JSON(SecondaryZoneId, secondaryZoneId_);
+      DARABONBA_PTR_FROM_JSON(SourceDbClusterId, sourceDbClusterId_);
+      DARABONBA_PTR_FROM_JSON(StorageResource, storageResource_);
+      DARABONBA_PTR_FROM_JSON(Tag, tag_);
+      DARABONBA_PTR_FROM_JSON(UsedTime, usedTime_);
+      DARABONBA_PTR_FROM_JSON(VPCId, VPCId_);
+      DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
+    };
+    CreateDBClusterRequest() = default ;
+    CreateDBClusterRequest(const CreateDBClusterRequest &) = default ;
+    CreateDBClusterRequest(CreateDBClusterRequest &&) = default ;
+    CreateDBClusterRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateDBClusterRequest() = default ;
+    CreateDBClusterRequest& operator=(const CreateDBClusterRequest &) = default ;
+    CreateDBClusterRequest& operator=(CreateDBClusterRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key. You can use tags to filter the cluster list. You can specify up to 20 tag pairs. The value of N for each tag pair must be unique and must be a consecutive integer that starts from 1. The value of `Tag.N.Key` corresponds to the value of `Tag.N.Value`.
+      // 
+      // > The tag key can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+      shared_ptr<string> key_ {};
+      // The tag value. You can use tags to filter the cluster list. You can specify up to 20 tag pairs. The value of N for each tag pair must be unique and must be a consecutive integer that starts from 1. The value of `Tag.N.Key` corresponds to the value of `Tag.N.Value`.
+      // 
+      // > The tag value can be up to 64 characters in length and cannot start with `aliyun`, `acs:`, `http://`, or `https://`.
+      shared_ptr<string> value_ {};
+    };
+
+    virtual bool empty() const override { return this->AINodeNumber_ == nullptr
+        && this->AINodeSpec_ == nullptr && this->backupSetId_ == nullptr && this->cloneSourceRegionId_ == nullptr && this->computeResource_ == nullptr && this->DBClusterDescription_ == nullptr
+        && this->DBClusterNetworkType_ == nullptr && this->DBClusterVersion_ == nullptr && this->diskEncryption_ == nullptr && this->enableDefaultResourcePool_ == nullptr && this->enableSSL_ == nullptr
+        && this->kmsId_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr && this->productForm_ == nullptr && this->productVersion_ == nullptr
+        && this->regionId_ == nullptr && this->reservedNodeCount_ == nullptr && this->reservedNodeSize_ == nullptr && this->resourceGroupId_ == nullptr && this->restoreToTime_ == nullptr
+        && this->restoreType_ == nullptr && this->secondaryVSwitchId_ == nullptr && this->secondaryZoneId_ == nullptr && this->sourceDbClusterId_ == nullptr && this->storageResource_ == nullptr
+        && this->tag_ == nullptr && this->usedTime_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+    // AINodeNumber Field Functions 
+    bool hasAINodeNumber() const { return this->AINodeNumber_ != nullptr;};
+    void deleteAINodeNumber() { this->AINodeNumber_ = nullptr;};
+    inline int32_t getAINodeNumber() const { DARABONBA_PTR_GET_DEFAULT(AINodeNumber_, 0) };
+    inline CreateDBClusterRequest& setAINodeNumber(int32_t AINodeNumber) { DARABONBA_PTR_SET_VALUE(AINodeNumber_, AINodeNumber) };
+
+
+    // AINodeSpec Field Functions 
+    bool hasAINodeSpec() const { return this->AINodeSpec_ != nullptr;};
+    void deleteAINodeSpec() { this->AINodeSpec_ = nullptr;};
+    inline string getAINodeSpec() const { DARABONBA_PTR_GET_DEFAULT(AINodeSpec_, "") };
+    inline CreateDBClusterRequest& setAINodeSpec(string AINodeSpec) { DARABONBA_PTR_SET_VALUE(AINodeSpec_, AINodeSpec) };
+
+
+    // backupSetId Field Functions 
+    bool hasBackupSetId() const { return this->backupSetId_ != nullptr;};
+    void deleteBackupSetId() { this->backupSetId_ = nullptr;};
+    inline string getBackupSetId() const { DARABONBA_PTR_GET_DEFAULT(backupSetId_, "") };
+    inline CreateDBClusterRequest& setBackupSetId(string backupSetId) { DARABONBA_PTR_SET_VALUE(backupSetId_, backupSetId) };
+
+
+    // cloneSourceRegionId Field Functions 
+    bool hasCloneSourceRegionId() const { return this->cloneSourceRegionId_ != nullptr;};
+    void deleteCloneSourceRegionId() { this->cloneSourceRegionId_ = nullptr;};
+    inline string getCloneSourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(cloneSourceRegionId_, "") };
+    inline CreateDBClusterRequest& setCloneSourceRegionId(string cloneSourceRegionId) { DARABONBA_PTR_SET_VALUE(cloneSourceRegionId_, cloneSourceRegionId) };
+
+
+    // computeResource Field Functions 
+    bool hasComputeResource() const { return this->computeResource_ != nullptr;};
+    void deleteComputeResource() { this->computeResource_ = nullptr;};
+    inline string getComputeResource() const { DARABONBA_PTR_GET_DEFAULT(computeResource_, "") };
+    inline CreateDBClusterRequest& setComputeResource(string computeResource) { DARABONBA_PTR_SET_VALUE(computeResource_, computeResource) };
+
+
+    // DBClusterDescription Field Functions 
+    bool hasDBClusterDescription() const { return this->DBClusterDescription_ != nullptr;};
+    void deleteDBClusterDescription() { this->DBClusterDescription_ = nullptr;};
+    inline string getDBClusterDescription() const { DARABONBA_PTR_GET_DEFAULT(DBClusterDescription_, "") };
+    inline CreateDBClusterRequest& setDBClusterDescription(string DBClusterDescription) { DARABONBA_PTR_SET_VALUE(DBClusterDescription_, DBClusterDescription) };
+
+
+    // DBClusterNetworkType Field Functions 
+    bool hasDBClusterNetworkType() const { return this->DBClusterNetworkType_ != nullptr;};
+    void deleteDBClusterNetworkType() { this->DBClusterNetworkType_ = nullptr;};
+    inline string getDBClusterNetworkType() const { DARABONBA_PTR_GET_DEFAULT(DBClusterNetworkType_, "") };
+    inline CreateDBClusterRequest& setDBClusterNetworkType(string DBClusterNetworkType) { DARABONBA_PTR_SET_VALUE(DBClusterNetworkType_, DBClusterNetworkType) };
+
+
+    // DBClusterVersion Field Functions 
+    bool hasDBClusterVersion() const { return this->DBClusterVersion_ != nullptr;};
+    void deleteDBClusterVersion() { this->DBClusterVersion_ = nullptr;};
+    inline string getDBClusterVersion() const { DARABONBA_PTR_GET_DEFAULT(DBClusterVersion_, "") };
+    inline CreateDBClusterRequest& setDBClusterVersion(string DBClusterVersion) { DARABONBA_PTR_SET_VALUE(DBClusterVersion_, DBClusterVersion) };
+
+
+    // diskEncryption Field Functions 
+    bool hasDiskEncryption() const { return this->diskEncryption_ != nullptr;};
+    void deleteDiskEncryption() { this->diskEncryption_ = nullptr;};
+    inline bool getDiskEncryption() const { DARABONBA_PTR_GET_DEFAULT(diskEncryption_, false) };
+    inline CreateDBClusterRequest& setDiskEncryption(bool diskEncryption) { DARABONBA_PTR_SET_VALUE(diskEncryption_, diskEncryption) };
+
+
+    // enableDefaultResourcePool Field Functions 
+    bool hasEnableDefaultResourcePool() const { return this->enableDefaultResourcePool_ != nullptr;};
+    void deleteEnableDefaultResourcePool() { this->enableDefaultResourcePool_ = nullptr;};
+    inline bool getEnableDefaultResourcePool() const { DARABONBA_PTR_GET_DEFAULT(enableDefaultResourcePool_, false) };
+    inline CreateDBClusterRequest& setEnableDefaultResourcePool(bool enableDefaultResourcePool) { DARABONBA_PTR_SET_VALUE(enableDefaultResourcePool_, enableDefaultResourcePool) };
+
+
+    // enableSSL Field Functions 
+    bool hasEnableSSL() const { return this->enableSSL_ != nullptr;};
+    void deleteEnableSSL() { this->enableSSL_ = nullptr;};
+    inline bool getEnableSSL() const { DARABONBA_PTR_GET_DEFAULT(enableSSL_, false) };
+    inline CreateDBClusterRequest& setEnableSSL(bool enableSSL) { DARABONBA_PTR_SET_VALUE(enableSSL_, enableSSL) };
+
+
+    // kmsId Field Functions 
+    bool hasKmsId() const { return this->kmsId_ != nullptr;};
+    void deleteKmsId() { this->kmsId_ = nullptr;};
+    inline string getKmsId() const { DARABONBA_PTR_GET_DEFAULT(kmsId_, "") };
+    inline CreateDBClusterRequest& setKmsId(string kmsId) { DARABONBA_PTR_SET_VALUE(kmsId_, kmsId) };
+
+
+    // payType Field Functions 
+    bool hasPayType() const { return this->payType_ != nullptr;};
+    void deletePayType() { this->payType_ = nullptr;};
+    inline string getPayType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
+    inline CreateDBClusterRequest& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
+
+
+    // period Field Functions 
+    bool hasPeriod() const { return this->period_ != nullptr;};
+    void deletePeriod() { this->period_ = nullptr;};
+    inline string getPeriod() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
+    inline CreateDBClusterRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
+
+
+    // productForm Field Functions 
+    bool hasProductForm() const { return this->productForm_ != nullptr;};
+    void deleteProductForm() { this->productForm_ = nullptr;};
+    inline string getProductForm() const { DARABONBA_PTR_GET_DEFAULT(productForm_, "") };
+    inline CreateDBClusterRequest& setProductForm(string productForm) { DARABONBA_PTR_SET_VALUE(productForm_, productForm) };
+
+
+    // productVersion Field Functions 
+    bool hasProductVersion() const { return this->productVersion_ != nullptr;};
+    void deleteProductVersion() { this->productVersion_ = nullptr;};
+    inline string getProductVersion() const { DARABONBA_PTR_GET_DEFAULT(productVersion_, "") };
+    inline CreateDBClusterRequest& setProductVersion(string productVersion) { DARABONBA_PTR_SET_VALUE(productVersion_, productVersion) };
+
+
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline CreateDBClusterRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    // reservedNodeCount Field Functions 
+    bool hasReservedNodeCount() const { return this->reservedNodeCount_ != nullptr;};
+    void deleteReservedNodeCount() { this->reservedNodeCount_ = nullptr;};
+    inline int32_t getReservedNodeCount() const { DARABONBA_PTR_GET_DEFAULT(reservedNodeCount_, 0) };
+    inline CreateDBClusterRequest& setReservedNodeCount(int32_t reservedNodeCount) { DARABONBA_PTR_SET_VALUE(reservedNodeCount_, reservedNodeCount) };
+
+
+    // reservedNodeSize Field Functions 
+    bool hasReservedNodeSize() const { return this->reservedNodeSize_ != nullptr;};
+    void deleteReservedNodeSize() { this->reservedNodeSize_ = nullptr;};
+    inline string getReservedNodeSize() const { DARABONBA_PTR_GET_DEFAULT(reservedNodeSize_, "") };
+    inline CreateDBClusterRequest& setReservedNodeSize(string reservedNodeSize) { DARABONBA_PTR_SET_VALUE(reservedNodeSize_, reservedNodeSize) };
+
+
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline CreateDBClusterRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
+    // restoreToTime Field Functions 
+    bool hasRestoreToTime() const { return this->restoreToTime_ != nullptr;};
+    void deleteRestoreToTime() { this->restoreToTime_ = nullptr;};
+    inline string getRestoreToTime() const { DARABONBA_PTR_GET_DEFAULT(restoreToTime_, "") };
+    inline CreateDBClusterRequest& setRestoreToTime(string restoreToTime) { DARABONBA_PTR_SET_VALUE(restoreToTime_, restoreToTime) };
+
+
+    // restoreType Field Functions 
+    bool hasRestoreType() const { return this->restoreType_ != nullptr;};
+    void deleteRestoreType() { this->restoreType_ = nullptr;};
+    inline string getRestoreType() const { DARABONBA_PTR_GET_DEFAULT(restoreType_, "") };
+    inline CreateDBClusterRequest& setRestoreType(string restoreType) { DARABONBA_PTR_SET_VALUE(restoreType_, restoreType) };
+
+
+    // secondaryVSwitchId Field Functions 
+    bool hasSecondaryVSwitchId() const { return this->secondaryVSwitchId_ != nullptr;};
+    void deleteSecondaryVSwitchId() { this->secondaryVSwitchId_ = nullptr;};
+    inline string getSecondaryVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(secondaryVSwitchId_, "") };
+    inline CreateDBClusterRequest& setSecondaryVSwitchId(string secondaryVSwitchId) { DARABONBA_PTR_SET_VALUE(secondaryVSwitchId_, secondaryVSwitchId) };
+
+
+    // secondaryZoneId Field Functions 
+    bool hasSecondaryZoneId() const { return this->secondaryZoneId_ != nullptr;};
+    void deleteSecondaryZoneId() { this->secondaryZoneId_ = nullptr;};
+    inline string getSecondaryZoneId() const { DARABONBA_PTR_GET_DEFAULT(secondaryZoneId_, "") };
+    inline CreateDBClusterRequest& setSecondaryZoneId(string secondaryZoneId) { DARABONBA_PTR_SET_VALUE(secondaryZoneId_, secondaryZoneId) };
+
+
+    // sourceDbClusterId Field Functions 
+    bool hasSourceDbClusterId() const { return this->sourceDbClusterId_ != nullptr;};
+    void deleteSourceDbClusterId() { this->sourceDbClusterId_ = nullptr;};
+    inline string getSourceDbClusterId() const { DARABONBA_PTR_GET_DEFAULT(sourceDbClusterId_, "") };
+    inline CreateDBClusterRequest& setSourceDbClusterId(string sourceDbClusterId) { DARABONBA_PTR_SET_VALUE(sourceDbClusterId_, sourceDbClusterId) };
+
+
+    // storageResource Field Functions 
+    bool hasStorageResource() const { return this->storageResource_ != nullptr;};
+    void deleteStorageResource() { this->storageResource_ = nullptr;};
+    inline string getStorageResource() const { DARABONBA_PTR_GET_DEFAULT(storageResource_, "") };
+    inline CreateDBClusterRequest& setStorageResource(string storageResource) { DARABONBA_PTR_SET_VALUE(storageResource_, storageResource) };
+
+
+    // tag Field Functions 
+    bool hasTag() const { return this->tag_ != nullptr;};
+    void deleteTag() { this->tag_ = nullptr;};
+    inline const vector<CreateDBClusterRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateDBClusterRequest::Tag>) };
+    inline vector<CreateDBClusterRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<CreateDBClusterRequest::Tag>) };
+    inline CreateDBClusterRequest& setTag(const vector<CreateDBClusterRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline CreateDBClusterRequest& setTag(vector<CreateDBClusterRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+
+
+    // usedTime Field Functions 
+    bool hasUsedTime() const { return this->usedTime_ != nullptr;};
+    void deleteUsedTime() { this->usedTime_ = nullptr;};
+    inline string getUsedTime() const { DARABONBA_PTR_GET_DEFAULT(usedTime_, "") };
+    inline CreateDBClusterRequest& setUsedTime(string usedTime) { DARABONBA_PTR_SET_VALUE(usedTime_, usedTime) };
+
+
+    // VPCId Field Functions 
+    bool hasVPCId() const { return this->VPCId_ != nullptr;};
+    void deleteVPCId() { this->VPCId_ = nullptr;};
+    inline string getVPCId() const { DARABONBA_PTR_GET_DEFAULT(VPCId_, "") };
+    inline CreateDBClusterRequest& setVPCId(string VPCId) { DARABONBA_PTR_SET_VALUE(VPCId_, VPCId) };
+
+
+    // vSwitchId Field Functions 
+    bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
+    void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
+    inline string getVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline CreateDBClusterRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
+
+
+    // zoneId Field Functions 
+    bool hasZoneId() const { return this->zoneId_ != nullptr;};
+    void deleteZoneId() { this->zoneId_ = nullptr;};
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline CreateDBClusterRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
+
+
+  protected:
+    shared_ptr<int32_t> AINodeNumber_ {};
+    shared_ptr<string> AINodeSpec_ {};
+    // The ID of the backup set used for restoration from a backup set.
+    // 
+    // > You can call the [DescribeBackups](https://help.aliyun.com/document_detail/612318.html) operation to query the backup list of the cluster.
+    shared_ptr<string> backupSetId_ {};
+    // The region of the source cluster.
+    // > This parameter is required for cross-region cloning.
+    shared_ptr<string> cloneSourceRegionId_ {};
+    // The compute reserved resources. Valid values: 0 ACU to 4096 ACU, in increments of 16. 1 ACU is approximately equivalent to 1 core and 4 GB of memory.
+    // > Include the unit when specifying this parameter.
+    shared_ptr<string> computeResource_ {};
+    // The description of the cluster.
+    // - The description cannot start with `http://` or `https://`.
+    // - The description must be 2 to 256 characters in length.
+    shared_ptr<string> DBClusterDescription_ {};
+    // The network type of the cluster. Only **VPC** (Virtual Private Cloud) is supported.
+    shared_ptr<string> DBClusterNetworkType_ {};
+    // The version of the Data Lakehouse Edition cluster. Valid values: **5.0**.
+    // 
+    // This parameter is required.
+    shared_ptr<string> DBClusterVersion_ {};
+    // Specifies whether to enable cloud disk encryption.
+    shared_ptr<bool> diskEncryption_ {};
+    // Specifies whether to allocate all compute reserved resources to the default resource group (user_default). Valid values:
+    // - **true** (default): All compute reserved resources are allocated to the default resource group.
+    // - **false**: Not all compute reserved resources are allocated to the default resource group.
+    shared_ptr<bool> enableDefaultResourcePool_ {};
+    // Specifies whether to enable SSL encryption. Valid values:
+    // 
+    // - **true**: SSL encryption is enabled.
+    // - **false**: SSL encryption is disabled.
+    shared_ptr<bool> enableSSL_ {};
+    // The ID of the key used to encrypt cloud disk data.
+    // > This parameter is used only when cloud disk encryption is enabled for the AnalyticDB for MySQL cluster.
+    shared_ptr<string> kmsId_ {};
+    // The billing method. Valid values:
+    // 
+    // - **Postpaid**: pay-as-you-go.
+    // - **Prepaid**: subscription.
+    // 
+    // This parameter is required.
+    shared_ptr<string> payType_ {};
+    // The subscription type of the subscription cluster. Valid values:
+    // - **Year**: subscription on a yearly basis.
+    // - **Month**: subscription on a monthly basis.
+    // 
+    // > This parameter is required when PayType is set to Prepaid.
+    shared_ptr<string> period_ {};
+    // The product form. Valid values:
+    // - **IntegrationForm**: integrated form.
+    // - **LegacyForm**: Data Lakehouse Edition.
+    shared_ptr<string> productForm_ {};
+    // The product version. Valid values:
+    // - **BasicVersion**: Basic Edition.
+    // - **EnterpriseVersion**: Enterprise Edition.
+    // > This parameter is required only when ProductForm is set to IntegrationForm.
+    shared_ptr<string> productVersion_ {};
+    // The region ID.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of a specific Data Lakehouse Edition cluster.
+    // 
+    // This parameter is required.
+    shared_ptr<string> regionId_ {};
+    // The number of reserved nodes. 
+    // - Enterprise Edition uses 3 nodes by default, in increments of 3.
+    // - Basic Edition uses 1 node by default.
+    // > This parameter is required only when ProductForm is set to IntegrationForm.
+    shared_ptr<int32_t> reservedNodeCount_ {};
+    // The node specifications of reserved nodes, in ACUs.
+    shared_ptr<string> reservedNodeSize_ {};
+    // The resource group ID.
+    shared_ptr<string> resourceGroupId_ {};
+    // The point in time to which you want to restore data from the backup set.
+    shared_ptr<string> restoreToTime_ {};
+    // The restoration method. Valid values:
+    // * **backup**: restores data from a backup set. You must also specify the **BackupSetId** and **SourceDBClusterId** parameters.
+    // * **timepoint**: restores data to a specific point in time. You must also specify the **RestoreToTime** and **SourceDBClusterId** parameters.
+    shared_ptr<string> restoreType_ {};
+    // The secondary vSwitch ID.
+    // > The value of this parameter must be different from the value of the VSwitchId parameter.
+    shared_ptr<string> secondaryVSwitchId_ {};
+    // The secondary zone ID.
+    // > The value of this parameter must be different from the value of the ZoneId parameter.
+    shared_ptr<string> secondaryZoneId_ {};
+    // The instance ID of the source AnalyticDB for MySQL Data Warehouse Edition cluster. If this parameter is specified, the Data Lakehouse Edition cluster is used to recover from the Data Warehouse Edition cluster.
+    shared_ptr<string> sourceDbClusterId_ {};
+    // The storage reserved resources. Valid values: 0 ACU to 2064 ACU, in increments of 24. 1 ACU is approximately equivalent to 1 core and 4 GB of memory.
+    // > Include the unit when specifying this parameter.
+    shared_ptr<string> storageResource_ {};
+    // The list of tags.
+    shared_ptr<vector<CreateDBClusterRequest::Tag>> tag_ {};
+    // The subscription duration of the subscription cluster. Valid values:
+    // - When **Period** is set to Year, the value of UsedTime ranges from 1 to 3 (integer).
+    // - When **Period** is set to Month, the value of UsedTime ranges from 1 to 9 (integer).
+    // 
+    // > This parameter is required when PayType is set to **Prepaid**.
+    shared_ptr<string> usedTime_ {};
+    // The virtual private cloud (VPC) ID.
+    // 
+    // This parameter is required.
+    shared_ptr<string> VPCId_ {};
+    // The vSwitch ID.
+    // 
+    // This parameter is required.
+    shared_ptr<string> vSwitchId_ {};
+    // The zone ID.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the zone ID of a specific Data Lakehouse Edition cluster.
+    // 
+    // This parameter is required.
+    shared_ptr<string> zoneId_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Adb20211201
+#endif

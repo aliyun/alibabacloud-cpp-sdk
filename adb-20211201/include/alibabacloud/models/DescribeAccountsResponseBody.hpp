@@ -59,6 +59,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AccountStatus, accountStatus_);
           DARABONBA_PTR_TO_JSON(AccountType, accountType_);
           DARABONBA_PTR_TO_JSON(Engine, engine_);
+          DARABONBA_PTR_TO_JSON(RamUserList, ramUserList_);
           DARABONBA_PTR_TO_JSON(RamUsers, ramUsers_);
         };
         friend void from_json(const Darabonba::Json& j, DBAccount& obj) { 
@@ -67,6 +68,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(AccountStatus, accountStatus_);
           DARABONBA_PTR_FROM_JSON(AccountType, accountType_);
           DARABONBA_PTR_FROM_JSON(Engine, engine_);
+          DARABONBA_PTR_FROM_JSON(RamUserList, ramUserList_);
           DARABONBA_PTR_FROM_JSON(RamUsers, ramUsers_);
         };
         DBAccount() = default ;
@@ -80,8 +82,42 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class RamUserList : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const RamUserList& obj) { 
+            DARABONBA_PTR_TO_JSON(RamUserList, ramUserList_);
+          };
+          friend void from_json(const Darabonba::Json& j, RamUserList& obj) { 
+            DARABONBA_PTR_FROM_JSON(RamUserList, ramUserList_);
+          };
+          RamUserList() = default ;
+          RamUserList(const RamUserList &) = default ;
+          RamUserList(RamUserList &&) = default ;
+          RamUserList(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~RamUserList() = default ;
+          RamUserList& operator=(const RamUserList &) = default ;
+          RamUserList& operator=(RamUserList &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->ramUserList_ == nullptr; };
+          // ramUserList Field Functions 
+          bool hasRamUserList() const { return this->ramUserList_ != nullptr;};
+          void deleteRamUserList() { this->ramUserList_ = nullptr;};
+          inline const vector<string> & getRamUserList() const { DARABONBA_PTR_GET_CONST(ramUserList_, vector<string>) };
+          inline vector<string> getRamUserList() { DARABONBA_PTR_GET(ramUserList_, vector<string>) };
+          inline RamUserList& setRamUserList(const vector<string> & ramUserList) { DARABONBA_PTR_SET_VALUE(ramUserList_, ramUserList) };
+          inline RamUserList& setRamUserList(vector<string> && ramUserList) { DARABONBA_PTR_SET_RVALUE(ramUserList_, ramUserList) };
+
+
+        protected:
+          shared_ptr<vector<string>> ramUserList_ {};
+        };
+
         virtual bool empty() const override { return this->accountDescription_ == nullptr
-        && this->accountName_ == nullptr && this->accountStatus_ == nullptr && this->accountType_ == nullptr && this->engine_ == nullptr && this->ramUsers_ == nullptr; };
+        && this->accountName_ == nullptr && this->accountStatus_ == nullptr && this->accountType_ == nullptr && this->engine_ == nullptr && this->ramUserList_ == nullptr
+        && this->ramUsers_ == nullptr; };
         // accountDescription Field Functions 
         bool hasAccountDescription() const { return this->accountDescription_ != nullptr;};
         void deleteAccountDescription() { this->accountDescription_ = nullptr;};
@@ -117,6 +153,15 @@ namespace Models
         inline DBAccount& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
+        // ramUserList Field Functions 
+        bool hasRamUserList() const { return this->ramUserList_ != nullptr;};
+        void deleteRamUserList() { this->ramUserList_ = nullptr;};
+        inline const DBAccount::RamUserList & getRamUserList() const { DARABONBA_PTR_GET_CONST(ramUserList_, DBAccount::RamUserList) };
+        inline DBAccount::RamUserList getRamUserList() { DARABONBA_PTR_GET(ramUserList_, DBAccount::RamUserList) };
+        inline DBAccount& setRamUserList(const DBAccount::RamUserList & ramUserList) { DARABONBA_PTR_SET_VALUE(ramUserList_, ramUserList) };
+        inline DBAccount& setRamUserList(DBAccount::RamUserList && ramUserList) { DARABONBA_PTR_SET_RVALUE(ramUserList_, ramUserList) };
+
+
         // ramUsers Field Functions 
         bool hasRamUsers() const { return this->ramUsers_ != nullptr;};
         void deleteRamUsers() { this->ramUsers_ = nullptr;};
@@ -125,27 +170,12 @@ namespace Models
 
 
       protected:
-        // The description of the database account.
         shared_ptr<string> accountDescription_ {};
-        // The name of the database account.
         shared_ptr<string> accountName_ {};
-        // The status of the database account. Valid values:
-        // 
-        // *   **Creating**
-        // *   **Available**
-        // *   **Deleting**
         shared_ptr<string> accountStatus_ {};
-        // The type of the database account. Valid values:
-        // 
-        // *   **Normal**: standard account.
-        // *   **Super**: privileged account.
         shared_ptr<string> accountType_ {};
-        // The database engine of the cluster. Valid values:
-        // 
-        // *   **AnalyticDB**: the AnalyticDB for MySQL engine.
-        // *   **Clickhouse**: the wide table engine.
         shared_ptr<string> engine_ {};
-        // The ID of the Resource Access Management (RAM) user.
+        shared_ptr<DBAccount::RamUserList> ramUserList_ {};
         shared_ptr<string> ramUsers_ {};
       };
 
@@ -182,7 +212,6 @@ namespace Models
 
 
   protected:
-    // The queried database accounts.
     shared_ptr<DescribeAccountsResponseBody::AccountList> accountList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

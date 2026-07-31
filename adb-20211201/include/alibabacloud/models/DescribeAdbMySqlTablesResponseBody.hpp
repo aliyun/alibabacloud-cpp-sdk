@@ -78,21 +78,23 @@ namespace Models
 
 
   protected:
-    // The message returned for the operation. Valid values:
+    // Additional information about the call. Valid values:
     // 
-    // *   **Success** is returned if the operation is successful.
-    // *   An error message is returned if the operation fails.
+    // - **Success** is returned if the request is successful.
+    // 
+    // - A specific error code is returned if the request fails.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The name of the database.
     shared_ptr<string> schema_ {};
-    // Indicates whether the operation is successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // *   **true**: The operation is successful.
-    // *   **false**: The operation fails.
+    // - **true**: The call was successful.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
-    // The names of tables.
+    // Information about the tables.
     shared_ptr<vector<string>> tables_ {};
   };
 

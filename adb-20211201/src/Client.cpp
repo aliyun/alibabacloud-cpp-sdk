@@ -8,7 +8,6 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
-using namespace AlibabaCloud::OpenApi::Models;
 using namespace AlibabaCloud::Adb20211201::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -63,7 +62,22 @@ AlibabaCloud::Adb20211201::Client::Client(Config &config): OpenApiClient(config)
     {"cn-zhengzhou-nebula-1" , "adb.aliyuncs.com"},
     {"eu-west-1-oxs" , "adb.ap-northeast-1.aliyuncs.com"},
     {"me-east-1" , "adb.ap-northeast-1.aliyuncs.com"},
-    {"rus-west-1-pop" , "adb.ap-northeast-1.aliyuncs.com"}
+    {"rus-west-1-pop" , "adb.ap-northeast-1.aliyuncs.com"},
+    {"na-south-1" , "adb.na-south-1.aliyuncs.com"},
+    {"me-central-1" , "adb.me-central-1.aliyuncs.com"},
+    {"eu-west-1" , "adb.eu-west-1.aliyuncs.com"},
+    {"eu-central-1" , "adb.eu-central-1.aliyuncs.com"},
+    {"cn-zhangjiakou" , "adb.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu" , "adb.cn-wulanchabu.aliyuncs.com"},
+    {"cn-huhehaote" , "adb.cn-huhehaote.aliyuncs.com"},
+    {"cn-guangzhou" , "adb.cn-guangzhou.aliyuncs.com"},
+    {"cn-chengdu" , "adb.cn-chengdu.aliyuncs.com"},
+    {"ap-southeast-7" , "adb.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-6" , "adb.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-5" , "adb.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-3" , "adb.ap-southeast-3.aliyuncs.com"},
+    {"ap-northeast-2" , "adb.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "adb.ap-northeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("adb", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -83,9 +97,71 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Applies for a public endpoint for an AnalyticDB for MySQL cluster.
+ * @summary Adds a knowledge base document.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @param request AddKnowledgeFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddKnowledgeFileResponse
+ */
+AddKnowledgeFileResponse Client::addKnowledgeFileWithOptions(const AddKnowledgeFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasFileLocation()) {
+    query["FileLocation"] = request.getFileLocation();
+  }
+
+  if (!!request.hasFileType()) {
+    query["FileType"] = request.getFileType();
+  }
+
+  if (!!request.hasIsDir()) {
+    query["IsDir"] = request.getIsDir();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.getTags();
+  }
+
+  if (!!request.hasUploadUser()) {
+    query["UploadUser"] = request.getUploadUser();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddKnowledgeFile"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddKnowledgeFileResponse>();
+}
+
+/**
+ * @summary Adds a knowledge base document.
+ *
+ * @param request AddKnowledgeFileRequest
+ * @return AddKnowledgeFileResponse
+ */
+AddKnowledgeFileResponse Client::addKnowledgeFile(const AddKnowledgeFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addKnowledgeFileWithOptions(request, runtime);
+}
+
+/**
+ * @summary Allocates a public connection address for a cluster.
+ *
+ * @description For a list of service endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request AllocateClusterPublicConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -106,6 +182,10 @@ AllocateClusterPublicConnectionResponse Client::allocateClusterPublicConnectionW
     query["Engine"] = request.getEngine();
   }
 
+  if (!!request.hasResourceGroupName()) {
+    query["ResourceGroupName"] = request.getResourceGroupName();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -124,9 +204,9 @@ AllocateClusterPublicConnectionResponse Client::allocateClusterPublicConnectionW
 }
 
 /**
- * @summary Applies for a public endpoint for an AnalyticDB for MySQL cluster.
+ * @summary Allocates a public connection address for a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For a list of service endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request AllocateClusterPublicConnectionRequest
  * @return AllocateClusterPublicConnectionResponse
@@ -137,9 +217,9 @@ AllocateClusterPublicConnectionResponse Client::allocateClusterPublicConnection(
 }
 
 /**
- * @summary Applies an optimization suggestion.
+ * @summary Applies a single optimization suggestion.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the endpoints of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ApplyAdviceByIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -190,9 +270,9 @@ ApplyAdviceByIdResponse Client::applyAdviceByIdWithOptions(const ApplyAdviceById
 }
 
 /**
- * @summary Applies an optimization suggestion.
+ * @summary Applies a single optimization suggestion.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the endpoints of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ApplyAdviceByIdRequest
  * @return ApplyAdviceByIdResponse
@@ -249,7 +329,9 @@ AttachUserENIResponse Client::attachUserENI(const AttachUserENIRequest &request)
 }
 
 /**
- * @summary Applies optimization suggestions.
+ * @summary Applies optimization suggestions in batches.
+ *
+ * @description For the endpoint of this service, refer to [Service registration](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request BatchApplyAdviceByIdListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -300,7 +382,9 @@ BatchApplyAdviceByIdListResponse Client::batchApplyAdviceByIdListWithOptions(con
 }
 
 /**
- * @summary Applies optimization suggestions.
+ * @summary Applies optimization suggestions in batches.
+ *
+ * @description For the endpoint of this service, refer to [Service registration](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request BatchApplyAdviceByIdListRequest
  * @return BatchApplyAdviceByIdListResponse
@@ -311,16 +395,22 @@ BatchApplyAdviceByIdListResponse Client::batchApplyAdviceByIdList(const BatchApp
 }
 
 /**
- * @summary Associates a standard account of an AnalyticDB for MySQL cluster with a Resource Access Management (RAM) user.
+ * @summary Bind a Resource Access Management (RAM) user to a standard database account in a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the current service endpoint, see [service endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
- * @param request BindAccountRequest
+ * @param tmpReq BindAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BindAccountResponse
  */
-BindAccountResponse Client::bindAccountWithOptions(const BindAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+BindAccountResponse Client::bindAccountWithOptions(const BindAccountRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BindAccountShrinkRequest request = BindAccountShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRamUserList()) {
+    request.setRamUserListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRamUserList(), "RamUserList", "json"));
+  }
+
   json query = {};
   if (!!request.hasAccountName()) {
     query["AccountName"] = request.getAccountName();
@@ -332,6 +422,10 @@ BindAccountResponse Client::bindAccountWithOptions(const BindAccountRequest &req
 
   if (!!request.hasRamUser()) {
     query["RamUser"] = request.getRamUser();
+  }
+
+  if (!!request.hasRamUserListShrink()) {
+    query["RamUserList"] = request.getRamUserListShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -352,9 +446,9 @@ BindAccountResponse Client::bindAccountWithOptions(const BindAccountRequest &req
 }
 
 /**
- * @summary Associates a standard account of an AnalyticDB for MySQL cluster with a Resource Access Management (RAM) user.
+ * @summary Bind a Resource Access Management (RAM) user to a standard database account in a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the current service endpoint, see [service endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request BindAccountRequest
  * @return BindAccountResponse
@@ -469,7 +563,11 @@ CancelSparkReplStatementResponse Client::cancelSparkReplStatement(const CancelSp
 }
 
 /**
- * @summary Cancels the execution of a Spark SQL statement.
+ * @summary Cancels a Spark SQL execution.
+ *
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+ * > If you encounter a 409 error when initiating requests from China North 1 (Qingdao), China South 1 (Shenzhen), China South 3 (Guangzhou), or Hong Kong (China), contact technical support.
  *
  * @param request CancelSparkWarehouseBatchSQLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -508,7 +606,11 @@ CancelSparkWarehouseBatchSQLResponse Client::cancelSparkWarehouseBatchSQLWithOpt
 }
 
 /**
- * @summary Cancels the execution of a Spark SQL statement.
+ * @summary Cancels a Spark SQL execution.
+ *
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+ * > If you encounter a 409 error when initiating requests from China North 1 (Qingdao), China South 1 (Shenzhen), China South 3 (Guangzhou), or Hong Kong (China), contact technical support.
  *
  * @param request CancelSparkWarehouseBatchSQLRequest
  * @return CancelSparkWarehouseBatchSQLResponse
@@ -569,7 +671,61 @@ CheckBindRamUserResponse Client::checkBindRamUser(const CheckBindRamUserRequest 
 }
 
 /**
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @summary Checks whether a metadata discovery schema exists.
+ *
+ * @param request CheckFormationSchemaExistsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckFormationSchemaExistsResponse
+ */
+CheckFormationSchemaExistsResponse Client::checkFormationSchemaExistsWithOptions(const CheckFormationSchemaExistsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDBClusterId()) {
+    body["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPrefixMode()) {
+    body["PrefixMode"] = request.getPrefixMode();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSchema()) {
+    body["Schema"] = request.getSchema();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CheckFormationSchemaExists"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckFormationSchemaExistsResponse>();
+}
+
+/**
+ * @summary Checks whether a metadata discovery schema exists.
+ *
+ * @param request CheckFormationSchemaExistsRequest
+ * @return CheckFormationSchemaExistsResponse
+ */
+CheckFormationSchemaExistsResponse Client::checkFormationSchemaExists(const CheckFormationSchemaExistsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkFormationSchemaExistsWithOptions(request, runtime);
+}
+
+/**
+ * @description For the service endpoint, see [endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request CheckSampleDataSetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -600,7 +756,7 @@ CheckSampleDataSetResponse Client::checkSampleDataSetWithOptions(const CheckSamp
 }
 
 /**
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service endpoint, see [endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request CheckSampleDataSetRequest
  * @return CheckSampleDataSetResponse
@@ -769,16 +925,22 @@ CreateAPSJobResponse Client::createAPSJob(const CreateAPSJobRequest &request) {
 }
 
 /**
- * @summary Creates a database account for an AnalyticDB for MySQL cluster.
+ * @summary Creates a database account for a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the endpoint of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
  *
- * @param request CreateAccountRequest
+ * @param tmpReq CreateAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateAccountResponse
  */
-CreateAccountResponse Client::createAccountWithOptions(const CreateAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+CreateAccountResponse Client::createAccountWithOptions(const CreateAccountRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateAccountShrinkRequest request = CreateAccountShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRamUserList()) {
+    request.setRamUserListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRamUserList(), "RamUserList", "json"));
+  }
+
   json query = {};
   if (!!request.hasAccountDescription()) {
     query["AccountDescription"] = request.getAccountDescription();
@@ -804,6 +966,10 @@ CreateAccountResponse Client::createAccountWithOptions(const CreateAccountReques
     query["Engine"] = request.getEngine();
   }
 
+  if (!!request.hasRamUserListShrink()) {
+    query["RamUserList"] = request.getRamUserListShrink();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -822,9 +988,9 @@ CreateAccountResponse Client::createAccountWithOptions(const CreateAccountReques
 }
 
 /**
- * @summary Creates a database account for an AnalyticDB for MySQL cluster.
+ * @summary Creates a database account for a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the endpoint of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request CreateAccountRequest
  * @return CreateAccountResponse
@@ -835,7 +1001,7 @@ CreateAccountResponse Client::createAccount(const CreateAccountRequest &request)
 }
 
 /**
- * @summary Creates an AnalyticDB Pipeline Service (APS) replication job.
+ * @summary Creates an APS replication task.
  *
  * @param request CreateApsCopyWorkloadRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -890,7 +1056,7 @@ CreateApsCopyWorkloadResponse Client::createApsCopyWorkloadWithOptions(const Cre
 }
 
 /**
- * @summary Creates an AnalyticDB Pipeline Service (APS) replication job.
+ * @summary Creates an APS replication task.
  *
  * @param request CreateApsCopyWorkloadRequest
  * @return CreateApsCopyWorkloadResponse
@@ -901,9 +1067,9 @@ CreateApsCopyWorkloadResponse Client::createApsCopyWorkload(const CreateApsCopyW
 }
 
 /**
- * @summary Creates an AnalyticDB Pipeline Service (APS) data source.
+ * @summary Creates an APS data source.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param tmpReq CreateApsDatasoureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1012,9 +1178,9 @@ CreateApsDatasoureResponse Client::createApsDatasoureWithOptions(const CreateAps
 }
 
 /**
- * @summary Creates an AnalyticDB Pipeline Service (APS) data source.
+ * @summary Creates an APS data source.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration of this service, refer to [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request CreateApsDatasoureRequest
  * @return CreateApsDatasoureResponse
@@ -1025,9 +1191,9 @@ CreateApsDatasoureResponse Client::createApsDatasoure(const CreateApsDatasoureRe
 }
 
 /**
- * @summary Creates an AnalyticDB Pipeline Service (APS) job from a Hive data source.
+ * @summary Creates an APS Hive task.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request CreateApsHiveJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1106,9 +1272,9 @@ CreateApsHiveJobResponse Client::createApsHiveJobWithOptions(const CreateApsHive
 }
 
 /**
- * @summary Creates an AnalyticDB Pipeline Service (APS) job from a Hive data source.
+ * @summary Creates an APS Hive task.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request CreateApsHiveJobRequest
  * @return CreateApsHiveJobResponse
@@ -1119,7 +1285,7 @@ CreateApsHiveJobResponse Client::createApsHiveJob(const CreateApsHiveJobRequest 
 }
 
 /**
- * @summary Creates a data ingestion task to load data from an Apache Kafka topic into an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+ * @summary Creates an APS Kafka to data lakehouse job.
  *
  * @param tmpReq CreateApsKafkaHudiJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1272,7 +1438,7 @@ CreateApsKafkaHudiJobResponse Client::createApsKafkaHudiJobWithOptions(const Cre
 }
 
 /**
- * @summary Creates a data ingestion task to load data from an Apache Kafka topic into an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+ * @summary Creates an APS Kafka to data lakehouse job.
  *
  * @param request CreateApsKafkaHudiJobRequest
  * @return CreateApsKafkaHudiJobResponse
@@ -1463,7 +1629,7 @@ CreateApsSlsADBJobResponse Client::createApsSlsADBJob(const CreateApsSlsADBJobRe
 }
 
 /**
- * @summary Creates a new webhook for the specified cluster or task type.
+ * @summary Creates a webhook for a specified database cluster and task type.
  *
  * @param tmpReq CreateApsWebhookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1512,7 +1678,7 @@ CreateApsWebhookResponse Client::createApsWebhookWithOptions(const CreateApsWebh
 }
 
 /**
- * @summary Creates a new webhook for the specified cluster or task type.
+ * @summary Creates a webhook for a specified database cluster and task type.
  *
  * @param request CreateApsWebhookRequest
  * @return CreateApsWebhookResponse
@@ -1523,9 +1689,9 @@ CreateApsWebhookResponse Client::createApsWebhook(const CreateApsWebhookRequest 
 }
 
 /**
- * @summary Creates a data backup for an AnalyticDB for MySQL instance.
+ * @summary Creates a backup set immediately.
  *
- * @description **Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups are the same as regular backups in terms of price and retention period of backup sets.
+ * @description **Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups and regular backups have the same pricing and backup set retention period.
  *
  * @param request CreateBackupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1576,9 +1742,9 @@ CreateBackupResponse Client::createBackupWithOptions(const CreateBackupRequest &
 }
 
 /**
- * @summary Creates a data backup for an AnalyticDB for MySQL instance.
+ * @summary Creates a backup set immediately.
  *
- * @description **Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups are the same as regular backups in terms of price and retention period of backup sets.
+ * @description **Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups and regular backups have the same pricing and backup set retention period.
  *
  * @param request CreateBackupRequest
  * @return CreateBackupResponse
@@ -1589,9 +1755,9 @@ CreateBackupResponse Client::createBackup(const CreateBackupRequest &request) {
 }
 
 /**
- * @summary Creates an AnalyticDB for MySQL Data Lakehouse Edition cluster.
+ * @summary Creates a Data Lakehouse Edition cluster.
  *
- * @description CreateDBCluster
+ * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request CreateDBClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1600,6 +1766,14 @@ CreateBackupResponse Client::createBackup(const CreateBackupRequest &request) {
 CreateDBClusterResponse Client::createDBClusterWithOptions(const CreateDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAINodeNumber()) {
+    query["AINodeNumber"] = request.getAINodeNumber();
+  }
+
+  if (!!request.hasAINodeSpec()) {
+    query["AINodeSpec"] = request.getAINodeSpec();
+  }
+
   if (!!request.hasBackupSetId()) {
     query["BackupSetId"] = request.getBackupSetId();
   }
@@ -1734,9 +1908,9 @@ CreateDBClusterResponse Client::createDBClusterWithOptions(const CreateDBCluster
 }
 
 /**
- * @summary Creates an AnalyticDB for MySQL Data Lakehouse Edition cluster.
+ * @summary Creates a Data Lakehouse Edition cluster.
  *
- * @description CreateDBCluster
+ * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request CreateDBClusterRequest
  * @return CreateDBClusterResponse
@@ -1747,9 +1921,9 @@ CreateDBClusterResponse Client::createDBCluster(const CreateDBClusterRequest &re
 }
 
 /**
- * @summary Creates a resource group for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+ * @summary Creates a resource group for a specified Dedicated Edition, Basic Edition, or Data Lakehouse Edition cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+ * @description For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param tmpReq CreateDBResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1759,6 +1933,10 @@ CreateDBResourceGroupResponse Client::createDBResourceGroupWithOptions(const Cre
   tmpReq.validate();
   CreateDBResourceGroupShrinkRequest request = CreateDBResourceGroupShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAtmConfig()) {
+    request.setAtmConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAtmConfig(), "AtmConfig", "json"));
+  }
+
   if (!!tmpReq.hasEngineParams()) {
     request.setEngineParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEngineParams(), "EngineParams", "json"));
   }
@@ -1776,8 +1954,16 @@ CreateDBResourceGroupResponse Client::createDBResourceGroupWithOptions(const Cre
   }
 
   json query = {};
+  if (!!request.hasAtmConfigShrink()) {
+    query["AtmConfig"] = request.getAtmConfigShrink();
+  }
+
   if (!!request.hasAutoStopInterval()) {
     query["AutoStopInterval"] = request.getAutoStopInterval();
+  }
+
+  if (!!request.hasClassification()) {
+    query["Classification"] = request.getClassification();
   }
 
   if (!!request.hasClusterMode()) {
@@ -1852,6 +2038,10 @@ CreateDBResourceGroupResponse Client::createDBResourceGroupWithOptions(const Cre
     query["Rules"] = request.getRulesShrink();
   }
 
+  if (!!request.hasScalePolicy()) {
+    query["ScalePolicy"] = request.getScalePolicy();
+  }
+
   if (!!request.hasSpecName()) {
     query["SpecName"] = request.getSpecName();
   }
@@ -1878,9 +2068,9 @@ CreateDBResourceGroupResponse Client::createDBResourceGroupWithOptions(const Cre
 }
 
 /**
- * @summary Creates a resource group for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+ * @summary Creates a resource group for a specified Dedicated Edition, Basic Edition, or Data Lakehouse Edition cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+ * @description For information about the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request CreateDBResourceGroupRequest
  * @return CreateDBResourceGroupResponse
@@ -1973,6 +2163,78 @@ CreateElasticPlanResponse Client::createElasticPlan(const CreateElasticPlanReque
 }
 
 /**
+ * @summary Creates a Formation Crawler metadata discovery task in an AnalyticDB for MySQL (ADB) instance.
+ *
+ * @description ## Operation description
+ * - This operation creates a Formation Crawler metadata discovery task in an AnalyticDB for MySQL instance.
+ * - The created task configuration is not executed immediately. Call `StartFormationCrawler` to start the task.
+ * - The `CrawlerInfo` field is a JSON string that contains the core configuration of the task, such as the target database name and data source type.
+ * - Some parameters, such as `classifiers` and `frequency`, require double JSON encoding.
+ * - The database name specified in `dbName` is automatically converted to lowercase by the server.
+ * - `schemaChangePolicy` is required. You must specify both `updateRule` and `deleteRule`.
+ * - Use the `RUN_ON_DEMAND` scheduling mode to avoid unnecessary repeated scans.
+ * - Make sure the product name is `adb` and the endpoint format is `adb.{regionId}.aliyuncs.com`.
+ * - After the task is created, manually call `StartFormationCrawler` to trigger the first metadata discovery.
+ *
+ * @param request CreateFormationCrawlerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateFormationCrawlerResponse
+ */
+CreateFormationCrawlerResponse Client::createFormationCrawlerWithOptions(const CreateFormationCrawlerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCrawlerInfo()) {
+    body["CrawlerInfo"] = request.getCrawlerInfo();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    body["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateFormationCrawler"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateFormationCrawlerResponse>();
+}
+
+/**
+ * @summary Creates a Formation Crawler metadata discovery task in an AnalyticDB for MySQL (ADB) instance.
+ *
+ * @description ## Operation description
+ * - This operation creates a Formation Crawler metadata discovery task in an AnalyticDB for MySQL instance.
+ * - The created task configuration is not executed immediately. Call `StartFormationCrawler` to start the task.
+ * - The `CrawlerInfo` field is a JSON string that contains the core configuration of the task, such as the target database name and data source type.
+ * - Some parameters, such as `classifiers` and `frequency`, require double JSON encoding.
+ * - The database name specified in `dbName` is automatically converted to lowercase by the server.
+ * - `schemaChangePolicy` is required. You must specify both `updateRule` and `deleteRule`.
+ * - Use the `RUN_ON_DEMAND` scheduling mode to avoid unnecessary repeated scans.
+ * - Make sure the product name is `adb` and the endpoint format is `adb.{regionId}.aliyuncs.com`.
+ * - After the task is created, manually call `StartFormationCrawler` to trigger the first metadata discovery.
+ *
+ * @param request CreateFormationCrawlerRequest
+ * @return CreateFormationCrawlerResponse
+ */
+CreateFormationCrawlerResponse Client::createFormationCrawler(const CreateFormationCrawlerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createFormationCrawlerWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a lake storage.
  *
  * @param tmpReq CreateLakeStorageRequest
@@ -2039,7 +2301,7 @@ CreateLakeStorageResponse Client::createLakeStorage(const CreateLakeStorageReque
 }
 
 /**
- * @summary Creates a materialized view recommendation task.
+ * @summary Creates an automatic materialized view recommendation task.
  *
  * @param request CreateMaterializedViewRecommendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2126,7 +2388,7 @@ CreateMaterializedViewRecommendResponse Client::createMaterializedViewRecommendW
 }
 
 /**
- * @summary Creates a materialized view recommendation task.
+ * @summary Creates an automatic materialized view recommendation task.
  *
  * @param request CreateMaterializedViewRecommendRequest
  * @return CreateMaterializedViewRecommendResponse
@@ -2137,11 +2399,11 @@ CreateMaterializedViewRecommendResponse Client::createMaterializedViewRecommend(
 }
 
 /**
- * @summary Creates an Object Storage Service (OSS) subdirectory.
+ * @summary Creates a subdirectory in Object Storage Service (OSS).
  *
- * @description *   General endpoint: `adb.aliyuncs.com`.
- * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ * @description - Central public endpoint: `adb.aliyuncs.com`.
+ * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
  *
  * @param request CreateOssSubDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2176,11 +2438,11 @@ CreateOssSubDirectoryResponse Client::createOssSubDirectoryWithOptions(const Cre
 }
 
 /**
- * @summary Creates an Object Storage Service (OSS) subdirectory.
+ * @summary Creates a subdirectory in Object Storage Service (OSS).
  *
- * @description *   General endpoint: `adb.aliyuncs.com`.
- * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ * @description - Central public endpoint: `adb.aliyuncs.com`.
+ * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
  *
  * @param request CreateOssSubDirectoryRequest
  * @return CreateOssSubDirectoryResponse
@@ -2191,7 +2453,7 @@ CreateOssSubDirectoryResponse Client::createOssSubDirectory(const CreateOssSubDi
 }
 
 /**
- * @summary Creates a custom monitoring view.
+ * @summary Creates a custom monitoring dashboard.
  *
  * @param tmpReq CreatePerformanceViewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2264,7 +2526,7 @@ CreatePerformanceViewResponse Client::createPerformanceViewWithOptions(const Cre
 }
 
 /**
- * @summary Creates a custom monitoring view.
+ * @summary Creates a custom monitoring dashboard.
  *
  * @param request CreatePerformanceViewRequest
  * @return CreatePerformanceViewResponse
@@ -2275,11 +2537,65 @@ CreatePerformanceViewResponse Client::createPerformanceView(const CreatePerforma
 }
 
 /**
+ * @summary Creates a semantic view.
+ *
+ * @param request CreateSemanticViewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSemanticViewResponse
+ */
+CreateSemanticViewResponse Client::createSemanticViewWithOptions(const CreateSemanticViewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDefinition()) {
+    query["Definition"] = request.getDefinition();
+  }
+
+  if (!!request.hasSchemaName()) {
+    query["SchemaName"] = request.getSchemaName();
+  }
+
+  if (!!request.hasViewName()) {
+    query["ViewName"] = request.getViewName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateSemanticView"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSemanticViewResponse>();
+}
+
+/**
+ * @summary Creates a semantic view.
+ *
+ * @param request CreateSemanticViewRequest
+ * @return CreateSemanticViewResponse
+ */
+CreateSemanticViewResponse Client::createSemanticView(const CreateSemanticViewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSemanticViewWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a Spark application template.
  *
- * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
- * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+ * > If you encounter a 409 fault when sending requests from Hong Kong (China), contact technical support.
  *
  * @param request CreateSparkTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2328,9 +2644,9 @@ CreateSparkTemplateResponse Client::createSparkTemplateWithOptions(const CreateS
 /**
  * @summary Creates a Spark application template.
  *
- * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
- * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+ * > If you encounter a 409 fault when sending requests from Hong Kong (China), contact technical support.
  *
  * @param request CreateSparkTemplateRequest
  * @return CreateSparkTemplateResponse
@@ -2781,6 +3097,60 @@ DeleteElasticPlanResponse Client::deleteElasticPlan(const DeleteElasticPlanReque
 }
 
 /**
+ * @summary Deletes a metadata discovery task.
+ *
+ * @param request DeleteFormationCrawlerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteFormationCrawlerResponse
+ */
+DeleteFormationCrawlerResponse Client::deleteFormationCrawlerWithOptions(const DeleteFormationCrawlerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCrawlerTaskId()) {
+    body["CrawlerTaskId"] = request.getCrawlerTaskId();
+  }
+
+  if (!!request.hasCrawlerTaskName()) {
+    body["CrawlerTaskName"] = request.getCrawlerTaskName();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    body["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteFormationCrawler"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteFormationCrawlerResponse>();
+}
+
+/**
+ * @summary Deletes a metadata discovery task.
+ *
+ * @param request DeleteFormationCrawlerRequest
+ * @return DeleteFormationCrawlerResponse
+ */
+DeleteFormationCrawlerResponse Client::deleteFormationCrawler(const DeleteFormationCrawlerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteFormationCrawlerWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a lake storage.
  *
  * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
@@ -2966,6 +3336,56 @@ DeletePerformanceViewResponse Client::deletePerformanceViewWithOptions(const Del
 DeletePerformanceViewResponse Client::deletePerformanceView(const DeletePerformanceViewRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deletePerformanceViewWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes the specified semantic view.
+ *
+ * @param request DeleteSemanticViewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSemanticViewResponse
+ */
+DeleteSemanticViewResponse Client::deleteSemanticViewWithOptions(const DeleteSemanticViewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasSchemaName()) {
+    query["SchemaName"] = request.getSchemaName();
+  }
+
+  if (!!request.hasViewName()) {
+    query["ViewName"] = request.getViewName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSemanticView"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSemanticViewResponse>();
+}
+
+/**
+ * @summary Deletes the specified semantic view.
+ *
+ * @param request DeleteSemanticViewRequest
+ * @return DeleteSemanticViewResponse
+ */
+DeleteSemanticViewResponse Client::deleteSemanticView(const DeleteSemanticViewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSemanticViewWithOptions(request, runtime);
 }
 
 /**
@@ -3193,9 +3613,9 @@ DescribeAbnormalPatternDetectionResponse Client::describeAbnormalPatternDetectio
 }
 
 /**
- * @summary Queries the permissions of a database account on all permission levels.
+ * @summary Retrieves all permissions granted to a specified account, including permissions at the global, database, table, and column levels.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeAccountAllPrivilegesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3238,9 +3658,9 @@ DescribeAccountAllPrivilegesResponse Client::describeAccountAllPrivilegesWithOpt
 }
 
 /**
- * @summary Queries the permissions of a database account on all permission levels.
+ * @summary Retrieves all permissions granted to a specified account, including permissions at the global, database, table, and column levels.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeAccountAllPrivilegesRequest
  * @return DescribeAccountAllPrivilegesResponse
@@ -3329,7 +3749,9 @@ DescribeAccountPrivilegeObjectsResponse Client::describeAccountPrivilegeObjects(
 }
 
 /**
- * @summary 获取某一ADB账户的权限
+ * @summary Retrieves the permissions of a specified database account at a specific level.
+ *
+ * @description See [service endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeAccountPrivilegesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3392,7 +3814,9 @@ DescribeAccountPrivilegesResponse Client::describeAccountPrivilegesWithOptions(c
 }
 
 /**
- * @summary 获取某一ADB账户的权限
+ * @summary Retrieves the permissions of a specified database account at a specific level.
+ *
+ * @description See [service endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeAccountPrivilegesRequest
  * @return DescribeAccountPrivilegesResponse
@@ -3403,9 +3827,9 @@ DescribeAccountPrivilegesResponse Client::describeAccountPrivileges(const Descri
 }
 
 /**
- * @summary Queries the database accounts of an AnalyticDB for MySQL cluster.
+ * @summary Queries the database accounts of a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3448,9 +3872,9 @@ DescribeAccountsResponse Client::describeAccountsWithOptions(const DescribeAccou
 }
 
 /**
- * @summary Queries the database accounts of an AnalyticDB for MySQL cluster.
+ * @summary Queries the database accounts of a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeAccountsRequest
  * @return DescribeAccountsResponse
@@ -3681,10 +4105,10 @@ DescribeAdbMySqlTableMetaResponse Client::describeAdbMySqlTableMeta(const Descri
 }
 
 /**
- * @summary Queries a list of tables for an AnalyticDB for MySQL cluster.
+ * @summary Lists information about all tables in a specified database of a cluster.
  *
- * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. For example, `adb.cn-hangzhou.aliyuncs.com`.
+ * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. For example, `adb-vpc.cn-hangzhou.aliyuncs.com`.
  *
  * @param request DescribeAdbMySqlTablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3723,10 +4147,10 @@ DescribeAdbMySqlTablesResponse Client::describeAdbMySqlTablesWithOptions(const D
 }
 
 /**
- * @summary Queries a list of tables for an AnalyticDB for MySQL cluster.
+ * @summary Lists information about all tables in a specified database of a cluster.
  *
- * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. For example, `adb.cn-hangzhou.aliyuncs.com`.
+ * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. For example, `adb-vpc.cn-hangzhou.aliyuncs.com`.
  *
  * @param request DescribeAdbMySqlTablesRequest
  * @return DescribeAdbMySqlTablesResponse
@@ -3847,7 +4271,7 @@ DescribeAllDataSourceResponse Client::describeAllDataSource(const DescribeAllDat
 }
 
 /**
- * @summary Queries the applied optimization suggestions for an AnalyticDB for MySQL cluster.
+ * @summary Shows applied recommendations.
  *
  * @param request DescribeAppliedAdvicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3918,7 +4342,7 @@ DescribeAppliedAdvicesResponse Client::describeAppliedAdvicesWithOptions(const D
 }
 
 /**
- * @summary Queries the applied optimization suggestions for an AnalyticDB for MySQL cluster.
+ * @summary Shows applied recommendations.
  *
  * @param request DescribeAppliedAdvicesRequest
  * @return DescribeAppliedAdvicesResponse
@@ -4425,10 +4849,10 @@ DescribeApsProgressResponse Client::describeApsProgress(const DescribeApsProgres
 }
 
 /**
- * @summary Queries the information about resource groups of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+ * @summary Retrieves details about the resource groups used for data synchronization.
  *
- * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+ * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
  *
  * @param request DescribeApsResourceGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4467,10 +4891,10 @@ DescribeApsResourceGroupsResponse Client::describeApsResourceGroupsWithOptions(c
 }
 
 /**
- * @summary Queries the information about resource groups of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+ * @summary Retrieves details about the resource groups used for data synchronization.
  *
- * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+ * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
  *
  * @param request DescribeApsResourceGroupsRequest
  * @return DescribeApsResourceGroupsResponse
@@ -4481,10 +4905,10 @@ DescribeApsResourceGroupsResponse Client::describeApsResourceGroups(const Descri
 }
 
 /**
- * @summary Queries the SQL audit logs of an AnalyticDB for MySQL cluster.
+ * @summary Query SQL audit logs for the cluster.
  *
- * @description *   SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
- * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description - You can query SQL audit logs only if SQL audit is enabled. Log data is retained for up to 30 days. If you disable and re-enable SQL audit, you can only query logs generated after it is re-enabled. SQL audit logs do not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
+ * - For a list of endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeAuditLogRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4587,10 +5011,10 @@ DescribeAuditLogRecordsResponse Client::describeAuditLogRecordsWithOptions(const
 }
 
 /**
- * @summary Queries the SQL audit logs of an AnalyticDB for MySQL cluster.
+ * @summary Query SQL audit logs for the cluster.
  *
- * @description *   SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried. The following operations are not recorded in SQL audit logs: **INSERT INTO VALUES**, **REPLACE INTO VALUES**, and **UPSERT INTO VALUES**.
- * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description - You can query SQL audit logs only if SQL audit is enabled. Log data is retained for up to 30 days. If you disable and re-enable SQL audit, you can only query logs generated after it is re-enabled. SQL audit logs do not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
+ * - For a list of endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeAuditLogRecordsRequest
  * @return DescribeAuditLogRecordsResponse
@@ -4681,7 +5105,7 @@ DescribeAutoRenewalAttributeResponse Client::describeAutoRenewalAttribute(const 
 }
 
 /**
- * @summary Queries the available optimization suggestions for an AnalyticDB for MySQL cluster.
+ * @summary Use DescribeAvailableAdvices to list available optimization recommendations.
  *
  * @param request DescribeAvailableAdvicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4748,7 +5172,7 @@ DescribeAvailableAdvicesResponse Client::describeAvailableAdvicesWithOptions(con
 }
 
 /**
- * @summary Queries the available optimization suggestions for an AnalyticDB for MySQL cluster.
+ * @summary Use DescribeAvailableAdvices to list available optimization recommendations.
  *
  * @param request DescribeAvailableAdvicesRequest
  * @return DescribeAvailableAdvicesResponse
@@ -4759,9 +5183,9 @@ DescribeAvailableAdvicesResponse Client::describeAvailableAdvices(const Describe
 }
 
 /**
- * @summary 查看集群备份设置
+ * @summary Queries the backup settings of a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For more information about endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4808,9 +5232,9 @@ DescribeBackupPolicyResponse Client::describeBackupPolicyWithOptions(const Descr
 }
 
 /**
- * @summary 查看集群备份设置
+ * @summary Queries the backup settings of a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For more information about endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeBackupPolicyRequest
  * @return DescribeBackupPolicyResponse
@@ -4821,9 +5245,9 @@ DescribeBackupPolicyResponse Client::describeBackupPolicy(const DescribeBackupPo
 }
 
 /**
- * @summary 查询实例备份集
+ * @summary Queries the backup sets for an instance.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the endpoints for this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeBackupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4894,9 +5318,9 @@ DescribeBackupsResponse Client::describeBackupsWithOptions(const DescribeBackups
 }
 
 /**
- * @summary 查询实例备份集
+ * @summary Queries the backup sets for an instance.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the endpoints for this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeBackupsRequest
  * @return DescribeBackupsResponse
@@ -4981,9 +5405,9 @@ DescribeBadSqlDetectionResponse Client::describeBadSqlDetection(const DescribeBa
 }
 
 /**
- * @summary Queries the IP address whitelists of an AnalyticDB for MySQL cluster.
+ * @summary Queries the IP whitelist for a specified cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeClusterAccessWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5022,9 +5446,9 @@ DescribeClusterAccessWhiteListResponse Client::describeClusterAccessWhiteListWit
 }
 
 /**
- * @summary Queries the IP address whitelists of an AnalyticDB for MySQL cluster.
+ * @summary Queries the IP whitelist for a specified cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeClusterAccessWhiteListRequest
  * @return DescribeClusterAccessWhiteListResponse
@@ -5035,9 +5459,9 @@ DescribeClusterAccessWhiteListResponse Client::describeClusterAccessWhiteList(co
 }
 
 /**
- * @summary Queries the network information about an AnalyticDB for MySQL cluster.
+ * @summary Queries the network information of a specified cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For service endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeClusterNetInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5052,6 +5476,10 @@ DescribeClusterNetInfoResponse Client::describeClusterNetInfoWithOptions(const D
 
   if (!!request.hasEngine()) {
     query["Engine"] = request.getEngine();
+  }
+
+  if (!!request.hasResourceGroupName()) {
+    query["ResourceGroupName"] = request.getResourceGroupName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5072,9 +5500,9 @@ DescribeClusterNetInfoResponse Client::describeClusterNetInfoWithOptions(const D
 }
 
 /**
- * @summary Queries the network information about an AnalyticDB for MySQL cluster.
+ * @summary Queries the network information of a specified cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For service endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeClusterNetInfoRequest
  * @return DescribeClusterNetInfoResponse
@@ -5407,9 +5835,9 @@ DescribeControllerDetectionResponse Client::describeControllerDetection(const De
 }
 
 /**
- * @summary Queries the information about an AnalyticDB for MySQL cluster.
+ * @summary Returns the details of a specific cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description To find the endpoints for this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDBClusterAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5440,9 +5868,9 @@ DescribeDBClusterAttributeResponse Client::describeDBClusterAttributeWithOptions
 }
 
 /**
- * @summary Queries the information about an AnalyticDB for MySQL cluster.
+ * @summary Returns the details of a specific cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description To find the endpoints for this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDBClusterAttributeRequest
  * @return DescribeDBClusterAttributeResponse
@@ -5453,9 +5881,9 @@ DescribeDBClusterAttributeResponse Client::describeDBClusterAttribute(const Desc
 }
 
 /**
- * @summary Queries the health status of an AnalyticDB for MySQL cluster.
+ * @summary View a cluster\\"s health status.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service access address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDBClusterHealthStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5490,9 +5918,9 @@ DescribeDBClusterHealthStatusResponse Client::describeDBClusterHealthStatusWithO
 }
 
 /**
- * @summary Queries the health status of an AnalyticDB for MySQL cluster.
+ * @summary View a cluster\\"s health status.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service access address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDBClusterHealthStatusRequest
  * @return DescribeDBClusterHealthStatusResponse
@@ -5503,9 +5931,9 @@ DescribeDBClusterHealthStatusResponse Client::describeDBClusterHealthStatus(cons
 }
 
 /**
- * @summary Queries the performance data of an AnalyticDB for MySQL cluster.
+ * @summary View target cluster performance data.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service endpoint address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDBClusterPerformanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5556,9 +5984,9 @@ DescribeDBClusterPerformanceResponse Client::describeDBClusterPerformanceWithOpt
 }
 
 /**
- * @summary Queries the performance data of an AnalyticDB for MySQL cluster.
+ * @summary View target cluster performance data.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service endpoint address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDBClusterPerformanceRequest
  * @return DescribeDBClusterPerformanceResponse
@@ -5570,6 +5998,8 @@ DescribeDBClusterPerformanceResponse Client::describeDBClusterPerformance(const 
 
 /**
  * @summary Queries the SSL configurations of a cluster.
+ *
+ * @description >Warning: 目前该功能处于内测阶段，控制台界面展示及API调用接口尚未稳定，可能持续变化。
  *
  * @param request DescribeDBClusterSSLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5605,6 +6035,8 @@ DescribeDBClusterSSLResponse Client::describeDBClusterSSLWithOptions(const Descr
 
 /**
  * @summary Queries the SSL configurations of a cluster.
+ *
+ * @description >Warning: 目前该功能处于内测阶段，控制台界面展示及API调用接口尚未稳定，可能持续变化。
  *
  * @param request DescribeDBClusterSSLRequest
  * @return DescribeDBClusterSSLResponse
@@ -5681,9 +6113,9 @@ DescribeDBClusterSpaceSummaryResponse Client::describeDBClusterSpaceSummary(cons
 }
 
 /**
- * @summary Queries the statuses of AnalyticDB for MySQL clusters within a region.
+ * @summary Queries the status list of a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration information of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDBClusterStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5714,9 +6146,9 @@ DescribeDBClusterStatusResponse Client::describeDBClusterStatusWithOptions(const
 }
 
 /**
- * @summary Queries the statuses of AnalyticDB for MySQL clusters within a region.
+ * @summary Queries the status list of a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration information of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDBClusterStatusRequest
  * @return DescribeDBClusterStatusResponse
@@ -5727,9 +6159,9 @@ DescribeDBClusterStatusResponse Client::describeDBClusterStatus(const DescribeDB
 }
 
 /**
- * @summary Queries the information about AnalyticDB for MySQL Data Lakehouse Edition clusters within a region.
+ * @summary View the Data Lakehouse Edition clusters in the destination region.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For a current list of service endpoints, see [Service Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDBClustersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5796,9 +6228,9 @@ DescribeDBClustersResponse Client::describeDBClustersWithOptions(const DescribeD
 }
 
 /**
- * @summary Queries the information about AnalyticDB for MySQL Data Lakehouse Edition clusters within a region.
+ * @summary View the Data Lakehouse Edition clusters in the destination region.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For a current list of service endpoints, see [Service Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDBClustersRequest
  * @return DescribeDBClustersResponse
@@ -5809,9 +6241,9 @@ DescribeDBClustersResponse Client::describeDBClusters(const DescribeDBClustersRe
 }
 
 /**
- * @summary Queries the information about resource groups of an AnalyticDB for MySQL cluster.
+ * @summary Queries the resource group information of a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the service registration of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDBResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5858,9 +6290,9 @@ DescribeDBResourceGroupResponse Client::describeDBResourceGroupWithOptions(const
 }
 
 /**
- * @summary Queries the information about resource groups of an AnalyticDB for MySQL cluster.
+ * @summary Queries the resource group information of a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the service registration of the current service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDBResourceGroupRequest
  * @return DescribeDBResourceGroupResponse
@@ -5937,9 +6369,9 @@ DescribeDiagnosisDimensionsResponse Client::describeDiagnosisDimensions(const De
 }
 
 /**
- * @summary Queries the diagnostic information about SQL statements that meet a query condition for an AnalyticDB for MySQL cluster.
+ * @summary Queries the summary of SQL statements that meet specified conditions in an AnalyticDB for MySQL cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+ * @description For information about service endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDiagnosisRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6042,9 +6474,9 @@ DescribeDiagnosisRecordsResponse Client::describeDiagnosisRecordsWithOptions(con
 }
 
 /**
- * @summary Queries the diagnostic information about SQL statements that meet a query condition for an AnalyticDB for MySQL cluster.
+ * @summary Queries the summary of SQL statements that meet specified conditions in an AnalyticDB for MySQL cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
+ * @description For information about service endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDiagnosisRecordsRequest
  * @return DescribeDiagnosisRecordsResponse
@@ -6055,9 +6487,9 @@ DescribeDiagnosisRecordsResponse Client::describeDiagnosisRecords(const Describe
 }
 
 /**
- * @summary Queries the execution information about an SQL statement, including the execution plan, execution information, resource usage, and self-diagnostics results.
+ * @summary Queries the execution details of a specific SQL statement, including the execution plan, runtime information, resource usage, and self-diagnostics results.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration addresses of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDiagnosisSQLInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6112,9 +6544,9 @@ DescribeDiagnosisSQLInfoResponse Client::describeDiagnosisSQLInfoWithOptions(con
 }
 
 /**
- * @summary Queries the execution information about an SQL statement, including the execution plan, execution information, resource usage, and self-diagnostics results.
+ * @summary Queries the execution details of a specific SQL statement, including the execution plan, runtime information, resource usage, and self-diagnostics results.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration addresses of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDiagnosisSQLInfoRequest
  * @return DescribeDiagnosisSQLInfoResponse
@@ -6125,9 +6557,9 @@ DescribeDiagnosisSQLInfoResponse Client::describeDiagnosisSQLInfo(const Describe
 }
 
 /**
- * @summary Queries the last five SQL query download tasks of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+ * @summary Queries the five most recent download tasks for SQL query results in a specified AnalyticDB for MySQL Lakehouse Edition (3.0) cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For a list of service endpoints, see [Service Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDownloadRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6166,9 +6598,9 @@ DescribeDownloadRecordsResponse Client::describeDownloadRecordsWithOptions(const
 }
 
 /**
- * @summary Queries the last five SQL query download tasks of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+ * @summary Queries the five most recent download tasks for SQL query results in a specified AnalyticDB for MySQL Lakehouse Edition (3.0) cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For a list of service endpoints, see [Service Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeDownloadRecordsRequest
  * @return DescribeDownloadRecordsResponse
@@ -6423,7 +6855,11 @@ DescribeElasticPlansResponse Client::describeElasticPlans(const DescribeElasticP
 }
 
 /**
- * @summary Queries the permission level and permissions supported for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+ * @summary Retrieves the supported permission levels and the list of permissions.
+ *
+ * @description - Central public endpoint: `adb.aliyuncs.com`.
+ * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
  *
  * @param request DescribeEnabledPrivilegesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6450,7 +6886,11 @@ DescribeEnabledPrivilegesResponse Client::describeEnabledPrivilegesWithOptions(c
 }
 
 /**
- * @summary Queries the permission level and permissions supported for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+ * @summary Retrieves the supported permission levels and the list of permissions.
+ *
+ * @description - Central public endpoint: `adb.aliyuncs.com`.
+ * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
  *
  * @param request DescribeEnabledPrivilegesRequest
  * @return DescribeEnabledPrivilegesResponse
@@ -6690,10 +7130,6 @@ DescribeHistoryTasksResponse Client::describeHistoryTasksWithOptions(const Descr
     query["InstanceType"] = request.getInstanceType();
   }
 
-  if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.getOwnerId();
-  }
-
   if (!!request.hasPageNumber()) {
     query["PageNumber"] = request.getPageNumber();
   }
@@ -6708,10 +7144,6 @@ DescribeHistoryTasksResponse Client::describeHistoryTasksWithOptions(const Descr
 
   if (!!request.hasResourceGroupId()) {
     query["ResourceGroupId"] = request.getResourceGroupId();
-  }
-
-  if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasStatus()) {
@@ -6786,24 +7218,12 @@ DescribeHistoryTasksStatResponse Client::describeHistoryTasksStatWithOptions(con
     query["InstanceId"] = request.getInstanceId();
   }
 
-  if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.getOwnerId();
-  }
-
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
     query["ResourceGroupId"] = request.getResourceGroupId();
-  }
-
-  if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
-  }
-
-  if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
   if (!!request.hasSecurityToken()) {
@@ -6995,9 +7415,9 @@ DescribeInclinedTablesResponse Client::describeInclinedTables(const DescribeIncl
 }
 
 /**
- * @summary 获取作业资源使用统计
+ * @summary Retrieves resource usage statistics for jobs.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration information of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeJobResourceUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7022,6 +7442,10 @@ DescribeJobResourceUsageResponse Client::describeJobResourceUsageWithOptions(con
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasSparkAppName()) {
+    query["SparkAppName"] = request.getSparkAppName();
+  }
+
   if (!!request.hasStartTime()) {
     query["StartTime"] = request.getStartTime();
   }
@@ -7044,9 +7468,9 @@ DescribeJobResourceUsageResponse Client::describeJobResourceUsageWithOptions(con
 }
 
 /**
- * @summary 获取作业资源使用统计
+ * @summary Retrieves resource usage statistics for jobs.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration information of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeJobResourceUsageRequest
  * @return DescribeJobResourceUsageResponse
@@ -7119,205 +7543,6 @@ DescribeKernelVersionResponse Client::describeKernelVersion(const DescribeKernel
 }
 
 /**
- * @summary Queries the answer by a large language model (LLM) to a user question about the use of AnalyticDB for MySQL.
- *
- * @param request DescribeLLMAnswerRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return DescribeLLMAnswerResponse
- */
-FutureGenerator<DescribeLLMAnswerResponse> Client::describeLLMAnswerWithSSE(const DescribeLLMAnswerRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasDBClusterId()) {
-    query["DBClusterId"] = request.getDBClusterId();
-  }
-
-  if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.getOwnerAccount();
-  }
-
-  if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.getOwnerId();
-  }
-
-  if (!!request.hasQuery()) {
-    query["Query"] = request.getQuery();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
-  }
-
-  if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.getResourceOwnerId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "DescribeLLMAnswer"},
-    {"version" , "2021-12-01"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
-  for (SSEResponse resp : sseResp) {
-    json data = json(json::parse(resp.getEvent().getData()));
-json     __retrun = json(json({
-      {"statusCode" , resp.getStatusCode()},
-      {"headers" , resp.getHeaders()},
-      {"body" , Darabonba::Core::merge(data,
-          {"RequestId" , resp.getEvent().getId()},
-          {"Message" , resp.getEvent().getEvent()}
-      )}
-    })).get<DescribeLLMAnswerResponse>();
-return Darabonba::FutureGenerator<json>(__retrun);
-  }
-}
-
-/**
- * @summary Queries the answer by a large language model (LLM) to a user question about the use of AnalyticDB for MySQL.
- *
- * @param request DescribeLLMAnswerRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return DescribeLLMAnswerResponse
- */
-DescribeLLMAnswerResponse Client::describeLLMAnswerWithOptions(const DescribeLLMAnswerRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasDBClusterId()) {
-    query["DBClusterId"] = request.getDBClusterId();
-  }
-
-  if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.getOwnerAccount();
-  }
-
-  if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.getOwnerId();
-  }
-
-  if (!!request.hasQuery()) {
-    query["Query"] = request.getQuery();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
-  }
-
-  if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.getResourceOwnerId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "DescribeLLMAnswer"},
-    {"version" , "2021-12-01"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DescribeLLMAnswerResponse>();
-}
-
-/**
- * @summary Queries the answer by a large language model (LLM) to a user question about the use of AnalyticDB for MySQL.
- *
- * @param request DescribeLLMAnswerRequest
- * @return DescribeLLMAnswerResponse
- */
-DescribeLLMAnswerResponse Client::describeLLMAnswer(const DescribeLLMAnswerRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return describeLLMAnswerWithOptions(request, runtime);
-}
-
-/**
- * @summary Queries a list of questions similar to a user question.
- *
- * @param request DescribeLLMSimilarQuestionsRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return DescribeLLMSimilarQuestionsResponse
- */
-DescribeLLMSimilarQuestionsResponse Client::describeLLMSimilarQuestionsWithOptions(const DescribeLLMSimilarQuestionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasDBClusterId()) {
-    query["DBClusterId"] = request.getDBClusterId();
-  }
-
-  if (!!request.hasOwnerAccount()) {
-    query["OwnerAccount"] = request.getOwnerAccount();
-  }
-
-  if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.getOwnerId();
-  }
-
-  if (!!request.hasQuery()) {
-    query["Query"] = request.getQuery();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  if (!!request.hasResourceOwnerAccount()) {
-    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
-  }
-
-  if (!!request.hasResourceOwnerId()) {
-    query["ResourceOwnerId"] = request.getResourceOwnerId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "DescribeLLMSimilarQuestions"},
-    {"version" , "2021-12-01"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DescribeLLMSimilarQuestionsResponse>();
-}
-
-/**
- * @summary Queries a list of questions similar to a user question.
- *
- * @param request DescribeLLMSimilarQuestionsRequest
- * @return DescribeLLMSimilarQuestionsResponse
- */
-DescribeLLMSimilarQuestionsResponse Client::describeLLMSimilarQuestions(const DescribeLLMSimilarQuestionsRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return describeLLMSimilarQuestionsWithOptions(request, runtime);
-}
-
-/**
  * @summary Queries the lake cache size of an AnalyticDB for MySQL cluster.
  *
  * @param request DescribeLakeCacheSizeRequest
@@ -7360,9 +7585,9 @@ DescribeLakeCacheSizeResponse Client::describeLakeCacheSize(const DescribeLakeCa
 }
 
 /**
- * @summary Retrieves the result of a recommendation task for a materialized view.
+ * @summary Queries the results of a materialized view recommendation task.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the endpoints of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeMVRecommendResultsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7429,9 +7654,9 @@ DescribeMVRecommendResultsResponse Client::describeMVRecommendResultsWithOptions
 }
 
 /**
- * @summary Retrieves the result of a recommendation task for a materialized view.
+ * @summary Queries the results of a materialized view recommendation task.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For information about the endpoints of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeMVRecommendResultsRequest
  * @return DescribeMVRecommendResultsResponse
@@ -7442,7 +7667,7 @@ DescribeMVRecommendResultsResponse Client::describeMVRecommendResults(const Desc
 }
 
 /**
- * @summary 查看物化视图子任务
+ * @summary View subtasks of a materialized view
  *
  * @param request DescribeMvRecommendSubTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7505,7 +7730,7 @@ DescribeMvRecommendSubTasksResponse Client::describeMvRecommendSubTasksWithOptio
 }
 
 /**
- * @summary 查看物化视图子任务
+ * @summary View subtasks of a materialized view
  *
  * @param request DescribeMvRecommendSubTasksRequest
  * @return DescribeMvRecommendSubTasksResponse
@@ -7516,7 +7741,7 @@ DescribeMvRecommendSubTasksResponse Client::describeMvRecommendSubTasks(const De
 }
 
 /**
- * @summary 查看物化视图推荐任务
+ * @summary Views recommendation tasks for materialized views.
  *
  * @param request DescribeMvRecommendTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7571,7 +7796,7 @@ DescribeMvRecommendTasksResponse Client::describeMvRecommendTasksWithOptions(con
 }
 
 /**
- * @summary 查看物化视图推荐任务
+ * @summary Views recommendation tasks for materialized views.
  *
  * @param request DescribeMvRecommendTasksRequest
  * @return DescribeMvRecommendTasksResponse
@@ -7726,11 +7951,9 @@ DescribeOversizeNonPartitionTableInfosResponse Client::describeOversizeNonPartit
 }
 
 /**
- * @summary Queries the information about performance metrics of an SQL pattern such as the query duration and average memory usage for an AnalyticDB for MySQL cluster within a time range.
+ * @summary View metric details (such as query time and average memory consumption) for SQL patterns over a specified time range in a cluster.
  *
- * @description *   General endpoint: `adb.aliyuncs.com`.
- * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ * @description For the endpoint of this service, see [endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribePatternPerformanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7777,11 +8000,9 @@ DescribePatternPerformanceResponse Client::describePatternPerformanceWithOptions
 }
 
 /**
- * @summary Queries the information about performance metrics of an SQL pattern such as the query duration and average memory usage for an AnalyticDB for MySQL cluster within a time range.
+ * @summary View metric details (such as query time and average memory consumption) for SQL patterns over a specified time range in a cluster.
  *
- * @description *   General endpoint: `adb.aliyuncs.com`.
- * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ * @description For the endpoint of this service, see [endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribePatternPerformanceRequest
  * @return DescribePatternPerformanceResponse
@@ -7920,9 +8141,95 @@ DescribePerformanceViewsResponse Client::describePerformanceViews(const Describe
 }
 
 /**
- * @summary Queries a list of regions and zones in which AnalyticDB for MySQL Data Lakehouse Edition (V3.0) is available.
+ * @summary Call the DescribeProcessList operation to view the running queries of an instance.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @param request DescribeProcessListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeProcessListResponse
+ */
+DescribeProcessListResponse Client::describeProcessListWithOptions(const DescribeProcessListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasRunningTime()) {
+    query["RunningTime"] = request.getRunningTime();
+  }
+
+  if (!!request.hasShowFull()) {
+    query["ShowFull"] = request.getShowFull();
+  }
+
+  if (!!request.hasUser()) {
+    query["User"] = request.getUser();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeProcessList"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeProcessListResponse>();
+}
+
+/**
+ * @summary Call the DescribeProcessList operation to view the running queries of an instance.
+ *
+ * @param request DescribeProcessListRequest
+ * @return DescribeProcessListResponse
+ */
+DescribeProcessListResponse Client::describeProcessList(const DescribeProcessListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeProcessListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the regions and zones supported by AnalyticDB for MySQL Data Lakehouse Edition.
+ *
+ * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7973,9 +8280,9 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary Queries a list of regions and zones in which AnalyticDB for MySQL Data Lakehouse Edition (V3.0) is available.
+ * @summary Queries the regions and zones supported by AnalyticDB for MySQL Data Lakehouse Edition.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -8092,11 +8399,11 @@ DescribeResultExportConfigResponse Client::describeResultExportConfig(const Desc
 }
 
 /**
- * @summary Queries a list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster within a time range.
+ * @summary View the list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition cluster for a specified date range.
  *
- * @description *   General endpoint: `adb.aliyuncs.com`.
- * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ * @description - Global public endpoint: `adb.aliyuncs.com`.
+ * - Regional public endpoint: `adb.<region-id>.aliyuncs.com` (e.g., `adb.cn-hangzhou.aliyuncs.com`).
+ * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com` (e.g., `adb-vpc.cn-hangzhou.aliyuncs.com`).
  *
  * @param request DescribeSQLPatternsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8137,6 +8444,10 @@ DescribeSQLPatternsResponse Client::describeSQLPatternsWithOptions(const Describ
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasSqlPatternHash()) {
+    query["SqlPatternHash"] = request.getSqlPatternHash();
+  }
+
   if (!!request.hasStartTime()) {
     query["StartTime"] = request.getStartTime();
   }
@@ -8163,11 +8474,11 @@ DescribeSQLPatternsResponse Client::describeSQLPatternsWithOptions(const Describ
 }
 
 /**
- * @summary Queries a list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster within a time range.
+ * @summary View the list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition cluster for a specified date range.
  *
- * @description *   General endpoint: `adb.aliyuncs.com`.
- * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ * @description - Global public endpoint: `adb.aliyuncs.com`.
+ * - Regional public endpoint: `adb.<region-id>.aliyuncs.com` (e.g., `adb.cn-hangzhou.aliyuncs.com`).
+ * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com` (e.g., `adb-vpc.cn-hangzhou.aliyuncs.com`).
  *
  * @param request DescribeSQLPatternsRequest
  * @return DescribeSQLPatternsResponse
@@ -8178,7 +8489,7 @@ DescribeSQLPatternsResponse Client::describeSQLPatterns(const DescribeSQLPattern
 }
 
 /**
- * @summary Queries the WebSocket domain name of an AnalyticDB for MySQL cluster.
+ * @summary Queries the registered WebSocket domain.
  *
  * @param request DescribeSQLWebSocketDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8217,7 +8528,7 @@ DescribeSQLWebSocketDomainResponse Client::describeSQLWebSocketDomainWithOptions
 }
 
 /**
- * @summary Queries the WebSocket domain name of an AnalyticDB for MySQL cluster.
+ * @summary Queries the registered WebSocket domain.
  *
  * @param request DescribeSQLWebSocketDomainRequest
  * @return DescribeSQLWebSocketDomainResponse
@@ -8936,9 +9247,9 @@ DescribeStorageResourceUsageResponse Client::describeStorageResourceUsage(const 
 }
 
 /**
- * @summary Queries the number of accesses to a table or all tables in an AnalyticDB for MySQL cluster on a date.
+ * @summary Queries the number of times a specified table or all tables in a cluster are accessed within a specified date range.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeTableAccessCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8993,9 +9304,9 @@ DescribeTableAccessCountResponse Client::describeTableAccessCountWithOptions(con
 }
 
 /**
- * @summary Queries the number of accesses to a table or all tables in an AnalyticDB for MySQL cluster on a date.
+ * @summary Queries the number of times a specified table or all tables in a cluster are accessed within a specified date range.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeTableAccessCountRequest
  * @return DescribeTableAccessCountResponse
@@ -9286,7 +9597,7 @@ DescribeUserQuotaResponse Client::describeUserQuota(const DescribeUserQuotaReque
 }
 
 /**
- * @summary Retrieves materialized view refresh tasks.
+ * @summary Retrieves view tasks.
  *
  * @param request DescribeViewJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9349,7 +9660,7 @@ DescribeViewJobsResponse Client::describeViewJobsWithOptions(const DescribeViewJ
 }
 
 /**
- * @summary Retrieves materialized view refresh tasks.
+ * @summary Retrieves view tasks.
  *
  * @param request DescribeViewJobsRequest
  * @return DescribeViewJobsResponse
@@ -9360,7 +9671,7 @@ DescribeViewJobsResponse Client::describeViewJobs(const DescribeViewJobsRequest 
 }
 
 /**
- * @summary Queries the diagnostic results of the storage layer.
+ * @summary Queries the diagnostics results of the storage layer.
  *
  * @param request DescribeWorkerDetectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9423,7 +9734,7 @@ DescribeWorkerDetectionResponse Client::describeWorkerDetectionWithOptions(const
 }
 
 /**
- * @summary Queries the diagnostic results of the storage layer.
+ * @summary Queries the diagnostics results of the storage layer.
  *
  * @param request DescribeWorkerDetectionRequest
  * @return DescribeWorkerDetectionResponse
@@ -9434,9 +9745,9 @@ DescribeWorkerDetectionResponse Client::describeWorkerDetection(const DescribeWo
 }
 
 /**
- * @summary 解绑用户弹性网卡
+ * @summary Detaches an Elastic Network Interface (ENI).
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service endpoint, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DetachUserENIRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9467,9 +9778,9 @@ DetachUserENIResponse Client::detachUserENIWithOptions(const DetachUserENIReques
 }
 
 /**
- * @summary 解绑用户弹性网卡
+ * @summary Detaches an Elastic Network Interface (ENI).
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the service endpoint, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DetachUserENIRequest
  * @return DetachUserENIResponse
@@ -9678,7 +9989,7 @@ DownloadDiagnosisRecordsResponse Client::downloadDiagnosisRecords(const Download
 }
 
 /**
- * @summary Queries the Object Storage Service (OSS) URL of the downloaded certificate authority (CA) certificate that is used to connect to the wide table engine.
+ * @summary Retrieves the OSS download path of a CA certificate for connecting to the wide table engine.
  *
  * @param request DownloadInstanceCACertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9721,7 +10032,7 @@ DownloadInstanceCACertificateResponse Client::downloadInstanceCACertificateWithO
 }
 
 /**
- * @summary Queries the Object Storage Service (OSS) URL of the downloaded certificate authority (CA) certificate that is used to connect to the wide table engine.
+ * @summary Retrieves the OSS download path of a CA certificate for connecting to the wide table engine.
  *
  * @param request DownloadInstanceCACertificateRequest
  * @return DownloadInstanceCACertificateResponse
@@ -9884,6 +10195,10 @@ ExecuteSparkReplStatementResponse Client::executeSparkReplStatement(const Execut
 /**
  * @summary Executes Spark SQL statements in batches.
  *
+ * @description - 地域的公网接入地址：`adb.<region-id>.aliyuncs.com`。示例：`adb.cn-hangzhou.aliyuncs.com`。
+ * - 地域的VPC接入地址：`adb-vpc.<region-id>.aliyuncs.com`。示例：`adb-vpc.cn-hangzhou.aliyuncs.com`。
+ * > 如果华北1（青岛）、华南1（深圳）、华南3（广州）、中国香港发起请求时，遇到409错误，请联系技术支持。
+ *
  * @param request ExecuteSparkWarehouseBatchSQLRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ExecuteSparkWarehouseBatchSQLResponse
@@ -9942,6 +10257,10 @@ ExecuteSparkWarehouseBatchSQLResponse Client::executeSparkWarehouseBatchSQLWithO
 
 /**
  * @summary Executes Spark SQL statements in batches.
+ *
+ * @description - 地域的公网接入地址：`adb.<region-id>.aliyuncs.com`。示例：`adb.cn-hangzhou.aliyuncs.com`。
+ * - 地域的VPC接入地址：`adb-vpc.<region-id>.aliyuncs.com`。示例：`adb-vpc.cn-hangzhou.aliyuncs.com`。
+ * > 如果华北1（青岛）、华南1（深圳）、华南3（广州）、中国香港发起请求时，遇到409错误，请联系技术支持。
  *
  * @param request ExecuteSparkWarehouseBatchSQLRequest
  * @return ExecuteSparkWarehouseBatchSQLResponse
@@ -10010,9 +10329,59 @@ ExistRunningSQLEngineResponse Client::existRunningSQLEngine(const ExistRunningSQ
 }
 
 /**
- * @summary View the Spark basic permission diagnosis report of the current user.
+ * @summary Generates an executable SQL statement from a semantic SQL statement.
  *
- * @description The API diagnosis report contains whether the current user has all permissions required by the AnalyticDB for Spark related features. The scope of the permissions may exceed the minimum requirements of the business. The diagnostic report of the current API is used to quickly initialize the environment of AnalyticDB for Spark. If fine-grained permission configuration is needed, see [Configure fine-grained permissions in AnalyDB for Spark.](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko)
+ * @param request GenerateSqlBySemanticSqlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateSqlBySemanticSqlResponse
+ */
+GenerateSqlBySemanticSqlResponse Client::generateSqlBySemanticSqlWithOptions(const GenerateSqlBySemanticSqlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasSchemaName()) {
+    query["SchemaName"] = request.getSchemaName();
+  }
+
+  if (!!request.hasSql()) {
+    query["Sql"] = request.getSql();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GenerateSqlBySemanticSql"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateSqlBySemanticSqlResponse>();
+}
+
+/**
+ * @summary Generates an executable SQL statement from a semantic SQL statement.
+ *
+ * @param request GenerateSqlBySemanticSqlRequest
+ * @return GenerateSqlBySemanticSqlResponse
+ */
+GenerateSqlBySemanticSqlResponse Client::generateSqlBySemanticSql(const GenerateSqlBySemanticSqlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return generateSqlBySemanticSqlWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the basic permission diagnostic report of the current user for Spark.
+ *
+ * @description The API diagnostic report contains all the permissions required by the current user for ADB Spark-related features. The scope of the permission check may exceed the minimum requirements of your business. This API is used for quick initialization of the ADB Spark environment. To configure fine-grained permissions, [refer to the ADB Spark fine-grained permission configuration documentation.](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko)
  *
  * @param request GetADBSparkNecessaryRAMPermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10043,9 +10412,9 @@ GetADBSparkNecessaryRAMPermissionsResponse Client::getADBSparkNecessaryRAMPermis
 }
 
 /**
- * @summary View the Spark basic permission diagnosis report of the current user.
+ * @summary Queries the basic permission diagnostic report of the current user for Spark.
  *
- * @description The API diagnosis report contains whether the current user has all permissions required by the AnalyticDB for Spark related features. The scope of the permissions may exceed the minimum requirements of the business. The diagnostic report of the current API is used to quickly initialize the environment of AnalyticDB for Spark. If fine-grained permission configuration is needed, see [Configure fine-grained permissions in AnalyDB for Spark.](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko)
+ * @description The API diagnostic report contains all the permissions required by the current user for ADB Spark-related features. The scope of the permission check may exceed the minimum requirements of your business. This API is used for quick initialization of the ADB Spark environment. To configure fine-grained permissions, [refer to the ADB Spark fine-grained permission configuration documentation.](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko)
  *
  * @param request GetADBSparkNecessaryRAMPermissionsRequest
  * @return GetADBSparkNecessaryRAMPermissionsResponse
@@ -10053,52 +10422,6 @@ GetADBSparkNecessaryRAMPermissionsResponse Client::getADBSparkNecessaryRAMPermis
 GetADBSparkNecessaryRAMPermissionsResponse Client::getADBSparkNecessaryRAMPermissions(const GetADBSparkNecessaryRAMPermissionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getADBSparkNecessaryRAMPermissionsWithOptions(request, runtime);
-}
-
-/**
- * @summary Queries a list of databases.
- *
- * @param request GetApsManagedDatabasesRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return GetApsManagedDatabasesResponse
- */
-GetApsManagedDatabasesResponse Client::getApsManagedDatabasesWithOptions(const GetApsManagedDatabasesRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasDBClusterId()) {
-    body["DBClusterId"] = request.getDBClusterId();
-  }
-
-  if (!!request.hasRegionId()) {
-    body["RegionId"] = request.getRegionId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
-  Params params = Params(json({
-    {"action" , "GetApsManagedDatabases"},
-    {"version" , "2021-12-01"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<GetApsManagedDatabasesResponse>();
-}
-
-/**
- * @summary Queries a list of databases.
- *
- * @param request GetApsManagedDatabasesRequest
- * @return GetApsManagedDatabasesResponse
- */
-GetApsManagedDatabasesResponse Client::getApsManagedDatabases(const GetApsManagedDatabasesRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return getApsManagedDatabasesWithOptions(request, runtime);
 }
 
 /**
@@ -10244,6 +10567,110 @@ GetDatabaseObjectsResponse Client::getDatabaseObjects(const GetDatabaseObjectsRe
 }
 
 /**
+ * @summary Queries the details of a metadata discovery task.
+ *
+ * @param request GetFormationCrawlerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetFormationCrawlerResponse
+ */
+GetFormationCrawlerResponse Client::getFormationCrawlerWithOptions(const GetFormationCrawlerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCrawlerTaskId()) {
+    body["CrawlerTaskId"] = request.getCrawlerTaskId();
+  }
+
+  if (!!request.hasCrawlerTaskName()) {
+    body["CrawlerTaskName"] = request.getCrawlerTaskName();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    body["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetFormationCrawler"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetFormationCrawlerResponse>();
+}
+
+/**
+ * @summary Queries the details of a metadata discovery task.
+ *
+ * @param request GetFormationCrawlerRequest
+ * @return GetFormationCrawlerResponse
+ */
+GetFormationCrawlerResponse Client::getFormationCrawler(const GetFormationCrawlerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getFormationCrawlerWithOptions(request, runtime);
+}
+
+/**
+ * @summary Adds a knowledge base document.
+ *
+ * @param request GetKnowledgeRecallRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetKnowledgeRecallResponse
+ */
+GetKnowledgeRecallResponse Client::getKnowledgeRecallWithOptions(const GetKnowledgeRecallRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasQuestion()) {
+    query["Question"] = request.getQuestion();
+  }
+
+  if (!!request.hasTopk()) {
+    query["Topk"] = request.getTopk();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetKnowledgeRecall"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetKnowledgeRecallResponse>();
+}
+
+/**
+ * @summary Adds a knowledge base document.
+ *
+ * @param request GetKnowledgeRecallRequest
+ * @return GetKnowledgeRecallResponse
+ */
+GetKnowledgeRecallResponse Client::getKnowledgeRecall(const GetKnowledgeRecallRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getKnowledgeRecallWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a lake storage.
  *
  * @param request GetLakeStorageRequest
@@ -10293,6 +10720,56 @@ GetLakeStorageResponse Client::getLakeStorageWithOptions(const GetLakeStorageReq
 GetLakeStorageResponse Client::getLakeStorage(const GetLakeStorageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getLakeStorageWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the details of a semantic view.
+ *
+ * @param request GetSemanticViewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSemanticViewResponse
+ */
+GetSemanticViewResponse Client::getSemanticViewWithOptions(const GetSemanticViewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasSchemaName()) {
+    query["SchemaName"] = request.getSchemaName();
+  }
+
+  if (!!request.hasViewName()) {
+    query["ViewName"] = request.getViewName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSemanticView"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSemanticViewResponse>();
+}
+
+/**
+ * @summary Retrieves the details of a semantic view.
+ *
+ * @param request GetSemanticViewRequest
+ * @return GetSemanticViewResponse
+ */
+GetSemanticViewResponse Client::getSemanticView(const GetSemanticViewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSemanticViewWithOptions(request, runtime);
 }
 
 /**
@@ -11062,7 +11539,11 @@ GetSparkTemplateFullTreeResponse Client::getSparkTemplateFullTree(const GetSpark
 }
 
 /**
- * @summary Queries the execution result of a Spark SQL statement.
+ * @summary Retrieves the execution results of a Spark SQL statement.
+ *
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+ * > If you encounter a 409 error when sending requests from China North 1 (Qingdao), China South 1 (Shenzhen), China South 3 (Guangzhou), or Hong Kong (China), contact technical support.
  *
  * @param request GetSparkWarehouseBatchSQLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11101,7 +11582,11 @@ GetSparkWarehouseBatchSQLResponse Client::getSparkWarehouseBatchSQLWithOptions(c
 }
 
 /**
- * @summary Queries the execution result of a Spark SQL statement.
+ * @summary Retrieves the execution results of a Spark SQL statement.
+ *
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+ * > If you encounter a 409 error when sending requests from China North 1 (Qingdao), China South 1 (Shenzhen), China South 3 (Guangzhou), or Hong Kong (China), contact technical support.
  *
  * @param request GetSparkWarehouseBatchSQLRequest
  * @return GetSparkWarehouseBatchSQLResponse
@@ -11112,7 +11597,10 @@ GetSparkWarehouseBatchSQLResponse Client::getSparkWarehouseBatchSQL(const GetSpa
 }
 
 /**
- * @summary 获取表
+ * @summary Retrieves table information.
+ *
+ * @description - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
  *
  * @param request GetTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11155,7 +11643,10 @@ GetTableResponse Client::getTableWithOptions(const GetTableRequest &request, con
 }
 
 /**
- * @summary 获取表
+ * @summary Retrieves table information.
+ *
+ * @description - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
  *
  * @param request GetTableRequest
  * @return GetTableResponse
@@ -11166,10 +11657,10 @@ GetTableResponse Client::getTable(const GetTableRequest &request) {
 }
 
 /**
- * @summary Queries the information about columns.
+ * @summary Queries column information.
  *
- * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ * @description - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
  *
  * @param request GetTableColumnsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11224,10 +11715,10 @@ GetTableColumnsResponse Client::getTableColumnsWithOptions(const GetTableColumns
 }
 
 /**
- * @summary Queries the information about columns.
+ * @summary Queries column information.
  *
- * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ * @description - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
  *
  * @param request GetTableColumnsRequest
  * @return GetTableColumnsResponse
@@ -11298,7 +11789,10 @@ GetTableDDLResponse Client::getTableDDL(const GetTableDDLRequest &request) {
 }
 
 /**
- * @summary 获取table概要信息
+ * @summary Queries table information.
+ *
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
  *
  * @param request GetTableObjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11365,7 +11859,10 @@ GetTableObjectsResponse Client::getTableObjectsWithOptions(const GetTableObjects
 }
 
 /**
- * @summary 获取table概要信息
+ * @summary Queries table information.
+ *
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
  *
  * @param request GetTableObjectsRequest
  * @return GetTableObjectsResponse
@@ -11436,10 +11933,10 @@ GetViewDDLResponse Client::getViewDDL(const GetViewDDLRequest &request) {
 }
 
 /**
- * @summary Queries the information about views.
+ * @summary Queries view information.
  *
- * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
  *
  * @param request GetViewObjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11506,10 +12003,10 @@ GetViewObjectsResponse Client::getViewObjectsWithOptions(const GetViewObjectsReq
 }
 
 /**
- * @summary Queries the information about views.
+ * @summary Queries view information.
  *
- * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
  *
  * @param request GetViewObjectsRequest
  * @return GetViewObjectsResponse
@@ -11788,188 +12285,10 @@ KillSparkSQLEngineResponse Client::killSparkSQLEngine(const KillSparkSQLEngineRe
 }
 
 /**
- * @summary Queries a list of lifecycle management policies of an AnalyticDB for MySQL cluster.
+ * @summary Queries the webhook configurations for a specified database cluster.
  *
- * @param request ListApsLifecycleStrategyRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return ListApsLifecycleStrategyResponse
- */
-ListApsLifecycleStrategyResponse Client::listApsLifecycleStrategyWithOptions(const ListApsLifecycleStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasDBClusterId()) {
-    body["DBClusterId"] = request.getDBClusterId();
-  }
-
-  if (!!request.hasEndTime()) {
-    body["EndTime"] = request.getEndTime();
-  }
-
-  if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.getPageNumber();
-  }
-
-  if (!!request.hasPageSize()) {
-    body["PageSize"] = request.getPageSize();
-  }
-
-  if (!!request.hasRegionId()) {
-    body["RegionId"] = request.getRegionId();
-  }
-
-  if (!!request.hasStartTime()) {
-    body["StartTime"] = request.getStartTime();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
-  Params params = Params(json({
-    {"action" , "ListApsLifecycleStrategy"},
-    {"version" , "2021-12-01"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<ListApsLifecycleStrategyResponse>();
-}
-
-/**
- * @summary Queries a list of lifecycle management policies of an AnalyticDB for MySQL cluster.
- *
- * @param request ListApsLifecycleStrategyRequest
- * @return ListApsLifecycleStrategyResponse
- */
-ListApsLifecycleStrategyResponse Client::listApsLifecycleStrategy(const ListApsLifecycleStrategyRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return listApsLifecycleStrategyWithOptions(request, runtime);
-}
-
-/**
- * @summary Queries a list of lake storage optimization policies for an AnalyticDB for MySQL cluster.
- *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
- *
- * @param request ListApsOptimizationStrategyRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return ListApsOptimizationStrategyResponse
- */
-ListApsOptimizationStrategyResponse Client::listApsOptimizationStrategyWithOptions(const ListApsOptimizationStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasDBClusterId()) {
-    body["DBClusterId"] = request.getDBClusterId();
-  }
-
-  if (!!request.hasRegionId()) {
-    body["RegionId"] = request.getRegionId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
-  Params params = Params(json({
-    {"action" , "ListApsOptimizationStrategy"},
-    {"version" , "2021-12-01"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<ListApsOptimizationStrategyResponse>();
-}
-
-/**
- * @summary Queries a list of lake storage optimization policies for an AnalyticDB for MySQL cluster.
- *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
- *
- * @param request ListApsOptimizationStrategyRequest
- * @return ListApsOptimizationStrategyResponse
- */
-ListApsOptimizationStrategyResponse Client::listApsOptimizationStrategy(const ListApsOptimizationStrategyRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return listApsOptimizationStrategyWithOptions(request, runtime);
-}
-
-/**
- * @summary Queries a list of optimization jobs executed based on a lifecycle management policy. The system runs optimization jobs on a regular basis based on lifecycle management policies.
- *
- * @param request ListApsOptimizationTasksRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return ListApsOptimizationTasksResponse
- */
-ListApsOptimizationTasksResponse Client::listApsOptimizationTasksWithOptions(const ListApsOptimizationTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasDBClusterId()) {
-    body["DBClusterId"] = request.getDBClusterId();
-  }
-
-  if (!!request.hasEndTime()) {
-    body["EndTime"] = request.getEndTime();
-  }
-
-  if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.getPageNumber();
-  }
-
-  if (!!request.hasPageSize()) {
-    body["PageSize"] = request.getPageSize();
-  }
-
-  if (!!request.hasRegionId()) {
-    body["RegionId"] = request.getRegionId();
-  }
-
-  if (!!request.hasStartTime()) {
-    body["StartTime"] = request.getStartTime();
-  }
-
-  if (!!request.hasStrategyType()) {
-    body["StrategyType"] = request.getStrategyType();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
-  Params params = Params(json({
-    {"action" , "ListApsOptimizationTasks"},
-    {"version" , "2021-12-01"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<ListApsOptimizationTasksResponse>();
-}
-
-/**
- * @summary Queries a list of optimization jobs executed based on a lifecycle management policy. The system runs optimization jobs on a regular basis based on lifecycle management policies.
- *
- * @param request ListApsOptimizationTasksRequest
- * @return ListApsOptimizationTasksResponse
- */
-ListApsOptimizationTasksResponse Client::listApsOptimizationTasks(const ListApsOptimizationTasksRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return listApsOptimizationTasksWithOptions(request, runtime);
-}
-
-/**
- * @summary Queries the Webhook configurations of a specified database cluster.
- *
- * @description This API allows you to obtain a list of configured webhooks based on `RegionId`, `DBClusterId`, and optional `JobType`. The `JobType` parameter specifies the task type, such as SLS/OSS export task. If the parameter is provided, webhooks related to the task type are returned. If the parameter is not provided, all types of webhooks are returned.
- * Note: Make sure that the `RegionId` and `DBClusterId` you provided are correct. Otherwise, the webhook information may not be obtained correctly.
+ * @description Queries the list of configured webhooks for a specified database cluster based on RegionId, DBClusterId, and the optional JobType parameter. The JobType parameter specifies the task type, such as SLS or OSS export tasks. If JobType is specified, only webhooks associated with the specified task type are returned. If JobType is not specified, webhooks of all types are returned.
+ * Note: Ensure that the RegionId and DBClusterId values you provide are correct. Otherwise, the webhook information may not be retrieved.
  *
  * @param request ListApsWebhookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12008,10 +12327,10 @@ ListApsWebhookResponse Client::listApsWebhookWithOptions(const ListApsWebhookReq
 }
 
 /**
- * @summary Queries the Webhook configurations of a specified database cluster.
+ * @summary Queries the webhook configurations for a specified database cluster.
  *
- * @description This API allows you to obtain a list of configured webhooks based on `RegionId`, `DBClusterId`, and optional `JobType`. The `JobType` parameter specifies the task type, such as SLS/OSS export task. If the parameter is provided, webhooks related to the task type are returned. If the parameter is not provided, all types of webhooks are returned.
- * Note: Make sure that the `RegionId` and `DBClusterId` you provided are correct. Otherwise, the webhook information may not be obtained correctly.
+ * @description Queries the list of configured webhooks for a specified database cluster based on RegionId, DBClusterId, and the optional JobType parameter. The JobType parameter specifies the task type, such as SLS or OSS export tasks. If JobType is specified, only webhooks associated with the specified task type are returned. If JobType is not specified, webhooks of all types are returned.
+ * Note: Ensure that the RegionId and DBClusterId values you provide are correct. Otherwise, the webhook information may not be retrieved.
  *
  * @param request ListApsWebhookRequest
  * @return ListApsWebhookResponse
@@ -12148,11 +12467,61 @@ ListResultExportJobHistoryResponse Client::listResultExportJobHistory(const List
 }
 
 /**
- * @summary Queries the information about retry attempts of a Spark application.
+ * @summary Query the list of semantic views
  *
- * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
- * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+ * @description For the endpoints of the service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ *
+ * @param request ListSemanticViewNamesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSemanticViewNamesResponse
+ */
+ListSemanticViewNamesResponse Client::listSemanticViewNamesWithOptions(const ListSemanticViewNamesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasSchemaName()) {
+    query["SchemaName"] = request.getSchemaName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSemanticViewNames"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSemanticViewNamesResponse>();
+}
+
+/**
+ * @summary Query the list of semantic views
+ *
+ * @description For the endpoints of the service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ *
+ * @param request ListSemanticViewNamesRequest
+ * @return ListSemanticViewNamesResponse
+ */
+ListSemanticViewNamesResponse Client::listSemanticViewNames(const ListSemanticViewNamesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSemanticViewNamesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the retry information of a specified Spark application.
+ *
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+ * > If you encounter a 409 fault when initiating a request from Hong Kong (China), submit a ticket or contact technical support.
  *
  * @param request ListSparkAppAttemptsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12195,11 +12564,11 @@ ListSparkAppAttemptsResponse Client::listSparkAppAttemptsWithOptions(const ListS
 }
 
 /**
- * @summary Queries the information about retry attempts of a Spark application.
+ * @summary Queries the retry information of a specified Spark application.
  *
- * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
- * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
- * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+ * > If you encounter a 409 fault when initiating a request from Hong Kong (China), submit a ticket or contact technical support.
  *
  * @param request ListSparkAppAttemptsRequest
  * @return ListSparkAppAttemptsResponse
@@ -12210,7 +12579,11 @@ ListSparkAppAttemptsResponse Client::listSparkAppAttempts(const ListSparkAppAtte
 }
 
 /**
- * @summary Queries the Spark applications that run on an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+ * @summary Queries the list of Spark applications.
+ *
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+ * > If you encounter a 409 fault when initiating a request from Hong Kong (China), contact technical support.
  *
  * @param request ListSparkAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12257,7 +12630,11 @@ ListSparkAppsResponse Client::listSparkAppsWithOptions(const ListSparkAppsReques
 }
 
 /**
- * @summary Queries the Spark applications that run on an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+ * @summary Queries the list of Spark applications.
+ *
+ * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+ * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+ * > If you encounter a 409 fault when initiating a request from Hong Kong (China), contact technical support.
  *
  * @param request ListSparkAppsRequest
  * @return ListSparkAppsResponse
@@ -12378,6 +12755,10 @@ ListSparkTemplateFileIdsResponse Client::listSparkTemplateFileIds(const ListSpar
 /**
  * @summary Queries a list of Spark SQL statements.
  *
+ * @description - 地域的公网接入地址：`adb.<region-id>.aliyuncs.com`。示例：`adb.cn-hangzhou.aliyuncs.com`。
+ * - 地域的VPC接入地址：`adb-vpc.<region-id>.aliyuncs.com`。示例：`adb-vpc.cn-hangzhou.aliyuncs.com`。
+ * > 如果华北1（青岛）、华南1（深圳）、华南3（广州）、中国香港发起请求时，遇到409错误，请联系技术支持。
+ *
  * @param request ListSparkWarehouseBatchSQLRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListSparkWarehouseBatchSQLResponse
@@ -12420,6 +12801,10 @@ ListSparkWarehouseBatchSQLResponse Client::listSparkWarehouseBatchSQLWithOptions
 
 /**
  * @summary Queries a list of Spark SQL statements.
+ *
+ * @description - 地域的公网接入地址：`adb.<region-id>.aliyuncs.com`。示例：`adb.cn-hangzhou.aliyuncs.com`。
+ * - 地域的VPC接入地址：`adb-vpc.<region-id>.aliyuncs.com`。示例：`adb-vpc.cn-hangzhou.aliyuncs.com`。
+ * > 如果华北1（青岛）、华南1（深圳）、华南3（广州）、中国香港发起请求时，遇到409错误，请联系技术支持。
  *
  * @param request ListSparkWarehouseBatchSQLRequest
  * @return ListSparkWarehouseBatchSQLResponse
@@ -13338,64 +13723,6 @@ ModifyClusterAccessWhiteListResponse Client::modifyClusterAccessWhiteList(const 
 }
 
 /**
- * @summary Modifies the public endpoint of an AnalyticDB for MySQL cluster.
- *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
- *
- * @param request ModifyClusterConnectionStringRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return ModifyClusterConnectionStringResponse
- */
-ModifyClusterConnectionStringResponse Client::modifyClusterConnectionStringWithOptions(const ModifyClusterConnectionStringRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasConnectionStringPrefix()) {
-    query["ConnectionStringPrefix"] = request.getConnectionStringPrefix();
-  }
-
-  if (!!request.hasCurrentConnectionString()) {
-    query["CurrentConnectionString"] = request.getCurrentConnectionString();
-  }
-
-  if (!!request.hasDBClusterId()) {
-    query["DBClusterId"] = request.getDBClusterId();
-  }
-
-  if (!!request.hasPort()) {
-    query["Port"] = request.getPort();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "ModifyClusterConnectionString"},
-    {"version" , "2021-12-01"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<ModifyClusterConnectionStringResponse>();
-}
-
-/**
- * @summary Modifies the public endpoint of an AnalyticDB for MySQL cluster.
- *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
- *
- * @param request ModifyClusterConnectionStringRequest
- * @return ModifyClusterConnectionStringResponse
- */
-ModifyClusterConnectionStringResponse Client::modifyClusterConnectionString(const ModifyClusterConnectionStringRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return modifyClusterConnectionStringWithOptions(request, runtime);
-}
-
-/**
  * @summary Modifies the status of the remote build feature in the query acceleration configuration of an AnalyticDB for MySQL cluster.
  *
  * @param request ModifyCompactionServiceSwitchRequest
@@ -13442,15 +13769,15 @@ ModifyCompactionServiceSwitchResponse Client::modifyCompactionServiceSwitch(cons
 }
 
 /**
- * @summary Changes the configurations of an AnalyticDB for MySQL Data Lakehouse Edition cluster.
+ * @summary Scales up or scales down a Data Lakehouse Edition cluster.
  *
- * @description ### [](#)
- * *   During a scaling event, you are not allowed to execute the `SUBMIT JOB` statement to submit asynchronous jobs. If your business requires asynchronous jobs, perform scaling during appropriate periods.
- * *   When you scale a cluster, data in the cluster is migrated for redistribution. The amount of time that is required to migrate data is proportional to the data volume. During a scaling event, the services provided by the cluster are not interrupted. When you downgrade cluster specifications, data migration may require up to dozens of hours to complete. Proceed with caution especially if your cluster contains a large amount of data.
- * *   If the cluster has a built-in dataset loaded, make sure that the cluster has reserved storage resources of at least 24 AnalyticDB compute units (ACUs). Otherwise, the built-in dataset cannot be used.
- * *   When the scaling process is about to end, transient connections may occur. We recommend that you scale your cluster during off-peak hours or make sure that your application is configured to automatically reconnect to your cluster.
- * *   You can change an AnalyticDB for MySQL cluster from Data Warehouse Edition to Data Lakehouse Edition, but not the other way around. For more information, see Change a cluster from Data Warehouse Edition to Data Lakehouse Edition.
- * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description ### Before you begin
+ * - During scaling, `submit job` for submitting asynchronous tasks is disabled. If your business depends on this feature, schedule the scaling operation during an appropriate time window.
+ * - Scaling operations redistribute and migrate data. The migration duration is proportional to the data volume, and the service is not interrupted during scaling. When you scale down a cluster from a large specification to a small specification, data migration typically takes several hours or even tens of hours. Exercise caution when you scale down a cluster with a large data volume.
+ * - If the cluster has loaded a built-in dataset, make sure that the cluster has at least 24 ACUs of storage reserved resources during scale-down. Otherwise, the built-in dataset cannot be used.
+ * - Transient connections may occur near the end of scaling. Scale during off-peak hours, or make sure that your application has an automatic reconnection mechanism.
+ * - You cannot perform an Upgrade/Downgrade from Data Lakehouse Edition to Data Warehouse Edition. You can perform an Upgrade/Downgrade from Data Warehouse Edition to Data Lakehouse Edition. For details, refer to the documentation about changing Data Warehouse Edition to Data Lakehouse Edition.
+ * - For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ModifyDBClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13459,6 +13786,14 @@ ModifyCompactionServiceSwitchResponse Client::modifyCompactionServiceSwitch(cons
 ModifyDBClusterResponse Client::modifyDBClusterWithOptions(const ModifyDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAINodeNumber()) {
+    query["AINodeNumber"] = request.getAINodeNumber();
+  }
+
+  if (!!request.hasAINodeSpec()) {
+    query["AINodeSpec"] = request.getAINodeSpec();
+  }
+
   if (!!request.hasComputeResource()) {
     query["ComputeResource"] = request.getComputeResource();
   }
@@ -13509,15 +13844,15 @@ ModifyDBClusterResponse Client::modifyDBClusterWithOptions(const ModifyDBCluster
 }
 
 /**
- * @summary Changes the configurations of an AnalyticDB for MySQL Data Lakehouse Edition cluster.
+ * @summary Scales up or scales down a Data Lakehouse Edition cluster.
  *
- * @description ### [](#)
- * *   During a scaling event, you are not allowed to execute the `SUBMIT JOB` statement to submit asynchronous jobs. If your business requires asynchronous jobs, perform scaling during appropriate periods.
- * *   When you scale a cluster, data in the cluster is migrated for redistribution. The amount of time that is required to migrate data is proportional to the data volume. During a scaling event, the services provided by the cluster are not interrupted. When you downgrade cluster specifications, data migration may require up to dozens of hours to complete. Proceed with caution especially if your cluster contains a large amount of data.
- * *   If the cluster has a built-in dataset loaded, make sure that the cluster has reserved storage resources of at least 24 AnalyticDB compute units (ACUs). Otherwise, the built-in dataset cannot be used.
- * *   When the scaling process is about to end, transient connections may occur. We recommend that you scale your cluster during off-peak hours or make sure that your application is configured to automatically reconnect to your cluster.
- * *   You can change an AnalyticDB for MySQL cluster from Data Warehouse Edition to Data Lakehouse Edition, but not the other way around. For more information, see Change a cluster from Data Warehouse Edition to Data Lakehouse Edition.
- * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description ### Before you begin
+ * - During scaling, `submit job` for submitting asynchronous tasks is disabled. If your business depends on this feature, schedule the scaling operation during an appropriate time window.
+ * - Scaling operations redistribute and migrate data. The migration duration is proportional to the data volume, and the service is not interrupted during scaling. When you scale down a cluster from a large specification to a small specification, data migration typically takes several hours or even tens of hours. Exercise caution when you scale down a cluster with a large data volume.
+ * - If the cluster has loaded a built-in dataset, make sure that the cluster has at least 24 ACUs of storage reserved resources during scale-down. Otherwise, the built-in dataset cannot be used.
+ * - Transient connections may occur near the end of scaling. Scale during off-peak hours, or make sure that your application has an automatic reconnection mechanism.
+ * - You cannot perform an Upgrade/Downgrade from Data Lakehouse Edition to Data Warehouse Edition. You can perform an Upgrade/Downgrade from Data Warehouse Edition to Data Lakehouse Edition. For details, refer to the documentation about changing Data Warehouse Edition to Data Lakehouse Edition.
+ * - For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ModifyDBClusterRequest
  * @return ModifyDBClusterResponse
@@ -13798,9 +14133,9 @@ ModifyDBClusterVipResponse Client::modifyDBClusterVip(const ModifyDBClusterVipRe
 }
 
 /**
- * @summary Modifies the amount of reserved computing resources for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+ * @summary Changes the resource group of a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For service endpoints, see [endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param tmpReq ModifyDBResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13810,6 +14145,10 @@ ModifyDBResourceGroupResponse Client::modifyDBResourceGroupWithOptions(const Mod
   tmpReq.validate();
   ModifyDBResourceGroupShrinkRequest request = ModifyDBResourceGroupShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAtmConfig()) {
+    request.setAtmConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAtmConfig(), "AtmConfig", "json"));
+  }
+
   if (!!tmpReq.hasEngineParams()) {
     request.setEngineParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEngineParams(), "EngineParams", "json"));
   }
@@ -13827,6 +14166,10 @@ ModifyDBResourceGroupResponse Client::modifyDBResourceGroupWithOptions(const Mod
   }
 
   json query = {};
+  if (!!request.hasAtmConfigShrink()) {
+    query["AtmConfig"] = request.getAtmConfigShrink();
+  }
+
   if (!!request.hasAutoStopInterval()) {
     query["AutoStopInterval"] = request.getAutoStopInterval();
   }
@@ -13929,9 +14272,9 @@ ModifyDBResourceGroupResponse Client::modifyDBResourceGroupWithOptions(const Mod
 }
 
 /**
- * @summary Modifies the amount of reserved computing resources for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+ * @summary Changes the resource group of a cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For service endpoints, see [endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ModifyDBResourceGroupRequest
  * @return ModifyDBResourceGroupResponse
@@ -14198,7 +14541,7 @@ ModifyMaterializedViewResponse Client::modifyMaterializedView(const ModifyMateri
 }
 
 /**
- * @summary Modifies a materialized view recommendation task.
+ * @summary Modifies an automatic materialized view recommendation task.
  *
  * @param request ModifyMaterializedViewRecommendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14285,7 +14628,7 @@ ModifyMaterializedViewRecommendResponse Client::modifyMaterializedViewRecommendW
 }
 
 /**
- * @summary Modifies a materialized view recommendation task.
+ * @summary Modifies an automatic materialized view recommendation task.
  *
  * @param request ModifyMaterializedViewRecommendRequest
  * @return ModifyMaterializedViewRecommendResponse
@@ -14554,9 +14897,163 @@ PreloadSparkAppMetricsResponse Client::preloadSparkAppMetrics(const PreloadSpark
 }
 
 /**
- * @summary Releases the public endpoint of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+ * @summary Queries the list of metadata discovery task instances.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @param request QueryFormationInstsByTaskIDRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryFormationInstsByTaskIDResponse
+ */
+QueryFormationInstsByTaskIDResponse Client::queryFormationInstsByTaskIDWithOptions(const QueryFormationInstsByTaskIDRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDBClusterId()) {
+    body["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "QueryFormationInstsByTaskID"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryFormationInstsByTaskIDResponse>();
+}
+
+/**
+ * @summary Queries the list of metadata discovery task instances.
+ *
+ * @param request QueryFormationInstsByTaskIDRequest
+ * @return QueryFormationInstsByTaskIDResponse
+ */
+QueryFormationInstsByTaskIDResponse Client::queryFormationInstsByTaskID(const QueryFormationInstsByTaskIDRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryFormationInstsByTaskIDWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a metadata discovery task by ID.
+ *
+ * @param request QueryFormationTaskByIDRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryFormationTaskByIDResponse
+ */
+QueryFormationTaskByIDResponse Client::queryFormationTaskByIDWithOptions(const QueryFormationTaskByIDRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDBClusterId()) {
+    body["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasTaskType()) {
+    body["TaskType"] = request.getTaskType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "QueryFormationTaskByID"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryFormationTaskByIDResponse>();
+}
+
+/**
+ * @summary Queries a metadata discovery task by ID.
+ *
+ * @param request QueryFormationTaskByIDRequest
+ * @return QueryFormationTaskByIDResponse
+ */
+QueryFormationTaskByIDResponse Client::queryFormationTaskByID(const QueryFormationTaskByIDRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryFormationTaskByIDWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries metadata discovery tasks by task type.
+ *
+ * @param request QueryFormationTasksByTypeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryFormationTasksByTypeResponse
+ */
+QueryFormationTasksByTypeResponse Client::queryFormationTasksByTypeWithOptions(const QueryFormationTasksByTypeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDBClusterId()) {
+    body["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTaskType()) {
+    body["TaskType"] = request.getTaskType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "QueryFormationTasksByType"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryFormationTasksByTypeResponse>();
+}
+
+/**
+ * @summary Queries metadata discovery tasks by task type.
+ *
+ * @param request QueryFormationTasksByTypeRequest
+ * @return QueryFormationTasksByTypeResponse
+ */
+QueryFormationTasksByTypeResponse Client::queryFormationTasksByType(const QueryFormationTasksByTypeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryFormationTasksByTypeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Releases the public endpoint of a specified cluster.
+ *
+ * @description For the endpoints of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ReleaseClusterPublicConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14571,6 +15068,10 @@ ReleaseClusterPublicConnectionResponse Client::releaseClusterPublicConnectionWit
 
   if (!!request.hasEngine()) {
     query["Engine"] = request.getEngine();
+  }
+
+  if (!!request.hasResourceGroupName()) {
+    query["ResourceGroupName"] = request.getResourceGroupName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14591,9 +15092,9 @@ ReleaseClusterPublicConnectionResponse Client::releaseClusterPublicConnectionWit
 }
 
 /**
- * @summary Releases the public endpoint of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+ * @summary Releases the public endpoint of a specified cluster.
  *
- * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description For the endpoints of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ReleaseClusterPublicConnectionRequest
  * @return ReleaseClusterPublicConnectionResponse
@@ -14601,6 +15102,118 @@ ReleaseClusterPublicConnectionResponse Client::releaseClusterPublicConnectionWit
 ReleaseClusterPublicConnectionResponse Client::releaseClusterPublicConnection(const ReleaseClusterPublicConnectionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return releaseClusterPublicConnectionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the name of a semantic view.
+ *
+ * @param request RenameSemanticViewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RenameSemanticViewResponse
+ */
+RenameSemanticViewResponse Client::renameSemanticViewWithOptions(const RenameSemanticViewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasNewSchemaName()) {
+    query["NewSchemaName"] = request.getNewSchemaName();
+  }
+
+  if (!!request.hasNewViewName()) {
+    query["NewViewName"] = request.getNewViewName();
+  }
+
+  if (!!request.hasOldSchemaName()) {
+    query["OldSchemaName"] = request.getOldSchemaName();
+  }
+
+  if (!!request.hasOldViewName()) {
+    query["OldViewName"] = request.getOldViewName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RenameSemanticView"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RenameSemanticViewResponse>();
+}
+
+/**
+ * @summary Modifies the name of a semantic view.
+ *
+ * @param request RenameSemanticViewRequest
+ * @return RenameSemanticViewResponse
+ */
+RenameSemanticViewResponse Client::renameSemanticView(const RenameSemanticViewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return renameSemanticViewWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the definition of a semantic view.
+ *
+ * @param request ReplaceSemanticViewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReplaceSemanticViewResponse
+ */
+ReplaceSemanticViewResponse Client::replaceSemanticViewWithOptions(const ReplaceSemanticViewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDefinition()) {
+    query["Definition"] = request.getDefinition();
+  }
+
+  if (!!request.hasSchemaName()) {
+    query["SchemaName"] = request.getSchemaName();
+  }
+
+  if (!!request.hasViewName()) {
+    query["ViewName"] = request.getViewName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ReplaceSemanticView"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ReplaceSemanticViewResponse>();
+}
+
+/**
+ * @summary Updates the definition of a semantic view.
+ *
+ * @param request ReplaceSemanticViewRequest
+ * @return ReplaceSemanticViewResponse
+ */
+ReplaceSemanticViewResponse Client::replaceSemanticView(const ReplaceSemanticViewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return replaceSemanticViewWithOptions(request, runtime);
 }
 
 /**
@@ -14724,6 +15337,122 @@ RevokeOperatorPermissionResponse Client::revokeOperatorPermission(const RevokeOp
 }
 
 /**
+ * @summary Runs an automated recommendation task for Materialized Views.
+ *
+ * @param request RunMaterializedViewRecommendRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunMaterializedViewRecommendResponse
+ */
+RunMaterializedViewRecommendResponse Client::runMaterializedViewRecommendWithOptions(const RunMaterializedViewRecommendRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasTaskName()) {
+    query["TaskName"] = request.getTaskName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RunMaterializedViewRecommend"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunMaterializedViewRecommendResponse>();
+}
+
+/**
+ * @summary Runs an automated recommendation task for Materialized Views.
+ *
+ * @param request RunMaterializedViewRecommendRequest
+ * @return RunMaterializedViewRecommendResponse
+ */
+RunMaterializedViewRecommendResponse Client::runMaterializedViewRecommend(const RunMaterializedViewRecommendRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return runMaterializedViewRecommendWithOptions(request, runtime);
+}
+
+/**
+ * @summary Searches for semantic views.
+ *
+ * @param request SearchSemanticViewsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchSemanticViewsResponse
+ */
+SearchSemanticViewsResponse Client::searchSemanticViewsWithOptions(const SearchSemanticViewsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasQueryText()) {
+    query["QueryText"] = request.getQueryText();
+  }
+
+  if (!!request.hasTopK()) {
+    query["TopK"] = request.getTopK();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SearchSemanticViews"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchSemanticViewsResponse>();
+}
+
+/**
+ * @summary Searches for semantic views.
+ *
+ * @param request SearchSemanticViewsRequest
+ * @return SearchSemanticViewsResponse
+ */
+SearchSemanticViewsResponse Client::searchSemanticViews(const SearchSemanticViewsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return searchSemanticViewsWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the Spark log configuration.
  *
  * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
@@ -14825,6 +15554,66 @@ StartApsJobResponse Client::startApsJobWithOptions(const StartApsJobRequest &req
 StartApsJobResponse Client::startApsJob(const StartApsJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return startApsJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Manually triggers a metadata discovery task.
+ *
+ * @description ### Operation description
+ * When you use a cloud-native data repository AnalyticDB for MySQL cluster and require Alibaba Cloud technical support, if the helpdesk needs to perform operations on your cluster during the support procedure, authorize the service account of the AnalyticDB for MySQL cluster so that the helpdesk can provide technical support through the service account. After the authorization expires, the permissions of the service account are automatically revoked.
+ *
+ * @param request StartFormationCrawlerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartFormationCrawlerResponse
+ */
+StartFormationCrawlerResponse Client::startFormationCrawlerWithOptions(const StartFormationCrawlerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCrawlerTaskId()) {
+    body["CrawlerTaskId"] = request.getCrawlerTaskId();
+  }
+
+  if (!!request.hasCrawlerTaskName()) {
+    body["CrawlerTaskName"] = request.getCrawlerTaskName();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    body["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "StartFormationCrawler"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartFormationCrawlerResponse>();
+}
+
+/**
+ * @summary Manually triggers a metadata discovery task.
+ *
+ * @description ### Operation description
+ * When you use a cloud-native data repository AnalyticDB for MySQL cluster and require Alibaba Cloud technical support, if the helpdesk needs to perform operations on your cluster during the support procedure, authorize the service account of the AnalyticDB for MySQL cluster so that the helpdesk can provide technical support through the service account. After the authorization expires, the permissions of the service account are automatically revoked.
+ *
+ * @param request StartFormationCrawlerRequest
+ * @return StartFormationCrawlerResponse
+ */
+StartFormationCrawlerResponse Client::startFormationCrawler(const StartFormationCrawlerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return startFormationCrawlerWithOptions(request, runtime);
 }
 
 /**
@@ -14953,6 +15742,64 @@ StartSparkSQLEngineResponse Client::startSparkSQLEngineWithOptions(const StartSp
 StartSparkSQLEngineResponse Client::startSparkSQLEngine(const StartSparkSQLEngineRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return startSparkSQLEngineWithOptions(request, runtime);
+}
+
+/**
+ * @summary Stops a metadata discovery task that is currently running.
+ *
+ * @description Stops only the currently running task without canceling subsequent cron-scheduled executions.
+ *
+ * @param request StopFormationCrawlerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopFormationCrawlerResponse
+ */
+StopFormationCrawlerResponse Client::stopFormationCrawlerWithOptions(const StopFormationCrawlerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCrawlerTaskId()) {
+    body["CrawlerTaskId"] = request.getCrawlerTaskId();
+  }
+
+  if (!!request.hasCrawlerTaskName()) {
+    body["CrawlerTaskName"] = request.getCrawlerTaskName();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    body["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "StopFormationCrawler"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopFormationCrawlerResponse>();
+}
+
+/**
+ * @summary Stops a metadata discovery task that is currently running.
+ *
+ * @description Stops only the currently running task without canceling subsequent cron-scheduled executions.
+ *
+ * @param request StopFormationCrawlerRequest
+ * @return StopFormationCrawlerResponse
+ */
+StopFormationCrawlerResponse Client::stopFormationCrawler(const StopFormationCrawlerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return stopFormationCrawlerWithOptions(request, runtime);
 }
 
 /**
@@ -15246,7 +16093,7 @@ UnbindAccountResponse Client::unbindAccount(const UnbindAccountRequest &request)
 }
 
 /**
- * @summary Disassociates resource groups from database accounts for an AnalyticDB for MySQL cluster.
+ * @summary Disassociates a database account from a resource group of an AnalyticDB for MySQL cluster.
  *
  * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
@@ -15287,7 +16134,7 @@ UnbindDBResourceGroupWithUserResponse Client::unbindDBResourceGroupWithUserWithO
 }
 
 /**
- * @summary Disassociates resource groups from database accounts for an AnalyticDB for MySQL cluster.
+ * @summary Disassociates a database account from a resource group of an AnalyticDB for MySQL cluster.
  *
  * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
@@ -15300,7 +16147,7 @@ UnbindDBResourceGroupWithUserResponse Client::unbindDBResourceGroupWithUser(cons
 }
 
 /**
- * @summary Updates the webhook configuration of a specified cluster.
+ * @summary Updates the webhook configuration of a specified database cluster.
  *
  * @param tmpReq UpdateApsWebhookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15345,7 +16192,7 @@ UpdateApsWebhookResponse Client::updateApsWebhookWithOptions(const UpdateApsWebh
 }
 
 /**
- * @summary Updates the webhook configuration of a specified cluster.
+ * @summary Updates the webhook configuration of a specified database cluster.
  *
  * @param request UpdateApsWebhookRequest
  * @return UpdateApsWebhookResponse
@@ -15353,6 +16200,118 @@ UpdateApsWebhookResponse Client::updateApsWebhookWithOptions(const UpdateApsWebh
 UpdateApsWebhookResponse Client::updateApsWebhook(const UpdateApsWebhookRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateApsWebhookWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the information of a metadata discovery task.
+ *
+ * @param request UpdateFormationCrawlerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateFormationCrawlerResponse
+ */
+UpdateFormationCrawlerResponse Client::updateFormationCrawlerWithOptions(const UpdateFormationCrawlerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCrawlerInfo()) {
+    body["CrawlerInfo"] = request.getCrawlerInfo();
+  }
+
+  if (!!request.hasCrawlerTaskId()) {
+    body["CrawlerTaskId"] = request.getCrawlerTaskId();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    body["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateFormationCrawler"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateFormationCrawlerResponse>();
+}
+
+/**
+ * @summary Updates the information of a metadata discovery task.
+ *
+ * @param request UpdateFormationCrawlerRequest
+ * @return UpdateFormationCrawlerResponse
+ */
+UpdateFormationCrawlerResponse Client::updateFormationCrawler(const UpdateFormationCrawlerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateFormationCrawlerWithOptions(request, runtime);
+}
+
+/**
+ * @summary Pauses or resumes the periodic scheduling of metadata discovery.
+ *
+ * @param request UpdateFormationCrawlerScheduleStateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateFormationCrawlerScheduleStateResponse
+ */
+UpdateFormationCrawlerScheduleStateResponse Client::updateFormationCrawlerScheduleStateWithOptions(const UpdateFormationCrawlerScheduleStateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCrawlerTaskId()) {
+    body["CrawlerTaskId"] = request.getCrawlerTaskId();
+  }
+
+  if (!!request.hasCrawlerTaskName()) {
+    body["CrawlerTaskName"] = request.getCrawlerTaskName();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    body["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasScheduleState()) {
+    body["ScheduleState"] = request.getScheduleState();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateFormationCrawlerScheduleState"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateFormationCrawlerScheduleStateResponse>();
+}
+
+/**
+ * @summary Pauses or resumes the periodic scheduling of metadata discovery.
+ *
+ * @param request UpdateFormationCrawlerScheduleStateRequest
+ * @return UpdateFormationCrawlerScheduleStateResponse
+ */
+UpdateFormationCrawlerScheduleStateResponse Client::updateFormationCrawlerScheduleState(const UpdateFormationCrawlerScheduleStateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateFormationCrawlerScheduleStateWithOptions(request, runtime);
 }
 
 /**

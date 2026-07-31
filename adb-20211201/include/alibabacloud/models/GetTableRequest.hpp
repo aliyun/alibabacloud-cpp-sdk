@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The name of the database.
+    // The database name.
     shared_ptr<string> dbName_ {};
-    // The ID of the region in which the cluster resides.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The name of the table.
+    // The table name to query.
     shared_ptr<string> tableName_ {};
   };
 

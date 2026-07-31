@@ -97,12 +97,31 @@ namespace Models
 
 
   protected:
+    // The ID of the Spark application.
     shared_ptr<string> appId_ {};
+    // The name of the Spark application.
     shared_ptr<string> appName_ {};
+    // The database ID.
     shared_ptr<string> DBClusterId_ {};
+    // The information about the Spark application.
     shared_ptr<Detail> detail_ {};
+    // The alert message returned, such as task execution failure or insufficient resources. If no alert occurs, null is returned.
     shared_ptr<string> message_ {};
+    // The priority of the Spark application.
     shared_ptr<string> priority_ {};
+    // The state of the Spark application. Valid values:
+    // 
+    // *   **SUBMITTED**
+    // *   **STARTING**
+    // *   **RUNNING**
+    // *   **FAILING**
+    // *   **FAILED**
+    // *   **KILLING**
+    // *   **KILLED**
+    // *   **SUCCEEDING**
+    // *   **COMPLETED**
+    // *   **FATAL**
+    // *   **UNKNOWN**
     shared_ptr<string> state_ {};
   };
 

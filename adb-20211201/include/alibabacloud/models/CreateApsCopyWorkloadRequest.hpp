@@ -94,23 +94,23 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The data source ID.
     shared_ptr<int32_t> datasourceId_ {};
-    // The name of the database.
+    // The database name.
     shared_ptr<string> dbName_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the table.
+    // The table name.
     shared_ptr<string> tableName_ {};
-    // The job ID.
+    // The data link task ID.
     // 
     // This parameter is required.
     shared_ptr<string> workloadId_ {};
-    // The type of the job.
+    // The task type.
     // 
     // This parameter is required.
     shared_ptr<string> workloadType_ {};

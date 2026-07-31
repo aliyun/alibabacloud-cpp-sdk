@@ -121,15 +121,28 @@ namespace Models
 
 
   protected:
+    // The end time of the refresh task.
     shared_ptr<string> endTime_ {};
+    // The materialized view name.
     shared_ptr<string> name_ {};
+    // The task ID.
     shared_ptr<string> processid_ {};
+    // The refresh interval.
     shared_ptr<string> refreshInterval_ {};
+    // The refresh model.
+    // 
+    // *   FAST
+    // *   COMPLETE
     shared_ptr<string> refreshModel_ {};
+    // The resource group used for the refresh.
     shared_ptr<string> resourceGroup_ {};
+    // The scheduled start time.
     shared_ptr<string> scheduledStartTime_ {};
+    // The database name.
     shared_ptr<string> schemaName_ {};
+    // The actual start time.
     shared_ptr<string> startTime_ {};
+    // The status of the queried refresh task.
     shared_ptr<string> status_ {};
   };
 

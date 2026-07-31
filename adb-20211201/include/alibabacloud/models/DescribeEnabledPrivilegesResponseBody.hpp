@@ -93,9 +93,9 @@ namespace Models
 
 
       protected:
-        // The description of the permission.
+        // The permission description.
         shared_ptr<string> description_ {};
-        // The name of the permission.
+        // The permission name.
         shared_ptr<string> key_ {};
       };
 
@@ -129,7 +129,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> description_ {};
-      // The queried permissions.
+      // The list of supported permissions.
       // 
       // This parameter is required.
       shared_ptr<vector<Data::Privileges>> privileges_ {};
@@ -158,7 +158,7 @@ namespace Models
 
 
   protected:
-    // The queried permission level and permissions.
+    // The supported permission levels and the list of permissions.
     shared_ptr<vector<DescribeEnabledPrivilegesResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

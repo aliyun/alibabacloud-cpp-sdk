@@ -103,13 +103,13 @@ namespace Models
 
 
     protected:
-      // The number of accesses to the table.
+      // The number of times the table was accessed.
       shared_ptr<string> accessCount_ {};
-      // The ID of the cluster to which the table belongs.
+      // The cluster ID of the cluster to which the table belongs.
       shared_ptr<string> instanceName_ {};
-      // The date when the table was accessed.
+      // The date on which the table was used.
       shared_ptr<string> reportDate_ {};
-      // The name of the table.
+      // The table name.
       shared_ptr<string> tableName_ {};
       // The database to which the table belongs.
       shared_ptr<string> tableSchema_ {};
@@ -155,7 +155,7 @@ namespace Models
 
 
   protected:
-    // The queried tables.
+    // The table usage details.
     shared_ptr<vector<DescribeTableAccessCountResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

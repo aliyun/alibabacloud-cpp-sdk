@@ -143,17 +143,26 @@ namespace Models
 
 
   protected:
+    // Creation time.
     shared_ptr<string> createTime_ {};
     shared_ptr<string> createdBySource_ {};
     shared_ptr<string> createdByUser_ {};
+    // Description.
     shared_ptr<string> description_ {};
     shared_ptr<OpenStructMvDetailModel> mvDetailModel_ {};
+    // Owner.
     shared_ptr<string> owner_ {};
+    // SQL for creating the table or view.
     shared_ptr<string> SQL_ {};
+    // Logical database name.
     shared_ptr<string> schemaName_ {};
+    // Logical table name or logical view name.
     shared_ptr<string> tableName_ {};
+    // Table size in bytes.
     shared_ptr<int64_t> tableSize_ {};
+    // Table or view type.
     shared_ptr<string> tableType_ {};
+    // Update time.
     shared_ptr<string> updateTime_ {};
   };
 

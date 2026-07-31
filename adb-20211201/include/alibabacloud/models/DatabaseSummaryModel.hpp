@@ -112,14 +112,19 @@ namespace Models
 
 
   protected:
+    // Creation time.
     shared_ptr<string> createTime_ {};
     shared_ptr<string> createdBySource_ {};
     shared_ptr<string> createdByUser_ {};
     shared_ptr<string> dbType_ {};
+    // Description.
     shared_ptr<string> description_ {};
     shared_ptr<string> location_ {};
+    // Owner.
     shared_ptr<string> owner_ {};
+    // logical database name.
     shared_ptr<string> schemaName_ {};
+    // Update time.
     shared_ptr<string> updateTime_ {};
   };
 

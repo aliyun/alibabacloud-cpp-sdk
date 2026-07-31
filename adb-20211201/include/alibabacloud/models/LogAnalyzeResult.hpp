@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The solution for the error log.
     shared_ptr<string> appErrorAdvice_ {};
+    // The error type if an analysis error occurs.
     shared_ptr<string> appErrorCode_ {};
+    // The error log of the Spark log analysis task.
     shared_ptr<string> appErrorLog_ {};
   };
 

@@ -124,15 +124,25 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
+    // The analysis result of the task.
     shared_ptr<LogAnalyzeResult> result_ {};
+    // Indicates whether the task matched a rule.
     shared_ptr<bool> ruleMatched_ {};
+    // The time when the task was started. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> startedTimeInMillis_ {};
+    // The time when the task was submitted. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> submittedTimeInMillis_ {};
+    // The error message returned if the task fails.
     shared_ptr<string> taskErrMsg_ {};
+    // The ID of the Spark log analysis task.
     shared_ptr<int64_t> taskId_ {};
+    // The state of the task.
     shared_ptr<string> taskState_ {};
+    // The time when the task was terminated. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
     shared_ptr<int64_t> terminatedTimeInMillis_ {};
+    // The ID of the user who submitted the task.
     shared_ptr<int64_t> userId_ {};
   };
 

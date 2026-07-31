@@ -78,15 +78,15 @@ namespace Models
 
 
   protected:
-    // The error code returned.
+    // The error code.
     shared_ptr<int64_t> code_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the query succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The information about the table.
+    // The table details.
     shared_ptr<TableModel> table_ {};
   };
 

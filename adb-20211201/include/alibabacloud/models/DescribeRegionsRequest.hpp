@@ -84,14 +84,14 @@ namespace Models
 
 
   protected:
-    // The language that is used for the region and zone names indicated by the LocalName parameter in the response parameters. Valid values:
-    // 
-    // *   **zh-CN** (default): simplified Chinese.
-    // *   **en-US**: English.
-    // *   **ja**: Japanese.
+    // The language used for the names of regions and zones (the LocalName values in the response). Valid values:
+    // - **zh-CN**: simplified Chinese (default).
+    // - **en-US**: English.
+    // - **ja**: Japanese.
     shared_ptr<string> acceptLanguage_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

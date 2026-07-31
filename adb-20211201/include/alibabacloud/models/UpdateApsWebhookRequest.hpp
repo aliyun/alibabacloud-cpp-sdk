@@ -99,17 +99,20 @@ namespace Models
 
 
     protected:
-      // Signed key.
+      // The signing key.
       shared_ptr<string> key_ {};
-      // The name of the webhook.
+      // The webhook name.
       shared_ptr<string> name_ {};
-      // The URL of the request.
+      // The request URL.
       shared_ptr<string> url_ {};
-      // The ID of the webhook.
+      // Webhook ID。
       // 
       // This parameter is required.
       shared_ptr<int64_t> webhookId_ {};
-      // The notification method. Valid values: dingtalk. lark.
+      // The notification method. Valid values:
+      // 
+      // - dingtalk: DingTalk.
+      // - lark: Lark.
       shared_ptr<string> webhookType_ {};
     };
 
@@ -147,7 +150,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The array of webhooks.
+    // The webhook array.
     shared_ptr<vector<UpdateApsWebhookRequest::Webhook>> webhook_ {};
   };
 

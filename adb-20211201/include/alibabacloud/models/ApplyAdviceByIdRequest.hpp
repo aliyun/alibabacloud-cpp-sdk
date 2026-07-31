@@ -84,11 +84,13 @@ namespace Models
 
 
   protected:
-    // The date on which you want to apply the suggestion. Format: yyyyMMdd.
+    // The date when the suggestion was generated. Format: yyyyMMdd.
     shared_ptr<int64_t> adviceDate_ {};
     // The suggestion ID.
     shared_ptr<string> adviceId_ {};
+    // The adoption type.
     shared_ptr<string> applyType_ {};
+    // Specifies whether to immediately start the build task.
     shared_ptr<bool> buildImmediately_ {};
     // The cluster ID.
     // 

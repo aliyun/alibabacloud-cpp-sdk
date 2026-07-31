@@ -143,14 +143,7 @@ namespace Models
 
 
           protected:
-            // The port.
             shared_ptr<string> port_ {};
-            // The type of the protocol. Valid values:
-            // 
-            // *   **tcp**
-            // *   **http**
-            // *   **https**
-            // *   **mysql**
             shared_ptr<string> protocol_ {};
           };
 
@@ -230,37 +223,13 @@ namespace Models
 
 
       protected:
-        // The endpoint of the cluster.
-        // 
-        // *   If NetType is set to VPC, the VPC endpoint of the cluster is returned.
-        // *   If NetType is set to Public, the public endpoint of the cluster is returned.
         shared_ptr<string> connectionString_ {};
-        // The prefix of the endpoint.
-        // 
-        // *   If NetType is set to VPC, the prefix of the VPC endpoint is returned.
-        // *   If NetType is set to Public, the prefix of the public endpoint is returned.
         shared_ptr<string> connectionStringPrefix_ {};
-        // The IP address of the endpoint.
-        // 
-        // *   If NetType is set to VPC, the private IP address of the cluster is returned.
-        // *   If NetType is set to Public, the public IP address of the cluster is returned.
         shared_ptr<string> IPAddress_ {};
-        // The network type of the cluster. Valid values:
-        // 
-        // *   **Public**: Internet.
-        // *   **VPC**: VPC.
         shared_ptr<string> netType_ {};
-        // The port number that is used to connect to the cluster. **3306** is returned.
         shared_ptr<string> port_ {};
-        // The ports.
         shared_ptr<Address::Ports> ports_ {};
-        // The VPC ID.
-        // 
-        // >  If NetType is set to Public, an empty string is returned.
         shared_ptr<string> VPCId_ {};
-        // The vSwitch ID of the cluster.
-        // 
-        // >  If NetType is set to Public, an empty string is returned.
         shared_ptr<string> vSwitchId_ {};
       };
 
@@ -304,9 +273,8 @@ namespace Models
 
 
   protected:
-    // The network type of the cluster. Only the Virtual Private Cloud (VPC) network type is supported. **VPC** is returned.
+    // The network type of the cluster. The value is always **VPC**, as this is the only supported network type.
     shared_ptr<string> clusterNetworkType_ {};
-    // The queried network information about the cluster.
     shared_ptr<DescribeClusterNetInfoResponseBody::Items> items_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

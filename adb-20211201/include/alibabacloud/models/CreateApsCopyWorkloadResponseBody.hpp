@@ -86,23 +86,21 @@ namespace Models
 
 
   protected:
-    // The HTTP status code or the error code.
+    // The API status or POP error code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The deleted application information.
     Darabonba::Json data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The returned message. Valid values:
-    // 
-    // *   If the request was successful, a success message is returned.
-    // *   If the request failed, an error message is returned.
+    // The additional information about the result. Valid values:
+    // - If the request was successful, Success is returned.
+    // - If the request failed, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

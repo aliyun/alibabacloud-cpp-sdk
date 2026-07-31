@@ -89,9 +89,7 @@ namespace Models
 
 
       protected:
-        // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
         shared_ptr<string> DBClusterId_ {};
-        // The name of the database.
         shared_ptr<string> schemaName_ {};
       };
 
@@ -128,7 +126,6 @@ namespace Models
 
 
   protected:
-    // The queried databases.
     shared_ptr<DescribeSchemasResponseBody::Items> items_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

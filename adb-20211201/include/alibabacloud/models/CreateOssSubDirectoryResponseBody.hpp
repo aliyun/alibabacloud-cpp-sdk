@@ -93,13 +93,13 @@ namespace Models
 
 
     protected:
-      // The cyclic redundancy check (CRC) value on the client.
+      // The client CRC check value.
       shared_ptr<int64_t> clientCRC_ {};
-      // The tag of the OSS path.
+      // The ETag of the OSS path.
       shared_ptr<string> ETag_ {};
       // The request ID.
       shared_ptr<string> requestId_ {};
-      // The CRC-64 value on the OSS bucket.
+      // The CRC-64 value of the Alibaba Cloud OSS bucket.
       shared_ptr<int64_t> serverCRC_ {};
     };
 
@@ -145,19 +145,17 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<CreateOssSubDirectoryResponseBody::Data> data_ {};
-    // The response code. The status code 200 indicates that the request was successful.
+    // The HTTP status code returned. A value of 200 indicates that the request was successful.
     shared_ptr<int64_t> httpStatusCode_ {};
-    // The returned message.
-    // 
-    // *   If the request was successful, a **success** message is returned.
-    // *   If the request failed, an error message is returned.
+    // The additional information about the call result. Valid values:
+    // - If the request was successful, **Success** is returned.                                
+    // - If the request failed, a specific error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

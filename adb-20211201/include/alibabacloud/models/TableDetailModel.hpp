@@ -156,18 +156,27 @@ namespace Models
 
 
   protected:
+    // External data source.
     shared_ptr<string> catalog_ {};
+    // Column information.
     shared_ptr<vector<ColDetailModel>> columns_ {};
+    // Creation time.
     shared_ptr<string> createTime_ {};
     shared_ptr<string> createdBySource_ {};
     shared_ptr<string> createdByUser_ {};
+    // Description.
     shared_ptr<string> description_ {};
     shared_ptr<string> location_ {};
+    // Owner.
     shared_ptr<string> owner_ {};
     shared_ptr<map<string, string>> parameters_ {};
+    // Logical database name.
     shared_ptr<string> schemaName_ {};
+    // Logical table name.
     shared_ptr<string> tableName_ {};
+    // Table type.
     shared_ptr<string> tableType_ {};
+    // Update time.
     shared_ptr<string> updateTime_ {};
   };
 

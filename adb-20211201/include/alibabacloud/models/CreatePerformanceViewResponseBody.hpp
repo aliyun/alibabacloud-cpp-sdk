@@ -57,14 +57,12 @@ namespace Models
 
 
   protected:
-    // The details about the access denial.
-    // 
-    // >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+    // The details of the access denial. This field is returned only when RAM authentication fails.
     shared_ptr<string> accessDeniedDetail_ {};
     // The creation result. Valid values:
     // 
-    // *   **SUCCESS**
-    // *   **FAILED**
+    // - **SUCCESS**: succeeded.
+    // - **FAILED**: failed.
     shared_ptr<string> createStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

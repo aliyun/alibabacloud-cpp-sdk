@@ -173,9 +173,9 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The description of the recommendation task.
     shared_ptr<string> description_ {};
-    // Pattern匹配的最少慢查询个数
+    // The minimum number of slow queries matched by a pattern.
     shared_ptr<int32_t> minRewriteQueryCount_ {};
-    // 最小可加速的Pattern数量
+    // The minimum number of patterns that can be accelerated.
     shared_ptr<int32_t> minRewriteQueryPattern_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -183,35 +183,28 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The time range for scanning data. Unit: days. Default value: 3.
+    // The scan time range, in days. Default value: 3.
     shared_ptr<int32_t> scanQueriesRange_ {};
-    // This parameter is valid only when SchedulingPolicy is set to weekly. Valid values:
+    // Valid only when SchedulingPolicy is set to weekly. Valid values:
+    // - Monday
+    // - Tuesday
+    // - Wednesday
+    // - Thursday
+    // - Friday
+    // - Saturday
+    // - Sunday
     // 
-    // *   Monday
-    // *   Tuesday
-    // *   Wednesday
-    // *   Thursday
-    // *   Friday
-    // *   Saturday
-    // *   Sunday
-    // 
-    // Separate multiple days with commas (,).
+    // Separate multiple days with commas.
     shared_ptr<string> schedulingDay_ {};
-    // The scheduling policy of the recommendation task. Valid values:
-    // 
-    // *   daily
-    // *   weekly
-    // 
-    // <!---->
-    // 
-    // *
-    // *
+    // The recommendation policy. Valid values: 
+    // - daliy: scheduled on a daily basis.
+    // - weekly: scheduled on a weekly basis.
     shared_ptr<string> schedulingPolicy_ {};
-    // 慢查询阈值
+    // The slow query threshold.
     shared_ptr<int32_t> slowQueryThreshold_ {};
-    // The execution time of the recommendation task. Specify the time in the HH:MM:SS format.
+    // The execution time of the task in the format HH:MM:SS.
     shared_ptr<string> specifiedTime_ {};
-    // The name of the recommendation task.
+    // The name of the materialized view recommendation task.
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};

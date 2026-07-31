@@ -102,11 +102,8 @@ namespace Models
 
 
       protected:
-        // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
         shared_ptr<string> DBClusterId_ {};
-        // The name of the database.
         shared_ptr<string> schemaName_ {};
-        // The logical name of the table.
         shared_ptr<string> tableName_ {};
       };
 
@@ -181,9 +178,7 @@ namespace Models
 
 
       protected:
-        // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
         shared_ptr<string> DBClusterId_ {};
-        // The logical name of the database.
         shared_ptr<string> schemaName_ {};
       };
 
@@ -304,25 +299,12 @@ namespace Models
 
 
       protected:
-        // Indicates whether the column is an auto-increment column. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> autoIncrementColumn_ {};
-        // The name of the column.
         shared_ptr<string> columnName_ {};
-        // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
         shared_ptr<string> DBClusterId_ {};
-        // Indicates whether the column is the primary key of the table. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> primaryKey_ {};
-        // The logical name of the database.
         shared_ptr<string> schemaName_ {};
-        // The logical name of the table.
         shared_ptr<string> tableName_ {};
-        // The data type of the column.
         shared_ptr<string> type_ {};
       };
 
@@ -377,13 +359,10 @@ namespace Models
 
 
   protected:
-    // The queried columns.
     shared_ptr<DescribeAllDataSourceResponseBody::Columns> columns_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried databases.
     shared_ptr<DescribeAllDataSourceResponseBody::Schemas> schemas_ {};
-    // The queried tables.
     shared_ptr<DescribeAllDataSourceResponseBody::Tables> tables_ {};
   };
 

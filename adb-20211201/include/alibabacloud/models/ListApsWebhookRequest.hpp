@@ -61,8 +61,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // **JobType**\\
-    // Job type. SLS or OSS Export Task: ResultExport.
+    // **JobType**  
+    // The task type. Set this parameter to ResultExport for SLS or OSS export tasks.
     shared_ptr<string> jobType_ {};
     // The region ID.
     // 

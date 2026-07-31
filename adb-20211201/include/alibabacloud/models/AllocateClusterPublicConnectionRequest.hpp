@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ConnectionStringPrefix, connectionStringPrefix_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(Engine, engine_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupName, resourceGroupName_);
     };
     friend void from_json(const Darabonba::Json& j, AllocateClusterPublicConnectionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ConnectionStringPrefix, connectionStringPrefix_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(Engine, engine_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupName, resourceGroupName_);
     };
     AllocateClusterPublicConnectionRequest() = default ;
     AllocateClusterPublicConnectionRequest(const AllocateClusterPublicConnectionRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connectionStringPrefix_ == nullptr
-        && this->DBClusterId_ == nullptr && this->engine_ == nullptr; };
+        && this->DBClusterId_ == nullptr && this->engine_ == nullptr && this->resourceGroupName_ == nullptr; };
     // connectionStringPrefix Field Functions 
     bool hasConnectionStringPrefix() const { return this->connectionStringPrefix_ != nullptr;};
     void deleteConnectionStringPrefix() { this->connectionStringPrefix_ = nullptr;};
@@ -56,21 +58,32 @@ namespace Models
     inline AllocateClusterPublicConnectionRequest& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
 
 
+    // resourceGroupName Field Functions 
+    bool hasResourceGroupName() const { return this->resourceGroupName_ != nullptr;};
+    void deleteResourceGroupName() { this->resourceGroupName_ = nullptr;};
+    inline string getResourceGroupName() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupName_, "") };
+    inline AllocateClusterPublicConnectionRequest& setResourceGroupName(string resourceGroupName) { DARABONBA_PTR_SET_VALUE(resourceGroupName_, resourceGroupName) };
+
+
   protected:
-    // The prefix of the public endpoint.
+    // The prefix of the public connection address.
     // 
-    // *   The prefix can contain lowercase letters, digits, and hyphens (-). It must start with a lowercase letter.
-    // *   The prefix can be up to 30 characters in length.
+    // - It must begin with a lowercase letter and can contain only lowercase letters, digits, and hyphens (-).
+    // 
+    // - It must be no more than 30 characters long.
     shared_ptr<string> connectionStringPrefix_ {};
-    // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+    // <props="china">The cluster ID of an Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The cluster ID of a Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The database engine of the cluster. Valid values:
+    // The database engine. Valid values:
     // 
-    // *   **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-    // *   **Clickhouse**: the wide table engine.
+    // - **AnalyticDB** (default): the AnalyticDB for MySQL engine.
+    // 
+    // - **Clickhouse**: the wide table engine.
     shared_ptr<string> engine_ {};
+    shared_ptr<string> resourceGroupName_ {};
   };
 
   } // namespace Models

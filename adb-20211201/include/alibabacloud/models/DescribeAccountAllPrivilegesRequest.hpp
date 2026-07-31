@@ -66,17 +66,18 @@ namespace Models
 
 
   protected:
-    // The name of the database account.
+    // The database account name for the cluster.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+    // <props="china">The cluster ID for the Enterprise Edition, Basic Edition, or Data Lakehouse Edition.
+    // <props="intl">The cluster ID for the Data Lakehouse Edition.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // Specifies the start position marker from which to return results. If you receive a response indicating that the results are truncated, set this parameter to the value of the `Marker` parameter in the response that you received.
+    // If the response is truncated, use the `Marker` value from the response in this field to retrieve the next set of results.
     shared_ptr<string> marker_ {};
-    // The region ID of the cluster.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

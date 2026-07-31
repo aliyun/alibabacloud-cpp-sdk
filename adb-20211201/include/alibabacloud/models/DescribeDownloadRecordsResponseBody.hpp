@@ -99,19 +99,21 @@ namespace Models
 
 
     protected:
-      // The download job ID.
+      // The ID of the download task.
       shared_ptr<int64_t> downloadId_ {};
-      // The error message returned if the download job failed.
+      // The exception message returned if the download task fails.
       shared_ptr<string> exceptionMsg_ {};
       // The name of the downloaded file.
       shared_ptr<string> fileName_ {};
-      // The status of the download job. Valid values:
+      // The task status. Valid values:
       // 
-      // *   **running**
-      // *   **finished**
-      // *   **failed**
+      // - **running**: The task is in progress.
+      // 
+      // - **finished**: The task is complete.
+      // 
+      // - **failed**: The task failed.
       shared_ptr<string> status_ {};
-      // The download URL of the file.
+      // The download URL of the result file.
       shared_ptr<string> url_ {};
     };
 
@@ -141,8 +143,9 @@ namespace Models
 
 
   protected:
+    // The authentication failure message.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The queried download tasks.
+    // A list of download tasks.
     shared_ptr<vector<DescribeDownloadRecordsResponseBody::Records>> records_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

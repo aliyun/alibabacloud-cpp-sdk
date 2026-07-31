@@ -130,58 +130,69 @@ namespace Models
 
 
   protected:
-    // The type of the suggestion. Valid values:
+    // The type of the advice. Valid values:
     // 
-    // *   **INDEX**: index optimization.
-    // *   **TIERING**: hot and cold data optimization.
+    // - **INDEX**: index optimization
+    // 
+    // - **TIERING**: hot/cold data optimization
     shared_ptr<string> adviceType_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end date of the time range to query. Specify the date in the yyyyMMdd format.
+    // The end date of the query. The date is in the `yyyyMMdd` format.
     shared_ptr<int64_t> endTime_ {};
-    // The keyword that is used to query information by table name.
+    // The keyword for the query. Fuzzy match by table name is supported.
     shared_ptr<string> keyword_ {};
-    // The display language of the suggestion. Valid values:
+    // The language of the query results. Valid values:
     // 
-    // *   **zh** (default): simplified Chinese.
-    // *   **en**: English.
-    // *   **ja**: Japanese.
-    // *   **zh-tw**: traditional Chinese.
+    // - **zh** (default): Chinese
+    // 
+    // - **en**: English
+    // 
+    // - **ja**: Japanese
+    // 
+    // - **zh-tw**: Traditional Chinese
     shared_ptr<string> lang_ {};
-    // The order by which to sort query results. Specify the parameter value in the JSON format. Example: `[{"Field":"SchemaName","Type":"Asc"}]`.
+    // The order by which to sort the query results. The value is a JSON string. Example: `[{"Field":"SchemaName","Type":"Asc"}]`. Fields:
     // 
-    // *   `Field` specifies the field by which to sort the query results. Valid values:
+    // - `Field`: The field by which to sort the results. Valid values:
     // 
-    //     *   `SchemaName`: the name of the database.
-    //     *   `TableName`: the name of the table.
-    //     *   `JobStatus`: the status of the BUILD job that is triggered on the table.
-    //     *   `SubmitTime`: the time when the suggestion was submitted.
-    //     *   `Benefit`: the expected benefits of the applied optimization suggestion.
+    //   - `SchemaName`: the database name
     // 
-    // *   `Type` specifies the sorting order. Valid values:
+    //   - `TableName`: the table name
     // 
-    //     *   `Asc`: ascending order.
-    //     *   `Desc`: descending order.
+    //   - `JobStatus`: the status of the build job for the table
     // 
-    // >  If you do not specify this parameter, optimization suggestions are sorted in descending order based on the submission time.
+    //   - `SubmitTime`: the time when the advice was submitted
+    // 
+    //   - `Benefit`: the estimated benefit
+    // 
+    // - `Type`: The sort order. Valid values:
+    // 
+    //   - `Asc`: ascending
+    // 
+    //   - `Desc`: descending
+    // 
+    // > If you do not set this parameter, the query results are sorted by advice submission time in descending order.
     shared_ptr<string> order_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. The value must be an integer that is greater than 0. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Valid values:
+    // The number of entries to return on each page. Valid values:
     // 
-    // *   **30**(Default)
-    // *   **50**
-    // *   **100**
+    // - **30** (default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int64_t> pageSize_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The name of the table in the **DatabaseName.TableName** format.
+    // The name of the database and table. Format: **database.table**.
     shared_ptr<string> schemaTableName_ {};
-    // The start date of the time range to query. Specify the date in the yyyyMMdd format.
+    // The start date of the query. The date is in the `yyyyMMdd` format.
     shared_ptr<int64_t> startTime_ {};
   };
 

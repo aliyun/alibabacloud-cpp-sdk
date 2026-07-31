@@ -58,10 +58,12 @@ namespace Models
 
   protected:
     // The details about the access denial.
-    // 
-    // >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+    // > This field is returned only when RAM authentication fails.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The delete status.
+    // The deletion result. Valid values:
+    // 
+    // - **SUCCESS**: Succeeded.
+    // - **FAILED**: Failed.
     shared_ptr<bool> deleteStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -16,11 +16,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FromExecTime, fromExecTime_);
       DARABONBA_PTR_TO_JSON(FromStartTime, fromStartTime_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
-      DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
-      DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
-      DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(SecurityToken, securityToken_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
@@ -32,11 +29,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FromExecTime, fromExecTime_);
       DARABONBA_PTR_FROM_JSON(FromStartTime, fromStartTime_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
-      DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
-      DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
-      DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(SecurityToken, securityToken_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
@@ -56,9 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fromExecTime_ == nullptr
-        && this->fromStartTime_ == nullptr && this->instanceId_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityToken_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr
-        && this->taskType_ == nullptr && this->toExecTime_ == nullptr && this->toStartTime_ == nullptr; };
+        && this->fromStartTime_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->securityToken_ == nullptr
+        && this->status_ == nullptr && this->taskId_ == nullptr && this->taskType_ == nullptr && this->toExecTime_ == nullptr && this->toStartTime_ == nullptr; };
     // fromExecTime Field Functions 
     bool hasFromExecTime() const { return this->fromExecTime_ != nullptr;};
     void deleteFromExecTime() { this->fromExecTime_ = nullptr;};
@@ -80,13 +73,6 @@ namespace Models
     inline DescribeHistoryTasksStatRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
-    // ownerId Field Functions 
-    bool hasOwnerId() const { return this->ownerId_ != nullptr;};
-    void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
-    inline DescribeHistoryTasksStatRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
-
-
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -99,20 +85,6 @@ namespace Models
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
     inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline DescribeHistoryTasksStatRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
-
-
-    // resourceOwnerAccount Field Functions 
-    bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
-    void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline int64_t getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, 0L) };
-    inline DescribeHistoryTasksStatRequest& setResourceOwnerAccount(int64_t resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
-
-
-    // resourceOwnerId Field Functions 
-    bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
-    void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
-    inline DescribeHistoryTasksStatRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // securityToken Field Functions 
@@ -166,15 +138,12 @@ namespace Models
     shared_ptr<string> fromStartTime_ {};
     // Cluster ID.
     shared_ptr<string> instanceId_ {};
-    shared_ptr<int64_t> ownerId_ {};
     // The ID of the region where the instance resides.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // Resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    shared_ptr<int64_t> resourceOwnerAccount_ {};
-    shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
     // The state of the task. Valid values:
     // 

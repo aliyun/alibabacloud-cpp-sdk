@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(SparkAppName, sparkAppName_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeJobResourceUsageRequest& obj) { 
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(SparkAppName, sparkAppName_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
     };
     DescribeJobResourceUsageRequest() = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->endTime_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr; };
+        && this->endTime_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->sparkAppName_ == nullptr && this->startTime_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     inline DescribeJobResourceUsageRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // sparkAppName Field Functions 
+    bool hasSparkAppName() const { return this->sparkAppName_ != nullptr;};
+    void deleteSparkAppName() { this->sparkAppName_ = nullptr;};
+    inline string getSparkAppName() const { DARABONBA_PTR_GET_DEFAULT(sparkAppName_, "") };
+    inline DescribeJobResourceUsageRequest& setSparkAppName(string sparkAppName) { DARABONBA_PTR_SET_VALUE(sparkAppName_, sparkAppName) };
+
+
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
@@ -75,17 +84,26 @@ namespace Models
 
 
   protected:
-    // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The end time must be later than the start time.
+    // The end time of the query. The end time must be later than the start time. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i> (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The page number. The value must be a positive integer. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values:
+    // - 30
+    // - 50
+    // - 100
+    // 
+    // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
+    shared_ptr<string> sparkAppName_ {};
+    // The start time of the query. Format: <i>yyyy-MM-ddTHH:mm:ssZ</i> (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

@@ -170,35 +170,39 @@ namespace Models
 
 
     protected:
-      // The date when the suggestion is generated. The date is in the yyyyMMdd format.
+      // The date when the advice was generated. The date is displayed in the yyyyMMdd format.
       shared_ptr<string> adviceDate_ {};
-      // The suggestion ID.
+      // The advice ID.
       shared_ptr<string> adviceId_ {};
-      // The type of the suggestion. Valid values:
+      // The type of the advice. Valid values:
       // 
-      // *   **INDEX**: index optimization.
-      // *   **TIERING**: hot and cold data optimization.
+      // - **INDEX**: index optimization.
+      // 
+      // - **TIERING**: hot and cold data optimization.
       shared_ptr<string> adviceType_ {};
-      // The benefit of the suggestion.
+      // The benefits of the advice.
       shared_ptr<string> benefit_ {};
+      // The index fields.
       shared_ptr<string> indexFields_ {};
-      // The page number. Pages start from page 1. Default value: 1.
+      // The page number. The value is greater than 0 and less than or equal to the maximum value of the integer data type. Default value: 1.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries per page. Valid values:
+      // The number of entries to return on each page. Valid values:
       // 
-      // *   **30** (default)
-      // *   **50**
-      // *   **100**
+      // - **30** (default)
+      // 
+      // - **50**
+      // 
+      // - **100**
       shared_ptr<int64_t> pageSize_ {};
-      // The reason why the suggestion was generated.
+      // The reason why the optimization advice is generated.
       shared_ptr<string> reason_ {};
-      // The SQL statement that is used to apply the suggestion.
+      // The SQL statement that is used to apply the advice.
       shared_ptr<string> SQL_ {};
-      // The name of the database.
+      // The database name.
       shared_ptr<string> schemaName_ {};
-      // The name of the table.
+      // The table name.
       shared_ptr<string> tableName_ {};
-      // The total number of entries returned.
+      // The total number of entries returned. The value is greater than or equal to 0 and less than or equal to the maximum value of the integer data type. Default value: 0.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -251,21 +255,23 @@ namespace Models
 
 
   protected:
-    // The queried suggestions.
+    // The optimization advice items.
     shared_ptr<vector<DescribeAvailableAdvicesResponseBody::Items>> items_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. The value is greater than 0 and less than or equal to the maximum value of the integer data type. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Valid values:
+    // The number of entries to return on each page. Valid values:
     // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // - **30** (default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The name of the table in the DatabaseName.TableName format.
+    // The names of databases and tables.
     shared_ptr<vector<string>> schemaTableNames_ {};
-    // The total number of entries returned.
+    // The total number of entries returned. The value is greater than or equal to 0 and less than or equal to the maximum value of the integer data type. Default value: 0.
     shared_ptr<int64_t> totalCount_ {};
   };
 

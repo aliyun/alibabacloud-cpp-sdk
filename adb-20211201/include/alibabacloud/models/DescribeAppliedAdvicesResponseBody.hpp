@@ -188,42 +188,47 @@ namespace Models
 
 
     protected:
-      // The suggestion ID.
+      // The advice ID.
       shared_ptr<string> adviceId_ {};
-      // The benefit of the suggestion.
+      // The benefit of the advice.
       shared_ptr<string> benefit_ {};
-      // The SQL statement that is used to execute the BUILD job.
+      // The SQL statement of the build task.
       shared_ptr<string> buildSQL_ {};
+      // The index fields.
       shared_ptr<string> indexFields_ {};
-      // The status of the suggestion execution job. Valid values:
+      // The status of the task that is used to apply the advice. Valid values:
       // 
-      // *   **SUCCEED**
-      // *   **FAILED**
+      // - **SUCCEED**: The task is successful.
+      // 
+      // - **FAILED**: The task has failed.
       shared_ptr<string> jobStatus_ {};
-      // The page number. Pages start from page 1. Default value: 1.
+      // The page number of the returned page. The value must be an integer that is greater than 0. Default value: 1.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries per page. Valid values:
+      // The number of entries to return on each page. Valid values:
       // 
-      // *   **30**(Default)
-      // *   **50**
-      // *   **100**
+      // - **30** (Default)
+      // 
+      // - **50**
+      // 
+      // - **100**
       shared_ptr<int64_t> pageSize_ {};
-      // The SQL statement that is used to roll back the suggestion.
+      // The SQL statement that is used to roll back the advice.
       shared_ptr<string> rollbackSQL_ {};
-      // The SQL statement that is used to apply the suggestion.
+      // The SQL statement that is used to apply the advice.
       shared_ptr<string> SQL_ {};
-      // The name of the database.
+      // The database name.
       shared_ptr<string> schemaName_ {};
-      // The submission status of the suggestion. Valid values:
+      // The submission status of the advice. Valid values:
       // 
-      // *   **SUCCEED**
-      // *   **FAILED**
+      // - **SUCCEED**: The advice is submitted.
+      // 
+      // - **FAILED**: The advice fails to be submitted.
       shared_ptr<string> submitStatus_ {};
-      // The time when the suggestion was submitted. The time follows the ISO 8601 standard in the yyMMddHHmm format. The time is displayed in UTC.
+      // The time when the advice was submitted. The time is in the `yyMMddHHmm` format. The time is displayed in UTC.
       shared_ptr<string> submitTime_ {};
-      // The name of the table.
+      // The table name.
       shared_ptr<string> tableName_ {};
-      // The total number of entries returned.
+      // The total number of entries returned. The value must be an integer that is greater than or equal to 0. Default value: 0.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -276,21 +281,23 @@ namespace Models
 
 
   protected:
-    // The queried applied optimization suggestions.
+    // Details.
     shared_ptr<vector<DescribeAppliedAdvicesResponseBody::Items>> items_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number of the returned page. The value must be an integer that is greater than 0. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Valid values:
+    // The number of entries to return on each page. Valid values:
     // 
-    // *   **30**(Default)
-    // *   **50**
-    // *   **100**
+    // - **30** (Default)
+    // 
+    // - **50**
+    // 
+    // - **100**
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The name of the table in the DatabaseName.TableName format.
+    // The concatenated strings of database and table names.
     shared_ptr<vector<string>> schemaTableNames_ {};
-    // The total number of entries returned.
+    // The total number of entries returned. The value must be an integer that is greater than or equal to 0. Default value: 0.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -97,26 +97,25 @@ namespace Models
 
 
     protected:
-      // Details of the applications. Fields in the response parameter:
-      // 
-      // - **Data**: the data of the Spark application template.
-      // - **EstimateExecutionCpuTimeInSeconds**: the amount of time it takes to consume CPU resources for running the Spark application. Unit: milliseconds.
+      // The list of application information. Response parameter description:
+      // - **Data**: the Spark application template data.
+      // - **EstimateExecutionCpuTimeInSeconds**: the CPU time consumed to execute the Spark application, in milliseconds (ms).
       // - **LogRootPath**: the storage path of log files.
-      // - **LastAttemptId**: the most recent attempt ID.
-      // - **WebUiAddress**: the web UI URL.
-      // - **SubmittedTimeInMillis**: the time when the Spark application was submitted. The time is displayed in the UNIX timestamp format. Unit: milliseconds.
-      // - **StartedTimeInMillis**: the time when the Spark application was created. The time is displayed in the UNIX timestamp format. Unit: milliseconds.
-      // - **LastUpdatedTimeInMillis**: the time when the Spark application was last updated. The time is displayed in the UNIX timestamp format. Unit: milliseconds.
-      // - **TerminatedTimeInMillis**: the time when the Spark application task was terminated. The time is displayed in the UNIX timestamp format. Unit: milliseconds.
-      // - **DBClusterId**: the ID of the cluster on which the Spark application runs.
+      // - **LastAttemptId**: the retry ID.
+      // - **WebUiAddress**: the Web UI address.
+      // - **SubmittedTimeInMillis**: the time when the Spark application was submitted, in UNIX timestamp format, in milliseconds (ms).
+      // - **StartedTimeInMillis**: the time when the Spark application was created, in UNIX timestamp format, in milliseconds (ms).
+      // - **LastUpdatedTimeInMillis**: the time when the Spark application was last updated, in UNIX timestamp format, in milliseconds (ms).
+      // - **TerminatedTimeInMillis**: the time when the Spark application stopped execution, in UNIX timestamp format, in milliseconds (ms).
+      // - **DBClusterId**: the ID of the cluster that executed the Spark application.
       // - **ResourceGroupName**: the name of the job resource group.
-      // - **DurationInMillis**: the amount of time it takes to run the Spark application. Unit: milliseconds.
+      // - **DurationInMillis**: the execution duration of the Spark application, in milliseconds (ms).
       shared_ptr<vector<SparkAppInfo>> appInfoList_ {};
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -160,15 +159,15 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<ListSparkAppsResponseBody::Data> data_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

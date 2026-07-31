@@ -100,15 +100,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The page number. Pages start from page 1. Default value: **1**.
+    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Valid values:
-    // 
-    // *   **30** (default)
-    // *   **50**
-    // *   **100**
+    // * **30** (default)
+    // * **50**
+    // * **100**
     shared_ptr<int64_t> pageSize_ {};
-    // The region ID of the cluster.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

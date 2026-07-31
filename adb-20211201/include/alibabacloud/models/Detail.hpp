@@ -176,21 +176,37 @@ namespace Models
 
 
   protected:
+    // The type of the Spark application.
     shared_ptr<string> appType_ {};
+    // The ID of the cluster that runs the Spark application.
     shared_ptr<string> DBClusterId_ {};
+    // The configuration content of the Spark application.
     shared_ptr<string> data_ {};
+    // The execution duration of the Spark application, in milliseconds (ms).
     shared_ptr<int64_t> durationInMillis_ {};
+    // The CPU time consumed by the Spark application, in milliseconds (ms).
     shared_ptr<int64_t> estimateExecutionCpuTimeInSeconds_ {};
+    // The execution duration.
     shared_ptr<int64_t> executionDurationInMillis_ {};
+    // The ID of the last retry of the Spark application.
     shared_ptr<string> lastAttemptId_ {};
+    // The time when the Spark application was last updated. This value is a UNIX timestamp, in milliseconds (ms).
     shared_ptr<int64_t> lastUpdatedTimeInMillis_ {};
+    // The storage path of the log file.
     shared_ptr<string> logRootPath_ {};
+    // The name of the job resource group.
     shared_ptr<string> resourceGroupName_ {};
+    // The duration of resource provisioning for the application.
     shared_ptr<int64_t> resourceProvisioningDurationInMillis_ {};
+    // The timestamp when the job started running.
     shared_ptr<int64_t> runningStartTimeInMillis_ {};
+    // The time when the Spark application was created. This value is a UNIX timestamp, in milliseconds (ms).
     shared_ptr<int64_t> startedTimeInMillis_ {};
+    // The time when the Spark application was submitted. This value is a UNIX timestamp, in milliseconds (ms).
     shared_ptr<int64_t> submittedTimeInMillis_ {};
+    // The time when the Spark application was terminated. This value is a UNIX timestamp, in milliseconds (ms).
     shared_ptr<int64_t> terminatedTimeInMillis_ {};
+    // The Web UI address.
     shared_ptr<string> webUiAddress_ {};
   };
 

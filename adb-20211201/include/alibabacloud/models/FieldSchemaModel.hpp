@@ -278,32 +278,59 @@ namespace Models
 
 
   protected:
+    // Indicates whether the column is auto-incremented.
     shared_ptr<bool> autoIncrement_ {};
+    // The original name of the column.
     shared_ptr<string> columnRawName_ {};
+    // The description of the column.
     shared_ptr<string> comment_ {};
+    // Indicates whether FLOAT data is compressed to SHORT data.
     shared_ptr<bool> compressFloatUseShort_ {};
+    // The compression method of the column.
     shared_ptr<string> compression_ {};
+    // The time when the column was created.
     shared_ptr<string> createTime_ {};
+    // The data type of the column.
     shared_ptr<string> dataType_ {};
+    // The logical name of the database.
     shared_ptr<string> databaseName_ {};
+    // The default value of the column.
     shared_ptr<string> defaultValue_ {};
+    // The delimiter of the column.
     shared_ptr<string> delimiter_ {};
+    // The encryption method of the column.
     shared_ptr<string> encode_ {};
+    // Indicates whether the column is the partition key.
     shared_ptr<bool> isPartitionKey_ {};
+    // The mapping name.
     shared_ptr<string> mappedName_ {};
+    // The name of the column.
     shared_ptr<string> name_ {};
+    // Indicates whether the column can be empty.
     shared_ptr<bool> nullable_ {};
+    // The update condition of the column.
     shared_ptr<string> onUpdate_ {};
+    // The location of the column.
     shared_ptr<int64_t> ordinalPosition_ {};
+    // The physical name of the column.
     shared_ptr<string> physicalColumnName_ {};
+    // The location of the primary key.
     shared_ptr<int64_t> pkPosition_ {};
+    // The precision of the column.
     shared_ptr<int64_t> precision_ {};
+    // Indicates whether the column is the primary key.
     shared_ptr<bool> primarykey_ {};
+    // The scale of the column.
     shared_ptr<int64_t> scale_ {};
+    // The logical name of the table.
     shared_ptr<string> tableName_ {};
+    // The token of the column.
     shared_ptr<string> tokenizer_ {};
+    // The type of the column.
     shared_ptr<string> type_ {};
+    // The time when the index was updated.
     shared_ptr<string> updateTime_ {};
+    // The value type of the column.
     shared_ptr<string> valueType_ {};
   };
 

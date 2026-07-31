@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // The end time of the task.
     shared_ptr<string> endTime_ {};
+    // The minimum number of slow queries that match the pattern.
     shared_ptr<int32_t> minRewriteQueryCount_ {};
+    // The number of minimum acceleration patterns.
     shared_ptr<int32_t> minRewriteQueryPattern_ {};
+    // The number of queries scanned.
     shared_ptr<int64_t> scanQueriesCount_ {};
+    // The wait threshold for slow queries.
     shared_ptr<int32_t> slowQueryThreshold_ {};
+    // The start time of the task.
     shared_ptr<string> startTime_ {};
+    // Current execution status.
     shared_ptr<string> status_ {};
+    // The number of newly generated MV recommendations.
     shared_ptr<int64_t> subQueriesCount_ {};
+    // The record ID of the task execution.
     shared_ptr<int64_t> subtaskId_ {};
   };
 

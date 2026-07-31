@@ -296,11 +296,12 @@ namespace Models
 
 
   protected:
-    // The Resource Access Management (RAM) role that is created for the trusted Alibaba Cloud account. For more information, see Create a RAM role for a trusted Alibaba Cloud account. The ARN of the RAM role that grants AnalyticDB for MySQL permission to access resources in the source account. Required for cross-account data ingestion.
+    // The RAM role of a trusted entity that is an Alibaba Cloud account. For more information about how to create a RAM role, see Create a RAM role for a trusted Alibaba Cloud account.
+    // The Alibaba Cloud account that owns the AnalyticDB for MySQL cluster must be added as a trusted account to the RAM role.
     shared_ptr<string> acrossRole_ {};
-    // The ID of the Alibaba Cloud account to which the source Kafka belongs.
+    // The ID of the Alibaba Cloud account to which the source Kafka instance belongs.
     shared_ptr<string> acrossUid_ {};
-    // The advanced configurations.
+    // The advanced configuration.
     shared_ptr<string> advancedConfig_ {};
     // The column information.
     // 
@@ -308,66 +309,87 @@ namespace Models
     shared_ptr<string> columnsShrink_ {};
     // The cluster ID.
     // 
-    // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all clusters in a region.
+    // > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to view the cluster IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters in the destination region.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
+    // The Kafka message type. Valid values: json, general_canal_json, mongo_canal_json, dataworks_json, and shareplex_json.
     shared_ptr<string> dataFormatType_ {};
-    // Enumeration value and description. Single: The source is a single-row JSON record. Multi: source is a JSON array. Output a single JSON record.
+    // The valid values and their descriptions are as follows:
+    // Single: The source is a single-line JSON record.
+    // Multi: The source is a JSON array. A single JSON record is returned as the output.
     shared_ptr<string> dataOutputFormat_ {};
     // The data source ID.
     shared_ptr<int64_t> datasourceId_ {};
-    // The name of the user-defined database.
+    // The user-defined name of the database.
     // 
     // This parameter is required.
     shared_ptr<string> dbName_ {};
-    // The full synchronization configuration.
+    // The configuration for full synchronization.
     shared_ptr<string> fullComputeUnit_ {};
-    // The HUDI configuration of the destination.
+    // The Hudi configuration for the destination.
     shared_ptr<string> hudiAdvancedConfig_ {};
-    // The incremental synchronization configuration.
+    // The configuration for incremental synchronization.
     // 
     // This parameter is required.
     shared_ptr<string> incrementalComputeUnit_ {};
-    // The number of layers that are parsed for nested JSON fields. Valid values: 0: Nested JSON fields are not parsed. 1: parses one layer. 2: Two layers are parsed. 3: Three layers are parsed. 4: Four layers are parsed. By default, one layer is parsed. For more information about how nested JSON fields are parsed, see the Examples of schema fields parsed with different numbers of layers section of this topic.
+    // The number of nested JSON layers to parse. Valid values:
+    // 0: No parsing is performed.
+    // 1: One layer is parsed.
+    // 2: Two layers are parsed.
+    // 3: Three layers are parsed.
+    // 4: Four layers are parsed.
+    // By default, one layer is parsed. For more information about the JSON parsing policy for nested data, see JSON parsing levels and schema field inference examples.
     shared_ptr<int32_t> jsonParseLevel_ {};
-    // The ID of the Apache Kafka instance. You can get it in the Kafka console.
+    // The ID of the Kafka instance. Obtain the ID from the Kafka console.
     shared_ptr<string> kafkaClusterId_ {};
-    // Kafka Topic ID. You can get it in the Kafka console.
+    // The ID of the Kafka topic. Obtain the ID from the Kafka console.
     shared_ptr<string> kafkaTopic_ {};
     // The ID of the lakehouse.
     shared_ptr<int64_t> lakehouseId_ {};
-    // The maximum number of records to fetch in a single batch.
+    // The number of entries to consume in a single batch.
     shared_ptr<int64_t> maxOffsetsPerTrigger_ {};
-    // The path of the destination data lakehouse in an Object Storage Service (OSS) bucket.
+    // The destination lakehouse address. This must be a complete OSS path.
     shared_ptr<string> ossLocation_ {};
-    // The format of the output data.
+    // The output data format.
     shared_ptr<string> outputFormat_ {};
     // The partition information.
     shared_ptr<string> partitionSpecsShrink_ {};
-    // The primary key settings. Contains the uuid policy and mapping policy. The explanation is as follows. Uuid policy: "Strategy": "uuid". Mapping policy: "Strategy": "mapping", "Values":[ "f1", "f2" ], "RecordVersionField","xxx" The meaning of the RecordVersionField is the HUDI record version.
+    // The primary key settings. This parameter supports the UUID policy and the mapping policy. The policies are described as follows.
+    // UUID policy: "Strategy": "uuid".
+    // Mapping policy:
+    // "Strategy": "mapping",
+    // "Values":[
+    // "f1",
+    // "f2"
+    // ],
+    // "RecordVersionField","xxx"
+    // \\`RecordVersionField\\` specifies the Hudi record version.
     shared_ptr<string> primaryKeyDefinition_ {};
-    // The region ID of the cluster.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group name.
+    // The name of the resource group.
     // 
     // This parameter is required.
     shared_ptr<string> resourceGroup_ {};
-    // 地域ID。
+    // The region ID.
     shared_ptr<string> sourceRegionId_ {};
-    // Specifies the position from which to start consuming messages. Valid values: begin_cursor/end_cursor/timestamp Each corresponds to the earliest /latest /specified time respectively.
+    // The initial consumer offset for Kafka.
+    // Valid values:
+    // begin_cursor, end_cursor, and timestamp.
+    // These values correspond to the earliest offset, the latest offset, and a specified time.
     // 
     // This parameter is required.
     shared_ptr<string> startingOffsets_ {};
-    // The name of the user-defined table.
+    // The user-defined name of the table.
     // 
     // This parameter is required.
     shared_ptr<string> tableName_ {};
-    // The rules for generating the destination database.
+    // The generation rule for the destination.
     shared_ptr<string> targetGenerateRule_ {};
-    // The destination type.
+    // The type of the destination.
     shared_ptr<string> targetType_ {};
     // The name of the workload.
     // 

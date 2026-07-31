@@ -86,7 +86,7 @@ namespace Models
     protected:
       // The tag key. You can specify N tag keys. The tag key cannot be an empty string. Valid values of N: 1 to 20.
       // 
-      // >  You must specify at least one of the ResourceId.N and Tag.N.Key parameters.
+      // > You must specify at least one of the ResourceId.N and Tag.N.Key parameters.
       shared_ptr<string> key_ {};
       // The tag value. You can specify N tag values. The tag value can be an empty string. Valid values of N: 1 to 20.
       shared_ptr<string> value_ {};
@@ -173,7 +173,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The cluster ID. You can specify N cluster IDs. Valid values of N: 1 to 50.
     // 
-    // >  You must specify at least one of the ResourceId.N and Tag.N.Key parameters.
+    // > You must specify at least one of the ResourceId.N and Tag.N.Key parameters.
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

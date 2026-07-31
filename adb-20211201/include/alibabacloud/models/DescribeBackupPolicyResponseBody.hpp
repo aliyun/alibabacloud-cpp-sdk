@@ -84,26 +84,33 @@ namespace Models
 
 
   protected:
-    // The number of days for which data backup files are retained.
+    // The number of days to retain data backups.
     shared_ptr<int32_t> backupRetentionPeriod_ {};
-    // Indicates whether log backup is enabled. Valid values:
+    // Indicates whether real-time log backup is enabled. Valid values:
     // 
-    // *   **Enable**
-    // *   **Disable**
+    // - **Enable**: enabled.
+    // 
+    // - **Disable**: disabled.
     shared_ptr<string> enableBackupLog_ {};
-    // The number of days for which the log backup files are retained.
+    // The number of days to retain log backups.
     shared_ptr<int32_t> logBackupRetentionPeriod_ {};
-    // The cycle based on which backups are performed. If more than one day of the week is specified, the days of the week are separated by commas (,). Valid value:
+    // The data backup cycle. Separate multiple values with commas (,). Valid values:
     // 
-    // *   Monday
-    // *   Tuesday
-    // *   Wednesday
-    // *   Thursday
-    // *   Friday
-    // *   Saturday
-    // *   Sunday
+    // - Monday
+    // 
+    // - Tuesday
+    // 
+    // - Wednesday
+    // 
+    // - Thursday
+    // 
+    // - Friday
+    // 
+    // - Saturday
+    // 
+    // - Sunday
     shared_ptr<string> preferredBackupPeriod_ {};
-    // The data backup time. The time is in the HH:mmZ-HH:mmZ format. The time is displayed in UTC.
+    // The data backup time. The time is in the HH:mmZ-HH:mmZ format.
     shared_ptr<string> preferredBackupTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
