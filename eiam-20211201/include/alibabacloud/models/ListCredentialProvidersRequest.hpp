@@ -83,9 +83,6 @@ namespace Models
 
     protected:
       // The filter condition name. Valid values:
-      // 
-      // - CredentialProviderName: the credential provider name.
-      // - CredentialProviderIdentifier: the credential provider identifier.
       shared_ptr<string> name_ {};
       // The list of filter condition values.
       shared_ptr<vector<string>> value_ {};

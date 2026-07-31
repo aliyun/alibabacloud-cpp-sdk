@@ -39,6 +39,7 @@ namespace Models
     class NetworkAccessEndpoints : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const NetworkAccessEndpoints& obj) { 
+        DARABONBA_PTR_TO_JSON(BackupVpcEndpoint, backupVpcEndpoint_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(NetworkAccessEndpointId, networkAccessEndpointId_);
@@ -52,6 +53,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(VpcRegionId, vpcRegionId_);
       };
       friend void from_json(const Darabonba::Json& j, NetworkAccessEndpoints& obj) { 
+        DARABONBA_PTR_FROM_JSON(BackupVpcEndpoint, backupVpcEndpoint_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(NetworkAccessEndpointId, networkAccessEndpointId_);
@@ -75,9 +77,107 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->instanceId_ == nullptr && this->networkAccessEndpointId_ == nullptr && this->networkAccessEndpointName_ == nullptr && this->networkAccessEndpointType_ == nullptr && this->securityGroupId_ == nullptr
-        && this->status_ == nullptr && this->updateTime_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr && this->vpcRegionId_ == nullptr; };
+      class BackupVpcEndpoint : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const BackupVpcEndpoint& obj) { 
+          DARABONBA_PTR_TO_JSON(BackupEgressPrivateIpAddresses, backupEgressPrivateIpAddresses_);
+          DARABONBA_PTR_TO_JSON(BackupEgressPublicIpAddresses, backupEgressPublicIpAddresses_);
+          DARABONBA_PTR_TO_JSON(BackupSecurityGroupId, backupSecurityGroupId_);
+          DARABONBA_PTR_TO_JSON(BackupVSwitchIds, backupVSwitchIds_);
+          DARABONBA_PTR_TO_JSON(BackupVpcId, backupVpcId_);
+          DARABONBA_PTR_TO_JSON(BackupVpcRegionId, backupVpcRegionId_);
+        };
+        friend void from_json(const Darabonba::Json& j, BackupVpcEndpoint& obj) { 
+          DARABONBA_PTR_FROM_JSON(BackupEgressPrivateIpAddresses, backupEgressPrivateIpAddresses_);
+          DARABONBA_PTR_FROM_JSON(BackupEgressPublicIpAddresses, backupEgressPublicIpAddresses_);
+          DARABONBA_PTR_FROM_JSON(BackupSecurityGroupId, backupSecurityGroupId_);
+          DARABONBA_PTR_FROM_JSON(BackupVSwitchIds, backupVSwitchIds_);
+          DARABONBA_PTR_FROM_JSON(BackupVpcId, backupVpcId_);
+          DARABONBA_PTR_FROM_JSON(BackupVpcRegionId, backupVpcRegionId_);
+        };
+        BackupVpcEndpoint() = default ;
+        BackupVpcEndpoint(const BackupVpcEndpoint &) = default ;
+        BackupVpcEndpoint(BackupVpcEndpoint &&) = default ;
+        BackupVpcEndpoint(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~BackupVpcEndpoint() = default ;
+        BackupVpcEndpoint& operator=(const BackupVpcEndpoint &) = default ;
+        BackupVpcEndpoint& operator=(BackupVpcEndpoint &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->backupEgressPrivateIpAddresses_ == nullptr
+        && this->backupEgressPublicIpAddresses_ == nullptr && this->backupSecurityGroupId_ == nullptr && this->backupVSwitchIds_ == nullptr && this->backupVpcId_ == nullptr && this->backupVpcRegionId_ == nullptr; };
+        // backupEgressPrivateIpAddresses Field Functions 
+        bool hasBackupEgressPrivateIpAddresses() const { return this->backupEgressPrivateIpAddresses_ != nullptr;};
+        void deleteBackupEgressPrivateIpAddresses() { this->backupEgressPrivateIpAddresses_ = nullptr;};
+        inline const vector<string> & getBackupEgressPrivateIpAddresses() const { DARABONBA_PTR_GET_CONST(backupEgressPrivateIpAddresses_, vector<string>) };
+        inline vector<string> getBackupEgressPrivateIpAddresses() { DARABONBA_PTR_GET(backupEgressPrivateIpAddresses_, vector<string>) };
+        inline BackupVpcEndpoint& setBackupEgressPrivateIpAddresses(const vector<string> & backupEgressPrivateIpAddresses) { DARABONBA_PTR_SET_VALUE(backupEgressPrivateIpAddresses_, backupEgressPrivateIpAddresses) };
+        inline BackupVpcEndpoint& setBackupEgressPrivateIpAddresses(vector<string> && backupEgressPrivateIpAddresses) { DARABONBA_PTR_SET_RVALUE(backupEgressPrivateIpAddresses_, backupEgressPrivateIpAddresses) };
+
+
+        // backupEgressPublicIpAddresses Field Functions 
+        bool hasBackupEgressPublicIpAddresses() const { return this->backupEgressPublicIpAddresses_ != nullptr;};
+        void deleteBackupEgressPublicIpAddresses() { this->backupEgressPublicIpAddresses_ = nullptr;};
+        inline const vector<string> & getBackupEgressPublicIpAddresses() const { DARABONBA_PTR_GET_CONST(backupEgressPublicIpAddresses_, vector<string>) };
+        inline vector<string> getBackupEgressPublicIpAddresses() { DARABONBA_PTR_GET(backupEgressPublicIpAddresses_, vector<string>) };
+        inline BackupVpcEndpoint& setBackupEgressPublicIpAddresses(const vector<string> & backupEgressPublicIpAddresses) { DARABONBA_PTR_SET_VALUE(backupEgressPublicIpAddresses_, backupEgressPublicIpAddresses) };
+        inline BackupVpcEndpoint& setBackupEgressPublicIpAddresses(vector<string> && backupEgressPublicIpAddresses) { DARABONBA_PTR_SET_RVALUE(backupEgressPublicIpAddresses_, backupEgressPublicIpAddresses) };
+
+
+        // backupSecurityGroupId Field Functions 
+        bool hasBackupSecurityGroupId() const { return this->backupSecurityGroupId_ != nullptr;};
+        void deleteBackupSecurityGroupId() { this->backupSecurityGroupId_ = nullptr;};
+        inline string getBackupSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(backupSecurityGroupId_, "") };
+        inline BackupVpcEndpoint& setBackupSecurityGroupId(string backupSecurityGroupId) { DARABONBA_PTR_SET_VALUE(backupSecurityGroupId_, backupSecurityGroupId) };
+
+
+        // backupVSwitchIds Field Functions 
+        bool hasBackupVSwitchIds() const { return this->backupVSwitchIds_ != nullptr;};
+        void deleteBackupVSwitchIds() { this->backupVSwitchIds_ = nullptr;};
+        inline const vector<string> & getBackupVSwitchIds() const { DARABONBA_PTR_GET_CONST(backupVSwitchIds_, vector<string>) };
+        inline vector<string> getBackupVSwitchIds() { DARABONBA_PTR_GET(backupVSwitchIds_, vector<string>) };
+        inline BackupVpcEndpoint& setBackupVSwitchIds(const vector<string> & backupVSwitchIds) { DARABONBA_PTR_SET_VALUE(backupVSwitchIds_, backupVSwitchIds) };
+        inline BackupVpcEndpoint& setBackupVSwitchIds(vector<string> && backupVSwitchIds) { DARABONBA_PTR_SET_RVALUE(backupVSwitchIds_, backupVSwitchIds) };
+
+
+        // backupVpcId Field Functions 
+        bool hasBackupVpcId() const { return this->backupVpcId_ != nullptr;};
+        void deleteBackupVpcId() { this->backupVpcId_ = nullptr;};
+        inline string getBackupVpcId() const { DARABONBA_PTR_GET_DEFAULT(backupVpcId_, "") };
+        inline BackupVpcEndpoint& setBackupVpcId(string backupVpcId) { DARABONBA_PTR_SET_VALUE(backupVpcId_, backupVpcId) };
+
+
+        // backupVpcRegionId Field Functions 
+        bool hasBackupVpcRegionId() const { return this->backupVpcRegionId_ != nullptr;};
+        void deleteBackupVpcRegionId() { this->backupVpcRegionId_ = nullptr;};
+        inline string getBackupVpcRegionId() const { DARABONBA_PTR_GET_DEFAULT(backupVpcRegionId_, "") };
+        inline BackupVpcEndpoint& setBackupVpcRegionId(string backupVpcRegionId) { DARABONBA_PTR_SET_VALUE(backupVpcRegionId_, backupVpcRegionId) };
+
+
+      protected:
+        shared_ptr<vector<string>> backupEgressPrivateIpAddresses_ {};
+        shared_ptr<vector<string>> backupEgressPublicIpAddresses_ {};
+        shared_ptr<string> backupSecurityGroupId_ {};
+        shared_ptr<vector<string>> backupVSwitchIds_ {};
+        shared_ptr<string> backupVpcId_ {};
+        shared_ptr<string> backupVpcRegionId_ {};
+      };
+
+      virtual bool empty() const override { return this->backupVpcEndpoint_ == nullptr
+        && this->createTime_ == nullptr && this->instanceId_ == nullptr && this->networkAccessEndpointId_ == nullptr && this->networkAccessEndpointName_ == nullptr && this->networkAccessEndpointType_ == nullptr
+        && this->securityGroupId_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr
+        && this->vpcRegionId_ == nullptr; };
+      // backupVpcEndpoint Field Functions 
+      bool hasBackupVpcEndpoint() const { return this->backupVpcEndpoint_ != nullptr;};
+      void deleteBackupVpcEndpoint() { this->backupVpcEndpoint_ = nullptr;};
+      inline const NetworkAccessEndpoints::BackupVpcEndpoint & getBackupVpcEndpoint() const { DARABONBA_PTR_GET_CONST(backupVpcEndpoint_, NetworkAccessEndpoints::BackupVpcEndpoint) };
+      inline NetworkAccessEndpoints::BackupVpcEndpoint getBackupVpcEndpoint() { DARABONBA_PTR_GET(backupVpcEndpoint_, NetworkAccessEndpoints::BackupVpcEndpoint) };
+      inline NetworkAccessEndpoints& setBackupVpcEndpoint(const NetworkAccessEndpoints::BackupVpcEndpoint & backupVpcEndpoint) { DARABONBA_PTR_SET_VALUE(backupVpcEndpoint_, backupVpcEndpoint) };
+      inline NetworkAccessEndpoints& setBackupVpcEndpoint(NetworkAccessEndpoints::BackupVpcEndpoint && backupVpcEndpoint) { DARABONBA_PTR_SET_RVALUE(backupVpcEndpoint_, backupVpcEndpoint) };
+
+
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -158,39 +258,36 @@ namespace Models
 
 
     protected:
-      // The time when the network endpoint was created. This value is a UNIX timestamp. Unit: milliseconds.
+      shared_ptr<NetworkAccessEndpoints::BackupVpcEndpoint> backupVpcEndpoint_ {};
+      // The creation time of the network access endpoint. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The network endpoint ID.
+      // The network access endpoint ID.
       shared_ptr<string> networkAccessEndpointId_ {};
-      // The name of the network endpoint.
+      // The network access endpoint name.
       shared_ptr<string> networkAccessEndpointName_ {};
-      // The type of the network endpoint. Valid values:
+      // The type of the network access endpoint. Valid values:
       // 
-      // - shared: a shared network endpoint.
-      // 
-      // - private: a private network endpoint.
+      // - shared: Shared network access endpoint.
+      // - private: Dedicated network access endpoint.
       shared_ptr<string> networkAccessEndpointType_ {};
-      // The ID of the security group used by the private network endpoint.
+      // The security group ID used by the dedicated network access endpoint.
       shared_ptr<string> securityGroupId_ {};
-      // The status of the network endpoint. Valid values:
-      // 
-      // - pending: The endpoint is pending initialization.
-      // 
-      // - creating: The endpoint is being created.
-      // 
-      // - running: The endpoint is running.
-      // 
-      // - deleting: The endpoint is being deleted.
+      // The status of the network access endpoint. Valid values:
+      //  
+      // - pending: Pending initialization.
+      // - creating: Being created.
+      // - running: Running.
+      // - deleting: Being deleted.
       shared_ptr<string> status_ {};
-      // The time when the network endpoint was last updated. This value is a UNIX timestamp. Unit: milliseconds.
+      // The last update time of the network access endpoint. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // A list of vSwitches to which the private network endpoint is connected.
+      // The list of vSwitches for the dedicated network access endpoint.
       shared_ptr<vector<string>> vSwitchIds_ {};
-      // The ID of the VPC to which the private network endpoint is connected.
+      // The VPC ID of the dedicated network access endpoint.
       shared_ptr<string> vpcId_ {};
-      // The region ID of the VPC to which the private network endpoint is connected.
+      // The region of the VPC for the dedicated network access endpoint.
       shared_ptr<string> vpcRegionId_ {};
     };
 
@@ -227,13 +324,13 @@ namespace Models
 
 
   protected:
-    // A collection of network endpoints.
+    // The list of network access endpoints.
     shared_ptr<vector<ListNetworkAccessEndpointsResponseBody::NetworkAccessEndpoints>> networkAccessEndpoints_ {};
-    // The token returned for the next query.
+    // The pagination token returned by this call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

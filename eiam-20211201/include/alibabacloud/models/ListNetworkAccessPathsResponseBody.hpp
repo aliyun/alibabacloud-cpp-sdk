@@ -36,6 +36,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const NetworkAccessPaths& obj) { 
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(CrossRegionReplicationRole, crossRegionReplicationRole_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(NetworkAccessEndpointId, networkAccessEndpointId_);
         DARABONBA_PTR_TO_JSON(NetworkAccessPathId, networkAccessPathId_);
@@ -44,9 +45,12 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
         DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
+        DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
+        DARABONBA_PTR_TO_JSON(VpcRegionId, vpcRegionId_);
       };
       friend void from_json(const Darabonba::Json& j, NetworkAccessPaths& obj) { 
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(CrossRegionReplicationRole, crossRegionReplicationRole_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(NetworkAccessEndpointId, networkAccessEndpointId_);
         DARABONBA_PTR_FROM_JSON(NetworkAccessPathId, networkAccessPathId_);
@@ -55,6 +59,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
         DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
+        DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
+        DARABONBA_PTR_FROM_JSON(VpcRegionId, vpcRegionId_);
       };
       NetworkAccessPaths() = default ;
       NetworkAccessPaths(const NetworkAccessPaths &) = default ;
@@ -68,13 +74,21 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->instanceId_ == nullptr && this->networkAccessEndpointId_ == nullptr && this->networkAccessPathId_ == nullptr && this->networkInterfaceId_ == nullptr && this->privateIpAddress_ == nullptr
-        && this->status_ == nullptr && this->updateTime_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->crossRegionReplicationRole_ == nullptr && this->instanceId_ == nullptr && this->networkAccessEndpointId_ == nullptr && this->networkAccessPathId_ == nullptr && this->networkInterfaceId_ == nullptr
+        && this->privateIpAddress_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
+        && this->vpcRegionId_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
       inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
       inline NetworkAccessPaths& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // crossRegionReplicationRole Field Functions 
+      bool hasCrossRegionReplicationRole() const { return this->crossRegionReplicationRole_ != nullptr;};
+      void deleteCrossRegionReplicationRole() { this->crossRegionReplicationRole_ = nullptr;};
+      inline string getCrossRegionReplicationRole() const { DARABONBA_PTR_GET_DEFAULT(crossRegionReplicationRole_, "") };
+      inline NetworkAccessPaths& setCrossRegionReplicationRole(string crossRegionReplicationRole) { DARABONBA_PTR_SET_VALUE(crossRegionReplicationRole_, crossRegionReplicationRole) };
 
 
       // instanceId Field Functions 
@@ -133,30 +147,47 @@ namespace Models
       inline NetworkAccessPaths& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
+      // vpcId Field Functions 
+      bool hasVpcId() const { return this->vpcId_ != nullptr;};
+      void deleteVpcId() { this->vpcId_ = nullptr;};
+      inline string getVpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+      inline NetworkAccessPaths& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
+
+
+      // vpcRegionId Field Functions 
+      bool hasVpcRegionId() const { return this->vpcRegionId_ != nullptr;};
+      void deleteVpcRegionId() { this->vpcRegionId_ = nullptr;};
+      inline string getVpcRegionId() const { DARABONBA_PTR_GET_DEFAULT(vpcRegionId_, "") };
+      inline NetworkAccessPaths& setVpcRegionId(string vpcRegionId) { DARABONBA_PTR_SET_VALUE(vpcRegionId_, vpcRegionId) };
+
+
     protected:
-      // The time when the dedicated network access endpoint access path was created, in UNIX timestamp format. Unit: milliseconds.
+      // The creation time of the dedicated network access endpoint path. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
+      shared_ptr<string> crossRegionReplicationRole_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The dedicated network access endpoint ID.
+      // The ID of the dedicated network access endpoint.
       shared_ptr<string> networkAccessEndpointId_ {};
-      // The ID of the dedicated network access endpoint access path.
+      // The ID of the dedicated network access endpoint path.
       shared_ptr<string> networkAccessPathId_ {};
-      // The ENI ID used by the dedicated network access endpoint access path.
+      // The ID of the ENI used by the dedicated network access endpoint path.
       shared_ptr<string> networkInterfaceId_ {};
-      // The private endpoint of the ENI used by the dedicated network access endpoint access path on the private network.
+      // The private endpoint of the ENI used by the dedicated network access endpoint path.
       shared_ptr<string> privateIpAddress_ {};
-      // The status of the dedicated network access endpoint access path. Valid values:
+      // The status of the dedicated network access endpoint path. Valid values:
       //  
-      // - pending: pending initialization.
-      // - creating: being created.
-      // - running: running.
-      // - deleting: being deleted.
+      // - pending: Pending initialization.
+      // - creating: Being created.
+      // - running: Running.
+      // - deleting: Being deleted.
       shared_ptr<string> status_ {};
-      // The time when the dedicated network access endpoint access path was last updated, in UNIX timestamp format. Unit: milliseconds.
+      // The last update time of the dedicated network access endpoint path. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
-      // The vSwitch ID to which the ENI of the dedicated network access endpoint access path belongs.
+      // The ID of the vSwitch to which the ENI of the dedicated network access endpoint path belongs.
       shared_ptr<string> vSwitchId_ {};
+      shared_ptr<string> vpcId_ {};
+      shared_ptr<string> vpcRegionId_ {};
     };
 
     virtual bool empty() const override { return this->networkAccessPaths_ == nullptr
@@ -178,7 +209,7 @@ namespace Models
 
 
   protected:
-    // The list of network access endpoint access paths.
+    // The list of network access endpoint paths.
     shared_ptr<vector<ListNetworkAccessPathsResponseBody::NetworkAccessPaths>> networkAccessPaths_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

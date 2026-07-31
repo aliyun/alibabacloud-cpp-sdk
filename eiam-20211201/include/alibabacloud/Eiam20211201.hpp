@@ -327,7 +327,7 @@ namespace Eiam20211201
       Models::CheckInstanceForDeleteResponse checkInstanceForDelete(const Models::CheckInstanceForDeleteRequest &request);
 
       /**
-       * @summary Determines whether an instance has the feature of a specific module.
+       * @summary Determines whether an instance has the capability of a specific module.
        *
        * @param request CheckInstanceModuleStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -336,7 +336,7 @@ namespace Eiam20211201
       Models::CheckInstanceModuleStatusResponse checkInstanceModuleStatusWithOptions(const Models::CheckInstanceModuleStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Determines whether an instance has the feature of a specific module.
+       * @summary Determines whether an instance has the capability of a specific module.
        *
        * @param request CheckInstanceModuleStatusRequest
        * @return CheckInstanceModuleStatusResponse
@@ -3472,7 +3472,7 @@ namespace Eiam20211201
       Models::ListApplicationTokensResponse listApplicationTokens(const Models::ListApplicationTokensRequest &request);
 
       /**
-       * @summary Queries information about one or more EIAM applications by using paged query. Paging is supported.
+       * @summary Queries information about one or more EIAM applications by using paging.
        *
        * @param request ListApplicationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3481,7 +3481,7 @@ namespace Eiam20211201
       Models::ListApplicationsResponse listApplicationsWithOptions(const Models::ListApplicationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about one or more EIAM applications by using paged query. Paging is supported.
+       * @summary Queries information about one or more EIAM applications by using paging.
        *
        * @param request ListApplicationsRequest
        * @return ListApplicationsResponse
@@ -4177,7 +4177,7 @@ namespace Eiam20211201
       Models::ListNetworkAccessEndpointAvailableZonesResponse listNetworkAccessEndpointAvailableZones(const Models::ListNetworkAccessEndpointAvailableZonesRequest &request);
 
       /**
-       * @summary Lists the network endpoints for an IDaaS EIAM instance.
+       * @summary Queries the list of network access endpoints under an IDaaS EIAM instance.
        *
        * @param request ListNetworkAccessEndpointsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4186,7 +4186,7 @@ namespace Eiam20211201
       Models::ListNetworkAccessEndpointsResponse listNetworkAccessEndpointsWithOptions(const Models::ListNetworkAccessEndpointsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the network endpoints for an IDaaS EIAM instance.
+       * @summary Queries the list of network access endpoints under an IDaaS EIAM instance.
        *
        * @param request ListNetworkAccessEndpointsRequest
        * @return ListNetworkAccessEndpointsResponse

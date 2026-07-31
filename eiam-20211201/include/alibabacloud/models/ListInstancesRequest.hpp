@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ServiceManaged, serviceManaged_);
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, ListInstancesRequest& obj) { 
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ServiceManaged, serviceManaged_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
     };
     ListInstancesRequest() = default ;
@@ -41,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->crossRegionReplication_ == nullptr
-        && this->edition_ == nullptr && this->instanceIds_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr; };
+        && this->edition_ == nullptr && this->instanceIds_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->serviceManaged_ == nullptr
+        && this->status_ == nullptr; };
     // crossRegionReplication Field Functions 
     bool hasCrossRegionReplication() const { return this->crossRegionReplication_ != nullptr;};
     void deleteCrossRegionReplication() { this->crossRegionReplication_ = nullptr;};
@@ -79,6 +82,13 @@ namespace Models
     inline ListInstancesRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // serviceManaged Field Functions 
+    bool hasServiceManaged() const { return this->serviceManaged_ != nullptr;};
+    void deleteServiceManaged() { this->serviceManaged_ = nullptr;};
+    inline bool getServiceManaged() const { DARABONBA_PTR_GET_DEFAULT(serviceManaged_, false) };
+    inline ListInstancesRequest& setServiceManaged(bool serviceManaged) { DARABONBA_PTR_SET_VALUE(serviceManaged_, serviceManaged) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -102,6 +112,7 @@ namespace Models
     shared_ptr<int64_t> pageNumber_ {};
     // The page size.
     shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<bool> serviceManaged_ {};
     // The instance status. Valid values:
     // - creating: Being created.
     // - running: Running.

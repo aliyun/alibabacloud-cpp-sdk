@@ -22,6 +22,7 @@ AlibabaCloud::Eiam20211201::Client::Client(Config &config): OpenApiClient(config
     {"eu-central-1" , "eiam.eu-central-1.aliyuncs.com"},
     {"cn-hongkong" , "eiam.cn-hongkong.aliyuncs.com"},
     {"cn-hangzhou" , "eiam.cn-hangzhou.aliyuncs.com"},
+    {"cn-beijing" , "eiam.cn-beijing.aliyuncs.com"},
     {"ap-southeast-5" , "eiam.ap-southeast-5.aliyuncs.com"},
     {"ap-southeast-1" , "eiam.ap-southeast-1.aliyuncs.com"},
     {"ap-northeast-2" , "eiam.ap-northeast-2.aliyuncs.com"}
@@ -1026,7 +1027,7 @@ CheckInstanceForDeleteResponse Client::checkInstanceForDelete(const CheckInstanc
 }
 
 /**
- * @summary Determines whether an instance has the feature of a specific module.
+ * @summary Determines whether an instance has the capability of a specific module.
  *
  * @param request CheckInstanceModuleStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1045,6 +1046,14 @@ CheckInstanceModuleStatusResponse Client::checkInstanceModuleStatusWithOptions(c
 
   if (!!request.hasModuleKey()) {
     query["ModuleKey"] = request.getModuleKey();
+  }
+
+  if (!!request.hasResourceLabelKey()) {
+    query["ResourceLabelKey"] = request.getResourceLabelKey();
+  }
+
+  if (!!request.hasResourceLabelValue()) {
+    query["ResourceLabelValue"] = request.getResourceLabelValue();
   }
 
   if (!!request.hasSubFeatureKey()) {
@@ -1069,7 +1078,7 @@ CheckInstanceModuleStatusResponse Client::checkInstanceModuleStatusWithOptions(c
 }
 
 /**
- * @summary Determines whether an instance has the feature of a specific module.
+ * @summary Determines whether an instance has the capability of a specific module.
  *
  * @param request CheckInstanceModuleStatusRequest
  * @return CheckInstanceModuleStatusResponse
@@ -10184,7 +10193,7 @@ ListApplicationTokensResponse Client::listApplicationTokens(const ListApplicatio
 }
 
 /**
- * @summary Queries information about one or more EIAM applications by using paged query. Paging is supported.
+ * @summary Queries information about one or more EIAM applications by using paging.
  *
  * @param request ListApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10275,7 +10284,7 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
 }
 
 /**
- * @summary Queries information about one or more EIAM applications by using paged query. Paging is supported.
+ * @summary Queries information about one or more EIAM applications by using paging.
  *
  * @param request ListApplicationsRequest
  * @return ListApplicationsResponse
@@ -12355,6 +12364,10 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasServiceManaged()) {
+    query["ServiceManaged"] = request.getServiceManaged();
+  }
+
   if (!!request.hasStatus()) {
     query["Status"] = request.getStatus();
   }
@@ -12462,7 +12475,7 @@ ListNetworkAccessEndpointAvailableZonesResponse Client::listNetworkAccessEndpoin
 }
 
 /**
- * @summary Lists the network endpoints for an IDaaS EIAM instance.
+ * @summary Queries the list of network access endpoints under an IDaaS EIAM instance.
  *
  * @param request ListNetworkAccessEndpointsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12517,7 +12530,7 @@ ListNetworkAccessEndpointsResponse Client::listNetworkAccessEndpointsWithOptions
 }
 
 /**
- * @summary Lists the network endpoints for an IDaaS EIAM instance.
+ * @summary Queries the list of network access endpoints under an IDaaS EIAM instance.
  *
  * @param request ListNetworkAccessEndpointsRequest
  * @return ListNetworkAccessEndpointsResponse

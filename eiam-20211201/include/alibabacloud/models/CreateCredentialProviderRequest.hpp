@@ -66,14 +66,28 @@ namespace Models
       class OAuthProviderConfig : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const OAuthProviderConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(AuthorizationEndpoint, authorizationEndpoint_);
+          DARABONBA_PTR_TO_JSON(AuthorizationFlow, authorizationFlow_);
           DARABONBA_PTR_TO_JSON(ClientId, clientId_);
           DARABONBA_PTR_TO_JSON(ClientSecret, clientSecret_);
+          DARABONBA_PTR_TO_JSON(DiscoveryUrl, discoveryUrl_);
+          DARABONBA_PTR_TO_JSON(Issuer, issuer_);
+          DARABONBA_PTR_TO_JSON(PkceChallengeMethod, pkceChallengeMethod_);
+          DARABONBA_PTR_TO_JSON(PkceEnabled, pkceEnabled_);
+          DARABONBA_PTR_TO_JSON(ProviderVendor, providerVendor_);
           DARABONBA_PTR_TO_JSON(Scope, scope_);
           DARABONBA_PTR_TO_JSON(TokenEndpoint, tokenEndpoint_);
         };
         friend void from_json(const Darabonba::Json& j, OAuthProviderConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(AuthorizationEndpoint, authorizationEndpoint_);
+          DARABONBA_PTR_FROM_JSON(AuthorizationFlow, authorizationFlow_);
           DARABONBA_PTR_FROM_JSON(ClientId, clientId_);
           DARABONBA_PTR_FROM_JSON(ClientSecret, clientSecret_);
+          DARABONBA_PTR_FROM_JSON(DiscoveryUrl, discoveryUrl_);
+          DARABONBA_PTR_FROM_JSON(Issuer, issuer_);
+          DARABONBA_PTR_FROM_JSON(PkceChallengeMethod, pkceChallengeMethod_);
+          DARABONBA_PTR_FROM_JSON(PkceEnabled, pkceEnabled_);
+          DARABONBA_PTR_FROM_JSON(ProviderVendor, providerVendor_);
           DARABONBA_PTR_FROM_JSON(Scope, scope_);
           DARABONBA_PTR_FROM_JSON(TokenEndpoint, tokenEndpoint_);
         };
@@ -88,8 +102,23 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->clientId_ == nullptr
-        && this->clientSecret_ == nullptr && this->scope_ == nullptr && this->tokenEndpoint_ == nullptr; };
+        virtual bool empty() const override { return this->authorizationEndpoint_ == nullptr
+        && this->authorizationFlow_ == nullptr && this->clientId_ == nullptr && this->clientSecret_ == nullptr && this->discoveryUrl_ == nullptr && this->issuer_ == nullptr
+        && this->pkceChallengeMethod_ == nullptr && this->pkceEnabled_ == nullptr && this->providerVendor_ == nullptr && this->scope_ == nullptr && this->tokenEndpoint_ == nullptr; };
+        // authorizationEndpoint Field Functions 
+        bool hasAuthorizationEndpoint() const { return this->authorizationEndpoint_ != nullptr;};
+        void deleteAuthorizationEndpoint() { this->authorizationEndpoint_ = nullptr;};
+        inline string getAuthorizationEndpoint() const { DARABONBA_PTR_GET_DEFAULT(authorizationEndpoint_, "") };
+        inline OAuthProviderConfig& setAuthorizationEndpoint(string authorizationEndpoint) { DARABONBA_PTR_SET_VALUE(authorizationEndpoint_, authorizationEndpoint) };
+
+
+        // authorizationFlow Field Functions 
+        bool hasAuthorizationFlow() const { return this->authorizationFlow_ != nullptr;};
+        void deleteAuthorizationFlow() { this->authorizationFlow_ = nullptr;};
+        inline string getAuthorizationFlow() const { DARABONBA_PTR_GET_DEFAULT(authorizationFlow_, "") };
+        inline OAuthProviderConfig& setAuthorizationFlow(string authorizationFlow) { DARABONBA_PTR_SET_VALUE(authorizationFlow_, authorizationFlow) };
+
+
         // clientId Field Functions 
         bool hasClientId() const { return this->clientId_ != nullptr;};
         void deleteClientId() { this->clientId_ = nullptr;};
@@ -102,6 +131,41 @@ namespace Models
         void deleteClientSecret() { this->clientSecret_ = nullptr;};
         inline string getClientSecret() const { DARABONBA_PTR_GET_DEFAULT(clientSecret_, "") };
         inline OAuthProviderConfig& setClientSecret(string clientSecret) { DARABONBA_PTR_SET_VALUE(clientSecret_, clientSecret) };
+
+
+        // discoveryUrl Field Functions 
+        bool hasDiscoveryUrl() const { return this->discoveryUrl_ != nullptr;};
+        void deleteDiscoveryUrl() { this->discoveryUrl_ = nullptr;};
+        inline string getDiscoveryUrl() const { DARABONBA_PTR_GET_DEFAULT(discoveryUrl_, "") };
+        inline OAuthProviderConfig& setDiscoveryUrl(string discoveryUrl) { DARABONBA_PTR_SET_VALUE(discoveryUrl_, discoveryUrl) };
+
+
+        // issuer Field Functions 
+        bool hasIssuer() const { return this->issuer_ != nullptr;};
+        void deleteIssuer() { this->issuer_ = nullptr;};
+        inline string getIssuer() const { DARABONBA_PTR_GET_DEFAULT(issuer_, "") };
+        inline OAuthProviderConfig& setIssuer(string issuer) { DARABONBA_PTR_SET_VALUE(issuer_, issuer) };
+
+
+        // pkceChallengeMethod Field Functions 
+        bool hasPkceChallengeMethod() const { return this->pkceChallengeMethod_ != nullptr;};
+        void deletePkceChallengeMethod() { this->pkceChallengeMethod_ = nullptr;};
+        inline string getPkceChallengeMethod() const { DARABONBA_PTR_GET_DEFAULT(pkceChallengeMethod_, "") };
+        inline OAuthProviderConfig& setPkceChallengeMethod(string pkceChallengeMethod) { DARABONBA_PTR_SET_VALUE(pkceChallengeMethod_, pkceChallengeMethod) };
+
+
+        // pkceEnabled Field Functions 
+        bool hasPkceEnabled() const { return this->pkceEnabled_ != nullptr;};
+        void deletePkceEnabled() { this->pkceEnabled_ = nullptr;};
+        inline bool getPkceEnabled() const { DARABONBA_PTR_GET_DEFAULT(pkceEnabled_, false) };
+        inline OAuthProviderConfig& setPkceEnabled(bool pkceEnabled) { DARABONBA_PTR_SET_VALUE(pkceEnabled_, pkceEnabled) };
+
+
+        // providerVendor Field Functions 
+        bool hasProviderVendor() const { return this->providerVendor_ != nullptr;};
+        void deleteProviderVendor() { this->providerVendor_ = nullptr;};
+        inline string getProviderVendor() const { DARABONBA_PTR_GET_DEFAULT(providerVendor_, "") };
+        inline OAuthProviderConfig& setProviderVendor(string providerVendor) { DARABONBA_PTR_SET_VALUE(providerVendor_, providerVendor) };
 
 
         // scope Field Functions 
@@ -119,25 +183,38 @@ namespace Models
 
 
       protected:
-        // The client_id in the OAuth protocol, which is the client ID.
+        // The endpoint address used to guide users through authorization. Conditionally required: required when AuthorizationFlow=user_federation and ProviderVendor=custom. For preset vendors, this can be automatically populated through DiscoveryUrl.
+        shared_ptr<string> authorizationEndpoint_ {};
+        // The OAuth authorization flow type. Valid values: m2m: machine-to-machine (2LO, Client Credentials). user_federation: user federation (3LO, Authorization Code).
+        shared_ptr<string> authorizationFlow_ {};
+        // The client_id in the OAuth protocol.
         // 
         // > The length cannot exceed 128 characters.
         // 
         // This parameter is required.
         shared_ptr<string> clientId_ {};
-        // The client_secret in the OAuth protocol, which is the client secret.
+        // The client_secret in the OAuth protocol.
         // 
         // > The length cannot exceed 1024 characters.
         // 
         // This parameter is required.
         shared_ptr<string> clientSecret_ {};
-        // The scope in the OAuth protocol, which specifies the permission scope.
+        // The Discovery document URL used to automatically retrieve OAuth endpoint configurations. Conditionally optional: used when AuthorizationFlow=user_federation. If DiscoveryUrl is not provided, you must manually configure fields such as TokenEndpoint and AuthorizationEndpoint.
+        shared_ptr<string> discoveryUrl_ {};
+        shared_ptr<string> issuer_ {};
+        // The PKCE code_challenge generation method. Default value: s256.
+        shared_ptr<string> pkceChallengeMethod_ {};
+        // Specifies whether to use the PKCE extension to enhance security. We recommend that you always enable this feature.
+        shared_ptr<bool> pkceEnabled_ {};
+        // The preset vendor or custom configuration. Optional. Default value: custom.
+        shared_ptr<string> providerVendor_ {};
+        // The scope in the OAuth protocol, which defines the permission range.
         // 
-        // > The Scope configuration on the credential provider serves as the default value. If the scope parameter is not specified when calling the DeveloperAPI to obtain an OAuth Access Token, the Scope configuration on the credential provider is used for issuance.
+        // > The Scope configuration on the credential provider serves as the fallback value. If the scope parameter is not specified when calling the DeveloperAPI to obtain an OAuth Access Token, the Scope configuration on the credential provider is used for issuance.
         // 
         // >Notice: Separate multiple Scope values with spaces.
         // 
-        // The following restrictions apply to each individual Scope value:
+        // Restrictions for each individual Scope value:
         // 1. Allowed characters: lowercase letters, digits, and the special characters `|/:_-.`
         // 2. Must contain at least one lowercase letter or digit.
         // 3. Must start with the special character `.`, a lowercase letter, or a digit.
@@ -145,9 +222,7 @@ namespace Models
         shared_ptr<string> scope_ {};
         // The token endpoint of the OAuth protocol.
         // 
-        // > The value must start with `http://` or `https://`, and the length cannot exceed 1024 characters.
-        // 
-        // This parameter is required.
+        // > Must start with `http://` or `https://`, and the length cannot exceed 1024 characters.
         shared_ptr<string> tokenEndpoint_ {};
       };
 
@@ -211,11 +286,11 @@ namespace Models
       protected:
         // The list of allowed JWT issuers.
         // 
-        // > The list can contain up to 200 entries.
+        // > The list length cannot exceed 200.
         shared_ptr<vector<string>> allowedTokenIssuers_ {};
         // Specifies whether to enable the JWT derived short token capability.
         shared_ptr<bool> derivedShortTokenEnabled_ {};
-        // The validity period of the JWT. Unit: seconds.
+        // The validity duration of the JWT. Unit: seconds.
         shared_ptr<int32_t> expiration_ {};
         // Specifies whether to enable JWT expiration cleanup.
         shared_ptr<bool> expirationCleanupEnabled_ {};
@@ -305,13 +380,13 @@ namespace Models
   protected:
     // The idempotency token that ensures the idempotence of the request.
     // 
-    // Generate a parameter value from your client to ensure that the value is unique across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};
     // The configuration of the credential provider.
     shared_ptr<CreateCredentialProviderRequest::CredentialProviderConfig> credentialProviderConfig_ {};
-    // The business identifier of the credential provider.
+    // The identifier of the credential provider.
     // 
     // > Allowed characters include uppercase and lowercase letters, digits, and the special characters `.-_`. The length cannot exceed 64 characters.
     // 
@@ -325,8 +400,8 @@ namespace Models
     shared_ptr<string> credentialProviderName_ {};
     // The type of the credential provider. Valid values:
     // 
-    // - oauth: OAuth credential provider
-    // - jwt: JWT credential provider
+    // - oauth: OAuth credential provider.
+    // - jwt: JWT credential provider.
     // 
     // This parameter is required.
     shared_ptr<string> credentialProviderType_ {};

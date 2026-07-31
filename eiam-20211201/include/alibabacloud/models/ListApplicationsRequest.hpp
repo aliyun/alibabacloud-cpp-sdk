@@ -99,7 +99,7 @@ namespace Models
 
     protected:
       // The custom field identifier. Valid values:
-      // - agent_type: the agent type.
+      // - agent_type: The agent type.
       shared_ptr<string> fieldName_ {};
       // The custom field value.
       shared_ptr<string> fieldValue_ {};
@@ -234,6 +234,7 @@ namespace Models
     shared_ptr<vector<string>> applicationIds_ {};
     // The application name. Only left fuzzy match is supported.
     shared_ptr<string> applicationName_ {};
+    // The application template ID.
     shared_ptr<string> applicationTemplateId_ {};
     // The application access authorization type. Valid values:
     // - authorize_required: Explicit authorization is required for access.
@@ -247,6 +248,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // Specifies whether the M2M Client identity is enabled.
     shared_ptr<string> m2MClientStatus_ {};
+    // The ServiceCode of the cloud service that manages the application template.
     shared_ptr<string> managedServiceCode_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
@@ -254,8 +256,9 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // Specifies whether the ResourceServer capability is enabled.
     shared_ptr<string> resourceServerStatus_ {};
+    // Specifies whether the application template is managed by a cloud service.
     shared_ptr<bool> serviceManaged_ {};
-    // The SSO type filter condition. Multiple types can be separated by commas, such as oauth2/m2m,oidc+oauth2/m2m.
+    // The SSO type filter condition. Multiple types can be separated by commas. Example: oauth2/m2m,oidc+oauth2/m2m.
     shared_ptr<string> ssoType_ {};
     // The application status. Valid values:
     // - enabled: Enabled.

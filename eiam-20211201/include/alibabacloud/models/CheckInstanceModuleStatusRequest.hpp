@@ -16,12 +16,16 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FeatureKey, featureKey_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(ModuleKey, moduleKey_);
+      DARABONBA_PTR_TO_JSON(ResourceLabelKey, resourceLabelKey_);
+      DARABONBA_PTR_TO_JSON(ResourceLabelValue, resourceLabelValue_);
       DARABONBA_PTR_TO_JSON(SubFeatureKey, subFeatureKey_);
     };
     friend void from_json(const Darabonba::Json& j, CheckInstanceModuleStatusRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(FeatureKey, featureKey_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(ModuleKey, moduleKey_);
+      DARABONBA_PTR_FROM_JSON(ResourceLabelKey, resourceLabelKey_);
+      DARABONBA_PTR_FROM_JSON(ResourceLabelValue, resourceLabelValue_);
       DARABONBA_PTR_FROM_JSON(SubFeatureKey, subFeatureKey_);
     };
     CheckInstanceModuleStatusRequest() = default ;
@@ -36,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->featureKey_ == nullptr
-        && this->instanceId_ == nullptr && this->moduleKey_ == nullptr && this->subFeatureKey_ == nullptr; };
+        && this->instanceId_ == nullptr && this->moduleKey_ == nullptr && this->resourceLabelKey_ == nullptr && this->resourceLabelValue_ == nullptr && this->subFeatureKey_ == nullptr; };
     // featureKey Field Functions 
     bool hasFeatureKey() const { return this->featureKey_ != nullptr;};
     void deleteFeatureKey() { this->featureKey_ = nullptr;};
@@ -58,6 +62,20 @@ namespace Models
     inline CheckInstanceModuleStatusRequest& setModuleKey(string moduleKey) { DARABONBA_PTR_SET_VALUE(moduleKey_, moduleKey) };
 
 
+    // resourceLabelKey Field Functions 
+    bool hasResourceLabelKey() const { return this->resourceLabelKey_ != nullptr;};
+    void deleteResourceLabelKey() { this->resourceLabelKey_ = nullptr;};
+    inline string getResourceLabelKey() const { DARABONBA_PTR_GET_DEFAULT(resourceLabelKey_, "") };
+    inline CheckInstanceModuleStatusRequest& setResourceLabelKey(string resourceLabelKey) { DARABONBA_PTR_SET_VALUE(resourceLabelKey_, resourceLabelKey) };
+
+
+    // resourceLabelValue Field Functions 
+    bool hasResourceLabelValue() const { return this->resourceLabelValue_ != nullptr;};
+    void deleteResourceLabelValue() { this->resourceLabelValue_ = nullptr;};
+    inline string getResourceLabelValue() const { DARABONBA_PTR_GET_DEFAULT(resourceLabelValue_, "") };
+    inline CheckInstanceModuleStatusRequest& setResourceLabelValue(string resourceLabelValue) { DARABONBA_PTR_SET_VALUE(resourceLabelValue_, resourceLabelValue) };
+
+
     // subFeatureKey Field Functions 
     bool hasSubFeatureKey() const { return this->subFeatureKey_ != nullptr;};
     void deleteSubFeatureKey() { this->subFeatureKey_ = nullptr;};
@@ -76,6 +94,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> moduleKey_ {};
+    shared_ptr<string> resourceLabelKey_ {};
+    shared_ptr<string> resourceLabelValue_ {};
     // The tertiary module identifier.
     shared_ptr<string> subFeatureKey_ {};
   };

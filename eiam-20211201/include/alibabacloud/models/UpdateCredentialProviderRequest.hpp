@@ -62,12 +62,26 @@ namespace Models
       class OAuthProviderConfig : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const OAuthProviderConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(AuthorizationEndpoint, authorizationEndpoint_);
+          DARABONBA_PTR_TO_JSON(AuthorizationFlow, authorizationFlow_);
           DARABONBA_PTR_TO_JSON(ClientSecret, clientSecret_);
+          DARABONBA_PTR_TO_JSON(DiscoveryUrl, discoveryUrl_);
+          DARABONBA_PTR_TO_JSON(Issuer, issuer_);
+          DARABONBA_PTR_TO_JSON(PkceChallengeMethod, pkceChallengeMethod_);
+          DARABONBA_PTR_TO_JSON(PkceEnabled, pkceEnabled_);
+          DARABONBA_PTR_TO_JSON(ProviderVendor, providerVendor_);
           DARABONBA_PTR_TO_JSON(Scope, scope_);
           DARABONBA_PTR_TO_JSON(TokenEndpoint, tokenEndpoint_);
         };
         friend void from_json(const Darabonba::Json& j, OAuthProviderConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(AuthorizationEndpoint, authorizationEndpoint_);
+          DARABONBA_PTR_FROM_JSON(AuthorizationFlow, authorizationFlow_);
           DARABONBA_PTR_FROM_JSON(ClientSecret, clientSecret_);
+          DARABONBA_PTR_FROM_JSON(DiscoveryUrl, discoveryUrl_);
+          DARABONBA_PTR_FROM_JSON(Issuer, issuer_);
+          DARABONBA_PTR_FROM_JSON(PkceChallengeMethod, pkceChallengeMethod_);
+          DARABONBA_PTR_FROM_JSON(PkceEnabled, pkceEnabled_);
+          DARABONBA_PTR_FROM_JSON(ProviderVendor, providerVendor_);
           DARABONBA_PTR_FROM_JSON(Scope, scope_);
           DARABONBA_PTR_FROM_JSON(TokenEndpoint, tokenEndpoint_);
         };
@@ -82,13 +96,63 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->clientSecret_ == nullptr
-        && this->scope_ == nullptr && this->tokenEndpoint_ == nullptr; };
+        virtual bool empty() const override { return this->authorizationEndpoint_ == nullptr
+        && this->authorizationFlow_ == nullptr && this->clientSecret_ == nullptr && this->discoveryUrl_ == nullptr && this->issuer_ == nullptr && this->pkceChallengeMethod_ == nullptr
+        && this->pkceEnabled_ == nullptr && this->providerVendor_ == nullptr && this->scope_ == nullptr && this->tokenEndpoint_ == nullptr; };
+        // authorizationEndpoint Field Functions 
+        bool hasAuthorizationEndpoint() const { return this->authorizationEndpoint_ != nullptr;};
+        void deleteAuthorizationEndpoint() { this->authorizationEndpoint_ = nullptr;};
+        inline string getAuthorizationEndpoint() const { DARABONBA_PTR_GET_DEFAULT(authorizationEndpoint_, "") };
+        inline OAuthProviderConfig& setAuthorizationEndpoint(string authorizationEndpoint) { DARABONBA_PTR_SET_VALUE(authorizationEndpoint_, authorizationEndpoint) };
+
+
+        // authorizationFlow Field Functions 
+        bool hasAuthorizationFlow() const { return this->authorizationFlow_ != nullptr;};
+        void deleteAuthorizationFlow() { this->authorizationFlow_ = nullptr;};
+        inline string getAuthorizationFlow() const { DARABONBA_PTR_GET_DEFAULT(authorizationFlow_, "") };
+        inline OAuthProviderConfig& setAuthorizationFlow(string authorizationFlow) { DARABONBA_PTR_SET_VALUE(authorizationFlow_, authorizationFlow) };
+
+
         // clientSecret Field Functions 
         bool hasClientSecret() const { return this->clientSecret_ != nullptr;};
         void deleteClientSecret() { this->clientSecret_ = nullptr;};
         inline string getClientSecret() const { DARABONBA_PTR_GET_DEFAULT(clientSecret_, "") };
         inline OAuthProviderConfig& setClientSecret(string clientSecret) { DARABONBA_PTR_SET_VALUE(clientSecret_, clientSecret) };
+
+
+        // discoveryUrl Field Functions 
+        bool hasDiscoveryUrl() const { return this->discoveryUrl_ != nullptr;};
+        void deleteDiscoveryUrl() { this->discoveryUrl_ = nullptr;};
+        inline string getDiscoveryUrl() const { DARABONBA_PTR_GET_DEFAULT(discoveryUrl_, "") };
+        inline OAuthProviderConfig& setDiscoveryUrl(string discoveryUrl) { DARABONBA_PTR_SET_VALUE(discoveryUrl_, discoveryUrl) };
+
+
+        // issuer Field Functions 
+        bool hasIssuer() const { return this->issuer_ != nullptr;};
+        void deleteIssuer() { this->issuer_ = nullptr;};
+        inline string getIssuer() const { DARABONBA_PTR_GET_DEFAULT(issuer_, "") };
+        inline OAuthProviderConfig& setIssuer(string issuer) { DARABONBA_PTR_SET_VALUE(issuer_, issuer) };
+
+
+        // pkceChallengeMethod Field Functions 
+        bool hasPkceChallengeMethod() const { return this->pkceChallengeMethod_ != nullptr;};
+        void deletePkceChallengeMethod() { this->pkceChallengeMethod_ = nullptr;};
+        inline string getPkceChallengeMethod() const { DARABONBA_PTR_GET_DEFAULT(pkceChallengeMethod_, "") };
+        inline OAuthProviderConfig& setPkceChallengeMethod(string pkceChallengeMethod) { DARABONBA_PTR_SET_VALUE(pkceChallengeMethod_, pkceChallengeMethod) };
+
+
+        // pkceEnabled Field Functions 
+        bool hasPkceEnabled() const { return this->pkceEnabled_ != nullptr;};
+        void deletePkceEnabled() { this->pkceEnabled_ = nullptr;};
+        inline bool getPkceEnabled() const { DARABONBA_PTR_GET_DEFAULT(pkceEnabled_, false) };
+        inline OAuthProviderConfig& setPkceEnabled(bool pkceEnabled) { DARABONBA_PTR_SET_VALUE(pkceEnabled_, pkceEnabled) };
+
+
+        // providerVendor Field Functions 
+        bool hasProviderVendor() const { return this->providerVendor_ != nullptr;};
+        void deleteProviderVendor() { this->providerVendor_ = nullptr;};
+        inline string getProviderVendor() const { DARABONBA_PTR_GET_DEFAULT(providerVendor_, "") };
+        inline OAuthProviderConfig& setProviderVendor(string providerVendor) { DARABONBA_PTR_SET_VALUE(providerVendor_, providerVendor) };
 
 
         // scope Field Functions 
@@ -106,17 +170,32 @@ namespace Models
 
 
       protected:
-        // The client_secret in the OAuth protocol, which is the client secret.
+        // The endpoint URL used to guide users through authorization. Conditionally required: this parameter is required when AuthorizationFlow is set to user_federation and ProviderVendor is set to custom. For preset vendors, this value can be automatically populated through DiscoveryUrl.
+        shared_ptr<string> authorizationEndpoint_ {};
+        // The OAuth authorization flow type. Valid values:
+        // - m2m: Machine-to-machine (2LO, Client Credentials).
+        // - user_federation: User federation (3LO, Authorization Code).
+        shared_ptr<string> authorizationFlow_ {};
+        // The client_secret in the OAuth protocol.
         // 
         // > The value cannot exceed 1024 characters in length.
         shared_ptr<string> clientSecret_ {};
+        // The Discovery document URL used to automatically retrieve OAuth endpoint configurations. Conditionally optional: this parameter is used when AuthorizationFlow is set to user_federation. If DiscoveryUrl is not provided, you must manually configure fields such as TokenEndpoint and AuthorizationEndpoint.
+        shared_ptr<string> discoveryUrl_ {};
+        shared_ptr<string> issuer_ {};
+        // The PKCE code_challenge generation method. Default value: s256.
+        shared_ptr<string> pkceChallengeMethod_ {};
+        // Specifies whether to use the PKCE extension for enhanced security. We recommend that you always enable this feature.
+        shared_ptr<bool> pkceEnabled_ {};
+        // The preset vendor or custom configuration. This parameter is optional. Default value: custom.
+        shared_ptr<string> providerVendor_ {};
         // The scope in the OAuth protocol, which specifies the permission scope.
         // 
-        // > The Scope configuration at the credential provider serves as the default value. If the scope parameter is not specified when calling the DeveloperAPI to obtain an OAuth Access Token, the Scope configuration at the credential provider is used for issuance.
+        // > The Scope configuration on the OAuth credential provider serves as a fallback value. If the scope parameter is not specified when calling the DeveloperAPI to obtain an OAuth Access Token, the Scope configuration on the credential provider is used for token issuance.
         // 
         // >Notice: Separate multiple Scope values with spaces. To clear the Scope configuration, pass an empty string.
         // 
-        // Restrictions on a single Scope value:
+        // Restrictions for each individual Scope value:
         // 1. Allowed characters: lowercase letters, digits, and special characters `|/:_-.`
         // 2. Must contain at least one lowercase letter or digit.
         // 3. Must start with a special character `.`, a lowercase letter, or a digit.
@@ -190,9 +269,9 @@ namespace Models
         // 
         // > The list cannot contain more than 200 entries.
         // 
-        // >Notice: To clear the issuer list, pass an empty list or an empty string.
+        // >Notice: To clear the issuer list, pass an empty list or an empty string when calling the API.
         shared_ptr<vector<string>> allowedTokenIssuers_ {};
-        // Specifies whether to enable the JWT derived short token feature.
+        // Specifies whether to enable the JWT derived short token capability.
         shared_ptr<bool> derivedShortTokenEnabled_ {};
         // The validity period of the JWT, in seconds.
         shared_ptr<int32_t> expiration_ {};
@@ -269,7 +348,7 @@ namespace Models
   protected:
     // The idempotency token that ensures the idempotence of the request.
     // 
-    // Generate a unique parameter value from your client to ensure that the value is unique among different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+    // Generate a unique parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
     // 
     // This parameter is required.
     shared_ptr<string> clientToken_ {};

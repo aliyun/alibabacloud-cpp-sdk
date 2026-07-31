@@ -270,7 +270,7 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The URL of the application logo.
       shared_ptr<string> logoUrl_ {};
-      // The ServiceCode of the Alibaba Cloud service that manages the application template.
+      // The ServiceCode of the cloud service that manages the application template.
       shared_ptr<string> managedServiceCode_ {};
       // The unique identifier of the ResourceServer.
       shared_ptr<string> resourceServerIdentifier_ {};
@@ -278,7 +278,7 @@ namespace Models
       shared_ptr<string> resourceServerSourceType_ {};
       // The resource server status.
       shared_ptr<string> resourceServerStatus_ {};
-      // Indicates whether the application template is managed by an Alibaba Cloud service.
+      // Specifies whether the application template is managed by a cloud service.
       shared_ptr<bool> serviceManaged_ {};
       // The single sign-on protocol. Valid values:
       // - saml2: SAML 2.0 protocol.
