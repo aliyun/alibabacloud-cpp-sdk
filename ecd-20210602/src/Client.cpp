@@ -192,9 +192,9 @@ DeleteTenantSkillsResponse Client::deleteTenantSkills(const DeleteTenantSkillsRe
 }
 
 /**
- * @summary 获取 OSS STS 令牌
+ * @summary Retrieves a temporary OSS token for authentication.
  *
- * @description 获取到的SecurityToken有效期为15分钟。
+ * @description The obtained SecurityToken is valid for 15 minutes.
  *
  * @param request GetOssStsTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -225,9 +225,9 @@ GetOssStsTokenResponse Client::getOssStsTokenWithOptions(const GetOssStsTokenReq
 }
 
 /**
- * @summary 获取 OSS STS 令牌
+ * @summary Retrieves a temporary OSS token for authentication.
  *
- * @description 获取到的SecurityToken有效期为15分钟。
+ * @description The obtained SecurityToken is valid for 15 minutes.
  *
  * @param request GetOssStsTokenRequest
  * @return GetOssStsTokenResponse
@@ -616,7 +616,7 @@ SetIdentitySkillSecurityResponse Client::setIdentitySkillSecurity(const SetIdent
 }
 
 /**
- * @summary 设置租户技能启用状态
+ * @summary Sets the enabling status of skills at the tenant level.
  *
  * @param request SetTenantSkillEnabledRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -655,7 +655,7 @@ SetTenantSkillEnabledResponse Client::setTenantSkillEnabledWithOptions(const Set
 }
 
 /**
- * @summary 设置租户技能启用状态
+ * @summary Sets the enabling status of skills at the tenant level.
  *
  * @param request SetTenantSkillEnabledRequest
  * @return SetTenantSkillEnabledResponse

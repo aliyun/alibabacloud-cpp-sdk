@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the skill.
     shared_ptr<bool> enabled_ {};
+    // The skill channel.
     shared_ptr<string> skillChannel_ {};
+    // The list of skill IDs.
     shared_ptr<vector<string>> skillIds_ {};
   };
 

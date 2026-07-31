@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The file type.
     shared_ptr<string> fileType_ {};
   };
 

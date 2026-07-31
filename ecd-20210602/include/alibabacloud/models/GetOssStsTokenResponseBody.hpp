@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The AccessKey ID of the user.
     shared_ptr<string> accessKeyId_ {};
+    // The STS temporary AccessKey secret.
     shared_ptr<string> accessKeySecret_ {};
+    // The logical OSS bucket name.
     shared_ptr<string> bucket_ {};
+    // The project storage path.
     shared_ptr<string> objectKeyPrefix_ {};
+    // The region to which the current OSS bucket belongs.
     shared_ptr<string> ossRegion_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The Security Token Service (STS) token.
     shared_ptr<string> securityToken_ {};
   };
 

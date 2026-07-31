@@ -54,6 +54,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SourceMarket, sourceMarket_);
         DARABONBA_PTR_TO_JSON(SourceMarketName, sourceMarketName_);
         DARABONBA_PTR_TO_JSON(SupplierType, supplierType_);
+        DARABONBA_PTR_TO_JSON(SupportAgentList, supportAgentList_);
       };
       friend void from_json(const Darabonba::Json& j, Skills& obj) { 
         DARABONBA_PTR_FROM_JSON(ApiKey, apiKey_);
@@ -72,6 +73,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SourceMarket, sourceMarket_);
         DARABONBA_PTR_FROM_JSON(SourceMarketName, sourceMarketName_);
         DARABONBA_PTR_FROM_JSON(SupplierType, supplierType_);
+        DARABONBA_PTR_FROM_JSON(SupportAgentList, supportAgentList_);
       };
       Skills() = default ;
       Skills(const Skills &) = default ;
@@ -84,6 +86,48 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class SupportAgentList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const SupportAgentList& obj) { 
+          DARABONBA_PTR_TO_JSON(TagId, tagId_);
+          DARABONBA_PTR_TO_JSON(TagValue, tagValue_);
+        };
+        friend void from_json(const Darabonba::Json& j, SupportAgentList& obj) { 
+          DARABONBA_PTR_FROM_JSON(TagId, tagId_);
+          DARABONBA_PTR_FROM_JSON(TagValue, tagValue_);
+        };
+        SupportAgentList() = default ;
+        SupportAgentList(const SupportAgentList &) = default ;
+        SupportAgentList(SupportAgentList &&) = default ;
+        SupportAgentList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~SupportAgentList() = default ;
+        SupportAgentList& operator=(const SupportAgentList &) = default ;
+        SupportAgentList& operator=(SupportAgentList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->tagId_ == nullptr
+        && this->tagValue_ == nullptr; };
+        // tagId Field Functions 
+        bool hasTagId() const { return this->tagId_ != nullptr;};
+        void deleteTagId() { this->tagId_ = nullptr;};
+        inline string getTagId() const { DARABONBA_PTR_GET_DEFAULT(tagId_, "") };
+        inline SupportAgentList& setTagId(string tagId) { DARABONBA_PTR_SET_VALUE(tagId_, tagId) };
+
+
+        // tagValue Field Functions 
+        bool hasTagValue() const { return this->tagValue_ != nullptr;};
+        void deleteTagValue() { this->tagValue_ = nullptr;};
+        inline string getTagValue() const { DARABONBA_PTR_GET_DEFAULT(tagValue_, "") };
+        inline SupportAgentList& setTagValue(string tagValue) { DARABONBA_PTR_SET_VALUE(tagValue_, tagValue) };
+
+
+      protected:
+        shared_ptr<string> tagId_ {};
+        shared_ptr<string> tagValue_ {};
+      };
+
       class SkillVersions : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const SkillVersions& obj) { 
@@ -180,7 +224,8 @@ namespace Models
       virtual bool empty() const override { return this->apiKey_ == nullptr
         && this->author_ == nullptr && this->defaultVersion_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr && this->enable_ == nullptr
         && this->envVars_ == nullptr && this->gmtCreated_ == nullptr && this->skillIconUrl_ == nullptr && this->skillId_ == nullptr && this->skillName_ == nullptr
-        && this->skillVersions_ == nullptr && this->slug_ == nullptr && this->sourceMarket_ == nullptr && this->sourceMarketName_ == nullptr && this->supplierType_ == nullptr; };
+        && this->skillVersions_ == nullptr && this->slug_ == nullptr && this->sourceMarket_ == nullptr && this->sourceMarketName_ == nullptr && this->supplierType_ == nullptr
+        && this->supportAgentList_ == nullptr; };
       // apiKey Field Functions 
       bool hasApiKey() const { return this->apiKey_ != nullptr;};
       void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -297,6 +342,15 @@ namespace Models
       inline Skills& setSupplierType(string supplierType) { DARABONBA_PTR_SET_VALUE(supplierType_, supplierType) };
 
 
+      // supportAgentList Field Functions 
+      bool hasSupportAgentList() const { return this->supportAgentList_ != nullptr;};
+      void deleteSupportAgentList() { this->supportAgentList_ = nullptr;};
+      inline const vector<Skills::SupportAgentList> & getSupportAgentList() const { DARABONBA_PTR_GET_CONST(supportAgentList_, vector<Skills::SupportAgentList>) };
+      inline vector<Skills::SupportAgentList> getSupportAgentList() { DARABONBA_PTR_GET(supportAgentList_, vector<Skills::SupportAgentList>) };
+      inline Skills& setSupportAgentList(const vector<Skills::SupportAgentList> & supportAgentList) { DARABONBA_PTR_SET_VALUE(supportAgentList_, supportAgentList) };
+      inline Skills& setSupportAgentList(vector<Skills::SupportAgentList> && supportAgentList) { DARABONBA_PTR_SET_RVALUE(supportAgentList_, supportAgentList) };
+
+
     protected:
       // The API key of the skill.
       shared_ptr<string> apiKey_ {};
@@ -304,7 +358,7 @@ namespace Models
       shared_ptr<string> author_ {};
       // The currently effective version number. If no version is effective, an empty value is returned.
       shared_ptr<string> defaultVersion_ {};
-      // The description of the skill.
+      // The skill description.
       shared_ptr<string> description_ {};
       // The display name.
       shared_ptr<string> displayName_ {};
@@ -321,7 +375,7 @@ namespace Models
       // The name in the SKILL.md file.
       shared_ptr<string> skillName_ {};
       shared_ptr<vector<Skills::SkillVersions>> skillVersions_ {};
-      // The slug identifier of the skill. This value is user-defined and unique within the tenant.
+      // The skill slug identifier, which is user-defined and unique within the tenant.
       shared_ptr<string> slug_ {};
       // The source marketplace code.
       shared_ptr<string> sourceMarket_ {};
@@ -329,6 +383,7 @@ namespace Models
       shared_ptr<string> sourceMarketName_ {};
       // The supply type.
       shared_ptr<string> supplierType_ {};
+      shared_ptr<vector<Skills::SupportAgentList>> supportAgentList_ {};
     };
 
     virtual bool empty() const override { return this->requestId_ == nullptr
