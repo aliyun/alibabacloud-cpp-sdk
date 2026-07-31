@@ -140,37 +140,26 @@ namespace Models
 
 
   protected:
-    // The instance name. Fuzzy search is supported. For example, if you search for all instances matching **abc**, all instances named **abc**, **abcde**, **xyabc**, and **xabcy** may be returned.
+    // The instance name. Fuzzy match is supported. For example, if you search for **abc**, all instances whose names contain **abc** may be returned, such as **abc**, **abcde**, **xyabc**, and **xabcy**.
     shared_ptr<string> description_ {};
     // The instance version.
     shared_ptr<string> esVersion_ {};
-    // The edition type of the instance. Valid values:
-    // 
-    // - x-pack: Commercial Edition
-    // 
-    // - advanced/IS: Enhanced Edition
-    // 
-    // - community: Basic Edition
+    // The edition of the instance. Valid values:
     shared_ptr<string> instanceCategory_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
     // The page number of the instance list.
-    // Start value: **1**, default value: **1**.
     shared_ptr<int32_t> page_ {};
     // The billing method of the instance. Valid values:
-    // 
-    // - postpaid: pay-as-you-go
-    // 
-    // - prepaid: subscription
     shared_ptr<string> paymentType_ {};
     // The ID of the resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The number of entries per page for paginated queries. Maximum value: **100**, default value: **10**.
+    // The number of entries per page in a paged query. Settings the number of entries per page for paging. Maximum value: **100**. Default value: **10**.
     shared_ptr<int32_t> size_ {};
     shared_ptr<string> status_ {};
     // The instance tags.
     shared_ptr<string> tags_ {};
-    // The ID of the virtual private cloud (VPC) where the instance is deployed.
+    // The ID of the virtual private cloud (VPC) in which the instance resides.
     shared_ptr<string> vpcId_ {};
     // The zone ID of the instance.
     shared_ptr<string> zoneId_ {};

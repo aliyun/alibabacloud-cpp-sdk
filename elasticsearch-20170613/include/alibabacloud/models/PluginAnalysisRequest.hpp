@@ -48,14 +48,23 @@ namespace Models
 
 
   protected:
-    // Request body parameters  
+    // The request body parameters.
     // 
-    // ```json
+    // ```[
+    //   {
+    //     "name": "plugin_name.zip",// plugin name
+    //     "ossObject": {
+    //       "bucketName": "bucketName",// oss bucket name
+    //       "key": "my_plugin_dir/plugin_name.zip" // oss file name 
+    //     }
+    //   }
+    // ]
+    // `
     shared_ptr<string> body_ {};
-    // Whether to perform pre-upgrade validation:  
+    // Specifies whether to perform a pre-upload check. Valid values:
     // 
-    // - true: Validate only  
-    // - false: Upload directly
+    // - true: Only performs the check.
+    // - false: Directly uploads the plug-in.
     shared_ptr<string> dryRun_ {};
   };
 

@@ -53,7 +53,7 @@ namespace Models
     // The returned result. Valid values:
     // 
     // - true: The HTTPS protocol is disabled.
-    // - false: The HTTPS protocol failed to be disabled.
+    // - false: Failed to disable the HTTPS protocol.
     shared_ptr<bool> result_ {};
   };
 

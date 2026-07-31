@@ -102,8 +102,9 @@ namespace Models
 
     protected:
       // Indicates whether X-Pack monitoring is enabled. Valid values:
-      // - true: enabled.
-      // - false: not enabled.
+      // 
+      // - true: Enabled.
+      // - false: Not enabled.
       shared_ptr<bool> enable_ {};
       shared_ptr<vector<string>> endpoints_ {};
       // The instance ID of the Elasticsearch instance associated with X-Pack monitoring.

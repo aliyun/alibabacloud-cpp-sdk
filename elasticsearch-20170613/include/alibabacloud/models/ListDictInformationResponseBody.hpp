@@ -103,7 +103,7 @@ namespace Models
       protected:
         // The name of the OSS bucket where the file is stored.
         shared_ptr<string> bucketName_ {};
-        // The MD5 checksum (ETag) of the OSS file, in uppercase.
+        // The MD5 checksum (ETag) of the OSS file in uppercase.
         shared_ptr<string> etag_ {};
         // The storage path of the dictionary file in the OSS bucket.
         shared_ptr<string> key_ {};
@@ -141,9 +141,9 @@ namespace Models
       shared_ptr<Result::OssObject> ossObject_ {};
       // The dictionary type. Valid values:
       // 
-      // - MAIN: primary tokenization dictionary
+      // - MAIN: primary token dictionary
       // 
-      // - STOP: stopword dictionary.
+      // - STOP: stopword dictionary
       shared_ptr<string> type_ {};
     };
 

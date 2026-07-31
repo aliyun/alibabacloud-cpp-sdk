@@ -223,7 +223,7 @@ namespace Models
     protected:
       // The Kibana access whitelist.
       shared_ptr<vector<string>> kibanaIPWhitelist_ {};
-      // The Kibana internal-facing whitelist.
+      // The Kibana private network access whitelist.
       shared_ptr<vector<string>> kibanaPrivateIPWhitelist_ {};
       // The network configuration.
       shared_ptr<Result::NetworkConfig> networkConfig_ {};

@@ -179,11 +179,11 @@ namespace Models
       // 
       // - NOT_DEPLOYED: not deployed.
       // - RUNNING: running.
-      // - DELETED: deleted. This status is not displayed in the console.
+      // - DELETED: deleted (this status is not displayed in the console).
       shared_ptr<string> pipelineStatus_ {};
       // The number of queue checkpoint writes.
       shared_ptr<int32_t> queueCheckPointWrites_ {};
-      // The total capacity of the queue, in bytes. Unit: MB.
+      // The total capacity of the queue in bytes. Unit: MB.
       shared_ptr<int32_t> queueMaxBytes_ {};
       // The queue type. Valid values:
       // 
@@ -215,7 +215,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned pipeline information. For more information, see [logstash.yml](https://www.elastic.co/guide/en/logstash/6.7/logstash-settings-file.html).
+    // The pipeline information. For more information, see [logstash.yml](https://www.elastic.co/guide/en/logstash/6.7/logstash-settings-file.html).
     shared_ptr<DescribePipelineResponseBody::Result> result_ {};
   };
 

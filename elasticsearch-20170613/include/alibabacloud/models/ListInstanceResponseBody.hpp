@@ -210,6 +210,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const NodeSpec& obj) { 
           DARABONBA_PTR_TO_JSON(disk, disk_);
           DARABONBA_PTR_TO_JSON(diskEncryption, diskEncryption_);
+          DARABONBA_PTR_TO_JSON(diskPreference, diskPreference_);
           DARABONBA_PTR_TO_JSON(diskType, diskType_);
           DARABONBA_PTR_TO_JSON(performanceLevel, performanceLevel_);
           DARABONBA_PTR_TO_JSON(spec, spec_);
@@ -218,6 +219,7 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, NodeSpec& obj) { 
           DARABONBA_PTR_FROM_JSON(disk, disk_);
           DARABONBA_PTR_FROM_JSON(diskEncryption, diskEncryption_);
+          DARABONBA_PTR_FROM_JSON(diskPreference, diskPreference_);
           DARABONBA_PTR_FROM_JSON(diskType, diskType_);
           DARABONBA_PTR_FROM_JSON(performanceLevel, performanceLevel_);
           DARABONBA_PTR_FROM_JSON(spec, spec_);
@@ -235,7 +237,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->disk_ == nullptr
-        && this->diskEncryption_ == nullptr && this->diskType_ == nullptr && this->performanceLevel_ == nullptr && this->spec_ == nullptr && this->specInfo_ == nullptr; };
+        && this->diskEncryption_ == nullptr && this->diskPreference_ == nullptr && this->diskType_ == nullptr && this->performanceLevel_ == nullptr && this->spec_ == nullptr
+        && this->specInfo_ == nullptr; };
         // disk Field Functions 
         bool hasDisk() const { return this->disk_ != nullptr;};
         void deleteDisk() { this->disk_ = nullptr;};
@@ -248,6 +251,13 @@ namespace Models
         void deleteDiskEncryption() { this->diskEncryption_ = nullptr;};
         inline bool getDiskEncryption() const { DARABONBA_PTR_GET_DEFAULT(diskEncryption_, false) };
         inline NodeSpec& setDiskEncryption(bool diskEncryption) { DARABONBA_PTR_SET_VALUE(diskEncryption_, diskEncryption) };
+
+
+        // diskPreference Field Functions 
+        bool hasDiskPreference() const { return this->diskPreference_ != nullptr;};
+        void deleteDiskPreference() { this->diskPreference_ = nullptr;};
+        inline string getDiskPreference() const { DARABONBA_PTR_GET_DEFAULT(diskPreference_, "") };
+        inline NodeSpec& setDiskPreference(string diskPreference) { DARABONBA_PTR_SET_VALUE(diskPreference_, diskPreference) };
 
 
         // diskType Field Functions 
@@ -281,22 +291,16 @@ namespace Models
       protected:
         // The storage size of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
-        // Indicates whether disk encryption is used. Valid values:
-        // 
-        // - true: Disk encryption is used.
-        // - false: Disk encryption is not used.
+        // Indicates whether disk encryption is enabled. Valid values:
         shared_ptr<bool> diskEncryption_ {};
+        shared_ptr<string> diskPreference_ {};
         // The storage type of the node. Valid values:
-        // 
-        // - cloud_ssd: standard SSD
-        // 
-        // - cloud_efficiency: ultra disk
         shared_ptr<string> diskType_ {};
-        // The performance level of the ESSD. This parameter is required when diskType is cloud_essd. Valid values: PL1, PL2, and PL3.
+        // The performance level (PL) of the ESSD cloud disk. This parameter is required when diskType is set to cloud_essd. Valid values: PL1, PL2, and PL3. When diskType is set to cloud_ssd (standard SSD), this parameter is not required.
         shared_ptr<string> performanceLevel_ {};
-        // The node specifications. For more information about the specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+        // The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
         shared_ptr<string> spec_ {};
-        // The description of node specifications.
+        // The node specifications description.
         shared_ptr<string> specInfo_ {};
       };
 
@@ -378,7 +382,7 @@ namespace Models
         protected:
           // The group name.
           shared_ptr<string> groupName_ {};
-          // The IP address whitelist.
+          // The network whitelist.
           shared_ptr<vector<string>> ips_ {};
           // The network type. PRIVATE_ES: Elasticsearch private network. PUBLIC_KIBANA: Kibana public network. PUBLIC_ES: Elasticsearch public network. PRIVATE_KIBANA: Kibana private network.
           shared_ptr<string> whiteIpType_ {};
@@ -507,9 +511,9 @@ namespace Models
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node. Only cloud_ssd (standard SSD) is supported.
         shared_ptr<string> diskType_ {};
-        // The node specifications. For more information about the specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+        // The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
         shared_ptr<string> spec_ {};
-        // The description of node specifications.
+        // The node specifications description.
         shared_ptr<string> specInfo_ {};
       };
 
@@ -584,9 +588,9 @@ namespace Models
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node.
         shared_ptr<string> diskType_ {};
-        // The node specifications. For more information about the specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+        // The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
         shared_ptr<string> spec_ {};
-        // The description of node specifications.
+        // The node specifications description.
         shared_ptr<string> specInfo_ {};
       };
 
@@ -668,23 +672,13 @@ namespace Models
         shared_ptr<int32_t> amount_ {};
         // The storage size of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
-        // Indicates whether disk encryption is enabled for the node. Valid values:
-        // 
-        // - true: Disk encryption is enabled.
-        // 
-        // - false: Disk encryption is not enabled.
+        // Indicates whether cloud disk encryption is enabled for the node. Valid values:
         shared_ptr<bool> diskEncryption_ {};
         // The storage type of the node. Valid values:
-        // 
-        // - cloud_ssd: standard SSD
-        // 
-        // - cloud_essd: enhanced SSD (ESSD)
-        // 
-        // - cloud_efficiency: ultra disk
         shared_ptr<string> diskType_ {};
-        // The node specifications. For more information about the specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+        // The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
         shared_ptr<string> spec_ {};
-        // The description of node specifications.
+        // The node specifications description.
         shared_ptr<string> specInfo_ {};
       };
 
@@ -759,9 +753,9 @@ namespace Models
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node. Only ultra disks (cloud_efficiency) are supported.
         shared_ptr<string> diskType_ {};
-        // The node specifications. For more information about the specifications, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
+        // The node specifications. For more information, see [Product specifications](https://help.aliyun.com/document_detail/271718.html).
         shared_ptr<string> spec_ {};
-        // The description of node specifications.
+        // The node specifications description.
         shared_ptr<string> specInfo_ {};
       };
 
@@ -1039,36 +1033,26 @@ namespace Models
 
     protected:
       // Indicates whether the instance contains dedicated master nodes. Valid values:
-      // 
-      // - true: The instance contains dedicated master nodes.
-      // 
-      // - false: The instance does not contain dedicated master nodes.
       shared_ptr<bool> advancedDedicateMaster_ {};
-      // The deployment mode and architecture type:
-      // exclusive: basic management and control
-      // public: cloud-native management and control
+      // The deployment mode. Architecture type:
       shared_ptr<string> archType_ {};
       // The configuration of client nodes.
       shared_ptr<Result::ClientNodeConfiguration> clientNodeConfiguration_ {};
       // The time when the instance was created.
       shared_ptr<string> createdAt_ {};
-      // Indicates whether the instance contains dedicated master nodes (deprecated). Valid values:
-      // 
-      // - true: The instance contains dedicated master nodes.
-      // 
-      // - false: The instance does not contain dedicated master nodes.
+      // **[Deprecated]** Indicates whether the instance contains dedicated master nodes. Valid values:
       shared_ptr<bool> dedicateMaster_ {};
-      // The instance name.
+      // The name of the instance.
       shared_ptr<string> description_ {};
       // The internal endpoint of the instance.
       shared_ptr<string> domain_ {};
       // The configuration of elastic data nodes.
       shared_ptr<Result::ElasticDataNodeConfiguration> elasticDataNodeConfiguration_ {};
-      // The expiration time of the instance.
+      // The time when the instance expires.
       shared_ptr<int64_t> endTime_ {};
       // The instance version.
       shared_ptr<string> esVersion_ {};
-      // The extended configurations of the cluster.
+      // The extension parameter settings of the cluster.
       shared_ptr<vector<Darabonba::Json>> extendConfigs_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -1076,9 +1060,9 @@ namespace Models
       shared_ptr<string> isNewDeployment_ {};
       // The configuration of Kibana nodes.
       shared_ptr<Result::KibanaConfiguration> kibanaConfiguration_ {};
-      // The public network access whitelist for Kibana nodes of the cluster.
+      // The public network access whitelist for the Kibana node of the cluster.
       shared_ptr<vector<string>> kibanaIPWhitelist_ {};
-      // The private network access whitelist for Kibana nodes of the cluster.
+      // The private network access whitelist for the Kibana node of the cluster.
       shared_ptr<vector<string>> kibanaPrivateIPWhitelist_ {};
       // The configuration of master nodes.
       shared_ptr<Result::MasterConfiguration> masterConfiguration_ {};
@@ -1089,23 +1073,12 @@ namespace Models
       // The configuration of data nodes.
       shared_ptr<Result::NodeSpec> nodeSpec_ {};
       // The billing method of the instance. Valid values:
-      // 
-      // - **prepaid**: subscription
-      // 
-      // - **postpaid**: pay-as-you-go
       shared_ptr<string> paymentType_ {};
       // The access port of the instance.
-      // >Notice: When the instance is being created or the instance status is abnormal, this value may be empty or 0.
       shared_ptr<string> port_ {};
-      // The status of the pay-as-you-go service that is overlaid on a subscription instance. Valid values:
-      // 
-      // - **active**: normal
-      // 
-      // - **closed**: closed
-      // 
-      // - **indebt**: frozen due to overdue payment
+      // The status of the pay-as-you-go service that is overlaid on the subscription instance. Valid values:
       shared_ptr<string> postpaidServiceStatus_ {};
-      // The private network access whitelist for the Elasticsearch cluster.
+      // The private network access IP whitelist for the Elasticsearch cluster.
       shared_ptr<vector<string>> privateNetworkIpWhiteList_ {};
       // The access protocol. Valid values: HTTP and HTTPS.
       shared_ptr<string> protocol_ {};
@@ -1116,16 +1089,6 @@ namespace Models
       // Indicates whether the instance is a service VPC.
       shared_ptr<bool> serviceVpc_ {};
       // The status of the instance. Valid values:
-      // 
-      // - active: normal
-      // 
-      // - activating: taking effect
-      // 
-      // - inactive: frozen
-      // 
-      // - invalid: invalid. The cluster does not exist or is inaccessible. In this case, some fields in the API response may be missing, such as domain and kibanaDomain.
-      // 
-      // - unknown: unknown. The cluster does not exist or is inaccessible. In this case, some fields in the API response may be missing, such as domain and kibanaDomain.
       shared_ptr<string> status_ {};
       // The instance tags.
       shared_ptr<vector<Result::Tags>> tags_ {};
@@ -1165,7 +1128,7 @@ namespace Models
 
 
     protected:
-      // The total number of instances.
+      // The total number of instance records.
       shared_ptr<int32_t> xTotalCount_ {};
     };
 

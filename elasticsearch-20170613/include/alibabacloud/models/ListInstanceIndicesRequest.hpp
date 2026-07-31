@@ -86,9 +86,9 @@ namespace Models
   protected:
     // Specifies whether to retrieve all indexes. Valid values:
     // 
-    // - true: Returns the index list that includes system indexes.
+    // - true: Returns the index list including system indexes.
     // 
-    // - false (default): Returns the index list that excludes system indexes.
+    // - false (default): Returns the index list excluding system indexes.
     shared_ptr<bool> all_ {};
     // Specifies whether to display only managed indexes. Valid values:
     // 

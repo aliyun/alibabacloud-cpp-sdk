@@ -77,11 +77,11 @@ namespace Models
   protected:
     // Specifies whether to delete all tags. Default value: **false**. This parameter is valid only when **TagKeys** is empty.
     shared_ptr<bool> all_ {};
-    // The list of resources to delete.
+    // The list of resources from which you want to delete tags.
     shared_ptr<string> resourceIds_ {};
-    // The resource type. Set this to **INSTANCE**.
+    // The resource type. Set the value to **INSTANCE**.
     shared_ptr<string> resourceType_ {};
-    // The list of tags to delete. A maximum of 20 items can be specified.
+    // The list of tag keys to delete. A maximum of 20 items can be specified.
     shared_ptr<string> tagKeys_ {};
     shared_ptr<string> body_ {};
   };

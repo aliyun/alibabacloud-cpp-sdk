@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result. Valid values:
+    // The result. Valid values:
     // 
     // - true: The specified lifecycle policy definition is deleted.
     // 

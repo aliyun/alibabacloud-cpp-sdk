@@ -82,8 +82,8 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // Specifies whether to enable X-Pack monitoring. Valid values:
     // 
-    // - true: Enable X-Pack monitoring.
-    // - false: Disable X-Pack monitoring.
+    // - true: Enabled.
+    // - false: Not enabled.
     shared_ptr<bool> enable_ {};
     // The access endpoint of the Elasticsearch instance.
     shared_ptr<vector<string>> endpoints_ {};

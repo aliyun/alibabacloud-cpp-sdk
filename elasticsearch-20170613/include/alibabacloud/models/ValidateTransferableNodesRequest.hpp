@@ -83,7 +83,7 @@ namespace Models
       shared_ptr<string> host_ {};
       // The access port number of the node.
       shared_ptr<int32_t> port_ {};
-      // The zone ID of the instance node. For example, the ID of Zone C in the China (Shanghai) region is cn-shanghai-c.
+      // The zone ID of the instance node. For example, the zone ID for Shanghai Zone C is cn-shanghai-c.
       shared_ptr<string> zoneId_ {};
     };
 

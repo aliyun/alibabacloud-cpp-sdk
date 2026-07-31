@@ -152,7 +152,7 @@ namespace Models
       // The event status. Valid values:
       // - FAILED: failed
       // - EXECUTED: executed
-      // - EXECUTING: executing.
+      // - EXECUTING: executing
       shared_ptr<string> eventCycleStatus_ {};
       // The event execution time.
       shared_ptr<string> eventExecuteTime_ {};
@@ -161,15 +161,15 @@ namespace Models
       // The event level. Valid values:
       // - INFO: information
       // - WARN: warning
-      // - CRITICAL: critical.
+      // - CRITICAL: critical
       shared_ptr<string> eventLevel_ {};
       // The event type. Valid values:
-      // - ECS:AUTO_RESTART: Automatic restart of an ECS node.
-      // - Instance:InstanceFailure.Reboot:Executed: ECS instance reboot completed (instance error).
-      // - Instance:InstanceFailure.Reboot:Executing: ECS instance reboot started (instance error).
-      // - Instance:SystemFailure.Reboot:Executed: ECS instance reboot completed (system error).
-      // - Instance:SystemFailure.Reboot:Executing: ECS instance reboot started (system error).
-      // - Instance:SystemFailure.Reboot:Failed: ECS instance reboot failed (system error).
+      // - ECS:AUTO_RESTART: ECS node automatic restart.
+      // - Instance:InstanceFailure.Reboot:Executed: ECS instance restart completed (ECS instance error).
+      // - Instance:InstanceFailure.Reboot:Executing: ECS instance restart started (instance error).
+      // - Instance:SystemFailure.Reboot:Executed: ECS instance restart completed (system error).
+      // - Instance:SystemFailure.Reboot:Executing: ECS instance restart started (system error).
+      // - Instance:SystemFailure.Reboot:Failed: ECS instance restart failed (system error).
       shared_ptr<string> eventType_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};

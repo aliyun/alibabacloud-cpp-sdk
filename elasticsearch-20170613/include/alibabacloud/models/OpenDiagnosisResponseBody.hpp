@@ -52,7 +52,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the intelligent O&M feature is enabled. Valid values:
     // 
-    // - true: Enabled.
+    // - true: Succeeded.
     // - false: Failed.
     shared_ptr<bool> result_ {};
   };

@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // The start timestamp of the log, in milliseconds. The value must be within the last 7 days. If this parameter is not specified, all logs within the [current time - 7 days, endTime\\] range are queried.
+    // The start timestamp of the log, in milliseconds. The value must be within the last 7 days. If this parameter is not specified, all logs within the range of [current time - 7 days, endTime\\] are queried.
     shared_ptr<int64_t> beginTime_ {};
     // The end timestamp of the log, in milliseconds. The value must be within the last 7 days. Specify this parameter. If this parameter is not specified, an empty result is returned.
     shared_ptr<int64_t> endTime_ {};
-    // The page number of the plug-in list. Minimum value: 1. Default value: 1.
+    // The page number of the plugin list. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> page_ {};
     // The keyword to query.
     // 

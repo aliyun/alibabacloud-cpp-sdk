@@ -143,20 +143,20 @@ namespace Models
         shared_ptr<string> createTime_ {};
         // The index status. Valid values:
         // 
-        // - Green: healthy.
+        // - Green: Healthy.
         // 
-        // - Yellow: warning.
+        // - Yellow: Warning.
         // 
-        // - Red: abnormal.
+        // - Red: Abnormal.
         shared_ptr<string> health_ {};
         // This field is deprecated and can be ignored.
         shared_ptr<bool> isManaged_ {};
-        // The managed status of the index. Valid values:
-        // - following: managed.
+        // The index managed status. Valid values:
+        // - following: Managed.
         // 
-        // - closing: being unmanaged.
+        // - closing: Being unmanaged.
         // 
-        // - closed: not managed.
+        // - closed: Not managed.
         shared_ptr<string> managedStatus_ {};
         // The data stream name.
         shared_ptr<string> name_ {};
@@ -221,11 +221,11 @@ namespace Models
     protected:
       // The data stream status. Valid values:
       // 
-      // - Green: healthy.
+      // - Green: Healthy.
       // 
-      // - Yellow: warning.
+      // - Yellow: Warning.
       // 
-      // - Red: abnormal.
+      // - Red: Abnormal.
       shared_ptr<string> health_ {};
       // The index lifecycle policy name.
       shared_ptr<string> ilmPolicyName_ {};

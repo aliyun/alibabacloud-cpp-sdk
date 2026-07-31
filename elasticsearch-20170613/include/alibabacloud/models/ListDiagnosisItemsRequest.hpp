@@ -55,7 +55,7 @@ namespace Models
     // - zh: Simplified Chinese
     // - zt: Traditional Chinese
     // - es: Spanish
-    // - fr: French.
+    // - fr: French
     shared_ptr<string> lang_ {};
   };
 

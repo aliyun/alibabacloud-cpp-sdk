@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
-    // true: Enabled; false: shutdown
+    // Specifies whether to enable Alibaba Cloud account authentication for Kibana. Valid values:
+    // 
+    // - true: Enable.
+    // - false: Disable.
     // 
     // This parameter is required.
     shared_ptr<string> enable_ {};

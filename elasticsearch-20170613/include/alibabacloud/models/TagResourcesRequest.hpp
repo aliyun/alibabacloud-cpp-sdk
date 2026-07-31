@@ -114,7 +114,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceIds_ {};
-    // The resource type. Set this parameter to INSTANCE.
+    // The resource type. The value is fixed as INSTANCE.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

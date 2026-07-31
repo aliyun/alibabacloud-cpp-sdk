@@ -52,7 +52,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The returned result. Valid values:
     // 
-    // - true: The rollover succeeded.
+    // - true: The rollover was successful.
     // 
     // - false: The rollover failed.
     shared_ptr<bool> result_ {};

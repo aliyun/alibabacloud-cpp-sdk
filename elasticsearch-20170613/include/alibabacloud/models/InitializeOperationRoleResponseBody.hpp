@@ -52,8 +52,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The returned result. Valid values:
     // 
-    // - true: The service-linked role is created.
-    // - false: The service-linked role failed to be created.
+    // - true: Created.
+    // - false: Failed to create.
     shared_ptr<bool> result_ {};
   };
 

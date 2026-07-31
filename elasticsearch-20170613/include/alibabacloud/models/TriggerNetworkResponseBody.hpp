@@ -52,7 +52,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The returned result. Valid values:
     // 
-    // - true: The operation was successful.
+    // - true: The operation is successful.
     // - false: The operation failed.
     shared_ptr<bool> result_ {};
   };

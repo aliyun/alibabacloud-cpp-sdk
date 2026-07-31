@@ -145,31 +145,31 @@ namespace Models
 
 
       protected:
-        // Plugin Description.
+        // The plug-in description.
         shared_ptr<string> description_ {};
-        // Elasticsearch version of the plugin.
+        // The Elasticsearch version of the plug-in.
         shared_ptr<string> elasticsearchVersion_ {};
-        // Plugin UUID
+        // The unique identifier of the plug-in.
         shared_ptr<string> fileVersion_ {};
-        // Plugin Name.
+        // The plug-in name.
         shared_ptr<string> name_ {};
-        // Plugin Source. Valid values:
+        // The plug-in source. Valid values:
         // 
-        // - USER: Custom plugin  
-        // - SYSTEM: Preset system plugin
+        // - USER: custom plug-in.
+        // - SYSTEM: system preset plug-in.
         shared_ptr<string> source_ {};
-        // Plugin Status
+        // The plug-in status. Valid values: 
         // 
-        // - INSTALLED,
-        // - UNINSTALLED,
-        // - INSTALLING,
-        // - UNINSTALLING,
-        // - UPGRADING,
-        // - FAILED,
-        // - UNKNOWN,
-        // - UPLOADING,
+        // - INSTALLED
+        // - UNINSTALLED
+        // - INSTALLING
+        // - UNINSTALLING
+        // - UPGRADING
+        // - FAILED
+        // - UNKNOWN
+        // - UPLOADING
         shared_ptr<string> state_ {};
-        // Plugin Version.
+        // The plug-in version.
         shared_ptr<string> version_ {};
       };
 
@@ -213,15 +213,15 @@ namespace Models
 
 
     protected:
-      // List of plugins with the same name
+      // The list of plug-ins with the same name.
       shared_ptr<vector<Result::BingoPlugins>> bingoPlugins_ {};
-      // Plugin Name.
+      // The plug-in name.
       shared_ptr<string> name_ {};
-      // Plugin Source.
+      // The plug-in source.
       shared_ptr<string> source_ {};
-      // Plugin Status.
+      // The plug-in status.
       shared_ptr<string> state_ {};
-      // Plugin Version.
+      // The plug-in version.
       shared_ptr<string> version_ {};
     };
 
@@ -253,11 +253,11 @@ namespace Models
 
 
   protected:
-    // Response header information.
+    // The response headers.
     Darabonba::Json headers_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return Result array
+    // The result array.
     shared_ptr<vector<ListUserPluginResponseBody::Result>> result_ {};
   };
 

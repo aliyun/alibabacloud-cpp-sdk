@@ -376,7 +376,7 @@ namespace Models
       // The billing method of the instance. Valid values: prepaid (subscription) and postpaid (pay-as-you-go).
       shared_ptr<string> paymentType_ {};
       shared_ptr<string> resourceGroupId_ {};
-      // The status of the instance. Valid values: active (Normal), activating (Taking Effect), inactive (Frozen), and invalid (Expired).
+      // The instance status. Valid values: active (Normal), activating (taking effect), inactive (frozen), and invalid (expired).
       shared_ptr<string> status_ {};
       // The time when the instance was last updated.
       shared_ptr<string> updatedAt_ {};

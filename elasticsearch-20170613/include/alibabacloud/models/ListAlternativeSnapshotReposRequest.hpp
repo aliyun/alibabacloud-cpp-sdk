@@ -40,8 +40,10 @@ namespace Models
   protected:
     // Specifies whether to return the OSS reference repositories that have already been added. Valid values:
     // 
-    // - true (default): Returns the already added repositories.
+    // - true: Returns the already added repositories.
     // - false: Does not return the already added repositories.
+    // 
+    // Default value: true.
     shared_ptr<bool> alreadySetItems_ {};
   };
 

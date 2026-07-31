@@ -143,22 +143,22 @@ namespace Models
 
 
       protected:
-        // The size of the dictionary file. Unit: bytes.
+        // The size of the dictionary file, in bytes.
         shared_ptr<int64_t> fileSize_ {};
         // The name of the dictionary file.
         shared_ptr<string> name_ {};
         // The source type. Valid values:
         // 
-        // - OSS: Object Storage Service (OSS). The OSS bucket must have public-read permissions.
+        // - OSS: OSS open storage (the OSS bucket must be publicly readable)
         // - ORIGIN: open-source Elasticsearch
-        // - UPLOAD: uploaded file.
+        // - UPLOAD: uploaded file
         shared_ptr<string> sourceType_ {};
         // The dictionary type. Valid values:
         // 
-        // - STOP: stopword dictionary
+        // - STOP: stopword
         // - MAIN: main dictionary
         // - SYNONYMS: synonym dictionary
-        // - ALI_WS: Alibaba dictionary.
+        // - ALI_WS: Alibaba dictionary
         shared_ptr<string> type_ {};
       };
 
@@ -209,7 +209,7 @@ namespace Models
 
 
       protected:
-        // The storage size of the node. Unit: GB.
+        // The storage size of the node, in GB.
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node.
         shared_ptr<string> diskType_ {};
@@ -341,7 +341,7 @@ namespace Models
       protected:
         // The number of nodes.
         shared_ptr<int32_t> amount_ {};
-        // The storage size of the node. Unit: GB.
+        // The storage size of the node, in GB.
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node. Only cloud_ssd (standard SSD) is supported.
         shared_ptr<string> diskType_ {};
@@ -407,7 +407,7 @@ namespace Models
       protected:
         // The number of nodes.
         shared_ptr<int32_t> amount_ {};
-        // The storage size of the node. Unit: GB.
+        // The storage size of the node, in GB.
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node.
         shared_ptr<string> diskType_ {};
@@ -471,22 +471,22 @@ namespace Models
 
 
       protected:
-        // The size of the dictionary file. Unit: bytes.
+        // The size of the dictionary file, in bytes.
         shared_ptr<int64_t> fileSize_ {};
         // The name of the dictionary file.
         shared_ptr<string> name_ {};
         // The source type. Valid values:
         // 
-        // - OSS: Object Storage Service (OSS). The OSS bucket must have public-read permissions.
+        // - OSS: OSS open storage (the OSS bucket must be publicly readable)
         // - ORIGIN: open-source Elasticsearch
-        // - UPLOAD: uploaded file.
+        // - UPLOAD: uploaded file
         shared_ptr<string> sourceType_ {};
         // The dictionary type. Valid values:
         // 
-        // - STOP: stopword dictionary
+        // - STOP: stopword
         // - MAIN: main dictionary
         // - SYNONYMS: synonym dictionary
-        // - ALI_WS: Alibaba dictionary.
+        // - ALI_WS: Alibaba dictionary
         shared_ptr<string> type_ {};
       };
 
@@ -647,7 +647,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The IK dictionary configuration.
       shared_ptr<vector<Result::DictList>> dictList_ {};
-      // The internal endpoint of the instance.
+      // The internal network access address of the instance.
       shared_ptr<string> domain_ {};
       // The instance version.
       shared_ptr<string> esVersion_ {};
@@ -655,7 +655,7 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The Kibana node configuration.
       shared_ptr<Result::KibanaConfiguration> kibanaConfiguration_ {};
-      // The Kibana public network access address.
+      // The public network access address of Kibana.
       shared_ptr<string> kibanaDomain_ {};
       // The public port of Kibana.
       shared_ptr<int32_t> kibanaPort_ {};
@@ -673,11 +673,14 @@ namespace Models
       shared_ptr<string> paymentType_ {};
       // The public network access address.
       shared_ptr<string> publicDomain_ {};
-      // The public port.
+      // The public network port.
       shared_ptr<int32_t> publicPort_ {};
-      // The status of the instance.
+      // The status of the instance. Valid values:
       // 
-      // Valid values: active, activating, inactive, and invalid.
+      // - **active**: Normal.
+      // - **activating**: Taking effect.
+      // - **inactive**: Frozen.
+      // - **invalid**: Invalid.
       shared_ptr<string> status_ {};
       // The synonym dictionary configuration.
       shared_ptr<vector<Result::SynonymsDicts>> synonymsDicts_ {};

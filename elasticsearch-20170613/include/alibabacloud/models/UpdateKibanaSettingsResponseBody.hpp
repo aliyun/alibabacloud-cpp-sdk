@@ -52,7 +52,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The returned result. Valid values:
     // 
-    // - true: The Kibana language was modified.
+    // - true: The Kibana language is modified.
     // - false: The Kibana language failed to be modified.
     shared_ptr<bool> result_ {};
   };

@@ -134,19 +134,19 @@ namespace Models
 
 
       protected:
-        // Current repo version.
+        // The current repo version.
         shared_ptr<string> curRepoVersion_ {};
-        // Upgradable repo version.
+        // The repo version available for upgrade.
         shared_ptr<string> updateRepoVersion_ {};
-        // Indicates whether an upgradable version exists.
+        // Indicates whether an upgradeable version is available.
         shared_ptr<bool> upgrade_ {};
-        // Current Milvus version
+        // The current kernel version.
         shared_ptr<string> curApackVersion_ {};
-        // Current ES version
+        // The current Elasticsearch version.
         shared_ptr<string> curEsVersion_ {};
-        // Upgradable Milvus version.
+        // The kernel version available for upgrade.
         shared_ptr<string> upgradeApackVersion_ {};
-        // Upgradable ES version
+        // The Elasticsearch version available for upgrade.
         shared_ptr<string> upgradeEsVersion_ {};
       };
 
@@ -161,7 +161,7 @@ namespace Models
 
 
     protected:
-      // Upgrade information.
+      // The upgrade information.
       shared_ptr<Result::UpgradeInfo> upgradeInfo_ {};
     };
 
@@ -184,9 +184,9 @@ namespace Models
 
 
   protected:
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Result body
+    // The result body.
     shared_ptr<UpgradeInfoResponseBody::Result> result_ {};
   };
 

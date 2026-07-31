@@ -109,13 +109,13 @@ namespace Models
 
 
       protected:
-        // Number of events
+        // The number of events.
         shared_ptr<string> cnt_ {};
-        // Event level
+        // The event level.
         shared_ptr<string> level_ {};
-        // Event status
+        // The event status.
         shared_ptr<string> status_ {};
-        // Event type
+        // The event type.
         shared_ptr<string> type_ {};
       };
 
@@ -138,9 +138,9 @@ namespace Models
 
 
     protected:
-      // Return Result
+      // The returned result.
       shared_ptr<vector<Result::ResultItem>> result_ {};
-      // Total number of entries.
+      // The total number of entries.
       shared_ptr<string> total_ {};
     };
 
@@ -163,9 +163,9 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return Result
+    // The returned result.
     shared_ptr<ListStatsEventRecordsResponseBody::Result> result_ {};
   };
 

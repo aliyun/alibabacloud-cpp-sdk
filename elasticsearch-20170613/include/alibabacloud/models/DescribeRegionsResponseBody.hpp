@@ -99,7 +99,7 @@ namespace Models
     protected:
       // The endpoint of the region exposed in the console.
       shared_ptr<string> consoleEndpoint_ {};
-      // The name of the region.
+      // The region name.
       shared_ptr<string> localName_ {};
       // The endpoint of the region.
       shared_ptr<string> regionEndpoint_ {};

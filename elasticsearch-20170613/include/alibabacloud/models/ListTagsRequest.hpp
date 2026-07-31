@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
-    // The resource type. Fixed value: INSTANCE.
+    // The resource type. Set to INSTANCE.
     shared_ptr<string> resourceType_ {};
   };
 

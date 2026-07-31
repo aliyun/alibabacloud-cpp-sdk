@@ -125,7 +125,7 @@ namespace Models
       // The search or write metric code. Valid values:
       // 
       // - write: write
-      // - search: search.
+      // - search: search
       shared_ptr<string> code_ {};
       // The number of concurrent connections.
       shared_ptr<int64_t> concurrent_ {};
@@ -138,7 +138,7 @@ namespace Models
       // The search or write peak type. Valid values:
       // 
       // - common: normal
-      // - peak: peak.
+      // - peak: peak
       shared_ptr<string> type_ {};
     };
 
@@ -214,7 +214,7 @@ namespace Models
       // - dailyIncrement: daily data growth
       // - dailyIncrement: daily incremental documents
       // - retentionTime: data retention period
-      // - replica: replica settings.
+      // - replica: replica settings
       shared_ptr<string> code_ {};
       // The metric value of disk usage.
       shared_ptr<int64_t> size_ {};
@@ -223,12 +223,12 @@ namespace Models
       // The disk data type. Valid values:
       // 
       // - hot: hot data
-      // - warm: warm data.
+      // - warm: warm data
       shared_ptr<string> type_ {};
       // The data unit or time unit. Valid values:
       // 
       // - Data units: MiB, GiB, TB, PB
-      // - Time units: DAYS, WEEKS, MONTHS, YEARS.
+      // - Time units: DAYS, WEEKS, MONTHS, YEARS
       shared_ptr<string> unit_ {};
     };
 
@@ -267,14 +267,14 @@ namespace Models
 
 
   protected:
-    // Specifies whether complex aggregate query is required. Valid values:
+    // Specifies whether complex aggregation query is required. Valid values:
     // 
     // - true: Required.
     // - false (default): Not required.
     shared_ptr<bool> complexQueryAvailable_ {};
     // The disk usage information.
     shared_ptr<vector<CapacityPlanRequest::DataInfo>> dataInfo_ {};
-    // The metric information, including disk usage, search and write operations, and aggregation requests.
+    // The metric information for disk usage, search and write operations, and aggregation requests.
     shared_ptr<vector<CapacityPlanRequest::Metric>> metric_ {};
     // Scenarios. Valid values:
     // 
@@ -282,7 +282,7 @@ namespace Models
     // - analysisVisualization: data analytics scenario
     // - dbAcceleration: database acceleration scenario
     // - search: search scenario
-    // - log: log scenario.
+    // - log: log scenario
     shared_ptr<string> usageScenario_ {};
   };
 

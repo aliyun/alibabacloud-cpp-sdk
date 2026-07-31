@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<int32_t> page_ {};
     // The number of results per page.
     shared_ptr<int32_t> size_ {};
-    // The tag information of the ECS instance. The tag key (tagKey) and tag value (tagValue) must be included.
+    // The tag information of the ECS instance. Must include the tag key (tagKey) and tag value (tagValue).
     shared_ptr<string> tags_ {};
   };
 

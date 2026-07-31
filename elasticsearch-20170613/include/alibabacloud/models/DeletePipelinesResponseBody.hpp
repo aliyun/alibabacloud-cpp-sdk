@@ -50,10 +50,10 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result:
+    // The result of the operation. Valid values:
     // 
-    // - true: The pipelines are deleted.
-    // - false: The pipelines failed to be deleted.
+    // - true: The deletion was successful.
+    // - false: The deletion failed.
     shared_ptr<bool> result_ {};
   };
 

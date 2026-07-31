@@ -125,10 +125,10 @@ namespace Models
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node. Valid values:
         // 
-        // - cloud_ssd: standard SSD
+        // - cloud_ssd: standard SSD.
         // - cloud_efficiency: ultra disk.
         shared_ptr<string> diskType_ {};
-        // 节点规格。
+        // The node specifications.
         shared_ptr<string> spec_ {};
       };
 
@@ -194,7 +194,7 @@ namespace Models
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node. Only cloud_ssd (standard SSD) is supported.
         shared_ptr<string> diskType_ {};
-        // 节点规格。
+        // The node specifications.
         shared_ptr<string> spec_ {};
       };
 
@@ -260,7 +260,7 @@ namespace Models
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node. You can ignore this parameter.
         shared_ptr<string> diskType_ {};
-        // 节点规格。
+        // The node specifications.
         shared_ptr<string> spec_ {};
       };
 
@@ -355,7 +355,7 @@ namespace Models
       shared_ptr<string> createdAt_ {};
       // The instance name.
       shared_ptr<string> description_ {};
-      // 实例的私网访问域名。
+      // The internal-facing access endpoint of the instance for private network access.
       shared_ptr<string> domain_ {};
       // The instance version.
       shared_ptr<string> esVersion_ {};
@@ -371,14 +371,14 @@ namespace Models
       shared_ptr<Result::NodeSpec> nodeSpec_ {};
       // The billing method of the instance. Valid values:
       // 
-      // - prepaid: subscription
+      // - prepaid: subscription.
       // - postpaid: pay-as-you-go.
       shared_ptr<string> paymentType_ {};
       // The status of the instance. Valid values:
       // 
-      // - active: Normal
-      // - activating: Taking effect
-      // - inactive: Frozen
+      // - active: Normal.
+      // - activating: Taking effect.
+      // - inactive: Frozen.
       // - invalid: Invalid.
       shared_ptr<string> status_ {};
     };

@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result. Valid values:
+    // The result of the operation. Valid values:
     // 
     // - true: The index template was deleted.
     // 

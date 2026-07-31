@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const EnableKibanaPvlNetworkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(endpointName, endpointName_);
+      DARABONBA_PTR_TO_JSON(managedSecurityGroup, managedSecurityGroup_);
       DARABONBA_PTR_TO_JSON(securityGroups, securityGroups_);
       DARABONBA_PTR_TO_JSON(vSwitchIdsZone, vSwitchIdsZone_);
       DARABONBA_PTR_TO_JSON(vpcId, vpcId_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, EnableKibanaPvlNetworkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(endpointName, endpointName_);
+      DARABONBA_PTR_FROM_JSON(managedSecurityGroup, managedSecurityGroup_);
       DARABONBA_PTR_FROM_JSON(securityGroups, securityGroups_);
       DARABONBA_PTR_FROM_JSON(vSwitchIdsZone, vSwitchIdsZone_);
       DARABONBA_PTR_FROM_JSON(vpcId, vpcId_);
@@ -83,12 +85,19 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->endpointName_ == nullptr
-        && this->securityGroups_ == nullptr && this->vSwitchIdsZone_ == nullptr && this->vpcId_ == nullptr && this->clientToken_ == nullptr; };
+        && this->managedSecurityGroup_ == nullptr && this->securityGroups_ == nullptr && this->vSwitchIdsZone_ == nullptr && this->vpcId_ == nullptr && this->clientToken_ == nullptr; };
     // endpointName Field Functions 
     bool hasEndpointName() const { return this->endpointName_ != nullptr;};
     void deleteEndpointName() { this->endpointName_ = nullptr;};
     inline string getEndpointName() const { DARABONBA_PTR_GET_DEFAULT(endpointName_, "") };
     inline EnableKibanaPvlNetworkRequest& setEndpointName(string endpointName) { DARABONBA_PTR_SET_VALUE(endpointName_, endpointName) };
+
+
+    // managedSecurityGroup Field Functions 
+    bool hasManagedSecurityGroup() const { return this->managedSecurityGroup_ != nullptr;};
+    void deleteManagedSecurityGroup() { this->managedSecurityGroup_ = nullptr;};
+    inline bool getManagedSecurityGroup() const { DARABONBA_PTR_GET_DEFAULT(managedSecurityGroup_, false) };
+    inline EnableKibanaPvlNetworkRequest& setManagedSecurityGroup(bool managedSecurityGroup) { DARABONBA_PTR_SET_VALUE(managedSecurityGroup_, managedSecurityGroup) };
 
 
     // securityGroups Field Functions 
@@ -126,9 +135,8 @@ namespace Models
   protected:
     // The endpoint name.
     shared_ptr<string> endpointName_ {};
+    shared_ptr<bool> managedSecurityGroup_ {};
     // The security groups.
-    // 
-    // This parameter is required.
     shared_ptr<vector<string>> securityGroups_ {};
     // The vSwitch and zone information.
     shared_ptr<vector<EnableKibanaPvlNetworkRequest::VSwitchIdsZone>> vSwitchIdsZone_ {};

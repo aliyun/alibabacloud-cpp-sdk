@@ -243,7 +243,7 @@ namespace Models
         shared_ptr<string> vpcId_ {};
         // The instance ID of the current cluster or the load balancing SLB (Server Load Balancer) instance ID.
         shared_ptr<string> vpcInstanceId_ {};
-        // The port number used to access the cluster.
+        // The access port of the cluster.
         shared_ptr<string> vpcInstancePort_ {};
       };
 

@@ -135,7 +135,7 @@ namespace Models
 
     protected:
       // The CPU usage.
-      // > When **extended** is set to **true** and the monitoring information of the node is being synchronized, the parameter value returns null. In this case, wait 10 seconds and send the request again to retrieve the value.
+      // > When **extended** is set to **true** and the monitoring information of the node is being synchronized, the parameter value returns null. In this case, wait 10 seconds and resend the request to obtain the value.
       shared_ptr<string> cpuPercent_ {};
       // The disk usage.
       shared_ptr<string> diskUsedPercent_ {};
@@ -153,7 +153,7 @@ namespace Models
       // - WORKER: hot node
       // - WORKER_WARM: warm node
       // - COORDINATING: client node
-      // - KIBANA: Kibana node.
+      // - KIBANA: Kibana node
       shared_ptr<string> nodeType_ {};
       // The access port of the node.
       shared_ptr<int32_t> port_ {};

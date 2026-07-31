@@ -165,10 +165,10 @@ namespace Models
 
 
     protected:
-      // Indicates whether automatic creation of a data stream is enabled. Valid values:
+      // Indicates whether automatic creation of a data stream is enabled at the same time. Valid values:
       // 
-      // - true: Automatic creation of a data stream is enabled.
-      // - false: Automatic creation of a data stream is not enabled.
+      // - true: Yes.
+      // - false: No.
       shared_ptr<bool> dataStream_ {};
       // The index pattern information.
       shared_ptr<vector<string>> indexPatterns_ {};

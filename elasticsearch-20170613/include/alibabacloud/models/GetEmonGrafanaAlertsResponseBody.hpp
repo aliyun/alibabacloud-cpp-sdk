@@ -74,8 +74,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the Grafana alert list is retrieved. Valid values:
     // 
-    // - true: The alert list is retrieved.
-    // - false: The alert list failed to be retrieved.
+    // - true: Succeeded.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

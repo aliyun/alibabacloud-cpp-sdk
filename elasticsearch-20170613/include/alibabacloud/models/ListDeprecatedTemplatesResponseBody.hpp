@@ -110,7 +110,7 @@ namespace Models
 
 
       protected:
-        // The alias configuration of the template.
+        // The aliases configuration of the template.
         shared_ptr<string> aliases_ {};
         // The mappings configuration of the template.
         shared_ptr<string> mappings_ {};
@@ -169,7 +169,7 @@ namespace Models
     protected:
       // Indicates whether the template matches a data stream. Valid values:
       // 
-      // - true: matched
+      // - true: matched.
       // - false: not matched.
       shared_ptr<bool> dataStream_ {};
       // The index template information.

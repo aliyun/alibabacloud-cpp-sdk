@@ -71,7 +71,7 @@ namespace Models
     protected:
       // The current OpenStore storage usage, which is an estimated value based on actual indexes. Unit: bytes.
       shared_ptr<int64_t> currentUsage_ {};
-      // The OpenStore storage usage on the previous day. Unit: bytes.
+      // The OpenStore storage usage of the previous day. Unit: bytes.
       shared_ptr<int64_t> lastDayUsage_ {};
     };
 

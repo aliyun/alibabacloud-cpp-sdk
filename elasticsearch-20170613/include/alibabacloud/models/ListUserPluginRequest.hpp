@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Plugin Name.
+    // The plug-in name.
     shared_ptr<string> name_ {};
-    // Page number for paging the plugin list.
+    // The page number of the plug-in list.
     shared_ptr<string> page_ {};
-    // Number of records per page.
+    // The number of records per page.
     shared_ptr<string> size_ {};
   };
 

@@ -70,12 +70,12 @@ namespace Models
     shared_ptr<string> name_ {};
     // The page number of the plugin list. Default value: 1. Minimum value: 1. Maximum value: 200.
     shared_ptr<int32_t> page_ {};
-    // The number of entries per page in paging settings. Minimum value: 1. Maximum value: 200.
+    // The number of entries per page for paging. Minimum value: 1. Maximum value: 200.
     shared_ptr<int32_t> size_ {};
     // The plugin source. Valid values:
     // 
     // - USER: custom plugin
-    // - SYSTEM: system preset plugin.
+    // - SYSTEM: system preset plugin
     shared_ptr<string> source_ {};
   };
 

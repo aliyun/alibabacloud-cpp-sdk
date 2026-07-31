@@ -102,7 +102,7 @@ namespace Models
     shared_ptr<int32_t> page_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The number of entries per page for paging. Default value: 20.
+    // The number of entries per page in Settings for paging. Default value: 20.
     shared_ptr<int32_t> size_ {};
     // The instance tags.
     shared_ptr<string> tags_ {};

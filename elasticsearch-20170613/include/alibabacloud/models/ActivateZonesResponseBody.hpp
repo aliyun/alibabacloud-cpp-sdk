@@ -51,6 +51,7 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The result of the operation. Valid values:
+    // 
     // - true: The zone is resumed.
     // - false: The zone failed to be resumed.
     shared_ptr<bool> result_ {};

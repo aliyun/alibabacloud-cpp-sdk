@@ -50,7 +50,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Return Result
+    // The returned result.
     shared_ptr<bool> result_ {};
   };
 

@@ -96,14 +96,14 @@ namespace Models
     protected:
       // Specifies whether to sort in descending order. Valid values:
       // 
-      // - true (default): Yes.
-      // - false: No.
+      // - true (default): yes
+      // - false: no
       shared_ptr<bool> desc_ {};
       // The field by which the results are sorted. Valid values:
       // 
       // - event_time: event creation time
       // - event_execute_start_time: event execution time
-      // - event_execute_finish_time: event completion time.
+      // - event_execute_finish_time: event completion time
       shared_ptr<string> sortField_ {};
     };
 
@@ -224,7 +224,7 @@ namespace Models
     shared_ptr<string> eventCreateEndTime_ {};
     // The start time for querying by event creation time. Specify a timestamp in milliseconds.
     shared_ptr<string> eventCreateStartTime_ {};
-    // The lifecycle status of the event.
+    // The lifecycle status object of the event.
     shared_ptr<vector<string>> eventCycleStatus_ {};
     // The end time for querying by event execution time. Specify a timestamp in milliseconds.
     shared_ptr<string> eventExecuteEndTime_ {};
@@ -242,9 +242,9 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The IP address of the node that triggered the event.
     shared_ptr<string> nodeIP_ {};
-    // The starting document offset. The value must be a non-negative integer. Default value: 0.
+    // The starting document offset. The value must be a non-negative number. Default value: 0.
     shared_ptr<int32_t> page_ {};
-    // The number of events to return. The value must be a non-negative integer. Default value: 10.
+    // The number of events to return. The value must be a non-negative number. Default value: 10.
     shared_ptr<int32_t> size_ {};
   };
 

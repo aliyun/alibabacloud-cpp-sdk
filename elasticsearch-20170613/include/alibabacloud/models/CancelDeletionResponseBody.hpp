@@ -53,7 +53,7 @@ namespace Models
     // Indicates whether the instance is recovered. Valid values:
     // 
     // - true: The instance is recovered.
-    // - false: The instance failed to be recovered.
+    // - false: The instance is not recovered.
     shared_ptr<bool> result_ {};
   };
 

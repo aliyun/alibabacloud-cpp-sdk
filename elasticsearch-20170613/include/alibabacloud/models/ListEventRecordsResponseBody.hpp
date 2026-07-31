@@ -176,11 +176,11 @@ namespace Models
 
 
           protected:
-            // Operation suggestion
+            // The suggested action.
             shared_ptr<vector<string>> suggestActions_ {};
-            // Operation suggestion text
+            // The text of the suggested action.
             shared_ptr<string> suggestText_ {};
-            // Operation suggestion type
+            // The type of the suggested action.
             shared_ptr<string> suggestType_ {};
           };
 
@@ -246,21 +246,21 @@ namespace Models
 
 
         protected:
-          // Operation suggestion
+          // The suggested action.
           shared_ptr<ShowContent::ActionSuggest> actionSuggest_ {};
-          // Description of the management event
+          // The event description.
           shared_ptr<string> desc_ {};
-          // Management event status
+          // The event status.
           shared_ptr<string> eventStatus_ {};
-          // Time of occurrence
+          // The time when the event occurred.
           shared_ptr<string> eventTime_ {};
-          // End Time of O&M execution for the management event
+          // The end time of the O&M execution for the event.
           shared_ptr<string> executeFinishTime_ {};
-          // Start Time of O&M execution for the management event
+          // The start time of the O&M execution for the event.
           shared_ptr<string> executeStartTime_ {};
-          // Instance ID of the occurrence
+          // The instance ID of the instance on which the event occurred.
           shared_ptr<string> instanceId_ {};
-          // Execution ID of the cluster Change
+          // The execution ID of the cluster change.
           shared_ptr<string> opsChangeId_ {};
         };
 
@@ -355,29 +355,29 @@ namespace Models
 
 
       protected:
-        // Is auto-alarm enabled
+        // Indicates whether automatic alerting is enabled.
         shared_ptr<bool> autoAlarm_ {};
-        // Management event display name
+        // The display name of the event.
         shared_ptr<string> displayName_ {};
-        // is Preview
+        // Indicates whether this is a dry run.
         shared_ptr<bool> dryRun_ {};
-        // event level
+        // The event level.
         shared_ptr<string> level_ {};
-        // is O&M processing required
+        // Indicates whether O&M processing is required.
         shared_ptr<bool> mustOps_ {};
-        // product type of the management event
+        // The product type of the event.
         shared_ptr<string> product_ {};
-        // scheduled running time
+        // The scheduled execution time.
         shared_ptr<string> scheduleExecuteTime_ {};
-        // scheduled end time
+        // The scheduled end time.
         shared_ptr<string> scheduleFinishTime_ {};
-        // Management event content
+        // The event content.
         shared_ptr<ResultItem::ShowContent> showContent_ {};
-        // Event occurrence source
+        // The source of the event.
         shared_ptr<string> source_ {};
-        // Event status
+        // The event status.
         shared_ptr<string> status_ {};
-        // Event type
+        // The event type.
         shared_ptr<string> type_ {};
       };
 
@@ -400,9 +400,9 @@ namespace Models
 
 
     protected:
-      // Content
+      // The returned content.
       shared_ptr<vector<Result::ResultItem>> result_ {};
-      // Total number of records
+      // The total number of records.
       shared_ptr<string> total_ {};
     };
 
@@ -425,9 +425,9 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Return Result
+    // The returned result.
     shared_ptr<ListEventRecordsResponseBody::Result> result_ {};
   };
 

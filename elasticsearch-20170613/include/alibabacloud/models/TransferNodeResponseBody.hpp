@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result of the operation. Valid values:
+    // The result of the request. Valid values:
     // 
     // - true: The task was successful.
     // - false: The task failed.

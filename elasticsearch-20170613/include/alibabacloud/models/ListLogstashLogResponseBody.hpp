@@ -103,7 +103,7 @@ namespace Models
       shared_ptr<string> host_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The log level. Valid values: trace, debug, info, warn, and error. GC logs do not have a level.
+      // The log level. Valid values include trace, debug, info, warn, and error. GC logs do not have a level.
       shared_ptr<string> level_ {};
       // The timestamp when the log was generated. Unit: milliseconds.
       shared_ptr<int64_t> timestamp_ {};

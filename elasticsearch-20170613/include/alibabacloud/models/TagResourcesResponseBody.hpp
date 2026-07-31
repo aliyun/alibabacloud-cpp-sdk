@@ -50,10 +50,10 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result. Valid values:
+    // The result. Valid values:
     // 
-    // - true: The tag-resource relationships are created.
-    // - false: The tag-resource relationships failed to be created.
+    // - true: The tag-resource relationship is created.
+    // - false: The tag-resource relationship failed to be created.
     shared_ptr<bool> result_ {};
   };
 

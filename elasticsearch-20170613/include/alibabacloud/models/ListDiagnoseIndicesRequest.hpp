@@ -38,13 +38,13 @@ namespace Models
 
 
   protected:
-    // The language. Default value: the browser language. Valid values:
+    // The language configuration. Default value: browser language. Valid values:
     // 
     // - en: English
     // - zh: Simplified Chinese
     // - zt: Traditional Chinese
     // - es: Spanish
-    // - fr: French.
+    // - fr: French
     shared_ptr<string> lang_ {};
   };
 

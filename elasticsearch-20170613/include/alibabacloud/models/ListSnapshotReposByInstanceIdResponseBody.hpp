@@ -92,9 +92,10 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The repository address.
       shared_ptr<string> repoPath_ {};
-      // The name of the referenced repository.
+      // The referenced repository name.
       shared_ptr<string> snapWarehouse_ {};
       // The status of the referenced repository. Valid values:
+      // 
       // - available: The repository is active.
       // - unavailable: The repository is inactive.
       shared_ptr<string> status_ {};

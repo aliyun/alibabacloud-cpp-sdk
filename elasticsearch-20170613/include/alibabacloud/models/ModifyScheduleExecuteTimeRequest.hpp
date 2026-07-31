@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Event ID.
+    // The event ID.
     shared_ptr<string> eventId_ {};
-    // Scheduled execution time (UTC)
+    // The scheduled execution time in UTC.
     shared_ptr<string> scheduleExecuteTime_ {};
   };
 

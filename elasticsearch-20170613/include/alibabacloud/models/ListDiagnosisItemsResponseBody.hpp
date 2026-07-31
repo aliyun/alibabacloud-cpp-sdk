@@ -88,12 +88,12 @@ namespace Models
 
 
     protected:
-      // The diagnostic item description.
+      // The description of the diagnostic item.
       shared_ptr<string> description_ {};
       shared_ptr<bool> esApiRequired_ {};
-      // The diagnostic item identifier.
+      // The identifier of the diagnostic item.
       shared_ptr<string> key_ {};
-      // The diagnostic item name.
+      // The name of the diagnostic item.
       shared_ptr<string> name_ {};
     };
 
@@ -118,7 +118,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The returned results.
     shared_ptr<vector<ListDiagnosisItemsResponseBody::Result>> result_ {};
   };
 

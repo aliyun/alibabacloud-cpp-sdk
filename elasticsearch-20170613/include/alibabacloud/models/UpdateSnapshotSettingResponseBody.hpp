@@ -71,7 +71,7 @@ namespace Models
     protected:
       // Indicates whether automatic backup is enabled.
       shared_ptr<bool> enable_ {};
-      // The start time of automatic backup.
+      // The automatic backup start time.
       shared_ptr<string> quartzRegex_ {};
     };
 

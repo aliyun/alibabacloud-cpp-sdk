@@ -122,7 +122,7 @@ namespace Models
       protected:
         // The trigger cycle, specified as a Quartz Cron expression.
         shared_ptr<string> cronExpression_ {};
-        // The target number of elastic data nodes during off-peak hours.
+        // The number of elastic data nodes during off-peak hours.
         shared_ptr<int32_t> elasticNodeCount_ {};
         // The number of replicas for the target index.
         shared_ptr<int32_t> replicaCount_ {};
@@ -200,7 +200,7 @@ namespace Models
       protected:
         // The trigger cycle, specified as a Quartz Cron expression.
         shared_ptr<string> cronExpression_ {};
-        // The target number of elastic data nodes during peak hours.
+        // The number of elastic data nodes during peak hours.
         shared_ptr<int32_t> elasticNodeCount_ {};
         // The number of replicas for the target index.
         shared_ptr<int32_t> replicaCount_ {};

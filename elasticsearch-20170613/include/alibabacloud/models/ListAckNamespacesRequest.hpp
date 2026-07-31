@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The page number. (Deprecated).
+    // The page number. (Deprecated)
     shared_ptr<int32_t> page_ {};
-    // The number of records per page. (Deprecated).
+    // The number of records per page. (Deprecated)
     shared_ptr<int32_t> size_ {};
   };
 

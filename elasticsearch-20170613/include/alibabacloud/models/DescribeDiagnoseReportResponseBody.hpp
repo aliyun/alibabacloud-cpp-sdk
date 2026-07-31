@@ -361,16 +361,16 @@ namespace Models
       // The list of diagnostic items in the report.
       shared_ptr<vector<Result::DiagnoseItems>> diagnoseItems_ {};
       shared_ptr<string> diagnosisMode_ {};
-      // The overall health status of the cluster in the report. Valid values: GREEN, YELLOW, RED, and UNKNOWN.
+      // The overall health of the cluster in the report. Valid values: GREEN, YELLOW, RED, and UNKNOWN.
       shared_ptr<string> health_ {};
-      // The ID of the diagnosed instance.
+      // The instance ID of the diagnosed instance.
       shared_ptr<string> instanceId_ {};
       shared_ptr<vector<Result::Items>> items_ {};
       // The report ID.
       shared_ptr<string> reportId_ {};
       // The diagnostic status. Valid values: SUCCESS, FAILED, and RUNNING.
       shared_ptr<string> state_ {};
-      // The method used to trigger the health diagnosis. Valid values: SYSTEM (automatically triggered by the system), INNER (internally triggered), and USER (manually triggered by the user).
+      // The method used to trigger the health diagnostics. Valid values: SYSTEM (automatically triggered by the system), INNER (internally triggered), and USER (manually triggered by the user).
       shared_ptr<string> trigger_ {};
     };
 

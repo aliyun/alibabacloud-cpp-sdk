@@ -125,7 +125,7 @@ namespace Models
           shared_ptr<string> groupName_ {};
           // The IP address information in the whitelist group.
           shared_ptr<vector<string>> ips_ {};
-          // The whitelist type. The value is fixed as PRIVATE_ES, which indicates the private network internal-facing access whitelist.
+          // The whitelist type. The value is fixed as PRIVATE_ES, which indicates the private network access whitelist.
           shared_ptr<string> whiteIpType_ {};
         };
 
@@ -165,7 +165,7 @@ namespace Models
 
 
     protected:
-      // The private network internal-facing access whitelist (deprecated).
+      // The private network access whitelist (deprecated).
       shared_ptr<vector<string>> esIPWhitelist_ {};
       // The network configuration.
       shared_ptr<Result::NetworkConfig> networkConfig_ {};

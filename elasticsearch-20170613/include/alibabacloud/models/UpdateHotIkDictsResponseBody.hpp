@@ -95,7 +95,7 @@ namespace Models
       // The source type of the dictionary file. Valid values:
       // 
       // - OSS: uses OSS open storage.
-      // - ORIGIN: retains a previously uploaded dictionary.
+      // - ORIGIN: retains the previously uploaded dictionary.
       shared_ptr<string> sourceType_ {};
       // The dictionary type. Valid values:
       // 

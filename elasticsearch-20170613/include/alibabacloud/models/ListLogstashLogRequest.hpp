@@ -94,7 +94,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> query_ {};
-    // The number of entries per page for a paged query. Default value: 20. Minimum value: 1. Maximum value: 100.
+    // The number of entries per page for the paged query. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int32_t> size_ {};
     // The log type. Valid values:
     // 

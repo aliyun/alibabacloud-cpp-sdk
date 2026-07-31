@@ -156,7 +156,7 @@ namespace Models
       // 
       // - Normal: Normal.
       // 
-      // - FinancialLocked: Locked due to overdue payment.
+      // - FinancialLocked: Financial lock.
       shared_ptr<string> endpointBusinessStatus_ {};
       // The endpoint domain name, which is used for connection configuration.
       shared_ptr<string> endpointDomain_ {};
@@ -168,7 +168,7 @@ namespace Models
       // 
       // - Creating: Being created.
       // 
-      // - Active: Available.
+      // - Active: Active.
       // 
       // - Pending: Being modified.
       // 

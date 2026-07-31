@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is returned only when an exception occurs.
+    // The error code. This parameter is displayed only when an exception occurs.
     shared_ptr<string> code_ {};
-    // The error message. This parameter is returned only when an exception occurs.
+    // The error message. This parameter is displayed only when an exception occurs.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

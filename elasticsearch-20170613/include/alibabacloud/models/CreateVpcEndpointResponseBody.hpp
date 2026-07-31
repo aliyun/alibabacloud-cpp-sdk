@@ -118,7 +118,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result.
+    // The returned result details.
     shared_ptr<CreateVpcEndpointResponseBody::Result> result_ {};
   };
 

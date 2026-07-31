@@ -70,7 +70,7 @@ namespace Models
 
 
     protected:
-      // The instance ID of instances that can establish private network peering.
+      // The instance IDs that can establish private network peering.
       shared_ptr<string> instances_ {};
       // The network type of the instance.
       shared_ptr<string> networkType_ {};

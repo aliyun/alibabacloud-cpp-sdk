@@ -57,26 +57,26 @@ namespace Models
 
 
   protected:
-    // The type of the collector. Valid values:
+    // The collector type. Valid values:
     // 
     // - fileBeat
     // - metricBeat
     // - heartBeat
-    // - auditBeat.
+    // - auditBeat
     // 
     // This parameter is required.
     shared_ptr<string> resType_ {};
-    // The version of the collector. The available versions vary based on the type of machine on which the collector is deployed. Valid values:
+    // The collector version. The available versions vary depending on the machine type on which the collector is deployed. Valid values:
     // 
     // - ECS: 6.8.5_with_community
-    // - ACK: 6.8.13_with_community.
+    // - ACK: 6.8.13_with_community
     // 
     // This parameter is required.
     shared_ptr<string> resVersion_ {};
     // The type of machine on which the collector is deployed. If you do not specify this parameter, all types are returned. Valid values:
     // 
-    // - ECS: Elastic Compute Service (ECS) instance
-    // - ACK: Container Service for Kubernetes (ACK) cluster.
+    // - ECS: Elastic Compute Service instance
+    // - ACK: Container Kubernetes cluster
     shared_ptr<string> sourceType_ {};
   };
 

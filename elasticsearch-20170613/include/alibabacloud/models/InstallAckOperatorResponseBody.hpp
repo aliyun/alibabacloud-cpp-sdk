@@ -52,7 +52,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The returned result. Valid values:
     // 
-    // - true: The installation was successful.
+    // - true: The installation succeeded.
     // - false: The installation failed.
     shared_ptr<bool> result_ {};
   };

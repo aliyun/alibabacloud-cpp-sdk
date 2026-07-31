@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Change ID
+    // The change ID.
     shared_ptr<string> xRequestChangeId_ {};
   };
 

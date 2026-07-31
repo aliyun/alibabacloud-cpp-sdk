@@ -116,15 +116,15 @@ namespace Models
 
 
     protected:
-      // The real-time metric monitoring data, in the format of `{timestamp:data}`.
+      // The real-time metric monitoring data. Format: `{timestamp:data}`.
       Darabonba::Json dps_ {};
       // The completeness of time series data points in the metric query result. A value of 1.0 indicates 100% completeness.
       shared_ptr<float> integrity_ {};
-      // The timestamp when the request reaches the server. This parameter is used for troubleshooting.
+      // The timestamp when the request reaches the server. This is used for troubleshooting.
       shared_ptr<int64_t> messageWatermark_ {};
       // The metric name.
       shared_ptr<string> metric_ {};
-      // If the queries contain wildcards, the result includes multiple matched time series datasets. The summary aggregates the values of these time series at each time point based on the aggregator type specified in the query. Currently, only avg is supported as the aggregation method.
+      // If the queries contain wildcards, the result includes multiple matching time series data sequences. The summary is the aggregation of the values across these time series at each time point, based on the aggregator type specified in the query. Currently, only avg is supported as the aggregation method.
       shared_ptr<float> summary_ {};
       // The query tags.
       Darabonba::Json tags_ {};

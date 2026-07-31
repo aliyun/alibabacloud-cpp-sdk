@@ -253,7 +253,7 @@ namespace Models
           // 
           // - TEXT: text description
           // - CONSOLE_API: console-triggered
-          // - ES_API: API-triggered.
+          // - ES_API: API-triggered
           shared_ptr<string> type_ {};
         };
 
@@ -380,7 +380,7 @@ namespace Models
       // 
       // - SYSTEM: automatically triggered by the system
       // - INNER: internally triggered
-      // - USER: manually triggered by the user.
+      // - USER: manually triggered by the user
       shared_ptr<string> trigger_ {};
     };
 

@@ -97,15 +97,15 @@ namespace Models
 
 
     protected:
-      // Plugin Description.
+      // The plug-in description.
       shared_ptr<string> description_ {};
-      // Plugin version.
+      // The plug-in version.
       shared_ptr<string> elasticsearchVersion_ {};
-      // Plugin Name.
+      // The plug-in name.
       shared_ptr<string> name_ {};
-      // Plugin security policy.
+      // The security policy of the plug-in.
       shared_ptr<string> securityPolicy_ {};
-      // Plugin Version.
+      // The plug-in version.
       shared_ptr<string> version_ {};
     };
 
@@ -128,9 +128,9 @@ namespace Models
 
 
   protected:
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Return Result.
+    // The returned result.
     shared_ptr<vector<PluginAnalysisResponseBody::Result>> result_ {};
   };
 

@@ -192,8 +192,8 @@ namespace Models
             protected:
               // The index compression method. Valid values:
               // 
-              // - LZ4: the default compression algorithm of Elasticsearch. It provides fast compression and decompression but a relatively lower compression ratio.
-              // - best_compression: uses the best_compression algorithm for compression, which provides a higher compression ratio.
+              // - LZ4: The default compression algorithm of Elasticsearch. It provides fast compression and decompression but a relatively lower compression ratio.
+              // - best_compression: Uses the best_compression algorithm for compression, which provides a higher compression ratio.
               shared_ptr<string> codec_ {};
               // The index lifecycle configuration.
               shared_ptr<Index::Lifecycle> lifecycle_ {};
@@ -293,7 +293,7 @@ namespace Models
 
 
     protected:
-      // The information about the index templates that reference this composable template.
+      // The information about index templates that reference this composable template.
       shared_ptr<vector<string>> composed_ {};
       // The content of the composable template.
       shared_ptr<Result::Content> content_ {};

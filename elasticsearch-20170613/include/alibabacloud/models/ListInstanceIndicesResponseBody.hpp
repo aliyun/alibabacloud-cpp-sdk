@@ -141,7 +141,7 @@ namespace Models
       shared_ptr<string> ilmExplain_ {};
       // This parameter is deprecated and can be ignored.
       shared_ptr<string> isManaged_ {};
-      // The managed status of the index. Valid values:
+      // The index management status. Valid values:
       // 
       // - following: Managed.
       // 
@@ -161,7 +161,7 @@ namespace Models
       // 
       // - delete: Delete phase.
       // 
-      // > If this parameter is empty, the index is not managed by a lifecycle policy.
+      // > If this value is empty, the index is not managed by a lifecycle policy.
       shared_ptr<string> phase_ {};
       // The total storage space occupied by the index. Unit: bytes.
       shared_ptr<int64_t> size_ {};

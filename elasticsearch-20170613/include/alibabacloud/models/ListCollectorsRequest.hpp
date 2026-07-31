@@ -98,7 +98,7 @@ namespace Models
     // 
     // - ECS: ECS instance
     // 
-    // - ACK: Container Kubernetes cluster.
+    // - ACK: Container Kubernetes cluster
     shared_ptr<string> sourceType_ {};
   };
 

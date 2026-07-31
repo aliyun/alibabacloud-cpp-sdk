@@ -52,8 +52,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The result of the operation. Valid values:
     // 
-    // - true: The scale-in operation succeeded.
-    // - false: The scale-in operation failed.
+    // - true: The node shrinking succeeded.
+    // - false: The node shrinking failed.
     shared_ptr<bool> result_ {};
   };
 

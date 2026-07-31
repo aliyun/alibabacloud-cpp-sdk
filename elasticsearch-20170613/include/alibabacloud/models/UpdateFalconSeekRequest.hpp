@@ -38,7 +38,10 @@ namespace Models
 
 
   protected:
-    // true: Enabled, false: shutdown
+    // Specifies whether to enable the FalconSeek cloud-native kernel feature. Valid values:
+    // 
+    // - true: Enable the feature.
+    // - false: Disable the feature.
     // 
     // This parameter is required.
     shared_ptr<bool> enable_ {};

@@ -234,10 +234,10 @@ namespace Models
           protected:
             // The status of each collector on the ECS instance. Valid values:
             // 
-            // - heartOk: The heartbeat is normal.
-            // - heartLost: The heartbeat is abnormal.
-            // - uninstalled: Not installed.
-            // - failed: Installation failed.
+            // - heartOk: normal heartbeat.
+            // - heartLost: abnormal heartbeat.
+            // - uninstalled: not installed.
+            // - failed: installation failed.
             shared_ptr<string> agentStatus_ {};
             // The list of ECS machine IDs.
             shared_ptr<string> instanceId_ {};
@@ -335,20 +335,20 @@ namespace Models
           // The machine group ID. This parameter is displayed when configType is set to collectorDeployMachine.
           shared_ptr<string> groupId_ {};
           shared_ptr<vector<string>> hosts_ {};
-          // The ID of the instance associated with the collector. When configType is set to collectorTargetInstance, this is the instance ID of the collector Output. When configType is set to collectorDeployMachines and type is set to ACKCluster, this is the ACK (Container Service for Kubernetes) cluster ID.
+          // The ID of the instance associated with the collector. When configType is set to collectorTargetInstance, this is the instance ID of the collector Output. When configType is set to collectorDeployMachines and type is set to ACKCluster, this is the ACK (Container Kubernetes) cluster ID.
           shared_ptr<string> instanceId_ {};
-          // The type of the instance specified by the collector Output. Valid values: elasticsearch and logstash. This parameter is displayed when configType is set to collectorTargetInstance.
+          // The instance type specified in the collector Output. Valid values: elasticsearch and logstash. This parameter is displayed when configType is set to collectorTargetInstance.
           shared_ptr<string> instanceType_ {};
           // The list of ECS machines on which the collector is deployed. This parameter is displayed when configType is set to collectorDeployMachines and type is set to ECSInstanceId.
           shared_ptr<vector<ExtendConfigs::Machines>> machines_ {};
-          // The transmission protocol, which must be consistent with the access protocol of the instance specified by the collector Output. Valid values: HTTP and HTTPS. This parameter is displayed when configType is set to collectorTargetInstance.
+          // The transport protocol, which must be consistent with the access protocol of the instance specified in the collector Output. Valid values: HTTP and HTTPS. This parameter is displayed when configType is set to collectorTargetInstance.
           shared_ptr<string> protocol_ {};
           // The type of machine on which the collector is deployed. This parameter is displayed when configType is set to collectorDeployMachine. Valid values:
           // 
-          // - ECSInstanceId: ECS
-          // - ACKCluster: Container Service for Kubernetes.
+          // - ECSInstanceId: ECS.
+          // - ACKCluster: Container Kubernetes.
           shared_ptr<string> type_ {};
-          // The username used to access the instance specified by the collector Output. Default value: elastic. This parameter is displayed when configType is set to collectorTargetInstance or collectorElasticsearchForKibana.
+          // The username used to access the instance specified in the collector Output. Default value: elastic. This parameter is displayed when configType is set to collectorTargetInstance or collectorElasticsearchForKibana.
           shared_ptr<string> userName_ {};
         };
 
@@ -501,7 +501,7 @@ namespace Models
         shared_ptr<vector<string>> collectorPaths_ {};
         // The configuration file information of the collector.
         shared_ptr<vector<Collectors::Configs>> configs_ {};
-        // Indicates whether the collector is only validated without being created. Valid values:
+        // Indicates whether to only validate without creating the collector. Valid values:
         // 
         // - true: Only validates without creating.
         // - false: Validates and creates.
@@ -520,14 +520,14 @@ namespace Models
         shared_ptr<string> resId_ {};
         // The collector type. Valid values: fileBeat, metricBeat, heartBeat, and auditBeat.
         shared_ptr<string> resType_ {};
-        // The collector version. When the machine type for collector deployment is ECS, only **6.8.5_with_community** is supported.
+        // The collector version. When the deployment machine type is ECS, only **6.8.5_with_community** is supported.
         shared_ptr<string> resVersion_ {};
         // The collector status. Valid values:
         // 
-        // - activing: Taking effect.
-        // - active: Active.
+        // - activing: taking effect.
+        // - active: active.
         shared_ptr<string> status_ {};
-        // The ID of the VPC where the collector resides.
+        // The VPC ID of the collector.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -595,7 +595,7 @@ namespace Models
 
 
     protected:
-      // The installation status of Cloud Assistant. Valid values:
+      // The Cloud Assistant installation status. Valid values:
       // 
       // - true: Installed.
       // - false: Not installed.
@@ -604,7 +604,7 @@ namespace Models
       shared_ptr<vector<Result::Collectors>> collectors_ {};
       // The ECS instance ID.
       shared_ptr<string> ecsInstanceId_ {};
-      // The name of the ECS instance.
+      // The ECS instance name.
       shared_ptr<string> ecsInstanceName_ {};
       // The IP address information of the ECS instance.
       shared_ptr<vector<Result::IpAddress>> ipAddress_ {};
@@ -615,10 +615,10 @@ namespace Models
       shared_ptr<string> osType_ {};
       // The status of the ECS instance. Valid values:
       // 
-      // - running: Running.
-      // - starting: Starting.
-      // - stopping: Stopping.
-      // - stopped: Stopped.
+      // - running: running.
+      // - starting: starting.
+      // - stopping: stopping.
+      // - stopped: stopped.
       shared_ptr<string> status_ {};
       // The tag information of the ECS instance.
       shared_ptr<string> tags_ {};

@@ -95,7 +95,7 @@ namespace Models
     // - zh: Simplified Chinese
     // - zt: Traditional Chinese
     // - es: Spanish
-    // - fr: French.
+    // - fr: French
     shared_ptr<string> lang_ {};
     // The page number. Default value: 1. Minimum value: 1. Maximum value: 200.
     shared_ptr<int32_t> page_ {};

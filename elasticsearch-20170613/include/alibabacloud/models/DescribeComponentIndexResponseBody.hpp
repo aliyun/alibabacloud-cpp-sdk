@@ -134,7 +134,7 @@ namespace Models
 
 
     protected:
-      // The metadata, which is used to store information such as remarks.
+      // The metadata, which is used to store remarks and other information.
       Darabonba::Json meta_ {};
       // The template information.
       shared_ptr<Result::Template> template_ {};

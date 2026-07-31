@@ -164,7 +164,7 @@ namespace Models
 
 
     protected:
-      // The resource count of TagResource resources found.
+      // The resource count of TagResource entries found.
       shared_ptr<int32_t> xTotalCount_ {};
     };
 

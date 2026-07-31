@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result. Valid values:
+    // The returned result.
     // 
     // - true: The write high availability feature is enabled or disabled.
     // - false: Failed to enable or disable the write high availability feature.

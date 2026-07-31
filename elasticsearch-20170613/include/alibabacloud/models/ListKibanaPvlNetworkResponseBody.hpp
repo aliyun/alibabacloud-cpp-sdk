@@ -39,6 +39,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(endpointId, endpointId_);
         DARABONBA_PTR_TO_JSON(endpointName, endpointName_);
         DARABONBA_PTR_TO_JSON(endpointStatus, endpointStatus_);
+        DARABONBA_PTR_TO_JSON(managedSecurityGroup, managedSecurityGroup_);
         DARABONBA_PTR_TO_JSON(pvlId, pvlId_);
         DARABONBA_PTR_TO_JSON(securityGroups, securityGroups_);
         DARABONBA_PTR_TO_JSON(vSwitchIdsZone, vSwitchIdsZone_);
@@ -49,6 +50,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(endpointId, endpointId_);
         DARABONBA_PTR_FROM_JSON(endpointName, endpointName_);
         DARABONBA_PTR_FROM_JSON(endpointStatus, endpointStatus_);
+        DARABONBA_PTR_FROM_JSON(managedSecurityGroup, managedSecurityGroup_);
         DARABONBA_PTR_FROM_JSON(pvlId, pvlId_);
         DARABONBA_PTR_FROM_JSON(securityGroups, securityGroups_);
         DARABONBA_PTR_FROM_JSON(vSwitchIdsZone, vSwitchIdsZone_);
@@ -110,8 +112,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->endpointId_ == nullptr && this->endpointName_ == nullptr && this->endpointStatus_ == nullptr && this->pvlId_ == nullptr && this->securityGroups_ == nullptr
-        && this->vSwitchIdsZone_ == nullptr && this->vpcId_ == nullptr; };
+        && this->endpointId_ == nullptr && this->endpointName_ == nullptr && this->endpointStatus_ == nullptr && this->managedSecurityGroup_ == nullptr && this->pvlId_ == nullptr
+        && this->securityGroups_ == nullptr && this->vSwitchIdsZone_ == nullptr && this->vpcId_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -138,6 +140,13 @@ namespace Models
       void deleteEndpointStatus() { this->endpointStatus_ = nullptr;};
       inline string getEndpointStatus() const { DARABONBA_PTR_GET_DEFAULT(endpointStatus_, "") };
       inline Result& setEndpointStatus(string endpointStatus) { DARABONBA_PTR_SET_VALUE(endpointStatus_, endpointStatus) };
+
+
+      // managedSecurityGroup Field Functions 
+      bool hasManagedSecurityGroup() const { return this->managedSecurityGroup_ != nullptr;};
+      void deleteManagedSecurityGroup() { this->managedSecurityGroup_ = nullptr;};
+      inline bool getManagedSecurityGroup() const { DARABONBA_PTR_GET_DEFAULT(managedSecurityGroup_, false) };
+      inline Result& setManagedSecurityGroup(bool managedSecurityGroup) { DARABONBA_PTR_SET_VALUE(managedSecurityGroup_, managedSecurityGroup) };
 
 
       // pvlId Field Functions 
@@ -181,10 +190,10 @@ namespace Models
       shared_ptr<string> endpointName_ {};
       // The endpoint status. Valid values:
       // 
-      // - Disconnected: not connected.
-      // 
-      // - Connected: connected.
+      // - Disconnected: disconnected
+      // - Connected: connected
       shared_ptr<string> endpointStatus_ {};
+      shared_ptr<bool> managedSecurityGroup_ {};
       // The Kibana private network connection ID.
       shared_ptr<string> pvlId_ {};
       // The list of security groups.

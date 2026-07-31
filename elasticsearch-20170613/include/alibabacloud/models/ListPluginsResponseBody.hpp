@@ -105,7 +105,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The plugin source type.
       shared_ptr<string> source_ {};
-      // The URL of the plugin documentation.
+      // The URL of the plugin specification document.
       shared_ptr<string> specificationUrl_ {};
       // The plugin status.
       shared_ptr<string> state_ {};

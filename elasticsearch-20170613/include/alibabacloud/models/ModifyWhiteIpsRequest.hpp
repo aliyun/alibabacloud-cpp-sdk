@@ -89,16 +89,16 @@ namespace Models
 
 
     protected:
-      // The name of the whitelist group. This parameter is required if you specify the whiteIpGroup parameter.
+      // The name of the whitelist group. This parameter is required if whiteIpGroup is specified.
       shared_ptr<string> groupName_ {};
-      // The list of IP addresses in the whitelist group. This parameter is required if you specify the whiteIpGroup parameter.
+      // The list of IP addresses in the whitelist group. This parameter is required if whiteIpGroup is specified.
       shared_ptr<vector<string>> ips_ {};
       // The type of the IP whitelist. Valid values:
       // 
-      // - PRIVATE_KIBANA: Kibana internal-facing whitelist
-      // - PRIVATE_ES: Elasticsearch internal-facing whitelist
-      // - PUBLIC_ES: Elasticsearch public network access whitelist
-      // - PUBLIC_KIBANA: Kibana public network access whitelist.
+      // - PRIVATE_KIBANA: Kibana private access whitelist.
+      // - PRIVATE_ES: Elasticsearch private access whitelist.
+      // - PUBLIC_ES: Elasticsearch public access whitelist.
+      // - PUBLIC_KIBANA: Kibana public access whitelist.
       shared_ptr<string> whiteIpType_ {};
     };
 
@@ -153,23 +153,22 @@ namespace Models
   protected:
     // The modification mode. Valid values:
     // 
-    // - Cover (default): overwrites the original IP whitelist with the value of the ips parameter.
-    // - Append: adds the IP addresses specified in the ips parameter to the original IP whitelist.
-    // - Delete: removes the IP addresses specified in the ips parameter from the original IP whitelist. At least one IP address must be retained.
+    // - Cover (default): Overwrites the original IP whitelist with the value of the ips parameter.
+    // - Append: Adds the IP addresses specified in the ips parameter to the original IP whitelist.
+    // - Delete: Removes the IP addresses specified in the ips parameter from the original IP whitelist. At least one IP address must be retained.
     shared_ptr<string> modifyMode_ {};
-    // The network type. This parameter is required if you specify the whiteIpList parameter. Valid values:
+    // The network type. This parameter is required if whiteIpList is specified. Valid values:
     // 
-    // - PRIVATE: private network
+    // - PRIVATE: private network.
     // - PUBLIC: public network.
     shared_ptr<string> networkType_ {};
-    // The node type. This parameter is required if you specify the whiteIpList parameter. Valid values:
+    // The node type. This parameter is required if whiteIpList is specified. Valid values:
     // 
-    // - WORKER: Elasticsearch cluster
+    // - WORKER: Elasticsearch cluster.
     // - KIBANA: Kibana cluster.
     shared_ptr<string> nodeType_ {};
-    // Updates the instance whitelist configuration by whitelist group. Only one whitelist group can be updated at a time.
-    // >Notice: You cannot specify both whiteIpList and whiteIpGroup at the same time.
-    // .
+    // Updates the instance whitelist configuration by using the whitelist group method. Only one whitelist group can be updated at a time.
+    // >Notice: You cannot configure whiteIpList and whiteIpGroup at the same time.
     shared_ptr<ModifyWhiteIpsRequest::WhiteIpGroup> whiteIpGroup_ {};
     // The IP address whitelist. This parameter is available when whiteIpGroup is empty and updates the default group whitelist.
     shared_ptr<vector<string>> whiteIpList_ {};

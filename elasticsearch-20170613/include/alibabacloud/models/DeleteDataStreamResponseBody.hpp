@@ -52,7 +52,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The result of the operation. Valid values:
     // 
-    // - true: The data stream was deleted.
+    // - true: The data stream is deleted.
     // 
     // - false: The data stream failed to be deleted.
     shared_ptr<bool> result_ {};

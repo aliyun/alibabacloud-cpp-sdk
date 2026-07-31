@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The page number of the instance list. Default value: 1.
     shared_ptr<string> page_ {};
-    // The number of entries per page for a paged query.
+    // The number of entries per page Settings for paging in a paged query.
     shared_ptr<int32_t> size_ {};
   };
 

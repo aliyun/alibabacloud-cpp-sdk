@@ -103,7 +103,7 @@ namespace Models
     protected:
       // The IP address of the node.
       shared_ptr<string> host_ {};
-      // The node name of the cloud-native ACK-based cluster. You can call the [ListAllNode](https://help.aliyun.com/document_detail/183958.html) operation to obtain the node name.
+      // The node name of the cloud-native ACK cluster. You can call the [ListAllNode](https://help.aliyun.com/document_detail/183958.html) operation to obtain the node name.
       shared_ptr<string> hostName_ {};
       // The node type. Valid values:
       // 
@@ -112,7 +112,7 @@ namespace Models
       shared_ptr<string> nodeType_ {};
       // The access port number of the node.
       shared_ptr<int32_t> port_ {};
-      // The zone ID of the node in the instance. For example, the zone ID of China (Shanghai) Zone C is cn-shanghai-c.
+      // The zone ID of the instance node. For example, the zone ID of Shanghai Zone C is cn-shanghai-c.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -153,10 +153,10 @@ namespace Models
     shared_ptr<vector<ValidateShrinkNodesRequest::Body>> body_ {};
     // The number of nodes.
     shared_ptr<int32_t> count_ {};
-    // Specifies whether to ignore the cluster health status.
+    // Specifies whether to ignore the cluster health status. Valid values:
     // 
-    // - true: ignores the cluster health status.
-    // - false (default): does not ignore the cluster health status.
+    // - true: Ignored.
+    // - false (default): Not ignored.
     shared_ptr<bool> ignoreStatus_ {};
     // The type of nodes to scale in. Valid values:
     // 

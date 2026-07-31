@@ -150,7 +150,7 @@ namespace Models
         shared_ptr<bool> diskEncryption_ {};
         // The disk type of the node.
         shared_ptr<string> diskType_ {};
-        // The specification of the node.
+        // The node specification.
         shared_ptr<string> spec_ {};
       };
 
@@ -313,7 +313,7 @@ namespace Models
 
 
       protected:
-        // The status of the zone. Valid values:
+        // The zone status. Valid values:
         // 
         // - ISOLATION: offline.
         // - NORMAL: Normal.
@@ -515,15 +515,15 @@ namespace Models
       shared_ptr<vector<Darabonba::Json>> extendConfigs_ {};
       // The ID of the resource group to which the instance belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The instance labels.
+      // The instance tags.
       shared_ptr<vector<Result::Tags>> tags_ {};
       // The zone information.
       shared_ptr<vector<Result::ZoneInfos>> zoneInfos_ {};
-      // The instance configuration.
+      // The instance configuration information.
       Darabonba::Json config_ {};
       // The time when the instance was created.
       shared_ptr<string> createdAt_ {};
-      // The name of the instance.
+      // The instance name.
       shared_ptr<string> description_ {};
       shared_ptr<int64_t> endTime_ {};
       // The access information of the nodes.
@@ -534,12 +534,12 @@ namespace Models
       shared_ptr<Result::NetworkConfig> networkConfig_ {};
       // The number of nodes in the instance.
       shared_ptr<int32_t> nodeAmount_ {};
-      // The configuration of the node.
+      // The configuration information of the node.
       shared_ptr<Result::NodeSpec> nodeSpec_ {};
       // The billing method of the instance. Valid values:
       // 
       // - prepaid: subscription
-      // - postpaid: pay-as-you-go.
+      // - postpaid: pay-as-you-go
       shared_ptr<string> paymentType_ {};
       // The status of the instance. Valid values:
       // 
@@ -550,7 +550,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The time when the instance was last updated.
       shared_ptr<string> updatedAt_ {};
-      // The version of the instance.
+      // The instance version.
       shared_ptr<string> version_ {};
       // The ID of the VPC to which the instance belongs.
       shared_ptr<string> vpcInstanceId_ {};

@@ -50,9 +50,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result. Valid values:
+    // The returned result:
     // 
-    // - true: The migration was successful.
+    // - true: The migration is successful.
     // - false: The migration failed.
     shared_ptr<bool> result_ {};
   };

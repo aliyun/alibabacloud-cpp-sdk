@@ -52,8 +52,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the pipeline is created. Valid values:
     // 
-    // - true: The pipeline is created.
-    // - false: The pipeline failed to be created.
+    // - true: Created.
+    // - false: Failed to create.
     shared_ptr<bool> result_ {};
   };
 

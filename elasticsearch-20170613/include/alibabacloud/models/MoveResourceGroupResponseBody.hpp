@@ -149,7 +149,7 @@ namespace Models
         shared_ptr<string> name_ {};
         // The source type. Valid values:
         // 
-        // - OSS: OSS open storage. Make sure that the OSS bucket has public-read permission.
+        // - OSS: OSS open storage (the OSS bucket must be publicly readable).
         // - ORIGIN: retains the previously uploaded dictionary.
         shared_ptr<string> sourceType_ {};
         // The dictionary type. Valid values:
@@ -208,7 +208,7 @@ namespace Models
 
 
       protected:
-        // The storage size of the node. Unit: GB.
+        // The storage space size of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node.
         shared_ptr<string> diskType_ {};
@@ -274,7 +274,7 @@ namespace Models
       protected:
         // The network type. Only VPC is supported.
         shared_ptr<string> type_ {};
-        // The virtual private cloud (VPC) ID.
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
         // The zone where the instance resides.
         shared_ptr<string> vsArea_ {};
@@ -340,7 +340,7 @@ namespace Models
       protected:
         // The number of nodes.
         shared_ptr<int32_t> amount_ {};
-        // The storage size of the node. Unit: GB.
+        // The storage space size of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node.
         shared_ptr<string> diskType_ {};
@@ -406,7 +406,7 @@ namespace Models
       protected:
         // The number of nodes.
         shared_ptr<int32_t> amount_ {};
-        // The storage size of the node. Unit: GB.
+        // The storage space size of the node. Unit: GB.
         shared_ptr<int32_t> disk_ {};
         // The storage type of the node.
         shared_ptr<string> diskType_ {};
@@ -476,7 +476,7 @@ namespace Models
         shared_ptr<string> name_ {};
         // The source type. Valid values:
         // 
-        // - OSS: OSS open storage. Make sure that the OSS bucket has public-read permission.
+        // - OSS: OSS open storage (the OSS bucket must be publicly readable).
         // - ORIGIN: retains the previously uploaded dictionary.
         shared_ptr<string> sourceType_ {};
         // The dictionary type. Valid values:
@@ -645,25 +645,25 @@ namespace Models
       shared_ptr<string> description_ {};
       // The IK dictionary configuration.
       shared_ptr<vector<Result::DictList>> dictList_ {};
-      // The internal endpoint of the instance.
+      // The internal network access address of the instance.
       shared_ptr<string> domain_ {};
       // The instance version.
       shared_ptr<string> esVersion_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The configuration of Kibana nodes.
+      // The Kibana node configuration.
       shared_ptr<Result::KibanaConfiguration> kibanaConfiguration_ {};
-      // The public network access address for Kibana.
+      // The Kibana public network access address.
       shared_ptr<string> kibanaDomain_ {};
-      // The public port for Kibana.
+      // The Kibana public network port.
       shared_ptr<int32_t> kibanaPort_ {};
-      // The configuration of master nodes.
+      // The master node configuration.
       shared_ptr<Result::MasterConfiguration> masterConfiguration_ {};
       // The network configuration.
       shared_ptr<Result::NetworkConfig> networkConfig_ {};
-      // The number of data nodes of the instance.
+      // The number of data nodes in the instance.
       shared_ptr<int32_t> nodeAmount_ {};
-      // The configuration of data nodes.
+      // The data node configuration.
       shared_ptr<Result::NodeSpec> nodeSpec_ {};
       // The billing method of the instance. Valid values:
       // 
@@ -672,14 +672,14 @@ namespace Models
       shared_ptr<string> paymentType_ {};
       // The public network access address.
       shared_ptr<string> publicDomain_ {};
-      // The public port.
+      // The public network port.
       shared_ptr<int32_t> publicPort_ {};
       // The status of the instance. Valid values:
       // 
       // - active: Normal.
       // - activating: Taking effect.
       // - inactive: Frozen.
-      // - invalid: Expired.
+      // - invalid: Invalid.
       shared_ptr<string> status_ {};
       // The synonym dictionary configuration.
       shared_ptr<vector<Result::SynonymsDicts>> synonymsDicts_ {};

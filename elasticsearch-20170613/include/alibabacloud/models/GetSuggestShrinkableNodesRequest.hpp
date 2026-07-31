@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The expected number of removable nodes to retrieve.
+    // The expected number of nodes available for scale-in to retrieve.
     // 
     // This parameter is required.
     shared_ptr<int32_t> count_ {};

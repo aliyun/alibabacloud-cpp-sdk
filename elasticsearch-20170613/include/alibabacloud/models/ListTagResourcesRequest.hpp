@@ -88,15 +88,15 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The page number of the resource relationship list. This parameter is deprecated.
     shared_ptr<int32_t> page_ {};
-    // The list of instance IDs to query. The value is in JSON array format and can contain up to 20 items.
+    // The list of instance IDs to query. The value is in JSON array format and supports up to 20 items.
     shared_ptr<string> resourceIds_ {};
     // The resource type definition.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The number of entries per page in Settings for paged query and paging. This field is deprecated.
+    // The number of entries per page for paged query. This is a deprecated field. Settings for paging are no longer supported.
     shared_ptr<int32_t> size_ {};
-    // The list of tags to query. The value is in JSON string format and can contain up to 20 items.
+    // The list of tags to query. The value is in JSON string format and contains up to 20 items.
     shared_ptr<string> tags_ {};
   };
 

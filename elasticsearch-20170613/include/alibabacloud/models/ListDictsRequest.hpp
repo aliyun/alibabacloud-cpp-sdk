@@ -60,7 +60,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> analyzerType_ {};
-    // The name of the file to filter.
+    // The file name used to filter results.
     shared_ptr<string> name_ {};
   };
 

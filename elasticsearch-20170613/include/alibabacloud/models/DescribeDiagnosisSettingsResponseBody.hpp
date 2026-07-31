@@ -122,10 +122,10 @@ namespace Models
       shared_ptr<int32_t> dailyLimit_ {};
       shared_ptr<bool> dailyScheduleEnabled_ {};
       shared_ptr<string> diagnosisMode_ {};
-      // The scenario of intelligent O&M.
+      // The common scenarios of intelligent diagnosis and optimization.
       shared_ptr<string> scene_ {};
       shared_ptr<vector<string>> selectedItems_ {};
-      // The timestamp when the intelligent O&M scenario was last updated.
+      // The UNIX timestamp when the intelligent diagnosis and optimization common scenarios were last updated.
       shared_ptr<int64_t> updateTime_ {};
     };
 

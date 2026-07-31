@@ -57,10 +57,14 @@ namespace Models
 
 
   protected:
+    // The restart parameter information.
     shared_ptr<string> body_ {};
-    // A unique token used to ensure the idempotence of the request. The client generates this value. The value must be unique among different requests and can contain a maximum of 64 ASCII characters.
+    // A unique token used to ensure the idempotence of the request. The client generates this value. The value must be unique among different requests and cannot exceed 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to forcefully restart the cluster regardless of the cluster status.
+    // Specifies whether to ignore the cluster status and forcibly restart the cluster.
+    // 
+    // - true: ignores the cluster status
+    // - false (default): does not ignore the cluster status
     shared_ptr<bool> force_ {};
   };
 

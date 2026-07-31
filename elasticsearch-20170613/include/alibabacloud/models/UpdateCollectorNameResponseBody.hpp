@@ -287,7 +287,7 @@ namespace Models
         // The internal-facing access address of Kibana on the private network after Kibana Dashboard is enabled. Displayed when **configType** is **collectorElasticsearchForKibana**.
         shared_ptr<string> host_ {};
         shared_ptr<vector<string>> hosts_ {};
-        // The ID of the instance associated with the collector. When **configType** is **collectorTargetInstance**, this is the instance ID of the collector Output. When **configType** is **collectorDeployMachines** and **type** is **ACKCluster**, this is the ACK cluster ID.
+        // The instance ID associated with the collector. When **configType** is **collectorTargetInstance**, this is the instance ID of the collector Output. When **configType** is **collectorDeployMachines** and **type** is **ACKCluster**, this is the ACK cluster ID.
         shared_ptr<string> instanceId_ {};
         // The type of instance specified in the collector Output. Valid values: elasticsearch and logstash. Displayed when **configType** is **collectorTargetInstance**.
         shared_ptr<string> instanceType_ {};
@@ -459,10 +459,10 @@ namespace Models
       shared_ptr<vector<string>> collectorPaths_ {};
       // The configuration file information of the collector.
       shared_ptr<vector<Result::Configs>> configs_ {};
-      // Indicates whether the collector is validated only without being created. Valid values:
+      // Indicates whether the collector is validated and created. Valid values:
       // 
-      // - true: Only validates without updating.
-      // - false: Validates and updates.
+      // - true: Only validated, not updated.
+      // - false: Validated and updated.
       shared_ptr<bool> dryRun_ {};
       // The extended configurations of the collector.
       shared_ptr<vector<Result::ExtendConfigs>> extendConfigs_ {};
@@ -481,7 +481,7 @@ namespace Models
       // The collector version. The supported versions depend on the type of machine on which the collector is deployed:
       // 
       // - ECS: 6.8.5_with_community
-      // - ACK: 6.8.13_with_community.
+      // - ACK: 6.8.13_with_community
       shared_ptr<string> resVersion_ {};
       // The collector status. Valid values: activing (taking effect) and active (active).
       shared_ptr<string> status_ {};

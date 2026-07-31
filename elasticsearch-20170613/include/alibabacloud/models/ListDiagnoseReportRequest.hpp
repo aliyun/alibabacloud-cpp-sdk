@@ -98,7 +98,7 @@ namespace Models
     shared_ptr<bool> detail_ {};
     // The end timestamp of the query. Unit: milliseconds.
     // - Minimum value: 1000000000000
-    // - Maximum value: 2000000000000.
+    // - Maximum value: 2000000000000
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
@@ -108,7 +108,7 @@ namespace Models
     // - zh: Simplified Chinese
     // - zt: Traditional Chinese
     // - es: Spanish
-    // - fr: French.
+    // - fr: French
     shared_ptr<string> lang_ {};
     // The page number. Default value: 1. Minimum value: 1. Maximum value: 200.
     shared_ptr<int32_t> page_ {};
@@ -117,7 +117,7 @@ namespace Models
     // The start timestamp of the query. Unit: milliseconds.
     // 
     // - Minimum value: 1000000000000
-    // - Maximum value: 2000000000000.
+    // - Maximum value: 2000000000000
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
@@ -125,7 +125,7 @@ namespace Models
     // 
     // - SYSTEM (default): automatically triggered by the system
     // - INNER: internally triggered
-    // - USER: manually triggered by the user.
+    // - USER: manually triggered by the user
     shared_ptr<string> trigger_ {};
   };
 
