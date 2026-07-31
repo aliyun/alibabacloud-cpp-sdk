@@ -92,9 +92,9 @@ namespace Models
 
 
       protected:
-        // The promotion rule description.
+        // The description of the promotion rule.
         shared_ptr<string> description_ {};
-        // The promotion rule ID.
+        // The ID of the promotion rule.
         shared_ptr<int64_t> ruleId_ {};
       };
 
@@ -134,6 +134,7 @@ namespace Models
         class Promotions : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Promotions& obj) { 
+            DARABONBA_PTR_TO_JSON(ActivityId, activityId_);
             DARABONBA_PTR_TO_JSON(OptionCode, optionCode_);
             DARABONBA_PTR_TO_JSON(PromotionDesc, promotionDesc_);
             DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
@@ -141,6 +142,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(Selected, selected_);
           };
           friend void from_json(const Darabonba::Json& j, Promotions& obj) { 
+            DARABONBA_PTR_FROM_JSON(ActivityId, activityId_);
             DARABONBA_PTR_FROM_JSON(OptionCode, optionCode_);
             DARABONBA_PTR_FROM_JSON(PromotionDesc, promotionDesc_);
             DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
@@ -158,8 +160,15 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->optionCode_ == nullptr
-        && this->promotionDesc_ == nullptr && this->promotionId_ == nullptr && this->promotionName_ == nullptr && this->selected_ == nullptr; };
+          virtual bool empty() const override { return this->activityId_ == nullptr
+        && this->optionCode_ == nullptr && this->promotionDesc_ == nullptr && this->promotionId_ == nullptr && this->promotionName_ == nullptr && this->selected_ == nullptr; };
+          // activityId Field Functions 
+          bool hasActivityId() const { return this->activityId_ != nullptr;};
+          void deleteActivityId() { this->activityId_ = nullptr;};
+          inline string getActivityId() const { DARABONBA_PTR_GET_DEFAULT(activityId_, "") };
+          inline Promotions& setActivityId(string activityId) { DARABONBA_PTR_SET_VALUE(activityId_, activityId) };
+
+
           // optionCode Field Functions 
           bool hasOptionCode() const { return this->optionCode_ != nullptr;};
           void deleteOptionCode() { this->optionCode_ = nullptr;};
@@ -196,13 +205,14 @@ namespace Models
 
 
         protected:
-          // The option code.
+          shared_ptr<string> activityId_ {};
+          // The description of the promotion rule.
           shared_ptr<string> optionCode_ {};
-          // The promotion description.
+          // The description of the promotion.
           shared_ptr<string> promotionDesc_ {};
-          // The promotion ID.
+          // The ID of the promotion.
           shared_ptr<string> promotionId_ {};
-          // The promotion name.
+          // The name of the promotion.
           shared_ptr<string> promotionName_ {};
           // Indicates whether the promotion is selected.
           shared_ptr<bool> selected_ {};
@@ -303,7 +313,7 @@ namespace Models
             // The resource type.
             shared_ptr<string> resourceType_ {};
             shared_ptr<float> savingPlanRecommendPrice_ {};
-            // The trade price, which is the original price minus the discount amount.
+            // The actual payment price. The value is the original price minus the discount amount.
             shared_ptr<float> tradePrice_ {};
           };
 
@@ -402,7 +412,7 @@ namespace Models
             // The original price.
             shared_ptr<float> originalPrice_ {};
             shared_ptr<float> savingPlanDiscountPrice_ {};
-            // The trade price, which is the original price minus the discount amount.
+            // The actual payment price. The value is the original price minus the discount amount.
             shared_ptr<float> tradePrice_ {};
           };
 
@@ -434,11 +444,11 @@ namespace Models
 
 
         protected:
-          // A list of pricing module details.
+          // The pricing module details.
           shared_ptr<vector<PriceDetails::ModuleDetails>> moduleDetails_ {};
-          // The sort order.
+          // The sort property.
           shared_ptr<int32_t> orderItem_ {};
-          // A breakdown of the price.
+          // The price details.
           shared_ptr<PriceDetails::PriceDetail> priceDetail_ {};
         };
 
@@ -508,7 +518,7 @@ namespace Models
 
 
       protected:
-        // The currency.
+        // The currency unit.
         // 
         // China site: CNY.
         // 
@@ -518,15 +528,15 @@ namespace Models
         shared_ptr<float> discountPrice_ {};
         // The original price.
         shared_ptr<float> originalPrice_ {};
-        // A list of price details.
+        // The price details.
         shared_ptr<vector<Price::PriceDetails>> priceDetails_ {};
-        // A list of promotions.
+        // The promotion information.
         shared_ptr<vector<Price::Promotions>> promotions_ {};
-        // A map of instance IDs to their corresponding refund amounts.
+        // The unsubscription instance and pricing details.
         shared_ptr<map<string, float>> refundInstanceIdPriceMap_ {};
-        // The refund amount.
+        // The unsubscription price.
         shared_ptr<float> refundPrice_ {};
-        // The trade price, which is the original price minus the discount amount.
+        // The actual payment price. The value is the original price minus the discount amount.
         shared_ptr<float> tradePrice_ {};
       };
 
@@ -553,7 +563,7 @@ namespace Models
     protected:
       // The price information.
       shared_ptr<PriceInfo::Price> price_ {};
-      // A list of promotion rules.
+      // The promotion rule information.
       shared_ptr<vector<PriceInfo::Rules>> rules_ {};
     };
 
@@ -576,7 +586,7 @@ namespace Models
 
 
   protected:
-    // The detailed price information.
+    // The price details.
     shared_ptr<DescribeMultiPriceResponseBody::PriceInfo> priceInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
