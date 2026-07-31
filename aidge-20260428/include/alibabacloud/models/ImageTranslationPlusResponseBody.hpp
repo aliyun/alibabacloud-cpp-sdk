@@ -109,17 +109,15 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter is not returned if the call is successful.
+    // The error code. This parameter is not returned for successful calls.
     shared_ptr<string> code_ {};
-    // The submit status of the asynchronous task.
+    // The asynchronous task submit status.
     shared_ptr<ImageTranslationPlusResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned if the call is successful.
+    // The error message. This parameter is not returned for successful calls.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
-    // - true: The call is successful.
-    // - false: The call failed.
+    // Indicates whether the call is successful. Valid values: true: successful. false: failed.
     shared_ptr<bool> success_ {};
   };
 

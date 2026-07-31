@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // The downstream task ID.
       shared_ptr<string> taskId_ {};
+      // The metering usage information.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -122,10 +124,15 @@ namespace Models
 
 
   protected:
+    // The response code. A value of success indicates a successful call, and a value of failed indicates a failure.
     shared_ptr<string> code_ {};
+    // The struct of the returned result.
     shared_ptr<VideoGenerationResponseBody::Data> data_ {};
+    // The response message. An error message is returned if the call fails.
     shared_ptr<string> message_ {};
+    // The request ID, used to identify a unique request call.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

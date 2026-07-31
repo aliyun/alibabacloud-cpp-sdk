@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The product input.
+    // 
     // This parameter is required.
     shared_ptr<string> inputShrink_ {};
+    // The intent parameters. Currently unavailable.
     shared_ptr<string> intentShrink_ {};
+    // The output parameters.
+    // 
     // This parameter is required.
     shared_ptr<string> outputShrink_ {};
   };

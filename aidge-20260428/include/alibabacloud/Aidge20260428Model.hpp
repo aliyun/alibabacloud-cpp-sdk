@@ -57,6 +57,10 @@
 #include <alibabacloud/models/PackageWeightSizeCheckRequest.hpp>
 #include <alibabacloud/models/PackageWeightSizeCheckResponseBody.hpp>
 #include <alibabacloud/models/PackageWeightSizeCheckResponse.hpp>
+#include <alibabacloud/models/PrepaidTextTranslateRequest.hpp>
+#include <alibabacloud/models/PrepaidTextTranslateShrinkRequest.hpp>
+#include <alibabacloud/models/PrepaidTextTranslateResponseBody.hpp>
+#include <alibabacloud/models/PrepaidTextTranslateResponse.hpp>
 #include <alibabacloud/models/QueryAsyncTaskResultRequest.hpp>
 #include <alibabacloud/models/QueryAsyncTaskResultResponseBody.hpp>
 #include <alibabacloud/models/QueryAsyncTaskResultResponse.hpp>

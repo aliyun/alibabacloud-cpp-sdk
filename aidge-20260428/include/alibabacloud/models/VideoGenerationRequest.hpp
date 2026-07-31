@@ -81,10 +81,15 @@ namespace Models
 
 
     protected:
+      // The video duration in seconds. Currently supports integers between 5 and 15. More options will be available in the future.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> duration_ {};
+      // The output resolution.
+      // 
       // This parameter is required.
       shared_ptr<string> quality_ {};
+      // The video aspect ratio.
       shared_ptr<string> ratio_ {};
     };
 
@@ -126,7 +131,9 @@ namespace Models
 
 
     protected:
+      // The distribution channel.
       shared_ptr<string> channel_ {};
+      // The business goal.
       shared_ptr<string> goal_ {};
     };
 
@@ -181,9 +188,14 @@ namespace Models
 
 
     protected:
+      // The extended information.
       Darabonba::Json extra_ {};
+      // The list of product image URLs (1 to 6 images). The URLs must be publicly accessible.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> images_ {};
+      // The product title. A maximum of the first 60 characters are used.
+      // 
       // This parameter is required.
       shared_ptr<string> title_ {};
     };
@@ -218,9 +230,14 @@ namespace Models
 
 
   protected:
+    // The product input.
+    // 
     // This parameter is required.
     shared_ptr<VideoGenerationRequest::Input> input_ {};
+    // The intent parameters. Currently unavailable.
     shared_ptr<VideoGenerationRequest::Intent> intent_ {};
+    // The output parameters.
+    // 
     // This parameter is required.
     shared_ptr<VideoGenerationRequest::Output> output_ {};
   };
