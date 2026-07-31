@@ -94,43 +94,24 @@ namespace Models
 
 
   protected:
-    // The ID of the Hybrid Cloud WAF cluster.
-    // 
-    // > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query information about hybrid cloud WAF clusters.
+    // The ID of the hybrid cloud cluster.
+    // > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud cluster information.
     shared_ptr<string> clusterId_ {};
-    // The type of the detailed information about the security event. Valid values:
-    // 
-    // - **event_info** (default): attack details.
-    // 
-    // - **api_info**: API information.
-    // 
-    // - **cnt_info**: attack trend.
-    // 
-    // - **ip_info**: attacker IP information.
-    // 
-    // - **sensitive_info**: information about access to sensitive data.
-    // 
-    // - **request_data**: request information.
-    // 
-    // - **response_data**: response information.
+    // The type of detailed information about the security event.
     shared_ptr<string> detailType_ {};
     // The ID of the API security event.
     // 
     // This parameter is required.
     shared_ptr<string> eventId_ {};
-    // The dimension of the security event. Valid values:
-    // 
-    // - **ip** (default): IP security event.
-    // 
-    // - **account**: account security event.
+    // The dimension of the security event.
     shared_ptr<string> eventScope_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
+    // Instance ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 

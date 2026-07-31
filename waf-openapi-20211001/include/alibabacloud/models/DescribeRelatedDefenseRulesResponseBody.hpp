@@ -103,7 +103,7 @@ namespace Models
 
 
     protected:
-      // The protection scenario of the protection rule. For more information, see the **DefenseScene** parameter in [DescribeDefenseRules](https://help.aliyun.com/document_detail/461426.html).
+      // The protection scenario of the protection rule. For more information, refer to the **DefenseScene** parameter in [DescribeDefenseRules](https://help.aliyun.com/document_detail/461426.html).
       shared_ptr<string> defenseScene_ {};
       // The type of the protection rule. Valid values:
       // 
@@ -161,11 +161,11 @@ namespace Models
 
 
   protected:
-    // The number of entries per page when using paging. Valid values: 1 to 100. Default value: 20.
+    // The number of entries per page in a paged query. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token (**Token**) for the next page. If a next page exists, this field has a return value.
     // 
-    // > If this parameter has a return value, a next page exists. Use the returned **NextToken** as a request parameter to obtain the next page of data. Repeat this process until no value is returned, which indicates that all data has been retrieved.
+    // > If this parameter has a return value, a next page exists. Use the returned **NextToken** as a request parameter to obtain the data on the next page. Repeat this process until no value is returned, which indicates that all data has been retrieved.
     shared_ptr<string> nextToken_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

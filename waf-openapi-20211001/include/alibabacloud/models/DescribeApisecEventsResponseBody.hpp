@@ -287,95 +287,78 @@ namespace Models
 
 
     protected:
-      // The total number of attacks in the security event.
+      // The number of attacks.
       shared_ptr<int64_t> allCnt_ {};
-      // The path of the API that is associated with the security event.
+      // The API operation.
       shared_ptr<string> apiFormat_ {};
-      // The ID of the API that is associated with the security event.
+      // The ID of the API associated with the security event.
       shared_ptr<string> apiId_ {};
       // The business purpose of the API.
       // 
-      // > Call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported business purposes.
+      // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported business purposes.
       shared_ptr<string> apiTag_ {};
-      // The type of client that initiated the attack, such as a browser or automation tool.
+      // The attack client.
       shared_ptr<string> attackClient_ {};
-      // The attack count over time. The value is a JSON string in which each key is a UNIX timestamp in seconds and each value is the number of attacks at that time.
+      // The attack count information, which is a string converted from a JSON object. The key is a timestamp in seconds, and the value is the number of attacks.
       shared_ptr<string> attackCntInfo_ {};
-      // The IP address of the attacker. >Notice: This parameter is deprecated. Use the AttackIps parameter instead.
+      // The attack IP address.
+      // >Notice: This parameter is deprecated. Use the AttackIps parameter instead.</notice>
       shared_ptr<string> attackIp_ {};
-      // The information about the attacker IP address. The value is a JSON string that contains the following fields:
-      // 
+      // The attack IP information, which is a string converted from a JSON object constructed with the following parameters:
       // - **ip**: the IP address.
-      // 
-      // - **country_id**: the country.
-      // 
-      // - **region_id**: the region.
-      // 
+      // - **country_id**: the country to which the IP address belongs.
+      // - **region_id**: the region to which the IP address belongs.
       // - **cnt**: the number of attacks.
       shared_ptr<string> attackIpInfo_ {};
-      // The list of attacker IP addresses.
+      // The list of attack IP addresses.
       shared_ptr<vector<string>> attackIps_ {};
-      // The list of attackers that are associated with the security event.
+      // The Attacker list associated with the event.
       shared_ptr<vector<string>> attackerList_ {};
-      // The end time of the event. This value is a UNIX timestamp. Unit: seconds.
+      // The end time of the query, in UNIX timestamp (UTC) format. Unit: seconds.
       shared_ptr<int64_t> endTs_ {};
-      // The ID of the security event.
+      // The event ID.
       shared_ptr<string> eventId_ {};
-      // The details of the security event. The value is a JSON string that contains the following fields:
-      // 
-      // - **ip_info**: the information about the attacker IP address. For more information, see the **AttackIpInfo** response parameter.
-      // 
-      // - **rule_id**: the ID of the rule that corresponds to the event.
-      // 
-      // - **rule_tag**: the information about the rule that corresponds to the event.
+      // The event details, which is a string converted from a JSON object constructed with the following parameters:
+      // - **ip_info**: the attack IP information. Refer to the response parameter **AttackIpInfo** of this operation.
+      // - **rule_id**: the rule ID associated with the event.
+      // - **rule_tag**: the rule information associated with the event.
       shared_ptr<string> eventInfo_ {};
-      // The severity level of the event. Valid values:
-      // 
-      // - **high**: high severity.
-      // 
-      // - **medium**: medium severity.
-      // 
-      // - **low**: low severity.
+      // The event level. Valid values:
+      // - **high**: High-risk.
+      // - **medium**: Medium-risk.
+      // - **low**: Low-risk.
       shared_ptr<string> eventLevel_ {};
       // The event type.
       // 
-      // > Call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported event types.
+      // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported event types.
       shared_ptr<string> eventTag_ {};
       // Indicates whether the event is followed. Valid values:
-      // 
-      // - **1**: The event is followed.
-      // 
-      // - **0**: The event is not followed.
+      // - **1**: Followed.
+      // - **0**: Not followed.
       shared_ptr<int32_t> follow_ {};
-      // The domain name or IP address that is protected by WAF.
+      // The domain name or IP address to which the API operation belongs.
       shared_ptr<string> matchedHost_ {};
-      // The remarks that are added to the security event.
+      // The remarks.
       shared_ptr<string> note_ {};
       // The source of the event type. Valid values:
-      // 
-      // - **custom**: a user-defined event type.
-      // 
-      // - **default**: a built-in event type.
+      // - **custom**: Custom.
+      // - **default**: Built-in.
       shared_ptr<string> origin_ {};
-      // The country where the attacker IP address is located.
+      // The country to which the attack IP address belongs.
       shared_ptr<string> remoteCountry_ {};
-      // The region where the attacker IP address is located.
+      // The region to which the attack IP address belongs.
       shared_ptr<string> remoteRegion_ {};
-      // A sample of the API request data. The value is a JSON string.
+      // A sample API request data, which is a string converted from a JSON object constructed with a series of parameters.
       shared_ptr<string> requestData_ {};
-      // A sample of the API response data. The value is a JSON string.
+      // A sample API response data, which is a string converted from a JSON object constructed with a series of parameters.
       shared_ptr<string> responseData_ {};
-      // The start time of the event. This value is a UNIX timestamp. Unit: seconds.
+      // The start time of the query, in UNIX timestamp (UTC) format. Unit: seconds.
       shared_ptr<int64_t> startTs_ {};
-      // The handling status of the event. Valid values:
-      // 
-      // - **toBeConfirmed**: pending confirmation.
-      // 
-      // - **confirmed**: confirmed but not yet handled.
-      // 
-      // - **actioned**: handled.
-      // 
-      // - **ignored**: ignored.
+      // The event status. Valid values:
+      // - **toBeConfirmed**: To be confirmed.
+      // - **confirmed**: Confirmed.
+      // - **actioned**: Handled.
+      // - **ignored**: Ignored.
       shared_ptr<string> userStatus_ {};
     };
 

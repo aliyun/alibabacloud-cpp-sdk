@@ -40,18 +40,26 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const BillDetail& obj) { 
         DARABONBA_PTR_TO_JSON(ChargeData, chargeData_);
+        DARABONBA_PTR_TO_JSON(Credit, credit_);
+        DARABONBA_PTR_TO_JSON(CreditChargeData, creditChargeData_);
         DARABONBA_PTR_TO_JSON(Cu, cu_);
         DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+        DARABONBA_PTR_TO_JSON(FunctionCredit, functionCredit_);
         DARABONBA_PTR_TO_JSON(FunctionCu, functionCu_);
         DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+        DARABONBA_PTR_TO_JSON(TrafficCredit, trafficCredit_);
         DARABONBA_PTR_TO_JSON(TrafficCu, trafficCu_);
       };
       friend void from_json(const Darabonba::Json& j, BillDetail& obj) { 
         DARABONBA_PTR_FROM_JSON(ChargeData, chargeData_);
+        DARABONBA_PTR_FROM_JSON(Credit, credit_);
+        DARABONBA_PTR_FROM_JSON(CreditChargeData, creditChargeData_);
         DARABONBA_PTR_FROM_JSON(Cu, cu_);
         DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+        DARABONBA_PTR_FROM_JSON(FunctionCredit, functionCredit_);
         DARABONBA_PTR_FROM_JSON(FunctionCu, functionCu_);
         DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+        DARABONBA_PTR_FROM_JSON(TrafficCredit, trafficCredit_);
         DARABONBA_PTR_FROM_JSON(TrafficCu, trafficCu_);
       };
       BillDetail() = default ;
@@ -66,12 +74,27 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->chargeData_ == nullptr
-        && this->cu_ == nullptr && this->endTime_ == nullptr && this->functionCu_ == nullptr && this->startTime_ == nullptr && this->trafficCu_ == nullptr; };
+        && this->credit_ == nullptr && this->creditChargeData_ == nullptr && this->cu_ == nullptr && this->endTime_ == nullptr && this->functionCredit_ == nullptr
+        && this->functionCu_ == nullptr && this->startTime_ == nullptr && this->trafficCredit_ == nullptr && this->trafficCu_ == nullptr; };
       // chargeData Field Functions 
       bool hasChargeData() const { return this->chargeData_ != nullptr;};
       void deleteChargeData() { this->chargeData_ = nullptr;};
       inline string getChargeData() const { DARABONBA_PTR_GET_DEFAULT(chargeData_, "") };
       inline BillDetail& setChargeData(string chargeData) { DARABONBA_PTR_SET_VALUE(chargeData_, chargeData) };
+
+
+      // credit Field Functions 
+      bool hasCredit() const { return this->credit_ != nullptr;};
+      void deleteCredit() { this->credit_ = nullptr;};
+      inline double getCredit() const { DARABONBA_PTR_GET_DEFAULT(credit_, 0.0) };
+      inline BillDetail& setCredit(double credit) { DARABONBA_PTR_SET_VALUE(credit_, credit) };
+
+
+      // creditChargeData Field Functions 
+      bool hasCreditChargeData() const { return this->creditChargeData_ != nullptr;};
+      void deleteCreditChargeData() { this->creditChargeData_ = nullptr;};
+      inline string getCreditChargeData() const { DARABONBA_PTR_GET_DEFAULT(creditChargeData_, "") };
+      inline BillDetail& setCreditChargeData(string creditChargeData) { DARABONBA_PTR_SET_VALUE(creditChargeData_, creditChargeData) };
 
 
       // cu Field Functions 
@@ -88,6 +111,13 @@ namespace Models
       inline BillDetail& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
+      // functionCredit Field Functions 
+      bool hasFunctionCredit() const { return this->functionCredit_ != nullptr;};
+      void deleteFunctionCredit() { this->functionCredit_ = nullptr;};
+      inline double getFunctionCredit() const { DARABONBA_PTR_GET_DEFAULT(functionCredit_, 0.0) };
+      inline BillDetail& setFunctionCredit(double functionCredit) { DARABONBA_PTR_SET_VALUE(functionCredit_, functionCredit) };
+
+
       // functionCu Field Functions 
       bool hasFunctionCu() const { return this->functionCu_ != nullptr;};
       void deleteFunctionCu() { this->functionCu_ = nullptr;};
@@ -102,6 +132,13 @@ namespace Models
       inline BillDetail& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
+      // trafficCredit Field Functions 
+      bool hasTrafficCredit() const { return this->trafficCredit_ != nullptr;};
+      void deleteTrafficCredit() { this->trafficCredit_ = nullptr;};
+      inline double getTrafficCredit() const { DARABONBA_PTR_GET_DEFAULT(trafficCredit_, 0.0) };
+      inline BillDetail& setTrafficCredit(double trafficCredit) { DARABONBA_PTR_SET_VALUE(trafficCredit_, trafficCredit) };
+
+
       // trafficCu Field Functions 
       bool hasTrafficCu() const { return this->trafficCu_ != nullptr;};
       void deleteTrafficCu() { this->trafficCu_ = nullptr;};
@@ -110,17 +147,25 @@ namespace Models
 
 
     protected:
-      // The bill usage details. The value is a string converted from a JSON object constructed by a series of parameters. For more information, see **Supplementary description of response parameters**.
+      // The bill usage details. The value is a JSON string constructed from a series of parameters. For more information, refer to **Supplementary description of response parameters**.
       shared_ptr<string> chargeData_ {};
+      // The total number of Credits.
+      shared_ptr<double> credit_ {};
+      // The Credit bill usage details. The value is a JSON string constructed from a series of parameters. For more information, refer to **Supplementary description of response parameters**.
+      shared_ptr<string> creditChargeData_ {};
       // The total number of SeCUs.
       shared_ptr<string> cu_ {};
       // The end time. The value is a UNIX timestamp (UTC). Unit: seconds.
       shared_ptr<int64_t> endTime_ {};
-      // The number of feature SeCUs.
+      // The number of Credits consumed by features.
+      shared_ptr<double> functionCredit_ {};
+      // The number of SeCUs consumed by features.
       shared_ptr<string> functionCu_ {};
       // The start time. The value is a UNIX timestamp (UTC). Unit: seconds.
       shared_ptr<int64_t> startTime_ {};
-      // The number of SeCUs generated by traffic processing.
+      // The number of Credits consumed by traffic processing.
+      shared_ptr<double> trafficCredit_ {};
+      // The number of SeCUs consumed by traffic processing.
       shared_ptr<string> trafficCu_ {};
     };
 

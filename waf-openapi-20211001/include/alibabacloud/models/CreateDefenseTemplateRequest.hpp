@@ -149,59 +149,51 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> defenseScene_ {};
-    // The sub-scenario of the protection template. Valid values:
-    // 
-    // - **bot_custom_acl**: a protection template for advanced custom rules for Bot management.
+    // The sub-scenario of the protection template. This parameter is supported only for advanced bot management scenarios.
     shared_ptr<string> defenseSubScene_ {};
-    // The description of the protection template.
+    // The description of the protection template to create.
     shared_ptr<string> description_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
+    // The ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
-    // - **cn-hangzhou**: Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The name of the protection template. The name must be 1 to 255 characters in length and can contain letters, digits, underscores (_), periods (.), and hyphens (-).
+    // The name of the protection template to create. The name must be 1 to 255 characters in length and can contain Chinese characters, letters, digits, underscores (_), periods (.), or hyphens (-).
     // 
     // > Template names must be unique within the same protection scenario (**DefenseScene**).
     // 
     // This parameter is required.
     shared_ptr<string> templateName_ {};
-    // The origin of the protection template. The value must be **custom**, which indicates a user-defined template.
+    // The source of the protection template to create. Set the value to **custom**, which indicates user-defined.
     // 
     // This parameter is required.
     shared_ptr<string> templateOrigin_ {};
-    // The status of the protection template. Valid values:
-    // 
+    // The status of the protection template to create. Valid values:
     // - **0**: Disabled.
-    // 
     // - **1**: Enabled.
     // 
     // This parameter is required.
     shared_ptr<int32_t> templateStatus_ {};
-    // The type of the protection template. Valid values:
-    // 
-    // - **user_default**: a default template created by the user.
-    // 
-    // - **user_custom**: a custom template created by the user.
+    // The templatetype of the protection template to create. Valid values:
+    // - **user_default**: default protection.
+    // - **user_custom**: custom protection.
     // 
     // This parameter is required.
     shared_ptr<string> templateType_ {};
-    // The protected object groups to unbind from the default protection template. Specify the value in the [**"group1","group2",...**] format.
-    // 
-    // > This parameter takes effect only when you create a **default template** (**TemplateType** is set to **user_default**).
+    // The protected object groups to unbind when creating a default protection template. Use the format [**"group1","group2",……**].
+    // > This parameter takes effect only when you create a **default template** (the value of **TemplateType** is **user_default**).
     shared_ptr<vector<string>> unbindResourceGroups_ {};
-    // The protected objects to unbind from the default protection template. Specify the value in the [**"XX1","XX2",...**] format.
-    // 
-    // > This parameter takes effect only when you create a **default template** (**TemplateType** is set to **user_default**).
+    // The protected objects to unbind when creating a default protection template. Use the format [**"XX1","XX2",……**].
+    // > This parameter takes effect only when you create a **default template** (the value of **TemplateType** is **user_default**).
     shared_ptr<vector<string>> unbindResources_ {};
   };
 

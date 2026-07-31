@@ -110,29 +110,25 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> certId_ {};
-    // The type of the cipher suite. Valid values:
-    // 
-    // - **1**: all cipher suites.
-    // 
-    // - **2**: strong cipher suites.
-    // 
-    // - **99**: custom cipher suites.
+    // The type of the cipher suite.
     shared_ptr<string> cipherSuite_ {};
-    // The custom cipher suites. This parameter is available only when you set **CipherSuite** to **99**.
+    // The specific custom cipher suites to add. This parameter is used only when **CipherSuite** is set to **99**.
     shared_ptr<vector<string>> customCiphers_ {};
-    // The domain name that is added to WAF in CNAME record mode.
+    // The domain name that you want to manage.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
-    // Indicates whether to enable TLS 1.3. Valid values:
+    // Specifies whether TLS 1.3 is supported. Valid values:
     // 
-    // - **true**: TLS 1.3 is enabled.
+    // - **true**: TLS 1.3 is supported.
     // 
-    // - **false**: TLS 1.3 is disabled.
+    // - **false**: TLS 1.3 is not supported.
+    // 
+    // > This parameter is used only when HttpsPorts is not empty, which indicates that the domain name uses the HTTPS protocol. When TLSVersion is set to tlsv1.3, this value must be true.
     shared_ptr<bool> enableTLSv3_ {};
     // The ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -144,13 +140,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The Transport Layer Security (TLS) version. Valid values:
-    // 
-    // - **tlsv1**
-    // 
-    // - **tlsv1.1**
-    // 
-    // - **tlsv1.2**
+    // The TLS version.
     shared_ptr<string> TLSVersion_ {};
   };
 

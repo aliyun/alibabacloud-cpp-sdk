@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The code of the region.
+      // The region code.
       shared_ptr<int32_t> code_ {};
-      // The name of the region.
+      // The region name.
       shared_ptr<string> name_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // The regions.
+    // The list of region information.
     shared_ptr<vector<DescribeHybridCloudServerRegionsResponseBody::Regions>> regions_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

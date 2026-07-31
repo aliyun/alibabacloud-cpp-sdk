@@ -160,7 +160,7 @@ namespace Models
 
 
         protected:
-          // The type of the HTTPS certificate. Valid values:
+          // The certificate type for the HTTPS protocol. Valid values:
           // 
           // - **default**: Default certificate.
           // 
@@ -168,7 +168,7 @@ namespace Models
           shared_ptr<string> appliedType_ {};
           // The certificate ID.
           shared_ptr<string> certificateId_ {};
-          // The name of the certificate.
+          // The SSL certificate name.
           shared_ptr<string> certificateName_ {};
           // The domain name bound to the certificate.
           shared_ptr<string> domain_ {};
@@ -200,15 +200,13 @@ namespace Models
 
 
       protected:
-        // The information about the certificates.
+        // The list of certificate information.
         shared_ptr<vector<ResourcePorts::Certificates>> certificates_ {};
         // The port.
         shared_ptr<int32_t> port_ {};
-        // The protocol type. Valid values:
-        // 
-        // - **http**: HTTP protocol.
-        // 
-        // - **https**: HTTPS protocol.
+        // The network protocol type. Valid values:
+        // - **http**: HTTP.
+        // - **https**: HTTPS.
         shared_ptr<string> protocol_ {};
       };
 
@@ -261,15 +259,13 @@ namespace Models
 
 
       protected:
-        // The certificates.
+        // The list of certificate IDs.
         shared_ptr<vector<string>> certificateIds_ {};
-        // The port of the cloud service added to WAF.
+        // The port of the cloud service that is added to WAF.
         shared_ptr<int32_t> port_ {};
         // The protocol type. Valid values:
-        // 
-        // - **http**: HTTP protocol.
-        // 
-        // - **https**: HTTPS protocol.
+        // - **http**: HTTP.
+        // - **https**: HTTPS.
         shared_ptr<string> protocol_ {};
       };
 
@@ -389,38 +385,37 @@ namespace Models
 
 
     protected:
-      // The ID of the instance added to WAF.
+      // The instance ID of the instance that is added to WAF.
       shared_ptr<string> accessInstanceId_ {};
-      // The port and protocol information of the cloud service added to WAF.
+      // The port and protocol information of the cloud service that is added to WAF.
       shared_ptr<vector<ProductInstances::AccessPortAndProtocols>> accessPortAndProtocols_ {};
-      // The list of ports added to WAF.
+      // The list of ports that are added to WAF.
       shared_ptr<vector<int32_t>> accessPorts_ {};
-      // The user ID (UID) of the Alibaba Cloud account to which the instance belongs.
+      // The UID of the resource ownership user.
       shared_ptr<string> ownerUserId_ {};
+      // The domain name that is added to WAF.
       shared_ptr<string> resourceDomain_ {};
-      // The protection status of WAF. Valid values:
+      // The WAF protection status. Valid values:
       // 
-      // - **all**: All protected.
-      // 
+      // - **all**: Full protection.
       // - **any**: Protected.
-      // 
-      // - **part**: Partially protected.
+      // - **part**: Partial protection.
       // 
       // - **non**: Not protected.
       shared_ptr<string> resourceInstanceAccessStatus_ {};
-      // The edition of the instance.
+      // The edition of the cloud service instance.
       shared_ptr<string> resourceInstanceEdition_ {};
-      // The instance ID.
+      // The instance ID of the cloud service.
       shared_ptr<string> resourceInstanceId_ {};
-      // The IP address of the instance.
+      // The IP address of the cloud service instance.
       shared_ptr<string> resourceInstanceIp_ {};
-      // The name of the instance.
+      // The instance name of the cloud service.
       shared_ptr<string> resourceInstanceName_ {};
-      // The public IP address of the instance.
+      // The public IP address of the cloud service.
       shared_ptr<string> resourceIp_ {};
-      // The name of the instance.
+      // The instance name of the cloud service.
       shared_ptr<string> resourceName_ {};
-      // The information about the ports.
+      // The list of port information.
       shared_ptr<vector<ProductInstances::ResourcePorts>> resourcePorts_ {};
       // The type of the cloud service. Valid values:
       // 
@@ -429,26 +424,24 @@ namespace Models
       // - **clb7**: Layer 7 CLB.
       // 
       // - **ecs**: ECS.
-      // 
       // - **nlb**: NLB.
       shared_ptr<string> resourceProduct_ {};
-      // The region ID of the instance. Valid values:
+      // The region ID of the cloud service. Valid values:
+      // - **cn-chengdu**: China Southwest 1 (Chengdu).
       // 
-      // - **cn-chengdu**: China (Chengdu).
+      // - **cn-beijing**: China North 2 (Beijing).
       // 
-      // - **cn-beijing**: China (Beijing).
+      // - **cn-zhangjiakou**: China North 3 (Zhangjiakou).
       // 
-      // - **cn-zhangjiakou**: China (Zhangjiakou).
+      // - **cn-hangzhou**: China East 1 (Hangzhou).
       // 
-      // - **cn-hangzhou**: China (Hangzhou).
+      // - **cn-shanghai**: China East 2 (Shanghai).
       // 
-      // - **cn-shanghai**: China (Shanghai).
+      // - **cn-shenzhen**: China South 1 (Shenzhen).
       // 
-      // - **cn-shenzhen**: China (Shenzhen).
+      // - **cn-qingdao**: China North 1 (Qingdao).
       // 
-      // - **cn-qingdao**: China (Qingdao).
-      // 
-      // - **cn-hongkong**: China (Hong Kong).
+      // - **cn-hongkong**: Hong Kong (China).
       // 
       // - **ap-southeast-3**: Malaysia (Kuala Lumpur).
       // 
@@ -482,9 +475,9 @@ namespace Models
 
 
   protected:
-    // The information about the instances.
+    // The list of cloud service information.
     shared_ptr<vector<DescribeProductInstancesResponseBody::ProductInstances>> productInstances_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};

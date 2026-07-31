@@ -95,7 +95,9 @@ namespace Models
 
 
       protected:
+        // The per-mille sampling ratio for Tracing Analysis.
         shared_ptr<int32_t> ratePerMille_ {};
+        // The Hybrid Cloud Monitoring 2.0 workspace.
         shared_ptr<string> workspace_ {};
       };
 
@@ -132,15 +134,21 @@ namespace Models
 
 
     protected:
-      // The name of the protected object.
+      // The queried protected object.
       shared_ptr<string> resource_ {};
-      // Indicates whether log collection is enabled for the protected object. Valid values:
+      // The log enabling status of the protected object. Valid values:
+      //  
+      // - **true**: Logging is enabled.
       // 
-      // - **true**: Log collection is enabled.
-      // 
-      // - **false**: Log collection is disabled.
+      // - **false**: Logging is disabled.
       shared_ptr<bool> status_ {};
+      // The Tracing Analysis configuration.
       shared_ptr<Result::TraceConfig> traceConfig_ {};
+      // The Tracing Analysis status. Valid values:
+      //  
+      // - **true**: Tracing Analysis is enabled.
+      // 
+      // - **false**: Tracing Analysis is shutdown.
       shared_ptr<bool> traceStatus_ {};
     };
 
@@ -163,9 +171,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The log status information of protected objects.
+    // The returned result.
     shared_ptr<vector<DescribeResourceLogStatusResponseBody::Result>> result_ {};
   };
 

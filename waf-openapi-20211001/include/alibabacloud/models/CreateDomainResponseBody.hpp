@@ -80,7 +80,7 @@ namespace Models
     protected:
       // The CNAME assigned by WAF to the domain name.
       shared_ptr<string> cname_ {};
-      // The added domain name.
+      // The name of the added domain name.
       shared_ptr<string> domain_ {};
       // The domain name ID.
       shared_ptr<string> domainId_ {};

@@ -16,11 +16,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeChargeResultResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(ModuleDetails, moduleDetails_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(TotalCredit, totalCredit_);
       DARABONBA_PTR_TO_JSON(TotalSeCu, totalSeCu_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeChargeResultResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(ModuleDetails, moduleDetails_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(TotalCredit, totalCredit_);
       DARABONBA_PTR_FROM_JSON(TotalSeCu, totalSeCu_);
     };
     DescribeChargeResultResponseBody() = default ;
@@ -37,10 +39,12 @@ namespace Models
     class ModuleDetails : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ModuleDetails& obj) { 
+        DARABONBA_PTR_TO_JSON(Credit, credit_);
         DARABONBA_PTR_TO_JSON(ModuleCode, moduleCode_);
         DARABONBA_PTR_TO_JSON(SeCu, seCu_);
       };
       friend void from_json(const Darabonba::Json& j, ModuleDetails& obj) { 
+        DARABONBA_PTR_FROM_JSON(Credit, credit_);
         DARABONBA_PTR_FROM_JSON(ModuleCode, moduleCode_);
         DARABONBA_PTR_FROM_JSON(SeCu, seCu_);
       };
@@ -55,8 +59,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->moduleCode_ == nullptr
-        && this->seCu_ == nullptr; };
+      virtual bool empty() const override { return this->credit_ == nullptr
+        && this->moduleCode_ == nullptr && this->seCu_ == nullptr; };
+      // credit Field Functions 
+      bool hasCredit() const { return this->credit_ != nullptr;};
+      void deleteCredit() { this->credit_ = nullptr;};
+      inline double getCredit() const { DARABONBA_PTR_GET_DEFAULT(credit_, 0.0) };
+      inline ModuleDetails& setCredit(double credit) { DARABONBA_PTR_SET_VALUE(credit_, credit) };
+
+
       // moduleCode Field Functions 
       bool hasModuleCode() const { return this->moduleCode_ != nullptr;};
       void deleteModuleCode() { this->moduleCode_ = nullptr;};
@@ -72,14 +83,16 @@ namespace Models
 
 
     protected:
-      // The ID of the billing module.
+      // The number of Credits for the pricing module.
+      shared_ptr<double> credit_ {};
+      // The pricing module identifier.
       shared_ptr<string> moduleCode_ {};
-      // The number of SeCUs for the billing module.
+      // The number of SeCUs for the pricing module.
       shared_ptr<double> seCu_ {};
     };
 
     virtual bool empty() const override { return this->moduleDetails_ == nullptr
-        && this->requestId_ == nullptr && this->totalSeCu_ == nullptr; };
+        && this->requestId_ == nullptr && this->totalCredit_ == nullptr && this->totalSeCu_ == nullptr; };
     // moduleDetails Field Functions 
     bool hasModuleDetails() const { return this->moduleDetails_ != nullptr;};
     void deleteModuleDetails() { this->moduleDetails_ = nullptr;};
@@ -96,6 +109,13 @@ namespace Models
     inline DescribeChargeResultResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // totalCredit Field Functions 
+    bool hasTotalCredit() const { return this->totalCredit_ != nullptr;};
+    void deleteTotalCredit() { this->totalCredit_ = nullptr;};
+    inline double getTotalCredit() const { DARABONBA_PTR_GET_DEFAULT(totalCredit_, 0.0) };
+    inline DescribeChargeResultResponseBody& setTotalCredit(double totalCredit) { DARABONBA_PTR_SET_VALUE(totalCredit_, totalCredit) };
+
+
     // totalSeCu Field Functions 
     bool hasTotalSeCu() const { return this->totalSeCu_ != nullptr;};
     void deleteTotalSeCu() { this->totalSeCu_ = nullptr;};
@@ -104,11 +124,13 @@ namespace Models
 
 
   protected:
-    // The billing calculation results for each module.
+    // The calculation results.
     shared_ptr<vector<DescribeChargeResultResponseBody::ModuleDetails>> moduleDetails_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of calculated Security Capacity Units (SeCUs).
+    // The total number of calculated Credits.
+    shared_ptr<double> totalCredit_ {};
+    // The total number of calculated SeCUs.
     shared_ptr<double> totalSeCu_ {};
   };
 

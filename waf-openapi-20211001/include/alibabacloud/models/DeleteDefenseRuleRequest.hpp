@@ -94,17 +94,11 @@ namespace Models
 
 
   protected:
-    // The type of the protection rule. Valid values:
-    // 
-    // - **template** (default): a protection rule template.
-    // 
-    // - **resource**: a rule for a protected object.
-    // 
-    // - **global**: a global rule.
+    // The type of the protection rule.
     shared_ptr<string> defenseType_ {};
     // The ID of the WAF instance.
     // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of your WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -114,19 +108,17 @@ namespace Models
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The protected object of the rule that you want to delete.
-    // 
-    // > This parameter is required only when you set **DefenseType** to **resource**.
+    // The protection object associated with the rule to delete.
+    // > This parameter is required only when **DefenseType** is set to **resource**.
     shared_ptr<string> resource_ {};
-    // The ID of the resource group.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The IDs of the protection rules that you want to delete. Separate multiple IDs with commas (,).
+    // The IDs of the protection rules to delete. Separate multiple IDs with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> ruleIds_ {};
-    // The ID of the protection rule template that you want to delete.
-    // 
-    // > This parameter is required only when you set **DefenseType** to **template**.
+    // The ID of the protection template to delete.
+    // > This parameter is required only when **DefenseType** is set to **template**.
     shared_ptr<int64_t> templateId_ {};
   };
 

@@ -42,13 +42,21 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const RuleLabels& obj) { 
         DARABONBA_PTR_TO_JSON(BotBehavior, botBehavior_);
+        DARABONBA_PTR_TO_JSON(DefaultAction, defaultAction_);
+        DARABONBA_PTR_TO_JSON(DefaultConfig, defaultConfig_);
+        DARABONBA_PTR_TO_JSON(DefaultStatus, defaultStatus_);
         DARABONBA_PTR_TO_JSON(LabelKey, labelKey_);
+        DARABONBA_PTR_TO_JSON(LabelStatus, labelStatus_);
         DARABONBA_PTR_TO_JSON(LabelType, labelType_);
         DARABONBA_PTR_TO_JSON(SubScene, subScene_);
       };
       friend void from_json(const Darabonba::Json& j, RuleLabels& obj) { 
         DARABONBA_PTR_FROM_JSON(BotBehavior, botBehavior_);
+        DARABONBA_PTR_FROM_JSON(DefaultAction, defaultAction_);
+        DARABONBA_PTR_FROM_JSON(DefaultConfig, defaultConfig_);
+        DARABONBA_PTR_FROM_JSON(DefaultStatus, defaultStatus_);
         DARABONBA_PTR_FROM_JSON(LabelKey, labelKey_);
+        DARABONBA_PTR_FROM_JSON(LabelStatus, labelStatus_);
         DARABONBA_PTR_FROM_JSON(LabelType, labelType_);
         DARABONBA_PTR_FROM_JSON(SubScene, subScene_);
       };
@@ -64,7 +72,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->botBehavior_ == nullptr
-        && this->labelKey_ == nullptr && this->labelType_ == nullptr && this->subScene_ == nullptr; };
+        && this->defaultAction_ == nullptr && this->defaultConfig_ == nullptr && this->defaultStatus_ == nullptr && this->labelKey_ == nullptr && this->labelStatus_ == nullptr
+        && this->labelType_ == nullptr && this->subScene_ == nullptr; };
       // botBehavior Field Functions 
       bool hasBotBehavior() const { return this->botBehavior_ != nullptr;};
       void deleteBotBehavior() { this->botBehavior_ = nullptr;};
@@ -72,11 +81,39 @@ namespace Models
       inline RuleLabels& setBotBehavior(string botBehavior) { DARABONBA_PTR_SET_VALUE(botBehavior_, botBehavior) };
 
 
+      // defaultAction Field Functions 
+      bool hasDefaultAction() const { return this->defaultAction_ != nullptr;};
+      void deleteDefaultAction() { this->defaultAction_ = nullptr;};
+      inline string getDefaultAction() const { DARABONBA_PTR_GET_DEFAULT(defaultAction_, "") };
+      inline RuleLabels& setDefaultAction(string defaultAction) { DARABONBA_PTR_SET_VALUE(defaultAction_, defaultAction) };
+
+
+      // defaultConfig Field Functions 
+      bool hasDefaultConfig() const { return this->defaultConfig_ != nullptr;};
+      void deleteDefaultConfig() { this->defaultConfig_ = nullptr;};
+      inline string getDefaultConfig() const { DARABONBA_PTR_GET_DEFAULT(defaultConfig_, "") };
+      inline RuleLabels& setDefaultConfig(string defaultConfig) { DARABONBA_PTR_SET_VALUE(defaultConfig_, defaultConfig) };
+
+
+      // defaultStatus Field Functions 
+      bool hasDefaultStatus() const { return this->defaultStatus_ != nullptr;};
+      void deleteDefaultStatus() { this->defaultStatus_ = nullptr;};
+      inline int32_t getDefaultStatus() const { DARABONBA_PTR_GET_DEFAULT(defaultStatus_, 0) };
+      inline RuleLabels& setDefaultStatus(int32_t defaultStatus) { DARABONBA_PTR_SET_VALUE(defaultStatus_, defaultStatus) };
+
+
       // labelKey Field Functions 
       bool hasLabelKey() const { return this->labelKey_ != nullptr;};
       void deleteLabelKey() { this->labelKey_ = nullptr;};
       inline string getLabelKey() const { DARABONBA_PTR_GET_DEFAULT(labelKey_, "") };
       inline RuleLabels& setLabelKey(string labelKey) { DARABONBA_PTR_SET_VALUE(labelKey_, labelKey) };
+
+
+      // labelStatus Field Functions 
+      bool hasLabelStatus() const { return this->labelStatus_ != nullptr;};
+      void deleteLabelStatus() { this->labelStatus_ = nullptr;};
+      inline string getLabelStatus() const { DARABONBA_PTR_GET_DEFAULT(labelStatus_, "") };
+      inline RuleLabels& setLabelStatus(string labelStatus) { DARABONBA_PTR_SET_VALUE(labelStatus_, labelStatus) };
 
 
       // labelType Field Functions 
@@ -94,23 +131,41 @@ namespace Models
 
 
     protected:
-      // The bot behavior that corresponds to the rule label. Valid values:
+      // The crawler behavior corresponding to the rule tag.
       // 
-      // - **malicious**: malicious bot.
-      // 
-      // - **suspicious**: suspected bot.
-      // 
-      // - **normal**: normal bot.
+      // - **malicious**: malicious crawler.
+      // - **suspicious**: suspected crawler.
+      // - **normal**: normal crawler.
       shared_ptr<string> botBehavior_ {};
-      // The key of the bot management rule label.
+      // The default action. Valid values:
+      // 
+      // - **block**: Block.
+      // - **monitor**: Monitor.
+      // - **js**: JavaScript verification.
+      // - **captcha**: Slider CAPTCHA.
+      // - **captcha_strict**: Strict slider CAPTCHA.
+      // - **bypass**: Allow.
+      shared_ptr<string> defaultAction_ {};
+      // The default configurations corresponding to the label.
+      shared_ptr<string> defaultConfig_ {};
+      // The default status of the tag rule.
+      // 
+      // - **1**: The rule is enabled.
+      // - **0**: The rule is disabled.
+      shared_ptr<int32_t> defaultStatus_ {};
+      // The bot management rule tag.
       shared_ptr<string> labelKey_ {};
-      // The type of the bot rule label.
+      // The tag status.
+      // 
+      // - **online**: Online.
+      // - **wait_offline**: Pending offline.
+      shared_ptr<string> labelStatus_ {};
+      // The type of the bot rule tag.
       shared_ptr<string> labelType_ {};
-      // The bot management scenarios to which the rule belongs. Multiple scenarios are separated by commas (,). Valid values:
+      // The set of bot management protection scenarios to which the rule belongs. Multiple scenarios are separated by commas (,). Valid values:
       // 
-      // - **web**: web protection.
-      // 
-      // - **app**: app protection.
+      // - **web**: Web protection scenario.
+      // - **app**: App protection scenario.
       shared_ptr<string> subScene_ {};
     };
 
@@ -154,15 +209,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned per page. Valid values: 1 to 200. Default value: 20.
+    // The number of entries per page for paging. Valid values: 1 to 200. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. This parameter is returned if a next page exists.
+    // The pagination token for the next page. If a next page exists, this field has a return value.
     // 
-    // > If a value is returned for this parameter, it indicates that more results are available. Use the returned **NextToken** value in the next request to retrieve the next page of results. Repeat this process until no value is returned for this parameter. This indicates that all results have been retrieved.
+    // > If this parameter has a return value, a next page exists. You can use the returned **NextToken** as a request parameter to obtain the data on the next page. Repeat this process until no value is returned, which indicates that all data has been retrieved.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The list of bot management rule labels.
+    // The list of bot management rule tags.
     shared_ptr<vector<DescribeBotRuleLabelsResponseBody::RuleLabels>> ruleLabels_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

@@ -94,21 +94,21 @@ namespace Models
 
 
   protected:
-    // The ID of the Web Application Firewall (WAF) instance.
+    // Instance ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of your WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of your current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The type of bot rule label to query.
+    // The type of bot rule tag to query.
     shared_ptr<string> labelType_ {};
-    // The number of entries to return on each page. Valid values: 1 to 200. Default value: 20.
+    // The number of entries per page for paging. Valid values: 1 to 200. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. This parameter is returned if a next page exists.
+    // The pagination token for the next page. If a next page exists, this field has a return value.
     // 
-    // > If a value is returned for this parameter, it indicates that more results are available. Use the returned **NextToken** value in the next request to retrieve the next page of results. Repeat this process until no value is returned for this parameter. This indicates that all results have been retrieved.
+    // > If this parameter has a return value, a next page exists. You can use the returned **NextToken** as a request parameter to obtain the data on the next page. Repeat this process until no value is returned, which indicates that all data has been retrieved.
     shared_ptr<string> nextToken_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
@@ -116,11 +116,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The type of bot management scenario. Valid values:
-    // 
-    // - **web**: web protection.
-    // 
-    // - **app**: app protection.
+    // The bot management protection scenario type.
     shared_ptr<string> subScene_ {};
   };
 

@@ -232,95 +232,74 @@ namespace Models
 
 
   protected:
-    // The account that you want to use to filter events.
+    // The account information.
     shared_ptr<string> account_ {};
-    // The path of the API that is associated with the security event.
+    // The API operation.
     shared_ptr<string> apiFormat_ {};
     // The ID of the API.
     shared_ptr<string> apiId_ {};
     // The business purpose of the API.
-    // 
-    // > Call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported business purposes.
+    // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported business purposes.
     shared_ptr<string> apiTag_ {};
-    // The IP address of the attacker that you want to use to filter events.
+    // The attack IP address.
     shared_ptr<string> attackIp_ {};
-    // The ID of the hybrid cloud WAF cluster.
-    // 
-    // > This parameter is required only in hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the IDs of hybrid cloud WAF clusters.
+    // The hybrid cloud cluster ID.
+    // > This parameter applies only to hybrid cloud scenarios. You can call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain hybrid cloud cluster information.
     shared_ptr<string> clusterId_ {};
-    // The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+    // The end time of the query, in UNIX timestamp (UTC) format. Unit: seconds.
     shared_ptr<int64_t> endTs_ {};
     // The ID of the API security event.
     shared_ptr<string> eventId_ {};
-    // The severity level of the event. Valid values:
-    // 
-    // - **high**: high severity.
-    // 
-    // - **medium**: medium severity.
-    // 
-    // - **low**: low severity.
+    // The event level. Valid values:
+    // - **high**: High-risk.
+    // - **medium**: Medium-risk.
+    // - **low**: Low-risk.
     shared_ptr<string> eventLevel_ {};
-    // The dimension by which security events are categorized. Valid values:
-    // 
-    // - **ip**: IP security event. This is the default value.
-    // 
-    // - **account**: account security event.
+    // The dimension of the security event.
     shared_ptr<string> eventScope_ {};
     // The event type.
-    // 
-    // > Call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported event types.
+    // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported event types.
     shared_ptr<string> eventTag_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
+    // The ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The domain name or IP address that is protected by WAF.
+    // The domain name or IP address to which the API operation belongs.
     shared_ptr<string> matchedHost_ {};
-    // The field that is used to sort the query results. Valid values:
-    // 
-    // - **allCnt**: the number of attacks.
-    // 
-    // - **startTs**: the start time of the event.
-    // 
-    // - **endTs**: the end time of the event.
+    // The name of the field used for sorting. Valid values:
+    // - **allCnt**: attack count.
+    // - **startTs**: event start time.
+    // - **endTs**: event end time.
     shared_ptr<string> orderKey_ {};
-    // The order in which the query results are sorted. Valid values:
-    // 
-    // - **desc**: descending order. This is the default value.
-    // 
-    // - **asc**: ascending order.
+    // The sort order. Valid values:
+    // - **desc**: Descending order (default).
+    // - **asc**: Ascending order.
     shared_ptr<string> orderWay_ {};
     // The source of the event type. Valid values:
-    // 
-    // - **custom**: a user-defined event type.
-    // 
-    // - **default**: a built-in event type.
+    // - **custom**: Custom.
+    // - **default**: Built-in.
     shared_ptr<string> origin_ {};
-    // The page number of the page to return. Default value: **1**.
+    // The page number to return in a paged query. Default value: **1**, which indicates the first page.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **10**.
+    // The number of entries per page in a paged query. Default value: **10**, which indicates 10 entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+    // The start time of the query, in UNIX timestamp (UTC) format. Unit: seconds.
     shared_ptr<int64_t> startTs_ {};
-    // The handling status of the event. Valid values:
-    // 
-    // - **toBeConfirmed**: pending confirmation.
-    // 
-    // - **confirmed**: confirmed but not yet handled.
-    // 
-    // - **actioned**: handled.
-    // 
-    // - **ignored**: ignored.
+    // The event status. Valid values:
+    // - **toBeConfirmed**: To be confirmed.
+    // - **confirmed**: Confirmed.
+    // - **actioned**: Handled.
+    // - **ignored**: Ignored.
     shared_ptr<string> userStatus_ {};
   };
 

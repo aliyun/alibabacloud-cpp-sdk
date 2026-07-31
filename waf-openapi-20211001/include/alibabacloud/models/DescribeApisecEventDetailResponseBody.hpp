@@ -152,54 +152,43 @@ namespace Models
 
 
   protected:
-    // The total number of attacks in the security event.
+    // The number of attacks.
     shared_ptr<string> attackCnt_ {};
-    // The list of attackers associated with the security event.
+    // The attacker list.
     shared_ptr<vector<string>> attackerList_ {};
-    // The details of the security event.
+    // The detailed information about the security event. The value is a string converted from a JSON object constructed by a series of parameters.
     shared_ptr<string> detailValue_ {};
-    // The end of the time range during which the security event occurred. This value is a UNIX timestamp. Unit: seconds.
+    // The end time of the query. The value is a UNIX timestamp (UTC). Unit: seconds.
     shared_ptr<string> endTs_ {};
     // The ID of the API security event.
     shared_ptr<string> eventId_ {};
-    // The severity level of the security event. Valid values:
-    // 
-    // - **high**: high severity.
-    // 
-    // - **medium**: medium severity.
-    // 
-    // - **low**: low severity.
+    // The event level. Valid values:
+    // - **high**: high risk.
+    // - **medium**: medium risk.
+    // - **low**: low risk.
     shared_ptr<string> eventLevel_ {};
     // The dimension of the security event. Valid values:
-    // 
     // - **ip** (default): IP security event.
     // 
     // - **account**: account security event.
     shared_ptr<string> eventScope_ {};
-    // The type of the security event.
-    // 
+    // The event type.
     // > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported event types.
     shared_ptr<string> eventTag_ {};
-    // The remarks added to the security event.
+    // The remarks.
     shared_ptr<string> note_ {};
-    // The source of the event type rule. Valid values:
-    // 
-    // - **custom**: a user-defined rule.
-    // 
-    // - **default**: a built-in rule.
+    // The origin of the event type. Valid values:
+    // - **custom**: custom.
+    // - **default**: built-in.
     shared_ptr<string> origin_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range during which the security event occurred. This value is a UNIX timestamp. Unit: seconds.
+    // The start time of the query. The value is a UNIX timestamp (UTC). Unit: seconds.
     shared_ptr<string> startTs_ {};
     // The event status. Valid values:
-    // 
     // - **toBeConfirmed**: to be confirmed.
-    // 
     // - **confirmed**: confirmed.
-    // 
     // - **actioned**: handled.
-    // 
     // - **ignored**: ignored.
     shared_ptr<string> userStatus_ {};
   };

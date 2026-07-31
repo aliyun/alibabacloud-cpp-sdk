@@ -186,18 +186,22 @@ namespace Models
     protected:
       // The burstable QPS specification of the WAF instance.
       shared_ptr<int64_t> elasticQpsSetValue_ {};
-      // The end time of the billing period. The value is a UNIX timestamp (UTC). Unit: seconds.
+      // The end time of the billing record. The value is a UNIX timestamp (UTC). Unit: seconds.
       shared_ptr<int64_t> endTime_ {};
       // The overuse status of the current period. Valid values:
       // - **0**: Normal.
-      // - **1**: Overused.
-      // - **2**: Sandboxed.
+      // - **1**: overused.
+      // - **2**: sandboxed.
       shared_ptr<int32_t> exceedStatus_ {};
+      // Indicates whether the extension plug-in is enabled. Valid values:
+      // - **true**: The extension plug-in is enabled.
+      // - **false**: The extension plug-in is not enabled.
       shared_ptr<bool> extensionPlugin_ {};
+      // The number of requests processed by the plug-in.
       shared_ptr<int64_t> extensionPluginRequest_ {};
       // The maximum QPS during the current period.
       shared_ptr<int64_t> maxQps_ {};
-      // The unit price for elastic billing. Unit: CNY for the China site and USD for the international site.
+      // The unit price for burstable billing. Unit: CNY for the China site and USD for the international site.
       shared_ptr<float> price_ {};
       // The QPS extension specification of the WAF instance.
       shared_ptr<int64_t> qps_ {};
@@ -209,11 +213,11 @@ namespace Models
       shared_ptr<bool> riskControl_ {};
       // The number of times risk identification is used.
       shared_ptr<int64_t> riskTraffic_ {};
-      // The start time of the billing period. The value is a UNIX timestamp (UTC). Unit: seconds.
+      // The start time of the billing record. The value is a UNIX timestamp (UTC). Unit: seconds.
       shared_ptr<int64_t> startTime_ {};
       // The total QPS that is billed.
       shared_ptr<int64_t> total_ {};
-      // The elastic billing type.
+      // The burstable billing type.
       shared_ptr<vector<string>> type_ {};
     };
 
@@ -243,7 +247,7 @@ namespace Models
 
 
   protected:
-    // The list of WAF elastic billing records.
+    // The list of WAF burstable billing records.
     shared_ptr<vector<DescribePrepayDailyBillsResponseBody::Bills>> bills_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

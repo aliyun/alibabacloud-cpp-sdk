@@ -92,11 +92,11 @@ namespace Models
       shared_ptr<string> eventCode_ {};
       // The number of events.
       shared_ptr<int64_t> eventCount_ {};
-      // The parent type of the event.
+      // The parent event type.
       shared_ptr<string> eventParentType_ {};
-      // The type of the event.
+      // The event type.
       // 
-      // > Call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported event types.
+      // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported event types.
       shared_ptr<string> eventType_ {};
     };
 
@@ -119,9 +119,9 @@ namespace Models
 
 
   protected:
-    // A list of security event types and their statistics.
+    // The list of security event types and statistics.
     shared_ptr<vector<DescribeUserEventTypeResponseBody::Event>> event_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

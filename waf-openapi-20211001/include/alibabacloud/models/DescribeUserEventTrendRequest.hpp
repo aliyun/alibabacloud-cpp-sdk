@@ -78,9 +78,7 @@ namespace Models
     // The ID of the hybrid cloud cluster.
     // > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain hybrid cloud cluster information.
     shared_ptr<string> clusterId_ {};
-    // The dimension of security events. Valid values:
-    // - **ip** (default): IP security events.
-    // - **account**: account security events.
+    // The dimension of security events.
     shared_ptr<string> eventScope_ {};
     // Instance ID of the WAF instance.
     // 

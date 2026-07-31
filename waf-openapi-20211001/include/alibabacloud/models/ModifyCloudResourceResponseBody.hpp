@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the connected resource.
+    // The connected resource ID.
     shared_ptr<string> cloudResource_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

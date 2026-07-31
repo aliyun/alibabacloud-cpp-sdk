@@ -143,19 +143,19 @@ namespace Models
   protected:
     // The ID of the WAF instance.
     // 
-    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The listener configuration.
+    // The listening configuration.
     // 
     // This parameter is required.
     shared_ptr<string> listenShrink_ {};
-    // The UID that indicates the resource ownership.
+    // The UID of the current resource ownership.
     shared_ptr<string> ownerUserId_ {};
     // The forwarding configuration.
     shared_ptr<string> redirectShrink_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
@@ -163,7 +163,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The Alibaba Cloud resource group ID.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The list of tags. A maximum of 20 tags can be specified.
     shared_ptr<vector<CreateCloudResourceShrinkRequest::Tag>> tag_ {};

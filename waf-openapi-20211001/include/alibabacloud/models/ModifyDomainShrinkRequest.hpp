@@ -94,35 +94,25 @@ namespace Models
 
 
   protected:
-    // The access mode of the WAF instance. Valid values:
-    // 
-    // - **share** (default): onboarding by using a CNAME record.
-    // 
-    // - **hybrid_cloud_cname**: onboarding by using a hybrid cloud CNAME record.
+    // The access type of the WAF instance. Valid values:
     shared_ptr<string> accessType_ {};
-    // The domain name whose configurations you want to modify.
+    // The domain name to operate on.
     shared_ptr<string> domain_ {};
-    // The ID of the domain name.
+    // The domain name ID.
     shared_ptr<string> domainId_ {};
     // The ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
-    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The listening settings.
+    // The listening configuration.
     // 
     // This parameter is required.
     shared_ptr<string> listenShrink_ {};
-    // The forwarding settings.
+    // The forwarding configuration.
     // 
     // This parameter is required.
     shared_ptr<string> redirectShrink_ {};
     // The region where the WAF instance resides. Valid values:
-    // 
-    // - **cn-hangzhou**: the Chinese mainland.
-    // 
-    // - **ap-southeast-1**: outside the Chinese mainland.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

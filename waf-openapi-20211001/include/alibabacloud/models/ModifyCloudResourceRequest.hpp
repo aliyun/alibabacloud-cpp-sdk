@@ -115,9 +115,9 @@ namespace Models
 
 
       protected:
-        // The custom request header field.
+        // The specified custom request header field.
         shared_ptr<string> key_ {};
-        // The value of the custom request header field.
+        // The value set for the custom request header field.
         shared_ptr<string> value_ {};
       };
 
@@ -209,7 +209,7 @@ namespace Models
       // 
       // > After persistent connections are enabled, this parameter specifies how many requests can reuse a persistent connection.
       shared_ptr<int32_t> keepaliveRequests_ {};
-      // The idle timeout period of a persistent connection. Valid values: 10 to 3600. Default value: 3600. Unit: seconds.
+      // The idle timeout period for persistent connections. Valid values: 10 to 3600. Default value: 3600. Unit: seconds.
       // 
       // > Specifies how long an idle persistent connection can remain open before it is released.
       shared_ptr<int32_t> keepaliveTimeout_ {};
@@ -225,15 +225,15 @@ namespace Models
       shared_ptr<int32_t> writeTimeout_ {};
       // The method that WAF uses to obtain the originating IP address of the client. Valid values:
       // 
-      // - **0**: No Layer 7 proxy is deployed in front of WAF.
+      // - **0**: The client access traffic is not forwarded by any other Layer 7 proxy before reaching WAF.
       // 
-      // - **1**: WAF reads the first value of the X-Forwarded-For (XFF) header field as the client IP address.
+      // - **1**: WAF reads the first value in the X-Forwarded-For (XFF) header as the client IP address.
       // 
       // - **2**: WAF reads the value of a custom header field that you specify as the client IP address.
       shared_ptr<int32_t> xffHeaderMode_ {};
-      // The list of custom header fields used to obtain the client IP address, in the format of **["header1","header2",...]**.
+      // The list of custom fields used to obtain the client IP address, in the format of **["header1","header2",……]**.
       // 
-      // > This parameter is required only when **XffHeaderMode** is set to 2, which indicates that WAF reads the value of a custom header field as the client IP address.
+      // > This parameter is required only when **XffHeaderMode** is set to 2, which indicates that WAF reads the value of a custom header field that you specify as the client IP address.
       shared_ptr<vector<string>> xffHeaders_ {};
       // Specifies whether to use X-Forward-For-Proto to pass the protocol used by WAF. Valid values:
       // 
@@ -318,7 +318,7 @@ namespace Models
 
 
       protected:
-        // The type of certificate for HTTPS. Valid values:
+        // The certificate type for the HTTPS protocol. Valid values:
         // 
         // - **default**: default certificate.
         // 
@@ -408,23 +408,25 @@ namespace Models
     protected:
       // The certificate information.
       shared_ptr<vector<Listen::Certificates>> certificates_ {};
-      // The type of cipher suite to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // The type of cipher suite to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
       // 
       // - **1**: all cipher suites.
       // 
-      // - **2**: strong cipher suites. This value is available only when **TLSVersion** is set to **tlsv1.2**.
+      // - **2**: strong cipher suites. This value can be selected only when **TLSVersion** is set to **tlsv1.2**.
       // 
-      // - **99**: custom cipher suites.
+      // - **99**: custom cipher suites. This value can be selected only when TLSVersion is not set to tlsv1.3.
       shared_ptr<int32_t> cipherSuite_ {};
       // The custom cipher suites.
       shared_ptr<vector<string>> customCiphers_ {};
-      // Specifies whether TLS 1.3 is supported. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // Specifies whether TLS 1.3 is supported. Valid values:
       // 
       // - **true**: TLS 1.3 is supported.
       // 
       // - **false**: TLS 1.3 is not supported.
+      // 
+      // > This parameter is used only when HttpsPorts is not empty, which indicates that the domain name uses the HTTPS protocol. When TLSVersion is set to tlsv1.3, this value must be true.
       shared_ptr<bool> enableTLSv3_ {};
-      // Specifies whether to enable HTTP/2. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // Specifies whether to enable HTTP/2. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
       // 
       // - **true**: HTTP/2 is enabled.
       // 
@@ -432,30 +434,23 @@ namespace Models
       shared_ptr<bool> http2Enabled_ {};
       // The port of the cloud service connected to WAF.
       shared_ptr<int32_t> port_ {};
-      // The protocol type. Valid values:
-      // - **http**: HTTP.
-      // - **https**: HTTPS.
+      // The protocol type.
       // 
       // This parameter is required.
       shared_ptr<string> protocol_ {};
       // The instance ID of the resource.
       shared_ptr<string> resourceInstanceId_ {};
-      // The type of cloud service. Valid values:
-      // 
-      // - **clb4**: Layer 4 Classic Load Balancer (CLB).
-      // 
-      // - **clb7**: Layer 7 CLB.
-      // 
-      // - **ecs**: Elastic Compute Service (ECS).
-      // - **nlb**: Network Load Balancer (NLB).
+      // The cloud service type.
       shared_ptr<string> resourceProduct_ {};
-      // The TLS version to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+      // The TLS version to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses the HTTPS protocol. Valid values:
       // 
-      // - **tlsv1**
+      // - **tlsv1**: Supports TLS 1.0 and later. Provides the highest compatibility and the lowest security.
       // 
-      // - **tlsv1.1**
+      // - **tlsv1.1**: Supports TLS 1.1 and later. Provides good compatibility and good security.
       // 
-      // - **tlsv1.2**
+      // - **tlsv1.2**: Supports TLS 1.2 and later. Provides good compatibility and the highest security.
+      // 
+      // - **tlsv1.3**: Supports only TLS 1.3. Provides the highest security and the lowest compatibility.
       shared_ptr<string> TLSVersion_ {};
     };
 
@@ -508,13 +503,13 @@ namespace Models
 
 
   protected:
-    // The ID of the connected resource, which is automatically generated by WAF when the resource is connected in cloud native mode.
+    // The ID of the connected resource, which is automatically generated by WAF during cloud native mode connection.
     // 
-    // > You can call [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) to connect a resource and view the resource ID in the response.
+    // > You can call [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) to connect a resource and then view the resource ID in the response.
     shared_ptr<string> cloudResourceId_ {};
     // The ID of the WAF instance.
     // 
-    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

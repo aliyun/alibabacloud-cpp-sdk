@@ -134,37 +134,30 @@ namespace Models
 
 
     protected:
-      // The protection scenario. For more information, see the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
+      // The protection scenario. For more information, refer to the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
       shared_ptr<string> defenseScene_ {};
-      // The sub-scenario of the template. Valid values:
-      // 
-      // - **web**: The bot management template for web protection.
-      // 
-      // - **app**: The bot management template for app protection.
-      // 
-      // - **basic**: The basic bot management template.
+      // The sub-scenario of the protection template. Valid values:
+      // - **web**: the bot management web protection scenario template.
+      // - **app**: the bot management app protection scenario template.
+      // - **basic**: the bot management basic protection template.
       shared_ptr<string> defenseSubScene_ {};
       // The description of the template.
       shared_ptr<string> description_ {};
-      // The time when the protection template was created, in UNIX timestamp format. Unit: milliseconds.
+      // The time when the protection template was created. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> gmtModified_ {};
       // The ID of the protection template.
       shared_ptr<int64_t> templateId_ {};
       // The name of the protection template.
       shared_ptr<string> templateName_ {};
-      // The origin of the protection template. The value custom indicates a user-created template.
+      // The source of the protection template. The value custom indicates that the template is user-defined.
       shared_ptr<string> templateOrigin_ {};
       // The status of the protection template. Valid values:
-      // 
-      // - **0**: Disabled.
-      // 
-      // - **1**: Enabled.
+      // - **0**: disabled.
+      // - **1**: enabled.
       shared_ptr<int32_t> templateStatus_ {};
-      // The type of the template. Valid values:
-      // 
-      // - **user_default**: The default template for the user.
-      // 
-      // - **user_custom**: A custom template created by the user.
+      // The templatetype of the protection template. Valid values:
+      // - **user_default**: user default protection.
+      // - **user_custom**: user custom protection.
       shared_ptr<string> templateType_ {};
     };
 
@@ -189,7 +182,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The protection templates.
+    // The list of protection templates.
     shared_ptr<vector<DescribeDefenseResourceTemplatesResponseBody::Templates>> templates_ {};
   };
 

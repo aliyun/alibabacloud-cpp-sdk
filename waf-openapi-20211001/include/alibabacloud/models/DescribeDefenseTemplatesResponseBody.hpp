@@ -136,61 +136,53 @@ namespace Models
 
 
     protected:
-      // The protection scenario. Valid values:
+      // The WAF protection scenario. Valid values:
       // 
-      // - **waf_group**: Basic Protection.
+      // - **waf_group**: basic protection.
       // 
-      // - **antiscan**: Scan Protection.
+      // - **antiscan**: scan protection.
       // 
-      // - **ip_blacklist**: IP Blocklist.
+      // - **ip_blacklist**: IP blacklist.
       // 
-      // - **custom_acl**: Custom Rule.
+      // - **custom_acl**: custom rule.
       // 
-      // - **whitelist**: Allowlist.
+      // - **whitelist**: whitelist.
       // 
-      // - **region_block**: Geographic Blocking.
+      // - **region_block**: Location Blacklist.
       // 
-      // - **custom_response**: Custom Response.
+      // - **custom_response**: custom response.
       // 
-      // - **cc**: HTTP Flood Protection.
+      // - **cc**: HTTP flood protection.
       // 
-      // - **tamperproof**: Webpage Tamper Protection.
+      // - **tamperproof**: web tamper proofing.
       // 
-      // - **dlp**: Data Loss Prevention.
+      // - **dlp**: data leak prevention.
       // 
-      // - **bot_manager**: Bot Management.
+      // - **bot_manager**: new BOT management.
       shared_ptr<string> defenseScene_ {};
-      // The sub-scenario for the Bot Management template. This parameter is returned only when `DefenseScene` is set to `bot_manager`. Valid values:
-      // 
-      // - **web**: web protection
-      // 
-      // - **app**: app protection
-      // 
-      // - **basic**: basic protection
-      // 
-      // - **bot_custom_acl**: The protection template for advanced Custom Rules in Bot Management.
+      // The sub-scenario of the protection template. Valid values:
+      // - **web**: BOT management web protection scenario template.
+      // - **app**: BOT management app protection scenario template.
+      // - **basic**: BOT management basic protection template.
+      // - **bot_custom_acl**: BOT management advanced custom rule protection template.
       shared_ptr<string> defenseSubScene_ {};
       // The description of the template.
       shared_ptr<string> description_ {};
-      // The last modification time of the protection template. This value is a UNIX timestamp in milliseconds.
+      // The creation time of the protection template. The value is a timestamp in milliseconds.
       shared_ptr<int64_t> gmtModified_ {};
       // The ID of the protection template.
       shared_ptr<int64_t> templateId_ {};
       // The name of the protection template.
       shared_ptr<string> templateName_ {};
-      // The origin of the protection template to be created. The value is custom, which indicates a user-defined template.
+      // The source of the protection template. The value is custom, which indicates user-defined.
       shared_ptr<string> templateOrigin_ {};
       // The status of the protection template. Valid values:
-      // 
-      // - **0**: Disabled.
-      // 
-      // - **1**: Enabled.
+      // - **0**: disabled.
+      // - **1**: enabled.
       shared_ptr<int32_t> templateStatus_ {};
-      // The type of the protection template. Valid values:
-      // 
-      // - **user_default**: The user\\"s default protection template.
-      // 
-      // - **user_custom**: A custom protection template defined by the user.
+      // The templatetype of the protection template. Valid values:
+      // - **user_default**: user default protection.
+      // - **user_custom**: user custom protection.
       shared_ptr<string> templateType_ {};
     };
 
@@ -220,11 +212,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array of protection templates.
+    // The list of protection templates.
     shared_ptr<vector<DescribeDefenseTemplatesResponseBody::Templates>> templates_ {};
-    // The total number of protection templates returned.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

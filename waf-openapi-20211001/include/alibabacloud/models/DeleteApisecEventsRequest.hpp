@@ -94,11 +94,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> eventIds_ {};
-    // The dimension of the security event. Valid values:
-    // 
-    // - **ip**: IP-dimension security events.
-    // 
-    // - **account**: account-dimension security events.
+    // The dimension of the security event.
     shared_ptr<string> eventScope_ {};
     // The ID of the WAF instance.
     // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.

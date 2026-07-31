@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeChargeResultRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ChargeCycle, chargeCycle_);
       DARABONBA_PTR_TO_JSON(ChargeModules, chargeModules_);
+      DARABONBA_PTR_TO_JSON(ChargeUnit, chargeUnit_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
@@ -23,6 +24,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeChargeResultRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ChargeCycle, chargeCycle_);
       DARABONBA_PTR_FROM_JSON(ChargeModules, chargeModules_);
+      DARABONBA_PTR_FROM_JSON(ChargeUnit, chargeUnit_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
@@ -76,14 +78,14 @@ namespace Models
 
 
     protected:
-      // The ID of the billing module.
+      // The pricing module identifier.
       shared_ptr<string> moduleCode_ {};
-      // The usage amount of the billing module.
+      // The usage of the pricing module.
       shared_ptr<int64_t> usage_ {};
     };
 
     virtual bool empty() const override { return this->chargeCycle_ == nullptr
-        && this->chargeModules_ == nullptr && this->payType_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr; };
+        && this->chargeModules_ == nullptr && this->chargeUnit_ == nullptr && this->payType_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr; };
     // chargeCycle Field Functions 
     bool hasChargeCycle() const { return this->chargeCycle_ != nullptr;};
     void deleteChargeCycle() { this->chargeCycle_ = nullptr;};
@@ -98,6 +100,13 @@ namespace Models
     inline vector<DescribeChargeResultRequest::ChargeModules> getChargeModules() { DARABONBA_PTR_GET(chargeModules_, vector<DescribeChargeResultRequest::ChargeModules>) };
     inline DescribeChargeResultRequest& setChargeModules(const vector<DescribeChargeResultRequest::ChargeModules> & chargeModules) { DARABONBA_PTR_SET_VALUE(chargeModules_, chargeModules) };
     inline DescribeChargeResultRequest& setChargeModules(vector<DescribeChargeResultRequest::ChargeModules> && chargeModules) { DARABONBA_PTR_SET_RVALUE(chargeModules_, chargeModules) };
+
+
+    // chargeUnit Field Functions 
+    bool hasChargeUnit() const { return this->chargeUnit_ != nullptr;};
+    void deleteChargeUnit() { this->chargeUnit_ = nullptr;};
+    inline string getChargeUnit() const { DARABONBA_PTR_GET_DEFAULT(chargeUnit_, "") };
+    inline DescribeChargeResultRequest& setChargeUnit(string chargeUnit) { DARABONBA_PTR_SET_VALUE(chargeUnit_, chargeUnit) };
 
 
     // payType Field Functions 
@@ -122,21 +131,19 @@ namespace Models
 
 
   protected:
-    // The billing cycle for the WAF instance. Valid values:
-    // 
-    // - **Year**: yearly billing cycle.
-    // 
-    // - **Month**: monthly billing cycle.
-    // 
-    // - **Day**: daily billing cycle.
+    // The billing cycle for the calculation. Valid values:
+    // - **Year**: Calculates the billing result for one year.
+    // - **Month**: Calculates the billing result for one month.
+    // - **Day**: Calculates the billing result for one day.
     shared_ptr<string> chargeCycle_ {};
-    // The billing modules to calculate.
+    // The list of billing modules to calculate.
     // 
     // This parameter is required.
     shared_ptr<vector<DescribeChargeResultRequest::ChargeModules>> chargeModules_ {};
-    // The billing method of the WAF instance. Valid value:
-    // 
-    // - **POSTPAY**: pay-as-you-go.
+    // The metering unit.
+    shared_ptr<string> chargeUnit_ {};
+    // The billing type of the instance. Valid values:
+    // - **POSTPAY**: pay-as-you-go WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
@@ -146,7 +153,7 @@ namespace Models
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

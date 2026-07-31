@@ -113,22 +113,17 @@ namespace Models
 
   protected:
     // The ID of the WAF instance.
-    // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number. Default value: **1**.
+    // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: **10**.
+    // The number of entries per page in a paged query. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The port of the cloud service that is added to WAF.
+    // The port of the cloud service that is connected to WAF.
     shared_ptr<string> port_ {};
-    // The protocol. Valid values:
-    // 
-    // - **http**: HTTP.
-    // 
-    // - **https**: HTTPS.
+    // The protocol type.
     shared_ptr<string> protocol_ {};
     // The region where the WAF instance resides. Valid values:
     // 
@@ -136,21 +131,20 @@ namespace Models
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource instance.
+    // The instance ID of the resource.
     // 
     // This parameter is required.
     shared_ptr<string> resourceInstanceId_ {};
-    // The ID of the resource group.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The type of the cloud service. Valid values:
+    // The cloud service type. Valid values:
     // 
-    // - **clb4**: Layer 4 Classic Load Balancer (CLB).
+    // - **clb4**: Layer 4 CLB.
     // 
     // - **clb7**: Layer 7 CLB.
     // 
-    // - **ecs**: Elastic Compute Service (ECS).
-    // 
-    // - **nlb**: Network Load Balancer (NLB).
+    // - **ecs**: ECS.
+    // - **nlb**: NLB.
     shared_ptr<string> resourceProduct_ {};
   };
 

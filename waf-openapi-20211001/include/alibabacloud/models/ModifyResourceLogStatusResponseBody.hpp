@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the log collection feature is enabled for the protected object. Valid values:
+    // The log enabling status of the protected object. Valid values:
     // 
-    // - **true**: The feature is enabled.
+    // - **true**: Enabled.
     // 
-    // - **false**: The feature is disabled.
+    // - **false**: Not enabled.
     shared_ptr<bool> status_ {};
   };
 

@@ -135,43 +135,38 @@ namespace Models
 
 
   protected:
-    // The type of API security threat.
+    // The risk type.
     shared_ptr<string> abnormalTag_ {};
     // The ID of the API.
     // 
     // This parameter is required.
     shared_ptr<string> apiId_ {};
-    // The ID of the Hybrid Cloud WAF cluster.
-    // 
-    // > This parameter is available only in hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query information about Hybrid Cloud WAF clusters.
+    // The ID of the hybrid cloud cluster.
+    // > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud cluster information.
     shared_ptr<string> clusterId_ {};
-    // The type of the example. Valid values:
-    // 
-    // - **sensitive**: sensitive data.
-    // 
-    // - **risk**: threat.
+    // The type of the sample.
     shared_ptr<string> exampleType_ {};
-    // The ID of the WAF instance.
+    // Instance ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of entries to return on each page. Valid values: 1 to 5. Default value: 5.
+    // The number of entries per page in a paged query. Valid values: 1 to 5. Default value: 5. This parameter is used for paging.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The list of sensitive data types in requests.
+    // The list of request sensitive information types.
     shared_ptr<vector<string>> requestSensitiveTypeList_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The list of sensitive data types in responses.
+    // The list of response sensitive information types.
     shared_ptr<vector<string>> responseSensitiveTypeList_ {};
   };
 
