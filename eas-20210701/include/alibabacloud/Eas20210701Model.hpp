@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_EAS20210701MODEL_HPP_
 #define ALIBABACLOUD_EAS20210701MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/Artifact.hpp>
+#include <alibabacloud/models/ArtifactRelease.hpp>
 #include <alibabacloud/models/ContainerInfo.hpp>
 #include <alibabacloud/models/Group.hpp>
 #include <alibabacloud/models/Instance.hpp>
@@ -151,6 +153,8 @@
 #include <alibabacloud/models/DeleteVirtualResourceRequest.hpp>
 #include <alibabacloud/models/DeleteVirtualResourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteVirtualResourceResponse.hpp>
+#include <alibabacloud/models/DescribeArtifactRequest.hpp>
+#include <alibabacloud/models/DescribeArtifactResponse.hpp>
 #include <alibabacloud/models/DescribeBenchmarkTaskRequest.hpp>
 #include <alibabacloud/models/DescribeBenchmarkTaskResponseBody.hpp>
 #include <alibabacloud/models/DescribeBenchmarkTaskResponse.hpp>

@@ -901,6 +901,24 @@ namespace Eas20210701
       Models::DeleteVirtualResourceResponse deleteVirtualResource(const string &ClusterId, const string &VirtualResourceId, const Models::DeleteVirtualResourceRequest &request);
 
       /**
+       * @summary Queries the details of a cloud native artifact.
+       *
+       * @param request DescribeArtifactRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeArtifactResponse
+       */
+      Models::DescribeArtifactResponse describeArtifactWithOptions(const string &ClusterId, const string &ArtifactName, const Models::DescribeArtifactRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a cloud native artifact.
+       *
+       * @param request DescribeArtifactRequest
+       * @return DescribeArtifactResponse
+       */
+      Models::DescribeArtifactResponse describeArtifact(const string &ClusterId, const string &ArtifactName, const Models::DescribeArtifactRequest &request);
+
+      /**
        * @summary Queries details about the configurations of a stress testing task.
        *
        * @param request DescribeBenchmarkTaskRequest
@@ -937,7 +955,7 @@ namespace Eas20210701
       Models::DescribeBenchmarkTaskReportResponse describeBenchmarkTaskReport(const string &ClusterId, const string &TaskName, const Models::DescribeBenchmarkTaskReportRequest &request);
 
       /**
-       * @summary Queries the details of a private gateway.
+       * @summary Queries the details of a dedicated gateway.
        *
        * @param request DescribeGatewayRequest
        * @param headers map
@@ -947,7 +965,7 @@ namespace Eas20210701
       Models::DescribeGatewayResponse describeGatewayWithOptions(const string &ClusterId, const string &GatewayId, const Models::DescribeGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a private gateway.
+       * @summary Queries the details of a dedicated gateway.
        *
        * @param request DescribeGatewayRequest
        * @return DescribeGatewayResponse

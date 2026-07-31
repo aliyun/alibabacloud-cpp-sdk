@@ -242,37 +242,37 @@ namespace Models
   protected:
     // The billing method.
     shared_ptr<string> chargeType_ {};
-    // The time when the private gateway was created. The time is in Coordinated Universal Time (UTC).
+    // The time when the dedicated gateway was created. The time is in UTC.
     shared_ptr<string> createTime_ {};
-    // The ID of the self-managed cluster.
+    // The self-managed cluster ID.
     shared_ptr<string> externalClusterId_ {};
-    // The ID of the private gateway.
+    // The dedicated gateway ID.
     shared_ptr<string> gatewayId_ {};
-    // The alias of the private gateway.
+    // The alias of the dedicated gateway.
     shared_ptr<string> gatewayName_ {};
-    // The instance type of the private gateway.
+    // The instance type used by the dedicated gateway.
     shared_ptr<string> instanceType_ {};
-    // The public endpoint.
+    // The public network access domain name.
     shared_ptr<string> internetDomain_ {};
     // Indicates whether public network access is enabled.
     shared_ptr<bool> internetEnabled_ {};
-    // The status of public network access.
+    // The status of public network access enablement or disablement.
     shared_ptr<string> internetStatus_ {};
-    // The private endpoint.
+    // The internal access domain name.
     shared_ptr<string> intranetDomain_ {};
     shared_ptr<bool> intranetEnabled_ {};
-    // Indicates whether the gateway is the default private gateway.
+    // Indicates whether the dedicated gateway is the default one.
     shared_ptr<bool> isDefault_ {};
     shared_ptr<vector<DescribeGatewayResponseBody::Labels>> labels_ {};
-    // The number of private gateway nodes.
+    // The number of nodes in the dedicated gateway.
     shared_ptr<int32_t> replicas_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether HTTP to HTTPS redirection is enabled.
+    // Indicates whether HTTP-to-HTTPS redirection is enabled.
     shared_ptr<bool> SSLRedirectionEnabled_ {};
-    // The status of the private gateway.
+    // The status of the dedicated gateway.
     shared_ptr<string> status_ {};
-    // The time when the private gateway was last updated. The time is in UTC.
+    // The time when the dedicated gateway was last updated. The time is in UTC.
     shared_ptr<string> updateTime_ {};
   };
 

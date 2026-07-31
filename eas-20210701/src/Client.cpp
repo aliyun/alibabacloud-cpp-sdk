@@ -2384,6 +2384,45 @@ DeleteVirtualResourceResponse Client::deleteVirtualResource(const string &Cluste
 }
 
 /**
+ * @summary Queries the details of a cloud native artifact.
+ *
+ * @param request DescribeArtifactRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeArtifactResponse
+ */
+DescribeArtifactResponse Client::describeArtifactWithOptions(const string &ClusterId, const string &ArtifactName, const DescribeArtifactRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeArtifact"},
+    {"version" , "2021-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/artifacts/" , Darabonba::Encode::Encoder::percentEncode(ClusterId) , "/" , Darabonba::Encode::Encoder::percentEncode(ArtifactName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeArtifactResponse>();
+}
+
+/**
+ * @summary Queries the details of a cloud native artifact.
+ *
+ * @param request DescribeArtifactRequest
+ * @return DescribeArtifactResponse
+ */
+DescribeArtifactResponse Client::describeArtifact(const string &ClusterId, const string &ArtifactName, const DescribeArtifactRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return describeArtifactWithOptions(ClusterId, ArtifactName, request, headers, runtime);
+}
+
+/**
  * @summary Queries details about the configurations of a stress testing task.
  *
  * @param request DescribeBenchmarkTaskRequest
@@ -2468,7 +2507,7 @@ DescribeBenchmarkTaskReportResponse Client::describeBenchmarkTaskReport(const st
 }
 
 /**
- * @summary Queries the details of a private gateway.
+ * @summary Queries the details of a dedicated gateway.
  *
  * @param request DescribeGatewayRequest
  * @param headers map
@@ -2495,7 +2534,7 @@ DescribeGatewayResponse Client::describeGatewayWithOptions(const string &Cluster
 }
 
 /**
- * @summary Queries the details of a private gateway.
+ * @summary Queries the details of a dedicated gateway.
  *
  * @param request DescribeGatewayRequest
  * @return DescribeGatewayResponse
