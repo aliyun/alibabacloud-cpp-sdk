@@ -152,19 +152,19 @@ namespace Models
       protected:
         // The time when the data quality rule template was created.
         shared_ptr<int64_t> createTime_ {};
-        // The creator of the data quality rule template.
+        // The user who created the data quality rule template.
         shared_ptr<string> createUser_ {};
         // The ID of the data quality rule template.
         shared_ptr<string> id_ {};
-        // The time when the data quality rule template was updated.
+        // The time when the data quality rule template was last updated.
         shared_ptr<int64_t> modifyTime_ {};
-        // The last updater of the data quality rule template.
+        // The user who last updated the data quality rule template.
         shared_ptr<string> modifyUser_ {};
         // The owner of the data quality rule template.
         shared_ptr<string> owner_ {};
         // The project ID.
         shared_ptr<int64_t> projectId_ {};
-        // Specific configurations of the data quality rule template. For more information, see [Data quality Spec configuration description](~2963394~).
+        // The specific configuration of the data quality rule template. For more information, see [Data quality Spec configuration](https://help.aliyun.com/document_detail/2963394.html).
         shared_ptr<string> spec_ {};
       };
 
@@ -205,9 +205,9 @@ namespace Models
       shared_ptr<vector<PageInfo::DataQualityTemplates>> dataQualityTemplates_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of pages.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of records.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -230,9 +230,9 @@ namespace Models
 
 
   protected:
-    // Paged query results of data quality rule templates.
+    // The paging query result of data quality rule templates.
     shared_ptr<ListDataQualityTemplatesResponseBody::PageInfo> pageInfo_ {};
-    // The API request ID, which is generated as a UUID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The directory path to which the data quality template belongs.
+    // The catalog path to which the data quality template belongs.
     shared_ptr<string> catalog_ {};
-    // Fuzzy match for the template rule name.
+    // The template rule name for fuzzy match.
     shared_ptr<string> name_ {};
-    // The number of records per page. Default value: 10.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page number of the results. Default value: 1.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The project ID.
     shared_ptr<int64_t> projectId_ {};

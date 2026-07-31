@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The file ID.
+    // The ID of the file after it is created.
     shared_ptr<int64_t> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -92,12 +92,11 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. Use this ID to troubleshoot issues.
+    // The unique ID of the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // - true: The call succeeded.
-    // 
+    // - true: The call was successful.
     // - false: The call failed.
     shared_ptr<bool> success_ {};
   };

@@ -228,6 +228,10 @@
 #include <alibabacloud/models/CreateSecurityStrategyShrinkRequest.hpp>
 #include <alibabacloud/models/CreateSecurityStrategyResponseBody.hpp>
 #include <alibabacloud/models/CreateSecurityStrategyResponse.hpp>
+#include <alibabacloud/models/CreateSemanticJobRequest.hpp>
+#include <alibabacloud/models/CreateSemanticJobShrinkRequest.hpp>
+#include <alibabacloud/models/CreateSemanticJobResponseBody.hpp>
+#include <alibabacloud/models/CreateSemanticJobResponse.hpp>
 #include <alibabacloud/models/CreateSkillRequest.hpp>
 #include <alibabacloud/models/CreateSkillShrinkRequest.hpp>
 #include <alibabacloud/models/CreateSkillResponseBody.hpp>
@@ -357,6 +361,9 @@
 #include <alibabacloud/models/DeleteSecurityStrategyRequest.hpp>
 #include <alibabacloud/models/DeleteSecurityStrategyResponseBody.hpp>
 #include <alibabacloud/models/DeleteSecurityStrategyResponse.hpp>
+#include <alibabacloud/models/DeleteSemanticJobRequest.hpp>
+#include <alibabacloud/models/DeleteSemanticJobResponseBody.hpp>
+#include <alibabacloud/models/DeleteSemanticJobResponse.hpp>
 #include <alibabacloud/models/DeleteSkillRequest.hpp>
 #include <alibabacloud/models/DeleteSkillResponseBody.hpp>
 #include <alibabacloud/models/DeleteSkillResponse.hpp>
@@ -385,6 +392,9 @@
 #include <alibabacloud/models/DissociateProjectFromResourceGroupRequest.hpp>
 #include <alibabacloud/models/DissociateProjectFromResourceGroupResponseBody.hpp>
 #include <alibabacloud/models/DissociateProjectFromResourceGroupResponse.hpp>
+#include <alibabacloud/models/DownloadSemanticResultsRequest.hpp>
+#include <alibabacloud/models/DownloadSemanticResultsResponseBody.hpp>
+#include <alibabacloud/models/DownloadSemanticResultsResponse.hpp>
 #include <alibabacloud/models/EnableProcessDefinitionRequest.hpp>
 #include <alibabacloud/models/EnableProcessDefinitionResponseBody.hpp>
 #include <alibabacloud/models/EnableProcessDefinitionResponse.hpp>
@@ -574,6 +584,12 @@
 #include <alibabacloud/models/GetSecurityStrategyRequest.hpp>
 #include <alibabacloud/models/GetSecurityStrategyResponseBody.hpp>
 #include <alibabacloud/models/GetSecurityStrategyResponse.hpp>
+#include <alibabacloud/models/GetSemanticJobDetailRequest.hpp>
+#include <alibabacloud/models/GetSemanticJobDetailResponseBody.hpp>
+#include <alibabacloud/models/GetSemanticJobDetailResponse.hpp>
+#include <alibabacloud/models/GetSemanticJobLogRequest.hpp>
+#include <alibabacloud/models/GetSemanticJobLogResponseBody.hpp>
+#include <alibabacloud/models/GetSemanticJobLogResponse.hpp>
 #include <alibabacloud/models/GetSkillRequest.hpp>
 #include <alibabacloud/models/GetSkillResponseBody.hpp>
 #include <alibabacloud/models/GetSkillResponse.hpp>
@@ -609,6 +625,9 @@
 #include <alibabacloud/models/ImportWorkflowDefinitionRequest.hpp>
 #include <alibabacloud/models/ImportWorkflowDefinitionResponseBody.hpp>
 #include <alibabacloud/models/ImportWorkflowDefinitionResponse.hpp>
+#include <alibabacloud/models/KillSemanticJobRequest.hpp>
+#include <alibabacloud/models/KillSemanticJobResponseBody.hpp>
+#include <alibabacloud/models/KillSemanticJobResponse.hpp>
 #include <alibabacloud/models/ListAgentSessionArtifactsRequest.hpp>
 #include <alibabacloud/models/ListAgentSessionArtifactsShrinkRequest.hpp>
 #include <alibabacloud/models/ListAgentSessionArtifactsResponseBody.hpp>
@@ -855,6 +874,12 @@
 #include <alibabacloud/models/ListSecurityStrategiesRequest.hpp>
 #include <alibabacloud/models/ListSecurityStrategiesResponseBody.hpp>
 #include <alibabacloud/models/ListSecurityStrategiesResponse.hpp>
+#include <alibabacloud/models/ListSemanticJobRunsRequest.hpp>
+#include <alibabacloud/models/ListSemanticJobRunsResponseBody.hpp>
+#include <alibabacloud/models/ListSemanticJobRunsResponse.hpp>
+#include <alibabacloud/models/ListSemanticJobsRequest.hpp>
+#include <alibabacloud/models/ListSemanticJobsResponseBody.hpp>
+#include <alibabacloud/models/ListSemanticJobsResponse.hpp>
 #include <alibabacloud/models/ListSkillsRequest.hpp>
 #include <alibabacloud/models/ListSkillsShrinkRequest.hpp>
 #include <alibabacloud/models/ListSkillsResponseBody.hpp>
@@ -955,6 +980,9 @@
 #include <alibabacloud/models/RollbackParameterRequest.hpp>
 #include <alibabacloud/models/RollbackParameterResponseBody.hpp>
 #include <alibabacloud/models/RollbackParameterResponse.hpp>
+#include <alibabacloud/models/RunSemanticJobRequest.hpp>
+#include <alibabacloud/models/RunSemanticJobResponseBody.hpp>
+#include <alibabacloud/models/RunSemanticJobResponse.hpp>
 #include <alibabacloud/models/SetSuccessTaskInstancesRequest.hpp>
 #include <alibabacloud/models/SetSuccessTaskInstancesShrinkRequest.hpp>
 #include <alibabacloud/models/SetSuccessTaskInstancesResponseBody.hpp>
@@ -1127,6 +1155,10 @@
 #include <alibabacloud/models/UpdateSecurityStrategyShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateSecurityStrategyResponseBody.hpp>
 #include <alibabacloud/models/UpdateSecurityStrategyResponse.hpp>
+#include <alibabacloud/models/UpdateSkillRequest.hpp>
+#include <alibabacloud/models/UpdateSkillShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateSkillResponseBody.hpp>
+#include <alibabacloud/models/UpdateSkillResponse.hpp>
 #include <alibabacloud/models/UpdateTableBusinessMetadataRequest.hpp>
 #include <alibabacloud/models/UpdateTableBusinessMetadataShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateTableBusinessMetadataResponseBody.hpp>
@@ -1149,5 +1181,8 @@
 #include <alibabacloud/models/UpdateWorkflowDefinitionRequest.hpp>
 #include <alibabacloud/models/UpdateWorkflowDefinitionResponseBody.hpp>
 #include <alibabacloud/models/UpdateWorkflowDefinitionResponse.hpp>
+#include <alibabacloud/models/UploadSemanticFileRequest.hpp>
+#include <alibabacloud/models/UploadSemanticFileResponseBody.hpp>
+#include <alibabacloud/models/UploadSemanticFileResponse.hpp>
 
 #endif

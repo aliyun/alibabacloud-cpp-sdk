@@ -128,7 +128,7 @@ namespace Models
       shared_ptr<bool> completed_ {};
       // The timestamp when the asynchronous task was created.
       shared_ptr<int64_t> createTime_ {};
-      // The error message returned when the asynchronous task fails.
+      // The error message when the asynchronous task fails.
       shared_ptr<string> error_ {};
       // The ID of the asynchronous task.
       shared_ptr<string> id_ {};
@@ -136,7 +136,7 @@ namespace Models
       shared_ptr<int32_t> progress_ {};
       // The content that the asynchronous task is expected to return.
       // 
-      // > This field currently contains the ID of the workflow created by the asynchronous task.
+      // > This field currently stores the ID of the workflow created in the asynchronous task.
       shared_ptr<string> response_ {};
       // The status of the asynchronous task.
       // 
@@ -152,7 +152,7 @@ namespace Models
       // Valid values:
       // 
       // - Create: creates a resource. 
-      // - Cancel: cancels a creation job.
+      // - Cancel: cancels a creation task.
       shared_ptr<string> type_ {};
     };
 

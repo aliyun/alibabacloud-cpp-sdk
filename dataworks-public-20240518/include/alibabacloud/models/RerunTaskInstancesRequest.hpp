@@ -64,6 +64,7 @@ namespace Models
     shared_ptr<string> comment_ {};
     // The list of node instance IDs.
     shared_ptr<vector<int64_t>> ids_ {};
+    // Specifies whether to rerun instances with the latest configuration.
     shared_ptr<bool> useLatestConfig_ {};
   };
 

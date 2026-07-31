@@ -92,10 +92,106 @@ namespace Models
 
 
     protected:
-      // The list of visible project IDs. Takes effect when Visibility is `PROJECT`.
+      // The list of project IDs that have visibility. This parameter takes effect when Visibility is set to `PROJECT`.
       shared_ptr<vector<string>> projectIds_ {};
-      // The list of visible user IDs. Takes effect when Visibility is `USER`.
+      // The list of user IDs that have visibility. This parameter takes effect when Visibility is set to `USER`.
       shared_ptr<vector<string>> userIds_ {};
+    };
+
+    class Tools : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tools& obj) { 
+        DARABONBA_PTR_TO_JSON(Name, name_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tools& obj) { 
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+      };
+      Tools() = default ;
+      Tools(const Tools &) = default ;
+      Tools(Tools &&) = default ;
+      Tools(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tools() = default ;
+      Tools& operator=(const Tools &) = default ;
+      Tools& operator=(Tools &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->name_ == nullptr; };
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline Tools& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    protected:
+      // The McpServer name.
+      shared_ptr<string> name_ {};
+    };
+
+    class Skills : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Skills& obj) { 
+        DARABONBA_PTR_TO_JSON(Name, name_);
+      };
+      friend void from_json(const Darabonba::Json& j, Skills& obj) { 
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+      };
+      Skills() = default ;
+      Skills(const Skills &) = default ;
+      Skills(Skills &&) = default ;
+      Skills(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Skills() = default ;
+      Skills& operator=(const Skills &) = default ;
+      Skills& operator=(Skills &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->name_ == nullptr; };
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline Skills& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    protected:
+      // The skill name.
+      shared_ptr<string> name_ {};
+    };
+
+    class CallableAgents : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const CallableAgents& obj) { 
+        DARABONBA_PTR_TO_JSON(Name, name_);
+      };
+      friend void from_json(const Darabonba::Json& j, CallableAgents& obj) { 
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+      };
+      CallableAgents() = default ;
+      CallableAgents(const CallableAgents &) = default ;
+      CallableAgents(CallableAgents &&) = default ;
+      CallableAgents(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~CallableAgents() = default ;
+      CallableAgents& operator=(const CallableAgents &) = default ;
+      CallableAgents& operator=(CallableAgents &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->name_ == nullptr; };
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline CallableAgents& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    protected:
+      // The Agent name.
+      shared_ptr<string> name_ {};
     };
 
     virtual bool empty() const override { return this->callableAgents_ == nullptr
@@ -104,10 +200,10 @@ namespace Models
     // callableAgents Field Functions 
     bool hasCallableAgents() const { return this->callableAgents_ != nullptr;};
     void deleteCallableAgents() { this->callableAgents_ = nullptr;};
-    inline const vector<string> & getCallableAgents() const { DARABONBA_PTR_GET_CONST(callableAgents_, vector<string>) };
-    inline vector<string> getCallableAgents() { DARABONBA_PTR_GET(callableAgents_, vector<string>) };
-    inline CreateAgentRequest& setCallableAgents(const vector<string> & callableAgents) { DARABONBA_PTR_SET_VALUE(callableAgents_, callableAgents) };
-    inline CreateAgentRequest& setCallableAgents(vector<string> && callableAgents) { DARABONBA_PTR_SET_RVALUE(callableAgents_, callableAgents) };
+    inline const vector<CreateAgentRequest::CallableAgents> & getCallableAgents() const { DARABONBA_PTR_GET_CONST(callableAgents_, vector<CreateAgentRequest::CallableAgents>) };
+    inline vector<CreateAgentRequest::CallableAgents> getCallableAgents() { DARABONBA_PTR_GET(callableAgents_, vector<CreateAgentRequest::CallableAgents>) };
+    inline CreateAgentRequest& setCallableAgents(const vector<CreateAgentRequest::CallableAgents> & callableAgents) { DARABONBA_PTR_SET_VALUE(callableAgents_, callableAgents) };
+    inline CreateAgentRequest& setCallableAgents(vector<CreateAgentRequest::CallableAgents> && callableAgents) { DARABONBA_PTR_SET_RVALUE(callableAgents_, callableAgents) };
 
 
     // description Field Functions 
@@ -152,10 +248,10 @@ namespace Models
     // skills Field Functions 
     bool hasSkills() const { return this->skills_ != nullptr;};
     void deleteSkills() { this->skills_ = nullptr;};
-    inline const vector<string> & getSkills() const { DARABONBA_PTR_GET_CONST(skills_, vector<string>) };
-    inline vector<string> getSkills() { DARABONBA_PTR_GET(skills_, vector<string>) };
-    inline CreateAgentRequest& setSkills(const vector<string> & skills) { DARABONBA_PTR_SET_VALUE(skills_, skills) };
-    inline CreateAgentRequest& setSkills(vector<string> && skills) { DARABONBA_PTR_SET_RVALUE(skills_, skills) };
+    inline const vector<CreateAgentRequest::Skills> & getSkills() const { DARABONBA_PTR_GET_CONST(skills_, vector<CreateAgentRequest::Skills>) };
+    inline vector<CreateAgentRequest::Skills> getSkills() { DARABONBA_PTR_GET(skills_, vector<CreateAgentRequest::Skills>) };
+    inline CreateAgentRequest& setSkills(const vector<CreateAgentRequest::Skills> & skills) { DARABONBA_PTR_SET_VALUE(skills_, skills) };
+    inline CreateAgentRequest& setSkills(vector<CreateAgentRequest::Skills> && skills) { DARABONBA_PTR_SET_RVALUE(skills_, skills) };
 
 
     // systemPrompt Field Functions 
@@ -168,10 +264,10 @@ namespace Models
     // tools Field Functions 
     bool hasTools() const { return this->tools_ != nullptr;};
     void deleteTools() { this->tools_ = nullptr;};
-    inline const vector<string> & getTools() const { DARABONBA_PTR_GET_CONST(tools_, vector<string>) };
-    inline vector<string> getTools() { DARABONBA_PTR_GET(tools_, vector<string>) };
-    inline CreateAgentRequest& setTools(const vector<string> & tools) { DARABONBA_PTR_SET_VALUE(tools_, tools) };
-    inline CreateAgentRequest& setTools(vector<string> && tools) { DARABONBA_PTR_SET_RVALUE(tools_, tools) };
+    inline const vector<CreateAgentRequest::Tools> & getTools() const { DARABONBA_PTR_GET_CONST(tools_, vector<CreateAgentRequest::Tools>) };
+    inline vector<CreateAgentRequest::Tools> getTools() { DARABONBA_PTR_GET(tools_, vector<CreateAgentRequest::Tools>) };
+    inline CreateAgentRequest& setTools(const vector<CreateAgentRequest::Tools> & tools) { DARABONBA_PTR_SET_VALUE(tools_, tools) };
+    inline CreateAgentRequest& setTools(vector<CreateAgentRequest::Tools> && tools) { DARABONBA_PTR_SET_RVALUE(tools_, tools) };
 
 
     // visibility Field Functions 
@@ -191,32 +287,32 @@ namespace Models
 
 
   protected:
-    // The list of sub-Agents that can be called by this Agent.
-    shared_ptr<vector<string>> callableAgents_ {};
+    // The list of child Agents that can be called by this Agent.
+    shared_ptr<vector<CreateAgentRequest::CallableAgents>> callableAgents_ {};
     // The description of the Agent.
     shared_ptr<string> description_ {};
     // The display name of the Agent.
     shared_ptr<string> displayName_ {};
-    // Extended metadata (key-value pairs).
+    // The extended metadata (key-value pairs).
     Darabonba::Json metadata_ {};
     // The model configuration.
     Darabonba::Json model_ {};
-    // The name of the Agent. It must be unique under the current account.
+    // The Agent name, which must be unique within the current account.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     // The list of skills.
-    shared_ptr<vector<string>> skills_ {};
+    shared_ptr<vector<CreateAgentRequest::Skills>> skills_ {};
     // The system prompt.
     shared_ptr<string> systemPrompt_ {};
     // The list of tools.
-    shared_ptr<vector<string>> tools_ {};
+    shared_ptr<vector<CreateAgentRequest::Tools>> tools_ {};
     // The visibility level.<br>
     // `TENANT`: Visible within the account.<br>
     // `PROJECT`: Visible to specified projects.<br>
     // `USER`: Visible to specified users.
     shared_ptr<string> visibility_ {};
-    // The visibility scope. The corresponding field is selected based on Visibility.
+    // The visibility scope. The corresponding field is determined by the Visibility parameter.
     shared_ptr<CreateAgentRequest::VisibilityScope> visibilityScope_ {};
   };
 

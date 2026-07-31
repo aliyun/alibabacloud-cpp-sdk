@@ -109,19 +109,19 @@ namespace Models
 
 
   protected:
-    // The error information returned in the SSE frame. The response content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, see https\\://agentclientprotocol.com/protocol/prompt-turn
+    // The SSE frame error message. The returned content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, visit: https://agentclientprotocol.com/protocol/prompt-turn.
     Darabonba::Json error_ {};
-    // The ID passed in by the caller. The value is returned as-is in the response.
+    // The ID passed by the requester. The value is returned as-is.
     shared_ptr<string> id_ {};
     // The JSON-RPC version. Fixed value: 2.0.
     shared_ptr<string> jsonrpc_ {};
-    // The SSE method. The response content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, see https\\://agentclientprotocol.com/protocol/prompt-turn
+    // The SSE method. The returned content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, visit: https://agentclientprotocol.com/protocol/prompt-turn.
     shared_ptr<string> method_ {};
-    // The SSE params. The response content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, see https\\://agentclientprotocol.com/protocol/prompt-turn
+    // The SSE params. The returned content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, visit: https://agentclientprotocol.com/protocol/prompt-turn.
     Darabonba::Json params_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The SSE frame result set. The response content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, see https\\://agentclientprotocol.com/protocol/prompt-turn
+    // The SSE frame result set. The returned content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, visit: https://agentclientprotocol.com/protocol/prompt-turn.
     Darabonba::Json result_ {};
     // The timestamp.
     shared_ptr<int64_t> timestamp_ {};

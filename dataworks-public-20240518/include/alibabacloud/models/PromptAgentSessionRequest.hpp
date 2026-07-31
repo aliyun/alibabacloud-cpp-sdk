@@ -120,7 +120,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to hide the prompt from the user. For example, if a user asks "Sales amount in the last 7 days" in a chat dialog, the calling system may use RAG to retrieve relevant business domain knowledge and append it to the agent context before calling the API. If you do not want to display this supplemental information to the user, set this parameter to true.
+          // Specifies whether to hide this prompt from the user. For example, in a chat dialog box, the user asks a question such as "Sales amount in the last 7 days". Before calling the OpenAPI, the calling system retrieves some business domain knowledge through RAG that needs to be added to the Agent context but should not be displayed to the user. In this case, set this value to true.
           shared_ptr<bool> hide_ {};
         };
 
@@ -193,9 +193,9 @@ namespace Models
 
 
       protected:
-        // The description of the file.
+        // The file description.
         shared_ptr<string> description_ {};
-        // The prompt metadata extended by DataWorks.
+        // The DataWorks extended prompt meta information.
         shared_ptr<Prompt::Meta> meta_ {};
         // The MIME type of the file.
         shared_ptr<string> mimeType_ {};
@@ -243,7 +243,7 @@ namespace Models
 
 
       protected:
-        // A Map-type value. In custom agent scenarios, you can use this parameter to replace placeholder parameters.
+        // A Map type. In custom Agent scenarios, some placeholder parameters can be replaced through this value.
         Darabonba::Json context_ {};
       };
 
@@ -275,11 +275,12 @@ namespace Models
 
 
     protected:
-      // The extended metadata.
+      // The extended meta information.
+      // >Notice: If the Agent bound to the specified session is named dataworks_ai_assistant_agent (AI Assistant Service), provide the instance ID of the AI Assistant Service in the Context.agent.instanceId field of the extended meta information.
       shared_ptr<Params::Meta> meta_ {};
-      // The array of user message content blocks. For more information, see https\\://agentclientprotocol.com/protocol/content
+      // The array of user message content blocks. For more information, visit: https://agentclientprotocol.com/protocol/content.
       shared_ptr<vector<Params::Prompt>> prompt_ {};
-      // The ID of the target session. If the session does not exist, an SSE error frame is returned.
+      // The target session ID. If the session does not exist, an SSE error frame is returned.
       shared_ptr<string> sessionId_ {};
     };
 
@@ -309,7 +310,7 @@ namespace Models
 
 
   protected:
-    // The ID passed in by the caller. The value is returned as-is in the response.
+    // The ID passed by the requester. The value is returned as-is.
     shared_ptr<string> id_ {};
     // The JSON-RPC version. Fixed value: 2.0.
     shared_ptr<string> jsonrpc_ {};

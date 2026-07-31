@@ -109,7 +109,9 @@ namespace Models
 
 
       protected:
+        // The list of visible project IDs.
         shared_ptr<vector<string>> projectIds_ {};
+        // The list of visible user IDs. This parameter takes effect only when Visibility is set to `USER`.
         shared_ptr<vector<string>> userIds_ {};
       };
 
@@ -182,16 +184,27 @@ namespace Models
 
 
     protected:
+      // The SKILL.md body content.
       shared_ptr<string> body_ {};
+      // The creator ID.
       shared_ptr<string> creatorId_ {};
+      // The Skill description.
       shared_ptr<string> description_ {};
+      // The creation time, in millisecond-level UNIX timestamp.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtCreateTime_ {};
+      // The last modification time, in millisecond-level UNIX timestamp.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtModifiedTime_ {};
+      // The ID of the user who last modified the Skill.
       shared_ptr<string> modifierId_ {};
+      // The Skill name.
       shared_ptr<string> name_ {};
+      // The visibility level.
       shared_ptr<string> visibility_ {};
+      // The visibility scope.
       shared_ptr<Skill::VisibilityScope> visibilityScope_ {};
     };
 
@@ -214,7 +227,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // -
     shared_ptr<CreateSkillResponseBody::Skill> skill_ {};
   };
 

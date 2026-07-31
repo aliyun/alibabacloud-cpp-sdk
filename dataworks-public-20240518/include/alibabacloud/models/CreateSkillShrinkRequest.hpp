@@ -103,14 +103,26 @@ namespace Models
 
 
   protected:
+    // The **downloadable URL (HTTP/HTTPS) of the bundle.zip file**. This parameter is mutually exclusive with SkillMdOverride.
     shared_ptr<string> bundleUrl_ {};
+    // The **Skill description**.
     shared_ptr<string> description_ {};
+    // The extension metadata in key-value pairs.
     shared_ptr<string> extraShrink_ {};
+    // The **Skill name**, which must be unique within the current account.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The SKILL.md body content. This parameter is mutually exclusive with BundleUrl. If no bundle is provided, use this field to create a lightweight Skill that contains only a SKILL.md file.
     shared_ptr<string> skillMdOverride_ {};
+    // The **version note**.
     shared_ptr<string> versionNote_ {};
+    // The **visibility level**. Valid values:
+    // - TENANT: Visible within the account.
+    // - PROJECT: Visible to specified projects.
+    // - USER: Visible to specified users.
     shared_ptr<string> visibility_ {};
+    // The visibility scope. The corresponding field is determined by the Visibility parameter.
     shared_ptr<string> visibilityScopeShrink_ {};
   };
 

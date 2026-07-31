@@ -805,14 +805,14 @@ CloneDataSourceResponse Client::cloneDataSource(const CloneDataSourceRequest &re
 }
 
 /**
- * @summary Create Agent
+ * @summary Creates an Agent.
  *
- * @description ## Request Description
- * - **Agent Name**: Must be unique under the current account.
- * - **Model Configuration**: An optional parameter used to specify the model used by the Agent and its related settings.
- * - **Visibility Level**: Defines who can access the Agent. Supports visibility within the account, to specified projects, or to specific users.
- * - **Visibility Scope**: When `PROJECT` or `USER` is selected as the visibility level, the specific project ID or user ID list must be further specified.
- * - **Other Parameters**: Items such as display name and description are optional and can be filled in based on actual needs.
+ * @description ## Operation description
+ * - **Agent name**: Must be unique within the current account.
+ * - **Model configuration**: An optional parameter that specifies the model used by the Agent and its related settings.
+ * - **Visibility level**: Defines who can access the Agent. Supported levels include account-wide, project-specific, or user-specific visibility.
+ * - **Visibility scope**: When you set the visibility level to `PROJECT` or `USER`, you must specify the list of project IDs or user IDs.
+ * - **Other parameters**: Parameters such as display name and description are optional. Set them as needed.
  *
  * @param tmpReq CreateAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -909,14 +909,14 @@ CreateAgentResponse Client::createAgentWithOptions(const CreateAgentRequest &tmp
 }
 
 /**
- * @summary Create Agent
+ * @summary Creates an Agent.
  *
- * @description ## Request Description
- * - **Agent Name**: Must be unique under the current account.
- * - **Model Configuration**: An optional parameter used to specify the model used by the Agent and its related settings.
- * - **Visibility Level**: Defines who can access the Agent. Supports visibility within the account, to specified projects, or to specific users.
- * - **Visibility Scope**: When `PROJECT` or `USER` is selected as the visibility level, the specific project ID or user ID list must be further specified.
- * - **Other Parameters**: Items such as display name and description are optional and can be filled in based on actual needs.
+ * @description ## Operation description
+ * - **Agent name**: Must be unique within the current account.
+ * - **Model configuration**: An optional parameter that specifies the model used by the Agent and its related settings.
+ * - **Visibility level**: Defines who can access the Agent. Supported levels include account-wide, project-specific, or user-specific visibility.
+ * - **Visibility scope**: When you set the visibility level to `PROJECT` or `USER`, you must specify the list of project IDs or user IDs.
+ * - **Other parameters**: Parameters such as display name and description are optional. Set them as needed.
  *
  * @param request CreateAgentRequest
  * @return CreateAgentResponse
@@ -927,13 +927,16 @@ CreateAgentResponse Client::createAgent(const CreateAgentRequest &request) {
 }
 
 /**
- * @summary Creates a new agent session and returns a session ID.
+ * @summary Creates a new agent session and returns the session ID.
  *
- * @description ## Description
- * - This API creates a new agent session.
- * - You must specify the agent name to bind to the session using the `_meta.agent.agentName` parameter.
- * - You can specify a session source identifier in the `_meta.config.sessionSource` parameter. This allows you to search for sessions by source later.
- * - You can add session tags using the `_meta.config.sessionTags[].sessionTagCode` parameter.
+ * @description ## Request description
+ * - This operation creates a new agent session.
+ * - Use `_meta.agent.agentName` to specify the bound agent name. This parameter is required.
+ *   - dataworks_data_agent: DataWorks built-in agent — Data Agent, which provides intelligent data development AI capabilities covering the entire workflow of data integration, development, O&M, governance, and analytics.
+ *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI, which uses natural language processing and intelligent analytics technologies to automate the entire analysis workflow from requirement parsing, data extraction, and automatic code generation to visualization report output through conversational interaction.
+ *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service, which is a DataWorks enterprise-grade dedicated AI assistant built on open source frameworks such as OpenClaw and Hermes Agent.
+ * - Use `_meta.config.sessionSource` to pass through a session source identifier for subsequent retrieval by source.
+ * - Use `_meta.config.sessionTags[].sessionTagCode` to pass in session tags.
  *
  * @param tmpReq CreateAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -978,13 +981,16 @@ CreateAgentSessionResponse Client::createAgentSessionWithOptions(const CreateAge
 }
 
 /**
- * @summary Creates a new agent session and returns a session ID.
+ * @summary Creates a new agent session and returns the session ID.
  *
- * @description ## Description
- * - This API creates a new agent session.
- * - You must specify the agent name to bind to the session using the `_meta.agent.agentName` parameter.
- * - You can specify a session source identifier in the `_meta.config.sessionSource` parameter. This allows you to search for sessions by source later.
- * - You can add session tags using the `_meta.config.sessionTags[].sessionTagCode` parameter.
+ * @description ## Request description
+ * - This operation creates a new agent session.
+ * - Use `_meta.agent.agentName` to specify the bound agent name. This parameter is required.
+ *   - dataworks_data_agent: DataWorks built-in agent — Data Agent, which provides intelligent data development AI capabilities covering the entire workflow of data integration, development, O&M, governance, and analytics.
+ *   - dataworks_chatbi_agent: DataWorks built-in agent — ChatBI, which uses natural language processing and intelligent analytics technologies to automate the entire analysis workflow from requirement parsing, data extraction, and automatic code generation to visualization report output through conversational interaction.
+ *   - dataworks_ai_assistant_agent: DataWorks built-in agent — AI Assistant Service, which is a DataWorks enterprise-grade dedicated AI assistant built on open source frameworks such as OpenClaw and Hermes Agent.
+ * - Use `_meta.config.sessionSource` to pass through a session source identifier for subsequent retrieval by source.
+ * - Use `_meta.config.sessionTags[].sessionTagCode` to pass in session tags.
  *
  * @param request CreateAgentSessionRequest
  * @return CreateAgentSessionResponse
@@ -2505,7 +2511,7 @@ CreateDatasetVersionResponse Client::createDatasetVersion(const CreateDatasetVer
 }
 
 /**
- * @summary Creates a file in DataStudio. You cannot call this operation to create Data Integration nodes.
+ * @summary Creates a file in DataStudio. This operation does not support creating Data Integration nodes.
  *
  * @param request CreateFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2598,6 +2604,10 @@ CreateFileResponse Client::createFileWithOptions(const CreateFileRequest &reques
     body["InputParameters"] = request.getInputParameters();
   }
 
+  if (!!request.hasOutputList()) {
+    body["OutputList"] = request.getOutputList();
+  }
+
   if (!!request.hasOutputParameters()) {
     body["OutputParameters"] = request.getOutputParameters();
   }
@@ -2668,7 +2678,7 @@ CreateFileResponse Client::createFileWithOptions(const CreateFileRequest &reques
 }
 
 /**
- * @summary Creates a file in DataStudio. You cannot call this operation to create Data Integration nodes.
+ * @summary Creates a file in DataStudio. This operation does not support creating Data Integration nodes.
  *
  * @param request CreateFileRequest
  * @return CreateFileResponse
@@ -4243,12 +4253,92 @@ CreateSecurityStrategyResponse Client::createSecurityStrategy(const CreateSecuri
 }
 
 /**
- * @summary 创建 Skill
+ * @summary Saves a reusable semantic task definition. If you use a single-file source, apply for and complete the file upload first. After creation, call RunSemanticJob with the returned Name.
  *
- * @description ## 请求说明
- * - `SkillMdOverride` 与 `BundleUrl` 参数二选一，必须提供其中之一。
- * - `Visibility` 可设置为 `TENANT`、`PROJECT` 或 `USER`，分别表示账号内可见、指定项目可见或指定用户可见。
- * - 当 `Visibility` 设置为 `PROJECT` 时，需要通过 `VisibilityScope.ProjectIds` 指定可见的项目 ID 列表；当设置为 `USER` 时，则需通过 `VisibilityScope.UserIds` 指定可见的用户 ID 列表。
+ * @description Creates a semantic task definition.
+ *
+ * @param tmpReq CreateSemanticJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSemanticJobResponse
+ */
+CreateSemanticJobResponse Client::createSemanticJobWithOptions(const CreateSemanticJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateSemanticJobShrinkRequest request = CreateSemanticJobShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasReferenceFileIds()) {
+    request.setReferenceFileIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getReferenceFileIds(), "ReferenceFileIds", "json"));
+  }
+
+  if (!!tmpReq.hasReferenceFileUris()) {
+    request.setReferenceFileUrisShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getReferenceFileUris(), "ReferenceFileUris", "json"));
+  }
+
+  if (!!tmpReq.hasSource()) {
+    request.setSourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSource(), "Source", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasReferenceFileIdsShrink()) {
+    body["ReferenceFileIds"] = request.getReferenceFileIdsShrink();
+  }
+
+  if (!!request.hasReferenceFileUrisShrink()) {
+    body["ReferenceFileUris"] = request.getReferenceFileUrisShrink();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasSourceShrink()) {
+    body["Source"] = request.getSourceShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateSemanticJob"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSemanticJobResponse>();
+}
+
+/**
+ * @summary Saves a reusable semantic task definition. If you use a single-file source, apply for and complete the file upload first. After creation, call RunSemanticJob with the returned Name.
+ *
+ * @description Creates a semantic task definition.
+ *
+ * @param request CreateSemanticJobRequest
+ * @return CreateSemanticJobResponse
+ */
+CreateSemanticJobResponse Client::createSemanticJob(const CreateSemanticJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSemanticJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a new Skill in DataWorks.
+ *
+ * @description ## Request description
+ * - You must provide either SkillMdOverride or BundleUrl. One of the two parameters is required.
+ * - Visibility can be set to `TENANT`, `PROJECT`, or `USER`, which indicate visibility within the account, visibility to specified projects, or visibility to specified users, respectively.
+ * - When Visibility is set to `PROJECT`, specify the list of visible project IDs by using VisibilityScope.ProjectIds. When Visibility is set to `USER`, specify the list of visible user IDs by using VisibilityScope.UserIds.
  *
  * @param tmpReq CreateSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4317,12 +4407,12 @@ CreateSkillResponse Client::createSkillWithOptions(const CreateSkillRequest &tmp
 }
 
 /**
- * @summary 创建 Skill
+ * @summary Creates a new Skill in DataWorks.
  *
- * @description ## 请求说明
- * - `SkillMdOverride` 与 `BundleUrl` 参数二选一，必须提供其中之一。
- * - `Visibility` 可设置为 `TENANT`、`PROJECT` 或 `USER`，分别表示账号内可见、指定项目可见或指定用户可见。
- * - 当 `Visibility` 设置为 `PROJECT` 时，需要通过 `VisibilityScope.ProjectIds` 指定可见的项目 ID 列表；当设置为 `USER` 时，则需通过 `VisibilityScope.UserIds` 指定可见的用户 ID 列表。
+ * @description ## Request description
+ * - You must provide either SkillMdOverride or BundleUrl. One of the two parameters is required.
+ * - Visibility can be set to `TENANT`, `PROJECT`, or `USER`, which indicate visibility within the account, visibility to specified projects, or visibility to specified users, respectively.
+ * - When Visibility is set to `PROJECT`, specify the list of visible project IDs by using VisibilityScope.ProjectIds. When Visibility is set to `USER`, specify the list of visible user IDs by using VisibilityScope.UserIds.
  *
  * @param request CreateSkillRequest
  * @return CreateSkillResponse
@@ -4583,10 +4673,10 @@ CreateWorkflowInstancesResponse Client::createWorkflowInstances(const CreateWork
 }
 
 /**
- * @summary 删除 Agent
+ * @summary Deletes an Agent.
  *
- * @description ## 请求说明
- * 该 API 用于从 DataWorks 中删除指定名称的 Agent。调用此接口时，必须提供要删除的 Agent 的名称。
+ * @description ## Operation description
+ * This API operation deletes an Agent with the specified name from DataWorks. When calling this operation, you must provide the name of the Agent to delete.
  *
  * @param request DeleteAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4617,10 +4707,10 @@ DeleteAgentResponse Client::deleteAgentWithOptions(const DeleteAgentRequest &req
 }
 
 /**
- * @summary 删除 Agent
+ * @summary Deletes an Agent.
  *
- * @description ## 请求说明
- * 该 API 用于从 DataWorks 中删除指定名称的 Agent。调用此接口时，必须提供要删除的 Agent 的名称。
+ * @description ## Operation description
+ * This API operation deletes an Agent with the specified name from DataWorks. When calling this operation, you must provide the name of the Agent to delete.
  *
  * @param request DeleteAgentRequest
  * @return DeleteAgentResponse
@@ -5841,9 +5931,9 @@ DeleteMetaCollectionResponse Client::deleteMetaCollection(const DeleteMetaCollec
 }
 
 /**
- * @summary 删除自定义实体定义
+ * @summary Deletes a metadata entity definition, including custom entity types and extension table types.
  *
- * @description 需要购买 DataWorks 专业版及以上版本才能使用。
+ * @description DataWorks Professional Edition or a more advanced edition is required.
  *
  * @param request DeleteMetaEntityDefRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5878,9 +5968,9 @@ DeleteMetaEntityDefResponse Client::deleteMetaEntityDefWithOptions(const DeleteM
 }
 
 /**
- * @summary 删除自定义实体定义
+ * @summary Deletes a metadata entity definition, including custom entity types and extension table types.
  *
- * @description 需要购买 DataWorks 专业版及以上版本才能使用。
+ * @description DataWorks Professional Edition or a more advanced edition is required.
  *
  * @param request DeleteMetaEntityDefRequest
  * @return DeleteMetaEntityDefResponse
@@ -6429,6 +6519,52 @@ DeleteSecurityStrategyResponse Client::deleteSecurityStrategy(const DeleteSecuri
 }
 
 /**
+ * @summary Deletes a task definition by the Name of a created task. If the task is running, call KillSemanticJob with the ExecutorJobId of that run and confirm the stop before deletion.
+ *
+ * @description Operation description for deleting a semantic task.
+ *
+ * @param request DeleteSemanticJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSemanticJobResponse
+ */
+DeleteSemanticJobResponse Client::deleteSemanticJobWithOptions(const DeleteSemanticJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteSemanticJob"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSemanticJobResponse>();
+}
+
+/**
+ * @summary Deletes a task definition by the Name of a created task. If the task is running, call KillSemanticJob with the ExecutorJobId of that run and confirm the stop before deletion.
+ *
+ * @description Operation description for deleting a semantic task.
+ *
+ * @param request DeleteSemanticJobRequest
+ * @return DeleteSemanticJobResponse
+ */
+DeleteSemanticJobResponse Client::deleteSemanticJob(const DeleteSemanticJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSemanticJobWithOptions(request, runtime);
+}
+
+/**
  * @summary Delete Skill
  *
  * @description ## Request Description
@@ -6922,6 +7058,56 @@ DissociateProjectFromResourceGroupResponse Client::dissociateProjectFromResource
 DissociateProjectFromResourceGroupResponse Client::dissociateProjectFromResourceGroup(const DissociateProjectFromResourceGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return dissociateProjectFromResourceGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Returns the download URL of artifacts by node name and an optional run ID after execution completes. If JobRunId is not specified, the result of the latest run of the node is returned.
+ *
+ * @description Operation description for retrieving the download URL of semantic task results.
+ *
+ * @param request DownloadSemanticResultsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DownloadSemanticResultsResponse
+ */
+DownloadSemanticResultsResponse Client::downloadSemanticResultsWithOptions(const DownloadSemanticResultsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasJobName()) {
+    body["JobName"] = request.getJobName();
+  }
+
+  if (!!request.hasJobRunId()) {
+    body["JobRunId"] = request.getJobRunId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DownloadSemanticResults"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DownloadSemanticResultsResponse>();
+}
+
+/**
+ * @summary Returns the download URL of artifacts by node name and an optional run ID after execution completes. If JobRunId is not specified, the result of the latest run of the node is returned.
+ *
+ * @description Operation description for retrieving the download URL of semantic task results.
+ *
+ * @param request DownloadSemanticResultsRequest
+ * @return DownloadSemanticResultsResponse
+ */
+DownloadSemanticResultsResponse Client::downloadSemanticResults(const DownloadSemanticResultsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return downloadSemanticResultsWithOptions(request, runtime);
 }
 
 /**
@@ -9855,6 +10041,106 @@ GetSecurityStrategyResponse Client::getSecurityStrategy(const GetSecurityStrateg
 }
 
 /**
+ * @summary Queries the executor status and runtime configuration by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns.
+ *
+ * @description Operation description for querying semantic job run details.
+ *
+ * @param request GetSemanticJobDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSemanticJobDetailResponse
+ */
+GetSemanticJobDetailResponse Client::getSemanticJobDetailWithOptions(const GetSemanticJobDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExecutorJobId()) {
+    query["ExecutorJobId"] = request.getExecutorJobId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSemanticJobDetail"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSemanticJobDetailResponse>();
+}
+
+/**
+ * @summary Queries the executor status and runtime configuration by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns.
+ *
+ * @description Operation description for querying semantic job run details.
+ *
+ * @param request GetSemanticJobDetailRequest
+ * @return GetSemanticJobDetailResponse
+ */
+GetSemanticJobDetailResponse Client::getSemanticJobDetail(const GetSemanticJobDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSemanticJobDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries execution logs by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. The current POP contract exposes only the task and workspace identifiers and returns default log segments.
+ *
+ * @description Operation description for querying semantic job run logs.
+ *
+ * @param request GetSemanticJobLogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSemanticJobLogResponse
+ */
+GetSemanticJobLogResponse Client::getSemanticJobLogWithOptions(const GetSemanticJobLogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExecutorJobId()) {
+    query["ExecutorJobId"] = request.getExecutorJobId();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSemanticJobLog"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSemanticJobLogResponse>();
+}
+
+/**
+ * @summary Queries execution logs by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. The current POP contract exposes only the task and workspace identifiers and returns default log segments.
+ *
+ * @description Operation description for querying semantic job run logs.
+ *
+ * @param request GetSemanticJobLogRequest
+ * @return GetSemanticJobLogResponse
+ */
+GetSemanticJobLogResponse Client::getSemanticJobLog(const GetSemanticJobLogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSemanticJobLogWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the details of a specified Skill by name, including the body of the SKILL.md file and the bundle\\"s download link.
  *
  * @description ## Overview
@@ -10399,11 +10685,11 @@ ImportCertificateResponse Client::importCertificateAdvance(const ImportCertifica
 }
 
 /**
- * @summary Imports a workflow node defined by FlowSpec and its child nodes into DataStudio.
+ * @summary Imports a workflow node defined by FlowSpec and its internal child nodes into DataStudio.
  *
  * @description >Notice: 
- * - This operation does not support importing multiple workflows. If more than one workflow is defined in the FlowSpec, all workflows except the first one are ignored.
- * - This is an asynchronous operation. The response returns an asynchronous task object. Call GetJobStatus to query the execution status of the task.
+ * - This operation does not support importing multiple workflows. If more than one workflow is defined in the FlowSpec, all workflows after the first one are ignored.
+ * - This is an asynchronous operation. Calling this operation returns an asynchronous task object. To query the execution status of the task, call GetJobStatus.
  *
  * @param request ImportWorkflowDefinitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10442,11 +10728,11 @@ ImportWorkflowDefinitionResponse Client::importWorkflowDefinitionWithOptions(con
 }
 
 /**
- * @summary Imports a workflow node defined by FlowSpec and its child nodes into DataStudio.
+ * @summary Imports a workflow node defined by FlowSpec and its internal child nodes into DataStudio.
  *
  * @description >Notice: 
- * - This operation does not support importing multiple workflows. If more than one workflow is defined in the FlowSpec, all workflows except the first one are ignored.
- * - This is an asynchronous operation. The response returns an asynchronous task object. Call GetJobStatus to query the execution status of the task.
+ * - This operation does not support importing multiple workflows. If more than one workflow is defined in the FlowSpec, all workflows after the first one are ignored.
+ * - This is an asynchronous operation. Calling this operation returns an asynchronous task object. To query the execution status of the task, call GetJobStatus.
  *
  * @param request ImportWorkflowDefinitionRequest
  * @return ImportWorkflowDefinitionResponse
@@ -10454,6 +10740,60 @@ ImportWorkflowDefinitionResponse Client::importWorkflowDefinitionWithOptions(con
 ImportWorkflowDefinitionResponse Client::importWorkflowDefinition(const ImportWorkflowDefinitionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return importWorkflowDefinitionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Stops a specified run by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. A successful call only indicates that the stop request has been accepted. Query the final status by calling GetSemanticJobDetail.
+ *
+ * @description Operation description for stopping a semantic job run.
+ *
+ * @param request KillSemanticJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return KillSemanticJobResponse
+ */
+KillSemanticJobResponse Client::killSemanticJobWithOptions(const KillSemanticJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasExecutorJobId()) {
+    body["ExecutorJobId"] = request.getExecutorJobId();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRetryTimes()) {
+    body["RetryTimes"] = request.getRetryTimes();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "KillSemanticJob"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<KillSemanticJobResponse>();
+}
+
+/**
+ * @summary Stops a specified run by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. A successful call only indicates that the stop request has been accepted. Query the final status by calling GetSemanticJobDetail.
+ *
+ * @description Operation description for stopping a semantic job run.
+ *
+ * @param request KillSemanticJobRequest
+ * @return KillSemanticJobResponse
+ */
+KillSemanticJobResponse Client::killSemanticJob(const KillSemanticJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return killSemanticJobWithOptions(request, runtime);
 }
 
 /**
@@ -11989,9 +12329,9 @@ ListDataQualityScansResponse Client::listDataQualityScans(const ListDataQualityS
 }
 
 /**
- * @summary Queries the list of data quality rule templates in a project.
+ * @summary Queries the list of data quality rule templates in a specified project.
  *
- * @description DataWorks Basic Edition or a higher edition is required.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  *
  * @param request ListDataQualityTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12038,9 +12378,9 @@ ListDataQualityTemplatesResponse Client::listDataQualityTemplatesWithOptions(con
 }
 
 /**
- * @summary Queries the list of data quality rule templates in a project.
+ * @summary Queries the list of data quality rule templates in a specified project.
  *
- * @description DataWorks Basic Edition or a higher edition is required.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  *
  * @param request ListDataQualityTemplatesRequest
  * @return ListDataQualityTemplatesResponse
@@ -14877,6 +15217,110 @@ ListSecurityStrategiesResponse Client::listSecurityStrategies(const ListSecurity
 }
 
 /**
+ * @summary Queries the run records of a created node by its Name with paging. The JobRunId in each record is active for retrieving the results of a specific run, and the ExecutorJobId is active for getting details, logs, or stopping the run.
+ *
+ * @description Queries the run records of a semantic job.
+ *
+ * @param request ListSemanticJobRunsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSemanticJobRunsResponse
+ */
+ListSemanticJobRunsResponse Client::listSemanticJobRunsWithOptions(const ListSemanticJobRunsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasJobName()) {
+    body["JobName"] = request.getJobName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListSemanticJobRuns"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSemanticJobRunsResponse>();
+}
+
+/**
+ * @summary Queries the run records of a created node by its Name with paging. The JobRunId in each record is active for retrieving the results of a specific run, and the ExecutorJobId is active for getting details, logs, or stopping the run.
+ *
+ * @description Queries the run records of a semantic job.
+ *
+ * @param request ListSemanticJobRunsRequest
+ * @return ListSemanticJobRunsResponse
+ */
+ListSemanticJobRunsResponse Client::listSemanticJobRuns(const ListSemanticJobRunsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSemanticJobRunsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries semantics node definitions of the current tenant by paging. The Name, ProjectId, and Source fields in the list items can be used for running/deleting nodes, querying run details, and verifying input scope, respectively.
+ *
+ * @description Queries the list of semantic task definitions.
+ *
+ * @param request ListSemanticJobsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSemanticJobsResponse
+ */
+ListSemanticJobsResponse Client::listSemanticJobsWithOptions(const ListSemanticJobsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListSemanticJobs"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSemanticJobsResponse>();
+}
+
+/**
+ * @summary Queries semantics node definitions of the current tenant by paging. The Name, ProjectId, and Source fields in the list items can be used for running/deleting nodes, querying run details, and verifying input scope, respectively.
+ *
+ * @description Queries the list of semantic task definitions.
+ *
+ * @param request ListSemanticJobsRequest
+ * @return ListSemanticJobsResponse
+ */
+ListSemanticJobsResponse Client::listSemanticJobs(const ListSemanticJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSemanticJobsWithOptions(request, runtime);
+}
+
+/**
  * @summary Lists the Skills in your account.
  *
  * @description ## Request
@@ -16025,17 +16469,17 @@ PreviewDatasetVersionResponse Client::previewDatasetVersion(const PreviewDataset
 }
 
 /**
- * @summary Sends a prompt to an existing session and streams the agent response.
+ * @summary Sends a user prompt to an existing session and returns the Agent response in streaming mode.
  *
- * @description ## Request
- * - This API sends a user prompt to a specified session ID and streams the agent\\"s response over SSE (Server-Sent Events).
- * - The response may include message chunks, thought process, and tool calling status updates.
- * - If the specified session does not exist, the API returns a 400 error in an SSE error frame.
- * - The `stopReason` field indicates why the agent ended the turn.
- * - You can use multiple types of content blocks in the prompt, such as text and OSS file download links.
- * - You can provide additional metadata in the `Meta` parameter to pass more context to the server.
- * - The response content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, see https\\://agentclientprotocol.com
- * - \\*\\*Review the billing methods and pricing for Data Agent before you use this API\\*\\*: https\\://help.aliyun.com/zh/dataworks/dataworks-data-agent-agent-billing
+ * @description ## Operation description
+ * - This API sends a user prompt to a specified session ID and accepts the Agent response in SSE (Server-Sent Events) streaming mode.
+ * - The response may include message fragments, thinking procedures, tool calling status updates, and other information.
+ * - If the specified session does not exist, a 400 fault is returned through an SSE error frame.
+ * - The `stopReason` field indicates why the Agent stopped the current conversation turn.
+ * - Multiple types of content blocks are supported as prompt input, such as text and OSS file download links.
+ * - You can optionally provide additional meta information `Meta` to pass more context to the server.
+ * - The returned content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, visit: https://agentclientprotocol.com
+ * - **Before invoking this API, make sure you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
  *
  * @param tmpReq PromptAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16094,17 +16538,17 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Sends a prompt to an existing session and streams the agent response.
+ * @summary Sends a user prompt to an existing session and returns the Agent response in streaming mode.
  *
- * @description ## Request
- * - This API sends a user prompt to a specified session ID and streams the agent\\"s response over SSE (Server-Sent Events).
- * - The response may include message chunks, thought process, and tool calling status updates.
- * - If the specified session does not exist, the API returns a 400 error in an SSE error frame.
- * - The `stopReason` field indicates why the agent ended the turn.
- * - You can use multiple types of content blocks in the prompt, such as text and OSS file download links.
- * - You can provide additional metadata in the `Meta` parameter to pass more context to the server.
- * - The response content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, see https\\://agentclientprotocol.com
- * - \\*\\*Review the billing methods and pricing for Data Agent before you use this API\\*\\*: https\\://help.aliyun.com/zh/dataworks/dataworks-data-agent-agent-billing
+ * @description ## Operation description
+ * - This API sends a user prompt to a specified session ID and accepts the Agent response in SSE (Server-Sent Events) streaming mode.
+ * - The response may include message fragments, thinking procedures, tool calling status updates, and other information.
+ * - If the specified session does not exist, a 400 fault is returned through an SSE error frame.
+ * - The `stopReason` field indicates why the Agent stopped the current conversation turn.
+ * - Multiple types of content blocks are supported as prompt input, such as text and OSS file download links.
+ * - You can optionally provide additional meta information `Meta` to pass more context to the server.
+ * - The returned content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, visit: https://agentclientprotocol.com
+ * - **Before invoking this API, make sure you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
  *
  * @param tmpReq PromptAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16149,17 +16593,17 @@ PromptAgentSessionResponse Client::promptAgentSessionWithOptions(const PromptAge
 }
 
 /**
- * @summary Sends a prompt to an existing session and streams the agent response.
+ * @summary Sends a user prompt to an existing session and returns the Agent response in streaming mode.
  *
- * @description ## Request
- * - This API sends a user prompt to a specified session ID and streams the agent\\"s response over SSE (Server-Sent Events).
- * - The response may include message chunks, thought process, and tool calling status updates.
- * - If the specified session does not exist, the API returns a 400 error in an SSE error frame.
- * - The `stopReason` field indicates why the agent ended the turn.
- * - You can use multiple types of content blocks in the prompt, such as text and OSS file download links.
- * - You can provide additional metadata in the `Meta` parameter to pass more context to the server.
- * - The response content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, see https\\://agentclientprotocol.com
- * - \\*\\*Review the billing methods and pricing for Data Agent before you use this API\\*\\*: https\\://help.aliyun.com/zh/dataworks/dataworks-data-agent-agent-billing
+ * @description ## Operation description
+ * - This API sends a user prompt to a specified session ID and accepts the Agent response in SSE (Server-Sent Events) streaming mode.
+ * - The response may include message fragments, thinking procedures, tool calling status updates, and other information.
+ * - If the specified session does not exist, a 400 fault is returned through an SSE error frame.
+ * - The `stopReason` field indicates why the Agent stopped the current conversation turn.
+ * - Multiple types of content blocks are supported as prompt input, such as text and OSS file download links.
+ * - You can optionally provide additional meta information `Meta` to pass more context to the server.
+ * - The returned content conforms to the open-source Agent Client Protocol (ACP) specification. For more information, visit: https://agentclientprotocol.com
+ * - **Before invoking this API, make sure you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
  *
  * @param request PromptAgentSessionRequest
  * @return PromptAgentSessionResponse
@@ -16799,6 +17243,52 @@ RollbackParameterResponse Client::rollbackParameterWithOptions(const RollbackPar
 RollbackParameterResponse Client::rollbackParameter(const RollbackParameterRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return rollbackParameterWithOptions(request, runtime);
+}
+
+/**
+ * @summary Submits a semantic job for execution by its Name and returns the run identifier and executor identifier. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
+ *
+ * @description **Before using this operation, make sure that you fully understand the [billing method and pricing](https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing) of model calls used by semantic building.**
+ *
+ * @param request RunSemanticJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunSemanticJobResponse
+ */
+RunSemanticJobResponse Client::runSemanticJobWithOptions(const RunSemanticJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunSemanticJob"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunSemanticJobResponse>();
+}
+
+/**
+ * @summary Submits a semantic job for execution by its Name and returns the run identifier and executor identifier. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
+ *
+ * @description **Before using this operation, make sure that you fully understand the [billing method and pricing](https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing) of model calls used by semantic building.**
+ *
+ * @param request RunSemanticJobRequest
+ * @return RunSemanticJobResponse
+ */
+RunSemanticJobResponse Client::runSemanticJob(const RunSemanticJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return runSemanticJobWithOptions(request, runtime);
 }
 
 /**
@@ -20140,6 +20630,92 @@ UpdateSecurityStrategyResponse Client::updateSecurityStrategy(const UpdateSecuri
 }
 
 /**
+ * @summary Updates a specified Skill and generates a new version.
+ *
+ * @description ## Request description
+ * This API allows you to update an existing Skill and create a new version based on the current highest version or a specified version. Fields not provided in the request retain their original values. You can update the Skill content by providing either `SkillMdOverride` or `BundleUrl`. You can also set additional information such as the visibility scope.
+ *
+ * @param tmpReq UpdateSkillRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSkillResponse
+ */
+UpdateSkillResponse Client::updateSkillWithOptions(const UpdateSkillRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateSkillShrinkRequest request = UpdateSkillShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExtra()) {
+    request.setExtraShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExtra(), "Extra", "json"));
+  }
+
+  if (!!tmpReq.hasVisibilityScope()) {
+    request.setVisibilityScopeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVisibilityScope(), "VisibilityScope", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBundleUrl()) {
+    body["BundleUrl"] = request.getBundleUrl();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasExpectedVersion()) {
+    body["ExpectedVersion"] = request.getExpectedVersion();
+  }
+
+  if (!!request.hasExtraShrink()) {
+    body["Extra"] = request.getExtraShrink();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasSkillMdOverride()) {
+    body["SkillMdOverride"] = request.getSkillMdOverride();
+  }
+
+  if (!!request.hasVersionNote()) {
+    body["VersionNote"] = request.getVersionNote();
+  }
+
+  if (!!request.hasVisibilityScopeShrink()) {
+    body["VisibilityScope"] = request.getVisibilityScopeShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateSkill"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSkillResponse>();
+}
+
+/**
+ * @summary Updates a specified Skill and generates a new version.
+ *
+ * @description ## Request description
+ * This API allows you to update an existing Skill and create a new version based on the current highest version or a specified version. Fields not provided in the request retain their original values. You can update the Skill content by providing either `SkillMdOverride` or `BundleUrl`. You can also set additional information such as the visibility scope.
+ *
+ * @param request UpdateSkillRequest
+ * @return UpdateSkillResponse
+ */
+UpdateSkillResponse Client::updateSkill(const UpdateSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateSkillWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates the business metadata for a data table in the data map. You can update only the table\\"s Readme and custom attributes.
  *
  * @description 1. You must purchase DataWorks Basic Edition or a later version to use this operation.
@@ -20659,6 +21235,60 @@ UpdateWorkflowDefinitionResponse Client::updateWorkflowDefinitionWithOptions(con
 UpdateWorkflowDefinitionResponse Client::updateWorkflowDefinition(const UpdateWorkflowDefinitionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateWorkflowDefinitionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Requests a temporary OSS PUT upload URL. Complete the PUT upload before the URL expires, and then pass the returned FileId to the ReferenceFileIds parameter of CreateSemanticJob.
+ *
+ * @description Requests an upload URL for semantic job attachments.
+ *
+ * @param request UploadSemanticFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UploadSemanticFileResponse
+ */
+UploadSemanticFileResponse Client::uploadSemanticFileWithOptions(const UploadSemanticFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContentType()) {
+    body["ContentType"] = request.getContentType();
+  }
+
+  if (!!request.hasFileName()) {
+    body["FileName"] = request.getFileName();
+  }
+
+  if (!!request.hasSizeBytes()) {
+    body["SizeBytes"] = request.getSizeBytes();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UploadSemanticFile"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UploadSemanticFileResponse>();
+}
+
+/**
+ * @summary Requests a temporary OSS PUT upload URL. Complete the PUT upload before the URL expires, and then pass the returned FileId to the ReferenceFileIds parameter of CreateSemanticJob.
+ *
+ * @description Requests an upload URL for semantic job attachments.
+ *
+ * @param request UploadSemanticFileRequest
+ * @return UploadSemanticFileResponse
+ */
+UploadSemanticFileResponse Client::uploadSemanticFile(const UploadSemanticFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return uploadSemanticFileWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace DataworksPublic20240518

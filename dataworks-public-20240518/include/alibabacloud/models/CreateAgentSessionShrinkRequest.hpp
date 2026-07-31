@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The request ID provided by the client. This ID is returned in the response without modification.
+    // The request ID passed by the caller. The value is returned as-is.
     shared_ptr<string> id_ {};
-    // The JSON-RPC version. The value is fixed at `2.0`.
+    // The JSON-RPC version. Fixed value: 2.0.
     shared_ptr<string> jsonrpc_ {};
     // The business parameters.
     shared_ptr<string> paramsShrink_ {};

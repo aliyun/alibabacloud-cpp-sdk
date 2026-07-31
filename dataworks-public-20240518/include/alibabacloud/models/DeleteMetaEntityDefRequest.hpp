@@ -48,8 +48,14 @@ namespace Models
 
 
   protected:
+    // The entity type.
+    // 
     // This parameter is required.
     shared_ptr<string> entityType_ {};
+    // Specifies whether to force delete the entity definition. Default value: false. Valid values:
+    // 
+    // - true: Automatically deletes all entity objects created under this entity type.
+    // - false: Checks whether entity objects exist under this entity type. If objects exist, the deletion is failed.
     shared_ptr<bool> force_ {};
   };
 

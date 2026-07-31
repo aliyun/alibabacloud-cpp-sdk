@@ -130,17 +130,17 @@ namespace Models
 
 
   protected:
-    // The list of sub-Agents that can be called by this Agent.
+    // The list of child Agents that can be called by this Agent.
     shared_ptr<string> callableAgentsShrink_ {};
     // The description of the Agent.
     shared_ptr<string> description_ {};
     // The display name of the Agent.
     shared_ptr<string> displayName_ {};
-    // Extended metadata (key-value pairs).
+    // The extended metadata (key-value pairs).
     shared_ptr<string> metadataShrink_ {};
     // The model configuration.
     shared_ptr<string> modelShrink_ {};
-    // The name of the Agent. It must be unique under the current account.
+    // The Agent name, which must be unique within the current account.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -155,7 +155,7 @@ namespace Models
     // `PROJECT`: Visible to specified projects.<br>
     // `USER`: Visible to specified users.
     shared_ptr<string> visibility_ {};
-    // The visibility scope. The corresponding field is selected based on Visibility.
+    // The visibility scope. The corresponding field is determined by the Visibility parameter.
     shared_ptr<string> visibilityScopeShrink_ {};
   };
 
