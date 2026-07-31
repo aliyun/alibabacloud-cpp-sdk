@@ -310,6 +310,23 @@ namespace SfmMultiModalApp20250909
       Models::ListPublishedMmAppResponse listPublishedMmApp(const Models::ListPublishedMmAppRequest &request);
 
       /**
+       * @summary 查询音色列表
+       *
+       * @param request ListVoiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVoiceResponse
+       */
+      Models::ListVoiceResponse listVoiceWithOptions(const Models::ListVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询音色列表
+       *
+       * @param request ListVoiceRequest
+       * @return ListVoiceResponse
+       */
+      Models::ListVoiceResponse listVoice(const Models::ListVoiceRequest &request);
+
+      /**
        * @summary 多模态应用绑定MCP
        *
        * @param tmpReq MmAppBindingMcpRequest
@@ -446,6 +463,23 @@ namespace SfmMultiModalApp20250909
       Models::QueryProfileResponse queryProfile(const Models::QueryProfileRequest &request);
 
       /**
+       * @summary 查询选项
+       *
+       * @param request QuerySelectOptionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QuerySelectOptionsResponse
+       */
+      Models::QuerySelectOptionsResponse querySelectOptionsWithOptions(const Models::QuerySelectOptionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询选项
+       *
+       * @param request QuerySelectOptionsRequest
+       * @return QuerySelectOptionsResponse
+       */
+      Models::QuerySelectOptionsResponse querySelectOptions(const Models::QuerySelectOptionsRequest &request);
+
+      /**
        * @summary 查询用户画像
        *
        * @param request QueryUserProfileRequest
@@ -512,6 +546,23 @@ namespace SfmMultiModalApp20250909
        * @return UpdateMmAppResponse
        */
       Models::UpdateMmAppResponse updateMmApp(const Models::UpdateMmAppRequest &request);
+
+      /**
+       * @summary 更新应用和绑定信息
+       *
+       * @param tmpReq UpdateMmAppAndBindingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMmAppAndBindingResponse
+       */
+      Models::UpdateMmAppAndBindingResponse updateMmAppAndBindingWithOptions(const Models::UpdateMmAppAndBindingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新应用和绑定信息
+       *
+       * @param request UpdateMmAppAndBindingRequest
+       * @return UpdateMmAppAndBindingResponse
+       */
+      Models::UpdateMmAppAndBindingResponse updateMmAppAndBinding(const Models::UpdateMmAppAndBindingRequest &request);
 
       /**
        * @summary 修改多模态应用长期记忆开关

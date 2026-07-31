@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_SFMMULTIMODALAPP20250909MODEL_HPP_
 #define ALIBABACLOUD_SFMMULTIMODALAPP20250909MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/BindingConfigAgentsIntentFewShotConfigValue.hpp>
 #include <alibabacloud/models/CreateCommandRequest.hpp>
 #include <alibabacloud/models/CreateCommandShrinkRequest.hpp>
 #include <alibabacloud/models/CreateCommandResponseBody.hpp>
@@ -58,6 +59,9 @@
 #include <alibabacloud/models/ListPublishedMmAppRequest.hpp>
 #include <alibabacloud/models/ListPublishedMmAppResponseBody.hpp>
 #include <alibabacloud/models/ListPublishedMmAppResponse.hpp>
+#include <alibabacloud/models/ListVoiceRequest.hpp>
+#include <alibabacloud/models/ListVoiceResponseBody.hpp>
+#include <alibabacloud/models/ListVoiceResponse.hpp>
 #include <alibabacloud/models/MmAppBindingMcpRequest.hpp>
 #include <alibabacloud/models/MmAppBindingMcpShrinkRequest.hpp>
 #include <alibabacloud/models/MmAppBindingMcpResponseBody.hpp>
@@ -84,6 +88,9 @@
 #include <alibabacloud/models/QueryProfileRequest.hpp>
 #include <alibabacloud/models/QueryProfileResponseBody.hpp>
 #include <alibabacloud/models/QueryProfileResponse.hpp>
+#include <alibabacloud/models/QuerySelectOptionsRequest.hpp>
+#include <alibabacloud/models/QuerySelectOptionsResponseBody.hpp>
+#include <alibabacloud/models/QuerySelectOptionsResponse.hpp>
 #include <alibabacloud/models/QueryUserProfileRequest.hpp>
 #include <alibabacloud/models/QueryUserProfileResponseBody.hpp>
 #include <alibabacloud/models/QueryUserProfileResponse.hpp>
@@ -99,6 +106,10 @@
 #include <alibabacloud/models/UpdateMmAppShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateMmAppResponseBody.hpp>
 #include <alibabacloud/models/UpdateMmAppResponse.hpp>
+#include <alibabacloud/models/UpdateMmAppAndBindingRequest.hpp>
+#include <alibabacloud/models/UpdateMmAppAndBindingShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateMmAppAndBindingResponseBody.hpp>
+#include <alibabacloud/models/UpdateMmAppAndBindingResponse.hpp>
 #include <alibabacloud/models/UpdateMmAppMemoryRequest.hpp>
 #include <alibabacloud/models/UpdateMmAppMemoryResponseBody.hpp>
 #include <alibabacloud/models/UpdateMmAppMemoryResponse.hpp>

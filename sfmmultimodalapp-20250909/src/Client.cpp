@@ -1052,6 +1052,52 @@ ListPublishedMmAppResponse Client::listPublishedMmApp(const ListPublishedMmAppRe
 }
 
 /**
+ * @summary 查询音色列表
+ *
+ * @param request ListVoiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVoiceResponse
+ */
+ListVoiceResponse Client::listVoiceWithOptions(const ListVoiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasModelId()) {
+    query["ModelId"] = request.getModelId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListVoice"},
+    {"version" , "2025-09-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVoiceResponse>();
+}
+
+/**
+ * @summary 查询音色列表
+ *
+ * @param request ListVoiceRequest
+ * @return ListVoiceResponse
+ */
+ListVoiceResponse Client::listVoice(const ListVoiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVoiceWithOptions(request, runtime);
+}
+
+/**
  * @summary 多模态应用绑定MCP
  *
  * @param tmpReq MmAppBindingMcpRequest
@@ -1492,6 +1538,48 @@ QueryProfileResponse Client::queryProfile(const QueryProfileRequest &request) {
 }
 
 /**
+ * @summary 查询选项
+ *
+ * @param request QuerySelectOptionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QuerySelectOptionsResponse
+ */
+QuerySelectOptionsResponse Client::querySelectOptionsWithOptions(const QuerySelectOptionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QuerySelectOptions"},
+    {"version" , "2025-09-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QuerySelectOptionsResponse>();
+}
+
+/**
+ * @summary 查询选项
+ *
+ * @param request QuerySelectOptionsRequest
+ * @return QuerySelectOptionsResponse
+ */
+QuerySelectOptionsResponse Client::querySelectOptions(const QuerySelectOptionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return querySelectOptionsWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询用户画像
  *
  * @param request QueryUserProfileRequest
@@ -1779,6 +1867,94 @@ UpdateMmAppResponse Client::updateMmAppWithOptions(const UpdateMmAppRequest &tmp
 UpdateMmAppResponse Client::updateMmApp(const UpdateMmAppRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateMmAppWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新应用和绑定信息
+ *
+ * @param tmpReq UpdateMmAppAndBindingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMmAppAndBindingResponse
+ */
+UpdateMmAppAndBindingResponse Client::updateMmAppAndBindingWithOptions(const UpdateMmAppAndBindingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateMmAppAndBindingShrinkRequest request = UpdateMmAppAndBindingShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBindingConfig()) {
+    request.setBindingConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBindingConfig(), "BindingConfig", "json"));
+  }
+
+  if (!!tmpReq.hasConversationConfig()) {
+    request.setConversationConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getConversationConfig(), "ConversationConfig", "json"));
+  }
+
+  if (!!tmpReq.hasMemoryConfig()) {
+    request.setMemoryConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMemoryConfig(), "MemoryConfig", "json"));
+  }
+
+  if (!!tmpReq.hasModelConfig()) {
+    request.setModelConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getModelConfig(), "ModelConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.getAppName();
+  }
+
+  if (!!request.hasBindingConfigShrink()) {
+    query["BindingConfig"] = request.getBindingConfigShrink();
+  }
+
+  if (!!request.hasConversationConfigShrink()) {
+    query["ConversationConfig"] = request.getConversationConfigShrink();
+  }
+
+  if (!!request.hasMemoryConfigShrink()) {
+    query["MemoryConfig"] = request.getMemoryConfigShrink();
+  }
+
+  if (!!request.hasModelConfigShrink()) {
+    query["ModelConfig"] = request.getModelConfigShrink();
+  }
+
+  if (!!request.hasPrompt()) {
+    query["Prompt"] = request.getPrompt();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateMmAppAndBinding"},
+    {"version" , "2025-09-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMmAppAndBindingResponse>();
+}
+
+/**
+ * @summary 更新应用和绑定信息
+ *
+ * @param request UpdateMmAppAndBindingRequest
+ * @return UpdateMmAppAndBindingResponse
+ */
+UpdateMmAppAndBindingResponse Client::updateMmAppAndBinding(const UpdateMmAppAndBindingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateMmAppAndBindingWithOptions(request, runtime);
 }
 
 /**
