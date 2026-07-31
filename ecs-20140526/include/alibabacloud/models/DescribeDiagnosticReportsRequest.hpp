@@ -99,43 +99,36 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Valid values: 1 to 100.
+    // The number of entries per page for a paged query. Maximum value: 100.
     // 
     // Default value:
     // 
-    // - If this parameter is left empty, the default value is 10.
-    // 
-    // - If you set this parameter to a value that is greater than 100, the default value is 100.
+    // - If this parameter is not specified, the default value is 10.
+    // - If the specified value is greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+    // The pagination token. Set this parameter to the `NextToken` value returned in the previous call. You do not need to set this parameter for the first request.
     shared_ptr<string> nextToken_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The IDs of diagnostic reports.
+    // The list of diagnostic report IDs.
     shared_ptr<vector<string>> reportIds_ {};
-    // The IDs of resources. You can specify up to 100 resource IDs.
+    // The list of resource IDs. A maximum of 100 IDs are supported.
     shared_ptr<vector<string>> resourceIds_ {};
-    // The severity level of the diagnostic report. Valid values:
+    // The severity level. Valid values:
     // 
-    // - Unknown: The diagnostic did not start, failed to run, or unexpectedly exited without a diagnosis.
-    // 
-    // - Normal: No exceptions were detected.
-    // 
-    // - Info: Diagnostic information was recorded and may be related to exceptions.
-    // 
-    // - Warn: Diagnostic information was recorded and may indicate exceptions.
-    // 
-    // - Critical: Critical exceptions were detected.
+    // - Unknown: The initial state, which indicates that the diagnosis has not started or the diagnosis process exited unexpectedly. No diagnostic conclusion is available.
+    // - Normal: The diagnosis is normal. No issues are found.
+    // - Info: Related information is available and may be associated with exceptions.
+    // - Warn: Related information is available and may cause exceptions.
+    // - Critical: Critical exceptions exist.
     shared_ptr<string> severity_ {};
-    // The status of the diagnostic report. Valid values:
+    // The report status. Valid values:
     // 
-    // - InProgress
-    // 
-    // - Failed
-    // 
-    // - Finished
+    // - InProgress: The diagnosis is in progress.
+    // - Failed: The diagnosis failed.
+    // - Finished: The diagnosis is complete.
     shared_ptr<string> status_ {};
   };
 

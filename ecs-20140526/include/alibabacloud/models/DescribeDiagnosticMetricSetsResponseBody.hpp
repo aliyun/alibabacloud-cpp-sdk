@@ -112,19 +112,18 @@ namespace Models
     protected:
       // The description of the diagnostic metric set.
       shared_ptr<string> description_ {};
-      // The IDs of the diagnostic metrics.
+      // The list of diagnostic metrics.
       shared_ptr<vector<string>> metricIds_ {};
       // The ID of the diagnostic metric set.
       shared_ptr<string> metricSetId_ {};
       // The name of the diagnostic metric set.
       shared_ptr<string> metricSetName_ {};
-      // The resource type supported by the diagnostic metric set.
+      // The supported resource type.
       shared_ptr<string> resourceType_ {};
       // The type of the diagnostic metric set. Valid values:
       // 
-      // - User: user-defined diagnostic metric set
-      // 
-      // - Common: common diagnostic metric set
+      // - User: user.
+      // - Common: common.
       shared_ptr<string> type_ {};
     };
 
@@ -156,7 +155,7 @@ namespace Models
   protected:
     // The diagnostic metric sets.
     shared_ptr<vector<DescribeDiagnosticMetricSetsResponseBody::MetricSets>> metricSets_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

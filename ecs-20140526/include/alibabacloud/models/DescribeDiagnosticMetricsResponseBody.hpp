@@ -120,7 +120,7 @@ namespace Models
     protected:
       // The description of the diagnostic metric.
       shared_ptr<string> description_ {};
-      // Indicates whether the diagnostic metric needs to be assessed by running a Cloud Assistant command in a guest operating system.
+      // Indicates whether a script needs to be executed in the guest OS.
       shared_ptr<bool> guestMetric_ {};
       // The category of the diagnostic metric.
       shared_ptr<string> metricCategory_ {};
@@ -130,13 +130,11 @@ namespace Models
       shared_ptr<string> metricName_ {};
       // The resource type supported by the diagnostic metric.
       shared_ptr<string> resourceType_ {};
-      // The operating system type supported by the diagnostic metric. Valid values:
+      // The supported operating system. Valid values:
       // 
-      // - Windows
-      // 
-      // - Linux
-      // 
-      // - All: Windows and Linux
+      // - Windows: Windows operating systems are supported.
+      // - Linux: Linux operating systems are supported.
+      // - All: both Windows and Linux operating systems are supported.
       shared_ptr<string> supportedOperatingSystem_ {};
     };
 
@@ -168,7 +166,7 @@ namespace Models
   protected:
     // The diagnostic metrics.
     shared_ptr<vector<DescribeDiagnosticMetricsResponseBody::Metrics>> metrics_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

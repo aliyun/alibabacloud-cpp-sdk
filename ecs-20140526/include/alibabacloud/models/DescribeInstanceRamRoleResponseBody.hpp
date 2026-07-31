@@ -145,11 +145,11 @@ namespace Models
 
   protected:
     shared_ptr<DescribeInstanceRamRoleResponseBody::InstanceRamRoleSets> instanceRamRoleSets_ {};
-    // The region ID of the ECS instances.
+    // The region ID of the instance.
     shared_ptr<string> regionId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of ECS instances returned.
+    // The total number of returned instances.
     shared_ptr<int32_t> totalCount_ {};
   };
 

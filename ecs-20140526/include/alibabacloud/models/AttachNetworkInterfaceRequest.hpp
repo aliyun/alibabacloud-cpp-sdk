@@ -127,7 +127,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The index of the network card specified for the ENI.
     // 
-    // >Valid values of NetworkCardIndex depend on the instance family. If the instance type does not support network cards, you cannot specify this parameter. If the instance type supports network cards, see [Instance families](https://help.aliyun.com/document_detail/25378.html) for valid values.
+    // >The valid values of NetworkCardIndex depend on the instance family. If the instance type does not support NetworkCard, you cannot specify this parameter. If the instance type supports NetworkCard, see [Instance families](https://help.aliyun.com/document_detail/25378.html) for valid values.
     shared_ptr<int32_t> networkCardIndex_ {};
     // The network interface controller (NIC) ID.
     // 
@@ -141,7 +141,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the trunk ENI.
+    // The trunk ENI ID.
     // >This parameter is not yet available.
     shared_ptr<string> trunkNetworkInstanceId_ {};
     // >This parameter is deprecated.

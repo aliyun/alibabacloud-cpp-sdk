@@ -112,39 +112,35 @@ namespace Models
 
 
   protected:
-    // The type of the snapshot. Valid values:
+    // The snapshot type. Valid values:
     // 
-    // - Standard: standard snapshot
-    // 
-    // - Flash: local snapshot
-    // 
-    // - Archive: archive snapshot
+    // - Standard: standard snapshot.
+    // - Flash: local snapshot.
+    // - Archive: archive snapshot.
     // 
     // Default value: Standard.
     shared_ptr<string> category_ {};
-    // The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is rounded up to the next minute.
+    // The end of the time range to query snapshot size change data. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is automatically rounded up to the next minute.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The interval at which to query the monitoring data of snapshot sizes. Unit: seconds. Valid values:
+    // The interval at which to query snapshot size change data. Unit: seconds. Valid values:
     // 
     // - 60
-    // 
     // - 600
-    // 
     // - 3600
     // 
     // Default value: 60.
     shared_ptr<int32_t> period_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is rounded up to the next minute.
+    // The beginning of the time range to query snapshot size change data. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is automatically rounded up to the next minute.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

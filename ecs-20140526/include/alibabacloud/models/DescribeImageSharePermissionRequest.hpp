@@ -109,13 +109,13 @@ namespace Models
     shared_ptr<string> imageId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the returned results.
+    // The page number of the query results to return.
     // 
     // Minimum value: 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in the returned results.
+    // The number of entries per page in the query results.
     // 
     // Maximum value: 100.
     // 

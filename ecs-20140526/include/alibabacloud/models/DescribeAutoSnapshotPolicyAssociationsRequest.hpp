@@ -121,10 +121,10 @@ namespace Models
     // The maximum number of entries per page for paging queries. Maximum value: 100.
     // 
     // Default value:
-    // - If this parameter is not set or is set to a value less than 10, the default value is 10.
-    // - If the value is set to a value greater than 100, the default value is 100.
+    // - When no value is set or the value is set to less than 10, the default value is 10.
+    // - When the value is set to greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+    // The pagination token. Set this parameter to the value of NextToken returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

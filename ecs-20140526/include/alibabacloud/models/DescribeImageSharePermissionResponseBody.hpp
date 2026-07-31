@@ -250,7 +250,7 @@ namespace Models
     shared_ptr<DescribeImageSharePermissionResponseBody::Accounts> accounts_ {};
     // The ID of the custom image.
     shared_ptr<string> imageId_ {};
-    // The page number of the returned results.
+    // The page number of the query results.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

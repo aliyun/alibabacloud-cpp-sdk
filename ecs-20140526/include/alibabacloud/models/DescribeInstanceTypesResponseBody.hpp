@@ -99,6 +99,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(PrimaryEniQueueNumber, primaryEniQueueNumber_);
           DARABONBA_PTR_TO_JSON(QueuePairNumber, queuePairNumber_);
           DARABONBA_PTR_TO_JSON(SecondaryEniQueueNumber, secondaryEniQueueNumber_);
+          DARABONBA_PTR_TO_JSON(SecurityOptions, securityOptions_);
           DARABONBA_PTR_TO_JSON(SupportedBootModes, supportedBootModes_);
           DARABONBA_PTR_TO_JSON(TotalEniQueueQuantity, totalEniQueueQuantity_);
         };
@@ -146,6 +147,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(PrimaryEniQueueNumber, primaryEniQueueNumber_);
           DARABONBA_PTR_FROM_JSON(QueuePairNumber, queuePairNumber_);
           DARABONBA_PTR_FROM_JSON(SecondaryEniQueueNumber, secondaryEniQueueNumber_);
+          DARABONBA_PTR_FROM_JSON(SecurityOptions, securityOptions_);
           DARABONBA_PTR_FROM_JSON(SupportedBootModes, supportedBootModes_);
           DARABONBA_PTR_FROM_JSON(TotalEniQueueQuantity, totalEniQueueQuantity_);
         };
@@ -191,6 +193,37 @@ namespace Models
 
         protected:
           shared_ptr<vector<string>> supportedBootMode_ {};
+        };
+
+        class SecurityOptions : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const SecurityOptions& obj) { 
+            DARABONBA_PTR_TO_JSON(SecureBootSupport, secureBootSupport_);
+          };
+          friend void from_json(const Darabonba::Json& j, SecurityOptions& obj) { 
+            DARABONBA_PTR_FROM_JSON(SecureBootSupport, secureBootSupport_);
+          };
+          SecurityOptions() = default ;
+          SecurityOptions(const SecurityOptions &) = default ;
+          SecurityOptions(SecurityOptions &&) = default ;
+          SecurityOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~SecurityOptions() = default ;
+          SecurityOptions& operator=(const SecurityOptions &) = default ;
+          SecurityOptions& operator=(SecurityOptions &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->secureBootSupport_ == nullptr; };
+          // secureBootSupport Field Functions 
+          bool hasSecureBootSupport() const { return this->secureBootSupport_ != nullptr;};
+          void deleteSecureBootSupport() { this->secureBootSupport_ = nullptr;};
+          inline string getSecureBootSupport() const { DARABONBA_PTR_GET_DEFAULT(secureBootSupport_, "") };
+          inline SecurityOptions& setSecureBootSupport(string secureBootSupport) { DARABONBA_PTR_SET_VALUE(secureBootSupport_, secureBootSupport) };
+
+
+        protected:
+          shared_ptr<string> secureBootSupport_ {};
         };
 
         class NetworkInfo : public Darabonba::Model {
@@ -712,7 +745,7 @@ namespace Models
         && this->instanceTypeFamily_ == nullptr && this->instanceTypeId_ == nullptr && this->jumboFrameSupport_ == nullptr && this->localStorageAmount_ == nullptr && this->localStorageCapacity_ == nullptr
         && this->localStorageCategory_ == nullptr && this->maximumQueueNumberPerEni_ == nullptr && this->memorySize_ == nullptr && this->networkCardQuantity_ == nullptr && this->networkCards_ == nullptr
         && this->networkEncryptionSupport_ == nullptr && this->networkInfo_ == nullptr && this->nvmeSupport_ == nullptr && this->physicalProcessorModel_ == nullptr && this->primaryEniQueueNumber_ == nullptr
-        && this->queuePairNumber_ == nullptr && this->secondaryEniQueueNumber_ == nullptr && this->supportedBootModes_ == nullptr && this->totalEniQueueQuantity_ == nullptr; };
+        && this->queuePairNumber_ == nullptr && this->secondaryEniQueueNumber_ == nullptr && this->securityOptions_ == nullptr && this->supportedBootModes_ == nullptr && this->totalEniQueueQuantity_ == nullptr; };
         // attributes Field Functions 
         bool hasAttributes() const { return this->attributes_ != nullptr;};
         void deleteAttributes() { this->attributes_ = nullptr;};
@@ -1026,6 +1059,15 @@ namespace Models
         inline InstanceType& setSecondaryEniQueueNumber(int32_t secondaryEniQueueNumber) { DARABONBA_PTR_SET_VALUE(secondaryEniQueueNumber_, secondaryEniQueueNumber) };
 
 
+        // securityOptions Field Functions 
+        bool hasSecurityOptions() const { return this->securityOptions_ != nullptr;};
+        void deleteSecurityOptions() { this->securityOptions_ = nullptr;};
+        inline const InstanceType::SecurityOptions & getSecurityOptions() const { DARABONBA_PTR_GET_CONST(securityOptions_, InstanceType::SecurityOptions) };
+        inline InstanceType::SecurityOptions getSecurityOptions() { DARABONBA_PTR_GET(securityOptions_, InstanceType::SecurityOptions) };
+        inline InstanceType& setSecurityOptions(const InstanceType::SecurityOptions & securityOptions) { DARABONBA_PTR_SET_VALUE(securityOptions_, securityOptions) };
+        inline InstanceType& setSecurityOptions(InstanceType::SecurityOptions && securityOptions) { DARABONBA_PTR_SET_RVALUE(securityOptions_, securityOptions) };
+
+
         // supportedBootModes Field Functions 
         bool hasSupportedBootModes() const { return this->supportedBootModes_ != nullptr;};
         void deleteSupportedBootModes() { this->supportedBootModes_ = nullptr;};
@@ -1086,6 +1128,7 @@ namespace Models
         shared_ptr<int32_t> primaryEniQueueNumber_ {};
         shared_ptr<int32_t> queuePairNumber_ {};
         shared_ptr<int32_t> secondaryEniQueueNumber_ {};
+        shared_ptr<InstanceType::SecurityOptions> securityOptions_ {};
         shared_ptr<InstanceType::SupportedBootModes> supportedBootModes_ {};
         shared_ptr<int32_t> totalEniQueueQuantity_ {};
       };
@@ -1131,7 +1174,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeInstanceTypesResponseBody::InstanceTypes> instanceTypes_ {};
-    // The pagination token returned by this call.
+    // The query token returned by this call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

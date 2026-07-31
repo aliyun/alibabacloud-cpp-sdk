@@ -92,9 +92,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N to be added to the SCU.
+      // The tag key of the SCU.
       shared_ptr<string> key_ {};
-      // The value of tag N to be added to the SCU.
+      // The tag value of the SCU.
       shared_ptr<string> value_ {};
     };
 
@@ -200,43 +200,42 @@ namespace Models
 
 
   protected:
-    // The allocation type. Valid values:
+    // The allocate type. Valid values:
     // 
     // - Normal: queries SCUs that belong to the current Alibaba Cloud account.
-    // 
-    // - Shared: queries SCUs shared between the Alibaba Cloud account and RAM users.
+    // - Shared: queries SCUs that are shared between the Alibaba Cloud account and a Resource Access Management (RAM) user.
     // 
     // Default value: Normal.
     shared_ptr<string> allocationType_ {};
-    // The capacity of the SCU. Unit: GiB. Valid values: 20, 40, 100, 200, 500, 1024, 2048, 5120, 10240, 20480, and 51200.
+    // The capacity of the SCU. Unit: GiB. Valid values: {20, 40, 100, 200, 500, 1024, 2048, 5120, 10240, 20480, 51200}.
     shared_ptr<int32_t> capacity_ {};
-    // The name of the SCU. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+    // The name of the SCU. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return.
+    // The page number of the SCU list.
     // 
-    // Pages start from page 1.
+    // Minimum value: 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page for a paged query.
     // 
-    // Valid values: 1 to 100.
+    // Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the SCU. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the SCU. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The states of SCUs. The array is 1 to 4 in length.
+    // The statuses of SCUs. Array length: 1 to 4.
     shared_ptr<vector<string>> status_ {};
-    // The IDs of the SCUs. You can specify 1 to 100 SCU IDs.
+    // The IDs of SCUs. Array length: 1 to 100.
     shared_ptr<vector<string>> storageCapacityUnitId_ {};
-    // The tags to add to the SCU. You can add up to 20 tags.
+    // The tags. Array length: 0 to 20.
     shared_ptr<vector<DescribeStorageCapacityUnitsRequest::Tag>> tag_ {};
   };
 

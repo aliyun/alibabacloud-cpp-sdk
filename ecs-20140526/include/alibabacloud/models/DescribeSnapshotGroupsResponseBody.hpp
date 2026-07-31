@@ -510,7 +510,7 @@ namespace Models
   protected:
     // The pagination token for the next query.
     // 
-    // > If this parameter is empty, no more results are available.
+    // > If this parameter is empty, no more data is returned.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

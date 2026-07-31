@@ -232,7 +232,7 @@ namespace Models
     // 
     // Default value: Year.
     shared_ptr<string> periodUnit_ {};
-    // The region ID of the elasticity assurance service.
+    // The ID of the region in which the elasticity assurance service resides.
     // 
     // You can call [DescribeRegions](https://help.aliyun.com/document_detail/2680071.html) to query the most recent region list.
     shared_ptr<string> regionId_ {};

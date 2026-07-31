@@ -121,18 +121,18 @@ namespace Models
 
 
   protected:
-    // The billing method of the instance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
+    // The billing method of the instance. For more details, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values: 
     // 
     // - PrePaid: subscription.
     // - PostPaid: pay-as-you-go.
     // 
     // Default value: PostPaid.
     shared_ptr<string> instanceChargeType_ {};
-    // The instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+    // The instance type. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
     // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
-    // The operation type for querying public bandwidth limits. Valid values:
+    // The type of operation for which to query the public bandwidth limits. Valid values: 
     // 
     // - Upgrade: upgrades the public bandwidth.
     // - Downgrade: downgrades the public bandwidth.
@@ -148,19 +148,19 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The resource ID.
     // 
-    // > When you set the OperationType parameter to Upgrade or Downgrade, the ResourceId parameter is required.
+    // > The ResourceId parameter is required when you set OperationType to Upgrade or Downgrade.
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The bidding strategy for pay-as-you-go instances. Valid values:
+    // The bidding policy for the pay-as-you-go instance. Valid values: 
     // 
-    // - NoSpot: a regular pay-as-you-go instance.
-    // - SpotWithPriceLimit: a preemptible instance with a user-defined maximum hourly price.
-    // - SpotAsPriceGo: a preemptible instance priced at the market price at the time of purchase.
+    // - NoSpot: The instance is a regular pay-as-you-go instance.
+    // - SpotWithPriceLimit: The instance is a spot instance with a user-defined maximum hourly price.
+    // - SpotAsPriceGo: The instance is a spot instance for which the market price is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
     // 
     // Default value: NoSpot.
     // 
-    // > The SpotStrategy parameter takes effect only when the InstanceChargeType parameter is set to PostPaid.
+    // > The SpotStrategy parameter takes effect only when InstanceChargeType is set to PostPaid.
     shared_ptr<string> spotStrategy_ {};
   };
 

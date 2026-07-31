@@ -274,7 +274,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeSnapshotLinksResponseBody::SnapshotLinks> snapshotLinks_ {};
     // The total number of snapshot chains.
-    // > When you use the `MaxResults` and `NextToken` parameters for a paged query, the returned `TotalCount` value is invalid. For paging, use `MaxResults` and `NextToken` instead.
+    // > When you use the `MaxResults` and `NextToken` parameters for a paged query, the returned `TotalCount` value is invalid. For paging, use `NextToken` and `MaxResults` instead.
     shared_ptr<int32_t> totalCount_ {};
   };
 

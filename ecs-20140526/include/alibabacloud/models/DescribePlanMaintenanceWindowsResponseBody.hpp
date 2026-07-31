@@ -157,11 +157,11 @@ namespace Models
 
 
       protected:
-        // The type of the recurrence cycle. Valid values:
+        // The cycle type. Valid values:
         // - Daily: daily recurrence.
         // - Weekly: weekly recurrence.
         shared_ptr<string> periodUnit_ {};
-        // The time ranges within the recurrence cycle of the O&M window (in UTC).
+        // The time ranges within the recurring cycle of the O&M window (UTC time zone).
         shared_ptr<vector<TimePeriod::RangeList>> rangeList_ {};
       };
 
@@ -260,7 +260,7 @@ namespace Models
       protected:
         // The ID of the resource group to which the O&M window applies.
         shared_ptr<string> resourceGroupId_ {};
-        // The type of resources for which the O&M window is configured.
+        // The resource type for which the O&M window is configured.
         shared_ptr<string> scope_ {};
         // The tags to which the O&M window applies.
         shared_ptr<vector<TargetResource::Tags>> tags_ {};
@@ -356,7 +356,7 @@ namespace Models
       shared_ptr<string> supportMaintenanceAction_ {};
       // The resources to which the O&M window applies.
       shared_ptr<PlanMaintenanceWindowList::TargetResource> targetResource_ {};
-      // The recurrence cycle of the window.
+      // The recurring cycle of the window.
       shared_ptr<PlanMaintenanceWindowList::TimePeriod> timePeriod_ {};
     };
 
@@ -408,7 +408,7 @@ namespace Models
     shared_ptr<vector<DescribePlanMaintenanceWindowsResponseBody::PlanMaintenanceWindowList>> planMaintenanceWindowList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned under the current query conditions. This parameter is optional and may not be returned by default.
+    // The total number of entries that match the query conditions. This parameter is optional and may not be returned by default.
     shared_ptr<int32_t> totalCount_ {};
   };
 

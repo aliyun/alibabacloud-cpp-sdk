@@ -140,7 +140,7 @@ namespace Models
 
 
   protected:
-    // The IDs of disks. You can specify up to 100 disk IDs at a time. The DiskIds parameter is a JSON array. Separate multiple IDs with commas (,).
+    // The disk IDs. You can specify up to 100 disk IDs at a time. The DiskIds parameter is a JSON array. Separate multiple IDs with commas (,).
     shared_ptr<string> diskIds_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
@@ -167,7 +167,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The IDs of snapshot chains. You can specify up to 100 snapshot chain IDs at a time. The SnapshotLinkIds parameter is a JSON array. Separate multiple IDs with commas (,).
+    // The snapshot chain IDs. You can specify up to 100 snapshot chain IDs at a time. The SnapshotLinkIds parameter is a JSON array. Separate multiple IDs with commas (,).
     shared_ptr<string> snapshotLinkIds_ {};
   };
 

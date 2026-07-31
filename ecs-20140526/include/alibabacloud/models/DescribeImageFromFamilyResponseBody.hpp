@@ -468,77 +468,63 @@ namespace Models
 
 
     protected:
-      // The architecture of the image. Valid values:
-      // 
+      // The system architecture type of the image. Valid values:
       // - i386
-      // 
       // - x86_64
       shared_ptr<string> architecture_ {};
       // The time when the image was created.
       shared_ptr<string> creationTime_ {};
-      // The description of the volume.
+      // The description of the image.
       shared_ptr<string> description_ {};
       shared_ptr<Image::DiskDeviceMappings> diskDeviceMappings_ {};
-      // The name of the image family.
+      // The image family.
       shared_ptr<string> imageFamily_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
       // The name of the image.
       shared_ptr<string> imageName_ {};
       // The alias of the image owner. Valid values:
-      // 
-      // - system: public images provided by Alibaba Cloud
-      // 
-      // - self: your custom images
-      // 
-      // - others: shared images from other Alibaba Cloud accounts
-      // 
-      // - marketplace: Alibaba Cloud Marketplace images
+      // - system: public image.
+      // - self: your custom image.
+      // - others: shared image from other users.
+      // - marketplace: Alibaba Cloud Marketplace image.
       shared_ptr<string> imageOwnerAlias_ {};
       // The image version.
       shared_ptr<string> imageVersion_ {};
       // Indicates whether the image is a copy of another image.
       shared_ptr<bool> isCopied_ {};
-      // Indicates whether the custom image was shared to other Alibaba Cloud accounts.
+      // Indicates whether the custom image has been shared with other users.
       shared_ptr<string> isSelfShared_ {};
-      // Indicates whether you have subscribed to the service terms of the image product corresponding to the image product code.
+      // Indicates whether you have subscribed to the Terms of Service for the image product that corresponds to the product code.
       shared_ptr<bool> isSubscribed_ {};
       // Indicates whether cloud-init is supported.
       shared_ptr<bool> isSupportCloudinit_ {};
-      // Indicates whether the image can be used on I/O optimized instances.
+      // Indicates whether the image can run on an I/O optimized instance.
       shared_ptr<bool> isSupportIoOptimized_ {};
-      // The display name of the operating system in Chinese.
+      // The China-locale display name of the operating system.
       shared_ptr<string> OSName_ {};
       // The type of the operating system. Valid values:
-      // 
       // - windows
-      // 
       // - linux
       shared_ptr<string> OSType_ {};
-      // The operating system.
+      // The operating system platform.
       shared_ptr<string> platform_ {};
       // The product code of the Alibaba Cloud Marketplace image.
       shared_ptr<string> productCode_ {};
-      // The image creation progress in percentage.
+      // The image creation progress, in percent.
       shared_ptr<string> progress_ {};
       // The size of the image. Unit: GiB.
       shared_ptr<int32_t> size_ {};
-      // The state of the image. Valid values:
-      // 
-      // - UnAvailable
-      // 
-      // - Available
-      // 
-      // - Creating
-      // 
-      // - CreateFailed
+      // The status of the image. Valid values:
+      // - UnAvailable: unavailable
+      // - Available: available
+      // - Creating: being created
+      // - CreateFailed: failed to be created
       shared_ptr<string> status_ {};
       shared_ptr<Image::Tags> tags_ {};
-      // Indicates whether the image has been used to create ECS instances. Valid values:
-      // 
-      // - instance: The image was used to create one or more ECS instances.
-      // 
-      // - none: The image was not used to create ECS instances.
+      // The type of resource that references the image. Valid values:
+      // - instance: One or more ECS instances have been created from the image.
+      // - none: No ECS instances have been created from the image.
       shared_ptr<string> usage_ {};
     };
 
@@ -563,7 +549,7 @@ namespace Models
   protected:
     // The image information.
     shared_ptr<DescribeImageFromFamilyResponseBody::Image> image_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -189,7 +189,7 @@ namespace Models
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page when automatic snapshot policies are displayed in paging mode.
+    // The number of entries per page when automatic snapshot policies are returned with pagination.
     // 
     // Maximum value: 100.
     // 

@@ -351,15 +351,15 @@ namespace Models
 
 
       protected:
-        // The maximum inbound bandwidth on the internal network.
+        // The maximum inbound internal bandwidth limit.
         shared_ptr<int64_t> bandwidthRx_ {};
-        // The maximum outbound bandwidth on the internal network.
+        // The maximum outbound internal bandwidth limit.
         shared_ptr<int64_t> bandwidthTx_ {};
-        // The maximum number of connections.
+        // The maximum number of sessions.
         shared_ptr<int64_t> concurrentConnections_ {};
-        // The inbound packet transmission rate on the internal network. Unit: packets per second (pps).
+        // The inbound internal network packet forwarding rate.
         shared_ptr<int64_t> ppsRx_ {};
-        // The outbound packet transmission rate on the internal network. Unit: packets per second (pps).
+        // The outbound internal network packet forwarding rate.
         shared_ptr<int64_t> ppsTx_ {};
       };
 
@@ -382,9 +382,9 @@ namespace Models
 
 
     protected:
-      // Indicates whether QoS is enabled.
+      // Indicates whether QoS rate limiting is enabled.
       shared_ptr<bool> enableQoS_ {};
-      // The QoS settings.
+      // The QoS rate limiting settings.
       shared_ptr<QoSConfig::QoS> qoS_ {};
     };
 
@@ -564,11 +564,11 @@ namespace Models
 
 
     protected:
-      // The communication mode of the elastic network interface.
+      // The communication mode of the network interface controller (NIC).
       shared_ptr<string> networkInterfaceTrafficMode_ {};
-      // The number of queues for the elastic network interface.
+      // The number of queues supported by the network interface controller (NIC).
       shared_ptr<int32_t> queueNumber_ {};
-      // The number of queue pairs for the RDMA-enabled elastic network interface.
+      // The number of queues supported by the RDMA ENI.
       shared_ptr<int32_t> queuePairNumber_ {};
     };
 
@@ -595,9 +595,11 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Ipv6Set& obj) { 
           DARABONBA_PTR_TO_JSON(Ipv6Address, ipv6Address_);
+          DARABONBA_PTR_TO_JSON(Primary, primary_);
         };
         friend void from_json(const Darabonba::Json& j, Ipv6Set& obj) { 
           DARABONBA_PTR_FROM_JSON(Ipv6Address, ipv6Address_);
+          DARABONBA_PTR_FROM_JSON(Primary, primary_);
         };
         Ipv6Set() = default ;
         Ipv6Set(const Ipv6Set &) = default ;
@@ -610,7 +612,8 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->ipv6Address_ == nullptr; };
+        virtual bool empty() const override { return this->ipv6Address_ == nullptr
+        && this->primary_ == nullptr; };
         // ipv6Address Field Functions 
         bool hasIpv6Address() const { return this->ipv6Address_ != nullptr;};
         void deleteIpv6Address() { this->ipv6Address_ = nullptr;};
@@ -618,8 +621,16 @@ namespace Models
         inline Ipv6Set& setIpv6Address(string ipv6Address) { DARABONBA_PTR_SET_VALUE(ipv6Address_, ipv6Address) };
 
 
+        // primary Field Functions 
+        bool hasPrimary() const { return this->primary_ != nullptr;};
+        void deletePrimary() { this->primary_ = nullptr;};
+        inline bool getPrimary() const { DARABONBA_PTR_GET_DEFAULT(primary_, false) };
+        inline Ipv6Set& setPrimary(bool primary) { DARABONBA_PTR_SET_VALUE(primary_, primary) };
+
+
       protected:
         shared_ptr<string> ipv6Address_ {};
+        shared_ptr<bool> primary_ {};
       };
 
       virtual bool empty() const override { return this->ipv6Set_ == nullptr; };
@@ -820,7 +831,7 @@ namespace Models
 
 
     protected:
-      // > This parameter is not publicly available.
+      // > This parameter is not yet available for use.
       shared_ptr<bool> enableRss_ {};
       // This parameter is not publicly available.
       shared_ptr<bool> enableSriov_ {};
@@ -875,15 +886,11 @@ namespace Models
 
 
     protected:
-      // The timeout period for TCP connections in the `TIME_WAIT` and `FIN-WAIT-2` states. Unit: seconds. Valid values: an integer from 3 to 15.
-      // 
-      // > For ECS instances used with a Network Load Balancer (NLB) or Classic Load Balancer (CLB), the default timeout for connections in the `TIME_WAIT` state is 15 seconds.
+      // The timeout period for a TCP connection in the TIME_WAIT or CLOSED state. Unit: seconds. Valid values: an integer from 3 to 15.
       shared_ptr<int32_t> tcpClosedAndTimeWaitTimeout_ {};
-      // The timeout period for established TCP connections. Unit: seconds. Valid values: 30, 60, 80, 100, 200, 300, 500, 700, and 910.
+      // The timeout period for an established TCP connection. Unit: seconds. Valid values: [30, 60, 80, 100, 200, 300, 500, 700, 910].
       shared_ptr<int32_t> tcpEstablishedTimeout_ {};
-      // The timeout period for UDP streams. Unit: seconds. Valid values: 10, 20, 30, 60, 80, and 100.
-      // 
-      // > For ECS instances used with a Network Load Balancer (NLB) or Classic Load Balancer (CLB), the default UDP timeout is 100 seconds.
+      // The timeout period for a UDP flow. Unit: seconds. Valid values: [10, 20, 30, 60, 80, 100].
       shared_ptr<int32_t> udpTimeout_ {};
     };
 
@@ -1122,11 +1129,7 @@ namespace Models
       // > This parameter is in invitational preview and is not publicly available.
       shared_ptr<string> instanceId_ {};
       shared_ptr<Attachment::MemberNetworkInterfaceIds> memberNetworkInterfaceIds_ {};
-      // The index of the physical network card to which the elastic network interface is attached.
-      // 
-      // - This parameter is not returned if the elastic network interface is `Available`, or if no index was specified during attachment.
-      // 
-      // - If the elastic network interface is `InUse` and an index was specified during attachment, this parameter returns the index of the physical network card.
+      // The index of the network card to which the ENI is attached.
       shared_ptr<int32_t> networkCardIndex_ {};
       // > This parameter is in invitational preview and is not publicly available.
       shared_ptr<string> trunkNetworkInterfaceId_ {};
@@ -1170,9 +1173,9 @@ namespace Models
 
 
     protected:
-      // The ID of the elastic IP address.
+      // The ID of the EIP.
       shared_ptr<string> allocationId_ {};
-      // The public IP address.
+      // The EIP address.
       shared_ptr<string> publicIpAddress_ {};
     };
 
@@ -1473,121 +1476,73 @@ namespace Models
 
 
   protected:
-    // The elastic IP address that is associated with the primary private IP address of the elastic network interface.
+    // The Elastic IP Address (EIP) associated with the secondary private IP address of the network interface controller (NIC).
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::AssociatedPublicIp> associatedPublicIp_ {};
     // > This parameter is in invitational preview and is not publicly available.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::Attachment> attachment_ {};
     // > This parameter is in invitational preview and is not publicly available.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::BondInterfaceSpecification> bondInterfaceSpecification_ {};
-    // The connection tracking configuration.
-    // 
-    // For more information, see [Connection timeout management](https://help.aliyun.com/document_detail/2865958.html).
-    // 
-    // > This parameter is returned only if the `Attribute` parameter is set to `connectionTrackingConfiguration` in the request.
+    // The collection of network connectivity tracking configuration information.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::ConnectionTrackingConfiguration> connectionTrackingConfiguration_ {};
-    // The time when the elastic network interface was created.
+    // The time when the network interface controller (NIC) was created.
     shared_ptr<string> creationTime_ {};
-    // Indicates whether to release the elastic network interface when the associated instance is released.
-    // 
-    // - `true`: The interface is released.
-    // 
-    // - `false`: The interface is retained.
+    // Indicates whether the ENI is retained when the associated instance is released. Valid values:
     shared_ptr<bool> deleteOnRelease_ {};
-    // The description of the elastic network interface.
+    // The description of the network interface controller (NIC).
     shared_ptr<string> description_ {};
     // This parameter is not publicly available.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::EnhancedNetwork> enhancedNetwork_ {};
-    // The ID of the instance to which the elastic network interface is attached.
-    // 
-    // > This parameter is not returned if the elastic network interface is managed by another Alibaba Cloud service.
+    // The ID of the instance to which the network interface controller (NIC) is attached.
     shared_ptr<string> instanceId_ {};
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::Ipv4PrefixSets> ipv4PrefixSets_ {};
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::Ipv6PrefixSets> ipv6PrefixSets_ {};
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::Ipv6Sets> ipv6Sets_ {};
-    // The MAC address of the elastic network interface.
+    // The MAC address of the network interface controller (NIC).
     shared_ptr<string> macAddress_ {};
-    // The ID of the elastic network interface.
+    // The ID of the network interface controller (NIC).
     shared_ptr<string> networkInterfaceId_ {};
-    // The name of the elastic network interface.
+    // The name of the network interface controller (NIC).
     shared_ptr<string> networkInterfaceName_ {};
-    // The communication parameters of the elastic network interface.
+    // The traffic parameters of the network interface controller (NIC).
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::NetworkInterfaceTrafficConfig> networkInterfaceTrafficConfig_ {};
-    // The communication mode of the elastic network interface. Valid values:
-    // 
-    // - `Standard`: Uses TCP communication.
-    // 
-    // - `HighPerformance`: Uses the Elastic RDMA Interface (ERI) for RDMA communication.
-    // 
-    // > The `HighPerformance` value is supported only by RDMA-enhanced instances, such as the c7re family.
+    // The communication mode of the network interface controller (NIC). Valid values:
     shared_ptr<string> networkInterfaceTrafficMode_ {};
-    // The ID of the account to which the elastic network interface belongs.
+    // The ID of the account that owns the network interface controller (NIC).
     shared_ptr<string> ownerId_ {};
-    // The primary private IP address of the elastic network interface.
+    // The private network IP address of the network interface controller (NIC).
     shared_ptr<string> privateIpAddress_ {};
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::PrivateIpSets> privateIpSets_ {};
-    // The QoS settings.
+    // The QoS rate limiting settings.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::QoSConfig> qoSConfig_ {};
-    // The number of queues supported by the elastic network interface.
-    // 
-    // - For a primary network interface, this parameter returns the default number of queues for the instance type.
-    // 
-    // - For a secondary network interface:
-    // 
-    //   - If the interface is in the `InUse` state:
-    // 
-    //     - If the queue number was not modified, the default value for the instance type is returned.
-    // 
-    //     - If the queue number was modified, the new value is returned.
-    // 
-    //   - If the secondary network interface is in the `Available` state:
-    // 
-    //     - If the queue number was not modified, this parameter is not returned.
-    // 
-    //     - If the queue number was modified, the new value is returned.
+    // The number of queues supported by the network interface controller (NIC).
     shared_ptr<int32_t> queueNumber_ {};
     // > This parameter is in invitational preview and is not publicly available.
     shared_ptr<int32_t> queuePairNumber_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the enterprise resource group to which the elastic network interface belongs. If you use this parameter to filter resources, the number of resources cannot exceed 1,000.
-    // 
-    // > Resources in the default resource group cannot be filtered.
+    // The ID of the resource group to which the instance belongs. When you use this parameter to filter resources, the resource count cannot exceed 1000.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::SecurityGroupIds> securityGroupIds_ {};
-    // The ID of the virtual service provider (VSP) for the elastic network interface.
+    // The ID of the Virtual Network Operator (VNO) to which the network interface controller (NIC) belongs.
     shared_ptr<int64_t> serviceID_ {};
-    // Indicates whether the elastic network interface is managed by an Alibaba Cloud service or a VSP.
+    // Indicates whether the user of the network interface controller (NIC) is an Alibaba Cloud service or a VNO.
     shared_ptr<bool> serviceManaged_ {};
     // > This parameter is in invitational preview and is not publicly available.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::SlaveInterfaceSpecification> slaveInterfaceSpecification_ {};
     // This parameter is not publicly available.
     shared_ptr<bool> sourceDestCheck_ {};
-    // The status of the elastic network interface. Valid values:
-    // 
-    // - `Available`: The elastic network interface is available.
-    // 
-    // - `Attaching`: The elastic network interface is being attached.
-    // 
-    // - `InUse`: The elastic network interface is attached.
-    // 
-    // - `Detaching`: The elastic network interface is being detached.
-    // 
-    // - `Deleting`: The elastic network interface is being deleted.
+    // The status of the network interface controller (NIC). Valid values:
     shared_ptr<string> status_ {};
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::Tags> tags_ {};
     // > This parameter is in invitational preview and is not publicly available.
     shared_ptr<string> tcpOptionAddressEnabled_ {};
-    // The type of the elastic network interface. Valid values:
-    // 
-    // - `Primary`: The primary network interface.
-    // 
-    // - `Secondary`: The secondary network interface.
+    // The type of the network interface controller (NIC). Valid values:
     shared_ptr<string> type_ {};
-    // The ID of the vSwitch to which the elastic network interface is connected.
+    // The ID of the vSwitch to which the network interface controller (NIC) belongs.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the VPC to which the elastic network interface belongs.
+    // The ID of the VPC to which the network interface controller (NIC) belongs.
     shared_ptr<string> vpcId_ {};
-    // The ID of the zone.
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

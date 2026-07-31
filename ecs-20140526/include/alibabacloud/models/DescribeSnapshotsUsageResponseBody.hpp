@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of snapshots stored in the current region.
+    // The total number of snapshots in the current region.
     shared_ptr<int32_t> snapshotCount_ {};
-    // The total size of snapshots stored in the current region. Unit: bytes.
+    // The total snapshot size in the current region. Unit: bytes.
     shared_ptr<int64_t> snapshotSize_ {};
   };
 

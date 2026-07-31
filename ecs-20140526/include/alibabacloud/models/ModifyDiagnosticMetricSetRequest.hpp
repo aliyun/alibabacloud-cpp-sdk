@@ -89,15 +89,15 @@ namespace Models
   protected:
     // The description of the diagnostic metric set.
     shared_ptr<string> description_ {};
-    // The IDs of diagnostic metrics.
+    // The list of diagnostic metrics.
     shared_ptr<vector<string>> metricIds_ {};
-    // The IDs of the diagnostic metric sets.
+    // The ID of the diagnostic metric set.
     // 
     // This parameter is required.
     shared_ptr<string> metricSetId_ {};
     // The name of the diagnostic metric set.
     shared_ptr<string> metricSetName_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

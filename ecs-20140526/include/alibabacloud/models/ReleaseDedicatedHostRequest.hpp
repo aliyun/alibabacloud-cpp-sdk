@@ -100,17 +100,16 @@ namespace Models
     shared_ptr<string> dedicatedHostId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the dedicated host. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the dedicated host. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The expiration time of the subscription dedicated host.
+    // Specifies whether to release an expired subscription dedicated host.
     // 
-    // - true
-    // 
-    // - false
+    // - true: Releases the host.
+    // - false: Does not release the host.
     // 
     // Default value: false.
     shared_ptr<bool> terminateSubscription_ {};

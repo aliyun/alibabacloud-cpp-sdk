@@ -59,13 +59,13 @@ namespace Models
   protected:
     // The order ID.
     // 
-    // > This parameter is returned only when the category of a subscription disk or the performance level of a subscription ESSD is modified.
+    // > An order ID is returned only when you change or modify a subscription disk.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the disk category change task.
+    // The task ID for the disk type change.
     // 
-    // > If you only modify the performance level of an ESSD, this parameter is not returned.
+    // > This parameter is not returned if you only modified the performance level (PL) of an ESSD.
     shared_ptr<string> taskId_ {};
   };
 

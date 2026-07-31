@@ -96,9 +96,9 @@ namespace Models
 
 
     protected:
-      // The end of the time range during which O\\&M tasks related to scheduled system events are executed. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // The end of the time range during which the events are scheduled to execute. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
       shared_ptr<string> end_ {};
-      // The beginning of the time range during which O\\&M tasks related to scheduled system events are executed. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // The start of the time range during which the events are scheduled to execute. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
       shared_ptr<string> start_ {};
     };
 
@@ -140,9 +140,9 @@ namespace Models
 
 
     protected:
-      // The end of the time range during which system events are published. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // The end of the time range during which the events are published. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
       shared_ptr<string> end_ {};
-      // The beginning of the time range during which system events are published. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+      // The start of the time range during which the events are published. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
       shared_ptr<string> start_ {};
     };
 
@@ -268,47 +268,36 @@ namespace Models
   protected:
     shared_ptr<DescribeInstancesFullStatusRequest::EventPublishTime> eventPublishTime_ {};
     shared_ptr<DescribeInstancesFullStatusRequest::NotBefore> notBefore_ {};
-    // The IDs of the system events. You can specify up to 100 event IDs in a single request.
+    // The list of event IDs. You can specify up to 100 event IDs.
     shared_ptr<vector<string>> eventId_ {};
-    // The type of the system event. This parameter is valid only when InstanceEventType.N is not specified. Valid values:
+    // The type of a system event. The EventType parameter takes effect only when InstanceEventType.N is not specified. Valid values: 
     // 
-    // - SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
-    // 
+    // - SystemMaintenance.Reboot: The instance is restarted due to system maintenance. 
     // - SystemFailure.Reboot: The instance is restarted due to a system failure.
-    // 
     // - InstanceFailure.Reboot: The instance is restarted due to an instance failure.
-    // 
     // - InstanceExpiration.Stop: The subscription instance is stopped due to expiration.
-    // 
     // - InstanceExpiration.Delete: The subscription instance is released due to expiration.
-    // 
     // - AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
-    // 
     // - AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
     shared_ptr<string> eventType_ {};
-    // The health status of the instance. Valid values:
+    // The health status of the instance. Valid values: 
     // 
-    // - Impaired
+    // - Impaired: The service is impaired. 
+    // - Warning: The instance performance may be degraded due to maintenance.
+    // - Maintaining: The instance is under maintenance.
+    // - Initializing: The instance is being initialized. 
+    // - InsufficientData: The data is insufficient. 
+    // - NotApplicable: Not applicable.
     // 
-    // - Warning: The instance performance may be degraded due to maintenance or technical issues.
-    // 
-    // - Maintaining
-    // 
-    // - Initializing
-    // 
-    // - InsufficientData
-    // 
-    // - NotApplicable
-    // 
-    // All the values are case-sensitive.
+    // The values are case-sensitive.
     shared_ptr<string> healthStatus_ {};
-    // The types of system events. You can specify up to 30 event types in a single request.
+    // The list of instance system event types. You can specify up to 30 instance event types.
     shared_ptr<vector<string>> instanceEventType_ {};
-    // The IDs of the instances. You can specify up to 100 instance IDs in a single request.
+    // The list of instance IDs. You can specify up to 100 instance IDs.
     shared_ptr<vector<string>> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The value must be a positive integer.
+    // The page number of the results. Valid values: positive integers.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -316,19 +305,16 @@ namespace Models
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The lifecycle status of the instance. Valid values:
-    // 
-    // - Starting
-    // 
-    // - Running
-    // 
-    // - Stopped
+    // The lifecycle status of the instance. Valid values: 
+    // - Starting: The instance is being started.
+    // - Running: The instance is running.
+    // - Stopped: The instance is stopped.
     shared_ptr<string> status_ {};
   };
 

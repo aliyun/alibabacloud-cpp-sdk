@@ -119,9 +119,9 @@ namespace Models
 
 
       protected:
-        // The tag key of the activation code.
+        // The tag key of the managed instance activation code.
         shared_ptr<string> tagKey_ {};
-        // The tag value of the activation code.
+        // The tag value of the managed instance activation code.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -216,11 +216,11 @@ namespace Models
 
 
     protected:
-      // The ID of the activation code.
+      // The activation code ID.
       shared_ptr<string> activationId_ {};
-      // The time when the activation code was created.
+      // The creation time.
       shared_ptr<string> creationTime_ {};
-      // The number of instances that were deregistered.
+      // The number of deregistered instances.
       shared_ptr<int32_t> deregisteredCount_ {};
       // The description of the activation code.
       shared_ptr<string> description_ {};
@@ -232,11 +232,11 @@ namespace Models
       shared_ptr<string> instanceName_ {};
       // The IP addresses of hosts that are allowed to use the activation code.
       shared_ptr<string> ipAddressRange_ {};
-      // The number of instances that were registered.
+      // The number of registered instances.
       shared_ptr<int32_t> registeredCount_ {};
       // The ID of the resource group to which the activation code belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The tags of the activation code.
+      // The tags of the managed instance activation code.
       shared_ptr<vector<ActivationList::Tags>> tags_ {};
       // The validity period of the activation code. Unit: hours.
       shared_ptr<int64_t> timeToLiveInHours_ {};
@@ -291,11 +291,11 @@ namespace Models
   protected:
     // The activation codes and their usage information.
     shared_ptr<vector<DescribeActivationsResponseBody::ActivationList>> activationList_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The pagination token returned in this response.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page for paging.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

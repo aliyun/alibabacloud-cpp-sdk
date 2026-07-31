@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the forwarding entry.
     shared_ptr<string> forwardEntryId_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

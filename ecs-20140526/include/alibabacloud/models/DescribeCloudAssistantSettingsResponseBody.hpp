@@ -163,15 +163,12 @@ namespace Models
 
 
     protected:
-      // Indicates whether the Session Manager feature is enabled. Valid values:
+      // Specifies whether the Cloud Assistant session feature is enabled. Valid values:
+      // * true: Enabled.
+      // * false: Disabled.
       // 
-      // - `true`: enabled
-      // 
-      // - `false`: disabled
-      // 
-      // **Note**:
-      // 
-      // - This setting takes effect in all regions.
+      // Note:
+      // * Enabling or disabling the session feature takes effect across all regions.
       shared_ptr<bool> sessionManagerEnabled_ {};
     };
 
@@ -249,17 +246,17 @@ namespace Models
 
 
     protected:
-      // The maximum CPU usage limit for the main process of the Cloud Assistant agent.
+      // The maximum CPU usage allowed for the Cloud Assistant Agent main process.
       shared_ptr<int32_t> cpuLimit_ {};
-      // Indicates whether to retain the script file in the Cloud Assistant directory after a command invocation is complete.
+      // Indicates whether the script file is retained in the Cloud Assistant directory after command execution is complete.
       shared_ptr<bool> keepScriptFile_ {};
       // The maximum number of Cloud Assistant log files to retain.
       shared_ptr<int32_t> logFileCountLimit_ {};
-      // The maximum size for a single Cloud Assistant log file.
+      // The size limit of Cloud Assistant log files.
       shared_ptr<string> logSizeLimit_ {};
-      // The maximum memory usage limit for the main process of the Cloud Assistant agent.
+      // The maximum memory usage allowed for the Cloud Assistant Agent main process.
       shared_ptr<string> memoryLimit_ {};
-      // The number of consecutive times CPU or memory usage can exceed the configured limits before the Cloud Assistant agent process is terminated.
+      // The maximum number of consecutive times that CPU or memory resources usage can exceed the limit. When this limit is reached, Cloud Assistant Agent automatically stops running.
       shared_ptr<int32_t> overloadLimit_ {};
     };
 
@@ -490,13 +487,13 @@ namespace Models
 
     protected:
       shared_ptr<AgentUpgradeConfig::AllowedUpgradeWindows> allowedUpgradeWindows_ {};
-      // Indicates whether the Cloud Assistant agent checks for and applies updates upon startup.
+      // Indicates whether Cloud Assistant Agent checks for and performs updates immediately upon startup.
       shared_ptr<bool> bootstrapUpgrade_ {};
-      // Indicates whether to prevent the Cloud Assistant agent from automatically updating.
+      // Indicates whether Cloud Assistant Agent is prohibited from checking for and performing updates.
       shared_ptr<bool> disableUpgrade_ {};
-      // Indicates whether custom agent upgrade settings are enabled. If this parameter is not specified or is set to `false`, the system attempts to upgrade the agent every 30 minutes by default.
+      // Indicates whether the custom Agent upgrade configuration is enabled. If the value is false or empty, the default behavior is to attempt an upgrade every 30 minutes.
       shared_ptr<bool> enabled_ {};
-      // The time zone of the allowed upgrade windows.
+      // The time zone of the allowed upgrade time windows.
       shared_ptr<string> timeZone_ {};
     };
 
@@ -555,14 +552,14 @@ namespace Models
 
 
   protected:
-    // The upgrade settings for the Cloud Assistant agent.
+    // The Cloud Assistant Agent upgrade configuration.
     shared_ptr<DescribeCloudAssistantSettingsResponseBody::AgentUpgradeConfig> agentUpgradeConfig_ {};
     shared_ptr<DescribeCloudAssistantSettingsResponseBody::OssDeliveryConfigs> ossDeliveryConfigs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource usage settings for the Cloud Assistant agent.
+    // The Cloud Assistant resource usage configuration.
     shared_ptr<DescribeCloudAssistantSettingsResponseBody::ResourceUsageConfig> resourceUsageConfig_ {};
-    // Configurations for the Session Manager feature.
+    // The Cloud Assistant session feature configuration.
     shared_ptr<DescribeCloudAssistantSettingsResponseBody::SessionManagerConfig> sessionManagerConfig_ {};
     shared_ptr<DescribeCloudAssistantSettingsResponseBody::SlsDeliveryConfigs> slsDeliveryConfigs_ {};
   };

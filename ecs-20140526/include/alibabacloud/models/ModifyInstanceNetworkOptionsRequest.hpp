@@ -77,21 +77,9 @@ namespace Models
   protected:
     // The bandwidth weight.
     // 
-    // The supported values vary with instance types. You can query the bandwidth weights supported by the current instance type by using the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html).
-    // 
-    // Valid values:
-    // 
-    // - Vpc-L1: Vpc-L1.
-    // 
-    // - Vpc-L2: Vpc-L2.
-    // 
-    // - Ebs-L1: Ebs-L1.
-    // 
-    // - Ebs-L2: Ebs-L2.
-    // 
-    // - Default: the Default.
+    // The supported values vary by instance type. You can call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) to query the bandwidth weight values supported by the current instance type.
     shared_ptr<string> bandwidthWeighting_ {};
-    // The ID of the instance whose network bandwidth weight is to be modified.
+    // The instance ID of the instance for which you want to modify the network bandwidth weight.
     shared_ptr<string> instanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

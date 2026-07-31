@@ -168,7 +168,7 @@ namespace Models
 
 
   protected:
-    // > This parameter is about to be deprecated. To ensure compatibility, use other parameters.
+    // > This parameter is about to be deprecated. To ensure compatibility, use other parameters instead.
     shared_ptr<string> category_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number of the tag list.
@@ -187,7 +187,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource to which the tag is attached. For example, if the resource type (ResourceType) is instance, the resource ID is the instance ID.
+    // The ID of the resource to which the tag is attached. For example, if ResourceType is set to instance, ResourceId indicates the instance ID.
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
@@ -199,7 +199,7 @@ namespace Models
     // - image: image.
     // - securitygroup: security group.
     // - volume: storage volume.
-    // - eni: network interface controller (NIC).
+    // - eni: Elastic Network Interface (ENI).
     // - ddh: dedicated host.
     // - keypair: SSH key pair.
     // - launchtemplate: launch template.
@@ -208,7 +208,7 @@ namespace Models
     // 
     // All valid values are in lowercase.
     shared_ptr<string> resourceType_ {};
-    // The list of tags.
+    // The tags.
     shared_ptr<vector<DescribeTagsRequest::Tag>> tag_ {};
   };
 

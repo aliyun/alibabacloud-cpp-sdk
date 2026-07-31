@@ -84,13 +84,13 @@ namespace Models
 
 
   protected:
-    // The ID of the dedicated host. You can specify up to 100 subscription dedicated host IDs. Separate multiple IDs with commas (,).
+    // The IDs of dedicated hosts. You can specify up to 100 subscription dedicated host IDs. Separate multiple IDs with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> dedicatedHostIds_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the dedicated host resides.
+    // The region ID of the dedicated host.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

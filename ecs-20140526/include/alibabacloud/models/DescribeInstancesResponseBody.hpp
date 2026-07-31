@@ -118,6 +118,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
           DARABONBA_PTR_TO_JSON(SaleCycle, saleCycle_);
           DARABONBA_PTR_TO_JSON(SecurityGroupIds, securityGroupIds_);
+          DARABONBA_PTR_TO_JSON(SecurityOptions, securityOptions_);
           DARABONBA_PTR_TO_JSON(SerialNumber, serialNumber_);
           DARABONBA_PTR_TO_JSON(SpotDuration, spotDuration_);
           DARABONBA_PTR_TO_JSON(SpotInterruptionBehavior, spotInterruptionBehavior_);
@@ -188,6 +189,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
           DARABONBA_PTR_FROM_JSON(SaleCycle, saleCycle_);
           DARABONBA_PTR_FROM_JSON(SecurityGroupIds, securityGroupIds_);
+          DARABONBA_PTR_FROM_JSON(SecurityOptions, securityOptions_);
           DARABONBA_PTR_FROM_JSON(SerialNumber, serialNumber_);
           DARABONBA_PTR_FROM_JSON(SpotDuration, spotDuration_);
           DARABONBA_PTR_FROM_JSON(SpotInterruptionBehavior, spotInterruptionBehavior_);
@@ -382,6 +384,37 @@ namespace Models
 
         protected:
           shared_ptr<vector<Tags::Tag>> tag_ {};
+        };
+
+        class SecurityOptions : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const SecurityOptions& obj) { 
+            DARABONBA_PTR_TO_JSON(EnableSecureBoot, enableSecureBoot_);
+          };
+          friend void from_json(const Darabonba::Json& j, SecurityOptions& obj) { 
+            DARABONBA_PTR_FROM_JSON(EnableSecureBoot, enableSecureBoot_);
+          };
+          SecurityOptions() = default ;
+          SecurityOptions(const SecurityOptions &) = default ;
+          SecurityOptions(SecurityOptions &&) = default ;
+          SecurityOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~SecurityOptions() = default ;
+          SecurityOptions& operator=(const SecurityOptions &) = default ;
+          SecurityOptions& operator=(SecurityOptions &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->enableSecureBoot_ == nullptr; };
+          // enableSecureBoot Field Functions 
+          bool hasEnableSecureBoot() const { return this->enableSecureBoot_ != nullptr;};
+          void deleteEnableSecureBoot() { this->enableSecureBoot_ = nullptr;};
+          inline bool getEnableSecureBoot() const { DARABONBA_PTR_GET_DEFAULT(enableSecureBoot_, false) };
+          inline SecurityOptions& setEnableSecureBoot(bool enableSecureBoot) { DARABONBA_PTR_SET_VALUE(enableSecureBoot_, enableSecureBoot) };
+
+
+        protected:
+          shared_ptr<bool> enableSecureBoot_ {};
         };
 
         class SecurityGroupIds : public Darabonba::Model {
@@ -790,9 +823,11 @@ namespace Models
               public:
                 friend void to_json(Darabonba::Json& j, const Ipv6Set& obj) { 
                   DARABONBA_PTR_TO_JSON(Ipv6Address, ipv6Address_);
+                  DARABONBA_PTR_TO_JSON(Primary, primary_);
                 };
                 friend void from_json(const Darabonba::Json& j, Ipv6Set& obj) { 
                   DARABONBA_PTR_FROM_JSON(Ipv6Address, ipv6Address_);
+                  DARABONBA_PTR_FROM_JSON(Primary, primary_);
                 };
                 Ipv6Set() = default ;
                 Ipv6Set(const Ipv6Set &) = default ;
@@ -805,7 +840,8 @@ namespace Models
                 };
                 virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
                 virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-                virtual bool empty() const override { return this->ipv6Address_ == nullptr; };
+                virtual bool empty() const override { return this->ipv6Address_ == nullptr
+        && this->primary_ == nullptr; };
                 // ipv6Address Field Functions 
                 bool hasIpv6Address() const { return this->ipv6Address_ != nullptr;};
                 void deleteIpv6Address() { this->ipv6Address_ = nullptr;};
@@ -813,8 +849,16 @@ namespace Models
                 inline Ipv6Set& setIpv6Address(string ipv6Address) { DARABONBA_PTR_SET_VALUE(ipv6Address_, ipv6Address) };
 
 
+                // primary Field Functions 
+                bool hasPrimary() const { return this->primary_ != nullptr;};
+                void deletePrimary() { this->primary_ = nullptr;};
+                inline bool getPrimary() const { DARABONBA_PTR_GET_DEFAULT(primary_, false) };
+                inline Ipv6Set& setPrimary(bool primary) { DARABONBA_PTR_SET_VALUE(primary_, primary) };
+
+
               protected:
                 shared_ptr<string> ipv6Address_ {};
+                shared_ptr<bool> primary_ {};
               };
 
               virtual bool empty() const override { return this->ipv6Set_ == nullptr; };
@@ -1615,9 +1659,9 @@ namespace Models
         && this->memory_ == nullptr && this->metadataOptions_ == nullptr && this->networkInterfaces_ == nullptr && this->OSName_ == nullptr && this->OSNameEn_ == nullptr
         && this->OSType_ == nullptr && this->operationLocks_ == nullptr && this->privateDnsNameOptions_ == nullptr && this->publicIpAddress_ == nullptr && this->rdmaIpAddress_ == nullptr
         && this->recyclable_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->saleCycle_ == nullptr && this->securityGroupIds_ == nullptr
-        && this->serialNumber_ == nullptr && this->spotDuration_ == nullptr && this->spotInterruptionBehavior_ == nullptr && this->spotPriceLimit_ == nullptr && this->spotStrategy_ == nullptr
-        && this->startTime_ == nullptr && this->status_ == nullptr && this->stoppedMode_ == nullptr && this->tags_ == nullptr && this->vlanId_ == nullptr
-        && this->vpcAttributes_ == nullptr && this->zoneId_ == nullptr; };
+        && this->securityOptions_ == nullptr && this->serialNumber_ == nullptr && this->spotDuration_ == nullptr && this->spotInterruptionBehavior_ == nullptr && this->spotPriceLimit_ == nullptr
+        && this->spotStrategy_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->stoppedMode_ == nullptr && this->tags_ == nullptr
+        && this->vlanId_ == nullptr && this->vpcAttributes_ == nullptr && this->zoneId_ == nullptr; };
         // additionalInfo Field Functions 
         bool hasAdditionalInfo() const { return this->additionalInfo_ != nullptr;};
         void deleteAdditionalInfo() { this->additionalInfo_ = nullptr;};
@@ -2044,6 +2088,15 @@ namespace Models
         inline Instance& setSecurityGroupIds(Instance::SecurityGroupIds && securityGroupIds) { DARABONBA_PTR_SET_RVALUE(securityGroupIds_, securityGroupIds) };
 
 
+        // securityOptions Field Functions 
+        bool hasSecurityOptions() const { return this->securityOptions_ != nullptr;};
+        void deleteSecurityOptions() { this->securityOptions_ = nullptr;};
+        inline const Instance::SecurityOptions & getSecurityOptions() const { DARABONBA_PTR_GET_CONST(securityOptions_, Instance::SecurityOptions) };
+        inline Instance::SecurityOptions getSecurityOptions() { DARABONBA_PTR_GET(securityOptions_, Instance::SecurityOptions) };
+        inline Instance& setSecurityOptions(const Instance::SecurityOptions & securityOptions) { DARABONBA_PTR_SET_VALUE(securityOptions_, securityOptions) };
+        inline Instance& setSecurityOptions(Instance::SecurityOptions && securityOptions) { DARABONBA_PTR_SET_RVALUE(securityOptions_, securityOptions) };
+
+
         // serialNumber Field Functions 
         bool hasSerialNumber() const { return this->serialNumber_ != nullptr;};
         void deleteSerialNumber() { this->serialNumber_ = nullptr;};
@@ -2189,6 +2242,7 @@ namespace Models
         shared_ptr<string> resourceGroupId_ {};
         shared_ptr<string> saleCycle_ {};
         shared_ptr<Instance::SecurityGroupIds> securityGroupIds_ {};
+        shared_ptr<Instance::SecurityOptions> securityOptions_ {};
         shared_ptr<string> serialNumber_ {};
         shared_ptr<int32_t> spotDuration_ {};
         shared_ptr<string> spotInterruptionBehavior_ {};
@@ -2269,13 +2323,11 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page as specified in the request.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of queried instances.
-    // 
-    // > When you use `MaxResults` and `NextToken` parameters for paging query, the returned `TotalCount` parameter value is meaningless.
     shared_ptr<int32_t> totalCount_ {};
   };
 

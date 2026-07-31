@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the image copy.
+    // The ID of the copied image.
     shared_ptr<string> imageId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

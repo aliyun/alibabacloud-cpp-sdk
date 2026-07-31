@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The Base64-encoded system command-line output of the instance.
+    // The Base64-encoded system command line output of the instance.
     shared_ptr<string> consoleOutput_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The record of the time when the last line of the Linux kernel logs was printed, in UTC+8. Format: yyyy-MM-dd HH:mm:ss.
+    // The time recorded when the last kernel logs entry was printed, in UTC+8. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> lastUpdateTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

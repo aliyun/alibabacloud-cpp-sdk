@@ -106,21 +106,21 @@ namespace Models
 
 
   protected:
-    // The instance IDs. You can specify up to 100 instance IDs.
+    // The list of instance IDs. You can specify up to 100 instance IDs.
     shared_ptr<vector<string>> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number.
+    // The page number of the maintenance attribute list.
     // 
-    // Pages start from page 1.
+    // Minimum value: 1
     // 
-    // Default value: 1.
+    // Default value: 1
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Valid values: 1 to 100.
     // 
-    // Default value: 10.
+    // Default value: 10
     shared_ptr<int64_t> pageSize_ {};
-    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

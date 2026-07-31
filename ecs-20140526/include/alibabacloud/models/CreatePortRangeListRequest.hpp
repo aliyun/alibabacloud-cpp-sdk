@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The key of tag N to add to the port list.
+      // The tag key of the port list.
       // 
-      // The tag key cannot be empty or an empty string. The tag key can be up to 128 characters in length and cannot contain http\\:// or https\\://. The tag key cannot start with acs: or aliyun.
+      // This parameter cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
       shared_ptr<string> key_ {};
-      // The value of tag N to add to the port list.
+      // The tag value of the port list.
       // 
-      // The tag value cannot be empty but can be an empty string. The tag value can be up to 128 characters in length and cannot contain http\\:// or https\\://.
+      // This parameter cannot be null but can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -138,13 +138,13 @@ namespace Models
 
 
     protected:
-      // The description of port range N. The description must be 2 to 32 characters in length and cannot start with http\\:// or https\\://. Valid values of N: 0 to 200.
+      // The description of the port range. The description must be 2 to 32 characters in length and cannot start with http:// or https://. Valid values of N: 0 to 200.
       shared_ptr<string> description_ {};
-      // Port range N. Valid values of N: 0 to 200.
+      // The port range. Valid values of N: 0 to 200.
       // 
-      // - The total number of entries cannot exceed the `MaxEntries` value.
+      // - The number of entries cannot exceed the maximum number of entries (MaxEntries).
       // 
-      // - `PortRange` in multiple entries cannot be duplicated.
+      // - The PortRange values in multiple entries cannot be duplicated.
       shared_ptr<string> portRange_ {};
     };
 
@@ -241,25 +241,25 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The description of the port list. The description must be 2 to 256 characters in length and cannot start with http\\:// or https\\://.
+    // The description of the port list. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
     shared_ptr<string> description_ {};
-    // The port list entries.
+    // The array of port list entries.
     shared_ptr<vector<CreatePortRangeListRequest::Entry>> entry_ {};
-    // The maximum number of entries in the port list. The value cannot be changed after you create the port list. Valid values: 1 to 2000.
+    // The maximum number of entries that the port list supports. This value cannot be changed after the port list is created. Valid values: 1 to 2000.
     // 
-    // > When you reference a port list in a resource, such as a security group, the maximum number of entries (instead of the actual number of entries) in the port list counts against the rule quota for the resource. Set a proper value for MaxEntries.
+    // >Notice: When calculating rule quotas for resources associated with the port list (such as security groups), the maximum number of entries is used instead of the actual number of entries. Set this value appropriately.
     // 
     // This parameter is required.
     shared_ptr<int32_t> maxEntries_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The name of the port list. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http\\://, https\\://, com.aliyun, or com.alibabacloud. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+    // The name of the port list. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. The name cannot start with http://, https://, com.aliyun, or com.alibabacloud. The name can contain letters, digits, Chinese characters, colons (:), underscores (_), periods (.), and hyphens (-).
     // 
     // This parameter is required.
     shared_ptr<string> portRangeListName_ {};
-    // The region ID of the port list. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -267,7 +267,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags to add to the port list. You can add 0 to 20 tags to the port list.
+    // The array of tags bound to the port list. Array length: 0 to 20.
     shared_ptr<vector<CreatePortRangeListRequest::Tag>> tag_ {};
   };
 

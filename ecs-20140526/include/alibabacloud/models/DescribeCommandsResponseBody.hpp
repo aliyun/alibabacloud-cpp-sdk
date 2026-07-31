@@ -600,9 +600,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeCommandsResponseBody::Commands> commands_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If this parameter is not returned, all results have been retrieved.
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The page number of the command list.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};

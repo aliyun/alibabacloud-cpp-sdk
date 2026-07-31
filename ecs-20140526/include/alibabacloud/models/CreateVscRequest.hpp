@@ -92,7 +92,11 @@ namespace Models
 
 
     protected:
+      // The tag key of instances, cloud disks, and primary ENIs that are created by using the template version. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. The tag key cannot contain http:// or https://.
       shared_ptr<string> key_ {};
+      // The tag value of the command. Valid values of N: 1 to 20. The tag value can be an empty string.
+      // 
+      // The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -194,20 +198,31 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see How to ensure idempotence.
     shared_ptr<string> clientToken_ {};
+    // The description of the Virtual Storage Channel.
     shared_ptr<string> description_ {};
+    // Specifies whether to perform only a dry run. Valid values: true: sends a check request without querying resource status. The check items include whether the AccessKey pair is valid, whether the Resource Access Management (RAM) user has the required authorization, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check passes, the DryRunOperation error code is returned. false: sends a Normal request. If the request passes the check, a 2XX HTTP status code is returned and the resource status is queried. Default value: false.
     shared_ptr<bool> dryRun_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID. You can call DescribeRegions to query the most recent region list.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the enterprise resource group to which the resource belongs.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The tags.
     shared_ptr<vector<CreateVscRequest::Tag>> tag_ {};
+    // The name of the Virtual Storage Channel.
     shared_ptr<string> vscName_ {};
+    // The VSC type. Valid values: Primary and Standard. Default value: Primary.
     shared_ptr<string> vscType_ {};
   };
 

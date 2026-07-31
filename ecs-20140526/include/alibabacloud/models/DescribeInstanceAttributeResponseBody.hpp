@@ -43,6 +43,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(SecurityGroupIds, securityGroupIds_);
+      DARABONBA_PTR_TO_JSON(SecurityOptions, securityOptions_);
       DARABONBA_PTR_TO_JSON(SerialNumber, serialNumber_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(StoppedMode, stoppedMode_);
@@ -80,6 +81,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(SecurityGroupIds, securityGroupIds_);
+      DARABONBA_PTR_FROM_JSON(SecurityOptions, securityOptions_);
       DARABONBA_PTR_FROM_JSON(SerialNumber, serialNumber_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(StoppedMode, stoppedMode_);
@@ -196,6 +198,37 @@ namespace Models
       shared_ptr<string> vSwitchId_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};
+    };
+
+    class SecurityOptions : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SecurityOptions& obj) { 
+        DARABONBA_PTR_TO_JSON(EnableSecureBoot, enableSecureBoot_);
+      };
+      friend void from_json(const Darabonba::Json& j, SecurityOptions& obj) { 
+        DARABONBA_PTR_FROM_JSON(EnableSecureBoot, enableSecureBoot_);
+      };
+      SecurityOptions() = default ;
+      SecurityOptions(const SecurityOptions &) = default ;
+      SecurityOptions(SecurityOptions &&) = default ;
+      SecurityOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SecurityOptions() = default ;
+      SecurityOptions& operator=(const SecurityOptions &) = default ;
+      SecurityOptions& operator=(SecurityOptions &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->enableSecureBoot_ == nullptr; };
+      // enableSecureBoot Field Functions 
+      bool hasEnableSecureBoot() const { return this->enableSecureBoot_ != nullptr;};
+      void deleteEnableSecureBoot() { this->enableSecureBoot_ = nullptr;};
+      inline bool getEnableSecureBoot() const { DARABONBA_PTR_GET_DEFAULT(enableSecureBoot_, false) };
+      inline SecurityOptions& setEnableSecureBoot(bool enableSecureBoot) { DARABONBA_PTR_SET_VALUE(enableSecureBoot_, enableSecureBoot) };
+
+
+    protected:
+      shared_ptr<bool> enableSecureBoot_ {};
     };
 
     class SecurityGroupIds : public Darabonba::Model {
@@ -377,9 +410,9 @@ namespace Models
     protected:
       // The bandwidth weight.
       // 
-      // Different instance types support different values. Call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) to query the bandwidth weight values supported by the current instance type.
+      // Different instance types support different values. You can call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) to query the bandwidth weight values supported by the current instance type.
       shared_ptr<string> bandwidthWeighting_ {};
-      // Indicates whether the Jumbo Frame feature is enabled for the instance. Valid values:
+      // Indicates whether the Jumbo frame feature is enabled for the instance. Valid values:
       // 
       // - true: enabled.
       // 
@@ -494,9 +527,9 @@ namespace Models
       // - PayByBandwidth: pay-by-bandwidth.
       // - PayByTraffic: pay-by-traffic.
       // 
-      // > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are used as upper limits for bandwidths and are not guaranteed. When resource contention occurs, the peak bandwidths may be limited. If your workloads require guaranteed bandwidth, use the **pay-by-bandwidth** mode.
+      // > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance metrics. When resource contention occurs, the peak bandwidths may be limited. If you require guaranteed bandwidth, use the **pay-by-bandwidth** mode.
       shared_ptr<string> internetChargeType_ {};
-      // The EIP.
+      // The EIP address.
       shared_ptr<string> ipAddress_ {};
     };
 
@@ -550,8 +583,8 @@ namespace Models
         && this->imageId_ == nullptr && this->innerIpAddress_ == nullptr && this->instanceChargeType_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr
         && this->instanceNetworkType_ == nullptr && this->instanceType_ == nullptr && this->internetChargeType_ == nullptr && this->internetMaxBandwidthIn_ == nullptr && this->internetMaxBandwidthOut_ == nullptr
         && this->ioOptimized_ == nullptr && this->memory_ == nullptr && this->networkOptions_ == nullptr && this->operationLocks_ == nullptr && this->publicIpAddress_ == nullptr
-        && this->regionId_ == nullptr && this->requestId_ == nullptr && this->securityGroupIds_ == nullptr && this->serialNumber_ == nullptr && this->status_ == nullptr
-        && this->stoppedMode_ == nullptr && this->vlanId_ == nullptr && this->vpcAttributes_ == nullptr && this->zoneId_ == nullptr; };
+        && this->regionId_ == nullptr && this->requestId_ == nullptr && this->securityGroupIds_ == nullptr && this->securityOptions_ == nullptr && this->serialNumber_ == nullptr
+        && this->status_ == nullptr && this->stoppedMode_ == nullptr && this->vlanId_ == nullptr && this->vpcAttributes_ == nullptr && this->zoneId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -769,6 +802,15 @@ namespace Models
     inline DescribeInstanceAttributeResponseBody& setSecurityGroupIds(DescribeInstanceAttributeResponseBody::SecurityGroupIds && securityGroupIds) { DARABONBA_PTR_SET_RVALUE(securityGroupIds_, securityGroupIds) };
 
 
+    // securityOptions Field Functions 
+    bool hasSecurityOptions() const { return this->securityOptions_ != nullptr;};
+    void deleteSecurityOptions() { this->securityOptions_ = nullptr;};
+    inline const DescribeInstanceAttributeResponseBody::SecurityOptions & getSecurityOptions() const { DARABONBA_PTR_GET_CONST(securityOptions_, DescribeInstanceAttributeResponseBody::SecurityOptions) };
+    inline DescribeInstanceAttributeResponseBody::SecurityOptions getSecurityOptions() { DARABONBA_PTR_GET(securityOptions_, DescribeInstanceAttributeResponseBody::SecurityOptions) };
+    inline DescribeInstanceAttributeResponseBody& setSecurityOptions(const DescribeInstanceAttributeResponseBody::SecurityOptions & securityOptions) { DARABONBA_PTR_SET_VALUE(securityOptions_, securityOptions) };
+    inline DescribeInstanceAttributeResponseBody& setSecurityOptions(DescribeInstanceAttributeResponseBody::SecurityOptions && securityOptions) { DARABONBA_PTR_SET_RVALUE(securityOptions_, securityOptions) };
+
+
     // serialNumber Field Functions 
     bool hasSerialNumber() const { return this->serialNumber_ != nullptr;};
     void deleteSerialNumber() { this->serialNumber_ = nullptr;};
@@ -832,7 +874,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The Elastic IP Address (EIP) binding information.
     shared_ptr<DescribeInstanceAttributeResponseBody::EipAddress> eipAddress_ {};
-    // Indicates whether the Jumbo Frame feature is enabled for the ECS instance. Valid values:
+    // Indicates whether the Jumbo frame feature is enabled for the ECS instance. Valid values:
     // 
     // - true: enabled.
     // 
@@ -863,7 +905,7 @@ namespace Models
     shared_ptr<string> instanceName_ {};
     // The network type of the instance. Valid values: 
     //          
-    // - vpc: virtual private cloud (VPC).
+    // - vpc: Virtual Private Cloud (VPC).
     // - classic: classic network. The classic network is deprecated. For more information, see [Deprecation notice](https://help.aliyun.com/document_detail/2833134.html).
     shared_ptr<string> instanceNetworkType_ {};
     // The instance type of the instance.
@@ -873,7 +915,7 @@ namespace Models
     // - PayByBandwidth: pay-by-bandwidth.
     // - PayByTraffic: pay-by-traffic.
     // 
-    // > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are used as upper limits for bandwidths and are not guaranteed. When resource contention occurs, the peak bandwidths may be limited. If your workloads require guaranteed bandwidth, use the **pay-by-bandwidth** mode.
+    // > In **pay-by-traffic** mode, the peak inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance metrics. When resource contention occurs, the peak bandwidths may be limited. If you require guaranteed bandwidth, use the **pay-by-bandwidth** mode.
     shared_ptr<string> internetChargeType_ {};
     // The maximum inbound public bandwidth. Unit: Mbit/s.
     shared_ptr<int32_t> internetMaxBandwidthIn_ {};
@@ -897,6 +939,7 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeInstanceAttributeResponseBody::SecurityGroupIds> securityGroupIds_ {};
+    shared_ptr<DescribeInstanceAttributeResponseBody::SecurityOptions> securityOptions_ {};
     // The serial number of the instance.
     shared_ptr<string> serialNumber_ {};
     // The instance status. Valid values:
@@ -909,9 +952,9 @@ namespace Models
     shared_ptr<string> status_ {};
     // Indicates whether the instance continues to be billed after it is stopped. Valid values:
     // 
-    // - KeepCharging: The instance continues to be billed after it is stopped. Inventory resources are reserved for the instance.
-    // - StopCharging: The instance is not billed after it is stopped. After the instance is stopped, its resources such as vCPUs, memory, and public IP addresses are released. Whether the instance can be restarted depends on resource availability in the current region.
-    // - Not-applicable: The instance does not support the No Fees for Stopped Instances feature.
+    // - KeepCharging: The instance continues to be billed after it is stopped. Resources such as vCPUs, memory, and public IP addresses are retained.
+    // - StopCharging: The instance is not billed after it is stopped. Resources such as vCPUs, memory, and public IP addresses are released. Whether the instance can be restarted depends on resource availability in the current region.
+    // - Not-applicable: The instance does not support the economical mode.
     shared_ptr<string> stoppedMode_ {};
     // The VLAN ID of the instance.
     // > This parameter will be deprecated soon. To ensure future compatibility, use other parameters.

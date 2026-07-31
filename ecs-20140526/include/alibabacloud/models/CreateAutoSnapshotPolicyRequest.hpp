@@ -210,12 +210,12 @@ namespace Models
       shared_ptr<vector<CopyEncryptionConfiguration::Arn>> arn_ {};
       // Specifies whether to enable encryption for cross-region snapshot backup. Valid values:
       // 
-      // - true: enables encryption.
-      // - false: disables encryption.
+      // - true: enabled.
+      // - false: disabled.
       // 
       // Default value: false.
       shared_ptr<bool> encrypted_ {};
-      // The KMS key ID used for encrypted cross-region snapshot backup.
+      // The key ID of the KMS key used for cross-region encrypted snapshot backup.
       shared_ptr<string> KMSKeyId_ {};
     };
 
@@ -333,10 +333,10 @@ namespace Models
 
 
   protected:
-    // The retention period of cross-region snapshot replicas. Unit: days. Valid values:
+    // The retention period of cross-region snapshot copies. Unit: days. Valid values:
     // 
-    // - -1: Snapshot replicas are permanently retained.
-    // - 1 to 65535: Snapshot replicas are retained for the specified number of days.
+    // - -1: Snapshot copies are permanently retained.
+    // - 1 to 65535: Snapshot copies are retained for the specified number of days.
     // 
     // Default value: -1.
     shared_ptr<int32_t> copiedSnapshotsRetentionDays_ {};
@@ -344,11 +344,11 @@ namespace Models
     shared_ptr<CreateAutoSnapshotPolicyRequest::CopyEncryptionConfiguration> copyEncryptionConfiguration_ {};
     // Specifies whether to enable automatic cross-region replication.
     // 
-    // - true: enables automatic cross-region replication.
-    // - false: disables automatic cross-region replication.
+    // - true: enabled.
+    // - false: disabled.
     shared_ptr<bool> enableCrossRegionCopy_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
@@ -356,7 +356,7 @@ namespace Models
     shared_ptr<string> storageLocationArn_ {};
     // The tags of the automatic snapshot policy.
     shared_ptr<vector<CreateAutoSnapshotPolicyRequest::Tag>> tag_ {};
-    // The destination region to which snapshots are replicated. You can specify only one destination region.
+    // The destination region to which snapshots are copied across regions. You can specify one destination region.
     shared_ptr<string> targetCopyRegions_ {};
     // The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain digits, colons (:), underscores (_), and hyphens (-).
     // 
@@ -387,7 +387,7 @@ namespace Models
     // - The parameter value must be a JSON array. For example, ["1"\\] indicates that automatic snapshots are created at 01:00.
     // - To create multiple automatic snapshots within a day, specify multiple points in time separated by commas (,). You can specify a maximum of 24 points in time. For example, ["1","3","5"\\] indicates that automatic snapshots are created at 01:00, 03:00, and 05:00.
     // 
-    // > If a disk contains a large amount of data and the time required to create an automatic snapshot exceeds the interval between two consecutive points in time, the next point in time is skipped. For example, you set 09:00, 10:00, 11:00, and 12:00 as the points in time for automatic snapshot creation. The snapshot creation starts at 09:00 and is completed at 10:20, which takes 80 minutes. The system skips the 10:00 point in time and creates the next automatic snapshot at 11:00.
+    // > If a disk contains a large amount of data and the time required to create a single automatic snapshot exceeds the interval between two consecutive points in time, the next point in time is automatically skipped. For example, you set 09:00, 10:00, 11:00, and 12:00 as the points in time for automatic snapshot creation. The snapshot creation starts at 09:00 and is completed at 10:20, which takes 80 minutes. The system skips the 10:00 point in time and creates the next automatic snapshot at 11:00.
     // 
     // This parameter is required.
     shared_ptr<string> timePoints_ {};

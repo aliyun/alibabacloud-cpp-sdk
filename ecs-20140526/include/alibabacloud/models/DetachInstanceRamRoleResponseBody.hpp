@@ -261,13 +261,13 @@ namespace Models
 
   protected:
     shared_ptr<DetachInstanceRamRoleResponseBody::DetachInstanceRamRoleResults> detachInstanceRamRoleResults_ {};
-    // The number of ECS instances from which instance RAM roles failed to be detached.
+    // The number of instances from which the RAM role failed to be detached.
     shared_ptr<int32_t> failCount_ {};
-    // The name of the instance RAM role.
+    // The name of the detached instance RAM role.
     shared_ptr<string> ramRoleName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of ECS instances from which you attempted to detach instance RAM roles.
+    // The total number of instances from which the RAM role was detached.
     shared_ptr<int32_t> totalCount_ {};
   };
 

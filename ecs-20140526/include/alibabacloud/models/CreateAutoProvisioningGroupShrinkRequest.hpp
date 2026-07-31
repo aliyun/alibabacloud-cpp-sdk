@@ -246,11 +246,11 @@ namespace Models
 
 
       protected:
-        // The set of instance types. Duplicate values are not allowed, and the instance types must be within the range of LaunchTemplateConfig.InstanceType.
+        // The set of instance types. Duplicates are not allowed, and the instance types must be within the range of LaunchTemplateConfig.InstanceType.
         shared_ptr<vector<string>> instanceTypes_ {};
         // The minimum number of instances to deliver within the `InstanceTypes` range.
         // 
-        // > The sum of all MinTargetCapacity values (`sum(MinTargetCapacity) <= TotalTargetCapacity`) cannot exceed TotalTargetCapacity. If any instance type set cannot meet the MinTargetCapacity requirement due to insufficient inventory or other reasons, the entire request fails.
+        // > The sum of all MinTargetCapacity values (`sum(MinTargetCapacity)`) must be less than or equal to TotalTargetCapacity. If any instance type set cannot meet the MinTargetCapacity requirement due to insufficient inventory or other reasons, the entire request fails and no instances are created.
         shared_ptr<int32_t> minTargetCapacity_ {};
       };
 
@@ -430,24 +430,24 @@ namespace Models
       shared_ptr<vector<int32_t>> cores_ {};
       // The list of instance types to exclude.
       shared_ptr<vector<string>> excludedInstanceTypes_ {};
-      // The image ID. You can use this parameter to set the image for the current resource pool. If not set, the image specified in `LaunchConfiguration.ImageId` or the launch template is used by default. You can call [DescribeImages](https://help.aliyun.com/document_detail/25534.html) to query available image resources.
+      // The image ID. You can use this parameter to specify the image for the current resource pool. If this parameter is not specified, the image specified by `LaunchConfiguration.ImageId` or the image configured in the launch template is used by default. You can call [DescribeImages](https://help.aliyun.com/document_detail/25534.html) to query available image resources.
       // Note: This parameter is supported only when `AutoProvisioningGroupType = instant`.
       shared_ptr<string> imageId_ {};
-      // The level of the instance family, used to filter instance types that meet the requirements. Valid values:
+      // The level of the instance family, which is used to filter instance types that meet the requirements. Valid values:
       // 
-      // - EntryLevel: entry level, which refers to shared instance types. Lower cost but no guarantee of stable computing performance. Suitable for scenarios with low average CPU utilization. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
-      // - EnterpriseLevel: enterprise level. Stable performance with dedicated resources. Suitable for scenarios that require high stability. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
-      // - CreditEntryLevel: credit-based entry level, which refers to burstable instances. Uses CPU credits to ensure computing performance. Suitable for scenarios with low average CPU utilization and occasional bursts. For more information, see [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+      // - EntryLevel: entry level, which refers to shared instance types. These instance types are more cost-effective but cannot guarantee stable computing performance. They are suitable for scenarios where CPU utilization is typically low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
+      // - EnterpriseLevel: enterprise level. These instance types provide stable performance and dedicated resources. They are suitable for scenarios that require high stability. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+      // - CreditEntryLevel: credit-based entry level, which refers to burstable instances. These instance types use CPU credits to ensure computing performance. They are suitable for scenarios where CPU utilization is typically low with occasional bursts. For more information, see [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
       // 
       // Valid values of N: 1 to 10.
       shared_ptr<string> instanceFamilyLevel_ {};
-      // The instance type in the extended launch template. Valid values of N: 1 to 20. For valid values, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+      // The instance type in the extended launch template. Valid values of N: 1 to 20. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
       shared_ptr<string> instanceType_ {};
       // The maximum price for spot instances in the extended launch template.
       // 
       // > After you set `LaunchTemplateConfig`, `LaunchTemplateConfig.N.MaxPrice` is required.
       shared_ptr<double> maxPrice_ {};
-      // > This parameter is in invitational preview and is not available for use.
+      // > This parameter is in invitational preview and is not publicly available.
       shared_ptr<int32_t> maxQuantity_ {};
       // The list of memory sizes for instance types.
       shared_ptr<vector<float>> memories_ {};
@@ -457,7 +457,7 @@ namespace Models
       // 
       // > If you specify LaunchTemplateConfig, LaunchTemplateConfig.N.VSwitchId is required.
       shared_ptr<string> vSwitchId_ {};
-      // The weight of the instance type in the extended launch template. A higher value indicates that a single instance can meet more computing power requirements, which reduces the number of instances required. Valid values: greater than 0.
+      // The weight of the instance type in the extended launch template. A higher value indicates that a single instance can meet more computing power requirements, which means fewer instances are required. Valid values: greater than 0.
       // 
       // You can calculate the weight based on the computing power of the specified instance type and the minimum computing power of a single node in the cluster. For example, if the minimum computing power of a single node is 8 vCPUs and 60 GiB:
       // 
@@ -745,7 +745,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether the instance that uses this image supports logon as the ecs-user user. Valid values:
+        // Specifies whether instances that use this image support logon with the ecs-user user. Valid values:
         // - true: supported.
         // - false: not supported.
         shared_ptr<bool> loginAsNonRoot_ {};
@@ -795,7 +795,7 @@ namespace Models
         shared_ptr<int32_t> core_ {};
         // The number of threads per CPU core. The number of vCPUs of the ECS instance = CpuOptions.Core value × CpuOptions.ThreadsPerCore value.
         // 
-        // If CpuOptions.ThreadsPerCore is set to 1, CPU hyper-threading is disabled.
+        // CpuOptions.ThreadsPerCore=1 indicates that CPU hyper-threading is disabled.
         // 
         // Only specific instance types support custom CPU thread counts.
         // 
@@ -841,9 +841,9 @@ namespace Models
 
 
       protected:
-        // The tag key of the instance. Valid values of N: 1 to 20. The tag key cannot be an empty string. It can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain `http://` or `https://`. If you specify both a launch template and launch configuration information, the launch template takes precedence.
+        // The tag key of the instance. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. The tag key cannot contain `http://` or `https://`. If you specify both a launch template and launch configuration information, the launch template takes precedence.
         shared_ptr<string> key_ {};
-        // The tag value of the instance. Valid values of N: 1 to 20. The tag value can be an empty string. It can be up to 128 characters in length and cannot start with acs:. It cannot contain `http://` or `https://`. If you specify both a launch template and launch configuration information, the launch template takes precedence.
+        // The tag value of the instance. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with acs:. The tag value cannot contain `http://` or `https://`. If you specify both a launch template and launch configuration information, the launch template takes precedence.
         shared_ptr<string> value_ {};
       };
 
@@ -923,36 +923,37 @@ namespace Models
       protected:
         // The ID of the automatic snapshot policy to apply to the system disk.
         // 
-        // After you set this parameter, note the following items:
-        // - This parameter takes effect only when you create a one-time synchronization delivery auto provisioning group (AutoProvisioningGroupType=instant).
+        // Take note of the following items when you set this parameter:
+        // - This parameter takes effect only when you create a one-time synchronous auto provisioning group (AutoProvisioningGroupType=instant).
         shared_ptr<string> autoSnapshotPolicyId_ {};
         // Specifies whether to enable the performance burst feature. Valid values:
         // 
-        // - true: enables the feature.
-        // - false: does not enable the feature.
+        // - true: enables the performance burst feature.
+        // - false: does not enable the performance burst feature.
         // 
-        // > This parameter is supported only when `SystemDisk.Category` is set to `cloud_auto`. For more information, see [ESSD AutoPL disk](https://help.aliyun.com/document_detail/368372.html).
+        // >This parameter is supported only when `SystemDisk.Category` is set to `cloud_auto`. For more information, see [ESSD AutoPL disk](https://help.aliyun.com/document_detail/368372.html).
         shared_ptr<bool> burstingEnabled_ {};
         // The encryption algorithm for the system disk. Valid values:
         // 
-        // - aes-256
-        // - sm4-128
+        // - aes-256.
+        // 
+        // - sm4-128.
         // 
         // Default value: aes-256.
         // 
-        // If you specify both a launch template and launch configuration information, the launch template takes precedence.
+        // If you specify both a launch template and launch configurations, the launch template takes priority.
         // 
-        // > This parameter is not publicly available.
+        // >This parameter is not publicly available.
         shared_ptr<string> encryptAlgorithm_ {};
-        // Specifies whether the system disk is encrypted. Valid values:
+        // Specifies whether to encrypt system disk N. Valid values:
         // 
-        // - true: encrypted.
+        // - true: encrypts the system disk.
         // 
-        // - false: not encrypted.
+        // - false: does not encrypt the system disk.
         // 
         // Default value: false.
         // 
-        // If you specify both.
+        // If you specify both a launch template and launch configurations, the launch template takes priority.
         shared_ptr<string> encrypted_ {};
         // The KMS key ID of the system disk.
         // 
@@ -1115,7 +1116,7 @@ namespace Models
       protected:
         // The ID of the automatic snapshot policy applied to the data disk.
         // 
-        // Note:
+        // Take note of the following items:
         // - This parameter takes effect only when you create a one-time synchronous delivery auto provisioning group (AutoProvisioningGroupType=instant).
         shared_ptr<string> autoSnapshotPolicyId_ {};
         // Specifies whether to enable the performance burst feature. Valid values:
@@ -1148,7 +1149,7 @@ namespace Models
         shared_ptr<string> description_ {};
         // The mount point of the data disk. If you specify both a launch template and launch configuration information, the launch template takes precedence.
         shared_ptr<string> device_ {};
-        // The name of the data disk. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, periods (.), colons (:), underscores (_), and hyphens (-).
+        // The name of the data disk. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The name can contain digits, periods (.), colons (:), underscores (_), and hyphens (-).
         // 
         // Default value: empty.
         // 
@@ -1167,20 +1168,20 @@ namespace Models
         shared_ptr<bool> encrypted_ {};
         // The ID of the KMS key for the data disk. If both a launch template and launch configuration are specified, the launch template takes precedence.
         shared_ptr<string> kmsKeyId_ {};
-        // The performance level of the enterprise SSD used as a data disk. The value of N must be consistent with the N in `LaunchConfiguration.DataDisk.N.Category`. Valid values:
+        // The performance level of the enterprise SSD used as a data disk. The value of N must be the same as that in `LaunchConfiguration.DataDisk.N.Category`. Valid values:
         // 
-        // - PL0: a single disk can deliver up to 10,000 random read/write IOPS.
-        // - PL1 (default): a single disk can deliver up to 50,000 random read/write IOPS.
-        // - PL2: a single disk can deliver up to 100,000 random read/write IOPS.
-        // - PL3: a single disk can deliver up to 1,000,000 random read/write IOPS.
+        // - PL0: up to 10,000 random read/write IOPS per disk.
+        // - PL1 (default): up to 50,000 random read/write IOPS per disk.
+        // - PL2: up to 100,000 random read/write IOPS per disk.
+        // - PL3: up to 1,000,000 random read/write IOPS per disk.
         // 
         // For information about how to select an ESSD performance level, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
         // 
         // If you specify both a launch template and launch configuration information, the launch template takes precedence.
         shared_ptr<string> performanceLevel_ {};
-        // The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1000 × capacity - baseline performance}.
+        // The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1000 × Capacity - Baseline performance}.
         // 
-        // Baseline performance = min{1,800 + 50 × capacity, 50,000}.
+        // Baseline performance = min{1,800 + 50 × Capacity, 50,000}.
         // 
         // > This parameter is supported only when DiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
         shared_ptr<int64_t> provisionedIops_ {};
@@ -1201,7 +1202,7 @@ namespace Models
         shared_ptr<int32_t> size_ {};
         // The ID of the snapshot used to create data disk N. Valid values of N: 1 to 16.
         // 
-        // After you specify this parameter, the `LaunchConfiguration.DataDisk.N.Size` parameter is ignored. The actual size of the created disk is the size of the specified snapshot. Snapshots created on or before July 15, 2013 cannot be used. Requests that use such snapshots are rejected.
+        // After you specify this parameter, the `LaunchConfiguration.DataDisk.N.Size` parameter is ignored. The actual size of the created disk is the size of the specified snapshot. Snapshots created on or before July 15, 2013 cannot be used. Otherwise, the request is rejected.
         // 
         // If you specify both a launch template and launch configuration information, the launch template takes precedence.
         shared_ptr<string> snapshotId_ {};
@@ -1254,11 +1255,11 @@ namespace Models
 
 
       protected:
-        // > This parameter is in invitational preview and is not available for use.
+        // > This parameter is in invitational preview and is not publicly available.
         shared_ptr<int64_t> assumeRoleFor_ {};
-        // > This parameter is in invitational preview and is not available for use.
+        // > This parameter is in invitational preview and is not publicly available.
         shared_ptr<string> roleType_ {};
-        // > This parameter is in invitational preview and is not available for use.
+        // > This parameter is in invitational preview and is not publicly available.
         shared_ptr<string> rolearn_ {};
       };
 
@@ -1579,11 +1580,11 @@ namespace Models
 
 
     protected:
-      // > This parameter is in invitational preview and is not available for use.
+      // > This parameter is in invitational preview and is not publicly available.
       shared_ptr<vector<LaunchConfiguration::Arn>> arn_ {};
-      // The automatic release time of the pay-as-you-go instance. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+      // The automatic release time of the pay-as-you-go instance. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the UTC+0 time zone. The format is `yyyy-MM-ddTHH:mm:ssZ`.
       // 
-      // - If the value of seconds (`ss`) is not `00`, the time is automatically rounded down to the start of the current minute (`mm`).
+      // - If the value of seconds (`ss`) is not `00`, the start time of the current minute (`mm`) is used.
       // 
       // - The earliest release time is 30 minutes after the current time.
       // 
@@ -1602,28 +1603,28 @@ namespace Models
       shared_ptr<vector<LaunchConfiguration::DataDisk>> dataDisk_ {};
       // The ID of the deployment set.
       shared_ptr<string> deploymentSetId_ {};
-      // The hostname of the instance. The following limits apply:
+      // The hostname of the instance. Take note of the following items:
       // 
       // - Periods (.) and hyphens (-) cannot be used as the first or last characters and cannot be used consecutively.
-      // - Windows instances: The hostname must be 2 to 15 characters in length and cannot contain periods (.) or consist entirely of digits. It can contain letters, digits, and hyphens (-).
-      // - Instances of other types (such as Linux): The hostname must be 2 to 64 characters in length and can contain multiple periods (.). Each segment between periods can contain letters, digits, and hyphens (-).
+      // - Windows instances: The hostname must be 2 to 15 characters in length and cannot contain periods (.) or consist entirely of digits. The hostname can contain letters, digits, and hyphens (-).
+      // - Instances that run other operating systems such as Linux: The hostname must be 2 to 64 characters in length and can contain multiple periods (.). Each segment separated by a period can contain letters, digits, and hyphens (-).
       // - You cannot specify both `LaunchConfiguration.HostName` and `LaunchConfiguration.HostNames.N`. Otherwise, an error is returned.
       // - If you specify both a launch template and launch configuration information, the launch template takes precedence.
       shared_ptr<string> hostName_ {};
-      // The list of hostnames for one or more instances. The following limits apply:
+      // The list of hostnames for one or more instances. Take note of the following items:
       // 
       // - This parameter takes effect only when you create a one-time synchronous delivery auto provisioning group (`AutoProvisioningGroupType=instant`).
-      // - N indicates the number of instances. Valid values of N: 1 to 1000. The value must be consistent with the TotalTargetCapacity parameter.
+      // - N indicates the number of instances. Valid values of N: 1 to 1000. The value must be the same as the value of TotalTargetCapacity.
       // - Periods (.) and hyphens (-) cannot be used as the first or last characters and cannot be used consecutively.
       // - If you specify both a launch template and launch configuration information, the launch template takes precedence.
       shared_ptr<vector<string>> hostNames_ {};
-      // The name of the image family. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `aliyun` or `acs:`. The name cannot contain `http://` or `https://`. The name can contain digits, colons (:), underscores (_), or hyphens (-).
+      // The name of the image family. The name must be 2 to 128 characters in length. The name must start with a letter, and cannot start with `aliyun` or `acs:`. The name cannot contain `http://` or `https://`. The name can contain digits, colons (:), underscores (_), or hyphens (-).
       shared_ptr<string> imageFamily_ {};
-      // The ID of the image used to launch instances. You can call [DescribeImages](https://help.aliyun.com/document_detail/25534.html) to query available image resources. If you specify both a launch template and launch configuration information, the launch template takes precedence.
+      // The ID of the image used to create instances. You can call [DescribeImages](https://help.aliyun.com/document_detail/25534.html) to query available image resources. If you specify both a launch template and launch configuration information, the launch template takes precedence.
       shared_ptr<string> imageId_ {};
       // The description of the instance. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`. If you specify both a launch template and launch configuration information, the launch template takes precedence.
       shared_ptr<string> instanceDescription_ {};
-      // The name of the instance. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+      // The name of the instance. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The name can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
       // 
       // Default value: the `InstanceId` of the instance.
       // 
@@ -1636,7 +1637,7 @@ namespace Models
       // - PayByBandwidth: pay-by-bandwidth.
       // - PayByTraffic: pay-by-traffic.
       // 
-      // > In pay-by-traffic mode, the peak inbound and outbound bandwidths are used as upper limits of bandwidths instead of guaranteed performance metrics. When resources are contended, the peak bandwidths may be limited. If you require guaranteed bandwidth, use pay-by-bandwidth.
+      // > In pay-by-traffic mode, the peak inbound and outbound bandwidths are used as upper limits of bandwidths instead of guaranteed performance metrics. When resources are contended for, the peak bandwidths may be limited. If you want guaranteed bandwidth for your business, use pay-by-bandwidth.
       // 
       // If you specify both a launch template and launch configuration information, the launch template takes precedence.
       shared_ptr<string> internetChargeType_ {};
@@ -1653,10 +1654,10 @@ namespace Models
       // 
       // If you specify both a launch template and launch configuration information, the launch template takes precedence.
       shared_ptr<int32_t> internetMaxBandwidthOut_ {};
-      // Specifies whether the instance is an I/O optimized instance. Valid values:
+      // Specifies whether the instance is I/O optimized. Valid values:
       // 
-      // - none: non-I/O optimization.
-      // - optimized: I/O optimization.
+      // - none: non-I/O optimized.
+      // - optimized: I/O optimized.
       // 
       // For retired instance types, the default value is none. For other instance types, the default value is optimized.
       // 
@@ -1664,7 +1665,7 @@ namespace Models
       shared_ptr<string> ioOptimized_ {};
       // The name of the key pair.
       // 
-      // -   For Windows instances, this parameter is ignored and is empty by default.
+      // -   For Windows instances, this parameter is ignored. The default value is empty.
       // -   For Linux instances, password-based logon is disabled during initialization.
       // 
       // If you specify both a launch template and launch configuration information, the launch template takes precedence.
@@ -1700,6 +1701,7 @@ namespace Models
       // The list of security groups to which the instance belongs.
       shared_ptr<vector<string>> securityGroupIds_ {};
       // The system disk information of the instance. If you specify both a launch template and launch configuration information, the launch template takes precedence.
+      // [_single.params.LaunchConfiguration~SystemD
       shared_ptr<LaunchConfiguration::SystemDisk> systemDisk_ {};
       // The category of the system disk. Valid values:
       // 
@@ -1708,7 +1710,7 @@ namespace Models
       // -   cloud_essd: enterprise SSD (ESSD).
       // -   cloud: basic disk.
       // 
-      // For retired instance types that are non-I/O optimization instances, the default value is cloud. For other instance types, the default value is cloud_efficiency.
+      // For retired instance types that are non-I/O optimized, the default value is cloud. For other instance types, the default value is cloud_efficiency.
       // 
       // If you specify both a launch template and launch configuration information, the launch template takes precedence.
       shared_ptr<string> systemDiskCategory_ {};
@@ -1716,7 +1718,7 @@ namespace Models
       // 
       // If you specify both a launch template and launch configuration information, the launch template takes precedence.
       shared_ptr<string> systemDiskDescription_ {};
-      // The name of the system disk. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, periods (.), colons (:), underscores (_), and hyphens (-).
+      // The name of the system disk. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The name can contain digits, periods (.), colons (:), underscores (_), and hyphens (-).
       // 
       // Default value: empty.
       // 
@@ -1724,10 +1726,10 @@ namespace Models
       shared_ptr<string> systemDiskName_ {};
       // The performance level (PL) of the enterprise SSD used as the system disk. Valid values:
       // 
-      // - PL0 (default): a single disk can deliver up to 10,000 random read/write IOPS.
-      // - PL1: a single disk can deliver up to 50,000 random read/write IOPS.
-      // - PL2: a single disk can deliver up to 100,000 random read/write IOPS.
-      // - PL3: a single disk can deliver up to 1,000,000 random read/write IOPS.
+      // - PL0 (default): up to 10,000 random read/write IOPS per disk.
+      // - PL1: up to 50,000 random read/write IOPS per disk.
+      // - PL2: up to 100,000 random read/write IOPS per disk.
+      // - PL3: up to 1,000,000 random read/write IOPS per disk.
       // 
       // For information about how to select an ESSD performance level, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
       // 
@@ -1764,26 +1766,26 @@ namespace Models
       shared_ptr<LaunchConfiguration::CpuOptions> cpuOptions_ {};
       // The image-related property information.
       // 
-      // After you set this parameter, note the following items:
-      // - This parameter takes effect only when you create a one-time synchronization delivery auto provisioning group (AutoProvisioningGroupType=instant).
+      // Take note of the following items when you set this parameter:
+      // - This parameter takes effect only when you create a one-time synchronous auto provisioning group (AutoProvisioningGroupType=instant).
       shared_ptr<LaunchConfiguration::ImageOptions> imageOptions_ {};
       // The subscription duration of the resource. Unit: specified by `PeriodUnit`. This parameter is required when you create subscription instances. Valid values:
       // 
       // <props="china">
-      // - If PeriodUnit is set to Week, valid values of Period: 1, 2, 3, and 4.
-      // - If PeriodUnit is set to Month, valid values of Period: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+      // - If PeriodUnit is set to Week, valid values of Period are 1, 2, 3, and 4.
+      // - If PeriodUnit is set to Month, valid values of Period are 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
       // 
       // 
       // 
-      // <props="intl">If PeriodUnit is set to Month, valid values of Period: 1, 2, 3, 6, and 12.
+      // <props="intl">If PeriodUnit is set to Month, valid values of Period are 1, 2, 3, 6, and 12.
       // 
-      // <props="partner">If PeriodUnit is set to Month, valid values of Period: 1, 2, 3, 6, and 12.
+      // <props="partner">If PeriodUnit is set to Month, valid values of Period are 1, 2, 3, 6, and 12.
       shared_ptr<int32_t> period_ {};
       // The unit of the subscription billable methods duration. Valid values: 
       // 
       // <props="china">
-      // - Week
-      // - Month (default)
+      // - Week.
+      // - Month (default).
       // 
       // 
       // 
@@ -1797,10 +1799,10 @@ namespace Models
       // 
       // Alibaba Cloud sends an ECS system event notification 5 minutes before the instance is released. Spot instances are billed by second. Select an appropriate protection period based on the expected task execution duration.
       // 
-      // After you set this parameter, note the following items:
-      // - This parameter takes effect only when you create a one-time synchronization delivery auto provisioning group (AutoProvisioningGroupType=instant).
+      // Take note of the following items when you set this parameter:
+      // - This parameter takes effect only when you create a one-time synchronous auto provisioning group (AutoProvisioningGroupType=instant).
       shared_ptr<int32_t> spotDuration_ {};
-      // The spot instance break mode. Valid values:
+      // The break mode of the spot instance. Valid values:
       // 
       // - Terminate: directly releases the instance.
       // 
@@ -1810,8 +1812,8 @@ namespace Models
       // 
       // Default value: Terminate.
       // 
-      // After you set this parameter, note the following items:
-      // - This parameter takes effect only when you create a one-time synchronization delivery auto provisioning group (AutoProvisioningGroupType=instant).
+      // Take note of the following items when you set this parameter:
+      // - This parameter takes effect only when you create a one-time synchronous auto provisioning group (AutoProvisioningGroupType=instant).
       shared_ptr<string> spotInterruptionBehavior_ {};
     };
 
@@ -2099,15 +2101,15 @@ namespace Models
 
   protected:
     shared_ptr<CreateAutoProvisioningGroupShrinkRequest::LaunchConfiguration> launchConfiguration_ {};
-    // The name of the auto provisioning group. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, colons (:), underscores (_), and hyphens (-).
+    // The name of the auto provisioning group. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), and hyphens (-).
     shared_ptr<string> autoProvisioningGroupName_ {};
     // The delivery type of the auto provisioning group. Valid values:
     // 
-    // - request: one-time asynchronous delivery. The group delivers an instance cluster asynchronously only at startup. If scheduling fails, no retry is performed.
+    // - request: one-time asynchronous delivery. The group delivers the instance cluster asynchronously only at startup. If scheduling fails, no retry is performed.
     // 
     // - instant: one-time synchronous delivery. The group synchronously creates instances only at startup and returns the list of successfully created instances and the causes of creation failures in the response.
     // 
-    // - maintain: continuous delivery. The group attempts to deliver an instance cluster at startup and monitors real-time capacity. If the target capacity is not reached, the group continues to create ECS instances.
+    // - maintain: continuous delivery. The group attempts to deliver the instance cluster at startup and monitors real-time capacity. If the target capacity is not reached, the group continues to create ECS instances.
     // 
     // Default value: maintain.
     shared_ptr<string> autoProvisioningGroupType_ {};
@@ -2133,7 +2135,7 @@ namespace Models
     // Default value: no-termination.
     shared_ptr<string> excessCapacityTerminationPolicy_ {};
     shared_ptr<string> executionMode_ {};
-    // > This parameter is in invitational preview and is not publicly available.
+    // >This parameter is in invitational preview and is not publicly available.
     shared_ptr<bool> hibernationOptionsConfigured_ {};
     // The list of extended launch templates.
     shared_ptr<vector<CreateAutoProvisioningGroupShrinkRequest::LaunchTemplateConfig>> launchTemplateConfig_ {};
@@ -2147,7 +2149,12 @@ namespace Models
     // 
     // > If both `MaxSpotPrice` and `LaunchTemplateConfig.N.MaxPrice` are specified, the lower value is used.
     shared_ptr<float> maxSpotPrice_ {};
-    // The minimum target capacity of the auto provisioning group. Valid values
+    // The target minimum capacity of the auto provisioning group. Valid values: positive integers.
+    // 
+    // Take note of the following items:
+    // - This parameter takes effect only when you create a one-time synchronous auto provisioning group (`AutoProvisioningGroupType=instant`).
+    // - If the instance inventory in the current region is less than this parameter value, the invoke operation fails and no instances are created.
+    // - If the instance inventory in the current region is greater than this parameter value, instances are created as expected based on other specified parameter values.
     shared_ptr<string> minTargetCapacity_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -2163,7 +2170,7 @@ namespace Models
     shared_ptr<string> payAsYouGoTargetCapacity_ {};
     // The detailed capacity configuration for subscription instances.
     shared_ptr<CreateAutoProvisioningGroupShrinkRequest::PrePaidOptions> prePaidOptions_ {};
-    // The ID of the region in which the auto provisioning group resides. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The ID of the region in which to create the auto provisioning group. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -2171,15 +2178,15 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The resource pool policy used to create instances. After you set this parameter, note the following items:
+    // The resource pool policy used to create instances. Take note of the following items when you set this parameter:
     // - This parameter takes effect only when you create pay-as-you-go instances.
-    // - This parameter takes effect only when you create a one-time synchronization delivery auto provisioning group (`AutoProvisioningGroupType=instant`).
+    // - This parameter takes effect only when you create a one-time synchronous auto provisioning group (`AutoProvisioningGroupType=instant`).
     shared_ptr<string> resourcePoolOptionsShrink_ {};
     // The policy for creating spot instances. Valid values:
     // 
     // - lowest-price: cost optimization policy. Selects the instance type with the lowest price.
     // 
-    // - diversified: balanced zone distribution policy. Creates instances in the zones specified in the extended launch template and evenly distributes them across zones.
+    // - diversified: balanced zone distribution policy. Creates instances in the zones specified in the extended launch template and distributes them evenly across zones.
     // 
     // - capacity-optimized: capacity optimization distribution policy. Selects the optimal instance type and zone based on inventory availability.
     // 
@@ -2193,7 +2200,7 @@ namespace Models
     // 
     // Default value: terminate.
     shared_ptr<string> spotInstanceInterruptionBehavior_ {};
-    // Takes effect when `SpotAllocationStrategy` is set to `lowest-price`. Specifies the number of instance types with the lowest prices from which the auto provisioning group creates instances.
+    // Takes effect only when `SpotAllocationStrategy` is set to `lowest-price`. Specifies the number of instance types from which the auto provisioning group selects the lowest-priced ones to create instances.
     // 
     // Valid values: less than the value of N in `LaunchTemplateConfig.N`.
     shared_ptr<int32_t> spotInstancePoolsToUseCount_ {};
@@ -2223,15 +2230,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> totalTargetCapacity_ {};
-    // The time when the auto provisioning group is started. Used together with `ValidUntil` to determine the valid period.
+    // The time when the auto provisioning group starts. This parameter and `ValidUntil` together determine the validity period.
     // 
-    // Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+    // Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
     // Default value: the UNIX timestamp at which the request takes effect immediately.
     shared_ptr<string> validFrom_ {};
-    // The time when the auto provisioning group expires. Used together with `ValidFrom` to determine the valid period.
+    // The time when the auto provisioning group expires. This parameter and `ValidFrom` together determine the validity period.
     // 
-    // Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+    // Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
     // Default value: 2099-12-31T23:59:59Z.
     shared_ptr<string> validUntil_ {};

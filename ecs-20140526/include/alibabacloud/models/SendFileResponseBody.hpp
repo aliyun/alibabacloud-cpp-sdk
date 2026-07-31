@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the command task.
+    // The execution ID.
     shared_ptr<string> invokeId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

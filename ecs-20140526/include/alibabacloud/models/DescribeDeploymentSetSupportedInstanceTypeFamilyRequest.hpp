@@ -86,7 +86,7 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the deployment set. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -94,11 +94,11 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The deployment strategy. Valid values:
     // 
-    // - Availability: high availability strategy
+    // - Availability: high availability strategy.
     // 
-    // - AvailabilityGroup: high availability group strategy
+    // - AvailabilityGroup: high availability strategy for deployment set groups.
     // 
-    // - LowLatency: low latency strategy
+    // - LowLatency: low network latency strategy.
     // 
     // Default value: Availability.
     shared_ptr<string> strategy_ {};

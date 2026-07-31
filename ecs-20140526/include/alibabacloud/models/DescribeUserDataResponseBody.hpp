@@ -68,13 +68,13 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the instance.
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The user data of the instance.
     // 
-    // > If no user data is configured for the instance, an empty string is returned.
+    // > If no user data exists for the instance, an empty string is returned.
     shared_ptr<string> userData_ {};
   };
 

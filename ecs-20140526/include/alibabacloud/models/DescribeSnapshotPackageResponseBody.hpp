@@ -173,14 +173,14 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the OSS storage plan list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page for a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeSnapshotPackageResponseBody::SnapshotPackages> snapshotPackages_ {};
-    // The total number of OSS storage plans.
+    // The total number of OSS storage plans returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

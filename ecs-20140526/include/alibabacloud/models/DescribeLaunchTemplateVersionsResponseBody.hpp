@@ -1415,7 +1415,7 @@ namespace Models
     shared_ptr<DescribeLaunchTemplateVersionsResponseBody::LaunchTemplateVersionSets> launchTemplateVersionSets_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Settings this parameter for paging.
+    // The number of entries per page when paging is used.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

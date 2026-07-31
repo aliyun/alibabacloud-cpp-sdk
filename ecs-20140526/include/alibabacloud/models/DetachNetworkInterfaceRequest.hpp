@@ -103,25 +103,24 @@ namespace Models
 
 
   protected:
-    // The ID of the trunk ENI.
-    // 
-    // > This parameter is unavailable for use.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the instance
+    // The network interface controller (NIC) ID.
     // 
     // This parameter is required.
     shared_ptr<string> networkInterfaceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the ENI.
+    // The region ID of the resource. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the request.
+    // The ID of the trunk ENI.
+    // >This parameter is not yet available.
     shared_ptr<string> trunkNetworkInstanceId_ {};
   };
 

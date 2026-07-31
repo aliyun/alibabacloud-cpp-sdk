@@ -150,7 +150,7 @@ namespace Models
 
 
     protected:
-      // The end hour of the time-sharing assurance. The value must be a whole hour.
+      // The end time of the time-sharing assurance. The value must be a whole hour.
       shared_ptr<int32_t> endHour_ {};
       // The type of the recurrence rule. Valid values:
       // - Daily: daily recurrence.
@@ -167,7 +167,7 @@ namespace Models
       // 
       // > You must specify both `RecurrenceType` and `RecurrenceValue`.
       shared_ptr<string> recurrenceValue_ {};
-      // The effective period start hour of the time-sharing assurance. The value must be a whole hour.
+      // The effective period start time of the time-sharing assurance. The value must be a whole hour.
       // 
       // > You must specify both StartHour and EndHour, and the difference between them must be at least 4 hours.
       shared_ptr<int32_t> startHour_ {};
@@ -234,10 +234,10 @@ namespace Models
       // 
       // Default value description:
       // 
-      // - If InstanceType is a retired instance type and `IoOptimized` is set to `none`, the default value is `cloud`.
+      // - If InstanceType is set to a retired instance type and `IoOptimized` is set to `none`, the default value is `cloud`.
       // - In other cases, the default value is `cloud_efficiency`.<props="china">After January 30, 2026, for instance types that support only cloud_essd, the default value is changed from cloud_efficiency to cloud_essd PL0. For more information, see [Change notice](https://www.aliyun.com/notice/117844).
       shared_ptr<string> category_ {};
-      // The performance level of the system disk when the disk type is ESSD. This parameter is valid only when `SystemDiskCategory=cloud_essd`. Valid values:
+      // The performance level of the system disk when the disk type is ESSD. This parameter takes effect only when `SystemDiskCategory=cloud_essd`. Valid values:
       // 
       // PL0.
       // PL1 (default).
@@ -307,7 +307,7 @@ namespace Models
       // - LowLatency: low network latency.
       // - ProximityLooseDispersion: proximity loose dispersion.
       // 
-      // > Only when the strategy is set to ProximityLooseDispersion does the API response include the price details for "Resource": "deploymentSet". Other deployment set strategies are free of charge, so the API response does not include price information for "Resource": "deploymentSet".
+      // > Only when the strategy is set to ProximityLooseDispersion, the API response includes the price details for "Resource": "deploymentSet". Other deployment set strategies are free of charge, so the API response does not include the price information for "Resource": "deploymentSet".
       shared_ptr<string> deploymentSetStrategy_ {};
     };
 
@@ -381,7 +381,7 @@ namespace Models
       // 
       // Valid values of N: 1 to 16.
       shared_ptr<string> category_ {};
-      // The performance level of data disk N when the disk type is ESSD. This parameter is valid only when `DataDisk.N.Category=cloud_essd`. Valid values:
+      // The performance level of data disk N when the disk type is ESSD. This parameter takes effect only when `DataDisk.N.Category=cloud_essd`. Valid values:
       // 
       // - PL0.
       // - PL1 (default).
@@ -669,11 +669,11 @@ namespace Models
     shared_ptr<vector<DescribePriceRequest::DataDisk>> dataDisk_ {};
     shared_ptr<DescribePriceRequest::SchedulerOptions> schedulerOptions_ {};
     shared_ptr<DescribePriceRequest::SystemDisk> systemDisk_ {};
-    // The number of Elastic Compute Service (ECS) instances that you want to purchase in batch. You can use this parameter to query the price of batch purchasing instances of a specific configuration. Valid values: 1 to 1000.
+    // The number of Elastic Compute Service (ECS) instances that you want to purchase in a batch with the specified configuration. Valid values: 1 to 1000.
     // 
     // Default value: 1.
     shared_ptr<int32_t> amount_ {};
-    // The total number of times that the elasticity assurance can be applied. Set the value to Unlimited. Only the unlimited mode within the service effective period is supported.
+    // The total number of times that the elasticity assurance can be applied. Valid value: Unlimited. Currently, only the unlimited mode within the service effective period is supported.
     // 
     // Default value: Unlimited.
     shared_ptr<string> assuranceTimes_ {};
@@ -683,13 +683,13 @@ namespace Models
     shared_ptr<string> dedicatedHostType_ {};
     // This parameter takes effect only when ResourceType is set to instance.
     // 
-    // The image ID, which specifies the runtime environment to load when the instance starts. You can call [DescribeImages](https://help.aliyun.com/document_detail/25534.html) to query available image resources. If you do not specify this parameter, the price of a Linux image is queried by default.
+    // The image ID, which specifies the runtime environment to be loaded when the instance starts. You can call [DescribeImages](https://help.aliyun.com/document_detail/25534.html) to query available image resources. If you do not specify this parameter, the price of a Linux image is queried by default.
     shared_ptr<string> imageId_ {};
     // The total number of instances to reserve within an instance type.
     // 
     // Valid values: 1 to 1000.
     shared_ptr<int32_t> instanceAmount_ {};
-    // The total number of vCPUs supported by the elasticity assurance. When you call this operation, the system calculates the number of instances required by the elasticity assurance based on the specified InstanceType (rounded up).
+    // The total number of vCPUs supported by instances within the elasticity assurance. When you call this operation, the system calculates the number of instances required for the elasticity assurance based on the specified InstanceType (rounded up).
     // 
     // > When you call this operation to query the price of an elasticity assurance, you can specify only one of InstanceCoreCpuCount and InstanceAmount.
     shared_ptr<int32_t> instanceCpuCoreCount_ {};
@@ -702,7 +702,7 @@ namespace Models
     shared_ptr<string> instanceNetworkType_ {};
     // The instance type. You must specify this parameter when `ResourceType` is set to `instance`. For more details, see [Instance family](https://help.aliyun.com/document_detail/25378.html). You can also invoke [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to query the most recent instance type list.
     shared_ptr<string> instanceType_ {};
-    // The instance type. Only a single instance type can be specified for the unlimited elasticity assurance service.
+    // The instance type. Currently, only a single instance type can be specified for the unlimited assurance service.
     shared_ptr<vector<string>> instanceTypeList_ {};
     // The billing method for network bandwidth. Valid values:
     // 
@@ -720,9 +720,9 @@ namespace Models
     // - none: non-I/O optimization.
     // - optimized: I/O optimized.
     // 
-    // If InstanceType is a [Series I](https://help.aliyun.com/document_detail/55263.html) instance type, the default value is none.
+    // If InstanceType is set to a [Series I](https://help.aliyun.com/document_detail/55263.html) instance type, the default value is none.
     // 
-    // If InstanceType is not a [Series I](https://help.aliyun.com/document_detail/55263.html) instance type, the default value is optimized.
+    // If InstanceType is set to a non-[Series I](https://help.aliyun.com/document_detail/55263.html) instance type, the default value is optimized.
     shared_ptr<string> ioOptimized_ {};
     // The Internet Service Provider (ISP). Valid values: 
     // - cmcc: China Mobile.
@@ -730,7 +730,7 @@ namespace Models
     // - unicom: China Unicom.
     // - multiCarrier: multi-ISP.
     shared_ptr<string> isp_ {};
-    // The payment option of the reserved instance. Valid values:
+    // The payment type of the reserved instance. Valid values:
     // 
     // - No Upfront: no upfront.
     // - Partial Upfront: partial upfront.
@@ -794,14 +794,14 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the resource. Valid values:
+    // The type of the target resource. Valid values:
     // - instance: queries the latest price list of ECS instances. When this parameter is set to `instance`, you must also specify `InstanceType`.
     // - disk: queries the latest price list of disks. When this parameter is set to `disk`, you must also specify `DataDisk.1.Category` and `DataDisk.1.Size`.
     // - diskperformance: queries the latest price list of provisioned performance for ESSD AutoPL disks. You must also specify `DataDisk.1.Category` and `DataDisk.1.ProvisionedIops`.
     // - bandwidth: queries the latest price list of bandwidth.
     // - ddh: queries the latest price list of dedicated hosts.
-    // - ElasticityAssurance: queries the price of the elasticity assurance service. When this parameter is set to `ElasticityAssurance`, you must also specify `InstanceType`.
-    // - CapacityReservation: queries the price of the capacity reservation service. When this parameter is set to `CapacityReservation`, you must also specify `InstanceType`.
+    // - ElasticityAssurance: queries the price of elasticity assurance services. When this parameter is set to `ElasticityAssurance`, you must also specify `InstanceType`.
+    // - CapacityReservation: queries the price of capacity reservation services. When this parameter is set to `CapacityReservation`, you must also specify `InstanceType`.
     // 
     // Default value: instance.
     shared_ptr<string> resourceType_ {};
@@ -813,8 +813,8 @@ namespace Models
     // Default value: Region.
     shared_ptr<string> scope_ {};
     // The protection period of the spot instance, in hours. Default value: 1. Valid values:
-    // - 1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released for 1 hour. After 1 hour, the system automatically compares the bid price with the market price and checks resource availability to determine whether to retain automatic release the instance.
-    // - 0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system automatically compares the bid price with the market price and checks resource availability to determine whether to retain automatic release the instance.
+    // - 1: After the spot instance is created, Alibaba Cloud ensures that the instance is not automatically released for 1 hour. After 1 hour, the system automatically compares the bid price with the market price and checks resource availability to determine whether to retain automatic release the instance.
+    // - 0: After the spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system automatically compares the bid price with the market price and checks resource availability to determine whether to retain automatic release the instance.
     // 
     // Alibaba Cloud sends an ECS system event notification 5 minutes before the instance is released. Spot instances are billed by second. Select an appropriate protection period based on the expected task execution duration.
     // 

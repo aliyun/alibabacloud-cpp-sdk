@@ -77,6 +77,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(InternetMaxBandwidthOut, internetMaxBandwidthOut_);
           DARABONBA_PTR_TO_JSON(Name, name_);
           DARABONBA_PTR_TO_JSON(NvmeSupport, nvmeSupport_);
+          DARABONBA_PTR_TO_JSON(RepairItems, repairItems_);
           DARABONBA_PTR_TO_JSON(RepairMode, repairMode_);
           DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
           DARABONBA_PTR_TO_JSON(SystemDiskSize, systemDiskSize_);
@@ -103,6 +104,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(InternetMaxBandwidthOut, internetMaxBandwidthOut_);
           DARABONBA_PTR_FROM_JSON(Name, name_);
           DARABONBA_PTR_FROM_JSON(NvmeSupport, nvmeSupport_);
+          DARABONBA_PTR_FROM_JSON(RepairItems, repairItems_);
           DARABONBA_PTR_FROM_JSON(RepairMode, repairMode_);
           DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
           DARABONBA_PTR_FROM_JSON(SystemDiskSize, systemDiskSize_);
@@ -228,6 +230,39 @@ namespace Models
 
         protected:
           shared_ptr<vector<Tags::Tag>> tag_ {};
+        };
+
+        class RepairItems : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const RepairItems& obj) { 
+            DARABONBA_PTR_TO_JSON(RepairItem, repairItem_);
+          };
+          friend void from_json(const Darabonba::Json& j, RepairItems& obj) { 
+            DARABONBA_PTR_FROM_JSON(RepairItem, repairItem_);
+          };
+          RepairItems() = default ;
+          RepairItems(const RepairItems &) = default ;
+          RepairItems(RepairItems &&) = default ;
+          RepairItems(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~RepairItems() = default ;
+          RepairItems& operator=(const RepairItems &) = default ;
+          RepairItems& operator=(RepairItems &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->repairItem_ == nullptr; };
+          // repairItem Field Functions 
+          bool hasRepairItem() const { return this->repairItem_ != nullptr;};
+          void deleteRepairItem() { this->repairItem_ = nullptr;};
+          inline const vector<string> & getRepairItem() const { DARABONBA_PTR_GET_CONST(repairItem_, vector<string>) };
+          inline vector<string> getRepairItem() { DARABONBA_PTR_GET(repairItem_, vector<string>) };
+          inline RepairItems& setRepairItem(const vector<string> & repairItem) { DARABONBA_PTR_SET_VALUE(repairItem_, repairItem) };
+          inline RepairItems& setRepairItem(vector<string> && repairItem) { DARABONBA_PTR_SET_RVALUE(repairItem_, repairItem) };
+
+
+        protected:
+          shared_ptr<vector<string>> repairItem_ {};
         };
 
         class ImportImageOptions : public Darabonba::Model {
@@ -863,8 +898,8 @@ namespace Models
         && this->advancedOptions_ == nullptr && this->baseImage_ == nullptr && this->baseImageType_ == nullptr && this->buildContent_ == nullptr && this->creationTime_ == nullptr
         && this->deleteInstanceOnFailure_ == nullptr && this->description_ == nullptr && this->imageFamily_ == nullptr && this->imageName_ == nullptr && this->imageOptions_ == nullptr
         && this->imagePipelineId_ == nullptr && this->importImageOptions_ == nullptr && this->instanceType_ == nullptr && this->internetMaxBandwidthOut_ == nullptr && this->name_ == nullptr
-        && this->nvmeSupport_ == nullptr && this->repairMode_ == nullptr && this->resourceGroupId_ == nullptr && this->systemDiskSize_ == nullptr && this->tags_ == nullptr
-        && this->testContent_ == nullptr && this->toRegionIds_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->nvmeSupport_ == nullptr && this->repairItems_ == nullptr && this->repairMode_ == nullptr && this->resourceGroupId_ == nullptr && this->systemDiskSize_ == nullptr
+        && this->tags_ == nullptr && this->testContent_ == nullptr && this->toRegionIds_ == nullptr && this->vSwitchId_ == nullptr; };
         // addAccounts Field Functions 
         bool hasAddAccounts() const { return this->addAccounts_ != nullptr;};
         void deleteAddAccounts() { this->addAccounts_ = nullptr;};
@@ -992,6 +1027,15 @@ namespace Models
         inline ImagePipelineSet& setNvmeSupport(string nvmeSupport) { DARABONBA_PTR_SET_VALUE(nvmeSupport_, nvmeSupport) };
 
 
+        // repairItems Field Functions 
+        bool hasRepairItems() const { return this->repairItems_ != nullptr;};
+        void deleteRepairItems() { this->repairItems_ = nullptr;};
+        inline const ImagePipelineSet::RepairItems & getRepairItems() const { DARABONBA_PTR_GET_CONST(repairItems_, ImagePipelineSet::RepairItems) };
+        inline ImagePipelineSet::RepairItems getRepairItems() { DARABONBA_PTR_GET(repairItems_, ImagePipelineSet::RepairItems) };
+        inline ImagePipelineSet& setRepairItems(const ImagePipelineSet::RepairItems & repairItems) { DARABONBA_PTR_SET_VALUE(repairItems_, repairItems) };
+        inline ImagePipelineSet& setRepairItems(ImagePipelineSet::RepairItems && repairItems) { DARABONBA_PTR_SET_RVALUE(repairItems_, repairItems) };
+
+
         // repairMode Field Functions 
         bool hasRepairMode() const { return this->repairMode_ != nullptr;};
         void deleteRepairMode() { this->repairMode_ = nullptr;};
@@ -1063,6 +1107,7 @@ namespace Models
         shared_ptr<int32_t> internetMaxBandwidthOut_ {};
         shared_ptr<string> name_ {};
         shared_ptr<string> nvmeSupport_ {};
+        shared_ptr<ImagePipelineSet::RepairItems> repairItems_ {};
         shared_ptr<string> repairMode_ {};
         shared_ptr<string> resourceGroupId_ {};
         shared_ptr<int32_t> systemDiskSize_ {};
@@ -1127,13 +1172,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeImagePipelinesResponseBody::ImagePipeline> imagePipeline_ {};
-    // The number of entries per page for a paginated query.
+    // The maximum number of entries per page for paging queries.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to retrieve the next page of results. This value is returned if the results are paginated.
+    // The pagination token returned in this call. For more information about how to use it, refer to the operation description.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of image pipelines that match the query criteria.
+    // The total number of image templates returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -244,9 +244,9 @@ namespace Models
     protected:
       // The description of the security group rule. The description must be 1 to 512 characters in length.
       shared_ptr<string> description_ {};
-      // The destination IPv4 CIDR block. CIDR blocks and IPv4 address range are supported.
+      // The destination IPv4 CIDR block. CIDR blocks and IPv4 address ranges are supported.
       // 
-      // This parameter is used for quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+      // This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
       shared_ptr<string> destCidrIp_ {};
       // The protocol type. The value is case-insensitive. Valid values: 
       //          
@@ -257,32 +257,32 @@ namespace Models
       // - GRE.
       // - ALL: all protocols.
       shared_ptr<string> ipProtocol_ {};
-      // The destination IPv6 CIDR block. CIDR blocks and IPv6 address range are supported.
+      // The destination IPv6 CIDR block. CIDR blocks and IPv6 address ranges are supported.
       // 
-      // This parameter is used for quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+      // This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
       // 
-      // > This parameter is valid only for VPC-type ECS instances that support IPv6. You cannot specify both this parameter and `DestCidrIp`.
+      // > This parameter is valid only for VPC-type ECS instances that support IPv6. You cannot specify this parameter and `DestCidrIp` in Settings at the same time.
       shared_ptr<string> ipv6DestCidrIp_ {};
-      // The source IPv6 Classless Inter-Domain Routing (CIDR) block from which you want to revoke access permissions. CIDR format and IPv6 address range are supported.
+      // The source IPv6 Classless Inter-Domain Routing (CIDR) block from which you want to revoke access permissions. CIDR format and IPv6 format address ranges are supported.
       // 
-      // > This parameter is valid only for VPC-type ECS instances that support IPv6. You cannot specify both this parameter and `SourceCidrIp`.
+      // > This parameter is valid only for VPC-type ECS instances that support IPv6. You cannot specify this parameter and `SourceCidrIp` in Settings at the same time.
       shared_ptr<string> ipv6SourceCidrIp_ {};
-      // The network interface controller (NIC) type of the security group rule. For VPC-type security groups, you do not need to set the network type. The default value is intranet, and only intranet is supported.
+      // The network interface controller (NIC) type of the security group rule. For VPC-type security groups, you do not need to configure the network interface controller (NIC) type in Settings. The default value is intranet, and only intranet is supported.
       // 
-      // > The classic network feature has been taken offline. For details, see [Retirement notice](https://help.aliyun.com/document_detail/2833134.html). For classic network-type security group rules, valid values are:
+      // > The classic network feature has been offline. For details, see [Discontinuation notice](https://help.aliyun.com/document_detail/2833134.html). The network interface controller (NIC) type for classic network security group rules. Valid values:
       // > - internet: public network interface controller (NIC).
       // > - intranet: internal network interface controller (NIC).
       shared_ptr<string> nicType_ {};
       // The access permissions. Valid values: 
       //          
       // - accept: Accepts access.
-      // - drop: Deny access without returning any denial information. The request appears to timeout or the connection cannot be established.
+      // - drop: Denies access and returns no deny information. The request appears to timeout or the connection cannot be established.
       // 
       // Default value: accept.
       shared_ptr<string> policy_ {};
-      // The range of destination ports that correspond to the transport layer protocol. Valid values:
+      // The range of destination ports for the specified protocol. Valid values:
       //          
-      // - TCP/UDP: Valid values are 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
+      // - TCP/UDP: valid values are 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
       // - ICMP: -1/-1.
       // - GRE: -1/-1.
       // - ALL: -1/-1.
@@ -299,15 +299,15 @@ namespace Models
       // 
       // Default value: 1.
       shared_ptr<string> priority_ {};
-      // The source IPv4 Classless Inter-Domain Routing (CIDR) block from which you want to revoke access permissions. CIDR format and IPv4 address range are supported.
+      // The source IPv4 Classless Inter-Domain Routing (CIDR) block from which you want to revoke access permissions. CIDR format and IPv4 format address ranges are supported.
       shared_ptr<string> sourceCidrIp_ {};
       // The ID of the source security group from which you want to revoke access permissions.
       // 
-      // - Set at least one of `SourceGroupId`, `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourcePrefixListId`.
+      // - You must specify at least one of the following parameters in Settings: `SourceGroupId`, `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourcePrefixListId`.
       // 
-      // - If you specify `SourceGroupId` but do not specify the `SourceCidrIp` or `Ipv6SourceCidrIp` parameter, set NicType to intranet.
+      // - If `SourceGroupId` is specified but neither `SourceCidrIp` nor `Ipv6SourceCidrIp` is specified, the NicType parameter must be set to intranet.
       // 
-      // - If you specify both `SourceGroupId` and `SourceCidrIp`, `SourceCidrIp` takes precedence by default.
+      // - If both `SourceGroupId` and `SourceCidrIp` are specified, `SourceCidrIp` takes precedence by default.
       // 
       // Note:
       // 
@@ -317,28 +317,28 @@ namespace Models
       shared_ptr<string> sourceGroupId_ {};
       // The Alibaba Cloud account that owns the source security group when you revoke a cross-account authorization security group rule.
       // 
-      // - If neither `SourceGroupOwnerAccount` nor `SourceGroupOwnerId` is set, the access permissions for another security group within your account are revoked.
-      // - If the `SourceCidrIp` parameter is set, the `SourceGroupOwnerAccount` parameter is ignored.
+      // - If neither `SourceGroupOwnerAccount` nor `SourceGroupOwnerId` is specified in Settings, the rule is revoked for access permissions of another security group within your account.
+      // - If the `SourceCidrIp` parameter is specified, the `SourceGroupOwnerAccount` parameter is ignored.
       shared_ptr<string> sourceGroupOwnerAccount_ {};
       // The ID of the Alibaba Cloud account that owns the source security group when you revoke a cross-account authorization security group rule.
       // 
-      // - If neither `SourceGroupOwnerId` nor `SourceGroupOwnerAccount` is set, the access permissions for another security group within your account are revoked.
-      // - If the `SourceCidrIp` parameter is set, the `SourceGroupOwnerId` parameter is ignored.
+      // - If neither `SourceGroupOwnerId` nor `SourceGroupOwnerAccount` is specified in Settings, the rule is revoked for access permissions of another security group within your account.
+      // - If the `SourceCidrIp` parameter is specified, the `SourceGroupOwnerId` parameter is ignored.
       shared_ptr<int64_t> sourceGroupOwnerId_ {};
-      // The range of source ports that correspond to the transport layer protocol. Valid values: 
+      // The range of source ports for the specified protocol. Valid values: 
       //          
-      // - TCP/UDP: Valid values are 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
+      // - TCP/UDP: valid values are 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
       // - ICMP: -1/-1.
       // - GRE: -1/-1.
       // - ALL: -1/-1.
       // 
-      // This parameter is used for quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+      // This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
       shared_ptr<string> sourcePortRange_ {};
       // The ID of the source prefix list from which you want to revoke access permissions. You can invoke [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) to query available prefix list IDs.
       // 
       // Note:
       // 
-      // If you specify `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourceGroupId`, this parameter is ignored.
+      // If you specify one of `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourceGroupId`, this parameter is ignored.
       // 
       // For more information, see [Security group limits](~~25412#SecurityGroupQuota1~~).
       shared_ptr<string> sourcePrefixListId_ {};
@@ -535,13 +535,13 @@ namespace Models
     shared_ptr<string> ipv6DestCidrIp_ {};
     // Deprecated. Use `Permissions.N.Ipv6SourceCidrIp` to specify the source IPv6 Classless Inter-Domain Routing (CIDR) block.
     shared_ptr<string> ipv6SourceCidrIp_ {};
-    // Deprecated. Use `Permissions.N.NicType` to specify the network interface type.
+    // Deprecated. Use `Permissions.N.NicType` to specify the NIC type.
     shared_ptr<string> nicType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The security group rules. Array length: 0 to 100.
     shared_ptr<vector<RevokeSecurityGroupRequest::Permissions>> permissions_ {};
-    // Deprecated. Use `Permissions.N.Policy` to set the access permissions.
+    // Deprecated. Use `Permissions.N.Policy` in Settings to specify the access permissions.
     shared_ptr<string> policy_ {};
     // Deprecated. Use `Permissions.N.PortRange` to specify the port range.
     shared_ptr<string> portRange_ {};

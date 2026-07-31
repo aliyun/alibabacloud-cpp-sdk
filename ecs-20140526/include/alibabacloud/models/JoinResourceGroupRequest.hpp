@@ -105,11 +105,11 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the resource. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of regions.
+    // The region ID of the resource. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     shared_ptr<string> regionId_ {};
     // The ID of the destination resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The ID of the resource. For example, when ResourceType is set to instance, ResourceId can be interpreted as the InstanceId.
+    // The ID of the resource. For example, when ResourceType is set to instance, ResourceId is the instance ID.
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
@@ -122,14 +122,14 @@ namespace Models
     // - securitygroup: security group.
     // - ddh: dedicated host.
     // - ddhcluster: dedicated host cluster.
-    // - eni: elastic network interface.
-    // - keypair: SSH key pair.
+    // - eni: network interface controller (NIC).
+    // - keypair: key pair.
     // - launchtemplate: launch template.
     // - command: Cloud Assistant command.
     // - activation: Cloud Assistant managed instance activation code.
     // - managedinstance: Cloud Assistant managed instance.
     // 
-    // The preceding values are case-sensitive.
+    // The preceding parameter values are case-sensitive.
     shared_ptr<string> resourceType_ {};
   };
 

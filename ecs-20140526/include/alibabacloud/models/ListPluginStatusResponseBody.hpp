@@ -270,15 +270,15 @@ namespace Models
 
   protected:
     shared_ptr<ListPluginStatusResponseBody::InstancePluginStatusSet> instancePluginStatusSet_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The page number of the query result.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records that match the query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

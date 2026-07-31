@@ -100,19 +100,18 @@ namespace Models
     shared_ptr<string> autoProvisioningGroupId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the auto provisioning group.
+    // The ID of the region where the auto provisioning group resides.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to release instances in the auto provisioning group. Valid values:
+    // Specifies whether to release the instances in the auto-provisioning group when the group is deleted. Valid values:
     // 
-    // - true
+    // - true: Releases the instances auto provisioning group.
+    // - false: The instances auto provisioning group continue to run.
     // 
-    // - false
-    // 
-    // > By default, this parameter inherits the value of `TerminateInstances` that you specified when you call the `CreateAutoProvisioningGroup` operation to create an auto provisioning group. You can also change the value of `TerminateInstances` when you call the DeleteAutoProvisioningGroup operation to delete the auto provisioning group.
+    // >The default value of this parameter is inherited from the TerminateInstances parameter that you specified when you called the CreateAutoProvisioningGroup operation to create the auto-provisioning group. You can also set the TerminateInstances parameter to a new value when you call this operation to delete the auto-provisioning group.
     shared_ptr<bool> terminateInstances_ {};
   };
 

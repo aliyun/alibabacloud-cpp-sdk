@@ -250,21 +250,21 @@ namespace Models
 
 
   protected:
-    // A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The ClientToken parameter supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // A client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
     // The description of the security group rule. The description must be 1 to 512 characters in length.
     shared_ptr<string> description_ {};
-    // The destination IPv4 Classless Inter-Domain Routing (CIDR) block. CIDR format and IPv4 format IP address ranges are supported.
+    // The destination IPv4 Classless Inter-Domain Routing (CIDR) block. CIDR format and IPv4 format IP address range are supported.
     // 
     // Default value: null.
     shared_ptr<string> destCidrIp_ {};
-    // The network-layer or transport-layer protocol. Two types of values are supported:
+    // The network layer or transport layer protocol. Two types of values are supported:
     // 1. Case-insensitive protocol names. Valid values:
     // - ICMP
     // - GRE
     // - TCP
     // - UDP
-    // - ALL: all protocols are supported.
+    // - ALL: All protocols are supported.
     // 2. Protocol numbers that comply with IANA specifications, which are integers from 0 to 255. The following regions currently support this feature:
     // - Philippines
     // - UK (London)
@@ -274,13 +274,13 @@ namespace Models
     // - US (Virginia)
     // - Singapore
     shared_ptr<string> ipProtocol_ {};
-    // Settings for the destination IPv6 CIDR block. Classless Inter-Domain Routing (CIDR) format and IPv6 format IP address ranges are supported.
+    // Settings for the destination IPv6 CIDR block. Classless Inter-Domain Routing (CIDR) format and IPv6 format IP address range are supported.
     // 
     // >Only VPC-type IP addresses are supported. This parameter and `DestCidrIp` cannot be specified at the same time.
     // 
     // Default value: null.
     shared_ptr<string> ipv6DestCidrIp_ {};
-    // Settings for the source IPv6 CIDR block for the access permissions. Classless Inter-Domain Routing (CIDR) format and IPv6 format IP address ranges are supported.
+    // Settings for the source IPv6 CIDR block for the access permissions. Classless Inter-Domain Routing (CIDR) format and IPv6 format IP address range are supported.
     // 
     // > Only VPC-type IP addresses are supported. This parameter and `SourceCidrIp` cannot be specified at the same time.
     // 
@@ -295,13 +295,13 @@ namespace Models
     // The access permissions. Valid values: 
     //          
     // - accept: Accepts access.
-    // - drop: Denies access and does not return a deny response.
+    // - drop: Denies access without returning a deny response.
     // 
     // Default value: accept.
     shared_ptr<string> policy_ {};
-    // The range of destination ports that correspond to the transport-layer protocol of the security group. Valid values: 
+    // The range of destination ports for the transport layer protocol. Valid values: 
     //          
-    // - TCP/UDP: valid values are 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
+    // - TCP/UDP: Valid values are 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
     // - ICMP: -1/-1.
     // - GRE: -1/-1.
     // - ALL: -1/-1.
@@ -330,7 +330,7 @@ namespace Models
     shared_ptr<string> securityGroupId_ {};
     // The security group rule ID. You can call [DescribeSecurityGroupAttribute](https://help.aliyun.com/document_detail/2679845.html) to query security group rule IDs.
     shared_ptr<string> securityGroupRuleId_ {};
-    // Settings for the source IPv4 CIDR block for the access permissions. Classless Inter-Domain Routing (CIDR) format and IPv4 format IP address ranges are supported.
+    // Settings for the source IPv4 CIDR block for the access permissions. Classless Inter-Domain Routing (CIDR) format and IPv4 format IP address range are supported.
     // 
     // Default value: null.
     shared_ptr<string> sourceCidrIp_ {};
@@ -339,26 +339,26 @@ namespace Models
     // - If `SourceGroupId` is specified but `SourceCidrIp` is not, the `NicType` parameter can only be set to intranet.
     // - If both `SourceGroupId` and `SourceCidrIp` are specified, `SourceCidrIp` takes precedence by default.
     shared_ptr<string> sourceGroupId_ {};
-    // Settings for the Alibaba Cloud account that owns the source security group when you configure a cross-account security group rule for access permissions. 
+    // Settings for the Alibaba Cloud account that owns the source security group when you configure access permissions for a cross-account security group rule. 
     //          
-    // - If neither `SourceGroupOwnerAccount` nor `SourceGroupOwnerId` is configured, the rule is configured for the access permissions of your other security groups.
-    // - If the `SourceCidrIp` parameter is specified, the `SourceGroupOwnerAccount` parameter is invalid.
+    // - If neither `SourceGroupOwnerAccount` nor `SourceGroupOwnerID` is specified, the rule is configured for access permissions of another security group that you own.
+    // - If the `SourceCidrIp` parameter is specified, the `SourceGroupOwnerAccount` parameter is ignored.
     shared_ptr<string> sourceGroupOwnerAccount_ {};
-    // Settings for the Alibaba Cloud account ID that owns the source security group when you configure a cross-account security group rule for access permissions. 
+    // Settings for the Alibaba Cloud account that owns the source security group when you configure access permissions for a cross-account security group rule. 
     //          
-    // - If neither `SourceGroupOwnerId` nor `SourceGroupOwnerAccount` is configured, the rule is configured for the access permissions of your other security groups.
-    // - If the `SourceCidrIp` parameter is specified, the `SourceGroupOwnerId` parameter is invalid.
+    // - If neither `SourceGroupOwnerId` nor `SourceGroupOwnerAccount` is specified, the rule is configured for access permissions of another security group that you own.
+    // - If the `SourceCidrIp` parameter is specified, the `SourceGroupOwnerId` parameter is ignored.
     shared_ptr<int64_t> sourceGroupOwnerId_ {};
-    // The range of source ports that correspond to the transport-layer protocol of the security group. Valid values: 
+    // The range of source ports for the transport layer protocol. Valid values: 
     //          
-    // - TCP/UDP: valid values are 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
+    // - TCP/UDP: Valid values are 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
     // - ICMP: -1/-1.
     // - GRE: -1/-1.
     // - ALL: -1/-1.
     shared_ptr<string> sourcePortRange_ {};
     // Settings for the ID of the source prefix list for the access permissions. You can invoke [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) to query available prefix list IDs.
     // 
-    // This parameter is ignored if you specify one of `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourceGroupId`.
+    // This parameter is ignored if you specify one of the `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourceGroupId` parameters.
     shared_ptr<string> sourcePrefixListId_ {};
   };
 

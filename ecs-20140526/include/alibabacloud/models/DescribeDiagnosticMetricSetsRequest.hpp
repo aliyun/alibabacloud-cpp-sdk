@@ -87,29 +87,27 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Valid values: 1 to 100.
+    // The number of entries per page for a paged query. Maximum value: 100.
     // 
     // Default value:
     // 
-    // - If this parameter is left empty, the default value is 10.
-    // 
-    // - If you set this parameter to a value that is greater than 100, the default value is 100.
+    // - If this parameter is not specified, the default value is 10.
+    // - If the specified value is greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The IDs of diagnostic metric sets.
+    // The list of diagnostic metric set IDs.
     shared_ptr<vector<string>> metricSetIds_ {};
-    // The pagination token that is used in the request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request.
     shared_ptr<string> nextToken_ {};
-    // The region ID of the diagnostic metric set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource type supported by the diagnostic metric set.
+    // The resource type.
     shared_ptr<string> resourceType_ {};
     // The type of the diagnostic metric set. Valid values:
     // 
-    // - User: custom diagnostic metric set
-    // 
-    // - Common: public diagnostic metric set
+    // - User: user.
+    // - Common: common.
     // 
     // Default value: User.
     shared_ptr<string> type_ {};

@@ -154,13 +154,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeClassicLinkInstancesResponseBody::Links> links_ {};
-    // The page number.
+    // The page number in the paging query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in the paging query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of ClassicLink connections.
+    // The total number of connections.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -146,7 +146,7 @@ namespace Models
 
   protected:
     shared_ptr<ModifyInstanceChargeTypeResponseBody::FeeOfInstances> feeOfInstances_ {};
-    // The order ID.
+    // The order ID. This parameter is returned only when the billing method is changed to subscription.
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

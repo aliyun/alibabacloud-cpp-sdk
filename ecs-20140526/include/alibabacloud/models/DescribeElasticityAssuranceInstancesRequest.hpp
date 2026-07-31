@@ -140,17 +140,17 @@ namespace Models
 
   protected:
     shared_ptr<DescribeElasticityAssuranceInstancesRequest::PrivatePoolOptions> privatePoolOptions_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries per page for a paging query.
     // 
     // Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to start the query. Set the value to the NextToken value obtained from the response to the preceding request.
+    // The pagination token for the elasticity assurance query. Obtain the value from the result of the previous request.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the elasticity assurance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the elasticity assurance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

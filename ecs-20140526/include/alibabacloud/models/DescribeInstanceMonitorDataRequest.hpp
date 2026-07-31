@@ -103,29 +103,27 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (`ss`) is not `00`, the time is rounded up to the next minute.
+    // The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (`ss`) is not `00`, the time is automatically rounded up to the next minute.
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The instance ID.
+    // The instance ID of the instance to query.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The interval at which to retrieve monitoring data. Unit: seconds. Valid values:
+    // The interval at which to retrieve monitoring data. Unit: seconds. Valid values: 
     // 
-    // - 60
-    // 
-    // - 600
-    // 
-    // - 3600
+    // - 60.
+    // - 600.
+    // - 3600.
     // 
     // Default value: 60.
     shared_ptr<int32_t> period_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (`ss`) is not `00`, the time is rounded up to the next minute.
+    // The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (`ss`) is not `00`, the time is automatically rounded up to the next minute.
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

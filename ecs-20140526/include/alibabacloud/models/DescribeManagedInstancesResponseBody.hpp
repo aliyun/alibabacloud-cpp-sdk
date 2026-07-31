@@ -127,13 +127,13 @@ namespace Models
 
 
       protected:
-        // The key of tag N of the managed instance. Valid values of N: 1 to 20. The tag key cannot be an empty string.
+        // The tag key of the managed instance. Valid values of N: 1 to 20. The tag key cannot be an empty string.
         // 
-        // If a single tag is specified to query resources, up to 1,000 resources that have this tag added are returned. If multiple tags are specified to query resources, up to 1,000 resources that have all these tags added are returned. To query more than 1,000 resources that have the specified tags, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+        // If you use a single tag to filter resources, the resource count with this tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
         // 
-        // The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+        // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
         shared_ptr<string> tagKey_ {};
-        // The value of tag N of the managed instance. Valid values of N: 1 to 20. The tag value can be an empty string.
+        // The tag value of the managed instance. Valid values of N: 1 to 20. The tag value can be an empty string.
         // 
         // The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
         shared_ptr<string> tagValue_ {};
@@ -258,19 +258,19 @@ namespace Models
 
 
     protected:
-      // The ID of the activation code.
+      // The activation code ID.
       shared_ptr<string> activationId_ {};
       // The version number of Cloud Assistant Agent.
       shared_ptr<string> agentVersion_ {};
-      // Indicates whether the managed instance is connected. Valid values:
+      // Indicates whether the managed instance is connected.
       // 
-      // - true: The managed instance is connected. You can manage the instance by using Cloud Assistant.
+      // - true: The managed instance is connected. You can manage the managed instance by using Cloud Assistant.
       // 
-      // - false: The managed instance is not connected. The managed instance may be down or Cloud Assistant Agent may be incorrectly installed.
+      // - false: The managed instance is not connected. The server may be shut down or Cloud Assistant Agent may not be properly installed.
       shared_ptr<bool> connected_ {};
       // The hostname of the managed instance.
       shared_ptr<string> hostname_ {};
-      // The ID of the managed instance.
+      // The managed instance ID.
       shared_ptr<string> instanceId_ {};
       // The name of the managed instance.
       shared_ptr<string> instanceName_ {};
@@ -278,21 +278,21 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The internal IP address of the managed instance.
       shared_ptr<string> intranetIp_ {};
-      // The number of times that Cloud Assistant tasks were executed on the managed instance.
+      // The number of times that Cloud Assistant tasks were run on the managed instance.
       shared_ptr<int64_t> invocationCount_ {};
-      // The time when the last Cloud Assistant task was executed.
+      // The time when the last Cloud Assistant task was run.
       shared_ptr<string> lastInvokedTime_ {};
-      // The machine code of the managed instance.
+      // The machine ID of the managed instance.
       shared_ptr<string> machineId_ {};
-      // The operating system type of the managed instance.
+      // The operating system of the managed instance.
       shared_ptr<string> osType_ {};
-      // The version information of the operating system.
+      // The version of the operating system.
       shared_ptr<string> osVersion_ {};
-      // The time when the managed instance was registered.
+      // The registration time of the managed instance.
       shared_ptr<string> registrationTime_ {};
       // The ID of the resource group to which the managed instance belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The tags of the managed instance.
+      // The tags.
       shared_ptr<vector<Instances::Tags>> tags_ {};
     };
 
@@ -343,17 +343,17 @@ namespace Models
 
 
   protected:
-    // The queried managed instances.
+    // The list of managed instances.
     shared_ptr<vector<DescribeManagedInstancesResponseBody::Instances>> instances_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The page number of the managed instance list.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of queried managed instances.
+    // The total number of managed instances queried.
     shared_ptr<int64_t> totalCount_ {};
   };
 

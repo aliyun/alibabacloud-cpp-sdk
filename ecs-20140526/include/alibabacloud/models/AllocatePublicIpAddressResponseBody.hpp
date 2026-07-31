@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The public IP address.
+    // The public IP address of the instance.
     shared_ptr<string> ipAddress_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

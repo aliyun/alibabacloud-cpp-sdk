@@ -844,7 +844,6 @@ namespace Models
 
 
   protected:
-    // The auto provisioning groups.
     shared_ptr<DescribeAutoProvisioningGroupsResponseBody::AutoProvisioningGroups> autoProvisioningGroups_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -852,7 +851,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of auto provisioning groups found.
+    // The total number of queried auto-provisioning groups.
     shared_ptr<int32_t> totalCount_ {};
   };
 

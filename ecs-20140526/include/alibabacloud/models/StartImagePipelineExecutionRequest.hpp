@@ -84,9 +84,9 @@ namespace Models
 
 
     protected:
-      // > This parameter is deprecated.
+      // >This parameter is deprecated.
       shared_ptr<string> key_ {};
-      // > This parameter is deprecated.
+      // >This parameter is deprecated.
       shared_ptr<string> value_ {};
     };
 
@@ -128,9 +128,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
+      // The key of the tag. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of tag N. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length. The tag value cannot start with `acs:` or contain `http://` or `https://`.
+      // The value of the tag. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -205,7 +205,7 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among requests. **The token can contain only ASCII characters and cannot exceed 64 characters in length.** For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
     // The ID of the image template.
     // 
@@ -213,7 +213,7 @@ namespace Models
     shared_ptr<string> imagePipelineId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of Alibaba Cloud regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -221,7 +221,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The tags.
     shared_ptr<vector<StartImagePipelineExecutionRequest::Tag>> tag_ {};
-    // > This parameter is deprecated.
+    // >This parameter is deprecated.
     shared_ptr<vector<StartImagePipelineExecutionRequest::TemplateTag>> templateTag_ {};
   };
 

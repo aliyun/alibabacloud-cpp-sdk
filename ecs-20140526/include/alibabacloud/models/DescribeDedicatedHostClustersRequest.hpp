@@ -94,11 +94,11 @@ namespace Models
 
 
     protected:
-      // The tag key. Valid values of N: 1 to 20. The tag key cannot be an empty string. It can be up to 64 characters in length, and can neither contain `http://` or `https://` nor `acs:` or `aliyun`.
+      // The tag key of the dedicated host cluster. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
       // 
-      // You can filter no more than 1,000 host groups, regardless of how many tags are used. To query more than 1,000 host groups, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) API operation.
+      // If you use a single tag to filter resources, the resource count with the tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
       shared_ptr<string> key_ {};
-      // The tag value. Valid values of N: 1 to 20. The tag value cannot be an empty string. It can be up to 64 characters in length and cannot contain `http://` or `https://`.
+      // The tag value of the dedicated host cluster. Valid values of N: 1 to 20. The tag value cannot be an empty string. The tag value can be up to 64 characters in length and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -207,41 +207,41 @@ namespace Models
 
 
   protected:
-    // The list of host group IDs. The value can be a JSON array consisting of multiple IDs in the `["dc-xxxxxxxxx", "dc-yyyyyyyyy",..., "dc-zzzzzzzzz"]` format. Separate the IDs with commas (,).
+    // The IDs of dedicated host clusters. The value is a JSON array of dedicated host cluster IDs in the format of `["dc-xxxxxxxxx", "dc-yyyyyyyyy", … ,"dc-zzzzzzzzz"]`. A maximum of 100 IDs are supported. Separate multiple IDs with commas (,).
     shared_ptr<string> dedicatedHostClusterIds_ {};
-    // The name of the host group.
+    // The name of the dedicated host cluster.
     shared_ptr<string> dedicatedHostClusterName_ {};
-    // > This parameter is unavailable for use.
+    // >This parameter is not yet available.
     shared_ptr<string> lockReason_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number.
+    // The page number of the dedicated host cluster list.
     // 
-    // Pages start from page 1.
+    // Minimum value: 1.
     // 
-    // Default value: 1
+    // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page for the paged query. Settings for paging:
     // 
-    // Valid values: 1 to 100.
+    // Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the host group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the dedicated host cluster. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID of the host group. You can use a resource group ID to filter no more than 1,000 host groups.
+    // The ID of the resource group to which the dedicated host cluster belongs. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
     // 
-    // > A default resource group is not supported.
+    // >Filtering by the default resource group is not supported.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // > This parameter is unavailable for use.
+    // >This parameter is not yet available.
     shared_ptr<string> status_ {};
-    // The tags of the host group.
+    // The tags.
     shared_ptr<vector<DescribeDedicatedHostClustersRequest::Tag>> tag_ {};
-    // The zone ID of the host group. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
+    // The zone ID of the dedicated host cluster. You can call [DescribeZones](https://help.aliyun.com/document_detail/25610.html) to query the available zones.
     shared_ptr<string> zoneId_ {};
   };
 

@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The disk migration task ID.
+    // The task ID of the disk migration.
     shared_ptr<string> taskId_ {};
   };
 

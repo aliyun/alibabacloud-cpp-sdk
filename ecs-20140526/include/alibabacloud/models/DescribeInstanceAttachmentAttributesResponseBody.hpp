@@ -164,13 +164,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeInstanceAttachmentAttributesResponseBody::Instances> instances_ {};
-    // The page number.
+    // The page number of the instance status list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page for the paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries that match the query conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

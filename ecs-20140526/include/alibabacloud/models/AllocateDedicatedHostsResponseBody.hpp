@@ -94,11 +94,11 @@ namespace Models
 
   protected:
     shared_ptr<AllocateDedicatedHostsResponseBody::DedicatedHostIdSets> dedicatedHostIdSets_ {};
-    // The ID of the order.
+    // The order ID.
     // 
-    // > This parameter has a return value only when the dedicated host is a subscription one (request parameter **ChargeType set to PrePaid**).
+    // > This parameter is returned only when you create subscription dedicated hosts (the request parameter **ChargeType=PrePaid**).
     shared_ptr<string> orderId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

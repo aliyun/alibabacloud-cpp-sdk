@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The key of tag N of the prefix list. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain `http:// or https://`.
+      // The tag key of the prefix list. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of tag N of the prefix list. Valid values of N: 1 to 20. The tag value can be an empty string.
+      // The tag value of the prefix list. Valid values of N: 1 to 20. The tag value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length and cannot contain `http:// or https://`.
+      // The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -191,29 +191,28 @@ namespace Models
 
 
   protected:
-    // The IP address family. Valid values:
+    // The address family of the prefix list. Valid values:
     // 
     // - IPv4
-    // 
     // - IPv6
     // 
-    // This parameter is empty by default, which indicates that all prefix lists are queried.
+    // Default value: empty, which indicates that information about all prefix lists is queried.
     shared_ptr<string> addressFamily_ {};
-    // The number of entries per page.
+    // The number of entries per page for a paged query.
     // 
-    // Valid values: 1 to 100.
+    // Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the request to retrieve a new page of results. Set the value to the `NextToken` value returned in the last call to this operation. Leave this parameter empty the first time you call this operation.
+    // The pagination token. Set this parameter to the value of `NextToken` returned in the previous call. You do not need to set this parameter for the first request.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The IDs of prefix lists. Valid values of N: 0 to 100.
+    // The prefix list ID. Valid values of N: 0 to 100.
     shared_ptr<vector<string>> prefixListId_ {};
     // The name of the prefix list.
     shared_ptr<string> prefixListName_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -221,7 +220,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags of the prefix list.
+    // The tags.
     shared_ptr<vector<DescribePrefixListsRequest::Tag>> tag_ {};
   };
 

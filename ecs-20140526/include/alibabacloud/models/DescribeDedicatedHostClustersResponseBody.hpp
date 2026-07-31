@@ -585,13 +585,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDedicatedHostClustersResponseBody::DedicatedHostClusters> dedicatedHostClusters_ {};
-    // The page number.
+    // The page number of the dedicated host cluster list.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of dedicated host clusters.
+    // The total number of dedicated hosts.
     shared_ptr<int32_t> totalCount_ {};
   };
 

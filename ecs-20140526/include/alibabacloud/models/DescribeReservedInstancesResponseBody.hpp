@@ -459,7 +459,7 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the reserved instance list.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

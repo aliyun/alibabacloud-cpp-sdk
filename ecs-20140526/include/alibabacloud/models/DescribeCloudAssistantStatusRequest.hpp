@@ -133,29 +133,27 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The list of instance IDs.
     shared_ptr<vector<string>> instanceId_ {};
-    // The maximum number of entries per page. If you specify **InstanceId**, this parameter does not take effect.
+    // The maximum number of entries per page for a paged query. If **InstanceId** is specified, this parameter is ignored.
     // 
-    // Valid values: 1 to 50.
+    // Maximum value: 50.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     // The operating system type of the instance. Valid values:
     // 
     // - Windows
-    // 
     // - Linux
-    // 
     // - FreeBSD
     shared_ptr<string> OSType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter is about to be deprecated. Use NextToken and MaxResults to perform paging operations.
     shared_ptr<int64_t> pageNumber_ {};
-    // > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter is about to be deprecated. Use NextToken and MaxResults to perform paging operations.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 

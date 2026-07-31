@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Modifies the attributes of a reserved instance, such as its name and description.
+    // The error code returned.
     shared_ptr<string> code_ {};
-    // The ID of the request.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message for this instance operation. The return value Success indicates that this operation is successful. For more information, see the "Error codes" section in this topic.
+    // The error message returned for the instance operation. A return value of Success indicates success. For more information, see the error codes section.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

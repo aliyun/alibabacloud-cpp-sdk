@@ -474,18 +474,18 @@ namespace Models
 
 
       protected:
-        // The currency. Valid values:
+        // The currency unit. Valid values:
         // 
-        // - `CNY`: For the China site.
+        // - China site: CNY.
         // 
-        // - `USD`: For the international site.
+        // - International site: USD.
         shared_ptr<string> currency_ {};
         shared_ptr<Price::DetailInfos> detailInfos_ {};
-        // The discount amount.
+        // The discount.
         shared_ptr<float> discountPrice_ {};
         // The original price.
         shared_ptr<float> originalPrice_ {};
-        // The final price (original price - discount).
+        // The transaction price, which is equal to the original price minus the discount.
         shared_ptr<float> tradePrice_ {};
       };
 
@@ -519,7 +519,7 @@ namespace Models
 
 
     protected:
-      // The price details.
+      // The price.
       shared_ptr<PriceInfo::Price> price_ {};
       shared_ptr<PriceInfo::RelatedPrice> relatedPrice_ {};
       shared_ptr<PriceInfo::Rules> rules_ {};
@@ -544,7 +544,7 @@ namespace Models
 
 
   protected:
-    // Price information, including price details and promotional rules.
+    // The price information, including the price and discount rule information.
     shared_ptr<DescribeInstanceModificationPriceResponseBody::PriceInfo> priceInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

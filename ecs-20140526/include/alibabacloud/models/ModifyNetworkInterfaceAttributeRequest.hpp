@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ConnectionTrackingConfiguration, connectionTrackingConfiguration_);
       DARABONBA_PTR_TO_JSON(DeleteOnRelease, deleteOnRelease_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(EnablePrimaryIPv6, enablePrimaryIPv6_);
       DARABONBA_PTR_TO_JSON(EnhancedNetwork, enhancedNetwork_);
       DARABONBA_PTR_TO_JSON(NetworkInterfaceId, networkInterfaceId_);
       DARABONBA_PTR_TO_JSON(NetworkInterfaceName, networkInterfaceName_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ConnectionTrackingConfiguration, connectionTrackingConfiguration_);
       DARABONBA_PTR_FROM_JSON(DeleteOnRelease, deleteOnRelease_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(EnablePrimaryIPv6, enablePrimaryIPv6_);
       DARABONBA_PTR_FROM_JSON(EnhancedNetwork, enhancedNetwork_);
       DARABONBA_PTR_FROM_JSON(NetworkInterfaceId, networkInterfaceId_);
       DARABONBA_PTR_FROM_JSON(NetworkInterfaceName, networkInterfaceName_);
@@ -127,57 +129,15 @@ namespace Models
 
 
     protected:
-      // The traffic mode of the elastic network interface. Valid values:
-      // 
-      // - `Standard`: The standard TCP traffic mode.
-      // 
-      // - `HighPerformance`: The RDMA traffic mode with the Elastic RDMA Interface (ERI) feature enabled.
-      // 
-      // If the elastic network interface is attached to an instance, note the following:
-      // 
-      // - The total number of ERI-enabled elastic network interfaces on the instance cannot exceed the quota for the instance type. You can call the [DescribeInstanceTypes operation to query the value of the `EriQuantity` parameter.]()
-      // 
-      // > This parameter is available by invitation only.
+      // The communication mode of the ENI. Valid values:
       shared_ptr<string> networkInterfaceTrafficMode_ {};
-      // The number of queues for the elastic network interface.
-      // If the elastic network interface is attached to an instance, note the following:
-      // 
-      // - The value cannot exceed the maximum number of queues per elastic network interface that is supported by the instance type.
-      // 
-      // - The total number of queues for all elastic network interfaces on the instance cannot exceed the queue quota for the instance type. You can call the [DescribeInstanceTypes operation to query the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values for an instance type.]()
-      // 
-      // > This parameter is available by invitation only. To use this feature, submit a ticket.
+      // The number of queues for the network interface controller (NIC).
       shared_ptr<int32_t> queueNumber_ {};
-      // The number of queue pairs for the ERI.
-      // If the elastic network interface is attached to an instance, note the following:
-      // 
-      // - The value cannot exceed the maximum number of queue pairs per ERI that is supported by the instance type. You can call the [DescribeInstanceTypes operation to query the value of the `QueuePairNumber` parameter for an instance type.]()
-      // 
-      // > This parameter is available by invitation only. To use this feature, submit a ticket.
+      // The number of queues for the RDMA ENI.
       shared_ptr<int32_t> queuePairNumber_ {};
-      // The queue depth for inbound traffic on the elastic network interface.
-      // 
-      // > This parameter is available by invitation only. To use this feature, submit a ticket.
-      // 
-      // Note the following:
-      // 
-      // - This parameter is available only for instance types of the 7th generation and later.
-      // 
-      // - This parameter is available only for instances that use Linux images.
-      // 
-      // - A larger queue depth for inbound traffic increases throughput and reduces the packet loss rate, but consumes more memory.
+      // The inbound queue depth of the network interface controller (NIC).
       shared_ptr<int32_t> rxQueueSize_ {};
-      // The queue depth for outbound traffic on the elastic network interface.
-      // 
-      // > This parameter is available by invitation only. To use this feature, submit a ticket.
-      // 
-      // Note the following:
-      // 
-      // - This parameter is available only for instance types of the 7th generation and later.
-      // 
-      // - This parameter is available only for instances that use Linux images.
-      // 
-      // - A larger queue depth for outbound traffic increases throughput and reduces the packet loss rate, but consumes more memory.
+      // The outbound queue depth of the network interface controller (NIC).
       shared_ptr<int32_t> txQueueSize_ {};
     };
 
@@ -292,29 +252,19 @@ namespace Models
 
 
     protected:
-      // The timeout period, in seconds, for TCP connections in the `TIME_WAIT` or `CLOSE_WAIT` state. The value must be an integer from 3 to 15.
-      // 
-      // Default value: 3.
-      // 
-      // > If your ECS instance is used with Network Load Balancer (NLB) or Classic Load Balancer (CLB), the default timeout period for connections in the `TIME_WAIT` state is 15 seconds.
+      // The timeout period for TCP connections in the TIME_WAIT or CLOSED state. Unit: seconds. Valid values: integers from 3 to 15.
       shared_ptr<int32_t> tcpClosedAndTimeWaitTimeout_ {};
-      // The timeout period for TCP connections in the `ESTABLISHED` state, in seconds. Valid values: 30, 60, 80, 100, 200, 300, 500, 700, and 910.
-      // 
-      // Default value: 910.
+      // The timeout period for established TCP connections. Unit: seconds. Valid values: [30, 60, 80, 100, 200, 300, 500, 700, 910].
       shared_ptr<int32_t> tcpEstablishedTimeout_ {};
-      // The timeout period for UDP flows, in seconds. Valid values: 10, 20, 30, 60, 80, and 100.
-      // 
-      // Default value: 30.
-      // 
-      // > If your ECS instance is used with Network Load Balancer (NLB) or Classic Load Balancer (CLB), the default value is 100 seconds.
+      // The timeout period for UDP flows. Unit: seconds. Valid values: [10, 20, 30, 60, 80, 100].
       shared_ptr<int32_t> udpTimeout_ {};
     };
 
     virtual bool empty() const override { return this->connectionTrackingConfiguration_ == nullptr
-        && this->deleteOnRelease_ == nullptr && this->description_ == nullptr && this->enhancedNetwork_ == nullptr && this->networkInterfaceId_ == nullptr && this->networkInterfaceName_ == nullptr
-        && this->networkInterfaceTrafficConfig_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->queueNumber_ == nullptr && this->regionId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->rxQueueSize_ == nullptr && this->securityGroupId_ == nullptr && this->sourceDestCheck_ == nullptr
-        && this->txQueueSize_ == nullptr; };
+        && this->deleteOnRelease_ == nullptr && this->description_ == nullptr && this->enablePrimaryIPv6_ == nullptr && this->enhancedNetwork_ == nullptr && this->networkInterfaceId_ == nullptr
+        && this->networkInterfaceName_ == nullptr && this->networkInterfaceTrafficConfig_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->queueNumber_ == nullptr
+        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->rxQueueSize_ == nullptr && this->securityGroupId_ == nullptr
+        && this->sourceDestCheck_ == nullptr && this->txQueueSize_ == nullptr; };
     // connectionTrackingConfiguration Field Functions 
     bool hasConnectionTrackingConfiguration() const { return this->connectionTrackingConfiguration_ != nullptr;};
     void deleteConnectionTrackingConfiguration() { this->connectionTrackingConfiguration_ = nullptr;};
@@ -336,6 +286,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyNetworkInterfaceAttributeRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // enablePrimaryIPv6 Field Functions 
+    bool hasEnablePrimaryIPv6() const { return this->enablePrimaryIPv6_ != nullptr;};
+    void deleteEnablePrimaryIPv6() { this->enablePrimaryIPv6_ = nullptr;};
+    inline bool getEnablePrimaryIPv6() const { DARABONBA_PTR_GET_DEFAULT(enablePrimaryIPv6_, false) };
+    inline ModifyNetworkInterfaceAttributeRequest& setEnablePrimaryIPv6(bool enablePrimaryIPv6) { DARABONBA_PTR_SET_VALUE(enablePrimaryIPv6_, enablePrimaryIPv6) };
 
 
     // enhancedNetwork Field Functions 
@@ -443,85 +400,40 @@ namespace Models
 
 
   protected:
-    // The connection tracking configuration.
-    // 
-    // Before using this parameter, we recommend that you read [Connection timeout management](https://help.aliyun.com/document_detail/2865958.html).
+    // The network connectivity tracking configuration.
     shared_ptr<ModifyNetworkInterfaceAttributeRequest::ConnectionTrackingConfiguration> connectionTrackingConfiguration_ {};
-    // Specifies whether to delete the elastic network interface when its attached instance is released. Valid values:
-    // 
-    // - `true`: The elastic network interface is deleted.
-    // 
-    // - `false`: The elastic network interface is retained.
+    // Specifies whether to retain the ENI when the associated instance is released. Valid values:
     shared_ptr<bool> deleteOnRelease_ {};
-    // The description of the elastic network interface. The description must be 2 to 255 characters in length and cannot start with `http://` or `https://`.
-    // 
-    // Default value: empty.
+    // The description of the network interface controller (NIC). The description must be 2 to 255 characters in length and cannot start with http:// or https://.
     shared_ptr<string> description_ {};
+    shared_ptr<bool> enablePrimaryIPv6_ {};
     // This parameter is not publicly available.
     shared_ptr<ModifyNetworkInterfaceAttributeRequest::EnhancedNetwork> enhancedNetwork_ {};
-    // The ID of the elastic network interface.
+    // The ID of the network interface controller (NIC).
     // 
     // This parameter is required.
     shared_ptr<string> networkInterfaceId_ {};
-    // The name of the elastic network interface. The name must be 2 to 128 characters in length, start with a letter or a Chinese character, and not start with `http://` or `https://`. It can contain letters, digits, Chinese characters, colons (:), underscores (_), periods (.), and hyphens (-).
-    // 
-    // Default value: empty.
+    // The name of the network interface controller (NIC). The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. The name can contain characters under the letter categorization in Unicode, including English letters, Chinese characters, and digits. It can also contain colons (:), underscores (_), periods (.), or hyphens (-).
     shared_ptr<string> networkInterfaceName_ {};
-    // The traffic configuration of the elastic network interface.
+    // The communication parameters of the network interface controller (NIC).
     shared_ptr<ModifyNetworkInterfaceAttributeRequest::NetworkInterfaceTrafficConfig> networkInterfaceTrafficConfig_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of queues for the elastic network interface. Valid values: 1 to 2048.
-    // 
-    // - You can change the number of queues for an elastic network interface only when it is in the `Available` state or is attached to an instance in the `Stopped` state.
-    // 
-    // - The number of queues cannot exceed the maximum supported by the instance type. The total number of queues for all elastic network interfaces attached to the instance cannot exceed the instance\\"s queue quota. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values for an instance type.
+    // The number of queues for the ENI. Valid values: 1 to 2048.
     shared_ptr<int32_t> queueNumber_ {};
-    // The ID of the region where the elastic network interface is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the latest list of Alibaba Cloud regions.
+    // The region ID of the network interface controller (NIC). You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The queue depth for inbound traffic on the elastic network interface.
-    // 
-    // > This parameter is available by invitation only. To use this feature, submit a ticket.
-    // 
-    // Note the following:
-    // 
-    // - This parameter is available only for instance types of the 7th generation and later.
-    // 
-    // - This parameter is available only for instances that use Linux images.
-    // 
-    // - A larger queue depth for inbound traffic increases throughput and reduces the packet loss rate, but consumes more memory.
+    // The inbound queue depth of the network interface controller (NIC).
     shared_ptr<int32_t> rxQueueSize_ {};
-    // The IDs of new security groups to associate with the secondary elastic network interface. The interface is then detached from its original security groups.
-    // 
-    // - The number of security groups that you can specify is limited by the maximum number of security groups to which an elastic network interface can be attached. For more information, see [Usage limits](~~25412#SecurityGroupQuota~~).
-    // 
-    // - The changes take effect after a short delay.
+    // The list of security group IDs. The secondary network interface controller (NIC) is added to the specified security groups and removed from the existing security groups.
     shared_ptr<vector<string>> securityGroupId_ {};
-    // Specifies whether to enable the source/destination check. For enhanced security, we recommend enabling this feature. Valid values:
-    // 
-    // - `true`: Enabled
-    // 
-    // - `false`: Disabled
-    // 
-    // Default value: `false`.
-    // 
-    // > This feature is available only in specific regions. Before you use this parameter, read [Source/destination check](https://help.aliyun.com/document_detail/2863210.html).
+    // Specifies whether to enable source/destination checking. We recommend that you enable this feature to improve network security. Valid values:
     shared_ptr<bool> sourceDestCheck_ {};
-    // The queue depth for outbound traffic on the elastic network interface.
-    // 
-    // > This parameter is available by invitation only. To use this feature, submit a ticket.
-    // 
-    // Note the following:
-    // 
-    // - This parameter is available only for instance types of the 7th generation and later.
-    // 
-    // - This parameter is available only for instances that use Linux images.
-    // 
-    // - A larger queue depth for outbound traffic increases throughput and reduces the packet loss rate, but consumes more memory.
+    // The outbound queue depth of the network interface controller (NIC).
     shared_ptr<int32_t> txQueueSize_ {};
   };
 

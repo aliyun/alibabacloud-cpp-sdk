@@ -173,14 +173,14 @@ namespace Models
 
 
   protected:
-    // The number of instances to which the key pair failed to be bound.
+    // The number of instances to which the key pair failed to be attached.
     shared_ptr<string> failCount_ {};
     // The name of the key pair.
     shared_ptr<string> keyPairName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<AttachKeyPairResponseBody::Results> results_ {};
-    // The total number of instances to which the key pair is bound.
+    // The total number of instances to which the key pair is attached.
     shared_ptr<string> totalCount_ {};
   };
 

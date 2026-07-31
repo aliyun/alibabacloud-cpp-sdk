@@ -103,11 +103,11 @@ namespace Models
 
   protected:
     shared_ptr<RunInstancesResponseBody::InstanceIdSets> instanceIdSets_ {};
-    // The ID of the order. This parameter is returned only when `InstanceChargeType` is set to PrePaid.
+    // The order ID. This parameter is returned only when you create subscription ECS instances (request parameter `InstanceChargeType=PrePaid`).
     shared_ptr<string> orderId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The transaction price.
+    // The transaction price of the order.
     shared_ptr<float> tradePrice_ {};
   };
 

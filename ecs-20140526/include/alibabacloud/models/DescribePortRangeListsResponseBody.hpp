@@ -105,9 +105,9 @@ namespace Models
 
 
       protected:
-        // The key of tag N.
+        // The tag key of the port range list.
         shared_ptr<string> tagKey_ {};
-        // The value of tag N.
+        // The tag value of the port range list.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -175,19 +175,19 @@ namespace Models
     protected:
       // The number of associated resources.
       shared_ptr<int32_t> associationCount_ {};
-      // The time when the port list was created.
+      // The time when the port range list was created.
       shared_ptr<string> creationTime_ {};
-      // The description of the port list.
+      // The description of the port range list.
       shared_ptr<string> description_ {};
-      // The maximum number of entries in the port list.
+      // The maximum number of entries supported by the port range list.
       shared_ptr<int32_t> maxEntries_ {};
-      // The ID of the port list.
+      // The ID of the port range list.
       shared_ptr<string> portRangeListId_ {};
-      // The name of the port list.
+      // The name of the port range list.
       shared_ptr<string> portRangeListName_ {};
-      // The ID of the resource group to which to assign the port list.
+      // The ID of the resource group to which the port range list belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The tags of the port list.
+      // The tags of the port range list.
       shared_ptr<vector<PortRangeLists::Tags>> tags_ {};
     };
 
@@ -217,9 +217,9 @@ namespace Models
 
 
   protected:
-    // A pagination token. If the return value is empty, no more data is returned.
+    // The pagination token returned in this call. If this value is empty, no more data is available.
     shared_ptr<string> nextToken_ {};
-    // Details of the port lists.
+    // The port range list information.
     shared_ptr<vector<DescribePortRangeListsResponseBody::PortRangeLists>> portRangeLists_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

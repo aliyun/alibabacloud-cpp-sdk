@@ -76,13 +76,13 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the task. You can call the [DescribeTasks](https://help.aliyun.com/document_detail/25622.html) operation to query the list of task IDs.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the request.
+    // The task ID. You can call [DescribeTasks](https://help.aliyun.com/document_detail/25622.html) to query the task ID list.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

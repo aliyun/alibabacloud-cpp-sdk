@@ -136,9 +136,9 @@ namespace Models
 
 
     protected:
-      // The cycle type. Valid values: Daily and Weekly.
+      // The type of the cycle. Valid values: Daily and Weekly.
       shared_ptr<string> periodUnit_ {};
-      // The time ranges of the O&M window recurring cycle (UTC time zone).
+      // The time ranges of the recurring O&M window cycle (UTC time zone).
       shared_ptr<vector<TimePeriod::RangeList>> rangeList_ {};
     };
 
@@ -237,7 +237,7 @@ namespace Models
     protected:
       // The ID of the resource group to which the O&M window applies. This parameter is required only when Scope is set to ResourceGroup.
       shared_ptr<string> resourceGroupId_ {};
-      // The resource type for the O&M window configuration.
+      // The type of resource to which the O&M window applies.
       shared_ptr<string> scope_ {};
       // The tags to which the O&M window applies. This parameter is required only when Scope is set to Tag.
       shared_ptr<vector<TargetResource::Tags>> tags_ {};

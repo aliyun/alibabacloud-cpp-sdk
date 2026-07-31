@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The instance families that support the deployment strategy.
+    // The instance families that support the specified deployment set strategy.
     shared_ptr<string> instanceTypeFamilies_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

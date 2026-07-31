@@ -340,7 +340,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeInstanceMaintenanceAttributesResponseBody::MaintenanceAttributes> maintenanceAttributes_ {};
-    // The page number.
+    // The page number of the maintenance attribute list.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

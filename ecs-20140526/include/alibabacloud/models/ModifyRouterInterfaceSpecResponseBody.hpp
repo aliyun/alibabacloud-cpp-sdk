@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The new specification of the router interface.
     shared_ptr<string> spec_ {};
   };
 

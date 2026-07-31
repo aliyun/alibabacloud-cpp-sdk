@@ -94,18 +94,18 @@ namespace Models
 
 
   protected:
-    // The IDs of ECS instances. You can specify 1 to 100 ECS instances.
+    // The instance ID array. Array length: 1 to 100.
     // 
     // This parameter is required.
     shared_ptr<string> instanceIds_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The additional policy. When you attach an instance RAM role to instances, you can specify an additional policy to further limit the permissions of the role. For more information, see [Policy overview](https://help.aliyun.com/document_detail/93732.html). The value of this parameter must be 1 to 1,024 characters in length.
+    // The additional access policy. You can specify an additional access policy to further restrict the permissions of the RAM role. For more information, see [Overview of access policies](https://help.aliyun.com/document_detail/93732.html). Length: 1 to 1,024 characters.
     shared_ptr<string> policy_ {};
-    // The name of the instance RAM role. You can call the [ListRoles](https://help.aliyun.com/document_detail/28713.html) operation provided by RAM to query the instance RAM roles that you created.
+    // The name of the instance RAM role. You can call the RAM API [ListRoles](https://help.aliyun.com/document_detail/28713.html) to query the instance RAM roles that you have created.
     // 
     // This parameter is required.
     shared_ptr<string> ramRoleName_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

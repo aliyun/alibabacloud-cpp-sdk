@@ -321,15 +321,14 @@ namespace Models
 
 
   protected:
-    // The details of the image pipeline executions.
     shared_ptr<DescribeImagePipelineExecutionsResponseBody::ImagePipelineExecution> imagePipelineExecution_ {};
-    // The number of entries per page.
+    // The maximum number of entries per page for paging.
     shared_ptr<int32_t> maxResults_ {};
-    // The token returned in this call. Use this token to retrieve the next page of results. For more information, see the operation description.
+    // The pagination token returned in this call. For more information about how to use this token, see the operation description.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of image pipeline executions.
+    // The total number of image components returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

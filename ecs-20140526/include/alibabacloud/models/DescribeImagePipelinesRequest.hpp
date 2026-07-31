@@ -88,9 +88,9 @@ namespace Models
 
 
     protected:
-      // The key of a tag. Up to 20 tags are supported.
+      // The tag key. Valid values of N: 1 to 20.
       shared_ptr<string> key_ {};
-      // The value of a tag. Up to 20 tags are supported.
+      // The tag value. Valid values of N: 1 to 20.
       shared_ptr<string> value_ {};
     };
 
@@ -179,29 +179,29 @@ namespace Models
 
 
   protected:
-    // The IDs of the image pipelines. You can specify up to 20 IDs.
+    // The image template ID. Valid values of N: 1 to 20.
     shared_ptr<vector<string>> imagePipelineId_ {};
-    // The number of entries to return per page. Valid values: 1 to 500.
+    // The maximum number of entries per page for paging queries. Valid values: 1 to 500.
     // 
     // Default value: 50.
     shared_ptr<int32_t> maxResults_ {};
-    // The name of the image pipeline.
+    // The template name.
     shared_ptr<string> name_ {};
-    // The pagination token. To retrieve the next page of results, set this parameter to the `NextToken` value from the previous response. Omit this parameter on your first request.
+    // The pagination token. Set this parameter to the value of `NextToken` returned by the previous call. You do not need to set this parameter for the first request.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to view the latest list of Alibaba Cloud regions.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. If you use this parameter for filtering, you can query a maximum of 1,000 resources.
+    // The ID of the enterprise resource group. When you use this parameter to filter resources, the resource count cannot exceed 1000.
     // 
-    // > Filtering by the default resource group is not supported.
+    // >Filtering by the default resource group is not supported.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // A list of tags.
+    // The tags.
     shared_ptr<vector<DescribeImagePipelinesRequest::Tag>> tag_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the diagnostic metric set, which is the unique identifier of the set.
+    // The unique ID of the diagnostic metric set.
     shared_ptr<string> metricSetId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

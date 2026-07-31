@@ -404,9 +404,11 @@ namespace Models
           public:
             friend void to_json(Darabonba::Json& j, const Ipv6Set& obj) { 
               DARABONBA_PTR_TO_JSON(Ipv6Address, ipv6Address_);
+              DARABONBA_PTR_TO_JSON(Primary, primary_);
             };
             friend void from_json(const Darabonba::Json& j, Ipv6Set& obj) { 
               DARABONBA_PTR_FROM_JSON(Ipv6Address, ipv6Address_);
+              DARABONBA_PTR_FROM_JSON(Primary, primary_);
             };
             Ipv6Set() = default ;
             Ipv6Set(const Ipv6Set &) = default ;
@@ -419,7 +421,8 @@ namespace Models
             };
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-            virtual bool empty() const override { return this->ipv6Address_ == nullptr; };
+            virtual bool empty() const override { return this->ipv6Address_ == nullptr
+        && this->primary_ == nullptr; };
             // ipv6Address Field Functions 
             bool hasIpv6Address() const { return this->ipv6Address_ != nullptr;};
             void deleteIpv6Address() { this->ipv6Address_ = nullptr;};
@@ -427,8 +430,16 @@ namespace Models
             inline Ipv6Set& setIpv6Address(string ipv6Address) { DARABONBA_PTR_SET_VALUE(ipv6Address_, ipv6Address) };
 
 
+            // primary Field Functions 
+            bool hasPrimary() const { return this->primary_ != nullptr;};
+            void deletePrimary() { this->primary_ = nullptr;};
+            inline bool getPrimary() const { DARABONBA_PTR_GET_DEFAULT(primary_, false) };
+            inline Ipv6Set& setPrimary(bool primary) { DARABONBA_PTR_SET_VALUE(primary_, primary) };
+
+
           protected:
             shared_ptr<string> ipv6Address_ {};
+            shared_ptr<bool> primary_ {};
           };
 
           virtual bool empty() const override { return this->ipv6Set_ == nullptr; };
@@ -997,21 +1008,15 @@ namespace Models
 
   protected:
     shared_ptr<DescribeNetworkInterfacesResponseBody::NetworkInterfaceSets> networkInterfaceSets_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
-    // The page number of the returned page.
-    // 
-    // > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
+    // The paging query parameter.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
-    // 
-    // > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
+    // The paging query parameter.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of ENIs.
-    // 
-    // > If you specify the `MaxResults` and `NextToken` parameters to perform a paged query, the value of the `TotalCount` response parameter is invalid.
+    // The total number of Elastic Network Interfaces (ENIs) returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

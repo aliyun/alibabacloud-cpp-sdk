@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the new system disk.
+    // The disk ID of the new system disk.
     shared_ptr<string> diskId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

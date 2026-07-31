@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the image creation task.
+    // The ID of the building task.
     shared_ptr<string> executionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

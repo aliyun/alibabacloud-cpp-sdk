@@ -143,13 +143,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeCapacityReservationInstancesResponseBody::CapacityReservationItem> capacityReservationItem_ {};
-    // The maximum number of entries per page.
+    // The maximum number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The pagination token for the next query of the capacity reservation.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries that match the query conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

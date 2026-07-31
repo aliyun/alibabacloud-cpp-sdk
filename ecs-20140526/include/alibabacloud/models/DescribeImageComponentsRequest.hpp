@@ -220,7 +220,7 @@ namespace Models
     // 
     // Valid values:
     // - Build
-    // - Test.
+    // - Test
     shared_ptr<string> componentType_ {};
     // The component version number in the major.minor.patch format. Each part must be a non-negative integer. You can also use the wildcard character (*) to replace one part for fuzzy matching.
     // >This parameter takes effect only when Name is specified.
@@ -233,7 +233,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The image component name. Only exact match is supported.
     shared_ptr<string> name_ {};
-    // The pagination token. Set this parameter to the value of NextToken returned by the previous call. You do not need to set this parameter for the first request.
+    // The pagination token. Set this parameter to the value of `NextToken` returned in the previous call. You do not need to set this parameter for the first request.
     shared_ptr<string> nextToken_ {};
     // The image component type. Valid values:
     // 
@@ -246,7 +246,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. If you use this parameter to filter resources, the resource count cannot exceed 1,000.
+    // The resource group ID. If you use this parameter to filter resources, the resource count cannot exceed 1000.
     // 
     // >Filtering by the default resource group is not supported.
     shared_ptr<string> resourceGroupId_ {};
@@ -256,7 +256,7 @@ namespace Models
     // 
     // Valid values:
     // - Linux
-    // - Windows.
+    // - Windows
     shared_ptr<string> systemType_ {};
     // The tags.
     shared_ptr<vector<DescribeImageComponentsRequest::Tag>> tag_ {};

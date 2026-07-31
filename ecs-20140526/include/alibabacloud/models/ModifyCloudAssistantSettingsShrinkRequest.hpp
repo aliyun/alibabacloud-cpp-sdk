@@ -130,39 +130,35 @@ namespace Models
 
 
   protected:
-    // The configurations of upgrading the Cloud Assistant agent.
+    // The Cloud Assistant Agent upgrade configuration.
     shared_ptr<string> agentUpgradeConfigShrink_ {};
-    // The configurations of delivering records to OSS.
+    // The OSS delivery configuration.
     shared_ptr<string> ossDeliveryConfigShrink_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The configurations of resource usage for Cloud Assistant. This setting takes effect only when the version of the Cloud Assistant agent is not earlier than the following versions:
+    // The Cloud Assistant resource usage configuration. This parameter takes effect only when the Cloud Assistant Agent version meets the following minimum requirements:
     // 
     // - Windows: 2.1.4.1065
     // 
     // - Linux: 2.2.4.1065
     shared_ptr<string> resourceUsageConfigShrink_ {};
-    // The configurations of the Session Manager feature.
+    // The Cloud Assistant session feature configuration.
     shared_ptr<string> sessionManagerConfigShrink_ {};
-    // The type of the service configurations. Valid values:
-    // 
-    // - `SessionManagerDelivery`: the configurations of delivering session records.
-    // 
-    // - `InvocationDelivery`: the configurations of delivering command execution records.
-    // 
-    // - `AgentUpgradeConfig`: the configurations of upgrading the Cloud Assistant agent.
-    // 
-    // - `SessionManagerConfig`: the configurations of Cloud Assistant Session Manager.
+    // The service configuration type. Valid values:
+    // - SessionManagerDelivery: session operation log delivery.
+    // - InvocationDelivery: task execution log delivery.
+    // - AgentUpgradeConfig: Cloud Assistant Agent upgrade configuration.
+    // - SessionManagerConfig: Cloud Assistant SessionManager configuration.
     // 
     // This parameter is required.
     shared_ptr<string> settingType_ {};
-    // The configurations of delivering records to SLS.
+    // The Simple Log Service (SLS) delivery configuration.
     shared_ptr<string> slsDeliveryConfigShrink_ {};
   };
 

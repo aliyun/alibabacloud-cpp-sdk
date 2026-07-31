@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The order ID.
+    // The ID of the generated order.
     shared_ptr<string> orderId_ {};
-    // The elasticity assurance ID.
+    // The ID of the elasticity assurance service.
     shared_ptr<string> privatePoolOptionsId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -706,7 +706,7 @@ namespace Models
     shared_ptr<DescribeInvocationsResponseBody::Invocations> invocations_ {};
     // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
-    // The page number of the query results.
+    // The page number of the query result.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};

@@ -161,61 +161,55 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. The time range refers to the period of time during which the task is created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The end of the creation time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number.
+    // The page number of the results.
     // 
-    // Pages start from page 1.
+    // Minimum value: 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page for a paged query.
     // 
-    // Valid values: 1 to 100.
+    // Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The IDs of the resources associated with the task. Valid values of N: 1 to 100.
+    // The resource IDs. Valid values of N: 1 to 100.
     shared_ptr<vector<string>> resourceIds_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query. The time range refers to the period of time during which the task is created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The beginning of the creation time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
-    // The name of the operation that generates the task. Valid values:
+    // The name of the API operation associated with the task. Valid values:
     // 
-    // - ImportImage
-    // 
-    // - ExportImage
-    // 
-    // - RedeployInstance
-    // 
-    // - ModifyDiskSpec
-    // 
-    // - ArchiveSnapshot
+    // - ImportImage: import an image.
+    // - ExportImage: export an image.
+    // - RedeployInstance: redeploy an ECS instance.
+    // - ModifyDiskSpec: change the cloud disk type.
+    // - ArchiveSnapshot: archive a snapshot.
     shared_ptr<string> taskAction_ {};
-    // Task group ID.
+    // The task group ID.
     // 
-    // > This parameter is in invitational preview. When this parameter is used, other query conditions become invalid.
+    // > This parameter is in invitational preview. When this parameter is specified, other query conditions do not take effect.
     shared_ptr<string> taskGroupId_ {};
-    // The task IDs. You can specify up to 100 task IDs at a time. Separate the task IDs with commas (,).
+    // The task IDs. You can specify up to 100 task IDs at a time. Separate multiple IDs with commas (,).
     shared_ptr<string> taskIds_ {};
     // The task status. Valid values:
     // 
-    // - Finished
+    // - Finished: The task is complete.
+    // - Processing: The task is running.
+    // - Failed: The task has failed.
     // 
-    // - Processing
+    // Default value: null.
     // 
-    // - Failed
-    // 
-    // This parameter is left empty by default.
-    // 
-    // > The system only queries tasks in the Finished, Processing, and Failed states and ignores other values.
+    // > Only tasks in the Finished, Processing, or Failed state can be queried. Other values do not take effect.
     shared_ptr<string> taskStatus_ {};
   };
 

@@ -70,10 +70,10 @@ namespace Models
 
 
     protected:
-      // 弹性保障服务ID列表。
+      // The list of elasticity assurance service IDs.
       // 
       // 
-      // **限制**：单次查询的弹性保障服务数量最多不超过50个。
+      // **Limit**: You can query up to 50 elasticity assurance services at a time.
       shared_ptr<vector<string>> id_ {};
     };
 

@@ -103,25 +103,25 @@ namespace Models
 
 
   protected:
-    // The IDs of the instances. The value can be a JSON array that consists of up to 100 instance IDs. Separate the IDs with commas (,).
+    // The instance IDs. The value can be a JSON array that consists of up to 100 instance IDs. Separate the IDs with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> instanceIds_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number.
+    // The page number of the instance status list.
     // 
-    // Page starts from page 1.
+    // Minimum value: 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page for the paged query.
     // 
-    // Valid values: 1 to 100.
+    // Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the elasticity assurance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the elasticity assurance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

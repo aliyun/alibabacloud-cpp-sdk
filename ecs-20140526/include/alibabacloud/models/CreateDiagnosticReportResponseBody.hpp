@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The diagnostic report ID.
+    // The diagnostic report ID, which is the unique identifier of the resource diagnostic report.
     shared_ptr<string> reportId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

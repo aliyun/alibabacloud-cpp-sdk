@@ -482,7 +482,6 @@ namespace Models
 
 
   protected:
-    // An array of scheduled task history records.
     shared_ptr<DescribeAutoProvisioningGroupHistoryResponseBody::AutoProvisioningGroupHistories> autoProvisioningGroupHistories_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -490,7 +489,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of scheduled tasks.
+    // The total number of scheduling tasks queried.
     shared_ptr<int32_t> totalCount_ {};
   };
 

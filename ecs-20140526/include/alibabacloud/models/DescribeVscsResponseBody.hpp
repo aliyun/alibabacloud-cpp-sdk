@@ -105,7 +105,9 @@ namespace Models
 
 
       protected:
+        // The tag key of the key pair.
         shared_ptr<string> tagKey_ {};
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -171,13 +173,29 @@ namespace Models
 
 
     protected:
+      // The description of the port list.
       shared_ptr<string> description_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The resource group ID. When you use this parameter to filter resources, the resource count cannot exceed 1000.
+      // 
+      // >Filtering by the default resource group is not supported.
       shared_ptr<string> resourceGroupId_ {};
+      // The status of the VSC. Valid values:
+      // 
+      // - In_use: in use.
+      // - Attaching: being attached.
+      // - Detaching: being detached.
+      // - AttachFailed: failed to attach.
+      // - DetachFailed: failed to detach.
       shared_ptr<string> status_ {};
+      // The tag keys of snapshots in the snapshot-consistent group. The default values of Key and Value provide the snapshot source information.
       shared_ptr<vector<Vscs::Tags>> tags_ {};
+      // VSC ID。
       shared_ptr<string> vscId_ {};
+      // The custom name of the VSC.
       shared_ptr<string> vscName_ {};
+      // The type of the VSC. Valid values: Primary or Secondary.
       shared_ptr<string> vscType_ {};
     };
 
@@ -207,8 +225,11 @@ namespace Models
 
 
   protected:
+    // The query token. The value is the NextToken parameter value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // VSC
     shared_ptr<vector<DescribeVscsResponseBody::Vscs>> vscs_ {};
   };
 

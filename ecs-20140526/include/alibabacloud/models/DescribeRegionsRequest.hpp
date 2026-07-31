@@ -94,33 +94,24 @@ namespace Models
 
 
   protected:
-    // The natural language that is used to filter responses. For more information, see [RFC 7231](https://tools.ietf.org/html/rfc7231). Valid values:
-    // 
-    // - zh-CN: Simplified Chinese
-    // 
-    // - zh_TW: Traditional Chinese
-    // 
-    // - en-US: English
-    // 
-    // - ja: Japanese
-    // 
-    // - fr: French
-    // 
-    // - de: German
-    // 
-    // - ko: Korean
+    // The natural language that is used to filter responses. For more information, see [RFC 7231](https://tools.ietf.org/html/rfc7231). Valid values:  
+    //          
+    // - zh-CN: simplified Chinese.
+    // - zh-TW: traditional Chinese.
+    // - en-US: English.
+    // - ja: Japanese.
+    // - fr: French.
+    // - de: German.
+    // - ko: Korean.
     // 
     // Default value: zh-CN.
     shared_ptr<string> acceptLanguage_ {};
-    // The billing method of the instance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html).
-    // Valid values:
+    // The billing method of the instance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
     // 
-    // - PrePaid: subscription. If you set this parameter to PrePaid, make sure that you have sufficient balance or credits in your account. Otherwise, the InvalidPayMethod error code is returned.
-    // 
+    // - PrePaid: subscription. If you set this parameter to PrePaid, confirm that your account supports balance payment or credit payment. Otherwise, the InvalidPayMethod error is returned.
     // - PostPaid: pay-as-you-go.
-    //   SpotWithPriceLimit: spot instance for which a maximum hourly price is specified.
-    // 
-    // - SpotAsPriceGo: spot instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
+    // - SpotWithPriceLimit: spot instance with a maximum price limit.
+    // - SpotAsPriceGo: spot instance priced at the market price with the pay-as-you-go price as the upper limit.
     // 
     // Default value: PostPaid.
     shared_ptr<string> instanceChargeType_ {};
@@ -128,15 +119,12 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of resource. Valid values:
+    // The resource type. Valid values:
     // 
-    // - instance: Elastic Compute Service (ECS) instance
-    // 
-    // - disk: disk
-    // 
-    // - reservedinstance: reserved instance
-    // 
-    // - scu: storage capacity unit (SCU)
+    // - instance: ECS instance.
+    // - disk: cloud disk.
+    // - reservedinstance: reserved instance.
+    // - scu: storage capacity unit (SCU).
     // 
     // Default value: instance.
     shared_ptr<string> resourceType_ {};

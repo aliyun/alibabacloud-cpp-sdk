@@ -274,7 +274,7 @@ namespace Models
     // Specifies whether to perform only a dry run. Valid values:
     //          
     // - true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
-    // - false: performs a dry run and sends the Normal request. If the request passes the dry run, a 2xx HTTP status code is returned and the authorization is verified.
+    // - false: performs a dry run and sends the Normal request. If the request passes the dry run, a 2XX HTTP status code is returned and the authorization is verified.
     // 
     // Default value: false.
     shared_ptr<bool> dryRun_ {};
@@ -283,7 +283,7 @@ namespace Models
     // Specifies whether to query the capacity information of the security group. If you set this parameter to True, the `EcsCount` and `AvailableInstanceAmount` values in the response are valid.
     // > This parameter is deprecated.
     shared_ptr<bool> isQueryEcsCount_ {};
-    // The maximum number of entries per page for paging query. If you set this parameter, the `MaxResults` and `NextToken` paging method is used.
+    // The maximum number of entries per page for a paged query. Settings this parameter indicates that the `MaxResults` and `NextToken` combination is used for paging.
     // 
     // Maximum value: 100.
     // 
@@ -294,13 +294,13 @@ namespace Models
     // - vpc: VPC.
     // - classic: classic network. The classic network is deprecated. For more information, see [Deprecation notice](https://help.aliyun.com/document_detail/2833134.html).
     shared_ptr<string> networkType_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous request. You do not need to set this parameter for the first request.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // > This parameter will be offline. Use NextToken and MaxResults for paging.
+    // > This parameter will be offline soon. Use NextToken and MaxResults for paged query and paging operations.
     shared_ptr<int32_t> pageNumber_ {};
-    // > This parameter will be offline. Use NextToken and MaxResults for paging.
+    // > This parameter will be offline soon. Use NextToken and MaxResults for paged query and paging operations.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
@@ -312,7 +312,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the security group.
+    // The security group ID.
     shared_ptr<string> securityGroupId_ {};
     // The IDs of security groups. You can specify up to 100 security group IDs. Separate multiple IDs with commas (,) in a JSON array format.
     shared_ptr<string> securityGroupIds_ {};

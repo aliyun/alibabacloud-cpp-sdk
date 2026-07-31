@@ -88,9 +88,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N. The value of N can be from 1 to 20.
+      // The key of the tag. Valid values of N: 1 to 20.
       shared_ptr<string> key_ {};
-      // The value of tag N. The value of N can be from 1 to 20.
+      // The value of the tag. Valid values of N: 1 to 20.
       shared_ptr<string> value_ {};
     };
 
@@ -177,53 +177,42 @@ namespace Models
 
 
   protected:
-    // The ID of the image building task.
+    // The ID of the image build task.
     shared_ptr<string> executionId_ {};
     // The ID of the image template.
     shared_ptr<string> imagePipelineId_ {};
-    // The number of entries to return on each page. Valid values: 1 to 500.
+    // The maximum number of entries per page for paging. Valid values: 1 to 500.
     // 
     // Default value: 50.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token. Set the value to the `NextToken` value returned from a previous call to this operation. This parameter is not required for the first call.
+    // The pagination token. Set this parameter to the value of NextToken returned in the previous call. You do not need to set this parameter for the first request.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the latest list of Alibaba Cloud regions.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The status of the image building task. You can specify multiple values, separated by commas. Example: `BUILDING,DISTRIBUTING`. Valid values:
+    // The status of the image build task. You can specify multiple values at the same time. Separate multiple values with commas (,). Example: `BUILDING,DISTRIBUTING`. Valid values:
     // 
-    // - PREPARING: The system is preparing resources, such as a temporary transit instance.
+    // - PREPARING: The task is being prepared. Resources such as the temporary intermediate instance are being created.
+    // - REPAIRING: The task is being repaired. The source image is being repaired.
+    // - BUILDING: The task is being built. Custom commands are being run and the image is being created.
+    // - TESTING: The task is being tested. Custom test commands are being run.
+    // - DISTRIBUTING: The task is being distributed. Image copying and sharing are being performed.
+    // - RELEASING: Resources are being reclaimed. Temporary resources generated during the build process are being released.
+    // - SUCCESS: The task succeeded.
+    // - PARTITION_SUCCESS: The task partially succeeded. The image was built, but exceptions may have occurred during distribution or resource cleanup.
+    // - FAILED: The task failed.
+    // - TEST_FAILED: The test failed. The image was created, but the test failed.
+    // - CANCELLING: The task is being canceled.
+    // - CANCELLED: The task was canceled.
     // 
-    // - REPAIRING: The system is repairing the source image.
-    // 
-    // - BUILDING: The system is building the image. This includes executing user-defined commands and creating the image.
-    // 
-    // - TESTING: The system is testing the created image by running user-defined test commands.
-    // 
-    // - DISTRIBUTING: The system is distributing the image. This includes copying and sharing the image.
-    // 
-    // - RELEASING: The system is releasing temporary resources generated during the build process.
-    // 
-    // - SUCCESS: The task completed successfully.
-    // 
-    // - PARTITION_SUCCESS: The task is partially successful. The image was created, but an error may have occurred during distribution or resource cleanup.
-    // 
-    // - FAILED: The image building task failed.
-    // 
-    // - TEST_FAILED: The image was created successfully, but it failed the user-defined tests.
-    // 
-    // - CANCELLING: The system is canceling the image building task.
-    // 
-    // - CANCELLED: The image building task was canceled.
-    // 
-    // > If you omit this parameter, the operation returns image building tasks of all statuses.
+    // > If this parameter is empty, image build tasks in all states are queried.
     shared_ptr<string> status_ {};
-    // The list of tags.
+    // The tags.
     shared_ptr<vector<DescribeImagePipelineExecutionsRequest::Tag>> tag_ {};
   };
 

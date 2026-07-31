@@ -439,7 +439,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of EBS devices for which full status information is returned.
+    // The total number of full status entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

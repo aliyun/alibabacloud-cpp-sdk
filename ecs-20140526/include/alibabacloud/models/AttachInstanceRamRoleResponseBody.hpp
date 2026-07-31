@@ -180,7 +180,7 @@ namespace Models
     shared_ptr<string> ramRoleName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of instances to which you attempted to attach the instance RAM role.
+    // The total number of instances to which the instance RAM role is attached.
     shared_ptr<int32_t> totalCount_ {};
   };
 

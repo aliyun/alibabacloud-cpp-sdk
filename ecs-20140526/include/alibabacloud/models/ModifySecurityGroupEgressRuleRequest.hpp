@@ -258,15 +258,15 @@ namespace Models
     // 
     // Default value: null.
     shared_ptr<string> destCidrIp_ {};
-    // The ID of the destination security group to which you want to grant access permissions. Specify at least one of `DestGroupId` and `DestCidrIp`.
+    // The ID of the destination security group for which you want to configure access permissions. Set at least one of `DestGroupId` and `DestCidrIp`.
     // 
-    // - Specify at least one of DestGroupId, DestCidrIp, Ipv6DestCidrIp, and DestPrefixListId.
-    // - If DestGroupId is specified but DestCidrIp is not specified, the NicType parameter can only be set to intranet.
-    // - If both DestGroupId and DestCidrIp are specified, DestCidrIp takes precedence.
+    // - Set at least one of DestGroupId, DestCidrIp, Ipv6DestCidrIp, and DestPrefixListId.
+    // - If DestGroupId is specified but DestCidrIp is not specified, the NicType parameter can be set only to intranet.
+    // - If both DestGroupId and DestCidrIp are specified, DestCidrIp takes precedence by default.
     shared_ptr<string> destGroupId_ {};
-    // The Alibaba Cloud account that owns the destination security group when you set a cross-account security group rule.
+    // The Alibaba Cloud account that manages the destination security group when you set a security group rule across accounts.
     shared_ptr<string> destGroupOwnerAccount_ {};
-    // The ID of the Alibaba Cloud account that owns the destination security group when you set a cross-account security group rule.
+    // The ID of the Alibaba Cloud account that manages the destination security group when you set a security group rule across accounts.
     shared_ptr<int64_t> destGroupOwnerId_ {};
     // The ID of the destination prefix list. You can call [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) to query available prefix list IDs.
     // 
@@ -290,17 +290,17 @@ namespace Models
     shared_ptr<string> ipProtocol_ {};
     // The destination IPv6 Classless Inter-Domain Routing (CIDR) block. CIDR format and IPv6 format IP address range are supported.
     // 
-    // > Only VPC-type IP addresses are supported. This parameter and `DestCidrIp` cannot be specified at the same time. Settings for both parameters simultaneously are not allowed.
+    // > Only VPC-type IP addresses are supported. This parameter and `DestCidrIp` cannot be specified at the same time. Settings for this parameter and `DestCidrIp` are mutually exclusive.
     // 
     // Default value: null.
     shared_ptr<string> ipv6DestCidrIp_ {};
     // The source IPv6 Classless Inter-Domain Routing (CIDR) block. CIDR format and IPv6 format IP address range are supported.
     // 
-    // > Only VPC-type IP addresses are supported. This parameter and `SourceCidrIp` cannot be specified at the same time. Settings for both parameters simultaneously are not allowed.
+    // > Only VPC-type IP addresses are supported. Settings for this parameter and `SourceCidrIp` are mutually exclusive.
     // 
     // Default value: null.
     shared_ptr<string> ipv6SourceCidrIp_ {};
-    // The network interface type.
+    // The network interface controller (NIC) type.
     // 
     // > When you modify a rule by specifying the security group rule ID, this parameter cannot be modified. To make such a change, add a new rule and then delete the current rule.
     shared_ptr<string> nicType_ {};
@@ -341,7 +341,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> securityGroupId_ {};
-    // The security group rule ID. You can call [DescribeSecurityGroupAttribute](https://help.aliyun.com/document_detail/2679845.html) to query the security group rule ID.
+    // The security group rule ID. You can call [DescribeSecurityGroupAttribute](https://help.aliyun.com/document_detail/2679845.html) to query security group rule IDs.
     shared_ptr<string> securityGroupRuleId_ {};
     // The source IPv4 Classless Inter-Domain Routing (CIDR) block. CIDR format and IPv4 format IP address range are supported.
     // 

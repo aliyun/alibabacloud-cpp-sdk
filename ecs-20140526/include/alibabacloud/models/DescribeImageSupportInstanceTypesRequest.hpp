@@ -151,7 +151,7 @@ namespace Models
     // - CreateEcs (default): instance creation.
     // - ChangeOS: replacement of the system disk or operating system.
     shared_ptr<string> actionType_ {};
-    // The list of filter conditions for querying resources.
+    // The list of filter conditions used to query resources.
     shared_ptr<vector<DescribeImageSupportInstanceTypesRequest::Filter>> filter_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};

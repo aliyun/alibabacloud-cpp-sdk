@@ -105,19 +105,18 @@ namespace Models
   protected:
     // The instance ID.
     // 
-    // > If you configure this parameter, you cannot configure `NetworkInterfaceId`.
+    // > If you specify this parameter, leave NetworkInterfaceId empty.
     shared_ptr<string> instanceId_ {};
-    // The ENI ID.
+    // The Elastic Network Interface (ENI) ID.
     // 
-    // > If you configure this parameter, you cannot configure `InstanceId`.
+    // > If you specify this parameter, leave InstanceId empty.
     shared_ptr<string> networkInterfaceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
-    // - If you want to remove an instance from a security group, you do not need to specify a region ID.
-    // 
-    // - If you want to remove an ENI from a security group, you must specify the ID of the region in which the ENI resides.
+    // - You do not need to specify the region ID when removing an instance from a security group.
+    // - You must specify the region ID of the Elastic Network Interface (ENI) when removing an ENI from a security group.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -84,13 +84,13 @@ namespace Models
 
 
   protected:
-    // The ID of the ENI.
+    // The network interface controller (NIC) ID.
     // 
     // This parameter is required.
     shared_ptr<string> networkInterfaceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -142,25 +142,25 @@ namespace Models
 
 
     protected:
-      // The ID of the activation code.
-      shared_ptr<string> activationId_ {};
-      // The number of instances that were deregistered.
-      shared_ptr<string> creationTime_ {};
-      // The maximum number of times that the activation code can be used to register managed instances.
-      shared_ptr<int32_t> deregisteredCount_ {};
-      // The number of registered instances.
-      shared_ptr<string> description_ {};
-      // The IP addresses of the hosts that can use the activation code.
-      shared_ptr<bool> disabled_ {};
-      // The description of the activation code.
-      shared_ptr<int32_t> instanceCount_ {};
-      // Indicates whether the activation code is disabled.
-      shared_ptr<string> instanceName_ {};
-      // The validity period of the activation code. Unit: hours.
-      shared_ptr<string> ipAddressRange_ {};
-      // The default prefix of the instance name.
-      shared_ptr<int32_t> registeredCount_ {};
       // The activation code ID.
+      shared_ptr<string> activationId_ {};
+      // The creation time.
+      shared_ptr<string> creationTime_ {};
+      // The number of deregistered instances.
+      shared_ptr<int32_t> deregisteredCount_ {};
+      // The description of the activation code.
+      shared_ptr<string> description_ {};
+      // Indicates whether the activation code is disabled.
+      shared_ptr<bool> disabled_ {};
+      // The maximum number of times that the activation code can be used to register managed instances.
+      shared_ptr<int32_t> instanceCount_ {};
+      // The default instance name prefix.
+      shared_ptr<string> instanceName_ {};
+      // The IP addresses of hosts that are allowed to use the activation code.
+      shared_ptr<string> ipAddressRange_ {};
+      // The number of registered instances.
+      shared_ptr<int32_t> registeredCount_ {};
+      // The validity period of the activation code. Unit: hours.
       shared_ptr<int64_t> timeToLiveInHours_ {};
     };
 
@@ -183,9 +183,9 @@ namespace Models
 
 
   protected:
-    // The time when the activation code was created.
+    // The information about the activation code and its usage.
     shared_ptr<DisableActivationResponseBody::Activation> activation_ {};
-    // Details about the activation code and its usage information.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

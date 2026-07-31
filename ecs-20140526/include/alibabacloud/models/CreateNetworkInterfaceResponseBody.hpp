@@ -278,9 +278,11 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Ipv6Set& obj) { 
           DARABONBA_PTR_TO_JSON(Ipv6Address, ipv6Address_);
+          DARABONBA_PTR_TO_JSON(Primary, primary_);
         };
         friend void from_json(const Darabonba::Json& j, Ipv6Set& obj) { 
           DARABONBA_PTR_FROM_JSON(Ipv6Address, ipv6Address_);
+          DARABONBA_PTR_FROM_JSON(Primary, primary_);
         };
         Ipv6Set() = default ;
         Ipv6Set(const Ipv6Set &) = default ;
@@ -293,7 +295,8 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->ipv6Address_ == nullptr; };
+        virtual bool empty() const override { return this->ipv6Address_ == nullptr
+        && this->primary_ == nullptr; };
         // ipv6Address Field Functions 
         bool hasIpv6Address() const { return this->ipv6Address_ != nullptr;};
         void deleteIpv6Address() { this->ipv6Address_ = nullptr;};
@@ -301,8 +304,16 @@ namespace Models
         inline Ipv6Set& setIpv6Address(string ipv6Address) { DARABONBA_PTR_SET_VALUE(ipv6Address_, ipv6Address) };
 
 
+        // primary Field Functions 
+        bool hasPrimary() const { return this->primary_ != nullptr;};
+        void deletePrimary() { this->primary_ = nullptr;};
+        inline bool getPrimary() const { DARABONBA_PTR_GET_DEFAULT(primary_, false) };
+        inline Ipv6Set& setPrimary(bool primary) { DARABONBA_PTR_SET_VALUE(primary_, primary) };
+
+
       protected:
         shared_ptr<string> ipv6Address_ {};
+        shared_ptr<bool> primary_ {};
       };
 
       virtual bool empty() const override { return this->ipv6Set_ == nullptr; };
@@ -620,49 +631,43 @@ namespace Models
 
 
   protected:
-    // The description of the elastic network interface.
+    // The description of the network interface controller (NIC).
     shared_ptr<string> description_ {};
-    // The IPv4 prefixes that are assigned to the elastic network interface.
     shared_ptr<CreateNetworkInterfaceResponseBody::Ipv4PrefixSets> ipv4PrefixSets_ {};
-    // The IPv6 prefixes that are assigned to the elastic network interface.
     shared_ptr<CreateNetworkInterfaceResponseBody::Ipv6PrefixSets> ipv6PrefixSets_ {};
-    // The IPv6 addresses that are assigned to the elastic network interface.
     shared_ptr<CreateNetworkInterfaceResponseBody::Ipv6Sets> ipv6Sets_ {};
-    // The MAC address of the elastic network interface.
+    // The MAC address of the network interface controller (NIC).
     shared_ptr<string> macAddress_ {};
-    // The ID of the elastic network interface.
+    // The ID of the network interface controller (NIC).
     shared_ptr<string> networkInterfaceId_ {};
-    // The name of the elastic network interface.
+    // The name of the network interface controller (NIC).
     shared_ptr<string> networkInterfaceName_ {};
-    // The ID of the account that owns the elastic network interface.
+    // The ID of the account that owns the network interface controller (NIC).
     shared_ptr<string> ownerId_ {};
-    // The primary private IP address of the elastic network interface.
+    // The private IP address of the network interface controller (NIC).
     shared_ptr<string> privateIpAddress_ {};
-    // The private IP addresses that are assigned to the elastic network interface.
     shared_ptr<CreateNetworkInterfaceResponseBody::PrivateIpSets> privateIpSets_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The IDs of the security groups to which the elastic network interface belongs.
     shared_ptr<CreateNetworkInterfaceResponseBody::SecurityGroupIds> securityGroupIds_ {};
-    // The ID of the distributor for the elastic network interface.
+    // The Virtual Network Operator (VNO) ID associated with the network interface controller (NIC).
     shared_ptr<int64_t> serviceID_ {};
-    // Specifies whether the elastic network interface is managed by a cloud service or a distributor.
+    // Indicates whether the user of the network interface controller (NIC) is an Alibaba Cloud service or a VNO.
     shared_ptr<bool> serviceManaged_ {};
     // > This parameter is in invitational preview and is not publicly available.
     shared_ptr<bool> sourceDestCheck_ {};
-    // The status of the elastic network interface.
+    // The status of the network interface controller (NIC).
     shared_ptr<string> status_ {};
-    // The tags of the elastic network interface.
     shared_ptr<CreateNetworkInterfaceResponseBody::Tags> tags_ {};
-    // The type of the elastic network interface.
+    // The type of the network interface controller (NIC).
     shared_ptr<string> type_ {};
-    // The ID of the vSwitch.
+    // The ID of the vSwitch in the VPC.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the VPC to which the elastic network interface belongs.
+    // The ID of the VPC to which the ENI belongs.
     shared_ptr<string> vpcId_ {};
-    // The ID of the zone.
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

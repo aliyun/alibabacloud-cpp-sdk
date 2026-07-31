@@ -503,7 +503,7 @@ namespace Models
         shared_ptr<float> discountPrice_ {};
         // The original price.
         shared_ptr<float> originalPrice_ {};
-        // The hourly price of a reserved instance with the no upfront or partial upfront payment option.
+        // The hourly price of a reserved instance with no upfront or partial upfront payment.
         shared_ptr<float> reservedInstanceHourPrice_ {};
         // The transaction price, which is the original price minus the discount.
         shared_ptr<float> tradePrice_ {};

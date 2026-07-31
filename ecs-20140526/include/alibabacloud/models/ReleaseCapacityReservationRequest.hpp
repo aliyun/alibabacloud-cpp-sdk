@@ -131,11 +131,11 @@ namespace Models
 
   protected:
     shared_ptr<ReleaseCapacityReservationRequest::PrivatePoolOptions> privatePoolOptions_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Set the value to false. This indicates that the system directly releases the capacity reservation.
+    // Specifies whether to perform only a dry run. Valid values: false. Currently, only false is supported, which indicates that the capacity reservation is directly released without a dry run.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the capacity reservation. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the capacity reservation. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

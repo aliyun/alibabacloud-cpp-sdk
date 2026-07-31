@@ -133,11 +133,11 @@ namespace Models
 
 
     protected:
-      // The ID of the activation code.
+      // The activation code ID.
       shared_ptr<string> activationId_ {};
-      // The time when the activation code was created.
+      // The creation time.
       shared_ptr<string> creationTime_ {};
-      // The number of instances that were deregistered.
+      // The number of deregistered instances.
       shared_ptr<int32_t> deregisteredCount_ {};
       // The description of the activation code.
       shared_ptr<string> description_ {};
@@ -145,9 +145,9 @@ namespace Models
       shared_ptr<int32_t> instanceCount_ {};
       // The default instance name prefix.
       shared_ptr<string> instanceName_ {};
-      // The IP addresses of the hosts that are allowed to use the activation code.
+      // The IP addresses of hosts that are allowed to use the activation code.
       shared_ptr<string> ipAddressRange_ {};
-      // The number of instances that were registered.
+      // The number of registered instances.
       shared_ptr<int32_t> registeredCount_ {};
       // The validity period of the activation code. Unit: hours.
       shared_ptr<int64_t> timeToLiveInHours_ {};
@@ -172,7 +172,7 @@ namespace Models
 
 
   protected:
-    // Details about the activation code and its usage information.
+    // The information about the activation code and its usage.
     shared_ptr<DeleteActivationResponseBody::Activation> activation_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

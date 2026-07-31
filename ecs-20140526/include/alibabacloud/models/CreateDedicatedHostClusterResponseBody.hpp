@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the host group.
+    // The ID of the dedicated host cluster.
     shared_ptr<string> dedicatedHostClusterId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -106,8 +106,8 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // Specifies whether to remove formatting symbols from the returned text. Valid values:
     // 
-    // - true: removes formatting symbols.
-    // - false: does not remove formatting symbols.
+    // - true: Remove formatting symbols.
+    // - false: Do not remove formatting symbols.
     // 
     // Default value: false.
     shared_ptr<bool> removeSymbols_ {};

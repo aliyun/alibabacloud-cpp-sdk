@@ -491,176 +491,90 @@ namespace Models
     // The list of advanced features to return for instance types.
     shared_ptr<vector<string>> additionalAttributes_ {};
     // The CPU architecture. Valid values:
-    // - X86.
-    // - ARM.
     shared_ptr<string> cpuArchitecture_ {};
     // The CPU architectures to query. Array length: 1 to 2.
     shared_ptr<vector<string>> cpuArchitectures_ {};
     // The GPU type.
-    // 
-    // > Fuzzy matching is supported. For example, if the GPU type of an instance type is NVIDIA V100, you can enter NVIDIA to query the instance type.
     shared_ptr<string> GPUSpec_ {};
     // The GPU types to query. Array length: 1 to 10.
     shared_ptr<vector<string>> gpuSpecs_ {};
     // The instance type categories to query. Array length: 1 to 10.
     shared_ptr<vector<string>> instanceCategories_ {};
-    // The category of the instance type. Valid values:
-    // 
-    // - General-purpose: general-purpose instance type.
-    // - Compute-optimized: compute-optimized instance type.
-    // - Memory-optimized: memory-optimized instance type.
-    // - Big data: big data instance type.
-    // - Local SSDs: local SSD instance type.
-    // - High Clock Speed: high clock speed instance type.
-    // - Enhanced: enhanced instance type.
-    // - Shared: shared instance type.
-    // - Compute-optimized with GPU: GPU-accelerated compute-optimized instance type.
-    // - Visual Compute-optimized: visual compute-optimized instance type.
-    // - Heterogeneous Service: heterogeneous service instance type.
-    // - Compute-optimized with FPGA: FPGA-accelerated compute-optimized instance type.
-    // - Compute-optimized with NPU: NPU-accelerated compute-optimized instance type.
-    // - ECS Bare Metal: ECS Bare Metal Instance.
-    // - Super Computing Cluster: Super Computing Cluster instance type.
-    // - High Performance Compute: high-performance computing instance type.
+    // The instance type category. Valid values:
     shared_ptr<string> instanceCategory_ {};
     // The level of the instance family. Valid values:
-    // - EntryLevel: entry level (shared).
-    // - EnterpriseLevel: enterprise level.
-    // - CreditEntryLevel: credit-based entry level.
     shared_ptr<string> instanceFamilyLevel_ {};
     // The instance families to query. Array length: 1 to 10.
     shared_ptr<vector<string>> instanceTypeFamilies_ {};
-    // The instance family that the instance type belongs to. For valid values, see [DescribeInstanceTypeFamilies](https://help.aliyun.com/document_detail/25621.html).
-    // 
-    // For more information about instance families, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+    // The instance family to which the instance type belongs. For more information, see [DescribeInstanceTypeFamilies](https://help.aliyun.com/document_detail/25621.html).
     shared_ptr<string> instanceTypeFamily_ {};
     // The specified instance types. Array length: 1 to 10. If this parameter is not specified, information about all instance types is queried by default.
     shared_ptr<vector<string>> instanceTypes_ {};
-    // The local disk categories to query. Array length: 1 to 2.
+    // The local disk types to query. Array length: 1 to 2.
     shared_ptr<vector<string>> localStorageCategories_ {};
-    // The category of local disks. For more information, see [Local disks](~~63138#section_n2w_8yc_5u1~~). Valid values:
-    // 
-    // - local_hdd_pro: SATA HDDs used by the d1ne and d1 instance families.
-    // - local_ssd_pro: NVMe SSDs used by the i2, i2g, i1, ga1, and gn5 instance families.
+    // The local disk type. For more information, see [Local disks](~~63138#section_n2w_8yc_5u1~~). Valid values:
     shared_ptr<string> localStorageCategory_ {};
-    // The maximum number of entries per page for a paginated query. Maximum value: 1600.
-    // 
-    // Default value: 1600.
+    // The maximum number of entries per page for paging query. Maximum value: 1600.
     shared_ptr<int64_t> maxResults_ {};
-    // The maximum number of vCPU cores when you query instance types. Valid values: positive integers.
-    // 
-    // > Instance types with more vCPU cores than the specified value are not returned.
+    // The expected maximum number of vCPU cores when querying instance types. Valid values: positive integers.
     shared_ptr<int32_t> maximumCpuCoreCount_ {};
-    // The maximum CPU base clock speed when you query instance types.
-    // 
-    // > Instance types with a base clock speed higher than the specified value are not returned.
+    // The expected maximum clock speed when querying instance types.
     shared_ptr<float> maximumCpuSpeedFrequency_ {};
-    // The maximum CPU turbo frequency when you query instance types.
-    // 
-    // > Instance types with a turbo frequency higher than the specified value are not returned.
+    // The expected maximum turbo frequency when querying instance types.
     shared_ptr<float> maximumCpuTurboFrequency_ {};
-    // The maximum number of GPUs when you query instance types. Valid values: positive integers.
-    // 
-    // > Instance types with more GPUs than the specified value are not returned.
+    // The expected maximum number of GPUs when querying instance types. Valid values: positive integers.
     shared_ptr<int32_t> maximumGPUAmount_ {};
-    // The maximum memory size when you query instance types. Unit: GiB.
-    // 
-    // > Instance types with a memory size larger than the specified value are not returned.
+    // The expected maximum memory size when querying instance types. Unit: GiB.
     shared_ptr<float> maximumMemorySize_ {};
-    // The minimum baseline vCPU computing performance (total of all vCPUs) for burstable instance types t5 and t6 when you query instance types.
-    // 
-    // > Instance types with a baseline vCPU computing performance lower than the specified value are not returned.
+    // The expected minimum baseline vCPU computing performance (sum of all vCPUs) for burstable instances t5 and t6 when querying instance types.
     shared_ptr<int32_t> minimumBaselineCredit_ {};
-    // The minimum number of vCPU cores when you query instance types. Valid values: positive integers.
-    // 
-    // > Instance types with fewer vCPU cores than the specified value are not returned.
+    // The expected minimum number of vCPU cores when querying instance types. Valid values: positive integers.
     shared_ptr<int32_t> minimumCpuCoreCount_ {};
-    // The minimum CPU base clock speed when you query instance types.
-    // 
-    // > Instance types with a base clock speed lower than the specified value are not returned.
+    // The expected minimum clock speed when querying instance types.
     shared_ptr<float> minimumCpuSpeedFrequency_ {};
-    // The minimum CPU turbo frequency when you query instance types.
-    // 
-    // > Instance types with a turbo frequency lower than the specified value are not returned.
+    // The expected minimum turbo frequency when querying instance types.
     shared_ptr<float> minimumCpuTurboFrequency_ {};
-    // The minimum number of cloud disks that can be attached when you query instance types.
-    // 
-    // > Instance types that support fewer cloud disks than the specified value are not returned.
+    // The expected minimum number of cloud disks that can be attached when querying instance types.
     shared_ptr<int32_t> minimumDiskQuantity_ {};
-    // The minimum number of IPv6 addresses per ENI when you query instance types.
-    // 
-    // > Instance types that support fewer IPv6 addresses per ENI than the specified value are not returned.
+    // The expected minimum number of IPv6 addresses per Elastic Network Interface (ENI) network interface controller (NIC) when querying instance types.
     shared_ptr<int32_t> minimumEniIpv6AddressQuantity_ {};
-    // The minimum number of IPv4 addresses per ENI when you query instance types.
-    // 
-    // > Instance types that support fewer IPv4 addresses per ENI than the specified value are not returned.
+    // The expected minimum number of IPv4 addresses per Elastic Network Interface (ENI) network interface controller (NIC) when querying instance types.
     shared_ptr<int32_t> minimumEniPrivateIpAddressQuantity_ {};
-    // The minimum number of ENIs that can be attached when you query instance types.
-    // 
-    // > Instance types that support fewer ENIs than the specified value are not returned.
+    // The expected minimum number of Elastic Network Interfaces (ENIs) that can be attached per network interface controller (NIC) when querying instance types.
     shared_ptr<int32_t> minimumEniQuantity_ {};
-    // The minimum number of ERIs when you query instance types.
-    // 
-    // > Instance types with fewer ERIs than the specified value are not returned.
+    // The expected minimum number of Elastic RDMA Interfaces (ERIs) per network interface controller (NIC) when querying instance types.
     shared_ptr<int32_t> minimumEriQuantity_ {};
-    // The minimum number of GPUs when you query instance types. Valid values: positive integers.
-    // 
-    // > Instance types with fewer GPUs than the specified value are not returned.
+    // The expected minimum number of GPUs when querying instance types. Valid values: positive integers.
     shared_ptr<int32_t> minimumGPUAmount_ {};
-    // The minimum initial vCPU credits for burstable instance types t5 and t6 when you query instance types.
-    // 
-    // > Instance types with initial vCPU credits lower than the specified value are not returned.
+    // The expected minimum initial vCPU CPU credits for burstable instances t5 and t6 when querying instance types.
     shared_ptr<int32_t> minimumInitialCredit_ {};
-    // The minimum inbound internal bandwidth when you query instance types. Unit: kbit/s.
-    // 
-    // > Instance types with an inbound internal bandwidth lower than the specified value are not returned.
+    // The expected minimum inbound internal bandwidth when querying instance types. Unit: kbit/s.
     shared_ptr<int32_t> minimumInstanceBandwidthRx_ {};
-    // The minimum outbound internal bandwidth when you query instance types. Unit: kbit/s.
-    // 
-    // > Instance types with an outbound internal bandwidth lower than the specified value are not returned.
+    // The expected minimum outbound internal bandwidth when querying instance types. Unit: kbit/s.
     shared_ptr<int32_t> minimumInstanceBandwidthTx_ {};
-    // The minimum inbound packet forwarding rate over the internal network when you query instance types. Unit: pps.
-    // 
-    // > Instance types with an inbound packet forwarding rate lower than the specified value are not returned.
+    // The expected minimum inbound packet forwarding rate over the internal network when querying instance types. Unit: pps.
     shared_ptr<int64_t> minimumInstancePpsRx_ {};
-    // The minimum outbound packet forwarding rate over the internal network when you query instance types. Unit: pps.
-    // 
-    // > Instance types with an outbound packet forwarding rate lower than the specified value are not returned.
+    // The expected minimum outbound packet forwarding rate over the internal network when querying instance types. Unit: pps.
     shared_ptr<int64_t> minimumInstancePpsTx_ {};
-    // The minimum number of local disks attached to the instance when you query instance types.
-    // 
-    // > Instance types with fewer local disks than the specified value are not returned.
+    // The expected minimum number of local disks attached to the instance when querying instance types.
     shared_ptr<int32_t> minimumLocalStorageAmount_ {};
-    // The capacity of a single local disk attached to the instance. Unit: GiB.
+    // The capacity of each local disk attached to the instance. Unit: GiB.
     shared_ptr<int64_t> minimumLocalStorageCapacity_ {};
-    // The minimum memory size when you query instance types. Unit: GiB.
-    // 
-    // > Instance types with a memory size smaller than the specified value are not returned.
+    // The expected minimum memory size when querying instance types. Unit: GiB.
     shared_ptr<float> minimumMemorySize_ {};
-    // The minimum default number of queues supported by the primary ENI when you query instance types.
-    // 
-    // > Instance types with fewer default queues on the primary ENI than the specified value are not returned.
+    // The expected minimum number of default queues for the primary ENI when querying instance types.
     shared_ptr<int32_t> minimumPrimaryEniQueueNumber_ {};
-    // The minimum number of QueuePair (QP) queues per Elastic RDMA Interface (ERI) when you query instance types.
-    // 
-    // > Instance types with fewer QP queues per ERI than the specified value are not returned.
+    // The expected minimum number of QueuePair (QP) queues per Elastic RDMA Interface (ERI) when querying instance types.
     shared_ptr<int32_t> minimumQueuePairNumber_ {};
-    // The minimum default number of queues supported by the secondary ENI when you query instance types.
-    // 
-    // > Instance types with fewer default queues on the secondary ENI than the specified value are not returned.
+    // The expected minimum number of default queues for secondary Elastic Network Interfaces (ENIs) per network interface controller (NIC) when querying instance types.
     shared_ptr<int32_t> minimumSecondaryEniQueueNumber_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous call to this API operation. You do not need to set this parameter for the first request.
+    // The query token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first call.
     shared_ptr<string> nextToken_ {};
-    // Indicates whether cloud disks attached to the instance type support NVMe. Valid values:
-    // 
-    // - required: supported. Cloud disks are attached in NVMe mode.
-    // - unsupported: not supported. Cloud disks are not attached in NVMe mode.
+    // Specifies whether the cloud disks attached to the instance type support NVMe. Valid values:
     shared_ptr<string> nvmeSupport_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The processor model.
-    // 
-    // > Fuzzy matching is supported. For example, if the processor model of an instance type is Intel Xeon(Ice Lake) Platinum 8369B, you can enter Intel to query the instance type.
     shared_ptr<string> physicalProcessorModel_ {};
     // The processor models to query. Array length: 1 to 10.
     shared_ptr<vector<string>> physicalProcessorModels_ {};

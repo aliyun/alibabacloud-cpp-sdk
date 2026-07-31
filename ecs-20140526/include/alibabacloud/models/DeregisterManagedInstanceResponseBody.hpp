@@ -193,15 +193,15 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The internal IP address of the managed instance.
       shared_ptr<string> intranetIp_ {};
-      // The number of times that Cloud Assistant tasks were executed on the managed instance.
+      // The number of times that Cloud Assistant tasks were run on the managed instance.
       shared_ptr<int64_t> invocationCount_ {};
-      // The time when the Cloud Assistant task was last executed.
+      // The time when the last Cloud Assistant task was run.
       shared_ptr<string> lastInvokedTime_ {};
-      // The machine code of the managed instance.
+      // The machine ID of the managed instance.
       shared_ptr<string> machineId_ {};
-      // The operating system type of the managed instance.
+      // The operating system of the managed instance.
       shared_ptr<string> osType_ {};
-      // The version information about the operating system.
+      // The version of the operating system.
       shared_ptr<string> osVersion_ {};
       // The time when the managed instance was registered.
       shared_ptr<string> registrationTime_ {};
@@ -228,7 +228,7 @@ namespace Models
 
 
   protected:
-    // Details of the managed instances.
+    // The information about the managed instance.
     shared_ptr<DeregisterManagedInstanceResponseBody::Instance> instance_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

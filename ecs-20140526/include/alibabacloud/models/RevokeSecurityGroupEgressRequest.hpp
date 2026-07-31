@@ -244,7 +244,7 @@ namespace Models
     protected:
       // The description of the security group rule. The description must be 1 to 512 characters in length.
       shared_ptr<string> description_ {};
-      // The destination IPv4 Classless Inter-Domain Routing (CIDR) block for which you want to revoke access permissions. The format supports both CIDR blocks and IPv4 address ranges.
+      // The destination IPv4 Classless Inter-Domain Routing (CIDR) block for which you want to revoke access permissions. CIDR format and IPv4 format address ranges are supported.
       shared_ptr<string> destCidrIp_ {};
       // The ID of the destination security group for which you want to revoke access permissions.
       // 
@@ -259,12 +259,12 @@ namespace Models
       shared_ptr<string> destGroupId_ {};
       // The Alibaba Cloud account that manages the destination security group when you revoke a cross-account authorization security group rule.
       // 
-      // - If neither `DestGroupOwnerAccount` nor `DestGroupOwnerId` is specified, the access permissions for another security group within your account are revoked. Settings for cross-account scenarios require this parameter.
+      // - If neither `DestGroupOwnerAccount` nor `DestGroupOwnerId` is configured in Settings, the access permissions for another security group within your account are revoked. 
       // - If `DestCidrIp` is specified, this parameter is ignored.
       shared_ptr<string> destGroupOwnerAccount_ {};
       // The ID of the Alibaba Cloud account that manages the destination security group when you revoke a cross-account authorization security group rule.
       // 
-      // - If neither `DestGroupOwnerId` nor `DestGroupOwnerAccount` is specified, the access permissions for another security group within your account are revoked. Settings for cross-account scenarios require this parameter.
+      // - If neither `DestGroupOwnerId` nor `DestGroupOwnerAccount` is configured in Settings, the access permissions for another security group within your account are revoked.  
       // - If `DestCidrIp` is specified, this parameter is ignored.
       shared_ptr<string> destGroupOwnerId_ {};
       // The ID of the destination prefix list for which you want to revoke access permissions. You can call [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) to query available prefix list IDs.
@@ -277,24 +277,24 @@ namespace Models
       shared_ptr<string> destPrefixListId_ {};
       // The protocol type. The value is case-insensitive. Valid values: 
       //          
-      // - TCP.
-      // - UDP.
-      // - ICMP.
-      // - ICMPv6.
-      // - GRE.
-      // - ALL: all protocols.
+      // - TCP
+      // - UDP
+      // - ICMP
+      // - ICMPv6
+      // - GRE
+      // - ALL: all protocols
       shared_ptr<string> ipProtocol_ {};
-      // The destination IPv6 Classless Inter-Domain Routing (CIDR) block for which you want to revoke access permissions. The format supports both CIDR blocks and IPv6 address ranges.
+      // The destination IPv6 Classless Inter-Domain Routing (CIDR) block for which you want to revoke access permissions. CIDR format and IPv6 format address ranges are supported.
       // 
-      // > This parameter is valid only for VPC-connected ECS instances that support IPv6 and cannot be specified together with the `DestCidrIp` parameter. Settings for IPv6 destinations use this parameter exclusively.
+      // > This parameter is valid only for VPC-connected ECS instances that support IPv6 and cannot be configured together with the `DestCidrIp` parameter. Settings for both parameters at the same time are not supported.
       shared_ptr<string> ipv6DestCidrIp_ {};
       // The source IPv6 CIDR block. CIDR blocks and IPv6 address ranges are supported.
       // 
-      // This parameter is used for quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+      // This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
       // 
-      // > This parameter is valid only for VPC-connected ECS instances that support IPv6 and cannot be specified together with the `DestCidrIp` parameter. Settings for IPv6 sources use this parameter exclusively.
+      // > This parameter is valid only for VPC-connected ECS instances that support IPv6. Settings for this parameter and the `DestCidrIp` parameter cannot be configured at the same time.
       shared_ptr<string> ipv6SourceCidrIp_ {};
-      // The network interface controller (NIC) type of the security group rule. For VPC-type security groups, you do not need to configure the network interface controller (NIC) type. The default value is intranet and only intranet is supported. Settings for VPC-type security groups ignore this parameter.
+      // The network interface controller (NIC) type of the security group rule. For VPC-type security groups, you do not need to configure the network interface controller (NIC) type. The default value is intranet and only intranet is supported. Settings default to intranet.
       // 
       // > The classic network feature has been taken offline. For details, see [Discontinuation notice](https://help.aliyun.com/document_detail/2833134.html). The network interface controller (NIC) type for classic network-type security group rules. Valid values:
       // > - internet: public network interface controller (NIC).
@@ -303,11 +303,11 @@ namespace Models
       // The access permissions. Valid values: 
       //          
       // - accept: Accepts access.
-      // - drop: Denies access and returns no deny information. The request timeout or the connection cannot be established.
+      // - drop: Denies access and does not return deny information. The request times out or the connection cannot be established.
       // 
       // Default value: accept.
       shared_ptr<string> policy_ {};
-      // The range of destination ports that correspond to the transport layer protocol. Valid values: 
+      // The range of destination ports that correspond to the transport layer protocol for the security group. Valid values: 
       //          
       // - TCP/UDP: Valid values are 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
       // - ICMP: -1/-1.
@@ -327,16 +327,16 @@ namespace Models
       shared_ptr<string> priority_ {};
       // The source IPv4 CIDR block. CIDR blocks and IPv4 address ranges are supported.
       // 
-      // This parameter is used for quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+      // This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
       shared_ptr<string> sourceCidrIp_ {};
-      // The range of source ports that correspond to the transport layer protocol. Valid values:
+      // The range of source ports that correspond to the transport layer protocol for the security group. Valid values:
       //          
       // - TCP/UDP: Valid values are 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
       // - ICMP: -1/-1.
       // - GRE: -1/-1.
       // - ALL: -1/-1.
       // 
-      // This parameter is used for quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+      // This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
       shared_ptr<string> sourcePortRange_ {};
     };
 
@@ -519,7 +519,7 @@ namespace Models
 
 
   protected:
-    // A client token used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
     // Deprecated. Use `Permissions.N.Description` to specify the rule description.
     shared_ptr<string> description_ {};
@@ -531,7 +531,7 @@ namespace Models
     shared_ptr<string> destGroupOwnerAccount_ {};
     // Deprecated. Use `Permissions.N.DestGroupOwnerId` to specify the ID of the Alibaba Cloud account that manages the destination security group.
     shared_ptr<int64_t> destGroupOwnerId_ {};
-    // Deprecated. Use `Permissions.N.DestPrefixListId` to specify the source prefix list ID.
+    // Deprecated. Use `Permissions.N.DestPrefixListId` to specify the destination prefix list ID.
     shared_ptr<string> destPrefixListId_ {};
     // Deprecated. Use `Permissions.N.IpProtocol` to specify the protocol type.
     shared_ptr<string> ipProtocol_ {};
@@ -545,7 +545,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The security group rules. Array length: 0 to 100.
     shared_ptr<vector<RevokeSecurityGroupEgressRequest::Permissions>> permissions_ {};
-    // Deprecated. Use `Permissions.N.Policy` to configure the Settings for access permissions.
+    // Deprecated. Use `Permissions.N.Policy` to configure the access permissions in Settings.
     shared_ptr<string> policy_ {};
     // Deprecated. Use `Permissions.N.PortRange` to specify the port range.
     shared_ptr<string> portRange_ {};

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ConnectionTrackingConfiguration, connectionTrackingConfiguration_);
       DARABONBA_PTR_TO_JSON(DeleteOnRelease, deleteOnRelease_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(EnablePrimaryIPv6, enablePrimaryIPv6_);
       DARABONBA_PTR_TO_JSON(EnhancedNetwork, enhancedNetwork_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(Ipv4Prefix, ipv4Prefix_);
@@ -56,6 +57,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ConnectionTrackingConfiguration, connectionTrackingConfiguration_);
       DARABONBA_PTR_FROM_JSON(DeleteOnRelease, deleteOnRelease_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(EnablePrimaryIPv6, enablePrimaryIPv6_);
       DARABONBA_PTR_FROM_JSON(EnhancedNetwork, enhancedNetwork_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(Ipv4Prefix, ipv4Prefix_);
@@ -136,9 +138,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag. Valid values for N: 1 to 20. The tag key cannot be an empty string. It can be up to 128 characters long and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The key of the tag for the network interface controller (NIC). Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of the tag. Valid values for N: 1 to 20. The tag value can be an empty string. It can be up to 128 characters long and cannot contain `http://` or `https://`.
+      // The value of the tag for the network interface controller (NIC). Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -207,51 +209,15 @@ namespace Models
 
 
     protected:
-      // The traffic mode of the elastic network interface.
+      // The communication mode of the network interface controller (NIC).
       shared_ptr<string> networkInterfaceTrafficMode_ {};
-      // The number of queues for the elastic network interface.
+      // The number of queues for the network interface controller (NIC).
       shared_ptr<int32_t> queueNumber_ {};
-      // The number of queue pairs for the RDMA-enabled elastic network interface.
+      // The number of queues for the RDMA ENI.
       shared_ptr<int32_t> queuePairNumber_ {};
-      // The receive (Rx) queue depth of the elastic network interface.
-      // 
-      // <props="china">
-      // 
-      // > This parameter is available by invitation only. To request access, submit a ticket.
-      // 
-      // 
-      // 
-      // <props="intl">
-      // 
-      // > This parameter is available by invitation only. To request access, submit a ticket.
-      // 
-      // 
-      // 
-      // - This parameter is applicable only to seventh-generation or later ECS instance types.
-      // 
-      // - This parameter is applicable only to Linux images.
-      // 
-      // - A larger Rx queue depth can improve receive throughput and reduce the packet loss rate, but consumes more memory.
+      // The inbound queue depth of the network interface controller (NIC).
       shared_ptr<int32_t> rxQueueSize_ {};
-      // The transmit (Tx) queue depth of the elastic network interface.
-      // 
-      // <props="china">
-      // 
-      // > This parameter is available by invitation only. To request access, submit a ticket.
-      // 
-      // 
-      // 
-      // <props="intl">
-      // 
-      // > This parameter is available by invitation only. To request access, submit a ticket.
-      // 
-      // 
-      // 
-      // - This parameter is applicable only to seventh-generation or later ECS instance types.
-      // 
-      // - This parameter is applicable only to Linux images.
-      // 
-      // - A larger Tx queue depth can improve transmit throughput and reduce the packet loss rate, but consumes more memory.
+      // The outbound queue depth of the network interface controller (NIC).
       shared_ptr<int32_t> txQueueSize_ {};
     };
 
@@ -366,32 +332,22 @@ namespace Models
 
 
     protected:
-      // The timeout for a TCP connection in the TIME_WAIT or closing state, in seconds. Valid values: integers from 3 to 15.
-      // 
-      // Default value: 3.
-      // 
-      // > If your ECS instance works with NLB or CLB, the default timeout period for connections in the `TIME_WAIT` state is 15 seconds.
+      // The timeout period for TCP connections in the closed or time-wait state. Unit: seconds. Valid values: integers from 3 to 15.
       shared_ptr<int32_t> tcpClosedAndTimeWaitTimeout_ {};
-      // The timeout for an established TCP connection, in seconds. Valid values: 30, 60, 80, 100, 200, 300, 500, 700, and 910.
-      // 
-      // Default value: 910.
+      // The timeout period for established TCP connections. Unit: seconds. Valid values: [30, 60, 80, 100, 200, 300, 500, 700, 910].
       shared_ptr<int32_t> tcpEstablishedTimeout_ {};
-      // The timeout for a UDP stream, in seconds. Valid values: 10, 20, 30, 60, 80, and 100.
-      // 
-      // Default value: 30.
-      // 
-      // > If your ECS instance works with NLB or CLB, the default value is 100 seconds.
+      // The timeout period for UDP flows. Unit: seconds. Valid values: [10, 20, 30, 60, 80, 100].
       shared_ptr<int32_t> udpTimeout_ {};
     };
 
     virtual bool empty() const override { return this->businessType_ == nullptr
-        && this->clientToken_ == nullptr && this->connectionTrackingConfiguration_ == nullptr && this->deleteOnRelease_ == nullptr && this->description_ == nullptr && this->enhancedNetwork_ == nullptr
-        && this->instanceType_ == nullptr && this->ipv4Prefix_ == nullptr && this->ipv4PrefixCount_ == nullptr && this->ipv6Address_ == nullptr && this->ipv6AddressCount_ == nullptr
-        && this->ipv6Prefix_ == nullptr && this->ipv6PrefixCount_ == nullptr && this->networkInterfaceName_ == nullptr && this->networkInterfaceTrafficConfig_ == nullptr && this->networkInterfaceTrafficMode_ == nullptr
-        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->primaryIpAddress_ == nullptr && this->privateIpAddress_ == nullptr && this->queueNumber_ == nullptr
-        && this->queuePairNumber_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->rxQueueSize_ == nullptr && this->secondaryPrivateIpAddressCount_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIds_ == nullptr && this->sourceDestCheck_ == nullptr
-        && this->tag_ == nullptr && this->txQueueSize_ == nullptr && this->vSwitchId_ == nullptr && this->visible_ == nullptr; };
+        && this->clientToken_ == nullptr && this->connectionTrackingConfiguration_ == nullptr && this->deleteOnRelease_ == nullptr && this->description_ == nullptr && this->enablePrimaryIPv6_ == nullptr
+        && this->enhancedNetwork_ == nullptr && this->instanceType_ == nullptr && this->ipv4Prefix_ == nullptr && this->ipv4PrefixCount_ == nullptr && this->ipv6Address_ == nullptr
+        && this->ipv6AddressCount_ == nullptr && this->ipv6Prefix_ == nullptr && this->ipv6PrefixCount_ == nullptr && this->networkInterfaceName_ == nullptr && this->networkInterfaceTrafficConfig_ == nullptr
+        && this->networkInterfaceTrafficMode_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->primaryIpAddress_ == nullptr && this->privateIpAddress_ == nullptr
+        && this->queueNumber_ == nullptr && this->queuePairNumber_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->rxQueueSize_ == nullptr && this->secondaryPrivateIpAddressCount_ == nullptr && this->securityGroupId_ == nullptr && this->securityGroupIds_ == nullptr
+        && this->sourceDestCheck_ == nullptr && this->tag_ == nullptr && this->txQueueSize_ == nullptr && this->vSwitchId_ == nullptr && this->visible_ == nullptr; };
     // businessType Field Functions 
     bool hasBusinessType() const { return this->businessType_ != nullptr;};
     void deleteBusinessType() { this->businessType_ = nullptr;};
@@ -427,6 +383,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateNetworkInterfaceRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // enablePrimaryIPv6 Field Functions 
+    bool hasEnablePrimaryIPv6() const { return this->enablePrimaryIPv6_ != nullptr;};
+    void deleteEnablePrimaryIPv6() { this->enablePrimaryIPv6_ = nullptr;};
+    inline bool getEnablePrimaryIPv6() const { DARABONBA_PTR_GET_DEFAULT(enablePrimaryIPv6_, false) };
+    inline CreateNetworkInterfaceRequest& setEnablePrimaryIPv6(bool enablePrimaryIPv6) { DARABONBA_PTR_SET_VALUE(enablePrimaryIPv6_, enablePrimaryIPv6) };
 
 
     // enhancedNetwork Field Functions 
@@ -658,149 +621,70 @@ namespace Models
   protected:
     // > This parameter is deprecated.
     shared_ptr<string> businessType_ {};
-    // A client token to ensure request idempotence. Your client generates this token, which must be unique across requests. The token can contain only ASCII characters and must not exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The connection tracking settings.
-    // 
-    // Before using this parameter, read [Connection timeout management](https://help.aliyun.com/document_detail/2865958.html).
+    // The network connectivity tracking configuration of the ENI.
     shared_ptr<CreateNetworkInterfaceRequest::ConnectionTrackingConfiguration> connectionTrackingConfiguration_ {};
-    // Specifies whether to release the elastic network interface when its attached instance is released. Valid values:
-    // 
-    // - `true`: The elastic network interface is released.
-    // 
-    // - `false`: The elastic network interface is retained.
+    // Specifies whether to retain the ENI when the associated instance is released. Valid values:
     shared_ptr<bool> deleteOnRelease_ {};
-    // The description of the elastic network interface. The description must be 2 to 256 characters long and cannot start with `http://` or `https://`.
-    // 
-    // Default value: empty.
+    // The description of the network interface controller (NIC). The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
+    shared_ptr<bool> enablePrimaryIPv6_ {};
     // > This parameter is not publicly available.
     shared_ptr<CreateNetworkInterfaceRequest::EnhancedNetwork> enhancedNetwork_ {};
-    // The type of the elastic network interface. Valid values:
-    // 
-    // - `Secondary`: a secondary elastic network interface.
-    // 
-    // - `Trunk`: a trunk network interface. (This feature is available by invitation only.)
-    // 
-    // Default value: `Secondary`.
+    // The type of the network interface controller (NIC). Valid values:
     shared_ptr<string> instanceType_ {};
-    // One or more IPv4 prefixes to assign to the elastic network interface. Valid values of N: 1 to 10.
-    // 
-    // > You must specify either `Ipv4Prefix.N` or `Ipv4PrefixCount`, but not both, to assign IPv4 prefixes.
+    // One or more IPv4 prefixes to assign to the network interface controller (NIC). Valid values of N: 1 to 10.
     shared_ptr<vector<string>> ipv4Prefix_ {};
-    // The number of IPv4 prefixes to assign to the elastic network interface. Valid values: 1 to 10.
-    // 
-    // > You must specify either `Ipv4Prefix.N` or `Ipv4PrefixCount`, but not both, to assign IPv4 prefixes.
+    // The number of IPv4 prefixes to assign to the network interface controller (NIC). Valid values: 1 to 10.
     shared_ptr<int32_t> ipv4PrefixCount_ {};
-    // One or more IPv6 addresses to assign to the elastic network interface. You can specify up to 10 IPv6 addresses. Valid values of N: 1 to 10.
-    // 
-    // Example: `Ipv6Address.1=2001:db8:1234:1a00::****`
-    // 
-    // > You must specify either `Ipv6Address.N` or `Ipv6AddressCount`, but not both, to assign IPv6 addresses.
+    // One or more IPv6 addresses to assign to the network interface controller (NIC). You can specify up to 10 IPv6 addresses. Valid values of N: 1 to 10.
     shared_ptr<vector<string>> ipv6Address_ {};
-    // The number of random IPv6 addresses to assign to the elastic network interface. Valid values: 1 to 10.
-    // 
-    // > You must specify either `Ipv6Address.N` or `Ipv6AddressCount`, but not both, to assign IPv6 addresses.
+    // The number of randomly generated IPv6 addresses to assign to the network interface controller (NIC). Valid values: 1 to 10.
     shared_ptr<int32_t> ipv6AddressCount_ {};
-    // One or more IPv6 prefixes to assign to the elastic network interface. Valid values of N: 1 to 10.
-    // 
-    // > You must specify either `Ipv6Prefix.N` or `Ipv6PrefixCount`, but not both, to assign IPv6 prefixes.
+    // One or more IPv6 prefixes to assign to the network interface controller (NIC). Valid values of N: 1 to 10.
     shared_ptr<vector<string>> ipv6Prefix_ {};
-    // The number of IPv6 prefixes to assign to the elastic network interface. Valid values: 1 to 10.
-    // 
-    // > You must specify either `Ipv6Prefix.N` or `Ipv6PrefixCount`, but not both, to assign IPv6 prefixes.
+    // The number of IPv6 prefixes to assign to the network interface controller (NIC). Valid values: 1 to 10.
     shared_ptr<int32_t> ipv6PrefixCount_ {};
-    // The name of the elastic network interface. The name must be 2 to 128 characters long and can contain Unicode letters (such as English and Chinese characters), digits (0-9), colons (:), underscores (_), periods (.), and hyphens (-).
-    // 
-    // Default value: empty.
+    // The name of the network interface controller (NIC). The name must be 2 to 128 characters in length and can contain letters in the Unicode letter categorization (including English and Chinese characters) and ASCII digits (0-9). The name can contain colons (:), underscores (_), periods (.), or hyphens (-).
     shared_ptr<string> networkInterfaceName_ {};
-    // The communication parameters of the elastic network interface.
+    // The communication parameter set of the network interface controller (NIC).
     shared_ptr<CreateNetworkInterfaceRequest::NetworkInterfaceTrafficConfig> networkInterfaceTrafficConfig_ {};
-    // The traffic mode of the elastic network interface. Valid values:
-    // 
-    // - `Standard`: uses the TCP traffic mode.
-    // 
-    // - `HighPerformance`: enables the Elastic RDMA Interface (ERI) and uses the RDMA traffic mode.
-    // 
-    // > An elastic network interface in RDMA traffic mode can be attached only to an ERI-supported instance type. The number of these elastic network interfaces that can be attached is limited by the instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html), [Configure eRDMA on an enterprise-level instance](https://help.aliyun.com/document_detail/336853.html)<props="china">, and [Configure eRDMA on a GPU instance](https://help.aliyun.com/document_detail/2248432.html).
-    // 
-    // Default value: `Standard`.
+    // The communication mode of the network interface controller (NIC). Valid values:
     shared_ptr<string> networkInterfaceTrafficMode_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The primary private IP address of the elastic network interface.
-    // 
-    // The IP address must be an available IP address within the CIDR block of the VSwitch. If this parameter is not specified, the system randomly assigns an available IP address from the VSwitch\\"s CIDR block.
+    // The primary private IP address of the network interface controller (NIC).
     shared_ptr<string> primaryIpAddress_ {};
-    // One or more secondary private IP addresses to assign to the elastic network interface. The IP addresses must be available addresses from the CIDR block of the VSwitch to which the elastic network interface belongs. Valid values of N: 0 to 10.
-    // 
-    // > You cannot specify both `PrivateIpAddress.N` and `SecondaryPrivateIpAddressCount` to assign secondary private IP addresses.
+    // One or more secondary private IP addresses selected from the idle IP addresses within the CIDR block of the vSwitch to which the network interface controller (NIC) belongs. Valid values of N: 0 to 10.
     shared_ptr<vector<string>> privateIpAddress_ {};
-    // The number of queues for the elastic network interface. Valid values: 1 to 2048.
-    // 
-    // When attached to an instance, this value must be less than the maximum number of queues per elastic network interface that the instance type supports. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and check the `MaximumQueueNumberPerEni` value in the response to query this limit.
-    // 
-    // If you do not specify this parameter, the default queue number for the instance type is used upon attachment.
+    // The number of queues for the network interface controller (NIC). Valid values: 1 to 2048.
     shared_ptr<int32_t> queueNumber_ {};
-    // The number of queue pairs for the RDMA-enabled elastic network interface.
-    // 
-    // If you want to attach multiple RDMA-enabled elastic network interfaces to an instance, we recommend that you specify a `QueuePairNumber` value for each elastic network interface. The value should be based on the maximum `QueuePairNumber` value supported by the instance type and the number of elastic network interfaces that you plan to use. The total number of queue pairs for all elastic network interfaces cannot exceed the maximum value for the instance type. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation to query the maximum value.
-    // 
-    // >Notice: 
-    // 
-    // If you do not specify `QueuePairNumber` for an RDMA-enabled elastic network interface, the system defaults to the maximum value that the instance type supports. Consequently, you cannot attach any more RDMA-enabled elastic network interfaces to that instance. This does not affect standard elastic network interfaces.
+    // The number of queues for the RDMA ENI.
     shared_ptr<int32_t> queuePairNumber_ {};
-    // The ID of the region in which to create the elastic network interface. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to view the latest list of Alibaba Cloud regions.
+    // The region ID of the network interface controller (NIC) to be created. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
+    // The resource group ID. You can call [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) to query resource group information.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The receive (Rx) queue depth of the elastic network interface.
-    // 
-    // - The receive (Rx) and transmit (Tx) queue depths must be equal. The value must be a power of 2 between 8,192 and 16,384.
-    // 
-    // - A larger Rx queue depth can improve receive throughput but consumes more memory.
-    // 
-    // > This parameter is not publicly available.
+    // The inbound queue depth of the network interface controller (NIC).
     shared_ptr<int32_t> rxQueueSize_ {};
-    // The number of secondary private IP addresses to automatically assign to the elastic network interface. Valid values: 1 to 49.
+    // The number of private IP addresses for automatic creation by ECS. Valid values: 1 to 49.
     shared_ptr<int32_t> secondaryPrivateIpAddressCount_ {};
-    // The ID of the security group for the elastic network interface. The security group and the elastic network interface must be in the same VPC.
-    // 
-    // > You must specify either `SecurityGroupId` or `SecurityGroupIds.N`, but not both.
+    // The ID of the security group to which the network interface controller (NIC) is added. The security group and the network interface controller (NIC) must belong to the same VPC.
     shared_ptr<string> securityGroupId_ {};
-    // The IDs of one or more security groups to which to add the elastic network interface. The security groups and the elastic network interface must be in the same VPC. The valid values of N depend on the maximum number of security groups to which an elastic network interface can be added. For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
-    // 
-    // > You must specify either `SecurityGroupId` or `SecurityGroupIds.N`, but not both.
+    // The IDs of one or more security groups to which the network interface controller (NIC) is added. The security groups and the network interface controller (NIC) must belong to the same VPC. The valid values of N depend on the quota for the maximum number of security groups to which an ENI can be added. For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
     shared_ptr<vector<string>> securityGroupIds_ {};
-    // Specifies whether to enable source/destination check. Enabling this feature enhances network security. Valid values:
-    // 
-    // - `true`: enabled.
-    // 
-    // - `false`: disabled.
-    // 
-    // Default value: false.
-    // 
-    // > This feature is available only in some regions. Before you use this feature, read [Source/destination check](https://help.aliyun.com/document_detail/2863210.html).
+    // Specifies whether to enable source/destination checking. We recommend that you enable this feature to improve network security. Valid values:
     shared_ptr<bool> sourceDestCheck_ {};
-    // The tags to add to the elastic network interface.
+    // The tags of the network interface controller (NIC).
     shared_ptr<vector<CreateNetworkInterfaceRequest::Tag>> tag_ {};
-    // The transmit (Tx) queue depth of the elastic network interface.
-    // 
-    // - The transmit (Tx) and receive (Rx) queue depths must be equal. The value must be a power of 2 between 8,192 and 16,384.
-    // 
-    // - A larger Tx queue depth can improve transmit throughput but consumes more memory.
-    // 
-    // > This parameter is not publicly available.
+    // The outbound queue depth of the network interface controller (NIC).
     shared_ptr<int32_t> txQueueSize_ {};
-    // The ID of the VSwitch for the elastic network interface. The private IP addresses for the elastic network interface are assigned from the available CIDR block of the VSwitch.
-    // 
-    // >Notice: 
-    // 
-    // The elastic network interface and the instance to be attached must be in the same availability zone but can belong to different VSwitches.
+    // The vSwitch ID of the network interface controller (NIC). The private IP address of the network interface controller (NIC) is allocated from the idle IP addresses within the CIDR block of the vSwitch.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};

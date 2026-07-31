@@ -103,19 +103,19 @@ namespace Models
 
 
   protected:
-    // The new description of the SCU. The description must be 2 to 256 characters in length and cannot start with [http:// or https://.](http://https://%E3%80%82)
+    // The new description of the SCU. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
     shared_ptr<string> description_ {};
-    // The new name of the SCU. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with [http:// or https://. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).](http://https://%E3%80%82%E3%80%81%EF%BC%88:%EF%BC%89%E3%80%81%EF%BC%88_%EF%BC%89%EF%BC%88-%EF%BC%89%E3%80%82)
+    // The new name of the SCU. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with http:// or https://. It can contain digits, colons (:), underscores (_), or hyphens (-).
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the SCU. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the SCU. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the SCU.
+    // SCU ID。
     // 
     // This parameter is required.
     shared_ptr<string> storageCapacityUnitId_ {};

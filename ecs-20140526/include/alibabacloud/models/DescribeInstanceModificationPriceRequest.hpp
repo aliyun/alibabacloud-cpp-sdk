@@ -114,46 +114,41 @@ namespace Models
 
 
     protected:
-      // The category of data disk N, where N is an integer from 1 to 16. Use this parameter to query the price of adding a new data disk to the instance. Valid values:\\
-      // \\
-      // \\- `cloud_efficiency`: Ultra Disk\\
-      // \\
-      // \\- `cloud_ssd`: Standard SSD\\
-      // \\
-      // \\- `cloud_essd`: ESSD\\
-      // \\
-      // \\- `cloud`: Basic Disk\\
-      // \\
-      // Default value: None.\\
-      // \\
-      // \\
-      // \\
-      // \\
-      // \\
-      // \\
-      // \\
-      // \\
-      // \\
+      // The category of the data disk. Specify this parameter when you want to query the price of new subscription data disks to be attached to the ECS instance. Valid values of N: 1 to 16. Valid values:
+      // 
+      // - cloud_efficiency: ultra disk.
+      // - cloud_ssd: standard SSD.
+      // - cloud_essd: enterprise SSD.
+      // - cloud: basic disk.
+      // 
+      // Default value: null.
+      // 
+      // > The instance type parameter (`InstanceType`) and data disk parameters (`DataDisk.N.*`) cannot both be empty. You must specify at least one.
       shared_ptr<string> category_ {};
       shared_ptr<string> diskId_ {};
-      // The performance level of the ESSD. This parameter is valid only when DataDisk.N.Category is set to cloud_essd. The value of N must match the N in DataDisk.N.Category. Valid values:
-      // \\- PL0: up to 10,000 random read/write IOPS per disk.
-      // \\- PL1: up to 50,000 random read/write IOPS per disk.
-      // \\- PL2: up to 100,000 random read/write IOPS per disk.
-      // \\- PL3: up to 1,000,000 random read/write IOPS per disk.
+      // The performance level of the data disk when the data disk is an enterprise SSD. The value of N must be the same as that in `DataDisk.N.Category=cloud_essd`. Valid values:
+      // 
+      // - PL0: a single disk can deliver up to 10,000 random read/write IOPS.
+      // - PL1: a single disk can deliver up to 50,000 random read/write IOPS.
+      // - PL2: a single disk can deliver up to 100,000 random read/write IOPS.
+      // - PL3: a single disk can deliver up to 1,000,000 random read/write IOPS.
+      // 
       // Default value: PL1.
-      // For more information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+      // 
+      // For information about how to select an ESSD performance level, see [ESSD](https://help.aliyun.com/document_detail/122389.html).
       shared_ptr<string> performanceLevel_ {};
-      // The size of data disk N in GiB, where N is an integer from 1 to 16. The value range varies based on the disk category:
-      // \\- `cloud_efficiency` (Ultra Disk): 20 to 32768.
-      // \\- `cloud_ssd` (Standard SSD): 20 to 32768.
-      // \\- `cloud_essd`: The value range varies based on the value of `DataDisk.N.PerformanceLevel`.
-      // \\- PL0: 1 to 32768.
-      // \\- PL1: 20 to 32768.
-      // \\- PL2: 461 to 32768.
-      // \\- PL3: 1261 to 32768.
-      // \\- `cloud` (Basic Disk): 5 to 2000.
-      // Default value: The minimum size supported by the specified data disk category.
+      // The capacity of the data disk. Valid values of N: 1 to 16. Unit: GiB. Valid values:
+      // 
+      // - cloud_efficiency: 20 to 32768.
+      // - cloud_ssd: 20 to 32768.
+      // - cloud_essd: The valid values depend on the value of `DataDisk.N.PerformanceLevel`.    
+      //     - PL0: 1 to 32768.
+      //     - PL1: 20 to 32768.
+      //     - PL2: 461 to 32768.
+      //     - PL3: 1261 to 32768.
+      // - cloud: 5 to 2000.
+      // 
+      // Default value: the minimum capacity for the specified data disk category.
       shared_ptr<int32_t> size_ {};
     };
 
@@ -324,24 +319,24 @@ namespace Models
 
   protected:
     shared_ptr<DescribeInstanceModificationPriceRequest::SystemDisk> systemDisk_ {};
-    // The data disk configurations.
+    // The information about data disk types.
     shared_ptr<vector<DescribeInstanceModificationPriceRequest::DataDisk>> dataDisk_ {};
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ISP_ {};
     shared_ptr<string> imageId_ {};
-    // The ID of the instance for which to query the modification price.
+    // The instance ID of the instance for which you want to query the upgrade price.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The target instance type for the instance upgrade. Call the [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) operation to query the instance types available for upgrade in the specified availability zone.
+    // The target instance type for the upgrade. Call [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) to query the instance types available for upgrade in a specified zone.
     // 
-    // > You must specify at least one of the `InstanceType` and `DataDisk.N.*` parameters.
+    // > The instance type parameter (`InstanceType`) and data disk parameters (`DataDisk.N.*`) cannot both be empty. You must specify at least one.
     shared_ptr<string> instanceType_ {};
     shared_ptr<string> internetChargeType_ {};
     shared_ptr<int32_t> internetMaxBandwidthOut_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to get the latest list of Alibaba Cloud regions.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

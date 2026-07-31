@@ -97,15 +97,15 @@ namespace Models
 
 
   protected:
-    // The ID of instance N on which you want to stop the process of the Cloud Assistant command. You can specify up to 50 instance IDs in each request. Valid values of N: 1 to 50.
+    // The IDs of instances on which you want to stop the command. You can specify up to 50 instance IDs. Valid values of N: 1 to 50.
     shared_ptr<vector<string>> instanceId_ {};
-    // The ID of the command task. You can call the [DescribeInvocations](https://help.aliyun.com/document_detail/64840.html) operation to query all task IDs.
+    // The command execution ID. You can call [DescribeInvocations](https://help.aliyun.com/document_detail/64840.html) to query all execution IDs.
     // 
     // This parameter is required.
     shared_ptr<string> invokeId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the command task. You can call the [DescribeInvocations](https://help.aliyun.com/document_detail/64840.html) operation to query the IDs of all command tasks.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

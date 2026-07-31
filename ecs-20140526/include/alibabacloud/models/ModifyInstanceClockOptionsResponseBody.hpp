@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the modification task.
+    // The modification task ID.
     // 
-    // You can call the [DescribeTasks](https://help.aliyun.com/document_detail/25622.html) operation to query the modification results.
+    // You can call the [DescribeTasks](https://help.aliyun.com/document_detail/25622.html) operation to query the modification result.
     shared_ptr<string> taskId_ {};
   };
 

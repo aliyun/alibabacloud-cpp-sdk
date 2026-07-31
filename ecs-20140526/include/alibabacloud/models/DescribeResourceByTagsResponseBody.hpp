@@ -163,14 +163,14 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the results.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeResourceByTagsResponseBody::Resources> resources_ {};
-    // The total number of resources.
+    // The total number of returned resources.
     shared_ptr<int32_t> totalCount_ {};
   };
 

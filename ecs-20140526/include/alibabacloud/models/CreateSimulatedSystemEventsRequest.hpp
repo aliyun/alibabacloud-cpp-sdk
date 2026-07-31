@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // The type of the system event. Valid values:
-    // - SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
-    // - SystemFailure.Reboot: The instance is restarted due to a system error.
+    // The type of the system event. Valid values: 
+    // - SystemMaintenance.Reboot: The instance is restarted due to system maintenance. 
+    // - SystemFailure.Reboot: The instance is restarted due to a system error. 
     // - InstanceFailure.Reboot: The instance is restarted due to an instance error.
     // - SystemMaintenance.Stop: The instance is stopped due to system maintenance.
     // - SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
@@ -124,13 +124,13 @@ namespace Models
     shared_ptr<vector<string>> instanceId_ {};
     // The scheduled start time of the event. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
-    // > For unexpected events caused by system errors or instance errors, after the event is created, the event enters the Executing state. In this case, the NotBefore parameter specifies the time when the event enters the Executed state.
+    // > For abnormal events caused by system errors or instance errors, the event is already in the Executing state after it is created. In this case, the NotBefore parameter specifies the time when the event enters the Executed state.
     // 
     // This parameter is required.
     shared_ptr<string> notBefore_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of Alibaba Cloud regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

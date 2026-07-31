@@ -118,7 +118,7 @@ namespace Models
     protected:
       // The tag key of the snapshot. Valid values of N: 1 to 20.
       // 
-      // If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1000. If you use multiple tags to filter resources, the resource count with all specified tags attached cannot exceed 1000. If the resource count exceeds 1000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+      // If you use a single tag to filter resources, the resource count with the tag cannot exceed 1000. If you use multiple tags to filter resources, the resource count with all the specified tags attached cannot exceed 1000. If the resource count exceeds 1000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
       shared_ptr<string> key_ {};
       // The tag value of the snapshot. Valid values of N: 1 to 20.
       shared_ptr<string> value_ {};
@@ -355,31 +355,31 @@ namespace Models
 
   protected:
     shared_ptr<vector<DescribeSnapshotsRequest::Filter>> filter_ {};
-    // The category of the snapshot. Valid values:
-    // - Standard: standard snapshot.
+    // The snapshot type. Valid values:
+    // - Standard: Normal snapshot.
     // - Flash: local snapshot. This value is about to be deprecated. Local snapshots have been replaced by the snapshot instant access feature. The metric description is as follows:
-    //   - If you used local snapshots before December 14, 2020, you can use this parameter. The parameter is active.
+    //   - If you used local snapshots before December 14, 2020, you can use this parameter as it is active.
     //   - If you did not use local snapshots before December 14, 2020, you cannot use this parameter.
     // - archive: archive snapshot.
     // 
     // 
     // 
-    // <props="china">For more information, see [Chinese site notice on snapshot service upgrade and new billing items on December 14](https://help.aliyun.com/noticelist/articleid/1060755542.html).
+    // <props="china">For more information, see [Chinese notice on Alibaba Cloud snapshot service upgrade and new billing items on December 14](https://help.aliyun.com/noticelist/articleid/1060755542.html).
     shared_ptr<string> category_ {};
     // The ID of the disk.
     shared_ptr<string> diskId_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request.
+    // Specifies whether to perform only a dry run. Valid values:
     // 
     // - true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
-    // - false (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+    // - false (default): performs a dry run and sends the request. If the request passes the dry run, a 2XX HTTP status code is returned and the resource status is queried.
     shared_ptr<bool> dryRun_ {};
     // Specifies whether to filter encrypted snapshots. Default value: false.
     shared_ptr<bool> encrypted_ {};
     // The instance ID. Specify this parameter to query snapshot information of disks attached to the instance.
     shared_ptr<string> instanceId_ {};
-    // The ID of the Key Management Service (KMS) key used by the data disk.
+    // The Key Management Service (KMS) key ID for the data disk.
     shared_ptr<string> KMSKeyId_ {};
-    // The maximum number of entries per page for paging. Maximum value: 100.
+    // The maximum number of entries per page for paging query. Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
@@ -387,45 +387,45 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // > This parameter is about to be deprecated. Use NextToken and MaxResults for paging instead.
+    // > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
     shared_ptr<int32_t> pageNumber_ {};
-    // > This parameter is about to be deprecated. Use NextToken and MaxResults for paging instead.
+    // > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging query operations.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the disk. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group. When you use this parameter to filter resources, the resource count cannot exceed 1000.
+    // The resource group ID. When you use this parameter to filter resources, the resource count cannot exceed 1000.
     // 
     // > Filtering by default resource group is not supported.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The IDs of snapshots. The value is a JSON array that consists of up to 100 snapshot IDs. Separate the IDs with commas (,).
+    // The snapshot IDs. The value is a JSON array that consists of up to 100 snapshot IDs. Separate the IDs with commas (,).
     shared_ptr<string> snapshotIds_ {};
-    // The ID of the snapshot chain.
+    // The snapshot chain ID.
     shared_ptr<string> snapshotLinkId_ {};
-    // The name of the snapshot.
+    // The snapshot name.
     shared_ptr<string> snapshotName_ {};
-    // The type of automatic creation. Valid values: 
+    // The automatic creation type. Valid values: 
     //          
     // - auto: automatic snapshot.
     // - user: manual snapshot.
-    // - all (default): All automatic creation types.
+    // - all (default): all automatic creation types.
     shared_ptr<string> snapshotType_ {};
     // The type of the source disk. Valid values: 
     //      
     // - system: system disk.
     // - data: data disk.
     // 
-    // > The value is case-insensitive.
+    // > The values are case-insensitive.
     shared_ptr<string> sourceDiskType_ {};
-    // The status of the snapshot. Valid values: 
+    // The snapshot status. Valid values: 
     //          
     // - progressing: The snapshot is being created.
     // - accomplished: The snapshot is created.
     // - failed: The snapshot failed to be created.
-    // - all (default): All snapshot statuses.
+    // - all (default): all snapshot statuses.
     shared_ptr<string> status_ {};
     // The tags.
     shared_ptr<vector<DescribeSnapshotsRequest::Tag>> tag_ {};

@@ -103,25 +103,25 @@ namespace Models
 
 
   protected:
-    // The ID of the auto provisioning group.
+    // The ID of the auto-provisioning group.
     // 
     // This parameter is required.
     shared_ptr<string> autoProvisioningGroupId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number for the paging query.
+    // The page number of the paging query.
     // 
     // Minimum value: 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in the paging query. You can use this parameter to configure paging settings.
+    // The number of entries per page. Settings for the paging query.
     // 
     // Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the auto provisioning group resides. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the auto-provisioning group. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

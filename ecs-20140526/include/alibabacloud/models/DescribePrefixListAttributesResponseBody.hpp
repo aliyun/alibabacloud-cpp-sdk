@@ -181,10 +181,9 @@ namespace Models
 
 
   protected:
-    // The IP address family of the prefix list. Valid values:
+    // The address family of the prefix list. Valid values:
     // 
     // - IPv4
-    // 
     // - IPv6
     shared_ptr<string> addressFamily_ {};
     // The time when the prefix list was created.
@@ -192,9 +191,9 @@ namespace Models
     // The description of the prefix list.
     shared_ptr<string> description_ {};
     shared_ptr<DescribePrefixListAttributesResponseBody::Entries> entries_ {};
-    // The maximum number of entries in the prefix list.
+    // The maximum number of entries that the prefix list supports.
     shared_ptr<int32_t> maxEntries_ {};
-    // The ID of the prefix list.
+    // The prefix list ID.
     shared_ptr<string> prefixListId_ {};
     // The name of the prefix list.
     shared_ptr<string> prefixListName_ {};

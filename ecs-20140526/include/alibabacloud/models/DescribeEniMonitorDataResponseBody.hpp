@@ -199,7 +199,7 @@ namespace Models
     shared_ptr<DescribeEniMonitorDataResponseBody::MonitorData> monitorData_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of returned entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

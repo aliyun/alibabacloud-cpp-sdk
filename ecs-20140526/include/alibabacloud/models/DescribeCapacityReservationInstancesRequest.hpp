@@ -140,17 +140,17 @@ namespace Models
 
   protected:
     shared_ptr<DescribeCapacityReservationInstancesRequest::PrivatePoolOptions> privatePoolOptions_ {};
-    // The number of entries per page.
+    // The maximum number of entries per page for a paged query.
     // 
-    // - Valid values: 1 to 100.
+    // - Maximum value: 100.
     // 
     // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of the NextToken parameter.
+    // The pagination token for the capacity reservation query. Obtain the value from the result of the previous request.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the capacity reservation. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the capacity reservation. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

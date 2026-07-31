@@ -125,25 +125,25 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> autoProvisioningGroupId_ {};
-    // The end of the time range to query the scheduling history. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+    // The end of the time range to query scheduling history. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Pages start from page 1.
+    // The current page number in a paging query. Minimum value: 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: 100.
+    // The number of entries per page. Settings for paging query. Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the Auto Provisioning Group is located.
+    // The ID of the region where the auto provisioning group resides.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query the scheduling history. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+    // The beginning of the time range to query scheduling history. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 
