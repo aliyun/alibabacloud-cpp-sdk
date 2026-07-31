@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The ID of the O&M task approval.
+    // The approval ID of the O&M task.
     // > You can call the ListTodoOpsTaskApprovals operation to query this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> approveId_ {};
-    // The instance ID of the bastion host.
-    // > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
+    // The ID of the bastion host instance.
+    // > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

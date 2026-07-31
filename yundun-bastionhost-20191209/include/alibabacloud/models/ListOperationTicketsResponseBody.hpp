@@ -228,61 +228,54 @@ namespace Models
 
 
     protected:
-      // The ID of the user who submitted the O\\&M request.
+      // The ID of the O&M applicant.
       shared_ptr<string> applyUserId_ {};
-      // The username of the user who submitted the O\\&M request.
+      // The username of the O&M applicant.
       shared_ptr<string> applyUsername_ {};
-      // The comments provided by the O\\&M engineer when submitting the request.
+      // The remarks entered by the O&M engineer when submitting the O&M application.
       shared_ptr<string> approveComment_ {};
-      // The ID of the asset account for which the O\\&M request was submitted.
+      // The ID of the asset account requested for O&M.
       shared_ptr<string> assetAccountId_ {};
-      // The logon name of the asset account for which the O\\&M request was submitted.
+      // The logon name of the asset account requested for O&M.
       shared_ptr<string> assetAccountName_ {};
-      // The address of the asset for which the O\\&M request was submitted.
+      // The address of the asset requested for O&M.
       shared_ptr<string> assetAddress_ {};
-      // The ID of the asset for which the O\\&M request was submitted.
+      // The ID of the asset requested for O&M.
       shared_ptr<string> assetId_ {};
-      // The name of the asset for which the O\\&M request was submitted.
+      // The name of the asset requested for O&M.
       shared_ptr<string> assetName_ {};
-      // The ID of the network domain to which the asset belongs.
+      // The network domain ID of the asset requested for O&M.
       shared_ptr<string> assetNetworkDomainId_ {};
-      // The operating system of the asset.
+      // The operating system type of the asset requested for O&M.
       shared_ptr<string> assetOs_ {};
-      // The source of the asset. Valid values:
-      // 
-      // - **Local**: a local host
-      // 
-      // - **Ecs**: an ECS instance
-      // 
-      // - **Rds**: an RDS instance
-      // 
-      // - The name of a third-party asset source
+      // The name of the asset source to which the requested O&M asset belongs. Valid values:
+      // - **Local**: local host
+      // - **Ecs**: ECS instance
+      // - **Rds**: ApsaraDB RDS instance
+      // - Name of a third-party asset source.
       shared_ptr<string> assetSource_ {};
-      // The ID of the source of the asset.
+      // The ID of the asset source to which the requested O&M asset belongs.
       shared_ptr<string> assetSourceInstanceId_ {};
-      // The time when the request was submitted. This is a UNIX timestamp. Unit: seconds.
+      // The time when the application was submitted, in seconds (UNIX timestamp format).
       shared_ptr<int64_t> createdTime_ {};
-      // The number of permitted logons specified in the request. Valid values:
+      // The logon count limit requested by the O&M engineer. Valid values:
       // 
-      // - **0**: unlimited logons. The O\\&M engineer can log on an unlimited number of times within the validity period.
-      // 
-      // - **1**: one-time logon. The O\\&M engineer can log on only once within the validity period.
+      // - **0**: No logon count limit. The O&M engineer can log on an unlimited number of times within the validity period.
+      // - **1**: The O&M engineer can log on only once within the validity period.
       shared_ptr<int32_t> effectCount_ {};
-      // The end time of the O\\&M period specified by the O\\&M engineer. This is a UNIX timestamp. Unit: seconds.
-      // 
-      // > A value of 0 indicates that the O\\&M engineer did not specify an end time.
+      // The end time of the O&M period specified by the O&M engineer, in seconds (UNIX timestamp format).
+      // > A value of 0 indicates that the O&M engineer did not specify a time when submitting the application.
       shared_ptr<int32_t> effectEndTime_ {};
-      // The start time of the O\\&M period specified by the O\\&M engineer. This is a UNIX timestamp. Unit: seconds.
-      // 
-      // > A value of 0 indicates that the O\\&M engineer did not specify a start time.
+      // The start time of the O&M period specified by the O&M engineer, in seconds (UNIX timestamp format).
+      // > A value of 0 indicates that the O&M engineer did not specify a time when submitting the application.
       shared_ptr<int32_t> effectStartTime_ {};
-      // The ID of the O\\&M request that requires approval.
+      // The ID of the O&M application that requires approval.
       shared_ptr<string> operationTicketId_ {};
-      // The name of the protocol used for the O\\&M request.
+      // The protocol name requested for O&M.
       shared_ptr<string> protocolName_ {};
       // The approval status. Valid values:
       // 
-      // - Normal: pending approval
+      // - Normal: pending approval.
       shared_ptr<string> state_ {};
     };
 
@@ -312,11 +305,11 @@ namespace Models
 
 
   protected:
-    // A list of O\\&M requests that are pending approval.
+    // The list of O&M applications pending approval.
     shared_ptr<vector<ListOperationTicketsResponseBody::OperationTickets>> operationTickets_ {};
-    // The unique ID generated by Alibaba Cloud for the request.
+    // The unique request ID generated by Alibaba Cloud for this request.
     shared_ptr<string> requestId_ {};
-    // The total number of O\\&M requests that are pending approval.
+    // The total number of O&M applications pending approval.
     shared_ptr<int64_t> totalCount_ {};
   };
 

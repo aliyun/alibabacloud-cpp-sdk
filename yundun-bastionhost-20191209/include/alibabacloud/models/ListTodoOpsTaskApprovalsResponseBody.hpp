@@ -142,7 +142,7 @@ namespace Models
       // The scheduling type of the task.
       // - **FixTime**: scheduled execution.
       // - **CycleInterval**: periodic execution.
-      // - **Manual**: manually triggered by a user.
+      // - **Manual**: manually triggered by the user.
       shared_ptr<string> scheduleType_ {};
       // The ID of the O&M task.
       shared_ptr<int64_t> taskId_ {};

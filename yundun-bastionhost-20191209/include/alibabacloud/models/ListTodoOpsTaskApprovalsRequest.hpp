@@ -91,7 +91,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The task name or task remarks to query. Fuzzy match is supported.
     shared_ptr<string> keyword_ {};
-    // The page number of the page to return in a paging query. Default value: **1**.
+    // The page number of the current page in a paging query. Default value: **1**.
     shared_ptr<string> pageNumber_ {};
     // The maximum number of entries per page in a paging query.  
     // The maximum value of the PageSize parameter is 100. The default number of entries per page is 20. If PageSize is left empty, 20 entries are returned by default.
@@ -103,7 +103,7 @@ namespace Models
     // The task scheduling type used to filter results. Valid values:
     // - **FixTime**: scheduled execution.
     // - **CycleInterval**: periodic execution.
-    // - **Manual**: manually triggered by a user.
+    // - **Manual**: manually triggered by the user.
     shared_ptr<string> scheduleType_ {};
   };
 

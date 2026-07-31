@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the O&M task approval.
+    // The O&M task approval ID.
     // > You can call the ListTodoOpsTaskApprovals operation to query this parameter.
     // 
     // This parameter is required.
@@ -69,7 +69,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The region ID of the bastion host.
-    // > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+    // > For information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
     shared_ptr<string> regionId_ {};
   };
 

@@ -35,6 +35,8 @@ namespace Models
     class InstanceAttribute : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const InstanceAttribute& obj) { 
+        DARABONBA_PTR_TO_JSON(AiCreditStatus, aiCreditStatus_);
+        DARABONBA_PTR_TO_JSON(AiOpsModule, aiOpsModule_);
         DARABONBA_PTR_TO_JSON(AppOperationModule, appOperationModule_);
         DARABONBA_PTR_TO_JSON(AuthorizedSecurityGroups, authorizedSecurityGroups_);
         DARABONBA_PTR_TO_JSON(Bandwidth, bandwidth_);
@@ -75,6 +77,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(WhiteListPolicies, whiteListPolicies_);
       };
       friend void from_json(const Darabonba::Json& j, InstanceAttribute& obj) { 
+        DARABONBA_PTR_FROM_JSON(AiCreditStatus, aiCreditStatus_);
+        DARABONBA_PTR_FROM_JSON(AiOpsModule, aiOpsModule_);
         DARABONBA_PTR_FROM_JSON(AppOperationModule, appOperationModule_);
         DARABONBA_PTR_FROM_JSON(AuthorizedSecurityGroups, authorizedSecurityGroups_);
         DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
@@ -165,7 +169,7 @@ namespace Models
       protected:
         // The description of the whitelist rule.
         shared_ptr<string> description_ {};
-        // An IP address or CIDR block in the whitelist.
+        // The IP address whitelist to configure. A maximum of 50 IP addresses are supported. Separate multiple IP addresses with commas (,).
         shared_ptr<string> entry_ {};
       };
 
@@ -207,29 +211,41 @@ namespace Models
 
 
       protected:
-        // The custom O\\&M port.
+        // The custom port defined by the user.
         // 
-        // > Only SSH and RDP ports can be customized. If no custom port is set, this parameter returns the value of the `StandardPort` parameter.
+        // > Only SSH and RDP ports can be modified. If no custom O&M port is configured for the bastion host, the value is the same as the standard port.
         shared_ptr<int32_t> customPort_ {};
-        // The standard O\\&M port number. The following are the default standard ports for specific protocols:
+        // The standard port of the bastion host. Valid values:
         // 
-        // - **SSH**: 60022
-        // 
+        // - **SSH**: 60022 
         // - **RDP**: 63389
-        // 
         // - **HTTPS**: 443
         shared_ptr<int32_t> standardPort_ {};
       };
 
-      virtual bool empty() const override { return this->appOperationModule_ == nullptr
-        && this->authorizedSecurityGroups_ == nullptr && this->bandwidth_ == nullptr && this->bandwidthPackage_ == nullptr && this->dbOperationModule_ == nullptr && this->description_ == nullptr
-        && this->eniInstanceId_ == nullptr && this->expireTime_ == nullptr && this->HSMModule_ == nullptr && this->IDaaSModule_ == nullptr && this->instanceId_ == nullptr
-        && this->instanceStatus_ == nullptr && this->internetEndpoint_ == nullptr && this->intranetEndpoint_ == nullptr && this->kmsSecretModule_ == nullptr && this->licenseCode_ == nullptr
-        && this->modifyPasswordModule_ == nullptr && this->networkProxyModule_ == nullptr && this->ports_ == nullptr && this->privateExportIps_ == nullptr && this->privateWhiteList_ == nullptr
-        && this->publicExportIps_ == nullptr && this->publicIps_ == nullptr && this->publicNetworkAccess_ == nullptr && this->publicWhiteList_ == nullptr && this->RDModule_ == nullptr
-        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->routerRules_ == nullptr && this->scriptDeliverModule_ == nullptr && this->securityGroupIds_ == nullptr
-        && this->slaveVswitchId_ == nullptr && this->startTime_ == nullptr && this->storage_ == nullptr && this->vpcId_ == nullptr && this->vswitchId_ == nullptr
-        && this->webTerminalModule_ == nullptr && this->whiteListPolicies_ == nullptr; };
+      virtual bool empty() const override { return this->aiCreditStatus_ == nullptr
+        && this->aiOpsModule_ == nullptr && this->appOperationModule_ == nullptr && this->authorizedSecurityGroups_ == nullptr && this->bandwidth_ == nullptr && this->bandwidthPackage_ == nullptr
+        && this->dbOperationModule_ == nullptr && this->description_ == nullptr && this->eniInstanceId_ == nullptr && this->expireTime_ == nullptr && this->HSMModule_ == nullptr
+        && this->IDaaSModule_ == nullptr && this->instanceId_ == nullptr && this->instanceStatus_ == nullptr && this->internetEndpoint_ == nullptr && this->intranetEndpoint_ == nullptr
+        && this->kmsSecretModule_ == nullptr && this->licenseCode_ == nullptr && this->modifyPasswordModule_ == nullptr && this->networkProxyModule_ == nullptr && this->ports_ == nullptr
+        && this->privateExportIps_ == nullptr && this->privateWhiteList_ == nullptr && this->publicExportIps_ == nullptr && this->publicIps_ == nullptr && this->publicNetworkAccess_ == nullptr
+        && this->publicWhiteList_ == nullptr && this->RDModule_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->routerRules_ == nullptr
+        && this->scriptDeliverModule_ == nullptr && this->securityGroupIds_ == nullptr && this->slaveVswitchId_ == nullptr && this->startTime_ == nullptr && this->storage_ == nullptr
+        && this->vpcId_ == nullptr && this->vswitchId_ == nullptr && this->webTerminalModule_ == nullptr && this->whiteListPolicies_ == nullptr; };
+      // aiCreditStatus Field Functions 
+      bool hasAiCreditStatus() const { return this->aiCreditStatus_ != nullptr;};
+      void deleteAiCreditStatus() { this->aiCreditStatus_ = nullptr;};
+      inline string getAiCreditStatus() const { DARABONBA_PTR_GET_DEFAULT(aiCreditStatus_, "") };
+      inline InstanceAttribute& setAiCreditStatus(string aiCreditStatus) { DARABONBA_PTR_SET_VALUE(aiCreditStatus_, aiCreditStatus) };
+
+
+      // aiOpsModule Field Functions 
+      bool hasAiOpsModule() const { return this->aiOpsModule_ != nullptr;};
+      void deleteAiOpsModule() { this->aiOpsModule_ = nullptr;};
+      inline string getAiOpsModule() const { DARABONBA_PTR_GET_DEFAULT(aiOpsModule_, "") };
+      inline InstanceAttribute& setAiOpsModule(string aiOpsModule) { DARABONBA_PTR_SET_VALUE(aiOpsModule_, aiOpsModule) };
+
+
       // appOperationModule Field Functions 
       bool hasAppOperationModule() const { return this->appOperationModule_ != nullptr;};
       void deleteAppOperationModule() { this->appOperationModule_ = nullptr;};
@@ -517,115 +533,103 @@ namespace Models
 
 
     protected:
-      // Indicates whether the application O\\&M module is enabled. Valid values are `Enable` and `Disable`.
+      shared_ptr<string> aiCreditStatus_ {};
+      shared_ptr<string> aiOpsModule_ {};
+      // The application O&M module. Valid values: Enable (enabled) and Disable (disabled).
       shared_ptr<string> appOperationModule_ {};
-      // A list of authorized security group IDs.
+      // The list of authorized security group IDs.
       shared_ptr<vector<string>> authorizedSecurityGroups_ {};
-      // The total bandwidth of the Bastionhost instance, in Mbit/s.
+      // The total bandwidth of the bastion host instance.
       shared_ptr<string> bandwidth_ {};
-      // The extra bandwidth package of the Bastionhost instance, in Mbit/s.
+      // The extended bandwidth package of the bastion host.
       shared_ptr<string> bandwidthPackage_ {};
-      // The status of the database O\\&M feature.
-      // 
-      // - **Enable**: The database O\\&M feature is enabled.
-      // 
-      // - **Disable**: The database O\\&M feature is disabled.
+      // The status of the database O&M feature.
+      // - **Enable**: Database O&M is supported.
+      // - **Disable**: Database O&M is not supported.
       shared_ptr<string> dbOperationModule_ {};
       // The description of the instance.
       shared_ptr<string> description_ {};
-      // The ID of the elastic network interface (ENI).
+      // The ID of the elastic network interface (ENI). An ENI is a virtual network interface controller (NIC) that can be attached to the bastion host instance.
       shared_ptr<string> eniInstanceId_ {};
-      // The expiration timestamp, in milliseconds, of the Bastionhost instance.
+      // The timestamp when the bastion host instance expires. Unit: milliseconds.
       shared_ptr<int64_t> expireTime_ {};
-      // Indicates whether the Bastionhost instance is integrated with a Hardware Security Module (HSM).
+      // The status of the HSM hardware encryption module. Indicates whether the bastion host is integrated with HSM.
       shared_ptr<string> HSMModule_ {};
-      // Indicates whether the IDaaS integration module is enabled. Valid values are `Enable` and `Disable`.
+      // The IDaaS integration module. Valid values: Enable (enabled) and Disable (disabled).
       shared_ptr<string> IDaaSModule_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The status of the instance. Valid values:
+      // The instance status. Valid values:
       // 
-      // - **PENDING**: The instance is being initialized.
-      // 
-      // - **CREATING**: The instance is being created.
-      // 
-      // - **RUNNING**: The instance is running.
-      // 
-      // - **EXPIRED**: The instance has expired.
-      // 
-      // - **CREATE_FAILED**: Instance creation failed.
-      // 
-      // - **UPGRADING**: The instance is being upgraded.
-      // 
-      // - **UPGRADE_FAILED**: Instance upgrade failed.
+      // - **PENDING**: Not initialized.
+      // - **CREATING**: Being created. 
+      // - **RUNNING**: Running. 
+      // - **EXPIRED**: Expired. 
+      // - **CREATE_FAILED**: Creation failed.
+      // - **UPGRADING**: Being upgraded.
+      // - **UPGRADE_FAILED**: Upgrade failed.
       shared_ptr<string> instanceStatus_ {};
-      // The public domain name of the instance.
+      // The public domain name.
       shared_ptr<string> internetEndpoint_ {};
-      // The internal endpoint of the instance.
+      // The internal domain name.
       shared_ptr<string> intranetEndpoint_ {};
-      // Indicates whether the instance is integrated with Key Management Service (KMS) and Secrets Manager. Valid values are `Enable` and `Disable`.
+      // The KMS Secrets Manager integration module. Valid values: Enable (enabled) and Disable (disabled).
       shared_ptr<string> kmsSecretModule_ {};
       // The license code.
       shared_ptr<string> licenseCode_ {};
-      // The status of the password change feature.
+      // The status of the password change task feature.
       // 
-      // - **Enable**: The feature is enabled.
-      // 
-      // - **Disable**: The feature is disabled.
+      // - **Enable**: Enabled.
+      // - **Disable**: Disabled.
       shared_ptr<string> modifyPasswordModule_ {};
       // The status of the network domain proxy feature.
-      // 
-      // - **Enable**: The network domain proxy feature is enabled.
-      // 
-      // - **Disable**: The network domain proxy feature is disabled.
+      // - **Enable**: The network domain proxy mode is supported.
+      // - **Disable**: The network domain proxy mode is not supported.
       shared_ptr<string> networkProxyModule_ {};
-      // The O\\&M ports of the Bastionhost instance.
+      // The O&M ports of the bastion host.
       shared_ptr<vector<InstanceAttribute::Ports>> ports_ {};
-      // A list of private egress IP addresses of the Bastionhost instance.
+      // The list of internal egress IP addresses of the bastion host.
       shared_ptr<vector<string>> privateExportIps_ {};
-      // The private whitelist of the instance.
+      // The list of IP addresses in the internal whitelist.
       shared_ptr<vector<string>> privateWhiteList_ {};
-      // A list of public egress IP addresses of the Bastionhost instance.
+      // The list of public egress IP addresses of the bastion host.
       shared_ptr<vector<string>> publicExportIps_ {};
-      // A list of public IP addresses of the Bastionhost instance.
+      // The list of public IP addresses of the bastion host.
       shared_ptr<vector<string>> publicIps_ {};
-      // Indicates whether the Bastionhost instance is accessible over the public network. Valid values:
+      // Indicates whether the bastion host instance is accessible over the Internet. Valid values:
       // 
-      // - **true**: The Bastionhost instance is accessible over the public network.
-      // 
-      // - **false**: The Bastionhost instance is not accessible over the public network.
+      // - **true**: The bastion host is accessible over the Internet.
+      // - **false**: The bastion host is not accessible over the Internet.
       shared_ptr<bool> publicNetworkAccess_ {};
-      // The public whitelist of the Bastionhost instance.
+      // The public whitelist of the bastion host.
       shared_ptr<vector<string>> publicWhiteList_ {};
-      // Indicates whether the multi-account module is enabled. Valid values are `Enable` and `Disable`.
+      // The multi-account module. Valid values: Enable (enabled) and Disable (disabled).
       shared_ptr<string> RDModule_ {};
-      // The ID of the region where the Bastionhost instance is located.
+      // The region ID of the instance.
       shared_ptr<string> regionId_ {};
-      // The ID of the instance\\"s resource group.
+      // The ID of the resource group to which the instance belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // A list of routing rules for the Bastionhost instance.
+      // The list of rules for the bastion host instance.
       shared_ptr<vector<string>> routerRules_ {};
-      // Indicates whether the script-based O\\&M module is enabled. Valid values are `Enable` and `Disable`.
+      // The script O&M module. Valid values: Enable (enabled) and Disable (disabled).
       shared_ptr<string> scriptDeliverModule_ {};
-      // A list of the instance\\"s security group IDs.
+      // The list of security group IDs to which the instance belongs.
       shared_ptr<vector<string>> securityGroupIds_ {};
-      // The ID of the standby VSwitch for the Bastionhost instance.
+      // The ID of the secondary vSwitch associated with the bastion host instance.
       shared_ptr<string> slaveVswitchId_ {};
-      // The timestamp, in milliseconds, when the Bastionhost instance was purchased or renewed.
+      // The timestamp when the bastion host instance was purchased or renewed. Unit: milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The total storage capacity of the Bastionhost instance, in bytes.
+      // The total storage capacity of the purchased bastion host. Unit: bytes.
       shared_ptr<int64_t> storage_ {};
-      // The ID of the instance\\"s Virtual Private Cloud (VPC).
+      // The VPC ID associated with the instance.
       shared_ptr<string> vpcId_ {};
-      // The ID of the instance\\"s VSwitch.
+      // The vSwitch ID associated with the instance.
       shared_ptr<string> vswitchId_ {};
-      // The status of the web terminal.
-      // 
-      // - **Enable**: Supports web-based remote connections.
-      // 
-      // - **Disable**: Does not support web-based remote connections.
+      // The status of the Web Terminal feature.
+      // - **Enable**: Web remote connection is supported.
+      // - **Disable**: Web remote connection is not supported.
       shared_ptr<string> webTerminalModule_ {};
-      // The configured IP address whitelist policies.
+      // The IP address whitelist to configure.
       shared_ptr<vector<InstanceAttribute::WhiteListPolicies>> whiteListPolicies_ {};
     };
 
@@ -648,9 +652,9 @@ namespace Models
 
 
   protected:
-    // The attributes of the instance.
+    // The instance attribute information.
     shared_ptr<DescribeInstanceAttributeResponseBody::InstanceAttribute> instanceAttribute_ {};
-    // The unique ID of the request. You can use this ID to troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

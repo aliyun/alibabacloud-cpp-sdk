@@ -153,7 +153,7 @@ namespace YundunBastionhost20191209
       Models::AddUsersToGroupResponse addUsersToGroup(const Models::AddUsersToGroupRequest &request);
 
       /**
-       * @summary Approves an O&M task request.
+       * @summary Approves an O&M task execution request.
        *
        * @param request AllowOperationTaskApprovalRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -162,7 +162,7 @@ namespace YundunBastionhost20191209
       Models::AllowOperationTaskApprovalResponse allowOperationTaskApprovalWithOptions(const Models::AllowOperationTaskApprovalRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Approves an O&M task request.
+       * @summary Approves an O&M task execution request.
        *
        * @param request AllowOperationTaskApprovalRequest
        * @return AllowOperationTaskApprovalResponse
@@ -815,7 +815,7 @@ namespace YundunBastionhost20191209
       Models::DeleteUserPublicKeyResponse deleteUserPublicKey(const Models::DeleteUserPublicKeyRequest &request);
 
       /**
-       * @summary Returns all instance attributes, such as its instance ID and description.
+       * @summary Queries all attribute information of an instance, such as the instance ID and instance description.
        *
        * @param request DescribeInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -824,7 +824,7 @@ namespace YundunBastionhost20191209
       Models::DescribeInstanceAttributeResponse describeInstanceAttributeWithOptions(const Models::DescribeInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Returns all instance attributes, such as its instance ID and description.
+       * @summary Queries all attribute information of an instance, such as the instance ID and instance description.
        *
        * @param request DescribeInstanceAttributeRequest
        * @return DescribeInstanceAttributeResponse
@@ -1019,7 +1019,7 @@ namespace YundunBastionhost20191209
       Models::DisableRuleResponse disableRule(const Models::DisableRuleRequest &request);
 
       /**
-       * @summary Enables public network access for a specified Bastionhost instance.
+       * @summary Enables the public access switch for a specified Bastionhost instance.
        *
        * @param request EnableInstancePublicAccessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1028,7 +1028,7 @@ namespace YundunBastionhost20191209
       Models::EnableInstancePublicAccessResponse enableInstancePublicAccessWithOptions(const Models::EnableInstancePublicAccessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables public network access for a specified Bastionhost instance.
+       * @summary Enables the public access switch for a specified Bastionhost instance.
        *
        * @param request EnableInstancePublicAccessRequest
        * @return EnableInstancePublicAccessResponse
@@ -1070,7 +1070,7 @@ namespace YundunBastionhost20191209
       Models::GenerateAssetOperationTokenResponse generateAssetOperationToken(const Models::GenerateAssetOperationTokenRequest &request);
 
       /**
-       * @summary Retrieves the details of a specified O&M task for an administrator.
+       * @summary Queries the details of a specified O&M task.
        *
        * @param request GetAutoOpsTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1079,7 +1079,7 @@ namespace YundunBastionhost20191209
       Models::GetAutoOpsTaskResponse getAutoOpsTaskWithOptions(const Models::GetAutoOpsTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a specified O&M task for an administrator.
+       * @summary Queries the details of a specified O&M task.
        *
        * @param request GetAutoOpsTaskRequest
        * @return GetAutoOpsTaskResponse
@@ -1377,7 +1377,7 @@ namespace YundunBastionhost20191209
       Models::GetRuleResponse getRule(const Models::GetRuleRequest &request);
 
       /**
-       * @summary Retrieves the details of a user of a bastion host.
+       * @summary Retrieves the details of a specified Bastionhost user.
        *
        * @param request GetUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1386,7 +1386,7 @@ namespace YundunBastionhost20191209
       Models::GetUserResponse getUserWithOptions(const Models::GetUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a user of a bastion host.
+       * @summary Retrieves the details of a specified Bastionhost user.
        *
        * @param request GetUserRequest
        * @return GetUserResponse
@@ -1893,10 +1893,10 @@ namespace YundunBastionhost20191209
       Models::ListOperationHostsResponse listOperationHosts(const Models::ListOperationHostsRequest &request);
 
       /**
-       * @summary Lists the O&M requests that require approval.
+       * @summary Retrieves the list of O&M applications that require approval.
        *
-       * @description Queries the operations and maintenance (O\\&M) requests that require administrator approval.
-       * The queries per second (QPS) limit for this operation is 10 per user. Exceeding this limit triggers throttling, which can affect your business. Plan your calls accordingly.
+       * @description Retrieves the list of O&M applications that require approval for an administrator.
+       * The China site Chinese QPS limit for this API is 10 requests per second. If this limit is exceeded, throttling is triggered, which may affect your business. Call this API appropriately.
        *
        * @param request ListOperationTicketsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1905,10 +1905,10 @@ namespace YundunBastionhost20191209
       Models::ListOperationTicketsResponse listOperationTicketsWithOptions(const Models::ListOperationTicketsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the O&M requests that require approval.
+       * @summary Retrieves the list of O&M applications that require approval.
        *
-       * @description Queries the operations and maintenance (O\\&M) requests that require administrator approval.
-       * The queries per second (QPS) limit for this operation is 10 per user. Exceeding this limit triggers throttling, which can affect your business. Plan your calls accordingly.
+       * @description Retrieves the list of O&M applications that require approval for an administrator.
+       * The China site Chinese QPS limit for this API is 10 requests per second. If this limit is exceeded, throttling is triggered, which may affect your business. Call this API appropriately.
        *
        * @param request ListOperationTicketsRequest
        * @return ListOperationTicketsResponse
@@ -1984,7 +1984,7 @@ namespace YundunBastionhost20191209
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary Retrieves pending automated O&M approval requests.
+       * @summary Retrieves the list of pending automated O&M approval requests.
        *
        * @param request ListTodoOpsTaskApprovalsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1993,7 +1993,7 @@ namespace YundunBastionhost20191209
       Models::ListTodoOpsTaskApprovalsResponse listTodoOpsTaskApprovalsWithOptions(const Models::ListTodoOpsTaskApprovalsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves pending automated O&M approval requests.
+       * @summary Retrieves the list of pending automated O&M approval requests.
        *
        * @param request ListTodoOpsTaskApprovalsRequest
        * @return ListTodoOpsTaskApprovalsResponse
@@ -2035,7 +2035,7 @@ namespace YundunBastionhost20191209
       Models::ListUserPublicKeysResponse listUserPublicKeys(const Models::ListUserPublicKeysRequest &request);
 
       /**
-       * @summary Queries a list of users of a bastion host.
+       * @summary Retrieves the list of users for a specified bastion host.
        *
        * @param request ListUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2044,7 +2044,7 @@ namespace YundunBastionhost20191209
       Models::ListUsersResponse listUsersWithOptions(const Models::ListUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of users of a bastion host.
+       * @summary Retrieves the list of users for a specified bastion host.
        *
        * @param request ListUsersRequest
        * @return ListUsersResponse
@@ -2250,7 +2250,7 @@ namespace YundunBastionhost20191209
       Models::ModifyInstanceADAuthServerResponse modifyInstanceADAuthServer(const Models::ModifyInstanceADAuthServerRequest &request);
 
       /**
-       * @summary Modifies the attributes of a specified Bastionhost instance.
+       * @summary Modifies the information of a specified bastion host instance.
        *
        * @param request ModifyInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2259,7 +2259,7 @@ namespace YundunBastionhost20191209
       Models::ModifyInstanceAttributeResponse modifyInstanceAttributeWithOptions(const Models::ModifyInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the attributes of a specified Bastionhost instance.
+       * @summary Modifies the information of a specified bastion host instance.
        *
        * @param request ModifyInstanceAttributeRequest
        * @return ModifyInstanceAttributeResponse
@@ -2477,7 +2477,7 @@ namespace YundunBastionhost20191209
       Models::RejectApproveCommandResponse rejectApproveCommand(const Models::RejectApproveCommandRequest &request);
 
       /**
-       * @summary Rejects an O&M task approval.
+       * @summary Rejects an O&M task execution request.
        *
        * @param request RejectOperationTaskApprovalRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2486,7 +2486,7 @@ namespace YundunBastionhost20191209
       Models::RejectOperationTaskApprovalResponse rejectOperationTaskApprovalWithOptions(const Models::RejectOperationTaskApprovalRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Rejects an O&M task approval.
+       * @summary Rejects an O&M task execution request.
        *
        * @param request RejectOperationTaskApprovalRequest
        * @return RejectOperationTaskApprovalResponse

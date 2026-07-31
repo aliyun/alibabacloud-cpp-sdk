@@ -78,7 +78,9 @@ AlibabaCloud::YundunBastionhost20191209::Client::Client(Config &config): OpenApi
     {"cn-zhengzhou-nebula-1" , "yundun-bastionhost.aliyuncs.com"},
     {"eu-west-1-oxs" , "yundun-bastionhost.aliyuncs.com"},
     {"rus-west-1-pop" , "yundun-bastionhost.aliyuncs.com"},
+    {"na-south-1" , "bastionhost.na-south-1.aliyuncs.com"},
     {"cn-zhengzhou-jva" , "yundun-bastionhost.aliyuncs.com"},
+    {"ap-southeast-7" , "bastionhost.ap-southeast-7.aliyuncs.com"},
     {"ap-southeast-6" , "bastionhost.ap-southeast-6.aliyuncs.com"},
     {"ap-northeast-2" , "bastionhost.ap-northeast-2.aliyuncs.com"}
   }).get<map<string, string>>();
@@ -458,7 +460,7 @@ AddUsersToGroupResponse Client::addUsersToGroup(const AddUsersToGroupRequest &re
 }
 
 /**
- * @summary Approves an O&M task request.
+ * @summary Approves an O&M task execution request.
  *
  * @param request AllowOperationTaskApprovalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -497,7 +499,7 @@ AllowOperationTaskApprovalResponse Client::allowOperationTaskApprovalWithOptions
 }
 
 /**
- * @summary Approves an O&M task request.
+ * @summary Approves an O&M task execution request.
  *
  * @param request AllowOperationTaskApprovalRequest
  * @return AllowOperationTaskApprovalResponse
@@ -2640,7 +2642,7 @@ DeleteUserPublicKeyResponse Client::deleteUserPublicKey(const DeleteUserPublicKe
 }
 
 /**
- * @summary Returns all instance attributes, such as its instance ID and description.
+ * @summary Queries all attribute information of an instance, such as the instance ID and instance description.
  *
  * @param request DescribeInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2675,7 +2677,7 @@ DescribeInstanceAttributeResponse Client::describeInstanceAttributeWithOptions(c
 }
 
 /**
- * @summary Returns all instance attributes, such as its instance ID and description.
+ * @summary Queries all attribute information of an instance, such as the instance ID and instance description.
  *
  * @param request DescribeInstanceAttributeRequest
  * @return DescribeInstanceAttributeResponse
@@ -3276,7 +3278,7 @@ DisableRuleResponse Client::disableRule(const DisableRuleRequest &request) {
 }
 
 /**
- * @summary Enables public network access for a specified Bastionhost instance.
+ * @summary Enables the public access switch for a specified Bastionhost instance.
  *
  * @param request EnableInstancePublicAccessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3311,7 +3313,7 @@ EnableInstancePublicAccessResponse Client::enableInstancePublicAccessWithOptions
 }
 
 /**
- * @summary Enables public network access for a specified Bastionhost instance.
+ * @summary Enables the public access switch for a specified Bastionhost instance.
  *
  * @param request EnableInstancePublicAccessRequest
  * @return EnableInstancePublicAccessResponse
@@ -3462,7 +3464,7 @@ GenerateAssetOperationTokenResponse Client::generateAssetOperationToken(const Ge
 }
 
 /**
- * @summary Retrieves the details of a specified O&M task for an administrator.
+ * @summary Queries the details of a specified O&M task.
  *
  * @param request GetAutoOpsTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3503,7 +3505,7 @@ GetAutoOpsTaskResponse Client::getAutoOpsTaskWithOptions(const GetAutoOpsTaskReq
 }
 
 /**
- * @summary Retrieves the details of a specified O&M task for an administrator.
+ * @summary Queries the details of a specified O&M task.
  *
  * @param request GetAutoOpsTaskRequest
  * @return GetAutoOpsTaskResponse
@@ -4320,7 +4322,7 @@ GetRuleResponse Client::getRule(const GetRuleRequest &request) {
 }
 
 /**
- * @summary Retrieves the details of a user of a bastion host.
+ * @summary Retrieves the details of a specified Bastionhost user.
  *
  * @param request GetUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4359,7 +4361,7 @@ GetUserResponse Client::getUserWithOptions(const GetUserRequest &request, const 
 }
 
 /**
- * @summary Retrieves the details of a user of a bastion host.
+ * @summary Retrieves the details of a specified Bastionhost user.
  *
  * @param request GetUserRequest
  * @return GetUserResponse
@@ -6252,10 +6254,10 @@ ListOperationHostsResponse Client::listOperationHosts(const ListOperationHostsRe
 }
 
 /**
- * @summary Lists the O&M requests that require approval.
+ * @summary Retrieves the list of O&M applications that require approval.
  *
- * @description Queries the operations and maintenance (O\\&M) requests that require administrator approval.
- * The queries per second (QPS) limit for this operation is 10 per user. Exceeding this limit triggers throttling, which can affect your business. Plan your calls accordingly.
+ * @description Retrieves the list of O&M applications that require approval for an administrator.
+ * The China site Chinese QPS limit for this API is 10 requests per second. If this limit is exceeded, throttling is triggered, which may affect your business. Call this API appropriately.
  *
  * @param request ListOperationTicketsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6302,10 +6304,10 @@ ListOperationTicketsResponse Client::listOperationTicketsWithOptions(const ListO
 }
 
 /**
- * @summary Lists the O&M requests that require approval.
+ * @summary Retrieves the list of O&M applications that require approval.
  *
- * @description Queries the operations and maintenance (O\\&M) requests that require administrator approval.
- * The queries per second (QPS) limit for this operation is 10 per user. Exceeding this limit triggers throttling, which can affect your business. Plan your calls accordingly.
+ * @description Retrieves the list of O&M applications that require approval for an administrator.
+ * The China site Chinese QPS limit for this API is 10 requests per second. If this limit is exceeded, throttling is triggered, which may affect your business. Call this API appropriately.
  *
  * @param request ListOperationTicketsRequest
  * @return ListOperationTicketsResponse
@@ -6556,7 +6558,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Retrieves pending automated O&M approval requests.
+ * @summary Retrieves the list of pending automated O&M approval requests.
  *
  * @param request ListTodoOpsTaskApprovalsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6607,7 +6609,7 @@ ListTodoOpsTaskApprovalsResponse Client::listTodoOpsTaskApprovalsWithOptions(con
 }
 
 /**
- * @summary Retrieves pending automated O&M approval requests.
+ * @summary Retrieves the list of pending automated O&M approval requests.
  *
  * @param request ListTodoOpsTaskApprovalsRequest
  * @return ListTodoOpsTaskApprovalsResponse
@@ -6734,7 +6736,7 @@ ListUserPublicKeysResponse Client::listUserPublicKeys(const ListUserPublicKeysRe
 }
 
 /**
- * @summary Queries a list of users of a bastion host.
+ * @summary Retrieves the list of users for a specified bastion host.
  *
  * @param request ListUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6805,7 +6807,7 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
 }
 
 /**
- * @summary Queries a list of users of a bastion host.
+ * @summary Retrieves the list of users for a specified bastion host.
  *
  * @param request ListUsersRequest
  * @return ListUsersResponse
@@ -7520,7 +7522,7 @@ ModifyInstanceADAuthServerResponse Client::modifyInstanceADAuthServer(const Modi
 }
 
 /**
- * @summary Modifies the attributes of a specified Bastionhost instance.
+ * @summary Modifies the information of a specified bastion host instance.
  *
  * @param request ModifyInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7559,7 +7561,7 @@ ModifyInstanceAttributeResponse Client::modifyInstanceAttributeWithOptions(const
 }
 
 /**
- * @summary Modifies the attributes of a specified Bastionhost instance.
+ * @summary Modifies the information of a specified bastion host instance.
  *
  * @param request ModifyInstanceAttributeRequest
  * @return ModifyInstanceAttributeResponse
@@ -8376,7 +8378,7 @@ RejectApproveCommandResponse Client::rejectApproveCommand(const RejectApproveCom
 }
 
 /**
- * @summary Rejects an O&M task approval.
+ * @summary Rejects an O&M task execution request.
  *
  * @param request RejectOperationTaskApprovalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8415,7 +8417,7 @@ RejectOperationTaskApprovalResponse Client::rejectOperationTaskApprovalWithOptio
 }
 
 /**
- * @summary Rejects an O&M task approval.
+ * @summary Rejects an O&M task execution request.
  *
  * @param request RejectOperationTaskApprovalRequest
  * @return RejectOperationTaskApprovalResponse
