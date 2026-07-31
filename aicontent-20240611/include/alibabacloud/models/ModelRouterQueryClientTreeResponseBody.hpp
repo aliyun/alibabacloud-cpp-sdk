@@ -107,19 +107,19 @@ namespace Models
 
 
   protected:
-    // An array of objects that form the customer tree.
+    // The response data. The customer tree structure list.
     shared_ptr<vector<ClientTreeDTO>> data_ {};
-    // The error code returned if the request fails.
+    // The fault information code.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request fails.
+    // The error message.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The maximum number of entries returned on the current page.
+    // maxResults
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. If this parameter is not returned, it indicates that there are no more results.
+    // nextToken
     shared_ptr<string> nextToken_ {};
-    // The unique request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

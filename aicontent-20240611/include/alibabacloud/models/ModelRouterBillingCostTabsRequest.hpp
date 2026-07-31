@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Specifies the maximum number of results to return.
+    // The maximum number of results.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results.
+    // nextToken
     shared_ptr<string> nextToken_ {};
   };
 

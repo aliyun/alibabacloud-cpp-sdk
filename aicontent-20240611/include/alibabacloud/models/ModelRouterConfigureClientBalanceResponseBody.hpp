@@ -87,9 +87,9 @@ namespace Models
 
 
   protected:
-    // The returned data object.
+    // The data object.
     shared_ptr<ClientBalanceDTO> data_ {};
-    // The error code.
+    // The fault code.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
@@ -97,7 +97,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

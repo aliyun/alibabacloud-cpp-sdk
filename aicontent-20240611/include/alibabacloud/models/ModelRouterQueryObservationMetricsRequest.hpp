@@ -158,33 +158,33 @@ namespace Models
 
 
   protected:
-    // The API Key ID to use for filtering the results.
+    // The API key ID used to filter the results.
     shared_ptr<int64_t> apiKeyId_ {};
-    // The client ID to use for filtering the results.
+    // The client ID used to filter the results.
     shared_ptr<int64_t> clientId_ {};
-    // The end time of a custom time range for the query.
+    // The custom end time.
     shared_ptr<string> endTime_ {};
-    // The field to use for grouping the results.
+    // The field by which to group the results.
     shared_ptr<string> groupBy_ {};
     // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The model ID to use for filtering the results.
+    // The model ID used to filter the results.
     shared_ptr<int64_t> modelId_ {};
-    // Specifies whether to return the total count of results.
+    // Specifies whether to return the total count.
     shared_ptr<bool> needTotalCount_ {};
-    // The token used to retrieve the next page of results, obtained from the previous response.
+    // The token for the next query. An empty value indicates the last page.
     shared_ptr<string> nextToken_ {};
-    // The field to use for sorting the results.
+    // The field by which to sort the results.
     shared_ptr<string> orderBy_ {};
-    // The sort order. Valid values: `ASC` (ascending) and `DESC` (descending).
+    // The sort direction.
     shared_ptr<string> orderDirection_ {};
-    // The page number to retrieve.
+    // The page number.
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of results to return per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The start time of a custom time range for the query.
+    // The custom start time.
     shared_ptr<string> startTime_ {};
-    // The time range for the query. Valid values: `1h`, `6h`, `24h`, `7d`, and `30d`.
+    // The time range for the query. Valid values: 1h, 6h, 24h, 7d, and 30d.
     shared_ptr<string> timeRange_ {};
   };
 

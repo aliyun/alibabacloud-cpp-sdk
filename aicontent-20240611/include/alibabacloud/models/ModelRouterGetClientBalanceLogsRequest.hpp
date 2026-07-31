@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Filters the logs by change type. Valid values: auto_deduct, deduct, and recharge.
+    // The change type filter. Valid values: auto_deduct, deduct, recharge.
     shared_ptr<string> changeType_ {};
     // The maximum number of entries to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page of results.
+    // The pagination token for the next request.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> page_ {};
-    // The number of entries to return per page.
+    // The number of entries per page.
     shared_ptr<int32_t> size_ {};
   };
 

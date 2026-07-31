@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Filters by balance type (permanent/monthly).
     shared_ptr<string> balanceType_ {};
+    // The maximum number of results to return per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. Do not specify this parameter for the first query. For subsequent queries, specify the value returned from the previous query. Set to "" when no more data is available. Set to "5" when there is a next page.
     shared_ptr<string> nextToken_ {};
+    // Filters by status (active/stopped).
     shared_ptr<string> status_ {};
   };
 

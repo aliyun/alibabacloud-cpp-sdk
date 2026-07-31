@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The type of subscription balance to stop (permanent/monthly).
     shared_ptr<string> balanceType_ {};
   };
 

@@ -191,19 +191,19 @@ namespace Models
 
 
   protected:
-    // The response payload.
+    // The data object.
     shared_ptr<ModelRouterQueryObservationLogsResponseBody::Data> data_ {};
-    // The error code for a failed request.
+    // The fault information code.
     shared_ptr<string> errCode_ {};
-    // The error message for a failed request.
+    // The error message.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The maximum number of results per page.
+    // maxResults
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results.
+    // nextToken
     shared_ptr<string> nextToken_ {};
-    // The unique ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

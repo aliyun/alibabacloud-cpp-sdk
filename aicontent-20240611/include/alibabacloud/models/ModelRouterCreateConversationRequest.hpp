@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The conversation data, provided as a JSON string containing the message history for each model. This parameter is required.
+    // The conversation data in JSON format, containing message records for each model. This parameter is required.
     shared_ptr<string> chatData_ {};
-    // A list of model IDs, provided as a JSON array string.
+    // The list of model IDs, specified as a JSON array string.
     shared_ptr<string> modelIds_ {};
-    // The conversation title. If omitted, a title is automatically generated from the first user message.
+    // The conversation title. If not specified, the title is automatically extracted from the first user message.
     shared_ptr<string> title_ {};
   };
 

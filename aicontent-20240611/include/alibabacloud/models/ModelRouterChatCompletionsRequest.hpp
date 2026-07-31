@@ -40,7 +40,7 @@ namespace Models
 
 
   protected:
-    // The request body, which must be a JSON object.
+    // The chat request body.
     Darabonba::Json body_ {};
   };
 

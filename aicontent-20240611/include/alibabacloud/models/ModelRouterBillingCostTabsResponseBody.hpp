@@ -109,15 +109,15 @@ namespace Models
   protected:
     // The data object.
     shared_ptr<vector<CostTabDTO>> data_ {};
-    // The error code.
+    // The fault message code.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The maximum number of results returned on a single page.
+    // The maximum number of results.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results.
+    // nextToken
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

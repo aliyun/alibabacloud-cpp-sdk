@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // The balance pool to which the recharge is applied. Valid values:
+    // - permanent: the permanent balance pool.
+    // - monthly: the monthly balance pool.
     shared_ptr<string> balanceType_ {};
+    // The effective period, in UNIX timestamp (seconds). Range: from 00:00 of today to 00:00 of the first day of the next month (Asia/Shanghai).
     shared_ptr<int64_t> effectiveTime_ {};
+    // The idempotency key. UUID v4 format without hyphens is recommended. This prevents duplicate subscription creation.
     shared_ptr<string> idempotencyKey_ {};
+    // The subscription recharge amount.
     shared_ptr<double> subscriptionAmount_ {};
   };
 

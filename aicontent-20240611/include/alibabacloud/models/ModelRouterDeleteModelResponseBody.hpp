@@ -84,9 +84,9 @@ namespace Models
 
 
   protected:
-    // Indicates if the model was successfully deleted.
+    // Indicates whether the model was deleted.
     shared_ptr<bool> data_ {};
-    // The error code.
+    // The fault message code.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
@@ -94,7 +94,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call was processed successfully.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

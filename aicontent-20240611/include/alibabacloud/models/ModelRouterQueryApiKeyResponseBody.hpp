@@ -87,17 +87,17 @@ namespace Models
 
 
   protected:
-    // The data object containing the API key details.
+    // The data object.
     shared_ptr<ApiKeyDecryptedDTO> data_ {};
-    // The error code, returned only if the request fails.
+    // The fault message code.
     shared_ptr<string> errCode_ {};
-    // The error message, returned only if the request fails.
+    // The error message.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Specifies if the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 

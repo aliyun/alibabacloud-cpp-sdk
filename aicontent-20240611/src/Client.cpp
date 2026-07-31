@@ -2460,7 +2460,60 @@ ListTextbookAssistantSceneDetailsResponse Client::listTextbookAssistantSceneDeta
 }
 
 /**
- * @summary Retrieves the tab configuration for usage monitoring.
+ * @summary Binds model groups to departments in batches.
+ *
+ * @description Binds model groups to departments in batches.
+ *
+ * @param request ModelRouterBatchBindModelGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterBatchBindModelGroupResponse
+ */
+ModelRouterBatchBindModelGroupResponse Client::modelRouterBatchBindModelGroupWithOptions(const ModelRouterBatchBindModelGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAllowedModelGroupConfig()) {
+    body["allowedModelGroupConfig"] = request.getAllowedModelGroupConfig();
+  }
+
+  if (!!request.hasClientIdList()) {
+    body["clientIdList"] = request.getClientIdList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterBatchBindModelGroup"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/batch-bind-model-group")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterBatchBindModelGroupResponse>();
+}
+
+/**
+ * @summary Binds model groups to departments in batches.
+ *
+ * @description Binds model groups to departments in batches.
+ *
+ * @param request ModelRouterBatchBindModelGroupRequest
+ * @return ModelRouterBatchBindModelGroupResponse
+ */
+ModelRouterBatchBindModelGroupResponse Client::modelRouterBatchBindModelGroup(const ModelRouterBatchBindModelGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterBatchBindModelGroupWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the usage monitoring tab configuration.
  *
  * @param request ModelRouterBillingCostTabsRequest
  * @param headers map
@@ -2497,7 +2550,7 @@ ModelRouterBillingCostTabsResponse Client::modelRouterBillingCostTabsWithOptions
 }
 
 /**
- * @summary Retrieves the tab configuration for usage monitoring.
+ * @summary Retrieves the usage monitoring tab configuration.
  *
  * @param request ModelRouterBillingCostTabsRequest
  * @return ModelRouterBillingCostTabsResponse
@@ -2509,7 +2562,7 @@ ModelRouterBillingCostTabsResponse Client::modelRouterBillingCostTabs(const Mode
 }
 
 /**
- * @summary Generates a chat completion.
+ * @summary Initiates a chat conversation.
  *
  * @param request ModelRouterChatCompletionsRequest
  * @param headers map
@@ -2551,7 +2604,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Generates a chat completion.
+ * @summary Initiates a chat conversation.
  *
  * @param request ModelRouterChatCompletionsRequest
  * @param headers map
@@ -2579,7 +2632,7 @@ ModelRouterChatCompletionsResponse Client::modelRouterChatCompletionsWithOptions
 }
 
 /**
- * @summary Generates a chat completion.
+ * @summary Initiates a chat conversation.
  *
  * @param request ModelRouterChatCompletionsRequest
  * @return ModelRouterChatCompletionsResponse
@@ -2591,7 +2644,7 @@ ModelRouterChatCompletionsResponse Client::modelRouterChatCompletions(const Mode
 }
 
 /**
- * @summary Configures balance throttling for a department.
+ * @summary Enables balance-based throttling for a department.
  *
  * @param request ModelRouterConfigureClientBalanceRequest
  * @param headers map
@@ -2632,7 +2685,7 @@ ModelRouterConfigureClientBalanceResponse Client::modelRouterConfigureClientBala
 }
 
 /**
- * @summary Configures balance throttling for a department.
+ * @summary Enables balance-based throttling for a department.
  *
  * @param request ModelRouterConfigureClientBalanceRequest
  * @return ModelRouterConfigureClientBalanceResponse
@@ -2680,7 +2733,7 @@ ModelRouterCopyApiKeyResponse Client::modelRouterCopyApiKey(const string &id) {
 }
 
 /**
- * @summary API key management / Create an API key
+ * @summary Creates an API key.
  *
  * @param request ModelRouterCreateApiKeyRequest
  * @param headers map
@@ -2713,7 +2766,7 @@ ModelRouterCreateApiKeyResponse Client::modelRouterCreateApiKeyWithOptions(const
 }
 
 /**
- * @summary API key management / Create an API key
+ * @summary Creates an API key.
  *
  * @param request ModelRouterCreateApiKeyRequest
  * @return ModelRouterCreateApiKeyResponse
@@ -2726,8 +2779,6 @@ ModelRouterCreateApiKeyResponse Client::modelRouterCreateApiKey(const ModelRoute
 
 /**
  * @summary Creates a balance transaction for customer management.
- *
- * @description This operation is deprecated. Do not use it.
  *
  * @param request ModelRouterCreateBalanceTransactionRequest
  * @param headers map
@@ -2778,8 +2829,6 @@ ModelRouterCreateBalanceTransactionResponse Client::modelRouterCreateBalanceTran
 /**
  * @summary Creates a balance transaction for customer management.
  *
- * @description This operation is deprecated. Do not use it.
- *
  * @param request ModelRouterCreateBalanceTransactionRequest
  * @return ModelRouterCreateBalanceTransactionResponse
  */
@@ -2790,7 +2839,7 @@ ModelRouterCreateBalanceTransactionResponse Client::modelRouterCreateBalanceTran
 }
 
 /**
- * @summary Billing Management/Create Billing Rule
+ * @summary Creates a billing rule.
  *
  * @param request ModelRouterCreateBillingRuleRequest
  * @param headers map
@@ -2843,7 +2892,7 @@ ModelRouterCreateBillingRuleResponse Client::modelRouterCreateBillingRuleWithOpt
 }
 
 /**
- * @summary Billing Management/Create Billing Rule
+ * @summary Creates a billing rule.
  *
  * @param request ModelRouterCreateBillingRuleRequest
  * @return ModelRouterCreateBillingRuleResponse
@@ -2855,7 +2904,7 @@ ModelRouterCreateBillingRuleResponse Client::modelRouterCreateBillingRule(const 
 }
 
 /**
- * @summary Client management / Create client
+ * @summary Creates a customer.
  *
  * @param request ModelRouterCreateClientRequest
  * @param headers map
@@ -2867,6 +2916,10 @@ ModelRouterCreateClientResponse Client::modelRouterCreateClientWithOptions(const
   json body = {};
   if (!!request.hasAddress()) {
     body["address"] = request.getAddress();
+  }
+
+  if (!!request.hasAllowedModelGroupConfig()) {
+    body["allowedModelGroupConfig"] = request.getAllowedModelGroupConfig();
   }
 
   if (!!request.hasAllowedModels()) {
@@ -2912,7 +2965,7 @@ ModelRouterCreateClientResponse Client::modelRouterCreateClientWithOptions(const
 }
 
 /**
- * @summary Client management / Create client
+ * @summary Creates a customer.
  *
  * @param request ModelRouterCreateClientRequest
  * @return ModelRouterCreateClientResponse
@@ -2924,7 +2977,7 @@ ModelRouterCreateClientResponse Client::modelRouterCreateClient(const ModelRoute
 }
 
 /**
- * @summary Conversation management / Create conversation
+ * @summary Creates a conversation.
  *
  * @param request ModelRouterCreateConversationRequest
  * @param headers map
@@ -2965,7 +3018,7 @@ ModelRouterCreateConversationResponse Client::modelRouterCreateConversationWithO
 }
 
 /**
- * @summary Conversation management / Create conversation
+ * @summary Creates a conversation.
  *
  * @param request ModelRouterCreateConversationRequest
  * @return ModelRouterCreateConversationResponse
@@ -2977,7 +3030,7 @@ ModelRouterCreateConversationResponse Client::modelRouterCreateConversation(cons
 }
 
 /**
- * @summary Creates a model.
+ * @summary Performs model creation.
  *
  * @param request ModelRouterCreateModelRequest
  * @param headers map
@@ -3054,7 +3107,7 @@ ModelRouterCreateModelResponse Client::modelRouterCreateModelWithOptions(const M
 }
 
 /**
- * @summary Creates a model.
+ * @summary Performs model creation.
  *
  * @param request ModelRouterCreateModelRequest
  * @return ModelRouterCreateModelResponse
@@ -3066,9 +3119,60 @@ ModelRouterCreateModelResponse Client::modelRouterCreateModel(const ModelRouterC
 }
 
 /**
- * @summary 客户管理/创建周期充值订阅
+ * @summary Creates a manual model group.
  *
- * @description 该接口已弃用，请勿使用
+ * @description Creates a manual model group.
+ *
+ * @param request ModelRouterCreateModelGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterCreateModelGroupResponse
+ */
+ModelRouterCreateModelGroupResponse Client::modelRouterCreateModelGroupWithOptions(const ModelRouterCreateModelGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasModelList()) {
+    body["modelList"] = request.getModelList();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterCreateModelGroup"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/model-groups")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterCreateModelGroupResponse>();
+}
+
+/**
+ * @summary Creates a manual model group.
+ *
+ * @description Creates a manual model group.
+ *
+ * @param request ModelRouterCreateModelGroupRequest
+ * @return ModelRouterCreateModelGroupResponse
+ */
+ModelRouterCreateModelGroupResponse Client::modelRouterCreateModelGroup(const ModelRouterCreateModelGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterCreateModelGroupWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Creates a periodic recharge subscription for customer management.
  *
  * @param request ModelRouterCreateSubscriptionRequest
  * @param headers map
@@ -3113,9 +3217,7 @@ ModelRouterCreateSubscriptionResponse Client::modelRouterCreateSubscriptionWithO
 }
 
 /**
- * @summary 客户管理/创建周期充值订阅
- *
- * @description 该接口已弃用，请勿使用
+ * @summary Creates a periodic recharge subscription for customer management.
  *
  * @param request ModelRouterCreateSubscriptionRequest
  * @return ModelRouterCreateSubscriptionResponse
@@ -3127,7 +3229,7 @@ ModelRouterCreateSubscriptionResponse Client::modelRouterCreateSubscription(cons
 }
 
 /**
- * @summary API Key Management / Delete API Key
+ * @summary Deletes an API key.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3152,7 +3254,7 @@ ModelRouterDeleteApiKeyResponse Client::modelRouterDeleteApiKeyWithOptions(const
 }
 
 /**
- * @summary API Key Management / Delete API Key
+ * @summary Deletes an API key.
  *
  * @return ModelRouterDeleteApiKeyResponse
  */
@@ -3163,7 +3265,7 @@ ModelRouterDeleteApiKeyResponse Client::modelRouterDeleteApiKey(const string &id
 }
 
 /**
- * @summary Deletes a client.
+ * @summary Deletes a customer.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3188,7 +3290,7 @@ ModelRouterDeleteClientResponse Client::modelRouterDeleteClientWithOptions(const
 }
 
 /**
- * @summary Deletes a client.
+ * @summary Deletes a customer.
  *
  * @return ModelRouterDeleteClientResponse
  */
@@ -3199,7 +3301,7 @@ ModelRouterDeleteClientResponse Client::modelRouterDeleteClient(const string &id
 }
 
 /**
- * @summary Conversation management/Delete conversation
+ * @summary Deletes a conversation.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3224,7 +3326,7 @@ ModelRouterDeleteConversationResponse Client::modelRouterDeleteConversationWithO
 }
 
 /**
- * @summary Conversation management/Delete conversation
+ * @summary Deletes a conversation.
  *
  * @return ModelRouterDeleteConversationResponse
  */
@@ -3235,7 +3337,7 @@ ModelRouterDeleteConversationResponse Client::modelRouterDeleteConversation(cons
 }
 
 /**
- * @summary Model Management / Delete Model
+ * @summary Deletes a model.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3260,7 +3362,7 @@ ModelRouterDeleteModelResponse Client::modelRouterDeleteModelWithOptions(const s
 }
 
 /**
- * @summary Model Management / Delete Model
+ * @summary Deletes a model.
  *
  * @return ModelRouterDeleteModelResponse
  */
@@ -3268,6 +3370,49 @@ ModelRouterDeleteModelResponse Client::modelRouterDeleteModel(const string &id) 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterDeleteModelWithOptions(id, headers, runtime);
+}
+
+/**
+ * @summary Deletes a manual group.
+ *
+ * @description Deletes a manual group.
+ *
+ * @param request ModelRouterDeleteModelGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterDeleteModelGroupResponse
+ */
+ModelRouterDeleteModelGroupResponse Client::modelRouterDeleteModelGroupWithOptions(const string &groupId, const ModelRouterDeleteModelGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterDeleteModelGroup"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/model-groups/" , Darabonba::Encode::Encoder::percentEncode(groupId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterDeleteModelGroupResponse>();
+}
+
+/**
+ * @summary Deletes a manual group.
+ *
+ * @description Deletes a manual group.
+ *
+ * @param request ModelRouterDeleteModelGroupRequest
+ * @return ModelRouterDeleteModelGroupResponse
+ */
+ModelRouterDeleteModelGroupResponse Client::modelRouterDeleteModelGroup(const string &groupId, const ModelRouterDeleteModelGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterDeleteModelGroupWithOptions(groupId, request, headers, runtime);
 }
 
 /**
@@ -3310,7 +3455,7 @@ ModelRouterGetClientBalanceResponse Client::modelRouterGetClientBalance(const st
 }
 
 /**
- * @summary Gets the balance change log for a specified department.
+ * @summary Retrieves the balance change logs of a department.
  *
  * @param request ModelRouterGetClientBalanceLogsRequest
  * @param headers map
@@ -3359,7 +3504,7 @@ ModelRouterGetClientBalanceLogsResponse Client::modelRouterGetClientBalanceLogsW
 }
 
 /**
- * @summary Gets the balance change log for a specified department.
+ * @summary Retrieves the balance change logs of a department.
  *
  * @param request ModelRouterGetClientBalanceLogsRequest
  * @return ModelRouterGetClientBalanceLogsResponse
@@ -3371,9 +3516,82 @@ ModelRouterGetClientBalanceLogsResponse Client::modelRouterGetClientBalanceLogs(
 }
 
 /**
- * @summary 客户管理/查询周期充值订阅列表
+ * @summary Queries balance change records.
  *
- * @description 该接口已弃用，请勿使用
+ * @description This API operation is deprecated. Do not use it.
+ *
+ * @param request ModelRouterListBalanceOrdersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterListBalanceOrdersResponse
+ */
+ModelRouterListBalanceOrdersResponse Client::modelRouterListBalanceOrdersWithOptions(const string &id, const ModelRouterListBalanceOrdersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBalanceType()) {
+    query["balanceType"] = request.getBalanceType();
+  }
+
+  if (!!request.hasDirection()) {
+    query["direction"] = request.getDirection();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["orderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterListBalanceOrders"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance/orders")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterListBalanceOrdersResponse>();
+}
+
+/**
+ * @summary Queries balance change records.
+ *
+ * @description This API operation is deprecated. Do not use it.
+ *
+ * @param request ModelRouterListBalanceOrdersRequest
+ * @return ModelRouterListBalanceOrdersResponse
+ */
+ModelRouterListBalanceOrdersResponse Client::modelRouterListBalanceOrders(const string &id, const ModelRouterListBalanceOrdersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterListBalanceOrdersWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the list of periodic recharge subscriptions.
+ *
+ * @description This operation is deprecated. Do not use it.
  *
  * @param request ModelRouterListSubscriptionsRequest
  * @param headers map
@@ -3418,9 +3636,9 @@ ModelRouterListSubscriptionsResponse Client::modelRouterListSubscriptionsWithOpt
 }
 
 /**
- * @summary 客户管理/查询周期充值订阅列表
+ * @summary Queries the list of periodic recharge subscriptions.
  *
- * @description 该接口已弃用，请勿使用
+ * @description This operation is deprecated. Do not use it.
  *
  * @param request ModelRouterListSubscriptionsRequest
  * @return ModelRouterListSubscriptionsResponse
@@ -3432,7 +3650,7 @@ ModelRouterListSubscriptionsResponse Client::modelRouterListSubscriptions(const 
 }
 
 /**
- * @summary Retrieves the details of a specific API key.
+ * @summary Retrieves the details of an API key.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3457,7 +3675,7 @@ ModelRouterQueryApiKeyResponse Client::modelRouterQueryApiKeyWithOptions(const s
 }
 
 /**
- * @summary Retrieves the details of a specific API key.
+ * @summary Retrieves the details of an API key.
  *
  * @return ModelRouterQueryApiKeyResponse
  */
@@ -3845,7 +4063,7 @@ ModelRouterQueryClientListResponse Client::modelRouterQueryClientList(const Mode
 }
 
 /**
- * @summary Returns a hierarchical tree of customers.
+ * @summary Retrieves the customer tree structure.
  *
  * @param request ModelRouterQueryClientTreeRequest
  * @param headers map
@@ -3882,7 +4100,7 @@ ModelRouterQueryClientTreeResponse Client::modelRouterQueryClientTreeWithOptions
 }
 
 /**
- * @summary Returns a hierarchical tree of customers.
+ * @summary Retrieves the customer tree structure.
  *
  * @param request ModelRouterQueryClientTreeRequest
  * @return ModelRouterQueryClientTreeResponse
@@ -4351,6 +4569,287 @@ ModelRouterQueryModelResponse Client::modelRouterQueryModel(const string &id) {
 }
 
 /**
+ * @summary Queries the details of a model group.
+ *
+ * @description Queries the details of a model group.
+ *
+ * @param request ModelRouterQueryModelGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterQueryModelGroupResponse
+ */
+ModelRouterQueryModelGroupResponse Client::modelRouterQueryModelGroupWithOptions(const string &groupId, const ModelRouterQueryModelGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterQueryModelGroup"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/model-groups/" , Darabonba::Encode::Encoder::percentEncode(groupId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterQueryModelGroupResponse>();
+}
+
+/**
+ * @summary Queries the details of a model group.
+ *
+ * @description Queries the details of a model group.
+ *
+ * @param request ModelRouterQueryModelGroupRequest
+ * @return ModelRouterQueryModelGroupResponse
+ */
+ModelRouterQueryModelGroupResponse Client::modelRouterQueryModelGroup(const string &groupId, const ModelRouterQueryModelGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterQueryModelGroupWithOptions(groupId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the departments bound to a model group by paging.
+ *
+ * @description Queries the departments bound to a model group by paging.
+ *
+ * @param request ModelRouterQueryModelGroupClientsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterQueryModelGroupClientsResponse
+ */
+ModelRouterQueryModelGroupClientsResponse Client::modelRouterQueryModelGroupClientsWithOptions(const string &groupId, const ModelRouterQueryModelGroupClientsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageIndex()) {
+    query["pageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterQueryModelGroupClients"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/model-groups/" , Darabonba::Encode::Encoder::percentEncode(groupId) , "/clients")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterQueryModelGroupClientsResponse>();
+}
+
+/**
+ * @summary Queries the departments bound to a model group by paging.
+ *
+ * @description Queries the departments bound to a model group by paging.
+ *
+ * @param request ModelRouterQueryModelGroupClientsRequest
+ * @return ModelRouterQueryModelGroupClientsResponse
+ */
+ModelRouterQueryModelGroupClientsResponse Client::modelRouterQueryModelGroupClients(const string &groupId, const ModelRouterQueryModelGroupClientsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterQueryModelGroupClientsWithOptions(groupId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the list of model groups by paging.
+ *
+ * @description Queries the list of model groups by paging.
+ *
+ * @param request ModelRouterQueryModelGroupListRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterQueryModelGroupListResponse
+ */
+ModelRouterQueryModelGroupListResponse Client::modelRouterQueryModelGroupListWithOptions(const ModelRouterQueryModelGroupListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyword()) {
+    query["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageIndex()) {
+    query["pageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterQueryModelGroupList"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/model-groups")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterQueryModelGroupListResponse>();
+}
+
+/**
+ * @summary Queries the list of model groups by paging.
+ *
+ * @description Queries the list of model groups by paging.
+ *
+ * @param request ModelRouterQueryModelGroupListRequest
+ * @return ModelRouterQueryModelGroupListResponse
+ */
+ModelRouterQueryModelGroupListResponse Client::modelRouterQueryModelGroupList(const ModelRouterQueryModelGroupListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterQueryModelGroupListWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Performs a paging query for models within a model group.
+ *
+ * @description Queries models within a group with pagination.
+ *
+ * @param request ModelRouterQueryModelGroupModelsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterQueryModelGroupModelsResponse
+ */
+ModelRouterQueryModelGroupModelsResponse Client::modelRouterQueryModelGroupModelsWithOptions(const string &groupId, const ModelRouterQueryModelGroupModelsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyword()) {
+    query["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageIndex()) {
+    query["pageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterQueryModelGroupModels"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/model-groups/" , Darabonba::Encode::Encoder::percentEncode(groupId) , "/models")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterQueryModelGroupModelsResponse>();
+}
+
+/**
+ * @summary Performs a paging query for models within a model group.
+ *
+ * @description Queries models within a group with pagination.
+ *
+ * @param request ModelRouterQueryModelGroupModelsRequest
+ * @return ModelRouterQueryModelGroupModelsResponse
+ */
+ModelRouterQueryModelGroupModelsResponse Client::modelRouterQueryModelGroupModels(const string &groupId, const ModelRouterQueryModelGroupModelsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterQueryModelGroupModelsWithOptions(groupId, request, headers, runtime);
+}
+
+/**
+ * @summary Lists the model groups and models bound to a specified API key.
+ *
+ * @description Queries the groups and models bound to a specified API key.
+ *
+ * @param request ModelRouterQueryModelGroupsByApiKeyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterQueryModelGroupsByApiKeyResponse
+ */
+ModelRouterQueryModelGroupsByApiKeyResponse Client::modelRouterQueryModelGroupsByApiKeyWithOptions(const string &id, const ModelRouterQueryModelGroupsByApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterQueryModelGroupsByApiKey"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/apikeys/" , Darabonba::Encode::Encoder::percentEncode(id) , "/model-groups")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterQueryModelGroupsByApiKeyResponse>();
+}
+
+/**
+ * @summary Lists the model groups and models bound to a specified API key.
+ *
+ * @description Queries the groups and models bound to a specified API key.
+ *
+ * @param request ModelRouterQueryModelGroupsByApiKeyRequest
+ * @return ModelRouterQueryModelGroupsByApiKeyResponse
+ */
+ModelRouterQueryModelGroupsByApiKeyResponse Client::modelRouterQueryModelGroupsByApiKey(const string &id, const ModelRouterQueryModelGroupsByApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterQueryModelGroupsByApiKeyWithOptions(id, request, headers, runtime);
+}
+
+/**
  * @summary Model management/Get model list
  *
  * @param request ModelRouterQueryModelListRequest
@@ -4436,9 +4935,7 @@ ModelRouterQueryModelListResponse Client::modelRouterQueryModelList(const ModelR
 }
 
 /**
- * @summary Configures Nacos or retrieves the list of Nacos service providers.
- *
- * @description This operation is deprecated. Do not use it.
+ * @summary Queries the list of Nacos service providers through Nacos configuration.
  *
  * @param request ModelRouterQueryNacosProvidersRequest
  * @param headers map
@@ -4499,9 +4996,7 @@ ModelRouterQueryNacosProvidersResponse Client::modelRouterQueryNacosProvidersWit
 }
 
 /**
- * @summary Configures Nacos or retrieves the list of Nacos service providers.
- *
- * @description This operation is deprecated. Do not use it.
+ * @summary Queries the list of Nacos service providers through Nacos configuration.
  *
  * @param request ModelRouterQueryNacosProvidersRequest
  * @return ModelRouterQueryNacosProvidersResponse
@@ -4655,7 +5150,7 @@ ModelRouterQueryObservationChartsResponse Client::modelRouterQueryObservationCha
 }
 
 /**
- * @summary Model Observation / Observation Logs
+ * @summary Retrieves a list of model observation logs.
  *
  * @param request ModelRouterQueryObservationLogsRequest
  * @param headers map
@@ -4740,7 +5235,7 @@ ModelRouterQueryObservationLogsResponse Client::modelRouterQueryObservationLogsW
 }
 
 /**
- * @summary Model Observation / Observation Logs
+ * @summary Retrieves a list of model observation logs.
  *
  * @param request ModelRouterQueryObservationLogsRequest
  * @return ModelRouterQueryObservationLogsResponse
@@ -4752,7 +5247,7 @@ ModelRouterQueryObservationLogsResponse Client::modelRouterQueryObservationLogs(
 }
 
 /**
- * @summary Model Observation > Get Observation Metric Data
+ * @summary Retrieves observability metric data for models.
  *
  * @param request ModelRouterQueryObservationMetricsRequest
  * @param headers map
@@ -4837,7 +5332,7 @@ ModelRouterQueryObservationMetricsResponse Client::modelRouterQueryObservationMe
 }
 
 /**
- * @summary Model Observation > Get Observation Metric Data
+ * @summary Retrieves observability metric data for models.
  *
  * @param request ModelRouterQueryObservationMetricsRequest
  * @return ModelRouterQueryObservationMetricsResponse
@@ -4983,7 +5478,7 @@ ModelRouterSaveFlowConfigResponse Client::modelRouterSaveFlowConfig(const ModelR
 }
 
 /**
- * @summary 客户管理/停止周期充值订阅
+ * @summary Stops a periodic recharge subscription for customer management.
  *
  * @param request ModelRouterStopSubscriptionRequest
  * @param headers map
@@ -5016,7 +5511,7 @@ ModelRouterStopSubscriptionResponse Client::modelRouterStopSubscriptionWithOptio
 }
 
 /**
- * @summary 客户管理/停止周期充值订阅
+ * @summary Stops a periodic recharge subscription for customer management.
  *
  * @param request ModelRouterStopSubscriptionRequest
  * @return ModelRouterStopSubscriptionResponse
@@ -5093,7 +5588,7 @@ ModelRouterUpdateBillingRuleResponse Client::modelRouterUpdateBillingRule(const 
 }
 
 /**
- * @summary Updates a specified client\\"s information.
+ * @summary Updates customer information.
  *
  * @param request ModelRouterUpdateClientRequest
  * @param headers map
@@ -5105,6 +5600,10 @@ ModelRouterUpdateClientResponse Client::modelRouterUpdateClientWithOptions(const
   json body = {};
   if (!!request.hasAddress()) {
     body["address"] = request.getAddress();
+  }
+
+  if (!!request.hasAllowedModelGroupConfig()) {
+    body["allowedModelGroupConfig"] = request.getAllowedModelGroupConfig();
   }
 
   if (!!request.hasAllowedModels()) {
@@ -5150,7 +5649,7 @@ ModelRouterUpdateClientResponse Client::modelRouterUpdateClientWithOptions(const
 }
 
 /**
- * @summary Updates a specified client\\"s information.
+ * @summary Updates customer information.
  *
  * @param request ModelRouterUpdateClientRequest
  * @return ModelRouterUpdateClientResponse
@@ -5301,6 +5800,59 @@ ModelRouterUpdateModelResponse Client::modelRouterUpdateModel(const string &id, 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterUpdateModelWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary Edits a manual model group.
+ *
+ * @description Edits a manual group.
+ *
+ * @param request ModelRouterUpdateModelGroupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterUpdateModelGroupResponse
+ */
+ModelRouterUpdateModelGroupResponse Client::modelRouterUpdateModelGroupWithOptions(const string &groupId, const ModelRouterUpdateModelGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasModelList()) {
+    body["modelList"] = request.getModelList();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterUpdateModelGroup"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/model-groups/" , Darabonba::Encode::Encoder::percentEncode(groupId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterUpdateModelGroupResponse>();
+}
+
+/**
+ * @summary Edits a manual model group.
+ *
+ * @description Edits a manual group.
+ *
+ * @param request ModelRouterUpdateModelGroupRequest
+ * @return ModelRouterUpdateModelGroupResponse
+ */
+ModelRouterUpdateModelGroupResponse Client::modelRouterUpdateModelGroup(const string &groupId, const ModelRouterUpdateModelGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterUpdateModelGroupWithOptions(groupId, request, headers, runtime);
 }
 
 /**

@@ -122,6 +122,7 @@ namespace Models
 
 
         protected:
+          // The asynchronous call identifier.
           shared_ptr<bool> async_ {};
         };
 
@@ -172,14 +173,17 @@ namespace Models
 
 
       protected:
+        // The extension configuration parameters of the model, stored as key-value pairs for additional model behavior configuration.
         shared_ptr<Models::Extensions> extensions_ {};
         // The model identifier.
         shared_ptr<string> identifier_ {};
+        // The input type and output type.
         shared_ptr<string> inOut_ {};
         // The input token limit.
         shared_ptr<string> inputToken_ {};
         // The output token limit.
         shared_ptr<string> outputToken_ {};
+        // The feature type or capability category of the model.
         shared_ptr<string> type_ {};
       };
 
@@ -275,7 +279,7 @@ namespace Models
   protected:
     // The data object.
     shared_ptr<vector<ModelRouterQueryNacosProvidersResponseBody::Data>> data_ {};
-    // The error message code.
+    // The fault message code.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};

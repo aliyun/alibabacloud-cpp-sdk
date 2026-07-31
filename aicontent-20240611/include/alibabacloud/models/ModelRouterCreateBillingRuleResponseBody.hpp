@@ -191,15 +191,15 @@ namespace Models
     protected:
       // The billing type.
       shared_ptr<string> billingType_ {};
-      // The delete marker.
+      // The deletion tag.
       shared_ptr<int32_t> deleteTag_ {};
-      // The effective time of the rule.
+      // The effective period.
       shared_ptr<string> effectiveTime_ {};
-      // The expiration time of the rule.
+      // The expiration time.
       shared_ptr<string> expireTime_ {};
-      // The creation time of the rule.
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The modification time of the rule.
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
       // The rule ID.
       shared_ptr<int64_t> id_ {};
@@ -213,9 +213,9 @@ namespace Models
       shared_ptr<string> modelType_ {};
       // The pricing configuration.
       Darabonba::Json pricingConfig_ {};
-      // The provider identifier.
+      // The vendor identifier.
       shared_ptr<string> symbol_ {};
-      // The version of the rule.
+      // The version number.
       shared_ptr<int32_t> version_ {};
     };
 
@@ -266,9 +266,9 @@ namespace Models
 
 
   protected:
-    // Contains the details of the billing rule.
+    // The response data.
     shared_ptr<ModelRouterCreateBillingRuleResponseBody::Data> data_ {};
-    // The error code.
+    // The fault code.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};

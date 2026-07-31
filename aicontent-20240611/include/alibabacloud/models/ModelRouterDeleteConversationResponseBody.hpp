@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // A value of true indicates that the conversation was successfully deleted.
+    // Indicates whether the conversation was deleted.
     shared_ptr<bool> data_ {};
-    // The error code returned if the request fails.
+    // The fault message code.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request fails.
+    // The error message.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The unique request ID. Include this ID when contacting technical support.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

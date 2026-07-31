@@ -90,8 +90,11 @@ namespace Models
 
 
     protected:
+      // The list of subscription information.
       shared_ptr<vector<SubscriptionDTO>> list_ {};
+      // The maximum number of results per page. Default value: 20.
       shared_ptr<int32_t> maxResults_ {};
+      // The pagination token. Do not specify this parameter for the first query. For subsequent queries, specify the value returned from the previous query. Set to "" when no more data is available. Set to "5" when there is a next page.
       shared_ptr<string> nextToken_ {};
     };
 
@@ -142,11 +145,17 @@ namespace Models
 
 
   protected:
+    // The subscription information.
     shared_ptr<ModelRouterListSubscriptionsResponseBody::Data> data_ {};
+    // The fault error message encoding.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

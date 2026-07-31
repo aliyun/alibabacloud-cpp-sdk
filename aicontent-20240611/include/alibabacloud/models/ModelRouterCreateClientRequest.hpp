@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModelRouterCreateClientRequest& obj) { 
       DARABONBA_PTR_TO_JSON(address, address_);
+      DARABONBA_PTR_TO_JSON(allowedModelGroupConfig, allowedModelGroupConfig_);
       DARABONBA_PTR_TO_JSON(allowedModels, allowedModels_);
       DARABONBA_PTR_TO_JSON(contact, contact_);
       DARABONBA_PTR_TO_JSON(discount, discount_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ModelRouterCreateClientRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(address, address_);
+      DARABONBA_PTR_FROM_JSON(allowedModelGroupConfig, allowedModelGroupConfig_);
       DARABONBA_PTR_FROM_JSON(allowedModels, allowedModels_);
       DARABONBA_PTR_FROM_JSON(contact, contact_);
       DARABONBA_PTR_FROM_JSON(discount, discount_);
@@ -42,13 +44,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->address_ == nullptr
-        && this->allowedModels_ == nullptr && this->contact_ == nullptr && this->discount_ == nullptr && this->name_ == nullptr && this->parentId_ == nullptr
-        && this->remark_ == nullptr; };
+        && this->allowedModelGroupConfig_ == nullptr && this->allowedModels_ == nullptr && this->contact_ == nullptr && this->discount_ == nullptr && this->name_ == nullptr
+        && this->parentId_ == nullptr && this->remark_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
     inline string getAddress() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
     inline ModelRouterCreateClientRequest& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
+
+
+    // allowedModelGroupConfig Field Functions 
+    bool hasAllowedModelGroupConfig() const { return this->allowedModelGroupConfig_ != nullptr;};
+    void deleteAllowedModelGroupConfig() { this->allowedModelGroupConfig_ = nullptr;};
+    inline string getAllowedModelGroupConfig() const { DARABONBA_PTR_GET_DEFAULT(allowedModelGroupConfig_, "") };
+    inline ModelRouterCreateClientRequest& setAllowedModelGroupConfig(string allowedModelGroupConfig) { DARABONBA_PTR_SET_VALUE(allowedModelGroupConfig_, allowedModelGroupConfig) };
 
 
     // allowedModels Field Functions 
@@ -96,15 +105,19 @@ namespace Models
   protected:
     // The company address.
     shared_ptr<string> address_ {};
-    // A comma-separated list of model IDs that the client can use. If this parameter is empty, the client can use all available models.
+    // The allowed model group configuration in JSON string format: {"model_ids":[101],"group_ids":["mg_xxx"]}. If both this field and allowedModels are specified, this field takes precedence.
+    shared_ptr<string> allowedModelGroupConfig_ {};
+    // The list of allowed model IDs, separated by commas. An empty value indicates all models are allowed.
     shared_ptr<string> allowedModels_ {};
     // The contact information.
     shared_ptr<string> contact_ {};
+    // The discount coefficient. A value of 1.0 indicates no discount, and 0.8 indicates a 20% discount. Default value: 1.0.
     shared_ptr<double> discount_ {};
-    // The client name.
+    // The customer name.
     shared_ptr<string> name_ {};
+    // The ID of the parent department. If not specified, a top-level department is created.
     shared_ptr<int64_t> parentId_ {};
-    // Additional remarks.
+    // The remarks.
     shared_ptr<string> remark_ {};
   };
 

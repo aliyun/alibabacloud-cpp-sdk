@@ -140,15 +140,15 @@ namespace Models
 
 
   protected:
-    // The API key.
+    // API Key
     shared_ptr<string> apiKey_ {};
-    // The base URL.
+    // Base URL
     shared_ptr<string> baseUrl_ {};
     // The model description.
     shared_ptr<string> description_ {};
-    // The model\\"s extended configuration parameters, provided as a JSON string.
+    // The extension configuration parameters of the model, stored as a JSON string.
     shared_ptr<string> extensions_ {};
-    // The supported input and output data types for the model.
+    // The input and output data types supported by the model.
     shared_ptr<string> inOut_ {};
     // The maximum input length.
     shared_ptr<string> maxInputLength_ {};
@@ -162,7 +162,7 @@ namespace Models
     shared_ptr<string> name_ {};
     // The vendor symbol.
     shared_ptr<string> symbol_ {};
-    // Tags for the model. Separate multiple tags with commas.
+    // The tags, separated by commas.
     shared_ptr<string> tags_ {};
   };
 

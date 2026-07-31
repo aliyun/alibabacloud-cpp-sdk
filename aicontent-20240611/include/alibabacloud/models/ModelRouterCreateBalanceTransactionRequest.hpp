@@ -78,10 +78,11 @@ namespace Models
     // The transaction amount.
     shared_ptr<double> amount_ {};
     // The target balance pool type. Default value: permanent. Valid values:
-    // - permanent: permanent balance pool (the amount never expires).
-    // - monthly: monthly balance pool (automatically reset to zero at the beginning of each month).
+    // 
+    // - permanent: permanent balance pool. The balance never expires.
+    // - monthly: monthly balance pool. The balance is automatically reset to zero at the beginning of each month.
     shared_ptr<string> balanceType_ {};
-    // The idempotency key. UUID v4 format is recommended. Maximum length: 32 characters. Repeated submissions with the same key are not executed again.
+    // The idempotency key. UUID v4 format is recommended. Maximum length: 32 characters. Duplicate submissions with the same key are not executed repeatedly.
     shared_ptr<string> idempotencyKey_ {};
     // The remark.
     shared_ptr<string> remark_ {};
