@@ -201,7 +201,7 @@ namespace EdsAic20230930
       Models::CancelAgentTaskResponse cancelAgentTask(const Models::CancelAgentTaskRequest &request);
 
       /**
-       * @summary Modifies the configuration of a cloud phone matrix, including the instance type and the number of cloud phone instances.
+       * @summary Modifies the configuration of a cloud phone matrix. Currently, only the instance type and the number of cloud phone instances (the instance count of the cloud phone matrix) can be changed.
        *
        * @param request ChangeCloudPhoneNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -210,7 +210,7 @@ namespace EdsAic20230930
       Models::ChangeCloudPhoneNodeResponse changeCloudPhoneNodeWithOptions(const Models::ChangeCloudPhoneNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configuration of a cloud phone matrix, including the instance type and the number of cloud phone instances.
+       * @summary Modifies the configuration of a cloud phone matrix. Currently, only the instance type and the number of cloud phone instances (the instance count of the cloud phone matrix) can be changed.
        *
        * @param request ChangeCloudPhoneNodeRequest
        * @return ChangeCloudPhoneNodeResponse
@@ -459,7 +459,7 @@ namespace EdsAic20230930
       Models::CreatePolicyGroupResponse createPolicyGroup(const Models::CreatePolicyGroupRequest &request);
 
       /**
-       * @summary 创建定时任务
+       * @summary Creates a scheduled task for an agent.
        *
        * @param tmpReq CreateScheduledTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -468,7 +468,7 @@ namespace EdsAic20230930
       Models::CreateScheduledTaskResponse createScheduledTaskWithOptions(const Models::CreateScheduledTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建定时任务
+       * @summary Creates a scheduled task for an agent.
        *
        * @param request CreateScheduledTaskRequest
        * @return CreateScheduledTaskResponse
@@ -947,7 +947,7 @@ namespace EdsAic20230930
       Models::DescribeInvocationsResponse describeInvocations(const Models::DescribeInvocationsRequest &request);
 
       /**
-       * @summary Retrieves details of JVS instances.
+       * @summary Queries JVS instance information.
        *
        * @param request DescribeJVSInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -956,7 +956,7 @@ namespace EdsAic20230930
       Models::DescribeJVSInstanceResponse describeJVSInstanceWithOptions(const Models::DescribeJVSInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves details of JVS instances.
+       * @summary Queries JVS instance information.
        *
        * @param request DescribeJVSInstanceRequest
        * @return DescribeJVSInstanceResponse

@@ -108,8 +108,11 @@ namespace Models
 
 
       protected:
+        // The error message.
         shared_ptr<string> errorMessage_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // Indicates whether the operation is successful.
         shared_ptr<bool> success_ {};
       };
 
@@ -139,8 +142,11 @@ namespace Models
 
 
     protected:
+      // The list of batch delivery results for instance scheduled tasks.
       shared_ptr<vector<Tasks::InstanceResults>> instanceResults_ {};
+      // The scheduled task ID.
       shared_ptr<string> scheduledId_ {};
+      // The task configuration ID.
       shared_ptr<string> taskConfigId_ {};
     };
 
@@ -184,10 +190,15 @@ namespace Models
 
 
   protected:
+    // The API status code.
     shared_ptr<string> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of creation results.
     shared_ptr<vector<CreateScheduledTaskResponseBody::Tasks>> tasks_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

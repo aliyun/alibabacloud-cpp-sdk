@@ -14,6 +14,7 @@ namespace Models
   class ModifyJVSInstanceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyJVSInstanceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AgentVersion, agentVersion_);
       DARABONBA_PTR_TO_JSON(ApplyToAll, applyToAll_);
       DARABONBA_PTR_TO_JSON(CreditConfig, creditConfig_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyJVSInstanceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AgentVersion, agentVersion_);
       DARABONBA_PTR_FROM_JSON(ApplyToAll, applyToAll_);
       DARABONBA_PTR_FROM_JSON(CreditConfig, creditConfig_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
@@ -76,18 +78,25 @@ namespace Models
 
 
     protected:
-      // The credit limit.
+      // The quota limit.
       shared_ptr<int64_t> creditLimit_ {};
       // The dimension of the current credit. Valid values:
       // 
-      // - total: total usage limit.
-      // - month: monthly. The limit resets based on the resource activation time cycle.
-      // - day: daily. The limit resets at 00:00.
+      // - total: Total usage limit.
+      // - month: Monthly. The quota resets based on the resource activation time cycle.
+      // - day: Daily. The quota resets at 00:00.
       shared_ptr<string> limitPeriod_ {};
     };
 
-    virtual bool empty() const override { return this->applyToAll_ == nullptr
-        && this->creditConfig_ == nullptr && this->imageId_ == nullptr && this->instanceIds_ == nullptr && this->instanceName_ == nullptr; };
+    virtual bool empty() const override { return this->agentVersion_ == nullptr
+        && this->applyToAll_ == nullptr && this->creditConfig_ == nullptr && this->imageId_ == nullptr && this->instanceIds_ == nullptr && this->instanceName_ == nullptr; };
+    // agentVersion Field Functions 
+    bool hasAgentVersion() const { return this->agentVersion_ != nullptr;};
+    void deleteAgentVersion() { this->agentVersion_ = nullptr;};
+    inline string getAgentVersion() const { DARABONBA_PTR_GET_DEFAULT(agentVersion_, "") };
+    inline ModifyJVSInstanceRequest& setAgentVersion(string agentVersion) { DARABONBA_PTR_SET_VALUE(agentVersion_, agentVersion) };
+
+
     // applyToAll Field Functions 
     bool hasApplyToAll() const { return this->applyToAll_ != nullptr;};
     void deleteApplyToAll() { this->applyToAll_ = nullptr;};
@@ -128,9 +137,11 @@ namespace Models
 
 
   protected:
+    // The target version, such as 2607W1. Set this parameter to latest to automatically resolve to the latest available version.
+    shared_ptr<string> agentVersion_ {};
     // Specifies whether to apply the configuration to all instances.
     shared_ptr<bool> applyToAll_ {};
-    // The credit limit configuration. Subsequent configurations overwrite previous ones.
+    // The credit quota configuration. If you submit the configuration multiple times, the latest configuration overwrites the previous one.
     shared_ptr<vector<ModifyJVSInstanceRequest::CreditConfig>> creditConfig_ {};
     shared_ptr<string> imageId_ {};
     // The list of instance IDs.

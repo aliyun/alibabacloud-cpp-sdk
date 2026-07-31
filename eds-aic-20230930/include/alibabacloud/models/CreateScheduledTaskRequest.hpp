@@ -87,8 +87,11 @@ namespace Models
 
 
     protected:
+      // The extended parameter JSON string.
       shared_ptr<string> extraParams_ {};
+      // The maximum number of execution steps.
       shared_ptr<int32_t> maxSteps_ {};
+      // The timeout period, in seconds.
       shared_ptr<int32_t> timeoutSeconds_ {};
     };
 
@@ -141,14 +144,24 @@ namespace Models
 
 
   protected:
+    // The cron expression.
+    // 
     // This parameter is required.
     shared_ptr<string> cronExpression_ {};
+    // The list of instance IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
+    // The maximum number of executions.
     shared_ptr<int32_t> maxExecutions_ {};
+    // The run configuration.
     shared_ptr<CreateScheduledTaskRequest::RunConfig> runConfig_ {};
+    // The task name.
+    // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
+    // The user prompt.
+    // 
     // This parameter is required.
     shared_ptr<string> userPrompt_ {};
   };

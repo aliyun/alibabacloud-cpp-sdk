@@ -87,14 +87,24 @@ namespace Models
 
 
   protected:
+    // The cron expression.
+    // 
     // This parameter is required.
     shared_ptr<string> cronExpression_ {};
+    // The list of instance IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
+    // The maximum number of executions.
     shared_ptr<int32_t> maxExecutions_ {};
+    // The run configuration.
     shared_ptr<string> runConfigShrink_ {};
+    // The task name.
+    // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
+    // The user prompt.
+    // 
     // This parameter is required.
     shared_ptr<string> userPrompt_ {};
   };

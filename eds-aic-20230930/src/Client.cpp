@@ -536,7 +536,7 @@ CancelAgentTaskResponse Client::cancelAgentTask(const CancelAgentTaskRequest &re
 }
 
 /**
- * @summary Modifies the configuration of a cloud phone matrix, including the instance type and the number of cloud phone instances.
+ * @summary Modifies the configuration of a cloud phone matrix. Currently, only the instance type and the number of cloud phone instances (the instance count of the cloud phone matrix) can be changed.
  *
  * @param request ChangeCloudPhoneNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -607,7 +607,7 @@ ChangeCloudPhoneNodeResponse Client::changeCloudPhoneNodeWithOptions(const Chang
 }
 
 /**
- * @summary Modifies the configuration of a cloud phone matrix, including the instance type and the number of cloud phone instances.
+ * @summary Modifies the configuration of a cloud phone matrix. Currently, only the instance type and the number of cloud phone instances (the instance count of the cloud phone matrix) can be changed.
  *
  * @param request ChangeCloudPhoneNodeRequest
  * @return ChangeCloudPhoneNodeResponse
@@ -1668,7 +1668,7 @@ CreatePolicyGroupResponse Client::createPolicyGroup(const CreatePolicyGroupReque
 }
 
 /**
- * @summary 创建定时任务
+ * @summary Creates a scheduled task for an agent.
  *
  * @param tmpReq CreateScheduledTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1725,7 +1725,7 @@ CreateScheduledTaskResponse Client::createScheduledTaskWithOptions(const CreateS
 }
 
 /**
- * @summary 创建定时任务
+ * @summary Creates a scheduled task for an agent.
  *
  * @param request CreateScheduledTaskRequest
  * @return CreateScheduledTaskResponse
@@ -3234,7 +3234,7 @@ DescribeInvocationsResponse Client::describeInvocations(const DescribeInvocation
 }
 
 /**
- * @summary Retrieves details of JVS instances.
+ * @summary Queries JVS instance information.
  *
  * @param request DescribeJVSInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3273,7 +3273,7 @@ DescribeJVSInstanceResponse Client::describeJVSInstanceWithOptions(const Describ
 }
 
 /**
- * @summary Retrieves details of JVS instances.
+ * @summary Queries JVS instance information.
  *
  * @param request DescribeJVSInstanceRequest
  * @return DescribeJVSInstanceResponse
@@ -5423,6 +5423,10 @@ ModifyInstanceChargeTypeResponse Client::modifyInstanceChargeType(const ModifyIn
 ModifyJVSInstanceResponse Client::modifyJVSInstanceWithOptions(const ModifyJVSInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAgentVersion()) {
+    query["AgentVersion"] = request.getAgentVersion();
+  }
+
   if (!!request.hasApplyToAll()) {
     query["ApplyToAll"] = request.getApplyToAll();
   }

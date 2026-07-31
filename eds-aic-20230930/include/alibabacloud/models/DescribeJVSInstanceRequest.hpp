@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // A list of instance IDs.
+    // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token from a previous request to retrieve the next page of results. Omit this parameter for the first request.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
   };
 
