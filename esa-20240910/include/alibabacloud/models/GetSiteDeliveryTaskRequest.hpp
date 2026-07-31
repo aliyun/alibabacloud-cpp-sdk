@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the site. Call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API to obtain the ID.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     shared_ptr<int64_t> siteId_ {};
     // The task name.
     // 

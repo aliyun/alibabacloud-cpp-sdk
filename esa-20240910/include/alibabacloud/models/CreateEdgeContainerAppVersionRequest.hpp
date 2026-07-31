@@ -207,11 +207,11 @@ namespace Models
         shared_ptr<string> host_ {};
         // The HTTP request headers.
         shared_ptr<string> httpHeaders_ {};
-        // The initial delay time for the container probe, in seconds. For example, 5 indicates that the initial delay is set to 5 seconds.
+        // The initial delay time for the container probe. Unit: seconds. For example, 5 indicates that the initial delay time is set to 5 seconds.
         shared_ptr<int32_t> initialDelaySeconds_ {};
         // The path for the container health check.
         shared_ptr<string> path_ {};
-        // The interval between container health checks, in seconds. For example, 5 indicates that the health check interval is set to 5 seconds.
+        // The interval for the container health check. Unit: seconds. For example, 5 indicates that the health check interval is set to 5 seconds.
         shared_ptr<int32_t> periodSeconds_ {};
         // The port for the container health check.
         shared_ptr<int32_t> port_ {};
@@ -219,7 +219,7 @@ namespace Models
         shared_ptr<string> scheme_ {};
         // The number of consecutive successful health checks required.
         shared_ptr<int32_t> successThreshold_ {};
-        // The timeout period for the container health check, in seconds. For example, 5 indicates that the timeout is set to 5 seconds.
+        // The timeout period for the container health check. Unit: seconds. For example, 5 indicates that the timeout period is set to 5 seconds.
         shared_ptr<int32_t> timeoutSeconds_ {};
       };
 
@@ -467,7 +467,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The command to execute before the container starts. Separate multiple commands with spaces. This command is executed before the service starts and is typically used for initialization operations.
       shared_ptr<string> postStart_ {};
-      // The command to execute before the container stops. Separate multiple commands with spaces. This command is executed before the service exits and is typically used for cleanup operations.
+      // The command to execute before the container stops. Separate multiple commands with spaces. This command is executed before the service exits and is typically used for cleanup operations before exit.
       shared_ptr<string> preStop_ {};
       // The container health probe content.
       // 
@@ -475,12 +475,12 @@ namespace Models
       shared_ptr<Containers::ProbeContent> probeContent_ {};
       // The probe type. Valid values:
       // - **exec**: Command-based.
-      // - **tcpSocket**: TCP-based.
-      // - **httpGet**: HTTP-based.
+      // - **tcpSocket**: TCP detection-based.
+      // - **httpGet**: HTTP access-based.
       // 
       // This parameter is required.
       shared_ptr<string> probeType_ {};
-      // The container specifications. Specifies the computing power specifications. Valid values: 1C2G, 2C4G, 2C8G, 4C8G, 4C16G, 8C16G, and 8C32G.
+      // The container specifications. Specifies the computing specifications. Valid values: 1C2G, 2C4G, 2C8G, 4C8G, 4C16G, 8C16G, and 8C32G.
       // 
       // This parameter is required.
       shared_ptr<string> spec_ {};

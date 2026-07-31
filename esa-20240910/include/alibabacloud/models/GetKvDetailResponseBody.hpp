@@ -57,11 +57,12 @@ namespace Models
 
 
   protected:
-    // The expiration time of the key. Unit: seconds.
+    // The expiration time of the key (relative time, in seconds).
     shared_ptr<string> expirationTtl_ {};
-    // The expiration time of the key. Unit: seconds.
+    // The expiration time of the key (relative time, in seconds).
     shared_ptr<string> requestId_ {};
-    // The value of the key. The value of the root node.
+    // The value of the key.
+    // The value of the root node.
     shared_ptr<string> value_ {};
   };
 

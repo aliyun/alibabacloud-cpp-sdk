@@ -151,33 +151,36 @@ namespace Models
   protected:
     // The business type. Valid values:
     // 
-    // - **dcdn_log_access_l1** (default): Access logs.
-    // - **dcdn_log_er**: Edge Routine logs.
-    // - **dcdn_log_waf**: Security protection logs.
+    // - **dcdn_log_access_l1** (default): access logs.
+    // - **dcdn_log_er**: Edge Routine function logs.
+    // - **dcdn_log_waf**: security protection logs.
     // - **dcdn_log_ipa**: Layer 4 acceleration logs.
     // 
     // This parameter is required.
     shared_ptr<string> businessType_ {};
     // The data center. Valid values:
-    // - **cn**: The Chinese mainland.
-    // - **oversea**: Outside the Chinese mainland.
+    // - **cn**: the Chinese mainland.
+    // - **oversea**: outside the Chinese mainland.
     shared_ptr<string> dataCenter_ {};
     // The delivery type. Valid values:
-    // - **sls**: Simple Log Service.
+    // - **sls**: Alibaba Cloud Simple Log Service.
     // - **http**: HTTP service.
-    // - **aws3**: Amazon S3.
-    // - **oss**: Object Storage Service (OSS).
+    // - **aws3**: Amazon S3 service.
+    // - **oss**: Alibaba Cloud Object Storage Service.
     // - **kafka**: Kafka service.
     // - **aws3cmpt**: Amazon S3-compatible service.
     // 
     // This parameter is required.
     shared_ptr<string> deliveryType_ {};
-    // The discard rate. If you do not specify this parameter, the default value is 0.
+    // The discard rate. Default value: 0.
     shared_ptr<float> discardRate_ {};
-    // The log fields to be delivered, separated by commas (,).
+    // The selected log fields, separated by commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> fieldName_ {};
+    // The filter rule version.
+    // 
+    // > For backward compatibility with legacy filter rules, the default value is v1. New tasks use v2.
     shared_ptr<string> filterVer_ {};
     // The HTTP delivery configuration parameters.
     shared_ptr<string> httpDeliveryShrink_ {};
@@ -185,15 +188,15 @@ namespace Models
     shared_ptr<string> kafkaDeliveryShrink_ {};
     // The OSS delivery configuration.
     shared_ptr<string> ossDeliveryShrink_ {};
-    // The configuration parameters for S3 or S3-compatible delivery.
+    // The S3/S3-compatible delivery configuration parameters.
     shared_ptr<string> s3DeliveryShrink_ {};
-    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the site ID.
+    // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The Simple Log Service delivery configuration.
+    // The SLS delivery configuration.
     shared_ptr<string> slsDeliveryShrink_ {};
-    // The name of the task.
+    // The task name.
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};

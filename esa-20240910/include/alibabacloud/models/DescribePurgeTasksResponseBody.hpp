@@ -132,11 +132,11 @@ namespace Models
       shared_ptr<string> process_ {};
       // The status. Valid values:
       // 
-      // - **Complete**: Completed.
+      // - **Complete**: completed.
       // 
-      // - **Refreshing**: Refreshing.
+      // - **Refreshing**: refreshing.
       // 
-      // - **Failed**: Refresh failed.
+      // - **Failed**: refresh failed.
       shared_ptr<string> status_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};

@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the file upload task.
+    // The file upload task ID.
     shared_ptr<int64_t> uploadId_ {};
   };
 

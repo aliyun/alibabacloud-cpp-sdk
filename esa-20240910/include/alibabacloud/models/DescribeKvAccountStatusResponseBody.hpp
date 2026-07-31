@@ -48,12 +48,11 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Account status.
+    // The account status.
     // 
     // - **online**: Enabled.
-    // 
     // - **offline**: Disabled.
     shared_ptr<string> status_ {};
   };

@@ -171,17 +171,17 @@ namespace Models
     shared_ptr<string> aliUid_ {};
     // The time when the task was created, in ISO 8601 format (for example, 2024-01-01T00:00:00+08:00).
     shared_ptr<string> createdAt_ {};
-    // The list of prefetch domains.
+    // The list of domain names for prefetch.
     shared_ptr<string> domains_ {};
-    // The error information. Multiple errors are separated by commas:
+    // The error message. Multiple faults are separated by commas. Valid values:
     // - **InvalidUrl**: The URL format is invalid.
-    // - **InvalidDomain**: The domain ownership verification failed.
-    // - **QuotaExcess**: The quota limit has been exceeded.
-    // - **OtherErrors**: Other errors.
+    // - **InvalidDomain**: The domain name ownership verification failed.
+    // - **QuotaExcess**: The quota limit is exceeded.
+    // - **OtherErrors**: Other faults.
     shared_ptr<string> errorInfo_ {};
     // The OSS address of the failed file.
     shared_ptr<string> failedFileOss_ {};
-    // The URL list file ID, used for downloading.
+    // The URL list file ID, which is used for download.
     shared_ptr<string> fileId_ {};
     // The task ID.
     shared_ptr<string> id_ {};
@@ -193,7 +193,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The site ID.
     shared_ptr<int64_t> siteId_ {};
-    // The number of URLs that have been submitted to the system for prefetch tasks.
+    // The number of URLs that have been submitted to the system for prefetch.
     shared_ptr<int32_t> taskSubmitted_ {};
     // The task type (refresh/prefetch).
     shared_ptr<string> taskType_ {};

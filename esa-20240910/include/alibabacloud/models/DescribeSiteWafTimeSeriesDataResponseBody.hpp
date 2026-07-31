@@ -229,7 +229,7 @@ namespace Models
     protected:
       // The returned data.
       shared_ptr<vector<Data::DetailData>> detailData_ {};
-      // The query dimension.
+      // The query dimensions.
       shared_ptr<string> dimensionName_ {};
       // The dimension value.
       shared_ptr<string> dimensionValue_ {};
@@ -296,7 +296,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<vector<DescribeSiteWafTimeSeriesDataResponseBody::Data>> data_ {};
-    // The end time of the returned data.
+    // The end of the time range for the returned data.
     // 
     // The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
     shared_ptr<string> endTime_ {};
@@ -306,11 +306,11 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The sampling rate. Unit: %.
     shared_ptr<float> samplingRate_ {};
-    // The start time for the data query.
+    // The beginning of the time range to query.
     // 
     // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
     shared_ptr<string> startTime_ {};
-    // The summarized query data.
+    // The summarized data.
     shared_ptr<vector<DescribeSiteWafTimeSeriesDataResponseBody::SummarizedData>> summarizedData_ {};
   };
 

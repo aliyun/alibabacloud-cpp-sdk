@@ -139,7 +139,7 @@ namespace Models
       shared_ptr<string> endTime_ {};
       // The prefetch plan ID.
       shared_ptr<string> id_ {};
-      // The interval between each batch execution of the scheduled prefetch plan. Unit: seconds.
+      // The interval between each batch execution of the scheduled prefetch plan, in seconds.
       shared_ptr<int32_t> interval_ {};
       // The prefetch task ID.
       shared_ptr<string> jobId_ {};
@@ -255,7 +255,7 @@ namespace Models
       shared_ptr<string> endTime_ {};
       // The prefetch plan ID.
       shared_ptr<string> id_ {};
-      // The interval between each batch execution of the scheduled prefetch plan. Unit: seconds.
+      // The interval between each batch execution of the scheduled prefetch plan, in seconds.
       shared_ptr<int32_t> interval_ {};
       // The prefetch task ID.
       shared_ptr<string> jobId_ {};

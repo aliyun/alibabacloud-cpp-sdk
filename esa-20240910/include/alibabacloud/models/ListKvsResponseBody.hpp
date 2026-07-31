@@ -78,7 +78,7 @@ namespace Models
     protected:
       // The name of the key.
       shared_ptr<string> name_ {};
-      // The time when the key was last updated, in ISO 8601 format (for example, 2024-01-01T00:00:00+Z).
+      // The update time of the key in ISO 8601 format (for example, 2024-01-01T00:00:00+Z).
       shared_ptr<string> updateTime_ {};
     };
 

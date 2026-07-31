@@ -163,16 +163,31 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
+      // The last modification time.
       shared_ptr<string> gmtModified_ {};
+      // The task ID.
       shared_ptr<int64_t> id_ {};
+      // The resource ID.
       shared_ptr<int64_t> resourceId_ {};
+      // The resource name.
       shared_ptr<string> resourceName_ {};
+      // The resource type.
       shared_ptr<string> resourceType_ {};
+      // The task description.
       shared_ptr<map<string, string>> taskDescription_ {};
+      // The custom identifier that is set to associate with this task.
       shared_ptr<string> taskKey_ {};
+      // The current status of the task. Valid values:
+      // 
+      // - in_progress: in progress.
+      // - success: completed.
+      // - fail: failed.
       shared_ptr<string> taskStatus_ {};
+      // The task type.
       shared_ptr<string> taskType_ {};
+      // The user ID.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -223,12 +238,17 @@ namespace Models
 
 
   protected:
+    // The task list.
     shared_ptr<vector<ListAsyncTasksResponseBody::AsyncTasks>> asyncTasks_ {};
+    // The page number of the returned data.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: **1 to 500**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

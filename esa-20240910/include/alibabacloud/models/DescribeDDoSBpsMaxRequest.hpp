@@ -66,10 +66,24 @@ namespace Models
 
 
   protected:
+    // The protection region. If this parameter is not specified, the default value global is used. Valid values:
+    // 
+    // - domestic: the Chinese mainland.
+    // 
+    // - overseas: global (excluding the Chinese mainland).
+    // 
+    // - global: global.
     shared_ptr<string> coverage_ {};
+    // The end of the time range to query. Specify the time in ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+    // 
+    // >The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
+    // The site ID, which can be obtained by calling the [ListSites](url) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // The beginning of the time range to query. Specify the time in ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

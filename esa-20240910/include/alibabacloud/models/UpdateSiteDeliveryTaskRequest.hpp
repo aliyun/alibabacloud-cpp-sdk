@@ -84,24 +84,24 @@ namespace Models
 
 
   protected:
-    // The real-time log type. Valid values:
+    // The log type of real-time logs. Valid values:
     // 
-    // - **dcdn_log_access_l1** (default): access log.
-    // 
-    // - **dcdn_log_er**: Edge Routine log.
-    // 
-    // - **dcdn_log_waf**: WAF log.
-    // 
-    // - **dcdn_log_ipa**: Layer 4 acceleration log.
+    // - **dcdn_log_access_l1 (default)**: access logs.
+    // - **dcdn_log_er**: Edge Routine logs.
+    // - **dcdn_log_waf**: security protection logs.
+    // - **dcdn_log_ipa**: Layer 4 acceleration logs.
     shared_ptr<string> businessType_ {};
     // The discard rate.
     shared_ptr<float> discardRate_ {};
-    // A comma-separated list of delivery fields.
+    // The list of delivery fields to modify, separated by commas.
     // 
     // This parameter is required.
     shared_ptr<string> fieldName_ {};
+    // The version of the filter rule.
+    // 
+    // > Compatible with legacy filter rules. The default value is v1. Newly created rules use v2.
     shared_ptr<string> filterVer_ {};
-    // The site ID. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<int64_t> siteId_ {};
     // The task name.
     // 

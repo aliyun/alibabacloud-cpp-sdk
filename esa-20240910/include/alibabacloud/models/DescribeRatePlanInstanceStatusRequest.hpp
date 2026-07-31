@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can obtain the ID by calling the [ListUserRatePlanInstances](~~ListUserRatePlanInstances~~) operation.
+    // The instance ID. You can call the [ListUserRatePlanInstances](~~ListUserRatePlanInstances~~) operation to obtain the instance ID.
     shared_ptr<string> instanceId_ {};
+    // The resource owner account.
     shared_ptr<int64_t> resourceOwner_ {};
   };
 

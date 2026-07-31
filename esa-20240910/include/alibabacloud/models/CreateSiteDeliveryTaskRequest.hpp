@@ -104,11 +104,11 @@ namespace Models
 
 
     protected:
-      // The name of the Simple Log Service Logstore.
+      // The SLS real-time log Logstore name.
       shared_ptr<string> SLSLogStore_ {};
-      // The name of the Simple Log Service project.
+      // The SLS real-time log project name.
       shared_ptr<string> SLSProject_ {};
-      // The region of the Simple Log Service project.
+      // The region name of the SLS real-time log.
       shared_ptr<string> SLSRegion_ {};
     };
 
@@ -218,19 +218,25 @@ namespace Models
       shared_ptr<string> accessKey_ {};
       // The bucket path.
       shared_ptr<string> bucketPath_ {};
-      // The endpoint of the server. This parameter is required when S3Cmpt is set to true.
+      // The server endpoint. This parameter is required when S3Cmpt is set to true.
       // 
-      // > For S3-compatible services, configure the domain name resolution by concatenating the bucket and endpoint. For example, if the endpoint is example.com and the bucket is demo, the actual delivery address is demo.example.com.
+      // > For S3-compatible services, configure DNS resolution by concatenating the Bucket and Endpoint addresses. For example, if Endpoint is example.com and Bucket is demo, the actual delivery address is demo.example.com.
       shared_ptr<string> endpoint_ {};
-      // The prefix of the storage path.
+      // The storage path prefix.
       shared_ptr<string> prefixPath_ {};
-      // The region where the service resides.
+      // The region where the service is located.
       shared_ptr<string> region_ {};
       // Specifies whether the service is S3-compatible.
       shared_ptr<bool> s3Cmpt_ {};
-      // The secret key used by the S3 account.
+      // The SecretKey ID used by the S3 account.
       shared_ptr<string> secretKey_ {};
+      // Specifies whether to enable S3 server-side encryption.
+      // 
+      // To configure server-side encryption for the S3 bucket, refer to OSS [Server-side encryption](https://help.aliyun.com/document_detail/31871.html).
       shared_ptr<bool> serverSideEncryption_ {};
+      // The key verification method for S3 delivery.
+      // 
+      // > The key configuration comes from the console or SDK. Keys from the console are encrypted during transmission. Keys from the SDK do not require encryption.
       shared_ptr<string> vertifyType_ {};
     };
 
@@ -294,7 +300,7 @@ namespace Models
       shared_ptr<string> aliuid_ {};
       // The bucket name.
       shared_ptr<string> bucketName_ {};
-      // The prefix of the OSS storage path.
+      // The OSS storage path prefix.
       shared_ptr<string> prefixPath_ {};
       // The OSS region.
       shared_ptr<string> region_ {};
@@ -416,8 +422,11 @@ namespace Models
       shared_ptr<string> password_ {};
       // The Kafka message topic.
       shared_ptr<string> topic_ {};
+      // Specifies whether to enable SASL encrypted transmission for Kafka delivery.
+      // 
+      // > The delivery address must be configured with a public certificate. Self-signed certificate verification will fail.
       shared_ptr<bool> useTLS_ {};
-      // Specifies whether user authentication is enabled.
+      // Specifies whether to enable user authentication.
       shared_ptr<bool> userAuth_ {};
       // The username.
       shared_ptr<string> userName_ {};
@@ -519,8 +528,7 @@ namespace Models
       protected:
         // The encryption timeout period.
         // 
-        // > 
-        // > Set this parameter to a value greater than 0. We recommend that you set it to at least 300.
+        // > The value must be greater than 0. A value of 300 or greater is recommended.
         shared_ptr<int32_t> expiredTime_ {};
         // The private key.
         shared_ptr<string> privateKey_ {};
@@ -646,26 +654,29 @@ namespace Models
     protected:
       // The compression method. By default, no compression is applied.
       shared_ptr<string> compress_ {};
-      // The delivery URL of the HTTP server.
+      // The HTTP server delivery address.
       shared_ptr<string> destUrl_ {};
-      // The custom header.
+      // The Custom Header.
       shared_ptr<map<string, HttpDeliveryHeaderParamValue>> headerParam_ {};
+      // The trailing separator.
       shared_ptr<bool> lastLogSplit_ {};
-      // The prefix of the log delivery package.
+      // The log delivery packet prefix.
       shared_ptr<string> logBodyPrefix_ {};
-      // The suffix of the log delivery package.
+      // The log delivery packet suffix.
       shared_ptr<string> logBodySuffix_ {};
+      // Specifies whether to enable log segmentation. Default value: true.
       shared_ptr<bool> logSplit_ {};
+      // The log separator.
       shared_ptr<string> logSplitWords_ {};
-      // The maximum size per delivery batch, in MB.
+      // The maximum size per delivery, in MB.
       shared_ptr<int64_t> maxBatchMB_ {};
-      // The maximum number of entries per delivery batch.
+      // The maximum number of log entries per delivery.
       shared_ptr<int64_t> maxBatchSize_ {};
       // The maximum number of retries.
       shared_ptr<int64_t> maxRetry_ {};
-      // The custom request parameter.
+      // The custom request parameters.
       shared_ptr<map<string, HttpDeliveryQueryParamValue>> queryParam_ {};
-      // Specifies whether standard authentication is enabled.
+      // Specifies whether to use standard authentication.
       shared_ptr<bool> standardAuthOn_ {};
       // The standard authentication parameters.
       shared_ptr<HttpDelivery::StandardAuthParam> standardAuthParam_ {};
@@ -781,33 +792,36 @@ namespace Models
   protected:
     // The business type. Valid values:
     // 
-    // - **dcdn_log_access_l1** (default): Access logs.
-    // - **dcdn_log_er**: Edge Routine logs.
-    // - **dcdn_log_waf**: Security protection logs.
+    // - **dcdn_log_access_l1** (default): access logs.
+    // - **dcdn_log_er**: Edge Routine function logs.
+    // - **dcdn_log_waf**: security protection logs.
     // - **dcdn_log_ipa**: Layer 4 acceleration logs.
     // 
     // This parameter is required.
     shared_ptr<string> businessType_ {};
     // The data center. Valid values:
-    // - **cn**: The Chinese mainland.
-    // - **oversea**: Outside the Chinese mainland.
+    // - **cn**: the Chinese mainland.
+    // - **oversea**: outside the Chinese mainland.
     shared_ptr<string> dataCenter_ {};
     // The delivery type. Valid values:
-    // - **sls**: Simple Log Service.
+    // - **sls**: Alibaba Cloud Simple Log Service.
     // - **http**: HTTP service.
-    // - **aws3**: Amazon S3.
-    // - **oss**: Object Storage Service (OSS).
+    // - **aws3**: Amazon S3 service.
+    // - **oss**: Alibaba Cloud Object Storage Service.
     // - **kafka**: Kafka service.
     // - **aws3cmpt**: Amazon S3-compatible service.
     // 
     // This parameter is required.
     shared_ptr<string> deliveryType_ {};
-    // The discard rate. If you do not specify this parameter, the default value is 0.
+    // The discard rate. Default value: 0.
     shared_ptr<float> discardRate_ {};
-    // The log fields to be delivered, separated by commas (,).
+    // The selected log fields, separated by commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> fieldName_ {};
+    // The filter rule version.
+    // 
+    // > For backward compatibility with legacy filter rules, the default value is v1. New tasks use v2.
     shared_ptr<string> filterVer_ {};
     // The HTTP delivery configuration parameters.
     shared_ptr<CreateSiteDeliveryTaskRequest::HttpDelivery> httpDelivery_ {};
@@ -815,15 +829,15 @@ namespace Models
     shared_ptr<CreateSiteDeliveryTaskRequest::KafkaDelivery> kafkaDelivery_ {};
     // The OSS delivery configuration.
     shared_ptr<CreateSiteDeliveryTaskRequest::OssDelivery> ossDelivery_ {};
-    // The configuration parameters for S3 or S3-compatible delivery.
+    // The S3/S3-compatible delivery configuration parameters.
     shared_ptr<CreateSiteDeliveryTaskRequest::S3Delivery> s3Delivery_ {};
-    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the site ID.
+    // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The Simple Log Service delivery configuration.
+    // The SLS delivery configuration.
     shared_ptr<CreateSiteDeliveryTaskRequest::SlsDelivery> slsDelivery_ {};
-    // The name of the task.
+    // The task name.
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};

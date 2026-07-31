@@ -160,43 +160,40 @@ namespace Models
 
 
   protected:
-    // The type of real-time log for Dynamic Route for CDN (DCDN). Valid values:
+    // The real-time log type. Valid values:
     // 
-    // - **dcdn_log_access_l1** (default): access log.
-    // 
-    // - **dcdn_log_er**: edge function log.
-    // 
-    // - **dcdn_log_waf**: WAF log.
-    // 
-    // - **dcdn_log_ipa**: layer 4 acceleration log.
+    // - **dcdn_log_access_l1 (default)**: access log.
+    // - **dcdn_log_er**: Edge Routine function log.
+    // - **dcdn_log_waf**: security protection log.
+    // - **dcdn_log_ipa**: Layer 4 acceleration log.
     shared_ptr<string> businessType_ {};
     // The data center. Valid values:
     // 
-    // - **cn**: Chinese mainland.
-    // 
-    // - **sg**: Global (excluding Chinese mainland). Note that the value for this region is "sg".
+    // - **cn**: the Chinese mainland.
+    // - **sg**: global (excluding the Chinese mainland).
     shared_ptr<string> dataCenter_ {};
     // The delivery type. Valid values:
     // 
-    // - **sls**: Log Service.
-    // 
+    // - **sls**: Alibaba Cloud Simple Log Service.
     // - **http**: HTTP service.
-    // 
-    // - **aws3**: Amazon S3.
-    // 
-    // - **oss**: Object Storage Service.
-    // 
+    // - **aws3**: Amazon S3 service.
+    // - **oss**: Alibaba Cloud Object Storage Service.
     // - **kafka**: Kafka service.
-    // 
     // - **aws3cmpt**: Amazon S3-compatible service.
     shared_ptr<string> deliveryType_ {};
     // The discard rate.
     shared_ptr<float> discardRate_ {};
-    // A comma-separated list of log fields to deliver.
+    // The list of delivery fields.
     shared_ptr<string> fieldList_ {};
     // The filter rules.
     shared_ptr<string> filterRules_ {};
+    // The version of the filter rules.
+    // 
+    // > For backward compatibility with legacy filter rules, the default value is v1. Newly created tasks use v2.
     shared_ptr<string> filterVer_ {};
+    // The filter rules for the delivery task.
+    // 
+    // > The new version of delivery filter rules.
     shared_ptr<string> rawRule_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -206,11 +203,11 @@ namespace Models
     shared_ptr<int64_t> siteId_ {};
     // The site name.
     shared_ptr<string> siteName_ {};
-    // The status of the task. Valid values:
+    // The task status. Valid values:
     // 
-    // - **online**: The task is delivering logs.
+    // - **online**: pushing.
     // 
-    // - **offline**: The task is paused.
+    // - **offline**: push paused.
     shared_ptr<string> status_ {};
     // The task name.
     shared_ptr<string> taskName_ {};

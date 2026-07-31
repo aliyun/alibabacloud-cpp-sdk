@@ -112,29 +112,24 @@ namespace Models
 
 
     protected:
-      // The prefetched content.
+      // The prefetch object.
       shared_ptr<string> content_ {};
-      // The time when the task was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
-      // The error message returned upon a prefetch task failure. Valid values:
+      // The error description returned when the prefetch fails. Valid values:
       // 
-      // - **Internal Error**
-      // 
-      // - **Origin Timeout**
-      // 
-      // - **Origin Return StatusCode 5XX**
+      // - **Internal Error**: An internal error occurred.
+      // - **Origin Timeout**: The origin server response timed out.
+      // - **Origin Return StatusCode 5XX**: The origin server returned a 5xx error code.
       shared_ptr<string> description_ {};
-      // The progress of the task, in percentage.
+      // The task completion progress percentage.
       shared_ptr<string> process_ {};
-      // The task status.
-      // 
-      // - **Complete**: The task is complete.
-      // 
-      // - **Refreshing**: The task is in progress.
-      // 
-      // - **Failed**: The task failed.
+      // The task status. Valid values:
+      // - **Complete**: Complete.
+      // - **Refreshing**: Prefetching.
+      // - **Failed**: Prefetch failed.
       shared_ptr<string> status_ {};
-      // The ID of the queried task.
+      // The task ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -180,13 +175,13 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tasks.
+    // The task list.
     shared_ptr<vector<DescribePreloadTasksResponseBody::Tasks>> tasks_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

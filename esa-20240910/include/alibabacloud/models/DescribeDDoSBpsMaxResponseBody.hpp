@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The end of the time range that was queried. The time is in ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
     shared_ptr<string> endTime_ {};
+    // The peak attack bandwidth. Unit: bit/s.
     shared_ptr<int64_t> maxAtkBps_ {};
+    // The peak attack PPS. Unit: pps.
     shared_ptr<int64_t> maxAtkPps_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The beginning of the time range to query. Specify the time in ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
     shared_ptr<string> startTime_ {};
   };
 

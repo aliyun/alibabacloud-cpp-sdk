@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The name specified when you called [CreatevNamespace](https://help.aliyun.com/document_detail/2850317.html).
+    // The name specified when calling [CreatevNamespace](https://help.aliyun.com/document_detail/2850317.html).
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
     // The page number. The product of PageNumber and PageSize cannot exceed 50000.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size. Default value: **50**. Maximum value: **100**.
+    // The page size for the returned results. Default value: **50**. Maximum value: **100**.
     shared_ptr<int32_t> pageSize_ {};
     // The prefix used to filter keys.
     shared_ptr<string> prefix_ {};

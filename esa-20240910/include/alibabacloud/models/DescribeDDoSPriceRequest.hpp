@@ -61,11 +61,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DDoSBillingMode_ {};
-    // The instance specifications for the Chinese mainland.
+    // The specification of the instance in the Chinese mainland.
     // 
     // This parameter is required.
     shared_ptr<string> DDoSBurstableDomesticProtection_ {};
-    // The instance specifications for regions outside the Chinese mainland.
+    // The specification of the instance outside the Chinese mainland.
     // 
     // This parameter is required.
     shared_ptr<string> DDoSBurstableOverseasProtection_ {};

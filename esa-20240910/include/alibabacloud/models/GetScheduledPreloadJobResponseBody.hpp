@@ -173,7 +173,7 @@ namespace Models
     shared_ptr<string> createdAt_ {};
     // The list of domain names for prefetch.
     shared_ptr<string> domains_ {};
-    // The error message.
+    // The error message returned if a fault occurs.
     shared_ptr<string> errorInfo_ {};
     // The OSS address of the failed file.
     shared_ptr<string> failedFileOss_ {};
@@ -181,7 +181,9 @@ namespace Models
     shared_ptr<string> fileId_ {};
     // The task ID.
     shared_ptr<string> id_ {};
-    // The URL insertion method.
+    // The URL insertion method. Valid values:
+    // - oss: Import URLs in bulk from an OSS file.
+    // - testBox: Enter URLs one by one in a text box.
     shared_ptr<string> insertWay_ {};
     // The task name.
     shared_ptr<string> name_ {};
@@ -191,7 +193,10 @@ namespace Models
     shared_ptr<int64_t> siteId_ {};
     // The number of URLs that have been submitted to the system for prefetch.
     shared_ptr<int32_t> taskSubmitted_ {};
-    // The task type (refresh or prefetch).
+    // The task type (refresh or prefetch). Valid values:
+    // - path: Directory refresh.
+    // - refresh: URL refresh.
+    // - preload: URL prefetch.
     shared_ptr<string> taskType_ {};
     // The total number of URLs.
     shared_ptr<int32_t> urlCount_ {};

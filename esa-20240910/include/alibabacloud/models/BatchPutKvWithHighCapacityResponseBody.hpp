@@ -66,7 +66,7 @@ namespace Models
     shared_ptr<vector<string>> failKeys_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of keys that were written.
+    // The list of keys that were written successfully.
     shared_ptr<vector<string>> successKeys_ {};
   };
 

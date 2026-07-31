@@ -539,6 +539,9 @@
 #include <alibabacloud/models/DescribeUrlObservationDataRequest.hpp>
 #include <alibabacloud/models/DescribeUrlObservationDataResponseBody.hpp>
 #include <alibabacloud/models/DescribeUrlObservationDataResponse.hpp>
+#include <alibabacloud/models/DescribeUserResourcePackageRequest.hpp>
+#include <alibabacloud/models/DescribeUserResourcePackageResponseBody.hpp>
+#include <alibabacloud/models/DescribeUserResourcePackageResponse.hpp>
 #include <alibabacloud/models/DescribeWafUsageDataRequest.hpp>
 #include <alibabacloud/models/DescribeWafUsageDataResponseBody.hpp>
 #include <alibabacloud/models/DescribeWafUsageDataResponse.hpp>
@@ -754,6 +757,9 @@
 #include <alibabacloud/models/GetRedirectRuleRequest.hpp>
 #include <alibabacloud/models/GetRedirectRuleResponseBody.hpp>
 #include <alibabacloud/models/GetRedirectRuleResponse.hpp>
+#include <alibabacloud/models/GetReleaseTimeRequest.hpp>
+#include <alibabacloud/models/GetReleaseTimeResponseBody.hpp>
+#include <alibabacloud/models/GetReleaseTimeResponse.hpp>
 #include <alibabacloud/models/GetRewriteUrlRuleRequest.hpp>
 #include <alibabacloud/models/GetRewriteUrlRuleResponseBody.hpp>
 #include <alibabacloud/models/GetRewriteUrlRuleResponse.hpp>

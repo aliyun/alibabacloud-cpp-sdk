@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The billing method.
+    // 
     // This parameter is required.
     shared_ptr<string> DDoSBillingMode_ {};
+    // The instance specifications for the Chinese mainland.
+    // 
     // This parameter is required.
     shared_ptr<string> DDoSBurstableDomesticProtection_ {};
+    // The instance specifications for outside China.
+    // 
     // This parameter is required.
     shared_ptr<string> DDoSBurstableOverseasProtection_ {};
+    // The site instance.
+    // 
     // This parameter is required.
     shared_ptr<string> siteInstanceId_ {};
   };

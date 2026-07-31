@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The name of the namespace. You specify this name when calling the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+    // The name specified when calling [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html).
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};

@@ -100,19 +100,19 @@ namespace Models
 
 
   protected:
-    // 值大小写不敏感。
+    // Specifies whether the value is case-insensitive.
     shared_ptr<bool> convertToLower_ {};
-    // 逻辑列表。
+    // The logic list.
     shared_ptr<vector<WafRuleMatch>> criteria_ {};
-    // 逻辑关系。
+    // The logic relationship.
     shared_ptr<string> logic_ {};
-    // 匹配符。
+    // The match operator.
     shared_ptr<string> matchOperator_ {};
-    // 匹配域。
+    // The match field.
     shared_ptr<string> matchType_ {};
-    // 匹配值。
+    // The match value.
     Darabonba::Json matchValue_ {};
-    // 匹配结果取反。
+    // Specifies whether to negate the match result.
     shared_ptr<bool> negate_ {};
   };
 

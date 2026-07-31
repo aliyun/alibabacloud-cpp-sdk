@@ -153,42 +153,38 @@ namespace Models
   protected:
     // The business type. Valid values:
     // 
-    // - **dcdn_log_access_l1** (default): access log.
-    // 
-    // - **dcdn_log_er**: edge function log.
-    // 
-    // - **dcdn_log_waf**: WAF log.
-    // 
-    // - **dcdn_log_ipa**: Layer 4 acceleration log.
+    // - **dcdn_log_access_l1** (default): access logs.
+    // - **dcdn_log_er**: Edge Routine function logs.
+    // - **dcdn_log_waf**: security protection logs.
+    // - **dcdn_log_ipa**: Layer 4 acceleration logs.
     shared_ptr<string> businessType_ {};
     // The data center. Valid values:
-    // 
-    // - **cn**: Chinese mainland
-    // 
-    // - **sg**: Global (excluding the Chinese mainland)
+    // - **cn**: the Chinese mainland.
+    // - **sg**: global (excluding the Chinese mainland).
     shared_ptr<string> dataCenter_ {};
     // The delivery type. Valid values:
-    // 
-    // - **sls**: Log Service
-    // 
-    // - **http**: HTTP service
-    // 
-    // - **aws3**: Amazon S3
-    // 
-    // - **oss**: OSS
-    // 
-    // - **kafka**: Kafka service
-    // 
-    // - **aws3cmpt**: Amazon S3-compatible service
+    // - **sls**: Alibaba Cloud Simple Log Service.
+    // - **http**: HTTP service.
+    // - **aws3**: Amazon S3 service.
+    // - **oss**: Alibaba Cloud Object Storage Service.
+    // - **kafka**: Kafka service.
+    // - **aws3cmpt**: Amazon S3-compatible service.
     shared_ptr<string> deliveryType_ {};
+    // The list of Edge Routine PODs.
     shared_ptr<string> details_ {};
     // The discard rate.
     shared_ptr<float> discardRate_ {};
-    // A comma-separated list of fields.
+    // The field array.
     shared_ptr<string> fieldList_ {};
     // The filter rules.
     shared_ptr<string> filterRules_ {};
+    // The version of the filter rules.
+    // 
+    // > For backward compatibility with legacy filter rules, the default value is v1. Newly created rules use v2.
     shared_ptr<string> filterVer_ {};
+    // The filter rules for the delivery task.
+    // 
+    // > New version of delivery filter rules.
     shared_ptr<string> rawRule_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -84,11 +84,21 @@ namespace Models
 
 
   protected:
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of tasks to display per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The resource ID to which the task belongs, such as a site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
     shared_ptr<string> resourceIds_ {};
+    // The resource type.
     shared_ptr<string> resourceType_ {};
+    // The current status of the task. Valid values:
+    // 
+    // - in_progress: in progress.
+    // - success: completed.
+    // - fail: failed.
     shared_ptr<string> taskStatus_ {};
+    // The task type. For example, the task type for applying for a free certificate is free_cert.
     shared_ptr<string> taskType_ {};
   };
 

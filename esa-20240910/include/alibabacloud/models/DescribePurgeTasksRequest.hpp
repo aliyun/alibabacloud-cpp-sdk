@@ -121,9 +121,9 @@ namespace Models
     shared_ptr<string> startTime_ {};
     // The task execution status. Valid values:
     // 
-    // - **Complete**: Completed.
-    // - **Refreshing**: Refreshing.
-    // - **Failed**: Refresh failed.
+    // - **Complete**: completed.
+    // - **Refreshing**: refreshing.
+    // - **Failed**: refresh failed.
     shared_ptr<string> status_ {};
     // The task type. Valid values:
     // - **file** (default): file refresh.

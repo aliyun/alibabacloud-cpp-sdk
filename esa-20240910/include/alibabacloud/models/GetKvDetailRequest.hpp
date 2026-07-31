@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The key name for the query.
+    // The name of the key to query.
     // 
     // This parameter is required.
     shared_ptr<string> key_ {};
-    // The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+    // The name specified when calling [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html).
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};

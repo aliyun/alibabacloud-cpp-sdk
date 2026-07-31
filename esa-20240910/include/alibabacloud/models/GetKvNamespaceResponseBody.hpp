@@ -112,31 +112,31 @@ namespace Models
 
 
   protected:
-    // The available capacity of the namespace, in bytes.
+    // The available capacity of the KV namespace, in bytes.
     shared_ptr<int64_t> capacity_ {};
-    // The available capacity of the namespace, formatted as a human-readable string.
+    // The available capacity of the KV namespace.
     shared_ptr<string> capacityString_ {};
-    // The used capacity of the namespace, in bytes.
+    // The used capacity of the KV namespace, in bytes.
     shared_ptr<int64_t> capacityUsed_ {};
-    // The used capacity of the namespace, formatted as a human-readable string.
+    // The used capacity of the KV namespace.
     shared_ptr<string> capacityUsedString_ {};
-    // The description of the namespace.
+    // The description of the KV namespace.
     shared_ptr<string> description_ {};
-    // The name of the namespace.
+    // The name of the KV namespace.
     shared_ptr<string> namespace_ {};
-    // The ID of the namespace.
+    // The ID of the KV namespace.
     shared_ptr<string> namespaceId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the namespace. Valid values:
+    // The status of the KV namespace. Valid values:
     // 
-    // - **online**: The namespace is active.
+    // - **online**: Normal.
     // 
-    // - **delete**: The namespace is marked for deletion.
+    // - **delete**: Pending deletion.
     // 
-    // - **deleting**: The namespace is being deleted.
+    // - **deleting**: Being deleted.
     // 
-    // - **deleted**: The namespace has been deleted.
+    // - **deleted**: Deleted.
     shared_ptr<string> status_ {};
   };
 

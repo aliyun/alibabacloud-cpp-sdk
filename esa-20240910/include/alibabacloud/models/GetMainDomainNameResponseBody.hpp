@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The level of the domain name.
+    // The level of the input domain name.
     shared_ptr<int32_t> domainLevel_ {};
-    // The root domain name.
+    // The primary domain name.
     shared_ptr<string> mainDomainName_ {};
-    // The host record.
+    // The host record information.
     shared_ptr<string> RR_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -38,6 +38,9 @@ namespace Models
 
 
   protected:
+    // The value of the custom HTTP delivery query string parameter.
+    // 
+    // > Key-map. The value can be a static value, dynamic function, or dynamic value.
     shared_ptr<string> staticValue_ {};
   };
 

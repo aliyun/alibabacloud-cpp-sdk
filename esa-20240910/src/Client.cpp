@@ -508,7 +508,7 @@ BatchCreateWafRulesResponse Client::batchCreateWafRules(const BatchCreateWafRule
 }
 
 /**
- * @summary Delete key-value pairs in bulk from a specified namespace.
+ * @summary Batch deletes key-value pairs from a specified KV namespace based on a specified list of key names.
  *
  * @param tmpReq BatchDeleteKvRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -551,7 +551,7 @@ BatchDeleteKvResponse Client::batchDeleteKvWithOptions(const BatchDeleteKvReques
 }
 
 /**
- * @summary Delete key-value pairs in bulk from a specified namespace.
+ * @summary Batch deletes key-value pairs from a specified KV namespace based on a specified list of key names.
  *
  * @param request BatchDeleteKvRequest
  * @return BatchDeleteKvResponse
@@ -562,14 +562,14 @@ BatchDeleteKvResponse Client::batchDeleteKv(const BatchDeleteKvRequest &request)
 }
 
 /**
- * @summary Batch deletes key-value pairs from a specified KV namespace based on a specified list of key names. The maximum request body size is 100 MB.
+ * @summary Batch deletes key-value pairs from a specified KV namespace based on a list of key names. The maximum request body size is 100 MB.
  *
  * @description >Notice: 
- * Prerequisites for non-SDK calls: (1) You must have an OSS bucket with read and write permissions. (2) You must be able to generate a pre-signed HTTPS GET URL by using the OSS SDK or API. (3) The uploaded JSON file must use the same format as the BatchDeleteKv request body..
- * This operation provides the same functionality as [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html), but allows a larger request body. If the request body is small, use the [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchDeleteKvWithHighCapacityAdvance function.
+ * Prerequisites for non-SDK calls: (1) You must have an OSS bucket with read and write permissions. (2) You must be able to generate a pre-signed HTTPS GET URL by using the OSS SDK or API. (3) The uploaded JSON file format must be the same as the BatchDeleteKv request body.
+ * This operation provides the same functionality as [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html), but allows a larger request body. If the request body is small, use the [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) operation directly to reduce server processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchDeleteKvWithHighCapacityAdvance function.
  * ```
  * func TestBatchDeleteWithHighCapacity() error {
- * 	// Initialize the configuration
+ * 	// Configuration initialization
  * 	cfg := new(openapi.Config)
  * 	cfg.SetAccessKeyId("xxxxxxxxx")
  * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -577,8 +577,8 @@ BatchDeleteKvResponse Client::batchDeleteKv(const BatchDeleteKvRequest &request)
  * 	if err != nil {
  * 		return err
  * 	}
- * 	runtime := &util.RuntimeOptions{}.
- * 	// Construct the batch delete request for key-value pairs
+ * 	runtime := &util.RuntimeOptions{}
+ * 	// Construct the batch delete key-value pair request
  * 	namespace := "test_batch_put"
  * 	rawReq := BatchDeleteKvRequest{
  * 		Namespace: &namespace,
@@ -590,8 +590,8 @@ BatchDeleteKvResponse Client::batchDeleteKv(const BatchDeleteKvRequest &request)
  * 	payload, err := json.Marshal(rawReq)
  * 	if err != nil {
  * 		return err
- * 	}.
- * 	// If the payload is larger than 2 MB, call the high-capacity operation to delete the key-value pairs
+ * 	}
+ * 	// If the payload is larger than 2 MB, call the high-capacity operation to delete
  * 	reqHighCapacity := BatchDeleteKvWithHighCapacityAdvanceRequest{
  * 		Namespace: &namespace,
  * 		UrlObject: bytes.NewReader(payload),
@@ -601,7 +601,7 @@ BatchDeleteKvResponse Client::batchDeleteKv(const BatchDeleteKvRequest &request)
  * 		return err
  * 	}
  * 	return nil
- * }.
+ * }
  *
  * @param request BatchDeleteKvWithHighCapacityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -636,14 +636,14 @@ BatchDeleteKvWithHighCapacityResponse Client::batchDeleteKvWithHighCapacityWithO
 }
 
 /**
- * @summary Batch deletes key-value pairs from a specified KV namespace based on a specified list of key names. The maximum request body size is 100 MB.
+ * @summary Batch deletes key-value pairs from a specified KV namespace based on a list of key names. The maximum request body size is 100 MB.
  *
  * @description >Notice: 
- * Prerequisites for non-SDK calls: (1) You must have an OSS bucket with read and write permissions. (2) You must be able to generate a pre-signed HTTPS GET URL by using the OSS SDK or API. (3) The uploaded JSON file must use the same format as the BatchDeleteKv request body..
- * This operation provides the same functionality as [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html), but allows a larger request body. If the request body is small, use the [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchDeleteKvWithHighCapacityAdvance function.
+ * Prerequisites for non-SDK calls: (1) You must have an OSS bucket with read and write permissions. (2) You must be able to generate a pre-signed HTTPS GET URL by using the OSS SDK or API. (3) The uploaded JSON file format must be the same as the BatchDeleteKv request body.
+ * This operation provides the same functionality as [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html), but allows a larger request body. If the request body is small, use the [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) operation directly to reduce server processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchDeleteKvWithHighCapacityAdvance function.
  * ```
  * func TestBatchDeleteWithHighCapacity() error {
- * 	// Initialize the configuration
+ * 	// Configuration initialization
  * 	cfg := new(openapi.Config)
  * 	cfg.SetAccessKeyId("xxxxxxxxx")
  * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -651,8 +651,8 @@ BatchDeleteKvWithHighCapacityResponse Client::batchDeleteKvWithHighCapacityWithO
  * 	if err != nil {
  * 		return err
  * 	}
- * 	runtime := &util.RuntimeOptions{}.
- * 	// Construct the batch delete request for key-value pairs
+ * 	runtime := &util.RuntimeOptions{}
+ * 	// Construct the batch delete key-value pair request
  * 	namespace := "test_batch_put"
  * 	rawReq := BatchDeleteKvRequest{
  * 		Namespace: &namespace,
@@ -664,8 +664,8 @@ BatchDeleteKvWithHighCapacityResponse Client::batchDeleteKvWithHighCapacityWithO
  * 	payload, err := json.Marshal(rawReq)
  * 	if err != nil {
  * 		return err
- * 	}.
- * 	// If the payload is larger than 2 MB, call the high-capacity operation to delete the key-value pairs
+ * 	}
+ * 	// If the payload is larger than 2 MB, call the high-capacity operation to delete
  * 	reqHighCapacity := BatchDeleteKvWithHighCapacityAdvanceRequest{
  * 		Namespace: &namespace,
  * 		UrlObject: bytes.NewReader(payload),
@@ -675,7 +675,7 @@ BatchDeleteKvWithHighCapacityResponse Client::batchDeleteKvWithHighCapacityWithO
  * 		return err
  * 	}
  * 	return nil
- * }.
+ * }
  *
  * @param request BatchDeleteKvWithHighCapacityRequest
  * @return BatchDeleteKvWithHighCapacityResponse
@@ -842,7 +842,7 @@ BatchGetExpressionFieldsResponse Client::batchGetExpressionFields(const BatchGet
 }
 
 /**
- * @summary Sets multiple key-value pairs in a specified namespace.
+ * @summary Batch sets key-value pairs in a specified KV namespace based on a specified list of key names.
  *
  * @param tmpReq BatchPutKvRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -885,7 +885,7 @@ BatchPutKvResponse Client::batchPutKvWithOptions(const BatchPutKvRequest &tmpReq
 }
 
 /**
- * @summary Sets multiple key-value pairs in a specified namespace.
+ * @summary Batch sets key-value pairs in a specified KV namespace based on a specified list of key names.
  *
  * @param request BatchPutKvRequest
  * @return BatchPutKvResponse
@@ -898,10 +898,10 @@ BatchPutKvResponse Client::batchPutKv(const BatchPutKvRequest &request) {
 /**
  * @summary Batch sets key-value pairs in a specified KV namespace based on a specified list of key names. The maximum request body size is 100 MB.
  *
- * @description This operation provides the same functionality as [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html), but allows larger request bodies. If the request body is small, use the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchPutKvWithHighCapacityAdvance function.
+ * @description This operation provides the same functionality as [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html), but allows you to upload a larger request body. If the request body is small, use the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) operation directly to reduce server processing time. This operation must be called by using an SDK. Taking the Golang SDK as an example, call the BatchPutKvWithHighCapacityAdvance function.
  * ```
  * func TestBatchPutKvWithHighCapacity() error {
- * 	// Initialize the configuration
+ * 	// Configuration initialization
  * 	cfg := new(openapi.Config)
  * 	cfg.SetAccessKeyId("xxxxxxxxx")
  * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -909,8 +909,8 @@ BatchPutKvResponse Client::batchPutKv(const BatchPutKvRequest &request) {
  * 	if err != nil {
  * 		return err
  * 	}
- * 	runtime := &util.RuntimeOptions{}.
- * 	// Construct the key-value pairs for batch upload
+ * 	runtime := &util.RuntimeOptions{}
+ * 	// Construct the key-value pairs request for batch upload
  * 	namespace := "test_batch_put"
  * 	numKv := 10000
  * 	kvList := make([]*BatchPutKvRequestKvList, numKv)
@@ -926,12 +926,12 @@ BatchPutKvResponse Client::batchPutKv(const BatchPutKvRequest &request) {
  * 	rawReq := BatchPutKvRequest{
  * 		Namespace: &namespace,
  * 		KvList:    kvList,
- * 	}.
+ * 	}
  * 	payload, err := json.Marshal(rawReq)
  * 	if err != nil {
  * 		return err
- * 	}.
- * 	// If the payload is larger than 2 MB, call the high-capacity operation to upload it
+ * 	}
+ * 	// If the payload is larger than 2 MB, call the high-capacity operation to upload
  * 	reqHighCapacity := BatchPutKvWithHighCapacityAdvanceRequest{
  * 		Namespace: &namespace,
  * 		UrlObject: bytes.NewReader(payload),
@@ -941,7 +941,7 @@ BatchPutKvResponse Client::batchPutKv(const BatchPutKvRequest &request) {
  * 		return err
  * 	}
  * 	return nil
- * }.
+ * }
  *
  * @param request BatchPutKvWithHighCapacityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -978,10 +978,10 @@ BatchPutKvWithHighCapacityResponse Client::batchPutKvWithHighCapacityWithOptions
 /**
  * @summary Batch sets key-value pairs in a specified KV namespace based on a specified list of key names. The maximum request body size is 100 MB.
  *
- * @description This operation provides the same functionality as [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html), but allows larger request bodies. If the request body is small, use the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) operation to reduce server-side processing time. This operation must be called by using an SDK. For example, when using the Golang SDK, call the BatchPutKvWithHighCapacityAdvance function.
+ * @description This operation provides the same functionality as [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html), but allows you to upload a larger request body. If the request body is small, use the [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) operation directly to reduce server processing time. This operation must be called by using an SDK. Taking the Golang SDK as an example, call the BatchPutKvWithHighCapacityAdvance function.
  * ```
  * func TestBatchPutKvWithHighCapacity() error {
- * 	// Initialize the configuration
+ * 	// Configuration initialization
  * 	cfg := new(openapi.Config)
  * 	cfg.SetAccessKeyId("xxxxxxxxx")
  * 	cfg.SetAccessKeySecret("xxxxxxxxxx")
@@ -989,8 +989,8 @@ BatchPutKvWithHighCapacityResponse Client::batchPutKvWithHighCapacityWithOptions
  * 	if err != nil {
  * 		return err
  * 	}
- * 	runtime := &util.RuntimeOptions{}.
- * 	// Construct the key-value pairs for batch upload
+ * 	runtime := &util.RuntimeOptions{}
+ * 	// Construct the key-value pairs request for batch upload
  * 	namespace := "test_batch_put"
  * 	numKv := 10000
  * 	kvList := make([]*BatchPutKvRequestKvList, numKv)
@@ -1006,12 +1006,12 @@ BatchPutKvWithHighCapacityResponse Client::batchPutKvWithHighCapacityWithOptions
  * 	rawReq := BatchPutKvRequest{
  * 		Namespace: &namespace,
  * 		KvList:    kvList,
- * 	}.
+ * 	}
  * 	payload, err := json.Marshal(rawReq)
  * 	if err != nil {
  * 		return err
- * 	}.
- * 	// If the payload is larger than 2 MB, call the high-capacity operation to upload it
+ * 	}
+ * 	// If the payload is larger than 2 MB, call the high-capacity operation to upload
  * 	reqHighCapacity := BatchPutKvWithHighCapacityAdvanceRequest{
  * 		Namespace: &namespace,
  * 		UrlObject: bytes.NewReader(payload),
@@ -1021,7 +1021,7 @@ BatchPutKvWithHighCapacityResponse Client::batchPutKvWithHighCapacityWithOptions
  * 		return err
  * 	}
  * 	return nil
- * }.
+ * }
  *
  * @param request BatchPutKvWithHighCapacityRequest
  * @return BatchPutKvWithHighCapacityResponse
@@ -1192,7 +1192,7 @@ BatchUpdateWafRulesResponse Client::batchUpdateWafRules(const BatchUpdateWafRule
 }
 
 /**
- * @summary Blocks access to specified URLs.
+ * @summary Blocks access to a specified URL.
  *
  * @param tmpReq BlockObjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1241,7 +1241,7 @@ BlockObjectResponse Client::blockObjectWithOptions(const BlockObjectRequest &tmp
 }
 
 /**
- * @summary Blocks access to specified URLs.
+ * @summary Blocks access to a specified URL.
  *
  * @param request BlockObjectRequest
  * @return BlockObjectResponse
@@ -2942,7 +2942,7 @@ CreateImageTransformResponse Client::createImageTransform(const CreateImageTrans
 }
 
 /**
- * @summary Creates a KV namespace in the current account.
+ * @summary Creates a key-value (KV) namespace under the current account.
  *
  * @param request CreateKvNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2977,7 +2977,7 @@ CreateKvNamespaceResponse Client::createKvNamespaceWithOptions(const CreateKvNam
 }
 
 /**
- * @summary Creates a KV namespace in the current account.
+ * @summary Creates a key-value (KV) namespace under the current account.
  *
  * @param request CreateKvNamespaceRequest
  * @return CreateKvNamespaceResponse
@@ -4334,7 +4334,7 @@ CreateScheduledPreloadExecutionsResponse Client::createScheduledPreloadExecution
 }
 
 /**
- * @summary Add a scheduled prefetch task.
+ * @summary Adds a scheduled prefetch task.
  *
  * @param request CreateScheduledPreloadJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4381,7 +4381,7 @@ CreateScheduledPreloadJobResponse Client::createScheduledPreloadJobWithOptions(c
 }
 
 /**
- * @summary Add a scheduled prefetch task.
+ * @summary Adds a scheduled prefetch task.
  *
  * @param request CreateScheduledPreloadJobRequest
  * @return CreateScheduledPreloadJobResponse
@@ -6586,7 +6586,7 @@ DeleteKeylessServerResponse Client::deleteKeylessServer(const DeleteKeylessServe
 }
 
 /**
- * @summary Delete a specific key-value pair from a namespace.
+ * @summary Deletes a specific key-value pair from a KV namespace.
  *
  * @param request DeleteKvRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6613,7 +6613,7 @@ DeleteKvResponse Client::deleteKvWithOptions(const DeleteKvRequest &request, con
 }
 
 /**
- * @summary Delete a specific key-value pair from a namespace.
+ * @summary Deletes a specific key-value pair from a KV namespace.
  *
  * @param request DeleteKvRequest
  * @return DeleteKvResponse
@@ -6624,7 +6624,7 @@ DeleteKvResponse Client::deleteKv(const DeleteKvRequest &request) {
 }
 
 /**
- * @summary Deletes a namespace from your account.
+ * @summary Deletes a single KV namespace owned by the account.
  *
  * @param request DeleteKvNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6655,7 +6655,7 @@ DeleteKvNamespaceResponse Client::deleteKvNamespaceWithOptions(const DeleteKvNam
 }
 
 /**
- * @summary Deletes a namespace from your account.
+ * @summary Deletes a single KV namespace owned by the account.
  *
  * @param request DeleteKvNamespaceRequest
  * @return DeleteKvNamespaceResponse
@@ -7426,7 +7426,7 @@ DeleteRoutineRouteResponse Client::deleteRoutineRoute(const DeleteRoutineRouteRe
 }
 
 /**
- * @summary Deletes a single scheduled preload plan.
+ * @summary Deletes a single scheduled prefetch plan by prefetch plan ID.
  *
  * @param request DeleteScheduledPreloadExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7457,7 +7457,7 @@ DeleteScheduledPreloadExecutionResponse Client::deleteScheduledPreloadExecutionW
 }
 
 /**
- * @summary Deletes a single scheduled preload plan.
+ * @summary Deletes a single scheduled prefetch plan by prefetch plan ID.
  *
  * @param request DeleteScheduledPreloadExecutionRequest
  * @return DeleteScheduledPreloadExecutionResponse
@@ -7468,7 +7468,7 @@ DeleteScheduledPreloadExecutionResponse Client::deleteScheduledPreloadExecution(
 }
 
 /**
- * @summary Deletes a specified scheduled preload job.
+ * @summary Deletes a specified scheduled prefetch task by task ID.
  *
  * @param request DeleteScheduledPreloadJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7499,7 +7499,7 @@ DeleteScheduledPreloadJobResponse Client::deleteScheduledPreloadJobWithOptions(c
 }
 
 /**
- * @summary Deletes a specified scheduled preload job.
+ * @summary Deletes a specified scheduled prefetch task by task ID.
  *
  * @param request DeleteScheduledPreloadJobRequest
  * @return DeleteScheduledPreloadJobResponse
@@ -8500,7 +8500,7 @@ DescribeDDoSBpsListResponse Client::describeDDoSBpsList(const DescribeDDoSBpsLis
 }
 
 /**
- * @summary Queries the peak bits per second (BPS) and packets per second (PPS) data of DDoS attacks at the network layer.
+ * @summary Queries the peak BPS and PPS data of DDoS network-layer attacks.
  *
  * @param request DescribeDDoSBpsMaxRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8527,7 +8527,7 @@ DescribeDDoSBpsMaxResponse Client::describeDDoSBpsMaxWithOptions(const DescribeD
 }
 
 /**
- * @summary Queries the peak bits per second (BPS) and packets per second (PPS) data of DDoS attacks at the network layer.
+ * @summary Queries the peak BPS and PPS data of DDoS network-layer attacks.
  *
  * @param request DescribeDDoSBpsMaxRequest
  * @return DescribeDDoSBpsMaxResponse
@@ -9052,7 +9052,7 @@ DescribeHttpDDoSIntelligentRateLimitRulesResponse Client::describeHttpDDoSIntell
 }
 
 /**
- * @summary Queries the status of an account in the KV service.
+ * @summary Queries the status information of an account in the KV service.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeKvAccountStatusResponse
@@ -9074,7 +9074,7 @@ DescribeKvAccountStatusResponse Client::describeKvAccountStatusWithOptions(const
 }
 
 /**
- * @summary Queries the status of an account in the KV service.
+ * @summary Queries the status information of an account in the KV service.
  *
  * @return DescribeKvAccountStatusResponse
  */
@@ -9084,7 +9084,7 @@ DescribeKvAccountStatusResponse Client::describeKvAccountStatus() {
 }
 
 /**
- * @summary Queries prefetch tasks by time, task status, or prefetch URL.
+ * @summary Queries the details of prefetch tasks. Supports paged query by time, task status, and prefetch URL.
  *
  * @param request DescribePreloadTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9111,7 +9111,7 @@ DescribePreloadTasksResponse Client::describePreloadTasksWithOptions(const Descr
 }
 
 /**
- * @summary Queries prefetch tasks by time, task status, or prefetch URL.
+ * @summary Queries the details of prefetch tasks. Supports paged query by time, task status, and prefetch URL.
  *
  * @param request DescribePreloadTasksRequest
  * @return DescribePreloadTasksResponse
@@ -9160,9 +9160,9 @@ DescribePurgeTasksResponse Client::describePurgeTasks(const DescribePurgeTasksRe
 }
 
 /**
- * @summary Queries the status of a plan instance.
+ * @summary Invokes DescribeRatePlanInstanceStatus to query the instance status of a plan.
  *
- * @description You can query the status of a plan instance only after you purchase and create the instance.
+ * @description You can query the instance status of a plan only after you purchase and create the plan instance.
  *
  * @param request DescribeRatePlanInstanceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9197,9 +9197,9 @@ DescribeRatePlanInstanceStatusResponse Client::describeRatePlanInstanceStatusWit
 }
 
 /**
- * @summary Queries the status of a plan instance.
+ * @summary Invokes DescribeRatePlanInstanceStatus to query the instance status of a plan.
  *
- * @description You can query the status of a plan instance only after you purchase and create the instance.
+ * @description You can query the instance status of a plan only after you purchase and create the plan instance.
  *
  * @param request DescribeRatePlanInstanceStatusRequest
  * @return DescribeRatePlanInstanceStatusResponse
@@ -9360,11 +9360,11 @@ DescribeRuleMetadataResponse Client::describeRuleMetadata(const DescribeRuleMeta
 }
 
 /**
- * @summary Queries the URLs from which you can download the raw access logs of a website.
+ * @summary Queries the download URLs of raw access logs for a specified site.
  *
- * @description - If you do not specify StartTime and EndTime, log data from the last 24 hours is returned by default. If you specify StartTime and EndTime, log data for the specified time range is returned.
- * - The time granularity for data queries is one hour.
- * - The maximum number of calls per user: 50 calls per second.
+ * @description - If you do not specify StartTime and EndTime, log data from the past 24 hours is returned by default. If you specify StartTime and EndTime, logs are queried based on the specified time range.
+ * - The time granularity for querying data is one hour.
+ * - The maximum number of times that each user can call this operation per second: 50.
  * - Only log records from the last month can be queried (the time span between the start time and the current time cannot exceed 31 days).
  *
  * @param request DescribeSiteLogsRequest
@@ -9412,11 +9412,11 @@ DescribeSiteLogsResponse Client::describeSiteLogsWithOptions(const DescribeSiteL
 }
 
 /**
- * @summary Queries the URLs from which you can download the raw access logs of a website.
+ * @summary Queries the download URLs of raw access logs for a specified site.
  *
- * @description - If you do not specify StartTime and EndTime, log data from the last 24 hours is returned by default. If you specify StartTime and EndTime, log data for the specified time range is returned.
- * - The time granularity for data queries is one hour.
- * - The maximum number of calls per user: 50 calls per second.
+ * @description - If you do not specify StartTime and EndTime, log data from the past 24 hours is returned by default. If you specify StartTime and EndTime, logs are queried based on the specified time range.
+ * - The time granularity for querying data is one hour.
+ * - The maximum number of times that each user can call this operation per second: 50.
  * - Only log records from the last month can be queried (the time span between the start time and the current time cannot exceed 31 days).
  *
  * @param request DescribeSiteLogsRequest
@@ -9584,16 +9584,16 @@ DescribeSiteTopDataResponse Client::describeSiteTopData(const DescribeSiteTopDat
 }
 
 /**
- * @summary Retrieves time series data for WAF event analysis of a website.
+ * @summary Retrieves time series data for WAF event analysis of a site.
  *
  * @description - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
- * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
- *   * Less than or equal to 3 hours: returns data at a 1-minute granularity.
- *   * Greater than 3 hours and less than or equal to 12 hours: returns data at a 5-minute granularity.
- *   * Greater than 12 hours and less than or equal to 1 day: returns data at a 15-minute granularity.
- *   * Greater than 1 day and less than or equal to 10 days: returns data at an hourly granularity.
- *   * Greater than 10 days and less than or equal to 31 days: returns data at a daily granularity.
- * - Because the number of access requests during the query period may be large, the data analytics results may undergo sampling.
+ * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+ *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
+ *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
+ *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
+ *   * Greater than 1 day and less than or equal to 10 days: returns data at 1-hour granularity.
+ *   * Greater than 10 days and less than or equal to 31 days: returns data at 1-day granularity.
+ * - Because the number of access requests during the query period may be large, the data analytics results may be based on sampling.
  *
  * @param tmpReq DescribeSiteWafTimeSeriesDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9646,16 +9646,16 @@ DescribeSiteWafTimeSeriesDataResponse Client::describeSiteWafTimeSeriesDataWithO
 }
 
 /**
- * @summary Retrieves time series data for WAF event analysis of a website.
+ * @summary Retrieves time series data for WAF event analysis of a site.
  *
  * @description - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
- * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
- *   * Less than or equal to 3 hours: returns data at a 1-minute granularity.
- *   * Greater than 3 hours and less than or equal to 12 hours: returns data at a 5-minute granularity.
- *   * Greater than 12 hours and less than or equal to 1 day: returns data at a 15-minute granularity.
- *   * Greater than 1 day and less than or equal to 10 days: returns data at an hourly granularity.
- *   * Greater than 10 days and less than or equal to 31 days: returns data at a daily granularity.
- * - Because the number of access requests during the query period may be large, the data analytics results may undergo sampling.
+ * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+ *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
+ *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
+ *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
+ *   * Greater than 1 day and less than or equal to 10 days: returns data at 1-hour granularity.
+ *   * Greater than 10 days and less than or equal to 31 days: returns data at 1-day granularity.
+ * - Because the number of access requests during the query period may be large, the data analytics results may be based on sampling.
  *
  * @param request DescribeSiteWafTimeSeriesDataRequest
  * @return DescribeSiteWafTimeSeriesDataResponse
@@ -9853,6 +9853,72 @@ DescribeUrlObservationDataResponse Client::describeUrlObservationDataWithOptions
 DescribeUrlObservationDataResponse Client::describeUrlObservationData(const DescribeUrlObservationDataRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeUrlObservationDataWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the resource plan information of the current user by calling DescribeUserResourcePackage.
+ *
+ * @param request DescribeUserResourcePackageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeUserResourcePackageResponse
+ */
+DescribeUserResourcePackageResponse Client::describeUserResourcePackageWithOptions(const DescribeUserResourcePackageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasSortField()) {
+    query["SortField"] = request.getSortField();
+  }
+
+  if (!!request.hasSortRule()) {
+    query["SortRule"] = request.getSortRule();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeUserResourcePackage"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeUserResourcePackageResponse>();
+}
+
+/**
+ * @summary Queries the resource plan information of the current user by calling DescribeUserResourcePackage.
+ *
+ * @param request DescribeUserResourcePackageRequest
+ * @return DescribeUserResourcePackageResponse
+ */
+DescribeUserResourcePackageResponse Client::describeUserResourcePackage(const DescribeUserResourcePackageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeUserResourcePackageWithOptions(request, runtime);
 }
 
 /**
@@ -11940,7 +12006,7 @@ GetKvAccountResponse Client::getKvAccount() {
 }
 
 /**
- * @summary Queries the value and time to live (TTL) of a key.
+ * @summary Queries the value and TTL information of a key-value pair.
  *
  * @param request GetKvDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11975,7 +12041,7 @@ GetKvDetailResponse Client::getKvDetailWithOptions(const GetKvDetailRequest &req
 }
 
 /**
- * @summary Queries the value and time to live (TTL) of a key.
+ * @summary Queries the value and TTL information of a key-value pair.
  *
  * @param request GetKvDetailRequest
  * @return GetKvDetailResponse
@@ -11986,7 +12052,7 @@ GetKvDetailResponse Client::getKvDetail(const GetKvDetailRequest &request) {
 }
 
 /**
- * @summary Retrieves information about a specific namespace.
+ * @summary Queries the information of a KV namespace under an account.
  *
  * @param request GetKvNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12013,7 +12079,7 @@ GetKvNamespaceResponse Client::getKvNamespaceWithOptions(const GetKvNamespaceReq
 }
 
 /**
- * @summary Retrieves information about a specific namespace.
+ * @summary Queries the information of a KV namespace under an account.
  *
  * @param request GetKvNamespaceRequest
  * @return GetKvNamespaceResponse
@@ -12108,7 +12174,7 @@ GetLoadBalancerResponse Client::getLoadBalancer(const GetLoadBalancerRequest &re
 }
 
 /**
- * @summary Queries the root domain name of a website.
+ * @summary Retrieves the primary domain name based on the specified site name.
  *
  * @param request GetMainDomainNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12135,7 +12201,7 @@ GetMainDomainNameResponse Client::getMainDomainNameWithOptions(const GetMainDoma
 }
 
 /**
- * @summary Queries the root domain name of a website.
+ * @summary Retrieves the primary domain name based on the specified site name.
  *
  * @param request GetMainDomainNameRequest
  * @return GetMainDomainNameResponse
@@ -12779,6 +12845,48 @@ GetRedirectRuleResponse Client::getRedirectRuleWithOptions(const GetRedirectRule
 GetRedirectRuleResponse Client::getRedirectRule(const GetRedirectRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getRedirectRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the scheduled automatic release time.
+ *
+ * @param request GetReleaseTimeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetReleaseTimeResponse
+ */
+GetReleaseTimeResponse Client::getReleaseTimeWithOptions(const GetReleaseTimeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetReleaseTime"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetReleaseTimeResponse>();
+}
+
+/**
+ * @summary Queries the scheduled automatic release time.
+ *
+ * @param request GetReleaseTimeRequest
+ * @return GetReleaseTimeResponse
+ */
+GetReleaseTimeResponse Client::getReleaseTime(const GetReleaseTimeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getReleaseTimeWithOptions(request, runtime);
 }
 
 /**
@@ -13446,7 +13554,7 @@ GetSiteCustomLogResponse Client::getSiteCustomLog(const GetSiteCustomLogRequest 
 }
 
 /**
- * @summary Retrieves the details of a real-time log delivery task.
+ * @summary Retrieves the configuration information of a real-time log delivery task.
  *
  * @param request GetSiteDeliveryTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13473,7 +13581,7 @@ GetSiteDeliveryTaskResponse Client::getSiteDeliveryTaskWithOptions(const GetSite
 }
 
 /**
- * @summary Retrieves the details of a real-time log delivery task.
+ * @summary Retrieves the configuration information of a real-time log delivery task.
  *
  * @param request GetSiteDeliveryTaskRequest
  * @return GetSiteDeliveryTaskResponse
@@ -13856,10 +13964,10 @@ GetUploadTaskResponse Client::getUploadTask(const GetUploadTaskRequest &request)
 }
 
 /**
- * @summary Queries the delivery configuration and status of a task for a specific user.
+ * @summary Queries the delivery configuration and status information of a specified task for a user.
  *
- * @description - **Function**: This operation retrieves detailed delivery information for a specific task of an Alibaba Cloud user, including the task name, discard rate, region, business type, status, delivery type, delivery configuration, and filter rules.
- * - **Use case**: Use this operation to review the log processing and delivery configuration for a specific task. This helps you analyze processing efficiency or troubleshoot issues.
+ * @description - **Features**: This operation retrieves the detailed delivery information of a specified task under an Alibaba Cloud account, including the task name, discard rate, region, business type, status, delivery type and configuration, and filter rules.
+ * - **Scenarios**: Use this operation when you need to understand or check the log processing and delivery configuration of a specific task for analyzing processing efficiency or troubleshooting issues.
  *
  * @param request GetUserDeliveryTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13886,10 +13994,10 @@ GetUserDeliveryTaskResponse Client::getUserDeliveryTaskWithOptions(const GetUser
 }
 
 /**
- * @summary Queries the delivery configuration and status of a task for a specific user.
+ * @summary Queries the delivery configuration and status information of a specified task for a user.
  *
- * @description - **Function**: This operation retrieves detailed delivery information for a specific task of an Alibaba Cloud user, including the task name, discard rate, region, business type, status, delivery type, delivery configuration, and filter rules.
- * - **Use case**: Use this operation to review the log processing and delivery configuration for a specific task. This helps you analyze processing efficiency or troubleshoot issues.
+ * @description - **Features**: This operation retrieves the detailed delivery information of a specified task under an Alibaba Cloud account, including the task name, discard rate, region, business type, status, delivery type and configuration, and filter rules.
+ * - **Scenarios**: Use this operation when you need to understand or check the log processing and delivery configuration of a specific task for analyzing processing efficiency or troubleshooting issues.
  *
  * @param request GetUserDeliveryTaskRequest
  * @return GetUserDeliveryTaskResponse
@@ -14386,7 +14494,7 @@ ListAWSRegionInfosResponse Client::listAWSRegionInfos(const ListAWSRegionInfosRe
 }
 
 /**
- * @summary 查询异步任务列表
+ * @summary Queries the list of asynchronous tasks. You can use this operation to query the status of asynchronous tasks triggered by users, such as free certificate applications.
  *
  * @param request ListAsyncTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14413,7 +14521,7 @@ ListAsyncTasksResponse Client::listAsyncTasksWithOptions(const ListAsyncTasksReq
 }
 
 /**
- * @summary 查询异步任务列表
+ * @summary Queries the list of asynchronous tasks. You can use this operation to query the status of asynchronous tasks triggered by users, such as free certificate applications.
  *
  * @param request ListAsyncTasksRequest
  * @return ListAsyncTasksResponse
@@ -15890,7 +15998,7 @@ ListKeylessServersResponse Client::listKeylessServers(const ListKeylessServersRe
 }
 
 /**
- * @summary Lists all key-value pairs in a specified KV storage namespace under your account.
+ * @summary Lists all key-value pairs in a specified KV namespace under the account.
  *
  * @param request ListKvsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15917,7 +16025,7 @@ ListKvsResponse Client::listKvsWithOptions(const ListKvsRequest &request, const 
 }
 
 /**
- * @summary Lists all key-value pairs in a specified KV storage namespace under your account.
+ * @summary Lists all key-value pairs in a specified KV namespace under the account.
  *
  * @param request ListKvsRequest
  * @return ListKvsResponse
@@ -16985,7 +17093,7 @@ ListScheduledPreloadExecutionsResponse Client::listScheduledPreloadExecutions(co
 }
 
 /**
- * @summary Lists scheduled prefetch tasks for a site.
+ * @summary Lists the scheduled prefetch tasks for a site.
  *
  * @param request ListScheduledPreloadJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17012,7 +17120,7 @@ ListScheduledPreloadJobsResponse Client::listScheduledPreloadJobsWithOptions(con
 }
 
 /**
- * @summary Lists scheduled prefetch tasks for a site.
+ * @summary Lists the scheduled prefetch tasks for a site.
  *
  * @param request ListScheduledPreloadJobsRequest
  * @return ListScheduledPreloadJobsResponse
@@ -18521,7 +18629,7 @@ OpenErServiceResponse Client::openErService(const OpenErServiceRequest &request)
 }
 
 /**
- * @summary Prefetches resources.
+ * @summary Prefetches URLs to warm the cache.
  *
  * @param tmpReq PreloadCachesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18570,7 +18678,7 @@ PreloadCachesResponse Client::preloadCachesWithOptions(const PreloadCachesReques
 }
 
 /**
- * @summary Prefetches resources.
+ * @summary Prefetches URLs to warm the cache.
  *
  * @param request PreloadCachesRequest
  * @return PreloadCachesResponse
@@ -18825,7 +18933,7 @@ PurchaseCacheReserveResponse Client::purchaseCacheReserve(const PurchaseCacheRes
 }
 
 /**
- * @summary 新购DDoS实例
+ * @summary Purchases a new Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request PurchaseDDoSInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18868,7 +18976,7 @@ PurchaseDDoSInstanceResponse Client::purchaseDDoSInstanceWithOptions(const Purch
 }
 
 /**
- * @summary 新购DDoS实例
+ * @summary Purchases a new Anti-DDoS Pro or Anti-DDoS Premium instance.
  *
  * @param request PurchaseDDoSInstanceRequest
  * @return PurchaseDDoSInstanceResponse
@@ -20379,8 +20487,8 @@ StopRoutineBuildResponse Client::stopRoutineBuild(const StopRoutineBuildRequest 
 }
 
 /**
- * @summary Stops a single scheduled preload execution plan based on the preload plan ID.
- * Prerequisites: (1) This API only takes effect when the execution plan status is running. Execution plans in the waiting or failed status cannot be stopped. (2) Whether an execution plan can reach the running status depends on whether the site it belongs to has completed access verification (site Status=active).
+ * @summary Stops a single scheduled prefetch plan by prefetch plan ID.
+ * Prerequisites: (1) This operation takes effect only when the execution plan is in the running state. Execution plans in the waiting or failed state cannot be stopped. (2) Whether an execution plan can reach the running state depends on whether the associated site has passed the access verification (site Status=active).
  *
  * @param request StopScheduledPreloadExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20411,8 +20519,8 @@ StopScheduledPreloadExecutionResponse Client::stopScheduledPreloadExecutionWithO
 }
 
 /**
- * @summary Stops a single scheduled preload execution plan based on the preload plan ID.
- * Prerequisites: (1) This API only takes effect when the execution plan status is running. Execution plans in the waiting or failed status cannot be stopped. (2) Whether an execution plan can reach the running status depends on whether the site it belongs to has completed access verification (site Status=active).
+ * @summary Stops a single scheduled prefetch plan by prefetch plan ID.
+ * Prerequisites: (1) This operation takes effect only when the execution plan is in the running state. Execution plans in the waiting or failed state cannot be stopped. (2) Whether an execution plan can reach the running state depends on whether the associated site has passed the access verification (site Status=active).
  *
  * @param request StopScheduledPreloadExecutionRequest
  * @return StopScheduledPreloadExecutionResponse
@@ -20465,7 +20573,7 @@ StopSiteResponse Client::stopSite(const StopSiteRequest &request) {
 }
 
 /**
- * @summary Submits a purge or prefetch task after a file that contains resources to be purged or prefetched is uploaded.
+ * @summary Starts a cache purge or prefetch task after the file is uploaded successfully.
  *
  * @param request SubmitUploadTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20492,7 +20600,7 @@ SubmitUploadTaskResponse Client::submitUploadTaskWithOptions(const SubmitUploadT
 }
 
 /**
- * @summary Submits a purge or prefetch task after a file that contains resources to be purged or prefetched is uploaded.
+ * @summary Starts a cache purge or prefetch task after the file is uploaded successfully.
  *
  * @param request SubmitUploadTaskRequest
  * @return SubmitUploadTaskResponse
@@ -23539,7 +23647,7 @@ UpdateRoutineRouteResponse Client::updateRoutineRoute(const UpdateRoutineRouteRe
 }
 
 /**
- * @summary Updates a scheduled prefetch plan by prefetch plan ID.
+ * @summary Updates a scheduled prefetch plan based on the prefetch plan ID.
  *
  * @param request UpdateScheduledPreloadExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23588,7 +23696,7 @@ UpdateScheduledPreloadExecutionResponse Client::updateScheduledPreloadExecutionW
 }
 
 /**
- * @summary Updates a scheduled prefetch plan by prefetch plan ID.
+ * @summary Updates a scheduled prefetch plan based on the prefetch plan ID.
  *
  * @param request UpdateScheduledPreloadExecutionRequest
  * @return UpdateScheduledPreloadExecutionResponse
@@ -23813,7 +23921,7 @@ UpdateSiteCustomLogResponse Client::updateSiteCustomLog(const UpdateSiteCustomLo
 }
 
 /**
- * @summary Updates a site delivery task.
+ * @summary Modifies the delivery settings of a real-time log task for a user.
  *
  * @param request UpdateSiteDeliveryTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23864,7 +23972,7 @@ UpdateSiteDeliveryTaskResponse Client::updateSiteDeliveryTaskWithOptions(const U
 }
 
 /**
- * @summary Updates a site delivery task.
+ * @summary Modifies the delivery settings of a real-time log task for a user.
  *
  * @param request UpdateSiteDeliveryTaskRequest
  * @return UpdateSiteDeliveryTaskResponse
