@@ -13,10 +13,12 @@ namespace Models
   class DescribeAdbMySqlSchemasRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeAdbMySqlSchemasRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Catalog, catalog_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeAdbMySqlSchemasRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Catalog, catalog_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->catalog_ == nullptr
+        && this->DBClusterId_ == nullptr && this->regionId_ == nullptr; };
+    // catalog Field Functions 
+    bool hasCatalog() const { return this->catalog_ != nullptr;};
+    void deleteCatalog() { this->catalog_ = nullptr;};
+    inline string getCatalog() const { DARABONBA_PTR_GET_DEFAULT(catalog_, "") };
+    inline DescribeAdbMySqlSchemasRequest& setCatalog(string catalog) { DARABONBA_PTR_SET_VALUE(catalog_, catalog) };
+
+
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -48,13 +57,14 @@ namespace Models
 
 
   protected:
-    // The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+    shared_ptr<string> catalog_ {};
+    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="intl">The ID of the Data Lakehouse Edition cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The region ID.
-    // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the most recent region list.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/454314.html) operation to query the region ID of a specified cluster.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

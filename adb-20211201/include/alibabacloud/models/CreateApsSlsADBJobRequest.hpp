@@ -139,11 +139,11 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable the conversion of timestamps.
+      // The conversion method.
       shared_ptr<string> convert_ {};
-      // The format of the timestamp.
+      // The format.
       shared_ptr<string> format_ {};
-      // Specifies whether to enable the timestamp conversion.
+      // Specifies whether to enable conversion.
       shared_ptr<bool> transform_ {};
     };
 
@@ -203,13 +203,13 @@ namespace Models
 
 
     protected:
-      // The name of the mapping.
+      // The mapping name.
       shared_ptr<string> mapName_ {};
-      // The type of the mapping.
+      // The mapping type.
       shared_ptr<string> mapType_ {};
-      // The name of the column.
+      // The column name.
       shared_ptr<string> name_ {};
-      // The data type of the column.
+      // The column data type.
       shared_ptr<string> type_ {};
     };
 
@@ -452,13 +452,13 @@ namespace Models
 
 
   protected:
-    // The name of the cross-account role.
+    // The role name for cross-account access.
     shared_ptr<string> acrossRole_ {};
-    // The cross-account UID.
+    // The UID for cross-account access.
     shared_ptr<string> acrossUid_ {};
-    // The advanced configurations.
+    // The advanced configuration.
     shared_ptr<string> advancedConfig_ {};
-    // The information about columns.
+    // The column information.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateApsSlsADBJobRequest::Columns>> columns_ {};
@@ -468,7 +468,7 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The data source ID.
     shared_ptr<int64_t> datasourceId_ {};
-    // The name of the database.
+    // The database name.
     // 
     // This parameter is required.
     shared_ptr<string> dbName_ {};
@@ -478,61 +478,61 @@ namespace Models
     shared_ptr<string> dirtyDataHandleMode_ {};
     // The dirty data processing mode.
     shared_ptr<string> dirtyDataProcessPattern_ {};
-    // Specifies whether to enable the consistency check.
+    // Specifies whether to enable exactly-once semantics.
     shared_ptr<string> exactlyOnce_ {};
-    // The number of full AnalyticDB compute units (ACUs).
+    // The number of AnalyticDB compute units (ACUs) for full data synchronization.
     shared_ptr<string> fullComputeUnit_ {};
-    // The advanced configurations of Hudi.
+    // The Hudi advanced configuration.
     shared_ptr<string> hudiAdvancedConfig_ {};
-    // The number of increment ACUs.
+    // The number of AnalyticDB compute units (ACUs) for incremental data synchronization.
     shared_ptr<string> incrementalComputeUnit_ {};
-    // The lakehouse ID.
+    // lakehosue ID。
     shared_ptr<int64_t> lakehouseId_ {};
-    // The latest offset.
+    // The maximum offset.
     shared_ptr<int64_t> maxOffsetsPerTrigger_ {};
-    // The Object Storage Service (OSS) URL.
+    // The OSS address.
     shared_ptr<string> ossLocation_ {};
-    // The format of the output file.
+    // The output format.
     shared_ptr<string> outputFormat_ {};
-    // The information about partition.
+    // The partition information.
     shared_ptr<vector<Darabonba::Json>> partitionSpecs_ {};
-    // The password of the database account.
+    // The password.
     // 
     // This parameter is required.
     shared_ptr<string> password_ {};
-    // The definition of the primary key.
+    // The primary key definition.
     shared_ptr<string> primaryKeyDefinition_ {};
-    // The name of the SLS project.
+    // The project name.
     shared_ptr<string> project_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The name of the resource group.
+    // The resource group name.
     shared_ptr<string> resourceGroup_ {};
     // The region ID of the source cluster.
     shared_ptr<string> sourceRegionId_ {};
-    // The start offset.
+    // The starting offset for delivery.
     // 
     // This parameter is required.
     shared_ptr<string> startingOffsets_ {};
-    // The SLS Logstore.
+    // sls Store。
     shared_ptr<string> store_ {};
-    // The name of the table.
+    // The table name.
     // 
     // This parameter is required.
     shared_ptr<string> tableName_ {};
-    // The rules for generating the destination database.
+    // The generation rule for the destination.
     shared_ptr<string> targetGenerateRule_ {};
     // The destination type.
     shared_ptr<string> targetType_ {};
-    // The timestamp conversion.
+    // The UNIX timestamp conversion configuration.
     shared_ptr<CreateApsSlsADBJobRequest::UnixTimestampConvert> unixTimestampConvert_ {};
-    // The name of the database account.
+    // The username.
     // 
     // This parameter is required.
     shared_ptr<string> userName_ {};
-    // The name of the workload.
+    // The workload name.
     // 
     // This parameter is required.
     shared_ptr<string> workloadName_ {};

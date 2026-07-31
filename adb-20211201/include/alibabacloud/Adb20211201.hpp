@@ -396,7 +396,7 @@ namespace Adb20211201
       Models::CreateApsKafkaHudiJobResponse createApsKafkaHudiJob(const Models::CreateApsKafkaHudiJobRequest &request);
 
       /**
-       * @summary Creates an AnalyticDB Pipeline Service (APS) job from Simple Log Service (SLS) to an AnalyticDB for MySQL Data Warehouse Edition cluster.
+       * @summary Creates an APS link from Simple Log Service (SLS) to an AnalyticDB data warehouse.
        *
        * @param tmpReq CreateApsSlsADBJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -405,7 +405,7 @@ namespace Adb20211201
       Models::CreateApsSlsADBJobResponse createApsSlsADBJobWithOptions(const Models::CreateApsSlsADBJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an AnalyticDB Pipeline Service (APS) job from Simple Log Service (SLS) to an AnalyticDB for MySQL Data Warehouse Edition cluster.
+       * @summary Creates an APS link from Simple Log Service (SLS) to an AnalyticDB data warehouse.
        *
        * @param request CreateApsSlsADBJobRequest
        * @return CreateApsSlsADBJobResponse
@@ -1112,10 +1112,10 @@ namespace Adb20211201
       Models::DescribeAccountsResponse describeAccounts(const Models::DescribeAccountsRequest &request);
 
       /**
-       * @summary Queries the information about table columns for an AnalyticDB for MySQL cluster.
+       * @summary Queries the column information of a specified table in a cluster.
        *
-       * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+       * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
        *
        * @param request DescribeAdbMySqlColumnsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1124,10 +1124,10 @@ namespace Adb20211201
       Models::DescribeAdbMySqlColumnsResponse describeAdbMySqlColumnsWithOptions(const Models::DescribeAdbMySqlColumnsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about table columns for an AnalyticDB for MySQL cluster.
+       * @summary Queries the column information of a specified table in a cluster.
        *
-       * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+       * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
        *
        * @param request DescribeAdbMySqlColumnsRequest
        * @return DescribeAdbMySqlColumnsResponse
@@ -1152,10 +1152,10 @@ namespace Adb20211201
       Models::DescribeAdbMySqlIndexesResponse describeAdbMySqlIndexes(const Models::DescribeAdbMySqlIndexesRequest &request);
 
       /**
-       * @summary Queries a list of databases for an AnalyticDB for MySQL cluster.
+       * @summary Lists all databases in a specified cluster.
        *
-       * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+       * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
        *
        * @param request DescribeAdbMySqlSchemasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1164,10 +1164,10 @@ namespace Adb20211201
       Models::DescribeAdbMySqlSchemasResponse describeAdbMySqlSchemasWithOptions(const Models::DescribeAdbMySqlSchemasRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of databases for an AnalyticDB for MySQL cluster.
+       * @summary Lists all databases in a specified cluster.
        *
-       * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-       * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+       * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
        *
        * @param request DescribeAdbMySqlSchemasRequest
        * @return DescribeAdbMySqlSchemasResponse
@@ -1192,10 +1192,10 @@ namespace Adb20211201
       Models::DescribeAdbMySqlTableMetaResponse describeAdbMySqlTableMeta(const Models::DescribeAdbMySqlTableMetaRequest &request);
 
       /**
-       * @summary Lists information about all tables in a specified database of a cluster.
+       * @summary Lists all tables in a specified database of a cluster.
        *
-       * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. For example, `adb.cn-hangzhou.aliyuncs.com`.
-       * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. For example, `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+       * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
        *
        * @param request DescribeAdbMySqlTablesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1204,10 +1204,10 @@ namespace Adb20211201
       Models::DescribeAdbMySqlTablesResponse describeAdbMySqlTablesWithOptions(const Models::DescribeAdbMySqlTablesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists information about all tables in a specified database of a cluster.
+       * @summary Lists all tables in a specified database of a cluster.
        *
-       * @description - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. For example, `adb.cn-hangzhou.aliyuncs.com`.
-       * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. For example, `adb-vpc.cn-hangzhou.aliyuncs.com`.
+       * @description - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
+       * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
        *
        * @param request DescribeAdbMySqlTablesRequest
        * @return DescribeAdbMySqlTablesResponse

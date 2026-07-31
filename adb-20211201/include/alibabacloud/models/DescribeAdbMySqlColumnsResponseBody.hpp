@@ -89,9 +89,9 @@ namespace Models
 
 
     protected:
-      // The comments of the column.
+      // The column comment.
       shared_ptr<string> comment_ {};
-      // The name of the column.
+      // The column name.
       shared_ptr<string> name_ {};
       // The data type of the column.
       shared_ptr<string> type_ {};
@@ -154,23 +154,21 @@ namespace Models
   protected:
     // The total number of columns.
     shared_ptr<int32_t> columnCount_ {};
-    // Details of the columns.
+    // The column information.
     shared_ptr<vector<DescribeAdbMySqlColumnsResponseBody::Columns>> columns_ {};
-    // The message returned for the operation. Valid values:
-    // 
-    // *   **Success** is returned if the operation is successful.
-    // *   An error message is returned if the operation fails.
+    // The additional information about the call result. Valid values:
+    // - If the request was successful, **Success** is returned. 
+    // - If the request failed, a specific error code is returned.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The name of the database.
+    // The database name.
     shared_ptr<string> schema_ {};
-    // Indicates whether the operation is successful. Valid values:
-    // 
-    // *   **true**: The operation is successful.
-    // *   **false**: The operation fails.
+    // Indicates whether the call was successful.
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
-    // The name of the table.
+    // The table name.
     shared_ptr<string> tableName_ {};
   };
 
