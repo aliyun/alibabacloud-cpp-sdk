@@ -140,7 +140,7 @@ namespace Models
     // 
     // This parameter is required if the file system is a General-purpose NAS file system.
     // 
-    // Default permission group: DEFAULT_VPC_GROUP_NAME (the default VPC permission group).
+    // Default permission group: DEFAULT_VPC_GROUP_NAME (the default permission group for VPCs).
     shared_ptr<string> accessGroup_ {};
     // The file system ID.
     shared_ptr<string> fileSystemId_ {};

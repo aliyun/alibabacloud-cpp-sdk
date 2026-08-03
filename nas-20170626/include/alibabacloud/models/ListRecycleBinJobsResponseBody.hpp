@@ -140,39 +140,39 @@ namespace Models
 
 
     protected:
-      // The time when the job was created.
+      // The time when the task was created. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
-      // The error code returned.
+      // The error code.
       // 
-      // A valid value is returned only if you set the Status parameter to Fail or PartialSuccess.
+      // This value is valid only when Status is Fail or PartialSuccess.
       shared_ptr<string> errorCode_ {};
       // The error message.
       // 
-      // A valid value is returned only if you set the Status parameter to Fail or PartialSuccess.
+      // This value is valid only when JobStatus is Fail or PartialSuccess.
       shared_ptr<string> errorMessage_ {};
-      // The ID of the file or directory in the job.
+      // The FileId of the file or directory associated with the task.
       shared_ptr<string> fileId_ {};
-      // The name of the file or directory that is associated with the job.
+      // The name of the file or directory associated with the task.
       shared_ptr<string> fileName_ {};
-      // The job ID.
+      // The task ID.
       shared_ptr<string> id_ {};
-      // The progress of the job.
+      // The execution progress of the task.
       // 
       // Valid values: 1 to 100.
       shared_ptr<string> progress_ {};
-      // The status of the job. Valid values:
+      // The task status. Valid values:
       // 
-      // *   Running: The job is running.
-      // *   Defragmenting: The job is defragmenting data.
-      // *   PartialSuccess: The job is partially completed.
-      // *   Success: The job is completed.
-      // *   Fail: The job failed.
-      // *   Cancelled: The job is canceled.
+      // - Running: The task is running.
+      // - Defragmenting: Data is being defragmented.
+      // - PartialSuccess: The task partially succeeded.
+      // - Success: The task succeeded.
+      // - Fail: The task failed.
+      // - Cancelled: The task is canceled.
       shared_ptr<string> status_ {};
-      // The type of the job. Valid values:
+      // The task type. Valid values:
       // 
-      // *   Restore: a file restoration job
-      // *   Delete: a file deletion job
+      // - Restore: A file restoration task.
+      // - Delete: A file deletion task.
       shared_ptr<string> type_ {};
     };
 
@@ -216,15 +216,15 @@ namespace Models
 
 
   protected:
-    // The information about the jobs of the recycle bin.
+    // The collection of task information in the recycle bin.
     shared_ptr<vector<ListRecycleBinJobsResponseBody::Jobs>> jobs_ {};
-    // The page number.
+    // The page number of the returned page.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of jobs returned per page.
+    // The number of tasks per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of jobs.
+    // The total number of tasks in the recycle bin.
     shared_ptr<int64_t> totalCount_ {};
   };
 

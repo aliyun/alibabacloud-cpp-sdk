@@ -79,20 +79,20 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> accessGroupName_ {};
-    // The rule ID.
+    // The ID of the permission rule.
     shared_ptr<string> accessRuleId_ {};
     // The type of the file system.
     // 
     // Valid values:
     // 
-    // *   standard: General-purpose Apsara File Storage NAS (NAS) file system
-    // *   extreme: Extreme NAS file system.
+    // - standard (default): General-purpose NAS.
+    // - extreme: Extreme NAS.
     shared_ptr<string> fileSystemType_ {};
-    // The number of the page to return.
+    // The page number of the file system list.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Start value (default value): 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of file systems on each page during a paged query.
     // 
     // Valid values: 1 to 100.
     // 

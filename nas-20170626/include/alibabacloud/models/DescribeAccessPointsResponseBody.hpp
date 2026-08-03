@@ -235,9 +235,9 @@ namespace Models
 
 
       protected:
-        // The POSIX group ID.
+        // The POSIX user group ID.
         shared_ptr<int32_t> posixGroupId_ {};
-        // The secondary group ID.
+        // The secondary user group ID.
         shared_ptr<vector<int32_t>> posixSecondaryGroupIds_ {};
         // The POSIX user ID.
         shared_ptr<int32_t> posixUserId_ {};
@@ -382,21 +382,21 @@ namespace Models
       shared_ptr<string> accessPointId_ {};
       // The access point name.
       shared_ptr<string> accessPointName_ {};
-      // The time when the access point was created.
+      // The time when the access point was created. Format: Unix/POSIX timestamp.
       shared_ptr<string> createTime_ {};
-      // The domain name of the access point.
+      // The access point domain name.
       shared_ptr<string> domainName_ {};
       // Indicates whether the RAM policy is enabled.
       shared_ptr<bool> enabledRam_ {};
       // The file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The time when the access point was last modified.
+      // The time when the access point was last modified. Format: Unix/POSIX timestamp.
       shared_ptr<string> modifyTime_ {};
       // The POSIX user.
       shared_ptr<AccessPoints::PosixUser> posixUser_ {};
       // The root directory.
       shared_ptr<string> rootPath_ {};
-      // The root directory permissions.
+      // The root directory permission.
       shared_ptr<AccessPoints::RootPathPermission> rootPathPermission_ {};
       // The current root directory status.
       // 
@@ -415,7 +415,7 @@ namespace Models
       // - Pending: being created.
       // - Deleting: being deleted.
       // 
-      // > You can mount a file system only when the status is Active.
+      // > You can mount the file system only when the status is Active.
       shared_ptr<string> status_ {};
       // The list of access point tags.
       shared_ptr<vector<AccessPoints::Tags>> tags_ {};

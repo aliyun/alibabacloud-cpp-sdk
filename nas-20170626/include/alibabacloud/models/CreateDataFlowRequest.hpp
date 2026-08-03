@@ -82,16 +82,16 @@ namespace Models
 
 
     protected:
-      // The auto-refresh directory. CPFS General-purpose registers data modification events from the source storage and checks whether the source data in this directory has been updated, then automatically imports the updated data.
+      // The auto-refresh directory. CPFS General-purpose registers data modification events from the source storage and checks whether the source data in this directory has been updated. Updated data is automatically imported.
       // 
       // The default value is empty, which means that data updates in the source storage are not automatically imported to CPFS General-purpose. You must manually create a task to import updates.
       // 
       // Limits:
       // 
-      // - The path must be 2 to 1024 characters in length.
+      // - The length must be 2 to 1024 characters.
       // - UTF-8 encoding is used.
-      // - The path must start and end with a forward slash (/).
-      // - The directory must be an existing directory in the CPFS General-purpose file system and must be located within the Fileset directory of the data flow.
+      // - Must start and end with a forward slash (/).
+      // - The directory must be an existing directory on the CPFS General-purpose file system and must be located within the Fileset directory of the data flow.
       shared_ptr<string> refreshPath_ {};
     };
 
@@ -198,53 +198,52 @@ namespace Models
     // Valid values: 10 to 525600. Default value: 10.
     // > This parameter takes effect only when the file system type is CPFS General-purpose.
     shared_ptr<int64_t> autoRefreshInterval_ {};
-    // The auto-refresh policy. Specifies the policy for importing data updates from the source storage to CPFS General-purpose after the source data is updated. Valid values:
+    // The auto-refresh policy. Specifies the policy for importing data updates from the source storage to CPFS General-purpose after the source data is updated.
     // 
-    // - None (default): Data updates in the source storage are not automatically imported to CPFS General-purpose. You can import data updates from the source storage by using a data flow task.
-    // - ImportChanged: Data updates in the source storage are automatically imported to CPFS General-purpose.
+    // - None (default): Data updates from the source are not automatically imported to CPFS General-purpose. You can import data updates from the source through data flow tasks.
+    // - ImportChanged: Data updates from the source are automatically imported to CPFS General-purpose.
     // > This parameter takes effect only when the file system type is CPFS General-purpose.
     shared_ptr<string> autoRefreshPolicy_ {};
-    // The auto-refresh configuration collection.
+    // The collection of auto-refresh configurations.
     // > This parameter takes effect only when the file system type is CPFS General-purpose.
     shared_ptr<vector<CreateDataFlowRequest::AutoRefreshs>> autoRefreshs_ {};
-    // Ensures the idempotence of the request. Generate a parameter value from your client to ensure that the value is unique across different requests.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
     // 
-    // ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     // 
-    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
+    // > If you do not specify this parameter, the system automatically uses the value of RequestId as the value of ClientToken. The value of RequestId may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // The description of the data flow.
+    // The description of the data flow. 
     // 
     // Limits:
     // 
     // - The description must be 2 to 128 characters in length.
-    // - The description must start with a letter.
-    // - The description cannot start with `http://` or `https://`.
+    // - The description must start with a letter and cannot start with `http://` or `https://`.
     // - The description can contain digits, colons (:), underscores (_), and hyphens (-).
     shared_ptr<string> description_ {};
-    // Specifies whether to perform a dry run for this create request.
+    // Specifies whether to perform a dry run for this request.
     // 
     // A dry run checks parameter validity and resource availability without actually creating the instance or incurring charges.
     // 
     // Valid values:
     // 
-    // - true: Sends a dry run request without creating the instance. The check items include required parameters, request format, business limits, and NAS inventory. If the check fails, the corresponding error is returned. If the check succeeds, HTTP status code 200 is returned, but FileSystemId is empty.
-    // - false (default): Sends a normal request and creates the instance after the check is passed.
+    // - true: Sends a dry run request without creating the instance. The check items include whether required parameters are specified, the request format, business limitations, and NAS inventory. If the check fails, the corresponding error is returned. If the check succeeds, HTTP status code 200 is returned, but the DataFlowId is empty.
+    // - false (default): Sends a normal request. After the check succeeds, the instance is created.
     shared_ptr<bool> dryRun_ {};
     // The file system ID.
     // 
-    // - CPFS General-purpose: must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
+    // - CPFS General-purpose: Must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
     // 
-    // - CPFS for Lingjun: must start with `bmcpfs-`, such as bmcpfs-0015\\*\\*\\*\\*.
+    // - CPFS for Lingjun: Must start with `bmcpfs-`, such as bmcpfs-0015\\*\\*\\*\\*.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
     // The directory in the CPFS for Lingjun file system. Limits:
-    // - The path must start and end with a forward slash (/).
+    // - Must start and end with a forward slash (/).
     // 
-    // - The directory must be an existing directory in the CPFS for Lingjun file system.
+    // - The directory must be an existing directory on the CPFS for Lingjun file system.
     // 
-    // - The path must be 1 to 1023 characters in length.
+    // - The length must be 1 to 1023 characters.
     // 
     // - UTF-8 encoding is used.
     // 
@@ -262,9 +261,9 @@ namespace Models
     // 
     // Where:
     // 
-    // - storage type: only oss is supported.
-    // - account id: optional. The UID of the account that owns the source storage. This parameter is required when you use cross-account OSS.
-    // - path: the name of the OSS bucket. Limits:
+    // - storage type: Only oss is supported.
+    // - account id: Optional. The UID of the account that owns the source storage. This parameter is required when you use cross-account OSS.
+    // - path: The name of the OSS bucket. Limits:
     // 
     //     - Only lowercase letters, digits, and hyphens (-) are supported. The name must start and end with a lowercase letter or digit.
     // 
@@ -272,18 +271,18 @@ namespace Models
     // 
     //     - UTF-8 encoding is used.
     // 
-    // > - The OSS bucket must be an existing bucket in the region.
-    // > - The account id parameter is supported only by CPFS for Lingjun 2.6.0 and later.
+    // > - The OSS bucket must be an existing bucket in the same region.
+    // > - The account id parameter is supported only by CPFS for Lingjun 2.6.0 or later.
     // 
     // This parameter is required.
     shared_ptr<string> sourceStorage_ {};
     // The access path within the source storage bucket. Limits:
     // 
-    //    - The path must start and end with a forward slash (/).
+    //    - Must start and end with a forward slash (/).
     // 
-    // - The path is case-sensitive.
+    // - Case-sensitive.
     // 
-    // - The path must be 1 to 1023 characters in length.
+    // - The length must be 1 to 1023 characters.
     // 
     // - UTF-8 encoding is used.
     // 

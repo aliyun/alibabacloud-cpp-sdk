@@ -75,31 +75,28 @@ namespace Models
 
 
   protected:
-    // The ID of the file system.
+    // The file system ID.
     shared_ptr<string> fileSystemId_ {};
-    // The number of the page to return.
+    // The page number of the list.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Start value (default value): 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of data retrieval tasks on each page.
     // 
     // Valid values: 1 to 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The status of the data retrieval task. Valid values:
-    // 
-    // *   active: The task is running.
-    // *   canceled: The task is canceled.
-    // *   completed: The task is completed.
-    // *   failed: The task has failed.
+    // - active: running.
+    // - canceled: canceled.
+    // - completed: completed.
+    // - failed: failed.
     shared_ptr<string> status_ {};
-    // The storage class.
-    // 
-    // *   InfrequentAccess: the Infrequent Access (IA) storage class.
-    // *   Archive: the Archive storage class.
-    // 
-    // >  If the StorageType parameter is not specified, data retrieval tasks of all types are returned.
+    // The storage class. Valid values:
+    // - InfrequentAccess: IA storage class.
+    // - Archive: Archive storage class.
+    // > If StorageType is not specified, data retrieval tasks of all storage classes are returned.
     shared_ptr<string> storageType_ {};
   };
 

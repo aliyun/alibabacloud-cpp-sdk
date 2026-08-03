@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The ID of the file system.
+    // The file system ID.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The string that is generated after the system encodes the keytab file by using Base64.
+    // The Base64-encoded content of the Keytab file. When using Kerberos authentication mode (default mode), the Keytab parameter is required.
     shared_ptr<string> keytab_ {};
-    // The string that is generated after the system encodes the keytab file by using MD5.
+    // The MD5-encrypted string of the Keytab file content.
     shared_ptr<string> keytabMd5_ {};
   };
 

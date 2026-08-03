@@ -144,33 +144,31 @@ namespace Models
     protected:
       // The time when the task was created.
       // 
-      // The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
+      // The time follows the ISO 8601 standard in the format of `yyyy-MM-ddTHH:mm:ssZ`.
       shared_ptr<string> createTime_ {};
-      // The total number of files that are read in the data retrieval task.
+      // The total number of files read by the data retrieval task.
       shared_ptr<int64_t> discoveredFileCount_ {};
-      // The ID of the file system.
+      // The file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The ID of the data retrieval task.
+      // The data retrieval task ID.
       shared_ptr<string> jobId_ {};
-      // The execution path of the data retrieval task.
+      // The execution paths of the data retrieval task.
       shared_ptr<vector<string>> paths_ {};
-      // The total number of files that are retrieved.
+      // The number of files successfully retrieved by the data retrieval task.
       shared_ptr<int64_t> retrievedFileCount_ {};
       // The status of the data retrieval task. Valid values:
-      // 
-      // *   active: The task is running.
-      // *   canceled: The task is canceled.
-      // *   completed: The task is completed.
-      // *   failed: The task has failed.
+      // - active: running.
+      // - canceled: canceled.
+      // - completed: completed.
+      // - failed: failed.
       shared_ptr<string> status_ {};
-      // The storage class.
-      // 
-      // *   InfrequentAccess: the IA storage class.
-      // *   Archive: the Archive storage class.
+      // The storage class. Valid values:
+      // - InfrequentAccess: IA storage class.
+      // - Archive: Archive storage class.
       shared_ptr<string> storageType_ {};
-      // The time when the task was updated.
+      // The time when the task was last updated.
       // 
-      // The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
+      // The time follows the ISO 8601 standard in the format of `yyyy-MM-ddTHH:mm:ssZ`.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -214,13 +212,13 @@ namespace Models
 
 
   protected:
-    // The details about the data retrieval tasks.
+    // The collection of data retrieval task information.
     shared_ptr<vector<ListLifecycleRetrieveJobsResponseBody::LifecycleRetrieveJobs>> lifecycleRetrieveJobs_ {};
-    // The page number of the returned page.
+    // The page number of the list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of data retrieval tasks on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of data retrieval tasks.
     shared_ptr<int32_t> totalCount_ {};

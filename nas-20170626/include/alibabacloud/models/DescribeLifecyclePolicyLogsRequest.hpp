@@ -70,17 +70,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The lifecycle policy ID.
+    // The ID of the lifecycle policy.
     // 
     // This parameter is required.
     shared_ptr<string> lifecyclePolicyId_ {};
-    // The number of the page to return.
+    // The page number of the list.
     // 
-    // Starts from 1. Default: 1.
+    // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of log entries to return on each page.
+    // The number of log entries per page.
     // 
-    // Value range: 1–100. Default: 10.
+    // Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

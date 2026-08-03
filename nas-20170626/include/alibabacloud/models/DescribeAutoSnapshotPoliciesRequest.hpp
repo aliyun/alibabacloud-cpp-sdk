@@ -68,15 +68,15 @@ namespace Models
   protected:
     // The ID of the automatic snapshot policy.
     shared_ptr<string> autoSnapshotPolicyId_ {};
-    // The type of the file system.
+    // The file system type.
     // 
-    // Valid value: extreme, which indicates Extreme File Storage NAS (NAS) file systems.
+    // Valid value: extreme (Extreme NAS file system).
     shared_ptr<string> fileSystemType_ {};
-    // The page number.
+    // The page number of the automatic snapshot policy list.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of automatic snapshot policies on each page.
     // 
     // Valid values: 1 to 100.
     // 

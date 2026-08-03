@@ -105,29 +105,33 @@ namespace Models
 
 
     protected:
-      // Indicates whether the file system allows anonymous access. Valid values:
+      // Indicates whether anonymous access is allowed. Valid values:
       // 
-      // *   true: The file system allows anonymous access.
-      // *   false: The file system does not allow anonymous access.
+      // - true: Anonymous access is allowed.
+      // 
+      // - false: Anonymous access is not allowed.
       shared_ptr<bool> enableAnonymousAccess_ {};
-      // Indicates whether the ACL feature is enabled. Valid values:
+      // Indicates whether the SMB AD ACL feature is enabled.
       // 
-      // *   true: The ACL feature is enabled.
-      // *   false: The ACL feature is disabled.
+      // - true: The SMB AD ACL feature is enabled.
+      // 
+      // - false: The SMB AD ACL feature is not enabled.
       shared_ptr<bool> enabled_ {};
-      // Indicates whether encryption in transit is enabled. Valid values:
+      // Indicates whether encryption in transit is enabled.
       // 
-      // *   true: Encryption in transit is enabled.
-      // *   false: Encryption in transit is disabled.
+      // - true: Encryption in transit is enabled.
+      // 
+      // - false: Encryption in transit is not enabled.
       shared_ptr<bool> encryptData_ {};
-      // The home directory of each user.
+      // The home directory path for each user.
       shared_ptr<string> homeDirPath_ {};
-      // Indicates whether the file system denies access from non-encrypted clients. Valid values:
+      // Indicates whether unencrypted clients are rejected.
       // 
-      // *   true: The file system denies access from non-encrypted clients.
-      // *   false: The file system allows access from non-encrypted clients.
+      // - true: Unencrypted clients are rejected.
+      // 
+      // - false: Unencrypted clients are not rejected.
       shared_ptr<bool> rejectUnencryptedAccess_ {};
-      // The ID of a super admin.
+      // The ID of the superuser.
       shared_ptr<string> superAdminSid_ {};
     };
 
@@ -150,7 +154,7 @@ namespace Models
 
 
   protected:
-    // The information about the ACL feature.
+    // The ACL information.
     shared_ptr<DescribeSmbAclResponseBody::Acl> acl_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

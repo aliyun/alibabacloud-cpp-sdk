@@ -235,7 +235,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeAutoSnapshotPoliciesResponseBody::AutoSnapshotPolicies> autoSnapshotPolicies_ {};
-    // The page number.
+    // The page number of the automatic snapshot policy list.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

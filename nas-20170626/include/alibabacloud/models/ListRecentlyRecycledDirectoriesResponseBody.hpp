@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The ID of the directory.
+      // The directory ID.
       shared_ptr<string> fileId_ {};
-      // The time when the directory was last deleted.
+      // The most recent time when a delete operation was performed on the directory. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> lastDeleteTime_ {};
       // The name of the directory.
       shared_ptr<string> name_ {};
-      // The absolute path to the directory.
+      // The absolute path of the directory.
       shared_ptr<string> path_ {};
     };
 
@@ -126,11 +126,11 @@ namespace Models
 
 
   protected:
-    // The information about the directories that are recently deleted.
+    // The information about directories on which delete operations were recently performed.
     shared_ptr<vector<ListRecentlyRecycledDirectoriesResponseBody::Entries>> entries_ {};
-    // A pagination token.
+    // The pagination token for the next page.
     // 
-    // If not all directories are returned in a query, the return value of the NextToken parameter is not empty. In this case, you can specify a valid value for the NextToken parameter to continue the query.
+    // If the query results are not completely returned, the NextToken parameter is returned with a value. You can specify the NextToken value in the next request to continue the query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the data streaming task.
+    // The data flow streaming task ID.
     shared_ptr<string> dataFlowSubTaskId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

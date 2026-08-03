@@ -225,13 +225,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeAccessRulesResponseBody::AccessRules> accessRules_ {};
-    // The page number.
+    // The page number of the file system list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of permission rules on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of rules.
+    // The total number of permission rules.
     shared_ptr<int32_t> totalCount_ {};
   };
 

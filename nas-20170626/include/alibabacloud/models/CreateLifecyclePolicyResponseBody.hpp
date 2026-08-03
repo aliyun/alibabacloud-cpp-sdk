@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the lifecycle policy.
+    // The lifecycle policy ID.
     shared_ptr<string> lifecyclePolicyId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

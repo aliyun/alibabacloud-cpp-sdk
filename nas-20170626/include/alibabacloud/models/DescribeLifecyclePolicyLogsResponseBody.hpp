@@ -44,6 +44,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const LifecyclePolicyLogs& obj) { 
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(DeleteRules, deleteRules_);
         DARABONBA_PTR_TO_JSON(Paths, paths_);
         DARABONBA_PTR_TO_JSON(RetrieveRules, retrieveRules_);
         DARABONBA_PTR_TO_JSON(Status, status_);
@@ -53,6 +54,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, LifecyclePolicyLogs& obj) { 
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(DeleteRules, deleteRules_);
         DARABONBA_PTR_FROM_JSON(Paths, paths_);
         DARABONBA_PTR_FROM_JSON(RetrieveRules, retrieveRules_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -111,15 +113,13 @@ namespace Models
       protected:
         // The attribute of the rule.
         // 
-        // Valid value:
-        // 
-        // - `Atime`: The last access time of a file.
+        // Valid values:
+        // - Atime: the access time of the file.
         shared_ptr<string> attribute_ {};
-        // The rule threshold.
+        // The threshold of the rule.
         // 
         // Valid values:
-        // 
-        // - If `Attribute` is set to `Atime`, this parameter specifies the number of days since a file was last accessed. The value must be an integer from 1 to 365.
+        // - If Attribute is set to Atime, this parameter specifies the number of days since the file was last accessed. Valid values: 1 to 365.
         shared_ptr<string> threshold_ {};
       };
 
@@ -161,28 +161,83 @@ namespace Models
 
 
       protected:
-        // The attribute of the rule. Valid value:
-        // 
-        // - `RetrieveType`: The retrieval method.
+        // The attribute of the rule. Valid values:
+        // - RetrieveType: the retrieval method.
         shared_ptr<string> attribute_ {};
         // The threshold of the rule. Valid values:
+        // - RetrieveType
+        //     - AfterVisit: Supported when LifecyclePolicyType=Auto. Indicates best-effort recall on visit.
+        //     - All: Supported when LifecyclePolicyType=OnDemand. Indicates retrieving all data.
+        shared_ptr<string> threshold_ {};
+      };
+
+      class DeleteRules : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const DeleteRules& obj) { 
+          DARABONBA_PTR_TO_JSON(Attribute, attribute_);
+          DARABONBA_PTR_TO_JSON(Threshold, threshold_);
+        };
+        friend void from_json(const Darabonba::Json& j, DeleteRules& obj) { 
+          DARABONBA_PTR_FROM_JSON(Attribute, attribute_);
+          DARABONBA_PTR_FROM_JSON(Threshold, threshold_);
+        };
+        DeleteRules() = default ;
+        DeleteRules(const DeleteRules &) = default ;
+        DeleteRules(DeleteRules &&) = default ;
+        DeleteRules(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~DeleteRules() = default ;
+        DeleteRules& operator=(const DeleteRules &) = default ;
+        DeleteRules& operator=(DeleteRules &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->attribute_ == nullptr
+        && this->threshold_ == nullptr; };
+        // attribute Field Functions 
+        bool hasAttribute() const { return this->attribute_ != nullptr;};
+        void deleteAttribute() { this->attribute_ = nullptr;};
+        inline string getAttribute() const { DARABONBA_PTR_GET_DEFAULT(attribute_, "") };
+        inline DeleteRules& setAttribute(string attribute) { DARABONBA_PTR_SET_VALUE(attribute_, attribute) };
+
+
+        // threshold Field Functions 
+        bool hasThreshold() const { return this->threshold_ != nullptr;};
+        void deleteThreshold() { this->threshold_ = nullptr;};
+        inline string getThreshold() const { DARABONBA_PTR_GET_DEFAULT(threshold_, "") };
+        inline DeleteRules& setThreshold(string threshold) { DARABONBA_PTR_SET_VALUE(threshold_, threshold) };
+
+
+      protected:
+        // The attribute of the rule.
         // 
-        // - If `Attribute` is set to `RetrieveType`:
+        // Valid values:
+        // - Atime: the access time of the file.
+        shared_ptr<string> attribute_ {};
+        // The threshold of the rule.
         // 
-        //   - `AfterVisit`: Data is retrieved on a best-effort basis when accessed. This value is available only if `LifecyclePolicyType` is set to `Auto`.
-        // 
-        //   - `All`: All data is retrieved. This value is available only if `LifecyclePolicyType` is set to `OnDemand`.
+        // Valid values:
+        // - If Attribute is set to Atime, this parameter specifies the number of days since the file was last accessed. Valid values: 1 to 365.
         shared_ptr<string> threshold_ {};
       };
 
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->paths_ == nullptr && this->retrieveRules_ == nullptr && this->status_ == nullptr && this->storageType_ == nullptr && this->summary_ == nullptr
-        && this->transitRules_ == nullptr; };
+        && this->deleteRules_ == nullptr && this->paths_ == nullptr && this->retrieveRules_ == nullptr && this->status_ == nullptr && this->storageType_ == nullptr
+        && this->summary_ == nullptr && this->transitRules_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
       inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
       inline LifecyclePolicyLogs& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // deleteRules Field Functions 
+      bool hasDeleteRules() const { return this->deleteRules_ != nullptr;};
+      void deleteDeleteRules() { this->deleteRules_ = nullptr;};
+      inline const vector<LifecyclePolicyLogs::DeleteRules> & getDeleteRules() const { DARABONBA_PTR_GET_CONST(deleteRules_, vector<LifecyclePolicyLogs::DeleteRules>) };
+      inline vector<LifecyclePolicyLogs::DeleteRules> getDeleteRules() { DARABONBA_PTR_GET(deleteRules_, vector<LifecyclePolicyLogs::DeleteRules>) };
+      inline LifecyclePolicyLogs& setDeleteRules(const vector<LifecyclePolicyLogs::DeleteRules> & deleteRules) { DARABONBA_PTR_SET_VALUE(deleteRules_, deleteRules) };
+      inline LifecyclePolicyLogs& setDeleteRules(vector<LifecyclePolicyLogs::DeleteRules> && deleteRules) { DARABONBA_PTR_SET_RVALUE(deleteRules_, deleteRules) };
 
 
       // paths Field Functions 
@@ -234,33 +289,28 @@ namespace Models
 
 
     protected:
-      // The time when the task was created. The time is displayed in UTC and is in the `yyyy-MM-ddTHH:mm:ssZ` format.
+      // The time when the task was created. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
-      // The execution paths of the task.
+      // The file data expiration and deletion rules. A maximum of one rule can be configured.
+      shared_ptr<vector<LifecyclePolicyLogs::DeleteRules>> deleteRules_ {};
+      // The execution paths of the specified retrieval task.
       shared_ptr<vector<string>> paths_ {};
-      // The retrieval rules for file data.
+      // The file data retrieval rules.
       shared_ptr<vector<LifecyclePolicyLogs::RetrieveRules>> retrieveRules_ {};
-      // The status of the task. Valid values:
-      // 
-      // - `PENDING`: The task is initializing.
-      // 
-      // - `RUNNING`: The task is running.
-      // 
-      // - `STOPPED`: The task is stopped.
-      // 
-      // - `FINISHED`: The task is complete.
-      // 
-      // - `FAILED`: The task failed.
+      // The status of the data retrieval task. Valid values:
+      // - PENDING: Being created.
+      // - RUNNING: Running.
+      // - STOPPED: Stopped.
+      // - FINISHED: Finished.
+      // - FAILED: Failed.
       shared_ptr<string> status_ {};
-      // The storage tier. Valid values:
-      // 
-      // - `InfrequentAccess`: Infrequent Access (default).
-      // 
-      // - `Archive`: Archive Storage.
+      // The tiered storage type. Valid values:
+      // - InfrequentAccess: IA storage class (default).
+      // - Archive: Archive storage.
       shared_ptr<string> storageType_ {};
-      // The task summary.
+      // The task overview.
       shared_ptr<string> summary_ {};
-      // The transition rules for file data.
+      // The file data transit rules.
       shared_ptr<vector<LifecyclePolicyLogs::TransitRules>> transitRules_ {};
     };
 
@@ -315,19 +365,18 @@ namespace Models
     shared_ptr<vector<DescribeLifecyclePolicyLogsResponseBody::LifecyclePolicyLogs>> lifecyclePolicyLogs_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of log entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Specifies whether the request succeeded.
+    // The request status.
     // 
     // Valid values:
     // 
-    // - `true`: The request succeeded.
-    // 
-    // - `false`: The request failed.
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
-    // The total number of logs.
+    // The total number of log entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

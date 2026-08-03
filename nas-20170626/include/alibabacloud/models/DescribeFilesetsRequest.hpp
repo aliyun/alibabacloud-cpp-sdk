@@ -88,10 +88,10 @@ namespace Models
       shared_ptr<string> key_ {};
       // The value of the filter key. Wildcards are not supported for this parameter.
       // 
-      // - If Key is set to FsetIds, Value is set to a fileset ID. You can specify one or more fileset IDs, up to 10. Separate multiple values with commas (,). Example: `fset-1902718ea0ae****` or `fset-1902718ea0ae****,fset-3212718ea0ae****`.
-      // - If Key is set to FileSystemPath, Value is set to the full path or a partial path of the fileset in the CPFS file system. The value must be 2 to 1,024 characters in length and encoded in UTF-8.
-      // - If Key is set to Description, Value is set to the full description or a partial description of the fileset.
-      // - If Key is set to QuotaExists, Value is set to true or false. If you leave this parameter empty, all filesets are returned.
+      // - If Key is set to FsetIds, Value is a fileset ID. You can specify one or more fileset IDs, up to a maximum of 10. Separate multiple values with commas (,). Example: `fset-1902718ea0ae****` or `fset-1902718ea0ae****,fset-3212718ea0ae****`.
+      // - If Key is set to FileSystemPath, Value is the path or a partial path of the fileset in the CPFS file system. The value must be 2 to 1,024 characters in length and encoded in UTF-8.
+      // - If Key is set to Description, Value is the description or a partial description of the fileset.
+      // - If Key is set to QuotaExists, Value is true or false. If this parameter is left empty, all filesets are returned.
       shared_ptr<string> value_ {};
     };
 
@@ -147,18 +147,19 @@ namespace Models
     // - CPFS: The ID must start with `cpfs-`, such as cpfs-099394bd928c****.
     // 
     // - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-290w65p03ok64ya****.
+    // > This operation supports only CPFS file systems (with ID prefixes cpfs-* or bmcpfs-*). General-purpose NAS and Extreme NAS file systems are not supported.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The filter key information for the filesets to query.
+    // The filter information for the filesets to query.
     shared_ptr<vector<DescribeFilesetsRequest::Filters>> filters_ {};
-    // The number of results per query.
+    // The number of results for each query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If the response is truncated, you can use this token in the next request to retrieve the remaining results.
+    // The pagination token that is used in the next request to retrieve a new page of results. If the return results are truncated, use NextToken to initiate a new request to retrieve the content after the truncation point.
     shared_ptr<string> nextToken_ {};
-    // The field by which to sort the results.
+    // The field used for sorting.
     // 
     // - FileCountLimit: the quota file count limit.
     // - SizeLimit: the quota capacity limit.
@@ -169,7 +170,7 @@ namespace Models
     // 
     // - asc (default): ascending order, which sorts results from smallest to largest.
     // - desc: descending order, which sorts results from largest to smallest.
-    // > This parameter takes effect only when the OrderByField parameter is specified.
+    // > This field takes effect only when the OrderByField parameter is specified.
     shared_ptr<string> sortOrder_ {};
   };
 

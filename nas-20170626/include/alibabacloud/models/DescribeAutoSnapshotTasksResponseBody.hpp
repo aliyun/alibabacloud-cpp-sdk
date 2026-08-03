@@ -154,9 +154,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeAutoSnapshotTasksResponseBody::AutoSnapshotTasks> autoSnapshotTasks_ {};
-    // The page number.
+    // The page number of the automatic snapshot task list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page for the paging query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

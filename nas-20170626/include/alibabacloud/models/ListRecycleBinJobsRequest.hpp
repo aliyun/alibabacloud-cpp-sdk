@@ -75,31 +75,31 @@ namespace Models
 
 
   protected:
-    // The ID of the file system.
+    // The file system ID.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The job ID.
+    // The task ID.
     shared_ptr<string> jobId_ {};
-    // The page number.
+    // The page number of the current page in a paged query.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Start value (default value): 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query.
     // 
     // Valid values: 1 to 100.
     // 
     // Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // The job status. Valid values:
+    // The task status. Valid values:
     // 
-    // *   Running: The job is running.
-    // *   Defragmenting: The job is defragmenting data.
-    // *   PartialSuccess: The job is partially completed.
-    // *   Success: The job is completed.
-    // *   Fail: The job failed.
-    // *   Cancelled: The job is canceled.
-    // *   all (default)
+    // - Running: The task is running.
+    // - Defragmenting: Data is being defragmented.
+    // - PartialSuccess: The task partially succeeded.
+    // - Success: The task succeeded.
+    // - Fail: The task failed.
+    // - Cancelled: The task is canceled.
+    // - All (default): All statuses.
     shared_ptr<string> status_ {};
   };
 

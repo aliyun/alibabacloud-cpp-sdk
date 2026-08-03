@@ -63,6 +63,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Directory, directory_);
           DARABONBA_PTR_TO_JSON(DstDirectory, dstDirectory_);
           DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+          DARABONBA_PTR_TO_JSON(EntryList, entryList_);
           DARABONBA_PTR_TO_JSON(ErrorMsg, errorMsg_);
           DARABONBA_PTR_TO_JSON(FileSystemPath, fileSystemPath_);
           DARABONBA_PTR_TO_JSON(FilesystemId, filesystemId_);
@@ -88,6 +89,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Directory, directory_);
           DARABONBA_PTR_FROM_JSON(DstDirectory, dstDirectory_);
           DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+          DARABONBA_PTR_FROM_JSON(EntryList, entryList_);
           DARABONBA_PTR_FROM_JSON(ErrorMsg, errorMsg_);
           DARABONBA_PTR_FROM_JSON(FileSystemPath, fileSystemPath_);
           DARABONBA_PTR_FROM_JSON(FilesystemId, filesystemId_);
@@ -296,10 +298,10 @@ namespace Models
 
         virtual bool empty() const override { return this->conflictPolicy_ == nullptr
         && this->createTime_ == nullptr && this->dataFlowId_ == nullptr && this->dataType_ == nullptr && this->directory_ == nullptr && this->dstDirectory_ == nullptr
-        && this->endTime_ == nullptr && this->errorMsg_ == nullptr && this->fileSystemPath_ == nullptr && this->filesystemId_ == nullptr && this->fsPath_ == nullptr
-        && this->includes_ == nullptr && this->originator_ == nullptr && this->progress_ == nullptr && this->progressStats_ == nullptr && this->reportPath_ == nullptr
-        && this->reports_ == nullptr && this->sourceStorage_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->taskAction_ == nullptr
-        && this->taskId_ == nullptr && this->transferFileListPath_ == nullptr; };
+        && this->endTime_ == nullptr && this->entryList_ == nullptr && this->errorMsg_ == nullptr && this->fileSystemPath_ == nullptr && this->filesystemId_ == nullptr
+        && this->fsPath_ == nullptr && this->includes_ == nullptr && this->originator_ == nullptr && this->progress_ == nullptr && this->progressStats_ == nullptr
+        && this->reportPath_ == nullptr && this->reports_ == nullptr && this->sourceStorage_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr
+        && this->taskAction_ == nullptr && this->taskId_ == nullptr && this->transferFileListPath_ == nullptr; };
         // conflictPolicy Field Functions 
         bool hasConflictPolicy() const { return this->conflictPolicy_ != nullptr;};
         void deleteConflictPolicy() { this->conflictPolicy_ = nullptr;};
@@ -347,6 +349,13 @@ namespace Models
         void deleteEndTime() { this->endTime_ = nullptr;};
         inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
         inline Task& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+        // entryList Field Functions 
+        bool hasEntryList() const { return this->entryList_ != nullptr;};
+        void deleteEntryList() { this->entryList_ = nullptr;};
+        inline string getEntryList() const { DARABONBA_PTR_GET_DEFAULT(entryList_, "") };
+        inline Task& setEntryList(string entryList) { DARABONBA_PTR_SET_VALUE(entryList_, entryList) };
 
 
         // errorMsg Field Functions 
@@ -473,6 +482,7 @@ namespace Models
         shared_ptr<string> directory_ {};
         shared_ptr<string> dstDirectory_ {};
         shared_ptr<string> endTime_ {};
+        shared_ptr<string> entryList_ {};
         shared_ptr<string> errorMsg_ {};
         shared_ptr<string> fileSystemPath_ {};
         shared_ptr<string> filesystemId_ {};
@@ -531,7 +541,7 @@ namespace Models
 
 
   protected:
-    // If the response is truncated, use NextToken to retrieve the remaining results.
+    // The pagination token that is used in the next request to retrieve a new page of results. If the return results are truncated, you can use NextToken to initiate a new request to retrieve the content after the truncation point.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

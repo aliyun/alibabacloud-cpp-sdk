@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the advanced Extreme NAS file system.
+    // The ID of the Advanced Extreme NAS file system.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The snapshot ID.
+    // The ID of the historical snapshot to which you want to roll back the specified file system.
     // 
     // This parameter is required.
     shared_ptr<string> snapshotId_ {};

@@ -50,14 +50,13 @@ namespace Models
   protected:
     // The request ID.
     // 
-    // A request ID is returned regardless of whether the call succeeds.
+    // A request ID is returned regardless of whether the call is successful.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // The request status.
     // 
     // Valid values:
     // 
-    // - true: The request succeeded.
-    // 
+    // - true: The request was successful.
     // - false: The request failed.
     shared_ptr<bool> success_ {};
   };

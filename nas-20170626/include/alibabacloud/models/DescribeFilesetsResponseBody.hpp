@@ -282,11 +282,11 @@ namespace Models
     shared_ptr<DescribeFilesetsResponseBody::Entries> entries_ {};
     // The file system ID.
     // 
-    // - CPFS: The ID must start with `cpfs-`, such as cpfs-099394bd928c****.
+    // - CPFS: The ID starts with `cpfs-`, such as cpfs-099394bd928c****.
     // 
-    // - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-290w65p03ok64ya****.
+    // - CPFS for Lingjun: The ID starts with `bmcpfs-`, such as bmcpfs-290w65p03ok64ya****.
     shared_ptr<string> fileSystemId_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If the response is truncated, you can use this token in the next request to retrieve the remaining results.
+    // The pagination token that is used in the next request to retrieve a new page of results. If the return results are truncated, use NextToken to initiate a new request to retrieve the content after the truncation point.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

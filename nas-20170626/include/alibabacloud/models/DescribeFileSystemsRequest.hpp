@@ -83,22 +83,8 @@ namespace Models
 
     protected:
       // The tag key.
-      // 
-      // Limits:
-      // 
-      // - Valid values of N: 1 to 20.
-      // - The tag key can be up to 128 characters in length.
-      // - The tag key cannot start with `aliyun` or `acs:`.
-      // - The tag key cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value.
-      // 
-      // Limits:
-      // 
-      // - Valid values of N: 1 to 20.
-      // - The tag value can be up to 128 characters in length.
-      // - The tag value cannot start with `aliyun` or `acs:`.
-      // - The tag value cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -165,43 +151,20 @@ namespace Models
 
   protected:
     // The file system ID.
-    // - General-purpose NAS: 31a8e4****.
-    // - Extreme NAS: must start with extreme-, such as extreme-0015****.
-    // - Cloud Parallel File Storage (CPFS) (locally redundant): must start with cpfs-, such as cpfs-125487****.
-    // - CPFS SE (zone-redundant): must start with cpfsse-, such as cpfsse-022c71b134****.
     shared_ptr<string> fileSystemId_ {};
     // The file system type.
-    // 
-    // Valid values:
-    // 
-    // - all (default): queries all types.
-    // - standard: General-purpose NAS.
-    // - extreme: Extreme NAS.
-    // - cpfs: Cloud Parallel File Storage (CPFS) (locally redundant).
-    // - cpfsse: CPFS SE (zone-redundant).
-    // 
-    // > To query multiple types, separate them with commas (,).
     shared_ptr<string> fileSystemType_ {};
     // The page number of the file system list.
-    // 
-    // Start value (default value): 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of file systems on each page during a paged query.
-    // 
-    // Valid values: 1 to 100.
-    // 
-    // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
     // The resource group ID.
-    // 
-    // You can view the resource group ID in the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups?).
     shared_ptr<string> resourceGroupId_ {};
+    // The storage type.
     shared_ptr<string> storageType_ {};
-    // The tag information.
+    // The collection of tag information.
     shared_ptr<vector<DescribeFileSystemsRequest::Tag>> tag_ {};
     // The virtual private cloud (VPC) ID.
-    // 
-    // The VPC must be the same as the VPC of the Elastic Computing Service (ECS) server to which you want to mount the file system.
     shared_ptr<string> vpcId_ {};
   };
 

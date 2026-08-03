@@ -131,7 +131,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -182,8 +184,11 @@ namespace Models
 
 
       protected:
+        // The owner group ID.
         shared_ptr<int64_t> ownerGroupId_ {};
+        // The owner user ID.
         shared_ptr<int64_t> ownerUserId_ {};
+        // The POSIX permission.
         shared_ptr<string> permission_ {};
       };
 
@@ -236,8 +241,11 @@ namespace Models
 
 
       protected:
+        // The POSIX group ID.
         shared_ptr<int32_t> posixGroupId_ {};
+        // The secondary group ID.
         shared_ptr<vector<int32_t>> posixSecondaryGroupIds_ {};
+        // The POSIX user ID.
         shared_ptr<int32_t> posixUserId_ {};
       };
 
@@ -393,25 +401,60 @@ namespace Models
 
 
     protected:
+      // The access point ARN.
       shared_ptr<string> ARN_ {};
+      // The permission group name.
       shared_ptr<string> accessGroup_ {};
+      // The access point ID.
       shared_ptr<string> accessPointId_ {};
+      // The access point name.
       shared_ptr<string> accessPointName_ {};
+      // AgenticSpace Id。
       shared_ptr<string> agenticSpaceId_ {};
+      // The time when the access point was created. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
+      // The time when the agentic space was created. The time follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTimeUtc_ {};
+      // The access point domain name.
       shared_ptr<string> domainName_ {};
+      // Indicates whether the RAM policy is enabled.
       shared_ptr<bool> enabledRam_ {};
+      // The file system ID.
       shared_ptr<string> fileSystemId_ {};
+      // The time when the access point was last modified. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> modifyTime_ {};
+      // The time when the agentic space was last modified. The time follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> modifyTimeUtc_ {};
+      // The POSIX user.
       shared_ptr<AccessPoints::PosixUser> posixUser_ {};
+      // The root directory.
       shared_ptr<string> rootPath_ {};
+      // The root directory permission.
       shared_ptr<AccessPoints::RootPathPermission> rootPathPermission_ {};
+      // The current root directory status.
+      // 
+      // Valid values:
+      // 
+      // - 0: The root path status is unknown.
+      // - 1: The root path does not exist. It may have been deleted by the user.
+      // - 2: The root path status is normal.
       shared_ptr<string> rootPathStatus_ {};
+      // The current access point status.
+      // 
+      // Valid values:
+      // 
+      // - Active: Available.
+      // - Inactive: Unavailable.
+      // - Pending: Being created.
+      // - Deleting: Being deleted.
+      // 
+      // > You can mount a file system only when the status is Active.
       shared_ptr<string> status_ {};
+      // The access point tag list.
       shared_ptr<vector<AccessPoints::Tags>> tags_ {};
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -448,10 +491,15 @@ namespace Models
 
 
   protected:
+    // The access point information.
     shared_ptr<vector<ListAccessPointsResponseBody::AccessPoints>> accessPoints_ {};
+    // The query token. Set this parameter to the value of NextToken that was returned in the previous API call.
     shared_ptr<string> nextToken_ {};
+    // Id of the request
+    // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
+    // The total number of access points.
     shared_ptr<int32_t> totalCount_ {};
   };
 

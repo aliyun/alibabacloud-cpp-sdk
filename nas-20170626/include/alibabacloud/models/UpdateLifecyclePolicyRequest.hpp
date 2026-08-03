@@ -14,6 +14,7 @@ namespace Models
   class UpdateLifecyclePolicyRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateLifecyclePolicyRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DeleteRules, deleteRules_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_TO_JSON(LifecyclePolicyId, lifecyclePolicyId_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TransitRules, transitRules_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateLifecyclePolicyRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DeleteRules, deleteRules_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_FROM_JSON(LifecyclePolicyId, lifecyclePolicyId_);
@@ -80,17 +82,15 @@ namespace Models
 
 
     protected:
-      // The rule attribute.
+      // The attribute of the rule.
       // 
-      // Valid value:
-      // 
-      // - `Atime`: The last access time of a file.
+      // Valid values:
+      // - Atime: the access time of the file.
       shared_ptr<string> attribute_ {};
-      // The rule threshold.
+      // The threshold of the rule.
       // 
-      // Valid value:
-      // 
-      // - If `Attribute` is set to `Atime`, this parameter specifies the number of days since a file was last accessed. The value must be between 1 and 365.
+      // Valid values:
+      // - If Attribute is set to Atime, the value specifies the number of days since the file was last accessed. Valid values: 1 to 365.
       shared_ptr<string> threshold_ {};
     };
 
@@ -132,23 +132,82 @@ namespace Models
 
 
     protected:
-      // The rule attribute. Valid value:
+      // The attribute of the rule.
       // 
-      // - `RetrieveType`: The retrieval method.
+      // Valid values:
+      // - RetrieveType: the retrieval method.
       shared_ptr<string> attribute_ {};
-      // The retrieval method. Valid values:
+      // The threshold of the rule.
       // 
-      // - If `Attribute` is set to `RetrieveType`:
-      // 
-      //   - `AfterVisit`: Retrieves data on a best-effort basis after a file is accessed. This value is valid only when `LifecyclePolicyType` is `Auto`.
-      // 
-      //   - `All`: Retrieves all data. This value is valid only when `LifecyclePolicyType` is `OnDemand`.
+      // Valid values:
+      // - RetrieveType
+      //     - AfterVisit: supported when LifecyclePolicyType is set to Auto. Indicates best-effort recall on visit.
+      //     - All: supported when LifecyclePolicyType is set to OnDemand. Indicates retrieval of all data.
       shared_ptr<string> threshold_ {};
     };
 
-    virtual bool empty() const override { return this->description_ == nullptr
-        && this->fileSystemId_ == nullptr && this->lifecyclePolicyId_ == nullptr && this->paths_ == nullptr && this->retrieveRules_ == nullptr && this->storageType_ == nullptr
-        && this->transitRules_ == nullptr; };
+    class DeleteRules : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DeleteRules& obj) { 
+        DARABONBA_PTR_TO_JSON(Attribute, attribute_);
+        DARABONBA_PTR_TO_JSON(Threshold, threshold_);
+      };
+      friend void from_json(const Darabonba::Json& j, DeleteRules& obj) { 
+        DARABONBA_PTR_FROM_JSON(Attribute, attribute_);
+        DARABONBA_PTR_FROM_JSON(Threshold, threshold_);
+      };
+      DeleteRules() = default ;
+      DeleteRules(const DeleteRules &) = default ;
+      DeleteRules(DeleteRules &&) = default ;
+      DeleteRules(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DeleteRules() = default ;
+      DeleteRules& operator=(const DeleteRules &) = default ;
+      DeleteRules& operator=(DeleteRules &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->attribute_ == nullptr
+        && this->threshold_ == nullptr; };
+      // attribute Field Functions 
+      bool hasAttribute() const { return this->attribute_ != nullptr;};
+      void deleteAttribute() { this->attribute_ = nullptr;};
+      inline string getAttribute() const { DARABONBA_PTR_GET_DEFAULT(attribute_, "") };
+      inline DeleteRules& setAttribute(string attribute) { DARABONBA_PTR_SET_VALUE(attribute_, attribute) };
+
+
+      // threshold Field Functions 
+      bool hasThreshold() const { return this->threshold_ != nullptr;};
+      void deleteThreshold() { this->threshold_ = nullptr;};
+      inline string getThreshold() const { DARABONBA_PTR_GET_DEFAULT(threshold_, "") };
+      inline DeleteRules& setThreshold(string threshold) { DARABONBA_PTR_SET_VALUE(threshold_, threshold) };
+
+
+    protected:
+      // The attribute of the rule.
+      // 
+      // Valid values:
+      // - Atime: the access time of the file.
+      shared_ptr<string> attribute_ {};
+      // The threshold of the rule.
+      // 
+      // Valid values:
+      // - If Attribute is set to Atime, the value specifies the number of days since the file was last accessed. Valid values: 1 to 365.
+      shared_ptr<string> threshold_ {};
+    };
+
+    virtual bool empty() const override { return this->deleteRules_ == nullptr
+        && this->description_ == nullptr && this->fileSystemId_ == nullptr && this->lifecyclePolicyId_ == nullptr && this->paths_ == nullptr && this->retrieveRules_ == nullptr
+        && this->storageType_ == nullptr && this->transitRules_ == nullptr; };
+    // deleteRules Field Functions 
+    bool hasDeleteRules() const { return this->deleteRules_ != nullptr;};
+    void deleteDeleteRules() { this->deleteRules_ = nullptr;};
+    inline const vector<UpdateLifecyclePolicyRequest::DeleteRules> & getDeleteRules() const { DARABONBA_PTR_GET_CONST(deleteRules_, vector<UpdateLifecyclePolicyRequest::DeleteRules>) };
+    inline vector<UpdateLifecyclePolicyRequest::DeleteRules> getDeleteRules() { DARABONBA_PTR_GET(deleteRules_, vector<UpdateLifecyclePolicyRequest::DeleteRules>) };
+    inline UpdateLifecyclePolicyRequest& setDeleteRules(const vector<UpdateLifecyclePolicyRequest::DeleteRules> & deleteRules) { DARABONBA_PTR_SET_VALUE(deleteRules_, deleteRules) };
+    inline UpdateLifecyclePolicyRequest& setDeleteRules(vector<UpdateLifecyclePolicyRequest::DeleteRules> && deleteRules) { DARABONBA_PTR_SET_RVALUE(deleteRules_, deleteRules) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -205,37 +264,38 @@ namespace Models
 
 
   protected:
+    // The file data expiration and deletion rules.
+    shared_ptr<vector<UpdateLifecyclePolicyRequest::DeleteRules>> deleteRules_ {};
     // The description of the lifecycle policy.
     // 
-    // The description must be 3 to 64 characters long and must start with a letter. It can contain letters, digits, underscores (_), and hyphens (-).
-    // 
-    // > This parameter is supported only for CPFS for AI file systems.
+    // Format:
+    // The description must be 3 to 64 characters in length, start with a letter, and can contain letters, digits, underscores (_), or hyphens (-).
+    // > Only CPFS for Lingjun is supported.
     shared_ptr<string> description_ {};
-    // The ID of the file system.
+    // The file system ID. The ID starts with bmcpfs-, such as bmcpfs-290w65p03ok64ya****.
+    // > This parameter is supported only when LifecyclePolicyType is set to OnDemand in the lifecycle management policy of a CPFS for Lingjun file system.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
     // The ID of the lifecycle policy.
-    // 
-    // > This parameter is required for CPFS for AI file systems.
+    // > This parameter is required for CPFS for Lingjun file systems.
     // 
     // This parameter is required.
     shared_ptr<string> lifecyclePolicyId_ {};
-    // The absolute paths of the directories to which the lifecycle policy applies.
+    // The absolute paths of the directories associated with the lifecycle management policy.
     shared_ptr<vector<string>> paths_ {};
-    // The retrieval rule for files. You can specify only one retrieval rule.
-    // 
-    // > This parameter is supported only for CPFS for AI file systems.
+    // The file data retrieval rules. You can configure up to one rule.
+    // > Only CPFS for Lingjun file systems are supported.
     shared_ptr<vector<UpdateLifecyclePolicyRequest::RetrieveRules>> retrieveRules_ {};
-    // The storage tier.
+    // The tiered storage type.
     // 
-    // - `InfrequentAccess`: The Infrequent Access storage tier. This is the default value.
-    // 
-    // - `Archive`: The Archive storage tier.
+    // Valid values:
+    // - InfrequentAccess: IA storage class. This is the default value.
+    // - Archive: Archive storage.
     shared_ptr<string> storageType_ {};
-    // The transition rule for files. You can specify only one transition rule.
+    // The file data transit rules. You can configure up to one rule.
     // 
-    // > This parameter is supported only for CPFS for AI file systems when `LifecyclePolicyType` is set to `Auto`.
+    // > This parameter is supported only when LifecyclePolicyType is set to Auto for a CPFS for Lingjun file system.
     shared_ptr<vector<UpdateLifecyclePolicyRequest::TransitRules>> transitRules_ {};
   };
 

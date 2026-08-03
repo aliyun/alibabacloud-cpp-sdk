@@ -75,29 +75,29 @@ namespace Models
 
 
   protected:
-    // The IDs of automatic snapshot policies.
+    // The IDs of the automatic snapshot policies.
     // 
-    // You can specify a maximum of 100 policy IDs. If you want to query the tasks of multiple automatic snapshot policies, you must separate the policy IDs with commas (,).
+    // You can specify up to 100 automatic snapshot policy IDs. To query tasks of multiple automatic snapshot policies, separate the policy IDs with commas (,).
     shared_ptr<string> autoSnapshotPolicyIds_ {};
-    // The ID of the file system.
+    // The IDs of the file systems.
     // 
-    // You can specify a maximum of 100 file system IDs. If you want to query the snapshots of multiple file systems, you must separate the file system IDs with commas (,).
+    // You can specify up to 100 file system IDs in a single request. To query snapshots of multiple file systems, separate the file system IDs with commas (,).
     shared_ptr<string> fileSystemIds_ {};
     // The type of the file system.
     // 
-    // Valid value: extreme, which indicates Extreme NAS file systems.
+    // Valid values: extreme (Extreme NAS file system)
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemType_ {};
-    // The number of entries per page.
+    // The number of snapshot tasks on each page.
     // 
     // Valid values: 1 to 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page number.
+    // The page number of the automatic snapshot task list.
     // 
-    // Pages start from page 1. Default value: 1.
+    // Start value (default value): 1
     shared_ptr<int32_t> pageSize_ {};
   };
 
