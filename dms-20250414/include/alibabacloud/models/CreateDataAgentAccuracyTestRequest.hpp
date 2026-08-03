@@ -160,8 +160,9 @@ namespace Models
   protected:
     // The ID of the custom agent to be tested for accuracy.
     shared_ptr<string> customAgentId_ {};
-    // The data source. We recommend that you configure this in the custom agent.
+    // Deprecated.
     shared_ptr<string> dataset_ {};
+    // The data source. We recommend that you configure this in the custom agent.
     shared_ptr<string> datasource_ {};
     // The description.
     shared_ptr<string> desc_ {};

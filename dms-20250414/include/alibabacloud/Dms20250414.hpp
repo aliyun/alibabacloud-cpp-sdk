@@ -89,6 +89,23 @@ namespace Dms20250414
       Models::BatchUpdateDataLakePartitionsResponse batchUpdateDataLakePartitions(const Models::BatchUpdateDataLakePartitionsRequest &request);
 
       /**
+       * @summary CheckDataAgentMemoryConfig - Queries the memory generation and usage configuration of a DataAgent.
+       *
+       * @param request CheckDataAgentMemoryConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckDataAgentMemoryConfigResponse
+       */
+      Models::CheckDataAgentMemoryConfigResponse checkDataAgentMemoryConfigWithOptions(const Models::CheckDataAgentMemoryConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary CheckDataAgentMemoryConfig - Queries the memory generation and usage configuration of a DataAgent.
+       *
+       * @param request CheckDataAgentMemoryConfigRequest
+       * @return CheckDataAgentMemoryConfigResponse
+       */
+      Models::CheckDataAgentMemoryConfigResponse checkDataAgentMemoryConfig(const Models::CheckDataAgentMemoryConfigRequest &request);
+
+      /**
        * @summary Update an Airflow instance\\"s custom configuration
        *
        * @description Configure the airflow\\.cfg file for DMS Airflow.
@@ -108,6 +125,23 @@ namespace Dms20250414
        * @return ConfigAirflowResponse
        */
       Models::ConfigAirflowResponse configAirflow(const Models::ConfigAirflowRequest &request);
+
+      /**
+       * @summary ConfigDataAgentMemory
+       *
+       * @param request ConfigDataAgentMemoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfigDataAgentMemoryResponse
+       */
+      Models::ConfigDataAgentMemoryResponse configDataAgentMemoryWithOptions(const Models::ConfigDataAgentMemoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ConfigDataAgentMemory
+       *
+       * @param request ConfigDataAgentMemoryRequest
+       * @return ConfigDataAgentMemoryResponse
+       */
+      Models::ConfigDataAgentMemoryResponse configDataAgentMemory(const Models::ConfigDataAgentMemoryRequest &request);
 
       /**
        * @summary Creates an Airflow instance in a workspace.
@@ -388,6 +422,23 @@ namespace Dms20250414
        * @return DeleteDataAgentKnowledgeBaseResponse
        */
       Models::DeleteDataAgentKnowledgeBaseResponse deleteDataAgentKnowledgeBase(const Models::DeleteDataAgentKnowledgeBaseRequest &request);
+
+      /**
+       * @summary Deletes the memory of a DataAgent.
+       *
+       * @param request DeleteDataAgentMemoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDataAgentMemoryResponse
+       */
+      Models::DeleteDataAgentMemoryResponse deleteDataAgentMemoryWithOptions(const Models::DeleteDataAgentMemoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes the memory of a DataAgent.
+       *
+       * @param request DeleteDataAgentMemoryRequest
+       * @return DeleteDataAgentMemoryResponse
+       */
+      Models::DeleteDataAgentMemoryResponse deleteDataAgentMemory(const Models::DeleteDataAgentMemoryRequest &request);
 
       /**
        * @summary Deletes a DataAgent workspace.
@@ -1106,6 +1157,23 @@ namespace Dms20250414
       Models::ListDataAgentAccuracyTestTasksResponse listDataAgentAccuracyTestTasks(const Models::ListDataAgentAccuracyTestTasksRequest &request);
 
       /**
+       * @summary Retrieves the DataAgent memory list (up to 50 memories per RAM user).
+       *
+       * @param request ListDataAgentMemoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataAgentMemoryResponse
+       */
+      Models::ListDataAgentMemoryResponse listDataAgentMemoryWithOptions(const Models::ListDataAgentMemoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the DataAgent memory list (up to 50 memories per RAM user).
+       *
+       * @param request ListDataAgentMemoryRequest
+       * @return ListDataAgentMemoryResponse
+       */
+      Models::ListDataAgentMemoryResponse listDataAgentMemory(const Models::ListDataAgentMemoryRequest &request);
+
+      /**
        * @summary Retrieves the list of historical session descriptions for a Data Agent.
        *
        * @param request ListDataAgentSessionRequest
@@ -1123,7 +1191,7 @@ namespace Dms20250414
       Models::ListDataAgentSessionResponse listDataAgentSession(const Models::ListDataAgentSessionRequest &request);
 
       /**
-       * @summary Retrieves the collaborative workspaces under the primary account with pagination.
+       * @summary Retrieves the workspaces under the primary account with pagination.
        *
        * @param request ListDataAgentWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1132,7 +1200,7 @@ namespace Dms20250414
       Models::ListDataAgentWorkspaceResponse listDataAgentWorkspaceWithOptions(const Models::ListDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the collaborative workspaces under the primary account with pagination.
+       * @summary Retrieves the workspaces under the primary account with pagination.
        *
        * @param request ListDataAgentWorkspaceRequest
        * @return ListDataAgentWorkspaceResponse
@@ -1701,6 +1769,23 @@ namespace Dms20250414
        * @return UpdateDataAgentAccuracyTestResponse
        */
       Models::UpdateDataAgentAccuracyTestResponse updateDataAgentAccuracyTest(const Models::UpdateDataAgentAccuracyTestRequest &request);
+
+      /**
+       * @summary Updates the memory of a DataAgent.
+       *
+       * @param request UpdateDataAgentMemoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDataAgentMemoryResponse
+       */
+      Models::UpdateDataAgentMemoryResponse updateDataAgentMemoryWithOptions(const Models::UpdateDataAgentMemoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the memory of a DataAgent.
+       *
+       * @param request UpdateDataAgentMemoryRequest
+       * @return UpdateDataAgentMemoryResponse
+       */
+      Models::UpdateDataAgentMemoryResponse updateDataAgentMemory(const Models::UpdateDataAgentMemoryRequest &request);
 
       /**
        * @summary Updates workspace information.

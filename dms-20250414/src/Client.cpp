@@ -315,6 +315,48 @@ BatchUpdateDataLakePartitionsResponse Client::batchUpdateDataLakePartitions(cons
 }
 
 /**
+ * @summary CheckDataAgentMemoryConfig - Queries the memory generation and usage configuration of a DataAgent.
+ *
+ * @param request CheckDataAgentMemoryConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckDataAgentMemoryConfigResponse
+ */
+CheckDataAgentMemoryConfigResponse Client::checkDataAgentMemoryConfigWithOptions(const CheckDataAgentMemoryConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckDataAgentMemoryConfig"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckDataAgentMemoryConfigResponse>();
+}
+
+/**
+ * @summary CheckDataAgentMemoryConfig - Queries the memory generation and usage configuration of a DataAgent.
+ *
+ * @param request CheckDataAgentMemoryConfigRequest
+ * @return CheckDataAgentMemoryConfigResponse
+ */
+CheckDataAgentMemoryConfigResponse Client::checkDataAgentMemoryConfig(const CheckDataAgentMemoryConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkDataAgentMemoryConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Update an Airflow instance\\"s custom configuration
  *
  * @description Configure the airflow\\.cfg file for DMS Airflow.
@@ -372,6 +414,56 @@ ConfigAirflowResponse Client::configAirflowWithOptions(const ConfigAirflowReques
 ConfigAirflowResponse Client::configAirflow(const ConfigAirflowRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return configAirflowWithOptions(request, runtime);
+}
+
+/**
+ * @summary ConfigDataAgentMemory
+ *
+ * @param request ConfigDataAgentMemoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConfigDataAgentMemoryResponse
+ */
+ConfigDataAgentMemoryResponse Client::configDataAgentMemoryWithOptions(const ConfigDataAgentMemoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasEnabled()) {
+    query["Enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasRecallEnabled()) {
+    query["RecallEnabled"] = request.getRecallEnabled();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ConfigDataAgentMemory"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConfigDataAgentMemoryResponse>();
+}
+
+/**
+ * @summary ConfigDataAgentMemory
+ *
+ * @param request ConfigDataAgentMemoryRequest
+ * @return ConfigDataAgentMemoryResponse
+ */
+ConfigDataAgentMemoryResponse Client::configDataAgentMemory(const ConfigDataAgentMemoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return configDataAgentMemoryWithOptions(request, runtime);
 }
 
 /**
@@ -1456,6 +1548,52 @@ DeleteDataAgentKnowledgeBaseResponse Client::deleteDataAgentKnowledgeBaseWithOpt
 DeleteDataAgentKnowledgeBaseResponse Client::deleteDataAgentKnowledgeBase(const DeleteDataAgentKnowledgeBaseRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteDataAgentKnowledgeBaseWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes the memory of a DataAgent.
+ *
+ * @param request DeleteDataAgentMemoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDataAgentMemoryResponse
+ */
+DeleteDataAgentMemoryResponse Client::deleteDataAgentMemoryWithOptions(const DeleteDataAgentMemoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasUuid()) {
+    query["Uuid"] = request.getUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDataAgentMemory"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDataAgentMemoryResponse>();
+}
+
+/**
+ * @summary Deletes the memory of a DataAgent.
+ *
+ * @param request DeleteDataAgentMemoryRequest
+ * @return DeleteDataAgentMemoryResponse
+ */
+DeleteDataAgentMemoryResponse Client::deleteDataAgentMemory(const DeleteDataAgentMemoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDataAgentMemoryWithOptions(request, runtime);
 }
 
 /**
@@ -3654,6 +3792,80 @@ ListDataAgentAccuracyTestTasksResponse Client::listDataAgentAccuracyTestTasks(co
 }
 
 /**
+ * @summary Retrieves the DataAgent memory list (up to 50 memories per RAM user).
+ *
+ * @param request ListDataAgentMemoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataAgentMemoryResponse
+ */
+ListDataAgentMemoryResponse Client::listDataAgentMemoryWithOptions(const ListDataAgentMemoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContentPattern()) {
+    query["ContentPattern"] = request.getContentPattern();
+  }
+
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasFromId()) {
+    query["FromId"] = request.getFromId();
+  }
+
+  if (!!request.hasMemFrom()) {
+    query["MemFrom"] = request.getMemFrom();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["OrderBy"] = request.getOrderBy();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasQueryAll()) {
+    query["QueryAll"] = request.getQueryAll();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataAgentMemory"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataAgentMemoryResponse>();
+}
+
+/**
+ * @summary Retrieves the DataAgent memory list (up to 50 memories per RAM user).
+ *
+ * @param request ListDataAgentMemoryRequest
+ * @return ListDataAgentMemoryResponse
+ */
+ListDataAgentMemoryResponse Client::listDataAgentMemory(const ListDataAgentMemoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDataAgentMemoryWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the list of historical session descriptions for a Data Agent.
  *
  * @param request ListDataAgentSessionRequest
@@ -3736,7 +3948,7 @@ ListDataAgentSessionResponse Client::listDataAgentSession(const ListDataAgentSes
 }
 
 /**
- * @summary Retrieves the collaborative workspaces under the primary account with pagination.
+ * @summary Retrieves the workspaces under the primary account with pagination.
  *
  * @param request ListDataAgentWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3799,7 +4011,7 @@ ListDataAgentWorkspaceResponse Client::listDataAgentWorkspaceWithOptions(const L
 }
 
 /**
- * @summary Retrieves the collaborative workspaces under the primary account with pagination.
+ * @summary Retrieves the workspaces under the primary account with pagination.
  *
  * @param request ListDataAgentWorkspaceRequest
  * @return ListDataAgentWorkspaceResponse
@@ -5989,6 +6201,64 @@ UpdateDataAgentAccuracyTestResponse Client::updateDataAgentAccuracyTestWithOptio
 UpdateDataAgentAccuracyTestResponse Client::updateDataAgentAccuracyTest(const UpdateDataAgentAccuracyTestRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateDataAgentAccuracyTestWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the memory of a DataAgent.
+ *
+ * @param request UpdateDataAgentMemoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDataAgentMemoryResponse
+ */
+UpdateDataAgentMemoryResponse Client::updateDataAgentMemoryWithOptions(const UpdateDataAgentMemoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContent()) {
+    query["Content"] = request.getContent();
+  }
+
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasFromId()) {
+    query["FromId"] = request.getFromId();
+  }
+
+  if (!!request.hasMemFrom()) {
+    query["MemFrom"] = request.getMemFrom();
+  }
+
+  if (!!request.hasUuid()) {
+    query["Uuid"] = request.getUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateDataAgentMemory"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDataAgentMemoryResponse>();
+}
+
+/**
+ * @summary Updates the memory of a DataAgent.
+ *
+ * @param request UpdateDataAgentMemoryRequest
+ * @return UpdateDataAgentMemoryResponse
+ */
+UpdateDataAgentMemoryResponse Client::updateDataAgentMemory(const UpdateDataAgentMemoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDataAgentMemoryWithOptions(request, runtime);
 }
 
 /**

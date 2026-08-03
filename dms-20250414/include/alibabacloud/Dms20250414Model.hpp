@@ -68,10 +68,16 @@
 #include <alibabacloud/models/BatchUpdateDataLakePartitionsShrinkRequest.hpp>
 #include <alibabacloud/models/BatchUpdateDataLakePartitionsResponseBody.hpp>
 #include <alibabacloud/models/BatchUpdateDataLakePartitionsResponse.hpp>
+#include <alibabacloud/models/CheckDataAgentMemoryConfigRequest.hpp>
+#include <alibabacloud/models/CheckDataAgentMemoryConfigResponseBody.hpp>
+#include <alibabacloud/models/CheckDataAgentMemoryConfigResponse.hpp>
 #include <alibabacloud/models/ConfigAirflowRequest.hpp>
 #include <alibabacloud/models/ConfigAirflowShrinkRequest.hpp>
 #include <alibabacloud/models/ConfigAirflowResponseBody.hpp>
 #include <alibabacloud/models/ConfigAirflowResponse.hpp>
+#include <alibabacloud/models/ConfigDataAgentMemoryRequest.hpp>
+#include <alibabacloud/models/ConfigDataAgentMemoryResponseBody.hpp>
+#include <alibabacloud/models/ConfigDataAgentMemoryResponse.hpp>
 #include <alibabacloud/models/CreateAirflowRequest.hpp>
 #include <alibabacloud/models/CreateAirflowShrinkRequest.hpp>
 #include <alibabacloud/models/CreateAirflowResponseBody.hpp>
@@ -127,6 +133,9 @@
 #include <alibabacloud/models/DeleteDataAgentKnowledgeBaseRequest.hpp>
 #include <alibabacloud/models/DeleteDataAgentKnowledgeBaseResponseBody.hpp>
 #include <alibabacloud/models/DeleteDataAgentKnowledgeBaseResponse.hpp>
+#include <alibabacloud/models/DeleteDataAgentMemoryRequest.hpp>
+#include <alibabacloud/models/DeleteDataAgentMemoryResponseBody.hpp>
+#include <alibabacloud/models/DeleteDataAgentMemoryResponse.hpp>
 #include <alibabacloud/models/DeleteDataAgentWorkspaceRequest.hpp>
 #include <alibabacloud/models/DeleteDataAgentWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/DeleteDataAgentWorkspaceResponse.hpp>
@@ -247,6 +256,9 @@
 #include <alibabacloud/models/ListDataAgentAccuracyTestTasksRequest.hpp>
 #include <alibabacloud/models/ListDataAgentAccuracyTestTasksResponseBody.hpp>
 #include <alibabacloud/models/ListDataAgentAccuracyTestTasksResponse.hpp>
+#include <alibabacloud/models/ListDataAgentMemoryRequest.hpp>
+#include <alibabacloud/models/ListDataAgentMemoryResponseBody.hpp>
+#include <alibabacloud/models/ListDataAgentMemoryResponse.hpp>
 #include <alibabacloud/models/ListDataAgentSessionRequest.hpp>
 #include <alibabacloud/models/ListDataAgentSessionResponseBody.hpp>
 #include <alibabacloud/models/ListDataAgentSessionResponse.hpp>
@@ -350,6 +362,9 @@
 #include <alibabacloud/models/UpdateDataAgentAccuracyTestRequest.hpp>
 #include <alibabacloud/models/UpdateDataAgentAccuracyTestResponseBody.hpp>
 #include <alibabacloud/models/UpdateDataAgentAccuracyTestResponse.hpp>
+#include <alibabacloud/models/UpdateDataAgentMemoryRequest.hpp>
+#include <alibabacloud/models/UpdateDataAgentMemoryResponseBody.hpp>
+#include <alibabacloud/models/UpdateDataAgentMemoryResponse.hpp>
 #include <alibabacloud/models/UpdateDataAgentSpaceInfoRequest.hpp>
 #include <alibabacloud/models/UpdateDataAgentSpaceInfoResponseBody.hpp>
 #include <alibabacloud/models/UpdateDataAgentSpaceInfoResponse.hpp>

@@ -189,19 +189,21 @@ namespace Models
 
 
       protected:
-        // The creation time of the workspace. This value is a UNIX timestamp in seconds.
+        // The creation time of the workspace, in UNIX timestamp format (milliseconds).
         shared_ptr<int64_t> createTime_ {};
         // The UID of the workspace creator.
         shared_ptr<string> creator_ {};
         // The description of the workspace.
         shared_ptr<string> description_ {};
+        // Indicates whether session sharing is enabled for the workspace.
         shared_ptr<bool> isSessionShareEnabled_ {};
-        // The most recent modification time of the workspace. This value is a UNIX timestamp in seconds.
+        // The most recent modification time of the workspace, in UNIX timestamp format (milliseconds).
         shared_ptr<int64_t> modifyTime_ {};
         // The role name of the user in the workspace.
         shared_ptr<string> roleName_ {};
         // The number of members in the workspace.
         shared_ptr<int64_t> totalMember_ {};
+        // The workspace type.
         shared_ptr<string> type_ {};
         // The workspace ID.
         shared_ptr<string> workspaceId_ {};
@@ -326,7 +328,7 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token information.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -116,13 +116,13 @@ namespace Models
     shared_ptr<string> DMSUnit_ {};
     // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token information.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
     // The sort order.
     shared_ptr<string> order_ {};
-    // The name of the field by which to sort.
+    // The field name used for sorting.
     shared_ptr<string> orderBy_ {};
-    // The page number to start from.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<string> pageNumber_ {};
