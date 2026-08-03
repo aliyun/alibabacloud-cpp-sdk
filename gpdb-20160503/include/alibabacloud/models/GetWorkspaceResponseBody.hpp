@@ -133,13 +133,32 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The compute resource.
       shared_ptr<string> cu_ {};
+      // The expiration time.
       shared_ptr<string> expireTime_ {};
+      // The billing type. Valid values:
+      // 
+      // - **POSTPAY**: pay-as-you-go.
+      // - **PREPAY**: subscription.
+      // 
+      // > - If this parameter is not specified, the default value is pay-as-you-go.
+      // > - In subscription billing mode, a discount is available when you purchase a duration of one year or longer. Select a billing type as needed.
       shared_ptr<string> payType_ {};
+      // The service ID.
       shared_ptr<string> serviceId_ {};
+      // The service name.
       shared_ptr<string> serviceName_ {};
+      // The service type. Valid values:
+      // 
+      // - **memory**
+      // - **drama**
       shared_ptr<string> serviceType_ {};
+      // The service status. Valid values:
+      // - creating: being created.
+      // - active: running.
       shared_ptr<string> status_ {};
     };
 
@@ -210,7 +229,12 @@ namespace Models
 
 
       protected:
+        // The service ID.
         shared_ptr<string> serviceId_ {};
+        // The service type. Valid values:
+        // 
+        // - memory
+        // - drama
         shared_ptr<string> serviceType_ {};
       };
 
@@ -261,11 +285,17 @@ namespace Models
 
 
     protected:
+      // The service ID.
       shared_ptr<vector<Apikeys::AuthServices>> authServices_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The ID of the API key.
       shared_ptr<string> keyId_ {};
+      // The name of the API key.
       shared_ptr<string> keyName_ {};
+      // The prefix of the API key.
       shared_ptr<string> keyPrefix_ {};
     };
 
@@ -318,11 +348,17 @@ namespace Models
 
 
   protected:
+    // The list of workspace API keys.
     shared_ptr<vector<GetWorkspaceResponseBody::Apikeys>> apikeys_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of service details.
     shared_ptr<vector<GetWorkspaceResponseBody::Services>> services_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
+    // The workspace name.
     shared_ptr<string> workspaceName_ {};
   };
 

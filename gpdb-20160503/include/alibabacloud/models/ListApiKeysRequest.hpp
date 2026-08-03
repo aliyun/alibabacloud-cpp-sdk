@@ -75,10 +75,16 @@ namespace Models
 
 
   protected:
+    // The name of the API key.
     shared_ptr<string> keyName_ {};
+    // The maximum number of records to return in this query.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

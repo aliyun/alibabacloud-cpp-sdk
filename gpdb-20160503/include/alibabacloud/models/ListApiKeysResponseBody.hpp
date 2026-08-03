@@ -105,7 +105,13 @@ namespace Models
 
 
       protected:
+        // The service IDs.
         shared_ptr<string> serviceId_ {};
+        // The service type.
+        // 
+        // Valid values:
+        // - memory
+        // - drama
         shared_ptr<string> serviceType_ {};
       };
 
@@ -156,11 +162,17 @@ namespace Models
 
 
     protected:
+      // The service IDs.
       shared_ptr<vector<Items::AuthServices>> authServices_ {};
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The description of the API key.
       shared_ptr<string> description_ {};
+      // The ID of the API key.
       shared_ptr<string> keyId_ {};
+      // The name of the API key.
       shared_ptr<string> keyName_ {};
+      // The prefix of the API key.
       shared_ptr<string> keyPrefix_ {};
     };
 
@@ -204,10 +216,15 @@ namespace Models
 
 
   protected:
+    // The list of API keys.
     shared_ptr<vector<ListApiKeysResponseBody::Items>> items_ {};
+    // The maximum number of records to return in this query.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page in a paged query.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

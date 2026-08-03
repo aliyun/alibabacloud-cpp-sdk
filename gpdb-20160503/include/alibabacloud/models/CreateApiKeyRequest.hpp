@@ -78,11 +78,18 @@ namespace Models
 
 
   protected:
+    // The description.
     shared_ptr<string> description_ {};
+    // The name of the API key.
+    // 
     // This parameter is required.
     shared_ptr<string> keyName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The list of service IDs to authorize.
     shared_ptr<vector<string>> serviceIds_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

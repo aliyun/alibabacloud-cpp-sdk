@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The region ID of the service.
     shared_ptr<string> regionId_ {};
+    // The service ID.
+    // 
     // This parameter is required.
     shared_ptr<string> serviceId_ {};
   };

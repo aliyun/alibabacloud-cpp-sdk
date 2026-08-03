@@ -761,8 +761,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The status. Valid values:
     // 
-    // - **success**: Succeeded.
-    // - **fail**: Failed.
+    // - **success**: The operation is successful.
+    // - **fail**: The operation failed.
     shared_ptr<string> status_ {};
     // The resource usage of this query.
     shared_ptr<QueryContentResponseBody::Usage> usage_ {};

@@ -356,9 +356,9 @@ namespace Gpdb20160503
       Models::CreateAccountResponse createAccount(const Models::CreateAccountRequest &request);
 
       /**
-       * @summary 创建API密钥
+       * @summary Creates an API key.
        *
-       * @description 创建API密钥。
+       * @description Creates an API key.
        *
        * @param tmpReq CreateApiKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -367,9 +367,9 @@ namespace Gpdb20160503
       Models::CreateApiKeyResponse createApiKeyWithOptions(const Models::CreateApiKeyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建API密钥
+       * @summary Creates an API key.
        *
-       * @description 创建API密钥。
+       * @description Creates an API key.
        *
        * @param request CreateApiKeyRequest
        * @return CreateApiKeyResponse
@@ -432,9 +432,9 @@ namespace Gpdb20160503
       Models::CreateCollectionResponse createCollection(const Models::CreateCollectionRequest &request);
 
       /**
-       * @summary Create an AnalyticDB for PostgreSQL instance.
+       * @summary Creates an AnalyticDB for PostgreSQL instance.
        *
-       * @description Before you call this operation, review the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) for AnalyticDB for PostgreSQL.
+       * @description Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
        *
        * @param request CreateDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -443,9 +443,9 @@ namespace Gpdb20160503
       Models::CreateDBInstanceResponse createDBInstanceWithOptions(const Models::CreateDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create an AnalyticDB for PostgreSQL instance.
+       * @summary Creates an AnalyticDB for PostgreSQL instance.
        *
-       * @description Before you call this operation, review the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) for AnalyticDB for PostgreSQL.
+       * @description Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
        *
        * @param request CreateDBInstanceRequest
        * @return CreateDBInstanceResponse
@@ -979,9 +979,9 @@ namespace Gpdb20160503
       Models::DeleteAccountResponse deleteAccount(const Models::DeleteAccountRequest &request);
 
       /**
-       * @summary 删除API密钥
+       * @summary Deletes an API key.
        *
-       * @description 删除API密钥。
+       * @description Deletes an API key.
        *
        * @param request DeleteApiKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -990,9 +990,9 @@ namespace Gpdb20160503
       Models::DeleteApiKeyResponse deleteApiKeyWithOptions(const Models::DeleteApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除API密钥
+       * @summary Deletes an API key.
        *
-       * @description 删除API密钥。
+       * @description Deletes an API key.
        *
        * @param request DeleteApiKeyRequest
        * @return DeleteApiKeyResponse
@@ -1531,9 +1531,9 @@ namespace Gpdb20160503
       Models::DeleteVectorIndexResponse deleteVectorIndex(const Models::DeleteVectorIndexRequest &request);
 
       /**
-       * @summary 删除SaaS工作空间
+       * @summary Deletes a SaaS workspace.
        *
-       * @description 此接口为删除上下文服务工作空间
+       * @description Deletes a context service workspace.
        *
        * @param request DeleteWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1542,9 +1542,9 @@ namespace Gpdb20160503
       Models::DeleteWorkspaceResponse deleteWorkspaceWithOptions(const Models::DeleteWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除SaaS工作空间
+       * @summary Deletes a SaaS workspace.
        *
-       * @description 此接口为删除上下文服务工作空间
+       * @description Deletes a context service workspace.
        *
        * @param request DeleteWorkspaceRequest
        * @return DeleteWorkspaceResponse
@@ -3256,9 +3256,9 @@ namespace Gpdb20160503
       Models::GetAccountResponse getAccount(const Models::GetAccountRequest &request);
 
       /**
-       * @summary 获取API密钥详情
+       * @summary Retrieves the details of an API key.
        *
-       * @description 获取API密钥详情。
+       * @description Retrieves the details of an API key.
        *
        * @param request GetApiKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3267,9 +3267,9 @@ namespace Gpdb20160503
       Models::GetApiKeyResponse getApiKeyWithOptions(const Models::GetApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取API密钥详情
+       * @summary Retrieves the details of an API key.
        *
-       * @description 获取API密钥详情。
+       * @description Retrieves the details of an API key.
        *
        * @param request GetApiKeyRequest
        * @return GetApiKeyResponse
@@ -3315,9 +3315,9 @@ namespace Gpdb20160503
       Models::GetGraphRAGJobResponse getGraphRAGJob(const Models::GetGraphRAGJobRequest &request);
 
       /**
-       * @summary 获取SaaS服务信息
+       * @summary Retrieves SaaS service information.
        *
-       * @description 删除模型服务。
+       * @description Deletes a model service.
        *
        * @param request GetSaasServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3326,9 +3326,9 @@ namespace Gpdb20160503
       Models::GetSaasServiceResponse getSaasServiceWithOptions(const Models::GetSaasServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取SaaS服务信息
+       * @summary Retrieves SaaS service information.
        *
-       * @description 删除模型服务。
+       * @description Deletes a model service.
        *
        * @param request GetSaasServiceRequest
        * @return GetSaasServiceResponse
@@ -3353,12 +3353,12 @@ namespace Gpdb20160503
       Models::GetSecretValueResponse getSecretValue(const Models::GetSecretValueRequest &request);
 
       /**
-       * @summary 获取SaaS服务访问信息
+       * @summary Retrieves access information for a SaaS service.
        *
-       * @description ## 使用说明
-       * 本接口用于查看所有模型服务信息。
-       * ## QPS限制
-       * 本接口的单用户QPS限制默认为1000次/秒。超过限制，API调用会被限流，这可能会影响您的业务，请合理调用。
+       * @description ## Operation description
+       * This operation is used to query information about all model services.
+       * ## QPS limit
+       * The default single-user QPS limit for this operation is 1,000 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
        *
        * @param request GetServiceAccessInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3367,12 +3367,12 @@ namespace Gpdb20160503
       Models::GetServiceAccessInfoResponse getServiceAccessInfoWithOptions(const Models::GetServiceAccessInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取SaaS服务访问信息
+       * @summary Retrieves access information for a SaaS service.
        *
-       * @description ## 使用说明
-       * 本接口用于查看所有模型服务信息。
-       * ## QPS限制
-       * 本接口的单用户QPS限制默认为1000次/秒。超过限制，API调用会被限流，这可能会影响您的业务，请合理调用。
+       * @description ## Operation description
+       * This operation is used to query information about all model services.
+       * ## QPS limit
+       * The default single-user QPS limit for this operation is 1,000 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
        *
        * @param request GetServiceAccessInfoRequest
        * @return GetServiceAccessInfoResponse
@@ -3508,10 +3508,10 @@ namespace Gpdb20160503
       Models::GetUpsertCollectionDataJobResponse getUpsertCollectionDataJob(const Models::GetUpsertCollectionDataJobRequest &request);
 
       /**
-       * @summary 查询SaaS工作空间
+       * @summary Queries a SaaS workspace.
        *
-       * @description ## 使用说明
-       * 本接口用于查看指定工作空间信息。
+       * @description ## Operation description
+       * This operation is used to query information about a specified workspace.
        *
        * @param request GetWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3520,10 +3520,10 @@ namespace Gpdb20160503
       Models::GetWorkspaceResponse getWorkspaceWithOptions(const Models::GetWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询SaaS工作空间
+       * @summary Queries a SaaS workspace.
        *
-       * @description ## 使用说明
-       * 本接口用于查看指定工作空间信息。
+       * @description ## Operation description
+       * This operation is used to query information about a specified workspace.
        *
        * @param request GetWorkspaceRequest
        * @return GetWorkspaceResponse
@@ -3620,9 +3620,9 @@ namespace Gpdb20160503
       Models::ListAIServicesResponse listAIServices(const Models::ListAIServicesRequest &request);
 
       /**
-       * @summary 查询API密钥列表
+       * @summary Queries a list of API keys.
        *
-       * @description 查询API密钥列表。
+       * @description Queries a list of API keys.
        *
        * @param request ListApiKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3631,9 +3631,9 @@ namespace Gpdb20160503
       Models::ListApiKeysResponse listApiKeysWithOptions(const Models::ListApiKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询API密钥列表
+       * @summary Queries a list of API keys.
        *
-       * @description 查询API密钥列表。
+       * @description Queries a list of API keys.
        *
        * @param request ListApiKeysRequest
        * @return ListApiKeysResponse
@@ -3963,7 +3963,7 @@ namespace Gpdb20160503
       /**
        * @summary Queries the list of SaaS services.
        *
-       * @description ## Operation description
+       * @description ## Usage notes
        * This operation is used to query information about all SaaS services.
        *
        * @param request ListSaasServiceRequest
@@ -3975,7 +3975,7 @@ namespace Gpdb20160503
       /**
        * @summary Queries the list of SaaS services.
        *
-       * @description ## Operation description
+       * @description ## Usage notes
        * This operation is used to query information about all SaaS services.
        *
        * @param request ListSaasServiceRequest
@@ -4186,7 +4186,7 @@ namespace Gpdb20160503
        * @summary Queries the list of SaaS workspaces.
        *
        * @description ## Operation description
-       * This operation is used to query information about all workspaces.
+       * This operation is used to view information about all workspaces.
        *
        * @param request ListWorkspacesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4198,7 +4198,7 @@ namespace Gpdb20160503
        * @summary Queries the list of SaaS workspaces.
        *
        * @description ## Operation description
-       * This operation is used to query information about all workspaces.
+       * This operation is used to view information about all workspaces.
        *
        * @param request ListWorkspacesRequest
        * @return ListWorkspacesResponse
@@ -4836,9 +4836,9 @@ namespace Gpdb20160503
       Models::PauseInstanceResponse pauseInstance(const Models::PauseInstanceRequest &request);
 
       /**
-       * @summary 暂停SaaS服务
+       * @summary Pauses a SaaS service.
        *
-       * @description 删除模型服务。
+       * @description Deletes a model service.
        *
        * @param request PauseSaasServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4847,9 +4847,9 @@ namespace Gpdb20160503
       Models::PauseSaasServiceResponse pauseSaasServiceWithOptions(const Models::PauseSaasServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 暂停SaaS服务
+       * @summary Pauses a SaaS service.
        *
-       * @description 删除模型服务。
+       * @description Deletes a model service.
        *
        * @param request PauseSaasServiceRequest
        * @return PauseSaasServiceResponse
@@ -5192,9 +5192,9 @@ namespace Gpdb20160503
       Models::ResumeInstanceResponse resumeInstance(const Models::ResumeInstanceRequest &request);
 
       /**
-       * @summary 恢复SaaS服务
+       * @summary Resumes a SaaS service.
        *
-       * @description 删除模型服务。
+       * @description Deletes a model service.
        *
        * @param request ResumeSaasServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5203,9 +5203,9 @@ namespace Gpdb20160503
       Models::ResumeSaasServiceResponse resumeSaasServiceWithOptions(const Models::ResumeSaasServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 恢复SaaS服务
+       * @summary Resumes a SaaS service.
        *
-       * @description 删除模型服务。
+       * @description Deletes a model service.
        *
        * @param request ResumeSaasServiceRequest
        * @return ResumeSaasServiceResponse

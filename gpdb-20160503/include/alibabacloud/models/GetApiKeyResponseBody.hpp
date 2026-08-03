@@ -82,7 +82,12 @@ namespace Models
 
 
     protected:
+      // The service IDs.
       shared_ptr<string> serviceId_ {};
+      // The service type. Valid values:
+      // 
+      // - **drama**
+      // - **memroy**
       shared_ptr<string> serviceType_ {};
     };
 
@@ -148,13 +153,21 @@ namespace Models
 
 
   protected:
+    // The content of the API key.
     shared_ptr<string> apiKey_ {};
+    // The service IDs.
     shared_ptr<vector<GetApiKeyResponseBody::AuthServices>> authServices_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // The ID of the API key.
     shared_ptr<string> keyId_ {};
+    // The name of the API key.
     shared_ptr<string> keyName_ {};
+    // The prefix of the API key.
     shared_ptr<string> keyPrefix_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

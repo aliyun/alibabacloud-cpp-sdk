@@ -112,14 +112,34 @@ namespace Models
 
 
   protected:
+    // The compute resource of the service.
     shared_ptr<string> cu_ {};
+    // The billing type. Valid values:
+    // 
+    // - **POSTPAY**: pay-as-you-go
+    // - **PREPAY**: subscription
+    // 
+    // > - If this parameter is not specified, the default value is pay-as-you-go.
+    // > - In subscription billing mode, a discount is available when you purchase a duration of one year or longer. Select a billing type as needed.
     shared_ptr<string> payType_ {};
+    // The region ID where the service resides.
     shared_ptr<string> regionId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The service ID.
     shared_ptr<string> serviceId_ {};
+    // The service name.
     shared_ptr<string> serviceName_ {};
+    // The service type. Valid values:
+    // 
+    // - **drama**
+    // - **memroy**
     shared_ptr<string> serviceType_ {};
+    // The service status. Valid values:
+    // - **creating**: Being created.
+    // - **active**: Running.
     shared_ptr<string> status_ {};
+    // The workspace ID where the service resides.
     shared_ptr<string> workspaceId_ {};
   };
 

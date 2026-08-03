@@ -41,8 +41,10 @@ namespace Models
     class Items : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
+        DARABONBA_PTR_TO_JSON(Components, components_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(Cu, cu_);
+        DARABONBA_PTR_TO_JSON(DeletionProtection, deletionProtection_);
         DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
         DARABONBA_PTR_TO_JSON(PayType, payType_);
         DARABONBA_PTR_TO_JSON(Plan, plan_);
@@ -52,8 +54,10 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Status, status_);
       };
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
+        DARABONBA_PTR_FROM_JSON(Components, components_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(Cu, cu_);
+        DARABONBA_PTR_FROM_JSON(DeletionProtection, deletionProtection_);
         DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
         DARABONBA_PTR_FROM_JSON(PayType, payType_);
         DARABONBA_PTR_FROM_JSON(Plan, plan_);
@@ -73,9 +77,100 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->cu_ == nullptr && this->expireTime_ == nullptr && this->payType_ == nullptr && this->plan_ == nullptr && this->serviceId_ == nullptr
-        && this->serviceName_ == nullptr && this->serviceType_ == nullptr && this->status_ == nullptr; };
+      class Components : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Components& obj) { 
+          DARABONBA_PTR_TO_JSON(ComponentId, componentId_);
+          DARABONBA_PTR_TO_JSON(ComponentType, componentType_);
+          DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+          DARABONBA_PTR_TO_JSON(Cu, cu_);
+          DARABONBA_PTR_TO_JSON(DeletionProtection, deletionProtection_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
+        };
+        friend void from_json(const Darabonba::Json& j, Components& obj) { 
+          DARABONBA_PTR_FROM_JSON(ComponentId, componentId_);
+          DARABONBA_PTR_FROM_JSON(ComponentType, componentType_);
+          DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+          DARABONBA_PTR_FROM_JSON(Cu, cu_);
+          DARABONBA_PTR_FROM_JSON(DeletionProtection, deletionProtection_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
+        };
+        Components() = default ;
+        Components(const Components &) = default ;
+        Components(Components &&) = default ;
+        Components(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Components() = default ;
+        Components& operator=(const Components &) = default ;
+        Components& operator=(Components &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->componentId_ == nullptr
+        && this->componentType_ == nullptr && this->createTime_ == nullptr && this->cu_ == nullptr && this->deletionProtection_ == nullptr && this->status_ == nullptr; };
+        // componentId Field Functions 
+        bool hasComponentId() const { return this->componentId_ != nullptr;};
+        void deleteComponentId() { this->componentId_ = nullptr;};
+        inline string getComponentId() const { DARABONBA_PTR_GET_DEFAULT(componentId_, "") };
+        inline Components& setComponentId(string componentId) { DARABONBA_PTR_SET_VALUE(componentId_, componentId) };
+
+
+        // componentType Field Functions 
+        bool hasComponentType() const { return this->componentType_ != nullptr;};
+        void deleteComponentType() { this->componentType_ = nullptr;};
+        inline string getComponentType() const { DARABONBA_PTR_GET_DEFAULT(componentType_, "") };
+        inline Components& setComponentType(string componentType) { DARABONBA_PTR_SET_VALUE(componentType_, componentType) };
+
+
+        // createTime Field Functions 
+        bool hasCreateTime() const { return this->createTime_ != nullptr;};
+        void deleteCreateTime() { this->createTime_ = nullptr;};
+        inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+        inline Components& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+        // cu Field Functions 
+        bool hasCu() const { return this->cu_ != nullptr;};
+        void deleteCu() { this->cu_ = nullptr;};
+        inline string getCu() const { DARABONBA_PTR_GET_DEFAULT(cu_, "") };
+        inline Components& setCu(string cu) { DARABONBA_PTR_SET_VALUE(cu_, cu) };
+
+
+        // deletionProtection Field Functions 
+        bool hasDeletionProtection() const { return this->deletionProtection_ != nullptr;};
+        void deleteDeletionProtection() { this->deletionProtection_ = nullptr;};
+        inline bool getDeletionProtection() const { DARABONBA_PTR_GET_DEFAULT(deletionProtection_, false) };
+        inline Components& setDeletionProtection(bool deletionProtection) { DARABONBA_PTR_SET_VALUE(deletionProtection_, deletionProtection) };
+
+
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline Components& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      protected:
+        shared_ptr<string> componentId_ {};
+        shared_ptr<string> componentType_ {};
+        shared_ptr<string> createTime_ {};
+        shared_ptr<string> cu_ {};
+        shared_ptr<bool> deletionProtection_ {};
+        shared_ptr<string> status_ {};
+      };
+
+      virtual bool empty() const override { return this->components_ == nullptr
+        && this->createTime_ == nullptr && this->cu_ == nullptr && this->deletionProtection_ == nullptr && this->expireTime_ == nullptr && this->payType_ == nullptr
+        && this->plan_ == nullptr && this->serviceId_ == nullptr && this->serviceName_ == nullptr && this->serviceType_ == nullptr && this->status_ == nullptr; };
+      // components Field Functions 
+      bool hasComponents() const { return this->components_ != nullptr;};
+      void deleteComponents() { this->components_ = nullptr;};
+      inline const vector<Items::Components> & getComponents() const { DARABONBA_PTR_GET_CONST(components_, vector<Items::Components>) };
+      inline vector<Items::Components> getComponents() { DARABONBA_PTR_GET(components_, vector<Items::Components>) };
+      inline Items& setComponents(const vector<Items::Components> & components) { DARABONBA_PTR_SET_VALUE(components_, components) };
+      inline Items& setComponents(vector<Items::Components> && components) { DARABONBA_PTR_SET_RVALUE(components_, components) };
+
+
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -88,6 +183,13 @@ namespace Models
       void deleteCu() { this->cu_ = nullptr;};
       inline int32_t getCu() const { DARABONBA_PTR_GET_DEFAULT(cu_, 0) };
       inline Items& setCu(int32_t cu) { DARABONBA_PTR_SET_VALUE(cu_, cu) };
+
+
+      // deletionProtection Field Functions 
+      bool hasDeletionProtection() const { return this->deletionProtection_ != nullptr;};
+      void deleteDeletionProtection() { this->deletionProtection_ = nullptr;};
+      inline bool getDeletionProtection() const { DARABONBA_PTR_GET_DEFAULT(deletionProtection_, false) };
+      inline Items& setDeletionProtection(bool deletionProtection) { DARABONBA_PTR_SET_VALUE(deletionProtection_, deletionProtection) };
 
 
       // expireTime Field Functions 
@@ -140,10 +242,12 @@ namespace Models
 
 
     protected:
+      shared_ptr<vector<Items::Components>> components_ {};
       // The creation time.
       shared_ptr<string> createTime_ {};
       // The compute resource.
       shared_ptr<int32_t> cu_ {};
+      shared_ptr<bool> deletionProtection_ {};
       // The expiration time.
       shared_ptr<string> expireTime_ {};
       // The billing type. Valid values:
@@ -151,7 +255,7 @@ namespace Models
       // - **POSTPAY**: Pay-as-you-go.
       // - **PREPAY**: Subscription.
       shared_ptr<string> payType_ {};
-      // [Deprecated]
+      // **[Deprecated]**
       shared_ptr<string> plan_ {};
       // The service ID.
       shared_ptr<string> serviceId_ {};

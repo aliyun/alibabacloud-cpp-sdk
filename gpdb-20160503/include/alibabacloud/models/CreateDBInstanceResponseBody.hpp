@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // This parameter is deprecated and is no longer returned.
+    // **[Deprecated]** This parameter is deprecated and no value is returned.
     // 
-    // You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) operation to query the connection string of the instance.
+    // You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) operation to query the endpoint of the instance.
     shared_ptr<string> connectionString_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};
-    // This parameter is deprecated and is no longer returned.
+    // **[Deprecated]** This parameter is deprecated and no value is returned.
     // 
     // You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) operation to query the port number of the instance.
     shared_ptr<string> port_ {};

@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The region ID of the instance.
     shared_ptr<string> regionId_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATESUPABASEPROJECTREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATESUPABASEPROJECTREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(SecurityIPList, securityIPList_);
       DARABONBA_PTR_TO_JSON(StorageSize, storageSize_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(UsedTime, usedTime_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
@@ -43,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(SecurityIPList, securityIPList_);
       DARABONBA_PTR_FROM_JSON(StorageSize, storageSize_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(UsedTime, usedTime_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -59,10 +62,53 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> key_ {};
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->accountPassword_ == nullptr
         && this->autoScale_ == nullptr && this->clientToken_ == nullptr && this->diskPerformanceLevel_ == nullptr && this->engineVersion_ == nullptr && this->payType_ == nullptr
         && this->period_ == nullptr && this->projectName_ == nullptr && this->projectSpec_ == nullptr && this->regionId_ == nullptr && this->securityIPList_ == nullptr
-        && this->storageSize_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->storageSize_ == nullptr && this->tags_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
+        && this->zoneId_ == nullptr; };
     // accountPassword Field Functions 
     bool hasAccountPassword() const { return this->accountPassword_ != nullptr;};
     void deleteAccountPassword() { this->accountPassword_ = nullptr;};
@@ -147,6 +193,15 @@ namespace Models
     inline CreateSupabaseProjectRequest& setStorageSize(int64_t storageSize) { DARABONBA_PTR_SET_VALUE(storageSize_, storageSize) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<CreateSupabaseProjectRequest::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreateSupabaseProjectRequest::Tags>) };
+    inline vector<CreateSupabaseProjectRequest::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<CreateSupabaseProjectRequest::Tags>) };
+    inline CreateSupabaseProjectRequest& setTags(const vector<CreateSupabaseProjectRequest::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline CreateSupabaseProjectRequest& setTags(vector<CreateSupabaseProjectRequest::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     // usedTime Field Functions 
     bool hasUsedTime() const { return this->usedTime_ != nullptr;};
     void deleteUsedTime() { this->usedTime_ = nullptr;};
@@ -186,9 +241,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> accountPassword_ {};
-    // Specifies whether to enable auto start/stop. If this parameter is not specified, the default value false is used.
+    // Specifies whether to enable auto start/stop. If this parameter is not specified, the default value is false.
     shared_ptr<bool> autoScale_ {};
-    // The idempotency token. Ensures that duplicate requests do not result in duplicate operations.
+    // The idempotency token. Ensures that repeated requests do not execute the same operation more than once.
     shared_ptr<string> clientToken_ {};
     // The performance level (PL) of the cloud disk. If this parameter is not specified, the default value PL0 is used.
     // 
@@ -210,9 +265,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // - Free: free tier.
-    // - Postpaid: pay-as-you-go.
-    // - Prepaid: subscription.
+    // - Free: Free tier.
+    // - Postpaid: Pay-as-you-go.
+    // - Prepaid: Subscription.
     shared_ptr<string> payType_ {};
     // The unit of the subscription duration. This parameter takes effect only when PayType is set to PrePay. If this parameter is not specified, the default value Month is used.
     // 
@@ -243,6 +298,7 @@ namespace Models
     shared_ptr<string> securityIPList_ {};
     // The storage size. Unit: GB. If this parameter is not specified for non-Free billing types, the default value is 1 GB.
     shared_ptr<int64_t> storageSize_ {};
+    shared_ptr<vector<CreateSupabaseProjectRequest::Tags>> tags_ {};
     // The subscription duration. This parameter takes effect only when PayType is set to PrePay. If this parameter is not specified, the default value is 1.
     shared_ptr<string> usedTime_ {};
     // The vSwitch ID. This parameter is required. The zone of the vSwitch must be the same as the value of ZoneId.

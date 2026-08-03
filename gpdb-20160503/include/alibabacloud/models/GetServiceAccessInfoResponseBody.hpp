@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The redirect URL for logging on to the service console.
     shared_ptr<string> callbackUrl_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The verification code for the service console logon URL.
     shared_ptr<string> verifyCode_ {};
   };
 

@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The region ID of the workspace.
     shared_ptr<string> regionId_ {};
+    // The ID of the workspace where the service resides.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };
