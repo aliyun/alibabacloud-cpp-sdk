@@ -273,13 +273,11 @@ namespace Models
 
 
   protected:
-    // rtctoken
     shared_ptr<string> channelToken_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<CreateAICoachTaskSessionResponseBody::ScriptInfo> scriptInfo_ {};
     shared_ptr<string> sessionId_ {};
     shared_ptr<int64_t> sessionStatus_ {};
-    // Token
     shared_ptr<string> token_ {};
     shared_ptr<string> webSocketUrl_ {};
   };

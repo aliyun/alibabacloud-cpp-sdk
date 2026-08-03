@@ -131,7 +131,6 @@ namespace Models
 
   protected:
     shared_ptr<string> createTime_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<int32_t> status_ {};
     shared_ptr<vector<QueryIndividuationTextTaskResponseBody::TextList>> textList_ {};

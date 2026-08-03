@@ -475,7 +475,6 @@ namespace Models
     shared_ptr<string> pointId_ {};
     shared_ptr<string> questionDescription_ {};
     shared_ptr<string> questionSample_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<string> status_ {};
   };

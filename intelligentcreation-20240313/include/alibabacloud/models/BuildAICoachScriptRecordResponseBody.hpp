@@ -120,7 +120,6 @@ namespace Models
     shared_ptr<BuildAICoachScriptRecordResponseBody::Data> data_ {};
     shared_ptr<string> errorCode_ {};
     shared_ptr<string> errorMessage_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<string> scriptRecordId_ {};
     shared_ptr<bool> success_ {};

@@ -78,9 +78,7 @@ namespace Models
     shared_ptr<string> data_ {};
     shared_ptr<string> errorCode_ {};
     shared_ptr<string> errorMessage_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
-    // true
     shared_ptr<bool> success_ {};
   };
 

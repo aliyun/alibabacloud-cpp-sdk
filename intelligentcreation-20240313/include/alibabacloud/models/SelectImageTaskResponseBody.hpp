@@ -200,7 +200,6 @@ namespace Models
     shared_ptr<string> generationSource_ {};
     shared_ptr<string> gmtCreate_ {};
     shared_ptr<vector<SelectImageTaskResponseBody::ImageInfos>> imageInfos_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<string> scene_ {};
     shared_ptr<string> status_ {};

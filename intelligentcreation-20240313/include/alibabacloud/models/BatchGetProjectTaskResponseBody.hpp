@@ -133,7 +133,6 @@ namespace Models
 
 
   protected:
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<vector<BatchGetProjectTaskResponseBody::ResultList>> resultList_ {};
   };

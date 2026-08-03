@@ -604,7 +604,6 @@ namespace Models
 
 
   protected:
-    // frame
     shared_ptr<vector<SubmitProjectTaskRequest::Frames>> frames_ {};
     shared_ptr<string> scaleType_ {};
     shared_ptr<int32_t> subtitleTag_ {};

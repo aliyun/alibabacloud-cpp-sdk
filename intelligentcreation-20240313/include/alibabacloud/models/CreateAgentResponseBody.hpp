@@ -49,7 +49,6 @@ namespace Models
 
   protected:
     shared_ptr<string> agentId_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

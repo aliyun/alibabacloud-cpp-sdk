@@ -17,6 +17,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListAICoachScriptPageResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(errorCode, errorCode_);
       DARABONBA_PTR_TO_JSON(errorMessage, errorMessage_);
+      DARABONBA_PTR_TO_JSON(extendCustomNameMap, extendCustomNameMap_);
       DARABONBA_PTR_TO_JSON(list, list_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(success, success_);
@@ -25,6 +26,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListAICoachScriptPageResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(errorCode, errorCode_);
       DARABONBA_PTR_FROM_JSON(errorMessage, errorMessage_);
+      DARABONBA_PTR_FROM_JSON(extendCustomNameMap, extendCustomNameMap_);
       DARABONBA_PTR_FROM_JSON(list, list_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(success, success_);
@@ -984,7 +986,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->errorCode_ == nullptr
-        && this->errorMessage_ == nullptr && this->list_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr && this->total_ == nullptr; };
+        && this->errorMessage_ == nullptr && this->extendCustomNameMap_ == nullptr && this->list_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr
+        && this->total_ == nullptr; };
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
@@ -997,6 +1000,15 @@ namespace Models
     void deleteErrorMessage() { this->errorMessage_ = nullptr;};
     inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
     inline ListAICoachScriptPageResponseBody& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
+
+
+    // extendCustomNameMap Field Functions 
+    bool hasExtendCustomNameMap() const { return this->extendCustomNameMap_ != nullptr;};
+    void deleteExtendCustomNameMap() { this->extendCustomNameMap_ = nullptr;};
+    inline const map<string, string> & getExtendCustomNameMap() const { DARABONBA_PTR_GET_CONST(extendCustomNameMap_, map<string, string>) };
+    inline map<string, string> getExtendCustomNameMap() { DARABONBA_PTR_GET(extendCustomNameMap_, map<string, string>) };
+    inline ListAICoachScriptPageResponseBody& setExtendCustomNameMap(const map<string, string> & extendCustomNameMap) { DARABONBA_PTR_SET_VALUE(extendCustomNameMap_, extendCustomNameMap) };
+    inline ListAICoachScriptPageResponseBody& setExtendCustomNameMap(map<string, string> && extendCustomNameMap) { DARABONBA_PTR_SET_RVALUE(extendCustomNameMap_, extendCustomNameMap) };
 
 
     // list Field Functions 
@@ -1032,8 +1044,8 @@ namespace Models
   protected:
     shared_ptr<string> errorCode_ {};
     shared_ptr<string> errorMessage_ {};
+    shared_ptr<map<string, string>> extendCustomNameMap_ {};
     shared_ptr<vector<ListAICoachScriptPageResponseBody::List>> list_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
     shared_ptr<int32_t> total_ {};

@@ -75,11 +75,9 @@ namespace Models
 
 
   protected:
-    // 123456789
     shared_ptr<string> data_ {};
     shared_ptr<string> errorCode_ {};
     shared_ptr<string> errorMessage_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
   };

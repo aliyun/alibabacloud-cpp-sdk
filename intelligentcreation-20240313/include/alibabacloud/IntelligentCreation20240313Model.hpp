@@ -82,6 +82,9 @@
 #include <alibabacloud/models/CreateAnchorRequest.hpp>
 #include <alibabacloud/models/CreateAnchorResponseBody.hpp>
 #include <alibabacloud/models/CreateAnchorResponse.hpp>
+#include <alibabacloud/models/CreateGenerateAICoachScriptTaskRequest.hpp>
+#include <alibabacloud/models/CreateGenerateAICoachScriptTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateGenerateAICoachScriptTaskResponse.hpp>
 #include <alibabacloud/models/CreateIllustrationTaskRequest.hpp>
 #include <alibabacloud/models/CreateIllustrationTaskResponse.hpp>
 #include <alibabacloud/models/CreateIndividuationProjectRequest.hpp>
@@ -126,9 +129,15 @@
 #include <alibabacloud/models/GetAICoachCheatDetectionRequest.hpp>
 #include <alibabacloud/models/GetAICoachCheatDetectionResponseBody.hpp>
 #include <alibabacloud/models/GetAICoachCheatDetectionResponse.hpp>
+#include <alibabacloud/models/GetAICoachDebugResultRequest.hpp>
+#include <alibabacloud/models/GetAICoachDebugResultResponseBody.hpp>
+#include <alibabacloud/models/GetAICoachDebugResultResponse.hpp>
 #include <alibabacloud/models/GetAICoachScriptRequest.hpp>
 #include <alibabacloud/models/GetAICoachScriptResponseBody.hpp>
 #include <alibabacloud/models/GetAICoachScriptResponse.hpp>
+#include <alibabacloud/models/GetAICoachScriptGenerateTaskRequest.hpp>
+#include <alibabacloud/models/GetAICoachScriptGenerateTaskResponseBody.hpp>
+#include <alibabacloud/models/GetAICoachScriptGenerateTaskResponse.hpp>
 #include <alibabacloud/models/GetAICoachTaskSessionHistoryRequest.hpp>
 #include <alibabacloud/models/GetAICoachTaskSessionHistoryResponseBody.hpp>
 #include <alibabacloud/models/GetAICoachTaskSessionHistoryResponse.hpp>
@@ -159,6 +168,9 @@
 #include <alibabacloud/models/ListAICoachTaskPageRequest.hpp>
 #include <alibabacloud/models/ListAICoachTaskPageResponseBody.hpp>
 #include <alibabacloud/models/ListAICoachTaskPageResponse.hpp>
+#include <alibabacloud/models/ListAICoachTaskSessionRequest.hpp>
+#include <alibabacloud/models/ListAICoachTaskSessionResponseBody.hpp>
+#include <alibabacloud/models/ListAICoachTaskSessionResponse.hpp>
 #include <alibabacloud/models/ListAgentsRequest.hpp>
 #include <alibabacloud/models/ListAgentsResponseBody.hpp>
 #include <alibabacloud/models/ListAgentsResponse.hpp>
@@ -231,6 +243,9 @@
 #include <alibabacloud/models/StopProjectTaskRequest.hpp>
 #include <alibabacloud/models/StopProjectTaskResponseBody.hpp>
 #include <alibabacloud/models/StopProjectTaskResponse.hpp>
+#include <alibabacloud/models/SubmitAICoachDebugRequest.hpp>
+#include <alibabacloud/models/SubmitAICoachDebugResponseBody.hpp>
+#include <alibabacloud/models/SubmitAICoachDebugResponse.hpp>
 #include <alibabacloud/models/SubmitImageToVideoTaskRequest.hpp>
 #include <alibabacloud/models/SubmitImageToVideoTaskResponseBody.hpp>
 #include <alibabacloud/models/SubmitImageToVideoTaskResponse.hpp>

@@ -66,7 +66,6 @@ namespace Models
 
 
   protected:
-    // API
     shared_ptr<string> generationSource_ {};
     shared_ptr<string> industry_ {};
     shared_ptr<string> publishStatus_ {};

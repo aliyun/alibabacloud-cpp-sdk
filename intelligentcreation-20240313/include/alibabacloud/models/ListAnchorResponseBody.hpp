@@ -98,12 +98,10 @@ namespace Models
 
 
   protected:
-    // code
     shared_ptr<string> code_ {};
     shared_ptr<string> errorCode_ {};
     shared_ptr<string> errorMessage_ {};
     shared_ptr<vector<AnchorResponse>> list_ {};
-    // requestId
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
     shared_ptr<int32_t> total_ {};

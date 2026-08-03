@@ -68,7 +68,6 @@ namespace Models
   protected:
     shared_ptr<bool> end_ {};
     shared_ptr<int32_t> index_ {};
-    // Id of the request
     shared_ptr<string> message_ {};
     shared_ptr<int32_t> type_ {};
   };

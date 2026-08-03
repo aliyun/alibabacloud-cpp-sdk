@@ -327,6 +327,24 @@ namespace IntelligentCreation20240313
       Models::CreateAnchorResponse createAnchor(const Models::CreateAnchorRequest &request);
 
       /**
+       * @summary 创建文档生成剧本任务
+       *
+       * @param request CreateGenerateAICoachScriptTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateGenerateAICoachScriptTaskResponse
+       */
+      Models::CreateGenerateAICoachScriptTaskResponse createGenerateAICoachScriptTaskWithOptions(const Models::CreateGenerateAICoachScriptTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建文档生成剧本任务
+       *
+       * @param request CreateGenerateAICoachScriptTaskRequest
+       * @return CreateGenerateAICoachScriptTaskResponse
+       */
+      Models::CreateGenerateAICoachScriptTaskResponse createGenerateAICoachScriptTask(const Models::CreateGenerateAICoachScriptTaskRequest &request);
+
+      /**
        * @summary 创建配图生成任务
        *
        * @param request CreateIllustrationTaskRequest
@@ -613,6 +631,24 @@ namespace IntelligentCreation20240313
       Models::GetAICoachCheatDetectionResponse getAICoachCheatDetection(const Models::GetAICoachCheatDetectionRequest &request);
 
       /**
+       * @summary 查看剧本调试详情
+       *
+       * @param request GetAICoachDebugResultRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAICoachDebugResultResponse
+       */
+      Models::GetAICoachDebugResultResponse getAICoachDebugResultWithOptions(const Models::GetAICoachDebugResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看剧本调试详情
+       *
+       * @param request GetAICoachDebugResultRequest
+       * @return GetAICoachDebugResultResponse
+       */
+      Models::GetAICoachDebugResultResponse getAICoachDebugResult(const Models::GetAICoachDebugResultRequest &request);
+
+      /**
        * @summary 查询剧本详情
        *
        * @param request GetAICoachScriptRequest
@@ -629,6 +665,24 @@ namespace IntelligentCreation20240313
        * @return GetAICoachScriptResponse
        */
       Models::GetAICoachScriptResponse getAICoachScript(const Models::GetAICoachScriptRequest &request);
+
+      /**
+       * @summary 查询文档生成剧本任务结果
+       *
+       * @param request GetAICoachScriptGenerateTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAICoachScriptGenerateTaskResponse
+       */
+      Models::GetAICoachScriptGenerateTaskResponse getAICoachScriptGenerateTaskWithOptions(const Models::GetAICoachScriptGenerateTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询文档生成剧本任务结果
+       *
+       * @param request GetAICoachScriptGenerateTaskRequest
+       * @return GetAICoachScriptGenerateTaskResponse
+       */
+      Models::GetAICoachScriptGenerateTaskResponse getAICoachScriptGenerateTask(const Models::GetAICoachScriptGenerateTaskRequest &request);
 
       /**
        * @summary 学员查询会话历史
@@ -865,6 +919,24 @@ namespace IntelligentCreation20240313
        * @return ListAICoachTaskPageResponse
        */
       Models::ListAICoachTaskPageResponse listAICoachTaskPage(const Models::ListAICoachTaskPageRequest &request);
+
+      /**
+       * @summary 根据剧本对练任务查询会话历史
+       *
+       * @param request ListAICoachTaskSessionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAICoachTaskSessionResponse
+       */
+      Models::ListAICoachTaskSessionResponse listAICoachTaskSessionWithOptions(const Models::ListAICoachTaskSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据剧本对练任务查询会话历史
+       *
+       * @param request ListAICoachTaskSessionRequest
+       * @return ListAICoachTaskSessionResponse
+       */
+      Models::ListAICoachTaskSessionResponse listAICoachTaskSession(const Models::ListAICoachTaskSessionRequest &request);
 
       /**
        * @summary 分页查询智能体
@@ -1330,6 +1402,24 @@ namespace IntelligentCreation20240313
        * @return StopProjectTaskResponse
        */
       Models::StopProjectTaskResponse stopProjectTask(const Models::StopProjectTaskRequest &request);
+
+      /**
+       * @summary 提交剧本考核点调试
+       *
+       * @param request SubmitAICoachDebugRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitAICoachDebugResponse
+       */
+      Models::SubmitAICoachDebugResponse submitAICoachDebugWithOptions(const Models::SubmitAICoachDebugRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交剧本考核点调试
+       *
+       * @param request SubmitAICoachDebugRequest
+       * @return SubmitAICoachDebugResponse
+       */
+      Models::SubmitAICoachDebugResponse submitAICoachDebug(const Models::SubmitAICoachDebugRequest &request);
 
       /**
        * @summary 提交图片转视频任务

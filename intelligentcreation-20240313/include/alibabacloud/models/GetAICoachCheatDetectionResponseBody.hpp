@@ -357,10 +357,8 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     shared_ptr<string> gmtCreate_ {};
     shared_ptr<GetAICoachCheatDetectionResponseBody::ImageCheat> imageCheat_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<int32_t> status_ {};
-    // true
     shared_ptr<bool> success_ {};
     shared_ptr<GetAICoachCheatDetectionResponseBody::VoiceCheat> voiceCheat_ {};
   };

@@ -102,7 +102,6 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     shared_ptr<string> errorMessage_ {};
     shared_ptr<vector<VoiceModelResponse>> list_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
     shared_ptr<int32_t> total_ {};

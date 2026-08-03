@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(evaluateReportFlag, evaluateReportFlag_);
       DARABONBA_PTR_TO_JSON(expressiveness, expressiveness_);
       DARABONBA_PTR_TO_JSON(expressivenessList, expressivenessList_);
+      DARABONBA_PTR_TO_JSON(extendCustomNameMap, extendCustomNameMap_);
       DARABONBA_PTR_TO_JSON(gifDynamicUrl, gifDynamicUrl_);
       DARABONBA_PTR_TO_JSON(gifStaticUrl, gifStaticUrl_);
       DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
@@ -74,6 +75,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(evaluateReportFlag, evaluateReportFlag_);
       DARABONBA_PTR_FROM_JSON(expressiveness, expressiveness_);
       DARABONBA_PTR_FROM_JSON(expressivenessList, expressivenessList_);
+      DARABONBA_PTR_FROM_JSON(extendCustomNameMap, extendCustomNameMap_);
       DARABONBA_PTR_FROM_JSON(gifDynamicUrl, gifDynamicUrl_);
       DARABONBA_PTR_FROM_JSON(gifStaticUrl, gifStaticUrl_);
       DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
@@ -1386,13 +1388,13 @@ namespace Models
     virtual bool empty() const override { return this->agentId_ == nullptr
         && this->appendQuestionFlag_ == nullptr && this->assessmentScope_ == nullptr && this->checkCheatConfig_ == nullptr && this->closingRemarks_ == nullptr && this->completeStrategy_ == nullptr
         && this->coverUrl_ == nullptr && this->customReplyRules_ == nullptr && this->dialogueInputTextLimit_ == nullptr && this->dialogueTextFlag_ == nullptr && this->dialogueTipFlag_ == nullptr
-        && this->dialogueVoiceLimit_ == nullptr && this->evaluateReportFlag_ == nullptr && this->expressiveness_ == nullptr && this->expressivenessList_ == nullptr && this->gifDynamicUrl_ == nullptr
-        && this->gifStaticUrl_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->initiator_ == nullptr && this->interactionInputTypes_ == nullptr
-        && this->interactionType_ == nullptr && this->introduce_ == nullptr && this->name_ == nullptr && this->openingRemarks_ == nullptr && this->orderAckFlag_ == nullptr
-        && this->pointCoveredFlag_ == nullptr && this->pointDeductionRuleList_ == nullptr && this->points_ == nullptr && this->requestId_ == nullptr && this->sampleDialogueList_ == nullptr
-        && this->scoreConfig_ == nullptr && this->scriptRecordId_ == nullptr && this->sparringTipContent_ == nullptr && this->sparringTipTitle_ == nullptr && this->status_ == nullptr
-        && this->studentThinkTimeFlag_ == nullptr && this->studentThinkTimeLimit_ == nullptr && this->type_ == nullptr && this->voiceId_ == nullptr && this->voiceLanguage_ == nullptr
-        && this->weights_ == nullptr; };
+        && this->dialogueVoiceLimit_ == nullptr && this->evaluateReportFlag_ == nullptr && this->expressiveness_ == nullptr && this->expressivenessList_ == nullptr && this->extendCustomNameMap_ == nullptr
+        && this->gifDynamicUrl_ == nullptr && this->gifStaticUrl_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->initiator_ == nullptr
+        && this->interactionInputTypes_ == nullptr && this->interactionType_ == nullptr && this->introduce_ == nullptr && this->name_ == nullptr && this->openingRemarks_ == nullptr
+        && this->orderAckFlag_ == nullptr && this->pointCoveredFlag_ == nullptr && this->pointDeductionRuleList_ == nullptr && this->points_ == nullptr && this->requestId_ == nullptr
+        && this->sampleDialogueList_ == nullptr && this->scoreConfig_ == nullptr && this->scriptRecordId_ == nullptr && this->sparringTipContent_ == nullptr && this->sparringTipTitle_ == nullptr
+        && this->status_ == nullptr && this->studentThinkTimeFlag_ == nullptr && this->studentThinkTimeLimit_ == nullptr && this->type_ == nullptr && this->voiceId_ == nullptr
+        && this->voiceLanguage_ == nullptr && this->weights_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -1506,6 +1508,15 @@ namespace Models
     inline vector<GetAICoachScriptResponseBody::ExpressivenessList> getExpressivenessList() { DARABONBA_PTR_GET(expressivenessList_, vector<GetAICoachScriptResponseBody::ExpressivenessList>) };
     inline GetAICoachScriptResponseBody& setExpressivenessList(const vector<GetAICoachScriptResponseBody::ExpressivenessList> & expressivenessList) { DARABONBA_PTR_SET_VALUE(expressivenessList_, expressivenessList) };
     inline GetAICoachScriptResponseBody& setExpressivenessList(vector<GetAICoachScriptResponseBody::ExpressivenessList> && expressivenessList) { DARABONBA_PTR_SET_RVALUE(expressivenessList_, expressivenessList) };
+
+
+    // extendCustomNameMap Field Functions 
+    bool hasExtendCustomNameMap() const { return this->extendCustomNameMap_ != nullptr;};
+    void deleteExtendCustomNameMap() { this->extendCustomNameMap_ = nullptr;};
+    inline const map<string, string> & getExtendCustomNameMap() const { DARABONBA_PTR_GET_CONST(extendCustomNameMap_, map<string, string>) };
+    inline map<string, string> getExtendCustomNameMap() { DARABONBA_PTR_GET(extendCustomNameMap_, map<string, string>) };
+    inline GetAICoachScriptResponseBody& setExtendCustomNameMap(const map<string, string> & extendCustomNameMap) { DARABONBA_PTR_SET_VALUE(extendCustomNameMap_, extendCustomNameMap) };
+    inline GetAICoachScriptResponseBody& setExtendCustomNameMap(map<string, string> && extendCustomNameMap) { DARABONBA_PTR_SET_RVALUE(extendCustomNameMap_, extendCustomNameMap) };
 
 
     // gifDynamicUrl Field Functions 
@@ -1725,6 +1736,7 @@ namespace Models
     shared_ptr<bool> evaluateReportFlag_ {};
     shared_ptr<map<string, int32_t>> expressiveness_ {};
     shared_ptr<vector<GetAICoachScriptResponseBody::ExpressivenessList>> expressivenessList_ {};
+    shared_ptr<map<string, string>> extendCustomNameMap_ {};
     shared_ptr<string> gifDynamicUrl_ {};
     shared_ptr<string> gifStaticUrl_ {};
     shared_ptr<string> gmtCreate_ {};

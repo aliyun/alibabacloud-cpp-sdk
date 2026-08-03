@@ -122,7 +122,6 @@ namespace Models
   protected:
     shared_ptr<string> errorCode_ {};
     shared_ptr<string> errorMessage_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<vector<BatchDeletePracticeTaskResponseBody::Results>> results_ {};
     shared_ptr<bool> success_ {};

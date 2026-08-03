@@ -957,6 +957,75 @@ CreateAnchorResponse Client::createAnchor(const CreateAnchorRequest &request) {
 }
 
 /**
+ * @summary 创建文档生成剧本任务
+ *
+ * @param request CreateGenerateAICoachScriptTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGenerateAICoachScriptTaskResponse
+ */
+CreateGenerateAICoachScriptTaskResponse Client::createGenerateAICoachScriptTaskWithOptions(const CreateGenerateAICoachScriptTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAssessmentPoint()) {
+    body["assessmentPoint"] = request.getAssessmentPoint();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDialogueKey()) {
+    body["dialogueKey"] = request.getDialogueKey();
+  }
+
+  if (!!request.hasDialogueUrl()) {
+    body["dialogueUrl"] = request.getDialogueUrl();
+  }
+
+  if (!!request.hasDocList()) {
+    body["docList"] = request.getDocList();
+  }
+
+  if (!!request.hasDocUrlList()) {
+    body["docUrlList"] = request.getDocUrlList();
+  }
+
+  if (!!request.hasScriptName()) {
+    body["scriptName"] = request.getScriptName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateGenerateAICoachScriptTask"},
+    {"version" , "2024-03-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/yic/yic-console/openService/v1/aicoach/scriptGenerateTask")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGenerateAICoachScriptTaskResponse>();
+}
+
+/**
+ * @summary 创建文档生成剧本任务
+ *
+ * @param request CreateGenerateAICoachScriptTaskRequest
+ * @return CreateGenerateAICoachScriptTaskResponse
+ */
+CreateGenerateAICoachScriptTaskResponse Client::createGenerateAICoachScriptTask(const CreateGenerateAICoachScriptTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createGenerateAICoachScriptTaskWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 创建配图生成任务
  *
  * @param request CreateIllustrationTaskRequest
@@ -1802,6 +1871,71 @@ GetAICoachCheatDetectionResponse Client::getAICoachCheatDetection(const GetAICoa
 }
 
 /**
+ * @summary 查看剧本调试详情
+ *
+ * @param request GetAICoachDebugResultRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAICoachDebugResultResponse
+ */
+GetAICoachDebugResultResponse Client::getAICoachDebugResultWithOptions(const GetAICoachDebugResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDataId()) {
+    query["dataId"] = request.getDataId();
+  }
+
+  if (!!request.hasDataType()) {
+    query["dataType"] = request.getDataType();
+  }
+
+  if (!!request.hasScriptDebugId()) {
+    query["scriptDebugId"] = request.getScriptDebugId();
+  }
+
+  if (!!request.hasScriptRecordId()) {
+    query["scriptRecordId"] = request.getScriptRecordId();
+  }
+
+  if (!!request.hasScriptSnapshotId()) {
+    query["scriptSnapshotId"] = request.getScriptSnapshotId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["taskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAICoachDebugResult"},
+    {"version" , "2024-03-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/yic/yic-console/openService/v1/aicoach/getDebugResult")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAICoachDebugResultResponse>();
+}
+
+/**
+ * @summary 查看剧本调试详情
+ *
+ * @param request GetAICoachDebugResultRequest
+ * @return GetAICoachDebugResultResponse
+ */
+GetAICoachDebugResultResponse Client::getAICoachDebugResult(const GetAICoachDebugResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAICoachDebugResultWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 查询剧本详情
  *
  * @param request GetAICoachScriptRequest
@@ -1844,6 +1978,51 @@ GetAICoachScriptResponse Client::getAICoachScript(const GetAICoachScriptRequest 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getAICoachScriptWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询文档生成剧本任务结果
+ *
+ * @param request GetAICoachScriptGenerateTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAICoachScriptGenerateTaskResponse
+ */
+GetAICoachScriptGenerateTaskResponse Client::getAICoachScriptGenerateTaskWithOptions(const GetAICoachScriptGenerateTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskId()) {
+    query["taskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAICoachScriptGenerateTask"},
+    {"version" , "2024-03-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/yic/yic-console/openService/v1/aicoach/scriptGenerateTask")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAICoachScriptGenerateTaskResponse>();
+}
+
+/**
+ * @summary 查询文档生成剧本任务结果
+ *
+ * @param request GetAICoachScriptGenerateTaskRequest
+ * @return GetAICoachScriptGenerateTaskResponse
+ */
+GetAICoachScriptGenerateTaskResponse Client::getAICoachScriptGenerateTask(const GetAICoachScriptGenerateTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAICoachScriptGenerateTaskWithOptions(request, headers, runtime);
 }
 
 /**
@@ -2524,6 +2703,63 @@ ListAICoachTaskPageResponse Client::listAICoachTaskPage(const ListAICoachTaskPag
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listAICoachTaskPageWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 根据剧本对练任务查询会话历史
+ *
+ * @param request ListAICoachTaskSessionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAICoachTaskSessionResponse
+ */
+ListAICoachTaskSessionResponse Client::listAICoachTaskSessionWithOptions(const ListAICoachTaskSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["sessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["taskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAICoachTaskSession"},
+    {"version" , "2024-03-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/yic/yic-console/openService/v1/aicoach/listTaskSession")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAICoachTaskSessionResponse>();
+}
+
+/**
+ * @summary 根据剧本对练任务查询会话历史
+ *
+ * @param request ListAICoachTaskSessionRequest
+ * @return ListAICoachTaskSessionResponse
+ */
+ListAICoachTaskSessionResponse Client::listAICoachTaskSession(const ListAICoachTaskSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAICoachTaskSessionWithOptions(request, headers, runtime);
 }
 
 /**
@@ -3989,6 +4225,71 @@ StopProjectTaskResponse Client::stopProjectTask(const StopProjectTaskRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return stopProjectTaskWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 提交剧本考核点调试
+ *
+ * @param request SubmitAICoachDebugRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitAICoachDebugResponse
+ */
+SubmitAICoachDebugResponse Client::submitAICoachDebugWithOptions(const SubmitAICoachDebugRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDataId()) {
+    body["dataId"] = request.getDataId();
+  }
+
+  if (!!request.hasDataType()) {
+    body["dataType"] = request.getDataType();
+  }
+
+  if (!!request.hasDeductionRule()) {
+    body["deductionRule"] = request.getDeductionRule();
+  }
+
+  if (!!request.hasDialogueList()) {
+    body["dialogueList"] = request.getDialogueList();
+  }
+
+  if (!!request.hasExpressiveness()) {
+    body["expressiveness"] = request.getExpressiveness();
+  }
+
+  if (!!request.hasPoint()) {
+    body["point"] = request.getPoint();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubmitAICoachDebug"},
+    {"version" , "2024-03-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/yic/yic-console/openService/v1/aicoach/saveDebug")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitAICoachDebugResponse>();
+}
+
+/**
+ * @summary 提交剧本考核点调试
+ *
+ * @param request SubmitAICoachDebugRequest
+ * @return SubmitAICoachDebugResponse
+ */
+SubmitAICoachDebugResponse Client::submitAICoachDebug(const SubmitAICoachDebugRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return submitAICoachDebugWithOptions(request, headers, runtime);
 }
 
 /**

@@ -76,7 +76,6 @@ namespace Models
 
   protected:
     shared_ptr<string> data_ {};
-    // header
     shared_ptr<string> header_ {};
     shared_ptr<string> moduleName_ {};
     shared_ptr<string> operationName_ {};

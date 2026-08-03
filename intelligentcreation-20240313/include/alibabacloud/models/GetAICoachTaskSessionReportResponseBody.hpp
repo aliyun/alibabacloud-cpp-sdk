@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETAICOACHTASKSESSIONREPORTRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETAICOACHTASKSESSIONREPORTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
       DARABONBA_PTR_TO_JSON(evaluationRating, evaluationRating_);
       DARABONBA_PTR_TO_JSON(evaluationResult, evaluationResult_);
+      DARABONBA_PTR_TO_JSON(extendCustomNameMap, extendCustomNameMap_);
       DARABONBA_PTR_TO_JSON(feedback, feedback_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(scriptName, scriptName_);
@@ -29,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
       DARABONBA_PTR_FROM_JSON(evaluationRating, evaluationRating_);
       DARABONBA_PTR_FROM_JSON(evaluationResult, evaluationResult_);
+      DARABONBA_PTR_FROM_JSON(extendCustomNameMap, extendCustomNameMap_);
       DARABONBA_PTR_FROM_JSON(feedback, feedback_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(scriptName, scriptName_);
@@ -48,8 +51,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->duration_ == nullptr
-        && this->endTime_ == nullptr && this->evaluationRating_ == nullptr && this->evaluationResult_ == nullptr && this->feedback_ == nullptr && this->requestId_ == nullptr
-        && this->scriptName_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->uid_ == nullptr; };
+        && this->endTime_ == nullptr && this->evaluationRating_ == nullptr && this->evaluationResult_ == nullptr && this->extendCustomNameMap_ == nullptr && this->feedback_ == nullptr
+        && this->requestId_ == nullptr && this->scriptName_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->uid_ == nullptr; };
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
@@ -76,6 +79,15 @@ namespace Models
     void deleteEvaluationResult() { this->evaluationResult_ = nullptr;};
     inline string getEvaluationResult() const { DARABONBA_PTR_GET_DEFAULT(evaluationResult_, "") };
     inline GetAICoachTaskSessionReportResponseBody& setEvaluationResult(string evaluationResult) { DARABONBA_PTR_SET_VALUE(evaluationResult_, evaluationResult) };
+
+
+    // extendCustomNameMap Field Functions 
+    bool hasExtendCustomNameMap() const { return this->extendCustomNameMap_ != nullptr;};
+    void deleteExtendCustomNameMap() { this->extendCustomNameMap_ = nullptr;};
+    inline const map<string, string> & getExtendCustomNameMap() const { DARABONBA_PTR_GET_CONST(extendCustomNameMap_, map<string, string>) };
+    inline map<string, string> getExtendCustomNameMap() { DARABONBA_PTR_GET(extendCustomNameMap_, map<string, string>) };
+    inline GetAICoachTaskSessionReportResponseBody& setExtendCustomNameMap(const map<string, string> & extendCustomNameMap) { DARABONBA_PTR_SET_VALUE(extendCustomNameMap_, extendCustomNameMap) };
+    inline GetAICoachTaskSessionReportResponseBody& setExtendCustomNameMap(map<string, string> && extendCustomNameMap) { DARABONBA_PTR_SET_RVALUE(extendCustomNameMap_, extendCustomNameMap) };
 
 
     // feedback Field Functions 
@@ -125,6 +137,7 @@ namespace Models
     shared_ptr<string> endTime_ {};
     shared_ptr<string> evaluationRating_ {};
     shared_ptr<string> evaluationResult_ {};
+    shared_ptr<map<string, string>> extendCustomNameMap_ {};
     shared_ptr<bool> feedback_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<string> scriptName_ {};
