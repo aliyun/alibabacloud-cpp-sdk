@@ -219,7 +219,7 @@ namespace Models
     // - Standard: standard snapshot.
     // - Flash: local snapshot.
     // 
-    // > This parameter will be deprecated. Standard snapshots for ESSD disks have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or fees are required.
+    // > This parameter will be deprecated. Standard snapshots for enterprise SSDs have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or fees are required. The snapshot is active immediately after creation.
     shared_ptr<string> category_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
@@ -231,19 +231,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> diskId_ {};
-    // Specifies whether to enable the instant access feature. Valid values:
-    // - true: enables the feature. Only ESSD disks support this feature.
+    // Specifies whether to enable the snapshot instant access feature. Valid values:
+    // - true: enables the feature. Only enterprise SSDs support this feature.
     // - false: disables the feature. A standard snapshot is created.
     // 
     // Default value: false.
     // 
-    // > This parameter is deprecated. Standard snapshots for ESSD disks have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or fees are required.
+    // > This parameter is deprecated. Standard snapshots for enterprise SSDs have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or fees are required. The snapshot is active immediately after creation.
     shared_ptr<bool> instantAccess_ {};
-    // The retention period of the instant access feature. After the retention period expires, the snapshot is automatically released. This parameter takes effect only when `InstantAccess=true`. Unit: days. Valid values: 1 to 65535.
+    // Settings for the retention period of the snapshot instant access feature. After the retention period expires, the snapshot is subject to automatic release. This parameter takes effect only when `InstantAccess=true`. Unit: days. Valid values: 1 to 65535.
     // 
-    // Default value: the value of the `RetentionDays` parameter.
+    // The default value is the same as the value of the `RetentionDays` parameter.
     // 
-    // > This parameter is deprecated. Standard snapshots for ESSD disks have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or fees are required.
+    // > This parameter is deprecated. Standard snapshots for enterprise SSDs have been upgraded to [instant access by default](https://help.aliyun.com/document_detail/193667.html). No additional configuration or fees are required. The snapshot is active immediately after creation.
     shared_ptr<int32_t> instantAccessRetentionDays_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -251,13 +251,13 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The retention period of the snapshot. Unit: days. Valid values: 1 to 65536. The snapshot is automatically released when the retention period expires.
+    // Settings for the retention period of the snapshot. Unit: days. Valid values: 1 to 65536. The snapshot is subject to automatic release when the retention period expires.
     // 
-    // Default value: null, which indicates that the snapshot is not automatically released.
+    // Default value: null, which indicates that the snapshot is not subject to automatic release.
     shared_ptr<int32_t> retentionDays_ {};
     // The name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. The name can contain Unicode characters under the letter category (including letters in English and Chinese), ASCII digits (0-9), colons (:), underscores (_), periods (.), and hyphens (-).
     // 
-    // > The name cannot start with `auto` to avoid conflicts with automatic snapshot names.
+    // > The name cannot start with `auto` to avoid conflicts with the names of automatic snapshots.
     shared_ptr<string> snapshotName_ {};
     // > This parameter is not publicly available.
     shared_ptr<string> storageLocationArn_ {};

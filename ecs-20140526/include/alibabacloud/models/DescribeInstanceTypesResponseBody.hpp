@@ -464,11 +464,13 @@ namespace Models
         class EnhancedNetwork : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const EnhancedNetwork& obj) { 
+            DARABONBA_PTR_TO_JSON(ExpressSupport, expressSupport_);
             DARABONBA_PTR_TO_JSON(RssSupport, rssSupport_);
             DARABONBA_PTR_TO_JSON(SriovSupport, sriovSupport_);
             DARABONBA_PTR_TO_JSON(VfQueueNumberPerEni, vfQueueNumberPerEni_);
           };
           friend void from_json(const Darabonba::Json& j, EnhancedNetwork& obj) { 
+            DARABONBA_PTR_FROM_JSON(ExpressSupport, expressSupport_);
             DARABONBA_PTR_FROM_JSON(RssSupport, rssSupport_);
             DARABONBA_PTR_FROM_JSON(SriovSupport, sriovSupport_);
             DARABONBA_PTR_FROM_JSON(VfQueueNumberPerEni, vfQueueNumberPerEni_);
@@ -484,8 +486,15 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->rssSupport_ == nullptr
-        && this->sriovSupport_ == nullptr && this->vfQueueNumberPerEni_ == nullptr; };
+          virtual bool empty() const override { return this->expressSupport_ == nullptr
+        && this->rssSupport_ == nullptr && this->sriovSupport_ == nullptr && this->vfQueueNumberPerEni_ == nullptr; };
+          // expressSupport Field Functions 
+          bool hasExpressSupport() const { return this->expressSupport_ != nullptr;};
+          void deleteExpressSupport() { this->expressSupport_ = nullptr;};
+          inline bool getExpressSupport() const { DARABONBA_PTR_GET_DEFAULT(expressSupport_, false) };
+          inline EnhancedNetwork& setExpressSupport(bool expressSupport) { DARABONBA_PTR_SET_VALUE(expressSupport_, expressSupport) };
+
+
           // rssSupport Field Functions 
           bool hasRssSupport() const { return this->rssSupport_ != nullptr;};
           void deleteRssSupport() { this->rssSupport_ = nullptr;};
@@ -508,6 +517,7 @@ namespace Models
 
 
         protected:
+          shared_ptr<bool> expressSupport_ {};
           shared_ptr<bool> rssSupport_ {};
           shared_ptr<bool> sriovSupport_ {};
           shared_ptr<int32_t> vfQueueNumberPerEni_ {};

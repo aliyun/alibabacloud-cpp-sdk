@@ -224,12 +224,14 @@ namespace Models
     class EnhancedNetwork : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const EnhancedNetwork& obj) { 
+        DARABONBA_PTR_TO_JSON(EnableExpress, enableExpress_);
         DARABONBA_PTR_TO_JSON(EnableRss, enableRss_);
         DARABONBA_PTR_TO_JSON(EnableSriov, enableSriov_);
         DARABONBA_PTR_TO_JSON(VirtualFunctionQuantity, virtualFunctionQuantity_);
         DARABONBA_PTR_TO_JSON(VirtualFunctionTotalQueueNumber, virtualFunctionTotalQueueNumber_);
       };
       friend void from_json(const Darabonba::Json& j, EnhancedNetwork& obj) { 
+        DARABONBA_PTR_FROM_JSON(EnableExpress, enableExpress_);
         DARABONBA_PTR_FROM_JSON(EnableRss, enableRss_);
         DARABONBA_PTR_FROM_JSON(EnableSriov, enableSriov_);
         DARABONBA_PTR_FROM_JSON(VirtualFunctionQuantity, virtualFunctionQuantity_);
@@ -246,8 +248,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->enableRss_ == nullptr
-        && this->enableSriov_ == nullptr && this->virtualFunctionQuantity_ == nullptr && this->virtualFunctionTotalQueueNumber_ == nullptr; };
+      virtual bool empty() const override { return this->enableExpress_ == nullptr
+        && this->enableRss_ == nullptr && this->enableSriov_ == nullptr && this->virtualFunctionQuantity_ == nullptr && this->virtualFunctionTotalQueueNumber_ == nullptr; };
+      // enableExpress Field Functions 
+      bool hasEnableExpress() const { return this->enableExpress_ != nullptr;};
+      void deleteEnableExpress() { this->enableExpress_ = nullptr;};
+      inline bool getEnableExpress() const { DARABONBA_PTR_GET_DEFAULT(enableExpress_, false) };
+      inline EnhancedNetwork& setEnableExpress(bool enableExpress) { DARABONBA_PTR_SET_VALUE(enableExpress_, enableExpress) };
+
+
       // enableRss Field Functions 
       bool hasEnableRss() const { return this->enableRss_ != nullptr;};
       void deleteEnableRss() { this->enableRss_ = nullptr;};
@@ -277,6 +286,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<bool> enableExpress_ {};
       // > This parameter is not publicly available.
       shared_ptr<bool> enableRss_ {};
       // > This parameter is not publicly available.
@@ -621,7 +631,7 @@ namespace Models
   protected:
     // > This parameter is deprecated.
     shared_ptr<string> businessType_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
     // The network connectivity tracking configuration of the ENI.
     shared_ptr<CreateNetworkInterfaceRequest::ConnectionTrackingConfiguration> connectionTrackingConfiguration_ {};

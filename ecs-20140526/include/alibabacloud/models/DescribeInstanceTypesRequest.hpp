@@ -492,29 +492,29 @@ namespace Models
     shared_ptr<vector<string>> additionalAttributes_ {};
     // The CPU architecture. Valid values:
     shared_ptr<string> cpuArchitecture_ {};
-    // The CPU architectures to query. Array length: 1 to 2.
+    // The specified CPU architectures to query. Array length: 1 to 2.
     shared_ptr<vector<string>> cpuArchitectures_ {};
     // The GPU type.
     shared_ptr<string> GPUSpec_ {};
-    // The GPU types to query. Array length: 1 to 10.
+    // The specified GPU types to query. Array length: 1 to 10.
     shared_ptr<vector<string>> gpuSpecs_ {};
-    // The instance type categories to query. Array length: 1 to 10.
+    // The specified instance type categories to query. Array length: 1 to 10.
     shared_ptr<vector<string>> instanceCategories_ {};
     // The instance type category. Valid values:
     shared_ptr<string> instanceCategory_ {};
     // The level of the instance family. Valid values:
     shared_ptr<string> instanceFamilyLevel_ {};
-    // The instance families to query. Array length: 1 to 10.
+    // The specified instance families to query. Array length: 1 to 10.
     shared_ptr<vector<string>> instanceTypeFamilies_ {};
     // The instance family to which the instance type belongs. For more information, see [DescribeInstanceTypeFamilies](https://help.aliyun.com/document_detail/25621.html).
     shared_ptr<string> instanceTypeFamily_ {};
     // The specified instance types. Array length: 1 to 10. If this parameter is not specified, information about all instance types is queried by default.
     shared_ptr<vector<string>> instanceTypes_ {};
-    // The local disk types to query. Array length: 1 to 2.
+    // The specified local disk types. Array length: 1 to 2.
     shared_ptr<vector<string>> localStorageCategories_ {};
     // The local disk type. For more information, see [Local disks](~~63138#section_n2w_8yc_5u1~~). Valid values:
     shared_ptr<string> localStorageCategory_ {};
-    // The maximum number of entries per page for paging query. Maximum value: 1600.
+    // The maximum number of entries per page for a paged query. Maximum value: 1600. This parameter is used for paging.
     shared_ptr<int64_t> maxResults_ {};
     // The expected maximum number of vCPU cores when querying instance types. Valid values: positive integers.
     shared_ptr<int32_t> maximumCpuCoreCount_ {};
@@ -536,17 +536,17 @@ namespace Models
     shared_ptr<float> minimumCpuTurboFrequency_ {};
     // The expected minimum number of cloud disks that can be attached when querying instance types.
     shared_ptr<int32_t> minimumDiskQuantity_ {};
-    // The expected minimum number of IPv6 addresses per Elastic Network Interface (ENI) network interface controller (NIC) when querying instance types.
+    // The expected minimum number of IPv6 addresses per Elastic Network Interface (ENI) when querying instance types.
     shared_ptr<int32_t> minimumEniIpv6AddressQuantity_ {};
-    // The expected minimum number of IPv4 addresses per Elastic Network Interface (ENI) network interface controller (NIC) when querying instance types.
+    // The expected minimum number of IPv4 addresses per Elastic Network Interface (ENI) when querying instance types.
     shared_ptr<int32_t> minimumEniPrivateIpAddressQuantity_ {};
-    // The expected minimum number of Elastic Network Interfaces (ENIs) that can be attached per network interface controller (NIC) when querying instance types.
+    // The expected minimum number of Elastic Network Interfaces (ENIs) that can be attached when querying instance types.
     shared_ptr<int32_t> minimumEniQuantity_ {};
-    // The expected minimum number of Elastic RDMA Interfaces (ERIs) per network interface controller (NIC) when querying instance types.
+    // The expected minimum number of Elastic RDMA Interfaces (ERIs) when querying instance types.
     shared_ptr<int32_t> minimumEriQuantity_ {};
     // The expected minimum number of GPUs when querying instance types. Valid values: positive integers.
     shared_ptr<int32_t> minimumGPUAmount_ {};
-    // The expected minimum initial vCPU CPU credits for burstable instances t5 and t6 when querying instance types.
+    // The expected minimum initial vCPU credits for burstable instances t5 and t6 when querying instance types.
     shared_ptr<int32_t> minimumInitialCredit_ {};
     // The expected minimum inbound internal bandwidth when querying instance types. Unit: kbit/s.
     shared_ptr<int32_t> minimumInstanceBandwidthRx_ {};
@@ -566,7 +566,7 @@ namespace Models
     shared_ptr<int32_t> minimumPrimaryEniQueueNumber_ {};
     // The expected minimum number of QueuePair (QP) queues per Elastic RDMA Interface (ERI) when querying instance types.
     shared_ptr<int32_t> minimumQueuePairNumber_ {};
-    // The expected minimum number of default queues for secondary Elastic Network Interfaces (ENIs) per network interface controller (NIC) when querying instance types.
+    // The expected minimum number of default queues for the secondary Elastic Network Interface (ENI) when querying instance types.
     shared_ptr<int32_t> minimumSecondaryEniQueueNumber_ {};
     // The query token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first call.
     shared_ptr<string> nextToken_ {};
@@ -576,7 +576,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The processor model.
     shared_ptr<string> physicalProcessorModel_ {};
-    // The processor models to query. Array length: 1 to 10.
+    // The specified processor models to query. Array length: 1 to 10.
     shared_ptr<vector<string>> physicalProcessorModels_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -188,9 +188,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the instance, disk, and primary ENI. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+      // The tag key of the instance, disk, and primary ENI. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the instance, disk, and primary ENI. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+      // The tag value of the instance, disk, and primary ENI. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -332,21 +332,21 @@ namespace Models
       shared_ptr<string> description_ {};
       // The mount point of the data disk.
       shared_ptr<string> device_ {};
-      // The name of the data disk. The name must be 2 to 128 characters in length and can contain letters, digits, and Unicode characters classified under the letter category (including Chinese characters). The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+      // The name of the data disk. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). The name supports characters categorized as letters in Unicode, including Chinese characters.
       shared_ptr<string> diskName_ {};
       // > This parameter is not publicly available.
       shared_ptr<string> encryptAlgorithm_ {};
       // Specifies whether to encrypt data disk N.
       shared_ptr<bool> encrypted_ {};
-      // The Key Management Service (KMS) key ID for the disk.
+      // The ID of the Key Management Service (KMS) key used by the disk.
       shared_ptr<string> KMSKeyId_ {};
-      // The performance level (PL) of the enterprise SSD used as a data disk. The value of N must be the same as that in `DataDisk.N.Category=cloud_essd`. Settings for the performance level. If the data disk is a standard SSD, this parameter is ignored. Valid values:
+      // The performance level of the enterprise SSD used as a data disk. Settings depend on the disk category. The value of N must be the same as that in `DataDisk.N.Category=cloud_essd`. Valid values:
       shared_ptr<string> performanceLevel_ {};
       // The size of data disk N, in GiB. Valid values of N: 1 to 16. Valid values:
       shared_ptr<int32_t> size_ {};
-      // The snapshot ID used to create data disk N. Valid values of N: 1 to 16.
+      // The ID of the snapshot used to create data disk N. Valid values of N: 1 to 16.
       shared_ptr<string> snapshotId_ {};
-      // The ID of the dedicated block storage cluster. If you want to use disks in a dedicated block storage cluster as data disks when you create an ECS instance, set this parameter.
+      // The ID of the dedicated block storage cluster. If you want to use disks in a dedicated block storage cluster as data disks when you create the ECS instance, set this parameter.
       shared_ptr<string> storageClusterId_ {};
     };
 
@@ -483,9 +483,9 @@ namespace Models
       shared_ptr<string> category_ {};
       // The description of the system disk. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
       shared_ptr<string> description_ {};
-      // The name of the system disk. The name must be 2 to 128 characters in length and can contain letters, digits, and Unicode characters classified under the letter category (including Chinese characters). The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+      // The name of the system disk. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). The name supports characters categorized as letters in Unicode, including Chinese characters.
       shared_ptr<string> diskName_ {};
-      // The performance level (PL) of the enterprise SSD (ESSD) used as the system disk. Settings for the performance level. If the system disk is a standard SSD, this parameter is ignored. Valid values:
+      // The performance level of the enterprise SSD used as the system disk. Settings depend on the disk category. Valid values:
       shared_ptr<string> performanceLevel_ {};
       // The size of the system disk, in GiB. Valid values:
       shared_ptr<int32_t> size_ {};
@@ -531,9 +531,9 @@ namespace Models
 
 
     protected:
-      // The ID of the private pool. The ID of an elasticity assurance or capacity reservation.
+      // The ID of the private pool. The ID of the private pool is the same as that of the elasticity assurance or capacity reservation.
       shared_ptr<string> id_ {};
-      // The private pool option for the instance launch. A private pool is generated when an elasticity assurance or capacity reservation takes effect. You can select a private pool when you start an instance. Valid values:
+      // The private pool options for the instance launch. A private pool is generated when an elasticity assurance or a capacity reservation takes effect. You can select a private pool when you start an instance. Valid values:
       shared_ptr<string> matchCriteria_ {};
     };
 
@@ -1033,9 +1033,9 @@ namespace Models
     shared_ptr<bool> autoRenew_ {};
     // The auto-renewal period. This parameter is required when AutoRenew is set to True.
     shared_ptr<int32_t> autoRenewPeriod_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The cluster ID of the instance.
+    // The ID of the cluster to which the instance belongs.
     shared_ptr<string> clusterId_ {};
     // The running mode of the burstable instance. Valid values:
     shared_ptr<string> creditSpecification_ {};
@@ -1043,9 +1043,9 @@ namespace Models
     shared_ptr<vector<CreateInstanceRequest::DataDisk>> dataDisk_ {};
     // The ID of the dedicated host.
     shared_ptr<string> dedicatedHostId_ {};
-    // The release protection attribute of the instance. Specifies whether the instance can be released from the ECS console or by calling the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation.
+    // The release protection attribute of the instance. Specifies whether the instance can be released from the console or by calling the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation.
     shared_ptr<bool> deletionProtection_ {};
-    // The group number of the instance in the deployment set. This parameter takes effect only when the deployment set uses the high availability group strategy (AvailabilityGroup). Valid values: 1 to 7.
+    // The number of the deployment set group to which to deploy the instance in the deployment set. This parameter takes effect only when the deployment set uses the high availability group strategy (AvailabilityGroup). Valid values: 1 to 7.
     shared_ptr<int32_t> deploymentSetGroupNo_ {};
     // The ID of the deployment set.
     shared_ptr<string> deploymentSetId_ {};
@@ -1065,15 +1065,15 @@ namespace Models
     shared_ptr<string> httpTokens_ {};
     // The name of the image family. You can set this parameter to obtain the latest available image from the specified image family to create the instance.
     shared_ptr<string> imageFamily_ {};
-    // The ID of the image used to start the instance. To use an Alibaba Cloud Marketplace image, you can view the `ImageId` on the image product page. If you do not specify `ImageFamily` to select the latest available image from an image family, this parameter is required.
+    // The ID of the image used to start the instance. To use an Alibaba Cloud Marketplace image, you can view the `ImageId` on the product page of the Alibaba Cloud Marketplace image. This parameter is required if you do not specify `ImageFamily` to select the latest available image from an image family.
     shared_ptr<string> imageId_ {};
     // The internal IP address of the instance.
     shared_ptr<string> innerIpAddress_ {};
     // The billing method of the instance. Valid values:
     shared_ptr<string> instanceChargeType_ {};
-    // The name of the instance. The name must be 2 to 128 characters in length and can contain letters, digits, and Unicode characters classified under the letter category (including Chinese characters). The name can also contain colons (:), underscores (_), periods (.), and hyphens (-). If this parameter is not specified, the default value is the instance ID.
+    // The name of the instance. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). The name supports characters categorized as letters in Unicode, including Chinese characters. If this parameter is not specified, the default value is the instance ID.
     shared_ptr<string> instanceName_ {};
-    // The instance type.
+    // The instance type of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
@@ -1083,8 +1083,8 @@ namespace Models
     shared_ptr<int32_t> internetMaxBandwidthIn_ {};
     // The maximum outbound public bandwidth, in Mbit/s. Valid values: 0 to 100.
     shared_ptr<int32_t> internetMaxBandwidthOut_ {};
-    // Specifies whether the instance is an I/O optimized instance. The I/O optimization improves instance performance. Valid values:
-    // The default value for [retired instance types](https://help.aliyun.com/document_detail/55263.html) is none.
+    // Specifies whether the instance is I/O optimization enabled. Valid values:
+    // The default value for [retired instance types](https://help.aliyun.com/document_detail/55263.html) is none. For other instance types, the default value is optimized.
     shared_ptr<string> ioOptimized_ {};
     // The name of the key pair.
     shared_ptr<string> keyPairName_ {};
@@ -1100,7 +1100,7 @@ namespace Models
     shared_ptr<int32_t> period_ {};
     // The unit of the subscription period. Valid values:
     shared_ptr<string> periodUnit_ {};
-    // The private IP address of the instance. The IP address must be an available address within the CIDR block of the specified vSwitch (VSwitchId).
+    // The private IP address of the instance. The IP address must be an available address in the CIDR block of the specified vSwitch (VSwitchId).
     shared_ptr<string> privateIpAddress_ {};
     // The name of the instance RAM role. You can call the RAM API [ListRoles](https://help.aliyun.com/document_detail/28713.html) to query the instance RAM roles that you have created.
     shared_ptr<string> ramRoleName_ {};
@@ -1118,9 +1118,9 @@ namespace Models
     shared_ptr<string> securityGroupId_ {};
     // The protection period of the spot instance, in hours. Default value: 1. Valid values:
     shared_ptr<int32_t> spotDuration_ {};
-    // The interruption pattern of the spot instance. Valid values:
+    // The break mode of the spot instance. Valid values:
     shared_ptr<string> spotInterruptionBehavior_ {};
-    // The maximum hourly price of the instance. A maximum of three decimal places is supported. This parameter takes effect only when `SpotStrategy` is set to `SpotWithPriceLimit`.
+    // The maximum hourly price of the instance. A maximum of three decimal places are supported. This parameter takes effect only when `SpotStrategy` is set to `SpotWithPriceLimit`.
     shared_ptr<float> spotPriceLimit_ {};
     // The bidding policy for the instance. This parameter takes effect only when `InstanceChargeType` is set to `PostPaid`. Valid values:
     shared_ptr<string> spotStrategy_ {};
@@ -1134,9 +1134,9 @@ namespace Models
     shared_ptr<string> tenancy_ {};
     // Specifies whether to use the virtual machine system configuration provided by Alibaba Cloud (Windows: NTP and KMS. Linux: NTP and YUM).
     shared_ptr<bool> useAdditionalService_ {};
-    // The instance user data. The data must be encoded in Base64. The raw data can be up to 32 KB in size.
+    // Instance user data of the instance. Instance user data must be encoded in Base64. The raw data can be up to 32 KB in size.
     shared_ptr<string> userData_ {};
-    // The vSwitch ID. This parameter is required when you create a VPC-connected instance. You can call [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) to query created vSwitches.
+    // The vSwitch ID. This parameter is required if you create a VPC-connected instance. You can call [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) to query created vSwitches.
     shared_ptr<string> vSwitchId_ {};
     // The virtual local area network ID.
     shared_ptr<string> vlanId_ {};

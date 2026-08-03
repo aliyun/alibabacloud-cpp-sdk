@@ -649,10 +649,10 @@ namespace Models
     shared_ptr<CreateNetworkInterfaceResponseBody::PrivateIpSets> privateIpSets_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<CreateNetworkInterfaceResponseBody::SecurityGroupIds> securityGroupIds_ {};
-    // The Virtual Network Operator (VNO) ID associated with the network interface controller (NIC).
+    // The ID of the Virtual Network Operator (VNO) to which the network interface controller (NIC) corresponds.
     shared_ptr<int64_t> serviceID_ {};
     // Indicates whether the user of the network interface controller (NIC) is an Alibaba Cloud service or a VNO.
     shared_ptr<bool> serviceManaged_ {};

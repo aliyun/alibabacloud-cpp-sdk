@@ -568,7 +568,7 @@ namespace Models
       shared_ptr<string> networkInterfaceTrafficMode_ {};
       // The number of queues supported by the network interface controller (NIC).
       shared_ptr<int32_t> queueNumber_ {};
-      // The number of queues supported by the RDMA ENI.
+      // The number of queues supported by the RDMA network interface.
       shared_ptr<int32_t> queuePairNumber_ {};
     };
 
@@ -778,12 +778,14 @@ namespace Models
     class EnhancedNetwork : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const EnhancedNetwork& obj) { 
+        DARABONBA_PTR_TO_JSON(EnableExpress, enableExpress_);
         DARABONBA_PTR_TO_JSON(EnableRss, enableRss_);
         DARABONBA_PTR_TO_JSON(EnableSriov, enableSriov_);
         DARABONBA_PTR_TO_JSON(VirtualFunctionQuantity, virtualFunctionQuantity_);
         DARABONBA_PTR_TO_JSON(VirtualFunctionTotalQueueNumber, virtualFunctionTotalQueueNumber_);
       };
       friend void from_json(const Darabonba::Json& j, EnhancedNetwork& obj) { 
+        DARABONBA_PTR_FROM_JSON(EnableExpress, enableExpress_);
         DARABONBA_PTR_FROM_JSON(EnableRss, enableRss_);
         DARABONBA_PTR_FROM_JSON(EnableSriov, enableSriov_);
         DARABONBA_PTR_FROM_JSON(VirtualFunctionQuantity, virtualFunctionQuantity_);
@@ -800,8 +802,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->enableRss_ == nullptr
-        && this->enableSriov_ == nullptr && this->virtualFunctionQuantity_ == nullptr && this->virtualFunctionTotalQueueNumber_ == nullptr; };
+      virtual bool empty() const override { return this->enableExpress_ == nullptr
+        && this->enableRss_ == nullptr && this->enableSriov_ == nullptr && this->virtualFunctionQuantity_ == nullptr && this->virtualFunctionTotalQueueNumber_ == nullptr; };
+      // enableExpress Field Functions 
+      bool hasEnableExpress() const { return this->enableExpress_ != nullptr;};
+      void deleteEnableExpress() { this->enableExpress_ = nullptr;};
+      inline bool getEnableExpress() const { DARABONBA_PTR_GET_DEFAULT(enableExpress_, false) };
+      inline EnhancedNetwork& setEnableExpress(bool enableExpress) { DARABONBA_PTR_SET_VALUE(enableExpress_, enableExpress) };
+
+
       // enableRss Field Functions 
       bool hasEnableRss() const { return this->enableRss_ != nullptr;};
       void deleteEnableRss() { this->enableRss_ = nullptr;};
@@ -831,6 +840,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<bool> enableExpress_ {};
       // > This parameter is not yet available for use.
       shared_ptr<bool> enableRss_ {};
       // This parameter is not publicly available.
@@ -886,11 +896,11 @@ namespace Models
 
 
     protected:
-      // The timeout period for a TCP connection in the TIME_WAIT or CLOSED state. Unit: seconds. Valid values: an integer from 3 to 15.
+      // The timeout period for TCP connections in the TIME_WAIT or CLOSED state. Unit: seconds. Valid values: an integer from 3 to 15.
       shared_ptr<int32_t> tcpClosedAndTimeWaitTimeout_ {};
-      // The timeout period for an established TCP connection. Unit: seconds. Valid values: [30, 60, 80, 100, 200, 300, 500, 700, 910].
+      // The timeout period for established TCP connections. Unit: seconds. Valid values: [30, 60, 80, 100, 200, 300, 500, 700, 910].
       shared_ptr<int32_t> tcpEstablishedTimeout_ {};
-      // The timeout period for a UDP flow. Unit: seconds. Valid values: [10, 20, 30, 60, 80, 100].
+      // The timeout period for UDP flows. Unit: seconds. Valid values: [10, 20, 30, 60, 80, 100].
       shared_ptr<int32_t> udpTimeout_ {};
     };
 
@@ -1520,7 +1530,7 @@ namespace Models
     shared_ptr<int32_t> queuePairNumber_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group to which the instance belongs. When you use this parameter to filter resources, the resource count cannot exceed 1000.
+    // The ID of the resource group to which the instance belongs. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::SecurityGroupIds> securityGroupIds_ {};
     // The ID of the Virtual Network Operator (VNO) to which the network interface controller (NIC) belongs.

@@ -144,12 +144,14 @@ namespace Models
     class EnhancedNetwork : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const EnhancedNetwork& obj) { 
+        DARABONBA_PTR_TO_JSON(EnableExpress, enableExpress_);
         DARABONBA_PTR_TO_JSON(EnableRss, enableRss_);
         DARABONBA_PTR_TO_JSON(EnableSriov, enableSriov_);
         DARABONBA_PTR_TO_JSON(VirtualFunctionQuantity, virtualFunctionQuantity_);
         DARABONBA_PTR_TO_JSON(VirtualFunctionTotalQueueNumber, virtualFunctionTotalQueueNumber_);
       };
       friend void from_json(const Darabonba::Json& j, EnhancedNetwork& obj) { 
+        DARABONBA_PTR_FROM_JSON(EnableExpress, enableExpress_);
         DARABONBA_PTR_FROM_JSON(EnableRss, enableRss_);
         DARABONBA_PTR_FROM_JSON(EnableSriov, enableSriov_);
         DARABONBA_PTR_FROM_JSON(VirtualFunctionQuantity, virtualFunctionQuantity_);
@@ -166,8 +168,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->enableRss_ == nullptr
-        && this->enableSriov_ == nullptr && this->virtualFunctionQuantity_ == nullptr && this->virtualFunctionTotalQueueNumber_ == nullptr; };
+      virtual bool empty() const override { return this->enableExpress_ == nullptr
+        && this->enableRss_ == nullptr && this->enableSriov_ == nullptr && this->virtualFunctionQuantity_ == nullptr && this->virtualFunctionTotalQueueNumber_ == nullptr; };
+      // enableExpress Field Functions 
+      bool hasEnableExpress() const { return this->enableExpress_ != nullptr;};
+      void deleteEnableExpress() { this->enableExpress_ = nullptr;};
+      inline bool getEnableExpress() const { DARABONBA_PTR_GET_DEFAULT(enableExpress_, false) };
+      inline EnhancedNetwork& setEnableExpress(bool enableExpress) { DARABONBA_PTR_SET_VALUE(enableExpress_, enableExpress) };
+
+
       // enableRss Field Functions 
       bool hasEnableRss() const { return this->enableRss_ != nullptr;};
       void deleteEnableRss() { this->enableRss_ = nullptr;};
@@ -197,6 +206,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<bool> enableExpress_ {};
       // > This parameter is not publicly available.
       shared_ptr<bool> enableRss_ {};
       // This parameter is not publicly available.
@@ -252,7 +262,7 @@ namespace Models
 
 
     protected:
-      // The timeout period for TCP connections in the TIME_WAIT or CLOSED state. Unit: seconds. Valid values: integers from 3 to 15.
+      // The timeout period for TCP connections in the TIME_WAIT and CLOSED states. Unit: seconds. Valid values: integers from 3 to 15.
       shared_ptr<int32_t> tcpClosedAndTimeWaitTimeout_ {};
       // The timeout period for established TCP connections. Unit: seconds. Valid values: [30, 60, 80, 100, 200, 300, 500, 700, 910].
       shared_ptr<int32_t> tcpEstablishedTimeout_ {};
@@ -413,9 +423,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> networkInterfaceId_ {};
-    // The name of the network interface controller (NIC). The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. The name can contain characters under the letter categorization in Unicode, including English letters, Chinese characters, and digits. It can also contain colons (:), underscores (_), periods (.), or hyphens (-).
+    // The name of the network interface controller (NIC). The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`. The name can contain characters under the letter categorization in Unicode, including English letters, Chinese characters, and digits. It can also contain colons (:), underscores (_), periods (.), and hyphens (-).
     shared_ptr<string> networkInterfaceName_ {};
-    // The communication parameters of the network interface controller (NIC).
+    // The communication parameter of the network interface controller (NIC).
     shared_ptr<ModifyNetworkInterfaceAttributeRequest::NetworkInterfaceTrafficConfig> networkInterfaceTrafficConfig_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

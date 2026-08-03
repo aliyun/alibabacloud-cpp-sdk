@@ -352,9 +352,9 @@ namespace Models
 
 
     protected:
-      // The bandwidth weight value of the instance. The valid values vary by instance type. To query the supported bandwidth weight tiers for a specific instance type, call DescribeInstanceTypes. The BandwidthWeighting field in the response indicates the supported bandwidth weight tiers. You can use the name field in the returned dictionary values, such as Vpc-L1 and Ebs-L1.
+      // The bandwidth weight value of the instance. The valid values vary by instance type. To query the supported bandwidth weight levels for a specific instance type, call DescribeInstanceTypes. The BandwidthWeighting field in the response indicates the supported bandwidth weight levels. You can use the name field in the returned values as the dictionary value, such as Vpc-L1 or Ebs-L1.
       shared_ptr<string> bandwidthWeighting_ {};
-      // Specifies whether to enable the Jumbo Frame feature for the instance. Valid values:
+      // Specifies whether to enable the Jumbo frame feature for the instance. Valid values:
       shared_ptr<bool> enableJumboFrame_ {};
       // > This parameter is in invitational preview and is not publicly available.
       shared_ptr<bool> enableNetworkEncryption_ {};
@@ -562,9 +562,9 @@ namespace Models
       shared_ptr<bool> deleteOnRelease_ {};
       // The description of the network interface controller (NIC).
       shared_ptr<string> description_ {};
-      // The type of the network interface controller (NIC). The valid values of N cannot exceed the maximum number of NICs supported by the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html) or call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) to query the maximum number of NICs supported by the target instance type.
+      // The type of the network interface controller (NIC). Valid values of N cannot exceed the number of NICs supported by the instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html) or invoke [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) to query the number of NICs supported by the target instance type.
       shared_ptr<string> instanceType_ {};
-      // The IPv6 addresses to assign to the primary ENI. You can specify up to 10 IPv6 addresses. Valid values of the second N: 1 to 10.
+      // Specifies one or more IPv6 addresses for the primary ENI. You can specify up to 10 IPv6 addresses. Valid values of the second N: 1 to 10.
       shared_ptr<vector<string>> ipv6Address_ {};
       // The number of randomly generated IPv6 addresses for the primary ENI. Valid values: 1 to 10.
       shared_ptr<int64_t> ipv6AddressCount_ {};
@@ -572,19 +572,19 @@ namespace Models
       shared_ptr<int32_t> networkCardIndex_ {};
       // The ID of the network interface controller (NIC) to attach to the instance.
       shared_ptr<string> networkInterfaceId_ {};
-      // The name of the network interface controller (NIC). The name must be 2 to 128 characters in length and can contain letters, digits, and characters that are supported by the Unicode letter categorization. The name can also contain colons (:), underscores (_), periods (.), or hyphens (-).
+      // The name of the network interface controller (NIC). The name must be 2 to 128 characters in length and can contain letters, digits, and characters categorized under the Unicode letter categorization (which includes characters from various languages such as English, Chinese, and digits). The name can contain colons (:), underscores (_), periods (.), or hyphens (-).
       shared_ptr<string> networkInterfaceName_ {};
       // The communication mode of the ENI. Valid values:
       shared_ptr<string> networkInterfaceTrafficMode_ {};
-      // Adds a network interface controller (NIC) and sets the primary IP address.
+      // Adds a network interface controller (NIC) and settings for the primary IP address.
       shared_ptr<string> primaryIpAddress_ {};
-      // The number of queues supported by the network interface controller (NIC).
+      // The number of queues for the network interface controller (NIC).
       shared_ptr<int32_t> queueNumber_ {};
-      // The number of queues supported by the RDMA ENI.
+      // The number of queues for the RDMA network interface.
       shared_ptr<int64_t> queuePairNumber_ {};
       // The inbound queue depth of the network interface controller (NIC).
       shared_ptr<int32_t> rxQueueSize_ {};
-      // The number of secondary private IPv4 addresses to assign to the ENI. Valid values: 1 to 49.
+      // The number of secondary private IPv4 addresses for the ENI. Valid values: 1 to 49.
       shared_ptr<int32_t> secondaryPrivateIpAddressCount_ {};
       // The ID of the security group to which the network interface controller (NIC) belongs.
       shared_ptr<string> securityGroupId_ {};
@@ -799,23 +799,23 @@ namespace Models
       shared_ptr<string> description_ {};
       // The mount point of the data disk. The naming conventions for mount points vary based on the number of data disks attached:
       shared_ptr<string> device_ {};
-      // The name of the data disk. The name must be 2 to 128 characters in length and can contain letters, digits, and characters that are supported by the Unicode letter category. The name can also contain colons (:), underscores (_), periods (.), or hyphens (-).
+      // The name of the data disk. The name must be 2 to 128 characters in length and can contain letters, digits, and characters categorized as letter in Unicode. The name can contain colons (:), underscores (_), periods (.), or hyphens (-).
       shared_ptr<string> diskName_ {};
       // > This parameter is not publicly available.
       shared_ptr<string> encryptAlgorithm_ {};
       // Specifies whether to encrypt data disk N. Valid values:
       shared_ptr<string> encrypted_ {};
-      // The ID of the Key Management Service (KMS) key for the data disk.
+      // The KMS key ID for the data disk.
       shared_ptr<string> KMSKeyId_ {};
-      // The performance level of the data disk that is an enterprise SSD (ESSD). The value of N must be the same as that in `DataDisk.N.Category=cloud_essd`. Valid values:
+      // Settings for the performance level of the data disk when you create an enterprise SSD as a data disk. The value of N must be the same as that in `DataDisk.N.Category=cloud_essd`. Valid values:
       shared_ptr<string> performanceLevel_ {};
-      // The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - baseline performance}.
+      // The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1000 × Capacity - baseline performance}.
       shared_ptr<int64_t> provisionedIops_ {};
       // The size of data disk N. Valid values of N: 1 to 16. Unit: GiB. Valid values:
       shared_ptr<int32_t> size_ {};
       // The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16.
       shared_ptr<string> snapshotId_ {};
-      // The ID of the dedicated block storage cluster. To use a disk in a dedicated block storage cluster as the data disk when you create an ECS instance, specify this parameter.
+      // The ID of the dedicated block storage cluster. If you want to use a disk in a dedicated block storage cluster as the data disk when you create an ECS instance, specify this parameter.
       shared_ptr<string> storageClusterId_ {};
     };
 
@@ -847,7 +847,7 @@ namespace Models
 
 
     protected:
-      // The Precision Time Protocol (PTP) status. Valid values:
+      // The PTP status. Valid values:
       shared_ptr<string> ptpStatus_ {};
     };
 
@@ -1056,9 +1056,9 @@ namespace Models
       shared_ptr<string> encrypted_ {};
       // The KMS key ID of the system disk.
       shared_ptr<string> KMSKeyId_ {};
-      // The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - baseline performance}.
+      // The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1000 × Capacity - baseline performance}.
       shared_ptr<int64_t> provisionedIops_ {};
-      // The ID of the dedicated block storage cluster. To use a disk in a dedicated block storage cluster as the system disk when you create an ECS instance, specify this parameter.
+      // The ID of the dedicated block storage cluster. If you want to use a disk in a dedicated block storage cluster as the system disk when you create an ECS instance, specify this parameter.
       shared_ptr<string> storageClusterId_ {};
     };
 
@@ -1144,7 +1144,7 @@ namespace Models
 
 
     protected:
-      // The ID of the dedicated host cluster to which the ECS instance belongs. The system automatically selects a dedicated host in the cluster to deploy the ECS instance.
+      // The ID of the dedicated host cluster to which the ECS instance belongs. The system automatically selects a dedicated host in the specified cluster to deploy the ECS instance.
       shared_ptr<string> dedicatedHostClusterId_ {};
     };
 
@@ -1188,7 +1188,7 @@ namespace Models
     protected:
       // The private pool ID, which is the ID of the elasticity assurance or capacity reservation.
       shared_ptr<string> id_ {};
-      // The private pool options for instance startup. After an elasticity assurance or capacity reservation takes effect, a private pool is generated for instance startup. Valid values:
+      // The private pool capacity option for instance startup. A private pool is generated after an elasticity assurance or capacity reservation takes effect. You can select a private pool when you start an instance. Valid values:
       shared_ptr<string> matchCriteria_ {};
     };
 
@@ -1931,7 +1931,7 @@ namespace Models
     shared_ptr<string> dedicatedHostId_ {};
     // The release protection attribute of the instance. Specifies whether the instance can be released from the console or by calling [DeleteInstance](https://help.aliyun.com/document_detail/25507.html). Valid values:
     shared_ptr<bool> deletionProtection_ {};
-    // If the deployment set uses the high availability group strategy (AvailabilityGroup), you can use this parameter to specify the group number of the instance in the deployment set. Valid values: 1 to 7.
+    // If the deployment set policy is set to the high availability group policy (AvailabilityGroup), you can use this parameter to specify the group number of the instance in the deployment set. Valid values: 1 to 7.
     shared_ptr<int32_t> deploymentSetGroupNo_ {};
     // The ID of the deployment set.
     shared_ptr<string> deploymentSetId_ {};
@@ -1941,7 +1941,7 @@ namespace Models
     shared_ptr<bool> dryRun_ {};
     // The hostname of the instance. The following limits apply:
     shared_ptr<string> hostName_ {};
-    // The hostnames of the instances. You can specify a different hostname for each instance when you create multiple instances.
+    // Specifies a different hostname for each instance when you create multiple instances.
     shared_ptr<vector<string>> hostNames_ {};
     // The ID of the HPC cluster to which the instance belongs.
     shared_ptr<string> hpcClusterId_ {};
@@ -1969,9 +1969,9 @@ namespace Models
     shared_ptr<int32_t> internetMaxBandwidthIn_ {};
     // The maximum outbound public bandwidth, in Mbit/s. Valid values: 0 to 100.
     shared_ptr<int32_t> internetMaxBandwidthOut_ {};
-    // Specifies whether the instance is an I/O optimized instance. The default value for [retired instance types](https://help.aliyun.com/document_detail/55263.html) is none, which indicates that I/O optimization is disabled. The default value for other instance types is optimized. Valid values:
+    // Specifies whether the instance is an I/O optimized instance. The default value for [retired instance types](https://help.aliyun.com/document_detail/55263.html) is none, which indicates that the instance is not I/O optimization enabled. The default value for other instance types is optimized. Valid values:
     shared_ptr<string> ioOptimized_ {};
-    // The IPv6 addresses to assign to the primary ENI. You can specify up to 10 IPv6 addresses. Valid values of N: 1 to 10.
+    // Specifies one or more IPv6 addresses for the primary ENI. You can specify up to 10 IPv6 addresses. Valid values of N: 1 to 10.
     shared_ptr<vector<string>> ipv6Address_ {};
     // The number of randomly generated IPv6 addresses for the primary ENI. Valid values: 1 to 10.
     shared_ptr<int32_t> ipv6AddressCount_ {};
@@ -2021,7 +2021,7 @@ namespace Models
     shared_ptr<string> securityEnhancementStrategy_ {};
     // The ID of the security group to which the new instance belongs. Instances in the same security group can communicate with each other. The maximum number of instances that a security group can contain depends on the security group type. For more information, see the security group section in [Limits](~~25412#SecurityGroupQuota~~).
     shared_ptr<string> securityGroupId_ {};
-    // The IDs of the security groups to which to add the instance. The valid values of N depend on the maximum number of security groups to which an instance can belong. For more information, see [Security group limits](https://help.aliyun.com/document_detail/101348.html).
+    // Adds the instance to multiple security groups. Valid values of N depend on the maximum number of security groups to which an instance can belong. For more information, see [Security group limits](https://help.aliyun.com/document_detail/101348.html).
     shared_ptr<vector<string>> securityGroupIds_ {};
     // The retention period of the spot instance, in hours. Valid values:
     shared_ptr<int32_t> spotDuration_ {};
@@ -2031,7 +2031,7 @@ namespace Models
     shared_ptr<float> spotPriceLimit_ {};
     // The bidding policy for the pay-as-you-go instance. This parameter takes effect when the `InstanceChargeType` parameter is set to `PostPaid`. Valid values:
     shared_ptr<string> spotStrategy_ {};
-    // The storage set ID.
+    // The ID of the storage set.
     shared_ptr<string> storageSetId_ {};
     // The maximum number of partitions in the storage set. Valid values: greater than or equal to 1.
     shared_ptr<int32_t> storageSetPartitionNumber_ {};

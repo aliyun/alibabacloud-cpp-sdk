@@ -68,7 +68,7 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The order ID. This parameter is returned only when you create a subscription ECS instance (request parameter `InstanceChargeType=PrePaid`).
+    // The order ID. This parameter is returned only when you create a subscription ECS instance (the request parameter `InstanceChargeType=PrePaid`).
     shared_ptr<string> orderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

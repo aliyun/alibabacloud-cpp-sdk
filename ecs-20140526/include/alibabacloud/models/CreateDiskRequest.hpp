@@ -390,17 +390,17 @@ namespace Models
     shared_ptr<bool> burstingEnabled_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The description of the disk. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+    // The disk description. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
     // The category of the data disk. Valid values:
     shared_ptr<string> diskCategory_ {};
-    // The name of the disk. The name must be 2 to 128 characters in length and can contain characters that are categorized as letter in Unicode, including Chinese and English characters, and ASCII digits (0-9). The name can contain colons (:), underscores (_), periods (.), or hyphens (-). The name must start with a character that is categorized as letter in Unicode.
+    // The disk name. The name must be 2 to 128 characters in length and can contain characters that are classified as letter in Unicode (including English and Chinese characters) and ASCII digits (0-9). The name can contain colons (:), underscores (_), periods (.), or hyphens (-). The name must start with a character that is classified as letter in Unicode.
     shared_ptr<string> diskName_ {};
     // This parameter is not publicly available.
     shared_ptr<string> encryptAlgorithm_ {};
     // Specifies whether to encrypt the disk. Valid values:
     shared_ptr<bool> encrypted_ {};
-    // The ID of the subscription instance to which the subscription disk is automatically attached after the disk is created.
+    // Creates a subscription disk and automatically attaches it to the specified subscription instance.
     shared_ptr<string> instanceId_ {};
     // The ID of the Key Management Service (KMS) key used by the disk.
     shared_ptr<string> KMSKeyId_ {};
@@ -408,7 +408,7 @@ namespace Models
     shared_ptr<string> multiAttach_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The performance level of the enterprise SSD (ESSD) to create. Valid values:
+    // The performance level of the enterprise SSD (ESSD) disk. Valid values:
     shared_ptr<string> performanceLevel_ {};
     // The provisioned performance read/write IOPS of the ESSD AutoPL disk. Valid values:
     shared_ptr<int64_t> provisionedIops_ {};
@@ -422,15 +422,15 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The size of the disk. Unit: GiB. You must specify a value for this parameter. Valid values:
     shared_ptr<int32_t> size_ {};
-    // The ID of the snapshot to use to create the disk. Snapshots created on or before July 15, 2013 cannot be used to create disks.
+    // The snapshot ID that is used to create the disk. Snapshots created on or before July 15, 2013 cannot be used to create disks.
     shared_ptr<string> snapshotId_ {};
     // The ID of the dedicated block storage cluster. To create a disk in a specific dedicated block storage cluster, specify this parameter.
     shared_ptr<string> storageClusterId_ {};
-    // The ID of the storage set.
+    // The storage set ID.
     shared_ptr<string> storageSetId_ {};
     // The number of partitions in the storage set. Valid values: greater than or equal to 2, up to the privilege quota limit returned by calling [DescribeAccountAttributes](https://help.aliyun.com/document_detail/73772.html).
     shared_ptr<int32_t> storageSetPartitionNumber_ {};
-    // The list of tags for the disk.
+    // The tags of the disk.
     shared_ptr<vector<CreateDiskRequest::Tag>> tag_ {};
     // The ID of the zone in which to create a pay-as-you-go disk.
     shared_ptr<string> zoneId_ {};

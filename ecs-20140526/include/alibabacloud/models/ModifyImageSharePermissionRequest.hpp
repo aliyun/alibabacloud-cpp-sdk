@@ -135,12 +135,12 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud account ID to which you want to grant authorization to share the image. Valid values of N: 1 to 10. If you commit more than 10 Alibaba Cloud accounts at a time, the system processes only the first 10 accounts and ignores the rest.
+    // The Alibaba Cloud account ID for which you want to grant authorization to share the image. Valid values of N: 1 to 10. If you submit more than 10 Alibaba Cloud accounts in a single request, the system processes only the first 10 and ignores the rest.
     shared_ptr<vector<string>> addAccount_ {};
     shared_ptr<bool> dryRun_ {};
     // The ID of the custom image to be shared.
     // 
-    // >Notice: Sharing images encrypted with a service key is no longer supported. Only images encrypted with a customer master key (CMK) can be shared. An error is returned if you attempt to share an image encrypted with a service key.
+    // >Notice: Images encrypted with a service key can no longer be shared. Only images encrypted with a customer master key (CMK) can be shared. An error is returned if you attempt to share an image that uses service key encryption.
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
@@ -159,7 +159,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The Alibaba Cloud account ID from which you want to delete image sharing. Valid values of N: 1 to 10. If you commit more than 10 Alibaba Cloud accounts at a time, the system processes only the first 10 accounts and ignores the rest.
+    // The Alibaba Cloud account ID from which you want to delete image sharing. Valid values of N: 1 to 10. If you submit more than 10 Alibaba Cloud accounts in a single request, the system processes only the first 10 and ignores the rest.
     shared_ptr<vector<string>> removeAccount_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
