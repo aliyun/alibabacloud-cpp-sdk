@@ -42,6 +42,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DataStorageUsedCapacity, dataStorageUsedCapacity_);
         DARABONBA_PTR_TO_JSON(DataStorageUsedCapacityDetail, dataStorageUsedCapacityDetail_);
         DARABONBA_PTR_TO_JSON(LogProject, logProject_);
+        DARABONBA_PTR_TO_JSON(LogProjectState, logProjectState_);
+        DARABONBA_PTR_TO_JSON(LogProjectStateChangeAllowed, logProjectStateChangeAllowed_);
+        DARABONBA_PTR_TO_JSON(LogServiceDisabled, logServiceDisabled_);
         DARABONBA_PTR_TO_JSON(NormalizationLogStores, normalizationLogStores_);
         DARABONBA_PTR_TO_JSON(NormalizationLogViews, normalizationLogViews_);
         DARABONBA_PTR_TO_JSON(RecordLogStores, recordLogStores_);
@@ -56,6 +59,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DataStorageUsedCapacity, dataStorageUsedCapacity_);
         DARABONBA_PTR_FROM_JSON(DataStorageUsedCapacityDetail, dataStorageUsedCapacityDetail_);
         DARABONBA_PTR_FROM_JSON(LogProject, logProject_);
+        DARABONBA_PTR_FROM_JSON(LogProjectState, logProjectState_);
+        DARABONBA_PTR_FROM_JSON(LogProjectStateChangeAllowed, logProjectStateChangeAllowed_);
+        DARABONBA_PTR_FROM_JSON(LogServiceDisabled, logServiceDisabled_);
         DARABONBA_PTR_FROM_JSON(NormalizationLogStores, normalizationLogStores_);
         DARABONBA_PTR_FROM_JSON(NormalizationLogViews, normalizationLogViews_);
         DARABONBA_PTR_FROM_JSON(RecordLogStores, recordLogStores_);
@@ -124,7 +130,7 @@ namespace Models
         shared_ptr<string> logStoreName_ {};
         // The data storage duration.
         shared_ptr<int32_t> logStoreTtl_ {};
-        // The hot storage capacity used.
+        // The hot storage used capacity.
         shared_ptr<double> usedCapacity_ {};
       };
 
@@ -251,22 +257,22 @@ namespace Models
         // The log code.
         shared_ptr<string> logCode_ {};
         // The group to which the log belongs. Valid values:
-        // - host: host logs.
-        // - security: security logs.
+        // - host: Host logs.
+        // - security: Security logs.
         shared_ptr<string> logDeliveryGroup_ {};
-        // Indicates whether log delivery can be toggled. Log delivery cannot be enabled if the service is not purchased. Valid values:
+        // Indicates whether you are allowed to toggle the log delivery switch. Log delivery cannot be performed if the service is not purchased. Valid values:
         // - allow: Allowed.
         // - deny: Not allowed.
         shared_ptr<string> logDeliveryPermission_ {};
         // The log delivery status. Valid values:
-        // - enable: log delivery is enabled.
-        // - disable: log delivery is disabled.
+        // - enable: Log delivery is enabled.
+        // - disable: Log delivery is disabled.
         shared_ptr<string> logDeliveryStatus_ {};
         // The time when the log delivery was last modified.
         shared_ptr<string> logDeliveryUpdateTime_ {};
         // The log name.
         shared_ptr<string> logName_ {};
-        // The default log query conditions for the log. When multiple logs are stored in the same Logstore, log query conditions are required to query individual logs.
+        // The default log query conditions for the log. When multiple logs are stored in the same Logstore, query conditions are required to perform a log query for a specific log.
         shared_ptr<string> logSearchConditions_ {};
         // Indicates whether the Logstore where the log is stored exists. Valid values:
         // - true: The Logstore exists.
@@ -276,7 +282,7 @@ namespace Models
         shared_ptr<string> logStoreName_ {};
         // The storage duration of the Logstore where the log is stored. Logs are stored for at least 30 days.
         shared_ptr<int32_t> logStoreTtl_ {};
-        // The hot storage capacity used.
+        // The hot storage used capacity.
         shared_ptr<double> usedCapacity_ {};
       };
 
@@ -329,9 +335,9 @@ namespace Models
       protected:
         // The Logstore name.
         shared_ptr<string> logStoreName_ {};
-        // The time-to-live (TTL) of the Logstore.
+        // The Logstore TTL.
         shared_ptr<int32_t> logStoreTtl_ {};
-        // The used capacity of the Logstore.
+        // The Logstore used capacity.
         shared_ptr<double> usedCapacity_ {};
       };
 
@@ -501,14 +507,14 @@ namespace Models
         shared_ptr<string> logStoreName_ {};
         // The storage duration of normalized data.
         shared_ptr<int32_t> logStoreTtl_ {};
-        // The hot storage capacity used.
+        // The hot storage used capacity.
         shared_ptr<double> usedCapacity_ {};
       };
 
       virtual bool empty() const override { return this->coldStorageUsedCapacity_ == nullptr
         && this->dataStorageRegionId_ == nullptr && this->dataStorageRegionPermission_ == nullptr && this->dataStorageTotalCapacity_ == nullptr && this->dataStorageUsedCapacity_ == nullptr && this->dataStorageUsedCapacityDetail_ == nullptr
-        && this->logProject_ == nullptr && this->normalizationLogStores_ == nullptr && this->normalizationLogViews_ == nullptr && this->recordLogStores_ == nullptr && this->sasLogStores_ == nullptr
-        && this->unusedLogStores_ == nullptr; };
+        && this->logProject_ == nullptr && this->logProjectState_ == nullptr && this->logProjectStateChangeAllowed_ == nullptr && this->logServiceDisabled_ == nullptr && this->normalizationLogStores_ == nullptr
+        && this->normalizationLogViews_ == nullptr && this->recordLogStores_ == nullptr && this->sasLogStores_ == nullptr && this->unusedLogStores_ == nullptr; };
       // coldStorageUsedCapacity Field Functions 
       bool hasColdStorageUsedCapacity() const { return this->coldStorageUsedCapacity_ != nullptr;};
       void deleteColdStorageUsedCapacity() { this->coldStorageUsedCapacity_ = nullptr;};
@@ -556,6 +562,27 @@ namespace Models
       void deleteLogProject() { this->logProject_ = nullptr;};
       inline string getLogProject() const { DARABONBA_PTR_GET_DEFAULT(logProject_, "") };
       inline Data& setLogProject(string logProject) { DARABONBA_PTR_SET_VALUE(logProject_, logProject) };
+
+
+      // logProjectState Field Functions 
+      bool hasLogProjectState() const { return this->logProjectState_ != nullptr;};
+      void deleteLogProjectState() { this->logProjectState_ = nullptr;};
+      inline string getLogProjectState() const { DARABONBA_PTR_GET_DEFAULT(logProjectState_, "") };
+      inline Data& setLogProjectState(string logProjectState) { DARABONBA_PTR_SET_VALUE(logProjectState_, logProjectState) };
+
+
+      // logProjectStateChangeAllowed Field Functions 
+      bool hasLogProjectStateChangeAllowed() const { return this->logProjectStateChangeAllowed_ != nullptr;};
+      void deleteLogProjectStateChangeAllowed() { this->logProjectStateChangeAllowed_ = nullptr;};
+      inline bool getLogProjectStateChangeAllowed() const { DARABONBA_PTR_GET_DEFAULT(logProjectStateChangeAllowed_, false) };
+      inline Data& setLogProjectStateChangeAllowed(bool logProjectStateChangeAllowed) { DARABONBA_PTR_SET_VALUE(logProjectStateChangeAllowed_, logProjectStateChangeAllowed) };
+
+
+      // logServiceDisabled Field Functions 
+      bool hasLogServiceDisabled() const { return this->logServiceDisabled_ != nullptr;};
+      void deleteLogServiceDisabled() { this->logServiceDisabled_ = nullptr;};
+      inline bool getLogServiceDisabled() const { DARABONBA_PTR_GET_DEFAULT(logServiceDisabled_, false) };
+      inline Data& setLogServiceDisabled(bool logServiceDisabled) { DARABONBA_PTR_SET_VALUE(logServiceDisabled_, logServiceDisabled) };
 
 
       // normalizationLogStores Field Functions 
@@ -606,21 +633,24 @@ namespace Models
     protected:
       // The cold storage capacity used by user logs.
       shared_ptr<double> coldStorageUsedCapacity_ {};
-      // The storage region of user logs.
+      // The storage region of user-side logs.
       shared_ptr<string> dataStorageRegionId_ {};
-      // Indicates whether the storage region can be modified. By default, the storage region cannot be modified. Contact your account manager to reset the region. The region can be reset only once. Valid values:
-      // - allow: The storage region can be modified.
-      // - deny: The storage region cannot be modified.
+      // Indicates whether the storage region can be modified. By default, modification is not allowed. Contact the product manager to reset the region. The region can be reset only once. Valid values:
+      // - allow: Modification is allowed.
+      // - deny: Modification is not allowed.
       shared_ptr<string> dataStorageRegionPermission_ {};
-      // The storage capacity purchased in the subscription scenario.
+      // The storage capacity purchased in the prepaid scenario.
       shared_ptr<int64_t> dataStorageTotalCapacity_ {};
       // The storage capacity used in user log management.
       shared_ptr<double> dataStorageUsedCapacity_ {};
       // The storage usage details in log management.
       shared_ptr<string> dataStorageUsedCapacityDetail_ {};
-      // The name of the Simple Log Service project that stores user logs.
+      // The name of the Simple Log Service (SLS) project that stores user logs.
       shared_ptr<string> logProject_ {};
-      // The details of the Logstores for normalized data.
+      shared_ptr<string> logProjectState_ {};
+      shared_ptr<bool> logProjectStateChangeAllowed_ {};
+      shared_ptr<bool> logServiceDisabled_ {};
+      // The details of Logstores for normalized data.
       shared_ptr<vector<Data::NormalizationLogStores>> normalizationLogStores_ {};
       // The details of normalized datasets.
       shared_ptr<vector<Data::NormalizationLogViews>> normalizationLogViews_ {};
@@ -628,7 +658,7 @@ namespace Models
       shared_ptr<vector<Data::RecordLogStores>> recordLogStores_ {};
       // The details of raw log storage in Security Center.
       shared_ptr<vector<Data::SasLogStores>> sasLogStores_ {};
-      // The list of legacy SIEM V1 Logstores.
+      // The list of SIEM V1 legacy Logstores.
       shared_ptr<vector<Data::UnusedLogStores>> unusedLogStores_ {};
     };
 

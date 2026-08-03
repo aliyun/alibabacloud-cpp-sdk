@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListIncidentsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AlertUuid, alertUuid_);
+      DARABONBA_PTR_TO_JSON(DetectionRuleIds, detectionRuleIds_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(IncidentName, incidentName_);
       DARABONBA_PTR_TO_JSON(IncidentStatus, incidentStatus_);
@@ -39,6 +40,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListIncidentsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AlertUuid, alertUuid_);
+      DARABONBA_PTR_FROM_JSON(DetectionRuleIds, detectionRuleIds_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(IncidentName, incidentName_);
       DARABONBA_PTR_FROM_JSON(IncidentStatus, incidentStatus_);
@@ -73,16 +75,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->alertUuid_ == nullptr
-        && this->endTime_ == nullptr && this->incidentName_ == nullptr && this->incidentStatus_ == nullptr && this->incidentStatusList_ == nullptr && this->incidentTags_ == nullptr
-        && this->incidentUuids_ == nullptr && this->lang_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orderDirection_ == nullptr
-        && this->orderFieldName_ == nullptr && this->owners_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr
-        && this->relateAssetId_ == nullptr && this->relateEntityId_ == nullptr && this->roleFor_ == nullptr && this->roleType_ == nullptr && this->startTime_ == nullptr
-        && this->threatLevel_ == nullptr; };
+        && this->detectionRuleIds_ == nullptr && this->endTime_ == nullptr && this->incidentName_ == nullptr && this->incidentStatus_ == nullptr && this->incidentStatusList_ == nullptr
+        && this->incidentTags_ == nullptr && this->incidentUuids_ == nullptr && this->lang_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
+        && this->orderDirection_ == nullptr && this->orderFieldName_ == nullptr && this->owners_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->regionId_ == nullptr && this->relateAssetId_ == nullptr && this->relateEntityId_ == nullptr && this->roleFor_ == nullptr && this->roleType_ == nullptr
+        && this->startTime_ == nullptr && this->threatLevel_ == nullptr; };
     // alertUuid Field Functions 
     bool hasAlertUuid() const { return this->alertUuid_ != nullptr;};
     void deleteAlertUuid() { this->alertUuid_ = nullptr;};
     inline string getAlertUuid() const { DARABONBA_PTR_GET_DEFAULT(alertUuid_, "") };
     inline ListIncidentsRequest& setAlertUuid(string alertUuid) { DARABONBA_PTR_SET_VALUE(alertUuid_, alertUuid) };
+
+
+    // detectionRuleIds Field Functions 
+    bool hasDetectionRuleIds() const { return this->detectionRuleIds_ != nullptr;};
+    void deleteDetectionRuleIds() { this->detectionRuleIds_ = nullptr;};
+    inline const vector<string> & getDetectionRuleIds() const { DARABONBA_PTR_GET_CONST(detectionRuleIds_, vector<string>) };
+    inline vector<string> getDetectionRuleIds() { DARABONBA_PTR_GET(detectionRuleIds_, vector<string>) };
+    inline ListIncidentsRequest& setDetectionRuleIds(const vector<string> & detectionRuleIds) { DARABONBA_PTR_SET_VALUE(detectionRuleIds_, detectionRuleIds) };
+    inline ListIncidentsRequest& setDetectionRuleIds(vector<string> && detectionRuleIds) { DARABONBA_PTR_SET_RVALUE(detectionRuleIds_, detectionRuleIds) };
 
 
     // endTime Field Functions 
@@ -243,6 +254,7 @@ namespace Models
   protected:
     // The alert ID.
     shared_ptr<string> alertUuid_ {};
+    shared_ptr<vector<string>> detectionRuleIds_ {};
     // The end time as a UNIX timestamp in milliseconds (ms).
     shared_ptr<int64_t> endTime_ {};
     // The event name.

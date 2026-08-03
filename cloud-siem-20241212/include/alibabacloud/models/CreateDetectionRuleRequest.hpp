@@ -34,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DetectionRuleTemplateId, detectionRuleTemplateId_);
       DARABONBA_PTR_TO_JSON(DetectionRuleTemplateVersion, detectionRuleTemplateVersion_);
       DARABONBA_PTR_TO_JSON(DetectionRuleType, detectionRuleType_);
+      DARABONBA_PTR_TO_JSON(DetectionRules, detectionRules_);
       DARABONBA_PTR_TO_JSON(EntityMappings, entityMappings_);
       DARABONBA_PTR_TO_JSON(IncidentAggregationExpression, incidentAggregationExpression_);
       DARABONBA_PTR_TO_JSON(IncidentAggregationType, incidentAggregationType_);
@@ -73,6 +74,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DetectionRuleTemplateId, detectionRuleTemplateId_);
       DARABONBA_PTR_FROM_JSON(DetectionRuleTemplateVersion, detectionRuleTemplateVersion_);
       DARABONBA_PTR_FROM_JSON(DetectionRuleType, detectionRuleType_);
+      DARABONBA_PTR_FROM_JSON(DetectionRules, detectionRules_);
       DARABONBA_PTR_FROM_JSON(EntityMappings, entityMappings_);
       DARABONBA_PTR_FROM_JSON(IncidentAggregationExpression, incidentAggregationExpression_);
       DARABONBA_PTR_FROM_JSON(IncidentAggregationType, incidentAggregationType_);
@@ -106,10 +108,10 @@ namespace Models
         && this->alertSchemaId_ == nullptr && this->alertTacticId_ == nullptr && this->alertThresholdCount_ == nullptr && this->alertThresholdGroup_ == nullptr && this->alertThresholdPeriod_ == nullptr
         && this->alertType_ == nullptr && this->alertTypeMapping_ == nullptr && this->detectionExpressionContent_ == nullptr && this->detectionExpressionType_ == nullptr && this->detectionRuleDescription_ == nullptr
         && this->detectionRuleName_ == nullptr && this->detectionRuleStatus_ == nullptr && this->detectionRuleTemplateId_ == nullptr && this->detectionRuleTemplateVersion_ == nullptr && this->detectionRuleType_ == nullptr
-        && this->entityMappings_ == nullptr && this->incidentAggregationExpression_ == nullptr && this->incidentAggregationType_ == nullptr && this->lang_ == nullptr && this->logCategoryId_ == nullptr
-        && this->logSchemaId_ == nullptr && this->playbookParameters_ == nullptr && this->playbookUuid_ == nullptr && this->regionId_ == nullptr && this->roleFor_ == nullptr
-        && this->scheduleBeginTime_ == nullptr && this->scheduleExpression_ == nullptr && this->scheduleMaxRetries_ == nullptr && this->scheduleMaxTimeout_ == nullptr && this->scheduleType_ == nullptr
-        && this->scheduleWindow_ == nullptr; };
+        && this->detectionRules_ == nullptr && this->entityMappings_ == nullptr && this->incidentAggregationExpression_ == nullptr && this->incidentAggregationType_ == nullptr && this->lang_ == nullptr
+        && this->logCategoryId_ == nullptr && this->logSchemaId_ == nullptr && this->playbookParameters_ == nullptr && this->playbookUuid_ == nullptr && this->regionId_ == nullptr
+        && this->roleFor_ == nullptr && this->scheduleBeginTime_ == nullptr && this->scheduleExpression_ == nullptr && this->scheduleMaxRetries_ == nullptr && this->scheduleMaxTimeout_ == nullptr
+        && this->scheduleType_ == nullptr && this->scheduleWindow_ == nullptr; };
     // alertAttCk Field Functions 
     bool hasAlertAttCk() const { return this->alertAttCk_ != nullptr;};
     void deleteAlertAttCk() { this->alertAttCk_ = nullptr;};
@@ -257,6 +259,13 @@ namespace Models
     inline CreateDetectionRuleRequest& setDetectionRuleType(string detectionRuleType) { DARABONBA_PTR_SET_VALUE(detectionRuleType_, detectionRuleType) };
 
 
+    // detectionRules Field Functions 
+    bool hasDetectionRules() const { return this->detectionRules_ != nullptr;};
+    void deleteDetectionRules() { this->detectionRules_ = nullptr;};
+    inline string getDetectionRules() const { DARABONBA_PTR_GET_DEFAULT(detectionRules_, "") };
+    inline CreateDetectionRuleRequest& setDetectionRules(string detectionRules) { DARABONBA_PTR_SET_VALUE(detectionRules_, detectionRules) };
+
+
     // entityMappings Field Functions 
     bool hasEntityMappings() const { return this->entityMappings_ != nullptr;};
     void deleteEntityMappings() { this->entityMappings_ = nullptr;};
@@ -370,66 +379,47 @@ namespace Models
 
 
   protected:
-    // The ATT\\&CK stage of the alert.
+    // The alert ATT&CK technique.
     shared_ptr<string> alertAttCk_ {};
     shared_ptr<string> alertAttCkMapping_ {};
-    // The alert description. You can use $$ to reference fields from the query output.
+    // The alert description. You can use $$ to reference query output fields.
     shared_ptr<string> alertDescription_ {};
     // The threat level of the alert. Valid values:
-    // 
-    // - 5: critical.
-    // 
-    // - 4: important.
-    // 
-    // - 3: medium.
-    // 
-    // - 2: low.
-    // 
-    // - 1: informational.
-    // 
-    // This parameter is required.
+    // - 5: Critical.
+    // - 4: High.
+    // - 3: Medium.
+    // - 2: Low.
+    // - 1: Informational.
     shared_ptr<string> alertLevel_ {};
     shared_ptr<string> alertLevelMapping_ {};
-    // The alert name. You can use $$ to reference fields from the query output.
+    // The alert name. You can use $$ to reference query output fields.
     shared_ptr<string> alertName_ {};
-    // The ID of the alert template for the detection rule. Valid values:
-    // 
+    // The ID of the detection rule alert template. Valid values:
     // - ALERT_ACTIVITY: other alerts.
-    // 
-    // - EDR_ALERT_ACTIVITY: Endpoint Detection and Response (EDR) alerts.
-    // 
+    // - EDR_ALERT_ACTIVITY: endpoint detection and response alerts.
     // - FIREWALL_ALERT_ACTIVITY: firewall alerts.
-    // 
-    // - WAF_ALERT_ACTIVITY: Web Application Firewall (WAF) alerts.
-    // 
-    // This parameter is required.
+    // - WAF_ALERT_ACTIVITY: web application firewall alerts.
     shared_ptr<string> alertSchemaId_ {};
-    // The tactic phase of the alert.
+    // The alert tactic stage.
     shared_ptr<string> alertTacticId_ {};
-    // The count for the alert threshold.
+    // The alert threshold count.
     shared_ptr<int32_t> alertThresholdCount_ {};
-    // The list of fields for the alert threshold. Separate multiple fields with commas.
+    // The list of alert threshold fields, separated by commas (,).
     shared_ptr<string> alertThresholdGroup_ {};
     // The length of the alert threshold period.
     shared_ptr<string> alertThresholdPeriod_ {};
-    // The alert type.
-    // 
-    // This parameter is required.
+    // The Alarm Metric of the alerting rule.
     shared_ptr<string> alertType_ {};
     shared_ptr<string> alertTypeMapping_ {};
     // The content of the detection rule expression.
     shared_ptr<string> detectionExpressionContent_ {};
     // The type of the detection rule expression. Valid values:
-    // 
     // - sql: SQL.
-    // 
     // - playbook: playbook.
     shared_ptr<string> detectionExpressionType_ {};
     // The description of the detection rule.
     shared_ptr<string> detectionRuleDescription_ {};
     // The name of the detection rule.
-    // 
-    // This parameter is required.
     shared_ptr<string> detectionRuleName_ {};
     // The status of the detection rule.
     shared_ptr<string> detectionRuleStatus_ {};
@@ -438,67 +428,50 @@ namespace Models
     // The version of the detection rule template.
     shared_ptr<string> detectionRuleTemplateVersion_ {};
     // The type of the detection rule. Valid values:
-    // 
-    // - preset: predefined detection rule.
-    // 
+    // - preset: preset detection rule.
     // - custom: custom detection rule.
-    // 
     // - custom_template: rule template.
-    // 
-    // This parameter is required.
     shared_ptr<string> detectionRuleType_ {};
+    shared_ptr<string> detectionRules_ {};
     // The entity mapping configuration.
     shared_ptr<string> entityMappings_ {};
-    // The configuration of the event aggregation period.
+    // The event aggregation period configuration.
     shared_ptr<string> incidentAggregationExpression_ {};
     // The event aggregation type. Valid values:
-    // 
-    // - none: Events are not generated.
-    // 
-    // - graph_compute: graph computing (supported by predefined rules).
-    // 
-    // - expert: expert rules.
-    // 
-    // - passthrough: Alerts are passed through (one-to-one).
-    // 
-    // - window: Similar alerts are aggregated (window).
+    // - none: No event is generated.
+    // - graph_compute: Graph computing. This value is supported by predefined rules.
+    // - expert: Expert rule.
+    // - passthrough: Alerting pass-through (one-to-one).
+    // - window: Same-type aggregation (window).
     shared_ptr<string> incidentAggregationType_ {};
     // The language of the response. Valid values:
-    // 
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
     // The ID of the log normalization category.
     shared_ptr<string> logCategoryId_ {};
     // The ID of the log normalization schema.
-    // 
-    // This parameter is required.
     shared_ptr<string> logSchemaId_ {};
-    // The custom parameters for the playbook.
+    // The custom parameters of the playbook.
     shared_ptr<string> playbookParameters_ {};
     // The UUID of the playbook.
     shared_ptr<string> playbookUuid_ {};
-    // The region where the Data Management center of Threat Analysis is located. Select a region based on the region where your assets are located. Valid values:
-    // 
-    // - cn-hangzhou: Your assets are in the Chinese mainland.
-    // 
-    // - ap-southeast-1: Your assets are in a region outside China.
+    // The region in which the data management center of the threat analysis feature resides. Specify this parameter based on the region where your assets reside. Valid values:
+    // - cn-hangzhou: Your assets reside in the Chinese mainland.
+    // - ap-southeast-1: Your assets reside outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The user ID that an administrator uses to switch to the perspective of another member.
+    // The ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};
-    // The start time for scheduling. This is a 13-digit UNIX timestamp.
+    // The scheduling start time. The value is a 13-digit UNIX timestamp.
     shared_ptr<int64_t> scheduleBeginTime_ {};
-    // The cron expression for scheduling. This parameter is required if you set ScheduleType to cron.
+    // The scheduling cron expression. This parameter is required when ScheduleType is set to cron.
     shared_ptr<string> scheduleExpression_ {};
-    // The maximum number of retries after a timeout. Valid values: 1 to 100.
+    // The maximum number of retries upon timeout. Valid values: 1 to 100.
     shared_ptr<int32_t> scheduleMaxRetries_ {};
-    // The maximum timeout period in seconds. Valid values: 60 to 1800.
+    // The maximum timeout period, in seconds. Valid values: 60 to 1800.
     shared_ptr<int32_t> scheduleMaxTimeout_ {};
     // The scheduling type. Valid values:
-    // 
     // - fixed_rate: fixed interval.
-    // 
     // - cron: cron expression.
     shared_ptr<string> scheduleType_ {};
     // The length of the scheduling window.

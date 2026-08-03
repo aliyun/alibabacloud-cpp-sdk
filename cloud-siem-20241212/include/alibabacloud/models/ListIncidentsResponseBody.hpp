@@ -49,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AttckTactics, attckTactics_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(DetectionRuleId, detectionRuleId_);
+        DARABONBA_PTR_TO_JSON(DetectionRuleName, detectionRuleName_);
         DARABONBA_PTR_TO_JSON(EntityInfos, entityInfos_);
         DARABONBA_PTR_TO_JSON(IncidentDescription, incidentDescription_);
         DARABONBA_PTR_TO_JSON(IncidentName, incidentName_);
@@ -68,6 +69,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AttckTactics, attckTactics_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(DetectionRuleId, detectionRuleId_);
+        DARABONBA_PTR_FROM_JSON(DetectionRuleName, detectionRuleName_);
         DARABONBA_PTR_FROM_JSON(EntityInfos, entityInfos_);
         DARABONBA_PTR_FROM_JSON(IncidentDescription, incidentDescription_);
         DARABONBA_PTR_FROM_JSON(IncidentName, incidentName_);
@@ -94,10 +96,10 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->alertInfos_ == nullptr
-        && this->attckTactics_ == nullptr && this->createTime_ == nullptr && this->detectionRuleId_ == nullptr && this->entityInfos_ == nullptr && this->incidentDescription_ == nullptr
-        && this->incidentName_ == nullptr && this->incidentRemark_ == nullptr && this->incidentStatus_ == nullptr && this->incidentTags_ == nullptr && this->incidentUuid_ == nullptr
-        && this->owner_ == nullptr && this->relateAlertCount_ == nullptr && this->relateAssetCount_ == nullptr && this->responseTime_ == nullptr && this->threatLevel_ == nullptr
-        && this->updateTime_ == nullptr; };
+        && this->attckTactics_ == nullptr && this->createTime_ == nullptr && this->detectionRuleId_ == nullptr && this->detectionRuleName_ == nullptr && this->entityInfos_ == nullptr
+        && this->incidentDescription_ == nullptr && this->incidentName_ == nullptr && this->incidentRemark_ == nullptr && this->incidentStatus_ == nullptr && this->incidentTags_ == nullptr
+        && this->incidentUuid_ == nullptr && this->owner_ == nullptr && this->relateAlertCount_ == nullptr && this->relateAssetCount_ == nullptr && this->responseTime_ == nullptr
+        && this->threatLevel_ == nullptr && this->updateTime_ == nullptr; };
       // alertInfos Field Functions 
       bool hasAlertInfos() const { return this->alertInfos_ != nullptr;};
       void deleteAlertInfos() { this->alertInfos_ = nullptr;};
@@ -124,6 +126,13 @@ namespace Models
       void deleteDetectionRuleId() { this->detectionRuleId_ = nullptr;};
       inline string getDetectionRuleId() const { DARABONBA_PTR_GET_DEFAULT(detectionRuleId_, "") };
       inline Incidents& setDetectionRuleId(string detectionRuleId) { DARABONBA_PTR_SET_VALUE(detectionRuleId_, detectionRuleId) };
+
+
+      // detectionRuleName Field Functions 
+      bool hasDetectionRuleName() const { return this->detectionRuleName_ != nullptr;};
+      void deleteDetectionRuleName() { this->detectionRuleName_ = nullptr;};
+      inline string getDetectionRuleName() const { DARABONBA_PTR_GET_DEFAULT(detectionRuleName_, "") };
+      inline Incidents& setDetectionRuleName(string detectionRuleName) { DARABONBA_PTR_SET_VALUE(detectionRuleName_, detectionRuleName) };
 
 
       // entityInfos Field Functions 
@@ -224,6 +233,7 @@ namespace Models
       shared_ptr<int64_t> createTime_ {};
       // The detection rule ID.
       shared_ptr<string> detectionRuleId_ {};
+      shared_ptr<string> detectionRuleName_ {};
       shared_ptr<string> entityInfos_ {};
       shared_ptr<string> incidentDescription_ {};
       // The event name.

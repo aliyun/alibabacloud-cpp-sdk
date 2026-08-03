@@ -14,12 +14,18 @@ namespace Models
   class ListQueryViewsResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListQueryViewsResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(LogProjectName, logProjectName_);
+      DARABONBA_PTR_TO_JSON(LogRegionId, logRegionId_);
+      DARABONBA_PTR_TO_JSON(LogStoreName, logStoreName_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(QueryViews, queryViews_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, ListQueryViewsResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(LogProjectName, logProjectName_);
+      DARABONBA_PTR_FROM_JSON(LogRegionId, logRegionId_);
+      DARABONBA_PTR_FROM_JSON(LogStoreName, logStoreName_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(QueryViews, queryViews_);
@@ -158,8 +164,30 @@ namespace Models
       shared_ptr<string> queryViewType_ {};
     };
 
-    virtual bool empty() const override { return this->maxResults_ == nullptr
-        && this->nextToken_ == nullptr && this->queryViews_ == nullptr && this->requestId_ == nullptr; };
+    virtual bool empty() const override { return this->logProjectName_ == nullptr
+        && this->logRegionId_ == nullptr && this->logStoreName_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->queryViews_ == nullptr
+        && this->requestId_ == nullptr; };
+    // logProjectName Field Functions 
+    bool hasLogProjectName() const { return this->logProjectName_ != nullptr;};
+    void deleteLogProjectName() { this->logProjectName_ = nullptr;};
+    inline string getLogProjectName() const { DARABONBA_PTR_GET_DEFAULT(logProjectName_, "") };
+    inline ListQueryViewsResponseBody& setLogProjectName(string logProjectName) { DARABONBA_PTR_SET_VALUE(logProjectName_, logProjectName) };
+
+
+    // logRegionId Field Functions 
+    bool hasLogRegionId() const { return this->logRegionId_ != nullptr;};
+    void deleteLogRegionId() { this->logRegionId_ = nullptr;};
+    inline string getLogRegionId() const { DARABONBA_PTR_GET_DEFAULT(logRegionId_, "") };
+    inline ListQueryViewsResponseBody& setLogRegionId(string logRegionId) { DARABONBA_PTR_SET_VALUE(logRegionId_, logRegionId) };
+
+
+    // logStoreName Field Functions 
+    bool hasLogStoreName() const { return this->logStoreName_ != nullptr;};
+    void deleteLogStoreName() { this->logStoreName_ = nullptr;};
+    inline string getLogStoreName() const { DARABONBA_PTR_GET_DEFAULT(logStoreName_, "") };
+    inline ListQueryViewsResponseBody& setLogStoreName(string logStoreName) { DARABONBA_PTR_SET_VALUE(logStoreName_, logStoreName) };
+
+
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -191,9 +219,12 @@ namespace Models
 
 
   protected:
-    // The maximum number of results to return per request when using the NextToken-based pagination. Valid values: 1 to 100. Default value: 50.
+    shared_ptr<string> logProjectName_ {};
+    shared_ptr<string> logRegionId_ {};
+    shared_ptr<string> logStoreName_ {};
+    // The maximum number of results to return when you use the NextToken-based pagination method. Valid values: 1 to 100. Default value: 50.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. You do not need to specify this parameter for the first query or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     // The list of query views.
     shared_ptr<vector<ListQueryViewsResponseBody::QueryViews>> queryViews_ {};

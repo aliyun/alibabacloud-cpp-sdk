@@ -1346,7 +1346,7 @@ namespace CloudSiem20241212
       /**
        * @summary Retrieves a list of query views.
        *
-       * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request ListQueryViewsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1357,7 +1357,7 @@ namespace CloudSiem20241212
       /**
        * @summary Retrieves a list of query views.
        *
-       * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request ListQueryViewsRequest
        * @return ListQueryViewsResponse

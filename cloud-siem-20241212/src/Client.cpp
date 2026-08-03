@@ -553,6 +553,10 @@ CreateDetectionRuleResponse Client::createDetectionRuleWithOptions(const CreateD
     body["DetectionRuleType"] = request.getDetectionRuleType();
   }
 
+  if (!!request.hasDetectionRules()) {
+    body["DetectionRules"] = request.getDetectionRules();
+  }
+
   if (!!request.hasEntityMappings()) {
     body["EntityMappings"] = request.getEntityMappings();
   }
@@ -3997,6 +4001,10 @@ ListIncidentsResponse Client::listIncidentsWithOptions(const ListIncidentsReques
     body["AlertUuid"] = request.getAlertUuid();
   }
 
+  if (!!request.hasDetectionRuleIds()) {
+    body["DetectionRuleIds"] = request.getDetectionRuleIds();
+  }
+
   if (!!request.hasEndTime()) {
     body["EndTime"] = request.getEndTime();
   }
@@ -4926,7 +4934,7 @@ ListProductsResponse Client::listProducts(const ListProductsRequest &request) {
 /**
  * @summary Retrieves a list of query views.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListQueryViewsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4989,7 +4997,7 @@ ListQueryViewsResponse Client::listQueryViewsWithOptions(const ListQueryViewsReq
 /**
  * @summary Retrieves a list of query views.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. Refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request ListQueryViewsRequest
  * @return ListQueryViewsResponse
