@@ -4917,10 +4917,10 @@ DescribeApsResourceGroupsResponse Client::describeApsResourceGroups(const Descri
 }
 
 /**
- * @summary Query SQL audit logs for the cluster.
+ * @summary Queries the SQL Audit Log of a cluster.
  *
- * @description - You can query SQL audit logs only if SQL audit is enabled. Log data is retained for up to 30 days. If you disable and re-enable SQL audit, you can only query logs generated after it is re-enabled. SQL audit logs do not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
- * - For a list of endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description - SQL Audit Log entries can be queried only when SQL audit is enabled, and only entries from the last 30 days are supported. If SQL audit is shutdown and then re-enabled, only entries recorded after re-enabling are available. SQL Audit Log does not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
+ * - For the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeAuditLogRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4939,6 +4939,10 @@ DescribeAuditLogRecordsResponse Client::describeAuditLogRecordsWithOptions(const
 
   if (!!request.hasEndTime()) {
     query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEngineType()) {
+    query["EngineType"] = request.getEngineType();
   }
 
   if (!!request.hasHostAddress()) {
@@ -5023,10 +5027,10 @@ DescribeAuditLogRecordsResponse Client::describeAuditLogRecordsWithOptions(const
 }
 
 /**
- * @summary Query SQL audit logs for the cluster.
+ * @summary Queries the SQL Audit Log of a cluster.
  *
- * @description - You can query SQL audit logs only if SQL audit is enabled. Log data is retained for up to 30 days. If you disable and re-enable SQL audit, you can only query logs generated after it is re-enabled. SQL audit logs do not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
- * - For a list of endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ * @description - SQL Audit Log entries can be queried only when SQL audit is enabled, and only entries from the last 30 days are supported. If SQL audit is shutdown and then re-enabled, only entries recorded after re-enabling are available. SQL Audit Log does not record **INSERT INTO VALUES**, **REPLACE INTO VALUES**, or **UPSERT INTO VALUES** operations.
+ * - For the endpoints of this service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request DescribeAuditLogRecordsRequest
  * @return DescribeAuditLogRecordsResponse

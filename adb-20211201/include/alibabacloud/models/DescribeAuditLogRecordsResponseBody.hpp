@@ -172,31 +172,29 @@ namespace Models
     protected:
       // The connection ID.
       shared_ptr<string> connId_ {};
-      // The name of the database on which the SQL statement ran.
+      // The name of the database on which the SQL statement was executed.
       shared_ptr<string> DBName_ {};
-      // The execution start time of the SQL statement. The time is in the `yyyy-MM-dd HH:mm:ss` format and in the local time zone.
+      // The execution start time of the SQL statement in local time. The time is in the yyyy-MM-dd HH:mm:ss format.
       shared_ptr<string> executeTime_ {};
-      // The execution start time of the SQL statement, as a millisecond timestamp.
+      // The execution start time of the SQL statement, in millisecond-precision UNIX timestamp.
       shared_ptr<int64_t> executeTimestamp_ {};
-      // Specifies whether the response contains diagnostic information.
+      // Indicates whether diagnostic information is included.
       shared_ptr<bool> hasDiagnosticInfo_ {};
-      // The IP address and port of the client that ran the SQL statement.
+      // The IP address and port number of the client that executed the SQL statement.
       shared_ptr<string> hostAddress_ {};
-      // The process ID.
+      // The task ID.
       shared_ptr<string> processID_ {};
-      // The SQL statement.
+      // The details of the SQL statement.
       shared_ptr<string> SQLText_ {};
-      // The SQL type.
+      // The type of the SQL statement.
       shared_ptr<string> SQLType_ {};
-      // Indicates whether the SQL statement succeeded. Valid values:
-      // 
-      // - **true**: The SQL statement succeeded.
-      // 
-      // - **false**: The SQL statement failed.
+      // Indicates whether the SQL statement was executed successfully. Valid values:
+      // - **true**: The SQL statement was executed successfully.
+      // - **false**: The SQL statement failed to be executed.
       shared_ptr<string> succeed_ {};
-      // The execution duration of the SQL statement in milliseconds (ms).
+      // The execution duration of the SQL statement. Unit: milliseconds (ms).
       shared_ptr<string> totalTime_ {};
-      // The username of the account that ran the SQL statement.
+      // The username that executed the SQL statement.
       shared_ptr<string> user_ {};
     };
 
@@ -247,18 +245,18 @@ namespace Models
 
 
   protected:
-    // <props="china">The ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
+    // <props="china">The cluster ID of the Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
     // <props="intl">The ID of the Data Lakehouse Edition cluster.
     shared_ptr<string> DBClusterId_ {};
-    // A list of audit log records.
+    // The list.
     shared_ptr<vector<DescribeAuditLogRecordsResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of records per page.
+    // The number of entries per page.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 
