@@ -525,6 +525,474 @@ namespace AirticketOpen20230117
        * @return TransitVisaResponse
        */
       Models::TransitVisaResponse transitVisa(const Models::TransitVisaRequest &request);
+
+      /**
+       * @summary 申请退款
+       *
+       * @param request ApplyRefundRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ApplyRefundResponse
+       */
+      Models::ApplyRefundResponse applyRefundWithOptions(const Models::ApplyRefundRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 申请退款
+       *
+       * @param request ApplyRefundRequest
+       * @return ApplyRefundResponse
+       */
+      Models::ApplyRefundResponse applyRefund(const Models::ApplyRefundRequest &request);
+
+      /**
+       * @summary 批量查询酒店详情
+       *
+       * @param tmpReq BatchGetHotelDetailRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchGetHotelDetailResponse
+       */
+      Models::BatchGetHotelDetailResponse batchGetHotelDetailWithOptions(const Models::BatchGetHotelDetailRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量查询酒店详情
+       *
+       * @param request BatchGetHotelDetailRequest
+       * @return BatchGetHotelDetailResponse
+       */
+      Models::BatchGetHotelDetailResponse batchGetHotelDetail(const Models::BatchGetHotelDetailRequest &request);
+
+      /**
+       * @summary 取消或退款
+       *
+       * @param request CancelOrRefundRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelOrRefundResponse
+       */
+      Models::CancelOrRefundResponse cancelOrRefundWithOptions(const Models::CancelOrRefundRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消或退款
+       *
+       * @param request CancelOrRefundRequest
+       * @return CancelOrRefundResponse
+       */
+      Models::CancelOrRefundResponse cancelOrRefund(const Models::CancelOrRefundRequest &request);
+
+      /**
+       * @summary 取消订单
+       *
+       * @param request CancelOrderRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelOrderResponse
+       */
+      Models::CancelOrderResponse cancelOrderWithOptions(const Models::CancelOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消订单
+       *
+       * @param request CancelOrderRequest
+       * @return CancelOrderResponse
+       */
+      Models::CancelOrderResponse cancelOrder(const Models::CancelOrderRequest &request);
+
+      /**
+       * @summary 创单并支付
+       *
+       * @param tmpReq CreateAndPayRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAndPayResponse
+       */
+      Models::CreateAndPayResponse createAndPayWithOptions(const Models::CreateAndPayRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创单并支付
+       *
+       * @param request CreateAndPayRequest
+       * @return CreateAndPayResponse
+       */
+      Models::CreateAndPayResponse createAndPay(const Models::CreateAndPayRequest &request);
+
+      /**
+       * @summary 创建订单
+       *
+       * @param tmpReq CreateOrderRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateOrderResponse
+       */
+      Models::CreateOrderResponse createOrderWithOptions(const Models::CreateOrderRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建订单
+       *
+       * @param request CreateOrderRequest
+       * @return CreateOrderResponse
+       */
+      Models::CreateOrderResponse createOrder(const Models::CreateOrderRequest &request);
+
+      /**
+       * @summary 申请退款
+       *
+       * @param request GlobalHotelApplyRefundRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GlobalHotelApplyRefundResponse
+       */
+      Models::GlobalHotelApplyRefundResponse globalHotelApplyRefundWithOptions(const Models::GlobalHotelApplyRefundRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 申请退款
+       *
+       * @param request GlobalHotelApplyRefundRequest
+       * @return GlobalHotelApplyRefundResponse
+       */
+      Models::GlobalHotelApplyRefundResponse globalHotelApplyRefund(const Models::GlobalHotelApplyRefundRequest &request);
+
+      /**
+       * @summary 批量查询酒店详情
+       *
+       * @param tmpReq GlobalHotelBatchGetHotelDetailRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GlobalHotelBatchGetHotelDetailResponse
+       */
+      Models::GlobalHotelBatchGetHotelDetailResponse globalHotelBatchGetHotelDetailWithOptions(const Models::GlobalHotelBatchGetHotelDetailRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量查询酒店详情
+       *
+       * @param request GlobalHotelBatchGetHotelDetailRequest
+       * @return GlobalHotelBatchGetHotelDetailResponse
+       */
+      Models::GlobalHotelBatchGetHotelDetailResponse globalHotelBatchGetHotelDetail(const Models::GlobalHotelBatchGetHotelDetailRequest &request);
+
+      /**
+       * @summary 取消或退款
+       *
+       * @param request GlobalHotelCancelOrRefundRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GlobalHotelCancelOrRefundResponse
+       */
+      Models::GlobalHotelCancelOrRefundResponse globalHotelCancelOrRefundWithOptions(const Models::GlobalHotelCancelOrRefundRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消或退款
+       *
+       * @param request GlobalHotelCancelOrRefundRequest
+       * @return GlobalHotelCancelOrRefundResponse
+       */
+      Models::GlobalHotelCancelOrRefundResponse globalHotelCancelOrRefund(const Models::GlobalHotelCancelOrRefundRequest &request);
+
+      /**
+       * @summary 取消订单
+       *
+       * @param request GlobalHotelCancelOrderRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GlobalHotelCancelOrderResponse
+       */
+      Models::GlobalHotelCancelOrderResponse globalHotelCancelOrderWithOptions(const Models::GlobalHotelCancelOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消订单
+       *
+       * @param request GlobalHotelCancelOrderRequest
+       * @return GlobalHotelCancelOrderResponse
+       */
+      Models::GlobalHotelCancelOrderResponse globalHotelCancelOrder(const Models::GlobalHotelCancelOrderRequest &request);
+
+      /**
+       * @summary 创单并支付
+       *
+       * @param tmpReq GlobalHotelCreateAndPayRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GlobalHotelCreateAndPayResponse
+       */
+      Models::GlobalHotelCreateAndPayResponse globalHotelCreateAndPayWithOptions(const Models::GlobalHotelCreateAndPayRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创单并支付
+       *
+       * @param request GlobalHotelCreateAndPayRequest
+       * @return GlobalHotelCreateAndPayResponse
+       */
+      Models::GlobalHotelCreateAndPayResponse globalHotelCreateAndPay(const Models::GlobalHotelCreateAndPayRequest &request);
+
+      /**
+       * @summary 创建订单
+       *
+       * @param tmpReq GlobalHotelCreateOrderRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GlobalHotelCreateOrderResponse
+       */
+      Models::GlobalHotelCreateOrderResponse globalHotelCreateOrderWithOptions(const Models::GlobalHotelCreateOrderRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建订单
+       *
+       * @param request GlobalHotelCreateOrderRequest
+       * @return GlobalHotelCreateOrderResponse
+       */
+      Models::GlobalHotelCreateOrderResponse globalHotelCreateOrder(const Models::GlobalHotelCreateOrderRequest &request);
+
+      /**
+       * @summary 分销支付
+       *
+       * @param request GlobalHotelPayRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GlobalHotelPayResponse
+       */
+      Models::GlobalHotelPayResponse globalHotelPayWithOptions(const Models::GlobalHotelPayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分销支付
+       *
+       * @param request GlobalHotelPayRequest
+       * @return GlobalHotelPayResponse
+       */
+      Models::GlobalHotelPayResponse globalHotelPay(const Models::GlobalHotelPayRequest &request);
+
+      /**
+       * @summary 查询酒店报价可用性
+       *
+       * @param tmpReq GlobalHotelQueryAvailabilityRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GlobalHotelQueryAvailabilityResponse
+       */
+      Models::GlobalHotelQueryAvailabilityResponse globalHotelQueryAvailabilityWithOptions(const Models::GlobalHotelQueryAvailabilityRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询酒店报价可用性
+       *
+       * @param request GlobalHotelQueryAvailabilityRequest
+       * @return GlobalHotelQueryAvailabilityResponse
+       */
+      Models::GlobalHotelQueryAvailabilityResponse globalHotelQueryAvailability(const Models::GlobalHotelQueryAvailabilityRequest &request);
+
+      /**
+       * @summary 批量日历报价查询
+       *
+       * @param tmpReq GlobalHotelQueryCalendarAvailabilityRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GlobalHotelQueryCalendarAvailabilityResponse
+       */
+      Models::GlobalHotelQueryCalendarAvailabilityResponse globalHotelQueryCalendarAvailabilityWithOptions(const Models::GlobalHotelQueryCalendarAvailabilityRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量日历报价查询
+       *
+       * @param request GlobalHotelQueryCalendarAvailabilityRequest
+       * @return GlobalHotelQueryCalendarAvailabilityResponse
+       */
+      Models::GlobalHotelQueryCalendarAvailabilityResponse globalHotelQueryCalendarAvailability(const Models::GlobalHotelQueryCalendarAvailabilityRequest &request);
+
+      /**
+       * @summary 查询订单
+       *
+       * @param request GlobalHotelQueryOrderRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GlobalHotelQueryOrderResponse
+       */
+      Models::GlobalHotelQueryOrderResponse globalHotelQueryOrderWithOptions(const Models::GlobalHotelQueryOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询订单
+       *
+       * @param request GlobalHotelQueryOrderRequest
+       * @return GlobalHotelQueryOrderResponse
+       */
+      Models::GlobalHotelQueryOrderResponse globalHotelQueryOrder(const Models::GlobalHotelQueryOrderRequest &request);
+
+      /**
+       * @summary 分页查询城市行政区划（中英文）
+       *
+       * @param request GlobalHotelSearchCityPageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GlobalHotelSearchCityPageResponse
+       */
+      Models::GlobalHotelSearchCityPageResponse globalHotelSearchCityPageWithOptions(const Models::GlobalHotelSearchCityPageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询城市行政区划（中英文）
+       *
+       * @param request GlobalHotelSearchCityPageRequest
+       * @return GlobalHotelSearchCityPageResponse
+       */
+      Models::GlobalHotelSearchCityPageResponse globalHotelSearchCityPage(const Models::GlobalHotelSearchCityPageRequest &request);
+
+      /**
+       * @summary 按城市分页查询酒店列表
+       *
+       * @param request GlobalHotelSearchHotelListRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GlobalHotelSearchHotelListResponse
+       */
+      Models::GlobalHotelSearchHotelListResponse globalHotelSearchHotelListWithOptions(const Models::GlobalHotelSearchHotelListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 按城市分页查询酒店列表
+       *
+       * @param request GlobalHotelSearchHotelListRequest
+       * @return GlobalHotelSearchHotelListResponse
+       */
+      Models::GlobalHotelSearchHotelListResponse globalHotelSearchHotelList(const Models::GlobalHotelSearchHotelListRequest &request);
+
+      /**
+       * @summary 验价
+       *
+       * @param tmpReq GlobalHotelValidatePriceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GlobalHotelValidatePriceResponse
+       */
+      Models::GlobalHotelValidatePriceResponse globalHotelValidatePriceWithOptions(const Models::GlobalHotelValidatePriceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 验价
+       *
+       * @param request GlobalHotelValidatePriceRequest
+       * @return GlobalHotelValidatePriceResponse
+       */
+      Models::GlobalHotelValidatePriceResponse globalHotelValidatePrice(const Models::GlobalHotelValidatePriceRequest &request);
+
+      /**
+       * @summary 分销支付
+       *
+       * @param request PayRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PayResponse
+       */
+      Models::PayResponse payWithOptions(const Models::PayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分销支付
+       *
+       * @param request PayRequest
+       * @return PayResponse
+       */
+      Models::PayResponse pay(const Models::PayRequest &request);
+
+      /**
+       * @summary 查询酒店报价可用性
+       *
+       * @param tmpReq QueryAvailabilityRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryAvailabilityResponse
+       */
+      Models::QueryAvailabilityResponse queryAvailabilityWithOptions(const Models::QueryAvailabilityRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询酒店报价可用性
+       *
+       * @param request QueryAvailabilityRequest
+       * @return QueryAvailabilityResponse
+       */
+      Models::QueryAvailabilityResponse queryAvailability(const Models::QueryAvailabilityRequest &request);
+
+      /**
+       * @summary 批量日历报价查询
+       *
+       * @param tmpReq QueryCalendarAvailabilityRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryCalendarAvailabilityResponse
+       */
+      Models::QueryCalendarAvailabilityResponse queryCalendarAvailabilityWithOptions(const Models::QueryCalendarAvailabilityRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量日历报价查询
+       *
+       * @param request QueryCalendarAvailabilityRequest
+       * @return QueryCalendarAvailabilityResponse
+       */
+      Models::QueryCalendarAvailabilityResponse queryCalendarAvailability(const Models::QueryCalendarAvailabilityRequest &request);
+
+      /**
+       * @summary 查询订单
+       *
+       * @param request QueryOrderRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryOrderResponse
+       */
+      Models::QueryOrderResponse queryOrderWithOptions(const Models::QueryOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询订单
+       *
+       * @param request QueryOrderRequest
+       * @return QueryOrderResponse
+       */
+      Models::QueryOrderResponse queryOrder(const Models::QueryOrderRequest &request);
+
+      /**
+       * @summary 分页查询城市行政区划（中英文）
+       *
+       * @param request SearchCityPageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchCityPageResponse
+       */
+      Models::SearchCityPageResponse searchCityPageWithOptions(const Models::SearchCityPageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询城市行政区划（中英文）
+       *
+       * @param request SearchCityPageRequest
+       * @return SearchCityPageResponse
+       */
+      Models::SearchCityPageResponse searchCityPage(const Models::SearchCityPageRequest &request);
+
+      /**
+       * @summary 按城市分页查询酒店列表
+       *
+       * @param request SearchHotelListRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchHotelListResponse
+       */
+      Models::SearchHotelListResponse searchHotelListWithOptions(const Models::SearchHotelListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 按城市分页查询酒店列表
+       *
+       * @param request SearchHotelListRequest
+       * @return SearchHotelListResponse
+       */
+      Models::SearchHotelListResponse searchHotelList(const Models::SearchHotelListRequest &request);
+
+      /**
+       * @summary 验价
+       *
+       * @param tmpReq ValidatePriceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ValidatePriceResponse
+       */
+      Models::ValidatePriceResponse validatePriceWithOptions(const Models::ValidatePriceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 验价
+       *
+       * @param request ValidatePriceRequest
+       * @return ValidatePriceResponse
+       */
+      Models::ValidatePriceResponse validatePrice(const Models::ValidatePriceRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace AirticketOpen20230117

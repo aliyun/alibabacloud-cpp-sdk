@@ -1878,5 +1878,1735 @@ TransitVisaResponse Client::transitVisa(const TransitVisaRequest &request) {
   TransitVisaHeaders headers = TransitVisaHeaders();
   return transitVisaWithOptions(request, headers, runtime);
 }
+
+/**
+ * @summary 申请退款
+ *
+ * @param request ApplyRefundRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ApplyRefundResponse
+ */
+ApplyRefundResponse Client::applyRefundWithOptions(const ApplyRefundRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasOrderNo()) {
+    body["OrderNo"] = request.getOrderNo();
+  }
+
+  if (!!request.hasRefundReason()) {
+    body["RefundReason"] = request.getRefundReason();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "applyRefund"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/applyRefund")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ApplyRefundResponse>();
+}
+
+/**
+ * @summary 申请退款
+ *
+ * @param request ApplyRefundRequest
+ * @return ApplyRefundResponse
+ */
+ApplyRefundResponse Client::applyRefund(const ApplyRefundRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return applyRefundWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 批量查询酒店详情
+ *
+ * @param tmpReq BatchGetHotelDetailRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchGetHotelDetailResponse
+ */
+BatchGetHotelDetailResponse Client::batchGetHotelDetailWithOptions(const BatchGetHotelDetailRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchGetHotelDetailShrinkRequest request = BatchGetHotelDetailShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasStandardHotelIds()) {
+    request.setStandardHotelIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStandardHotelIds(), "StandardHotelIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasLanguage()) {
+    body["Language"] = request.getLanguage();
+  }
+
+  if (!!request.hasStandardHotelIdsShrink()) {
+    body["StandardHotelIds"] = request.getStandardHotelIdsShrink();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "batchGetHotelDetail"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/batchGetHotelDetail")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchGetHotelDetailResponse>();
+}
+
+/**
+ * @summary 批量查询酒店详情
+ *
+ * @param request BatchGetHotelDetailRequest
+ * @return BatchGetHotelDetailResponse
+ */
+BatchGetHotelDetailResponse Client::batchGetHotelDetail(const BatchGetHotelDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return batchGetHotelDetailWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 取消或退款
+ *
+ * @param request CancelOrRefundRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelOrRefundResponse
+ */
+CancelOrRefundResponse Client::cancelOrRefundWithOptions(const CancelOrRefundRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasOrderNo()) {
+    body["OrderNo"] = request.getOrderNo();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "cancelOrRefund"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/cancelOrRefund")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelOrRefundResponse>();
+}
+
+/**
+ * @summary 取消或退款
+ *
+ * @param request CancelOrRefundRequest
+ * @return CancelOrRefundResponse
+ */
+CancelOrRefundResponse Client::cancelOrRefund(const CancelOrRefundRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return cancelOrRefundWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 取消订单
+ *
+ * @param request CancelOrderRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelOrderResponse
+ */
+CancelOrderResponse Client::cancelOrderWithOptions(const CancelOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasOrderNo()) {
+    body["OrderNo"] = request.getOrderNo();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "cancelOrder"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/cancelOrder")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelOrderResponse>();
+}
+
+/**
+ * @summary 取消订单
+ *
+ * @param request CancelOrderRequest
+ * @return CancelOrderResponse
+ */
+CancelOrderResponse Client::cancelOrder(const CancelOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return cancelOrderWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创单并支付
+ *
+ * @param tmpReq CreateAndPayRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAndPayResponse
+ */
+CreateAndPayResponse Client::createAndPayWithOptions(const CreateAndPayRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateAndPayShrinkRequest request = CreateAndPayShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContact()) {
+    request.setContactShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContact(), "Contact", "json"));
+  }
+
+  if (!!tmpReq.hasGuests()) {
+    request.setGuestsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGuests(), "Guests", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasContactShrink()) {
+    body["Contact"] = request.getContactShrink();
+  }
+
+  if (!!request.hasExternalOrderNo()) {
+    body["ExternalOrderNo"] = request.getExternalOrderNo();
+  }
+
+  if (!!request.hasGuestsShrink()) {
+    body["Guests"] = request.getGuestsShrink();
+  }
+
+  if (!!request.hasItemOfferId()) {
+    body["ItemOfferId"] = request.getItemOfferId();
+  }
+
+  if (!!request.hasRoomCount()) {
+    body["RoomCount"] = request.getRoomCount();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "createAndPay"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/createAndPay")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAndPayResponse>();
+}
+
+/**
+ * @summary 创单并支付
+ *
+ * @param request CreateAndPayRequest
+ * @return CreateAndPayResponse
+ */
+CreateAndPayResponse Client::createAndPay(const CreateAndPayRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createAndPayWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建订单
+ *
+ * @param tmpReq CreateOrderRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateOrderResponse
+ */
+CreateOrderResponse Client::createOrderWithOptions(const CreateOrderRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateOrderShrinkRequest request = CreateOrderShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContact()) {
+    request.setContactShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContact(), "Contact", "json"));
+  }
+
+  if (!!tmpReq.hasGuests()) {
+    request.setGuestsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGuests(), "Guests", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasContactShrink()) {
+    body["Contact"] = request.getContactShrink();
+  }
+
+  if (!!request.hasExternalOrderNo()) {
+    body["ExternalOrderNo"] = request.getExternalOrderNo();
+  }
+
+  if (!!request.hasGuestsShrink()) {
+    body["Guests"] = request.getGuestsShrink();
+  }
+
+  if (!!request.hasItemOfferId()) {
+    body["ItemOfferId"] = request.getItemOfferId();
+  }
+
+  if (!!request.hasRoomCount()) {
+    body["RoomCount"] = request.getRoomCount();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "createOrder"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/createOrder")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateOrderResponse>();
+}
+
+/**
+ * @summary 创建订单
+ *
+ * @param request CreateOrderRequest
+ * @return CreateOrderResponse
+ */
+CreateOrderResponse Client::createOrder(const CreateOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createOrderWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 申请退款
+ *
+ * @param request GlobalHotelApplyRefundRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GlobalHotelApplyRefundResponse
+ */
+GlobalHotelApplyRefundResponse Client::globalHotelApplyRefundWithOptions(const GlobalHotelApplyRefundRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasOrderNo()) {
+    body["OrderNo"] = request.getOrderNo();
+  }
+
+  if (!!request.hasRefundReason()) {
+    body["RefundReason"] = request.getRefundReason();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "globalHotelApplyRefund"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/globalHotelApplyRefund")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GlobalHotelApplyRefundResponse>();
+}
+
+/**
+ * @summary 申请退款
+ *
+ * @param request GlobalHotelApplyRefundRequest
+ * @return GlobalHotelApplyRefundResponse
+ */
+GlobalHotelApplyRefundResponse Client::globalHotelApplyRefund(const GlobalHotelApplyRefundRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return globalHotelApplyRefundWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 批量查询酒店详情
+ *
+ * @param tmpReq GlobalHotelBatchGetHotelDetailRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GlobalHotelBatchGetHotelDetailResponse
+ */
+GlobalHotelBatchGetHotelDetailResponse Client::globalHotelBatchGetHotelDetailWithOptions(const GlobalHotelBatchGetHotelDetailRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GlobalHotelBatchGetHotelDetailShrinkRequest request = GlobalHotelBatchGetHotelDetailShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasStandardHotelIds()) {
+    request.setStandardHotelIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStandardHotelIds(), "StandardHotelIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasLanguage()) {
+    body["Language"] = request.getLanguage();
+  }
+
+  if (!!request.hasStandardHotelIdsShrink()) {
+    body["StandardHotelIds"] = request.getStandardHotelIdsShrink();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "globalHotelBatchGetHotelDetail"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/globalHotelBatchGetHotelDetail")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GlobalHotelBatchGetHotelDetailResponse>();
+}
+
+/**
+ * @summary 批量查询酒店详情
+ *
+ * @param request GlobalHotelBatchGetHotelDetailRequest
+ * @return GlobalHotelBatchGetHotelDetailResponse
+ */
+GlobalHotelBatchGetHotelDetailResponse Client::globalHotelBatchGetHotelDetail(const GlobalHotelBatchGetHotelDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return globalHotelBatchGetHotelDetailWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 取消或退款
+ *
+ * @param request GlobalHotelCancelOrRefundRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GlobalHotelCancelOrRefundResponse
+ */
+GlobalHotelCancelOrRefundResponse Client::globalHotelCancelOrRefundWithOptions(const GlobalHotelCancelOrRefundRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasOrderNo()) {
+    body["OrderNo"] = request.getOrderNo();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "globalHotelCancelOrRefund"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/globalHotelCancelOrRefund")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GlobalHotelCancelOrRefundResponse>();
+}
+
+/**
+ * @summary 取消或退款
+ *
+ * @param request GlobalHotelCancelOrRefundRequest
+ * @return GlobalHotelCancelOrRefundResponse
+ */
+GlobalHotelCancelOrRefundResponse Client::globalHotelCancelOrRefund(const GlobalHotelCancelOrRefundRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return globalHotelCancelOrRefundWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 取消订单
+ *
+ * @param request GlobalHotelCancelOrderRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GlobalHotelCancelOrderResponse
+ */
+GlobalHotelCancelOrderResponse Client::globalHotelCancelOrderWithOptions(const GlobalHotelCancelOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasOrderNo()) {
+    body["OrderNo"] = request.getOrderNo();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "globalHotelCancelOrder"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/globalHotelCancelOrder")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GlobalHotelCancelOrderResponse>();
+}
+
+/**
+ * @summary 取消订单
+ *
+ * @param request GlobalHotelCancelOrderRequest
+ * @return GlobalHotelCancelOrderResponse
+ */
+GlobalHotelCancelOrderResponse Client::globalHotelCancelOrder(const GlobalHotelCancelOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return globalHotelCancelOrderWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创单并支付
+ *
+ * @param tmpReq GlobalHotelCreateAndPayRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GlobalHotelCreateAndPayResponse
+ */
+GlobalHotelCreateAndPayResponse Client::globalHotelCreateAndPayWithOptions(const GlobalHotelCreateAndPayRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GlobalHotelCreateAndPayShrinkRequest request = GlobalHotelCreateAndPayShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContact()) {
+    request.setContactShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContact(), "Contact", "json"));
+  }
+
+  if (!!tmpReq.hasGuests()) {
+    request.setGuestsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGuests(), "Guests", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasContactShrink()) {
+    body["Contact"] = request.getContactShrink();
+  }
+
+  if (!!request.hasExternalOrderNo()) {
+    body["ExternalOrderNo"] = request.getExternalOrderNo();
+  }
+
+  if (!!request.hasGuestsShrink()) {
+    body["Guests"] = request.getGuestsShrink();
+  }
+
+  if (!!request.hasItemOfferId()) {
+    body["ItemOfferId"] = request.getItemOfferId();
+  }
+
+  if (!!request.hasRoomCount()) {
+    body["RoomCount"] = request.getRoomCount();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "globalHotelCreateAndPay"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/globalHotelCreateAndPay")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GlobalHotelCreateAndPayResponse>();
+}
+
+/**
+ * @summary 创单并支付
+ *
+ * @param request GlobalHotelCreateAndPayRequest
+ * @return GlobalHotelCreateAndPayResponse
+ */
+GlobalHotelCreateAndPayResponse Client::globalHotelCreateAndPay(const GlobalHotelCreateAndPayRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return globalHotelCreateAndPayWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建订单
+ *
+ * @param tmpReq GlobalHotelCreateOrderRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GlobalHotelCreateOrderResponse
+ */
+GlobalHotelCreateOrderResponse Client::globalHotelCreateOrderWithOptions(const GlobalHotelCreateOrderRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GlobalHotelCreateOrderShrinkRequest request = GlobalHotelCreateOrderShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContact()) {
+    request.setContactShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContact(), "Contact", "json"));
+  }
+
+  if (!!tmpReq.hasGuests()) {
+    request.setGuestsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGuests(), "Guests", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasContactShrink()) {
+    body["Contact"] = request.getContactShrink();
+  }
+
+  if (!!request.hasExternalOrderNo()) {
+    body["ExternalOrderNo"] = request.getExternalOrderNo();
+  }
+
+  if (!!request.hasGuestsShrink()) {
+    body["Guests"] = request.getGuestsShrink();
+  }
+
+  if (!!request.hasItemOfferId()) {
+    body["ItemOfferId"] = request.getItemOfferId();
+  }
+
+  if (!!request.hasRoomCount()) {
+    body["RoomCount"] = request.getRoomCount();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "globalHotelCreateOrder"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/globalHotelCreateOrder")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GlobalHotelCreateOrderResponse>();
+}
+
+/**
+ * @summary 创建订单
+ *
+ * @param request GlobalHotelCreateOrderRequest
+ * @return GlobalHotelCreateOrderResponse
+ */
+GlobalHotelCreateOrderResponse Client::globalHotelCreateOrder(const GlobalHotelCreateOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return globalHotelCreateOrderWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 分销支付
+ *
+ * @param request GlobalHotelPayRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GlobalHotelPayResponse
+ */
+GlobalHotelPayResponse Client::globalHotelPayWithOptions(const GlobalHotelPayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasOrderNo()) {
+    body["OrderNo"] = request.getOrderNo();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "globalHotelPay"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/globalHotelPay")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GlobalHotelPayResponse>();
+}
+
+/**
+ * @summary 分销支付
+ *
+ * @param request GlobalHotelPayRequest
+ * @return GlobalHotelPayResponse
+ */
+GlobalHotelPayResponse Client::globalHotelPay(const GlobalHotelPayRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return globalHotelPayWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询酒店报价可用性
+ *
+ * @param tmpReq GlobalHotelQueryAvailabilityRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GlobalHotelQueryAvailabilityResponse
+ */
+GlobalHotelQueryAvailabilityResponse Client::globalHotelQueryAvailabilityWithOptions(const GlobalHotelQueryAvailabilityRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GlobalHotelQueryAvailabilityShrinkRequest request = GlobalHotelQueryAvailabilityShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasChildrenAges()) {
+    request.setChildrenAgesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChildrenAges(), "ChildrenAges", "json"));
+  }
+
+  if (!!tmpReq.hasStandardHotelIds()) {
+    request.setStandardHotelIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStandardHotelIds(), "StandardHotelIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasAdultCount()) {
+    body["AdultCount"] = request.getAdultCount();
+  }
+
+  if (!!request.hasCheckInDate()) {
+    body["CheckInDate"] = request.getCheckInDate();
+  }
+
+  if (!!request.hasCheckOutDate()) {
+    body["CheckOutDate"] = request.getCheckOutDate();
+  }
+
+  if (!!request.hasChildCount()) {
+    body["ChildCount"] = request.getChildCount();
+  }
+
+  if (!!request.hasChildrenAgesShrink()) {
+    body["ChildrenAges"] = request.getChildrenAgesShrink();
+  }
+
+  if (!!request.hasRoomCount()) {
+    body["RoomCount"] = request.getRoomCount();
+  }
+
+  if (!!request.hasStandardHotelIdsShrink()) {
+    body["StandardHotelIds"] = request.getStandardHotelIdsShrink();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "globalHotelQueryAvailability"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/globalHotelQueryAvailability")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GlobalHotelQueryAvailabilityResponse>();
+}
+
+/**
+ * @summary 查询酒店报价可用性
+ *
+ * @param request GlobalHotelQueryAvailabilityRequest
+ * @return GlobalHotelQueryAvailabilityResponse
+ */
+GlobalHotelQueryAvailabilityResponse Client::globalHotelQueryAvailability(const GlobalHotelQueryAvailabilityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return globalHotelQueryAvailabilityWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 批量日历报价查询
+ *
+ * @param tmpReq GlobalHotelQueryCalendarAvailabilityRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GlobalHotelQueryCalendarAvailabilityResponse
+ */
+GlobalHotelQueryCalendarAvailabilityResponse Client::globalHotelQueryCalendarAvailabilityWithOptions(const GlobalHotelQueryCalendarAvailabilityRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GlobalHotelQueryCalendarAvailabilityShrinkRequest request = GlobalHotelQueryCalendarAvailabilityShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasChildrenAges()) {
+    request.setChildrenAgesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChildrenAges(), "ChildrenAges", "json"));
+  }
+
+  if (!!tmpReq.hasStandardHotelIds()) {
+    request.setStandardHotelIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStandardHotelIds(), "StandardHotelIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasAdultCount()) {
+    body["AdultCount"] = request.getAdultCount();
+  }
+
+  if (!!request.hasCheckInDateEnd()) {
+    body["CheckInDateEnd"] = request.getCheckInDateEnd();
+  }
+
+  if (!!request.hasCheckInDateStart()) {
+    body["CheckInDateStart"] = request.getCheckInDateStart();
+  }
+
+  if (!!request.hasChildCount()) {
+    body["ChildCount"] = request.getChildCount();
+  }
+
+  if (!!request.hasChildrenAgesShrink()) {
+    body["ChildrenAges"] = request.getChildrenAgesShrink();
+  }
+
+  if (!!request.hasRoomCount()) {
+    body["RoomCount"] = request.getRoomCount();
+  }
+
+  if (!!request.hasStandardHotelIdsShrink()) {
+    body["StandardHotelIds"] = request.getStandardHotelIdsShrink();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "globalHotelQueryCalendarAvailability"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/globalHotelQueryCalendarAvailability")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GlobalHotelQueryCalendarAvailabilityResponse>();
+}
+
+/**
+ * @summary 批量日历报价查询
+ *
+ * @param request GlobalHotelQueryCalendarAvailabilityRequest
+ * @return GlobalHotelQueryCalendarAvailabilityResponse
+ */
+GlobalHotelQueryCalendarAvailabilityResponse Client::globalHotelQueryCalendarAvailability(const GlobalHotelQueryCalendarAvailabilityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return globalHotelQueryCalendarAvailabilityWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询订单
+ *
+ * @param request GlobalHotelQueryOrderRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GlobalHotelQueryOrderResponse
+ */
+GlobalHotelQueryOrderResponse Client::globalHotelQueryOrderWithOptions(const GlobalHotelQueryOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasExternalOrderNo()) {
+    body["ExternalOrderNo"] = request.getExternalOrderNo();
+  }
+
+  if (!!request.hasOrderNo()) {
+    body["OrderNo"] = request.getOrderNo();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "globalHotelQueryOrder"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/globalHotelQueryOrder")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GlobalHotelQueryOrderResponse>();
+}
+
+/**
+ * @summary 查询订单
+ *
+ * @param request GlobalHotelQueryOrderRequest
+ * @return GlobalHotelQueryOrderResponse
+ */
+GlobalHotelQueryOrderResponse Client::globalHotelQueryOrder(const GlobalHotelQueryOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return globalHotelQueryOrderWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 分页查询城市行政区划（中英文）
+ *
+ * @param request GlobalHotelSearchCityPageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GlobalHotelSearchCityPageResponse
+ */
+GlobalHotelSearchCityPageResponse Client::globalHotelSearchCityPageWithOptions(const GlobalHotelSearchCityPageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasCount()) {
+    body["Count"] = request.getCount();
+  }
+
+  if (!!request.hasCountryCode()) {
+    body["CountryCode"] = request.getCountryCode();
+  }
+
+  if (!!request.hasStart()) {
+    body["Start"] = request.getStart();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "globalHotelSearchCityPage"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/globalHotelSearchCityPage")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GlobalHotelSearchCityPageResponse>();
+}
+
+/**
+ * @summary 分页查询城市行政区划（中英文）
+ *
+ * @param request GlobalHotelSearchCityPageRequest
+ * @return GlobalHotelSearchCityPageResponse
+ */
+GlobalHotelSearchCityPageResponse Client::globalHotelSearchCityPage(const GlobalHotelSearchCityPageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return globalHotelSearchCityPageWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 按城市分页查询酒店列表
+ *
+ * @param request GlobalHotelSearchHotelListRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GlobalHotelSearchHotelListResponse
+ */
+GlobalHotelSearchHotelListResponse Client::globalHotelSearchHotelListWithOptions(const GlobalHotelSearchHotelListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasCityCode()) {
+    body["CityCode"] = request.getCityCode();
+  }
+
+  if (!!request.hasPageNo()) {
+    body["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "globalHotelSearchHotelList"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/globalHotelSearchHotelList")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GlobalHotelSearchHotelListResponse>();
+}
+
+/**
+ * @summary 按城市分页查询酒店列表
+ *
+ * @param request GlobalHotelSearchHotelListRequest
+ * @return GlobalHotelSearchHotelListResponse
+ */
+GlobalHotelSearchHotelListResponse Client::globalHotelSearchHotelList(const GlobalHotelSearchHotelListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return globalHotelSearchHotelListWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 验价
+ *
+ * @param tmpReq GlobalHotelValidatePriceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GlobalHotelValidatePriceResponse
+ */
+GlobalHotelValidatePriceResponse Client::globalHotelValidatePriceWithOptions(const GlobalHotelValidatePriceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GlobalHotelValidatePriceShrinkRequest request = GlobalHotelValidatePriceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasChildrenAges()) {
+    request.setChildrenAgesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChildrenAges(), "ChildrenAges", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasAdults()) {
+    body["Adults"] = request.getAdults();
+  }
+
+  if (!!request.hasChildren()) {
+    body["Children"] = request.getChildren();
+  }
+
+  if (!!request.hasChildrenAgesShrink()) {
+    body["ChildrenAges"] = request.getChildrenAgesShrink();
+  }
+
+  if (!!request.hasItemOfferKey()) {
+    body["ItemOfferKey"] = request.getItemOfferKey();
+  }
+
+  if (!!request.hasRoomCount()) {
+    body["RoomCount"] = request.getRoomCount();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "globalHotelValidatePrice"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/globalHotelValidatePrice")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GlobalHotelValidatePriceResponse>();
+}
+
+/**
+ * @summary 验价
+ *
+ * @param request GlobalHotelValidatePriceRequest
+ * @return GlobalHotelValidatePriceResponse
+ */
+GlobalHotelValidatePriceResponse Client::globalHotelValidatePrice(const GlobalHotelValidatePriceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return globalHotelValidatePriceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 分销支付
+ *
+ * @param request PayRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PayResponse
+ */
+PayResponse Client::payWithOptions(const PayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasOrderNo()) {
+    body["OrderNo"] = request.getOrderNo();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "pay"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pay")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PayResponse>();
+}
+
+/**
+ * @summary 分销支付
+ *
+ * @param request PayRequest
+ * @return PayResponse
+ */
+PayResponse Client::pay(const PayRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return payWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询酒店报价可用性
+ *
+ * @param tmpReq QueryAvailabilityRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryAvailabilityResponse
+ */
+QueryAvailabilityResponse Client::queryAvailabilityWithOptions(const QueryAvailabilityRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  QueryAvailabilityShrinkRequest request = QueryAvailabilityShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasChildrenAges()) {
+    request.setChildrenAgesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChildrenAges(), "ChildrenAges", "json"));
+  }
+
+  if (!!tmpReq.hasStandardHotelIds()) {
+    request.setStandardHotelIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStandardHotelIds(), "StandardHotelIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasAdultCount()) {
+    body["AdultCount"] = request.getAdultCount();
+  }
+
+  if (!!request.hasCheckInDate()) {
+    body["CheckInDate"] = request.getCheckInDate();
+  }
+
+  if (!!request.hasCheckOutDate()) {
+    body["CheckOutDate"] = request.getCheckOutDate();
+  }
+
+  if (!!request.hasChildCount()) {
+    body["ChildCount"] = request.getChildCount();
+  }
+
+  if (!!request.hasChildrenAgesShrink()) {
+    body["ChildrenAges"] = request.getChildrenAgesShrink();
+  }
+
+  if (!!request.hasRoomCount()) {
+    body["RoomCount"] = request.getRoomCount();
+  }
+
+  if (!!request.hasStandardHotelIdsShrink()) {
+    body["StandardHotelIds"] = request.getStandardHotelIdsShrink();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "queryAvailability"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/queryAvailability")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryAvailabilityResponse>();
+}
+
+/**
+ * @summary 查询酒店报价可用性
+ *
+ * @param request QueryAvailabilityRequest
+ * @return QueryAvailabilityResponse
+ */
+QueryAvailabilityResponse Client::queryAvailability(const QueryAvailabilityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return queryAvailabilityWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 批量日历报价查询
+ *
+ * @param tmpReq QueryCalendarAvailabilityRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryCalendarAvailabilityResponse
+ */
+QueryCalendarAvailabilityResponse Client::queryCalendarAvailabilityWithOptions(const QueryCalendarAvailabilityRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  QueryCalendarAvailabilityShrinkRequest request = QueryCalendarAvailabilityShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasChildrenAges()) {
+    request.setChildrenAgesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChildrenAges(), "ChildrenAges", "json"));
+  }
+
+  if (!!tmpReq.hasStandardHotelIds()) {
+    request.setStandardHotelIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStandardHotelIds(), "StandardHotelIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasAdultCount()) {
+    body["AdultCount"] = request.getAdultCount();
+  }
+
+  if (!!request.hasCheckInDateEnd()) {
+    body["CheckInDateEnd"] = request.getCheckInDateEnd();
+  }
+
+  if (!!request.hasCheckInDateStart()) {
+    body["CheckInDateStart"] = request.getCheckInDateStart();
+  }
+
+  if (!!request.hasChildCount()) {
+    body["ChildCount"] = request.getChildCount();
+  }
+
+  if (!!request.hasChildrenAgesShrink()) {
+    body["ChildrenAges"] = request.getChildrenAgesShrink();
+  }
+
+  if (!!request.hasRoomCount()) {
+    body["RoomCount"] = request.getRoomCount();
+  }
+
+  if (!!request.hasStandardHotelIdsShrink()) {
+    body["StandardHotelIds"] = request.getStandardHotelIdsShrink();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "queryCalendarAvailability"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/queryCalendarAvailability")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryCalendarAvailabilityResponse>();
+}
+
+/**
+ * @summary 批量日历报价查询
+ *
+ * @param request QueryCalendarAvailabilityRequest
+ * @return QueryCalendarAvailabilityResponse
+ */
+QueryCalendarAvailabilityResponse Client::queryCalendarAvailability(const QueryCalendarAvailabilityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return queryCalendarAvailabilityWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询订单
+ *
+ * @param request QueryOrderRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryOrderResponse
+ */
+QueryOrderResponse Client::queryOrderWithOptions(const QueryOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasExternalOrderNo()) {
+    body["ExternalOrderNo"] = request.getExternalOrderNo();
+  }
+
+  if (!!request.hasOrderNo()) {
+    body["OrderNo"] = request.getOrderNo();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "queryOrder"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/queryOrder")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryOrderResponse>();
+}
+
+/**
+ * @summary 查询订单
+ *
+ * @param request QueryOrderRequest
+ * @return QueryOrderResponse
+ */
+QueryOrderResponse Client::queryOrder(const QueryOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return queryOrderWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 分页查询城市行政区划（中英文）
+ *
+ * @param request SearchCityPageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchCityPageResponse
+ */
+SearchCityPageResponse Client::searchCityPageWithOptions(const SearchCityPageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasCount()) {
+    body["Count"] = request.getCount();
+  }
+
+  if (!!request.hasCountryCode()) {
+    body["CountryCode"] = request.getCountryCode();
+  }
+
+  if (!!request.hasStart()) {
+    body["Start"] = request.getStart();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "searchCityPage"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/searchCityPage")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchCityPageResponse>();
+}
+
+/**
+ * @summary 分页查询城市行政区划（中英文）
+ *
+ * @param request SearchCityPageRequest
+ * @return SearchCityPageResponse
+ */
+SearchCityPageResponse Client::searchCityPage(const SearchCityPageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return searchCityPageWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 按城市分页查询酒店列表
+ *
+ * @param request SearchHotelListRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchHotelListResponse
+ */
+SearchHotelListResponse Client::searchHotelListWithOptions(const SearchHotelListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasCityCode()) {
+    body["CityCode"] = request.getCityCode();
+  }
+
+  if (!!request.hasPageNo()) {
+    body["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "searchHotelList"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/globalHotel/searchHotelList")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchHotelListResponse>();
+}
+
+/**
+ * @summary 按城市分页查询酒店列表
+ *
+ * @param request SearchHotelListRequest
+ * @return SearchHotelListResponse
+ */
+SearchHotelListResponse Client::searchHotelList(const SearchHotelListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return searchHotelListWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 验价
+ *
+ * @param tmpReq ValidatePriceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ValidatePriceResponse
+ */
+ValidatePriceResponse Client::validatePriceWithOptions(const ValidatePriceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ValidatePriceShrinkRequest request = ValidatePriceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasChildrenAges()) {
+    request.setChildrenAgesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChildrenAges(), "ChildrenAges", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccountNo()) {
+    body["AccountNo"] = request.getAccountNo();
+  }
+
+  if (!!request.hasAdults()) {
+    body["Adults"] = request.getAdults();
+  }
+
+  if (!!request.hasChildren()) {
+    body["Children"] = request.getChildren();
+  }
+
+  if (!!request.hasChildrenAgesShrink()) {
+    body["ChildrenAges"] = request.getChildrenAgesShrink();
+  }
+
+  if (!!request.hasItemOfferKey()) {
+    body["ItemOfferKey"] = request.getItemOfferKey();
+  }
+
+  if (!!request.hasRoomCount()) {
+    body["RoomCount"] = request.getRoomCount();
+  }
+
+  if (!!request.hasTracerId()) {
+    body["TracerId"] = request.getTracerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "validatePrice"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/validatePrice")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ValidatePriceResponse>();
+}
+
+/**
+ * @summary 验价
+ *
+ * @param request ValidatePriceRequest
+ * @return ValidatePriceResponse
+ */
+ValidatePriceResponse Client::validatePrice(const ValidatePriceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return validatePriceWithOptions(request, headers, runtime);
+}
 } // namespace AlibabaCloud
 } // namespace AirticketOpen20230117

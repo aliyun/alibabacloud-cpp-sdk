@@ -1,0 +1,116 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_GLOBALHOTELVALIDATEPRICEREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_GLOBALHOTELVALIDATEPRICEREQUEST_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace AirticketOpen20230117
+{
+namespace Models
+{
+  class GlobalHotelValidatePriceRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const GlobalHotelValidatePriceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AccountNo, accountNo_);
+      DARABONBA_PTR_TO_JSON(Adults, adults_);
+      DARABONBA_PTR_TO_JSON(Children, children_);
+      DARABONBA_PTR_TO_JSON(ChildrenAges, childrenAges_);
+      DARABONBA_PTR_TO_JSON(ItemOfferKey, itemOfferKey_);
+      DARABONBA_PTR_TO_JSON(RoomCount, roomCount_);
+      DARABONBA_PTR_TO_JSON(TracerId, tracerId_);
+    };
+    friend void from_json(const Darabonba::Json& j, GlobalHotelValidatePriceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccountNo, accountNo_);
+      DARABONBA_PTR_FROM_JSON(Adults, adults_);
+      DARABONBA_PTR_FROM_JSON(Children, children_);
+      DARABONBA_PTR_FROM_JSON(ChildrenAges, childrenAges_);
+      DARABONBA_PTR_FROM_JSON(ItemOfferKey, itemOfferKey_);
+      DARABONBA_PTR_FROM_JSON(RoomCount, roomCount_);
+      DARABONBA_PTR_FROM_JSON(TracerId, tracerId_);
+    };
+    GlobalHotelValidatePriceRequest() = default ;
+    GlobalHotelValidatePriceRequest(const GlobalHotelValidatePriceRequest &) = default ;
+    GlobalHotelValidatePriceRequest(GlobalHotelValidatePriceRequest &&) = default ;
+    GlobalHotelValidatePriceRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GlobalHotelValidatePriceRequest() = default ;
+    GlobalHotelValidatePriceRequest& operator=(const GlobalHotelValidatePriceRequest &) = default ;
+    GlobalHotelValidatePriceRequest& operator=(GlobalHotelValidatePriceRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->accountNo_ == nullptr
+        && this->adults_ == nullptr && this->children_ == nullptr && this->childrenAges_ == nullptr && this->itemOfferKey_ == nullptr && this->roomCount_ == nullptr
+        && this->tracerId_ == nullptr; };
+    // accountNo Field Functions 
+    bool hasAccountNo() const { return this->accountNo_ != nullptr;};
+    void deleteAccountNo() { this->accountNo_ = nullptr;};
+    inline int64_t getAccountNo() const { DARABONBA_PTR_GET_DEFAULT(accountNo_, 0L) };
+    inline GlobalHotelValidatePriceRequest& setAccountNo(int64_t accountNo) { DARABONBA_PTR_SET_VALUE(accountNo_, accountNo) };
+
+
+    // adults Field Functions 
+    bool hasAdults() const { return this->adults_ != nullptr;};
+    void deleteAdults() { this->adults_ = nullptr;};
+    inline int32_t getAdults() const { DARABONBA_PTR_GET_DEFAULT(adults_, 0) };
+    inline GlobalHotelValidatePriceRequest& setAdults(int32_t adults) { DARABONBA_PTR_SET_VALUE(adults_, adults) };
+
+
+    // children Field Functions 
+    bool hasChildren() const { return this->children_ != nullptr;};
+    void deleteChildren() { this->children_ = nullptr;};
+    inline int32_t getChildren() const { DARABONBA_PTR_GET_DEFAULT(children_, 0) };
+    inline GlobalHotelValidatePriceRequest& setChildren(int32_t children) { DARABONBA_PTR_SET_VALUE(children_, children) };
+
+
+    // childrenAges Field Functions 
+    bool hasChildrenAges() const { return this->childrenAges_ != nullptr;};
+    void deleteChildrenAges() { this->childrenAges_ = nullptr;};
+    inline const vector<int32_t> & getChildrenAges() const { DARABONBA_PTR_GET_CONST(childrenAges_, vector<int32_t>) };
+    inline vector<int32_t> getChildrenAges() { DARABONBA_PTR_GET(childrenAges_, vector<int32_t>) };
+    inline GlobalHotelValidatePriceRequest& setChildrenAges(const vector<int32_t> & childrenAges) { DARABONBA_PTR_SET_VALUE(childrenAges_, childrenAges) };
+    inline GlobalHotelValidatePriceRequest& setChildrenAges(vector<int32_t> && childrenAges) { DARABONBA_PTR_SET_RVALUE(childrenAges_, childrenAges) };
+
+
+    // itemOfferKey Field Functions 
+    bool hasItemOfferKey() const { return this->itemOfferKey_ != nullptr;};
+    void deleteItemOfferKey() { this->itemOfferKey_ = nullptr;};
+    inline string getItemOfferKey() const { DARABONBA_PTR_GET_DEFAULT(itemOfferKey_, "") };
+    inline GlobalHotelValidatePriceRequest& setItemOfferKey(string itemOfferKey) { DARABONBA_PTR_SET_VALUE(itemOfferKey_, itemOfferKey) };
+
+
+    // roomCount Field Functions 
+    bool hasRoomCount() const { return this->roomCount_ != nullptr;};
+    void deleteRoomCount() { this->roomCount_ = nullptr;};
+    inline int32_t getRoomCount() const { DARABONBA_PTR_GET_DEFAULT(roomCount_, 0) };
+    inline GlobalHotelValidatePriceRequest& setRoomCount(int32_t roomCount) { DARABONBA_PTR_SET_VALUE(roomCount_, roomCount) };
+
+
+    // tracerId Field Functions 
+    bool hasTracerId() const { return this->tracerId_ != nullptr;};
+    void deleteTracerId() { this->tracerId_ = nullptr;};
+    inline string getTracerId() const { DARABONBA_PTR_GET_DEFAULT(tracerId_, "") };
+    inline GlobalHotelValidatePriceRequest& setTracerId(string tracerId) { DARABONBA_PTR_SET_VALUE(tracerId_, tracerId) };
+
+
+  protected:
+    // This parameter is required.
+    shared_ptr<int64_t> accountNo_ {};
+    // This parameter is required.
+    shared_ptr<int32_t> adults_ {};
+    shared_ptr<int32_t> children_ {};
+    shared_ptr<vector<int32_t>> childrenAges_ {};
+    // This parameter is required.
+    shared_ptr<string> itemOfferKey_ {};
+    // This parameter is required.
+    shared_ptr<int32_t> roomCount_ {};
+    shared_ptr<string> tracerId_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace AirticketOpen20230117
+#endif
