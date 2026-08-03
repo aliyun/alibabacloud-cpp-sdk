@@ -125,22 +125,20 @@ namespace Models
 
 
     protected:
-      // The service category. Valid values:
-      // 
-      // *   **0**: Redis Open-Source Edition
-      // *   **1**: Tair (Enterprise Edition)
+      // The product category. Valid values:
+      // - **0**: Redis Community Edition
+      // - **1**: Tair (Enhanced Edition)
       shared_ptr<int64_t> category_ {};
-      // The time when the parameter template was created.
+      // The creation time of the parameter template.
       shared_ptr<string> created_ {};
       // The engine type. Valid values:
-      // 
-      // *   **redis**: Redis Open-Source Edition or Tair (In-Memory)
-      // *   **tair_pena**: Tair (On NVM)
-      // *   **tair_pdb**: Tair (On Disk)
+      // - **redis**: Redis Community Edition or Tair (Enhanced Edition) in-memory type.
+      // - **tair_pena**: Tair (Enhanced Edition) persistent memory type.
+      // - **tair_pdb**: Tair (Enhanced Edition) cloud disk type.
       shared_ptr<string> engine_ {};
-      // The compatible engine version.
+      // The engine-compatible version.
       shared_ptr<string> engineVersion_ {};
-      // The time when the parameter template was last modified.
+      // The most recent modification time of the parameter template.
       shared_ptr<string> modified_ {};
       // The parameter template ID.
       shared_ptr<string> paramGroupId_ {};

@@ -66,6 +66,7 @@ namespace Models
 
 
     protected:
+      // The endpoint of the instance.
       shared_ptr<string> connectionString_ {};
     };
 
@@ -111,10 +112,15 @@ namespace Models
 
 
   protected:
+    // The IP address of the primary DNS server.
     shared_ptr<string> masterDns_ {};
+    // The list of IP addresses corresponding to all LBs of the current instance.
     shared_ptr<vector<string>> masterDnsRecord_ {};
+    // The maximum number of VIPs that can be created.
     shared_ptr<int64_t> maxQuota_ {};
+    // The list of multiple LB VIPs.
     shared_ptr<vector<DescribeInstanceMultiVIPResponseBody::MultiVIPList>> multiVIPList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

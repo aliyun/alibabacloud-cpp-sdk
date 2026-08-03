@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeBackupPolicyResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AccessDeniedDetail, accessDeniedDetail_);
+      DARABONBA_PTR_TO_JSON(BackupLogStartTime, backupLogStartTime_);
       DARABONBA_PTR_TO_JSON(BackupRetentionPeriod, backupRetentionPeriod_);
       DARABONBA_PTR_TO_JSON(DbsInstance, dbsInstance_);
       DARABONBA_PTR_TO_JSON(EnableBackupLog, enableBackupLog_);
@@ -24,6 +25,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeBackupPolicyResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessDeniedDetail, accessDeniedDetail_);
+      DARABONBA_PTR_FROM_JSON(BackupLogStartTime, backupLogStartTime_);
       DARABONBA_PTR_FROM_JSON(BackupRetentionPeriod, backupRetentionPeriod_);
       DARABONBA_PTR_FROM_JSON(DbsInstance, dbsInstance_);
       DARABONBA_PTR_FROM_JSON(EnableBackupLog, enableBackupLog_);
@@ -127,25 +129,25 @@ namespace Models
 
 
     protected:
-      // This parameter is no longer used. Ignore this parameter.
+      // Same as above.
       shared_ptr<string> authAction_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // Same as above.
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // Same as above.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // Same as above.
       shared_ptr<string> authPrincipalType_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // Same as above.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // Same as above.
       shared_ptr<string> noPermissionType_ {};
-      // This parameter is no longer used. Ignore this parameter.
+      // Same as above.
       shared_ptr<string> policyType_ {};
     };
 
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
-        && this->backupRetentionPeriod_ == nullptr && this->dbsInstance_ == nullptr && this->enableBackupLog_ == nullptr && this->preferredBackupPeriod_ == nullptr && this->preferredBackupTime_ == nullptr
-        && this->preferredNextBackupTime_ == nullptr && this->requestId_ == nullptr; };
+        && this->backupLogStartTime_ == nullptr && this->backupRetentionPeriod_ == nullptr && this->dbsInstance_ == nullptr && this->enableBackupLog_ == nullptr && this->preferredBackupPeriod_ == nullptr
+        && this->preferredBackupTime_ == nullptr && this->preferredNextBackupTime_ == nullptr && this->requestId_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
@@ -153,6 +155,13 @@ namespace Models
     inline DescribeBackupPolicyResponseBody::AccessDeniedDetail getAccessDeniedDetail() { DARABONBA_PTR_GET(accessDeniedDetail_, DescribeBackupPolicyResponseBody::AccessDeniedDetail) };
     inline DescribeBackupPolicyResponseBody& setAccessDeniedDetail(const DescribeBackupPolicyResponseBody::AccessDeniedDetail & accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
     inline DescribeBackupPolicyResponseBody& setAccessDeniedDetail(DescribeBackupPolicyResponseBody::AccessDeniedDetail && accessDeniedDetail) { DARABONBA_PTR_SET_RVALUE(accessDeniedDetail_, accessDeniedDetail) };
+
+
+    // backupLogStartTime Field Functions 
+    bool hasBackupLogStartTime() const { return this->backupLogStartTime_ != nullptr;};
+    void deleteBackupLogStartTime() { this->backupLogStartTime_ = nullptr;};
+    inline string getBackupLogStartTime() const { DARABONBA_PTR_GET_DEFAULT(backupLogStartTime_, "") };
+    inline DescribeBackupPolicyResponseBody& setBackupLogStartTime(string backupLogStartTime) { DARABONBA_PTR_SET_VALUE(backupLogStartTime_, backupLogStartTime) };
 
 
     // backupRetentionPeriod Field Functions 
@@ -205,35 +214,33 @@ namespace Models
 
 
   protected:
-    // The following parameters are no longer used. Ignore the parameters.
+    // This parameter is deprecated. Ignore this parameter.
     shared_ptr<DescribeBackupPolicyResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The retention period of the backup data. Unit: days.
+    shared_ptr<string> backupLogStartTime_ {};
+    // The number of days for which backup data is retained.
     shared_ptr<string> backupRetentionPeriod_ {};
-    // Indicates whether the backup-as-a-service feature is enabled for the instance. Valid values:
-    // 
-    // *   **1**: The backup-as-a-service feature is enabled for the instance.
-    // *   **0**: The backup-as-a-service feature is disabled for the instance.
+    // Indicates whether the backup service is enabled for the instance. Valid values:
+    // * **1**: enabled.
+    // * **0**: disabled.
     shared_ptr<string> dbsInstance_ {};
-    // Indicates whether incremental data backup is enabled. Valid values:
-    // 
-    // *   **1**: Incremental data backup is enabled.
-    // *   **0**: Incremental data backup is disabled.
+    // Indicates whether incremental backup is enabled. Valid values:
+    // * **1**: enabled.
+    // * **0**: disabled.
     shared_ptr<int32_t> enableBackupLog_ {};
     // The backup cycle. Valid values:
-    // 
-    // *   **Monday**
-    // *   **Tuesday**
-    // *   **Wednesday**
-    // *   **Thursday**
-    // *   **Friday**
-    // *   **Saturday**
-    // *   **Sunday**
+    // * **Monday**
+    // * **Tuesday**
+    // * **Wednesday**
+    // * **Thursday**
+    // * **Friday**
+    // * **Saturday**
+    // * **Sunday**
     shared_ptr<string> preferredBackupPeriod_ {};
-    // The time range during which the backup was created. The time follows the ISO 8601 standard in the *HH:mm*Z-*HH:mm*Z format. The time is displayed in UTC.
+    // The backup time. The time is in the <i>HH:mm</i>Z-<i>HH:mm</i>Z format (UTC).
     shared_ptr<string> preferredBackupTime_ {};
-    // The next backup time. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+    // The next backup time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
     shared_ptr<string> preferredNextBackupTime_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

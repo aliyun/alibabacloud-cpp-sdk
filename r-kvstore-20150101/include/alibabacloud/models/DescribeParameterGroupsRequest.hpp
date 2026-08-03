@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeParameterGroupsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DbType, dbType_);
+      DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeParameterGroupsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DbType, dbType_);
+      DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -42,13 +44,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dbType_ == nullptr
-        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->securityToken_ == nullptr; };
+        && this->engineVersion_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->securityToken_ == nullptr; };
     // dbType Field Functions 
     bool hasDbType() const { return this->dbType_ != nullptr;};
     void deleteDbType() { this->dbType_ = nullptr;};
     inline string getDbType() const { DARABONBA_PTR_GET_DEFAULT(dbType_, "") };
     inline DescribeParameterGroupsRequest& setDbType(string dbType) { DARABONBA_PTR_SET_VALUE(dbType_, dbType) };
+
+
+    // engineVersion Field Functions 
+    bool hasEngineVersion() const { return this->engineVersion_ != nullptr;};
+    void deleteEngineVersion() { this->engineVersion_ = nullptr;};
+    inline string getEngineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
+    inline DescribeParameterGroupsRequest& setEngineVersion(string engineVersion) { DARABONBA_PTR_SET_VALUE(engineVersion_, engineVersion) };
 
 
     // ownerAccount Field Functions 
@@ -95,14 +104,14 @@ namespace Models
 
   protected:
     // The engine type. Valid values:
-    // 
-    // *   **redis**: Redis Open-Source Edition or Tair (In-Memory)
-    // *   **tair_pena**: Tair (On NVM)
-    // *   **tair_pdb**: Tair (On Disk)
+    // - **redis**: Redis Community Edition or Tair (Enhanced Edition) in-memory type.
+    // - **tair_pena**: Tair (Enhanced Edition) persistent memory type.
+    // - **tair_pdb**: Tair (Enhanced Edition) cloud disk type (ESSD/SSD).
     shared_ptr<string> dbType_ {};
+    shared_ptr<string> engineVersion_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the instance.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

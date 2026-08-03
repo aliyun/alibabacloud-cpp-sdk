@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceStatus, instanceStatus_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
+      DARABONBA_PTR_TO_JSON(NodeType, nodeType_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PrivateIp, privateIp_);
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceStatus, instanceStatus_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
+      DARABONBA_PTR_FROM_JSON(NodeType, nodeType_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PrivateIp, privateIp_);
@@ -71,9 +73,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->architectureType_ == nullptr
         && this->chargeType_ == nullptr && this->editionType_ == nullptr && this->engineVersion_ == nullptr && this->instanceClass_ == nullptr && this->instanceIds_ == nullptr
-        && this->instanceStatus_ == nullptr && this->instanceType_ == nullptr && this->networkType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
-        && this->privateIp_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->searchKey_ == nullptr && this->securityToken_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->instanceStatus_ == nullptr && this->instanceType_ == nullptr && this->networkType_ == nullptr && this->nodeType_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->privateIp_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->searchKey_ == nullptr && this->securityToken_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
+        && this->zoneId_ == nullptr; };
     // architectureType Field Functions 
     bool hasArchitectureType() const { return this->architectureType_ != nullptr;};
     void deleteArchitectureType() { this->architectureType_ = nullptr;};
@@ -135,6 +138,13 @@ namespace Models
     void deleteNetworkType() { this->networkType_ = nullptr;};
     inline string getNetworkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, "") };
     inline DescribeInstancesOverviewRequest& setNetworkType(string networkType) { DARABONBA_PTR_SET_VALUE(networkType_, networkType) };
+
+
+    // nodeType Field Functions 
+    bool hasNodeType() const { return this->nodeType_ != nullptr;};
+    void deleteNodeType() { this->nodeType_ = nullptr;};
+    inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+    inline DescribeInstancesOverviewRequest& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
 
 
     // ownerAccount Field Functions 
@@ -222,90 +232,72 @@ namespace Models
 
 
   protected:
-    // The architecture of the instance. Valid values:
-    // 
-    // *   **cluster**: cluster architecture
-    // *   **standard**: standard architecture
-    // *   **rwsplit**: read/write splitting architecture
+    // The architecture type. Valid values:
+    // * **cluster**: Cluster Edition.
+    // * **standard**: Standard Edition.
+    // * **rwsplit**: read/write splitting edition.
     shared_ptr<string> architectureType_ {};
-    // The billing method of the instance. Valid values:
-    // 
-    // *   **PrePaid**: subscription
-    // *   **PostPaid**: pay-as-you-go
+    // The billing method. Valid values:
+    // * **PrePaid**: subscription.
+    // * **PostPaid**: pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // The edition of the instance. Valid values:
-    // 
-    // *   **Community**: Redis Open-Source Edition
-    // *   **Enterprise**: Tair (Enterprise Edition)
+    // The edition type. Valid values:
+    // * **Community**: Community Edition.
+    // * **Enterprise**: Enterprise Edition.
     shared_ptr<string> editionType_ {};
-    // The engine version of the instance. Valid values: **2.8**, **4.0**, **5.0**, **6.0**, and **7.0**.
-    // 
-    // Valid values:
-    // 
-    // *   1.0
-    // *   2.8
-    // *   4.0
-    // *   5.0
-    // *   6.0
-    // *   7.0
+    // The Redis-compatible engine version of the instance. Valid values: **2.8**, **4.0**, **5.0**, **6.0**, and **7.0**.
     shared_ptr<string> engineVersion_ {};
-    // The instance type of the instance. For more information, see [Instance types](https://help.aliyun.com/document_detail/107984.html).
+    // The instance type. For more information, see [Instance types](https://help.aliyun.com/document_detail/107984.html).
     shared_ptr<string> instanceClass_ {};
-    // The IDs of instances.
-    // 
-    // > By default, all instances that belong to this account are queried. If you specify multiple instance IDs, separate the instance IDs with commas (,).
+    // The IDs of the instances that you want to query.
+    // > By default, all instances under the current account are queried. To specify multiple instance IDs, separate them with commas (,).
     shared_ptr<string> instanceIds_ {};
-    // The state of the instance. Valid values:
+    // The instance status. Valid values:
+    // * **Normal**: The instance is running.
+    // * **Creating**: The instance is being created.
+    // * **Changing**: The instance is being modified.
+    // * **Inactive**: The instance is disabled.
+    // * **Flushing**: The instance is being purged.
+    // * **Released**: The instance is released.
+    // * **Transforming**: The instance is being transformed.
+    // * **Migrating**: The instance is being migrated.
+    // * **BackupRecovering**: The instance is being restored from a backup.
+    // * **MinorVersionUpgrading**: A minor version upgrade is in progress.
+    // * **NetworkModifying**: The network configuration is being modified.
+    // * **SSLModifying**: The SSL configuration is being modified.
+    // * **MajorVersionUpgrading**: A major engine version upgrade is in progress. The instance can be accessed normally.
     // 
-    // *   **Normal**: The instance is normal.
-    // *   **Creating**: The instance is being created.
-    // *   **Changing**: The configurations of the instance are being changed.
-    // *   **Inactive**: The instance is disabled.
-    // *   **Flushing**: The instance is being released.
-    // *   **Released**: The instance is released.
-    // *   **Transforming**: The billing method of the instance is being changed.
-    // *   **Unavailable**: The instance is unavailable.
-    // *   **Error**: The instance failed to be created.
-    // *   **Migrating**: The instance is being migrated.
-    // *   **BackupRecovering**: The instance is being restored from a backup.
-    // *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
-    // *   **NetworkModifying**: The network type of the instance is being changed.
-    // *   **SSLModifying**: The SSL certificate of the instance is being changed.
-    // *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
-    // 
-    // > For more information about instance states, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
+    // > For more information about instance statuses, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
     shared_ptr<string> instanceStatus_ {};
-    // The category of the instance. Valid values:
-    // 
-    // *   **Tair**
-    // *   **Redis**
-    // *   **Memcache**
+    // The instance type. Valid values:
+    // * **Tair**
+    // * **Redis**
+    // * **Memcache**
     shared_ptr<string> instanceType_ {};
-    // The network type of the instance. Valid values:
-    // 
-    // *   **CLASSIC**: classic network
-    // *   **VPC**: Virtual Private Cloud (VPC)
+    // The network type. Valid values:
+    // * **CLASSIC**: classic network.
+    // * **VPC**: virtual private cloud (VPC).
     shared_ptr<string> networkType_ {};
+    shared_ptr<string> nodeType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The private IP address of the instance.
+    // The private IP address.
     shared_ptr<string> privateIp_ {};
-    // The ID of the region in which the instances you want to query reside. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the most recent region list.
+    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the instances you want to query belong.
-    // 
-    // > You can query resource group IDs by using the Tair (Redis OSS-compatible) console or by calling the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+    // The resource group ID.
+    // > You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or use the console to obtain the resource group ID. Related operations, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The keyword used for fuzzy search. The keyword can be based on an instance ID or an instance description.
+    // The keyword used for fuzzy search by instance ID or instance description.
     shared_ptr<string> searchKey_ {};
     shared_ptr<string> securityToken_ {};
-    // The ID of the vSwitch.
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the VPC.
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
-    // The zone ID of the instance.
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
   };
 

@@ -51,6 +51,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(InstanceStatus, instanceStatus_);
         DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
         DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
+        DARABONBA_PTR_TO_JSON(NodeType, nodeType_);
         DARABONBA_PTR_TO_JSON(PrivateIp, privateIp_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
@@ -74,6 +75,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(InstanceStatus, instanceStatus_);
         DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
         DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
+        DARABONBA_PTR_FROM_JSON(NodeType, nodeType_);
         DARABONBA_PTR_FROM_JSON(PrivateIp, privateIp_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
@@ -96,8 +98,9 @@ namespace Models
       virtual bool empty() const override { return this->architectureType_ == nullptr
         && this->capacity_ == nullptr && this->chargeType_ == nullptr && this->connectionDomain_ == nullptr && this->createTime_ == nullptr && this->endTime_ == nullptr
         && this->engineVersion_ == nullptr && this->globalInstanceId_ == nullptr && this->instanceClass_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr
-        && this->instanceStatus_ == nullptr && this->instanceType_ == nullptr && this->networkType_ == nullptr && this->privateIp_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->secondaryZoneId_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->instanceStatus_ == nullptr && this->instanceType_ == nullptr && this->networkType_ == nullptr && this->nodeType_ == nullptr && this->privateIp_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->secondaryZoneId_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
+        && this->zoneId_ == nullptr; };
       // architectureType Field Functions 
       bool hasArchitectureType() const { return this->architectureType_ != nullptr;};
       void deleteArchitectureType() { this->architectureType_ = nullptr;};
@@ -196,6 +199,13 @@ namespace Models
       inline Instances& setNetworkType(string networkType) { DARABONBA_PTR_SET_VALUE(networkType_, networkType) };
 
 
+      // nodeType Field Functions 
+      bool hasNodeType() const { return this->nodeType_ != nullptr;};
+      void deleteNodeType() { this->nodeType_ = nullptr;};
+      inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+      inline Instances& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
+
+
       // privateIp Field Functions 
       bool hasPrivateIp() const { return this->privateIp_ != nullptr;};
       void deletePrivateIp() { this->privateIp_ = nullptr;};
@@ -246,18 +256,16 @@ namespace Models
 
 
     protected:
-      // The architecture of the instance. Valid values:
-      // 
-      // *   **cluster**: cluster architecture
-      // *   **standard**: standard architecture
-      // *   **rwsplit**: read/write splitting architecture
+      // The architecture type. Valid values:
+      // * **cluster**: Cluster Edition.
+      // * **standard**: Standard Edition.
+      // * **rwsplit**: read/write splitting edition.
       shared_ptr<string> architectureType_ {};
       // The storage capacity of the instance. Unit: MB.
       shared_ptr<int64_t> capacity_ {};
-      // The billing method of the instance. Valid values:
-      // 
-      // *   **PrePaid**: subscription
-      // *   **PostPaid**: pay-as-you-go
+      // The billing method. Valid values:
+      // * **PrePaid**: subscription.
+      // * **PostPaid**: pay-as-you-go.
       shared_ptr<string> chargeType_ {};
       // The internal endpoint of the instance.
       shared_ptr<string> connectionDomain_ {};
@@ -265,63 +273,60 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The time when the subscription instance expires.
       shared_ptr<string> endTime_ {};
-      // The engine version of the instance. Valid values: **2.8**, **4.0**, **5.0**, **6.0**, and **7.0**.
+      // The Redis-compatible engine version of the instance. Valid values: **2.8**, **4.0**, **5.0**, **6.0**, and **7.0**.
       shared_ptr<string> engineVersion_ {};
-      // The ID of the distributed instance.
-      // 
+      // The distributed instance ID.
       // > This parameter is returned only when the instance is a child instance of a distributed instance.
       shared_ptr<string> globalInstanceId_ {};
-      // The instance type of the instance.
+      // The instance type.
       shared_ptr<string> instanceClass_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The name of the instance.
       shared_ptr<string> instanceName_ {};
-      // The state of the instance. Valid values:
-      // 
-      // *   **Normal**: The instance is normal.
-      // *   **Creating**: The instance is being created.
-      // *   **Changing**: The configurations of the instance are being changed.
-      // *   **Inactive**: The instance is disabled.
-      // *   **Flushing**: The instance is being released.
-      // *   **Released**: The instance is released.
-      // *   **Transforming**: The billing method of the instance is being changed.
-      // *   **Unavailable**: The instance is unavailable.
-      // *   **Error**: The instance failed to be created.
-      // *   **Migrating**: The instance is being migrated.
-      // *   **BackupRecovering**: The instance is being restored from a backup.
-      // *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
-      // *   **NetworkModifying**: The network type of the instance is being changed.
-      // *   **SSLModifying**: The SSL certificate of the instance is being changed.
-      // *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
+      // The instance status. Valid values:
+      // * **Normal**: The instance is running.
+      // * **Creating**: The instance is being created.
+      // * **Changing**: The instance is being modified.
+      // * **Inactive**: The instance is disabled.
+      // * **Flushing**: The instance is being purged.
+      // * **Released**: The instance is released.
+      // * **Transforming**: The instance is being transformed.
+      // * **Unavailable**: The instance is unavailable.
+      // * **Error**: The instance failed to be created.
+      // * **Migrating**: The instance is being migrated.
+      // * **BackupRecovering**: The instance is being restored from a backup.
+      // * **MinorVersionUpgrading**: A minor version upgrade is in progress.
+      // * **NetworkModifying**: The network configuration is being modified.
+      // * **SSLModifying**: The SSL configuration is being modified.
+      // * **MajorVersionUpgrading**: A major engine version upgrade is in progress. The instance can be accessed normally.
       shared_ptr<string> instanceStatus_ {};
-      // The edition of the instance. Valid values:
-      // 
-      // *   **Tair**: Tair (Enterprise Edition)
-      // *   **Redis**: Redis Open-Source Edition
-      // *   **Memcache**
+      // The instance type. Valid values:
+      // * **Tair**: Tair (Enterprise Edition).
+      // * **Redis**: Redis Community Edition.
+      // * **Memcache**
       shared_ptr<string> instanceType_ {};
-      // The network type of the instance. Valid values:
-      // 
-      // *   **CLASSIC**: classic network
-      // *   **VPC**: VPC
+      // The network type. Valid values:
+      // * **CLASSIC**: classic network.
+      // * **VPC**: virtual private cloud (VPC).
       shared_ptr<string> networkType_ {};
-      // The private IP address of the instance.
-      // 
-      // > This parameter is not returned when the instance is deployed in the classic network.
+      shared_ptr<string> nodeType_ {};
+      // The private IP address of the instance in a VPC. The IP address may change. Use ConnectionDomain (internal endpoint) to connect to the instance.
+      // > - This parameter is not returned if the network type of the instance is classic network.
+      // > - This parameter is not returned for cloud-native instances.
       shared_ptr<string> privateIp_ {};
-      // The region ID of the instance.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The ID of the resource group to which the instance belongs.
+      // The resource group ID to which the instance belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // Instance\\"s secondary zone id.
-      // > This parameter is only returned when the instance has a secondary zone ID.
+      // The secondary zone ID.
+      // > This parameter is returned only when the instance has a secondary zone.
       shared_ptr<string> secondaryZoneId_ {};
-      // The ID of the vSwitch to which the instance is connected.
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The ID of the VPC.
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
-      // The zone ID of the instance.
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -351,9 +356,9 @@ namespace Models
 
 
   protected:
-    // The queried instances.
+    // The list of instances.
     shared_ptr<vector<DescribeInstancesOverviewResponseBody::Instances>> instances_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of instances.
     shared_ptr<int32_t> totalCount_ {};

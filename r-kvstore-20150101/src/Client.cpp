@@ -62,28 +62,32 @@ AlibabaCloud::RKvstore20150101::Client::Client(Config &config): OpenApiClient(co
     {"na-south-1" , "r-kvstore.na-south-1.aliyuncs.com"},
     {"me-east-1" , "r-kvstore.me-east-1.aliyuncs.com"},
     {"me-central-1" , "r-kvstore.me-central-1.aliyuncs.com"},
+    {"eu-west-2" , "r-kvstore.eu-west-2.aliyuncs.com"},
     {"eu-west-1" , "r-kvstore.eu-west-1.aliyuncs.com"},
     {"eu-central-1" , "r-kvstore.eu-central-1.aliyuncs.com"},
+    {"cn-zhongwei" , "r-kvstore.cn-zhongwei.aliyuncs.com"},
     {"cn-zhengzhou-jva" , "r-kvstore.cn-zhengzhou-jva.aliyuncs.com"},
     {"cn-zhangjiakou" , "r-kvstore.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu-gic-1" , "r-kvstore.cn-wulanchabu-gic-1.aliyuncs.com"},
     {"cn-wuhan-lr" , "r-kvstore.cn-wuhan-lr.aliyuncs.com"},
     {"cn-shenzhen-finance-1" , "r-kvstore.cn-shenzhen-finance-1.aliyuncs.com"},
     {"cn-shenzhen" , "r-kvstore.cn-shenzhen.aliyuncs.com"},
     {"cn-shanghai-finance-1" , "r-kvstore.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-north-2-gov-1" , "r-kvstore.cn-north-2-gov-1.aliyuncs.com"},
     {"cn-nanjing" , "r-kvstore.cn-nanjing.aliyuncs.com"},
     {"cn-huhehaote" , "r-kvstore.cn-huhehaote.aliyuncs.com"},
     {"cn-hongkong" , "r-kvstore.cn-hongkong.aliyuncs.com"},
+    {"cn-heyuan-acdr-1" , "r-kvstore.cn-heyuan-acdr-1.aliyuncs.com"},
     {"cn-guangzhou" , "r-kvstore.cn-guangzhou.aliyuncs.com"},
     {"cn-fuzhou" , "r-kvstore.cn-fuzhou.aliyuncs.com"},
     {"cn-chengdu" , "r-kvstore.cn-chengdu.aliyuncs.com"},
     {"cn-beijing-finance-1" , "r-kvstore.cn-beijing-finance-1.aliyuncs.com"},
+    {"ap-southeast-8" , "r-kvstore.ap-southeast-8.aliyuncs.com"},
     {"ap-southeast-7" , "r-kvstore.ap-southeast-7.aliyuncs.com"},
     {"ap-southeast-6" , "r-kvstore.ap-southeast-6.aliyuncs.com"},
     {"ap-southeast-5" , "r-kvstore.ap-southeast-5.aliyuncs.com"},
     {"ap-southeast-3" , "r-kvstore.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-2" , "r-kvstore.ap-southeast-2.aliyuncs.com"},
     {"ap-southeast-1" , "r-kvstore.ap-southeast-1.aliyuncs.com"},
-    {"ap-south-1" , "r-kvstore.ap-south-1.aliyuncs.com"},
     {"ap-northeast-2" , "r-kvstore.ap-northeast-2.aliyuncs.com"},
     {"ap-northeast-1" , "r-kvstore.ap-northeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
@@ -426,6 +430,56 @@ CancelActiveOperationTasksResponse Client::cancelActiveOperationTasksWithOptions
 CancelActiveOperationTasksResponse Client::cancelActiveOperationTasks(const CancelActiveOperationTasksRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return cancelActiveOperationTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary 关闭巡检任务
+ *
+ * @param request CancelInspectionTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelInspectionTaskResponse
+ */
+CancelInspectionTaskResponse Client::cancelInspectionTaskWithOptions(const CancelInspectionTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelInspectionTask"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelInspectionTaskResponse>();
+}
+
+/**
+ * @summary 关闭巡检任务
+ *
+ * @param request CancelInspectionTaskRequest
+ * @return CancelInspectionTaskResponse
+ */
+CancelInspectionTaskResponse Client::cancelInspectionTask(const CancelInspectionTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelInspectionTaskWithOptions(request, runtime);
 }
 
 /**
@@ -887,11 +941,147 @@ CreateGlobalSecurityIPGroupResponse Client::createGlobalSecurityIPGroup(const Cr
 }
 
 /**
- * @summary Create a Redis (open-source) instance with a classic or cloud-native architecture, or a Tair memory-optimized instance with a classic architecture. To create a Tair instance with a cloud-native architecture, use the `CreateTairInstance` API.
+ * @summary 创建定时巡检任务配置
  *
- * @description Before you call this API, make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair.
- * This API is used to create a Redis Community Edition instance or a Tair Memory Type (Classic) instance. To create a Tair Cloud-native Edition instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) API.
- * > For instructions on how to perform this operation in the console and for guidance on instance selection, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
+ * @param request CreateInspectionScheduleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateInspectionScheduleResponse
+ */
+CreateInspectionScheduleResponse Client::createInspectionScheduleWithOptions(const CreateInspectionScheduleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCronExpression()) {
+    query["CronExpression"] = request.getCronExpression();
+  }
+
+  if (!!request.hasInspectionItems()) {
+    query["InspectionItems"] = request.getInspectionItems();
+  }
+
+  if (!!request.hasInspectionWindow()) {
+    query["InspectionWindow"] = request.getInspectionWindow();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasReportLanguage()) {
+    query["ReportLanguage"] = request.getReportLanguage();
+  }
+
+  if (!!request.hasScheduleName()) {
+    query["ScheduleName"] = request.getScheduleName();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasTimezone()) {
+    query["Timezone"] = request.getTimezone();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateInspectionSchedule"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateInspectionScheduleResponse>();
+}
+
+/**
+ * @summary 创建定时巡检任务配置
+ *
+ * @param request CreateInspectionScheduleRequest
+ * @return CreateInspectionScheduleResponse
+ */
+CreateInspectionScheduleResponse Client::createInspectionSchedule(const CreateInspectionScheduleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createInspectionScheduleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 手动创建巡检任务
+ *
+ * @param request CreateInspectionTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateInspectionTaskResponse
+ */
+CreateInspectionTaskResponse Client::createInspectionTaskWithOptions(const CreateInspectionTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInspectionItems()) {
+    query["InspectionItems"] = request.getInspectionItems();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasReportLanguage()) {
+    query["ReportLanguage"] = request.getReportLanguage();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateInspectionTask"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateInspectionTaskResponse>();
+}
+
+/**
+ * @summary 手动创建巡检任务
+ *
+ * @param request CreateInspectionTaskRequest
+ * @return CreateInspectionTaskResponse
+ */
+CreateInspectionTaskResponse Client::createInspectionTask(const CreateInspectionTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createInspectionTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a Redis Community Edition classic instance, a Redis Community Edition cloud-native architecture instance, or a Tair memory-optimized classic instance. To create a cloud-native architecture Tair instance, call the CreateTairInstance operation.
+ *
+ * @description Before you invoke this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair (Redis® OSS-Compatible).
+ * This operation creates Redis Community Edition instances and Tair memory-optimized classic instances. To create a Tair cloud-native instance, invoke the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation.
+ * > For the corresponding console operations and instance selection recommendations, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
  *
  * @param request CreateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1122,11 +1312,11 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 }
 
 /**
- * @summary Create a Redis (open-source) instance with a classic or cloud-native architecture, or a Tair memory-optimized instance with a classic architecture. To create a Tair instance with a cloud-native architecture, use the `CreateTairInstance` API.
+ * @summary Creates a Redis Community Edition classic instance, a Redis Community Edition cloud-native architecture instance, or a Tair memory-optimized classic instance. To create a cloud-native architecture Tair instance, call the CreateTairInstance operation.
  *
- * @description Before you call this API, make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair.
- * This API is used to create a Redis Community Edition instance or a Tair Memory Type (Classic) instance. To create a Tair Cloud-native Edition instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) API.
- * > For instructions on how to perform this operation in the console and for guidance on instance selection, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
+ * @description Before you invoke this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair (Redis® OSS-Compatible).
+ * This operation creates Redis Community Edition instances and Tair memory-optimized classic instances. To create a Tair cloud-native instance, invoke the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation.
+ * > For the corresponding console operations and instance selection recommendations, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
  *
  * @param request CreateInstanceRequest
  * @return CreateInstanceResponse
@@ -1932,7 +2122,7 @@ CreateTairKVCacheVNodeResponse Client::createTairKVCacheVNode(const CreateTairKV
  * @summary Creates a Tair Serverless KV table instance.
  *
  * @description ## Operation description
- * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+ * - Before calling this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
  *
  * @param request CreateTairSkvDdbTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1971,6 +2161,10 @@ CreateTairSkvDdbTableResponse Client::createTairSkvDdbTableWithOptions(const Cre
 
   if (!!request.hasResourceOwnerId()) {
     query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasRestoreTime()) {
+    query["RestoreTime"] = request.getRestoreTime();
   }
 
   if (!!request.hasSchema()) {
@@ -2018,7 +2212,7 @@ CreateTairSkvDdbTableResponse Client::createTairSkvDdbTableWithOptions(const Cre
  * @summary Creates a Tair Serverless KV table instance.
  *
  * @description ## Operation description
- * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+ * - Before calling this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
  *
  * @param request CreateTairSkvDdbTableRequest
  * @return CreateTairSkvDdbTableResponse
@@ -2029,10 +2223,10 @@ CreateTairSkvDdbTableResponse Client::createTairSkvDdbTable(const CreateTairSkvD
 }
 
 /**
- * @summary Creates a Tair Serverless KV workspace instance.
+ * @summary Activates a Tair Serverless KV workspace instance.
  *
  * @description ## Operation description
- * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+ * - Before you call this operation, make sure that you understand the billing rules and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
  * - To create a Tair Serverless KV table instance, call the `CreateTairSkvDdbTable` operation.
  *
  * @param request CreateTairSkvDdbWorkspaceRequest
@@ -2120,10 +2314,10 @@ CreateTairSkvDdbWorkspaceResponse Client::createTairSkvDdbWorkspaceWithOptions(c
 }
 
 /**
- * @summary Creates a Tair Serverless KV workspace instance.
+ * @summary Activates a Tair Serverless KV workspace instance.
  *
  * @description ## Operation description
- * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+ * - Before you call this operation, make sure that you understand the billing rules and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
  * - To create a Tair Serverless KV table instance, call the `CreateTairSkvDdbTable` operation.
  *
  * @param request CreateTairSkvDdbWorkspaceRequest
@@ -2352,6 +2546,68 @@ DeleteGlobalSecurityIPGroupResponse Client::deleteGlobalSecurityIPGroupWithOptio
 DeleteGlobalSecurityIPGroupResponse Client::deleteGlobalSecurityIPGroup(const DeleteGlobalSecurityIPGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteGlobalSecurityIPGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除定时巡检任务
+ *
+ * @description 该API对应的控制台操作请参见[释放实例](https://help.aliyun.com/document_detail/43882.html)。
+ * 调用本接口时，实例必须满足以下条件：
+ * * 实例状态为运行中。
+ * * 实例的付费方式为后付费（按量付费）。
+ * > 预付费（包年包月）实例无法调用此接口主动删除，到期后将自动释放。 如需提前释放，请在控制台进行操作。
+ *
+ * @param request DeleteInspectionScheduleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteInspectionScheduleResponse
+ */
+DeleteInspectionScheduleResponse Client::deleteInspectionScheduleWithOptions(const DeleteInspectionScheduleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScheduleId()) {
+    query["ScheduleId"] = request.getScheduleId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteInspectionSchedule"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteInspectionScheduleResponse>();
+}
+
+/**
+ * @summary 删除定时巡检任务
+ *
+ * @description 该API对应的控制台操作请参见[释放实例](https://help.aliyun.com/document_detail/43882.html)。
+ * 调用本接口时，实例必须满足以下条件：
+ * * 实例状态为运行中。
+ * * 实例的付费方式为后付费（按量付费）。
+ * > 预付费（包年包月）实例无法调用此接口主动删除，到期后将自动释放。 如需提前释放，请在控制台进行操作。
+ *
+ * @param request DeleteInspectionScheduleRequest
+ * @return DeleteInspectionScheduleResponse
+ */
+DeleteInspectionScheduleResponse Client::deleteInspectionSchedule(const DeleteInspectionScheduleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteInspectionScheduleWithOptions(request, runtime);
 }
 
 /**
@@ -3217,7 +3473,7 @@ DescribeAvailableResourceResponse Client::describeAvailableResource(const Descri
 }
 
 /**
- * @summary Queries the backup policy of a Tair (Redis OSS-compatible) instance, including the backup cycle and backup time.
+ * @summary Queries the backup policy of a Tair (Redis® OSS-Compatible) database instance, including the backup cycle and backup time.
  *
  * @param request DescribeBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3268,7 +3524,7 @@ DescribeBackupPolicyResponse Client::describeBackupPolicyWithOptions(const Descr
 }
 
 /**
- * @summary Queries the backup policy of a Tair (Redis OSS-compatible) instance, including the backup cycle and backup time.
+ * @summary Queries the backup policy of a Tair (Redis® OSS-Compatible) database instance, including the backup cycle and backup time.
  *
  * @param request DescribeBackupPolicyRequest
  * @return DescribeBackupPolicyResponse
@@ -4999,6 +5255,238 @@ DescribeHistoryTasksStatResponse Client::describeHistoryTasksStat(const Describe
 }
 
 /**
+ * @summary 查看定时调度历次巡检报告
+ *
+ * @param request DescribeInspectionScheduleReportsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInspectionScheduleReportsResponse
+ */
+DescribeInspectionScheduleReportsResponse Client::describeInspectionScheduleReportsWithOptions(const DescribeInspectionScheduleReportsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasScheduleId()) {
+    query["ScheduleId"] = request.getScheduleId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInspectionScheduleReports"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInspectionScheduleReportsResponse>();
+}
+
+/**
+ * @summary 查看定时调度历次巡检报告
+ *
+ * @param request DescribeInspectionScheduleReportsRequest
+ * @return DescribeInspectionScheduleReportsResponse
+ */
+DescribeInspectionScheduleReportsResponse Client::describeInspectionScheduleReports(const DescribeInspectionScheduleReportsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInspectionScheduleReportsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查看定时巡检任务配置
+ *
+ * @param request DescribeInspectionSchedulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInspectionSchedulesResponse
+ */
+DescribeInspectionSchedulesResponse Client::describeInspectionSchedulesWithOptions(const DescribeInspectionSchedulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnabled()) {
+    query["Enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasScheduleId()) {
+    query["ScheduleId"] = request.getScheduleId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInspectionSchedules"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInspectionSchedulesResponse>();
+}
+
+/**
+ * @summary 查看定时巡检任务配置
+ *
+ * @param request DescribeInspectionSchedulesRequest
+ * @return DescribeInspectionSchedulesResponse
+ */
+DescribeInspectionSchedulesResponse Client::describeInspectionSchedules(const DescribeInspectionSchedulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInspectionSchedulesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询某个巡检任务的报告
+ *
+ * @param request DescribeInspectionTaskReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInspectionTaskReportResponse
+ */
+DescribeInspectionTaskReportResponse Client::describeInspectionTaskReportWithOptions(const DescribeInspectionTaskReportRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInspectionInsId()) {
+    query["InspectionInsId"] = request.getInspectionInsId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInspectionTaskReport"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInspectionTaskReportResponse>();
+}
+
+/**
+ * @summary 查询某个巡检任务的报告
+ *
+ * @param request DescribeInspectionTaskReportRequest
+ * @return DescribeInspectionTaskReportResponse
+ */
+DescribeInspectionTaskReportResponse Client::describeInspectionTaskReport(const DescribeInspectionTaskReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInspectionTaskReportWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询智能巡检任务列表
+ *
+ * @param request DescribeInspectionTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInspectionTasksResponse
+ */
+DescribeInspectionTasksResponse Client::describeInspectionTasksWithOptions(const DescribeInspectionTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInspectionTasks"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInspectionTasksResponse>();
+}
+
+/**
+ * @summary 查询智能巡检任务列表
+ *
+ * @param request DescribeInspectionTasksRequest
+ * @return DescribeInspectionTasksResponse
+ */
+DescribeInspectionTasksResponse Client::describeInspectionTasks(const DescribeInspectionTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInspectionTasksWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the details of a Tair (Redis-compatible) instance.
  *
  * @param request DescribeInstanceAttributeRequest
@@ -5197,9 +5685,9 @@ DescribeInstanceConfigResponse Client::describeInstanceConfig(const DescribeInst
 }
 
 /**
- * @summary 查询实例的多 VIP 信息
+ * @summary Queries the load balancer (LB) information of an instance.
  *
- * @description 关于多LB，详情参见
+ * @description For more information about multiple LBs, see.
  *
  * @param request DescribeInstanceMultiVIPRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5246,9 +5734,9 @@ DescribeInstanceMultiVIPResponse Client::describeInstanceMultiVIPWithOptions(con
 }
 
 /**
- * @summary 查询实例的多 VIP 信息
+ * @summary Queries the load balancer (LB) information of an instance.
  *
- * @description 关于多LB，详情参见
+ * @description For more information about multiple LBs, see.
  *
  * @param request DescribeInstanceMultiVIPRequest
  * @return DescribeInstanceMultiVIPResponse
@@ -5547,10 +6035,10 @@ DescribeInstancesResponse Client::describeInstances(const DescribeInstancesReque
 }
 
 /**
- * @summary Queries the overview information of one or more Tair (Redis OSS-compatible) instances.
+ * @summary Queries the overview information of one or more ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
  *
- * @description If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
- * > This operation returns non-paged results.
+ * @description If you do not specify any request parameters, the overview information of all instances is returned.
+ * > This operation does not support pagination for the returned results.
  *
  * @param request DescribeInstancesOverviewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5593,6 +6081,10 @@ DescribeInstancesOverviewResponse Client::describeInstancesOverviewWithOptions(c
 
   if (!!request.hasNetworkType()) {
     query["NetworkType"] = request.getNetworkType();
+  }
+
+  if (!!request.hasNodeType()) {
+    query["NodeType"] = request.getNodeType();
   }
 
   if (!!request.hasOwnerAccount()) {
@@ -5661,10 +6153,10 @@ DescribeInstancesOverviewResponse Client::describeInstancesOverviewWithOptions(c
 }
 
 /**
- * @summary Queries the overview information of one or more Tair (Redis OSS-compatible) instances.
+ * @summary Queries the overview information of one or more ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
  *
- * @description If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
- * > This operation returns non-paged results.
+ * @description If you do not specify any request parameters, the overview information of all instances is returned.
+ * > This operation does not support pagination for the returned results.
  *
  * @param request DescribeInstancesOverviewRequest
  * @return DescribeInstancesOverviewResponse
@@ -6085,7 +6577,7 @@ DescribeParameterGroupTemplateListResponse Client::describeParameterGroupTemplat
 }
 
 /**
- * @summary Queries a list of available parameter templates.
+ * @summary Queries the list of available parameter templates.
  *
  * @param request DescribeParameterGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6096,6 +6588,10 @@ DescribeParameterGroupsResponse Client::describeParameterGroupsWithOptions(const
   json query = {};
   if (!!request.hasDbType()) {
     query["DbType"] = request.getDbType();
+  }
+
+  if (!!request.hasEngineVersion()) {
+    query["EngineVersion"] = request.getEngineVersion();
   }
 
   if (!!request.hasOwnerAccount()) {
@@ -6140,7 +6636,7 @@ DescribeParameterGroupsResponse Client::describeParameterGroupsWithOptions(const
 }
 
 /**
- * @summary Queries a list of available parameter templates.
+ * @summary Queries the list of available parameter templates.
  *
  * @param request DescribeParameterGroupsRequest
  * @return DescribeParameterGroupsResponse
@@ -7469,7 +7965,7 @@ DescribeTairSkvDdbTableSchemaResponse Client::describeTairSkvDdbTableSchema(cons
 }
 
 /**
- * @summary 查询任务详情
+ * @summary Queries the details of a task.
  *
  * @param request DescribeTaskDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7504,7 +8000,7 @@ DescribeTaskDetailResponse Client::describeTaskDetailWithOptions(const DescribeT
 }
 
 /**
- * @summary 查询任务详情
+ * @summary Queries the details of a task.
  *
  * @param request DescribeTaskDetailRequest
  * @return DescribeTaskDetailResponse
@@ -9532,6 +10028,84 @@ ModifyGlobalSecurityIPGroupRelationResponse Client::modifyGlobalSecurityIPGroupR
 ModifyGlobalSecurityIPGroupRelationResponse Client::modifyGlobalSecurityIPGroupRelation(const ModifyGlobalSecurityIPGroupRelationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyGlobalSecurityIPGroupRelationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改定时巡检配置
+ *
+ * @param request ModifyInspectionScheduleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyInspectionScheduleResponse
+ */
+ModifyInspectionScheduleResponse Client::modifyInspectionScheduleWithOptions(const ModifyInspectionScheduleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCronExpression()) {
+    query["CronExpression"] = request.getCronExpression();
+  }
+
+  if (!!request.hasEnabled()) {
+    query["Enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasInspectionItems()) {
+    query["InspectionItems"] = request.getInspectionItems();
+  }
+
+  if (!!request.hasInspectionWindow()) {
+    query["InspectionWindow"] = request.getInspectionWindow();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasReportLanguage()) {
+    query["ReportLanguage"] = request.getReportLanguage();
+  }
+
+  if (!!request.hasScheduleId()) {
+    query["ScheduleId"] = request.getScheduleId();
+  }
+
+  if (!!request.hasScheduleName()) {
+    query["ScheduleName"] = request.getScheduleName();
+  }
+
+  if (!!request.hasTimezone()) {
+    query["Timezone"] = request.getTimezone();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyInspectionSchedule"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyInspectionScheduleResponse>();
+}
+
+/**
+ * @summary 修改定时巡检配置
+ *
+ * @param request ModifyInspectionScheduleRequest
+ * @return ModifyInspectionScheduleResponse
+ */
+ModifyInspectionScheduleResponse Client::modifyInspectionSchedule(const ModifyInspectionScheduleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyInspectionScheduleWithOptions(request, runtime);
 }
 
 /**
@@ -12035,6 +12609,56 @@ RestoreInstanceResponse Client::restoreInstance(const RestoreInstanceRequest &re
 }
 
 /**
+ * @summary 手动重试巡检任务
+ *
+ * @param request RetryInspectionTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RetryInspectionTaskResponse
+ */
+RetryInspectionTaskResponse Client::retryInspectionTaskWithOptions(const RetryInspectionTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RetryInspectionTask"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RetryInspectionTaskResponse>();
+}
+
+/**
+ * @summary 手动重试巡检任务
+ *
+ * @param request RetryInspectionTaskRequest
+ * @return RetryInspectionTaskResponse
+ */
+RetryInspectionTaskResponse Client::retryInspectionTask(const RetryInspectionTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return retryInspectionTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary 启动TairCustom的主机
  *
  * @param request StartTairKVCacheCustomInstanceRequest
@@ -12326,6 +12950,64 @@ SwitchInstanceProxyResponse Client::switchInstanceProxyWithOptions(const SwitchI
 SwitchInstanceProxyResponse Client::switchInstanceProxy(const SwitchInstanceProxyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return switchInstanceProxyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 实例指定目标可用区切换
+ *
+ * @description 当前接口仅支持云原生架构实例
+ *
+ * @param request SwitchInstanceToTargetZoneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SwitchInstanceToTargetZoneResponse
+ */
+SwitchInstanceToTargetZoneResponse Client::switchInstanceToTargetZoneWithOptions(const SwitchInstanceToTargetZoneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasNodeId()) {
+    query["NodeId"] = request.getNodeId();
+  }
+
+  if (!!request.hasSwitchType()) {
+    query["SwitchType"] = request.getSwitchType();
+  }
+
+  if (!!request.hasTargetZoneId()) {
+    query["TargetZoneId"] = request.getTargetZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SwitchInstanceToTargetZone"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SwitchInstanceToTargetZoneResponse>();
+}
+
+/**
+ * @summary 实例指定目标可用区切换
+ *
+ * @description 当前接口仅支持云原生架构实例
+ *
+ * @param request SwitchInstanceToTargetZoneRequest
+ * @return SwitchInstanceToTargetZoneResponse
+ */
+SwitchInstanceToTargetZoneResponse Client::switchInstanceToTargetZone(const SwitchInstanceToTargetZoneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return switchInstanceToTargetZoneWithOptions(request, runtime);
 }
 
 /**

@@ -232,63 +232,57 @@ namespace Models
 
 
   protected:
-    // The bandwidth of the instance. Unit: MB/s.
+    // The bandwidth limit of the instance. Unit: MB/s.
     shared_ptr<int64_t> bandwidth_ {};
-    // The storage capacity of the instance, in MB.
+    // The storage capacity of the instance. Unit: MB.
     shared_ptr<int64_t> capacity_ {};
     // The billing method. Valid values:
-    // 
-    // - **PrePaid**: subscription
-    // 
-    // - **PostPaid**: pay-as-you-go
+    // * **PrePaid**: subscription.
+    // * **PostPaid**: pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // The configurations of the instance.
+    // The detailed configuration of the instance.
     shared_ptr<string> config_ {};
-    // The private connection endpoint of the instance.
+    // The internal network endpoint of the Redis instance.
     shared_ptr<string> connectionDomain_ {};
-    // The maximum number of connections.
+    // The maximum number of connections supported by the instance.
     shared_ptr<int64_t> connections_ {};
-    // The expiration time of the subscription instance. The time is displayed in UTC. Format: *yyyy-MM-dd*T*HH:mm:ss*Z.
+    // The time when the subscription instance expires. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
     shared_ptr<string> endTime_ {};
-    // The ID of the instance.
+    // The instance ID, which is globally unique.
     shared_ptr<string> instanceId_ {};
     // The name of the instance.
     shared_ptr<string> instanceName_ {};
-    // The state of the instance. For this operation, the returned value is always `Creating`.
+    // The current status of the instance. The return value is fixed as Creating.
     shared_ptr<string> instanceStatus_ {};
     // The network type. Valid values:
-    // 
-    // - **CLASSIC**: classic network
-    // 
-    // - **VPC**: VPC
+    // * **CLASSIC**: classic network.
+    // * **VPC**: VPC.
     shared_ptr<string> networkType_ {};
     // The node type. Valid values:
-    // 
-    // - **STAND_ALONE**: standalone
-    // 
-    // - **MASTER_SLAVE**: primary-replica
+    // * **STAND_ALONE**: single replica.
+    // * **MASTER_SLAVE**: dual-replica.
     shared_ptr<string> nodeType_ {};
-    // The ID of the order.
+    // The order ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> orderId_ {};
-    // The connection port of the instance.
+    // The Redis service port.
     shared_ptr<int32_t> port_ {};
-    // The private IP address of the instance.
+    // The internal IP address of the instance.
     shared_ptr<string> privateIpAddr_ {};
-    // The theoretical queries per second (QPS) of the instance.
+    // The queries per second (QPS). This value is the theoretical maximum for the current instance type.
     shared_ptr<int64_t> QPS_ {};
-    // The ID of the region.
+    // The region ID of the instance.
     shared_ptr<string> regionId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The username of the account. By default, the username is the same as the instance ID.
+    // The account used to connect to the Redis instance. By default, an account named after the instance ID is included.
     shared_ptr<string> userName_ {};
-    // The ID of the vSwitch.
+    // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
     // The ID of the VPC.
     shared_ptr<string> vpcId_ {};
-    // The ID of the zone.
+    // The zone ID of the instance.
     shared_ptr<string> zoneId_ {};
   };
 

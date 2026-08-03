@@ -181,13 +181,13 @@ namespace Models
     shared_ptr<int64_t> connections_ {};
     // The globally unique instance ID.
     shared_ptr<string> instanceId_ {};
-    // The current status of the instance. The value is fixed to Creating.
+    // The current status of the instance. The value is fixed as Creating.
     shared_ptr<string> instanceStatus_ {};
     // The order ID.
     shared_ptr<int64_t> orderId_ {};
     // The Redis service port.
     shared_ptr<int32_t> port_ {};
-    // The queries per second (QPS). This value is the theoretical value for the current instance specification.
+    // The queries per second (QPS). This value is the theoretical maximum for the current instance specifications.
     shared_ptr<int64_t> QPS_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

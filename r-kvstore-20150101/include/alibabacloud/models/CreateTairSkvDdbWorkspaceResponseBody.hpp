@@ -190,7 +190,7 @@ namespace Models
     shared_ptr<int64_t> orderId_ {};
     // The Redis service port.
     shared_ptr<int32_t> port_ {};
-    // The queries per second (QPS). This value is the theoretical value for the current instance specification.
+    // The queries per second (QPS). This value is the theoretical value for the current instance specifications.
     shared_ptr<int64_t> QPS_ {};
     // The region in which the instance resides.
     shared_ptr<string> regionId_ {};

@@ -121,6 +121,23 @@ namespace RKvstore20150101
       Models::CancelActiveOperationTasksResponse cancelActiveOperationTasks(const Models::CancelActiveOperationTasksRequest &request);
 
       /**
+       * @summary 关闭巡检任务
+       *
+       * @param request CancelInspectionTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelInspectionTaskResponse
+       */
+      Models::CancelInspectionTaskResponse cancelInspectionTaskWithOptions(const Models::CancelInspectionTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 关闭巡检任务
+       *
+       * @param request CancelInspectionTaskRequest
+       * @return CancelInspectionTaskResponse
+       */
+      Models::CancelInspectionTaskResponse cancelInspectionTask(const Models::CancelInspectionTaskRequest &request);
+
+      /**
        * @summary Queries whether a Tair (Redis OSS-compatible) instance has the permissions to use Key Management Service (KMS).
        *
        * @description *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](https://help.aliyun.com/document_detail/265913.html).
@@ -257,11 +274,45 @@ namespace RKvstore20150101
       Models::CreateGlobalSecurityIPGroupResponse createGlobalSecurityIPGroup(const Models::CreateGlobalSecurityIPGroupRequest &request);
 
       /**
-       * @summary Create a Redis (open-source) instance with a classic or cloud-native architecture, or a Tair memory-optimized instance with a classic architecture. To create a Tair instance with a cloud-native architecture, use the `CreateTairInstance` API.
+       * @summary 创建定时巡检任务配置
        *
-       * @description Before you call this API, make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair.
-       * This API is used to create a Redis Community Edition instance or a Tair Memory Type (Classic) instance. To create a Tair Cloud-native Edition instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) API.
-       * > For instructions on how to perform this operation in the console and for guidance on instance selection, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
+       * @param request CreateInspectionScheduleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateInspectionScheduleResponse
+       */
+      Models::CreateInspectionScheduleResponse createInspectionScheduleWithOptions(const Models::CreateInspectionScheduleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建定时巡检任务配置
+       *
+       * @param request CreateInspectionScheduleRequest
+       * @return CreateInspectionScheduleResponse
+       */
+      Models::CreateInspectionScheduleResponse createInspectionSchedule(const Models::CreateInspectionScheduleRequest &request);
+
+      /**
+       * @summary 手动创建巡检任务
+       *
+       * @param request CreateInspectionTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateInspectionTaskResponse
+       */
+      Models::CreateInspectionTaskResponse createInspectionTaskWithOptions(const Models::CreateInspectionTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 手动创建巡检任务
+       *
+       * @param request CreateInspectionTaskRequest
+       * @return CreateInspectionTaskResponse
+       */
+      Models::CreateInspectionTaskResponse createInspectionTask(const Models::CreateInspectionTaskRequest &request);
+
+      /**
+       * @summary Creates a Redis Community Edition classic instance, a Redis Community Edition cloud-native architecture instance, or a Tair memory-optimized classic instance. To create a cloud-native architecture Tair instance, call the CreateTairInstance operation.
+       *
+       * @description Before you invoke this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair (Redis® OSS-Compatible).
+       * This operation creates Redis Community Edition instances and Tair memory-optimized classic instances. To create a Tair cloud-native instance, invoke the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation.
+       * > For the corresponding console operations and instance selection recommendations, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
        *
        * @param request CreateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -270,11 +321,11 @@ namespace RKvstore20150101
       Models::CreateInstanceResponse createInstanceWithOptions(const Models::CreateInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a Redis (open-source) instance with a classic or cloud-native architecture, or a Tair memory-optimized instance with a classic architecture. To create a Tair instance with a cloud-native architecture, use the `CreateTairInstance` API.
+       * @summary Creates a Redis Community Edition classic instance, a Redis Community Edition cloud-native architecture instance, or a Tair memory-optimized classic instance. To create a cloud-native architecture Tair instance, call the CreateTairInstance operation.
        *
-       * @description Before you call this API, make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair.
-       * This API is used to create a Redis Community Edition instance or a Tair Memory Type (Classic) instance. To create a Tair Cloud-native Edition instance, call the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) API.
-       * > For instructions on how to perform this operation in the console and for guidance on instance selection, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
+       * @description Before you invoke this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.html) of ApsaraDB for Tair (Redis® OSS-Compatible).
+       * This operation creates Redis Community Edition instances and Tair memory-optimized classic instances. To create a Tair cloud-native instance, invoke the [CreateTairInstance](https://help.aliyun.com/document_detail/473770.html) operation.
+       * > For the corresponding console operations and instance selection recommendations, see [Create a Redis instance](https://help.aliyun.com/document_detail/26351.html).
        *
        * @param request CreateInstanceRequest
        * @return CreateInstanceResponse
@@ -415,7 +466,7 @@ namespace RKvstore20150101
        * @summary Creates a Tair Serverless KV table instance.
        *
        * @description ## Operation description
-       * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+       * - Before calling this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
        *
        * @param request CreateTairSkvDdbTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -427,7 +478,7 @@ namespace RKvstore20150101
        * @summary Creates a Tair Serverless KV table instance.
        *
        * @description ## Operation description
-       * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+       * - Before calling this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
        *
        * @param request CreateTairSkvDdbTableRequest
        * @return CreateTairSkvDdbTableResponse
@@ -435,10 +486,10 @@ namespace RKvstore20150101
       Models::CreateTairSkvDdbTableResponse createTairSkvDdbTable(const Models::CreateTairSkvDdbTableRequest &request);
 
       /**
-       * @summary Creates a Tair Serverless KV workspace instance.
+       * @summary Activates a Tair Serverless KV workspace instance.
        *
        * @description ## Operation description
-       * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+       * - Before you call this operation, make sure that you understand the billing rules and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
        * - To create a Tair Serverless KV table instance, call the `CreateTairSkvDdbTable` operation.
        *
        * @param request CreateTairSkvDdbWorkspaceRequest
@@ -448,10 +499,10 @@ namespace RKvstore20150101
       Models::CreateTairSkvDdbWorkspaceResponse createTairSkvDdbWorkspaceWithOptions(const Models::CreateTairSkvDdbWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Tair Serverless KV workspace instance.
+       * @summary Activates a Tair Serverless KV workspace instance.
        *
        * @description ## Operation description
-       * - Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
+       * - Before you call this operation, make sure that you understand the billing rules and [pricing](https://help.aliyun.com/document_detail/54532.htm) of ApsaraDB for Redis.
        * - To create a Tair Serverless KV table instance, call the `CreateTairSkvDdbTable` operation.
        *
        * @param request CreateTairSkvDdbWorkspaceRequest
@@ -523,6 +574,35 @@ namespace RKvstore20150101
        * @return DeleteGlobalSecurityIPGroupResponse
        */
       Models::DeleteGlobalSecurityIPGroupResponse deleteGlobalSecurityIPGroup(const Models::DeleteGlobalSecurityIPGroupRequest &request);
+
+      /**
+       * @summary 删除定时巡检任务
+       *
+       * @description 该API对应的控制台操作请参见[释放实例](https://help.aliyun.com/document_detail/43882.html)。
+       * 调用本接口时，实例必须满足以下条件：
+       * * 实例状态为运行中。
+       * * 实例的付费方式为后付费（按量付费）。
+       * > 预付费（包年包月）实例无法调用此接口主动删除，到期后将自动释放。 如需提前释放，请在控制台进行操作。
+       *
+       * @param request DeleteInspectionScheduleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteInspectionScheduleResponse
+       */
+      Models::DeleteInspectionScheduleResponse deleteInspectionScheduleWithOptions(const Models::DeleteInspectionScheduleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除定时巡检任务
+       *
+       * @description 该API对应的控制台操作请参见[释放实例](https://help.aliyun.com/document_detail/43882.html)。
+       * 调用本接口时，实例必须满足以下条件：
+       * * 实例状态为运行中。
+       * * 实例的付费方式为后付费（按量付费）。
+       * > 预付费（包年包月）实例无法调用此接口主动删除，到期后将自动释放。 如需提前释放，请在控制台进行操作。
+       *
+       * @param request DeleteInspectionScheduleRequest
+       * @return DeleteInspectionScheduleResponse
+       */
+      Models::DeleteInspectionScheduleResponse deleteInspectionSchedule(const Models::DeleteInspectionScheduleRequest &request);
 
       /**
        * @summary Releases a Tair (Redis OSS-compatible) instance.
@@ -736,7 +816,7 @@ namespace RKvstore20150101
       Models::DescribeAvailableResourceResponse describeAvailableResource(const Models::DescribeAvailableResourceRequest &request);
 
       /**
-       * @summary Queries the backup policy of a Tair (Redis OSS-compatible) instance, including the backup cycle and backup time.
+       * @summary Queries the backup policy of a Tair (Redis® OSS-Compatible) database instance, including the backup cycle and backup time.
        *
        * @param request DescribeBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -745,7 +825,7 @@ namespace RKvstore20150101
       Models::DescribeBackupPolicyResponse describeBackupPolicyWithOptions(const Models::DescribeBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the backup policy of a Tair (Redis OSS-compatible) instance, including the backup cycle and backup time.
+       * @summary Queries the backup policy of a Tair (Redis® OSS-Compatible) database instance, including the backup cycle and backup time.
        *
        * @param request DescribeBackupPolicyRequest
        * @return DescribeBackupPolicyResponse
@@ -1195,6 +1275,74 @@ namespace RKvstore20150101
       Models::DescribeHistoryTasksStatResponse describeHistoryTasksStat(const Models::DescribeHistoryTasksStatRequest &request);
 
       /**
+       * @summary 查看定时调度历次巡检报告
+       *
+       * @param request DescribeInspectionScheduleReportsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInspectionScheduleReportsResponse
+       */
+      Models::DescribeInspectionScheduleReportsResponse describeInspectionScheduleReportsWithOptions(const Models::DescribeInspectionScheduleReportsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看定时调度历次巡检报告
+       *
+       * @param request DescribeInspectionScheduleReportsRequest
+       * @return DescribeInspectionScheduleReportsResponse
+       */
+      Models::DescribeInspectionScheduleReportsResponse describeInspectionScheduleReports(const Models::DescribeInspectionScheduleReportsRequest &request);
+
+      /**
+       * @summary 查看定时巡检任务配置
+       *
+       * @param request DescribeInspectionSchedulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInspectionSchedulesResponse
+       */
+      Models::DescribeInspectionSchedulesResponse describeInspectionSchedulesWithOptions(const Models::DescribeInspectionSchedulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看定时巡检任务配置
+       *
+       * @param request DescribeInspectionSchedulesRequest
+       * @return DescribeInspectionSchedulesResponse
+       */
+      Models::DescribeInspectionSchedulesResponse describeInspectionSchedules(const Models::DescribeInspectionSchedulesRequest &request);
+
+      /**
+       * @summary 查询某个巡检任务的报告
+       *
+       * @param request DescribeInspectionTaskReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInspectionTaskReportResponse
+       */
+      Models::DescribeInspectionTaskReportResponse describeInspectionTaskReportWithOptions(const Models::DescribeInspectionTaskReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询某个巡检任务的报告
+       *
+       * @param request DescribeInspectionTaskReportRequest
+       * @return DescribeInspectionTaskReportResponse
+       */
+      Models::DescribeInspectionTaskReportResponse describeInspectionTaskReport(const Models::DescribeInspectionTaskReportRequest &request);
+
+      /**
+       * @summary 查询智能巡检任务列表
+       *
+       * @param request DescribeInspectionTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInspectionTasksResponse
+       */
+      Models::DescribeInspectionTasksResponse describeInspectionTasksWithOptions(const Models::DescribeInspectionTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询智能巡检任务列表
+       *
+       * @param request DescribeInspectionTasksRequest
+       * @return DescribeInspectionTasksResponse
+       */
+      Models::DescribeInspectionTasksResponse describeInspectionTasks(const Models::DescribeInspectionTasksRequest &request);
+
+      /**
        * @summary Retrieves the details of a Tair (Redis-compatible) instance.
        *
        * @param request DescribeInstanceAttributeRequest
@@ -1246,9 +1394,9 @@ namespace RKvstore20150101
       Models::DescribeInstanceConfigResponse describeInstanceConfig(const Models::DescribeInstanceConfigRequest &request);
 
       /**
-       * @summary 查询实例的多 VIP 信息
+       * @summary Queries the load balancer (LB) information of an instance.
        *
-       * @description 关于多LB，详情参见
+       * @description For more information about multiple LBs, see.
        *
        * @param request DescribeInstanceMultiVIPRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1257,9 +1405,9 @@ namespace RKvstore20150101
       Models::DescribeInstanceMultiVIPResponse describeInstanceMultiVIPWithOptions(const Models::DescribeInstanceMultiVIPRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实例的多 VIP 信息
+       * @summary Queries the load balancer (LB) information of an instance.
        *
-       * @description 关于多LB，详情参见
+       * @description For more information about multiple LBs, see.
        *
        * @param request DescribeInstanceMultiVIPRequest
        * @return DescribeInstanceMultiVIPResponse
@@ -1336,10 +1484,10 @@ namespace RKvstore20150101
       Models::DescribeInstancesResponse describeInstances(const Models::DescribeInstancesRequest &request);
 
       /**
-       * @summary Queries the overview information of one or more Tair (Redis OSS-compatible) instances.
+       * @summary Queries the overview information of one or more ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
        *
-       * @description If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
-       * > This operation returns non-paged results.
+       * @description If you do not specify any request parameters, the overview information of all instances is returned.
+       * > This operation does not support pagination for the returned results.
        *
        * @param request DescribeInstancesOverviewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1348,10 +1496,10 @@ namespace RKvstore20150101
       Models::DescribeInstancesOverviewResponse describeInstancesOverviewWithOptions(const Models::DescribeInstancesOverviewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the overview information of one or more Tair (Redis OSS-compatible) instances.
+       * @summary Queries the overview information of one or more ApsaraDB for Tair (Redis® OSS-Compatible) database instances.
        *
-       * @description If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
-       * > This operation returns non-paged results.
+       * @description If you do not specify any request parameters, the overview information of all instances is returned.
+       * > This operation does not support pagination for the returned results.
        *
        * @param request DescribeInstancesOverviewRequest
        * @return DescribeInstancesOverviewResponse
@@ -1475,7 +1623,7 @@ namespace RKvstore20150101
       Models::DescribeParameterGroupTemplateListResponse describeParameterGroupTemplateList(const Models::DescribeParameterGroupTemplateListRequest &request);
 
       /**
-       * @summary Queries a list of available parameter templates.
+       * @summary Queries the list of available parameter templates.
        *
        * @param request DescribeParameterGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1484,7 +1632,7 @@ namespace RKvstore20150101
       Models::DescribeParameterGroupsResponse describeParameterGroupsWithOptions(const Models::DescribeParameterGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of available parameter templates.
+       * @summary Queries the list of available parameter templates.
        *
        * @param request DescribeParameterGroupsRequest
        * @return DescribeParameterGroupsResponse
@@ -1859,7 +2007,7 @@ namespace RKvstore20150101
       Models::DescribeTairSkvDdbTableSchemaResponse describeTairSkvDdbTableSchema(const Models::DescribeTairSkvDdbTableSchemaRequest &request);
 
       /**
-       * @summary 查询任务详情
+       * @summary Queries the details of a task.
        *
        * @param request DescribeTaskDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1868,7 +2016,7 @@ namespace RKvstore20150101
       Models::DescribeTaskDetailResponse describeTaskDetailWithOptions(const Models::DescribeTaskDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询任务详情
+       * @summary Queries the details of a task.
        *
        * @param request DescribeTaskDetailRequest
        * @return DescribeTaskDetailResponse
@@ -2423,6 +2571,23 @@ namespace RKvstore20150101
        * @return ModifyGlobalSecurityIPGroupRelationResponse
        */
       Models::ModifyGlobalSecurityIPGroupRelationResponse modifyGlobalSecurityIPGroupRelation(const Models::ModifyGlobalSecurityIPGroupRelationRequest &request);
+
+      /**
+       * @summary 修改定时巡检配置
+       *
+       * @param request ModifyInspectionScheduleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyInspectionScheduleResponse
+       */
+      Models::ModifyInspectionScheduleResponse modifyInspectionScheduleWithOptions(const Models::ModifyInspectionScheduleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改定时巡检配置
+       *
+       * @param request ModifyInspectionScheduleRequest
+       * @return ModifyInspectionScheduleResponse
+       */
+      Models::ModifyInspectionScheduleResponse modifyInspectionSchedule(const Models::ModifyInspectionScheduleRequest &request);
 
       /**
        * @summary Modifies the specific information of a Tair (Redis OSS-compatible) instance, such as the password and the name.
@@ -3081,6 +3246,23 @@ namespace RKvstore20150101
       Models::RestoreInstanceResponse restoreInstance(const Models::RestoreInstanceRequest &request);
 
       /**
+       * @summary 手动重试巡检任务
+       *
+       * @param request RetryInspectionTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RetryInspectionTaskResponse
+       */
+      Models::RetryInspectionTaskResponse retryInspectionTaskWithOptions(const Models::RetryInspectionTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 手动重试巡检任务
+       *
+       * @param request RetryInspectionTaskRequest
+       * @return RetryInspectionTaskResponse
+       */
+      Models::RetryInspectionTaskResponse retryInspectionTask(const Models::RetryInspectionTaskRequest &request);
+
+      /**
        * @summary 启动TairCustom的主机
        *
        * @param request StartTairKVCacheCustomInstanceRequest
@@ -3169,6 +3351,27 @@ namespace RKvstore20150101
        * @return SwitchInstanceProxyResponse
        */
       Models::SwitchInstanceProxyResponse switchInstanceProxy(const Models::SwitchInstanceProxyRequest &request);
+
+      /**
+       * @summary 实例指定目标可用区切换
+       *
+       * @description 当前接口仅支持云原生架构实例
+       *
+       * @param request SwitchInstanceToTargetZoneRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SwitchInstanceToTargetZoneResponse
+       */
+      Models::SwitchInstanceToTargetZoneResponse switchInstanceToTargetZoneWithOptions(const Models::SwitchInstanceToTargetZoneRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 实例指定目标可用区切换
+       *
+       * @description 当前接口仅支持云原生架构实例
+       *
+       * @param request SwitchInstanceToTargetZoneRequest
+       * @return SwitchInstanceToTargetZoneResponse
+       */
+      Models::SwitchInstanceToTargetZoneResponse switchInstanceToTargetZone(const Models::SwitchInstanceToTargetZoneRequest &request);
 
       /**
        * @summary Switches an instance from the current zone to the specified zone in the event of a fault.
