@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ServiceCode for video moderation.
+    // The service code for video moderation.
     shared_ptr<string> service_ {};
-    // The parameter set required by the moderation service. taskId specifies the taskId of the moderation task to query. Only one taskId can be specified per request.
+    // The parameter set required by the moderation service. taskId specifies the task ID of the moderation task to query. Only one taskId can be specified per request.
     shared_ptr<string> serviceParameters_ {};
   };
 
