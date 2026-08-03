@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // ID of the job data parsing task.
+    // The job data analytics node ID.
     // 
-    // > Get this value from the CreateJobDataParsingTask operation.
+    // > This parameter value is obtained from the CreateJobDataParsingTask operation.
     // 
     // This parameter is required.
     shared_ptr<string> jobDataParsingTaskId_ {};

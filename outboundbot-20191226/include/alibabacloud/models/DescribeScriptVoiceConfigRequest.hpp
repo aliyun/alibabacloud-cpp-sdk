@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the script.
+    // The scene ID.
     // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
-    // The ID of the script voice configuration.
+    // The scene voice configuration ID.
     // 
     // This parameter is required.
     shared_ptr<string> scriptVoiceConfigId_ {};

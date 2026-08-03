@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The status code.
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -92,9 +92,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the new script.
+    // The scenario ID.
     shared_ptr<string> scriptId_ {};
-    // Indicates whether the request was successful. A value of true indicates success, while false indicates failure.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

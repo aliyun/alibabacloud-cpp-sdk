@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Instance ID
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Task group ID
+    // The job group ID.
     // 
     // This parameter is required.
     shared_ptr<string> jobGroupId_ {};

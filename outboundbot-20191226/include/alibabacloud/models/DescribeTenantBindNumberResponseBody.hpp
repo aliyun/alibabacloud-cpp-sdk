@@ -106,11 +106,11 @@ namespace Models
 
 
       protected:
-        // Instance ID
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // Instance name
+        // The instance name.
         shared_ptr<string> instanceName_ {};
-        // Indicates whether the number is bound to the instance
+        // Indicates whether the number is in a bound state.
         shared_ptr<bool> isBinding_ {};
       };
 
@@ -125,7 +125,7 @@ namespace Models
 
 
     protected:
-      // Job group description
+      // The job group description.
       shared_ptr<vector<Data::List>> list_ {};
     };
 
@@ -176,17 +176,17 @@ namespace Models
 
 
   protected:
-    // API status code
+    // The API status code.
     shared_ptr<string> code_ {};
-    // Response data
+    // The returned data.
     shared_ptr<DescribeTenantBindNumberResponseBody::Data> data_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // API message
+    // The API response message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -95,13 +95,13 @@ namespace Models
 
 
     protected:
-      // Outbound call number
+      // The outbound call number.
       shared_ptr<string> number_ {};
-      // Number ID
+      // The number ID.
       shared_ptr<string> outboundCallNumberId_ {};
-      // Rate limiting period
+      // The rate limit cycle.
       shared_ptr<string> rateLimitCount_ {};
-      // Rate limiting count
+      // The rate limit count.
       shared_ptr<string> rateLimitPeriod_ {};
     };
 
@@ -152,17 +152,17 @@ namespace Models
 
 
   protected:
-    // API status code
+    // The API status code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Response message
+    // The response message.
     shared_ptr<string> message_ {};
-    // Number information
+    // The number information.
     shared_ptr<ModifyOutboundCallNumberResponseBody::OutboundCallNumber> outboundCallNumber_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation succeeded
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

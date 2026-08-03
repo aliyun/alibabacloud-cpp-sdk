@@ -885,7 +885,7 @@ CreateDialogueFlowResponse Client::createDialogueFlow(const CreateDialogueFlowRe
 }
 
 /**
- * @summary Creates a URL for a Download Hub task.
+ * @summary Creates a URL for a download center task.
  *
  * @param request CreateDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -912,7 +912,7 @@ CreateDownloadUrlResponse Client::createDownloadUrlWithOptions(const CreateDownl
 }
 
 /**
- * @summary Creates a URL for a Download Hub task.
+ * @summary Creates a URL for a download center task.
  *
  * @param request CreateDownloadUrlRequest
  * @return CreateDownloadUrlResponse
@@ -1201,7 +1201,7 @@ CreateJobDataParsingTaskResponse Client::createJobDataParsingTask(const CreateJo
 }
 
 /**
- * @summary Create a job group.
+ * @summary Creates a job group.
  *
  * @param request CreateJobGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1280,7 +1280,7 @@ CreateJobGroupResponse Client::createJobGroupWithOptions(const CreateJobGroupReq
 }
 
 /**
- * @summary Create a job group.
+ * @summary Creates a job group.
  *
  * @param request CreateJobGroupRequest
  * @return CreateJobGroupResponse
@@ -1575,7 +1575,7 @@ CreateTagResponse Client::createTag(const CreateTagRequest &request) {
 }
 
 /**
- * @summary Create an asynchronous task to export outbound call history.
+ * @summary Creates an asynchronous task to export outbound call history.
  *
  * @param request CreateTaskExportTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1602,7 +1602,7 @@ CreateTaskExportTaskResponse Client::createTaskExportTaskWithOptions(const Creat
 }
 
 /**
- * @summary Create an asynchronous task to export outbound call history.
+ * @summary Creates an asynchronous task to export outbound call history.
  *
  * @param request CreateTaskExportTaskRequest
  * @return CreateTaskExportTaskResponse
@@ -2228,7 +2228,7 @@ DeleteJobGroupResponse Client::deleteJobGroup(const DeleteJobGroupRequest &reque
 }
 
 /**
- * @summary Deletes an outbound call number. This API is deprecated.
+ * @summary Deletes an outbound call number. This operation is deprecated.
  *
  * @param request DeleteOutboundCallNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2263,7 +2263,7 @@ DeleteOutboundCallNumberResponse Client::deleteOutboundCallNumberWithOptions(con
 }
 
 /**
- * @summary Deletes an outbound call number. This API is deprecated.
+ * @summary Deletes an outbound call number. This operation is deprecated.
  *
  * @param request DeleteOutboundCallNumberRequest
  * @return DeleteOutboundCallNumberResponse
@@ -2320,7 +2320,7 @@ DeleteScriptResponse Client::deleteScript(const DeleteScriptRequest &request) {
 }
 
 /**
- * @summary Deletes uploaded recordings for a small-model scenario.
+ * @summary Deletes uploaded recordings in a small model scenario.
  *
  * @param request DeleteScriptRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2359,7 +2359,7 @@ DeleteScriptRecordingResponse Client::deleteScriptRecordingWithOptions(const Del
 }
 
 /**
- * @summary Deletes uploaded recordings for a small-model scenario.
+ * @summary Deletes uploaded recordings in a small model scenario.
  *
  * @param request DeleteScriptRecordingRequest
  * @return DeleteScriptRecordingResponse
@@ -2524,7 +2524,7 @@ DescribeDialogueNodeStatisticsResponse Client::describeDialogueNodeStatistics(co
 }
 
 /**
- * @summary Describes DS reports.
+ * @summary Queries the tag statistics of hits for a job group.
  *
  * @param request DescribeDsReportsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2559,7 +2559,7 @@ DescribeDsReportsResponse Client::describeDsReportsWithOptions(const DescribeDsR
 }
 
 /**
- * @summary Describes DS reports.
+ * @summary Queries the tag statistics of hits for a job group.
  *
  * @param request DescribeDsReportsRequest
  * @return DescribeDsReportsResponse
@@ -2670,7 +2670,7 @@ DescribeGroupExecutingInfoResponse Client::describeGroupExecutingInfo(const Desc
 }
 
 /**
- * @summary Queries the details of an Outbound Calling instance.
+ * @summary Queries the information of an outbound robot business instance.
  *
  * @param request DescribeInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2701,7 +2701,7 @@ DescribeInstanceResponse Client::describeInstanceWithOptions(const DescribeInsta
 }
 
 /**
- * @summary Queries the details of an Outbound Calling instance.
+ * @summary Queries the information of an outbound robot business instance.
  *
  * @param request DescribeInstanceRequest
  * @return DescribeInstanceResponse
@@ -2812,7 +2812,7 @@ DescribeIntentStatisticsResponse Client::describeIntentStatistics(const Describe
 }
 
 /**
- * @summary Retrieves the conversation data for a specific job.
+ * @summary Returns the conversation data of a job.
  *
  * @param request DescribeJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2851,7 +2851,7 @@ DescribeJobResponse Client::describeJobWithOptions(const DescribeJobRequest &req
 }
 
 /**
- * @summary Retrieves the conversation data for a specific job.
+ * @summary Returns the conversation data of a job.
  *
  * @param request DescribeJobRequest
  * @return DescribeJobResponse
@@ -2862,7 +2862,7 @@ DescribeJobResponse Client::describeJob(const DescribeJobRequest &request) {
 }
 
 /**
- * @summary Retrieve the parsing progress of an uploaded job file.
+ * @summary Retrieves the parsing progress of an uploaded job file.
  *
  * @param request DescribeJobDataParsingTaskProgressRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2897,7 +2897,7 @@ DescribeJobDataParsingTaskProgressResponse Client::describeJobDataParsingTaskPro
 }
 
 /**
- * @summary Retrieve the parsing progress of an uploaded job file.
+ * @summary Retrieves the parsing progress of an uploaded job file.
  *
  * @param request DescribeJobDataParsingTaskProgressRequest
  * @return DescribeJobDataParsingTaskProgressResponse
@@ -3050,7 +3050,7 @@ DescribeScriptResponse Client::describeScript(const DescribeScriptRequest &reque
 }
 
 /**
- * @summary Describes the voice configuration of a script created in the legacy canvas.
+ * @summary Returns a scene voice configuration in the legacy canvas scenario.
  *
  * @param request DescribeScriptVoiceConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3089,7 +3089,7 @@ DescribeScriptVoiceConfigResponse Client::describeScriptVoiceConfigWithOptions(c
 }
 
 /**
- * @summary Describes the voice configuration of a script created in the legacy canvas.
+ * @summary Returns a scene voice configuration in the legacy canvas scenario.
  *
  * @param request DescribeScriptVoiceConfigRequest
  * @return DescribeScriptVoiceConfigResponse
@@ -3286,7 +3286,7 @@ DescribeTagHitsSummaryResponse Client::describeTagHitsSummary(const DescribeTagH
 }
 
 /**
- * @summary Lists the instances to which a phone number is bound in a tenant.
+ * @summary Queries the list of number binding instances under a tenant.
  *
  * @param request DescribeTenantBindNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3317,7 +3317,7 @@ DescribeTenantBindNumberResponse Client::describeTenantBindNumberWithOptions(con
 }
 
 /**
- * @summary Lists the instances to which a phone number is bound in a tenant.
+ * @summary Queries the list of number binding instances under a tenant.
  *
  * @param request DescribeTenantBindNumberRequest
  * @return DescribeTenantBindNumberResponse
@@ -3514,7 +3514,7 @@ DownloadScriptRecordingResponse Client::downloadScriptRecording(const DownloadSc
 }
 
 /**
- * @summary Duplicates an existing script. This operation applies only to the legacy canvas.
+ * @summary Copies a new script from an existing script (for the legacy canvas only).
  *
  * @param request DuplicateScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3553,7 +3553,7 @@ DuplicateScriptResponse Client::duplicateScriptWithOptions(const DuplicateScript
 }
 
 /**
- * @summary Duplicates an existing script. This operation applies only to the legacy canvas.
+ * @summary Copies a new script from an existing script (for the legacy canvas only).
  *
  * @param request DuplicateScriptRequest
  * @return DuplicateScriptResponse
@@ -5613,7 +5613,7 @@ ListJobGroupsResponse Client::listJobGroups(const ListJobGroupsRequest &request)
 }
 
 /**
- * @summary Retrieves the list of outbound call tasks asynchronously. Call this operation to retrieve the results of a `ListJobGroup` call that included the `Async` parameter.
+ * @summary Asynchronously retrieves the list of outbound call task groups. When the Async parameter is specified in the ListJobGroup operation, use this operation to retrieve the results of the asynchronous ListJobGroup call.
  *
  * @param request ListJobGroupsAsyncRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5640,7 +5640,7 @@ ListJobGroupsAsyncResponse Client::listJobGroupsAsyncWithOptions(const ListJobGr
 }
 
 /**
- * @summary Retrieves the list of outbound call tasks asynchronously. Call this operation to retrieve the results of a `ListJobGroup` call that included the `Async` parameter.
+ * @summary Asynchronously retrieves the list of outbound call task groups. When the Async parameter is specified in the ListJobGroup operation, use this operation to retrieve the results of the asynchronous ListJobGroup call.
  *
  * @param request ListJobGroupsAsyncRequest
  * @return ListJobGroupsAsyncResponse
@@ -5651,7 +5651,7 @@ ListJobGroupsAsyncResponse Client::listJobGroupsAsync(const ListJobGroupsAsyncRe
 }
 
 /**
- * @summary Query multiple jobs.
+ * @summary Queries multiple jobs.
  *
  * @param request ListJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5686,7 +5686,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &request, con
 }
 
 /**
- * @summary Query multiple jobs.
+ * @summary Queries multiple jobs.
  *
  * @param request ListJobsRequest
  * @return ListJobsResponse
@@ -7057,7 +7057,7 @@ ModifyJobGroupResponse Client::modifyJobGroup(const ModifyJobGroupRequest &reque
 }
 
 /**
- * @summary Modifies an outbound call number. This API is deprecated.
+ * @summary Modifies an outbound call number. This operation is deprecated.
  *
  * @param request ModifyOutboundCallNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7104,7 +7104,7 @@ ModifyOutboundCallNumberResponse Client::modifyOutboundCallNumberWithOptions(con
 }
 
 /**
- * @summary Modifies an outbound call number. This API is deprecated.
+ * @summary Modifies an outbound call number. This operation is deprecated.
  *
  * @param request ModifyOutboundCallNumberRequest
  * @return ModifyOutboundCallNumberResponse
@@ -7531,7 +7531,7 @@ PublishScriptForDebugResponse Client::publishScriptForDebug(const PublishScriptF
 }
 
 /**
- * @summary You can query the list of jobs.
+ * @summary Queries a list of jobs.
  *
  * @param request QueryJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7598,7 +7598,7 @@ QueryJobsResponse Client::queryJobsWithOptions(const QueryJobsRequest &request, 
 }
 
 /**
- * @summary You can query the list of jobs.
+ * @summary Queries a list of jobs.
  *
  * @param request QueryJobsRequest
  * @return QueryJobsResponse
@@ -7609,7 +7609,7 @@ QueryJobsResponse Client::queryJobs(const QueryJobsRequest &request) {
 }
 
 /**
- * @summary Find tasks by result.
+ * @summary Queries tasks based on task results.
  *
  * @param request QueryJobsWithResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7692,7 +7692,7 @@ QueryJobsWithResultResponse Client::queryJobsWithResultWithOptions(const QueryJo
 }
 
 /**
- * @summary Find tasks by result.
+ * @summary Queries tasks based on task results.
  *
  * @param request QueryJobsWithResultRequest
  * @return QueryJobsWithResultResponse
@@ -7989,7 +7989,7 @@ RollbackScriptResponse Client::rollbackScript(const RollbackScriptRequest &reque
 }
 
 /**
- * @summary Sets the delay before playback starts after the call is answered.
+ * @summary Saves the delayed playback time after a call is answered.
  *
  * @param request SaveAfterAnswerDelayPlaybackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8028,7 +8028,7 @@ SaveAfterAnswerDelayPlaybackResponse Client::saveAfterAnswerDelayPlaybackWithOpt
 }
 
 /**
- * @summary Sets the delay before playback starts after the call is answered.
+ * @summary Saves the delayed playback time after a call is answered.
  *
  * @param request SaveAfterAnswerDelayPlaybackRequest
  * @return SaveAfterAnswerDelayPlaybackResponse
@@ -8521,7 +8521,7 @@ StartJobResponse Client::startJob(const StartJobRequest &request) {
 }
 
 /**
- * @summary Submits a draft job group. This operation is deprecated.
+ * @summary Submits a job group in draft status for execution. This operation is deprecated.
  *
  * @param request SubmitBatchJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8556,7 +8556,7 @@ SubmitBatchJobsResponse Client::submitBatchJobsWithOptions(const SubmitBatchJobs
 }
 
 /**
- * @summary Submits a draft job group. This operation is deprecated.
+ * @summary Submits a job group in draft status for execution. This operation is deprecated.
  *
  * @param request SubmitBatchJobsRequest
  * @return SubmitBatchJobsResponse
@@ -9107,9 +9107,9 @@ UploadScriptRecordingResponse Client::uploadScriptRecording(const UploadScriptRe
 }
 
 /**
- * @summary Revoke script review.
+ * @summary Withdraws a script review.
  *
- * @description ***
+ * @description ****
  *
  * @param request WithdrawScriptReviewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9144,9 +9144,9 @@ WithdrawScriptReviewResponse Client::withdrawScriptReviewWithOptions(const Withd
 }
 
 /**
- * @summary Revoke script review.
+ * @summary Withdraws a script review.
  *
- * @description ***
+ * @description ****
  *
  * @param request WithdrawScriptReviewRequest
  * @return WithdrawScriptReviewResponse

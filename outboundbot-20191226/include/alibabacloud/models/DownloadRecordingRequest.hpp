@@ -70,9 +70,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether to retrieve voice slice recordings.
+    // Specifies whether to query segmented recordings.
     shared_ptr<bool> needVoiceSliceRecording_ {};
-    // Specifies whether to swap the left and right audio channels. The default value is `false`.
+    // Specifies whether to swap left and right audio channels. Default value: false (not swapped).
     shared_ptr<bool> swapChannels_ {};
     // The call ID.
     // 

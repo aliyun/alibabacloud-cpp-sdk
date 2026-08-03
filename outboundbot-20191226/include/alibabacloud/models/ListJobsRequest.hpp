@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // Instance ID
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Job ID list. Note: the number of child items must be less than or equal to 99.
+    // The list of job IDs. A maximum of 99 child items are allowed.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> jobId_ {};

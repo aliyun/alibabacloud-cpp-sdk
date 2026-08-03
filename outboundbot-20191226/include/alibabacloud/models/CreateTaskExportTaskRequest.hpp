@@ -278,60 +278,62 @@ namespace Models
 
 
   protected:
-    // Start time of the call time range (inclusive)
+    // The start time (inclusive) for searching by call time.
     shared_ptr<int64_t> actualTimeGte_ {};
-    // End time of the call time range (inclusive)
+    // The end time (inclusive) for searching by call time.
     shared_ptr<int64_t> actualTimeLte_ {};
-    // Minimum call duration
+    // The minimum call duration for the search.
     shared_ptr<int64_t> callDurationGte_ {};
-    // Maximum call duration
+    // The maximum call duration for the search.
     shared_ptr<int64_t> callDurationLte_ {};
-    // Called number
+    // The called number.
     shared_ptr<string> calledNumber_ {};
     shared_ptr<string> callingNumber_ {};
-    // Whether the call was answered
+    // Specifies whether the call was answered.
     shared_ptr<bool> hasAnswered_ {};
-    // Whether the call ended because the contact rejected it
+    // Specifies whether the call was hung up due to rejection.
     shared_ptr<bool> hasHangUpByRejection_ {};
-    // Whether the conversation ended normally
+    // Specifies whether the conversation was completed.
     shared_ptr<bool> hasReachedEndOfFlow_ {};
-    // Instance ID
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Task group ID
+    // The job group ID.
     shared_ptr<string> jobGroupId_ {};
-    // Task name
+    // The task name.
     shared_ptr<string> jobGroupNameQuery_ {};
-    // Job ID
+    // The job ID.
     shared_ptr<string> jobId_ {};
-    // Job status
+    // The job status.
     shared_ptr<string> jobStatusStringList_ {};
-    // Other ID
+    // The other ID.
     shared_ptr<string> otherId_ {};
-    // Page number, starting from 0
+    // The page number. Pages start from 0.
     shared_ptr<int32_t> pageIndex_ {};
-    // Number of items per page
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The start time for the ring duration search.
+    // The minimum ringing duration for the search.
     shared_ptr<int64_t> recordingDurationGte_ {};
-    // End time of the ring duration search.
+    // The maximum ringing duration for the search.
     shared_ptr<int64_t> recordingDurationLte_ {};
-    // Scenario name
+    // The scenario name.
     shared_ptr<string> scriptNameQuery_ {};
-    // Sort field
+    // The field by which to sort the results.
     shared_ptr<string> sortBy_ {};
-    // Sort order. Valid values: asc (ascending), desc (descending)
+    // The sort order. Valid values:
+    // - asr: ascending order
+    // - desc: descending order
     shared_ptr<string> sortOrder_ {};
-    // Start time of the task creation time range
+    // The start time for searching by task creation time.
     shared_ptr<int64_t> taskCreateTimeGte_ {};
-    // End time of the task creation time range
+    // The end time for searching by task creation time.
     shared_ptr<int64_t> taskCreateTimeLte_ {};
-    // Task ID
+    // The task ID.
     shared_ptr<string> taskId_ {};
-    // Call status
+    // The call status.
     shared_ptr<string> taskStatusStringList_ {};
-    // User ID
+    // The user ID.
     shared_ptr<string> userIdMatch_ {};
   };
 

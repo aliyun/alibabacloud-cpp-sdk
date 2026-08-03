@@ -180,9 +180,9 @@ namespace Models
 
 
         protected:
-          // End Time of the window.
+          // The window start time.
           shared_ptr<string> beginTime_ {};
-          // Start Time of the window.
+          // The window end time.
           shared_ptr<string> endTime_ {};
         };
 
@@ -300,40 +300,40 @@ namespace Models
 
 
       protected:
-        // Custom policy data
+        // The custom data of the strategy.
         shared_ptr<string> customized_ {};
-        // End Time
+        // The end time.
         shared_ptr<int64_t> endTime_ {};
-        // Post-execution handling method after the epoch ends (this field is deprecated).
+        // The follow-up action after the execution cycle ends. This field is no longer in use.
         shared_ptr<string> followUpStrategy_ {};
-        // Indicates whether it is a template.
+        // Indicates whether this is a template.
         shared_ptr<bool> isTemplate_ {};
-        // The maximum number of attempts per day when a call in the job fails to connect.
+        // The maximum number of daily call attempts when calls in the task are not connected.
         shared_ptr<int32_t> maxAttemptsPerDay_ {};
-        // Calling interval.
+        // The interval between call attempts.
         shared_ptr<int32_t> minAttemptInterval_ {};
-        // Repetition mode: "once" for no repetition, "day" for daily repetition, "week" for weekly repetition, and "month" for monthly repetition.
+        // The repeat execution mode. Valid values: once (no repeat), day (repeat daily), week (repeat weekly), and month (repeat monthly).
         shared_ptr<string> repeatBy_ {};
-        // Days on which execution repeats.
-        // - If the recurrence **RepeatBy** is set to **Week**, 0 represents Sunday, and 1–6 represent Monday through Saturday, respectively.
-        // - If the recurrence **RepeatBy** is set to **Month**, values 1–31 represent the 1st through the 31st day of the month. Months that do not contain the specified date will not execute the task. For example, if the 30th is selected, the task will not run in February.
+        // The repeat execution days.
+        // - If **RepeatBy** is set to **Week**, 0 indicates Sunday and 1-6 indicate Monday through Saturday.
+        // - If **RepeatBy** is set to **Month**, 1-31 indicate the 1st through 31st day. The task is not executed in months that do not have the specified day. For example, if the 30th is selected, the task is not executed in February.
         shared_ptr<vector<string>> repeatDays_ {};
-        // Number routing policy.
-        // - None: No special rule.
-        // - LocalFirst: Local city numbers are prioritized.
-        // - LocalProvinceFirst: Numbers from the same province are prioritized.
+        // The number strategy. Valid values:
+        // - None: no special rules.
+        // - LocalFirst: local city numbers preferred.
+        // - LocalProvinceFirst: local province numbers preferred.
         shared_ptr<string> routingStrategy_ {};
-        // Start Time.
+        // The start time.
         shared_ptr<int64_t> startTime_ {};
-        // Policy Description
+        // The strategy description.
         shared_ptr<string> strategyDescription_ {};
-        // Policy ID.
+        // The strategy ID.
         shared_ptr<string> strategyId_ {};
-        // Policy Name.
+        // The strategy name.
         shared_ptr<string> strategyName_ {};
-        // Policy Type.
+        // The strategy type.
         shared_ptr<string> type_ {};
-        // Time window for policy execution.
+        // The strategy execution time window.
         shared_ptr<vector<Strategy::WorkingTime>> workingTime_ {};
       };
 
@@ -384,11 +384,11 @@ namespace Models
 
 
       protected:
-        // Do not make outbound calls to nonexistent numbers.
+        // Indicates whether nonexistent numbers are excluded from redialing.
         shared_ptr<bool> emptyNumberIgnore_ {};
-        // Do not make outbound calls to numbers with overdue payment.
+        // Indicates whether numbers with overdue payments are excluded from redialing.
         shared_ptr<bool> inArrearsIgnore_ {};
-        // Do not make outbound calls to numbers that are out of service.
+        // Indicates whether out-of-service numbers are excluded from redialing.
         shared_ptr<bool> outOfServiceIgnore_ {};
       };
 
@@ -439,11 +439,11 @@ namespace Models
 
 
       protected:
-        // File URL. [Deprecated]
+        // The file URL. [Deprecated]
         shared_ptr<string> fileHttpUrl_ {};
-        // Progress. [Deprecated]
+        // The progress. [Deprecated]
         shared_ptr<string> progress_ {};
-        // Job export status. [Deprecated]
+        // The task export status. [Deprecated]
         shared_ptr<string> status_ {};
       };
 
@@ -596,51 +596,48 @@ namespace Models
 
 
     protected:
-      // List of calling numbers.
+      // The list of calling numbers.
       shared_ptr<vector<string>> callingNumbers_ {};
-      // Creation Time.
+      // The creation time.
       shared_ptr<int64_t> creationTime_ {};
-      // Export progress.  
-      // > This field is deprecated in the current parameter.
+      // The export progress.
+      // > This field is deprecated.
       shared_ptr<JobGroup::ExportProgress> exportProgress_ {};
-      // The ID of the asynchronous parsing operation in the backend corresponding to the uploaded job file.  
-      // > If empty, it is not returned.
+      // The ID of the background asynchronous parsing operation for the uploaded task file.
+      // > No value is returned if this field is empty.
       shared_ptr<string> jobDataParsingTaskId_ {};
-      // OSS path of the job file.  
-      // > If empty, it is not returned.
+      // The OSS path of the task file.
+      // > No value is returned if this field is empty.
       shared_ptr<string> jobFilePath_ {};
-      // Task description.
+      // The task description.
       shared_ptr<string> jobGroupDescription_ {};
-      // Task ID.
+      // The task ID.
       shared_ptr<string> jobGroupId_ {};
-      // Task Name.
+      // The task name.
       shared_ptr<string> jobGroupName_ {};
-      // Concurrent guarantee value.  
-      // When the job starts, it guarantees a minimum of N concurrent instances.  
-      // The sum of concurrent guarantee values for jobs with the same priority must not exceed the instance concurrency limit.  
-      // If the concurrent guarantee value is set to 0, the system intelligently assigns available idle concurrency.
+      // The guaranteed concurrency value. When the task starts, a minimum of N concurrent calls are guaranteed. The sum of guaranteed concurrency values for tasks with the same priority cannot exceed the instance concurrency. If the guaranteed concurrency value is set to 0, the system intelligently allocates idle concurrency.
       shared_ptr<int64_t> minConcurrency_ {};
-      // Updated At.
+      // The modification time.
       shared_ptr<string> modifyTime_ {};
-      // Job group priority. Valid values:  
-      // - **Urgent**: Urgent job.  
-      // - **Daily**: Daily job.
+      // The job group priority. Valid values:
+      // - **Urgent**: urgent task.
+      // - **Daily**: daily task.
       shared_ptr<string> priority_ {};
-      // List of recall calling numbers
+      // The list of redial calling numbers.
       shared_ptr<vector<string>> recallCallingNumbers_ {};
-      // Redial policy.
+      // The redial strategy.
       shared_ptr<JobGroup::RecallStrategy> recallStrategy_ {};
-      // Ringing duration.
+      // The ringing duration.
       shared_ptr<int64_t> ringingDuration_ {};
-      // Scenario ID.
+      // The scenario ID.
       shared_ptr<string> scenarioId_ {};
-      // Scenario name.
+      // The dialog flow scenario name.
       shared_ptr<string> scriptName_ {};
-      // Script scenario version.
+      // The dialog flow scenario version.
       shared_ptr<string> scriptVersion_ {};
-      // Task status.
+      // The task status.
       shared_ptr<string> status_ {};
-      // Job scheduling policy.
+      // The task scheduling strategy.
       shared_ptr<JobGroup::Strategy> strategy_ {};
     };
 
@@ -691,17 +688,17 @@ namespace Models
 
 
   protected:
-    // Response code.
+    // The response code.
     shared_ptr<string> code_ {};
-    // HTTP return code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Job information.
+    // The task information.
     shared_ptr<CreateJobGroupResponseBody::JobGroup> jobGroup_ {};
-    // Message.
+    // The prompt message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

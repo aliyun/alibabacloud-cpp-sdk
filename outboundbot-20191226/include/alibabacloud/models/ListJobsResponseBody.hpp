@@ -202,11 +202,11 @@ namespace Models
 
 
           protected:
-            // Category
+            // The category.
             shared_ptr<string> category_ {};
-            // Summary content
+            // The summary content.
             shared_ptr<string> content_ {};
-            // Summary name
+            // The summary name.
             shared_ptr<string> summaryName_ {};
           };
 
@@ -243,13 +243,13 @@ namespace Models
 
 
         protected:
-          // Conversation text
+          // The conversation text.
           shared_ptr<string> script_ {};
-          // Who spoke: Robot or Contact
+          // The speaker. Valid values: Robot (the robot) and Contact (the contact).
           shared_ptr<string> speaker_ {};
-          // Summary information. Deprecated.
+          // The summary information. [Deprecated]
           shared_ptr<vector<Conversation::Summary>> summary_ {};
-          // Timestamp when the conversation text was stored
+          // The timestamp when the conversation text was stored.
           shared_ptr<int64_t> timestamp_ {};
         };
 
@@ -346,21 +346,21 @@ namespace Models
 
 
         protected:
-          // Contact ID
+          // The contact ID.
           shared_ptr<string> contactId_ {};
-          // Contact name
+          // The contact name.
           shared_ptr<string> contactName_ {};
-          // Honorific. If empty, defaults to the contact name.
+          // The honorific of the contact. If not specified, this value is the same as the contact name.
           shared_ptr<string> honorific_ {};
-          // Job ID. Deprecated.
+          // The job ID. [Deprecated]
           shared_ptr<string> jobId_ {};
-          // Phone number
+          // The phone number.
           shared_ptr<string> phoneNumber_ {};
-          // Third-party system ID for the contact
+          // The contact ID in the third-party system.
           shared_ptr<string> referenceId_ {};
-          // Role
+          // The role.
           shared_ptr<string> role_ {};
-          // Status
+          // The status.
           shared_ptr<string> state_ {};
         };
 
@@ -471,99 +471,68 @@ namespace Models
 
 
       protected:
-        // Actual execution time
+        // The actual execution time.
         shared_ptr<int64_t> actualTime_ {};
-        // Business result. Legacy parameter. Deprecated.
+        // The business result. This is a legacy parameter. [Deprecated]
         shared_ptr<string> brief_ {};
-        // Call ID
+        // The call ID.
         shared_ptr<string> callId_ {};
-        // Called number
+        // The called number.
         shared_ptr<string> calledNumber_ {};
-        // Calling number
+        // The calling number.
         shared_ptr<string> callingNumber_ {};
-        // Chatbot ID
+        // The chatbot ID.
         shared_ptr<string> chatbotId_ {};
-        // Contact for the task
+        // The contact of the task.
         shared_ptr<Tasks::Contact> contact_ {};
-        // Conversation list
+        // The list of conversations.
         shared_ptr<vector<Tasks::Conversation>> conversation_ {};
-        // The duration of the task.
+        // The duration.
         shared_ptr<int32_t> duration_ {};
-        // Job ID
+        // The job ID.
         shared_ptr<string> jobId_ {};
-        // Scheduled execution time
+        // The planned execution time of the task.
         shared_ptr<int64_t> planedTime_ {};
-        // Scenario ID. Legacy parameter. Deprecated.
+        // The scenario ID. This is a legacy parameter. [Deprecated]
         shared_ptr<string> scenarioId_ {};
-        // Note: The **Succeeded** status is now split into specific reasons. The generic **Succeeded**: 1 (Connected) status is no longer returned. Instead, specific reason types are returned.
+        // The task status. Valid values:
+        // (Note: The **Succeeded** status has been subdivided into specific reasons. The **Succeeded**: 1 (Connected) status is no longer returned. Instead, a specific sub-reason type is returned.)
         // 
         // - **Executing**: 0 (Dialing).
-        // 
         // - **Succeeded**: 1 (Connected).
-        // 
-        // - **NoAnswer**: 2 (Not connected — No answer).
-        // 
-        // - **NotExist**: 3 (Not connected — Nonexistent number).
-        // 
-        // - **Busy**: 4 (Not connected — Busy).
-        // 
-        // - **Cancelled**: 5 (Not dialed — Task stopped).
-        // 
+        // - **NoAnswer**: 2 (Not connected - No answer).
+        // - **NotExist**: 3 (Not connected - Nonexistent number).
+        // - **Busy**: 4 (Not connected - Busy).
+        // - **Cancelled**: 5 (Not dialed - Task stopped).
         // - **Failed**: 6 (Failed).
-        // 
-        // - **NotConnected**: 7 (Not connected — Unreachable).
-        // 
-        // - **PoweredOff**: 8 (Not connected — Powered off).
-        // 
-        // - **OutOfService**: 9 (Not connected — Out of service).
-        // 
-        // - **InArrears**: 10 (Not connected — Overdue payment).
-        // 
-        // - **EmptyNumber**: 11 (Not dialed — Empty number).
-        // 
-        // - **PerDayCallCountLimit**: 12 (Not dialed — Daily call limit exceeded).
-        // 
-        // - **ContactBlockList**: 13 (Not dialed — Blacklisted).
-        // 
-        // - **CallerNotRegistered**: 14 (Not dialed — Caller number not registered).
-        // 
-        // - **Terminated**: 15 (Not dialed — Terminated).
-        // 
-        // - **VerificationCancelled**: 16 (Not dialed — Verification failed before call).
-        // 
-        // - **OutOfServiceNoCall**: 17 (Not dialed — Out of service).
-        // 
-        // - **InArrearsNoCall**: 18 (Not dialed — Overdue payment).
-        // 
-        // - **CallingNumberNotExist**: 19 (Not dialed — Caller number does not exist).
-        // 
-        // - **SucceededFinish**: 20 (Connected — Normal end).
-        // 
-        // - **SucceededChatbotHangUpAfterNoAnswer**: 21 (Connected — Bot hung up after no recognition).
-        // 
-        // - **SucceededChatbotHangUpAfterSilence**: 22 (Connected — Bot hung up after silence timeout).
-        // 
-        // - **SucceededClientHangUpAfterNoAnswer**: 23 (Connected — User hung up after no recognition).
-        // 
-        // - **SucceededClientHangUp**: 24 (Connected — User hung up without reason).
-        // 
-        // - **SucceededTransferByIntent**: 25 (Connected — Transferred to agent after intent match).
-        // 
-        // - **SucceededTransferAfterNoAnswer**: 26 (Connected — Transferred to agent after no recognition).
-        // 
-        // - **SucceededInoInterAction**: 27 (Connected — No interaction from user side).
-        // 
-        // - **SucceededError**: 28 (Connected — System error interrupted).
-        // 
-        // - **SucceededSpecialInterceptVoiceAssistant**: 29 (Connected — Intercepted for special case — Voice assistant).
-        // 
-        // - **SucceededSpecialInterceptExtensionNumberTransfer**: 30 (Connected — Intercepted for special case — Extension transfer).
-        // 
-        // - **SucceededSpecialInterceptCustomSpecialIntercept**: 31 (Connected — Intercepted for special case — Custom interception).
-        // 
-        // - **HighRiskSipCode**: 32 (Not dialed — High risk).
+        // - **NotConnected**: 7 (Not connected - Unreachable).
+        // - **PoweredOff**: 8 (Not connected - Powered off).
+        // - **OutOfService**: 9 (Not connected - Callee out of service).
+        // - **InArrears**: 10 (Not connected - Callee has overdue payment).
+        // - **EmptyNumber**: 11 (Not dialed - Nonexistent number, no outbound call).
+        // - **PerDayCallCountLimit**: 12 (Not dialed - Daily limit exceeded).
+        // - **ContactBlockList**: 13 (Not dialed - Blacklisted).
+        // - **CallerNotRegistered**: 14 (Not dialed - Caller number not registered).
+        // - **Terminated**: 15 (Not dialed - Terminated).
+        // - **VerificationCancelled**: 16 (Not dialed - Pre-call verification failed, cancelled).
+        // - **OutOfServiceNoCall**: 17 (Not dialed - Callee out of service, no outbound call).
+        // - **InArrearsNoCall**: 18 (Not dialed - Callee has overdue payment, no outbound call).
+        // - **CallingNumberNotExist**: 19 (Not dialed - Caller number does not exist).
+        // - **SucceededFinish**: 20 (Connected - Normal completion).
+        // - **SucceededChatbotHangUpAfterNoAnswer**: 21 (Connected - Robot hung up after no recognition).
+        // - **SucceededChatbotHangUpAfterSilence**: 22 (Connected - Hung up due to silence timeout).
+        // - **SucceededClientHangUpAfterNoAnswer**: 23 (Connected - User hung up after no recognition).
+        // - **SucceededClientHangUp**: 24 (Connected - User hung up without reason).
+        // - **SucceededTransferByIntent**: 25 (Connected - Transferred to agent by intent match).
+        // - **SucceededTransferAfterNoAnswer**: 26 (Connected - Transferred to agent after no recognition).
+        // - **SucceededInoInterAction**: 27 (Connected - No interaction from user).
+        // - **SucceededError**: 28 (Connected - System error interruption).
+        // - **SucceededSpecialInterceptVoiceAssistant**: 29 (Connected - Special intercept - Voice assistant).
+        // - **SucceededSpecialInterceptExtensionNumberTransfer**: 30 (Connected - Special intercept - Extension number transfer).
+        // - **SucceededSpecialInterceptCustomSpecialIntercept**: 31 (Connected - Special intercept - Custom intercept).
+        // - **HighRiskSipCode**: 32 (Not dialed - High risk, no outbound call).
         shared_ptr<string> status_ {};
-        // Task ID
+        // The task ID.
         shared_ptr<string> taskId_ {};
       };
 
@@ -614,11 +583,11 @@ namespace Models
 
 
       protected:
-        // Conversation summary category
+        // The conversation summary category.
         shared_ptr<string> category_ {};
-        // Tag value
+        // The label value.
         shared_ptr<string> content_ {};
-        // Tag name
+        // The label name.
         shared_ptr<string> summaryName_ {};
       };
 
@@ -660,9 +629,9 @@ namespace Models
 
 
       protected:
-        // Business parameter key
+        // The key of the business parameter.
         shared_ptr<string> key_ {};
-        // Business parameter value
+        // The value of the business parameter.
         shared_ptr<string> value_ {};
       };
 
@@ -759,21 +728,21 @@ namespace Models
 
 
       protected:
-        // Contact ID. Generated by the system.
+        // The contact ID. This value is automatically generated by the system.
         shared_ptr<string> contactId_ {};
-        // Contact name
+        // The contact name.
         shared_ptr<string> contactName_ {};
-        // Honorific. Same as the contact name.
+        // The honorific. This value is the same as the contact name.
         shared_ptr<string> honorific_ {};
-        // Job ID. Deprecated.
+        // The job ID. [Deprecated]
         shared_ptr<string> jobId_ {};
-        // Phone number
+        // The phone number.
         shared_ptr<string> phoneNumber_ {};
-        // Third-party system ID for the contact
+        // The contact ID in the third-party system.
         shared_ptr<string> referenceId_ {};
-        // Contact role. Deprecated.
+        // The contact role. [Deprecated]
         shared_ptr<string> role_ {};
-        // Status. Deprecated.
+        // The status. [Deprecated]
         shared_ptr<string> state_ {};
       };
 
@@ -890,55 +859,49 @@ namespace Models
 
 
     protected:
-      // Calling number list
+      // The list of calling numbers.
       shared_ptr<vector<string>> callingNumbers_ {};
-      // Contact list
+      // The list of contacts.
       shared_ptr<vector<Jobs::Contacts>> contacts_ {};
-      // Business parameter list.
+      // The list of business parameters.
       // 
-      // > TenantId and ServiceId are generated by the system. All other parameters are custom.
+      // > TenantId and ServiceId are generated by the system. Other parameters are custom-defined and passed in by the caller.
       shared_ptr<vector<Jobs::Extras>> extras_ {};
-      // Failure reason
+      // The reason why the job failed.
       shared_ptr<string> failureReason_ {};
-      // Job group ID
+      // The job group ID.
       shared_ptr<string> jobGroupId_ {};
-      // Job ID
+      // The job ID.
       shared_ptr<string> jobId_ {};
-      // Job priority
+      // The job priority.
       shared_ptr<int32_t> priority_ {};
-      // Business ID for the job. Defined by the business party.
+      // The business ID of the job, which is custom-defined by the caller.
       // 
-      // > This is the uploaded ContactId value.
+      // > This is the ContactId value that was uploaded.
       shared_ptr<string> referenceId_ {};
-      // Business ID
+      // The scenario ID.
       shared_ptr<string> scenarioId_ {};
-      // Job status. Valid values:
+      // The job status. Valid values:
       // 
-      // - **Scheduling**: Scheduling.
-      // 
-      // - **Executing**: Running.
-      // 
-      // - **Succeeded**: Succeeded.
-      // 
-      // - **Paused**: Suspended.
-      // 
-      // - **Failed**: Failed.
-      // 
-      // - **Cancelled**: Cancelled.
-      // 
-      // - **Drafted**: Draft.
+      // - **Scheduling**: The job is being scheduled.
+      // - **Executing**: The job is being executed.
+      // - **Succeeded**: The job succeeded.
+      // - **Paused**: The job is suspended.
+      // - **Failed**: The job failed.
+      // - **Cancelled**: The job is cancelled.
+      // - **Drafted**: The job is in draft state.
       shared_ptr<string> status_ {};
-      // Strategy ID
+      // The strategy ID.
       shared_ptr<string> strategyId_ {};
-      // Conversation business tag data:
+      // The conversation label data.
       // 
-      // In Large Language Model (LLM) scenarios: Tag hit data after conversation ends.
+      // In large model scenarios, this contains the label hit data after the conversation ends.
       // 
-      // In small model scenarios: Variable values after conversation ends.
+      // In small model scenarios, this contains the variable value data after the conversation ends.
       shared_ptr<vector<Jobs::Summary>> summary_ {};
-      // System priority
+      // The system priority.
       shared_ptr<int32_t> systemPriority_ {};
-      // Task list
+      // The list of tasks.
       shared_ptr<vector<Jobs::Tasks>> tasks_ {};
     };
 
@@ -989,17 +952,17 @@ namespace Models
 
 
   protected:
-    // API status code
+    // The response code.
     shared_ptr<string> code_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Job array
+    // The list of jobs.
     shared_ptr<vector<ListJobsResponseBody::Jobs>> jobs_ {};
-    // API message
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

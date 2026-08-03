@@ -121,31 +121,31 @@ namespace Models
 
 
   protected:
-    // Filter condition. Contact name.
+    // The filter condition for the contact name.
     shared_ptr<string> contactName_ {};
-    // Filter condition. End time. Default value is 0, which means up to now.
+    // The filter condition for the end time. Default value: 0, which indicates the current time.
     shared_ptr<int64_t> endTime_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Task group ID.
+    // The job group ID.
     shared_ptr<string> jobGroupId_ {};
-    // Page number.
+    // The page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size.
+    // The page size.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // Filter condition. Contact phone number.
+    // The filter condition for the contact phone number.
     shared_ptr<string> phoneNumber_ {};
-    // Scenario ID. This parameter is deprecated.
+    // The scenario ID. This is a legacy parameter and has been deprecated.
     shared_ptr<string> scenarioId_ {};
-    // Filter condition. Start time. Default value is 0, which means from 00:00 today.
+    // The filter condition for the start time. Default value: 0, which indicates the start of the current day.
     shared_ptr<int64_t> startTime_ {};
-    // Time filter basis. Valid values: start, end, and job_create.
+    // Specifies whether to query by start time, end time, or job creation time. Valid values: start, end, job_create.
     shared_ptr<string> timeAlignment_ {};
   };
 

@@ -135,9 +135,9 @@ namespace Models
 
 
       protected:
-        // The end time of the scheduling policy.
+        // The strategy end time.
         shared_ptr<int64_t> endTime_ {};
-        // The start time of the scheduling policy.
+        // The strategy start time.
         shared_ptr<int64_t> startTime_ {};
       };
 
@@ -261,43 +261,36 @@ namespace Models
 
 
       protected:
-        // The number of canceled jobs.
+        // The number of cancelled jobs.
         shared_ptr<int32_t> cancelledNum_ {};
-        // This parameter is deprecated. The total duration of the execution.
+        // The total execution duration so far. [Deprecated]
         shared_ptr<int32_t> duration_ {};
-        // The number of jobs that are being executed.
+        // The number of jobs being executed.
         shared_ptr<int32_t> executingNum_ {};
         // The number of failed jobs.
         shared_ptr<int32_t> failedNum_ {};
         // The number of paused jobs.
         shared_ptr<int32_t> pausedNum_ {};
-        // The number of jobs that are being scheduled.
+        // The number of jobs being scheduled.
         shared_ptr<int32_t> scheduling_ {};
-        // This parameter is deprecated. The time when the job group started.
+        // The start time. [Deprecated]
         shared_ptr<int64_t> startTime_ {};
-        // The execution state. Valid values:
+        // The execution status. Valid values:
         // 
-        // - `Draft`: The job group is a draft.
-        // 
-        // - `Scheduling`: The job group is being scheduled.
-        // 
-        // - `Executing`: The job group is running.
-        // 
-        // - `Completed`: The job group is complete.
-        // 
-        // - `Paused`: The job group is paused.
-        // 
-        // - `Failed`: The job group has failed.
-        // 
-        // - `Cancelled`: The job group is canceled.
-        // 
-        // - `Initializing`: The job group is being initialized.
+        // - Draft: Draft.
+        // - Scheduling: Scheduling in progress.
+        // - Executing: Executing.
+        // - Completed: Completed.
+        // - Paused: Paused.
+        // - Failed: Failed.
+        // - Cancelled: Cancelled.
+        // - Initializing: Initializing.
         shared_ptr<string> status_ {};
         // The number of completed jobs.
         shared_ptr<int32_t> totalCompleted_ {};
         // The total number of jobs.
         shared_ptr<int32_t> totalJobs_ {};
-        // This parameter is deprecated. The number of unanswered calls.
+        // The number of unanswered jobs. [Deprecated]
         shared_ptr<int32_t> totalNotAnswered_ {};
       };
 
@@ -348,11 +341,11 @@ namespace Models
 
 
       protected:
-        // This parameter is deprecated. The download URL of the file.
+        // The download URL. [Deprecated]
         shared_ptr<string> fileHttpUrl_ {};
-        // The progress of the export.
+        // The progress.
         shared_ptr<string> progress_ {};
-        // The status of the export.
+        // The status.
         shared_ptr<string> status_ {};
       };
 
@@ -472,35 +465,35 @@ namespace Models
 
 
     protected:
-      // The time when the job group was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The creation time.
       shared_ptr<int64_t> creationTime_ {};
       // The export progress.
       shared_ptr<JobGroups::ExportProgress> exportProgress_ {};
-      // This parameter is deprecated. The ID of the task that is used to parse the job file.
+      // The ID of the jobFile parsing task. [Deprecated]
       shared_ptr<string> jobDataParsingTaskId_ {};
-      // The description of the job group.
+      // The task description.
       shared_ptr<string> jobGroupDescription_ {};
-      // The ID of the job group.
+      // The task ID.
       shared_ptr<string> jobGroupId_ {};
-      // The name of the job group.
+      // The task name.
       shared_ptr<string> jobGroupName_ {};
-      // The minimum number of concurrent calls.
+      // The minimum concurrency.
       shared_ptr<int32_t> minConcurrency_ {};
-      // The time when the job group was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The modification time, in milliseconds.
       shared_ptr<string> modifyTime_ {};
-      // The progress of the job group.
+      // The node statistics information.
       shared_ptr<JobGroups::Progress> progress_ {};
-      // The ID of the script.
+      // The script ID.
       shared_ptr<string> scriptId_ {};
-      // The name of the script.
+      // The script name.
       shared_ptr<string> scriptName_ {};
-      // The version of the script.
+      // The script version.
       shared_ptr<string> scriptVersion_ {};
-      // The status of the job group.
+      // The task status.
       shared_ptr<string> status_ {};
-      // This parameter is deprecated. The scheduling policy.
+      // The strategy. [Deprecated]
       // 
-      // > To view the scheduling policy of a job group, call the `DescribeJobGroup` operation.
+      // > To view the task strategy information, call the DescribeJobGroup operation.
       shared_ptr<JobGroups::Strategy> strategy_ {};
       // The total number of calls.
       shared_ptr<int32_t> totalCallNum_ {};
@@ -593,7 +586,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The list of job groups.
+    // The task list.
     shared_ptr<vector<ListJobGroupsAsyncResponseBody::JobGroups>> jobGroups_ {};
     // The response message.
     shared_ptr<string> message_ {};
@@ -609,7 +602,7 @@ namespace Models
     shared_ptr<bool> timeout_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // Indicates whether the asynchronous task is valid.
+    // Indicates whether the result is valid.
     shared_ptr<bool> vaild_ {};
   };
 

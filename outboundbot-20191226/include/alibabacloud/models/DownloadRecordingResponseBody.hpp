@@ -42,11 +42,13 @@ namespace Models
     class DownloadParams : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const DownloadParams& obj) { 
+        DARABONBA_PTR_TO_JSON(EarlyMediaSignatureUrl, earlyMediaSignatureUrl_);
         DARABONBA_PTR_TO_JSON(FileName, fileName_);
         DARABONBA_PTR_TO_JSON(SignatureUrl, signatureUrl_);
         DARABONBA_PTR_TO_JSON(VoiceSliceRecordingListJson, voiceSliceRecordingListJson_);
       };
       friend void from_json(const Darabonba::Json& j, DownloadParams& obj) { 
+        DARABONBA_PTR_FROM_JSON(EarlyMediaSignatureUrl, earlyMediaSignatureUrl_);
         DARABONBA_PTR_FROM_JSON(FileName, fileName_);
         DARABONBA_PTR_FROM_JSON(SignatureUrl, signatureUrl_);
         DARABONBA_PTR_FROM_JSON(VoiceSliceRecordingListJson, voiceSliceRecordingListJson_);
@@ -62,8 +64,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->fileName_ == nullptr
-        && this->signatureUrl_ == nullptr && this->voiceSliceRecordingListJson_ == nullptr; };
+      virtual bool empty() const override { return this->earlyMediaSignatureUrl_ == nullptr
+        && this->fileName_ == nullptr && this->signatureUrl_ == nullptr && this->voiceSliceRecordingListJson_ == nullptr; };
+      // earlyMediaSignatureUrl Field Functions 
+      bool hasEarlyMediaSignatureUrl() const { return this->earlyMediaSignatureUrl_ != nullptr;};
+      void deleteEarlyMediaSignatureUrl() { this->earlyMediaSignatureUrl_ = nullptr;};
+      inline string getEarlyMediaSignatureUrl() const { DARABONBA_PTR_GET_DEFAULT(earlyMediaSignatureUrl_, "") };
+      inline DownloadParams& setEarlyMediaSignatureUrl(string earlyMediaSignatureUrl) { DARABONBA_PTR_SET_VALUE(earlyMediaSignatureUrl_, earlyMediaSignatureUrl) };
+
+
       // fileName Field Functions 
       bool hasFileName() const { return this->fileName_ != nullptr;};
       void deleteFileName() { this->fileName_ = nullptr;};
@@ -86,11 +95,12 @@ namespace Models
 
 
     protected:
-      // The name of the recording file, typically a universally unique identifier (UUID).
+      shared_ptr<string> earlyMediaSignatureUrl_ {};
+      // The recording file name, which is typically a UUID.
       shared_ptr<string> fileName_ {};
-      // The signed URL for downloading the recording file.
+      // A URL that points to the recording file. Use HTTP to download the file.
       shared_ptr<string> signatureUrl_ {};
-      // A JSON-formatted string that contains a list of voice slice recordings. Each item in the list includes the file name and URL of a slice.
+      // The list of segmented recordings, including file names and file URLs.
       shared_ptr<string> voiceSliceRecordingListJson_ {};
     };
 
@@ -141,13 +151,13 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The interface status code.
     shared_ptr<string> code_ {};
-    // Download parameters for the recording file.
+    // The download URL of the file.
     shared_ptr<DownloadRecordingResponseBody::DownloadParams> downloadParams_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message.
+    // The interface prompt message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

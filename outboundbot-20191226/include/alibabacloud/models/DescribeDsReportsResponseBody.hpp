@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // API status code
+    // The API status code.
     shared_ptr<string> code_ {};
-    // Conversation flow information, formatted as key:{value:count}
+    // The dialog flow information in the format: key:{value:aaa}}, where aaa indicates the number of occurrences.
     shared_ptr<string> dsReports_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // API message
+    // The API response message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

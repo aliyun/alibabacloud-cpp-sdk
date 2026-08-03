@@ -113,27 +113,22 @@ namespace Models
 
 
     protected:
-      // Error code for a failed parsing task.
+      // The error code for the failure.
       shared_ptr<string> failErrorCode_ {};
-      // Reason for failure.
+      // The failure reason.
       shared_ptr<string> failReason_ {};
-      // Download URL for the file that lists parsing failures. This field is deprecated.
+      // The download URL of the parsing failure record file. [Deprecated]
       shared_ptr<string> feedbackUrl_ {};
-      // Number of jobs processed so far.
+      // The number of jobs being processed.
       shared_ptr<int32_t> handledJobCount_ {};
-      // Status of the job.
-      // 
-      // - Pending: The job is waiting to start.
-      // 
-      // - InProgress: The job is running.
-      // 
-      // - Finished: The job completed successfully.
-      // 
-      // - PartialFinished: The job completed partially.
-      // 
-      // - Failed: The job failed.
+      // The job status. Valid values:
+      // - Pending: pending.
+      // - InProgress: in progress.
+      // - Finished: finished.
+      // - PartialFinished: partially finished.
+      // - Failed: failed.
       shared_ptr<string> status_ {};
-      // Total number of jobs in the task.
+      // The total number of jobs.
       shared_ptr<int32_t> totalJobCount_ {};
     };
 
@@ -184,17 +179,17 @@ namespace Models
 
 
   protected:
-    // Response code.
+    // The response code.
     shared_ptr<string> code_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Response message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Parsing progress.
+    // The progress information.
     shared_ptr<DescribeJobDataParsingTaskProgressResponseBody::Progress> progress_ {};
-    // ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -154,11 +154,11 @@ namespace Models
       shared_ptr<string> debugStatus_ {};
       // The industry.
       shared_ptr<string> industry_ {};
-      // Indicates whether the debug version is a draft.
+      // Indicates whether the debug version is in draft state.
       shared_ptr<bool> isDebugDrafted_ {};
-      // Indicates whether the application version is a draft.
+      // Indicates whether the application version is in draft state.
       shared_ptr<bool> isDrafted_ {};
-      // The scenario.
+      // The scene.
       shared_ptr<string> scene_ {};
       // The script description.
       shared_ptr<string> scriptDescription_ {};
@@ -168,7 +168,7 @@ namespace Models
       shared_ptr<string> scriptName_ {};
       // The status of the application version.
       shared_ptr<string> status_ {};
-      // The time when the script was updated.
+      // The update time.
       shared_ptr<int64_t> updateTime_ {};
     };
 

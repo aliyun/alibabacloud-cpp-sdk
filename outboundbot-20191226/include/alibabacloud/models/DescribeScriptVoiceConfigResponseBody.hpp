@@ -123,23 +123,22 @@ namespace Models
 
 
     protected:
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The script content.
       shared_ptr<string> scriptContent_ {};
-      // The ID of the script.
+      // The scene ID.
       shared_ptr<string> scriptId_ {};
-      // The ID of the script voice configuration.
+      // The scene voice configuration ID.
       shared_ptr<string> scriptVoiceConfigId_ {};
-      // The script waveform relation data. Returned only when `Type` is `WAVEFORM`.
+      // The script recording data. This parameter has a value only when Type is set to WAVEFORM.
       shared_ptr<string> scriptWaveformRelation_ {};
-      // The source of the script.
+      // The script source.
       shared_ptr<string> source_ {};
-      // The type of the voice configuration. Valid values:
+      // The recording type. Valid values:
       // 
-      // - `WAVEFORM`: A recording.
-      // 
-      // - `TTS`: Text-to-speech.
+      // - WAVEFORM: recording.
+      // - TTS: text-to-speech.
       shared_ptr<string> type_ {};
     };
 
@@ -194,11 +193,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message.
+    // The message returned by the API.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the script voice configuration.
+    // The scene voice configuration information.
     shared_ptr<DescribeScriptVoiceConfigResponseBody::ScriptVoiceConfig> scriptVoiceConfig_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
