@@ -470,7 +470,7 @@ namespace Models
     shared_ptr<DescribeFlowLogsResponseBody::FlowLogs> flowLogs_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page in paging queries.
+    // The number of entries per page in paging query.
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

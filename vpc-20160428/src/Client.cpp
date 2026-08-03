@@ -65,8 +65,8 @@ AlibabaCloud::Vpc20160428::Client::Client(Config &config): OpenApiClient(config)
     {"eu-west-1" , "vpc.eu-west-1.aliyuncs.com"},
     {"eu-central-1" , "vpc.eu-central-1.aliyuncs.com"},
     {"cn-zhongwei" , "vpc.cn-zhongwei.aliyuncs.com"},
-    {"cn-zhengzhou-jva" , "vpc.cn-zhengzhou-jva.aliyuncs.com"},
     {"cn-zhangjiakou" , "vpc.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-wulanchabu-gic-1" , "vpc.cn-wulanchabu-gic-1.aliyuncs.com"},
     {"cn-wulanchabu" , "vpc.cn-wulanchabu.aliyuncs.com"},
     {"cn-wuhan-lr" , "vpc.cn-wuhan-lr.aliyuncs.com"},
     {"cn-shenzhen" , "vpc.cn-shenzhen.aliyuncs.com"},
@@ -4701,7 +4701,7 @@ CreateFailoverTestJobResponse Client::createFailoverTestJob(const CreateFailover
 /**
  * @summary Creates a flow log.
  *
- * @description **CreateFlowLog** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the flow log is not yet created. The creation node continues in the background. You can invoke [DescribeFlowLogs](https://help.aliyun.com/document_detail/448670.html) to query the creation status of the flow log:
+ * @description **CreateFlowLog** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the flow log is not yet created. The creation node is still running in the background. You can invoke [DescribeFlowLogs](https://help.aliyun.com/document_detail/448670.html) to query the creation status of the flow log:
  * - If the flow log is in the **Activating** state, the flow log is being created.
  * - If the flow log is in the **Active** state, the flow log is created and activated.
  *
@@ -4804,7 +4804,7 @@ CreateFlowLogResponse Client::createFlowLogWithOptions(const CreateFlowLogReques
 /**
  * @summary Creates a flow log.
  *
- * @description **CreateFlowLog** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the flow log is not yet created. The creation node continues in the background. You can invoke [DescribeFlowLogs](https://help.aliyun.com/document_detail/448670.html) to query the creation status of the flow log:
+ * @description **CreateFlowLog** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the flow log is not yet created. The creation node is still running in the background. You can invoke [DescribeFlowLogs](https://help.aliyun.com/document_detail/448670.html) to query the creation status of the flow log:
  * - If the flow log is in the **Activating** state, the flow log is being created.
  * - If the flow log is in the **Active** state, the flow log is created and activated.
  *
@@ -5241,9 +5241,9 @@ CreateHaVipResponse Client::createHaVip(const CreateHaVipRequest &request) {
 }
 
 /**
- * @summary Creates Express Connect circuits in zone redundancy mode to ensure service stability through multi-line access to Alibaba Cloud and to avoid service disruption caused by single-line failures through multi-line disaster recovery.
+ * @summary Creates Express Connect circuits in zone redundancy mode to ensure service stability through multi-line access to Alibaba Cloud and to prevent service disruptions caused by single-line failures through multi-line disaster recovery.
  *
- * @description When you purchase ports, you can select one of the following combination types to provide disaster recovery capabilities for your business or workloads.
+ * @description When you purchase ports, you can select one of the following three combination types to provide disaster recovery capabilities for your business or workloads.
  * - Maximum disaster recovery: You apply for resources in two access points and establish four independent Express Connect circuit connections. The SLA availability for maximum disaster recovery is no less than 99.99%.
  * - Enhanced disaster recovery: You apply for resources in two access points and establish two independent Express Connect circuit connections. The SLA availability for enhanced disaster recovery is no less than 99.95%.
  * - Development and testing: You apply for resources in one access point and establish two independent Express Connect circuit connections.
@@ -5333,9 +5333,9 @@ CreateHighReliablePhysicalConnectionResponse Client::createHighReliablePhysicalC
 }
 
 /**
- * @summary Creates Express Connect circuits in zone redundancy mode to ensure service stability through multi-line access to Alibaba Cloud and to avoid service disruption caused by single-line failures through multi-line disaster recovery.
+ * @summary Creates Express Connect circuits in zone redundancy mode to ensure service stability through multi-line access to Alibaba Cloud and to prevent service disruptions caused by single-line failures through multi-line disaster recovery.
  *
- * @description When you purchase ports, you can select one of the following combination types to provide disaster recovery capabilities for your business or workloads.
+ * @description When you purchase ports, you can select one of the following three combination types to provide disaster recovery capabilities for your business or workloads.
  * - Maximum disaster recovery: You apply for resources in two access points and establish four independent Express Connect circuit connections. The SLA availability for maximum disaster recovery is no less than 99.99%.
  * - Enhanced disaster recovery: You apply for resources in two access points and establish two independent Express Connect circuit connections. The SLA availability for enhanced disaster recovery is no less than 99.95%.
  * - Development and testing: You apply for resources in one access point and establish two independent Express Connect circuit connections.
@@ -12211,9 +12211,9 @@ DeleteNetworkAclResponse Client::deleteNetworkAcl(const DeleteNetworkAclRequest 
 }
 
 /**
- * @summary Deletes an Express Connect circuit connection.
+ * @summary Deletes an Express Connect circuit.
  *
- * @description You can delete only Express Connect circuit connections that are in the **Allocated**, **Confirmed**, **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
+ * @description You can delete only Express Connect circuits that are in the **Allocated**, **Confirmed**, **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
  *
  * @param request DeletePhysicalConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12268,9 +12268,9 @@ DeletePhysicalConnectionResponse Client::deletePhysicalConnectionWithOptions(con
 }
 
 /**
- * @summary Deletes an Express Connect circuit connection.
+ * @summary Deletes an Express Connect circuit.
  *
- * @description You can delete only Express Connect circuit connections that are in the **Allocated**, **Confirmed**, **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
+ * @description You can delete only Express Connect circuits that are in the **Allocated**, **Confirmed**, **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
  *
  * @param request DeletePhysicalConnectionRequest
  * @return DeletePhysicalConnectionResponse
@@ -15857,7 +15857,7 @@ DescribeFailoverTestJobsResponse Client::describeFailoverTestJobs(const Describe
 }
 
 /**
- * @summary Queries flow logs by calling the DescribeFlowLogs operation.
+ * @summary Queries flow logs.
  *
  * @param request DescribeFlowLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15960,7 +15960,7 @@ DescribeFlowLogsResponse Client::describeFlowLogsWithOptions(const DescribeFlowL
 }
 
 /**
- * @summary Queries flow logs by calling the DescribeFlowLogs operation.
+ * @summary Queries flow logs.
  *
  * @param request DescribeFlowLogsRequest
  * @return DescribeFlowLogsResponse
@@ -17647,7 +17647,7 @@ DescribePhysicalConnectionLOAResponse Client::describePhysicalConnectionLOA(cons
 /**
  * @summary Queries information about Express Connect circuits in a specified region.
  *
- * @description By default, the system queries information about all Express Connect circuits in the specified region. You can use the filter options provided by the **DescribePhysicalConnections** operation to query information about specific Express Connect circuits. For supported filter options, see the description of **Key** in the **request parameters** section of this topic.
+ * @description By default, the system queries information about all Express Connect circuits in the specified region. You can use the filter options provided by the **DescribePhysicalConnections** operation to query information about specific Express Connect circuits. For the filter options supported by the system, refer to the description of **Key** in the **request parameters** section of this topic.
  *
  * @param request DescribePhysicalConnectionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17724,7 +17724,7 @@ DescribePhysicalConnectionsResponse Client::describePhysicalConnectionsWithOptio
 /**
  * @summary Queries information about Express Connect circuits in a specified region.
  *
- * @description By default, the system queries information about all Express Connect circuits in the specified region. You can use the filter options provided by the **DescribePhysicalConnections** operation to query information about specific Express Connect circuits. For supported filter options, see the description of **Key** in the **request parameters** section of this topic.
+ * @description By default, the system queries information about all Express Connect circuits in the specified region. You can use the filter options provided by the **DescribePhysicalConnections** operation to query information about specific Express Connect circuits. For the filter options supported by the system, refer to the description of **Key** in the **request parameters** section of this topic.
  *
  * @param request DescribePhysicalConnectionsRequest
  * @return DescribePhysicalConnectionsResponse
@@ -25909,7 +25909,7 @@ ModifyExpressConnectTrafficQosRuleResponse Client::modifyExpressConnectTrafficQo
 /**
  * @summary Calls the ModifyFlowLogAttribute operation to modify the name and description of a flow log.
  *
- * @description - **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID, but the flow log has not been modified yet. The modification task is still running in the background. You can call [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) to query the modification status of the flow log:
+ * @description - **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID. However, the flow log has not been modified yet because the modification task is still running in the background. You can call [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) to query the modification status of the flow log:
  *     - If the flow log is in the **Modifying** state, the flow log is being modified.
  *     - If the flow log is in the **Active** or **Inactive** state, the flow log has been modified.
  * - **ModifyFlowLogAttribute** does not support concurrent modifications to the same flow log.
@@ -25985,7 +25985,7 @@ ModifyFlowLogAttributeResponse Client::modifyFlowLogAttributeWithOptions(const M
 /**
  * @summary Calls the ModifyFlowLogAttribute operation to modify the name and description of a flow log.
  *
- * @description - **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID, but the flow log has not been modified yet. The modification task is still running in the background. You can call [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) to query the modification status of the flow log:
+ * @description - **ModifyFlowLogAttribute** is an asynchronous operation. After you send a request, the system returns a request ID. However, the flow log has not been modified yet because the modification task is still running in the background. You can call [DescribeFlowLogs](https://help.aliyun.com/document_detail/87923.html) to query the modification status of the flow log:
  *     - If the flow log is in the **Modifying** state, the flow log is being modified.
  *     - If the flow log is in the **Active** or **Inactive** state, the flow log has been modified.
  * - **ModifyFlowLogAttribute** does not support concurrent modifications to the same flow log.
@@ -27553,9 +27553,9 @@ ModifyNetworkAclAttributesResponse Client::modifyNetworkAclAttributes(const Modi
 }
 
 /**
- * @summary Modifies the configurations of an Express Connect circuit.
+ * @summary Modifies the configuration of an Express Connect circuit.
  *
- * @description When you call this operation, take note of the following items: 
+ * @description When you call this operation, note the following items: 
  * - You can modify the specifications and redundant circuit ID only for Express Connect circuits in the **Initial**, **Enabled**, or **Rejected** state.  
  * - You cannot modify Express Connect circuits in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state.  
  * - An Express Connect circuit in the **Rejected** state enters the **Initial** state after it is modified.
@@ -27581,6 +27581,10 @@ ModifyPhysicalConnectionAttributeResponse Client::modifyPhysicalConnectionAttrib
 
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDownDelayTime()) {
+    query["DownDelayTime"] = request.getDownDelayTime();
   }
 
   if (!!request.hasLineOperator()) {
@@ -27649,9 +27653,9 @@ ModifyPhysicalConnectionAttributeResponse Client::modifyPhysicalConnectionAttrib
 }
 
 /**
- * @summary Modifies the configurations of an Express Connect circuit.
+ * @summary Modifies the configuration of an Express Connect circuit.
  *
- * @description When you call this operation, take note of the following items: 
+ * @description When you call this operation, note the following items: 
  * - You can modify the specifications and redundant circuit ID only for Express Connect circuits in the **Initial**, **Enabled**, or **Rejected** state.  
  * - You cannot modify Express Connect circuits in the **Canceled**, **Allocating**, **AllocationFailed**, or **Terminated** state.  
  * - An Express Connect circuit in the **Rejected** state enters the **Initial** state after it is modified.

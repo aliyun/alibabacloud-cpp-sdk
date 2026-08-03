@@ -91,12 +91,8 @@ namespace Models
 
     protected:
       // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
-      // 
-      // The tag key can be up to 64 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
-      // 
-      // The tag value can be up to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -141,49 +137,6 @@ namespace Models
 
     protected:
       // The filter condition. Valid values:
-      // 
-      // - **PhysicalConnectionId**: the ID of the Express Connect circuit.
-      // 
-      // - **AccessPointId**: the ID of the access point.
-      // 
-      // - **Type**: the type of the Express Connect circuit. This filter condition supports only the value **VPC**.
-      // 
-      // - **LineOperator**: the carrier of the Express Connect circuit. This filter condition supports the following values:
-      //     - **CT**: China Telecom.
-      //     - **CU**: China Unicom.
-      //     - **CM**: China Mobile.
-      //     - **CO**: Other carriers in China. 
-      //     - **Equinix**: Equinix.
-      //     - **Other**: Other carriers outside China.
-      // 
-      // - **Spec**: the specification of the Express Connect circuit. This filter condition supports the following values:
-      //     - **1G and below**.
-      //     - **10G**.
-      //     - **40G**.
-      //     - **100G**.
-      // >  The **40G** and **100G** specifications are not available by default. Only users who have submitted an application to their account manager and received approval can use these values.
-      // 
-      // - **Status**: the status of the Express Connect circuit. This filter condition supports the following values:
-      //     - **Initial**: pending application.
-      //     - **Approved**: application approved.
-      //     - **Allocating**: resources are being allocated.
-      //     - **Allocated**: under construction.   
-      //     - **Confirmed**: pending user confirmation.   
-      //     - **Enabled**: enabled.
-      //     - **Rejected**: application denied.
-      //     - **Canceled**: canceled.
-      //     - **Allocation Failed**: resource allocation failed.
-      //     - **Terminating**: being terminated.
-      //     - **Terminated**: terminated.
-      // 
-      // - **Name**: the name of the Express Connect circuit.
-      // - **ProductType**: the type of the Express Connect circuit. Valid values:
-      //     - **VirtualPhysicalConnection**: shared Express Connect circuits.
-      //     - **PhysicalConnection**: dedicated Express Connect circuit.
-      //  
-      // 
-      // 
-      // You can specify up to 5 filter conditions at a time. The filter conditions have an **AND** relationship. Results are returned only when all filter conditions are met.
       shared_ptr<string> key_ {};
       // The list of filter values.
       shared_ptr<vector<string>> value_ {};
@@ -283,16 +236,10 @@ namespace Models
 
   protected:
     // The client token that is used to ensure the idempotence of the request.
-    // 
-    // Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
     shared_ptr<string> clientToken_ {};
     // The list of filter conditions.
     shared_ptr<vector<DescribePhysicalConnectionsRequest::Filter>> filter_ {};
     // Specifies whether to return order data that has not taken effect. Valid values:
-    // 
-    // * **true**: Returns order data that has not taken effect.
-    // 
-    // * **false** (default): Does not return order data that has not taken effect.
     shared_ptr<bool> includeReservationData_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -300,9 +247,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page in a paged query. Default value: **10**. Valid values: **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the Express Connect circuit. 
-    // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // The region ID of the Express Connect circuit.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

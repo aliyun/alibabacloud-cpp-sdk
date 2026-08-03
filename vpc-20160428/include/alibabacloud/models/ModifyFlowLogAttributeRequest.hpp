@@ -144,7 +144,7 @@ namespace Models
     // 
     // The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> flowLogName_ {};
-    // The IP address version of the traffic captured by the flow log.
+    // The IP version of the traffic captured by the flow log.
     shared_ptr<string> ipVersion_ {};
     shared_ptr<string> logFormat_ {};
     shared_ptr<string> ownerAccount_ {};

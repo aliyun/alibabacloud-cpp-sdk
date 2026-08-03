@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CircuitCode, circuitCode_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(DownDelayTime, downDelayTime_);
       DARABONBA_PTR_TO_JSON(LineOperator, lineOperator_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CircuitCode, circuitCode_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(DownDelayTime, downDelayTime_);
       DARABONBA_PTR_FROM_JSON(LineOperator, lineOperator_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
@@ -58,9 +60,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->circuitCode_ == nullptr
-        && this->clientToken_ == nullptr && this->description_ == nullptr && this->lineOperator_ == nullptr && this->name_ == nullptr && this->ownerAccount_ == nullptr
-        && this->ownerId_ == nullptr && this->peerLocation_ == nullptr && this->physicalConnectionId_ == nullptr && this->portType_ == nullptr && this->redundantPhysicalConnectionId_ == nullptr
-        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->bandwidth_ == nullptr; };
+        && this->clientToken_ == nullptr && this->description_ == nullptr && this->downDelayTime_ == nullptr && this->lineOperator_ == nullptr && this->name_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->peerLocation_ == nullptr && this->physicalConnectionId_ == nullptr && this->portType_ == nullptr
+        && this->redundantPhysicalConnectionId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->bandwidth_ == nullptr; };
     // circuitCode Field Functions 
     bool hasCircuitCode() const { return this->circuitCode_ != nullptr;};
     void deleteCircuitCode() { this->circuitCode_ = nullptr;};
@@ -80,6 +82,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyPhysicalConnectionAttributeRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // downDelayTime Field Functions 
+    bool hasDownDelayTime() const { return this->downDelayTime_ != nullptr;};
+    void deleteDownDelayTime() { this->downDelayTime_ = nullptr;};
+    inline int32_t getDownDelayTime() const { DARABONBA_PTR_GET_DEFAULT(downDelayTime_, 0) };
+    inline ModifyPhysicalConnectionAttributeRequest& setDownDelayTime(int32_t downDelayTime) { DARABONBA_PTR_SET_VALUE(downDelayTime_, downDelayTime) };
 
 
     // lineOperator Field Functions 
@@ -171,22 +180,23 @@ namespace Models
     shared_ptr<string> circuitCode_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // Generate a parameter value from your client to ensure uniqueness across different requests. ClientToken supports only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system uses the **RequestId** as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
     // The description of the Express Connect circuit.  
     // 
     // The description must be 2 to 256 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The carrier that provides the access to the physical line. Valid values:
+    shared_ptr<int32_t> downDelayTime_ {};
+    // The carrier that provides the access to the physical connection. Valid values:
     // 
-    // - **CT**: China Telecom.
-    // - **CU**: China Unicom.
-    // - **CM**: China Mobile.
-    // - **CO**: other carriers in the Chinese mainland.
-    // - **Equinix**: Equinix.
-    // - **Other**: other carriers outside the Chinese mainland.
+    // - **CT**: China Telecom
+    // - **CU**: China Unicom
+    // - **CM**: China Mobile
+    // - **CO**: Other carriers in the Chinese mainland
+    // - **Equinix**: Equinix
+    // - **Other**: Other carriers outside the Chinese mainland
     shared_ptr<string> lineOperator_ {};
     // The name of the Express Connect circuit.  
     // 
@@ -203,14 +213,14 @@ namespace Models
     // The port type of the Express Connect circuit access point. Valid values:
     // 
     // - **100Base-T**: 100M Ethernet port.
-    // - **1000Base-T (default)**: 1 GE port.
+    // - **1000Base-T (default)**: 1 GE electrical port.
     // - **1000Base-LX**: GE single-mode optical port (10 km).
-    // - **10GBase-T**: 10 GE port.
+    // - **10GBase-T**: 10 GE electrical port.
     // - **10GBase-LR**: 10 GE single-mode optical port (10 km).
     // - **40GBase-LR**: 40 GE single-mode optical port.
     // - **100GBase-LR**: 100 GE single-mode optical port.
     // 
-    // > 40GBase-LR and 100GBase-LR are subject to the availability of backend ports. Contact your account manager for more information.
+    // > To create 40GBase-LR or 100GBase-LR ports, check the actual port availability on the backend. Contact your account manager for details.
     shared_ptr<string> portType_ {};
     // The ID of the redundant Express Connect circuit. The redundant circuit must be in the **Allocated**, **Confirmed**, or **Enabled** state.
     shared_ptr<string> redundantPhysicalConnectionId_ {};

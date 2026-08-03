@@ -108,11 +108,11 @@ namespace Models
     protected:
       // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -282,7 +282,7 @@ namespace Models
     // 
     // The description must be 2 to 256 characters in length and must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The list of device advanced capabilities.
+    // The list of advanced device capabilities.
     shared_ptr<vector<string>> deviceAdvancedCapacity_ {};
     // The carrier that provides the Express Connect circuit. Valid values:
     // 
@@ -342,9 +342,9 @@ namespace Models
     // 
     // - **100GBase-LR**: 100 GE single-mode optical port.
     // 
-    // > 40GBase-LR and 100GBase-LR are created based on the actual port availability. Contact your account manager for details.
+    // > 40GBase-LR and 100GBase-LR are subject to the availability of backend ports. Contact your account manager for more information.
     shared_ptr<string> portType_ {};
-    // The instance ID of the redundant Express Connect circuit. The redundant circuit must be in the **Allocated**, **Confirmed**, or **Enabled** state.
+    // The instance ID of the redundant Express Connect circuit. The circuit must be in the **Allocated**, **Confirmed**, or **Enabled** state.
     shared_ptr<string> redundantPhysicalConnectionId_ {};
     // The region ID of the Express Connect circuit.
     // 

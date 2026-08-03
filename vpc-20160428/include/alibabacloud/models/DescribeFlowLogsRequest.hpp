@@ -106,11 +106,11 @@ namespace Models
     protected:
       // The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
       // 
-      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -271,13 +271,13 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in paging queries. Maximum value: **50**. Default value: **20**.
+    // The number of entries per page in paging query. Maximum value: **50**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
     // The name of the project that manages the captured traffic.
     shared_ptr<string> projectName_ {};
     // The region ID of the flow log.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -296,11 +296,11 @@ namespace Models
     // - **VPC**: all network interface controllers (NICs) in a virtual private cloud (VPC).
     shared_ptr<string> resourceType_ {};
     // The status of the flow log. Valid values:
-    // - **Active**: The flow log is active.
+    // - **Active**: the flow log is active.
     // 
-    // - **Activating**: The flow log is being created.
+    // - **Activating**: the flow log is being created.
     // 
-    // - **Inactive**: The flow log is inactive.
+    // - **Inactive**: the flow log is inactive.
     shared_ptr<string> status_ {};
     // The list of tags.
     shared_ptr<vector<DescribeFlowLogsRequest::Tags>> tags_ {};
@@ -310,9 +310,9 @@ namespace Models
     //   
     // - **Allow**: traffic allowed by access control.
     //   
-    // - **Drop**: traffic denied by access control.
+    // - **Drop**: traffic deny by access control.
     shared_ptr<string> trafficType_ {};
-    // The ID of the VPC for which you want to query flow logs.
+    // The ID of the VPC whose flow logs you want to query.
     shared_ptr<string> vpcId_ {};
   };
 

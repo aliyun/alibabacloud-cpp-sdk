@@ -104,11 +104,11 @@ namespace Models
     protected:
       // The tag key of the resource. You can specify up to 20 tag keys. Do not specify an empty string.
       // 
-      // A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
+      // A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
       // The tag value of the resource. You can specify up to 20 tag values. You can specify an empty string.
       // 
-      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -285,7 +285,7 @@ namespace Models
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the resource whose traffic you want to capture. Valid values:
+    // The type of the resource whose traffic you want to catch. Valid values:
     // 
     // - **NetworkInterface**: network interface controller (NIC).
     //   
@@ -308,7 +308,7 @@ namespace Models
     //   
     // - **Allow**: traffic allowed by access control.
     //   
-    // - **Drop**: traffic denied by access control.
+    // - **Drop**: traffic deny by access control.
     // 
     // This parameter is required.
     shared_ptr<string> trafficType_ {};

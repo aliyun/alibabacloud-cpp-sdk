@@ -70,6 +70,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(CircuitCode, circuitCode_);
           DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
           DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(DeviceFeaturesSelected, deviceFeaturesSelected_);
+          DARABONBA_PTR_TO_JSON(DownDelayTime, downDelayTime_);
           DARABONBA_PTR_TO_JSON(EnabledTime, enabledTime_);
           DARABONBA_PTR_TO_JSON(EndTime, endTime_);
           DARABONBA_PTR_TO_JSON(ExpectSpec, expectSpec_);
@@ -112,6 +114,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(CircuitCode, circuitCode_);
           DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(DeviceFeaturesSelected, deviceFeaturesSelected_);
+          DARABONBA_PTR_FROM_JSON(DownDelayTime, downDelayTime_);
           DARABONBA_PTR_FROM_JSON(EnabledTime, enabledTime_);
           DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
           DARABONBA_PTR_FROM_JSON(ExpectSpec, expectSpec_);
@@ -336,13 +340,14 @@ namespace Models
 
         virtual bool empty() const override { return this->accessPointId_ == nullptr
         && this->accessPointType_ == nullptr && this->adDetailLocation_ == nullptr && this->adLocation_ == nullptr && this->bandwidth_ == nullptr && this->businessStatus_ == nullptr
-        && this->chargeType_ == nullptr && this->circuitCode_ == nullptr && this->creationTime_ == nullptr && this->description_ == nullptr && this->enabledTime_ == nullptr
-        && this->endTime_ == nullptr && this->expectSpec_ == nullptr && this->hasReservationData_ == nullptr && this->lineOperator_ == nullptr && this->loaStatus_ == nullptr
-        && this->macsecKeys_ == nullptr && this->name_ == nullptr && this->opticalModuleModel_ == nullptr && this->orderMode_ == nullptr && this->parentPhysicalConnectionAliUid_ == nullptr
-        && this->parentPhysicalConnectionId_ == nullptr && this->peerLocation_ == nullptr && this->physicalConnectionId_ == nullptr && this->portNumber_ == nullptr && this->portType_ == nullptr
-        && this->productType_ == nullptr && this->qosId_ == nullptr && this->redundantPhysicalConnectionId_ == nullptr && this->reservationActiveTime_ == nullptr && this->reservationInternetChargeType_ == nullptr
-        && this->reservationOrderType_ == nullptr && this->resourceGroupId_ == nullptr && this->spec_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr
-        && this->type_ == nullptr && this->virtualPhysicalConnectionCount_ == nullptr && this->vlanId_ == nullptr && this->vpconnStatus_ == nullptr; };
+        && this->chargeType_ == nullptr && this->circuitCode_ == nullptr && this->creationTime_ == nullptr && this->description_ == nullptr && this->deviceFeaturesSelected_ == nullptr
+        && this->downDelayTime_ == nullptr && this->enabledTime_ == nullptr && this->endTime_ == nullptr && this->expectSpec_ == nullptr && this->hasReservationData_ == nullptr
+        && this->lineOperator_ == nullptr && this->loaStatus_ == nullptr && this->macsecKeys_ == nullptr && this->name_ == nullptr && this->opticalModuleModel_ == nullptr
+        && this->orderMode_ == nullptr && this->parentPhysicalConnectionAliUid_ == nullptr && this->parentPhysicalConnectionId_ == nullptr && this->peerLocation_ == nullptr && this->physicalConnectionId_ == nullptr
+        && this->portNumber_ == nullptr && this->portType_ == nullptr && this->productType_ == nullptr && this->qosId_ == nullptr && this->redundantPhysicalConnectionId_ == nullptr
+        && this->reservationActiveTime_ == nullptr && this->reservationInternetChargeType_ == nullptr && this->reservationOrderType_ == nullptr && this->resourceGroupId_ == nullptr && this->spec_ == nullptr
+        && this->status_ == nullptr && this->tags_ == nullptr && this->type_ == nullptr && this->virtualPhysicalConnectionCount_ == nullptr && this->vlanId_ == nullptr
+        && this->vpconnStatus_ == nullptr; };
         // accessPointId Field Functions 
         bool hasAccessPointId() const { return this->accessPointId_ != nullptr;};
         void deleteAccessPointId() { this->accessPointId_ = nullptr;};
@@ -411,6 +416,20 @@ namespace Models
         void deleteDescription() { this->description_ = nullptr;};
         inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
         inline PhysicalConnectionType& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // deviceFeaturesSelected Field Functions 
+        bool hasDeviceFeaturesSelected() const { return this->deviceFeaturesSelected_ != nullptr;};
+        void deleteDeviceFeaturesSelected() { this->deviceFeaturesSelected_ = nullptr;};
+        inline string getDeviceFeaturesSelected() const { DARABONBA_PTR_GET_DEFAULT(deviceFeaturesSelected_, "") };
+        inline PhysicalConnectionType& setDeviceFeaturesSelected(string deviceFeaturesSelected) { DARABONBA_PTR_SET_VALUE(deviceFeaturesSelected_, deviceFeaturesSelected) };
+
+
+        // downDelayTime Field Functions 
+        bool hasDownDelayTime() const { return this->downDelayTime_ != nullptr;};
+        void deleteDownDelayTime() { this->downDelayTime_ = nullptr;};
+        inline int32_t getDownDelayTime() const { DARABONBA_PTR_GET_DEFAULT(downDelayTime_, 0) };
+        inline PhysicalConnectionType& setDownDelayTime(int32_t downDelayTime) { DARABONBA_PTR_SET_VALUE(downDelayTime_, downDelayTime) };
 
 
         // enabledTime Field Functions 
@@ -638,6 +657,8 @@ namespace Models
         shared_ptr<string> circuitCode_ {};
         shared_ptr<string> creationTime_ {};
         shared_ptr<string> description_ {};
+        shared_ptr<string> deviceFeaturesSelected_ {};
+        shared_ptr<int32_t> downDelayTime_ {};
         shared_ptr<string> enabledTime_ {};
         shared_ptr<string> endTime_ {};
         shared_ptr<string> expectSpec_ {};
