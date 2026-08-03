@@ -124,6 +124,7 @@ namespace Models
           class Results : public Darabonba::Model {
           public:
             friend void to_json(Darabonba::Json& j, const Results& obj) { 
+              DARABONBA_PTR_TO_JSON(AigcData, aigcData_);
               DARABONBA_PTR_TO_JSON(CustomImage, customImage_);
               DARABONBA_PTR_TO_JSON(LogoData, logoData_);
               DARABONBA_PTR_TO_JSON(PublicFigure, publicFigure_);
@@ -133,6 +134,7 @@ namespace Models
               DARABONBA_PTR_TO_JSON(VlContent, vlContent_);
             };
             friend void from_json(const Darabonba::Json& j, Results& obj) { 
+              DARABONBA_PTR_FROM_JSON(AigcData, aigcData_);
               DARABONBA_PTR_FROM_JSON(CustomImage, customImage_);
               DARABONBA_PTR_FROM_JSON(LogoData, logoData_);
               DARABONBA_PTR_FROM_JSON(PublicFigure, publicFigure_);
@@ -575,9 +577,49 @@ namespace Models
               shared_ptr<string> libId_ {};
             };
 
-            virtual bool empty() const override { return this->customImage_ == nullptr
-        && this->logoData_ == nullptr && this->publicFigure_ == nullptr && this->result_ == nullptr && this->service_ == nullptr && this->textInImage_ == nullptr
-        && this->vlContent_ == nullptr; };
+            class AigcData : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const AigcData& obj) { 
+                DARABONBA_PTR_TO_JSON(Explain, explain_);
+              };
+              friend void from_json(const Darabonba::Json& j, AigcData& obj) { 
+                DARABONBA_PTR_FROM_JSON(Explain, explain_);
+              };
+              AigcData() = default ;
+              AigcData(const AigcData &) = default ;
+              AigcData(AigcData &&) = default ;
+              AigcData(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~AigcData() = default ;
+              AigcData& operator=(const AigcData &) = default ;
+              AigcData& operator=(AigcData &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->explain_ == nullptr; };
+              // explain Field Functions 
+              bool hasExplain() const { return this->explain_ != nullptr;};
+              void deleteExplain() { this->explain_ = nullptr;};
+              inline string getExplain() const { DARABONBA_PTR_GET_DEFAULT(explain_, "") };
+              inline AigcData& setExplain(string explain) { DARABONBA_PTR_SET_VALUE(explain_, explain) };
+
+
+            protected:
+              shared_ptr<string> explain_ {};
+            };
+
+            virtual bool empty() const override { return this->aigcData_ == nullptr
+        && this->customImage_ == nullptr && this->logoData_ == nullptr && this->publicFigure_ == nullptr && this->result_ == nullptr && this->service_ == nullptr
+        && this->textInImage_ == nullptr && this->vlContent_ == nullptr; };
+            // aigcData Field Functions 
+            bool hasAigcData() const { return this->aigcData_ != nullptr;};
+            void deleteAigcData() { this->aigcData_ = nullptr;};
+            inline const Results::AigcData & getAigcData() const { DARABONBA_PTR_GET_CONST(aigcData_, Results::AigcData) };
+            inline Results::AigcData getAigcData() { DARABONBA_PTR_GET(aigcData_, Results::AigcData) };
+            inline Results& setAigcData(const Results::AigcData & aigcData) { DARABONBA_PTR_SET_VALUE(aigcData_, aigcData) };
+            inline Results& setAigcData(Results::AigcData && aigcData) { DARABONBA_PTR_SET_RVALUE(aigcData_, aigcData) };
+
+
             // customImage Field Functions 
             bool hasCustomImage() const { return this->customImage_ != nullptr;};
             void deleteCustomImage() { this->customImage_ = nullptr;};
@@ -640,6 +682,7 @@ namespace Models
 
 
           protected:
+            shared_ptr<Results::AigcData> aigcData_ {};
             // The custom image library information returned when a custom image library is hit.
             shared_ptr<vector<Results::CustomImage>> customImage_ {};
             // The logo information returned when a logo is detected in the video.

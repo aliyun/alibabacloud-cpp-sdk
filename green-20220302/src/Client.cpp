@@ -64,7 +64,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Queries the document content moderation result.
+ * @summary The document moderation result.
  *
  * @param request DescribeFileModerationResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -99,7 +99,7 @@ DescribeFileModerationResultResponse Client::describeFileModerationResultWithOpt
 }
 
 /**
- * @summary Queries the document content moderation result.
+ * @summary The document moderation result.
  *
  * @param request DescribeFileModerationResultRequest
  * @return DescribeFileModerationResultResponse
@@ -696,7 +696,7 @@ ManualModerationResponse Client::manualModeration(const ManualModerationRequest 
 }
 
 /**
- * @summary Retrieves the manual review result.
+ * @summary Retrieves the manual review result for content moderation.
  *
  * @param request ManualModerationResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -727,7 +727,7 @@ ManualModerationResultResponse Client::manualModerationResultWithOptions(const M
 }
 
 /**
- * @summary Retrieves the manual review result.
+ * @summary Retrieves the manual review result for content moderation.
  *
  * @param request ManualModerationResultRequest
  * @return ManualModerationResultResponse

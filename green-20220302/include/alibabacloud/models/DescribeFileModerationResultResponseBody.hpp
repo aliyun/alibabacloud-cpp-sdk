@@ -263,8 +263,11 @@ namespace Models
 
 
           protected:
+            // The label confidence score.
             shared_ptr<float> confidence_ {};
+            // The Chinese description of the risk label.
             shared_ptr<string> description_ {};
+            // The risk label.
             shared_ptr<string> label_ {};
           };
 
@@ -392,12 +395,19 @@ namespace Models
 
 
               protected:
+                // The content producer code.
                 shared_ptr<string> contentProducer_ {};
+                // The content propagator code.
                 shared_ptr<string> contentPropagator_ {};
+                // The content attribute declared by the implicit identifier.
                 shared_ptr<string> label_ {};
+                // The content production ID.
                 shared_ptr<string> produceID_ {};
+                // The content propagation ID.
                 shared_ptr<string> propagateID_ {};
+                // Reserved field 1.
                 shared_ptr<string> reservedCode1_ {};
+                // Reserved field 2.
                 shared_ptr<string> reservedCode2_ {};
               };
 
@@ -420,7 +430,9 @@ namespace Models
 
 
             protected:
+              // The implicit identifier information of AI-generated content.
               shared_ptr<AigcData::AIGC> AIGC_ {};
+              // The comprehensive analysis report of large model authenticity verification.
               shared_ptr<string> explain_ {};
             };
 
@@ -435,6 +447,7 @@ namespace Models
 
 
           protected:
+            // The detection details of AI-generated content.
             shared_ptr<Ext::AigcData> aigcData_ {};
           };
 
@@ -466,8 +479,11 @@ namespace Models
 
 
         protected:
+          // The extended information.
           shared_ptr<RiskSummary::Ext> ext_ {};
+          // The list of hit authenticity verification risk labels.
           shared_ptr<vector<RiskSummary::RiskLabels>> riskLabels_ {};
+          // The overall risk level of the document, which is the highest level among all hit labels.
           shared_ptr<string> riskLevel_ {};
         };
 
@@ -613,6 +629,7 @@ namespace Models
         shared_ptr<PageSummary::ImageSummary> imageSummary_ {};
         // The total number of pages.
         shared_ptr<int32_t> pageSum_ {};
+        // The document authenticity verification risk summary.
         shared_ptr<PageSummary::RiskSummary> riskSummary_ {};
         // The text summary information.
         shared_ptr<PageSummary::TextSummary> textSummary_ {};
@@ -755,7 +772,7 @@ namespace Models
           shared_ptr<string> labels_ {};
           // The risk level.
           shared_ptr<string> riskLevel_ {};
-          // The details of the hit risks.
+          // The details of the hit risk.
           shared_ptr<string> riskTips_ {};
           // The risk keywords that are hit.
           shared_ptr<string> riskWords_ {};
@@ -763,7 +780,7 @@ namespace Models
           shared_ptr<string> service_ {};
           // The text content.
           shared_ptr<string> text_ {};
-          // The text segment information.
+          // The text segmentation information.
           shared_ptr<string> textSegment_ {};
         };
 
@@ -1011,13 +1028,13 @@ namespace Models
 
 
       protected:
-        // The image moderation result.
+        // The image detection results.
         shared_ptr<vector<PageResult::ImageResult>> imageResult_ {};
         // The image URL.
         shared_ptr<string> imageUrl_ {};
         // The page number.
         shared_ptr<int32_t> pageNum_ {};
-        // The text moderation result.
+        // The text moderation results.
         shared_ptr<vector<PageResult::TextResult>> textResult_ {};
         // The URL where the text content is stored.
         shared_ptr<string> textUrl_ {};
@@ -1080,13 +1097,13 @@ namespace Models
 
 
     protected:
-      // The AccountId passed in by the customer.
+      // The AccountId specified in the request.
       shared_ptr<string> accountId_ {};
       // The data ID.
       shared_ptr<string> dataId_ {};
-      // Optional. The document type.
+      // The document type. This parameter is optional.
       shared_ptr<string> docType_ {};
-      // The list of moderation results.
+      // The list of detection results.
       shared_ptr<vector<Data::PageResult>> pageResult_ {};
       // The summary information.
       shared_ptr<Data::PageSummary> pageSummary_ {};

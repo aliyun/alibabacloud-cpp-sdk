@@ -153,13 +153,13 @@ namespace Models
       shared_ptr<vector<Data::Result>> result_ {};
       // The number of reviews.
       shared_ptr<string> reviewCount_ {};
-      // The risk level, returned based on the configured high and low risk scores. Valid values:
+      // The risk level, returned based on the configured high and low risk thresholds. Valid values:
       // 
       // - high: High risk.
       //  
       // - low: Low risk.
       // 
-      // - none: No risk detected.
+      //  - none: No risk detected.
       shared_ptr<string> riskLevel_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};

@@ -21,7 +21,7 @@ namespace Green20220302
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Queries the document content moderation result.
+       * @summary The document moderation result.
        *
        * @param request DescribeFileModerationResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Green20220302
       Models::DescribeFileModerationResultResponse describeFileModerationResultWithOptions(const Models::DescribeFileModerationResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the document content moderation result.
+       * @summary The document moderation result.
        *
        * @param request DescribeFileModerationResultRequest
        * @return DescribeFileModerationResultResponse
@@ -284,7 +284,7 @@ namespace Green20220302
       Models::ManualModerationResponse manualModeration(const Models::ManualModerationRequest &request);
 
       /**
-       * @summary Retrieves the manual review result.
+       * @summary Retrieves the manual review result for content moderation.
        *
        * @param request ManualModerationResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -293,7 +293,7 @@ namespace Green20220302
       Models::ManualModerationResultResponse manualModerationResultWithOptions(const Models::ManualModerationResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the manual review result.
+       * @summary Retrieves the manual review result for content moderation.
        *
        * @param request ManualModerationResultRequest
        * @return ManualModerationResultResponse
