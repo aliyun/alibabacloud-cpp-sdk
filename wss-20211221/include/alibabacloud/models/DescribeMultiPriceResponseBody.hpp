@@ -94,7 +94,7 @@ namespace Models
       protected:
         // The description of the promotion rule.
         shared_ptr<string> description_ {};
-        // The ID of the promotion rule.
+        // The promotion rule ID.
         shared_ptr<int64_t> ruleId_ {};
       };
 
@@ -135,19 +135,29 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const Promotions& obj) { 
             DARABONBA_PTR_TO_JSON(ActivityId, activityId_);
+            DARABONBA_PTR_TO_JSON(Effective, effective_);
+            DARABONBA_PTR_TO_JSON(EndTimestamp, endTimestamp_);
             DARABONBA_PTR_TO_JSON(OptionCode, optionCode_);
+            DARABONBA_PTR_TO_JSON(PriceBreakReduceValue, priceBreakReduceValue_);
+            DARABONBA_PTR_TO_JSON(PriceBreakThreshold, priceBreakThreshold_);
             DARABONBA_PTR_TO_JSON(PromotionDesc, promotionDesc_);
             DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
             DARABONBA_PTR_TO_JSON(PromotionName, promotionName_);
             DARABONBA_PTR_TO_JSON(Selected, selected_);
+            DARABONBA_PTR_TO_JSON(StartTimestamp, startTimestamp_);
           };
           friend void from_json(const Darabonba::Json& j, Promotions& obj) { 
             DARABONBA_PTR_FROM_JSON(ActivityId, activityId_);
+            DARABONBA_PTR_FROM_JSON(Effective, effective_);
+            DARABONBA_PTR_FROM_JSON(EndTimestamp, endTimestamp_);
             DARABONBA_PTR_FROM_JSON(OptionCode, optionCode_);
+            DARABONBA_PTR_FROM_JSON(PriceBreakReduceValue, priceBreakReduceValue_);
+            DARABONBA_PTR_FROM_JSON(PriceBreakThreshold, priceBreakThreshold_);
             DARABONBA_PTR_FROM_JSON(PromotionDesc, promotionDesc_);
             DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
             DARABONBA_PTR_FROM_JSON(PromotionName, promotionName_);
             DARABONBA_PTR_FROM_JSON(Selected, selected_);
+            DARABONBA_PTR_FROM_JSON(StartTimestamp, startTimestamp_);
           };
           Promotions() = default ;
           Promotions(const Promotions &) = default ;
@@ -161,7 +171,8 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->activityId_ == nullptr
-        && this->optionCode_ == nullptr && this->promotionDesc_ == nullptr && this->promotionId_ == nullptr && this->promotionName_ == nullptr && this->selected_ == nullptr; };
+        && this->effective_ == nullptr && this->endTimestamp_ == nullptr && this->optionCode_ == nullptr && this->priceBreakReduceValue_ == nullptr && this->priceBreakThreshold_ == nullptr
+        && this->promotionDesc_ == nullptr && this->promotionId_ == nullptr && this->promotionName_ == nullptr && this->selected_ == nullptr && this->startTimestamp_ == nullptr; };
           // activityId Field Functions 
           bool hasActivityId() const { return this->activityId_ != nullptr;};
           void deleteActivityId() { this->activityId_ = nullptr;};
@@ -169,11 +180,39 @@ namespace Models
           inline Promotions& setActivityId(string activityId) { DARABONBA_PTR_SET_VALUE(activityId_, activityId) };
 
 
+          // effective Field Functions 
+          bool hasEffective() const { return this->effective_ != nullptr;};
+          void deleteEffective() { this->effective_ = nullptr;};
+          inline bool getEffective() const { DARABONBA_PTR_GET_DEFAULT(effective_, false) };
+          inline Promotions& setEffective(bool effective) { DARABONBA_PTR_SET_VALUE(effective_, effective) };
+
+
+          // endTimestamp Field Functions 
+          bool hasEndTimestamp() const { return this->endTimestamp_ != nullptr;};
+          void deleteEndTimestamp() { this->endTimestamp_ = nullptr;};
+          inline string getEndTimestamp() const { DARABONBA_PTR_GET_DEFAULT(endTimestamp_, "") };
+          inline Promotions& setEndTimestamp(string endTimestamp) { DARABONBA_PTR_SET_VALUE(endTimestamp_, endTimestamp) };
+
+
           // optionCode Field Functions 
           bool hasOptionCode() const { return this->optionCode_ != nullptr;};
           void deleteOptionCode() { this->optionCode_ = nullptr;};
           inline string getOptionCode() const { DARABONBA_PTR_GET_DEFAULT(optionCode_, "") };
           inline Promotions& setOptionCode(string optionCode) { DARABONBA_PTR_SET_VALUE(optionCode_, optionCode) };
+
+
+          // priceBreakReduceValue Field Functions 
+          bool hasPriceBreakReduceValue() const { return this->priceBreakReduceValue_ != nullptr;};
+          void deletePriceBreakReduceValue() { this->priceBreakReduceValue_ = nullptr;};
+          inline string getPriceBreakReduceValue() const { DARABONBA_PTR_GET_DEFAULT(priceBreakReduceValue_, "") };
+          inline Promotions& setPriceBreakReduceValue(string priceBreakReduceValue) { DARABONBA_PTR_SET_VALUE(priceBreakReduceValue_, priceBreakReduceValue) };
+
+
+          // priceBreakThreshold Field Functions 
+          bool hasPriceBreakThreshold() const { return this->priceBreakThreshold_ != nullptr;};
+          void deletePriceBreakThreshold() { this->priceBreakThreshold_ = nullptr;};
+          inline string getPriceBreakThreshold() const { DARABONBA_PTR_GET_DEFAULT(priceBreakThreshold_, "") };
+          inline Promotions& setPriceBreakThreshold(string priceBreakThreshold) { DARABONBA_PTR_SET_VALUE(priceBreakThreshold_, priceBreakThreshold) };
 
 
           // promotionDesc Field Functions 
@@ -204,18 +243,30 @@ namespace Models
           inline Promotions& setSelected(bool selected) { DARABONBA_PTR_SET_VALUE(selected_, selected) };
 
 
+          // startTimestamp Field Functions 
+          bool hasStartTimestamp() const { return this->startTimestamp_ != nullptr;};
+          void deleteStartTimestamp() { this->startTimestamp_ = nullptr;};
+          inline string getStartTimestamp() const { DARABONBA_PTR_GET_DEFAULT(startTimestamp_, "") };
+          inline Promotions& setStartTimestamp(string startTimestamp) { DARABONBA_PTR_SET_VALUE(startTimestamp_, startTimestamp) };
+
+
         protected:
           shared_ptr<string> activityId_ {};
+          shared_ptr<bool> effective_ {};
+          shared_ptr<string> endTimestamp_ {};
           // The description of the promotion rule.
           shared_ptr<string> optionCode_ {};
+          shared_ptr<string> priceBreakReduceValue_ {};
+          shared_ptr<string> priceBreakThreshold_ {};
           // The description of the promotion.
           shared_ptr<string> promotionDesc_ {};
-          // The ID of the promotion.
+          // The promotion ID.
           shared_ptr<string> promotionId_ {};
-          // The name of the promotion.
+          // The promotion name.
           shared_ptr<string> promotionName_ {};
           // Indicates whether the promotion is selected.
           shared_ptr<bool> selected_ {};
+          shared_ptr<string> startTimestamp_ {};
         };
 
         class PriceDetails : public Darabonba::Model {
@@ -306,14 +357,14 @@ namespace Models
 
 
           protected:
-            // The discount amount.
+            // The discount price.
             shared_ptr<float> discountPrice_ {};
             // The original price.
             shared_ptr<float> originalPrice_ {};
             // The resource type.
             shared_ptr<string> resourceType_ {};
             shared_ptr<float> savingPlanRecommendPrice_ {};
-            // The actual payment price. The value is the original price minus the discount amount.
+            // The actual payment price. The value is the original price minus the discount.
             shared_ptr<float> tradePrice_ {};
           };
 
@@ -401,7 +452,7 @@ namespace Models
 
 
           protected:
-            // The discount amount.
+            // The discount price.
             shared_ptr<float> discountPrice_ {};
             // The module code.
             shared_ptr<string> moduleCode_ {};
@@ -412,7 +463,7 @@ namespace Models
             // The original price.
             shared_ptr<float> originalPrice_ {};
             shared_ptr<float> savingPlanDiscountPrice_ {};
-            // The actual payment price. The value is the original price minus the discount amount.
+            // The actual payment price. The value is the original price minus the discount.
             shared_ptr<float> tradePrice_ {};
           };
 
@@ -524,7 +575,7 @@ namespace Models
         // 
         // International site: USD.
         shared_ptr<string> currency_ {};
-        // The discount amount.
+        // The discount price.
         shared_ptr<float> discountPrice_ {};
         // The original price.
         shared_ptr<float> originalPrice_ {};
@@ -536,7 +587,7 @@ namespace Models
         shared_ptr<map<string, float>> refundInstanceIdPriceMap_ {};
         // The unsubscription price.
         shared_ptr<float> refundPrice_ {};
-        // The actual payment price. The value is the original price minus the discount amount.
+        // The actual payment price. The value is the original price minus the discount.
         shared_ptr<float> tradePrice_ {};
       };
 

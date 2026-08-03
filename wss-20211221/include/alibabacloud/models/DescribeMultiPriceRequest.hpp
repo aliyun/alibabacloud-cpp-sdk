@@ -241,7 +241,7 @@ namespace Models
       // The list of resource IDs.
       shared_ptr<vector<string>> resourceIds_ {};
       // The resource type.
-      // > This parameter is case-sensitive. Make sure that the spelling is correct.
+      // > This parameter is case-sensitive. Make sure that the value is spelled correctly.
       shared_ptr<string> resourceType_ {};
       shared_ptr<string> savingPlanPeriod_ {};
     };
@@ -285,7 +285,7 @@ namespace Models
     shared_ptr<string> orderType_ {};
     // The package code. You do not need to specify this parameter for non-package types.
     shared_ptr<string> packageCode_ {};
-    // The user ID for resource ownership in the reseller pattern. You do not need to specify this parameter in the non-reseller pattern.
+    // The user ID of the resource ownership in reseller pattern. You do not need to specify this parameter in non-reseller pattern.
     shared_ptr<int64_t> resellerOwnerUid_ {};
   };
 
