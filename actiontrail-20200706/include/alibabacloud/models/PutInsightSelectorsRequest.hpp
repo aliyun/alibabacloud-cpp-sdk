@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The types of Insights events that the trail should deliver.
     shared_ptr<string> insightSelectors_ {};
+    // The name of the trail.
+    // 
     // This parameter is required.
     shared_ptr<string> trailName_ {};
   };

@@ -57,8 +57,17 @@ namespace Models
 
 
   protected:
+    // The date to query. The format is `yyyy-MM-dd`.
     shared_ptr<string> date_ {};
+    // The end of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+    // 
+    // > - - If Date, StartTime, and EndTime are all left empty, the system queries the number of events in the last 24 hours.
+    // >
+    // >   - If Date is specified, the StartTime and EndTime parameters are ignored. The system queries the number of events on the specified date.
+    // >
+    // >   - If Date is left empty and both StartTime and EndTime are specified, the system queries the number of events in the specified time range.
     shared_ptr<string> endTime_ {};
+    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
   };
 

@@ -57,8 +57,29 @@ namespace Models
 
 
   protected:
+    // The configuration of the data event selector. This parameter is a JSON array that can contain a maximum of 20 elements.
+    // 
+    // Each element in the JSON array includes the following fields:
+    // 
+    // - `ServiceName`: The name of the Alibaba Cloud service that supports data events.
+    // 
+    // - `ReadWriteType`: The type of data event. Valid values: Read, Write, and All.
+    // 
+    // - `EventName`: This field contains the `Equals` and `NotEquals` subfields.
+    // 
+    //   For example, the following configuration specifies that only `GetObject`, `CopyObject`, and `AppendObject` events are delivered:
+    // 
+    //   `{"EventName":{"Equals":["GetObject","CopyObject","AppendObject"]}}`
+    // 
+    //   If you specify `NotEquals`, events other than `GetObject`, `CopyObject`, and `AppendObject` are delivered.
+    // 
+    // - `ResourceArn`: This field also contains the `Equals` and `NotEquals` subfields, similar to `EventName`. For example:
+    // 
+    //   `{"ResourceArn":{"Equals":[arn1,...,arnx]}}`
     shared_ptr<string> dataEventSelectors_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The Alibaba Cloud Resource Name (ARN) of the trail.
     shared_ptr<string> trailArn_ {};
   };
 

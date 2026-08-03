@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // An array that consists of the details about the event.
+      // The event details.
       shared_ptr<string> detail_ {};
-      // The name of the event.
+      // The event name.
       shared_ptr<string> eventName_ {};
-      // The event source.
+      // The source of the last usage record.
       shared_ptr<string> source_ {};
-      // The timestamp when the event was generated.
+      // The timestamp when the event was generated. Unit: milliseconds.
       shared_ptr<int64_t> usedTimestamp_ {};
     };
 
@@ -130,9 +130,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<GetAccessKeyLastUsedEventsResponseBody::Events>> events_ {};
-    // The token that determines the start point of the query.
+    // The token that is used to retrieve the next page of results. If the value of this parameter is not empty, the next page exists. You must set the value to the NextToken value returned from the last call.
+    // 
+    // colspan="1" rowspan="1">
+    // 
+    // eyJhY2NvdW50IjoiMTQyNDM3OTU4NjM4NzE2MSIsImV2ZW50SWQiOiI3MkJDRTExRi02OTU3LTQ0NUItQjY0MC1CNEUyMkM4NUEwQzgiLCJsb2dJZCI6IjgyLTE0MjQzNzk1ODYzODcxNjEiLCJ0aW1lIjoxNjAyMzExNTQwMD\\*\\*\\*\\*
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};

@@ -112,11 +112,21 @@ namespace Models
 
 
     protected:
+      // The time when the trail was created.
       shared_ptr<string> createTime_ {};
+      // The error code returned if the resource initialization fails.
       shared_ptr<string> errorCode_ {};
+      // The error message returned if the resource initialization fails.
       shared_ptr<string> errorMessage_ {};
+      // The Alibaba Cloud Resource Name (ARN) of the SLS project in the region where events are delivered.
       shared_ptr<string> regionSlsProjectArn_ {};
+      // The initialization status of the resource for the trail.
+      // 
+      // - success
+      // 
+      // - failure
       shared_ptr<string> status_ {};
+      // The region of the trail.
       shared_ptr<string> trailRegion_ {};
     };
 
@@ -160,11 +170,41 @@ namespace Models
 
 
   protected:
+    // The configuration of the data event selector. This parameter is a JSON array that can contain a maximum of 20 elements.
+    // 
+    // Each element in the JSON array includes the following elements:
+    // 
+    // - `ServiceName`: The name of the Alibaba Cloud service that supports data events.
+    // 
+    // - `ReadWriteType`: The type of data event. Valid values: Read, Write, and All.
+    // 
+    // - `EventName`: This element contains the `Equals` and `NotEquals` fields.
+    // 
+    //   For example, the following configuration specifies that only `GetObject`, `CopyObject`, and `AppendObject`events are delivered:
+    // 
+    //   `{"EventName":{"Equals":["GetObject","CopyObject","AppendObject"]}}`
+    // 
+    //   If you specify `NotEquals`, events other than `GetObject`, `CopyObject`, and `AppendObject` are delivered.
+    // 
+    // - `ResourceArn`: This element also contains the `Equals` and `NotEquals` fields, similar to `EventName`. For example:
+    // 
+    //   `{"ResourceArn":{"Equals":[arn1,...,arnx]}}`
     shared_ptr<string> dataEventSelectors_ {};
+    // Specifies whether the trail tracks data events in all regions.
+    // 
+    // Valid values:
+    // 
+    // - true
+    // 
+    // - false
     shared_ptr<bool> isTrailAllRegion_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of configurations for delivering events to Simple Log Service (SLS).
+    // 
     // This parameter is required.
     shared_ptr<vector<GetDataEventSelectorResponseBody::SlsDeliveryConfigs>> slsDeliveryConfigs_ {};
+    // The ARN of the trail.
     shared_ptr<string> trailArn_ {};
   };
 

@@ -114,47 +114,47 @@ namespace Models
       shared_ptr<string> serviceNameCn_ {};
       // The English name of the Alibaba Cloud service.
       shared_ptr<string> serviceNameEn_ {};
-      // The event source.
+      // The source of the last usage record.
       // 
       // Valid values:
       // 
-      // *   Internal
+      // - Internal
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     :
+      //   :
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     other events
+      //   Other event
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   ManagementEvent
+      // - ManagementEvent
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     :
+      //   :
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     management events
+      //   Management event
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   DataEvent
+      // - DataEvent
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     :
+      //   :
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     data events
+      //   Data event
       // 
-      //     <!-- -->
+      //   <!-- -->
       shared_ptr<string> source_ {};
-      // A pagination token. It can be used in the next request to retrieve a new page of results. Unit: millisecond.
+      // The timestamp when the Alibaba Cloud service was used. Unit: milliseconds.
       shared_ptr<int64_t> usedTimestamp_ {};
     };
 

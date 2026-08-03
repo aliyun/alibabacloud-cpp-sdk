@@ -156,11 +156,17 @@ namespace Models
 
 
         protected:
+          // The time when the trail was created.
           shared_ptr<string> createTime_ {};
+          // The error code returned if the resource initialization fails.
           shared_ptr<string> errorCode_ {};
+          // The error message returned if the resource initialization fails.
           shared_ptr<string> errorMessage_ {};
+          // The Alibaba Cloud Resource Name (ARN) of the SLS project in the region where events are delivered.
           shared_ptr<string> regionSlsProjectArn_ {};
+          // The initialization status of the tracked resource.
           shared_ptr<string> status_ {};
+          // The region of the trail.
           shared_ptr<string> trailRegion_ {};
         };
 
@@ -204,10 +210,39 @@ namespace Models
 
 
       protected:
+        // The configuration of the data event selector. This parameter is a JSON array that can contain a maximum of 20 elements.
+        // 
+        // Each element in the JSON array includes the following fields:
+        // 
+        // - `ServiceName`: The name of the Alibaba Cloud service that supports data events.
+        // 
+        // - `ReadWriteType`: The type of data event. Valid values: Read, Write, and All.
+        // 
+        // - `EventName`: This field contains the `Equals` and `NotEquals` subfields.
+        // 
+        //   For example, the following configuration specifies that only `GetObject`, `CopyObject`, and `AppendObject`events are delivered:
+        // 
+        //   `{"EventName":{"Equals":["GetObject","CopyObject","AppendObject"]}}`
+        // 
+        //   If you specify `NotEquals`, events other than `GetObject`, `CopyObject`, and `AppendObject` are delivered.
+        // 
+        // - `ResourceArn`: This field also contains the `Equals` and `NotEquals` subfields, similar to `EventName`. For example:
+        // 
+        //   `{"ResourceArn":{"Equals":[arn1,...,arnx]}}`
         shared_ptr<string> eventSelectors_ {};
+        // Specifies whether the trail tracks data events in all regions.
+        // 
+        // Valid values:
+        // 
+        // - true
+        // 
+        // - false
         shared_ptr<bool> isTrailAllRegion_ {};
+        // The list of configurations for delivering events to Simple Log Service (SLS).
         shared_ptr<vector<DataEventSelectorInfos::SlsDeliveryConfigs>> slsDeliveryConfigs_ {};
+        // The ARN of the trail.
         shared_ptr<string> trailArn_ {};
+        // The name of the trail.
         shared_ptr<string> trailName_ {};
       };
 
@@ -237,8 +272,11 @@ namespace Models
 
 
     protected:
+      // A list of data event selectors.
       shared_ptr<vector<Data::DataEventSelectorInfos>> dataEventSelectorInfos_ {};
+      // The maximum number of entries returned for the current request.
       shared_ptr<int32_t> maxResults_ {};
+      // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
       shared_ptr<string> nextToken_ {};
     };
 
@@ -261,7 +299,9 @@ namespace Models
 
 
   protected:
+    // The response parameters.
     shared_ptr<ListDataEventSelectorsResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

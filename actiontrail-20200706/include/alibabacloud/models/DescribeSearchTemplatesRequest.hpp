@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The maximum number of entries to return. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
+    // The scenario ID.
+    // 
     // This parameter is required.
     shared_ptr<string> sceneId_ {};
   };

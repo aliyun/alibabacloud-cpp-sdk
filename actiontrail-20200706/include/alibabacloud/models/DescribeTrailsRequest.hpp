@@ -59,13 +59,15 @@ namespace Models
   protected:
     // Specifies whether to query the information about multi-account trails. Valid values:
     // 
-    // *   true
-    // *   false (default)
+    // - true
+    // 
+    // - false (default)
     shared_ptr<bool> includeOrganizationTrail_ {};
     // Specifies whether to return the information about shadow trails. Valid values:
     // 
-    // *   false: Do not return the information about shadow trails. It is the default value.
-    // *   true: Return the information about shadow trails.
+    // - false: Do not return the information about shadow trails. It is the default value.
+    // 
+    // - true: Return the information about shadow trails.
     shared_ptr<bool> includeShadowTrails_ {};
     // The names of the trails whose information you want to query. Separate multiple trail names with commas (,).
     shared_ptr<string> nameList_ {};

@@ -90,10 +90,13 @@ namespace Models
       shared_ptr<string> region_ {};
       // The task status in each region. Valid values:
       // 
-      // *   0: The task is initializing.
-      // *   1: The task is delivering historical events.
-      // *   2: The task is complete.
-      // *   3: The task fails.
+      // - 0: The task is initializing.
+      // 
+      // - 1: The task is delivering historical events.
+      // 
+      // - 2: The task is complete.
+      // 
+      // - 3: The task fails.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -183,10 +186,13 @@ namespace Models
     shared_ptr<int64_t> jobId_ {};
     // The task status. Valid values:
     // 
-    // *   0: The task is initializing.
-    // *   1: The task is delivering historical events.
-    // *   2: The task is complete.
-    // *   3: The task fails.
+    // - 0: The task is initializing.
+    // 
+    // - 1: The task is delivering historical events.
+    // 
+    // - 2: The task is complete.
+    // 
+    // - 3: The task fails.
     shared_ptr<int32_t> jobStatus_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

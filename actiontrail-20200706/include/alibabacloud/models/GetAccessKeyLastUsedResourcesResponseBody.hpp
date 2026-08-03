@@ -105,47 +105,47 @@ namespace Models
       shared_ptr<string> resourceName_ {};
       // The resource type.
       shared_ptr<string> resourceType_ {};
-      // The event source.
+      // The source of the last usage record.
       // 
       // Valid values:
       // 
-      // *   Internal
+      // - Internal
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     :
+      //   :
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     other events
+      //   Other event
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   ManagementEvent
+      // - ManagementEvent
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     :
+      //   :
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     management events
+      //   Management event
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   DataEvent
+      // - DataEvent
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     :
+      //   :
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     data events
+      //   Data event
       // 
-      //     <!-- -->
+      //   <!-- -->
       shared_ptr<string> source_ {};
-      // The timestamp when the resource was used. Unit: millisecond.
+      // The timestamp when the resource was used. Unit: milliseconds.
       shared_ptr<int64_t> usedTimestamp_ {};
     };
 

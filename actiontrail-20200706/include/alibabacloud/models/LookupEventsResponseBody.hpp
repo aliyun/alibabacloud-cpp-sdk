@@ -78,19 +78,17 @@ namespace Models
 
 
   protected:
-    // The end of the time range when event details were queried.
+    // The end of the time range of the retrieved events.
     shared_ptr<string> endTime_ {};
-    // The returned event details.
-    // 
-    // For more information about the fields in an event log, see [ActionTrail event log reference](https://help.aliyun.com/document_detail/28819.html).
+    // The list of retrieved events.
     shared_ptr<vector<Darabonba::Json>> events_ {};
-    // The token used to return the next page of query results.
+    // A pagination token. It can be used in the next request to retrieve a new page of results.
     // 
-    // > This parameter is not returned if no more results are to be returned.
+    // > If NextToken is empty, no next page exists.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The beginning of the time range when event details were queried.
+    // The start of the time range of the retrieved events.
     shared_ptr<string> startTime_ {};
   };
 

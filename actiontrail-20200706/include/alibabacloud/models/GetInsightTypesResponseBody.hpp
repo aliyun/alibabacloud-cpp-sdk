@@ -50,7 +50,9 @@ namespace Models
 
 
   protected:
+    // The types of Insights events.
     Darabonba::Json insightTypes_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

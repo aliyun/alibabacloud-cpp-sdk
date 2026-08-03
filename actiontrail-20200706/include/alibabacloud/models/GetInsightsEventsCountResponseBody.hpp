@@ -81,8 +81,25 @@ namespace Models
 
 
     protected:
+      // The number of Insights events.
       shared_ptr<int32_t> count_ {};
+      // The type of the Insights event. Valid values:
+      // 
+      // - IpInsight: IP request events.
+      // 
+      // - ApiCallRateInsight: High-risk API call events.
+      // 
+      // - ApiErrorRateInsight: API error events.
+      // 
+      // - AkInsight: AccessKey pair call events.
+      // 
+      // - PolicyChangeInsight: Permission change events.
+      // 
+      // - PasswordChangeInsight: Password change events.
+      // 
+      // - TrailConcealmentInsight: Trail concealment events.
       shared_ptr<string> insightType_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
     };
 
@@ -112,8 +129,11 @@ namespace Models
 
 
   protected:
+    // The information about the Insights events.
     shared_ptr<vector<GetInsightsEventsCountResponseBody::Data>> data_ {};
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -21,7 +21,9 @@ namespace Actiontrail20200706
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 创建高级查询历史记录
+       * @summary Creates an advanced event query history record that saves a custom query conditional statement for reuse and management.
+       *
+       * @description This topic provides a demo of how to save a conditional statement as an advanced event query history record. The conditional statement is used to query all `AccessKey` access management events in logs.
        *
        * @param request CreateAdvancedQueryHistoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +32,9 @@ namespace Actiontrail20200706
       Models::CreateAdvancedQueryHistoryResponse createAdvancedQueryHistoryWithOptions(const Models::CreateAdvancedQueryHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建高级查询历史记录
+       * @summary Creates an advanced event query history record that saves a custom query conditional statement for reuse and management.
+       *
+       * @description This topic provides a demo of how to save a conditional statement as an advanced event query history record. The conditional statement is used to query all `AccessKey` access management events in logs.
        *
        * @param request CreateAdvancedQueryHistoryRequest
        * @return CreateAdvancedQueryHistoryResponse
@@ -38,7 +42,7 @@ namespace Actiontrail20200706
       Models::CreateAdvancedQueryHistoryResponse createAdvancedQueryHistory(const Models::CreateAdvancedQueryHistoryRequest &request);
 
       /**
-       * @summary 创建高级查询模板
+       * @summary Creates an advanced query template.
        *
        * @param request CreateAdvancedQueryTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +51,7 @@ namespace Actiontrail20200706
       Models::CreateAdvancedQueryTemplateResponse createAdvancedQueryTemplateWithOptions(const Models::CreateAdvancedQueryTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建高级查询模板
+       * @summary Creates an advanced query template.
        *
        * @param request CreateAdvancedQueryTemplateRequest
        * @return CreateAdvancedQueryTemplateResponse
@@ -57,10 +61,10 @@ namespace Actiontrail20200706
       /**
        * @summary Creates a data backfill task.
        *
-       * @description Limits
-       * *   Make sure that you have created a single-account trail to deliver events to Simple Log Service by calling the [CreateTrail](https://help.aliyun.com/document_detail/212313.html) operation.
-       * *   Only one data backfill task can run at a time within an Alibaba Cloud account.
-       * This topic provides an example on how to create a data backfill task for a trail named `trail-name`.
+       * @description Limitations
+       * - You must first call the [CreateTrail](https://help.aliyun.com/document_detail/212313.html) operation to create a single-account trail that delivers events to Simple Log Service (SLS).
+       * - An Alibaba Cloud account can have only one data backfill task running at a time.
+       * This topic provides an example of how to create data backfill task for the trail `trail-name`.
        *
        * @param request CreateDeliveryHistoryJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -71,10 +75,10 @@ namespace Actiontrail20200706
       /**
        * @summary Creates a data backfill task.
        *
-       * @description Limits
-       * *   Make sure that you have created a single-account trail to deliver events to Simple Log Service by calling the [CreateTrail](https://help.aliyun.com/document_detail/212313.html) operation.
-       * *   Only one data backfill task can run at a time within an Alibaba Cloud account.
-       * This topic provides an example on how to create a data backfill task for a trail named `trail-name`.
+       * @description Limitations
+       * - You must first call the [CreateTrail](https://help.aliyun.com/document_detail/212313.html) operation to create a single-account trail that delivers events to Simple Log Service (SLS).
+       * - An Alibaba Cloud account can have only one data backfill task running at a time.
+       * This topic provides an example of how to create data backfill task for the trail `trail-name`.
        *
        * @param request CreateDeliveryHistoryJobRequest
        * @return CreateDeliveryHistoryJobResponse
@@ -82,24 +86,21 @@ namespace Actiontrail20200706
       Models::CreateDeliveryHistoryJobResponse createDeliveryHistoryJob(const Models::CreateDeliveryHistoryJobRequest &request);
 
       /**
-       * @summary Creates a trail. By default, ActionTrail allows you to query events generated within your Alibaba Cloud account in the last 90 days. To query and analyze events generated more than 90 days ago, create a trail to deliver events to Object Storage Service (OSS), Simple Log Service, or MaxCompute.
+       * @summary Creates a trail to deliver events to a destination for long-term storage and analysis, such as an Object Storage Service (OSS) bucket, a Simple Log Service (SLS) Logstore, or a MaxCompute project.
        *
-       * @description **Operation description**
-       * >By default, a trail that is created by calling an operation is in the Disabled state. You must call the StartLogging operation to enable the trail. This way, ActionTrail can deliver events to the destination cloud service.
-       * **Prerequisites**
-       * Before you create a trail, make sure that at least one of the following storage configurations is complete:
-       * - Deliver events to OSS
-       *   - OSS is activated and a bucket is created.
-       *   
-       * - Deliver events to Simple Log Service
-       *   - Simple Log Service is activated and a project is created.
-       *  >When a trail is created, ActionTrail automatically creates a Logstore named `actiontrail_<Trail name>` in the project. You cannot write data other than the audit data to the Logstore. This ensures the accuracy of the audit data.
-       *     
-       * - Deliver events to MaxCompute
-       *   - MaxCompute is activated.
-       * >When a trail is created, ActionTrail automatically creates a project named `actiontrail_<Account ID>` on the Projects page. You cannot write data other than the audit data to the project. This ensures the accuracy of the audit data.
-       * **Usage Notes**
-       * This topic provides an example on how to create a single-account trail named `trail-test` to deliver events to an OSS bucket named `audit-log`.
+       * @description > By default, a trail that you create by using this API is in a **disabled** state. You must call the [StartLogging](https://help.aliyun.com/document_detail/432246.html) operation operation to enable the trail. After a trail is enabled, ActionTrail begins delivering events to your specified destination.
+       * ### Prerequisites
+       * Before you create a trail, you must have at least one of the following resources configured as a destination:
+       * - OSS
+       *   You must activate OSS and create a bucket.
+       * - SLS
+       *   You must activate SLS and create a Logstore.
+       *   > When you create a trail with an SLS destination, ActionTrail automatically creates a Logstore named `actiontrail_<trail_name>` in your specified project. To ensure the integrity of your audit data, this Logstore only accepts events delivered by ActionTrail.
+       * - MaxCompute
+       *   You must activate MaxCompute.
+       *   > When you create a trail with a MaxCompute destination, ActionTrail automatically creates a project named `actiontrail_<account_ID>`. To ensure the integrity of your audit data, this project only accepts events delivered by ActionTrail.
+       * ### Usage notes
+       * This example shows how to create a single-account trail named `trail-test` that delivers events to an OSS bucket named `audit-log`.
        *
        * @param request CreateTrailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -108,24 +109,21 @@ namespace Actiontrail20200706
       Models::CreateTrailResponse createTrailWithOptions(const Models::CreateTrailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a trail. By default, ActionTrail allows you to query events generated within your Alibaba Cloud account in the last 90 days. To query and analyze events generated more than 90 days ago, create a trail to deliver events to Object Storage Service (OSS), Simple Log Service, or MaxCompute.
+       * @summary Creates a trail to deliver events to a destination for long-term storage and analysis, such as an Object Storage Service (OSS) bucket, a Simple Log Service (SLS) Logstore, or a MaxCompute project.
        *
-       * @description **Operation description**
-       * >By default, a trail that is created by calling an operation is in the Disabled state. You must call the StartLogging operation to enable the trail. This way, ActionTrail can deliver events to the destination cloud service.
-       * **Prerequisites**
-       * Before you create a trail, make sure that at least one of the following storage configurations is complete:
-       * - Deliver events to OSS
-       *   - OSS is activated and a bucket is created.
-       *   
-       * - Deliver events to Simple Log Service
-       *   - Simple Log Service is activated and a project is created.
-       *  >When a trail is created, ActionTrail automatically creates a Logstore named `actiontrail_<Trail name>` in the project. You cannot write data other than the audit data to the Logstore. This ensures the accuracy of the audit data.
-       *     
-       * - Deliver events to MaxCompute
-       *   - MaxCompute is activated.
-       * >When a trail is created, ActionTrail automatically creates a project named `actiontrail_<Account ID>` on the Projects page. You cannot write data other than the audit data to the project. This ensures the accuracy of the audit data.
-       * **Usage Notes**
-       * This topic provides an example on how to create a single-account trail named `trail-test` to deliver events to an OSS bucket named `audit-log`.
+       * @description > By default, a trail that you create by using this API is in a **disabled** state. You must call the [StartLogging](https://help.aliyun.com/document_detail/432246.html) operation operation to enable the trail. After a trail is enabled, ActionTrail begins delivering events to your specified destination.
+       * ### Prerequisites
+       * Before you create a trail, you must have at least one of the following resources configured as a destination:
+       * - OSS
+       *   You must activate OSS and create a bucket.
+       * - SLS
+       *   You must activate SLS and create a Logstore.
+       *   > When you create a trail with an SLS destination, ActionTrail automatically creates a Logstore named `actiontrail_<trail_name>` in your specified project. To ensure the integrity of your audit data, this Logstore only accepts events delivered by ActionTrail.
+       * - MaxCompute
+       *   You must activate MaxCompute.
+       *   > When you create a trail with a MaxCompute destination, ActionTrail automatically creates a project named `actiontrail_<account_ID>`. To ensure the integrity of your audit data, this project only accepts events delivered by ActionTrail.
+       * ### Usage notes
+       * This example shows how to create a single-account trail named `trail-test` that delivers events to an OSS bucket named `audit-log`.
        *
        * @param request CreateTrailRequest
        * @return CreateTrailResponse
@@ -133,7 +131,7 @@ namespace Actiontrail20200706
       Models::CreateTrailResponse createTrail(const Models::CreateTrailRequest &request);
 
       /**
-       * @summary 删除高级查询历史记录
+       * @summary Deletes an advanced query record.
        *
        * @param request DeleteAdvancedQueryHistoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -142,7 +140,7 @@ namespace Actiontrail20200706
       Models::DeleteAdvancedQueryHistoryResponse deleteAdvancedQueryHistoryWithOptions(const Models::DeleteAdvancedQueryHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除高级查询历史记录
+       * @summary Deletes an advanced query record.
        *
        * @param request DeleteAdvancedQueryHistoryRequest
        * @return DeleteAdvancedQueryHistoryResponse
@@ -150,7 +148,7 @@ namespace Actiontrail20200706
       Models::DeleteAdvancedQueryHistoryResponse deleteAdvancedQueryHistory(const Models::DeleteAdvancedQueryHistoryRequest &request);
 
       /**
-       * @summary 删除高级查询模板
+       * @summary Deletes an advanced query template.
        *
        * @param request DeleteAdvancedQueryTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -159,7 +157,7 @@ namespace Actiontrail20200706
       Models::DeleteAdvancedQueryTemplateResponse deleteAdvancedQueryTemplateWithOptions(const Models::DeleteAdvancedQueryTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除高级查询模板
+       * @summary Deletes an advanced query template.
        *
        * @param request DeleteAdvancedQueryTemplateRequest
        * @return DeleteAdvancedQueryTemplateResponse
@@ -167,7 +165,7 @@ namespace Actiontrail20200706
       Models::DeleteAdvancedQueryTemplateResponse deleteAdvancedQueryTemplate(const Models::DeleteAdvancedQueryTemplateRequest &request);
 
       /**
-       * @summary 删除数据事件选择器
+       * @summary Deletes the data event selector for a specified trail.
        *
        * @param request DeleteDataEventSelectorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -176,7 +174,7 @@ namespace Actiontrail20200706
       Models::DeleteDataEventSelectorResponse deleteDataEventSelectorWithOptions(const Models::DeleteDataEventSelectorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据事件选择器
+       * @summary Deletes the data event selector for a specified trail.
        *
        * @param request DeleteDataEventSelectorRequest
        * @return DeleteDataEventSelectorResponse
@@ -226,7 +224,7 @@ namespace Actiontrail20200706
       Models::DeleteTrailResponse deleteTrail(const Models::DeleteTrailRequest &request);
 
       /**
-       * @summary 查询高级查询历史记录
+       * @summary Queries all advanced query records.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeAdvancedQueryHistoryResponse
@@ -234,14 +232,14 @@ namespace Actiontrail20200706
       Models::DescribeAdvancedQueryHistoryResponse describeAdvancedQueryHistoryWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询高级查询历史记录
+       * @summary Queries all advanced query records.
        *
        * @return DescribeAdvancedQueryHistoryResponse
        */
       Models::DescribeAdvancedQueryHistoryResponse describeAdvancedQueryHistory();
 
       /**
-       * @summary 查询高级查询模板
+       * @summary Queries advanced query templates.
        *
        * @param request DescribeAdvancedQueryTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -250,7 +248,7 @@ namespace Actiontrail20200706
       Models::DescribeAdvancedQueryTemplateResponse describeAdvancedQueryTemplateWithOptions(const Models::DescribeAdvancedQueryTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询高级查询模板
+       * @summary Queries advanced query templates.
        *
        * @param request DescribeAdvancedQueryTemplateRequest
        * @return DescribeAdvancedQueryTemplateResponse
@@ -279,7 +277,7 @@ namespace Actiontrail20200706
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
-       * @summary 列举资源生命周期事件
+       * @summary Queries the lifecycle events of a specified resource.
        *
        * @param request DescribeResourceLifeCycleEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -288,7 +286,7 @@ namespace Actiontrail20200706
       Models::DescribeResourceLifeCycleEventsResponse describeResourceLifeCycleEventsWithOptions(const Models::DescribeResourceLifeCycleEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举资源生命周期事件
+       * @summary Queries the lifecycle events of a specified resource.
        *
        * @param request DescribeResourceLifeCycleEventsRequest
        * @return DescribeResourceLifeCycleEventsResponse
@@ -296,7 +294,7 @@ namespace Actiontrail20200706
       Models::DescribeResourceLifeCycleEventsResponse describeResourceLifeCycleEvents(const Models::DescribeResourceLifeCycleEventsRequest &request);
 
       /**
-       * @summary 查询所有场景
+       * @summary Queries all advanced query scenarios.
        *
        * @param request DescribeScenesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -305,7 +303,7 @@ namespace Actiontrail20200706
       Models::DescribeScenesResponse describeScenesWithOptions(const Models::DescribeScenesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询所有场景
+       * @summary Queries all advanced query scenarios.
        *
        * @param request DescribeScenesRequest
        * @return DescribeScenesResponse
@@ -313,7 +311,7 @@ namespace Actiontrail20200706
       Models::DescribeScenesResponse describeScenes(const Models::DescribeScenesRequest &request);
 
       /**
-       * @summary 列举所有模版
+       * @summary Queries advanced query templates for a specified scenario.
        *
        * @param request DescribeSearchTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -322,7 +320,7 @@ namespace Actiontrail20200706
       Models::DescribeSearchTemplatesResponse describeSearchTemplatesWithOptions(const Models::DescribeSearchTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举所有模版
+       * @summary Queries advanced query templates for a specified scenario.
        *
        * @param request DescribeSearchTemplatesRequest
        * @return DescribeSearchTemplatesResponse
@@ -330,7 +328,7 @@ namespace Actiontrail20200706
       Models::DescribeSearchTemplatesResponse describeSearchTemplates(const Models::DescribeSearchTemplatesRequest &request);
 
       /**
-       * @summary 获取投递监控指标
+       * @summary Retrieves data for delivery monitoring metrics.
        *
        * @param request DescribeTrailDeliveryMetricDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -339,7 +337,7 @@ namespace Actiontrail20200706
       Models::DescribeTrailDeliveryMetricDataResponse describeTrailDeliveryMetricDataWithOptions(const Models::DescribeTrailDeliveryMetricDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取投递监控指标
+       * @summary Retrieves data for delivery monitoring metrics.
        *
        * @param request DescribeTrailDeliveryMetricDataRequest
        * @return DescribeTrailDeliveryMetricDataResponse
@@ -368,7 +366,7 @@ namespace Actiontrail20200706
       Models::DescribeTrailsResponse describeTrails(const Models::DescribeTrailsRequest &request);
 
       /**
-       * @summary 查询用户告警量
+       * @summary Queries the number of daily alerts within a specific time range.
        *
        * @param request DescribeUserAlertCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -377,7 +375,7 @@ namespace Actiontrail20200706
       Models::DescribeUserAlertCountResponse describeUserAlertCountWithOptions(const Models::DescribeUserAlertCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户告警量
+       * @summary Queries the number of daily alerts within a specific time range.
        *
        * @param request DescribeUserAlertCountRequest
        * @return DescribeUserAlertCountResponse
@@ -385,7 +383,7 @@ namespace Actiontrail20200706
       Models::DescribeUserAlertCountResponse describeUserAlertCount(const Models::DescribeUserAlertCountRequest &request);
 
       /**
-       * @summary 查询用户日志量
+       * @summary Queries the number of daily logs within a specific time range.
        *
        * @param request DescribeUserLogCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -394,7 +392,7 @@ namespace Actiontrail20200706
       Models::DescribeUserLogCountResponse describeUserLogCountWithOptions(const Models::DescribeUserLogCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户日志量
+       * @summary Queries the number of daily logs within a specific time range.
        *
        * @param request DescribeUserLogCountRequest
        * @return DescribeUserLogCountResponse
@@ -402,7 +400,7 @@ namespace Actiontrail20200706
       Models::DescribeUserLogCountResponse describeUserLogCount(const Models::DescribeUserLogCountRequest &request);
 
       /**
-       * @summary 查询用户跟踪量
+       * @summary Queries the number of enabled trails, including organization trails.
        *
        * @param request DescribeUserTrailCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -411,7 +409,7 @@ namespace Actiontrail20200706
       Models::DescribeUserTrailCountResponse describeUserTrailCountWithOptions(const Models::DescribeUserTrailCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户跟踪量
+       * @summary Queries the number of enabled trails, including organization trails.
        *
        * @param request DescribeUserTrailCountRequest
        * @return DescribeUserTrailCountResponse
@@ -419,7 +417,7 @@ namespace Actiontrail20200706
       Models::DescribeUserTrailCountResponse describeUserTrailCount(const Models::DescribeUserTrailCountRequest &request);
 
       /**
-       * @summary 关闭insight
+       * @summary Disables a specific type of Insights event.
        *
        * @param request DisableInsightRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -428,7 +426,7 @@ namespace Actiontrail20200706
       Models::DisableInsightResponse disableInsightWithOptions(const Models::DisableInsightRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 关闭insight
+       * @summary Disables a specific type of Insights event.
        *
        * @param request DisableInsightRequest
        * @return DisableInsightResponse
@@ -436,7 +434,7 @@ namespace Actiontrail20200706
       Models::DisableInsightResponse disableInsight(const Models::DisableInsightRequest &request);
 
       /**
-       * @summary Enables the Insights feature
+       * @summary Enables the Insights feature.
        *
        * @param request EnableInsightRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -445,7 +443,7 @@ namespace Actiontrail20200706
       Models::EnableInsightResponse enableInsightWithOptions(const Models::EnableInsightRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables the Insights feature
+       * @summary Enables the Insights feature.
        *
        * @param request EnableInsightRequest
        * @return EnableInsightResponse
@@ -453,7 +451,7 @@ namespace Actiontrail20200706
       Models::EnableInsightResponse enableInsight(const Models::EnableInsightRequest &request);
 
       /**
-       * @summary Queries the information about the most recent events that are generated when a specified AccessKey pair is called to access Alibaba Cloud services.
+       * @summary Queries the most recent events associated with a specified AccessKey pair, including the event name, source, timestamp, and details.
        *
        * @description You can call this operation to query only the information about the most recent events that are generated within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. For more information about supported events, see [Alibaba Cloud services and events that are supported by the AccessKey pair audit feature](https://help.aliyun.com/document_detail/419214.html). Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
        *
@@ -464,7 +462,7 @@ namespace Actiontrail20200706
       Models::GetAccessKeyLastUsedEventsResponse getAccessKeyLastUsedEventsWithOptions(const Models::GetAccessKeyLastUsedEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the most recent events that are generated when a specified AccessKey pair is called to access Alibaba Cloud services.
+       * @summary Queries the most recent events associated with a specified AccessKey pair, including the event name, source, timestamp, and details.
        *
        * @description You can call this operation to query only the information about the most recent events that are generated within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. For more information about supported events, see [Alibaba Cloud services and events that are supported by the AccessKey pair audit feature](https://help.aliyun.com/document_detail/419214.html). Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
        *
@@ -474,7 +472,7 @@ namespace Actiontrail20200706
       Models::GetAccessKeyLastUsedEventsResponse getAccessKeyLastUsedEvents(const Models::GetAccessKeyLastUsedEventsRequest &request);
 
       /**
-       * @summary Queries the information about the most recent call of a specified AccessKey pair.
+       * @summary Queries the most recent usage record of a specified AccessKey pair.
        *
        * @description You can call this operation to query only the information about the most recent call of a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
        *
@@ -485,7 +483,7 @@ namespace Actiontrail20200706
       Models::GetAccessKeyLastUsedInfoResponse getAccessKeyLastUsedInfoWithOptions(const Models::GetAccessKeyLastUsedInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the most recent call of a specified AccessKey pair.
+       * @summary Queries the most recent usage record of a specified AccessKey pair.
        *
        * @description You can call this operation to query only the information about the most recent call of a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
        *
@@ -495,7 +493,7 @@ namespace Actiontrail20200706
       Models::GetAccessKeyLastUsedInfoResponse getAccessKeyLastUsedInfo(const Models::GetAccessKeyLastUsedInfoRequest &request);
 
       /**
-       * @summary Queries the information about the IP addresses that are most recently used when an AccessKey pair is called to access Alibaba Cloud services.
+       * @summary Queries the IP addresses most recently used by a specified AccessKey pair.
        *
        * @description You can call this operation to query only the information about the IP addresses that are most recently used within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
        *
@@ -506,7 +504,7 @@ namespace Actiontrail20200706
       Models::GetAccessKeyLastUsedIpsResponse getAccessKeyLastUsedIpsWithOptions(const Models::GetAccessKeyLastUsedIpsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the IP addresses that are most recently used when an AccessKey pair is called to access Alibaba Cloud services.
+       * @summary Queries the IP addresses most recently used by a specified AccessKey pair.
        *
        * @description You can call this operation to query only the information about the IP addresses that are most recently used within 400 days after February 1, 2022 when a specified AccessKey pair is called to access Alibaba Cloud services. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
        *
@@ -516,7 +514,7 @@ namespace Actiontrail20200706
       Models::GetAccessKeyLastUsedIpsResponse getAccessKeyLastUsedIps(const Models::GetAccessKeyLastUsedIpsRequest &request);
 
       /**
-       * @summary Queries the information about the Alibaba Cloud services that are most recently accessed by using a specified AccessKey pair.
+       * @summary Queries the Alibaba Cloud services most recently accessed by a specified AccessKey pair.
        *
        * @description You can call this operation to query only the information about Alibaba Cloud services that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
        *
@@ -527,7 +525,7 @@ namespace Actiontrail20200706
       Models::GetAccessKeyLastUsedProductsResponse getAccessKeyLastUsedProductsWithOptions(const Models::GetAccessKeyLastUsedProductsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the Alibaba Cloud services that are most recently accessed by using a specified AccessKey pair.
+       * @summary Queries the Alibaba Cloud services most recently accessed by a specified AccessKey pair.
        *
        * @description You can call this operation to query only the information about Alibaba Cloud services that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
        *
@@ -537,7 +535,7 @@ namespace Actiontrail20200706
       Models::GetAccessKeyLastUsedProductsResponse getAccessKeyLastUsedProducts(const Models::GetAccessKeyLastUsedProductsRequest &request);
 
       /**
-       * @summary Queries the information about the resources that are most recently accessed by using a specified AccessKey pair.
+       * @summary Queries the resources most recently used by a specified AccessKey pair.
        *
        * @description You can call this operation to query only the information about resources that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
        *
@@ -548,7 +546,7 @@ namespace Actiontrail20200706
       Models::GetAccessKeyLastUsedResourcesResponse getAccessKeyLastUsedResourcesWithOptions(const Models::GetAccessKeyLastUsedResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the resources that are most recently accessed by using a specified AccessKey pair.
+       * @summary Queries the resources most recently used by a specified AccessKey pair.
        *
        * @description You can call this operation to query only the information about resources that are most recently accessed by using a specified AccessKey pair within 400 days after February 1, 2022. Data is updated at 1-hour intervals, which can cause query latency. We recommend that you do not change an AccessKey pair unless required.
        *
@@ -558,7 +556,7 @@ namespace Actiontrail20200706
       Models::GetAccessKeyLastUsedResourcesResponse getAccessKeyLastUsedResources(const Models::GetAccessKeyLastUsedResourcesRequest &request);
 
       /**
-       * @summary 查询单个高级查询模板
+       * @summary Retrieves information about a single advanced template.
        *
        * @param request GetAdvancedQueryTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -567,7 +565,7 @@ namespace Actiontrail20200706
       Models::GetAdvancedQueryTemplateResponse getAdvancedQueryTemplateWithOptions(const Models::GetAdvancedQueryTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询单个高级查询模板
+       * @summary Retrieves information about a single advanced template.
        *
        * @param request GetAdvancedQueryTemplateRequest
        * @return GetAdvancedQueryTemplateResponse
@@ -575,7 +573,7 @@ namespace Actiontrail20200706
       Models::GetAdvancedQueryTemplateResponse getAdvancedQueryTemplate(const Models::GetAdvancedQueryTemplateRequest &request);
 
       /**
-       * @summary 查询事件选择器
+       * @summary Queries the details about the data event selector for a specified trail.
        *
        * @param request GetDataEventSelectorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -584,7 +582,7 @@ namespace Actiontrail20200706
       Models::GetDataEventSelectorResponse getDataEventSelectorWithOptions(const Models::GetDataEventSelectorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询事件选择器
+       * @summary Queries the details about the data event selector for a specified trail.
        *
        * @param request GetDataEventSelectorRequest
        * @return GetDataEventSelectorResponse
@@ -634,7 +632,7 @@ namespace Actiontrail20200706
       Models::GetGlobalEventsStorageRegionResponse getGlobalEventsStorageRegion();
 
       /**
-       * @summary 操作审计成熟度查询接口
+       * @summary Queries the governance metrics of ActionTrail.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetGovernanceMetricsResponse
@@ -642,14 +640,14 @@ namespace Actiontrail20200706
       Models::GetGovernanceMetricsResponse getGovernanceMetricsWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 操作审计成熟度查询接口
+       * @summary Queries the governance metrics of ActionTrail.
        *
        * @return GetGovernanceMetricsResponse
        */
       Models::GetGovernanceMetricsResponse getGovernanceMetrics();
 
       /**
-       * @summary 获取跟踪insights配置
+       * @summary Queries the Insights event types to deliver for a trail.
        *
        * @param request GetInsightSelectorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -658,7 +656,7 @@ namespace Actiontrail20200706
       Models::GetInsightSelectorsResponse getInsightSelectorsWithOptions(const Models::GetInsightSelectorsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取跟踪insights配置
+       * @summary Queries the Insights event types to deliver for a trail.
        *
        * @param request GetInsightSelectorsRequest
        * @return GetInsightSelectorsResponse
@@ -666,7 +664,7 @@ namespace Actiontrail20200706
       Models::GetInsightSelectorsResponse getInsightSelectors(const Models::GetInsightSelectorsRequest &request);
 
       /**
-       * @summary 获取查询账号开启insight的类型
+       * @summary Queries all enabled types of Insights events.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetInsightTypesResponse
@@ -674,14 +672,14 @@ namespace Actiontrail20200706
       Models::GetInsightTypesResponse getInsightTypesWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取查询账号开启insight的类型
+       * @summary Queries all enabled types of Insights events.
        *
        * @return GetInsightTypesResponse
        */
       Models::GetInsightTypesResponse getInsightTypes();
 
       /**
-       * @summary 得到当前账号的insights事件数量
+       * @summary Queries the number of Insights events for the current account.
        *
        * @param request GetInsightsEventsCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -690,7 +688,7 @@ namespace Actiontrail20200706
       Models::GetInsightsEventsCountResponse getInsightsEventsCountWithOptions(const Models::GetInsightsEventsCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 得到当前账号的insights事件数量
+       * @summary Queries the number of Insights events for the current account.
        *
        * @param request GetInsightsEventsCountRequest
        * @return GetInsightsEventsCountResponse
@@ -719,7 +717,7 @@ namespace Actiontrail20200706
       Models::GetTrailStatusResponse getTrailStatus(const Models::GetTrailStatusRequest &request);
 
       /**
-       * @summary 批量查询事件选择器
+       * @summary Queries all data event selectors.
        *
        * @param request ListDataEventSelectorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -728,7 +726,7 @@ namespace Actiontrail20200706
       Models::ListDataEventSelectorsResponse listDataEventSelectorsWithOptions(const Models::ListDataEventSelectorsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量查询事件选择器
+       * @summary Queries all data event selectors.
        *
        * @param request ListDataEventSelectorsRequest
        * @return ListDataEventSelectorsResponse
@@ -736,7 +734,7 @@ namespace Actiontrail20200706
       Models::ListDataEventSelectorsResponse listDataEventSelectors(const Models::ListDataEventSelectorsRequest &request);
 
       /**
-       * @summary 查询数据事件支持的服务与事件名称
+       * @summary Queries the services that support data events and the names of these events.
        *
        * @param request ListDataEventServicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -745,7 +743,7 @@ namespace Actiontrail20200706
       Models::ListDataEventServicesResponse listDataEventServicesWithOptions(const Models::ListDataEventServicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据事件支持的服务与事件名称
+       * @summary Queries the services that support data events and the names of these events.
        *
        * @param request ListDataEventServicesRequest
        * @return ListDataEventServicesResponse
@@ -755,7 +753,7 @@ namespace Actiontrail20200706
       /**
        * @summary Queries a list of data backfill tasks.
        *
-       * @description This topic provides an example on how to query a list of data backfill tasks. The returned result shows that a data backfill task with the ID `16602` is used to deliver historical events for a trail named `trail-name` to Simple Log Service.
+       * @description This topic provides an example of how to query a list of data backfill tasks. The response shows a task with the ID `16602` that delivers historical events from the trail `trail-name` to Simple Log Service (SLS).
        *
        * @param request ListDeliveryHistoryJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -766,7 +764,7 @@ namespace Actiontrail20200706
       /**
        * @summary Queries a list of data backfill tasks.
        *
-       * @description This topic provides an example on how to query a list of data backfill tasks. The returned result shows that a data backfill task with the ID `16602` is used to deliver historical events for a trail named `trail-name` to Simple Log Service.
+       * @description This topic provides an example of how to query a list of data backfill tasks. The response shows a task with the ID `16602` that delivers historical events from the trail `trail-name` to Simple Log Service (SLS).
        *
        * @param request ListDeliveryHistoryJobsRequest
        * @return ListDeliveryHistoryJobsResponse
@@ -774,10 +772,9 @@ namespace Actiontrail20200706
       Models::ListDeliveryHistoryJobsResponse listDeliveryHistoryJobs(const Models::ListDeliveryHistoryJobsRequest &request);
 
       /**
-       * @summary Queries event details.
+       * @summary Queries detailed historical events.
        *
-       * @description When you call this operation to query event details, you can query the event details at most twice per second.
-       * > Do not frequently call this operation. You can create a trail to deliver events to Log Service. Then, you can query event details in near real time by using the real-time log consumption feature of Log Service. For more information, see [Create a single-account trail](https://help.aliyun.com/document_detail/28810.html), [Create a multi-account trail](https://help.aliyun.com/document_detail/160661.html), and [Overview](https://help.aliyun.com/document_detail/28997.html).
+       * @description > Do not call this operation frequently. To query events in near-real time, you can create a trail to deliver events to Simple Log Service (SLS) and use its real-time consumption feature. For more information, see [Create a single-account trail](https://help.aliyun.com/document_detail/28810.html), [Create a multi-account trail](https://help.aliyun.com/document_detail/160661.html), and [Real-time consumption](https://help.aliyun.com/document_detail/28997.html).
        *
        * @param request LookupEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -786,10 +783,9 @@ namespace Actiontrail20200706
       Models::LookupEventsResponse lookupEventsWithOptions(const Models::LookupEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries event details.
+       * @summary Queries detailed historical events.
        *
-       * @description When you call this operation to query event details, you can query the event details at most twice per second.
-       * > Do not frequently call this operation. You can create a trail to deliver events to Log Service. Then, you can query event details in near real time by using the real-time log consumption feature of Log Service. For more information, see [Create a single-account trail](https://help.aliyun.com/document_detail/28810.html), [Create a multi-account trail](https://help.aliyun.com/document_detail/160661.html), and [Overview](https://help.aliyun.com/document_detail/28997.html).
+       * @description > Do not call this operation frequently. To query events in near-real time, you can create a trail to deliver events to Simple Log Service (SLS) and use its real-time consumption feature. For more information, see [Create a single-account trail](https://help.aliyun.com/document_detail/28810.html), [Create a multi-account trail](https://help.aliyun.com/document_detail/160661.html), and [Real-time consumption](https://help.aliyun.com/document_detail/28997.html).
        *
        * @param request LookupEventsRequest
        * @return LookupEventsResponse
@@ -797,7 +793,7 @@ namespace Actiontrail20200706
       Models::LookupEventsResponse lookupEvents(const Models::LookupEventsRequest &request);
 
       /**
-       * @summary 查询Insight事件
+       * @summary Queries Insights events.
        *
        * @param request LookupInsightEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -806,7 +802,7 @@ namespace Actiontrail20200706
       Models::LookupInsightEventsResponse lookupInsightEventsWithOptions(const Models::LookupInsightEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Insight事件
+       * @summary Queries Insights events.
        *
        * @param request LookupInsightEventsRequest
        * @return LookupInsightEventsResponse
@@ -814,7 +810,7 @@ namespace Actiontrail20200706
       Models::LookupInsightEventsResponse lookupInsightEvents(const Models::LookupInsightEventsRequest &request);
 
       /**
-       * @summary 创建事件选择器
+       * @summary Creates or configures a data event selector. A trail must exist before you create a data event selector. If a trail does not exist, you can call the CreateTrail operation to create one.
        *
        * @param request PutDataEventSelectorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -823,7 +819,7 @@ namespace Actiontrail20200706
       Models::PutDataEventSelectorResponse putDataEventSelectorWithOptions(const Models::PutDataEventSelectorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建事件选择器
+       * @summary Creates or configures a data event selector. A trail must exist before you create a data event selector. If a trail does not exist, you can call the CreateTrail operation to create one.
        *
        * @param request PutDataEventSelectorRequest
        * @return PutDataEventSelectorResponse
@@ -831,7 +827,7 @@ namespace Actiontrail20200706
       Models::PutDataEventSelectorResponse putDataEventSelector(const Models::PutDataEventSelectorRequest &request);
 
       /**
-       * @summary 修改跟踪insights功能
+       * @summary Specifies the types of Insights events to deliver for a trail.
        *
        * @param request PutInsightSelectorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -840,7 +836,7 @@ namespace Actiontrail20200706
       Models::PutInsightSelectorsResponse putInsightSelectorsWithOptions(const Models::PutInsightSelectorsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改跟踪insights功能
+       * @summary Specifies the types of Insights events to deliver for a trail.
        *
        * @param request PutInsightSelectorsRequest
        * @return PutInsightSelectorsResponse
@@ -848,9 +844,9 @@ namespace Actiontrail20200706
       Models::PutInsightSelectorsResponse putInsightSelectors(const Models::PutInsightSelectorsRequest &request);
 
       /**
-       * @summary Enables a trail to deliver events to an Object Storage Service (OSS) bucket or a Simple Log Service Logstore.
+       * @summary Enables a trail to start delivering ActionTrail events to Object Storage Service (OSS), Simple Log Service (SLS), or MaxCompute.
        *
-       * @description This topic describes how to enable logging for a sample trail named `trail-test`.
+       * @description This topic provides an example on how to enable a trail named `trail-test`.
        *
        * @param request StartLoggingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -859,9 +855,9 @@ namespace Actiontrail20200706
       Models::StartLoggingResponse startLoggingWithOptions(const Models::StartLoggingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables a trail to deliver events to an Object Storage Service (OSS) bucket or a Simple Log Service Logstore.
+       * @summary Enables a trail to start delivering ActionTrail events to Object Storage Service (OSS), Simple Log Service (SLS), or MaxCompute.
        *
-       * @description This topic describes how to enable logging for a sample trail named `trail-test`.
+       * @description This topic provides an example on how to enable a trail named `trail-test`.
        *
        * @param request StartLoggingRequest
        * @return StartLoggingResponse
@@ -869,9 +865,9 @@ namespace Actiontrail20200706
       Models::StartLoggingResponse startLogging(const Models::StartLoggingRequest &request);
 
       /**
-       * @summary Disables a trail to stop the delivery of events to an Object Storage Service (OSS) bucket or a  Simple Log Service Logstore.
+       * @summary Disables a trail to stop delivering ActionTrail events to Object Storage Service (OSS), Simple Log Service (SLS), or MaxCompute.
        *
-       * @description This topic describes how to disable logging for a sample trail named `trail-test`.
+       * @description This topic provides an example on how to disable a trail named `trail-test`.
        *
        * @param request StopLoggingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -880,9 +876,9 @@ namespace Actiontrail20200706
       Models::StopLoggingResponse stopLoggingWithOptions(const Models::StopLoggingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables a trail to stop the delivery of events to an Object Storage Service (OSS) bucket or a  Simple Log Service Logstore.
+       * @summary Disables a trail to stop delivering ActionTrail events to Object Storage Service (OSS), Simple Log Service (SLS), or MaxCompute.
        *
-       * @description This topic describes how to disable logging for a sample trail named `trail-test`.
+       * @description This topic provides an example on how to disable a trail named `trail-test`.
        *
        * @param request StopLoggingRequest
        * @return StopLoggingResponse
@@ -890,7 +886,7 @@ namespace Actiontrail20200706
       Models::StopLoggingResponse stopLogging(const Models::StopLoggingRequest &request);
 
       /**
-       * @summary 更新高级查询模板
+       * @summary Updates an advanced query template.
        *
        * @param request UpdateAdvancedQueryTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -899,7 +895,7 @@ namespace Actiontrail20200706
       Models::UpdateAdvancedQueryTemplateResponse updateAdvancedQueryTemplateWithOptions(const Models::UpdateAdvancedQueryTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新高级查询模板
+       * @summary Updates an advanced query template.
        *
        * @param request UpdateAdvancedQueryTemplateRequest
        * @return UpdateAdvancedQueryTemplateResponse

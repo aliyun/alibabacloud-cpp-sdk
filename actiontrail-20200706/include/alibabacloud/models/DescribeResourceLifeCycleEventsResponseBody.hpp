@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The lifecycle events.<br>This field is returned as a JSON-serialized string. The string contains the hierarchical data for lifecycle event categories. Use a standard JSON deserialization tool for your programming language to parse the string into an array of objects.
     shared_ptr<string> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

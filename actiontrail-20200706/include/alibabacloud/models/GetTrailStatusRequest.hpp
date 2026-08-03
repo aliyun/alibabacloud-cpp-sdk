@@ -50,8 +50,9 @@ namespace Models
   protected:
     // Specifies whether to query the status of a multi-account trail. Valid values:
     // 
-    // *   true: Query the status of a multi-account trail.
-    // *   false: Query the status of a single-account trail. It is the default value.
+    // - true: Query the status of a multi-account trail.
+    // 
+    // - false: Query the status of a single-account trail. It is the default value.
     shared_ptr<bool> isOrganizationTrail_ {};
     // The name of the trail.
     // 

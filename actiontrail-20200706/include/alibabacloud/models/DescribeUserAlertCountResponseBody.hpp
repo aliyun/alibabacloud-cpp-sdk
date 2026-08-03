@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // The statistics returned.
       shared_ptr<vector<int64_t>> counts_ {};
+      // The dates of alerts.
       shared_ptr<vector<string>> dates_ {};
     };
 
@@ -97,7 +99,9 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<DescribeUserAlertCountResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

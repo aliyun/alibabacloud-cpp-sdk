@@ -95,7 +95,9 @@ namespace Models
 
 
       protected:
+        // The data events supported by the service.
         shared_ptr<vector<string>> eventNames_ {};
+        // The cloud service name.
         shared_ptr<string> serviceName_ {};
       };
 
@@ -125,8 +127,11 @@ namespace Models
 
 
     protected:
+      // The maximum number of entries returned for the current request.
       shared_ptr<int32_t> maxResults_ {};
+      // A pagination token. It can be used in the next request to retrieve a new page of results.
       shared_ptr<string> nextToken_ {};
+      // The supported Alibaba Cloud services and the data events for each service.
       shared_ptr<vector<Data::ServiceInfos>> serviceInfos_ {};
     };
 
@@ -149,7 +154,9 @@ namespace Models
 
 
   protected:
+    // The response parameters.
     shared_ptr<ListDataEventServicesResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -78,29 +78,9 @@ namespace Models
 
 
     protected:
-      // The key of the query condition. Valid values:
-      // 
-      // *  ServiceName: the name of a specific Alibaba Cloud service.
-      // *  EventName: the name of a specific event.
-      // *  User: the name of the RAM user who calls a specific operation.
-      // *  EventId: the ID of a specific event.
-      // *  ResourceType: the type of resources.
-      // *   ResourceName: the name of a specific resource.
-      // *   EventRW: the read/write type of events.
-      // *  EventAccessKeyId: the AccessKey ID used in events.
-      // 
-      // > You can use only one query condition for each query.
+      // The attribute key. For information about valid values, see [How do I configure the LookupAttribute parameter when calling LookupInsightEvents?](https://help.aliyun.com/document_detail/2920829.html)
       shared_ptr<string> key_ {};
-      // The value of the query condition. Valid values:
-      // 
-      // *   When the LookupAttribute.N.Key parameter is set to ServiceName, you can set this parameter to a value such as `Ecs`.
-      // *   When the LookupAttribute.N.Key parameter is set to EventName, you can set this parameter to a value such as `ConsoleSignin`.
-      // *   When the LookupAttribute.N.Key parameter is set to User, you can set this parameter to a value such as `Alice`.
-      // *   When the LookupAttribute.N.Key parameter is set to EventId, you can set this parameter to a value such as `B702AFA3-FD4B-40E3-88E4-C0752FAA****`.
-      // *   When the LookupAttribute.N.Key parameter is set to ResourceType, you can set this parameter to a value such as `ACS::ECS::Instance`.
-      // *   When the LookupAttribute.N.Key parameter is set to ResourceName, you can set this parameter to a value such as `i-bp14664y88udkt45****`.
-      // *   When the LookupAttribute.N.Key parameter is set to EventRW, you can set this parameter to `Read` or `Write`.
-      // *   When the LookupAttribute.N.Key parameter is set to EventAccessKeyId, you can set this parameter to a value such as `LTAI****************`.
+      // The attribute value. For information about valid values, see [How do I configure the LookupAttribute parameter when calling LookupInsightEvents?](https://help.aliyun.com/document_detail/2920829.html)
       shared_ptr<string> value_ {};
     };
 
@@ -151,24 +131,29 @@ namespace Models
 
 
   protected:
-    // The order in which details of events are to be retrieved. Valid values:
+    // The order in which events are retrieved. Valid values:
     // 
-    // *   FORWARD: ascending order.
-    // *   BACKWARD: descending order. This is the default value.
+    // - FORWARD: Chronological order.
+    // 
+    // - BACKWARD (default): Reverse chronological order.
     shared_ptr<string> direction_ {};
-    // The end of the time range to query. The default time is the current time. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
+    // The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // 
+    // > You must specify both `StartTime` and `EndTime`, or leave both unspecified. If you leave them unspecified, the default value of `EndTime` is the current time.
     shared_ptr<string> endTime_ {};
-    // Query conditions.
+    // The filter conditions.
+    // 
+    // > You can specify one or two filter conditions at a time. For more information, see [Limitations](https://help.aliyun.com/document_detail/2920829.html).
     shared_ptr<vector<LookupEventsRequest::LookupAttribute>> lookupAttribute_ {};
-    // The maximum number of entries to be returned.
-    // 
-    // Valid values: 0 to 50.
+    // The maximum number of results to return.<br>Valid values: 1 to 50.
     shared_ptr<string> maxResults_ {};
-    // The token used to request the next page of query results.
+    // The pagination token that is used in the next request to retrieve a new page of results.
     // 
-    // > The request parameters must be the same as those of the last request.
+    // > You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
     shared_ptr<string> nextToken_ {};
-    // The beginning of the time range to query. The default time is seven days prior to the current time. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
+    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+    // 
+    // > You must specify both `StartTime` and `EndTime`, or leave both unspecified. If you leave them unspecified, the default value of `StartTime` is 7 days before the current time.
     shared_ptr<string> startTime_ {};
   };
 

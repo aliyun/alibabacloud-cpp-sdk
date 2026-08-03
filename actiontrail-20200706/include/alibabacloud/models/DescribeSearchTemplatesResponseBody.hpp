@@ -138,14 +138,25 @@ namespace Models
 
 
     protected:
+      // The list of dashboards. This parameter is deprecated.
+      // 
+      // > This parameter is deprecated and no longer returns valid data. The returned value is always an empty array `[]`. Stop using this parameter and remove its dependency from your code.
       shared_ptr<string> charts_ {};
+      // The template description.
       shared_ptr<string> description_ {};
+      // The filter conditions.<br>This parameter is returned as a JSON-serialized string that contains a structured list of filter conditions. Use a standard JSON deserialization tool for your programming language to parse the string into an array of objects.
       shared_ptr<string> params_ {};
+      // The scenario ID.
       shared_ptr<string> sceneId_ {};
+      // The query statement.
       shared_ptr<string> sql_ {};
+      // The template ID.
       shared_ptr<string> templateId_ {};
+      // The template name.
       shared_ptr<string> templateName_ {};
+      // The identifier for the template category.
       shared_ptr<string> token_ {};
+      // The template type.
       shared_ptr<string> type_ {};
     };
 
@@ -182,9 +193,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The maximum number of results returned.
+    // 
+    // Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of template details.
     shared_ptr<vector<DescribeSearchTemplatesResponseBody::TemplateList>> templateList_ {};
   };
 

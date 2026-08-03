@@ -88,9 +88,13 @@ namespace Models
 
 
     protected:
+      // The ID of the advanced query record.
       shared_ptr<string> queryId_ {};
+      // The conditional statement for the query.
       shared_ptr<string> querySql_ {};
+      // Indicates whether simple query mode is enabled.
       shared_ptr<bool> simpleQuery_ {};
+      // The time when the advanced query record was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
       shared_ptr<string> timeStamp_ {};
     };
 
@@ -113,7 +117,9 @@ namespace Models
 
 
   protected:
+    // The list of advanced query records.
     shared_ptr<vector<DescribeAdvancedQueryHistoryResponseBody::QueryHistoryList>> queryHistoryList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

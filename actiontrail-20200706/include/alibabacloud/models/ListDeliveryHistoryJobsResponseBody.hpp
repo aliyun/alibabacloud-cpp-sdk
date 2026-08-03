@@ -135,22 +135,25 @@ namespace Models
       shared_ptr<string> createdTime_ {};
       // The time when the task ended.
       shared_ptr<string> endTime_ {};
-      // The home region of the trail.
+      // The home region.
       shared_ptr<string> homeRegion_ {};
       // The task ID.
       shared_ptr<int64_t> jobId_ {};
-      // The task status. Valid values:
+      // The status of the task. Valid values:
       // 
-      // *   0: The task is initializing.
-      // *   1: The task is delivering historical events.
-      // *   2: The task is complete.
-      // *   3: The task fails.
+      // - 0: The task is being initialized.
+      // 
+      // - 1: The task is delivering events.
+      // 
+      // - 2: The task is complete.
+      // 
+      // - 3: The task failed.
       shared_ptr<int32_t> jobStatus_ {};
       // The time when the task started.
       shared_ptr<string> startTime_ {};
       // The name of the trail.
       shared_ptr<string> trailName_ {};
-      // The time when the task was updated.
+      // The time when the task was last updated.
       shared_ptr<string> updatedTime_ {};
     };
 
@@ -194,15 +197,15 @@ namespace Models
 
 
   protected:
-    // The list of historical event delivery tasks.
+    // The list of data backfill tasks.
     shared_ptr<vector<ListDeliveryHistoryJobsResponseBody::DeliveryHistoryJobs>> deliveryHistoryJobs_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of historical event delivery tasks returned.
+    // The total number of tasks.
     shared_ptr<int32_t> totalCount_ {};
   };
 

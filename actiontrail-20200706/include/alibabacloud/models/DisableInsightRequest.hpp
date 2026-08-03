@@ -38,6 +38,21 @@ namespace Models
 
 
   protected:
+    // The type of the Insights event. Valid values:
+    // 
+    // - IpInsight: IP request events.
+    // 
+    // - ApiCallRateInsight: High-risk API call events.
+    // 
+    // - ApiErrorRateInsight: API error events.
+    // 
+    // - AkInsight: AccessKey pair call events.
+    // 
+    // - PolicyChangeInsight: Permission change events.
+    // 
+    // - PasswordChangeInsight: Password change events.
+    // 
+    // - TrailConcealmentInsight: Trail concealment events.
     shared_ptr<string> insightType_ {};
   };
 

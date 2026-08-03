@@ -57,8 +57,16 @@ namespace Models
 
 
   protected:
+    // The page number. The value starts from 1.
+    // 
+    // Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The maximum number of results to return.
+    // Default value: 20.
     shared_ptr<int64_t> pageSize_ {};
+    // The name of the template. This operation performs a case-insensitive, fuzzy match. If you do not specify a name, all templates are returned.
+    // 
+    // For example, if you specify `a`, templates named `a1` and `a2` are returned. If you leave this parameter empty, templates named `a1`, `a2`, `b1`, and `c1` are returned.
     shared_ptr<string> templateName_ {};
   };
 

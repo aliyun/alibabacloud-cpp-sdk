@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The search keyword. This operation performs a case-insensitive, fuzzy match.
     shared_ptr<string> searchCode_ {};
   };
 

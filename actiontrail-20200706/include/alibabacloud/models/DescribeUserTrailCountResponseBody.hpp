@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // An array of trail counts, where each count corresponds to a date in the `Dates` array.
       shared_ptr<vector<int64_t>> counts_ {};
+      // A list of dates.
       shared_ptr<vector<string>> dates_ {};
     };
 
@@ -97,7 +99,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<DescribeUserTrailCountResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

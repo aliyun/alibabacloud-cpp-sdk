@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the historical event delivery task.
+    // The task ID.
     shared_ptr<int32_t> jobId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

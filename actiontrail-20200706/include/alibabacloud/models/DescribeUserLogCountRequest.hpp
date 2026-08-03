@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The end time. Format: yyyy-MM-dd.
     shared_ptr<string> endDate_ {};
+    // The start time. Format: yyyy-MM-dd.
     shared_ptr<string> startDate_ {};
   };
 

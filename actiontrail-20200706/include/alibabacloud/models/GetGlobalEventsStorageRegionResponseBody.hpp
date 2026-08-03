@@ -54,29 +54,29 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   ap-southeast-1
+    // - ap-southeast-1
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     :
+    //   :
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     the Singapore region
+    //   the Singapore region
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    // *   cn-hangzhou
+    // - cn-hangzhou
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     :
+    //   :
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     the China (Hangzhou) region
+    //   the China (Hangzhou) region
     // 
-    //     <!-- -->
+    //   <!-- -->
     shared_ptr<string> storageRegion_ {};
   };
 

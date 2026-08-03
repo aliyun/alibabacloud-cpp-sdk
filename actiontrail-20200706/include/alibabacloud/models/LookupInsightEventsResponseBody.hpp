@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The Insights events.
     shared_ptr<vector<Darabonba::Json>> events_ {};
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -76,8 +76,9 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The number of entries per page.
     // 
-    // *   Valid values: 0 to 100.
-    // *   Default value: 20.
+    // - Valid values: 0 to 100.
+    // 
+    // - Default value: 20.
     shared_ptr<string> pageSize_ {};
     // The Alibaba Cloud service. For more information about the Alibaba Cloud services supported by ActionTrail, see [Supported Alibaba Cloud services](https://help.aliyun.com/document_detail/28829.html).
     // 

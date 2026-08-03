@@ -140,29 +140,29 @@ namespace Models
 
 
   protected:
-    // The read/write type of the events to be delivered.
+    // The read/write type of events that the trail delivers.
     shared_ptr<string> eventRW_ {};
     // The home region of the trail.
     shared_ptr<string> homeRegion_ {};
-    // ARN of the Big Data Compute Service project for tracking delivery.
+    // The ARN of the MaxCompute project to which the trail delivers events.
     shared_ptr<string> maxComputeProjectArn_ {};
-    // The ARN of the role that Operation Audit assumes when delivering operation events to the Big Data Compute Service project.
+    // The ARN of the RAM role that ActionTrail assumes to deliver events to the MaxCompute project.
     shared_ptr<string> maxComputeWriteRoleArn_ {};
     // The name of the trail.
     shared_ptr<string> name_ {};
-    // The name of the OSS bucket to which events are to be delivered.
+    // The name of the destination OSS bucket.
     shared_ptr<string> ossBucketName_ {};
-    // The prefix of the log files to be stored in the destination OSS bucket.
+    // The prefix for the names of log files in the OSS bucket.
     shared_ptr<string> ossKeyPrefix_ {};
-    // The ARN of the service-linked role that is assumed by ActionTrail to deliver events to the destination OSS bucket.
+    // The ARN of the RAM role that ActionTrail assumes to deliver events to the OSS bucket.
     shared_ptr<string> ossWriteRoleArn_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ARN of the Log Service project to which events are to be delivered.
+    // The ARN of the SLS project to which the trail delivers events.
     shared_ptr<string> slsProjectArn_ {};
-    // The ARN of the service-linked role that is assumed by ActionTrail to deliver events to the destination Log Service project.
+    // The ARN of the RAM role that ActionTrail assumes to deliver events to the SLS project.
     shared_ptr<string> slsWriteRoleArn_ {};
-    // The one or more regions from which the trail delivers events.
+    // The region in which the trail is created. A value of `All` indicates that the trail processes events from all regions.
     shared_ptr<string> trailRegion_ {};
   };
 

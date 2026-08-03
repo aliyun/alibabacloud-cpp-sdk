@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The resource type.
     shared_ptr<string> resourceType_ {};
+    // The name of the Alibaba Cloud service.
     shared_ptr<string> serviceName_ {};
   };
 

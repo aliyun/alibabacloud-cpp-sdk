@@ -97,10 +97,15 @@ namespace Models
 
 
     protected:
+      // The description of the scenario.
       shared_ptr<string> description_ {};
+      // The name of the scenario.
       shared_ptr<string> name_ {};
+      // The ID of the scenario.
       shared_ptr<string> sceneId_ {};
+      // The identifier for the scenario category.
       shared_ptr<string> token_ {};
+      // The type of the scenario.
       shared_ptr<string> type_ {};
     };
 
@@ -123,7 +128,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of scenarios.
     shared_ptr<vector<DescribeScenesResponseBody::SceneList>> sceneList_ {};
   };
 

@@ -100,8 +100,15 @@ namespace Models
 
 
       protected:
+        // The details of the resource.
+        // 
+        // This parameter contains the detailed configurations of all compliant resources for the governance item. This parameter is returned only if a resource instance exists.
         shared_ptr<string> columnsSchema_ {};
+        // The governance item. This indicates a specific category of compliance check.
         shared_ptr<string> governanceItem_ {};
+        // The compliance score for the governance item.
+        // 
+        // Valid values: 0 to 100.
         shared_ptr<string> governanceScore_ {};
       };
 
@@ -124,7 +131,9 @@ namespace Models
 
 
     protected:
+      // The ID of the Alibaba Cloud account.
       shared_ptr<string> accountId_ {};
+      // A collection of governance items that contain multiple compliance assessment dimensions.
       shared_ptr<vector<Data::GovernanceMetrics>> governanceMetrics_ {};
     };
 
@@ -147,7 +156,9 @@ namespace Models
 
 
   protected:
+    // The response parameters.
     shared_ptr<GetGovernanceMetricsResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

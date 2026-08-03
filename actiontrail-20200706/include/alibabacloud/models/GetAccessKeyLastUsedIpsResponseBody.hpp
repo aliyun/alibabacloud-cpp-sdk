@@ -94,13 +94,15 @@ namespace Models
       shared_ptr<string> detail_ {};
       // The IP address.
       shared_ptr<string> ip_ {};
-      // The event source.
+      // The source of the last usage record.
       // 
       // Valid values:
       // 
-      // *   Internal: other events.
-      // *   ManagementEvent: management events.
-      // *   DataEvent: data events.
+      // - Internal: Other event
+      // 
+      // - ManagementEvent: Management event
+      // 
+      // - DataEvent: Data event
       shared_ptr<string> source_ {};
       // The timestamp when the IP address was used. Unit: milliseconds.
       shared_ptr<int64_t> usedTimestamp_ {};

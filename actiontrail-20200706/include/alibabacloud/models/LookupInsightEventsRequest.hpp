@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The attribute key. For more information about valid values, see [How do I configure the LookupAttribute parameter when calling LookupInsightEvents?](https://help.aliyun.com/document_detail/3011147.html)
       shared_ptr<string> key_ {};
+      // The attribute value. For more information about valid values, see [How do I configure the LookupAttribute parameter when calling LookupInsightEvents?](https://help.aliyun.com/document_detail/3011147.html)
       shared_ptr<string> value_ {};
     };
 
@@ -120,10 +122,31 @@ namespace Models
 
 
   protected:
+    // The end of the time range to query. The default value is the current time.
+    // 
+    // Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
+    // An array of fliter conditions.
+    // 
+    // > - You can specify one or two query conditions. For more information, see [Limitations](https://help.aliyun.com/document_detail/3011147.html).
     shared_ptr<vector<LookupInsightEventsRequest::LookupAttribute>> lookupAttribute_ {};
+    // The maximum number of entries to return.
+    // 
+    // - Valid values: 1 to 50.
+    // 
+    // - Default value: 20.
     shared_ptr<string> maxResults_ {};
+    // The pagination token that is used in the next request to retrieve a new page of results.
+    // 
+    // - You do not need to specify this parameter for the first request.
+    // 
+    // - You must specify the token that is obtained from the previous query as the value of `NextToken`.
     shared_ptr<string> nextToken_ {};
+    // The beginning of the time range to query. The default value is seven days before the current time.
+    // 
+    // Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+    // 
+    // > - The maximum time range that can be queried is 93 days. If the specified time range is longer than 93 days, only events from the last 93 days are returned.
     shared_ptr<string> startTime_ {};
   };
 

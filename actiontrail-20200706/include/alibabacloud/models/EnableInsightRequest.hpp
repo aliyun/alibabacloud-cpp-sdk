@@ -40,9 +40,19 @@ namespace Models
   protected:
     // The type of the Insights event. Valid values:
     // 
-    // *   IpInsight: Insights event on IP address
-    // *   ApiCallRateInsight: Insights event on API call rate
-    // *   ApiErrorRateInsight: Insights event on API error rate
+    // - IpInsight: IP address request events.
+    // 
+    // - ApiCallRateInsight: Unusual API call events.
+    // 
+    // - ApiErrorRateInsight: API error events.
+    // 
+    // - AkInsight: Unusual AccessKey pair call events.
+    // 
+    // - PolicyChangeInsight: Permission change events.
+    // 
+    // - PasswordChangeInsight: Password change events.
+    // 
+    // - TrailConcealmentInsight: Trail concealment events.
     shared_ptr<string> insightType_ {};
   };
 

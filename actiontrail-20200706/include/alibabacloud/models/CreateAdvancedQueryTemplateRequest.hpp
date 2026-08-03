@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the simple query mode.
+    // 
     // This parameter is required.
     shared_ptr<bool> simpleQuery_ {};
+    // The name of the template, which can contain a maximum of 64 characters. Uniqueness is not required.
     shared_ptr<string> templateName_ {};
+    // The query statement of the template.
+    // 
     // This parameter is required.
     shared_ptr<string> templateSql_ {};
   };

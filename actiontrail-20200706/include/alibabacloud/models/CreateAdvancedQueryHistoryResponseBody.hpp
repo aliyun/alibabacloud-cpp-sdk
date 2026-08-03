@@ -13,12 +13,14 @@ namespace Models
   class CreateAdvancedQueryHistoryResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateAdvancedQueryHistoryResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(DryRunResult, dryRunResult_);
       DARABONBA_PTR_TO_JSON(QueryId, queryId_);
       DARABONBA_PTR_TO_JSON(QuerySql, querySql_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(SimpleQuery, simpleQuery_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAdvancedQueryHistoryResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(DryRunResult, dryRunResult_);
       DARABONBA_PTR_FROM_JSON(QueryId, queryId_);
       DARABONBA_PTR_FROM_JSON(QuerySql, querySql_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->queryId_ == nullptr
-        && this->querySql_ == nullptr && this->requestId_ == nullptr && this->simpleQuery_ == nullptr; };
+    virtual bool empty() const override { return this->dryRunResult_ == nullptr
+        && this->queryId_ == nullptr && this->querySql_ == nullptr && this->requestId_ == nullptr && this->simpleQuery_ == nullptr; };
+    // dryRunResult Field Functions 
+    bool hasDryRunResult() const { return this->dryRunResult_ != nullptr;};
+    void deleteDryRunResult() { this->dryRunResult_ = nullptr;};
+    inline string getDryRunResult() const { DARABONBA_PTR_GET_DEFAULT(dryRunResult_, "") };
+    inline CreateAdvancedQueryHistoryResponseBody& setDryRunResult(string dryRunResult) { DARABONBA_PTR_SET_VALUE(dryRunResult_, dryRunResult) };
+
+
     // queryId Field Functions 
     bool hasQueryId() const { return this->queryId_ != nullptr;};
     void deleteQueryId() { this->queryId_ = nullptr;};
@@ -66,9 +75,14 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> dryRunResult_ {};
+    // The ID of the advanced event query record.
     shared_ptr<string> queryId_ {};
+    // The advanced event query statement.
     shared_ptr<string> querySql_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Specifies whether to enable the simple query mode.
     shared_ptr<bool> simpleQuery_ {};
   };
 

@@ -75,10 +75,17 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether simple search mode is enabled. Valid values:
+    // - true: enabled.
+    // - false: disabled.
     shared_ptr<bool> simpleQuery_ {};
+    // The template ID.
     shared_ptr<string> templateId_ {};
+    // The template name.
     shared_ptr<string> templateName_ {};
+    // The query statement.
     shared_ptr<string> templateSql_ {};
   };
 

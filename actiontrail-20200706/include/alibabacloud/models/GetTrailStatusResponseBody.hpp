@@ -123,8 +123,9 @@ namespace Models
   protected:
     // Indicates whether logging is enabled for the trail. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> isLogging_ {};
     // The log of the last failed delivery.
     shared_ptr<string> latestDeliveryError_ {};
@@ -136,15 +137,17 @@ namespace Models
     shared_ptr<string> latestDeliveryTime_ {};
     // Indicates whether the destination Object Storage Service (OSS) bucket is available. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> ossBucketStatus_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the destination Log Service Logstore is available. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> slsLogStoreStatus_ {};
     // The time when logging was last enabled for the trail.
     shared_ptr<string> startLoggingTime_ {};

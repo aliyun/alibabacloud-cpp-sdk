@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // An array of Insights event types.
     shared_ptr<vector<string>> insightSelectors_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The Alibaba Cloud Resource Name (ARN) of the trail.
     shared_ptr<string> trailArn_ {};
   };
 

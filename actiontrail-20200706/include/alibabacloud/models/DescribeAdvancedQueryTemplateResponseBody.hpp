@@ -113,9 +113,13 @@ namespace Models
 
 
       protected:
+        // Indicates whether the simple query mode is enabled.
         shared_ptr<bool> simpleQuery_ {};
+        // The template ID.
         shared_ptr<string> templateId_ {};
+        // The template name.
         shared_ptr<string> templateName_ {};
+        // The query statement.
         shared_ptr<string> templateSql_ {};
       };
 
@@ -152,9 +156,14 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<string> pageNumber_ {};
+      // The maximum number of results returned.
+      // Default value: 20.
       shared_ptr<string> pageSize_ {};
+      // The list of template details.
       shared_ptr<vector<TemplatePage::TemplateList>> templateList_ {};
+      // The total number of records.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -177,7 +186,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The paginated list of templates.
     shared_ptr<DescribeAdvancedQueryTemplateResponseBody::TemplatePage> templatePage_ {};
   };
 

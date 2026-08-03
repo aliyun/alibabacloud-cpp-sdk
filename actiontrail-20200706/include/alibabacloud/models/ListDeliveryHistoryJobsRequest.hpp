@@ -50,13 +50,15 @@ namespace Models
   protected:
     // The page number.
     // 
-    // *   Pages start from page 1.
-    // *   Default value: 1.
-    shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // - The value must be greater than or equal to 1.
     // 
-    // *   Valid values: 1 to 100.
-    // *   Default value: 20.
+    // - Default value: 1.
+    shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page.
+    // 
+    // - Valid values: 1 to 100.
+    // 
+    // - Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
   };
 

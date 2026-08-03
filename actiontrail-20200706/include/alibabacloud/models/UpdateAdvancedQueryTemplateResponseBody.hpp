@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the simple query mode is enabled.
     shared_ptr<string> simpleQuery_ {};
+    // The template ID.
     shared_ptr<string> templateId_ {};
+    // The name of the template. The maximum length is 64 characters.
     shared_ptr<string> templateName_ {};
+    // The query statement of the template.
     shared_ptr<string> templateSql_ {};
   };
 

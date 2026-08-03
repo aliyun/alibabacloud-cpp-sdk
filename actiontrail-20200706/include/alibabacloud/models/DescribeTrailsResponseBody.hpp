@@ -248,16 +248,19 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The read/write type of the events that are delivered. Valid values:
       // 
-      // *   Write: write events. This is the default value.
-      // *   Read: read events.
-      // *   All: read and write events.
+      // - Write: write events. This is the default value.
+      // 
+      // - Read: read events.
+      // 
+      // - All: read and write events.
       shared_ptr<string> eventRW_ {};
       // The home region of the trail.
       shared_ptr<string> homeRegion_ {};
       // Indicates whether the trail is a multi-account trail. Valid values:
       // 
-      // *   false (default)
-      // *   true
+      // - false (default)
+      // 
+      // - true
       shared_ptr<bool> isOrganizationTrail_ {};
       // The ARN of the MaxCompute project.
       shared_ptr<string> maxComputeProjectArn_ {};
@@ -267,7 +270,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The ID of the resource directory.
       // 
-      // >  This parameter is returned only when the trail is a multi-account trail.
+      // > This parameter is returned only when the trail is a multi-account trail.
       shared_ptr<string> organizationId_ {};
       // The region where the OSS bucket resides.
       shared_ptr<string> ossBucketLocation_ {};
@@ -287,9 +290,11 @@ namespace Models
       shared_ptr<string> startLoggingTime_ {};
       // The status of the trail. Valid values:
       // 
-      // *   Disable: disabled.
-      // *   Enable: enabled.
-      // *   Fresh: The trail is created but is not enabled.
+      // - Disable: disabled.
+      // 
+      // - Enable: enabled.
+      // 
+      // - Fresh: The trail is created but is not enabled.
       shared_ptr<string> status_ {};
       // The time when the trail was last disabled.
       shared_ptr<string> stopLoggingTime_ {};

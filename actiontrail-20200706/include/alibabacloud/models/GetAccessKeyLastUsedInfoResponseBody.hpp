@@ -142,15 +142,15 @@ namespace Models
   protected:
     // The AccessKey ID.
     shared_ptr<string> accessKeyId_ {};
-    // The ID of the Alibaba Cloud account.
+    // The Alibaba Cloud account ID.
     shared_ptr<string> accountId_ {};
     // The type of the account to which the AccessKey pair belongs.
     shared_ptr<string> accountType_ {};
-    // The details about the event.
+    // The event details.
     shared_ptr<string> detail_ {};
     // The ID of the account to which the AccessKey pair belongs.
     shared_ptr<string> ownerId_ {};
-    // The ID of the request.
+    // The request ID.
     // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
@@ -162,9 +162,9 @@ namespace Models
     shared_ptr<string> serviceNameCn_ {};
     // The English name of the Alibaba Cloud service that was last accessed.
     shared_ptr<string> serviceNameEn_ {};
-    // The event source.
+    // The source of the last usage record.
     shared_ptr<string> source_ {};
-    // The timestamp when the AccessKey pair was last called.
+    // The timestamp when the AccessKey pair was last used. Unit: milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> usedTimestamp_ {};

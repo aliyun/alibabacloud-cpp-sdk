@@ -70,7 +70,11 @@ namespace Models
 
 
     protected:
+      // The value of the metric. The meaning of this parameter depends on the value of the `MetricName` parameter in the request.
+      // 
+      // For example, if `MetricName` is set to `delivery_sls_success_count`, `Count` indicates the number of logs successfully delivered to SLS.
       shared_ptr<int64_t> count_ {};
+      // The Unix timestamp, in milliseconds, that marks the start of the time window for this data point.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -93,7 +97,9 @@ namespace Models
 
 
   protected:
+    // A list of data points for the delivery monitoring metric.
     shared_ptr<vector<DescribeTrailDeliveryMetricDataResponseBody::MetricList>> metricList_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 
