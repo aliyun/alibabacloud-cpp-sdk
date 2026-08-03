@@ -281,6 +281,8 @@ CheckCreateDBInstanceResponse Client::checkCreateDBInstance(const CheckCreateDBI
 }
 
 /**
+ * @summary Checks whether a specified IP address already exists in a network whitelist group.
+ *
  * @param request CheckIpExistsInSecurityIpListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CheckIpExistsInSecurityIpListResponse
@@ -306,6 +308,8 @@ CheckIpExistsInSecurityIpListResponse Client::checkIpExistsInSecurityIpListWithO
 }
 
 /**
+ * @summary Checks whether a specified IP address already exists in a network whitelist group.
+ *
  * @param request CheckIpExistsInSecurityIpListRequest
  * @return CheckIpExistsInSecurityIpListResponse
  */
@@ -612,6 +616,14 @@ CreateDBInstanceResponse Client::createDBInstanceWithOptions(const CreateDBInsta
 
   if (!!request.hasEngineVersion()) {
     query["EngineVersion"] = request.getEngineVersion();
+  }
+
+  if (!!request.hasFEClassCode()) {
+    query["FEClassCode"] = request.getFEClassCode();
+  }
+
+  if (!!request.hasFENodeCount()) {
+    query["FENodeCount"] = request.getFENodeCount();
   }
 
   if (!!request.hasMultiZoneShrink()) {
@@ -1375,7 +1387,7 @@ DescribeDBClusterStorageLimitationResponse Client::describeDBClusterStorageLimit
 }
 
 /**
- * @summary Gets the details of a specified instance.
+ * @summary Queries the details of an instance.
  *
  * @param request DescribeDBInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1414,7 +1426,7 @@ DescribeDBInstanceAttributeResponse Client::describeDBInstanceAttributeWithOptio
 }
 
 /**
- * @summary Gets the details of a specified instance.
+ * @summary Queries the details of an instance.
  *
  * @param request DescribeDBInstanceAttributeRequest
  * @return DescribeDBInstanceAttributeResponse
@@ -1859,7 +1871,7 @@ DescribeSlowQueryStatsResponse Client::describeSlowQueryStats(const DescribeSlow
 }
 
 /**
- * @summary 获取表结构
+ * @summary Retrieves the CREATE TABLE statement.
  *
  * @param request DescribeTableSchemaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1902,7 +1914,7 @@ DescribeTableSchemaResponse Client::describeTableSchemaWithOptions(const Describ
 }
 
 /**
- * @summary 获取表结构
+ * @summary Retrieves the CREATE TABLE statement.
  *
  * @param request DescribeTableSchemaRequest
  * @return DescribeTableSchemaResponse
@@ -2129,7 +2141,7 @@ GetCreateBEClusterInquiryResponse Client::getCreateBEClusterInquiry(const GetCre
 }
 
 /**
- * @summary Retrieves the pricing information for creating a new cluster in a specified ApsaraDB for SelectDB instance.
+ * @summary Retrieves pricing information when creating a cluster under a specified ApsaraDB for SelectDB instance.
  *
  * @param request GetModifyBEClusterInquiryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2156,7 +2168,7 @@ GetModifyBEClusterInquiryResponse Client::getModifyBEClusterInquiryWithOptions(c
 }
 
 /**
- * @summary Retrieves the pricing information for creating a new cluster in a specified ApsaraDB for SelectDB instance.
+ * @summary Retrieves pricing information when creating a cluster under a specified ApsaraDB for SelectDB instance.
  *
  * @param request GetModifyBEClusterInquiryRequest
  * @return GetModifyBEClusterInquiryResponse

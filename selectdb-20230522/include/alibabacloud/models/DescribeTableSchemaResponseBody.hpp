@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The CREATE TABLE statement.
     shared_ptr<string> createStatement_ {};
+    // The database name.
     shared_ptr<string> database_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The table name.
     shared_ptr<string> table_ {};
   };
 

@@ -59,6 +59,7 @@ namespace Models
 
 
     protected:
+      // Indicates whether the IP address exists.
       shared_ptr<bool> ipExists_ {};
     };
 
@@ -81,7 +82,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<CheckIpExistsInSecurityIpListResponseBody::Data> data_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

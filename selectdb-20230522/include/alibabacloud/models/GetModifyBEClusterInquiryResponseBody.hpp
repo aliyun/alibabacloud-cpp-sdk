@@ -125,10 +125,17 @@ namespace Models
 
 
       protected:
+        // The discount amount.
+        // 
+        // > This parameter is not applicable to the China site.
         shared_ptr<string> canPromFee_ {};
+        // The promotion rule description.
         shared_ptr<string> optionCode_ {};
+        // The coupon description.
         shared_ptr<string> promotionDesc_ {};
+        // The coupon name.
         shared_ptr<string> promotionName_ {};
+        // The coupon code.
         shared_ptr<string> promotionOptionNo_ {};
       };
 
@@ -176,11 +183,13 @@ namespace Models
     protected:
       // The currency.
       shared_ptr<string> currency_ {};
+      // The coupon codes.
       shared_ptr<vector<Data::OptionalPromotions>> optionalPromotions_ {};
+      // The unit price results of billing items.
       shared_ptr<map<string, string>> pricingRules_ {};
-      // The estimated refund amount when you change the billing method of a subscription cluster to pay-as-you-go.
+      // The estimated refund amount when converting a subscription cluster to a pay-as-you-go cluster under a subscription instance.
       shared_ptr<string> refundAmount_ {};
-      // The amount.
+      // The trade amount.
       shared_ptr<string> tradeAmount_ {};
     };
 
@@ -203,7 +212,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response data.
     shared_ptr<GetModifyBEClusterInquiryResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

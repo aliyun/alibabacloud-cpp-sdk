@@ -72,6 +72,8 @@ namespace Selectdb20230522
       Models::CheckCreateDBInstanceResponse checkCreateDBInstance(const Models::CheckCreateDBInstanceRequest &request);
 
       /**
+       * @summary Checks whether a specified IP address already exists in a network whitelist group.
+       *
        * @param request CheckIpExistsInSecurityIpListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CheckIpExistsInSecurityIpListResponse
@@ -79,6 +81,8 @@ namespace Selectdb20230522
       Models::CheckIpExistsInSecurityIpListResponse checkIpExistsInSecurityIpListWithOptions(const Models::CheckIpExistsInSecurityIpListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Checks whether a specified IP address already exists in a network whitelist group.
+       *
        * @param request CheckIpExistsInSecurityIpListRequest
        * @return CheckIpExistsInSecurityIpListResponse
        */
@@ -391,7 +395,7 @@ namespace Selectdb20230522
       Models::DescribeDBClusterStorageLimitationResponse describeDBClusterStorageLimitation(const Models::DescribeDBClusterStorageLimitationRequest &request);
 
       /**
-       * @summary Gets the details of a specified instance.
+       * @summary Queries the details of an instance.
        *
        * @param request DescribeDBInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -400,7 +404,7 @@ namespace Selectdb20230522
       Models::DescribeDBInstanceAttributeResponse describeDBInstanceAttributeWithOptions(const Models::DescribeDBInstanceAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the details of a specified instance.
+       * @summary Queries the details of an instance.
        *
        * @param request DescribeDBInstanceAttributeRequest
        * @return DescribeDBInstanceAttributeResponse
@@ -556,7 +560,7 @@ namespace Selectdb20230522
       Models::DescribeSlowQueryStatsResponse describeSlowQueryStats(const Models::DescribeSlowQueryStatsRequest &request);
 
       /**
-       * @summary 获取表结构
+       * @summary Retrieves the CREATE TABLE statement.
        *
        * @param request DescribeTableSchemaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -565,7 +569,7 @@ namespace Selectdb20230522
       Models::DescribeTableSchemaResponse describeTableSchemaWithOptions(const Models::DescribeTableSchemaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取表结构
+       * @summary Retrieves the CREATE TABLE statement.
        *
        * @param request DescribeTableSchemaRequest
        * @return DescribeTableSchemaResponse
@@ -641,7 +645,7 @@ namespace Selectdb20230522
       Models::GetCreateBEClusterInquiryResponse getCreateBEClusterInquiry(const Models::GetCreateBEClusterInquiryRequest &request);
 
       /**
-       * @summary Retrieves the pricing information for creating a new cluster in a specified ApsaraDB for SelectDB instance.
+       * @summary Retrieves pricing information when creating a cluster under a specified ApsaraDB for SelectDB instance.
        *
        * @param request GetModifyBEClusterInquiryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -650,7 +654,7 @@ namespace Selectdb20230522
       Models::GetModifyBEClusterInquiryResponse getModifyBEClusterInquiryWithOptions(const Models::GetModifyBEClusterInquiryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the pricing information for creating a new cluster in a specified ApsaraDB for SelectDB instance.
+       * @summary Retrieves pricing information when creating a cluster under a specified ApsaraDB for SelectDB instance.
        *
        * @param request GetModifyBEClusterInquiryRequest
        * @return GetModifyBEClusterInquiryResponse
