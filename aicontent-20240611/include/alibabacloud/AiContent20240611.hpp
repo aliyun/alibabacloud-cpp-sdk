@@ -745,6 +745,96 @@ namespace AiContent20240611
       Models::ModelRouterBatchBindModelGroupResponse modelRouterBatchBindModelGroup(const Models::ModelRouterBatchBindModelGroupRequest &request);
 
       /**
+       * @summary Batch creates API keys for members under a department in organization management.
+       *
+       * @param request ModelRouterBatchCreateMemberApiKeysRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterBatchCreateMemberApiKeysResponse
+       */
+      Models::ModelRouterBatchCreateMemberApiKeysResponse modelRouterBatchCreateMemberApiKeysWithOptions(const string &id, const Models::ModelRouterBatchCreateMemberApiKeysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Batch creates API keys for members under a department in organization management.
+       *
+       * @param request ModelRouterBatchCreateMemberApiKeysRequest
+       * @return ModelRouterBatchCreateMemberApiKeysResponse
+       */
+      Models::ModelRouterBatchCreateMemberApiKeysResponse modelRouterBatchCreateMemberApiKeys(const string &id, const Models::ModelRouterBatchCreateMemberApiKeysRequest &request);
+
+      /**
+       * @summary Manages models by performing batch model creation.
+       *
+       * @param request ModelRouterBatchCreateModelRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterBatchCreateModelResponse
+       */
+      Models::ModelRouterBatchCreateModelResponse modelRouterBatchCreateModelWithOptions(const Models::ModelRouterBatchCreateModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Manages models by performing batch model creation.
+       *
+       * @param request ModelRouterBatchCreateModelRequest
+       * @return ModelRouterBatchCreateModelResponse
+       */
+      Models::ModelRouterBatchCreateModelResponse modelRouterBatchCreateModel(const Models::ModelRouterBatchCreateModelRequest &request);
+
+      /**
+       * @summary Disables API keys in batches for members under a department in organization management.
+       *
+       * @param request ModelRouterBatchDisableMemberApiKeysRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterBatchDisableMemberApiKeysResponse
+       */
+      Models::ModelRouterBatchDisableMemberApiKeysResponse modelRouterBatchDisableMemberApiKeysWithOptions(const string &id, const Models::ModelRouterBatchDisableMemberApiKeysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Disables API keys in batches for members under a department in organization management.
+       *
+       * @param request ModelRouterBatchDisableMemberApiKeysRequest
+       * @return ModelRouterBatchDisableMemberApiKeysResponse
+       */
+      Models::ModelRouterBatchDisableMemberApiKeysResponse modelRouterBatchDisableMemberApiKeys(const string &id, const Models::ModelRouterBatchDisableMemberApiKeysRequest &request);
+
+      /**
+       * @summary Batch resets member authorizations to inherit under a department in organization management.
+       *
+       * @param request ModelRouterBatchResetMemberAuthorizationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterBatchResetMemberAuthorizationResponse
+       */
+      Models::ModelRouterBatchResetMemberAuthorizationResponse modelRouterBatchResetMemberAuthorizationWithOptions(const string &id, const Models::ModelRouterBatchResetMemberAuthorizationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Batch resets member authorizations to inherit under a department in organization management.
+       *
+       * @param request ModelRouterBatchResetMemberAuthorizationRequest
+       * @return ModelRouterBatchResetMemberAuthorizationResponse
+       */
+      Models::ModelRouterBatchResetMemberAuthorizationResponse modelRouterBatchResetMemberAuthorization(const string &id, const Models::ModelRouterBatchResetMemberAuthorizationRequest &request);
+
+      /**
+       * @summary Sets authorization for multiple members under a department in batch.
+       *
+       * @param request ModelRouterBatchSetMemberAuthorizationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterBatchSetMemberAuthorizationResponse
+       */
+      Models::ModelRouterBatchSetMemberAuthorizationResponse modelRouterBatchSetMemberAuthorizationWithOptions(const string &id, const Models::ModelRouterBatchSetMemberAuthorizationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Sets authorization for multiple members under a department in batch.
+       *
+       * @param request ModelRouterBatchSetMemberAuthorizationRequest
+       * @return ModelRouterBatchSetMemberAuthorizationResponse
+       */
+      Models::ModelRouterBatchSetMemberAuthorizationResponse modelRouterBatchSetMemberAuthorization(const string &id, const Models::ModelRouterBatchSetMemberAuthorizationRequest &request);
+
+      /**
        * @summary Retrieves the usage monitoring tab configuration.
        *
        * @param request ModelRouterBillingCostTabsRequest
@@ -807,6 +897,24 @@ namespace AiContent20240611
        * @return ModelRouterConfigureClientBalanceResponse
        */
       Models::ModelRouterConfigureClientBalanceResponse modelRouterConfigureClientBalance(const string &id, const Models::ModelRouterConfigureClientBalanceRequest &request);
+
+      /**
+       * @summary 组织管理/配置成员子钱包余额
+       *
+       * @param request ModelRouterConfigureMemberBalanceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterConfigureMemberBalanceResponse
+       */
+      Models::ModelRouterConfigureMemberBalanceResponse modelRouterConfigureMemberBalanceWithOptions(const string &clientId, const string &id, const Models::ModelRouterConfigureMemberBalanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 组织管理/配置成员子钱包余额
+       *
+       * @param request ModelRouterConfigureMemberBalanceRequest
+       * @return ModelRouterConfigureMemberBalanceResponse
+       */
+      Models::ModelRouterConfigureMemberBalanceResponse modelRouterConfigureMemberBalance(const string &clientId, const string &id, const Models::ModelRouterConfigureMemberBalanceRequest &request);
 
       /**
        * @summary Copies an API key.
@@ -915,6 +1023,60 @@ namespace AiContent20240611
       Models::ModelRouterCreateConversationResponse modelRouterCreateConversation(const Models::ModelRouterCreateConversationRequest &request);
 
       /**
+       * @summary Creates an API key for a member in the organization.
+       *
+       * @param request ModelRouterCreateMemberApiKeyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterCreateMemberApiKeyResponse
+       */
+      Models::ModelRouterCreateMemberApiKeyResponse modelRouterCreateMemberApiKeyWithOptions(const string &clientId, const string &id, const Models::ModelRouterCreateMemberApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an API key for a member in the organization.
+       *
+       * @param request ModelRouterCreateMemberApiKeyRequest
+       * @return ModelRouterCreateMemberApiKeyResponse
+       */
+      Models::ModelRouterCreateMemberApiKeyResponse modelRouterCreateMemberApiKey(const string &clientId, const string &id, const Models::ModelRouterCreateMemberApiKeyRequest &request);
+
+      /**
+       * @summary Performs a balance transaction on a member sub-wallet in organization management.
+       *
+       * @param request ModelRouterCreateMemberBalanceTransactionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterCreateMemberBalanceTransactionResponse
+       */
+      Models::ModelRouterCreateMemberBalanceTransactionResponse modelRouterCreateMemberBalanceTransactionWithOptions(const string &clientId, const string &id, const Models::ModelRouterCreateMemberBalanceTransactionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Performs a balance transaction on a member sub-wallet in organization management.
+       *
+       * @param request ModelRouterCreateMemberBalanceTransactionRequest
+       * @return ModelRouterCreateMemberBalanceTransactionResponse
+       */
+      Models::ModelRouterCreateMemberBalanceTransactionResponse modelRouterCreateMemberBalanceTransaction(const string &clientId, const string &id, const Models::ModelRouterCreateMemberBalanceTransactionRequest &request);
+
+      /**
+       * @summary Creates a balance subscription for a member in an organization.
+       *
+       * @param request ModelRouterCreateMemberSubscriptionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterCreateMemberSubscriptionResponse
+       */
+      Models::ModelRouterCreateMemberSubscriptionResponse modelRouterCreateMemberSubscriptionWithOptions(const string &clientId, const string &id, const Models::ModelRouterCreateMemberSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a balance subscription for a member in an organization.
+       *
+       * @param request ModelRouterCreateMemberSubscriptionRequest
+       * @return ModelRouterCreateMemberSubscriptionResponse
+       */
+      Models::ModelRouterCreateMemberSubscriptionResponse modelRouterCreateMemberSubscription(const string &clientId, const string &id, const Models::ModelRouterCreateMemberSubscriptionRequest &request);
+
+      /**
        * @summary Performs model creation.
        *
        * @param request ModelRouterCreateModelRequest
@@ -971,6 +1133,28 @@ namespace AiContent20240611
        * @return ModelRouterCreateSubscriptionResponse
        */
       Models::ModelRouterCreateSubscriptionResponse modelRouterCreateSubscription(const string &id, const Models::ModelRouterCreateSubscriptionRequest &request);
+
+      /**
+       * @summary Creates a user.
+       *
+       * @description Creates a user.
+       *
+       * @param request ModelRouterCreateUserRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterCreateUserResponse
+       */
+      Models::ModelRouterCreateUserResponse modelRouterCreateUserWithOptions(const Models::ModelRouterCreateUserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a user.
+       *
+       * @description Creates a user.
+       *
+       * @param request ModelRouterCreateUserRequest
+       * @return ModelRouterCreateUserResponse
+       */
+      Models::ModelRouterCreateUserResponse modelRouterCreateUser(const Models::ModelRouterCreateUserRequest &request);
 
       /**
        * @summary Deletes an API key.
@@ -1059,6 +1243,42 @@ namespace AiContent20240611
       Models::ModelRouterDeleteModelGroupResponse modelRouterDeleteModelGroup(const string &groupId, const Models::ModelRouterDeleteModelGroupRequest &request);
 
       /**
+       * @summary Deletes a user.
+       *
+       * @param request ModelRouterDeleteUserRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterDeleteUserResponse
+       */
+      Models::ModelRouterDeleteUserResponse modelRouterDeleteUserWithOptions(const string &id, const Models::ModelRouterDeleteUserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a user.
+       *
+       * @param request ModelRouterDeleteUserRequest
+       * @return ModelRouterDeleteUserResponse
+       */
+      Models::ModelRouterDeleteUserResponse modelRouterDeleteUser(const string &id, const Models::ModelRouterDeleteUserRequest &request);
+
+      /**
+       * @summary Exports the balance change records of a member in the organization.
+       *
+       * @param request ModelRouterExportMemberBalanceOrdersRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterExportMemberBalanceOrdersResponse
+       */
+      Models::ModelRouterExportMemberBalanceOrdersResponse modelRouterExportMemberBalanceOrdersWithOptions(const string &clientId, const string &id, const Models::ModelRouterExportMemberBalanceOrdersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Exports the balance change records of a member in the organization.
+       *
+       * @param request ModelRouterExportMemberBalanceOrdersRequest
+       * @return ModelRouterExportMemberBalanceOrdersResponse
+       */
+      Models::ModelRouterExportMemberBalanceOrdersResponse modelRouterExportMemberBalanceOrders(const string &clientId, const string &id, const Models::ModelRouterExportMemberBalanceOrdersRequest &request);
+
+      /**
        * @summary Client Management/Get department balance
        *
        * @param request ModelRouterGetClientBalanceRequest
@@ -1095,6 +1315,100 @@ namespace AiContent20240611
       Models::ModelRouterGetClientBalanceLogsResponse modelRouterGetClientBalanceLogs(const string &id, const Models::ModelRouterGetClientBalanceLogsRequest &request);
 
       /**
+       * @summary 组织管理/获取部门余额概览
+       *
+       * @param request ModelRouterGetDeptBalanceSummaryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterGetDeptBalanceSummaryResponse
+       */
+      Models::ModelRouterGetDeptBalanceSummaryResponse modelRouterGetDeptBalanceSummaryWithOptions(const string &id, const Models::ModelRouterGetDeptBalanceSummaryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 组织管理/获取部门余额概览
+       *
+       * @param request ModelRouterGetDeptBalanceSummaryRequest
+       * @return ModelRouterGetDeptBalanceSummaryResponse
+       */
+      Models::ModelRouterGetDeptBalanceSummaryResponse modelRouterGetDeptBalanceSummary(const string &id, const Models::ModelRouterGetDeptBalanceSummaryRequest &request);
+
+      /**
+       * @summary Retrieves the list of API keys for a member in the organization.
+       *
+       * @param request ModelRouterGetMemberApiKeysRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterGetMemberApiKeysResponse
+       */
+      Models::ModelRouterGetMemberApiKeysResponse modelRouterGetMemberApiKeysWithOptions(const string &clientId, const string &id, const Models::ModelRouterGetMemberApiKeysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the list of API keys for a member in the organization.
+       *
+       * @param request ModelRouterGetMemberApiKeysRequest
+       * @return ModelRouterGetMemberApiKeysResponse
+       */
+      Models::ModelRouterGetMemberApiKeysResponse modelRouterGetMemberApiKeys(const string &clientId, const string &id, const Models::ModelRouterGetMemberApiKeysRequest &request);
+
+      /**
+       * @summary 组织管理/获取成员子钱包余额
+       *
+       * @param request ModelRouterGetMemberBalanceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterGetMemberBalanceResponse
+       */
+      Models::ModelRouterGetMemberBalanceResponse modelRouterGetMemberBalanceWithOptions(const string &clientId, const string &id, const Models::ModelRouterGetMemberBalanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 组织管理/获取成员子钱包余额
+       *
+       * @param request ModelRouterGetMemberBalanceRequest
+       * @return ModelRouterGetMemberBalanceResponse
+       */
+      Models::ModelRouterGetMemberBalanceResponse modelRouterGetMemberBalance(const string &clientId, const string &id, const Models::ModelRouterGetMemberBalanceRequest &request);
+
+      /**
+       * @summary 组织管理/获取成员余额变更日志
+       *
+       * @param request ModelRouterGetMemberBalanceLogsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterGetMemberBalanceLogsResponse
+       */
+      Models::ModelRouterGetMemberBalanceLogsResponse modelRouterGetMemberBalanceLogsWithOptions(const string &clientId, const string &id, const Models::ModelRouterGetMemberBalanceLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 组织管理/获取成员余额变更日志
+       *
+       * @param request ModelRouterGetMemberBalanceLogsRequest
+       * @return ModelRouterGetMemberBalanceLogsResponse
+       */
+      Models::ModelRouterGetMemberBalanceLogsResponse modelRouterGetMemberBalanceLogs(const string &clientId, const string &id, const Models::ModelRouterGetMemberBalanceLogsRequest &request);
+
+      /**
+       * @summary Queries the cross-department role assignments of a user.
+       *
+       * @description Queries the role assignments of a user.
+       *
+       * @param request ModelRouterGetUserRolesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterGetUserRolesResponse
+       */
+      Models::ModelRouterGetUserRolesResponse modelRouterGetUserRolesWithOptions(const string &id, const Models::ModelRouterGetUserRolesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the cross-department role assignments of a user.
+       *
+       * @description Queries the role assignments of a user.
+       *
+       * @param request ModelRouterGetUserRolesRequest
+       * @return ModelRouterGetUserRolesResponse
+       */
+      Models::ModelRouterGetUserRolesResponse modelRouterGetUserRoles(const string &id, const Models::ModelRouterGetUserRolesRequest &request);
+
+      /**
        * @summary Queries balance change records.
        *
        * @description This API operation is deprecated. Do not use it.
@@ -1115,6 +1429,60 @@ namespace AiContent20240611
        * @return ModelRouterListBalanceOrdersResponse
        */
       Models::ModelRouterListBalanceOrdersResponse modelRouterListBalanceOrders(const string &id, const Models::ModelRouterListBalanceOrdersRequest &request);
+
+      /**
+       * @summary 组织管理/获取部门成员列表
+       *
+       * @param request ModelRouterListDeptMembersRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterListDeptMembersResponse
+       */
+      Models::ModelRouterListDeptMembersResponse modelRouterListDeptMembersWithOptions(const string &id, const Models::ModelRouterListDeptMembersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 组织管理/获取部门成员列表
+       *
+       * @param request ModelRouterListDeptMembersRequest
+       * @return ModelRouterListDeptMembersResponse
+       */
+      Models::ModelRouterListDeptMembersResponse modelRouterListDeptMembers(const string &id, const Models::ModelRouterListDeptMembersRequest &request);
+
+      /**
+       * @summary 组织管理/获取成员余额变更记录
+       *
+       * @param request ModelRouterListMemberBalanceOrdersRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterListMemberBalanceOrdersResponse
+       */
+      Models::ModelRouterListMemberBalanceOrdersResponse modelRouterListMemberBalanceOrdersWithOptions(const string &clientId, const string &id, const Models::ModelRouterListMemberBalanceOrdersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 组织管理/获取成员余额变更记录
+       *
+       * @param request ModelRouterListMemberBalanceOrdersRequest
+       * @return ModelRouterListMemberBalanceOrdersResponse
+       */
+      Models::ModelRouterListMemberBalanceOrdersResponse modelRouterListMemberBalanceOrders(const string &clientId, const string &id, const Models::ModelRouterListMemberBalanceOrdersRequest &request);
+
+      /**
+       * @summary 组织管理/获取成员订阅列表
+       *
+       * @param request ModelRouterListMemberSubscriptionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterListMemberSubscriptionsResponse
+       */
+      Models::ModelRouterListMemberSubscriptionsResponse modelRouterListMemberSubscriptionsWithOptions(const string &clientId, const string &id, const Models::ModelRouterListMemberSubscriptionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 组织管理/获取成员订阅列表
+       *
+       * @param request ModelRouterListMemberSubscriptionsRequest
+       * @return ModelRouterListMemberSubscriptionsResponse
+       */
+      Models::ModelRouterListMemberSubscriptionsResponse modelRouterListMemberSubscriptions(const string &clientId, const string &id, const Models::ModelRouterListMemberSubscriptionsRequest &request);
 
       /**
        * @summary Queries the list of periodic recharge subscriptions.
@@ -1173,7 +1541,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryApiKeyListResponse modelRouterQueryApiKeyList(const Models::ModelRouterQueryApiKeyListRequest &request);
 
       /**
-       * @summary Billing > Query billing cost breakdown
+       * @summary Queries billing details in batches.
        *
        * @param request ModelRouterQueryBillingCostBreakdownRequest
        * @param headers map
@@ -1183,7 +1551,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryBillingCostBreakdownResponse modelRouterQueryBillingCostBreakdownWithOptions(const Models::ModelRouterQueryBillingCostBreakdownRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Billing > Query billing cost breakdown
+       * @summary Queries billing details in batches.
        *
        * @param request ModelRouterQueryBillingCostBreakdownRequest
        * @return ModelRouterQueryBillingCostBreakdownResponse
@@ -1297,7 +1665,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryConversationListResponse modelRouterQueryConversationList(const Models::ModelRouterQueryConversationListRequest &request);
 
       /**
-       * @summary billing management / Model details
+       * @summary Retrieves the usage details of a model for billing management.
        *
        * @param request ModelRouterQueryCostModelDetailRequest
        * @param headers map
@@ -1307,7 +1675,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryCostModelDetailResponse modelRouterQueryCostModelDetailWithOptions(const Models::ModelRouterQueryCostModelDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary billing management / Model details
+       * @summary Retrieves the usage details of a model for billing management.
        *
        * @param request ModelRouterQueryCostModelDetailRequest
        * @return ModelRouterQueryCostModelDetailResponse
@@ -1315,7 +1683,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryCostModelDetailResponse modelRouterQueryCostModelDetail(const Models::ModelRouterQueryCostModelDetailRequest &request);
 
       /**
-       * @summary billing management / Retrieves a list of invoked models
+       * @summary Retrieves the list of models called for billing management.
        *
        * @param request ModelRouterQueryCostModelListRequest
        * @param headers map
@@ -1325,7 +1693,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryCostModelListResponse modelRouterQueryCostModelListWithOptions(const Models::ModelRouterQueryCostModelListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary billing management / Retrieves a list of invoked models
+       * @summary Retrieves the list of models called for billing management.
        *
        * @param request ModelRouterQueryCostModelListRequest
        * @return ModelRouterQueryCostModelListResponse
@@ -1333,7 +1701,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryCostModelListResponse modelRouterQueryCostModelList(const Models::ModelRouterQueryCostModelListRequest &request);
 
       /**
-       * @summary billing management / Get cost overview metrics
+       * @summary Retrieves cost overview metrics for billing management.
        *
        * @param request ModelRouterQueryCostOverviewMetricsRequest
        * @param headers map
@@ -1343,7 +1711,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryCostOverviewMetricsResponse modelRouterQueryCostOverviewMetricsWithOptions(const Models::ModelRouterQueryCostOverviewMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary billing management / Get cost overview metrics
+       * @summary Retrieves cost overview metrics for billing management.
        *
        * @param request ModelRouterQueryCostOverviewMetricsRequest
        * @return ModelRouterQueryCostOverviewMetricsResponse
@@ -1351,7 +1719,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryCostOverviewMetricsResponse modelRouterQueryCostOverviewMetrics(const Models::ModelRouterQueryCostOverviewMetricsRequest &request);
 
       /**
-       * @summary billing management / Cost trends
+       * @summary Retrieves usage cost trends.
        *
        * @param request ModelRouterQueryCostTrendMetricsRequest
        * @param headers map
@@ -1361,7 +1729,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryCostTrendMetricsResponse modelRouterQueryCostTrendMetricsWithOptions(const Models::ModelRouterQueryCostTrendMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary billing management / Cost trends
+       * @summary Retrieves usage cost trends.
        *
        * @param request ModelRouterQueryCostTrendMetricsRequest
        * @return ModelRouterQueryCostTrendMetricsResponse
@@ -1473,9 +1841,31 @@ namespace AiContent20240611
       Models::ModelRouterQueryModelGroupModelsResponse modelRouterQueryModelGroupModels(const string &groupId, const Models::ModelRouterQueryModelGroupModelsRequest &request);
 
       /**
-       * @summary Lists the model groups and models bound to a specified API key.
+       * @summary Queries the users attached to a model group by paging.
        *
-       * @description Queries the groups and models bound to a specified API key.
+       * @description Queries the users attached to a model group by paging.
+       *
+       * @param request ModelRouterQueryModelGroupUsersRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterQueryModelGroupUsersResponse
+       */
+      Models::ModelRouterQueryModelGroupUsersResponse modelRouterQueryModelGroupUsersWithOptions(const string &groupId, const Models::ModelRouterQueryModelGroupUsersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the users attached to a model group by paging.
+       *
+       * @description Queries the users attached to a model group by paging.
+       *
+       * @param request ModelRouterQueryModelGroupUsersRequest
+       * @return ModelRouterQueryModelGroupUsersResponse
+       */
+      Models::ModelRouterQueryModelGroupUsersResponse modelRouterQueryModelGroupUsers(const string &groupId, const Models::ModelRouterQueryModelGroupUsersRequest &request);
+
+      /**
+       * @summary Queries the bound groups and models by API key.
+       *
+       * @description Queries the bound groups and models by API key.
        *
        * @param request ModelRouterQueryModelGroupsByApiKeyRequest
        * @param headers map
@@ -1485,9 +1875,9 @@ namespace AiContent20240611
       Models::ModelRouterQueryModelGroupsByApiKeyResponse modelRouterQueryModelGroupsByApiKeyWithOptions(const string &id, const Models::ModelRouterQueryModelGroupsByApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the model groups and models bound to a specified API key.
+       * @summary Queries the bound groups and models by API key.
        *
-       * @description Queries the groups and models bound to a specified API key.
+       * @description Queries the bound groups and models by API key.
        *
        * @param request ModelRouterQueryModelGroupsByApiKeyRequest
        * @return ModelRouterQueryModelGroupsByApiKeyResponse
@@ -1549,7 +1939,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryNacosTagsResponse modelRouterQueryNacosTags(const Models::ModelRouterQueryNacosTagsRequest &request);
 
       /**
-       * @summary Retrieves chart data for model observation.
+       * @summary Retrieves observation chart data for model monitoring.
        *
        * @param request ModelRouterQueryObservationChartsRequest
        * @param headers map
@@ -1559,7 +1949,7 @@ namespace AiContent20240611
       Models::ModelRouterQueryObservationChartsResponse modelRouterQueryObservationChartsWithOptions(const Models::ModelRouterQueryObservationChartsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves chart data for model observation.
+       * @summary Retrieves observation chart data for model monitoring.
        *
        * @param request ModelRouterQueryObservationChartsRequest
        * @return ModelRouterQueryObservationChartsResponse
@@ -1621,6 +2011,46 @@ namespace AiContent20240611
       Models::ModelRouterQueryUsageBreakdownResponse modelRouterQueryUsageBreakdown(const Models::ModelRouterQueryUsageBreakdownRequest &request);
 
       /**
+       * @summary Queries the list of users.
+       *
+       * @description Queries the list of users.
+       *
+       * @param request ModelRouterQueryUserListRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterQueryUserListResponse
+       */
+      Models::ModelRouterQueryUserListResponse modelRouterQueryUserListWithOptions(const Models::ModelRouterQueryUserListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of users.
+       *
+       * @description Queries the list of users.
+       *
+       * @param request ModelRouterQueryUserListRequest
+       * @return ModelRouterQueryUserListResponse
+       */
+      Models::ModelRouterQueryUserListResponse modelRouterQueryUserList(const Models::ModelRouterQueryUserListRequest &request);
+
+      /**
+       * @summary Resets the authorization of a member to inherit from the organization.
+       *
+       * @param request ModelRouterResetMemberAuthorizationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterResetMemberAuthorizationResponse
+       */
+      Models::ModelRouterResetMemberAuthorizationResponse modelRouterResetMemberAuthorizationWithOptions(const string &clientId, const string &id, const Models::ModelRouterResetMemberAuthorizationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Resets the authorization of a member to inherit from the organization.
+       *
+       * @param request ModelRouterResetMemberAuthorizationRequest
+       * @return ModelRouterResetMemberAuthorizationResponse
+       */
+      Models::ModelRouterResetMemberAuthorizationResponse modelRouterResetMemberAuthorization(const string &clientId, const string &id, const Models::ModelRouterResetMemberAuthorizationRequest &request);
+
+      /**
        * @summary Flow control management / Save flow control configuration
        *
        * @param request ModelRouterSaveFlowConfigRequest
@@ -1639,6 +2069,82 @@ namespace AiContent20240611
       Models::ModelRouterSaveFlowConfigResponse modelRouterSaveFlowConfig(const Models::ModelRouterSaveFlowConfigRequest &request);
 
       /**
+       * @summary 组织管理/部门树搜索定位
+       *
+       * @param request ModelRouterSearchClientTreeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterSearchClientTreeResponse
+       */
+      Models::ModelRouterSearchClientTreeResponse modelRouterSearchClientTreeWithOptions(const Models::ModelRouterSearchClientTreeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 组织管理/部门树搜索定位
+       *
+       * @param request ModelRouterSearchClientTreeRequest
+       * @return ModelRouterSearchClientTreeResponse
+       */
+      Models::ModelRouterSearchClientTreeResponse modelRouterSearchClientTree(const Models::ModelRouterSearchClientTreeRequest &request);
+
+      /**
+       * @summary Sets the member authorization model for an organization.
+       *
+       * @param request ModelRouterSetMemberAuthorizationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterSetMemberAuthorizationResponse
+       */
+      Models::ModelRouterSetMemberAuthorizationResponse modelRouterSetMemberAuthorizationWithOptions(const string &clientId, const string &id, const Models::ModelRouterSetMemberAuthorizationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Sets the member authorization model for an organization.
+       *
+       * @param request ModelRouterSetMemberAuthorizationRequest
+       * @return ModelRouterSetMemberAuthorizationResponse
+       */
+      Models::ModelRouterSetMemberAuthorizationResponse modelRouterSetMemberAuthorization(const string &clientId, const string &id, const Models::ModelRouterSetMemberAuthorizationRequest &request);
+
+      /**
+       * @summary Sets user roles or changes the department to which a user belongs.
+       *
+       * @description Sets user roles or changes the department to which a user belongs.
+       *
+       * @param request ModelRouterSetUserRolesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterSetUserRolesResponse
+       */
+      Models::ModelRouterSetUserRolesResponse modelRouterSetUserRolesWithOptions(const string &id, const Models::ModelRouterSetUserRolesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Sets user roles or changes the department to which a user belongs.
+       *
+       * @description Sets user roles or changes the department to which a user belongs.
+       *
+       * @param request ModelRouterSetUserRolesRequest
+       * @return ModelRouterSetUserRolesResponse
+       */
+      Models::ModelRouterSetUserRolesResponse modelRouterSetUserRoles(const string &id, const Models::ModelRouterSetUserRolesRequest &request);
+
+      /**
+       * @summary 组织管理/停止成员订阅
+       *
+       * @param request ModelRouterStopMemberSubscriptionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterStopMemberSubscriptionResponse
+       */
+      Models::ModelRouterStopMemberSubscriptionResponse modelRouterStopMemberSubscriptionWithOptions(const string &clientId, const string &id, const Models::ModelRouterStopMemberSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 组织管理/停止成员订阅
+       *
+       * @param request ModelRouterStopMemberSubscriptionRequest
+       * @return ModelRouterStopMemberSubscriptionResponse
+       */
+      Models::ModelRouterStopMemberSubscriptionResponse modelRouterStopMemberSubscription(const string &clientId, const string &id, const Models::ModelRouterStopMemberSubscriptionRequest &request);
+
+      /**
        * @summary Stops a periodic recharge subscription for customer management.
        *
        * @param request ModelRouterStopSubscriptionRequest
@@ -1655,6 +2161,24 @@ namespace AiContent20240611
        * @return ModelRouterStopSubscriptionResponse
        */
       Models::ModelRouterStopSubscriptionResponse modelRouterStopSubscription(const string &id, const Models::ModelRouterStopSubscriptionRequest &request);
+
+      /**
+       * @summary 组织管理/部门向成员转账
+       *
+       * @param request ModelRouterTransferToMemberRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterTransferToMemberResponse
+       */
+      Models::ModelRouterTransferToMemberResponse modelRouterTransferToMemberWithOptions(const string &clientId, const string &id, const Models::ModelRouterTransferToMemberRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 组织管理/部门向成员转账
+       *
+       * @param request ModelRouterTransferToMemberRequest
+       * @return ModelRouterTransferToMemberResponse
+       */
+      Models::ModelRouterTransferToMemberResponse modelRouterTransferToMember(const string &clientId, const string &id, const Models::ModelRouterTransferToMemberRequest &request);
 
       /**
        * @summary Billing management/Update billing rules
@@ -1749,6 +2273,28 @@ namespace AiContent20240611
        * @return ModelRouterUpdateModelGroupResponse
        */
       Models::ModelRouterUpdateModelGroupResponse modelRouterUpdateModelGroup(const string &groupId, const Models::ModelRouterUpdateModelGroupRequest &request);
+
+      /**
+       * @summary Updates user information.
+       *
+       * @description Updates user information.
+       *
+       * @param request ModelRouterUpdateUserRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterUpdateUserResponse
+       */
+      Models::ModelRouterUpdateUserResponse modelRouterUpdateUserWithOptions(const string &id, const Models::ModelRouterUpdateUserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates user information.
+       *
+       * @description Updates user information.
+       *
+       * @param request ModelRouterUpdateUserRequest
+       * @return ModelRouterUpdateUserResponse
+       */
+      Models::ModelRouterUpdateUserResponse modelRouterUpdateUser(const string &id, const Models::ModelRouterUpdateUserRequest &request);
 
       /**
        * @summary Personalized text-to-image: Create image inference tasks using a pre-trained model.

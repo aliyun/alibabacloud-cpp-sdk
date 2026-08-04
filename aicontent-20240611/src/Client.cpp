@@ -2513,6 +2513,255 @@ ModelRouterBatchBindModelGroupResponse Client::modelRouterBatchBindModelGroup(co
 }
 
 /**
+ * @summary Batch creates API keys for members under a department in organization management.
+ *
+ * @param request ModelRouterBatchCreateMemberApiKeysRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterBatchCreateMemberApiKeysResponse
+ */
+ModelRouterBatchCreateMemberApiKeysResponse Client::modelRouterBatchCreateMemberApiKeysWithOptions(const string &id, const ModelRouterBatchCreateMemberApiKeysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasExpireAt()) {
+    body["expireAt"] = request.getExpireAt();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasUserIds()) {
+    body["userIds"] = request.getUserIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterBatchCreateMemberApiKeys"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(id) , "/member-apikeys")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterBatchCreateMemberApiKeysResponse>();
+}
+
+/**
+ * @summary Batch creates API keys for members under a department in organization management.
+ *
+ * @param request ModelRouterBatchCreateMemberApiKeysRequest
+ * @return ModelRouterBatchCreateMemberApiKeysResponse
+ */
+ModelRouterBatchCreateMemberApiKeysResponse Client::modelRouterBatchCreateMemberApiKeys(const string &id, const ModelRouterBatchCreateMemberApiKeysRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterBatchCreateMemberApiKeysWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary Manages models by performing batch model creation.
+ *
+ * @param request ModelRouterBatchCreateModelRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterBatchCreateModelResponse
+ */
+ModelRouterBatchCreateModelResponse Client::modelRouterBatchCreateModelWithOptions(const ModelRouterBatchCreateModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasApiKey()) {
+    body["apiKey"] = request.getApiKey();
+  }
+
+  if (!!request.hasBaseUrl()) {
+    body["baseUrl"] = request.getBaseUrl();
+  }
+
+  if (!!request.hasModels()) {
+    body["models"] = request.getModels();
+  }
+
+  if (!!request.hasSymbol()) {
+    body["symbol"] = request.getSymbol();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterBatchCreateModel"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/models/batch")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterBatchCreateModelResponse>();
+}
+
+/**
+ * @summary Manages models by performing batch model creation.
+ *
+ * @param request ModelRouterBatchCreateModelRequest
+ * @return ModelRouterBatchCreateModelResponse
+ */
+ModelRouterBatchCreateModelResponse Client::modelRouterBatchCreateModel(const ModelRouterBatchCreateModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterBatchCreateModelWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Disables API keys in batches for members under a department in organization management.
+ *
+ * @param request ModelRouterBatchDisableMemberApiKeysRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterBatchDisableMemberApiKeysResponse
+ */
+ModelRouterBatchDisableMemberApiKeysResponse Client::modelRouterBatchDisableMemberApiKeysWithOptions(const string &id, const ModelRouterBatchDisableMemberApiKeysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasUserIds()) {
+    body["userIds"] = request.getUserIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterBatchDisableMemberApiKeys"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(id) , "/member-apikeys/disable")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterBatchDisableMemberApiKeysResponse>();
+}
+
+/**
+ * @summary Disables API keys in batches for members under a department in organization management.
+ *
+ * @param request ModelRouterBatchDisableMemberApiKeysRequest
+ * @return ModelRouterBatchDisableMemberApiKeysResponse
+ */
+ModelRouterBatchDisableMemberApiKeysResponse Client::modelRouterBatchDisableMemberApiKeys(const string &id, const ModelRouterBatchDisableMemberApiKeysRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterBatchDisableMemberApiKeysWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary Batch resets member authorizations to inherit under a department in organization management.
+ *
+ * @param request ModelRouterBatchResetMemberAuthorizationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterBatchResetMemberAuthorizationResponse
+ */
+ModelRouterBatchResetMemberAuthorizationResponse Client::modelRouterBatchResetMemberAuthorizationWithOptions(const string &id, const ModelRouterBatchResetMemberAuthorizationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasUserIds()) {
+    body["userIds"] = request.getUserIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterBatchResetMemberAuthorization"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(id) , "/member-authorizations/reset")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterBatchResetMemberAuthorizationResponse>();
+}
+
+/**
+ * @summary Batch resets member authorizations to inherit under a department in organization management.
+ *
+ * @param request ModelRouterBatchResetMemberAuthorizationRequest
+ * @return ModelRouterBatchResetMemberAuthorizationResponse
+ */
+ModelRouterBatchResetMemberAuthorizationResponse Client::modelRouterBatchResetMemberAuthorization(const string &id, const ModelRouterBatchResetMemberAuthorizationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterBatchResetMemberAuthorizationWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary Sets authorization for multiple members under a department in batch.
+ *
+ * @param request ModelRouterBatchSetMemberAuthorizationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterBatchSetMemberAuthorizationResponse
+ */
+ModelRouterBatchSetMemberAuthorizationResponse Client::modelRouterBatchSetMemberAuthorizationWithOptions(const string &id, const ModelRouterBatchSetMemberAuthorizationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAllowedModelGroupConfig()) {
+    body["allowedModelGroupConfig"] = request.getAllowedModelGroupConfig();
+  }
+
+  if (!!request.hasUserIdList()) {
+    body["userIdList"] = request.getUserIdList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterBatchSetMemberAuthorization"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(id) , "/member-authorizations")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterBatchSetMemberAuthorizationResponse>();
+}
+
+/**
+ * @summary Sets authorization for multiple members under a department in batch.
+ *
+ * @param request ModelRouterBatchSetMemberAuthorizationRequest
+ * @return ModelRouterBatchSetMemberAuthorizationResponse
+ */
+ModelRouterBatchSetMemberAuthorizationResponse Client::modelRouterBatchSetMemberAuthorization(const string &id, const ModelRouterBatchSetMemberAuthorizationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterBatchSetMemberAuthorizationWithOptions(id, request, headers, runtime);
+}
+
+/**
  * @summary Retrieves the usage monitoring tab configuration.
  *
  * @param request ModelRouterBillingCostTabsRequest
@@ -2694,6 +2943,59 @@ ModelRouterConfigureClientBalanceResponse Client::modelRouterConfigureClientBala
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterConfigureClientBalanceWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary 组织管理/配置成员子钱包余额
+ *
+ * @param request ModelRouterConfigureMemberBalanceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterConfigureMemberBalanceResponse
+ */
+ModelRouterConfigureMemberBalanceResponse Client::modelRouterConfigureMemberBalanceWithOptions(const string &clientId, const string &id, const ModelRouterConfigureMemberBalanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBalanceType()) {
+    body["balanceType"] = request.getBalanceType();
+  }
+
+  if (!!request.hasEnableBalance()) {
+    body["enableBalance"] = request.getEnableBalance();
+  }
+
+  if (!!request.hasInitialBalance()) {
+    body["initialBalance"] = request.getInitialBalance();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterConfigureMemberBalance"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(clientId) , "/members/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterConfigureMemberBalanceResponse>();
+}
+
+/**
+ * @summary 组织管理/配置成员子钱包余额
+ *
+ * @param request ModelRouterConfigureMemberBalanceRequest
+ * @return ModelRouterConfigureMemberBalanceResponse
+ */
+ModelRouterConfigureMemberBalanceResponse Client::modelRouterConfigureMemberBalance(const string &clientId, const string &id, const ModelRouterConfigureMemberBalanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterConfigureMemberBalanceWithOptions(clientId, id, request, headers, runtime);
 }
 
 /**
@@ -3030,6 +3332,173 @@ ModelRouterCreateConversationResponse Client::modelRouterCreateConversation(cons
 }
 
 /**
+ * @summary Creates an API key for a member in the organization.
+ *
+ * @param request ModelRouterCreateMemberApiKeyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterCreateMemberApiKeyResponse
+ */
+ModelRouterCreateMemberApiKeyResponse Client::modelRouterCreateMemberApiKeyWithOptions(const string &clientId, const string &id, const ModelRouterCreateMemberApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasExpireAt()) {
+    body["expireAt"] = request.getExpireAt();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterCreateMemberApiKey"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(clientId) , "/members/" , Darabonba::Encode::Encoder::percentEncode(id) , "/apikeys")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterCreateMemberApiKeyResponse>();
+}
+
+/**
+ * @summary Creates an API key for a member in the organization.
+ *
+ * @param request ModelRouterCreateMemberApiKeyRequest
+ * @return ModelRouterCreateMemberApiKeyResponse
+ */
+ModelRouterCreateMemberApiKeyResponse Client::modelRouterCreateMemberApiKey(const string &clientId, const string &id, const ModelRouterCreateMemberApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterCreateMemberApiKeyWithOptions(clientId, id, request, headers, runtime);
+}
+
+/**
+ * @summary Performs a balance transaction on a member sub-wallet in organization management.
+ *
+ * @param request ModelRouterCreateMemberBalanceTransactionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterCreateMemberBalanceTransactionResponse
+ */
+ModelRouterCreateMemberBalanceTransactionResponse Client::modelRouterCreateMemberBalanceTransactionWithOptions(const string &clientId, const string &id, const ModelRouterCreateMemberBalanceTransactionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAmount()) {
+    body["amount"] = request.getAmount();
+  }
+
+  if (!!request.hasBalanceType()) {
+    body["balanceType"] = request.getBalanceType();
+  }
+
+  if (!!request.hasIdempotencyKey()) {
+    body["idempotencyKey"] = request.getIdempotencyKey();
+  }
+
+  if (!!request.hasRemark()) {
+    body["remark"] = request.getRemark();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterCreateMemberBalanceTransaction"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(clientId) , "/members/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance/transactions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterCreateMemberBalanceTransactionResponse>();
+}
+
+/**
+ * @summary Performs a balance transaction on a member sub-wallet in organization management.
+ *
+ * @param request ModelRouterCreateMemberBalanceTransactionRequest
+ * @return ModelRouterCreateMemberBalanceTransactionResponse
+ */
+ModelRouterCreateMemberBalanceTransactionResponse Client::modelRouterCreateMemberBalanceTransaction(const string &clientId, const string &id, const ModelRouterCreateMemberBalanceTransactionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterCreateMemberBalanceTransactionWithOptions(clientId, id, request, headers, runtime);
+}
+
+/**
+ * @summary Creates a balance subscription for a member in an organization.
+ *
+ * @param request ModelRouterCreateMemberSubscriptionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterCreateMemberSubscriptionResponse
+ */
+ModelRouterCreateMemberSubscriptionResponse Client::modelRouterCreateMemberSubscriptionWithOptions(const string &clientId, const string &id, const ModelRouterCreateMemberSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAmount()) {
+    body["amount"] = request.getAmount();
+  }
+
+  if (!!request.hasBalanceType()) {
+    body["balanceType"] = request.getBalanceType();
+  }
+
+  if (!!request.hasEffectiveTime()) {
+    body["effectiveTime"] = request.getEffectiveTime();
+  }
+
+  if (!!request.hasIdempotencyKey()) {
+    body["idempotencyKey"] = request.getIdempotencyKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterCreateMemberSubscription"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(clientId) , "/members/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance/subscription")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterCreateMemberSubscriptionResponse>();
+}
+
+/**
+ * @summary Creates a balance subscription for a member in an organization.
+ *
+ * @param request ModelRouterCreateMemberSubscriptionRequest
+ * @return ModelRouterCreateMemberSubscriptionResponse
+ */
+ModelRouterCreateMemberSubscriptionResponse Client::modelRouterCreateMemberSubscription(const string &clientId, const string &id, const ModelRouterCreateMemberSubscriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterCreateMemberSubscriptionWithOptions(clientId, id, request, headers, runtime);
+}
+
+/**
  * @summary Performs model creation.
  *
  * @param request ModelRouterCreateModelRequest
@@ -3229,6 +3698,67 @@ ModelRouterCreateSubscriptionResponse Client::modelRouterCreateSubscription(cons
 }
 
 /**
+ * @summary Creates a user.
+ *
+ * @description Creates a user.
+ *
+ * @param request ModelRouterCreateUserRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterCreateUserResponse
+ */
+ModelRouterCreateUserResponse Client::modelRouterCreateUserWithOptions(const ModelRouterCreateUserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDepartmentRoles()) {
+    body["departmentRoles"] = request.getDepartmentRoles();
+  }
+
+  if (!!request.hasLoginName()) {
+    body["loginName"] = request.getLoginName();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasPhone()) {
+    body["phone"] = request.getPhone();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterCreateUser"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/users")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterCreateUserResponse>();
+}
+
+/**
+ * @summary Creates a user.
+ *
+ * @description Creates a user.
+ *
+ * @param request ModelRouterCreateUserRequest
+ * @return ModelRouterCreateUserResponse
+ */
+ModelRouterCreateUserResponse Client::modelRouterCreateUser(const ModelRouterCreateUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterCreateUserWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Deletes an API key.
  *
  * @param headers map
@@ -3416,6 +3946,94 @@ ModelRouterDeleteModelGroupResponse Client::modelRouterDeleteModelGroup(const st
 }
 
 /**
+ * @summary Deletes a user.
+ *
+ * @param request ModelRouterDeleteUserRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterDeleteUserResponse
+ */
+ModelRouterDeleteUserResponse Client::modelRouterDeleteUserWithOptions(const string &id, const ModelRouterDeleteUserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterDeleteUser"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/users/" , Darabonba::Encode::Encoder::percentEncode(id))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterDeleteUserResponse>();
+}
+
+/**
+ * @summary Deletes a user.
+ *
+ * @param request ModelRouterDeleteUserRequest
+ * @return ModelRouterDeleteUserResponse
+ */
+ModelRouterDeleteUserResponse Client::modelRouterDeleteUser(const string &id, const ModelRouterDeleteUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterDeleteUserWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary Exports the balance change records of a member in the organization.
+ *
+ * @param request ModelRouterExportMemberBalanceOrdersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterExportMemberBalanceOrdersResponse
+ */
+ModelRouterExportMemberBalanceOrdersResponse Client::modelRouterExportMemberBalanceOrdersWithOptions(const string &clientId, const string &id, const ModelRouterExportMemberBalanceOrdersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBalanceType()) {
+    query["balanceType"] = request.getBalanceType();
+  }
+
+  if (!!request.hasDirection()) {
+    query["direction"] = request.getDirection();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterExportMemberBalanceOrders"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(clientId) , "/members/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance/orders/export")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterExportMemberBalanceOrdersResponse>();
+}
+
+/**
+ * @summary Exports the balance change records of a member in the organization.
+ *
+ * @param request ModelRouterExportMemberBalanceOrdersRequest
+ * @return ModelRouterExportMemberBalanceOrdersResponse
+ */
+ModelRouterExportMemberBalanceOrdersResponse Client::modelRouterExportMemberBalanceOrders(const string &clientId, const string &id, const ModelRouterExportMemberBalanceOrdersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterExportMemberBalanceOrdersWithOptions(clientId, id, request, headers, runtime);
+}
+
+/**
  * @summary Client Management/Get department balance
  *
  * @param request ModelRouterGetClientBalanceRequest
@@ -3516,6 +4134,237 @@ ModelRouterGetClientBalanceLogsResponse Client::modelRouterGetClientBalanceLogs(
 }
 
 /**
+ * @summary 组织管理/获取部门余额概览
+ *
+ * @param request ModelRouterGetDeptBalanceSummaryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterGetDeptBalanceSummaryResponse
+ */
+ModelRouterGetDeptBalanceSummaryResponse Client::modelRouterGetDeptBalanceSummaryWithOptions(const string &id, const ModelRouterGetDeptBalanceSummaryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterGetDeptBalanceSummary"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance-summary")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterGetDeptBalanceSummaryResponse>();
+}
+
+/**
+ * @summary 组织管理/获取部门余额概览
+ *
+ * @param request ModelRouterGetDeptBalanceSummaryRequest
+ * @return ModelRouterGetDeptBalanceSummaryResponse
+ */
+ModelRouterGetDeptBalanceSummaryResponse Client::modelRouterGetDeptBalanceSummary(const string &id, const ModelRouterGetDeptBalanceSummaryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterGetDeptBalanceSummaryWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the list of API keys for a member in the organization.
+ *
+ * @param request ModelRouterGetMemberApiKeysRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterGetMemberApiKeysResponse
+ */
+ModelRouterGetMemberApiKeysResponse Client::modelRouterGetMemberApiKeysWithOptions(const string &clientId, const string &id, const ModelRouterGetMemberApiKeysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyword()) {
+    query["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPageIndex()) {
+    query["pageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterGetMemberApiKeys"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(clientId) , "/members/" , Darabonba::Encode::Encoder::percentEncode(id) , "/apikeys")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterGetMemberApiKeysResponse>();
+}
+
+/**
+ * @summary Retrieves the list of API keys for a member in the organization.
+ *
+ * @param request ModelRouterGetMemberApiKeysRequest
+ * @return ModelRouterGetMemberApiKeysResponse
+ */
+ModelRouterGetMemberApiKeysResponse Client::modelRouterGetMemberApiKeys(const string &clientId, const string &id, const ModelRouterGetMemberApiKeysRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterGetMemberApiKeysWithOptions(clientId, id, request, headers, runtime);
+}
+
+/**
+ * @summary 组织管理/获取成员子钱包余额
+ *
+ * @param request ModelRouterGetMemberBalanceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterGetMemberBalanceResponse
+ */
+ModelRouterGetMemberBalanceResponse Client::modelRouterGetMemberBalanceWithOptions(const string &clientId, const string &id, const ModelRouterGetMemberBalanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterGetMemberBalance"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(clientId) , "/members/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterGetMemberBalanceResponse>();
+}
+
+/**
+ * @summary 组织管理/获取成员子钱包余额
+ *
+ * @param request ModelRouterGetMemberBalanceRequest
+ * @return ModelRouterGetMemberBalanceResponse
+ */
+ModelRouterGetMemberBalanceResponse Client::modelRouterGetMemberBalance(const string &clientId, const string &id, const ModelRouterGetMemberBalanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterGetMemberBalanceWithOptions(clientId, id, request, headers, runtime);
+}
+
+/**
+ * @summary 组织管理/获取成员余额变更日志
+ *
+ * @param request ModelRouterGetMemberBalanceLogsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterGetMemberBalanceLogsResponse
+ */
+ModelRouterGetMemberBalanceLogsResponse Client::modelRouterGetMemberBalanceLogsWithOptions(const string &clientId, const string &id, const ModelRouterGetMemberBalanceLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChangeType()) {
+    query["changeType"] = request.getChangeType();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.getPage();
+  }
+
+  if (!!request.hasSize()) {
+    query["size"] = request.getSize();
+  }
+
+  if (!!request.hasSkipTotal()) {
+    query["skipTotal"] = request.getSkipTotal();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterGetMemberBalanceLogs"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(clientId) , "/members/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance/logs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterGetMemberBalanceLogsResponse>();
+}
+
+/**
+ * @summary 组织管理/获取成员余额变更日志
+ *
+ * @param request ModelRouterGetMemberBalanceLogsRequest
+ * @return ModelRouterGetMemberBalanceLogsResponse
+ */
+ModelRouterGetMemberBalanceLogsResponse Client::modelRouterGetMemberBalanceLogs(const string &clientId, const string &id, const ModelRouterGetMemberBalanceLogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterGetMemberBalanceLogsWithOptions(clientId, id, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the cross-department role assignments of a user.
+ *
+ * @description Queries the role assignments of a user.
+ *
+ * @param request ModelRouterGetUserRolesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterGetUserRolesResponse
+ */
+ModelRouterGetUserRolesResponse Client::modelRouterGetUserRolesWithOptions(const string &id, const ModelRouterGetUserRolesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterGetUserRoles"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/users/" , Darabonba::Encode::Encoder::percentEncode(id) , "/roles")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterGetUserRolesResponse>();
+}
+
+/**
+ * @summary Queries the cross-department role assignments of a user.
+ *
+ * @description Queries the role assignments of a user.
+ *
+ * @param request ModelRouterGetUserRolesRequest
+ * @return ModelRouterGetUserRolesResponse
+ */
+ModelRouterGetUserRolesResponse Client::modelRouterGetUserRoles(const string &id, const ModelRouterGetUserRolesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterGetUserRolesWithOptions(id, request, headers, runtime);
+}
+
+/**
  * @summary Queries balance change records.
  *
  * @description This API operation is deprecated. Do not use it.
@@ -3586,6 +4435,175 @@ ModelRouterListBalanceOrdersResponse Client::modelRouterListBalanceOrders(const 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterListBalanceOrdersWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary 组织管理/获取部门成员列表
+ *
+ * @param request ModelRouterListDeptMembersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterListDeptMembersResponse
+ */
+ModelRouterListDeptMembersResponse Client::modelRouterListDeptMembersWithOptions(const string &id, const ModelRouterListDeptMembersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthConfig()) {
+    query["authConfig"] = request.getAuthConfig();
+  }
+
+  if (!!request.hasIncludeAuthorization()) {
+    query["includeAuthorization"] = request.getIncludeAuthorization();
+  }
+
+  if (!!request.hasIncludeBalance()) {
+    query["includeBalance"] = request.getIncludeBalance();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasModel()) {
+    query["model"] = request.getModel();
+  }
+
+  if (!!request.hasPageIndex()) {
+    query["pageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterListDeptMembers"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(id) , "/members")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterListDeptMembersResponse>();
+}
+
+/**
+ * @summary 组织管理/获取部门成员列表
+ *
+ * @param request ModelRouterListDeptMembersRequest
+ * @return ModelRouterListDeptMembersResponse
+ */
+ModelRouterListDeptMembersResponse Client::modelRouterListDeptMembers(const string &id, const ModelRouterListDeptMembersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterListDeptMembersWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary 组织管理/获取成员余额变更记录
+ *
+ * @param request ModelRouterListMemberBalanceOrdersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterListMemberBalanceOrdersResponse
+ */
+ModelRouterListMemberBalanceOrdersResponse Client::modelRouterListMemberBalanceOrdersWithOptions(const string &clientId, const string &id, const ModelRouterListMemberBalanceOrdersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBalanceType()) {
+    query["balanceType"] = request.getBalanceType();
+  }
+
+  if (!!request.hasDirection()) {
+    query["direction"] = request.getDirection();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["orderType"] = request.getOrderType();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterListMemberBalanceOrders"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(clientId) , "/members/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance/orders")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterListMemberBalanceOrdersResponse>();
+}
+
+/**
+ * @summary 组织管理/获取成员余额变更记录
+ *
+ * @param request ModelRouterListMemberBalanceOrdersRequest
+ * @return ModelRouterListMemberBalanceOrdersResponse
+ */
+ModelRouterListMemberBalanceOrdersResponse Client::modelRouterListMemberBalanceOrders(const string &clientId, const string &id, const ModelRouterListMemberBalanceOrdersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterListMemberBalanceOrdersWithOptions(clientId, id, request, headers, runtime);
+}
+
+/**
+ * @summary 组织管理/获取成员订阅列表
+ *
+ * @param request ModelRouterListMemberSubscriptionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterListMemberSubscriptionsResponse
+ */
+ModelRouterListMemberSubscriptionsResponse Client::modelRouterListMemberSubscriptionsWithOptions(const string &clientId, const string &id, const ModelRouterListMemberSubscriptionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterListMemberSubscriptions"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(clientId) , "/members/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance/subscription")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterListMemberSubscriptionsResponse>();
+}
+
+/**
+ * @summary 组织管理/获取成员订阅列表
+ *
+ * @param request ModelRouterListMemberSubscriptionsRequest
+ * @return ModelRouterListMemberSubscriptionsResponse
+ */
+ModelRouterListMemberSubscriptionsResponse Client::modelRouterListMemberSubscriptions(const string &clientId, const string &id, const ModelRouterListMemberSubscriptionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterListMemberSubscriptionsWithOptions(clientId, id, request, headers, runtime);
 }
 
 /**
@@ -3704,12 +4722,20 @@ ModelRouterQueryApiKeyListResponse Client::modelRouterQueryApiKeyListWithOptions
     query["groupBy"] = request.getGroupBy();
   }
 
+  if (!!request.hasIncludeMemberKeys()) {
+    query["includeMemberKeys"] = request.getIncludeMemberKeys();
+  }
+
   if (!!request.hasKeyword()) {
     query["keyword"] = request.getKeyword();
   }
 
   if (!!request.hasMaxResults()) {
     query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasMemberUserIds()) {
+    query["memberUserIds"] = request.getMemberUserIds();
   }
 
   if (!!request.hasNeedTotalCount()) {
@@ -3771,7 +4797,7 @@ ModelRouterQueryApiKeyListResponse Client::modelRouterQueryApiKeyList(const Mode
 }
 
 /**
- * @summary Billing > Query billing cost breakdown
+ * @summary Queries billing details in batches.
  *
  * @param request ModelRouterQueryBillingCostBreakdownRequest
  * @param headers map
@@ -3799,6 +4825,10 @@ ModelRouterQueryBillingCostBreakdownResponse Client::modelRouterQueryBillingCost
 
   if (!!request.hasMaxResults()) {
     query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasMemberUserIds()) {
+    query["memberUserIds"] = request.getMemberUserIds();
   }
 
   if (!!request.hasModelId()) {
@@ -3844,7 +4874,7 @@ ModelRouterQueryBillingCostBreakdownResponse Client::modelRouterQueryBillingCost
 }
 
 /**
- * @summary Billing > Query billing cost breakdown
+ * @summary Queries billing details in batches.
  *
  * @param request ModelRouterQueryBillingCostBreakdownRequest
  * @return ModelRouterQueryBillingCostBreakdownResponse
@@ -4026,6 +5056,10 @@ ModelRouterQueryClientListResponse Client::modelRouterQueryClientListWithOptions
 
   if (!!request.hasPageSize()) {
     query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasParentId()) {
+    query["parentId"] = request.getParentId();
   }
 
   if (!!request.hasStatus()) {
@@ -4229,7 +5263,7 @@ ModelRouterQueryConversationListResponse Client::modelRouterQueryConversationLis
 }
 
 /**
- * @summary billing management / Model details
+ * @summary Retrieves the usage details of a model for billing management.
  *
  * @param request ModelRouterQueryCostModelDetailRequest
  * @param headers map
@@ -4253,6 +5287,10 @@ ModelRouterQueryCostModelDetailResponse Client::modelRouterQueryCostModelDetailW
 
   if (!!request.hasMaxResults()) {
     query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasMemberUserIds()) {
+    query["memberUserIds"] = request.getMemberUserIds();
   }
 
   if (!!request.hasModelId()) {
@@ -4298,7 +5336,7 @@ ModelRouterQueryCostModelDetailResponse Client::modelRouterQueryCostModelDetailW
 }
 
 /**
- * @summary billing management / Model details
+ * @summary Retrieves the usage details of a model for billing management.
  *
  * @param request ModelRouterQueryCostModelDetailRequest
  * @return ModelRouterQueryCostModelDetailResponse
@@ -4310,7 +5348,7 @@ ModelRouterQueryCostModelDetailResponse Client::modelRouterQueryCostModelDetail(
 }
 
 /**
- * @summary billing management / Retrieves a list of invoked models
+ * @summary Retrieves the list of models called for billing management.
  *
  * @param request ModelRouterQueryCostModelListRequest
  * @param headers map
@@ -4338,6 +5376,10 @@ ModelRouterQueryCostModelListResponse Client::modelRouterQueryCostModelListWithO
 
   if (!!request.hasMaxResults()) {
     query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasMemberUserIds()) {
+    query["memberUserIds"] = request.getMemberUserIds();
   }
 
   if (!!request.hasModelTypes()) {
@@ -4375,7 +5417,7 @@ ModelRouterQueryCostModelListResponse Client::modelRouterQueryCostModelListWithO
 }
 
 /**
- * @summary billing management / Retrieves a list of invoked models
+ * @summary Retrieves the list of models called for billing management.
  *
  * @param request ModelRouterQueryCostModelListRequest
  * @return ModelRouterQueryCostModelListResponse
@@ -4387,7 +5429,7 @@ ModelRouterQueryCostModelListResponse Client::modelRouterQueryCostModelList(cons
 }
 
 /**
- * @summary billing management / Get cost overview metrics
+ * @summary Retrieves cost overview metrics for billing management.
  *
  * @param request ModelRouterQueryCostOverviewMetricsRequest
  * @param headers map
@@ -4415,6 +5457,10 @@ ModelRouterQueryCostOverviewMetricsResponse Client::modelRouterQueryCostOverview
 
   if (!!request.hasMaxResults()) {
     query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasMemberUserIds()) {
+    query["memberUserIds"] = request.getMemberUserIds();
   }
 
   if (!!request.hasModelTypes()) {
@@ -4448,7 +5494,7 @@ ModelRouterQueryCostOverviewMetricsResponse Client::modelRouterQueryCostOverview
 }
 
 /**
- * @summary billing management / Get cost overview metrics
+ * @summary Retrieves cost overview metrics for billing management.
  *
  * @param request ModelRouterQueryCostOverviewMetricsRequest
  * @return ModelRouterQueryCostOverviewMetricsResponse
@@ -4460,7 +5506,7 @@ ModelRouterQueryCostOverviewMetricsResponse Client::modelRouterQueryCostOverview
 }
 
 /**
- * @summary billing management / Cost trends
+ * @summary Retrieves usage cost trends.
  *
  * @param request ModelRouterQueryCostTrendMetricsRequest
  * @param headers map
@@ -4488,6 +5534,10 @@ ModelRouterQueryCostTrendMetricsResponse Client::modelRouterQueryCostTrendMetric
 
   if (!!request.hasMaxResults()) {
     query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasMemberUserIds()) {
+    query["memberUserIds"] = request.getMemberUserIds();
   }
 
   if (!!request.hasModelTypes()) {
@@ -4521,7 +5571,7 @@ ModelRouterQueryCostTrendMetricsResponse Client::modelRouterQueryCostTrendMetric
 }
 
 /**
- * @summary billing management / Cost trends
+ * @summary Retrieves usage cost trends.
  *
  * @param request ModelRouterQueryCostTrendMetricsRequest
  * @return ModelRouterQueryCostTrendMetricsResponse
@@ -4807,9 +5857,70 @@ ModelRouterQueryModelGroupModelsResponse Client::modelRouterQueryModelGroupModel
 }
 
 /**
- * @summary Lists the model groups and models bound to a specified API key.
+ * @summary Queries the users attached to a model group by paging.
  *
- * @description Queries the groups and models bound to a specified API key.
+ * @description Queries the users attached to a model group by paging.
+ *
+ * @param request ModelRouterQueryModelGroupUsersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterQueryModelGroupUsersResponse
+ */
+ModelRouterQueryModelGroupUsersResponse Client::modelRouterQueryModelGroupUsersWithOptions(const string &groupId, const ModelRouterQueryModelGroupUsersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageIndex()) {
+    query["pageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterQueryModelGroupUsers"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/model-groups/" , Darabonba::Encode::Encoder::percentEncode(groupId) , "/users")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterQueryModelGroupUsersResponse>();
+}
+
+/**
+ * @summary Queries the users attached to a model group by paging.
+ *
+ * @description Queries the users attached to a model group by paging.
+ *
+ * @param request ModelRouterQueryModelGroupUsersRequest
+ * @return ModelRouterQueryModelGroupUsersResponse
+ */
+ModelRouterQueryModelGroupUsersResponse Client::modelRouterQueryModelGroupUsers(const string &groupId, const ModelRouterQueryModelGroupUsersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterQueryModelGroupUsersWithOptions(groupId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the bound groups and models by API key.
+ *
+ * @description Queries the bound groups and models by API key.
  *
  * @param request ModelRouterQueryModelGroupsByApiKeyRequest
  * @param headers map
@@ -4836,9 +5947,9 @@ ModelRouterQueryModelGroupsByApiKeyResponse Client::modelRouterQueryModelGroupsB
 }
 
 /**
- * @summary Lists the model groups and models bound to a specified API key.
+ * @summary Queries the bound groups and models by API key.
  *
- * @description Queries the groups and models bound to a specified API key.
+ * @description Queries the bound groups and models by API key.
  *
  * @param request ModelRouterQueryModelGroupsByApiKeyRequest
  * @return ModelRouterQueryModelGroupsByApiKeyResponse
@@ -5085,7 +6196,7 @@ ModelRouterQueryNacosTagsResponse Client::modelRouterQueryNacosTags(const ModelR
 }
 
 /**
- * @summary Retrieves chart data for model observation.
+ * @summary Retrieves observation chart data for model monitoring.
  *
  * @param request ModelRouterQueryObservationChartsRequest
  * @param headers map
@@ -5105,6 +6216,10 @@ ModelRouterQueryObservationChartsResponse Client::modelRouterQueryObservationCha
 
   if (!!request.hasEndTime()) {
     query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasMemberUserIds()) {
+    query["memberUserIds"] = request.getMemberUserIds();
   }
 
   if (!!request.hasModelId()) {
@@ -5138,7 +6253,7 @@ ModelRouterQueryObservationChartsResponse Client::modelRouterQueryObservationCha
 }
 
 /**
- * @summary Retrieves chart data for model observation.
+ * @summary Retrieves observation chart data for model monitoring.
  *
  * @param request ModelRouterQueryObservationChartsRequest
  * @return ModelRouterQueryObservationChartsResponse
@@ -5178,6 +6293,10 @@ ModelRouterQueryObservationLogsResponse Client::modelRouterQueryObservationLogsW
 
   if (!!request.hasMaxResults()) {
     query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasMemberUserIds()) {
+    query["memberUserIds"] = request.getMemberUserIds();
   }
 
   if (!!request.hasModelId()) {
@@ -5277,6 +6396,10 @@ ModelRouterQueryObservationMetricsResponse Client::modelRouterQueryObservationMe
     query["maxResults"] = request.getMaxResults();
   }
 
+  if (!!request.hasMemberUserIds()) {
+    query["memberUserIds"] = request.getMemberUserIds();
+  }
+
   if (!!request.hasModelId()) {
     query["modelId"] = request.getModelId();
   }
@@ -5374,6 +6497,10 @@ ModelRouterQueryUsageBreakdownResponse Client::modelRouterQueryUsageBreakdownWit
     query["maxResults"] = request.getMaxResults();
   }
 
+  if (!!request.hasMemberUserIds()) {
+    query["memberUserIds"] = request.getMemberUserIds();
+  }
+
   if (!!request.hasNextToken()) {
     query["nextToken"] = request.getNextToken();
   }
@@ -5418,6 +6545,102 @@ ModelRouterQueryUsageBreakdownResponse Client::modelRouterQueryUsageBreakdown(co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterQueryUsageBreakdownWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the list of users.
+ *
+ * @description Queries the list of users.
+ *
+ * @param request ModelRouterQueryUserListRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterQueryUserListResponse
+ */
+ModelRouterQueryUserListResponse Client::modelRouterQueryUserListWithOptions(const ModelRouterQueryUserListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyword()) {
+    query["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPageIndex()) {
+    query["pageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterQueryUserList"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/users")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterQueryUserListResponse>();
+}
+
+/**
+ * @summary Queries the list of users.
+ *
+ * @description Queries the list of users.
+ *
+ * @param request ModelRouterQueryUserListRequest
+ * @return ModelRouterQueryUserListResponse
+ */
+ModelRouterQueryUserListResponse Client::modelRouterQueryUserList(const ModelRouterQueryUserListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterQueryUserListWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Resets the authorization of a member to inherit from the organization.
+ *
+ * @param request ModelRouterResetMemberAuthorizationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterResetMemberAuthorizationResponse
+ */
+ModelRouterResetMemberAuthorizationResponse Client::modelRouterResetMemberAuthorizationWithOptions(const string &clientId, const string &id, const ModelRouterResetMemberAuthorizationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterResetMemberAuthorization"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(clientId) , "/members/" , Darabonba::Encode::Encoder::percentEncode(id) , "/authorization")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterResetMemberAuthorizationResponse>();
+}
+
+/**
+ * @summary Resets the authorization of a member to inherit from the organization.
+ *
+ * @param request ModelRouterResetMemberAuthorizationRequest
+ * @return ModelRouterResetMemberAuthorizationResponse
+ */
+ModelRouterResetMemberAuthorizationResponse Client::modelRouterResetMemberAuthorization(const string &clientId, const string &id, const ModelRouterResetMemberAuthorizationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterResetMemberAuthorizationWithOptions(clientId, id, request, headers, runtime);
 }
 
 /**
@@ -5478,6 +6701,194 @@ ModelRouterSaveFlowConfigResponse Client::modelRouterSaveFlowConfig(const ModelR
 }
 
 /**
+ * @summary 组织管理/部门树搜索定位
+ *
+ * @param request ModelRouterSearchClientTreeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterSearchClientTreeResponse
+ */
+ModelRouterSearchClientTreeResponse Client::modelRouterSearchClientTreeWithOptions(const ModelRouterSearchClientTreeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyword()) {
+    query["keyword"] = request.getKeyword();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterSearchClientTree"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/tree/search")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterSearchClientTreeResponse>();
+}
+
+/**
+ * @summary 组织管理/部门树搜索定位
+ *
+ * @param request ModelRouterSearchClientTreeRequest
+ * @return ModelRouterSearchClientTreeResponse
+ */
+ModelRouterSearchClientTreeResponse Client::modelRouterSearchClientTree(const ModelRouterSearchClientTreeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterSearchClientTreeWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Sets the member authorization model for an organization.
+ *
+ * @param request ModelRouterSetMemberAuthorizationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterSetMemberAuthorizationResponse
+ */
+ModelRouterSetMemberAuthorizationResponse Client::modelRouterSetMemberAuthorizationWithOptions(const string &clientId, const string &id, const ModelRouterSetMemberAuthorizationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAllowedModelGroupConfig()) {
+    body["allowedModelGroupConfig"] = request.getAllowedModelGroupConfig();
+  }
+
+  if (!!request.hasAllowedModels()) {
+    body["allowedModels"] = request.getAllowedModels();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterSetMemberAuthorization"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(clientId) , "/members/" , Darabonba::Encode::Encoder::percentEncode(id) , "/authorization")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterSetMemberAuthorizationResponse>();
+}
+
+/**
+ * @summary Sets the member authorization model for an organization.
+ *
+ * @param request ModelRouterSetMemberAuthorizationRequest
+ * @return ModelRouterSetMemberAuthorizationResponse
+ */
+ModelRouterSetMemberAuthorizationResponse Client::modelRouterSetMemberAuthorization(const string &clientId, const string &id, const ModelRouterSetMemberAuthorizationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterSetMemberAuthorizationWithOptions(clientId, id, request, headers, runtime);
+}
+
+/**
+ * @summary Sets user roles or changes the department to which a user belongs.
+ *
+ * @description Sets user roles or changes the department to which a user belongs.
+ *
+ * @param request ModelRouterSetUserRolesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterSetUserRolesResponse
+ */
+ModelRouterSetUserRolesResponse Client::modelRouterSetUserRolesWithOptions(const string &id, const ModelRouterSetUserRolesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDepartmentRoles()) {
+    body["departmentRoles"] = request.getDepartmentRoles();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterSetUserRoles"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/users/" , Darabonba::Encode::Encoder::percentEncode(id) , "/roles")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterSetUserRolesResponse>();
+}
+
+/**
+ * @summary Sets user roles or changes the department to which a user belongs.
+ *
+ * @description Sets user roles or changes the department to which a user belongs.
+ *
+ * @param request ModelRouterSetUserRolesRequest
+ * @return ModelRouterSetUserRolesResponse
+ */
+ModelRouterSetUserRolesResponse Client::modelRouterSetUserRoles(const string &id, const ModelRouterSetUserRolesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterSetUserRolesWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary 组织管理/停止成员订阅
+ *
+ * @param request ModelRouterStopMemberSubscriptionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterStopMemberSubscriptionResponse
+ */
+ModelRouterStopMemberSubscriptionResponse Client::modelRouterStopMemberSubscriptionWithOptions(const string &clientId, const string &id, const ModelRouterStopMemberSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBalanceType()) {
+    body["balanceType"] = request.getBalanceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterStopMemberSubscription"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(clientId) , "/members/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance/subscription/stop")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterStopMemberSubscriptionResponse>();
+}
+
+/**
+ * @summary 组织管理/停止成员订阅
+ *
+ * @param request ModelRouterStopMemberSubscriptionRequest
+ * @return ModelRouterStopMemberSubscriptionResponse
+ */
+ModelRouterStopMemberSubscriptionResponse Client::modelRouterStopMemberSubscription(const string &clientId, const string &id, const ModelRouterStopMemberSubscriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterStopMemberSubscriptionWithOptions(clientId, id, request, headers, runtime);
+}
+
+/**
  * @summary Stops a periodic recharge subscription for customer management.
  *
  * @param request ModelRouterStopSubscriptionRequest
@@ -5520,6 +6931,67 @@ ModelRouterStopSubscriptionResponse Client::modelRouterStopSubscription(const st
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterStopSubscriptionWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary 组织管理/部门向成员转账
+ *
+ * @param request ModelRouterTransferToMemberRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterTransferToMemberResponse
+ */
+ModelRouterTransferToMemberResponse Client::modelRouterTransferToMemberWithOptions(const string &clientId, const string &id, const ModelRouterTransferToMemberRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAmount()) {
+    body["amount"] = request.getAmount();
+  }
+
+  if (!!request.hasBalanceType()) {
+    body["balanceType"] = request.getBalanceType();
+  }
+
+  if (!!request.hasIdempotencyKey()) {
+    body["idempotencyKey"] = request.getIdempotencyKey();
+  }
+
+  if (!!request.hasMonthlyQuota()) {
+    body["monthlyQuota"] = request.getMonthlyQuota();
+  }
+
+  if (!!request.hasRemark()) {
+    body["remark"] = request.getRemark();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterTransferToMember"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(clientId) , "/members/" , Darabonba::Encode::Encoder::percentEncode(id) , "/transfer")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterTransferToMemberResponse>();
+}
+
+/**
+ * @summary 组织管理/部门向成员转账
+ *
+ * @param request ModelRouterTransferToMemberRequest
+ * @return ModelRouterTransferToMemberResponse
+ */
+ModelRouterTransferToMemberResponse Client::modelRouterTransferToMember(const string &clientId, const string &id, const ModelRouterTransferToMemberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterTransferToMemberWithOptions(clientId, id, request, headers, runtime);
 }
 
 /**
@@ -5853,6 +7325,59 @@ ModelRouterUpdateModelGroupResponse Client::modelRouterUpdateModelGroup(const st
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterUpdateModelGroupWithOptions(groupId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates user information.
+ *
+ * @description Updates user information.
+ *
+ * @param request ModelRouterUpdateUserRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterUpdateUserResponse
+ */
+ModelRouterUpdateUserResponse Client::modelRouterUpdateUserWithOptions(const string &id, const ModelRouterUpdateUserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasPhone()) {
+    body["phone"] = request.getPhone();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterUpdateUser"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/users/" , Darabonba::Encode::Encoder::percentEncode(id))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterUpdateUserResponse>();
+}
+
+/**
+ * @summary Updates user information.
+ *
+ * @description Updates user information.
+ *
+ * @param request ModelRouterUpdateUserRequest
+ * @return ModelRouterUpdateUserResponse
+ */
+ModelRouterUpdateUserResponse Client::modelRouterUpdateUser(const string &id, const ModelRouterUpdateUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterUpdateUserWithOptions(id, request, headers, runtime);
 }
 
 /**

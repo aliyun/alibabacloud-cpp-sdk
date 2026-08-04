@@ -22,6 +22,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(id, id_);
       DARABONBA_PTR_TO_JSON(key, key_);
       DARABONBA_PTR_TO_JSON(keyPreview, keyPreview_);
+      DARABONBA_PTR_TO_JSON(memberUserId, memberUserId_);
+      DARABONBA_PTR_TO_JSON(memberUserName, memberUserName_);
       DARABONBA_PTR_TO_JSON(name, name_);
     };
     friend void from_json(const Darabonba::Json& j, ApiKeyDTO& obj) { 
@@ -33,6 +35,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(id, id_);
       DARABONBA_PTR_FROM_JSON(key, key_);
       DARABONBA_PTR_FROM_JSON(keyPreview, keyPreview_);
+      DARABONBA_PTR_FROM_JSON(memberUserId, memberUserId_);
+      DARABONBA_PTR_FROM_JSON(memberUserName, memberUserName_);
       DARABONBA_PTR_FROM_JSON(name, name_);
     };
     ApiKeyDTO() = default ;
@@ -48,7 +52,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->client_ == nullptr
         && this->clientId_ == nullptr && this->deleteTag_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr
-        && this->key_ == nullptr && this->keyPreview_ == nullptr && this->name_ == nullptr; };
+        && this->key_ == nullptr && this->keyPreview_ == nullptr && this->memberUserId_ == nullptr && this->memberUserName_ == nullptr && this->name_ == nullptr; };
     // client Field Functions 
     bool hasClient() const { return this->client_ != nullptr;};
     void deleteClient() { this->client_ = nullptr;};
@@ -107,6 +111,20 @@ namespace Models
     inline ApiKeyDTO& setKeyPreview(string keyPreview) { DARABONBA_PTR_SET_VALUE(keyPreview_, keyPreview) };
 
 
+    // memberUserId Field Functions 
+    bool hasMemberUserId() const { return this->memberUserId_ != nullptr;};
+    void deleteMemberUserId() { this->memberUserId_ = nullptr;};
+    inline int64_t getMemberUserId() const { DARABONBA_PTR_GET_DEFAULT(memberUserId_, 0L) };
+    inline ApiKeyDTO& setMemberUserId(int64_t memberUserId) { DARABONBA_PTR_SET_VALUE(memberUserId_, memberUserId) };
+
+
+    // memberUserName Field Functions 
+    bool hasMemberUserName() const { return this->memberUserName_ != nullptr;};
+    void deleteMemberUserName() { this->memberUserName_ = nullptr;};
+    inline string getMemberUserName() const { DARABONBA_PTR_GET_DEFAULT(memberUserName_, "") };
+    inline ApiKeyDTO& setMemberUserName(string memberUserName) { DARABONBA_PTR_SET_VALUE(memberUserName_, memberUserName) };
+
+
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
@@ -123,6 +141,8 @@ namespace Models
     shared_ptr<int64_t> id_ {};
     shared_ptr<string> key_ {};
     shared_ptr<string> keyPreview_ {};
+    shared_ptr<int64_t> memberUserId_ {};
+    shared_ptr<string> memberUserName_ {};
     shared_ptr<string> name_ {};
   };
 

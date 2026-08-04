@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(clientId, clientId_);
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(memberUserIds, memberUserIds_);
       DARABONBA_PTR_TO_JSON(modelId, modelId_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(page, page_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(clientId, clientId_);
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(memberUserIds, memberUserIds_);
       DARABONBA_PTR_FROM_JSON(modelId, modelId_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(page, page_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyId_ == nullptr
-        && this->clientId_ == nullptr && this->endTime_ == nullptr && this->maxResults_ == nullptr && this->modelId_ == nullptr && this->nextToken_ == nullptr
-        && this->page_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr; };
+        && this->clientId_ == nullptr && this->endTime_ == nullptr && this->maxResults_ == nullptr && this->memberUserIds_ == nullptr && this->modelId_ == nullptr
+        && this->nextToken_ == nullptr && this->page_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr; };
     // apiKeyId Field Functions 
     bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
     void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -76,6 +78,13 @@ namespace Models
     void deleteMaxResults() { this->maxResults_ = nullptr;};
     inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ModelRouterQueryCostModelDetailRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // memberUserIds Field Functions 
+    bool hasMemberUserIds() const { return this->memberUserIds_ != nullptr;};
+    void deleteMemberUserIds() { this->memberUserIds_ = nullptr;};
+    inline string getMemberUserIds() const { DARABONBA_PTR_GET_DEFAULT(memberUserIds_, "") };
+    inline ModelRouterQueryCostModelDetailRequest& setMemberUserIds(string memberUserIds) { DARABONBA_PTR_SET_VALUE(memberUserIds_, memberUserIds) };
 
 
     // modelId Field Functions 
@@ -121,28 +130,31 @@ namespace Models
 
 
   protected:
+    // Optional. Filters by API Key ID. This parameter is linked to the department and requires clientId to be specified first.
     shared_ptr<int64_t> apiKeyId_ {};
-    // The department ID by which to filter results.
+    // The department ID used to filter results.
     shared_ptr<int64_t> clientId_ {};
-    // The end of the time range to query, specified as a Unix timestamp in seconds.
+    // The end time, in UNIX timestamp (seconds).
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The maximum number of results to return per page. This parameter is recommended for pagination.
+    // maxResults
     shared_ptr<int32_t> maxResults_ {};
+    // Optional. Filters by member IDs. Separate multiple IDs with commas. If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+    shared_ptr<string> memberUserIds_ {};
     // The model ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> modelId_ {};
-    // The token to retrieve the next page of results. Obtain this token from the `nextToken` field in a previous response.
+    // nextToken
     shared_ptr<string> nextToken_ {};
-    // The page number. This parameter is part of an older pagination method. For better performance and consistency, use `maxResults` and `nextToken` instead.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> page_ {};
-    // The page number. This parameter is part of an older pagination method. For better performance and consistency, use `maxResults` and `nextToken` instead.
+    // The page number. This parameter takes priority over the page parameter.
     shared_ptr<int32_t> pageIndex_ {};
-    // The page size. Default: 20.
+    // The number of entries per page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The start of the time range to query, specified as a Unix timestamp in seconds.
+    // The start time, in UNIX timestamp (seconds).
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

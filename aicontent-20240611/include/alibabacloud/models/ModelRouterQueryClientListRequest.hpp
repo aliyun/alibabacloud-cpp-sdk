@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(orderDirection, orderDirection_);
       DARABONBA_PTR_TO_JSON(pageIndex, pageIndex_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(parentId, parentId_);
       DARABONBA_PTR_TO_JSON(status, status_);
     };
     friend void from_json(const Darabonba::Json& j, ModelRouterQueryClientListRequest& obj) { 
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(orderDirection, orderDirection_);
       DARABONBA_PTR_FROM_JSON(pageIndex, pageIndex_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(parentId, parentId_);
       DARABONBA_PTR_FROM_JSON(status, status_);
     };
     ModelRouterQueryClientListRequest() = default ;
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupBy_ == nullptr
         && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->needTotalCount_ == nullptr && this->nextToken_ == nullptr && this->orderBy_ == nullptr
-        && this->orderDirection_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr; };
+        && this->orderDirection_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->parentId_ == nullptr && this->status_ == nullptr; };
     // groupBy Field Functions 
     bool hasGroupBy() const { return this->groupBy_ != nullptr;};
     void deleteGroupBy() { this->groupBy_ = nullptr;};
@@ -113,6 +115,13 @@ namespace Models
     inline ModelRouterQueryClientListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // parentId Field Functions 
+    bool hasParentId() const { return this->parentId_ != nullptr;};
+    void deleteParentId() { this->parentId_ = nullptr;};
+    inline int64_t getParentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, 0L) };
+    inline ModelRouterQueryClientListRequest& setParentId(int64_t parentId) { DARABONBA_PTR_SET_VALUE(parentId_, parentId) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -139,6 +148,7 @@ namespace Models
     shared_ptr<int32_t> pageIndex_ {};
     // The number of entries to return per page.
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<int64_t> parentId_ {};
     // Filters the results by status.
     shared_ptr<int32_t> status_ {};
   };

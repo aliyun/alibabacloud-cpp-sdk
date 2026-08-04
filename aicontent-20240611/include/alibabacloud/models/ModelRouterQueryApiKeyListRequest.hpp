@@ -15,8 +15,10 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ModelRouterQueryApiKeyListRequest& obj) { 
       DARABONBA_PTR_TO_JSON(clientId, clientId_);
       DARABONBA_PTR_TO_JSON(groupBy, groupBy_);
+      DARABONBA_PTR_TO_JSON(includeMemberKeys, includeMemberKeys_);
       DARABONBA_PTR_TO_JSON(keyword, keyword_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(memberUserIds, memberUserIds_);
       DARABONBA_PTR_TO_JSON(needTotalCount, needTotalCount_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(orderBy, orderBy_);
@@ -28,8 +30,10 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ModelRouterQueryApiKeyListRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(clientId, clientId_);
       DARABONBA_PTR_FROM_JSON(groupBy, groupBy_);
+      DARABONBA_PTR_FROM_JSON(includeMemberKeys, includeMemberKeys_);
       DARABONBA_PTR_FROM_JSON(keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(memberUserIds, memberUserIds_);
       DARABONBA_PTR_FROM_JSON(needTotalCount, needTotalCount_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(orderBy, orderBy_);
@@ -50,8 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientId_ == nullptr
-        && this->groupBy_ == nullptr && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->needTotalCount_ == nullptr && this->nextToken_ == nullptr
-        && this->orderBy_ == nullptr && this->orderDirection_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr; };
+        && this->groupBy_ == nullptr && this->includeMemberKeys_ == nullptr && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->memberUserIds_ == nullptr
+        && this->needTotalCount_ == nullptr && this->nextToken_ == nullptr && this->orderBy_ == nullptr && this->orderDirection_ == nullptr && this->pageIndex_ == nullptr
+        && this->pageSize_ == nullptr && this->status_ == nullptr; };
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
@@ -66,6 +71,13 @@ namespace Models
     inline ModelRouterQueryApiKeyListRequest& setGroupBy(string groupBy) { DARABONBA_PTR_SET_VALUE(groupBy_, groupBy) };
 
 
+    // includeMemberKeys Field Functions 
+    bool hasIncludeMemberKeys() const { return this->includeMemberKeys_ != nullptr;};
+    void deleteIncludeMemberKeys() { this->includeMemberKeys_ = nullptr;};
+    inline bool getIncludeMemberKeys() const { DARABONBA_PTR_GET_DEFAULT(includeMemberKeys_, false) };
+    inline ModelRouterQueryApiKeyListRequest& setIncludeMemberKeys(bool includeMemberKeys) { DARABONBA_PTR_SET_VALUE(includeMemberKeys_, includeMemberKeys) };
+
+
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
@@ -78,6 +90,13 @@ namespace Models
     void deleteMaxResults() { this->maxResults_ = nullptr;};
     inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ModelRouterQueryApiKeyListRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // memberUserIds Field Functions 
+    bool hasMemberUserIds() const { return this->memberUserIds_ != nullptr;};
+    void deleteMemberUserIds() { this->memberUserIds_ = nullptr;};
+    inline string getMemberUserIds() const { DARABONBA_PTR_GET_DEFAULT(memberUserIds_, "") };
+    inline ModelRouterQueryApiKeyListRequest& setMemberUserIds(string memberUserIds) { DARABONBA_PTR_SET_VALUE(memberUserIds_, memberUserIds) };
 
 
     // needTotalCount Field Functions 
@@ -130,27 +149,31 @@ namespace Models
 
 
   protected:
-    // Filters the results by the specified client ID.
+    // The client ID used to filter the results.
     shared_ptr<int64_t> clientId_ {};
-    // The grouping field.
+    // The field by which to group the results.
     shared_ptr<string> groupBy_ {};
+    // Optional. If set to true, the keys of members under the department are also included when filtering by department.
+    shared_ptr<bool> includeMemberKeys_ {};
     // The search keyword.
     shared_ptr<string> keyword_ {};
     // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // Specifies whether to return the total count of results.
+    // Optional. Filters by member IDs. Separate multiple member IDs with commas. If this parameter is not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+    shared_ptr<string> memberUserIds_ {};
+    // Specifies whether to return the total count.
     shared_ptr<bool> needTotalCount_ {};
-    // The token for retrieving the next page of results. An empty value indicates that all results have been returned.
+    // The pagination token. An empty value indicates that no more pages are available.
     shared_ptr<string> nextToken_ {};
-    // The sort field.
+    // The field by which to sort the results.
     shared_ptr<string> orderBy_ {};
-    // The sort order.
+    // The sort direction.
     shared_ptr<string> orderDirection_ {};
-    // The page number to retrieve.
+    // The page number.
     shared_ptr<int32_t> pageIndex_ {};
-    // The number of results per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Filters the results by the specified status.
+    // The status used to filter the results.
     shared_ptr<int32_t> status_ {};
   };
 

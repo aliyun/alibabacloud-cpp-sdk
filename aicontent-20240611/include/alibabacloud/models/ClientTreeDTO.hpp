@@ -30,8 +30,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(level, level_);
       DARABONBA_PTR_TO_JSON(main, main_);
       DARABONBA_PTR_TO_JSON(name, name_);
+      DARABONBA_PTR_TO_JSON(nodeType, nodeType_);
       DARABONBA_PTR_TO_JSON(parentId, parentId_);
       DARABONBA_PTR_TO_JSON(remark, remark_);
+      DARABONBA_PTR_TO_JSON(userId, userId_);
     };
     friend void from_json(const Darabonba::Json& j, ClientTreeDTO& obj) { 
       DARABONBA_PTR_FROM_JSON(address, address_);
@@ -48,8 +50,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(level, level_);
       DARABONBA_PTR_FROM_JSON(main, main_);
       DARABONBA_PTR_FROM_JSON(name, name_);
+      DARABONBA_PTR_FROM_JSON(nodeType, nodeType_);
       DARABONBA_PTR_FROM_JSON(parentId, parentId_);
       DARABONBA_PTR_FROM_JSON(remark, remark_);
+      DARABONBA_PTR_FROM_JSON(userId, userId_);
     };
     ClientTreeDTO() = default ;
     ClientTreeDTO(const ClientTreeDTO &) = default ;
@@ -65,7 +69,8 @@ namespace Models
     virtual bool empty() const override { return this->address_ == nullptr
         && this->allowedModels_ == nullptr && this->balance_ == nullptr && this->children_ == nullptr && this->clientUuid_ == nullptr && this->contact_ == nullptr
         && this->deleteTag_ == nullptr && this->discount_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr
-        && this->level_ == nullptr && this->main_ == nullptr && this->name_ == nullptr && this->parentId_ == nullptr && this->remark_ == nullptr; };
+        && this->level_ == nullptr && this->main_ == nullptr && this->name_ == nullptr && this->nodeType_ == nullptr && this->parentId_ == nullptr
+        && this->remark_ == nullptr && this->userId_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
@@ -168,6 +173,13 @@ namespace Models
     inline ClientTreeDTO& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // nodeType Field Functions 
+    bool hasNodeType() const { return this->nodeType_ != nullptr;};
+    void deleteNodeType() { this->nodeType_ = nullptr;};
+    inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+    inline ClientTreeDTO& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
+
+
     // parentId Field Functions 
     bool hasParentId() const { return this->parentId_ != nullptr;};
     void deleteParentId() { this->parentId_ = nullptr;};
@@ -180,6 +192,13 @@ namespace Models
     void deleteRemark() { this->remark_ = nullptr;};
     inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline ClientTreeDTO& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
+
+
+    // userId Field Functions 
+    bool hasUserId() const { return this->userId_ != nullptr;};
+    void deleteUserId() { this->userId_ = nullptr;};
+    inline int64_t getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, 0L) };
+    inline ClientTreeDTO& setUserId(int64_t userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
@@ -197,8 +216,10 @@ namespace Models
     shared_ptr<int32_t> level_ {};
     shared_ptr<int32_t> main_ {};
     shared_ptr<string> name_ {};
+    shared_ptr<string> nodeType_ {};
     shared_ptr<int64_t> parentId_ {};
     shared_ptr<string> remark_ {};
+    shared_ptr<int64_t> userId_ {};
   };
 
   } // namespace Models

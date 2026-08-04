@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(apiKeyId, apiKeyId_);
       DARABONBA_PTR_TO_JSON(clientId, clientId_);
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
+      DARABONBA_PTR_TO_JSON(memberUserIds, memberUserIds_);
       DARABONBA_PTR_TO_JSON(modelId, modelId_);
       DARABONBA_PTR_TO_JSON(startTime, startTime_);
       DARABONBA_PTR_TO_JSON(timeRange, timeRange_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(apiKeyId, apiKeyId_);
       DARABONBA_PTR_FROM_JSON(clientId, clientId_);
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(memberUserIds, memberUserIds_);
       DARABONBA_PTR_FROM_JSON(modelId, modelId_);
       DARABONBA_PTR_FROM_JSON(startTime, startTime_);
       DARABONBA_PTR_FROM_JSON(timeRange, timeRange_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyId_ == nullptr
-        && this->clientId_ == nullptr && this->endTime_ == nullptr && this->modelId_ == nullptr && this->startTime_ == nullptr && this->timeRange_ == nullptr; };
+        && this->clientId_ == nullptr && this->endTime_ == nullptr && this->memberUserIds_ == nullptr && this->modelId_ == nullptr && this->startTime_ == nullptr
+        && this->timeRange_ == nullptr; };
     // apiKeyId Field Functions 
     bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
     void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -60,6 +63,13 @@ namespace Models
     void deleteEndTime() { this->endTime_ = nullptr;};
     inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline ModelRouterQueryObservationChartsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // memberUserIds Field Functions 
+    bool hasMemberUserIds() const { return this->memberUserIds_ != nullptr;};
+    void deleteMemberUserIds() { this->memberUserIds_ = nullptr;};
+    inline string getMemberUserIds() const { DARABONBA_PTR_GET_DEFAULT(memberUserIds_, "") };
+    inline ModelRouterQueryObservationChartsRequest& setMemberUserIds(string memberUserIds) { DARABONBA_PTR_SET_VALUE(memberUserIds_, memberUserIds) };
 
 
     // modelId Field Functions 
@@ -84,17 +94,19 @@ namespace Models
 
 
   protected:
-    // The API key ID to use as a filter.
+    // The API key ID used to filter results.
     shared_ptr<int64_t> apiKeyId_ {};
-    // The client ID to use as a filter.
+    // The client ID used to filter results.
     shared_ptr<int64_t> clientId_ {};
-    // The end time of the custom time range, in ISO 8601 UTC format. If specified, `startTime` must also be provided.
+    // The custom end time.
     shared_ptr<string> endTime_ {};
-    // The model ID to use as a filter.
+    // Optional. Filters by member IDs. Separate multiple IDs with commas. If this parameter is not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+    shared_ptr<string> memberUserIds_ {};
+    // The model ID used to filter results.
     shared_ptr<int64_t> modelId_ {};
-    // The start time of the custom time range, in ISO 8601 UTC format. If specified, `endTime` must also be provided.
+    // The custom start time.
     shared_ptr<string> startTime_ {};
-    // The time range for the query. Valid values are `1h`, `6h`, `24h`, `7d`, and `30d`. This parameter is mutually exclusive with `startTime` and `endTime`.
+    // The time range for the query. Valid values: 1h, 6h, 24h, 7d, and 30d.
     shared_ptr<string> timeRange_ {};
   };
 

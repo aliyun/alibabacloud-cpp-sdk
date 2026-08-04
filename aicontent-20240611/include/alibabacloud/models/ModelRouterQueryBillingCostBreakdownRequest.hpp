@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
       DARABONBA_PTR_TO_JSON(granularity, granularity_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(memberUserIds, memberUserIds_);
       DARABONBA_PTR_TO_JSON(modelId, modelId_);
       DARABONBA_PTR_TO_JSON(modelTypes, modelTypes_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
       DARABONBA_PTR_FROM_JSON(granularity, granularity_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(memberUserIds, memberUserIds_);
       DARABONBA_PTR_FROM_JSON(modelId, modelId_);
       DARABONBA_PTR_FROM_JSON(modelTypes, modelTypes_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
@@ -50,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyId_ == nullptr
-        && this->clientId_ == nullptr && this->endTime_ == nullptr && this->granularity_ == nullptr && this->maxResults_ == nullptr && this->modelId_ == nullptr
-        && this->modelTypes_ == nullptr && this->nextToken_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr; };
+        && this->clientId_ == nullptr && this->endTime_ == nullptr && this->granularity_ == nullptr && this->maxResults_ == nullptr && this->memberUserIds_ == nullptr
+        && this->modelId_ == nullptr && this->modelTypes_ == nullptr && this->nextToken_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr
+        && this->startTime_ == nullptr; };
     // apiKeyId Field Functions 
     bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
     void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -85,6 +88,13 @@ namespace Models
     void deleteMaxResults() { this->maxResults_ = nullptr;};
     inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ModelRouterQueryBillingCostBreakdownRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // memberUserIds Field Functions 
+    bool hasMemberUserIds() const { return this->memberUserIds_ != nullptr;};
+    void deleteMemberUserIds() { this->memberUserIds_ = nullptr;};
+    inline string getMemberUserIds() const { DARABONBA_PTR_GET_DEFAULT(memberUserIds_, "") };
+    inline ModelRouterQueryBillingCostBreakdownRequest& setMemberUserIds(string memberUserIds) { DARABONBA_PTR_SET_VALUE(memberUserIds_, memberUserIds) };
 
 
     // modelId Field Functions 
@@ -130,30 +140,36 @@ namespace Models
 
 
   protected:
+    // Optional. Filters results by API key ID. This parameter is linked with the department. Specify clientId first.
     shared_ptr<int64_t> apiKeyId_ {};
-    // The ID of the client to query. If not specified, data for all clients is returned.
+    // Optional. Filters results by department ID.
     shared_ptr<int64_t> clientId_ {};
-    // The end time for the query, specified as a Unix timestamp in seconds.
+    // The query end time, in UNIX timestamp (seconds).
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The granularity for data aggregation. Valid values: `hourly` and `daily`.
+    // The aggregation granularity. Valid values:
+    // 
+    // - hourly
+    // - daily
     // 
     // This parameter is required.
     shared_ptr<string> granularity_ {};
-    // The maximum number of results to return. This parameter is used for pagination along with `nextToken` and is mutually exclusive with `page` and `pageSize`.
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The ID of the model to query. If not specified, data for all models is returned.
+    // Optional. Filters results by member ID. Separate multiple values with commas. If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+    shared_ptr<string> memberUserIds_ {};
+    // Optional. Filters results by model ID.
     shared_ptr<int64_t> modelId_ {};
-    // The types of the models to query, separated by commas. For example: `Chat,Embedding`. If not specified, data for all model types is returned.
+    // Optional. Filters results by model type. Separate multiple values with commas.
     shared_ptr<string> modelTypes_ {};
-    // The pagination token that is used to retrieve the next page of results.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The page number. Default: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> page_ {};
-    // The number of entries per page. Default: 20. Maximum: 500.
+    // The number of entries per page. Default value: 20. Maximum value: 500.
     shared_ptr<int32_t> pageSize_ {};
-    // The start time for the query, specified as a Unix timestamp in seconds.
+    // The query start time, in UNIX timestamp (seconds).
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

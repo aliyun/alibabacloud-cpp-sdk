@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
       DARABONBA_PTR_TO_JSON(groupBy, groupBy_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(memberUserIds, memberUserIds_);
       DARABONBA_PTR_TO_JSON(modelId, modelId_);
       DARABONBA_PTR_TO_JSON(needTotalCount, needTotalCount_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
       DARABONBA_PTR_FROM_JSON(groupBy, groupBy_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(memberUserIds, memberUserIds_);
       DARABONBA_PTR_FROM_JSON(modelId, modelId_);
       DARABONBA_PTR_FROM_JSON(needTotalCount, needTotalCount_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
@@ -56,9 +58,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyId_ == nullptr
-        && this->clientId_ == nullptr && this->endTime_ == nullptr && this->groupBy_ == nullptr && this->maxResults_ == nullptr && this->modelId_ == nullptr
-        && this->needTotalCount_ == nullptr && this->nextToken_ == nullptr && this->orderBy_ == nullptr && this->orderDirection_ == nullptr && this->pageIndex_ == nullptr
-        && this->pageSize_ == nullptr && this->startTime_ == nullptr && this->timeRange_ == nullptr; };
+        && this->clientId_ == nullptr && this->endTime_ == nullptr && this->groupBy_ == nullptr && this->maxResults_ == nullptr && this->memberUserIds_ == nullptr
+        && this->modelId_ == nullptr && this->needTotalCount_ == nullptr && this->nextToken_ == nullptr && this->orderBy_ == nullptr && this->orderDirection_ == nullptr
+        && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr && this->timeRange_ == nullptr; };
     // apiKeyId Field Functions 
     bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
     void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -92,6 +94,13 @@ namespace Models
     void deleteMaxResults() { this->maxResults_ = nullptr;};
     inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ModelRouterQueryObservationLogsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // memberUserIds Field Functions 
+    bool hasMemberUserIds() const { return this->memberUserIds_ != nullptr;};
+    void deleteMemberUserIds() { this->memberUserIds_ = nullptr;};
+    inline string getMemberUserIds() const { DARABONBA_PTR_GET_DEFAULT(memberUserIds_, "") };
+    inline ModelRouterQueryObservationLogsRequest& setMemberUserIds(string memberUserIds) { DARABONBA_PTR_SET_VALUE(memberUserIds_, memberUserIds) };
 
 
     // modelId Field Functions 
@@ -168,6 +177,7 @@ namespace Models
     shared_ptr<string> groupBy_ {};
     // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> memberUserIds_ {};
     // The model ID used to filter the results.
     shared_ptr<int64_t> modelId_ {};
     // Specifies whether to return the total count.

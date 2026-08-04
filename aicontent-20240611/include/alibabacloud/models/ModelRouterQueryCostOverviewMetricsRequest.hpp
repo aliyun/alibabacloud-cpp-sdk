@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
       DARABONBA_PTR_TO_JSON(granularity, granularity_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(memberUserIds, memberUserIds_);
       DARABONBA_PTR_TO_JSON(modelTypes, modelTypes_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(startTime, startTime_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
       DARABONBA_PTR_FROM_JSON(granularity, granularity_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(memberUserIds, memberUserIds_);
       DARABONBA_PTR_FROM_JSON(modelTypes, modelTypes_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(startTime, startTime_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyId_ == nullptr
-        && this->clientId_ == nullptr && this->endTime_ == nullptr && this->granularity_ == nullptr && this->maxResults_ == nullptr && this->modelTypes_ == nullptr
-        && this->nextToken_ == nullptr && this->startTime_ == nullptr; };
+        && this->clientId_ == nullptr && this->endTime_ == nullptr && this->granularity_ == nullptr && this->maxResults_ == nullptr && this->memberUserIds_ == nullptr
+        && this->modelTypes_ == nullptr && this->nextToken_ == nullptr && this->startTime_ == nullptr; };
     // apiKeyId Field Functions 
     bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
     void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -81,6 +83,13 @@ namespace Models
     inline ModelRouterQueryCostOverviewMetricsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
+    // memberUserIds Field Functions 
+    bool hasMemberUserIds() const { return this->memberUserIds_ != nullptr;};
+    void deleteMemberUserIds() { this->memberUserIds_ = nullptr;};
+    inline string getMemberUserIds() const { DARABONBA_PTR_GET_DEFAULT(memberUserIds_, "") };
+    inline ModelRouterQueryCostOverviewMetricsRequest& setMemberUserIds(string memberUserIds) { DARABONBA_PTR_SET_VALUE(memberUserIds_, memberUserIds) };
+
+
     // modelTypes Field Functions 
     bool hasModelTypes() const { return this->modelTypes_ != nullptr;};
     void deleteModelTypes() { this->modelTypes_ = nullptr;};
@@ -103,22 +112,25 @@ namespace Models
 
 
   protected:
+    // Optional. Filters by API key ID. This parameter works in conjunction with the department and requires clientId to be specified first.
     shared_ptr<int64_t> apiKeyId_ {};
-    // The department ID used to filter the results.
+    // The department ID used to filter results.
     shared_ptr<int64_t> clientId_ {};
-    // The end time for the query, specified as a Unix timestamp in seconds.
+    // The end time, as a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
-    // The granularity of the data. Valid values: `hourly` and `daily`. Default value: `hourly`.
+    // Automatically aggregated. No input required. The granularity of the data. Valid values: hourly and daily. Default value: hourly.
     shared_ptr<string> granularity_ {};
-    // The maximum number of results to return in a single request.
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The model types to query. Separate multiple types with commas.
+    // Optional. Filters by members (member IDs, separated by commas). If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+    shared_ptr<string> memberUserIds_ {};
+    // The model types, separated by commas.
     shared_ptr<string> modelTypes_ {};
-    // The token to retrieve the next page of results. If you do not specify this parameter, the first page of results is returned.
+    // nextToken
     shared_ptr<string> nextToken_ {};
-    // The start time for the query, specified as a Unix timestamp in seconds.
+    // The start time, as a UNIX timestamp in seconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

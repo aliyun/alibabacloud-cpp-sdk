@@ -21,10 +21,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(clientId, clientId_);
       DARABONBA_PTR_TO_JSON(clientName, clientName_);
       DARABONBA_PTR_TO_JSON(dimValues, dimValues_);
+      DARABONBA_PTR_TO_JSON(memberUserId, memberUserId_);
+      DARABONBA_PTR_TO_JSON(memberUserName, memberUserName_);
       DARABONBA_PTR_TO_JSON(modelCode, modelCode_);
       DARABONBA_PTR_TO_JSON(modelId, modelId_);
       DARABONBA_PTR_TO_JSON(modelName, modelName_);
+      DARABONBA_PTR_TO_JSON(modelSymbol, modelSymbol_);
       DARABONBA_PTR_TO_JSON(modelType, modelType_);
+      DARABONBA_PTR_TO_JSON(modelVersion, modelVersion_);
       DARABONBA_PTR_TO_JSON(payableAmount, payableAmount_);
       DARABONBA_PTR_TO_JSON(summaryTime, summaryTime_);
       DARABONBA_PTR_TO_JSON(tiers, tiers_);
@@ -37,10 +41,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(clientId, clientId_);
       DARABONBA_PTR_FROM_JSON(clientName, clientName_);
       DARABONBA_PTR_FROM_JSON(dimValues, dimValues_);
+      DARABONBA_PTR_FROM_JSON(memberUserId, memberUserId_);
+      DARABONBA_PTR_FROM_JSON(memberUserName, memberUserName_);
       DARABONBA_PTR_FROM_JSON(modelCode, modelCode_);
       DARABONBA_PTR_FROM_JSON(modelId, modelId_);
       DARABONBA_PTR_FROM_JSON(modelName, modelName_);
+      DARABONBA_PTR_FROM_JSON(modelSymbol, modelSymbol_);
       DARABONBA_PTR_FROM_JSON(modelType, modelType_);
+      DARABONBA_PTR_FROM_JSON(modelVersion, modelVersion_);
       DARABONBA_PTR_FROM_JSON(payableAmount, payableAmount_);
       DARABONBA_PTR_FROM_JSON(summaryTime, summaryTime_);
       DARABONBA_PTR_FROM_JSON(tiers, tiers_);
@@ -59,8 +67,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyId_ == nullptr
         && this->apiKeyName_ == nullptr && this->billingType_ == nullptr && this->clientId_ == nullptr && this->clientName_ == nullptr && this->dimValues_ == nullptr
-        && this->modelCode_ == nullptr && this->modelId_ == nullptr && this->modelName_ == nullptr && this->modelType_ == nullptr && this->payableAmount_ == nullptr
-        && this->summaryTime_ == nullptr && this->tiers_ == nullptr && this->values_ == nullptr; };
+        && this->memberUserId_ == nullptr && this->memberUserName_ == nullptr && this->modelCode_ == nullptr && this->modelId_ == nullptr && this->modelName_ == nullptr
+        && this->modelSymbol_ == nullptr && this->modelType_ == nullptr && this->modelVersion_ == nullptr && this->payableAmount_ == nullptr && this->summaryTime_ == nullptr
+        && this->tiers_ == nullptr && this->values_ == nullptr; };
     // apiKeyId Field Functions 
     bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
     void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -103,6 +112,20 @@ namespace Models
     inline BillingCostBreakdownRowDTO& setDimValues(string dimValues) { DARABONBA_PTR_SET_VALUE(dimValues_, dimValues) };
 
 
+    // memberUserId Field Functions 
+    bool hasMemberUserId() const { return this->memberUserId_ != nullptr;};
+    void deleteMemberUserId() { this->memberUserId_ = nullptr;};
+    inline int64_t getMemberUserId() const { DARABONBA_PTR_GET_DEFAULT(memberUserId_, 0L) };
+    inline BillingCostBreakdownRowDTO& setMemberUserId(int64_t memberUserId) { DARABONBA_PTR_SET_VALUE(memberUserId_, memberUserId) };
+
+
+    // memberUserName Field Functions 
+    bool hasMemberUserName() const { return this->memberUserName_ != nullptr;};
+    void deleteMemberUserName() { this->memberUserName_ = nullptr;};
+    inline string getMemberUserName() const { DARABONBA_PTR_GET_DEFAULT(memberUserName_, "") };
+    inline BillingCostBreakdownRowDTO& setMemberUserName(string memberUserName) { DARABONBA_PTR_SET_VALUE(memberUserName_, memberUserName) };
+
+
     // modelCode Field Functions 
     bool hasModelCode() const { return this->modelCode_ != nullptr;};
     void deleteModelCode() { this->modelCode_ = nullptr;};
@@ -124,11 +147,25 @@ namespace Models
     inline BillingCostBreakdownRowDTO& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
 
 
+    // modelSymbol Field Functions 
+    bool hasModelSymbol() const { return this->modelSymbol_ != nullptr;};
+    void deleteModelSymbol() { this->modelSymbol_ = nullptr;};
+    inline string getModelSymbol() const { DARABONBA_PTR_GET_DEFAULT(modelSymbol_, "") };
+    inline BillingCostBreakdownRowDTO& setModelSymbol(string modelSymbol) { DARABONBA_PTR_SET_VALUE(modelSymbol_, modelSymbol) };
+
+
     // modelType Field Functions 
     bool hasModelType() const { return this->modelType_ != nullptr;};
     void deleteModelType() { this->modelType_ = nullptr;};
     inline string getModelType() const { DARABONBA_PTR_GET_DEFAULT(modelType_, "") };
     inline BillingCostBreakdownRowDTO& setModelType(string modelType) { DARABONBA_PTR_SET_VALUE(modelType_, modelType) };
+
+
+    // modelVersion Field Functions 
+    bool hasModelVersion() const { return this->modelVersion_ != nullptr;};
+    void deleteModelVersion() { this->modelVersion_ = nullptr;};
+    inline int32_t getModelVersion() const { DARABONBA_PTR_GET_DEFAULT(modelVersion_, 0) };
+    inline BillingCostBreakdownRowDTO& setModelVersion(int32_t modelVersion) { DARABONBA_PTR_SET_VALUE(modelVersion_, modelVersion) };
 
 
     // payableAmount Field Functions 
@@ -171,14 +208,18 @@ namespace Models
     // Department name
     shared_ptr<string> clientName_ {};
     shared_ptr<string> dimValues_ {};
+    shared_ptr<int64_t> memberUserId_ {};
+    shared_ptr<string> memberUserName_ {};
     // Model identifier
     shared_ptr<string> modelCode_ {};
     // Model ID
     shared_ptr<int64_t> modelId_ {};
     // Model name
     shared_ptr<string> modelName_ {};
+    shared_ptr<string> modelSymbol_ {};
     // Statistics category
     shared_ptr<string> modelType_ {};
+    shared_ptr<int32_t> modelVersion_ {};
     // Payable amount, rounded to 8 decimal places
     shared_ptr<float> payableAmount_ {};
     // Statistics time point, Unix timestamp (seconds)

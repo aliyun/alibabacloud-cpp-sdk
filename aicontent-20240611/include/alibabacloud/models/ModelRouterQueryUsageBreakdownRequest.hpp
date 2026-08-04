@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
       DARABONBA_PTR_TO_JSON(granularity, granularity_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(memberUserIds, memberUserIds_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(page, page_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
       DARABONBA_PTR_FROM_JSON(granularity, granularity_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(memberUserIds, memberUserIds_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(page, page_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKeyId_ == nullptr
-        && this->clientId_ == nullptr && this->endTime_ == nullptr && this->granularity_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
-        && this->page_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr; };
+        && this->clientId_ == nullptr && this->endTime_ == nullptr && this->granularity_ == nullptr && this->maxResults_ == nullptr && this->memberUserIds_ == nullptr
+        && this->nextToken_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr; };
     // apiKeyId Field Functions 
     bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
     void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -83,6 +85,13 @@ namespace Models
     inline ModelRouterQueryUsageBreakdownRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
+    // memberUserIds Field Functions 
+    bool hasMemberUserIds() const { return this->memberUserIds_ != nullptr;};
+    void deleteMemberUserIds() { this->memberUserIds_ = nullptr;};
+    inline string getMemberUserIds() const { DARABONBA_PTR_GET_DEFAULT(memberUserIds_, "") };
+    inline ModelRouterQueryUsageBreakdownRequest& setMemberUserIds(string memberUserIds) { DARABONBA_PTR_SET_VALUE(memberUserIds_, memberUserIds) };
+
+
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
@@ -116,7 +125,7 @@ namespace Models
     shared_ptr<int64_t> apiKeyId_ {};
     // Optional. Filters results by department ID.
     shared_ptr<int64_t> clientId_ {};
-    // The query end time, in UNIX timestamp (seconds).
+    // The query end time, in UNIX timestamp format (seconds).
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
@@ -126,13 +135,15 @@ namespace Models
     shared_ptr<string> granularity_ {};
     // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // Optional. Filters results by members (member IDs, separated by commas). If not specified, the department and all its members are included. If an empty value is specified, only the department is included without members.
+    shared_ptr<string> memberUserIds_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> page_ {};
     // The number of entries per page. Default value: 20. Maximum value: 500.
     shared_ptr<int32_t> pageSize_ {};
-    // The query start time, in UNIX timestamp (seconds).
+    // The query start time, in UNIX timestamp format (seconds).
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

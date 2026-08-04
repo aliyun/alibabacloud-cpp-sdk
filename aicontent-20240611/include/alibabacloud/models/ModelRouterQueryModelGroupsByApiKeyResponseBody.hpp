@@ -44,11 +44,13 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(bindType, bindType_);
         DARABONBA_PTR_TO_JSON(clientId, clientId_);
         DARABONBA_PTR_TO_JSON(groups, groups_);
         DARABONBA_PTR_TO_JSON(standaloneModelList, standaloneModelList_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(bindType, bindType_);
         DARABONBA_PTR_FROM_JSON(clientId, clientId_);
         DARABONBA_PTR_FROM_JSON(groups, groups_);
         DARABONBA_PTR_FROM_JSON(standaloneModelList, standaloneModelList_);
@@ -64,8 +66,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->clientId_ == nullptr
-        && this->groups_ == nullptr && this->standaloneModelList_ == nullptr; };
+      virtual bool empty() const override { return this->bindType_ == nullptr
+        && this->clientId_ == nullptr && this->groups_ == nullptr && this->standaloneModelList_ == nullptr; };
+      // bindType Field Functions 
+      bool hasBindType() const { return this->bindType_ != nullptr;};
+      void deleteBindType() { this->bindType_ = nullptr;};
+      inline string getBindType() const { DARABONBA_PTR_GET_DEFAULT(bindType_, "") };
+      inline Data& setBindType(string bindType) { DARABONBA_PTR_SET_VALUE(bindType_, bindType) };
+
+
       // clientId Field Functions 
       bool hasClientId() const { return this->clientId_ != nullptr;};
       void deleteClientId() { this->clientId_ = nullptr;};
@@ -92,7 +101,8 @@ namespace Models
 
 
     protected:
-      // The ID of the department to which the key belongs.
+      shared_ptr<string> bindType_ {};
+      // The department ID to which the key belongs.
       shared_ptr<int64_t> clientId_ {};
       // The list of bound model groups.
       shared_ptr<vector<ModelGroupDTO>> groups_ {};

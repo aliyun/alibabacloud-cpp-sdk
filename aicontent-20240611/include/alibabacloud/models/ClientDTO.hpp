@@ -14,29 +14,41 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ClientDTO& obj) { 
       DARABONBA_PTR_TO_JSON(address, address_);
+      DARABONBA_PTR_TO_JSON(allowedModelGroupConfig, allowedModelGroupConfig_);
       DARABONBA_PTR_TO_JSON(allowedModels, allowedModels_);
       DARABONBA_PTR_TO_JSON(clientUuid, clientUuid_);
       DARABONBA_PTR_TO_JSON(contact, contact_);
       DARABONBA_PTR_TO_JSON(deleteTag, deleteTag_);
+      DARABONBA_PTR_TO_JSON(discount, discount_);
       DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
       DARABONBA_PTR_TO_JSON(gmtModified, gmtModified_);
       DARABONBA_PTR_TO_JSON(id, id_);
+      DARABONBA_PTR_TO_JSON(level, level_);
       DARABONBA_PTR_TO_JSON(main, main_);
       DARABONBA_PTR_TO_JSON(name, name_);
+      DARABONBA_PTR_TO_JSON(nodeType, nodeType_);
+      DARABONBA_PTR_TO_JSON(parentId, parentId_);
       DARABONBA_PTR_TO_JSON(remark, remark_);
+      DARABONBA_PTR_TO_JSON(userId, userId_);
     };
     friend void from_json(const Darabonba::Json& j, ClientDTO& obj) { 
       DARABONBA_PTR_FROM_JSON(address, address_);
+      DARABONBA_PTR_FROM_JSON(allowedModelGroupConfig, allowedModelGroupConfig_);
       DARABONBA_PTR_FROM_JSON(allowedModels, allowedModels_);
       DARABONBA_PTR_FROM_JSON(clientUuid, clientUuid_);
       DARABONBA_PTR_FROM_JSON(contact, contact_);
       DARABONBA_PTR_FROM_JSON(deleteTag, deleteTag_);
+      DARABONBA_PTR_FROM_JSON(discount, discount_);
       DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
       DARABONBA_PTR_FROM_JSON(gmtModified, gmtModified_);
       DARABONBA_PTR_FROM_JSON(id, id_);
+      DARABONBA_PTR_FROM_JSON(level, level_);
       DARABONBA_PTR_FROM_JSON(main, main_);
       DARABONBA_PTR_FROM_JSON(name, name_);
+      DARABONBA_PTR_FROM_JSON(nodeType, nodeType_);
+      DARABONBA_PTR_FROM_JSON(parentId, parentId_);
       DARABONBA_PTR_FROM_JSON(remark, remark_);
+      DARABONBA_PTR_FROM_JSON(userId, userId_);
     };
     ClientDTO() = default ;
     ClientDTO(const ClientDTO &) = default ;
@@ -50,13 +62,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->address_ == nullptr
-        && this->allowedModels_ == nullptr && this->clientUuid_ == nullptr && this->contact_ == nullptr && this->deleteTag_ == nullptr && this->gmtCreate_ == nullptr
-        && this->gmtModified_ == nullptr && this->id_ == nullptr && this->main_ == nullptr && this->name_ == nullptr && this->remark_ == nullptr; };
+        && this->allowedModelGroupConfig_ == nullptr && this->allowedModels_ == nullptr && this->clientUuid_ == nullptr && this->contact_ == nullptr && this->deleteTag_ == nullptr
+        && this->discount_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr && this->level_ == nullptr
+        && this->main_ == nullptr && this->name_ == nullptr && this->nodeType_ == nullptr && this->parentId_ == nullptr && this->remark_ == nullptr
+        && this->userId_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
     inline string getAddress() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
     inline ClientDTO& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
+
+
+    // allowedModelGroupConfig Field Functions 
+    bool hasAllowedModelGroupConfig() const { return this->allowedModelGroupConfig_ != nullptr;};
+    void deleteAllowedModelGroupConfig() { this->allowedModelGroupConfig_ = nullptr;};
+    inline string getAllowedModelGroupConfig() const { DARABONBA_PTR_GET_DEFAULT(allowedModelGroupConfig_, "") };
+    inline ClientDTO& setAllowedModelGroupConfig(string allowedModelGroupConfig) { DARABONBA_PTR_SET_VALUE(allowedModelGroupConfig_, allowedModelGroupConfig) };
 
 
     // allowedModels Field Functions 
@@ -87,6 +108,13 @@ namespace Models
     inline ClientDTO& setDeleteTag(int32_t deleteTag) { DARABONBA_PTR_SET_VALUE(deleteTag_, deleteTag) };
 
 
+    // discount Field Functions 
+    bool hasDiscount() const { return this->discount_ != nullptr;};
+    void deleteDiscount() { this->discount_ = nullptr;};
+    inline double getDiscount() const { DARABONBA_PTR_GET_DEFAULT(discount_, 0.0) };
+    inline ClientDTO& setDiscount(double discount) { DARABONBA_PTR_SET_VALUE(discount_, discount) };
+
+
     // gmtCreate Field Functions 
     bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
     void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
@@ -108,6 +136,13 @@ namespace Models
     inline ClientDTO& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
+    // level Field Functions 
+    bool hasLevel() const { return this->level_ != nullptr;};
+    void deleteLevel() { this->level_ = nullptr;};
+    inline int32_t getLevel() const { DARABONBA_PTR_GET_DEFAULT(level_, 0) };
+    inline ClientDTO& setLevel(int32_t level) { DARABONBA_PTR_SET_VALUE(level_, level) };
+
+
     // main Field Functions 
     bool hasMain() const { return this->main_ != nullptr;};
     void deleteMain() { this->main_ = nullptr;};
@@ -122,6 +157,20 @@ namespace Models
     inline ClientDTO& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // nodeType Field Functions 
+    bool hasNodeType() const { return this->nodeType_ != nullptr;};
+    void deleteNodeType() { this->nodeType_ = nullptr;};
+    inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+    inline ClientDTO& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
+
+
+    // parentId Field Functions 
+    bool hasParentId() const { return this->parentId_ != nullptr;};
+    void deleteParentId() { this->parentId_ = nullptr;};
+    inline int64_t getParentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, 0L) };
+    inline ClientDTO& setParentId(int64_t parentId) { DARABONBA_PTR_SET_VALUE(parentId_, parentId) };
+
+
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
@@ -129,18 +178,31 @@ namespace Models
     inline ClientDTO& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
+    // userId Field Functions 
+    bool hasUserId() const { return this->userId_ != nullptr;};
+    void deleteUserId() { this->userId_ = nullptr;};
+    inline int64_t getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, 0L) };
+    inline ClientDTO& setUserId(int64_t userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
+
+
   protected:
     shared_ptr<string> address_ {};
+    shared_ptr<string> allowedModelGroupConfig_ {};
     shared_ptr<string> allowedModels_ {};
     shared_ptr<string> clientUuid_ {};
     shared_ptr<string> contact_ {};
     shared_ptr<int32_t> deleteTag_ {};
+    shared_ptr<double> discount_ {};
     shared_ptr<string> gmtCreate_ {};
     shared_ptr<string> gmtModified_ {};
     shared_ptr<int64_t> id_ {};
+    shared_ptr<int32_t> level_ {};
     shared_ptr<int32_t> main_ {};
     shared_ptr<string> name_ {};
+    shared_ptr<string> nodeType_ {};
+    shared_ptr<int64_t> parentId_ {};
     shared_ptr<string> remark_ {};
+    shared_ptr<int64_t> userId_ {};
   };
 
   } // namespace Models

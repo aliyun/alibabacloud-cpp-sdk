@@ -108,15 +108,15 @@ namespace Models
   protected:
     // The data object.
     shared_ptr<CostModelDetailRespDTO> data_ {};
-    // The error code.
+    // The fault code.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The maximum number of results returned on the current page.
+    // The maximum number of results.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results. If this field is empty, you have reached the end of the results.
+    // nextToken
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

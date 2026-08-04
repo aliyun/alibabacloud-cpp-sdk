@@ -107,17 +107,17 @@ namespace Models
 
 
   protected:
-    // The data object that contains the returned metrics.
+    // The data object.
     shared_ptr<vector<MetricValueDTO>> data_ {};
-    // The error code that is returned if the request fails.
+    // The fault code.
     shared_ptr<string> errCode_ {};
-    // The error message that is returned if the request fails.
+    // The error message.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The maximum number of entries returned on each page.
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results.
+    // nextToken
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

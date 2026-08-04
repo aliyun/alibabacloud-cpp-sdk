@@ -89,7 +89,7 @@ namespace Models
   protected:
     // The data object.
     shared_ptr<ModelMetricsDTO> data_ {};
-    // The fault code.
+    // The error message code.
     shared_ptr<string> errCode_ {};
     // The error message.
     shared_ptr<string> errMessage_ {};
