@@ -1,0 +1,166 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_QUERYCUSTOMERLABELRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_QUERYCUSTOMERLABELRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace AccountCrm20160606
+{
+namespace Models
+{
+  class QueryCustomerLabelResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const QueryCustomerLabelResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Code, code_);
+      DARABONBA_PTR_TO_JSON(Data, data_);
+      DARABONBA_PTR_TO_JSON(Message, message_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Success, success_);
+    };
+    friend void from_json(const Darabonba::Json& j, QueryCustomerLabelResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Code, code_);
+      DARABONBA_PTR_FROM_JSON(Data, data_);
+      DARABONBA_PTR_FROM_JSON(Message, message_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Success, success_);
+    };
+    QueryCustomerLabelResponseBody() = default ;
+    QueryCustomerLabelResponseBody(const QueryCustomerLabelResponseBody &) = default ;
+    QueryCustomerLabelResponseBody(QueryCustomerLabelResponseBody &&) = default ;
+    QueryCustomerLabelResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~QueryCustomerLabelResponseBody() = default ;
+    QueryCustomerLabelResponseBody& operator=(const QueryCustomerLabelResponseBody &) = default ;
+    QueryCustomerLabelResponseBody& operator=(QueryCustomerLabelResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(CustomerLabel, customerLabel_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(CustomerLabel, customerLabel_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class CustomerLabel : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const CustomerLabel& obj) { 
+          DARABONBA_PTR_TO_JSON(Label, label_);
+          DARABONBA_PTR_TO_JSON(LabelSeries, labelSeries_);
+        };
+        friend void from_json(const Darabonba::Json& j, CustomerLabel& obj) { 
+          DARABONBA_PTR_FROM_JSON(Label, label_);
+          DARABONBA_PTR_FROM_JSON(LabelSeries, labelSeries_);
+        };
+        CustomerLabel() = default ;
+        CustomerLabel(const CustomerLabel &) = default ;
+        CustomerLabel(CustomerLabel &&) = default ;
+        CustomerLabel(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~CustomerLabel() = default ;
+        CustomerLabel& operator=(const CustomerLabel &) = default ;
+        CustomerLabel& operator=(CustomerLabel &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->label_ == nullptr
+        && this->labelSeries_ == nullptr; };
+        // label Field Functions 
+        bool hasLabel() const { return this->label_ != nullptr;};
+        void deleteLabel() { this->label_ = nullptr;};
+        inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
+        inline CustomerLabel& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
+
+
+        // labelSeries Field Functions 
+        bool hasLabelSeries() const { return this->labelSeries_ != nullptr;};
+        void deleteLabelSeries() { this->labelSeries_ = nullptr;};
+        inline string getLabelSeries() const { DARABONBA_PTR_GET_DEFAULT(labelSeries_, "") };
+        inline CustomerLabel& setLabelSeries(string labelSeries) { DARABONBA_PTR_SET_VALUE(labelSeries_, labelSeries) };
+
+
+      protected:
+        shared_ptr<string> label_ {};
+        shared_ptr<string> labelSeries_ {};
+      };
+
+      virtual bool empty() const override { return this->customerLabel_ == nullptr; };
+      // customerLabel Field Functions 
+      bool hasCustomerLabel() const { return this->customerLabel_ != nullptr;};
+      void deleteCustomerLabel() { this->customerLabel_ = nullptr;};
+      inline const vector<Data::CustomerLabel> & getCustomerLabel() const { DARABONBA_PTR_GET_CONST(customerLabel_, vector<Data::CustomerLabel>) };
+      inline vector<Data::CustomerLabel> getCustomerLabel() { DARABONBA_PTR_GET(customerLabel_, vector<Data::CustomerLabel>) };
+      inline Data& setCustomerLabel(const vector<Data::CustomerLabel> & customerLabel) { DARABONBA_PTR_SET_VALUE(customerLabel_, customerLabel) };
+      inline Data& setCustomerLabel(vector<Data::CustomerLabel> && customerLabel) { DARABONBA_PTR_SET_RVALUE(customerLabel_, customerLabel) };
+
+
+    protected:
+      shared_ptr<vector<Data::CustomerLabel>> customerLabel_ {};
+    };
+
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+    // code Field Functions 
+    bool hasCode() const { return this->code_ != nullptr;};
+    void deleteCode() { this->code_ = nullptr;};
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline QueryCustomerLabelResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // data Field Functions 
+    bool hasData() const { return this->data_ != nullptr;};
+    void deleteData() { this->data_ = nullptr;};
+    inline const QueryCustomerLabelResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, QueryCustomerLabelResponseBody::Data) };
+    inline QueryCustomerLabelResponseBody::Data getData() { DARABONBA_PTR_GET(data_, QueryCustomerLabelResponseBody::Data) };
+    inline QueryCustomerLabelResponseBody& setData(const QueryCustomerLabelResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline QueryCustomerLabelResponseBody& setData(QueryCustomerLabelResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+
+
+    // message Field Functions 
+    bool hasMessage() const { return this->message_ != nullptr;};
+    void deleteMessage() { this->message_ = nullptr;};
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline QueryCustomerLabelResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline QueryCustomerLabelResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline QueryCustomerLabelResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+  protected:
+    shared_ptr<string> code_ {};
+    shared_ptr<QueryCustomerLabelResponseBody::Data> data_ {};
+    shared_ptr<string> message_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace AccountCrm20160606
+#endif

@@ -1,0 +1,60 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_RESENDASYNCMODIFYLOGINEMAILREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_RESENDASYNCMODIFYLOGINEMAILREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace AccountCrm20160606
+{
+namespace Models
+{
+  class ResendAsyncModifyLoginEmailRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ResendAsyncModifyLoginEmailRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Mpk, mpk_);
+      DARABONBA_PTR_TO_JSON(TraceNo, traceNo_);
+    };
+    friend void from_json(const Darabonba::Json& j, ResendAsyncModifyLoginEmailRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Mpk, mpk_);
+      DARABONBA_PTR_FROM_JSON(TraceNo, traceNo_);
+    };
+    ResendAsyncModifyLoginEmailRequest() = default ;
+    ResendAsyncModifyLoginEmailRequest(const ResendAsyncModifyLoginEmailRequest &) = default ;
+    ResendAsyncModifyLoginEmailRequest(ResendAsyncModifyLoginEmailRequest &&) = default ;
+    ResendAsyncModifyLoginEmailRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ResendAsyncModifyLoginEmailRequest() = default ;
+    ResendAsyncModifyLoginEmailRequest& operator=(const ResendAsyncModifyLoginEmailRequest &) = default ;
+    ResendAsyncModifyLoginEmailRequest& operator=(ResendAsyncModifyLoginEmailRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->mpk_ == nullptr
+        && this->traceNo_ == nullptr; };
+    // mpk Field Functions 
+    bool hasMpk() const { return this->mpk_ != nullptr;};
+    void deleteMpk() { this->mpk_ = nullptr;};
+    inline string getMpk() const { DARABONBA_PTR_GET_DEFAULT(mpk_, "") };
+    inline ResendAsyncModifyLoginEmailRequest& setMpk(string mpk) { DARABONBA_PTR_SET_VALUE(mpk_, mpk) };
+
+
+    // traceNo Field Functions 
+    bool hasTraceNo() const { return this->traceNo_ != nullptr;};
+    void deleteTraceNo() { this->traceNo_ = nullptr;};
+    inline string getTraceNo() const { DARABONBA_PTR_GET_DEFAULT(traceNo_, "") };
+    inline ResendAsyncModifyLoginEmailRequest& setTraceNo(string traceNo) { DARABONBA_PTR_SET_VALUE(traceNo_, traceNo) };
+
+
+  protected:
+    // This parameter is required.
+    shared_ptr<string> mpk_ {};
+    // This parameter is required.
+    shared_ptr<string> traceNo_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace AccountCrm20160606
+#endif
