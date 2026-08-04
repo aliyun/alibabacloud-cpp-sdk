@@ -161,9 +161,9 @@ namespace Models
 
 
       protected:
-        // The key of the tag.
+        // The tag key.
         shared_ptr<string> tagKey_ {};
-        // The value of the tag.
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -430,60 +430,56 @@ namespace Models
 
 
     protected:
-      // The date when the CA certificate expires. This is a UNIX timestamp. Unit: milliseconds.
+      // The expiration date of the CA certificate. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> afterDate_ {};
-      // The type of the encryption algorithm of the CA certificate. Valid values:
+      // The encryption algorithm type of the CA certificate. Valid values:
       // 
-      // - **RSA**: The RSA algorithm.
-      // 
-      // - **ECC**: The ECC algorithm.
-      // 
-      // - **SM2**: The SM2 algorithm.
+      // - **RSA**: RSA algorithm.
+      // - **ECC**: ECC algorithm.
+      // - **SM2**: SM2 (Chinese national cryptographic) algorithm.
       shared_ptr<string> algorithm_ {};
-      // The date when the CA certificate was issued. This is a UNIX timestamp. Unit: milliseconds.
+      // The issuance date of the CA certificate. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> beforeDate_ {};
       // The complete certificate chain.
       shared_ptr<string> caCertChain_ {};
-      // The number of certificates that the private CA instance has issued.
+      // The number of certificates issued by the private CA instance.
       shared_ptr<int64_t> certIssuedCount_ {};
+      // The maximum validity period for certificates issued by the CA, as specified by the certMaxTime of the CA.
       shared_ptr<int32_t> certMaxTime_ {};
-      // The number of remaining certificates that can be issued.
+      // The number of remaining certificate quotas that can be allocated.
       shared_ptr<int64_t> certRemainingCount_ {};
-      // The total certificate quota you purchased.
+      // The total number of purchased certificate quotas.
       shared_ptr<int64_t> certTotalCount_ {};
       // The type of the CA certificate. Valid values:
       // 
-      // - **ROOT**: A root CA certificate.
-      // 
-      // - **SUB_ROOT**: A subordinate CA certificate.
+      // - **ROOT**: root CA certificate.
+      // - **SUB_ROOT**: sub-CA certificate.
       shared_ptr<string> certificateType_ {};
-      // The ID of the hardware security module (HSM) cluster. This parameter is available when the CA is enabled using an HSM.
+      // The identifier of the hardware security module (HSM) cluster. (The CA is enabled through an HSM.)
       shared_ptr<string> clusterId_ {};
-      // The common name or abbreviation of the organization that is associated with the CA certificate.
+      // The common name or abbreviation of the organization associated with the CA certificate.
       shared_ptr<string> commonName_ {};
-      // The country code of the organization that is associated with the CA certificate.
+      // The country code of the organization associated with the CA certificate.
       // 
       // For more information about country codes, see the **International codes** section in [Manage company information](https://help.aliyun.com/document_detail/198289.html).
       shared_ptr<string> countryCode_ {};
-      // The validity period of the CRL. Valid values: 1 to 365. Unit: days.
+      // The validity period of the CRL, ranging from 1 to 365 days.
       shared_ptr<int32_t> crlDay_ {};
-      // The status of the Certificate Revocation List (CRL).
+      // The certificate revocation list (CRL) status (enabled or disabled).
       shared_ptr<string> crlStatus_ {};
       // The CRL URL.
       shared_ptr<string> crlUrl_ {};
-      // The algorithm and its key length.
+      // The algorithm with key length.
       shared_ptr<string> fullAlgorithm_ {};
       // The unique identifier of the CA certificate.
       shared_ptr<string> identifier_ {};
-      // The issuer of the CA. Valid values:
+      // The issuing authority of the CA. Valid values:
       // 
-      // - local: A private certificate.
-      // 
-      // - iTrusChina: A compliance CA.
-      // 
-      // - external: An imported certificate.
+      // - local: private certificate.
+      // - iTrusChina: compliant CA.
+      // - external: externally imported.
       shared_ptr<string> issuerType_ {};
-      // The index of the key in the HSM. This parameter is available when the CA is enabled using an HSM.
+      // The key index position in the HSM. (The CA is enabled through an HSM.)
       shared_ptr<int32_t> keyIndex_ {};
       // The key length of the CA certificate.
       shared_ptr<int32_t> keySize_ {};
@@ -491,13 +487,13 @@ namespace Models
       shared_ptr<string> locality_ {};
       // The MD5 fingerprint of the CA certificate.
       shared_ptr<string> md5_ {};
-      // The name of the organization that is associated with the CA certificate.
+      // The name of the organization associated with the CA certificate.
       shared_ptr<string> organization_ {};
-      // The name of the department in the organization that is associated with the CA certificate.
+      // The name of the department in the organization associated with the CA certificate.
       shared_ptr<string> organizationUnit_ {};
-      // The unique identifier of the root CA certificate that issued the CA certificate.
+      // The unique identifier of the root CA certificate that issued this CA certificate.
       // 
-      // > This parameter is returned only when **CertificateType** is **SUB_ROOT**, which indicates a subordinate CA certificate.
+      // > This parameter is returned only when **CertificateType** is **SUB_ROOT** (sub-CA certificate).
       shared_ptr<string> parentIdentifier_ {};
       // The ID of the resource group to which the certificate belongs.
       shared_ptr<string> resourceGroupId_ {};
@@ -514,35 +510,18 @@ namespace Models
       shared_ptr<string> state_ {};
       // The status of the CA certificate. Valid values:
       // 
-      // - **ISSUE**: The certificate is issued.
-      // 
-      // - **REVOKE**: The certificate is revoked.
+      // - **ISSUE**: issued.
+      // - **REVOKE**: revoked.
       shared_ptr<string> status_ {};
-      // The subject of the CA certificate. It contains the following information:
+      // The subject attributes of the CA certificate, which include the following information:
       // 
-      // - **C**: The country code of the organization.
-      // 
-      // - **O**: The name of the organization.
-      // 
-      // - **OU**: The department of the organization.
-      // 
-      // - **L**: The city where the organization is located.
-      // 
-      // <props="china">
-      // 
-      // - **ST**: The province, municipality, or autonomous region where the organization is located.
-      // 
-      // 
-      // 
-      // 
-      // <props="intl">
-      // 
-      // - **ST**: The province or state where the organization is located.
-      // 
-      // 
-      // 
-      // 
-      // - **CN**: The common name or abbreviation of the organization.
+      // - **C**: the country code of the organization.
+      // - **O**: the name of the organization.
+      // - **OU**: the department of the organization.
+      // - **L**: the city where the organization is located.
+      // <props="china">- **ST**: the province, municipality, or autonomous region where the organization is located.
+      // <props="intl">- **ST**: the province or state where the organization is located.
+      // - **CN**: the common name or abbreviation of the organization.
       shared_ptr<string> subjectDN_ {};
       // The list of tags.
       shared_ptr<vector<Certificate::Tags>> tags_ {};
@@ -580,7 +559,7 @@ namespace Models
   protected:
     // The details of the CA certificate.
     shared_ptr<DescribeCACertificateResponseBody::Certificate> certificate_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The validity period of the CA certificate. Unit: years.
     shared_ptr<int32_t> years_ {};

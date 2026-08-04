@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetCaInstanceCrlAddressResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(CaInstanceStatus, caInstanceStatus_);
+      DARABONBA_PTR_TO_JSON(CaType, caType_);
       DARABONBA_PTR_TO_JSON(CrlUrl, crlUrl_);
       DARABONBA_PTR_TO_JSON(HashCode, hashCode_);
       DARABONBA_PTR_TO_JSON(NextUpdateTime, nextUpdateTime_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, GetCaInstanceCrlAddressResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(CaInstanceStatus, caInstanceStatus_);
+      DARABONBA_PTR_FROM_JSON(CaType, caType_);
       DARABONBA_PTR_FROM_JSON(CrlUrl, crlUrl_);
       DARABONBA_PTR_FROM_JSON(HashCode, hashCode_);
       DARABONBA_PTR_FROM_JSON(NextUpdateTime, nextUpdateTime_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->caInstanceStatus_ == nullptr
-        && this->crlUrl_ == nullptr && this->hashCode_ == nullptr && this->nextUpdateTime_ == nullptr && this->requestId_ == nullptr; };
+        && this->caType_ == nullptr && this->crlUrl_ == nullptr && this->hashCode_ == nullptr && this->nextUpdateTime_ == nullptr && this->requestId_ == nullptr; };
     // caInstanceStatus Field Functions 
     bool hasCaInstanceStatus() const { return this->caInstanceStatus_ != nullptr;};
     void deleteCaInstanceStatus() { this->caInstanceStatus_ = nullptr;};
     inline string getCaInstanceStatus() const { DARABONBA_PTR_GET_DEFAULT(caInstanceStatus_, "") };
     inline GetCaInstanceCrlAddressResponseBody& setCaInstanceStatus(string caInstanceStatus) { DARABONBA_PTR_SET_VALUE(caInstanceStatus_, caInstanceStatus) };
+
+
+    // caType Field Functions 
+    bool hasCaType() const { return this->caType_ != nullptr;};
+    void deleteCaType() { this->caType_ = nullptr;};
+    inline string getCaType() const { DARABONBA_PTR_GET_DEFAULT(caType_, "") };
+    inline GetCaInstanceCrlAddressResponseBody& setCaType(string caType) { DARABONBA_PTR_SET_VALUE(caType_, caType) };
 
 
     // crlUrl Field Functions 
@@ -77,6 +86,7 @@ namespace Models
   protected:
     // The status of the CA instance.
     shared_ptr<string> caInstanceStatus_ {};
+    shared_ptr<string> caType_ {};
     // The cron expression.
     shared_ptr<string> crlUrl_ {};
     // Used to identify whether there are new revoked certificates in the revocation list.
