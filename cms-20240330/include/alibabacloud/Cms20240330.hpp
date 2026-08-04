@@ -57,7 +57,7 @@ namespace Cms20240330
       Models::AddMemoriesResponse addMemories(const string &workspace, const string &memoryStoreName, const Models::AddMemoriesRequest &request);
 
       /**
-       * @summary Changes the resource group of a resource.
+       * @summary Modifies the resource group to which a resource belongs.
        *
        * @param request ChangeResourceGroupRequest
        * @param headers map
@@ -67,7 +67,7 @@ namespace Cms20240330
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the resource group of a resource.
+       * @summary Modifies the resource group to which a resource belongs.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -1469,7 +1469,7 @@ namespace Cms20240330
       Models::GetEntityStoreDataResponse getEntityStoreData(const string &workspace, const Models::GetEntityStoreDataRequest &request);
 
       /**
-       * @summary Query integration center policy information.
+       * @summary Queries the policy information of the DDoS Access Center.
        *
        * @param request GetIntegrationPolicyRequest
        * @param headers map
@@ -1479,7 +1479,7 @@ namespace Cms20240330
       Models::GetIntegrationPolicyResponse getIntegrationPolicyWithOptions(const string &policyId, const Models::GetIntegrationPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query integration center policy information.
+       * @summary Queries the policy information of the DDoS Access Center.
        *
        * @param request GetIntegrationPolicyRequest
        * @return GetIntegrationPolicyResponse
@@ -1749,10 +1749,10 @@ namespace Cms20240330
       Models::GetServiceRecordResponse getServiceRecord(const string &workspace, const string &serviceId, const Models::GetServiceRecordRequest &request);
 
       /**
-       * @summary 查询ServiceTask
+       * @summary Queries the details of a single ServiceTask under a specified application.
        *
-       * @description 根据 taskId 查询单个服务任务详情。
-       * 返回内容随 type 变化：heapdump 返回堆转储任务信息；LiveDebug 返回任务记录及 taskConfig（extraInfo）等字段。
+       * @description Queries the details of a single service task based on the taskId.
+       * The response content varies depending on the type: heapdump returns heap dump task information; LiveDebug returns task records and fields such as taskConfig (extraInfo).
        *
        * @param request GetServiceTaskRequest
        * @param headers map
@@ -1762,10 +1762,10 @@ namespace Cms20240330
       Models::GetServiceTaskResponse getServiceTaskWithOptions(const string &workspace, const string &serviceId, const string &taskId, const Models::GetServiceTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询ServiceTask
+       * @summary Queries the details of a single ServiceTask under a specified application.
        *
-       * @description 根据 taskId 查询单个服务任务详情。
-       * 返回内容随 type 变化：heapdump 返回堆转储任务信息；LiveDebug 返回任务记录及 taskConfig（extraInfo）等字段。
+       * @description Queries the details of a single service task based on the taskId.
+       * The response content varies depending on the type: heapdump returns heap dump task information; LiveDebug returns task records and fields such as taskConfig (extraInfo).
        *
        * @param request GetServiceTaskRequest
        * @return GetServiceTaskResponse
@@ -2425,13 +2425,13 @@ namespace Cms20240330
       Models::ListServiceRecordsResponse listServiceRecords(const string &workspace, const Models::ListServiceRecordsRequest &request);
 
       /**
-       * @summary 列举ServiceTask
+       * @summary Lists service tasks.
        *
-       * @description 按任务类型列举应用下的服务任务。
-       * - type=heapdump：返回堆转储任务列表
-       * - type=pprof：返回 pprof dump 列表（需配合 searchCondition）
-       * - type=live_debug_*：返回对应 LiveDebug 任务列表
-       * 支持 nextToken / maxResults 分页，以及 searchCondition 过滤。
+       * @description Lists service tasks under an application by task type.
+       * - type=heapdump: Returns the list of heap dump tasks.
+       * - type=pprof: Returns the list of pprof dumps (requires searchCondition).
+       * - type=live_debug_*: Returns the list of corresponding LiveDebug tasks.
+       * Supports nextToken/maxResults pagination and searchCondition filtering.
        *
        * @param request ListServiceTaskRequest
        * @param headers map
@@ -2441,13 +2441,13 @@ namespace Cms20240330
       Models::ListServiceTaskResponse listServiceTaskWithOptions(const string &workspace, const string &serviceId, const Models::ListServiceTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举ServiceTask
+       * @summary Lists service tasks.
        *
-       * @description 按任务类型列举应用下的服务任务。
-       * - type=heapdump：返回堆转储任务列表
-       * - type=pprof：返回 pprof dump 列表（需配合 searchCondition）
-       * - type=live_debug_*：返回对应 LiveDebug 任务列表
-       * 支持 nextToken / maxResults 分页，以及 searchCondition 过滤。
+       * @description Lists service tasks under an application by task type.
+       * - type=heapdump: Returns the list of heap dump tasks.
+       * - type=pprof: Returns the list of pprof dumps (requires searchCondition).
+       * - type=live_debug_*: Returns the list of corresponding LiveDebug tasks.
+       * Supports nextToken/maxResults pagination and searchCondition filtering.
        *
        * @param request ListServiceTaskRequest
        * @return ListServiceTaskResponse
@@ -2473,7 +2473,7 @@ namespace Cms20240330
       Models::ListServicesResponse listServices(const string &workspace, const Models::ListServicesRequest &request);
 
       /**
-       * @summary Queries the tags attached to resources.
+       * @summary Queries labels associated with resources.
        *
        * @param tmpReq ListTagResourcesRequest
        * @param headers map
@@ -2483,7 +2483,7 @@ namespace Cms20240330
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tags attached to resources.
+       * @summary Queries labels associated with resources.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -2627,7 +2627,7 @@ namespace Cms20240330
       Models::SearchMemoriesResponse searchMemories(const string &workspace, const string &memoryStoreName, const Models::SearchMemoriesRequest &request);
 
       /**
-       * @summary Adds tags to one or more resources.
+       * @summary Attaches labels to resources.
        *
        * @param request TagResourcesRequest
        * @param headers map
@@ -2637,7 +2637,7 @@ namespace Cms20240330
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds tags to one or more resources.
+       * @summary Attaches labels to resources.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -2645,7 +2645,7 @@ namespace Cms20240330
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Deletes a tag
+       * @summary Unbinds labels from a resource.
        *
        * @param tmpReq UntagResourcesRequest
        * @param headers map
@@ -2655,7 +2655,7 @@ namespace Cms20240330
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a tag
+       * @summary Unbinds labels from a resource.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse

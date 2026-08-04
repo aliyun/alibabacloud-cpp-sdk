@@ -216,7 +216,7 @@ AddMemoriesResponse Client::addMemories(const string &workspace, const string &m
 }
 
 /**
- * @summary Changes the resource group of a resource.
+ * @summary Modifies the resource group to which a resource belongs.
  *
  * @param request ChangeResourceGroupRequest
  * @param headers map
@@ -257,7 +257,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary Changes the resource group of a resource.
+ * @summary Modifies the resource group to which a resource belongs.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -3931,7 +3931,7 @@ GetEntityStoreDataResponse Client::getEntityStoreData(const string &workspace, c
 }
 
 /**
- * @summary Query integration center policy information.
+ * @summary Queries the policy information of the DDoS Access Center.
  *
  * @param request GetIntegrationPolicyRequest
  * @param headers map
@@ -3958,7 +3958,7 @@ GetIntegrationPolicyResponse Client::getIntegrationPolicyWithOptions(const strin
 }
 
 /**
- * @summary Query integration center policy information.
+ * @summary Queries the policy information of the DDoS Access Center.
  *
  * @param request GetIntegrationPolicyRequest
  * @return GetIntegrationPolicyResponse
@@ -4587,10 +4587,10 @@ GetServiceRecordResponse Client::getServiceRecord(const string &workspace, const
 }
 
 /**
- * @summary 查询ServiceTask
+ * @summary Queries the details of a single ServiceTask under a specified application.
  *
- * @description 根据 taskId 查询单个服务任务详情。
- * 返回内容随 type 变化：heapdump 返回堆转储任务信息；LiveDebug 返回任务记录及 taskConfig（extraInfo）等字段。
+ * @description Queries the details of a single service task based on the taskId.
+ * The response content varies depending on the type: heapdump returns heap dump task information; LiveDebug returns task records and fields such as taskConfig (extraInfo).
  *
  * @param request GetServiceTaskRequest
  * @param headers map
@@ -4623,10 +4623,10 @@ GetServiceTaskResponse Client::getServiceTaskWithOptions(const string &workspace
 }
 
 /**
- * @summary 查询ServiceTask
+ * @summary Queries the details of a single ServiceTask under a specified application.
  *
- * @description 根据 taskId 查询单个服务任务详情。
- * 返回内容随 type 变化：heapdump 返回堆转储任务信息；LiveDebug 返回任务记录及 taskConfig（extraInfo）等字段。
+ * @description Queries the details of a single service task based on the taskId.
+ * The response content varies depending on the type: heapdump returns heap dump task information; LiveDebug returns task records and fields such as taskConfig (extraInfo).
  *
  * @param request GetServiceTaskRequest
  * @return GetServiceTaskResponse
@@ -6663,13 +6663,13 @@ ListServiceRecordsResponse Client::listServiceRecords(const string &workspace, c
 }
 
 /**
- * @summary 列举ServiceTask
+ * @summary Lists service tasks.
  *
- * @description 按任务类型列举应用下的服务任务。
- * - type=heapdump：返回堆转储任务列表
- * - type=pprof：返回 pprof dump 列表（需配合 searchCondition）
- * - type=live_debug_*：返回对应 LiveDebug 任务列表
- * 支持 nextToken / maxResults 分页，以及 searchCondition 过滤。
+ * @description Lists service tasks under an application by task type.
+ * - type=heapdump: Returns the list of heap dump tasks.
+ * - type=pprof: Returns the list of pprof dumps (requires searchCondition).
+ * - type=live_debug_*: Returns the list of corresponding LiveDebug tasks.
+ * Supports nextToken/maxResults pagination and searchCondition filtering.
  *
  * @param request ListServiceTaskRequest
  * @param headers map
@@ -6714,13 +6714,13 @@ ListServiceTaskResponse Client::listServiceTaskWithOptions(const string &workspa
 }
 
 /**
- * @summary 列举ServiceTask
+ * @summary Lists service tasks.
  *
- * @description 按任务类型列举应用下的服务任务。
- * - type=heapdump：返回堆转储任务列表
- * - type=pprof：返回 pprof dump 列表（需配合 searchCondition）
- * - type=live_debug_*：返回对应 LiveDebug 任务列表
- * 支持 nextToken / maxResults 分页，以及 searchCondition 过滤。
+ * @description Lists service tasks under an application by task type.
+ * - type=heapdump: Returns the list of heap dump tasks.
+ * - type=pprof: Returns the list of pprof dumps (requires searchCondition).
+ * - type=live_debug_*: Returns the list of corresponding LiveDebug tasks.
+ * Supports nextToken/maxResults pagination and searchCondition filtering.
  *
  * @param request ListServiceTaskRequest
  * @return ListServiceTaskResponse
@@ -6803,7 +6803,7 @@ ListServicesResponse Client::listServices(const string &workspace, const ListSer
 }
 
 /**
- * @summary Queries the tags attached to resources.
+ * @summary Queries labels associated with resources.
  *
  * @param tmpReq ListTagResourcesRequest
  * @param headers map
@@ -6862,7 +6862,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the tags attached to resources.
+ * @summary Queries labels associated with resources.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -6885,6 +6885,10 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
   tmpReq.validate();
   ListWorkspacesShrinkRequest request = ListWorkspacesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTags()) {
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "tags", "json"));
+  }
+
   if (!!tmpReq.hasWorkspaceNameList()) {
     request.setWorkspaceNameListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWorkspaceNameList(), "workspaceNameList", "simple"));
   }
@@ -6900,6 +6904,14 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
 
   if (!!request.hasRegion()) {
     query["region"] = request.getRegion();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["resourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasTagsShrink()) {
+    query["tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasWorkspaceName()) {
@@ -7055,8 +7067,16 @@ PutWorkspaceResponse Client::putWorkspaceWithOptions(const string &workspaceName
     body["displayName"] = request.getDisplayName();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    body["resourceGroupId"] = request.getResourceGroupId();
+  }
+
   if (!!request.hasSlsProject()) {
     body["slsProject"] = request.getSlsProject();
+  }
+
+  if (!!request.hasTags()) {
+    body["tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7319,7 +7339,7 @@ SearchMemoriesResponse Client::searchMemories(const string &workspace, const str
 }
 
 /**
- * @summary Adds tags to one or more resources.
+ * @summary Attaches labels to resources.
  *
  * @param request TagResourcesRequest
  * @param headers map
@@ -7360,7 +7380,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Adds tags to one or more resources.
+ * @summary Attaches labels to resources.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -7372,7 +7392,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Deletes a tag
+ * @summary Unbinds labels from a resource.
  *
  * @param tmpReq UntagResourcesRequest
  * @param headers map
@@ -7427,7 +7447,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Deletes a tag
+ * @summary Unbinds labels from a resource.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
