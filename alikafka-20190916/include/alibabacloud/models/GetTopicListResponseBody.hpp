@@ -370,15 +370,15 @@ namespace Models
 
 
   protected:
-    // The return code. A value of 200 indicates that the call was successful.
+    // The response code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The number of the page returned.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The number of entries returned per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};

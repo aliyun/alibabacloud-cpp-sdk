@@ -77,7 +77,7 @@ namespace Models
     protected:
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The ID of the order.
+      // The order ID.
       shared_ptr<int64_t> orderId_ {};
     };
 
@@ -121,13 +121,13 @@ namespace Models
 
 
   protected:
-    // The status code. A value of 200 indicates that the request was successful.
+    // The status code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The returned results.
+    // The returned result.
     shared_ptr<CreatePostPayInstanceResponseBody::Data> data_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

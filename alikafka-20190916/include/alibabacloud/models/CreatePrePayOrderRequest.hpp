@@ -100,9 +100,9 @@ namespace Models
       // 
       // - N ranges from 1 to 20.
       // 
-      // - If this parameter is empty, all tag keys are matched.
+      // - If this parameter is left empty, all tag keys are matched.
       // 
-      // - The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http\\:// or https\\://.
+      // - The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
@@ -110,9 +110,9 @@ namespace Models
       // 
       // - N ranges from 1 to 20.
       // 
-      // - This parameter can be empty.
+      // - This parameter can be left empty.
       // 
-      // - The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http\\:// or https\\://.
+      // - The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -422,45 +422,45 @@ namespace Models
 
     protected:
       shared_ptr<string> confluentVersion_ {};
-      // The number of CPU cores for Connect component.
+      // The number of CPU cores for the Connect component.
       shared_ptr<int32_t> connectCU_ {};
-      // The number of replicas for Connect component.
+      // The number of Connect component replicas.
       shared_ptr<int32_t> connectReplica_ {};
-      // The number of CPU cores for ControlCenter component.
+      // The number of CPU cores for the ControlCenter component.
       shared_ptr<int32_t> controlCenterCU_ {};
-      // The number of replicas for ControlCenter component.
+      // The number of ControlCenter component replicas.
       shared_ptr<int32_t> controlCenterReplica_ {};
-      // The disk capacity of ControlCenter component. Unit: GB.
+      // The disk capacity of the ControlCenter component. Unit: GB.
       shared_ptr<int32_t> controlCenterStorage_ {};
-      // The number of CPU cores for Kafka broker.
+      // The number of CPU cores for Kafka Broker.
       shared_ptr<int32_t> kafkaCU_ {};
-      // The number of replicas for Kafka broker.
+      // The number of Kafka Broker replicas.
       shared_ptr<int32_t> kafkaReplica_ {};
-      // The number of CPU cores for KafkaRestProxy component.
+      // The number of CPU cores for the KafkaRestProxy component.
       shared_ptr<int32_t> kafkaRestProxyCU_ {};
-      // The number of replicas for KafkaRestProxy component.
+      // The number of KafkaRestProxy component replicas.
       shared_ptr<int32_t> kafkaRestProxyReplica_ {};
-      // The disk capacity of Kafka broker. Unit: GB.
+      // The disk capacity of Kafka Broker. Unit: GB.
       shared_ptr<int32_t> kafkaStorage_ {};
       shared_ptr<int32_t> kraftControllerCU_ {};
       shared_ptr<int32_t> kraftControllerReplica_ {};
       shared_ptr<int32_t> kraftControllerStorage_ {};
-      // The number of CPU cores for KsqlDB component.
+      // The number of CPU cores for the KsqlDB component.
       shared_ptr<int32_t> ksqlCU_ {};
       shared_ptr<vector<ConfluentConfig::KsqlList>> ksqlList_ {};
-      // The number of replicas for KsqlDB component.
+      // The number of KsqlDB component replicas.
       shared_ptr<int32_t> ksqlReplica_ {};
-      // The disk capacity of KsqlDB component. Unit: GB.
+      // The disk capacity of the KsqlDB component. Unit: GB.
       shared_ptr<int32_t> ksqlStorage_ {};
-      // The number of CPU cores for SchemaRegistry component.
+      // The number of CPU cores for the SchemaRegistry component.
       shared_ptr<int32_t> schemaRegistryCU_ {};
-      // The number of replicas for SchemaRegistry component.
+      // The number of SchemaRegistry component replicas.
       shared_ptr<int32_t> schemaRegistryReplica_ {};
-      // The number of CPU cores for ZooKeeper component.
+      // The number of CPU cores for the ZooKeeper component.
       shared_ptr<int32_t> zooKeeperCU_ {};
-      // The number of replicas for ZooKeeper component.
+      // The number of ZooKeeper component replicas.
       shared_ptr<int32_t> zooKeeperReplica_ {};
-      // The disk capacity of ZooKeeper component. Unit: GB.
+      // The disk capacity of the ZooKeeper component. Unit: GB.
       shared_ptr<int32_t> zooKeeperStorage_ {};
     };
 
@@ -578,77 +578,78 @@ namespace Models
 
 
   protected:
-    // The configuration of Confluent components.
+    // The Confluent component configurations.
     // 
-    // > This parameter is required when you create a Confluent series instance.
+    // 
+    // > This parameter is required when you create a Confluent instance.
     shared_ptr<CreatePrePayOrderRequest::ConfluentConfig> confluentConfig_ {};
     // The deployment type. Valid values:
     // 
-    // - **4**: Internet/VPC instance
+    // - **4**: Internet- and VPC-connected instance
     // 
-    // - **5**: VPC instance
+    // - **5**: VPC-connected instance
     // 
-    // > If you are creating a Confluent series instance, you cannot select the deployment type. You can only set the value to 5. After the purchase, you can adjust whether each component is open to the Internet.
+    // 
+    // > If you create a Confluent instance, the deployment type is not supported. You can only set this parameter to 5. After the purchase, you can configure whether to enable public access for each component.
     shared_ptr<int32_t> deployType_ {};
     // The disk capacity. Unit: GB.
     // 
-    // For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
-    // > If you are creating a Confluent series instance, you do not need to pass this parameter.
+    // > If you create a Confluent instance, you do not need to specify this parameter.
     shared_ptr<int32_t> diskSize_ {};
     // The disk type. Valid values:
     // 
-    // - **0**: ultra disk
+    // - **0**: ultra cloud disk
     // 
     // - **1**: SSD
     // 
-    // > If you are creating a Confluent series instance, you do not need to pass this parameter.
+    // > If you create a Confluent instance, you do not need to specify this parameter.
     shared_ptr<string> diskType_ {};
-    // The subscription duration. Unit: month. Default value: 1. Valid values:
+    // The subscription duration. Unit: months. Default value: 1. Valid values:
     // 
     // - **Confluent instances: 1 or 12**
-    // 
     // - **Kafka instances: 1**
     shared_ptr<int32_t> duration_ {};
-    // The Internet traffic.
+    // The public network traffic.
     // 
-    // - If **DeployType** is set to **4**, you must specify this parameter.
+    // - This parameter is required if **DeployType** is set to **4**.
     // 
-    // - For the valid values, see [pay-as-you-go](https://help.aliyun.com/document_detail/72142.html).
+    // - For the value range, see [Pay-as-you-go billing method](https://help.aliyun.com/document_detail/72142.html).
     // 
-    // > If you are creating a Confluent series instance, you do not need to pass this parameter.
+    // 
+    // > If you create a Confluent instance, you do not need to specify this parameter.
     shared_ptr<int32_t> eipMax_ {};
-    // The traffic peak (not recommended).
+    // The peak traffic (not recommended).
     // 
-    // - You must specify either **IoMax** or **IoMaxSpec**. If you specify both parameters, **IoMaxSpec** takes precedence. We recommend that you specify only **IoMaxSpec**.
+    // - You must specify at least one of **IoMax** and **IoMaxSpec**. If you specify both, **IoMaxSpec** takes precedence. We recommend that you specify only **IoMaxSpec**.
     // 
-    // - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
-    // > If you are creating a Confluent series instance, you do not need to pass this parameter.
+    // > If you create a Confluent instance, you do not need to specify this parameter.
     shared_ptr<int32_t> ioMax_ {};
     // The traffic specification (recommended).
     // 
-    // - You must specify either **IoMax** or **IoMaxSpec**. If you specify both parameters, **IoMaxSpec** takes precedence. We recommend that you specify only **IoMaxSpec**.
+    // - You must specify at least one of **IoMax** and **IoMaxSpec**. If you specify both, **IoMaxSpec** takes precedence. We recommend that you specify only **IoMaxSpec**.
     // 
-    // - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-    // 
-    // > If you are creating a Confluent series instance, you do not need to pass this parameter.
+    // - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // > If you create a Confluent instance, you do not need to specify this parameter.
     shared_ptr<string> ioMaxSpec_ {};
-    // The billing method. Valid values:
+    // The billing type. Valid values:
     // 
     // - **0**: subscription
     // 
-    // - **4**: Confluent series subscription
+    // - **4**: Confluent subscription
     shared_ptr<int32_t> paidType_ {};
     // The number of partitions (recommended).
     // 
-    // - You must specify either the number of partitions or the topic specification. We recommend that you specify only the number of partitions.
+    // * You must specify either the number of partitions or the topic specification. We recommend that you specify only the number of partitions.
     // 
-    // - If you specify both the number of partitions and the topic specification, the system verifies whether the number of partitions is equivalent to the topic specification based on the old topic sales model. If they are not equivalent, the system returns a failure. If they are equivalent, the system makes the purchase based on the number of partitions.
+    // * If you specify both the number of partitions and the topic specification, the system verifies whether the number of partitions and the topic specification are equivalent based on the legacy topic sales model. If they are not equivalent, the request fails. If they are equivalent, the purchase is made based on the number of partitions.
     // 
-    // - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // * For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
-    // > If you are creating a Confluent series instance, you do not need to pass this parameter.
+    // > If you create a Confluent instance, you do not need to specify this parameter.
     shared_ptr<int32_t> partitionNum_ {};
     // The region ID of the instance.
     // 
@@ -656,17 +657,17 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     // 
-    // If you do not specify this parameter, the instance is added to the default resource group. You can view the resource group ID in the Resource Group console.
+    // If you do not specify this parameter, the instance is placed in the default resource group. You can view the resource group ID in the Resource Group console.
     shared_ptr<string> resourceGroupId_ {};
     // The specification type.
     // 
-    // Valid values for Kafka instances:
+    // Valid values for ApsaraMQ for Kafka instances:
     // 
-    // - **normal**: Standard Edition (high write)
+    // - **normal**: Normal Edition (shared high-write)
     // 
-    // - **professional**: Professional Edition (high write)
+    // - **professional**: Professional Edition (shared high-write)
     // 
-    // - **professionalForHighRead**: Professional Edition (high read)
+    // - **professionalForHighRead**: Professional Edition (shared high-read)
     // 
     // Valid values for Confluent instances:
     // 
@@ -676,19 +677,18 @@ namespace Models
     // 
     // For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     shared_ptr<string> specType_ {};
-    // The list of tags.
+    // The tags.
     shared_ptr<vector<CreatePrePayOrderRequest::Tag>> tag_ {};
     // The number of topics (not recommended).
     // 
     // - You must specify either the number of partitions or the topic specification. We recommend that you specify only the number of partitions.
     // 
-    // - If you specify both the number of partitions and the topic specification, the system verifies whether the number of partitions is equivalent to the topic specification based on the old topic sales model. If they are not equivalent, the system returns a failure. If they are equivalent, the system makes the purchase based on the number of partitions.
+    // - If you specify both the number of partitions and the topic specification, the system verifies whether the number of partitions and the topic specification are equivalent based on the legacy topic sales model. If they are not equivalent, the request fails. If they are equivalent, the purchase is made based on the number of partitions.
     // 
     // - The default value varies based on the traffic specification. Additional fees are charged if the value exceeds the default value.
     // 
-    // - For the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-    // 
-    // > If you are creating a Confluent series instance, you do not need to pass this parameter.
+    // - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // > If you create a Confluent instance, you do not need to specify this parameter.
     shared_ptr<int32_t> topicQuota_ {};
   };
 

@@ -91,22 +91,16 @@ namespace Models
 
     protected:
       // The tag key of the resource.
-      // 
-      // - The value of N can be from 1 to 20.
-      // 
+      // - N ranges from 1 to 20.
       // - If this parameter is left empty, all tag keys are matched.
-      // 
-      // - The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http\\:// or https\\://.
+      // - The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
       // The tag value of the resource.
-      // 
-      // - The value of N can be from 1 to 20.
-      // 
-      // - If the tag key is empty, this parameter must also be empty. If this parameter is empty, all tag values are matched.
-      // 
-      // - The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http\\:// or https\\://.
+      // - N ranges from 1 to 20.
+      // - If the tag key is left empty, this parameter must also be left empty. If this parameter is left empty, all tag values are matched.
+      // - The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
@@ -148,13 +142,14 @@ namespace Models
 
 
     protected:
-      // The reserved publish traffic. The value must be an integer. Minimum value: 60. This parameter is required for Serverless instances.
+      // The reserved publish traffic specification value. Only integers are supported. The minimum value is 60. This parameter is required for serverless instances.
       // 
-      // > The actual upper limit is subject to the inventory in the current region. For more information, see the value range on the buy page.
+      // 
+      // > The actual upper limit is subject to the inventory in the current region. Refer to the purchase page for the available range.
       shared_ptr<int64_t> reservedPublishCapacity_ {};
-      // The reserved subscribe traffic. The value must be an integer. Minimum value: 20. This parameter is required for Serverless instances.
+      // The reserved subscribe traffic specification value. Only integers are supported. The minimum value is 20. This parameter is required for serverless instances.
       // 
-      // > The actual upper limit is subject to the inventory in the current region. For more information, see the value range on the buy page.
+      // > The actual upper limit is subject to the inventory in the current region. Refer to the purchase page for the available range.
       shared_ptr<int64_t> reservedSubscribeCapacity_ {};
     };
 
@@ -253,83 +248,75 @@ namespace Models
   protected:
     // The deployment type. Valid values:
     // 
-    // - **4**: instance that is accessible over the internet and a VPC
+    // - **4**: Internet- and VPC-connected instance
     // 
-    // - **5**: instance that is accessible only over a VPC
+    // - **5**: VPC-connected instance
     // 
     // This parameter is required.
     shared_ptr<int32_t> deployType_ {};
     // The disk capacity.
     // 
-    // For more information about the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-    // 
-    // > This parameter is not required when you create a Serverless instance.
+    // For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // > This parameter is not required if you create a serverless instance.
     shared_ptr<int32_t> diskSize_ {};
     // The disk type. Valid values:
     // 
     // - **0**: ultra disk
     // 
     // - **1**: SSD
-    // 
-    // > This parameter is not required when you create a Serverless instance.
+    // > This parameter is not required if you create a serverless instance.
     shared_ptr<string> diskType_ {};
     // The Internet traffic.
     // 
-    // - This parameter is required if you set **DeployType** to **4**.
+    // - This parameter is required if **DeployType** is set to **4**.
     // 
-    // - For more information about the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
-    // > This parameter is not required when you create a Serverless instance.
+    // > This parameter is not required if you create a serverless instance.
     shared_ptr<int32_t> eipMax_ {};
     // The traffic specification.
     // 
-    // - For more information about the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
-    // > This parameter is not required when you create a Serverless instance.
+    // > This parameter is not required if you create a serverless instance.
     shared_ptr<string> ioMaxSpec_ {};
-    // The billing method. Valid values:
+    // The billing type. Valid values:
     // 
     // - 1 (default): pay-as-you-go for reserved instances.
-    // 
-    // - 3: pay-as-you-go for reserved capacity and elastic scaling of Serverless instances.
+    // - 3: pay-as-you-go for serverless reserved specifications + pay-as-you-go for serverless elastic scaling.
     shared_ptr<int32_t> paidType_ {};
-    // The number of partitions.
+    // The number of partitions to purchase.
     // 
-    // - For more information about the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-    // 
-    // > This parameter is not required if the instance is a Serverless instance.
+    // * For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // > This parameter is not required if the instance is a serverless instance.
     shared_ptr<int32_t> partitionNum_ {};
     // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     // 
-    // If you do not specify this parameter, the instance is added to the default resource group. You can view the resource group ID in the Resource Group console.
+    // If this parameter is not specified, the instance is placed in the default resource group. You can view the resource group ID in the Resource Management console.
     shared_ptr<string> resourceGroupId_ {};
-    // The settings of the Serverless instance. This parameter is required when you create a Serverless instance.
+    // The settings for the serverless instance. This parameter is required when you create a serverless instance.
     shared_ptr<CreatePostPayInstanceRequest::ServerlessConfig> serverlessConfig_ {};
-    // The edition of the instance.
+    // The specification type.
     // 
-    // If you set the PaidType parameter to 1 (pay-as-you-go for reserved instances), valid values are:
+    // Valid values when PaidType is set to 1 (pay-as-you-go for reserved instances):
     // 
-    // - normal: Standard Edition (High-write)
+    // - normal: Standard Edition (shared throughput)
+    // - professional: Professional Edition (shared throughput)
+    // - professionalForHighRead: Professional Edition (shared throughput for high read)
     // 
-    // - professional: Professional Edition (High-write)
-    // 
-    // - professionalForHighRead: Professional Edition (High-read)
-    // 
-    // If you set the PaidType parameter to 3 (pay-as-you-go for reserved capacity and elastic scaling of Serverless instances), valid values are:
+    // Valid values when PaidType is set to 3 (pay-as-you-go for serverless reserved specifications + pay-as-you-go for serverless elastic scaling):
     // 
     // - basic: Serverless Basic Edition
-    // 
     // - normal: Serverless Standard Edition
-    // 
     // - professional: Serverless Professional Edition
     // 
-    // For more information about these instance editions, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // For more information about the specification types, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     shared_ptr<string> specType_ {};
-    // The tags.
+    // The tag list.
     shared_ptr<vector<CreatePostPayInstanceRequest::Tag>> tag_ {};
   };
 

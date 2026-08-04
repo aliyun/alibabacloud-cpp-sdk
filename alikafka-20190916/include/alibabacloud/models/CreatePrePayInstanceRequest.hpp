@@ -92,29 +92,30 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The tag key of the resource.
       // 
-      // -
+      // - N ranges from 1 to 20.
       // 
-      // -
+      // - If this parameter is left empty, all tag keys are matched.
       // 
-      // - The key must be 1 to 128 characters long. It cannot start with aliyun or acs:, nor can it contain http\\:// or https\\://.
+      // - The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The tag value of the resource.
       // 
-      // -
+      // - N ranges from 1 to 20.
       // 
-      // -
+      // - This parameter can be left empty.
       // 
-      // - The value can be 0 to 128 characters long. It cannot start with aliyun or acs:, nor can it contain http\\:// or https\\://.
+      // - The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
       shared_ptr<string> value_ {};
     };
 
     class ConfluentConfig : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ConfluentConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(ConfluentVersion, confluentVersion_);
         DARABONBA_PTR_TO_JSON(ConnectCU, connectCU_);
         DARABONBA_PTR_TO_JSON(ConnectReplica, connectReplica_);
         DARABONBA_PTR_TO_JSON(ControlCenterCU, controlCenterCU_);
@@ -125,6 +126,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(KafkaRestProxyCU, kafkaRestProxyCU_);
         DARABONBA_PTR_TO_JSON(KafkaRestProxyReplica, kafkaRestProxyReplica_);
         DARABONBA_PTR_TO_JSON(KafkaStorage, kafkaStorage_);
+        DARABONBA_PTR_TO_JSON(KraftControllerCU, kraftControllerCU_);
+        DARABONBA_PTR_TO_JSON(KraftControllerReplica, kraftControllerReplica_);
+        DARABONBA_PTR_TO_JSON(KraftControllerStorage, kraftControllerStorage_);
         DARABONBA_PTR_TO_JSON(KsqlCU, ksqlCU_);
         DARABONBA_PTR_TO_JSON(KsqlList, ksqlList_);
         DARABONBA_PTR_TO_JSON(KsqlReplica, ksqlReplica_);
@@ -136,6 +140,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ZooKeeperStorage, zooKeeperStorage_);
       };
       friend void from_json(const Darabonba::Json& j, ConfluentConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(ConfluentVersion, confluentVersion_);
         DARABONBA_PTR_FROM_JSON(ConnectCU, connectCU_);
         DARABONBA_PTR_FROM_JSON(ConnectReplica, connectReplica_);
         DARABONBA_PTR_FROM_JSON(ControlCenterCU, controlCenterCU_);
@@ -146,6 +151,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(KafkaRestProxyCU, kafkaRestProxyCU_);
         DARABONBA_PTR_FROM_JSON(KafkaRestProxyReplica, kafkaRestProxyReplica_);
         DARABONBA_PTR_FROM_JSON(KafkaStorage, kafkaStorage_);
+        DARABONBA_PTR_FROM_JSON(KraftControllerCU, kraftControllerCU_);
+        DARABONBA_PTR_FROM_JSON(KraftControllerReplica, kraftControllerReplica_);
+        DARABONBA_PTR_FROM_JSON(KraftControllerStorage, kraftControllerStorage_);
         DARABONBA_PTR_FROM_JSON(KsqlCU, ksqlCU_);
         DARABONBA_PTR_FROM_JSON(KsqlList, ksqlList_);
         DARABONBA_PTR_FROM_JSON(KsqlReplica, ksqlReplica_);
@@ -239,11 +247,19 @@ namespace Models
         shared_ptr<string> type_ {};
       };
 
-      virtual bool empty() const override { return this->connectCU_ == nullptr
-        && this->connectReplica_ == nullptr && this->controlCenterCU_ == nullptr && this->controlCenterReplica_ == nullptr && this->controlCenterStorage_ == nullptr && this->kafkaCU_ == nullptr
-        && this->kafkaReplica_ == nullptr && this->kafkaRestProxyCU_ == nullptr && this->kafkaRestProxyReplica_ == nullptr && this->kafkaStorage_ == nullptr && this->ksqlCU_ == nullptr
-        && this->ksqlList_ == nullptr && this->ksqlReplica_ == nullptr && this->ksqlStorage_ == nullptr && this->schemaRegistryCU_ == nullptr && this->schemaRegistryReplica_ == nullptr
-        && this->zooKeeperCU_ == nullptr && this->zooKeeperReplica_ == nullptr && this->zooKeeperStorage_ == nullptr; };
+      virtual bool empty() const override { return this->confluentVersion_ == nullptr
+        && this->connectCU_ == nullptr && this->connectReplica_ == nullptr && this->controlCenterCU_ == nullptr && this->controlCenterReplica_ == nullptr && this->controlCenterStorage_ == nullptr
+        && this->kafkaCU_ == nullptr && this->kafkaReplica_ == nullptr && this->kafkaRestProxyCU_ == nullptr && this->kafkaRestProxyReplica_ == nullptr && this->kafkaStorage_ == nullptr
+        && this->kraftControllerCU_ == nullptr && this->kraftControllerReplica_ == nullptr && this->kraftControllerStorage_ == nullptr && this->ksqlCU_ == nullptr && this->ksqlList_ == nullptr
+        && this->ksqlReplica_ == nullptr && this->ksqlStorage_ == nullptr && this->schemaRegistryCU_ == nullptr && this->schemaRegistryReplica_ == nullptr && this->zooKeeperCU_ == nullptr
+        && this->zooKeeperReplica_ == nullptr && this->zooKeeperStorage_ == nullptr; };
+      // confluentVersion Field Functions 
+      bool hasConfluentVersion() const { return this->confluentVersion_ != nullptr;};
+      void deleteConfluentVersion() { this->confluentVersion_ = nullptr;};
+      inline string getConfluentVersion() const { DARABONBA_PTR_GET_DEFAULT(confluentVersion_, "") };
+      inline ConfluentConfig& setConfluentVersion(string confluentVersion) { DARABONBA_PTR_SET_VALUE(confluentVersion_, confluentVersion) };
+
+
       // connectCU Field Functions 
       bool hasConnectCU() const { return this->connectCU_ != nullptr;};
       void deleteConnectCU() { this->connectCU_ = nullptr;};
@@ -314,6 +330,27 @@ namespace Models
       inline ConfluentConfig& setKafkaStorage(int32_t kafkaStorage) { DARABONBA_PTR_SET_VALUE(kafkaStorage_, kafkaStorage) };
 
 
+      // kraftControllerCU Field Functions 
+      bool hasKraftControllerCU() const { return this->kraftControllerCU_ != nullptr;};
+      void deleteKraftControllerCU() { this->kraftControllerCU_ = nullptr;};
+      inline int32_t getKraftControllerCU() const { DARABONBA_PTR_GET_DEFAULT(kraftControllerCU_, 0) };
+      inline ConfluentConfig& setKraftControllerCU(int32_t kraftControllerCU) { DARABONBA_PTR_SET_VALUE(kraftControllerCU_, kraftControllerCU) };
+
+
+      // kraftControllerReplica Field Functions 
+      bool hasKraftControllerReplica() const { return this->kraftControllerReplica_ != nullptr;};
+      void deleteKraftControllerReplica() { this->kraftControllerReplica_ = nullptr;};
+      inline int32_t getKraftControllerReplica() const { DARABONBA_PTR_GET_DEFAULT(kraftControllerReplica_, 0) };
+      inline ConfluentConfig& setKraftControllerReplica(int32_t kraftControllerReplica) { DARABONBA_PTR_SET_VALUE(kraftControllerReplica_, kraftControllerReplica) };
+
+
+      // kraftControllerStorage Field Functions 
+      bool hasKraftControllerStorage() const { return this->kraftControllerStorage_ != nullptr;};
+      void deleteKraftControllerStorage() { this->kraftControllerStorage_ = nullptr;};
+      inline int32_t getKraftControllerStorage() const { DARABONBA_PTR_GET_DEFAULT(kraftControllerStorage_, 0) };
+      inline ConfluentConfig& setKraftControllerStorage(int32_t kraftControllerStorage) { DARABONBA_PTR_SET_VALUE(kraftControllerStorage_, kraftControllerStorage) };
+
+
       // ksqlCU Field Functions 
       bool hasKsqlCU() const { return this->ksqlCU_ != nullptr;};
       void deleteKsqlCU() { this->ksqlCU_ = nullptr;};
@@ -380,42 +417,46 @@ namespace Models
 
 
     protected:
-      // The number of CPU cores for Connect.
+      shared_ptr<string> confluentVersion_ {};
+      // The number of CPU cores for the Connect component.
       shared_ptr<int32_t> connectCU_ {};
-      // The number of replicas for Connect.
+      // The number of Connect component replicas.
       shared_ptr<int32_t> connectReplica_ {};
-      // The number of CPU cores for Control Center.
+      // The number of CPU cores for the ControlCenter component.
       shared_ptr<int32_t> controlCenterCU_ {};
-      // The number of replicas for Control Center.
+      // The number of ControlCenter component replicas.
       shared_ptr<int32_t> controlCenterReplica_ {};
-      // The disk capacity for Control Center, in GB.
+      // The disk capacity of the ControlCenter component. Unit: GB.
       shared_ptr<int32_t> controlCenterStorage_ {};
-      // The number of CPU cores for the Kafka broker.
+      // The number of CPU cores for Kafka Broker.
       shared_ptr<int32_t> kafkaCU_ {};
-      // The number of replicas for the Kafka broker.
+      // The number of Kafka Broker replicas.
       shared_ptr<int32_t> kafkaReplica_ {};
-      // The number of CPU cores for Kafka REST Proxy.
+      // The number of CPU cores for the KafkaRestProxy component.
       shared_ptr<int32_t> kafkaRestProxyCU_ {};
-      // The number of replicas for Kafka REST Proxy.
+      // The number of KafkaRestProxy component replicas.
       shared_ptr<int32_t> kafkaRestProxyReplica_ {};
-      // The disk capacity for the Kafka broker, in GB.
+      // The disk capacity of Kafka Broker. Unit: GB.
       shared_ptr<int32_t> kafkaStorage_ {};
-      // The number of CPU cores for ksqlDB.
+      shared_ptr<int32_t> kraftControllerCU_ {};
+      shared_ptr<int32_t> kraftControllerReplica_ {};
+      shared_ptr<int32_t> kraftControllerStorage_ {};
+      // The number of CPU cores for the KsqlDB component.
       shared_ptr<int32_t> ksqlCU_ {};
       shared_ptr<vector<ConfluentConfig::KsqlList>> ksqlList_ {};
-      // The number of replicas for ksqlDB.
+      // The number of KsqlDB component replicas.
       shared_ptr<int32_t> ksqlReplica_ {};
-      // The disk capacity for ksqlDB, in GB.
+      // The disk capacity of the KsqlDB component. Unit: GB.
       shared_ptr<int32_t> ksqlStorage_ {};
-      // The number of CPU cores for Schema Registry.
+      // The number of CPU cores for the SchemaRegistry component.
       shared_ptr<int32_t> schemaRegistryCU_ {};
-      // The number of replicas for Schema Registry.
+      // The number of SchemaRegistry component replicas.
       shared_ptr<int32_t> schemaRegistryReplica_ {};
-      // The number of CPU cores for ZooKeeper.
+      // The number of CPU cores for the ZooKeeper component.
       shared_ptr<int32_t> zooKeeperCU_ {};
-      // The number of replicas for ZooKeeper.
+      // The number of ZooKeeper component replicas.
       shared_ptr<int32_t> zooKeeperReplica_ {};
-      // The disk capacity for ZooKeeper, in GB.
+      // The disk capacity of the ZooKeeper component. Unit: GB.
       shared_ptr<int32_t> zooKeeperStorage_ {};
     };
 
@@ -519,81 +560,82 @@ namespace Models
 
 
   protected:
-    // The configurations of the Confluent components.
+    // The Confluent component configurations.
     // 
-    // > This parameter is required if you create a Confluent instance.
+    // 
+    // > This parameter is required when you create a Confluent instance.
     shared_ptr<CreatePrePayInstanceRequest::ConfluentConfig> confluentConfig_ {};
     // The deployment type. Valid values:
     // 
-    // - **4**: an instance accessible from the internet and a VPC
+    // - **4**: Internet- and VPC-connected instance
     // 
-    // - **5**: an instance accessible from a VPC only
+    // - **5**: VPC-connected instance
     // 
-    // > If you create a Confluent instance, you cannot specify the deployment type and must set this parameter to 5. After the instance is created, you can configure internet access for each component.
+    // 
+    // > When you create a Confluent instance, you cannot select the deployment type. Only the value 5 is allowed. After the purchase, you can configure whether to enable public access for each component.
     shared_ptr<int32_t> deployType_ {};
-    // The disk capacity, in GB.
+    // The disk capacity. Unit: GB.
     // 
     // For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     // 
-    // > This parameter is not required if you create a Confluent instance.
+    // > This parameter is not required when you create a Confluent instance.
     shared_ptr<int32_t> diskSize_ {};
     // The disk type. Valid values:
     // 
-    // - **0**: ultra disk
+    // - **0**: ultra cloud disk
     // 
     // - **1**: SSD
     // 
-    // > This parameter is not required if you create a Confluent instance.
+    // > This parameter is not required when you create a Confluent instance.
     shared_ptr<string> diskType_ {};
-    // The subscription duration, in months. Default value: 1. Valid values:
+    // The subscription duration. Unit: months. Default value: 1. Valid values:
     // 
-    // - Confluent instances: **1** and **12**
-    // 
-    // - Kafka instances: **1**
+    // - **Confluent instances: 1 or 12**
+    // - **ApsaraMQ for Kafka instances: 1**
     shared_ptr<int32_t> duration_ {};
-    // The peak internet bandwidth.
+    // The Internet traffic.
     // 
-    // - This parameter is required if you set **DeployType** to **4**.
+    // - This parameter is required if **DeployType** is set to **4**.
     // 
-    // - For the value range, see [pay-as-you-go](https://help.aliyun.com/document_detail/72142.html).
+    // - For the value range, see [Pay-as-you-go billing method](https://help.aliyun.com/document_detail/72142.html).
     // 
-    // > This parameter is not required if you create a Confluent instance.
+    // 
+    // > This parameter is not required when you create a Confluent instance.
     shared_ptr<int32_t> eipMax_ {};
-    // The I/O specification.
+    // The traffic specification.
+    //  
     // 
     // - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-    // 
-    // > This parameter is not required if you create a Confluent instance.
+    // > This parameter is not required when you create a Confluent instance.
     shared_ptr<string> ioMaxSpec_ {};
-    // The billing method. Valid values:
+    // The billing type. Valid values:
     // 
     // - **0**: subscription
     // 
-    // - **4**: subscription for Confluent instances
+    // - **4**: Confluent subscription
     shared_ptr<int32_t> paidType_ {};
-    // The number of partitions.
+    // The number of partitions to purchase.
     // 
-    // - For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-    // 
-    // > This parameter is not required if you create a Confluent instance.
+    // * For the value range, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+    // > This parameter is not required when you create a Confluent instance.
     shared_ptr<int32_t> partitionNum_ {};
     // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     // 
-    // If you do not specify this parameter, the instance is placed in the default resource group. You can find the resource group ID in the Resource Group console.
+    // If you do not specify this parameter, the instance is placed in the default resource group. You can view the resource group ID in the Resource Management console.
     shared_ptr<string> resourceGroupId_ {};
-    // The specification type.
+    // The edition type.
     // 
-    // Valid values for Kafka instances:
+    // Valid values for ApsaraMQ for Kafka instances:
     // 
-    // - **normal**: Standard Edition (High-write)
+    // - **normal**: Standard Edition (shared throughput for writes)
     // 
-    // - **professional**: Professional Edition (High-write)
+    // - **professional**: Professional Edition (shared throughput for writes)
     // 
-    // - **professionalForHighRead**: Professional Edition (High-read)
+    // - **professionalForHighRead**: Professional Edition (shared throughput for reads)
     // 
     // Valid values for Confluent instances:
     // 
@@ -603,7 +645,7 @@ namespace Models
     // 
     // For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
     shared_ptr<string> specType_ {};
-    // The tags to attach to the instance. You can specify up to 20 tags.
+    // The tags.
     shared_ptr<vector<CreatePrePayInstanceRequest::Tag>> tag_ {};
   };
 

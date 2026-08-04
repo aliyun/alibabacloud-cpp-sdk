@@ -66,31 +66,19 @@ namespace Models
 
 
   protected:
-    // Matching pattern. Valid values:
-    // 
-    // - LITERAL: exact match
-    // 
-    // - PREFIXED: prefix match
+    // The matching mode. Valid values:
     // 
     // This parameter is required.
     shared_ptr<string> aclResourcePatternType_ {};
-    // Resource type.
-    // 
-    // - **Topic**: message topic.
-    // 
-    // - **Group**: consumer group.
-    // 
-    // - **Cluster**: instance.
-    // 
-    // - **TransactionalId**: transaction ID.
+    // The resource type.
     // 
     // This parameter is required.
     shared_ptr<string> aclResourceType_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Region ID.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

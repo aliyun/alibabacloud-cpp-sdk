@@ -6,6 +6,10 @@
 #include <alibabacloud/models/AddUserDefinedSgShrinkRequest.hpp>
 #include <alibabacloud/models/AddUserDefinedSgResponseBody.hpp>
 #include <alibabacloud/models/AddUserDefinedSgResponse.hpp>
+#include <alibabacloud/models/BatchDeleteTopicsRequest.hpp>
+#include <alibabacloud/models/BatchDeleteTopicsShrinkRequest.hpp>
+#include <alibabacloud/models/BatchDeleteTopicsResponseBody.hpp>
+#include <alibabacloud/models/BatchDeleteTopicsResponse.hpp>
 #include <alibabacloud/models/ChangeResourceGroupRequest.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponseBody.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponse.hpp>

@@ -38,7 +38,24 @@ namespace Alikafka20190916
       Models::AddUserDefinedSgResponse addUserDefinedSg(const Models::AddUserDefinedSgRequest &request);
 
       /**
-       * @summary Moves a resource to a different resource group.
+       * @summary 删除
+       *
+       * @param tmpReq BatchDeleteTopicsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchDeleteTopicsResponse
+       */
+      Models::BatchDeleteTopicsResponse batchDeleteTopicsWithOptions(const Models::BatchDeleteTopicsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除
+       *
+       * @param request BatchDeleteTopicsRequest
+       * @return BatchDeleteTopicsResponse
+       */
+      Models::BatchDeleteTopicsResponse batchDeleteTopics(const Models::BatchDeleteTopicsRequest &request);
+
+      /**
+       * @summary Transfers a resource to a different resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +64,7 @@ namespace Alikafka20190916
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Moves a resource to a different resource group.
+       * @summary Transfers a resource to a different resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -72,7 +89,7 @@ namespace Alikafka20190916
       Models::ConvertPostPayOrderResponse convertPostPayOrder(const Models::ConvertPostPayOrderRequest &request);
 
       /**
-       * @summary This operation is used to create an access control list (ACL).
+       * @summary Creates an access control list (ACL).
        *
        * @param request CreateAclRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +98,7 @@ namespace Alikafka20190916
       Models::CreateAclResponse createAclWithOptions(const Models::CreateAclRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation is used to create an access control list (ACL).
+       * @summary Creates an access control list (ACL).
        *
        * @param request CreateAclRequest
        * @return CreateAclResponse
@@ -89,7 +106,7 @@ namespace Alikafka20190916
       Models::CreateAclResponse createAcl(const Models::CreateAclRequest &request);
 
       /**
-       * @summary You can call CreateConsumerGroup to create a consumer group.
+       * @summary Calls CreateConsumerGroup to create a consumer group.
        *
        * @param request CreateConsumerGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +115,7 @@ namespace Alikafka20190916
       Models::CreateConsumerGroupResponse createConsumerGroupWithOptions(const Models::CreateConsumerGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call CreateConsumerGroup to create a consumer group.
+       * @summary Calls CreateConsumerGroup to create a consumer group.
        *
        * @param request CreateConsumerGroupRequest
        * @return CreateConsumerGroupResponse
@@ -106,7 +123,7 @@ namespace Alikafka20190916
       Models::CreateConsumerGroupResponse createConsumerGroup(const Models::CreateConsumerGroupRequest &request);
 
       /**
-       * @summary This operation creates a pay-as-you-go instance and returns the instance ID and order ID.
+       * @summary Creates a pay-as-you-go instance and returns the instance ID and order ID.
        *
        * @param tmpReq CreatePostPayInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +132,7 @@ namespace Alikafka20190916
       Models::CreatePostPayInstanceResponse createPostPayInstanceWithOptions(const Models::CreatePostPayInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation creates a pay-as-you-go instance and returns the instance ID and order ID.
+       * @summary Creates a pay-as-you-go instance and returns the instance ID and order ID.
        *
        * @param request CreatePostPayInstanceRequest
        * @return CreatePostPayInstanceResponse
@@ -123,9 +140,9 @@ namespace Alikafka20190916
       Models::CreatePostPayInstanceResponse createPostPayInstance(const Models::CreatePostPayInstanceRequest &request);
 
       /**
-       * @summary Pay-as-you-go instances are billed based on actual usage. This billing method is ideal for testing or short-term scenarios with unpredictable traffic peaks. This topic describes how to call the CreatePostPayOrder operation to create a pay-as-you-go instance.
+       * @summary Pay-as-you-go instances are billed based on the actual usage of purchased resource specifications. You use resources first and then pay for them. This billing method is suitable for testing or short-term scenarios with unpredictable traffic peaks. This topic describes how to call CreatePostPayOrder to create a pay-as-you-go instance.
        *
-       * @description Before you call this operation, make sure you understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * @description Before you use this operation, make sure that you fully understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
        *
        * @param tmpReq CreatePostPayOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -134,9 +151,9 @@ namespace Alikafka20190916
       Models::CreatePostPayOrderResponse createPostPayOrderWithOptions(const Models::CreatePostPayOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Pay-as-you-go instances are billed based on actual usage. This billing method is ideal for testing or short-term scenarios with unpredictable traffic peaks. This topic describes how to call the CreatePostPayOrder operation to create a pay-as-you-go instance.
+       * @summary Pay-as-you-go instances are billed based on the actual usage of purchased resource specifications. You use resources first and then pay for them. This billing method is suitable for testing or short-term scenarios with unpredictable traffic peaks. This topic describes how to call CreatePostPayOrder to create a pay-as-you-go instance.
        *
-       * @description Before you call this operation, make sure you understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * @description Before you use this operation, make sure that you fully understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
        *
        * @param request CreatePostPayOrderRequest
        * @return CreatePostPayOrderResponse
@@ -146,8 +163,8 @@ namespace Alikafka20190916
       /**
        * @summary Creates a subscription instance and returns the instance ID and order ID.
        *
-       * @description - Before calling this operation, ensure you understand the billing methods and pricing of subscription instances. For more information, see [billing overview](https://help.aliyun.com/document_detail/84737.html).
-       * - By default, a subscription instance created using this operation has a one-month subscription period and is set to auto-renew monthly. To change the renewal period or disable auto-renewal, go to the [renewal management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.<props="china"> For more information, see [Set up auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+       * @description - Make sure that you fully understand the billing methods and pricing of subscription instances before you call this operation. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * - After you call this operation, the upfront instance is purchased for one epoch of one month by default. Auto-renewal is enabled by default, and the Unified Auto Renewal Cycle is one month. If you want to modify the Unified Auto Renewal Cycle or disable auto-renewal, go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.<props="china"> For more information, see [Settings for auto-renewal](https://help.aliyun.com/document_detail/37128.html).
        *
        * @param tmpReq CreatePrePayInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -158,8 +175,8 @@ namespace Alikafka20190916
       /**
        * @summary Creates a subscription instance and returns the instance ID and order ID.
        *
-       * @description - Before calling this operation, ensure you understand the billing methods and pricing of subscription instances. For more information, see [billing overview](https://help.aliyun.com/document_detail/84737.html).
-       * - By default, a subscription instance created using this operation has a one-month subscription period and is set to auto-renew monthly. To change the renewal period or disable auto-renewal, go to the [renewal management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.<props="china"> For more information, see [Set up auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+       * @description - Make sure that you fully understand the billing methods and pricing of subscription instances before you call this operation. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * - After you call this operation, the upfront instance is purchased for one epoch of one month by default. Auto-renewal is enabled by default, and the Unified Auto Renewal Cycle is one month. If you want to modify the Unified Auto Renewal Cycle or disable auto-renewal, go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.<props="china"> For more information, see [Settings for auto-renewal](https://help.aliyun.com/document_detail/37128.html).
        *
        * @param request CreatePrePayInstanceRequest
        * @return CreatePrePayInstanceResponse
@@ -167,10 +184,10 @@ namespace Alikafka20190916
       Models::CreatePrePayInstanceResponse createPrePayInstance(const Models::CreatePrePayInstanceRequest &request);
 
       /**
-       * @summary Subscription instances require prepayment for resources and are ideal for long-term, stable business scenarios. This topic describes how to call the CreatePrePayOrder operation to create a subscription instance.
+       * @summary Creates a subscription instance. Subscription instances require upfront payment before you can use resources. This billing method is suitable for long-term stable business scenarios.
        *
-       * @description - Before you call this operation, ensure that you understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-       * - By default, when you call this operation, the subscription duration is one month and auto-renewal is enabled with a Unified Auto Renewal Cycle of one month. To modify the Unified Auto Renewal Cycle or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+       * @description - Before calling this operation, make sure that you fully understand the billing method and pricing of upfront instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * - After you call this operation, the subscription instance is purchased for one epoch by default, and auto-renewal is enabled by default with a Unified Auto Renewal Cycle of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console Settings.<props="china"> For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
        *
        * @param tmpReq CreatePrePayOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -179,10 +196,10 @@ namespace Alikafka20190916
       Models::CreatePrePayOrderResponse createPrePayOrderWithOptions(const Models::CreatePrePayOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Subscription instances require prepayment for resources and are ideal for long-term, stable business scenarios. This topic describes how to call the CreatePrePayOrder operation to create a subscription instance.
+       * @summary Creates a subscription instance. Subscription instances require upfront payment before you can use resources. This billing method is suitable for long-term stable business scenarios.
        *
-       * @description - Before you call this operation, ensure that you understand the billing method and pricing of subscription instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-       * - By default, when you call this operation, the subscription duration is one month and auto-renewal is enabled with a Unified Auto Renewal Cycle of one month. To modify the Unified Auto Renewal Cycle or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console. For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
+       * @description - Before calling this operation, make sure that you fully understand the billing method and pricing of upfront instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * - After you call this operation, the subscription instance is purchased for one epoch by default, and auto-renewal is enabled by default with a Unified Auto Renewal Cycle of one month. To modify the auto-renewal epoch or disable auto-renewal, go to the [Renewal Management](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console Settings.<props="china"> For more information, see [Configure auto-renewal](https://help.aliyun.com/document_detail/37128.html).
        *
        * @param request CreatePrePayOrderRequest
        * @return CreatePrePayOrderResponse
@@ -190,7 +207,7 @@ namespace Alikafka20190916
       Models::CreatePrePayOrderResponse createPrePayOrder(const Models::CreatePrePayOrderRequest &request);
 
       /**
-       * @summary This operation creates a SASL user.
+       * @summary Creates a Simple Authentication and Security Layer (SASL) user by calling CreateSaslUser.
        *
        * @param request CreateSaslUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -199,7 +216,7 @@ namespace Alikafka20190916
       Models::CreateSaslUserResponse createSaslUserWithOptions(const Models::CreateSaslUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation creates a SASL user.
+       * @summary Creates a Simple Authentication and Security Layer (SASL) user by calling CreateSaslUser.
        *
        * @param request CreateSaslUserRequest
        * @return CreateSaslUserResponse
@@ -207,9 +224,9 @@ namespace Alikafka20190916
       Models::CreateSaslUserResponse createSaslUser(const Models::CreateSaslUserRequest &request);
 
       /**
-       * @summary After you deploy a serverless instance, you can use this API to create a scheduled scaling rule for the instance.
+       * @summary Creates a scheduled elastic scaling policy for a serverless instance after deployment.
        *
-       * @description ###### This operation supports only serverless instances.
+       * @description ###### Only serverless instances are supported.
        *
        * @param tmpReq CreateScheduledScalingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -218,9 +235,9 @@ namespace Alikafka20190916
       Models::CreateScheduledScalingRuleResponse createScheduledScalingRuleWithOptions(const Models::CreateScheduledScalingRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary After you deploy a serverless instance, you can use this API to create a scheduled scaling rule for the instance.
+       * @summary Creates a scheduled elastic scaling policy for a serverless instance after deployment.
        *
-       * @description ###### This operation supports only serverless instances.
+       * @description ###### Only serverless instances are supported.
        *
        * @param request CreateScheduledScalingRuleRequest
        * @return CreateScheduledScalingRuleResponse
@@ -230,8 +247,8 @@ namespace Alikafka20190916
       /**
        * @summary Creates a topic.
        *
-       * @description - Each user can send up to 20 queries per second (QPS).
-       * - The maximum number of topics for an instance depends on its instance type.
+       * @description - The maximum request frequency per user is 20 QPS.
+       * - The maximum number of topics that can be created for each instance depends on the instance edition you purchased.
        *
        * @param request CreateTopicRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -242,8 +259,8 @@ namespace Alikafka20190916
       /**
        * @summary Creates a topic.
        *
-       * @description - Each user can send up to 20 queries per second (QPS).
-       * - The maximum number of topics for an instance depends on its instance type.
+       * @description - The maximum request frequency per user is 20 QPS.
+       * - The maximum number of topics that can be created for each instance depends on the instance edition you purchased.
        *
        * @param request CreateTopicRequest
        * @return CreateTopicResponse
@@ -268,7 +285,7 @@ namespace Alikafka20190916
       Models::DeleteAclResponse deleteAcl(const Models::DeleteAclRequest &request);
 
       /**
-       * @summary Deletes a Group.
+       * @summary Deletes a consumer group.
        *
        * @param request DeleteConsumerGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -277,7 +294,7 @@ namespace Alikafka20190916
       Models::DeleteConsumerGroupResponse deleteConsumerGroupWithOptions(const Models::DeleteConsumerGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a Group.
+       * @summary Deletes a consumer group.
        *
        * @param request DeleteConsumerGroupRequest
        * @return DeleteConsumerGroupResponse
@@ -285,7 +302,7 @@ namespace Alikafka20190916
       Models::DeleteConsumerGroupResponse deleteConsumerGroup(const Models::DeleteConsumerGroupRequest &request);
 
       /**
-       * @summary The DeleteInstance operation deletes an instance after a subscription instance or a pay-as-you-go instance is released.
+       * @summary Deletes an instance after a subscription or pay-as-you-go instance is released. This topic describes how to call the DeleteInstance operation to delete an instance.
        *
        * @param request DeleteInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -294,7 +311,7 @@ namespace Alikafka20190916
       Models::DeleteInstanceResponse deleteInstanceWithOptions(const Models::DeleteInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The DeleteInstance operation deletes an instance after a subscription instance or a pay-as-you-go instance is released.
+       * @summary Deletes an instance after a subscription or pay-as-you-go instance is released. This topic describes how to call the DeleteInstance operation to delete an instance.
        *
        * @param request DeleteInstanceRequest
        * @return DeleteInstanceResponse
@@ -374,7 +391,7 @@ namespace Alikafka20190916
       Models::DeleteUserDefinedSgResponse deleteUserDefinedSg(const Models::DeleteUserDefinedSgRequest &request);
 
       /**
-       * @summary Queries access control list (ACL) resource names.
+       * @summary Queries ACL resource names.
        *
        * @param request DescribeAclResourceNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -383,7 +400,7 @@ namespace Alikafka20190916
       Models::DescribeAclResourceNameResponse describeAclResourceNameWithOptions(const Models::DescribeAclResourceNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries access control list (ACL) resource names.
+       * @summary Queries ACL resource names.
        *
        * @param request DescribeAclResourceNameRequest
        * @return DescribeAclResourceNameResponse
@@ -459,10 +476,10 @@ namespace Alikafka20190916
       Models::DowngradePrePayOrderResponse downgradePrePayOrder(const Models::DowngradePrePayOrderRequest &request);
 
       /**
-       * @summary This topic describes how to call EnableAutoGroupCreation to enable or disable the free use of Groups.
+       * @summary Enables or disables the free use of groups by calling EnableAutoGroupCreation.
        *
-       * @description Currently, only reserved instances support this API.
-       * Serverless instances are not supported at this time.
+       * @description Only reserved instances support this API operation.
+       * Serverless instances are not supported.
        *
        * @param request EnableAutoGroupCreationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -471,10 +488,10 @@ namespace Alikafka20190916
       Models::EnableAutoGroupCreationResponse enableAutoGroupCreationWithOptions(const Models::EnableAutoGroupCreationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This topic describes how to call EnableAutoGroupCreation to enable or disable the free use of Groups.
+       * @summary Enables or disables the free use of groups by calling EnableAutoGroupCreation.
        *
-       * @description Currently, only reserved instances support this API.
-       * Serverless instances are not supported at this time.
+       * @description Only reserved instances support this API operation.
+       * Serverless instances are not supported.
        *
        * @param request EnableAutoGroupCreationRequest
        * @return EnableAutoGroupCreationResponse
@@ -681,7 +698,7 @@ namespace Alikafka20190916
       Models::GetRiskListResponse getRiskList(const Models::GetRiskListRequest &request);
 
       /**
-       * @summary Retrieves information about topics.
+       * @summary Retrieves topic information.
        *
        * @param request GetTopicListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -690,7 +707,7 @@ namespace Alikafka20190916
       Models::GetTopicListResponse getTopicListWithOptions(const Models::GetTopicListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about topics.
+       * @summary Retrieves topic information.
        *
        * @param request GetTopicListRequest
        * @return GetTopicListResponse
@@ -855,7 +872,7 @@ namespace Alikafka20190916
       Models::ModifyUserDefinedSgResponse modifyUserDefinedSg(const Models::ModifyUserDefinedSgRequest &request);
 
       /**
-       * @summary This operation queries messages stored in a topic by message creation time or offset.
+       * @summary Queries messages stored in a topic by message creation time or offset.
        *
        * @param request QueryMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -864,7 +881,7 @@ namespace Alikafka20190916
       Models::QueryMessageResponse queryMessageWithOptions(const Models::QueryMessageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This operation queries messages stored in a topic by message creation time or offset.
+       * @summary Queries messages stored in a topic by message creation time or offset.
        *
        * @param request QueryMessageRequest
        * @return QueryMessageResponse
@@ -1115,7 +1132,7 @@ namespace Alikafka20190916
       /**
        * @summary Upgrades a pay-as-you-go instance.
        *
-       * @description Before you call this operation, make sure that you fully understand the billing method and pricing of pay-as-you-go instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
        *
        * @param tmpReq UpgradePostPayOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1126,7 +1143,7 @@ namespace Alikafka20190916
       /**
        * @summary Upgrades a pay-as-you-go instance.
        *
-       * @description Before you call this operation, make sure that you fully understand the billing method and pricing of pay-as-you-go instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+       * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of pay-as-you-go instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
        *
        * @param request UpgradePostPayOrderRequest
        * @return UpgradePostPayOrderResponse

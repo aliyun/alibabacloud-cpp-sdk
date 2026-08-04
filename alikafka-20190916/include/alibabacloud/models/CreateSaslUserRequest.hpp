@@ -84,33 +84,33 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The encryption method. Valid values:
+    // The encryption mechanism. Valid values:
     // 
-    // - SCRAM-SHA-512 (default)
+    // - SCRAM-SHA-512 (selected by default)
     // 
     // - SCRAM-SHA-256
     // 
-    // > This parameter is supported only for Serverless instances.
+    // >This parameter is supported only for Serverless instances.
     shared_ptr<string> mechanism_ {};
     // The password.
     // 
     // This parameter is required.
     shared_ptr<string> password_ {};
-    // The ID of the region.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The SASL mechanism. Valid values:
+    // The type. Valid values:
     // 
-    // - plain: a simple username and password authentication mechanism. Message Queue for Apache Kafka optimizes the PLAIN mechanism to support the dynamic creation of SASL users without the need to restart the instance.
+    // - plain: a simple username and password verification mechanism. ApsaraMQ for Kafka has optimized the PLAIN mechanism to support dynamically adding SASL users without restarting the instance.
     // 
-    // - scram: a username and password authentication mechanism that provides higher security than the PLAIN mechanism. Message Queue for Apache Kafka uses Salted Challenge Response Authentication Mechanism (SCRAM)-SHA-256.
+    // - scram: a username and password verification mechanism that provides higher security than PLAIN. ApsaraMQ for Kafka uses SCRAM-SHA-256.
     // 
-    // - LDAP: This value is applicable only when you create users for Confluent instances.
+    // - LDAP: applicable only to adding users for Confluent instances.
     // 
     // Default value: plain.
     shared_ptr<string> type_ {};

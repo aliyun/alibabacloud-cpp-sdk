@@ -143,26 +143,24 @@ namespace Models
 
 
   protected:
-    // The duration (unit: minutes) of a scheduled elastic task.
+    // The duration (unit: minutes) of a single scheduled elastic scaling task.
     // 
-    // > The parameter value must be at least 15 minutes.
+    // > The value must be at least 15 minutes.
     // 
     // This parameter is required.
     shared_ptr<int32_t> durationMinutes_ {};
-    // Enables or disables the scheduled task policy. Valid values:
+    // Specifies whether to enable or disable the scheduled policy. Valid values:
     // 
-    // - **true**: Enables the policy.
-    // - **false**: Disables the policy.
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     shared_ptr<bool> enable_ {};
-    // The time when the scheduled policy starts to execute.
+    // The time when the scheduled policy starts to take effect.
     // 
-    // For a one-time scheduling policy type, the start execution time must be more than 30 minutes later than the current time.
+    // If the schedule type is single execution, the start time must be at least 30 minutes later than the current time.
     // 
-    // >Notice: 
     // 
-    // To avoid the service from continuously executing upgrade and downgrade tasks, the time interval between different scheduled tasks must be at least 60 minutes.
     // 
-    // </notice>
+    // >Notice: To prevent the server from continuously performing scale-up and scale-down tasks, the interval between different scheduled tasks must be at least 60 minutes.
     // 
     // This parameter is required.
     shared_ptr<int64_t> firstScheduledTime_ {};
@@ -174,34 +172,32 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // When ScheduleType is set to repeat, you need to fill in this parameter. Enumeration values are:
-    // 
-    // - Daily: Daily scheduled task.
-    // 
-    // - Weekly: Weekly scheduled task.
+    // The repeat type. This parameter is required when ScheduleType is set to repeat. Valid values:
+    //       <li> Daily: timed scheduling every day.
+    //       <li> Weekly: timed scheduling every week.
     shared_ptr<string> repeatType_ {};
-    // The scheduled elastic reserved production specification (unit: MB/s).
+    // The reserved production specification for scheduled elastic scaling (unit: MB/s).
     // 
-    // > At least one of the ReservedPubFlow and ReservedSubFlow parameters must be higher than the current specification.
+    // > At least one of ReservedPubFlow and ReservedSubFlow must be higher than the current specification.
     // 
     // This parameter is required.
     shared_ptr<int32_t> reservedPubFlow_ {};
-    // The scheduled elastic reserved consumption specification (unit: MB/s).
-    // 
-    // > At least one of the ReservedSubFlow and ReservedPubFlow parameters must be higher than the current specification.
+    // The reserved consumption specification for scheduled elastic scaling (unit: MB/s).
+    // > At least one of ReservedSubFlow and ReservedPubFlow must be higher than the current specification.
     // 
     // This parameter is required.
     shared_ptr<int32_t> reservedSubFlow_ {};
     // The name of the scheduled policy rule.
     // 
-    // > The name cannot be the same as other rule names for the same instance.
+    // > The name must be unique among all rules of the same instance.
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
     // The schedule type. Valid values:
     // 
-    // - at: Scheduled only once.
-    // - repeat: Scheduled repeatedly.
+    // - at: scheduled once only.
+    // 
+    // - repeat: scheduled repeatedly.
     // 
     // This parameter is required.
     shared_ptr<string> scheduleType_ {};
@@ -209,7 +205,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> timeZone_ {};
-    // The weekly types. Supports execution on multiple days.
+    // The days of the week. Multiple days are supported for repeated execution.
     shared_ptr<vector<string>> weeklyTypes_ {};
   };
 

@@ -75,11 +75,11 @@ namespace Models
 
 
   protected:
-    // The status code. A value of 200 indicates that the call was successful.
+    // The status code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The new resource group ID. You can view available resource groups in the resource group console.
+    // The new resource group ID. You can view available resource groups in the Resource Group console.
     shared_ptr<string> newResourceGroupId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

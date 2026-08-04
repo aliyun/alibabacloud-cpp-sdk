@@ -186,9 +186,9 @@ namespace Models
 
 
     protected:
-      // The chaincode checksum.
+      // The checksum value.
       shared_ptr<int64_t> checksum_ {};
-      // The message key.
+      // The key of the message.
       shared_ptr<string> key_ {};
       // Indicates whether the key is truncated.
       shared_ptr<bool> keyTruncated_ {};
@@ -200,21 +200,24 @@ namespace Models
       shared_ptr<int32_t> serializedKeySize_ {};
       // The size of the serialized value. Unit: bytes.
       shared_ptr<int32_t> serializedValueSize_ {};
-      // The message creation time. Represented as a UNIX timestamp. Unit: milliseconds.
+      // The message creation time. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> timestamp_ {};
       // The timestamp type.
       shared_ptr<string> timestampType_ {};
       // The topic name.
       shared_ptr<string> topic_ {};
-      // The size of the truncated key message. Value: bytes.
+      // The size of the truncated key message. Unit: bytes.
       // 
-      // > Each queried message displays up to 1 KB of content; content exceeding this limit will be automatically truncated. [Learn more](https://help.aliyun.com/document_detail/113172.html).
+      // 
+      // > Each queried message displays a maximum of 1 KB of content. Content that exceeds 1 KB is automatically truncated.
+      // [For more information, refer to the documentation](https://help.aliyun.com/document_detail/113172.html).
       shared_ptr<int32_t> truncatedKeySize_ {};
       // The size of the truncated value message. Unit: bytes.
       // 
-      // > Each queried message displays up to 1 KB of content; content exceeding this limit will be automatically truncated. [Learn more](https://help.aliyun.com/document_detail/113172.html).
+      // > Each queried message displays a maximum of 1 KB of content. Content that exceeds 1 KB is automatically truncated.
+      // [For more information, refer to the documentation](https://help.aliyun.com/document_detail/113172.html).
       shared_ptr<int32_t> truncatedValueSize_ {};
-      // The message value.
+      // The value of the message.
       shared_ptr<string> value_ {};
       // Indicates whether the value is truncated.
       shared_ptr<bool> valueTruncated_ {};
@@ -260,18 +263,16 @@ namespace Models
 
 
   protected:
-    // The return code. A value of 200 indicates success.
+    // The returned code. A value of 200 indicates success.
     shared_ptr<int32_t> code_ {};
-    // The return message.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The query message results.
+    // The query results of messages.
     shared_ptr<vector<QueryMessageResponseBody::MessageList>> messageList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
-    // 
+    // Indicates whether the call was successful. Valid values:
     // - **true**: The call was successful.
-    // 
     // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
