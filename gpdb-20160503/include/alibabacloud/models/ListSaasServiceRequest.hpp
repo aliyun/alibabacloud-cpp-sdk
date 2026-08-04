@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The maximum number of entries to return. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page when performing a paging query. This specifies the starting token for the next page.
+    // The paging token for the next query. When you perform a paging query, the next query begins from the specified token.
     shared_ptr<string> nextToken_ {};
     // The region ID of the workspace.
     shared_ptr<string> regionId_ {};

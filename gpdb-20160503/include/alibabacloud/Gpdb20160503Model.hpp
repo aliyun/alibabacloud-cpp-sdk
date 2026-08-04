@@ -41,6 +41,9 @@
 #include <alibabacloud/models/CheckJDBCSourceNetConnectionRequest.hpp>
 #include <alibabacloud/models/CheckJDBCSourceNetConnectionResponseBody.hpp>
 #include <alibabacloud/models/CheckJDBCSourceNetConnectionResponse.hpp>
+#include <alibabacloud/models/CheckSaasServiceVersionRequest.hpp>
+#include <alibabacloud/models/CheckSaasServiceVersionResponseBody.hpp>
+#include <alibabacloud/models/CheckSaasServiceVersionResponse.hpp>
 #include <alibabacloud/models/CheckServiceLinkedRoleRequest.hpp>
 #include <alibabacloud/models/CheckServiceLinkedRoleResponseBody.hpp>
 #include <alibabacloud/models/CheckServiceLinkedRoleResponse.hpp>
@@ -508,6 +511,9 @@
 #include <alibabacloud/models/GetAccountRequest.hpp>
 #include <alibabacloud/models/GetAccountResponseBody.hpp>
 #include <alibabacloud/models/GetAccountResponse.hpp>
+#include <alibabacloud/models/GetApiEndpointsRequest.hpp>
+#include <alibabacloud/models/GetApiEndpointsResponseBody.hpp>
+#include <alibabacloud/models/GetApiEndpointsResponse.hpp>
 #include <alibabacloud/models/GetApiKeyRequest.hpp>
 #include <alibabacloud/models/GetApiKeyResponseBody.hpp>
 #include <alibabacloud/models/GetApiKeyResponse.hpp>
@@ -547,6 +553,10 @@
 #include <alibabacloud/models/GetWorkspaceRequest.hpp>
 #include <alibabacloud/models/GetWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/GetWorkspaceResponse.hpp>
+#include <alibabacloud/models/GrantApiKeyRequest.hpp>
+#include <alibabacloud/models/GrantApiKeyShrinkRequest.hpp>
+#include <alibabacloud/models/GrantApiKeyResponseBody.hpp>
+#include <alibabacloud/models/GrantApiKeyResponse.hpp>
 #include <alibabacloud/models/GrantCollectionRequest.hpp>
 #include <alibabacloud/models/GrantCollectionResponseBody.hpp>
 #include <alibabacloud/models/GrantCollectionResponse.hpp>
@@ -722,6 +732,9 @@
 #include <alibabacloud/models/ModifySQLCollectorPolicyRequest.hpp>
 #include <alibabacloud/models/ModifySQLCollectorPolicyResponseBody.hpp>
 #include <alibabacloud/models/ModifySQLCollectorPolicyResponse.hpp>
+#include <alibabacloud/models/ModifySaasServiceDeletionProtectionRequest.hpp>
+#include <alibabacloud/models/ModifySaasServiceDeletionProtectionResponseBody.hpp>
+#include <alibabacloud/models/ModifySaasServiceDeletionProtectionResponse.hpp>
 #include <alibabacloud/models/ModifySecurityIpsRequest.hpp>
 #include <alibabacloud/models/ModifySecurityIpsResponseBody.hpp>
 #include <alibabacloud/models/ModifySecurityIpsResponse.hpp>
@@ -821,6 +834,10 @@
 #include <alibabacloud/models/ResumeSupabaseProjectRequest.hpp>
 #include <alibabacloud/models/ResumeSupabaseProjectResponseBody.hpp>
 #include <alibabacloud/models/ResumeSupabaseProjectResponse.hpp>
+#include <alibabacloud/models/RevokeApiKeyRequest.hpp>
+#include <alibabacloud/models/RevokeApiKeyShrinkRequest.hpp>
+#include <alibabacloud/models/RevokeApiKeyResponseBody.hpp>
+#include <alibabacloud/models/RevokeApiKeyResponse.hpp>
 #include <alibabacloud/models/SetAsDefaultBranchRequest.hpp>
 #include <alibabacloud/models/SetAsDefaultBranchResponseBody.hpp>
 #include <alibabacloud/models/SetAsDefaultBranchResponse.hpp>
@@ -867,6 +884,9 @@
 #include <alibabacloud/models/UpdateDBInstancePlanRequest.hpp>
 #include <alibabacloud/models/UpdateDBInstancePlanResponseBody.hpp>
 #include <alibabacloud/models/UpdateDBInstancePlanResponse.hpp>
+#include <alibabacloud/models/UpdateSaasServiceVersionRequest.hpp>
+#include <alibabacloud/models/UpdateSaasServiceVersionResponseBody.hpp>
+#include <alibabacloud/models/UpdateSaasServiceVersionResponse.hpp>
 #include <alibabacloud/models/UpgradeDBInstanceRequest.hpp>
 #include <alibabacloud/models/UpgradeDBInstanceResponseBody.hpp>
 #include <alibabacloud/models/UpgradeDBInstanceResponse.hpp>

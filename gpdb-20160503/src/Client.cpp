@@ -912,6 +912,56 @@ CheckJDBCSourceNetConnectionResponse Client::checkJDBCSourceNetConnection(const 
 }
 
 /**
+ * @summary Checks the available update versions for a SaaS service.
+ *
+ * @description Checks the available update versions for a SaaS service.
+ *
+ * @param request CheckSaasServiceVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckSaasServiceVersionResponse
+ */
+CheckSaasServiceVersionResponse Client::checkSaasServiceVersionWithOptions(const CheckSaasServiceVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasServiceId()) {
+    query["ServiceId"] = request.getServiceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckSaasServiceVersion"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckSaasServiceVersionResponse>();
+}
+
+/**
+ * @summary Checks the available update versions for a SaaS service.
+ *
+ * @description Checks the available update versions for a SaaS service.
+ *
+ * @param request CheckSaasServiceVersionRequest
+ * @return CheckSaasServiceVersionResponse
+ */
+CheckSaasServiceVersionResponse Client::checkSaasServiceVersion(const CheckSaasServiceVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkSaasServiceVersionWithOptions(request, runtime);
+}
+
+/**
  * @summary Checks whether a service-linked role is created.
  *
  * @param request CheckServiceLinkedRoleRequest
@@ -10680,6 +10730,60 @@ GetAccountResponse Client::getAccount(const GetAccountRequest &request) {
 }
 
 /**
+ * @summary Queries API endpoints.
+ *
+ * @description Queries API access endpoints.
+ *
+ * @param request GetApiEndpointsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetApiEndpointsResponse
+ */
+GetApiEndpointsResponse Client::getApiEndpointsWithOptions(const GetApiEndpointsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetApiEndpoints"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetApiEndpointsResponse>();
+}
+
+/**
+ * @summary Queries API endpoints.
+ *
+ * @description Queries API access endpoints.
+ *
+ * @param request GetApiEndpointsRequest
+ * @return GetApiEndpointsResponse
+ */
+GetApiEndpointsResponse Client::getApiEndpoints(const GetApiEndpointsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getApiEndpointsWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the details of an API key.
  *
  * @description Retrieves the details of an API key.
@@ -11437,6 +11541,70 @@ GetWorkspaceResponse Client::getWorkspaceWithOptions(const GetWorkspaceRequest &
 GetWorkspaceResponse Client::getWorkspace(const GetWorkspaceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getWorkspaceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Authorizes an API key to access SaaS services.
+ *
+ * @description Retrieves the details of an API key.
+ *
+ * @param tmpReq GrantApiKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GrantApiKeyResponse
+ */
+GrantApiKeyResponse Client::grantApiKeyWithOptions(const GrantApiKeyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GrantApiKeyShrinkRequest request = GrantApiKeyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasServiceIds()) {
+    request.setServiceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getServiceIds(), "ServiceIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasKeyId()) {
+    query["KeyId"] = request.getKeyId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasServiceIdsShrink()) {
+    query["ServiceIds"] = request.getServiceIdsShrink();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GrantApiKey"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GrantApiKeyResponse>();
+}
+
+/**
+ * @summary Authorizes an API key to access SaaS services.
+ *
+ * @description Retrieves the details of an API key.
+ *
+ * @param request GrantApiKeyRequest
+ * @return GrantApiKeyResponse
+ */
+GrantApiKeyResponse Client::grantApiKey(const GrantApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return grantApiKeyWithOptions(request, runtime);
 }
 
 /**
@@ -14966,6 +15134,60 @@ ModifySQLCollectorPolicyResponse Client::modifySQLCollectorPolicy(const ModifySQ
 }
 
 /**
+ * @summary Modifies the deletion protection setting for a SaaS service.
+ *
+ * @description Modifies the deletion protection setting for a SaaS service.
+ *
+ * @param request ModifySaasServiceDeletionProtectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifySaasServiceDeletionProtectionResponse
+ */
+ModifySaasServiceDeletionProtectionResponse Client::modifySaasServiceDeletionProtectionWithOptions(const ModifySaasServiceDeletionProtectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeletionProtection()) {
+    query["DeletionProtection"] = request.getDeletionProtection();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasServiceId()) {
+    query["ServiceId"] = request.getServiceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifySaasServiceDeletionProtection"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifySaasServiceDeletionProtectionResponse>();
+}
+
+/**
+ * @summary Modifies the deletion protection setting for a SaaS service.
+ *
+ * @description Modifies the deletion protection setting for a SaaS service.
+ *
+ * @param request ModifySaasServiceDeletionProtectionRequest
+ * @return ModifySaasServiceDeletionProtectionResponse
+ */
+ModifySaasServiceDeletionProtectionResponse Client::modifySaasServiceDeletionProtection(const ModifySaasServiceDeletionProtectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifySaasServiceDeletionProtectionWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the IP address whitelist of an AnalyticDB for PostgreSQL instance.
  *
  * @description To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
@@ -17094,6 +17316,70 @@ ResumeSupabaseProjectResponse Client::resumeSupabaseProject(const ResumeSupabase
 }
 
 /**
+ * @summary Revokes the access permissions of an API key to SaaS services.
+ *
+ * @description Revokes the access permissions of an API key to SaaS services.
+ *
+ * @param tmpReq RevokeApiKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeApiKeyResponse
+ */
+RevokeApiKeyResponse Client::revokeApiKeyWithOptions(const RevokeApiKeyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RevokeApiKeyShrinkRequest request = RevokeApiKeyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasServiceIds()) {
+    request.setServiceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getServiceIds(), "ServiceIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasKeyId()) {
+    query["KeyId"] = request.getKeyId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasServiceIdsShrink()) {
+    query["ServiceIds"] = request.getServiceIdsShrink();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RevokeApiKey"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokeApiKeyResponse>();
+}
+
+/**
+ * @summary Revokes the access permissions of an API key to SaaS services.
+ *
+ * @description Revokes the access permissions of an API key to SaaS services.
+ *
+ * @param request RevokeApiKeyRequest
+ * @return RevokeApiKeyResponse
+ */
+RevokeApiKeyResponse Client::revokeApiKey(const RevokeApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return revokeApiKeyWithOptions(request, runtime);
+}
+
+/**
  * @summary Sets the default branch for a Supabase project.
  *
  * @description Sets a specified branch as the default branch for a Supabase project.
@@ -18017,6 +18303,56 @@ UpdateDBInstancePlanResponse Client::updateDBInstancePlanWithOptions(const Updat
 UpdateDBInstancePlanResponse Client::updateDBInstancePlan(const UpdateDBInstancePlanRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateDBInstancePlanWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the SaaS service version.
+ *
+ * @description Updates the SaaS service version.
+ *
+ * @param request UpdateSaasServiceVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSaasServiceVersionResponse
+ */
+UpdateSaasServiceVersionResponse Client::updateSaasServiceVersionWithOptions(const UpdateSaasServiceVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasServiceId()) {
+    query["ServiceId"] = request.getServiceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateSaasServiceVersion"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSaasServiceVersionResponse>();
+}
+
+/**
+ * @summary Updates the SaaS service version.
+ *
+ * @description Updates the SaaS service version.
+ *
+ * @param request UpdateSaasServiceVersionRequest
+ * @return UpdateSaasServiceVersionResponse
+ */
+UpdateSaasServiceVersionResponse Client::updateSaasServiceVersion(const UpdateSaasServiceVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateSaasServiceVersionWithOptions(request, runtime);
 }
 
 /**

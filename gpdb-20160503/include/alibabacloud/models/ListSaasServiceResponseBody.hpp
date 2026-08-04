@@ -151,11 +151,20 @@ namespace Models
 
 
       protected:
+        // The component ID.
         shared_ptr<string> componentId_ {};
+        // The type of the subcomponent.
         shared_ptr<string> componentType_ {};
+        // The creation time.
         shared_ptr<string> createTime_ {};
+        // The compute resource of the component.
         shared_ptr<string> cu_ {};
+        // The release protection status.
         shared_ptr<bool> deletionProtection_ {};
+        // The service status. Valid values:
+        // 
+        // - active: Running.
+        // - creating: Being created.
         shared_ptr<string> status_ {};
       };
 
@@ -242,11 +251,16 @@ namespace Models
 
 
     protected:
+      // The list of service subcomponents.
       shared_ptr<vector<Items::Components>> components_ {};
       // The creation time.
       shared_ptr<string> createTime_ {};
       // The compute resource.
       shared_ptr<int32_t> cu_ {};
+      // Indicates whether the release protection feature is enabled. Valid values:
+      // 
+      // * **true**: Enabled.
+      // * **false**: Disabled.
       shared_ptr<bool> deletionProtection_ {};
       // The expiration time.
       shared_ptr<string> expireTime_ {};

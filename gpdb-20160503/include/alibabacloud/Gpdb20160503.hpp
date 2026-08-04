@@ -278,6 +278,27 @@ namespace Gpdb20160503
       Models::CheckJDBCSourceNetConnectionResponse checkJDBCSourceNetConnection(const Models::CheckJDBCSourceNetConnectionRequest &request);
 
       /**
+       * @summary Checks the available update versions for a SaaS service.
+       *
+       * @description Checks the available update versions for a SaaS service.
+       *
+       * @param request CheckSaasServiceVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckSaasServiceVersionResponse
+       */
+      Models::CheckSaasServiceVersionResponse checkSaasServiceVersionWithOptions(const Models::CheckSaasServiceVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Checks the available update versions for a SaaS service.
+       *
+       * @description Checks the available update versions for a SaaS service.
+       *
+       * @param request CheckSaasServiceVersionRequest
+       * @return CheckSaasServiceVersionResponse
+       */
+      Models::CheckSaasServiceVersionResponse checkSaasServiceVersion(const Models::CheckSaasServiceVersionRequest &request);
+
+      /**
        * @summary Checks whether a service-linked role is created.
        *
        * @param request CheckServiceLinkedRoleRequest
@@ -3256,6 +3277,27 @@ namespace Gpdb20160503
       Models::GetAccountResponse getAccount(const Models::GetAccountRequest &request);
 
       /**
+       * @summary Queries API endpoints.
+       *
+       * @description Queries API access endpoints.
+       *
+       * @param request GetApiEndpointsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetApiEndpointsResponse
+       */
+      Models::GetApiEndpointsResponse getApiEndpointsWithOptions(const Models::GetApiEndpointsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries API endpoints.
+       *
+       * @description Queries API access endpoints.
+       *
+       * @param request GetApiEndpointsRequest
+       * @return GetApiEndpointsResponse
+       */
+      Models::GetApiEndpointsResponse getApiEndpoints(const Models::GetApiEndpointsRequest &request);
+
+      /**
        * @summary Retrieves the details of an API key.
        *
        * @description Retrieves the details of an API key.
@@ -3529,6 +3571,27 @@ namespace Gpdb20160503
        * @return GetWorkspaceResponse
        */
       Models::GetWorkspaceResponse getWorkspace(const Models::GetWorkspaceRequest &request);
+
+      /**
+       * @summary Authorizes an API key to access SaaS services.
+       *
+       * @description Retrieves the details of an API key.
+       *
+       * @param tmpReq GrantApiKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GrantApiKeyResponse
+       */
+      Models::GrantApiKeyResponse grantApiKeyWithOptions(const Models::GrantApiKeyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Authorizes an API key to access SaaS services.
+       *
+       * @description Retrieves the details of an API key.
+       *
+       * @param request GrantApiKeyRequest
+       * @return GrantApiKeyResponse
+       */
+      Models::GrantApiKeyResponse grantApiKey(const Models::GrantApiKeyRequest &request);
 
       /**
        * @summary Grants vector collection permissions to a namespace.
@@ -4613,6 +4676,27 @@ namespace Gpdb20160503
       Models::ModifySQLCollectorPolicyResponse modifySQLCollectorPolicy(const Models::ModifySQLCollectorPolicyRequest &request);
 
       /**
+       * @summary Modifies the deletion protection setting for a SaaS service.
+       *
+       * @description Modifies the deletion protection setting for a SaaS service.
+       *
+       * @param request ModifySaasServiceDeletionProtectionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifySaasServiceDeletionProtectionResponse
+       */
+      Models::ModifySaasServiceDeletionProtectionResponse modifySaasServiceDeletionProtectionWithOptions(const Models::ModifySaasServiceDeletionProtectionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the deletion protection setting for a SaaS service.
+       *
+       * @description Modifies the deletion protection setting for a SaaS service.
+       *
+       * @param request ModifySaasServiceDeletionProtectionRequest
+       * @return ModifySaasServiceDeletionProtectionResponse
+       */
+      Models::ModifySaasServiceDeletionProtectionResponse modifySaasServiceDeletionProtection(const Models::ModifySaasServiceDeletionProtectionRequest &request);
+
+      /**
        * @summary Modifies the IP address whitelist of an AnalyticDB for PostgreSQL instance.
        *
        * @description To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
@@ -5234,6 +5318,27 @@ namespace Gpdb20160503
       Models::ResumeSupabaseProjectResponse resumeSupabaseProject(const Models::ResumeSupabaseProjectRequest &request);
 
       /**
+       * @summary Revokes the access permissions of an API key to SaaS services.
+       *
+       * @description Revokes the access permissions of an API key to SaaS services.
+       *
+       * @param tmpReq RevokeApiKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RevokeApiKeyResponse
+       */
+      Models::RevokeApiKeyResponse revokeApiKeyWithOptions(const Models::RevokeApiKeyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Revokes the access permissions of an API key to SaaS services.
+       *
+       * @description Revokes the access permissions of an API key to SaaS services.
+       *
+       * @param request RevokeApiKeyRequest
+       * @return RevokeApiKeyResponse
+       */
+      Models::RevokeApiKeyResponse revokeApiKey(const Models::RevokeApiKeyRequest &request);
+
+      /**
        * @summary Sets the default branch for a Supabase project.
        *
        * @description Sets a specified branch as the default branch for a Supabase project.
@@ -5518,6 +5623,27 @@ namespace Gpdb20160503
        * @return UpdateDBInstancePlanResponse
        */
       Models::UpdateDBInstancePlanResponse updateDBInstancePlan(const Models::UpdateDBInstancePlanRequest &request);
+
+      /**
+       * @summary Updates the SaaS service version.
+       *
+       * @description Updates the SaaS service version.
+       *
+       * @param request UpdateSaasServiceVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSaasServiceVersionResponse
+       */
+      Models::UpdateSaasServiceVersionResponse updateSaasServiceVersionWithOptions(const Models::UpdateSaasServiceVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the SaaS service version.
+       *
+       * @description Updates the SaaS service version.
+       *
+       * @param request UpdateSaasServiceVersionRequest
+       * @return UpdateSaasServiceVersionResponse
+       */
+      Models::UpdateSaasServiceVersionResponse updateSaasServiceVersion(const Models::UpdateSaasServiceVersionRequest &request);
 
       /**
        * @summary Changes the specifications of an AnalyticDB for PostgreSQL instance.
