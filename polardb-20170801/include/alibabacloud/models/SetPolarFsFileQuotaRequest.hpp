@@ -108,21 +108,20 @@ namespace Models
 
 
     protected:
-      // The capacity quota in GB.
+      // The quota capacity. Unit: GB.
       shared_ptr<int64_t> capacity_ {};
-      // The absolute path of the directory.
+      // The directory path.
       shared_ptr<string> filePathId_ {};
-      // The inode quota.
+      // The quota inodes.
       shared_ptr<int64_t> inodes_ {};
-      // The maximum depth of subdirectories to traverse under the path specified by `FilePathId`. A value of 1 traverses only the first level of subdirectories. A value of 0 traverses to the deepest level.
+      // The number of subdirectory levels to traverse under `FilePathId`. A value of 1 indicates that only the first-level subdirectories are traversed. A value of 0 indicates that all levels are traversed to the deepest level.
       shared_ptr<int32_t> maxDepth_ {};
-      // A list of file quota rule IDs, separated by a comma (`,`).
+      // The IDs of the rules to apply, separated by commas (,).
       shared_ptr<string> quotaIds_ {};
-      // Specifies how to apply the rule to existing files. Valid values:
+      // The mode in which rules take effect on existing files. Valid values:
       // 
-      // - **missing**: Applies the rule only if one does not already exist. (Default)
-      // 
-      // - **all**: Applies the rule to all files.
+      // - **missing**: Rules take effect only when they are missing. This is the default value.
+      // - **all**: Rules take effect on all files.
       shared_ptr<string> strategy_ {};
     };
 
@@ -154,11 +153,11 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
-    // An array of objects defining the file quota rules for specific directories.
+    // The details of the quota rules to apply to directories.
     // 
     // This parameter is required.
     shared_ptr<vector<SetPolarFsFileQuotaRequest::FilePathQuotas>> filePathQuotas_ {};
-    // The ID of the PolarFS instance.
+    // The Polarlakebase instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};

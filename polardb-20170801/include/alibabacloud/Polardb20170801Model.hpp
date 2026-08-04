@@ -91,6 +91,9 @@
 #include <alibabacloud/models/CreateAIDBClusterRequest.hpp>
 #include <alibabacloud/models/CreateAIDBClusterResponseBody.hpp>
 #include <alibabacloud/models/CreateAIDBClusterResponse.hpp>
+#include <alibabacloud/models/CreateAIDBClusterApiKeyRequest.hpp>
+#include <alibabacloud/models/CreateAIDBClusterApiKeyResponseBody.hpp>
+#include <alibabacloud/models/CreateAIDBClusterApiKeyResponse.hpp>
 #include <alibabacloud/models/CreateAIDBClusterDatasetRequest.hpp>
 #include <alibabacloud/models/CreateAIDBClusterDatasetResponseBody.hpp>
 #include <alibabacloud/models/CreateAIDBClusterDatasetResponse.hpp>
@@ -245,6 +248,9 @@
 #include <alibabacloud/models/DeleteAIDBClusterRequest.hpp>
 #include <alibabacloud/models/DeleteAIDBClusterResponseBody.hpp>
 #include <alibabacloud/models/DeleteAIDBClusterResponse.hpp>
+#include <alibabacloud/models/DeleteAIDBClusterApiKeyRequest.hpp>
+#include <alibabacloud/models/DeleteAIDBClusterApiKeyResponseBody.hpp>
+#include <alibabacloud/models/DeleteAIDBClusterApiKeyResponse.hpp>
 #include <alibabacloud/models/DeleteAIDBClusterDatasetRequest.hpp>
 #include <alibabacloud/models/DeleteAIDBClusterDatasetResponseBody.hpp>
 #include <alibabacloud/models/DeleteAIDBClusterDatasetResponse.hpp>
@@ -384,6 +390,9 @@
 #include <alibabacloud/models/DeleteSQLRateLimitingRulesRequest.hpp>
 #include <alibabacloud/models/DeleteSQLRateLimitingRulesResponseBody.hpp>
 #include <alibabacloud/models/DeleteSQLRateLimitingRulesResponse.hpp>
+#include <alibabacloud/models/DescribeAIDBClusterApiKeysRequest.hpp>
+#include <alibabacloud/models/DescribeAIDBClusterApiKeysResponseBody.hpp>
+#include <alibabacloud/models/DescribeAIDBClusterApiKeysResponse.hpp>
 #include <alibabacloud/models/DescribeAIDBClusterAttributeRequest.hpp>
 #include <alibabacloud/models/DescribeAIDBClusterAttributeResponseBody.hpp>
 #include <alibabacloud/models/DescribeAIDBClusterAttributeResponse.hpp>

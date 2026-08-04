@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the PolarFS instance.
+    // The Polarlakebase instance ID.
     shared_ptr<string> polarFsInstanceId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

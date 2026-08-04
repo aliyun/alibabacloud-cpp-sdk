@@ -84,25 +84,19 @@ namespace Models
 
 
   protected:
-    // The idempotence token.
+    // The idempotency token.
     shared_ptr<string> clientToken_ {};
-    // The expiration time of the API key in ISO 8601 format. The value must be later than the current time.
-    // 
-    // This parameter is required.
+    // The expiration time of the API key in ISO-8601 format. The value must be later than the current time.
     shared_ptr<string> expireTime_ {};
     // The ID of the AI gateway instance.
     // 
     // This parameter is required.
     shared_ptr<string> gatewayId_ {};
-    // The number of API keys to generate, which corresponds to the number of resource plans to purchase. Valid values: 1 to 30.
+    // The number of API keys to generate (the number of capacity plans to order). Valid values: 1 to 30.
     // 
     // This parameter is required.
     shared_ptr<int32_t> keyCount_ {};
-    // The specification tier of the resource plan. Valid values:
-    // 
-    // - basic: 3000 points per plan.
-    // - advanced: 6000 points per plan.
-    // - pro: 9000 points per plan.
+    // The number of credits per API key. The value is a positive integer string.
     // 
     // This parameter is required.
     shared_ptr<string> packageSpec_ {};

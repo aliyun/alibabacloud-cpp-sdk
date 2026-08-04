@@ -84,15 +84,22 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The instance ID of the PolarDB instance on which the application depends.
     shared_ptr<string> DBClusterId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: 30, 50, and 100.
+    // 
+    // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // The PolarFS instance ID.
+    // The PolarFs instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};
-    // The quota mode.
+    // The query mode. Valid values:
+    // 
+    // -  **quotaPolicy**: quota rule
+    // - **quota**: quota
     shared_ptr<string> quotaMode_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

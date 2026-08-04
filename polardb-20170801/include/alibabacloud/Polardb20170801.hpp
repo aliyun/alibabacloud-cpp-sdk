@@ -256,10 +256,13 @@ namespace Polardb20170801
       Models::BindPolarClawAgentResponse bindPolarClawAgent(const Models::BindPolarClawAgentRequest &request);
 
       /**
-       * @summary Associates resource control.
+       * @summary Binds a specified resource control rule to a user, database, query, or connection in a PolarDB for MySQL cluster. After the binding succeeds, the target object is subject to the CPU quota limit defined by the resource control rule.
        *
-       * @description ## Operation description
-       * This API operation associates an agent (specified by `AgentId`) of PolarClaw (identified by `ApplicationId`) with a specified communication channel (`Channel`). You can also specify an account ID (`ChannelAccountId`) within the channel.
+       * @description Resource Control limits the CPU resources that can be used by specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. Querying Resource Control CPU usage is not supported.
+       * ### Before you begin
+       * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+       * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
+       * >Notice: This is a notice.</notice>
        *
        * @param request BindResourceControlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,10 +271,13 @@ namespace Polardb20170801
       Models::BindResourceControlResponse bindResourceControlWithOptions(const Models::BindResourceControlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates resource control.
+       * @summary Binds a specified resource control rule to a user, database, query, or connection in a PolarDB for MySQL cluster. After the binding succeeds, the target object is subject to the CPU quota limit defined by the resource control rule.
        *
-       * @description ## Operation description
-       * This API operation associates an agent (specified by `AgentId`) of PolarClaw (identified by `ApplicationId`) with a specified communication channel (`Channel`). You can also specify an account ID (`ChannelAccountId`) within the channel.
+       * @description Resource Control limits the CPU resources that can be used by specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. Querying Resource Control CPU usage is not supported.
+       * ### Before you begin
+       * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+       * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
+       * >Notice: This is a notice.</notice>
        *
        * @param request BindResourceControlRequest
        * @return BindResourceControlResponse
@@ -606,6 +612,23 @@ namespace Polardb20170801
        * @return CreateAIDBClusterResponse
        */
       Models::CreateAIDBClusterResponse createAIDBCluster(const Models::CreateAIDBClusterRequest &request);
+
+      /**
+       * @summary Creates a model service API key.
+       *
+       * @param request CreateAIDBClusterApiKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAIDBClusterApiKeyResponse
+       */
+      Models::CreateAIDBClusterApiKeyResponse createAIDBClusterApiKeyWithOptions(const Models::CreateAIDBClusterApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a model service API key.
+       *
+       * @param request CreateAIDBClusterApiKeyRequest
+       * @return CreateAIDBClusterApiKeyResponse
+       */
+      Models::CreateAIDBClusterApiKeyResponse createAIDBClusterApiKey(const Models::CreateAIDBClusterApiKeyRequest &request);
 
       /**
        * @summary Creates a dataset.
@@ -1480,10 +1503,15 @@ namespace Polardb20170801
       Models::CreateRateLimitPolicyResponse createRateLimitPolicy(const Models::CreateRateLimitPolicyRequest &request);
 
       /**
-       * @summary Creates a resource control.
+       * @summary Creates a resource control rule for a specified PolarDB for MySQL cluster. You can set MaxCpu to specify the maximum CPU quota percentage that the rule can use, or set CpuCount to specify the maximum number of CPU cores that the rule can use. You must specify one and only one of MaxCpu and CpuCount when creating a rule.
        *
-       * @description ## Operation description
-       * You can call this operation to define and create a cron job. The cron job is triggered periodically based on a specified schedule and carries specific messages or instructions. Advanced options such as custom execution frequency, time zone settings, and alert mechanisms for failures are supported. You can also configure the message content, target channel, and recipients.
+       * @description Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. Querying Resource Control CPU usage is not supported.
+       * ### Before you begin
+       * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+       * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
+       * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
+       * - The maximum value of CpuCount is determined by the kernel parameter resource_control_cpu_count_limit of the target cluster.
+       * >Notice: This is a notice.</notice>
        *
        * @param request CreateResourceControlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1492,10 +1520,15 @@ namespace Polardb20170801
       Models::CreateResourceControlResponse createResourceControlWithOptions(const Models::CreateResourceControlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a resource control.
+       * @summary Creates a resource control rule for a specified PolarDB for MySQL cluster. You can set MaxCpu to specify the maximum CPU quota percentage that the rule can use, or set CpuCount to specify the maximum number of CPU cores that the rule can use. You must specify one and only one of MaxCpu and CpuCount when creating a rule.
        *
-       * @description ## Operation description
-       * You can call this operation to define and create a cron job. The cron job is triggered periodically based on a specified schedule and carries specific messages or instructions. Advanced options such as custom execution frequency, time zone settings, and alert mechanisms for failures are supported. You can also configure the message content, target channel, and recipients.
+       * @description Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. Querying Resource Control CPU usage is not supported.
+       * ### Before you begin
+       * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+       * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
+       * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
+       * - The maximum value of CpuCount is determined by the kernel parameter resource_control_cpu_count_limit of the target cluster.
+       * >Notice: This is a notice.</notice>
        *
        * @param request CreateResourceControlRequest
        * @return CreateResourceControlResponse
@@ -1552,6 +1585,23 @@ namespace Polardb20170801
        * @return DeleteAIDBClusterResponse
        */
       Models::DeleteAIDBClusterResponse deleteAIDBCluster(const Models::DeleteAIDBClusterRequest &request);
+
+      /**
+       * @summary Deletes an API key for a model service.
+       *
+       * @param request DeleteAIDBClusterApiKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAIDBClusterApiKeyResponse
+       */
+      Models::DeleteAIDBClusterApiKeyResponse deleteAIDBClusterApiKeyWithOptions(const Models::DeleteAIDBClusterApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an API key for a model service.
+       *
+       * @param request DeleteAIDBClusterApiKeyRequest
+       * @return DeleteAIDBClusterApiKeyResponse
+       */
+      Models::DeleteAIDBClusterApiKeyResponse deleteAIDBClusterApiKey(const Models::DeleteAIDBClusterApiKeyRequest &request);
 
       /**
        * @summary Deletes a dataset.
@@ -2398,9 +2448,13 @@ namespace Polardb20170801
       Models::DeleteRateLimitPolicyResponse deleteRateLimitPolicy(const Models::DeleteRateLimitPolicyRequest &request);
 
       /**
-       * @summary Deletes a resource control.
+       * @summary Deletes a resource control rule from a specified PolarDB for MySQL cluster.
        *
-       * @description > The cluster must be in the Running state. Otherwise, the operation fails.
+       * @description Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports the create, update, delete, attach, and detach operations for resource control rules. Querying Resource Control CPU usage is not supported.
+       * ### Limits
+       * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+       * - In the cluster kernel parameter Settings, loose_enable_resource_control must be set to ON.
+       * >Notice: This is a notice.</notice>
        *
        * @param request DeleteResourceControlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2409,9 +2463,13 @@ namespace Polardb20170801
       Models::DeleteResourceControlResponse deleteResourceControlWithOptions(const Models::DeleteResourceControlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a resource control.
+       * @summary Deletes a resource control rule from a specified PolarDB for MySQL cluster.
        *
-       * @description > The cluster must be in the Running state. Otherwise, the operation fails.
+       * @description Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports the create, update, delete, attach, and detach operations for resource control rules. Querying Resource Control CPU usage is not supported.
+       * ### Limits
+       * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+       * - In the cluster kernel parameter Settings, loose_enable_resource_control must be set to ON.
+       * >Notice: This is a notice.</notice>
        *
        * @param request DeleteResourceControlRequest
        * @return DeleteResourceControlResponse
@@ -2434,6 +2492,23 @@ namespace Polardb20170801
        * @return DeleteSQLRateLimitingRulesResponse
        */
       Models::DeleteSQLRateLimitingRulesResponse deleteSQLRateLimitingRules(const Models::DeleteSQLRateLimitingRulesRequest &request);
+
+      /**
+       * @summary Queries the API key of a model service.
+       *
+       * @param request DescribeAIDBClusterApiKeysRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAIDBClusterApiKeysResponse
+       */
+      Models::DescribeAIDBClusterApiKeysResponse describeAIDBClusterApiKeysWithOptions(const Models::DescribeAIDBClusterApiKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the API key of a model service.
+       *
+       * @param request DescribeAIDBClusterApiKeysRequest
+       * @return DescribeAIDBClusterApiKeysResponse
+       */
+      Models::DescribeAIDBClusterApiKeysResponse describeAIDBClusterApiKeys(const Models::DescribeAIDBClusterApiKeysRequest &request);
 
       /**
        * @summary Queries the details of a custom instance.
@@ -4950,7 +5025,7 @@ namespace Polardb20170801
       Models::DescribePolarFsQuotaResponse describePolarFsQuota(const Models::DescribePolarFsQuotaRequest &request);
 
       /**
-       * @summary Retrieves the quota list.
+       * @summary Queries the quota list.
        *
        * @param request DescribePolarFsQuotaListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4959,7 +5034,7 @@ namespace Polardb20170801
       Models::DescribePolarFsQuotaListResponse describePolarFsQuotaListWithOptions(const Models::DescribePolarFsQuotaListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the quota list.
+       * @summary Queries the quota list.
        *
        * @param request DescribePolarFsQuotaListRequest
        * @return DescribePolarFsQuotaListResponse
@@ -7108,9 +7183,15 @@ namespace Polardb20170801
       Models::ModifyRateLimitPolicyResponse modifyRateLimitPolicy(const Models::ModifyRateLimitPolicyRequest &request);
 
       /**
-       * @summary Modifies resource control.
+       * @summary Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU percentage mode and the maximum CPU core count mode. You must specify one and only one of the MaxCpu and CpuCount parameters.
        *
-       * @description > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+       * @description Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. It does not support querying Resource Control CPU usage.
+       * ### Before you begin
+       * - This operation applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+       * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
+       * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
+       * - The maximum value of CpuCount is determined by the cluster kernel parameter resource_control_cpu_count_limit.
+       * >Notice: This is a notice.</notice>
        *
        * @param request ModifyResourceControlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7119,9 +7200,15 @@ namespace Polardb20170801
       Models::ModifyResourceControlResponse modifyResourceControlWithOptions(const Models::ModifyResourceControlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies resource control.
+       * @summary Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU percentage mode and the maximum CPU core count mode. You must specify one and only one of the MaxCpu and CpuCount parameters.
        *
-       * @description > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+       * @description Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. It does not support querying Resource Control CPU usage.
+       * ### Before you begin
+       * - This operation applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+       * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
+       * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
+       * - The maximum value of CpuCount is determined by the cluster kernel parameter resource_control_cpu_count_limit.
+       * >Notice: This is a notice.</notice>
        *
        * @param request ModifyResourceControlRequest
        * @return ModifyResourceControlResponse
@@ -7668,13 +7755,13 @@ namespace Polardb20170801
       Models::SearchPolarClawSkillsResponse searchPolarClawSkills(const Models::SearchPolarClawSkillsRequest &request);
 
       /**
-       * @summary Sets file quota rules for specific directories in a PolarFS instance.
+       * @summary Sets file quota rules for a specified directory in a Polarlakebase instance.
        *
-       * @description ## Request
-       * This operation sets file quota rules for specific directories in a PolarFS instance. Use the `FilePathQuotas` parameter to define the target directories and their properties. The path for `FilePathId` must be an absolute path from the root directory, not from a mount target. The `Strategy` parameter controls how the rule applies to existing files. By default, the operation applies a rule only if one does not already exist.
+       * @description ## Request description
+       * This operation sets file quota rules for a specific directory in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which quota rules are applied and their related attributes. When you use `FilePathId` to specify a directory, ensure that the path is an absolute path from the root directory rather than a mount point path. You can also use the `Strategy` parameter to control how rules take effect on existing files. By default, rules take effect only when they are missing.
        * ### Notes
-       * - The `FilePathQuotas` list can contain up to 21 items.
-       * - To apply the rule to subdirectories at multiple levels under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
+       * - The maximum length of the `FilePathQuotas` list is 21.
+       * - To apply rules to multiple levels of subdirectories under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
        *
        * @param request SetPolarFsFileQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7683,13 +7770,13 @@ namespace Polardb20170801
       Models::SetPolarFsFileQuotaResponse setPolarFsFileQuotaWithOptions(const Models::SetPolarFsFileQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets file quota rules for specific directories in a PolarFS instance.
+       * @summary Sets file quota rules for a specified directory in a Polarlakebase instance.
        *
-       * @description ## Request
-       * This operation sets file quota rules for specific directories in a PolarFS instance. Use the `FilePathQuotas` parameter to define the target directories and their properties. The path for `FilePathId` must be an absolute path from the root directory, not from a mount target. The `Strategy` parameter controls how the rule applies to existing files. By default, the operation applies a rule only if one does not already exist.
+       * @description ## Request description
+       * This operation sets file quota rules for a specific directory in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which quota rules are applied and their related attributes. When you use `FilePathId` to specify a directory, ensure that the path is an absolute path from the root directory rather than a mount point path. You can also use the `Strategy` parameter to control how rules take effect on existing files. By default, rules take effect only when they are missing.
        * ### Notes
-       * - The `FilePathQuotas` list can contain up to 21 items.
-       * - To apply the rule to subdirectories at multiple levels under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
+       * - The maximum length of the `FilePathQuotas` list is 21.
+       * - To apply rules to multiple levels of subdirectories under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
        *
        * @param request SetPolarFsFileQuotaRequest
        * @return SetPolarFsFileQuotaResponse
@@ -7794,10 +7881,13 @@ namespace Polardb20170801
       Models::UnbindPolarClawAgentResponse unbindPolarClawAgent(const Models::UnbindPolarClawAgentRequest &request);
 
       /**
-       * @summary Unbinds a resource control.
+       * @summary Unbinds a specified resource control rule from a user, database, query, or connection in a PolarDB for MySQL cluster. After the unbinding is successful, the resource control rule no longer limits the CPU quota of the corresponding target object.
        *
-       * @description > * Only the privileged user of a PolarDB for MySQL cluster can be reset.
-       * > * If the privileged user encounters issues, such as permissions being unexpectedly revoked (REVOKE), you can reset the permissions of the privileged user to restore it to normal.
+       * @description Resource Control is used to limit the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release provides the capabilities to create, modify, delete, attach, and unbind resource control rules. It does not provide the capability to query Resource Control CPU usage.
+       * ### Before you begin
+       * - This operation applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+       * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
+       * >Notice: This is a notice.</notice>
        *
        * @param request UnbindResourceControlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7806,10 +7896,13 @@ namespace Polardb20170801
       Models::UnbindResourceControlResponse unbindResourceControlWithOptions(const Models::UnbindResourceControlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unbinds a resource control.
+       * @summary Unbinds a specified resource control rule from a user, database, query, or connection in a PolarDB for MySQL cluster. After the unbinding is successful, the resource control rule no longer limits the CPU quota of the corresponding target object.
        *
-       * @description > * Only the privileged user of a PolarDB for MySQL cluster can be reset.
-       * > * If the privileged user encounters issues, such as permissions being unexpectedly revoked (REVOKE), you can reset the permissions of the privileged user to restore it to normal.
+       * @description Resource Control is used to limit the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release provides the capabilities to create, modify, delete, attach, and unbind resource control rules. It does not provide the capability to query Resource Control CPU usage.
+       * ### Before you begin
+       * - This operation applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+       * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
+       * >Notice: This is a notice.</notice>
        *
        * @param request UnbindResourceControlRequest
        * @return UnbindResourceControlResponse

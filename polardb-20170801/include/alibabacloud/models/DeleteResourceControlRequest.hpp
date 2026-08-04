@@ -57,13 +57,14 @@ namespace Models
 
 
   protected:
-    // The database cluster ID.
+    // The cluster ID of the PolarDB cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The region ID.
+    // The region ID of the PolarDB cluster.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available regions.
     shared_ptr<string> regionId_ {};
-    // The resource control name.
+    // The name of the resource control rule. The name must be 1 to 63 ASCII bytes in length, start with a letter, and can contain letters, digits, and underscores.
     // 
     // This parameter is required.
     shared_ptr<string> resourceControlName_ {};

@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<string> gatewayId_ {};
     // The order ID returned after the order is placed.
     shared_ptr<string> orderId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
