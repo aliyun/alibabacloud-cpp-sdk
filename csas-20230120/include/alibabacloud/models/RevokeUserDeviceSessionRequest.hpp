@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The device tag.
+    // 
     // This parameter is required.
     shared_ptr<string> devTag_ {};
+    // The SASE user ID.
+    // 
     // This parameter is required.
     shared_ptr<string> saseUserId_ {};
   };

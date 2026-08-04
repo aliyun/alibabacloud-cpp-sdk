@@ -109,9 +109,13 @@ namespace Models
 
 
       protected:
+        // The time when the approval flow was created.
         shared_ptr<string> createTime_ {};
+        // The description of the approval flow.
         shared_ptr<string> description_ {};
+        // The ID of the approval flow.
         shared_ptr<string> processId_ {};
+        // The name of the approval flow.
         shared_ptr<string> processName_ {};
       };
 
@@ -134,7 +138,9 @@ namespace Models
 
 
     protected:
+      // A collection of approval flows.
       shared_ptr<vector<Schemas::Processes>> processes_ {};
+      // The ID of the approval template.
       shared_ptr<string> schemaId_ {};
     };
 
@@ -157,7 +163,9 @@ namespace Models
 
 
   protected:
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
+    // A list of approval templates.
     shared_ptr<vector<ListApprovalProcessesForApprovalSchemasResponseBody::Schemas>> schemas_ {};
   };
 

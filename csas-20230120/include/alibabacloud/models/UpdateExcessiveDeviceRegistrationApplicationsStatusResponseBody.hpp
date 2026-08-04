@@ -162,17 +162,51 @@ namespace Models
 
 
     protected:
+      // ID of the device registration application.
       shared_ptr<string> applicationId_ {};
+      // Time when the device registration application was created.
       shared_ptr<string> createTime_ {};
+      // Department to which the user belongs.
       shared_ptr<string> department_ {};
+      // This field indicates the reason for the excessive device registration request.
       shared_ptr<string> description_ {};
+      // ID of the endpoint device.
       shared_ptr<string> deviceTag_ {};
+      // Operating system of the endpoint device. Valid values:
+      // 
+      // - **Windows**: Windows operating system.
+      // 
+      // - **macOS**: macOS operating system.
+      // 
+      // - **Linux**: Linux operating system.
+      // 
+      // - **Android**: Android operating system.
+      // 
+      // - **iOS**: iOS operating system.
+      // 
+      // - **Windows_Wuying**: Alibaba Cloud Cloud Desktop operating system.
       shared_ptr<string> deviceType_ {};
+      // Name of the endpoint device.
       shared_ptr<string> hostname_ {};
+      // Indicates whether the device registration application has been used. Valid values:
+      // 
+      // - **true**: Used.
+      // 
+      // - **false**: Not used.
       shared_ptr<bool> isUsed_ {};
+      // MAC address of the endpoint device.
       shared_ptr<string> mac_ {};
+      // User ID.
       shared_ptr<string> saseUserId_ {};
+      // Status of the device registration application. Valid values:
+      // 
+      // - **Pending**: Pending review.
+      // 
+      // - **Approved**: Approved.
+      // 
+      // - **Rejected**: Rejected.
       shared_ptr<string> status_ {};
+      // Username.
       shared_ptr<string> username_ {};
     };
 
@@ -195,7 +229,9 @@ namespace Models
 
 
   protected:
+    // List of device registration applications that exceed your quota.
     shared_ptr<vector<UpdateExcessiveDeviceRegistrationApplicationsStatusResponseBody::Applications>> applications_ {};
+    // ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

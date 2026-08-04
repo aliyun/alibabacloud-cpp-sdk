@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // A collection of approval template IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> schemaIds_ {};
   };

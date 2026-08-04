@@ -106,7 +106,9 @@ namespace Models
 
 
       protected:
+        // The start port.
         shared_ptr<string> begin_ {};
+        // The end port.
         shared_ptr<string> end_ {};
       };
 
@@ -176,13 +178,39 @@ namespace Models
 
 
     protected:
+      // The action for private application access:
+      // 
+      // - **Block**: blocks access.
+      // 
+      // - **Allow**: allows access.
       shared_ptr<string> action_ {};
+      // The application address group. This parameter is returned when ConfigMode is set to Precise. This parameter is empty when ConfigMode is an empty string.
       shared_ptr<vector<AddressGroup>> addressGroups_ {};
+      // The list of private access application addresses.
       shared_ptr<vector<string>> addresses_ {};
+      // The application ID.
       shared_ptr<string> applicationId_ {};
+      // The configuration mode. Valid values:
+      // 
+      // - Empty string: default mode.
+      // 
+      // - Precise: precise mode.
       shared_ptr<string> configMode_ {};
+      // The application name.
       shared_ptr<string> name_ {};
+      // The port ranges of the private access application. Multiple port ranges cannot be repeated or overlap.
       shared_ptr<vector<Applications::PortRanges>> portRanges_ {};
+      // The protocol of the private access application. Valid values:
+      // 
+      // - **All**: all protocols.
+      // 
+      // - **TCP**: TCP.
+      // 
+      // - **UDP**: UDP.
+      // 
+      // - **HTTP**: HTTP.
+      // 
+      // - **HTTPS**: HTTPS.
       shared_ptr<string> protocol_ {};
     };
 
@@ -212,9 +240,11 @@ namespace Models
 
 
   protected:
+    // The list of applications that the user is authorized to access.
     shared_ptr<vector<ListUserApplicationsResponseBody::Applications>> applications_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of applications that the user is authorized to access.
     shared_ptr<int32_t> totalNum_ {};
   };
 

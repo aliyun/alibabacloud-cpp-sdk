@@ -191,24 +191,55 @@ namespace Models
 
 
   protected:
+    // Collection of approval instance IDs.
     shared_ptr<vector<string>> approvalIds_ {};
+    // End time when the approval instance was created, in seconds since the Unix epoch.
     shared_ptr<int64_t> createEndTime_ {};
+    // Start time when the approval instance was created, in seconds since the Unix epoch.
     shared_ptr<int64_t> createStartTime_ {};
+    // Department of the user who created the approval instance.
     shared_ptr<string> creatorDepartment_ {};
+    // ID of the device used to create the approval instance.
     shared_ptr<string> creatorDevTag_ {};
+    // ID of the user who created the approval instance.
     shared_ptr<string> creatorUserId_ {};
+    // Username of the user who created the approval instance.
     shared_ptr<string> creatorUsername_ {};
+    // Page number for the current page in a paged query. Valid values: 1 to 10000.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
+    // ID of the user who performed an operation on the approval instance.
     shared_ptr<string> operatorUserId_ {};
+    // Username of the user who performed an operation on the approval instance.
     shared_ptr<string> operatorUsername_ {};
+    // Number of entries per page in a paged query. Valid values: 1 to 500.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
+    // Policy type. Valid values:
+    // 
+    // - **DomainBlacklist**: Domain blacklist.
+    // 
+    // - **DomainWhitelist**: Domain whitelist.
+    // 
+    // - **SoftwareBlock**: Software blocking.
+    // 
+    // - **AppUninstall**: App uninstallation.
+    // 
+    // - **DlpSend**: File outbound transfer.
+    // 
+    // - **PeripheralBlock**: Peripheral control.
     shared_ptr<string> policyType_ {};
+    // ID of the associated approval process.
     shared_ptr<string> processId_ {};
+    // Name of the associated approval process.
     shared_ptr<string> processName_ {};
+    // ID of the associated approval template.
     shared_ptr<string> schemaId_ {};
+    // Name of the associated approval template.
     shared_ptr<string> schemaName_ {};
+    // Collection of approval instance statuses.
     shared_ptr<vector<string>> statuses_ {};
   };
 

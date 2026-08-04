@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the endpoint device. Valid values:
+    // 
     // This parameter is required.
     shared_ptr<string> deviceTag_ {};
   };

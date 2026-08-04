@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The department name.
+    // 
     // This parameter is required.
     shared_ptr<string> departmentName_ {};
+    // The ID of the custom identity source configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> idpConfigId_ {};
   };

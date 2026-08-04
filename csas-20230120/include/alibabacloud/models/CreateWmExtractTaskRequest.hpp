@@ -75,6 +75,7 @@ namespace Models
 
 
     protected:
+      // Enhanced visible watermark logo in base64 format. Used to extract the enhanced visible watermark.
       shared_ptr<string> srcLogoBase64_ {};
     };
 
@@ -259,7 +260,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> filename_ {};
+    // Image extraction parameters
     shared_ptr<CreateWmExtractTaskRequest::ImageExtractParamsOpenApi> imageExtractParamsOpenApi_ {};
+    // Audio watermark parameter: specifies whether the watermark was embedded by the client SDK. Default value: false. Valid values:  
+    // 
+    // - **true**: Yes  
+    // - **false**: No
     shared_ptr<bool> isClientEmbed_ {};
     // The watermark parameter for videos that specifies whether to use the long video watermark SDK. Default value: false. Valid values:
     // 

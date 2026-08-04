@@ -129,21 +129,21 @@ namespace Models
       protected:
         // The identity provider ID of the user group. This value exists when the custom user group type is **department**.
         shared_ptr<int32_t> idpId_ {};
-        // Relation of the user group. Values:
-        // - **Equal**: Equal.
-        // - **Unequal**: Not equal.
+        // The relationship of the user group. Valid values:
+        // - **Equal**: equal to.
+        // - **Unequal**: not equal to.
         shared_ptr<string> relation_ {};
-        // Type of the user group. Values:
-        // - **username**: Username.
-        // - **department**: Department.
-        // - **email**: Email.
-        // - **telephone**: Telephone.
+        // The type of the user group. Valid values:
+        // - **username**: the username.
+        // - **department**: the department.
+        // - **email**: the email address.
+        // - **telephone**: the mobile phone number.
         shared_ptr<string> userGroupType_ {};
         // The value of the user group attribute.
-        // - When the user group type is **username**, it represents the value of the username. The length is 1 to 128 characters, supporting Chinese and case-sensitive English letters, and can include numbers, periods (.), underscores (_), and hyphens (-).
-        // - When the user group type is **department**, it represents the value of the department. For example: OU=Department1,OU=SASE DingTalk.
-        // - When the user group type is **email**, it represents the value of the email. For example: username@example.com.
-        // - When the user group type is **telephone**, it represents the value of the phone number. For example: 13900001234.
+        // - When the user group type is **username**, this parameter indicates the value of the username. The value must be 1 to 128 characters in length, and can contain Chinese characters, uppercase letters, lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
+        // - When the user group type is **department**, this parameter indicates the value of the department. For example: OU=Department1,OU=SASE DingTalk.
+        // - When the user group type is **email**, this parameter indicates the value of the email address. For example: username@example.com.
+        // - When the user group type is **telephone**, this parameter indicates the value of the mobile phone number. For example: 13900001234.
         shared_ptr<string> value_ {};
       };
 
@@ -227,29 +227,29 @@ namespace Models
 
 
     protected:
-      // Set of custom user group attributes. Multiple custom user group attributes are in an OR relationship, effective as a union.
+      // The collection of custom user group attributes. Multiple custom user group attributes have an OR relationship and take effect as a union.
       shared_ptr<vector<Polices::CustomUserAttributes>> customUserAttributes_ {};
-      // Associated security baseline.
+      // The associated security baseline.
       shared_ptr<string> deviceAttributeName_ {};
-      // Associated user group.
+      // The user group to which the policy belongs.
       shared_ptr<string> matchedUserGroup_ {};
-      // Intranet access policy name.
+      // The name of the private access policy.
       shared_ptr<string> name_ {};
-      // Action of the intranet access policy. Values:
-      // - **Block**: Block.
-      // - **Allow**: Allow.
+      // The action of the private access policy. Valid values:
+      // - **Block**: blocks the access.
+      // - **Allow**: allows the access.
       shared_ptr<string> policyAction_ {};
-      // Intranet access policy ID.
+      // The ID of the private access policy.
       shared_ptr<string> policyId_ {};
-      // Priority of the intranet access policy. The number 1 indicates the highest priority.
+      // The priority of the private access policy. The number 1 indicates the highest priority.
       shared_ptr<int64_t> priority_ {};
-      // List of trusted process group IDs.
+      // The list of trusted process group IDs.
       shared_ptr<vector<string>> trustedProcessGroupIds_ {};
-      // List of trusted software IDs.
+      // The list of trusted software IDs.
       shared_ptr<vector<string>> trustedSoftwareIds_ {};
-      // Type of the user group for the intranet access policy. Values:
-      // - **Normal**: Normal user group.
-      // - **Custom**: Custom user group.
+      // The user group type of the private access policy. Valid values:
+      // - **Normal**: a normal user group.
+      // - **Custom**: a custom user group.
       shared_ptr<string> userGroupMode_ {};
     };
 
@@ -279,11 +279,11 @@ namespace Models
 
 
   protected:
-    // List of authorized policies.
+    // The list of authorized access policies.
     shared_ptr<vector<ListUserPrivateAccessPoliciesResponseBody::Polices>> polices_ {};
-    // ID of the request.
+    // Id of the request.
     shared_ptr<string> requestId_ {};
-    // Total number of authorized policies.
+    // The total number of authorized access policies.
     shared_ptr<int32_t> totalNum_ {};
   };
 

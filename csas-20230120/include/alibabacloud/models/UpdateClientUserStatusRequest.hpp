@@ -48,8 +48,16 @@ namespace Models
 
 
   protected:
+    // The user ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // The status of the user. Valid values:
+    // 
+    // - **Enabled**: The user is enabled.
+    // 
+    // - **Disabled**: The user is disabled.
+    // 
     // This parameter is required.
     shared_ptr<string> status_ {};
   };

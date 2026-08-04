@@ -118,11 +118,19 @@ namespace Models
 
 
       protected:
-        // 内网访问标签创建时间。
+        // Time when the tag was created.
         shared_ptr<string> createTime_ {};
+        // Description of the tag.
         shared_ptr<string> description_ {};
+        // Name of the tag.
         shared_ptr<string> name_ {};
+        // ID of the tag.
         shared_ptr<string> tagId_ {};
+        // Type of the tag. Valid values:
+        // 
+        // - **Default**: Default tag.
+        // 
+        // - **Custom**: Custom tag.
         shared_ptr<string> tagType_ {};
       };
 
@@ -145,7 +153,9 @@ namespace Models
 
 
     protected:
+      // ID of the internal network access policy.
       shared_ptr<string> policyId_ {};
+      // Tags for the internal network access policy.
       shared_ptr<vector<Polices::Tags>> tags_ {};
     };
 
@@ -168,7 +178,9 @@ namespace Models
 
 
   protected:
+    // List of internal network access policies.
     shared_ptr<vector<ListTagsForPrivateAccessPolicyResponseBody::Polices>> polices_ {};
+    // ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

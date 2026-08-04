@@ -129,13 +129,21 @@ namespace Models
 
 
     protected:
+      // The user\\"s department.
       shared_ptr<string> department_ {};
+      // The user\\"s email address.
       shared_ptr<string> email_ {};
+      // A list of full department paths.
       shared_ptr<vector<string>> fullDepartment_ {};
+      // The name of the Identity Provider (IdP).
       shared_ptr<string> idpName_ {};
+      // The user\\"s phone number.
       shared_ptr<string> phone_ {};
+      // The user ID.
       shared_ptr<string> saseUserId_ {};
+      // The user status.
       shared_ptr<string> status_ {};
+      // The username.
       shared_ptr<string> username_ {};
     };
 
@@ -165,8 +173,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of users.
     shared_ptr<string> totalNum_ {};
+    // An array of user objects.
     shared_ptr<vector<ListUsersResponseBody::Users>> users_ {};
   };
 

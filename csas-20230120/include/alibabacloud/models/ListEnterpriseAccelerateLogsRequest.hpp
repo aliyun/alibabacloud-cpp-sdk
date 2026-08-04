@@ -103,15 +103,29 @@ namespace Models
 
 
   protected:
+    // The current page number displayed during paged queries. Value range: 1 to 10000.
     shared_ptr<int32_t> currentPage_ {};
+    // Department.
     shared_ptr<string> department_ {};
+    // Endpoint.
     shared_ptr<string> dstAddr_ {};
+    // End time, UNIX timestamp, in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // The number of items per page for paged queries. Value range: 1 to 1000.
     shared_ptr<int32_t> pageSize_ {};
+    // Query mode. Only the DstAddr field supports the following modes:
+    // 
+    // - **Exact**: Term query
+    // 
+    // - **Fuzzy**: Fuzzy query
     shared_ptr<string> searchMode_ {};
+    // Start time, UNIX timestamp, in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
+    // Username.
     shared_ptr<string> username_ {};
   };
 

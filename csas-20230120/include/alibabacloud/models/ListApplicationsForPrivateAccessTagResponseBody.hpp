@@ -124,7 +124,9 @@ namespace Models
 
 
         protected:
+          // The start port.
           shared_ptr<int32_t> begin_ {};
+          // The end port.
           shared_ptr<int32_t> end_ {};
         };
 
@@ -192,14 +194,31 @@ namespace Models
 
 
       protected:
+        // The collection of addresses for the private network access application.
         shared_ptr<vector<string>> addresses_ {};
+        // The ID of the private network access application.
         shared_ptr<string> applicationId_ {};
-        // 内网访问应用创建时间。
+        // The time when the private network access application was created.
         shared_ptr<string> createTime_ {};
+        // The description of the private network access application.
         shared_ptr<string> description_ {};
+        // The name of the private network access application.
         shared_ptr<string> name_ {};
+        // The collection of port ranges for the private network access application. Port ranges must not overlap or duplicate each other.
         shared_ptr<vector<Applications::PortRanges>> portRanges_ {};
+        // The protocol used by the private network access application. Valid values:
+        // 
+        // - **All**: All protocols.
+        // 
+        // - **TCP**
+        // 
+        // - **UDP**
         shared_ptr<string> protocol_ {};
+        // The status of the private network access application. Valid values:
+        // 
+        // - **Enabled**: Enabled.
+        // 
+        // - **Disabled**: Disabled.
         shared_ptr<string> status_ {};
       };
 
@@ -222,7 +241,9 @@ namespace Models
 
 
     protected:
+      // The collection of private network access applications.
       shared_ptr<vector<Tags::Applications>> applications_ {};
+      // The ID of the private network access tag.
       shared_ptr<string> tagId_ {};
     };
 
@@ -245,7 +266,9 @@ namespace Models
 
 
   protected:
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
+    // The list of private network access tags.
     shared_ptr<vector<ListApplicationsForPrivateAccessTagResponseBody::Tags>> tags_ {};
   };
 

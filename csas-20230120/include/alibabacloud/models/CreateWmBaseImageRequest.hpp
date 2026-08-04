@@ -169,9 +169,13 @@ namespace Models
 
 
         protected:
+          // Takes effect only when Mode is bottom-left or bottom-right. Bottom margin.
           shared_ptr<float> bottom_ {};
+          // Takes effect only when Mode is top-left or bottom-left. Left margin.
           shared_ptr<float> left_ {};
+          // Takes effect only when Mode is top-right or bottom-right. Right margin.
           shared_ptr<float> right_ {};
+          // Takes effect only when Mode is top-left or top-right. Top margin.
           shared_ptr<float> top_ {};
         };
 
@@ -280,19 +284,41 @@ namespace Models
 
 
       protected:
+        // Rotation angle of the text watermark, in degrees clockwise. Valid values: 0 to 360.
         shared_ptr<int64_t> angle_ {};
+        // Text watermark color. Format: RGB, such as 0xFFFFFF or #FFFFFF. For example, 0x000000 or #000000 means black.
         shared_ptr<string> fontColor_ {};
+        // Font size of the text watermark. Larger values produce larger fonts.
         shared_ptr<int64_t> fontSize_ {};
+        // Takes effect only when Mode is top-left, top-right, bottom-left, or bottom-right. Margin settings.
         shared_ptr<TextVisibleControl::Margin> margin_ {};
+        // Text watermark display mode. Valid values:
+        // 
+        // - **pos**: Fixed position mode.
+        // 
+        // - **repeat**: Tiled mode.
         shared_ptr<string> mode_ {};
+        // Text watermark opacity. Valid values: 1 to 255. Higher values mean less transparency.
         shared_ptr<int32_t> opacity_ {};
+        // Horizontal anchor point for the text watermark. Valid values: 0 to 1. When (PosAx, PosAy) is (0, 0), the top-left corner of the text is used as the anchor point. When it is 0.5, the center point is used. When it is (1, 1), the bottom-right corner is used.
         shared_ptr<float> posAx_ {};
+        // Vertical anchor point for the text watermark. Valid values: 0 to 1. When (PosAx, PosAy) is (0, 0), the top-left corner of the text is used as the anchor point. When it is 0.5, the center point is used. When it is (1, 1), the bottom-right corner is used.
         shared_ptr<float> posAy_ {};
+        // Takes effect only when Mode is pos. Horizontal position of the text watermark, measured in pixels from the top-left corner.
         shared_ptr<int64_t> posX_ {};
+        // Takes effect only when Mode is pos. Vertical position of the text watermark, measured in pixels from the top-left corner.
         shared_ptr<int64_t> posY_ {};
+        // Takes effect only when Mode is repeat. Horizontal spacing between repeated text watermarks.
         shared_ptr<int64_t> spaceX_ {};
+        // Takes effect only when Mode is repeat. Vertical spacing between repeated text watermarks.
         shared_ptr<int64_t> spaceY_ {};
+        // Visibility setting:
+        // 
+        // true: Show the watermark.
+        // 
+        // false: Hide the watermark.
         shared_ptr<bool> visible_ {};
+        // Text watermark content. Format: UTF-8 string.
         shared_ptr<string> visibleText_ {};
       };
 
@@ -395,9 +421,13 @@ namespace Models
 
 
         protected:
+          // Applies when Mode is bottom-left or bottom-right. The bottom margin.
           shared_ptr<float> bottom_ {};
+          // Applies when Mode is top-left or bottom-left. The left margin.
           shared_ptr<float> left_ {};
+          // The right margin. This parameter is valid only when Mode is set to top-right or bottom-right.
           shared_ptr<float> right_ {};
+          // Applies when Mode is top-left or top-right. The top margin.
           shared_ptr<float> top_ {};
         };
 
@@ -499,18 +529,39 @@ namespace Models
 
 
       protected:
+        // The clockwise rotation angle of the logo watermark text. Valid values: 1 to 360.
         shared_ptr<int64_t> angle_ {};
+        // Enable enhanced visible logo watermark. If enabled, the logo is converted into a watermark and added to the image.
         shared_ptr<bool> enhance_ {};
+        // Base64-encoded logo watermark. The logo file must be a PNG image encoded in Base64 format.
         shared_ptr<string> logoBase64_ {};
+        // Applies when Mode is top-left, top-right, bottom-left, or bottom-right. Specifies the margin.
         shared_ptr<LogoVisibleControl::Margin> margin_ {};
+        // The display mode for the logo watermark. Valid values:
+        // 
+        // - **pos**: Fixed position pattern.
+        // 
+        // - **repeat**: Tile pattern.
         shared_ptr<string> mode_ {};
+        // Logo watermark opacity. Valid values: 1 to 255. A higher value means lower transparency.
         shared_ptr<int32_t> opacity_ {};
+        // The horizontal anchor point for the logo watermark. Valid values: 0 to 1. When (PosAx, PosAy) is (0, 0), the watermark anchors to the top-left corner of the text. When the value is 0.5, the watermark anchors to the centroid of the text. When (PosAx, PosAy) is (1, 1), the watermark anchors to the bottom-right corner of the text.
         shared_ptr<float> posAx_ {};
+        // The vertical anchor point for the logo watermark. The value ranges from 0 to 1. The coordinates (PosAx, PosAy) define the anchor point on the watermark. For example, (0,0) represents the top-left corner, (0.5, 0.5) represents the centroid, and (1,1) represents the bottom-right corner.
         shared_ptr<float> posAy_ {};
+        // Takes effect when Mode is set to pos. This parameter controls the horizontal position of a visible watermark, using pixel coordinates with the top-left corner as the origin.
         shared_ptr<int64_t> posX_ {};
+        // Specifies the vertical position of the visible watermark in pixels. The top-left corner is the origin. This parameter is valid only when Mode is set to pos.
         shared_ptr<int64_t> posY_ {};
+        // This parameter takes effect when Mode is set to repeat. It specifies the horizontal pitch for the tiled visible watermark.
         shared_ptr<int64_t> spaceX_ {};
+        // Applies only when Mode is set to repeat. Controls the vertical pitch between tiled visible watermarks.
         shared_ptr<int64_t> spaceY_ {};
+        // Visibility:
+        // 
+        // **true**: Display
+        // 
+        // **false**: Hide
         shared_ptr<bool> visible_ {};
       };
 
@@ -535,7 +586,9 @@ namespace Models
 
 
     protected:
+      // Logo watermark control parameters.
       shared_ptr<ImageControl::LogoVisibleControl> logoVisibleControl_ {};
+      // Text watermark control parameters.
       shared_ptr<ImageControl::TextVisibleControl> textVisibleControl_ {};
     };
 
@@ -615,20 +668,55 @@ namespace Models
 
 
   protected:
+    // Height of the watermark image, in pixels. Valid values: 100 to 5000.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> height_ {};
+    // Image watermark control parameters.
     shared_ptr<CreateWmBaseImageRequest::ImageControl> imageControl_ {};
+    // Opacity of the watermark image. Valid values: 1 to 255. Higher values mean lower transparency.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> opacity_ {};
+    // Scaling factor of the watermark image.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> scale_ {};
+    // Width of the watermark image, in pixels. Valid values: 100 to 5000.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> width_ {};
+    // Base64-encoded watermark information. Length: 1 to 300 characters. Do not set this parameter if you set WmInfoUint.
     shared_ptr<string> wmInfoBytesB64_ {};
+    // Bit width of the watermark information. Default value: 32. This value must be the same during embedding and extraction. For example, if you use a 40-bit SDK to embed the watermark, set this value to 40 when extracting it.
     shared_ptr<int64_t> wmInfoSize_ {};
+    // Decimal-form watermark information. Do not set this parameter if you set WmInfoBytesB64.
+    // 
+    // The valid range depends on the WmInfoSize value:
+    // 
+    // - If WmInfoSize is **32**, the valid range is 1 to 4294967295.
+    // 
+    // - If WmInfoSize is **40**, the valid range is 1 to 1099511627775.
+    // 
+    // - If WmInfoSize is **64**, the valid range is 1 to 18446744073709551615.
     shared_ptr<string> wmInfoUint_ {};
+    // Watermark type. Valid values:
+    // 
+    // - **PureWebappInvisible**: Web watermark.
+    // 
+    // - **PureAppInvisible**: App watermark.
+    // 
+    // - **PureScreenInvisible**: Screen watermark.
+    // 
+    // - **AigcWebappInvisible**: AIGC web watermark.
+    // 
+    // - **AigcAppInvisible**: AIGC app watermark.
+    // 
+    // - **AigcScreenInvisible**: AIGC screen watermark.
+    // 
     // This parameter is required.
     shared_ptr<string> wmType_ {};
+    // Comments.
     shared_ptr<string> comment_ {};
   };
 

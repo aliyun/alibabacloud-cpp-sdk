@@ -149,15 +149,39 @@ namespace Models
 
 
     protected:
+      // Alibaba Cloud account ID.
       shared_ptr<string> aliuid_ {};
+      // Department that the user belongs to.
       shared_ptr<string> department_ {};
+      // Endpoint device ID.
       shared_ptr<string> devTag_ {};
+      // Operating system type of the endpoint device. Valid values:
+      // 
+      // - **windows**: Windows.
+      // 
+      // - **macos**: macOS.
+      // 
+      // - **linux**: Linux.
+      // 
+      // - **android**: Android.
+      // 
+      // - **ios**: iOS.
       shared_ptr<string> deviceType_ {};
+      // Expired At.
       shared_ptr<string> expiredTime_ {};
+      // Endpoint device name. The value must be 1 to 128 characters in length. It can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces. If you enter only an underscore (_), the system returns all endpoint devices whose names contain 4-byte UTF-8 characters.
       shared_ptr<string> hostname_ {};
+      // Endpoint device MAC address.
       shared_ptr<string> mac_ {};
+      // Onboarding user certificate status. Valid values:
+      // 
+      // - **Enabled**: Enabled.
+      // 
+      // - **Disabled**: Disabled.
       shared_ptr<string> status_ {};
+      // User ID.
       shared_ptr<string> userId_ {};
+      // Username.
       shared_ptr<string> username_ {};
     };
 
@@ -201,10 +225,23 @@ namespace Models
 
 
   protected:
+    // API status or POP error code. Valid values:
+    // 
+    // - **2xx**: Success.
+    // 
+    // - **3xx**: Redirection.
+    // 
+    // - **4xx**: Request error.
+    // 
+    // - **5xx**: Server error.
     shared_ptr<int64_t> code_ {};
+    // List of onboarding user certificate statuses.
     shared_ptr<vector<ListNacUserCertResponseBody::DataList>> dataList_ {};
+    // Additional information.
     shared_ptr<string> message_ {};
+    // ID of the request.
     shared_ptr<string> requestId_ {};
+    // Total number of entries that match the conditions.
     shared_ptr<int64_t> totalNum_ {};
   };
 

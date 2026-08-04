@@ -146,9 +146,13 @@ namespace Models
 
 
         protected:
+          // The body text of the pop-up window.
           shared_ptr<string> content_ {};
+          // The label on the primary button of the pop-up window.
           shared_ptr<string> mainButtonText_ {};
+          // The label on the secondary button of the pop-up window.
           shared_ptr<string> minorButtonText_ {};
+          // The title of the pop-up window.
           shared_ptr<string> title_ {};
         };
 
@@ -208,9 +212,13 @@ namespace Models
 
 
         protected:
+          // The body text of the pop-up window.
           shared_ptr<string> content_ {};
+          // The label on the primary button of the pop-up window.
           shared_ptr<string> mainButtonText_ {};
+          // The label on the secondary button of the pop-up window.
           shared_ptr<string> minorButtonText_ {};
+          // The title of the pop-up window.
           shared_ptr<string> title_ {};
         };
 
@@ -235,7 +243,9 @@ namespace Models
 
 
       protected:
+        // English content.
         shared_ptr<BlockContent::BlockTextEn> blockTextEn_ {};
+        // Chinese content.
         shared_ptr<BlockContent::BlockTextZh> blockTextZh_ {};
       };
 
@@ -319,15 +329,25 @@ namespace Models
 
 
     protected:
+      // Indicates whether end users can submit approval requests.
       shared_ptr<bool> allowReport_ {};
+      // The content shown in the client block pop-up window.
       shared_ptr<Strategy::BlockContent> blockContent_ {};
+      // The time when the policy was created.
       shared_ptr<string> createTime_ {};
+      // Indicates whether anti-uninstall is enabled.
       shared_ptr<bool> isAntiUninstall_ {};
+      // Indicates whether auto-start is enabled.
       shared_ptr<bool> isBoot_ {};
+      // The ID of the policy.
       shared_ptr<string> policyId_ {};
+      // The ID of the approval process associated with the policy.
       shared_ptr<string> reportProcessId_ {};
+      // The time when the policy was last updated.
       shared_ptr<string> updateTime_ {};
+      // The list of user group IDs to which the policy applies.
       shared_ptr<vector<string>> userGroupIds_ {};
+      // The list of users in the whitelist.
       shared_ptr<vector<string>> whitelistUsers_ {};
     };
 
@@ -350,7 +370,9 @@ namespace Models
 
 
   protected:
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
+    // The auto-start and anti-uninstall policy.
     shared_ptr<GetBootAndAntiUninstallPolicyResponseBody::Strategy> strategy_ {};
   };
 

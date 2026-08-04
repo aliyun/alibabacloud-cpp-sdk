@@ -51,8 +51,16 @@ namespace Models
 
 
   protected:
+    // Collection of user IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> saseUserIds_ {};
+    // User status. Valid values:
+    // 
+    // - **Enabled**: Enable the user.
+    // 
+    // - **Disabled**: Disable the user.
+    // 
     // This parameter is required.
     shared_ptr<string> status_ {};
   };

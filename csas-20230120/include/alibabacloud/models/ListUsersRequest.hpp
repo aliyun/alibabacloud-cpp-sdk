@@ -97,14 +97,27 @@ namespace Models
 
 
   protected:
+    // The page number. Valid values: 1 to 10,000.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
+    // The user\\"s department. The value must be 1 to 128 characters long and can contain Chinese characters, letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), slashes (/), at signs (@), and spaces.
     shared_ptr<string> department_ {};
+    // The username for a fuzzy match. The value must be 1 to 128 characters long and can contain Chinese characters, letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\\*), at signs (@), and spaces.
     shared_ptr<string> fuzzyUsername_ {};
+    // The number of entries per page. Valid values: 1 to 500.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
+    // The username for an exact match. The value must be 1 to 128 characters long and can contain Chinese characters, letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\\*), at signs (@), and spaces.
     shared_ptr<string> preciseUsername_ {};
+    // An array of user IDs.
     shared_ptr<vector<string>> saseUserIds_ {};
+    // The status of the user. Valid values:
+    // 
+    // - **Enabled**: The user is enabled.
+    // 
+    // - **Disabled**: The user is disabled.
     shared_ptr<string> status_ {};
   };
 

@@ -90,11 +90,38 @@ namespace Models
 
 
     protected:
+      // The ID of the identity provider (IdP) for the user group. This parameter is used when UserGroupType is set to **department**.
       shared_ptr<int32_t> idpId_ {};
+      // The relationship for the user group. Valid values:
+      // 
+      // - **Equal**: Equal to.
+      // 
+      // - **Unequal**: Not equal to.
+      // 
       // This parameter is required.
       shared_ptr<string> relation_ {};
+      // The type of the user group. Valid values:
+      // 
+      // - **username**: Username.
+      // 
+      // - **department**: Department.
+      // 
+      // - **email**: Email.
+      // 
+      // - **telephone**: Mobile phone.
+      // 
       // This parameter is required.
       shared_ptr<string> userGroupType_ {};
+      // The value of the user group attribute.
+      // 
+      // - If UserGroupType is set to **username**, this parameter specifies the username value. The value must be 1 to 128 characters long. It can contain Chinese characters, letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\\*), at signs (@), and spaces.
+      // 
+      // - If UserGroupType is set to **department**, this parameter specifies the department value. For example: OU=Department 1,OU=SASE DingTalk.
+      // 
+      // - If UserGroupType is set to **email**, this parameter specifies the email address. For example: username\\@example.com.
+      // 
+      // - If UserGroupType is set to **telephone**, this parameter specifies the mobile phone number. For example: 13900001234.
+      // 
       // This parameter is required.
       shared_ptr<string> value_ {};
     };
@@ -125,9 +152,14 @@ namespace Models
 
 
   protected:
+    // The collection of user group attributes. You can specify a maximum of 3,000 attributes. The attributes are combined using a logical OR.
+    // 
     // This parameter is required.
     shared_ptr<vector<CreateUserGroupRequest::Attributes>> attributes_ {};
+    // The user group description. The description must be 1 to 128 characters long and can contain Chinese characters, letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
     shared_ptr<string> description_ {};
+    // The user group name. The name must be 1 to 128 characters long and can contain Chinese characters, letters, digits, periods (.), underscores (_), and hyphens (-).
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

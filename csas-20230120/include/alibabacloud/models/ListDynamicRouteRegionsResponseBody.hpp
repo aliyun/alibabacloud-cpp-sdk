@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The list of regions for POP cluster access points authorized for the SASE Global Office service.
     shared_ptr<vector<string>> regions_ {};
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
+    // The total number of regions for POP cluster access points authorized for the SASE Global Office service.
     shared_ptr<int32_t> totalNum_ {};
   };
 

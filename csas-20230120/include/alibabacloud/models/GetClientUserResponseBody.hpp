@@ -106,7 +106,9 @@ namespace Models
 
 
       protected:
+        // Department ID.
         shared_ptr<string> id_ {};
+        // Department name.
         shared_ptr<string> name_ {};
       };
 
@@ -186,15 +188,29 @@ namespace Models
 
 
     protected:
+      // Department to which the user belongs.
       shared_ptr<Data::Department> department_ {};
+      // Department ID.
       shared_ptr<string> departmentId_ {};
+      // User description.
       shared_ptr<string> description_ {};
+      // Email address.
       shared_ptr<string> email_ {};
+      // User ID.
       shared_ptr<string> id_ {};
+      // ID of the custom identity source configuration.
       shared_ptr<string> idpConfigId_ {};
+      // Mobile phone number without country code.
       shared_ptr<string> mobileNumber_ {};
+      // User status. Valid values:
+      // 
+      // - **Enabled**: Enabled.
+      // 
+      // - **Disabled**: Disabled.
       shared_ptr<string> status_ {};
+      // Unique identifier of the user.
       shared_ptr<string> userId_ {};
+      // Username.
       shared_ptr<string> username_ {};
     };
 
@@ -217,7 +233,9 @@ namespace Models
 
 
   protected:
+    // User details.
     shared_ptr<GetClientUserResponseBody::Data> data_ {};
+    // ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

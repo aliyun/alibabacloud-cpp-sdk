@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // ID of the import task.
     shared_ptr<string> data_ {};
+    // ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

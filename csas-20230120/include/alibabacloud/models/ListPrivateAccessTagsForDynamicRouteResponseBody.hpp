@@ -118,10 +118,19 @@ namespace Models
 
 
       protected:
+        // The private network access tag creation time.
         shared_ptr<string> createTime_ {};
+        // The private network access tag description.
         shared_ptr<string> description_ {};
+        // The private network access tag name.
         shared_ptr<string> name_ {};
+        // The private network access tag ID.
         shared_ptr<string> tagId_ {};
+        // The private network access tag type. Valid values:
+        // 
+        // - **Default**: Default.
+        // 
+        // - **Custom**: Custom.
         shared_ptr<string> tagType_ {};
       };
 
@@ -144,7 +153,9 @@ namespace Models
 
 
     protected:
+      // The dynamic route ID.
       shared_ptr<string> dynamicRouteId_ {};
+      // A collection of private network access tags.
       shared_ptr<vector<DynamicRoutes::Tags>> tags_ {};
     };
 
@@ -167,7 +178,9 @@ namespace Models
 
 
   protected:
+    // The dynamic route list.
     shared_ptr<vector<ListPrivateAccessTagsForDynamicRouteResponseBody::DynamicRoutes>> dynamicRoutes_ {};
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // IDs of internal network access policies. You can specify up to 100 policy IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> policyIds_ {};
   };

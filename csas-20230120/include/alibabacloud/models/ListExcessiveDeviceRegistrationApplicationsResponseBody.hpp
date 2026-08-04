@@ -175,18 +175,53 @@ namespace Models
 
 
     protected:
+      // The application ID.
       shared_ptr<string> applicationId_ {};
+      // The creation time of the excessive device registration application.
       shared_ptr<string> createTime_ {};
+      // The user\\"s department.
       shared_ptr<string> department_ {};
+      // The reason for the excessive device registration application.
       shared_ptr<string> description_ {};
+      // The device ID.
       shared_ptr<string> deviceTag_ {};
+      // The operating system of the device. Valid values:
+      // 
+      // - **Windows**: The Windows operating system.
+      // 
+      // - **macOS**: The macOS operating system.
+      // 
+      // - **Linux**: The Linux operating system.
+      // 
+      // - **Android**: The Android operating system.
+      // 
+      // - **iOS**: The iOS operating system.
+      // 
+      // - **Windows_Wuying**: Wuying Workspace.
       shared_ptr<string> deviceType_ {};
+      // A list of full department paths.
       shared_ptr<vector<string>> fullDepartment_ {};
+      // The hostname of the device.
       shared_ptr<string> hostname_ {};
+      // Specifies whether the excessive device registration application has been used. Valid values:
+      // 
+      // - **true**: The application has been used.
+      // 
+      // - **false**: The application has not been used.
       shared_ptr<bool> isUsed_ {};
+      // The MAC address of the device.
       shared_ptr<string> mac_ {};
+      // The user ID.
       shared_ptr<string> saseUserId_ {};
+      // The status of the excessive device registration application. Valid values:
+      // 
+      // - **Pending**
+      // 
+      // - **Approved**
+      // 
+      // - **Rejected**
       shared_ptr<string> status_ {};
+      // The username.
       shared_ptr<string> username_ {};
     };
 
@@ -216,8 +251,11 @@ namespace Models
 
 
   protected:
+    // A list of excessive device registration applications.
     shared_ptr<vector<ListExcessiveDeviceRegistrationApplicationsResponseBody::Applications>> applications_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of excessive device registration applications.
     shared_ptr<int64_t> totalNum_ {};
   };
 

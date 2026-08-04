@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // A collection of approval process IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> processIds_ {};
   };

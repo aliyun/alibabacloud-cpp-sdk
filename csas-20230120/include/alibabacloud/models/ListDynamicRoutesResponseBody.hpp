@@ -170,17 +170,39 @@ namespace Models
 
 
     protected:
+      // The IDs of the private access applications for the dynamic route. This field has a value when the application type is **Application**.
       shared_ptr<vector<string>> applicationIds_ {};
+      // The application type of the dynamic route. Valid values:
+      // 
+      // - **All**: All applications.
+      // 
+      // - **Application**: A specific application.
+      // 
+      // - **Tag**: A specific tag.
       shared_ptr<string> applicationType_ {};
+      // The time when the dynamic route was created.
       shared_ptr<string> createTime_ {};
+      // The description of the dynamic route.
       shared_ptr<string> description_ {};
+      // The ID of the dynamic route.
       shared_ptr<string> dynamicRouteId_ {};
+      // The type of the dynamic route. Valid value: **connector**, which indicates a private leased line.
       shared_ptr<string> dynamicRouteType_ {};
+      // The name of the dynamic route.
       shared_ptr<string> name_ {};
+      // The ID of the next hop instance for the dynamic route.
       shared_ptr<string> nextHop_ {};
+      // The priority of the dynamic route. A value of 1 indicates the highest priority. The priority is consistent with the order in the list query results.
       shared_ptr<int32_t> priority_ {};
+      // The list of regions where the SASE POP cluster endpoint is supported.
       shared_ptr<vector<string>> regionIds_ {};
+      // The status of the dynamic route. Valid values:
+      // 
+      // - **Enabled**: The dynamic route is enabled.
+      // 
+      // - **Disabled**: The dynamic route is disabled.
       shared_ptr<string> status_ {};
+      // The IDs of the private access tags for the dynamic route. This field has a value when the application type is **Tag**.
       shared_ptr<vector<string>> tagIds_ {};
     };
 
@@ -210,8 +232,11 @@ namespace Models
 
 
   protected:
+    // The list of dynamic routes.
     shared_ptr<vector<ListDynamicRoutesResponseBody::DynamicRoutes>> dynamicRoutes_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of dynamic routes.
     shared_ptr<int32_t> totalNum_ {};
   };
 

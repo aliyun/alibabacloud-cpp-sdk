@@ -139,7 +139,9 @@ namespace Models
 
 
       protected:
+        // NIC MAC address.
         shared_ptr<string> mac_ {};
+        // NIC name.
         shared_ptr<string> name_ {};
       };
 
@@ -334,31 +336,119 @@ namespace Models
 
 
     protected:
+      // The client status. Values:
+      // 
+      // - **Online**: Online.
+      // 
+      // - **Offline**: Offline.
       shared_ptr<string> appStatus_ {};
+      // Client version.
       shared_ptr<string> appVersion_ {};
+      // Device CPU model.
       shared_ptr<string> CPU_ {};
+      // Device registration time.
       shared_ptr<string> createTime_ {};
+      // User\\"s department.
       shared_ptr<string> department_ {};
+      // Device ownership. Values:
+      // 
+      // - **Personal**: Personal device.
+      // 
+      // - **Company**: Company device.
       shared_ptr<string> deviceBelong_ {};
+      // Device model.
       shared_ptr<string> deviceModel_ {};
+      // The status of the device. Values:
+      // 
+      // - **Online**: Online.
+      // 
+      // - **Offline**: Offline.
+      // 
+      // - **LongTermOffline**: Long-term offline.
+      // 
+      // - **Locked**: Locked.
+      // 
+      // - **Lost**: Lost.
+      // 
+      // - **Unbound**: Unbound.
       shared_ptr<string> deviceStatus_ {};
+      // Device ID.
       shared_ptr<string> deviceTag_ {};
+      // The operating system type of the device. Values:
+      // 
+      // - **Windows**: Windows system.
+      // 
+      // - **macOS**: macOS system.
+      // 
+      // - **Linux**: Linux system.
+      // 
+      // - **Android**: Android system.
+      // 
+      // - **iOS**: iOS system.
+      // 
+      // - **Windows_Wuying**: Wuying Cloud Desktop system.
       shared_ptr<string> deviceType_ {};
+      // Device operating system version.
       shared_ptr<string> deviceVersion_ {};
+      // Device disk model.
       shared_ptr<string> disk_ {};
+      // Data protection status. Values:
+      // 
+      // - **Enabled**: Enabled.
+      // 
+      // - **Disabled**: Disabled.
+      // 
+      // - **Unprovisioned**: Unprovisioned.
+      // 
+      // - **Unauthorized**: Unauthorized.
       shared_ptr<string> dlpStatus_ {};
+      // Device name.
       shared_ptr<string> hostname_ {};
+      // Internet access status. Values:
+      // 
+      // - **Enabled**: Enabled.
+      // 
+      // - **Disabled**: Disabled.
+      // 
+      // - **Unprovisioned**: Unprovisioned.
       shared_ptr<string> iaStatus_ {};
+      // Device private network IP address.
       shared_ptr<string> innerIP_ {};
+      // Device MAC address.
       shared_ptr<string> mac_ {};
+      // Device memory capacity. Unit: GB.
       shared_ptr<string> memory_ {};
+      // Network access control status. Values:
+      // 
+      // - **Enabled**: Enabled.
+      // 
+      // - **Disabled**: Disabled.
+      // 
+      // - **Unprovisioned**: Unprovisioned.
       shared_ptr<string> nacStatus_ {};
+      // NIC list.
       shared_ptr<vector<Devices::NetInterfaceInfo>> netInterfaceInfo_ {};
+      // Private network access status. Values:
+      // 
+      // - **Enabled**: Enabled.
+      // 
+      // - **Disabled**: Disabled.
+      // 
+      // - **Unprovisioned**: Unprovisioned.
       shared_ptr<string> paStatus_ {};
+      // User ID.
       shared_ptr<string> saseUserId_ {};
+      // Indicates whether device sharing is enabled. Values:
+      // 
+      // - **true**: Enable sharing.
+      // 
+      // - **false**: Disable sharing.
       shared_ptr<bool> sharingStatus_ {};
+      // Device logon IP address.
       shared_ptr<string> srcIP_ {};
+      // Device last online time.
       shared_ptr<string> updateTime_ {};
+      // Username.
       shared_ptr<string> username_ {};
     };
 
@@ -381,7 +471,9 @@ namespace Models
 
 
   protected:
+    // Device list.
     shared_ptr<vector<UpdateUserDevicesSharingStatusResponseBody::Devices>> devices_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

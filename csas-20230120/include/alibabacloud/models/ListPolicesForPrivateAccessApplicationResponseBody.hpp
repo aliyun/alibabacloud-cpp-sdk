@@ -146,9 +146,33 @@ namespace Models
 
 
         protected:
+          // The ID of the identity provider (IdP) for the user group. This parameter is returned when the custom user group type is **department**.
           shared_ptr<int32_t> idpId_ {};
+          // The relationship of the user group. Valid values:
+          // 
+          // - **Equal**: Equal to.
+          // 
+          // - **Unequal**: Not equal to.
           shared_ptr<string> relation_ {};
+          // The type of the user group. Valid values:
+          // 
+          // - **username**: Username.
+          // 
+          // - **department**: Department.
+          // 
+          // - **email**: Email.
+          // 
+          // - **telephone**: Mobile number.
           shared_ptr<string> userGroupType_ {};
+          // The value of the user group attribute.
+          // 
+          // - If the user group type is **username**, this parameter specifies the value of the username. The value can be 1 to 128 characters in length and can contain Chinese characters, letters, digits, periods (.), underscores (_), and hyphens (-).
+          // 
+          // - If the user group type is **department**, this parameter specifies the value of the department. Example: OU=Department 1,OU=SASE DingTalk.
+          // 
+          // - If the user group type is **email**, this parameter specifies the value of the email address. Example: username\\@example.com.
+          // 
+          // - If the user group type is **telephone**, this parameter specifies the value of the mobile number. Example: 13900001234.
           shared_ptr<string> value_ {};
         };
 
@@ -228,15 +252,41 @@ namespace Models
 
 
       protected:
+        // The application type of the private access policy. Valid values:
+        // 
+        // - **Application**: Application.
+        // 
+        // - **Tag**: Tag.
         shared_ptr<string> applicationType_ {};
+        // The time when the private access policy was created.
         shared_ptr<string> createTime_ {};
+        // The collection of custom user group attributes. If you specify multiple attributes, the relationship between them is OR.
         shared_ptr<vector<Policies::CustomUserAttributes>> customUserAttributes_ {};
+        // The description of the private access policy.
         shared_ptr<string> description_ {};
+        // The name of the private access policy.
         shared_ptr<string> name_ {};
+        // The action of the private access policy. Valid values:
+        // 
+        // - **Block**: Blocks access.
+        // 
+        // - **Allow**: Allows access.
         shared_ptr<string> policyAction_ {};
+        // The ID of the private access policy.
         shared_ptr<string> policyId_ {};
+        // The priority of the private access policy. The value 1 indicates the highest priority.
         shared_ptr<int32_t> priority_ {};
+        // The status of the private access policy. Valid values:
+        // 
+        // - **Enabled**: The policy is enabled.
+        // 
+        // - **Disabled**: The policy is disabled.
         shared_ptr<string> status_ {};
+        // The user group type of the private access policy. Valid values:
+        // 
+        // - **Normal**: Regular user group.
+        // 
+        // - **Custom**: Custom user group.
         shared_ptr<string> userGroupType_ {};
       };
 
@@ -259,7 +309,9 @@ namespace Models
 
 
     protected:
+      // The ID of the private access application.
       shared_ptr<string> applicationId_ {};
+      // The collection of private access policies.
       shared_ptr<vector<Applications::Policies>> policies_ {};
     };
 
@@ -282,7 +334,9 @@ namespace Models
 
 
   protected:
+    // The list of private access applications.
     shared_ptr<vector<ListPolicesForPrivateAccessApplicationResponseBody::Applications>> applications_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

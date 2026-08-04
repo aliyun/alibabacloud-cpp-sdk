@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The user ID.
     shared_ptr<string> id_ {};
+    // The password. If this parameter is left empty, a random password is automatically generated.
     shared_ptr<string> password_ {};
+    // The username.
     shared_ptr<string> username_ {};
   };
 

@@ -124,13 +124,27 @@ namespace Models
 
 
     protected:
+      // The time when the task was created.
       shared_ptr<string> createTime_ {};
+      // The name of the file that was provided when the extraction task was created.
       shared_ptr<string> filename_ {};
+      // The status of the task. Valid values:
+      // 
+      // - **Running**: The task is running.
+      // 
+      // - **Success**: The task is successful.
+      // 
+      // - **Failed**: The task failed.
       shared_ptr<string> status_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The extracted watermark information as a Base64-encoded string.
       shared_ptr<string> wmInfoBytesB64_ {};
+      // The size of the watermark information, which was provided when the extraction task was created.
       shared_ptr<int64_t> wmInfoSize_ {};
+      // The extracted watermark information in decimal format.
       shared_ptr<int64_t> wmInfoUint_ {};
+      // The watermark type that was provided when the extraction task was created.
       shared_ptr<string> wmType_ {};
     };
 
@@ -153,7 +167,9 @@ namespace Models
 
 
   protected:
+    // The task result.
     shared_ptr<GetWmExtractTaskResponseBody::Data> data_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

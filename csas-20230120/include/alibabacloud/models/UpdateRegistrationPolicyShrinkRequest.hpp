@@ -145,18 +145,59 @@ namespace Models
 
 
   protected:
+    // The registration limit for corporate devices.
     shared_ptr<string> companyLimitCountShrink_ {};
+    // The registration limit type for corporate devices. Valid values:
+    // 
+    // - **Unlimited**: No limit.
+    // 
+    // - **LimitAll**: Limits the total number of devices.
+    // 
+    // - **LimitDiff**: Limits devices by terminal type.
     shared_ptr<string> companyLimitType_ {};
+    // The description of the device registration policy. The description can be 1 to 128 characters long and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
     shared_ptr<string> description_ {};
+    // The matching target type of the policy. Valid values:
+    // 
+    // - **UserGroupAll**: Associates with all users.
+    // 
+    // - **UserGroupNormal**: Associates with specific user groups.
     shared_ptr<string> matchMode_ {};
+    // The name of the device registration policy. The name must be 1 to 128 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> name_ {};
+    // The registration limit for personal devices.
     shared_ptr<string> personalLimitCountShrink_ {};
+    // The registration limit type for personal devices. Valid values:
+    // 
+    // - **Unlimited**: No limit.
+    // 
+    // - **LimitAll**: Limits the total number of devices.
+    // 
+    // - **LimitDiff**: Limits devices by terminal type.
     shared_ptr<string> personalLimitType_ {};
+    // The ID of the device registration policy. You can obtain the ID by calling one of the following operations:
+    // 
+    // - [ListRegistrationPolicies](~~ListRegistrationPolicies~~)
+    // 
+    // - [GetRegistrationPolicy](~~GetRegistrationPolicy~~)
+    // 
+    // - [CreateRegistrationPolicy](~~CreateRegistrationPolicy~~)
+    // 
+    // - [UpdateRegistrationPolicy](~~UpdateRegistrationPolicy~~)
+    // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
+    // The priority of the device registration policy. A smaller value indicates a higher priority. The value 0 indicates the highest priority, and 99 indicates the lowest priority.
     shared_ptr<int64_t> priority_ {};
+    // The status of the device registration policy. Valid values:
+    // 
+    // - **Enabled**
+    // 
+    // - **Disabled**
     shared_ptr<string> status_ {};
+    // The IDs of user groups. This parameter is required when MatchMode is set to **UserGroupNormal**. A policy can be associated with up to 100 user groups.
     shared_ptr<vector<string>> userGroupIds_ {};
+    // The list of whitelisted users for the device registration policy. You can add up to 1,000 usernames.
     shared_ptr<vector<string>> whitelist_ {};
   };
 

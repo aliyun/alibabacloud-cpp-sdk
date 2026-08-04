@@ -100,8 +100,11 @@ namespace Models
 
 
       protected:
+        // The department ID.
         shared_ptr<string> id_ {};
+        // The ID of the custom IdP configuration.
         shared_ptr<string> idpConfigId_ {};
+        // The department name.
         shared_ptr<string> name_ {};
       };
 
@@ -124,7 +127,9 @@ namespace Models
 
 
     protected:
+      // A list of department information.
       shared_ptr<vector<Data::DataList>> dataList_ {};
+      // The total number of records.
       shared_ptr<int64_t> totalNum_ {};
     };
 
@@ -147,7 +152,9 @@ namespace Models
 
 
   protected:
+    // The department information.
     shared_ptr<ListIdpDepartmentsResponseBody::Data> data_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

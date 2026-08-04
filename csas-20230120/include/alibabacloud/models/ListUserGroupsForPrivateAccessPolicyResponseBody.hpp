@@ -136,9 +136,33 @@ namespace Models
 
 
         protected:
+          // The identity source ID of the user group. This value exists if the custom user group type is **department**.
           shared_ptr<int32_t> idpId_ {};
+          // The relationship of the user group. Values:
+          // 
+          // - **Equal**: Equal.
+          // 
+          // - **Unequal**: Unequal.
           shared_ptr<string> relation_ {};
+          // The type of the user group. Values:
+          // 
+          // - **username**: username.
+          // 
+          // - **department**: department.
+          // 
+          // - **email**: mailbox.
+          // 
+          // - **telephone**: telephone.
           shared_ptr<string> userGroupType_ {};
+          // Value of the user group property.
+          // 
+          // - If the user group type is **username**, this indicates the username\\"s value. The length is 1 to 128 characters. It supports Chinese characters and uppercase and lowercase English letters. It can contain numbers, periods (.), underscores (_), and hyphens (-).
+          // 
+          // - If the user group type is **department**, this indicates the department\\"s value, such as OU=Department 1,OU=SASE DingTalk.
+          // 
+          // - If the user group type is **email**, this indicates the mailbox\\"s value, such as username\\@example.com.
+          // 
+          // - If the user group type is **telephone**, this indicates the telephone\\"s value, such as 13900001234.
           shared_ptr<string> value_ {};
         };
 
@@ -182,11 +206,15 @@ namespace Models
 
 
       protected:
+        // Collection of user group properties.
         shared_ptr<vector<UserGroups::Attributes>> attributes_ {};
-        // 用户组创建时间。
+        // User group creation time.
         shared_ptr<string> createTime_ {};
+        // User group description.
         shared_ptr<string> description_ {};
+        // User group name.
         shared_ptr<string> name_ {};
+        // User group ID.
         shared_ptr<string> userGroupId_ {};
       };
 
@@ -209,7 +237,9 @@ namespace Models
 
 
     protected:
+      // Private network access policy ID.
       shared_ptr<string> policyId_ {};
+      // Collection of user groups for the private network access policy.
       shared_ptr<vector<Polices::UserGroups>> userGroups_ {};
     };
 
@@ -232,7 +262,9 @@ namespace Models
 
 
   protected:
+    // List of private network access policies.
     shared_ptr<vector<ListUserGroupsForPrivateAccessPolicyResponseBody::Polices>> polices_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

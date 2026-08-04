@@ -139,7 +139,9 @@ namespace Models
 
 
       protected:
+        // The MAC address of the NIC.
         shared_ptr<string> mac_ {};
+        // The NIC name.
         shared_ptr<string> name_ {};
       };
 
@@ -334,31 +336,119 @@ namespace Models
 
 
     protected:
+      // The client status. Valid values:
+      // 
+      // - **Online**: Online.
+      // 
+      // - **Offline**: Offline.
       shared_ptr<string> appStatus_ {};
+      // The client version.
       shared_ptr<string> appVersion_ {};
+      // The CPU model of the endpoint device.
       shared_ptr<string> CPU_ {};
+      // The time when the endpoint device was registered.
       shared_ptr<string> createTime_ {};
+      // The department to which the user belongs.
       shared_ptr<string> department_ {};
+      // The ownership of the endpoint device. Valid values:
+      // 
+      // - **Personal**: Personal device.
+      // 
+      // - **Company**: Company device.
       shared_ptr<string> deviceBelong_ {};
+      // The model of the endpoint device.
       shared_ptr<string> deviceModel_ {};
+      // The status of the endpoint device. Valid values:
+      // 
+      // - **Online**: Online.
+      // 
+      // - **Offline**: Offline.
+      // 
+      // - **LongTermOffline**: Long-term offline.
+      // 
+      // - **Locked**: Locked.
+      // 
+      // - **Lost**: Reported as lost.
+      // 
+      // - **Unbound**: Detached.
       shared_ptr<string> deviceStatus_ {};
+      // The endpoint device ID.
       shared_ptr<string> deviceTag_ {};
+      // The operating system type of the endpoint device. Valid values:
+      // 
+      // - **Windows**: Windows.
+      // 
+      // - **macOS**: macOS.
+      // 
+      // - **Linux**: Linux.
+      // 
+      // - **Android**: Android.
+      // 
+      // - **iOS**: iOS.
+      // 
+      // - **Windows_Wuying**: Alibaba Cloud Cloud Desktop.
       shared_ptr<string> deviceType_ {};
+      // The operating system version of the endpoint device.
       shared_ptr<string> deviceVersion_ {};
+      // The disk model of the endpoint device.
       shared_ptr<string> disk_ {};
+      // The data protection status. Valid values:
+      // 
+      // - **Enabled**: Enabled.
+      // 
+      // - **Disabled**: Disabled.
+      // 
+      // - **Unprovisioned**: Not configured.
+      // 
+      // - **Unauthorized**: Unauthorized.
       shared_ptr<string> dlpStatus_ {};
+      // The device name.
       shared_ptr<string> hostname_ {};
+      // Internet access status. Valid values:
+      // 
+      // - **Enabled**: Internet access is enabled.
+      // 
+      // - **Disabled**: Internet access is disabled.
+      // 
+      // - **Unprovisioned**: The device is unconfigured.
       shared_ptr<string> iaStatus_ {};
+      // The private network IP address of the endpoint device.
       shared_ptr<string> innerIP_ {};
+      // The MAC address of the endpoint device.
       shared_ptr<string> mac_ {};
+      // The memory capacity of the endpoint device, in GB.
       shared_ptr<string> memory_ {};
+      // The network admission control status. Valid values:
+      // 
+      // - **Enabled**: Enabled.
+      // 
+      // - **Disabled**: Disabled.
+      // 
+      // - **Unprovisioned**: Not configured.
       shared_ptr<string> nacStatus_ {};
+      // A list of network interface controllers (NICs) on the endpoint device.
       shared_ptr<vector<Devices::NetInterfaceInfo>> netInterfaceInfo_ {};
+      // The private network access status. Valid values:
+      // 
+      // - **Enabled**: Enabled.
+      // 
+      // - **Disabled**: Disabled.
+      // 
+      // - **Unprovisioned**: Not configured.
       shared_ptr<string> paStatus_ {};
+      // The user ID.
       shared_ptr<string> saseUserId_ {};
+      // Whether sharing is enabled for the device. Valid values:
+      // 
+      // - **true**: Sharing is enabled.
+      // 
+      // - **false**: Sharing is disabled.
       shared_ptr<bool> sharingStatus_ {};
+      // The IP address used to log on to the endpoint device.
       shared_ptr<string> srcIP_ {};
+      // The last time the endpoint device was online.
       shared_ptr<string> updateTime_ {};
+      // The username.
       shared_ptr<string> username_ {};
     };
 
@@ -381,7 +471,9 @@ namespace Models
 
 
   protected:
+    // A list of endpoint devices.
     shared_ptr<vector<UpdateUserDevicesStatusResponseBody::Devices>> devices_ {};
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -146,13 +146,33 @@ namespace Models
 
 
       protected:
+        // The time when the approval template was created.
         shared_ptr<string> createTime_ {};
+        // The description of the approval template.
         shared_ptr<string> description_ {};
+        // Indicates whether the template is maintained by Alibaba Cloud.
         shared_ptr<bool> isDefault_ {};
+        // The policy type that the template applies to. Valid values:
+        // 
+        // - **DomainBlacklist**: Domain blacklist.
+        // 
+        // - **DomainWhitelist**: Domain whitelist.
+        // 
+        // - **SoftwareBlock**: Software disable.
+        // 
+        // - **AppUninstall**: Application uninstall.
+        // 
+        // - **DlpSend**: File transfer.
+        // 
+        // - **PeripheralBlock**: Peripheral control.
         shared_ptr<string> policyType_ {};
+        // The content of the approval template.
         shared_ptr<string> schemaContent_ {};
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
+        // The name of the approval template.
         shared_ptr<string> schemaName_ {};
+        // The version of the approval template.
         shared_ptr<int64_t> schemaVersion_ {};
       };
 
@@ -175,7 +195,9 @@ namespace Models
 
 
     protected:
+      // The ID of the approval process.
       shared_ptr<string> processId_ {};
+      // A list of approval templates.
       shared_ptr<vector<Processes::Schemas>> schemas_ {};
     };
 
@@ -198,7 +220,9 @@ namespace Models
 
 
   protected:
+    // A list of approval processes.
     shared_ptr<vector<ListApprovalSchemasForApprovalProcessesResponseBody::Processes>> processes_ {};
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

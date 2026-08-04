@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The unique ID of the user in the external identity source.
+    // 
     // This parameter is required.
     shared_ptr<string> externalIds_ {};
+    // The ID of the identity source configuration to which the user belongs.
+    // 
     // This parameter is required.
     shared_ptr<string> idpId_ {};
   };

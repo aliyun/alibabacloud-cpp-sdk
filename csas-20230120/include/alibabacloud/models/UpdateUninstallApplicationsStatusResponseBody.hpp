@@ -171,18 +171,49 @@ namespace Models
 
 
     protected:
+      // Uninstall request ID.
       shared_ptr<string> applicationId_ {};
+      // Time when the uninstall request was created.
       shared_ptr<string> createTime_ {};
+      // Department to which the user belongs.
       shared_ptr<string> department_ {};
+      // Endpoint device ID.
       shared_ptr<string> devTag_ {};
+      // Operating system type of the endpoint device. Valid values:
+      // 
+      // - **Windows**: Windows operating system.
+      // 
+      // - **macOS**: macOS operating system.
+      // 
+      // - **Linux**: Linux operating system.
+      // 
+      // - **Android**: Android operating system.
+      // 
+      // - **iOS**: iOS operating system.
+      // 
+      // - **Windows_Wuying**: Alibaba Cloud Desktop operating system.
       shared_ptr<string> devType_ {};
+      // Device name of the endpoint.
       shared_ptr<string> hostname_ {};
+      // Name of the user identity source.
       shared_ptr<string> idpName_ {};
+      // Indicates whether the uninstall has been executed.
       shared_ptr<bool> isUninstall_ {};
+      // MAC address of the endpoint device.
       shared_ptr<string> mac_ {};
+      // Reason for the request.
       shared_ptr<string> reason_ {};
+      // User ID.
       shared_ptr<string> saseUserId_ {};
+      // Status of the uninstall request. Valid values:
+      // 
+      // - **Pending**: Pending.
+      // 
+      // - **Approved**: Approved.
+      // 
+      // - **Rejected**: Rejected.
       shared_ptr<string> status_ {};
+      // Username.
       shared_ptr<string> username_ {};
     };
 
@@ -205,7 +236,9 @@ namespace Models
 
 
   protected:
+    // List of uninstall requests.
     shared_ptr<vector<UpdateUninstallApplicationsStatusResponseBody::Applications>> applications_ {};
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

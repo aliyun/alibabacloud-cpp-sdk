@@ -168,17 +168,39 @@ namespace Models
 
 
     protected:
+      // The list of internal network application IDs for the dynamic route. This field appears only when ApplicationType is set to **Application**.
       shared_ptr<vector<string>> applicationIds_ {};
+      // The application type for the dynamic route. Valid values:
+      // 
+      // - **All**: All applications.
+      // 
+      // - **Application**: An application.
+      // 
+      // - **Tag**: A tag.
       shared_ptr<string> applicationType_ {};
+      // The time when the dynamic route was created.
       shared_ptr<string> createTime_ {};
+      // A description of the dynamic route.
       shared_ptr<string> description_ {};
+      // The ID of the dynamic route.
       shared_ptr<string> dynamicRouteId_ {};
+      // The type of the dynamic route. Valid value: **connector** (dedicated line).
       shared_ptr<string> dynamicRouteType_ {};
+      // The name of the dynamic route.
       shared_ptr<string> name_ {};
+      // The instance ID of the next hop for the dynamic route.
       shared_ptr<string> nextHop_ {};
+      // The priority of the dynamic route. A value of 1 indicates the highest priority. Priority order matches the display order in lists.
       shared_ptr<int32_t> priority_ {};
+      // The list of regions supported by the SASE POP cluster access points.
       shared_ptr<vector<string>> regionIds_ {};
+      // The status of the dynamic route. Valid values:
+      // 
+      // - **Enabled**: The dynamic route is enabled.
+      // 
+      // - **Disabled**: The dynamic route is disabled.
       shared_ptr<string> status_ {};
+      // The list of internal network tag IDs for the dynamic route. This field appears only when ApplicationType is set to **Tag**.
       shared_ptr<vector<string>> tagIds_ {};
     };
 
@@ -201,7 +223,9 @@ namespace Models
 
 
   protected:
+    // The dynamic route.
     shared_ptr<GetDynamicRouteResponseBody::DynamicRoute> dynamicRoute_ {};
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

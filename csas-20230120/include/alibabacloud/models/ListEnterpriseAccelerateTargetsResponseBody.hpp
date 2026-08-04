@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // Enterprise Acceleration Policy ID.
     shared_ptr<string> eapId_ {};
+    // ID of the current request.
     shared_ptr<string> requestId_ {};
+    // List of enterprise acceleration targets.
     shared_ptr<vector<string>> targets_ {};
+    // The total number of addresses.
     shared_ptr<int32_t> total_ {};
   };
 

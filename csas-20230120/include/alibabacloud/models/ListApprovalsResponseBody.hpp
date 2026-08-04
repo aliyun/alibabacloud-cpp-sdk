@@ -154,7 +154,9 @@ namespace Models
 
 
         protected:
+          // ID of the operator for the approval progress node.
           shared_ptr<string> saseUserId_ {};
+          // Username of the operator for the approval progress node.
           shared_ptr<string> username_ {};
         };
 
@@ -205,11 +207,33 @@ namespace Models
 
 
       protected:
+        // Action performed at the approval progress node. Valid values:
+        // 
+        // - **Approve**: Approve.
+        // 
+        // - **Reject**: Reject.
+        // 
+        // - **Revoke**: Revoke.
+        // 
+        // - **Comment**: Comment.
         shared_ptr<string> action_ {};
+        // Comment added at the approval progress node.
         shared_ptr<string> comment_ {};
+        // ID of the executor for the approval progress node.
         shared_ptr<string> executor_ {};
+        // List of operators for the approval progress node.
         shared_ptr<vector<ApprovalProgresses::Operators>> operators_ {};
+        // Status of the approval progress node. Valid values:
+        // 
+        // - **Pending**: Pending approval.
+        // 
+        // - **Approved**: Approved.
+        // 
+        // - **Rejected**: Rejected.
+        // 
+        // - **Revoked**: Revoked.
         shared_ptr<string> status_ {};
+        // Time when the action was performed at the approval progress node, in seconds since the Unix epoch.
         shared_ptr<int64_t> timestamp_ {};
       };
 
@@ -347,23 +371,62 @@ namespace Models
 
 
     protected:
+      // Details of the approval instance.
       shared_ptr<string> approvalDetail_ {};
+      // Approval instance ID.
       shared_ptr<string> approvalId_ {};
+      // List of approval progress nodes.
       shared_ptr<vector<Approvals::ApprovalProgresses>> approvalProgresses_ {};
       shared_ptr<int32_t> approvalType_ {};
+      // Time when the approval instance was created.
       shared_ptr<string> createTime_ {};
+      // Department of the user who created the approval instance.
       shared_ptr<string> creatorDepartment_ {};
+      // ID of the device used to create the approval instance.
       shared_ptr<string> creatorDevTag_ {};
+      // ID of the user who created the approval instance.
       shared_ptr<string> creatorUserId_ {};
+      // Username of the user who created the approval instance.
       shared_ptr<string> creatorUsername_ {};
+      // Expiration time of the approval instance, in seconds since the Unix epoch.
       shared_ptr<int64_t> endTimestamp_ {};
+      // Policy type associated with the approval instance. Valid values:
+      // 
+      // - **DomainBlacklist**: Domain blacklist.
+      // 
+      // - **DomainWhitelist**: Domain whitelist.
+      // 
+      // - **SoftwareBlock**: Software blocking.
+      // 
+      // - **AppUninstall**: App uninstallation.
+      // 
+      // - **DlpSend**: File outbound transfer.
+      // 
+      // - **PeripheralBlock**: Peripheral control.
       shared_ptr<string> policyType_ {};
+      // ID of the associated approval process.
       shared_ptr<string> processId_ {};
+      // Name of the associated approval process.
       shared_ptr<string> processName_ {};
+      // Reason for creating the approval instance.
       shared_ptr<string> reason_ {};
+      // Content of the associated approval template.
       shared_ptr<string> schemaContent_ {};
+      // ID of the associated approval template.
       shared_ptr<string> schemaId_ {};
+      // Name of the associated approval template.
       shared_ptr<string> schemaName_ {};
+      // Status of the approval instance. Valid values:
+      // 
+      // - **Pending**: Pending approval.
+      // 
+      // - **Approved**: Approved.
+      // 
+      // - **Rejected**: Rejected.
+      // 
+      // - **Revoked**: Revoked.
+      // 
+      // - **Expired**: Expired.
       shared_ptr<string> status_ {};
     };
 
@@ -393,8 +456,11 @@ namespace Models
 
 
   protected:
+    // List of approval instances.
     shared_ptr<vector<ListApprovalsResponseBody::Approvals>> approvals_ {};
+    // ID of the request.
     shared_ptr<string> requestId_ {};
+    // Total number of approval instances.
     shared_ptr<string> totalNum_ {};
   };
 

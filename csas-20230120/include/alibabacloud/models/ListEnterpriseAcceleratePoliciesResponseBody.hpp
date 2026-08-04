@@ -164,17 +164,47 @@ namespace Models
 
 
     protected:
+      // The acceleration pattern.
+      // 
+      // - **whitelist**: accelerates access to applications in the whitelist.
+      // 
+      // - **global**: accelerates access to all applications.
+      // 
+      // - **build-in-list:** accelerates access to built-in applications.
       shared_ptr<string> accelerationType_ {};
+      // The description of the policy.
       shared_ptr<string> description_ {};
+      // The policy ID.
       shared_ptr<string> eapId_ {};
+      // Indicates whether the policy is enabled.
+      // 
+      // - **1**: enabled
+      // 
+      // - **0**: disabled
       shared_ptr<int32_t> enabled_ {};
+      // The policy name.
       shared_ptr<string> name_ {};
+      // Indicates whether to enable Transport Layer Security (TLS).
+      // 
+      // - **0**: disable
+      // 
+      // - **1**: enable
       shared_ptr<int32_t> onTls_ {};
+      // The policy priority.
       shared_ptr<int32_t> priority_ {};
+      // Indicates whether the policy is visible on the client.
+      // 
+      // - **0**: not visible
+      // 
+      // - **1**: visible
       shared_ptr<int32_t> showInClient_ {};
+      // The address of the acceleration instance. The address can be an IP address or a domain name.
       shared_ptr<string> upstreamHost_ {};
+      // The port of the acceleration instance. The port must be between 1000 and 60000.
       shared_ptr<int32_t> upstreamPort_ {};
+      // The acceleration instance.
       shared_ptr<string> upstreamType_ {};
+      // The user group for acceleration.
       shared_ptr<string> userAttributeGroup_ {};
     };
 
@@ -204,8 +234,11 @@ namespace Models
 
 
   protected:
+    // The list of policies.
     shared_ptr<vector<ListEnterpriseAcceleratePoliciesResponseBody::Policies>> policies_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of policies.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The username.
     shared_ptr<string> username_ {};
   };
 

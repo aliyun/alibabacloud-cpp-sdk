@@ -146,23 +146,33 @@ namespace Models
 
 
         protected:
-          // 用户组的身份源ID。当自定义用户组类型为**department**时，存在该值。
+          // The identity provider ID of the user group. This value exists if the custom user group type is **department**.
           shared_ptr<int32_t> idpId_ {};
-          // 用户组的关系。取值：
-          // - **Equal**：等于。
-          // - **Unequal**：不等于。
+          // The relationship of the user group. Values:
+          // 
+          // - **Equal**: Equal.
+          // 
+          // - **Unequal**: Unequal.
           shared_ptr<string> relation_ {};
-          // 用户组的类型。取值：
-          // - **username**：用户名。
-          // - **department**：部门。
-          // - **email**：邮箱。
-          // - **telephone**：手机。
+          // The type of user group. Values:
+          // 
+          // - **username**: Username.
+          // 
+          // - **department**: Department.
+          // 
+          // - **email**: Mailbox.
+          // 
+          // - **telephone**: Mobile phone.
           shared_ptr<string> userGroupType_ {};
-          // 用户组属性的值。
-          // - 当用户组类型为**username**时，表示用户名的值。长度为1~128个字符，支持中文和大小写英文字母，可包含数字、半角句号（.）、下划线（_）和短划线（-）。
-          // - 当用户组类型为**department**时，表示部门的值。如：OU=部门1,OU=SASE钉钉。
-          // - 当用户组类型为**email**时，表示邮箱的值。如：username@example.com。
-          // - 当用户组类型为**telephone**时，表示手机的值。如：13900001234。
+          // The value of the user group attribute.
+          // 
+          // - If the user group type is **username**, this indicates the username\\"s value. The length is 1 to 128 characters. It supports Chinese characters, uppercase and lowercase English letters, and can include numbers, periods (.), underscores (_), and hyphens (-).
+          // 
+          // - If the user group type is **department**, this indicates the department\\"s value. For example: OU=Department 1,OU=SASE DingTalk.
+          // 
+          // - If the user group type is **email**, this indicates the mailbox\\"s value. For example: username\\@example.com.
+          // 
+          // - If the user group type is **telephone**, this indicates the mobile phone\\"s value. For example: 13900001234.
           shared_ptr<string> value_ {};
         };
 
@@ -242,17 +252,41 @@ namespace Models
 
 
       protected:
+        // The application type of the private network access policy. Values:
+        // 
+        // - **Application**: Application.
+        // 
+        // - **Tag**: Tag.
         shared_ptr<string> applicationType_ {};
-        // 内网访问策略创建时间。
+        // Creation time of the private network access policy.
         shared_ptr<string> createTime_ {};
-        // 自定义用户组属性集合。多个自定义用户组属性之间是或的关系，按照合集生效。
+        // A collection of custom user group attributes. Multiple custom user group attributes have an OR relationship and take effect as a union.
         shared_ptr<vector<Polices::CustomUserAttributes>> customUserAttributes_ {};
+        // Description of the private network access policy.
         shared_ptr<string> description_ {};
+        // Private network access policy name.
         shared_ptr<string> name_ {};
+        // The action that the private access policy performs. Valid values:
+        // 
+        // - **Block**: Blocks access.
+        // 
+        // - **Allow**: Allows access.
         shared_ptr<string> policyAction_ {};
+        // Private network access policy ID.
         shared_ptr<string> policyId_ {};
+        // The private network access policy priority. The number 1 indicates the highest priority.
         shared_ptr<int32_t> priority_ {};
+        // The status of the private network access policy. Values:
+        // 
+        // - **Enabled**: Enabled.
+        // 
+        // - **Disabled**: Disabled.
         shared_ptr<string> status_ {};
+        // The user group type of the private network access policy. Values:
+        // 
+        // - **Normal**: Normal user group.
+        // 
+        // - **Custom**: Custom user group.
         shared_ptr<string> userGroupType_ {};
       };
 
@@ -275,7 +309,9 @@ namespace Models
 
 
     protected:
+      // Collection of private network access policies.
       shared_ptr<vector<Tags::Polices>> polices_ {};
+      // Private network access tag ID.
       shared_ptr<string> tagId_ {};
     };
 
@@ -298,7 +334,9 @@ namespace Models
 
 
   protected:
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
+    // List of private network access tags.
     shared_ptr<vector<ListPolicesForPrivateAccessTagResponseBody::Tags>> tags_ {};
   };
 

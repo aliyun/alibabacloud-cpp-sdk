@@ -17,7 +17,11 @@ namespace Csas20230120
 {
 
 AlibabaCloud::Csas20230120::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"public" , "csas.aliyuncs.com"},
+    {"cn-hangzhou" , "csas.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("csas", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +40,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 挂载connector的应用
+ * @summary Attaches the private access applications of a Connector under the current Alibaba Cloud account.
  *
  * @param tmpReq AttachApplication2ConnectorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -77,7 +81,7 @@ AttachApplication2ConnectorResponse Client::attachApplication2ConnectorWithOptio
 }
 
 /**
- * @summary 挂载connector的应用
+ * @summary Attaches the private access applications of a Connector under the current Alibaba Cloud account.
  *
  * @param request AttachApplication2ConnectorRequest
  * @return AttachApplication2ConnectorResponse
@@ -88,7 +92,7 @@ AttachApplication2ConnectorResponse Client::attachApplication2Connector(const At
 }
 
 /**
- * @summary Mount a business policy to a specified approval flow
+ * @summary Attaches a business policy to a specified approval process.
  *
  * @param request AttachPolicy2ApprovalProcessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -127,7 +131,7 @@ AttachPolicy2ApprovalProcessResponse Client::attachPolicy2ApprovalProcessWithOpt
 }
 
 /**
- * @summary Mount a business policy to a specified approval flow
+ * @summary Attaches a business policy to a specified approval process.
  *
  * @param request AttachPolicy2ApprovalProcessRequest
  * @return AttachPolicy2ApprovalProcessResponse
@@ -138,7 +142,7 @@ AttachPolicy2ApprovalProcessResponse Client::attachPolicy2ApprovalProcess(const 
 }
 
 /**
- * @summary Create an approval flow under the current Alibaba Cloud account.
+ * @summary Creates an approval process under the current Alibaba Cloud account.
  *
  * @param tmpReq CreateApprovalProcessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -191,7 +195,7 @@ CreateApprovalProcessResponse Client::createApprovalProcessWithOptions(const Cre
 }
 
 /**
- * @summary Create an approval flow under the current Alibaba Cloud account.
+ * @summary Creates an approval process under the current Alibaba Cloud account.
  *
  * @param request CreateApprovalProcessRequest
  * @return CreateApprovalProcessResponse
@@ -202,7 +206,7 @@ CreateApprovalProcessResponse Client::createApprovalProcess(const CreateApproval
 }
 
 /**
- * @summary 创建自定义身份源用户
+ * @summary Create a custom identity source user for your Alibaba Cloud account.
  *
  * @param request CreateClientUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -257,7 +261,7 @@ CreateClientUserResponse Client::createClientUserWithOptions(const CreateClientU
 }
 
 /**
- * @summary 创建自定义身份源用户
+ * @summary Create a custom identity source user for your Alibaba Cloud account.
  *
  * @param request CreateClientUserRequest
  * @return CreateClientUserResponse
@@ -268,7 +272,9 @@ CreateClientUserResponse Client::createClientUser(const CreateClientUserRequest 
 }
 
 /**
- * @summary 创建动态路由
+ * @summary Create dynamic routes for the current Alibaba Cloud account.
+ *
+ * @description By default, you can create a maximum of 100 dynamic routes.
  *
  * @param request CreateDynamicRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -339,7 +345,9 @@ CreateDynamicRouteResponse Client::createDynamicRouteWithOptions(const CreateDyn
 }
 
 /**
- * @summary 创建动态路由
+ * @summary Create dynamic routes for the current Alibaba Cloud account.
+ *
+ * @description By default, you can create a maximum of 100 dynamic routes.
  *
  * @param request CreateDynamicRouteRequest
  * @return CreateDynamicRouteResponse
@@ -350,7 +358,7 @@ CreateDynamicRouteResponse Client::createDynamicRoute(const CreateDynamicRouteRe
 }
 
 /**
- * @summary Create an enterprise acceleration policy.
+ * @summary Creates an enterprise accelerate policy.
  *
  * @param request CreateEnterpriseAcceleratePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -413,7 +421,7 @@ CreateEnterpriseAcceleratePolicyResponse Client::createEnterpriseAcceleratePolic
 }
 
 /**
- * @summary Create an enterprise acceleration policy.
+ * @summary Creates an enterprise accelerate policy.
  *
  * @param request CreateEnterpriseAcceleratePolicyRequest
  * @return CreateEnterpriseAcceleratePolicyResponse
@@ -424,7 +432,7 @@ CreateEnterpriseAcceleratePolicyResponse Client::createEnterpriseAcceleratePolic
 }
 
 /**
- * @summary Create an enterprise acceleration address.
+ * @summary Creates enterprise acceleration addresses.
  *
  * @param request CreateEnterpriseAccelerateTargetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -463,7 +471,7 @@ CreateEnterpriseAccelerateTargetResponse Client::createEnterpriseAccelerateTarge
 }
 
 /**
- * @summary Create an enterprise acceleration address.
+ * @summary Creates enterprise acceleration addresses.
  *
  * @param request CreateEnterpriseAccelerateTargetRequest
  * @return CreateEnterpriseAccelerateTargetResponse
@@ -474,7 +482,7 @@ CreateEnterpriseAccelerateTargetResponse Client::createEnterpriseAccelerateTarge
 }
 
 /**
- * @summary 创建自定义身份源部门
+ * @summary Creates a department for a custom identity source in the current Alibaba Cloud account.
  *
  * @param request CreateIdpDepartmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -509,7 +517,7 @@ CreateIdpDepartmentResponse Client::createIdpDepartmentWithOptions(const CreateI
 }
 
 /**
- * @summary 创建自定义身份源部门
+ * @summary Creates a department for a custom identity source in the current Alibaba Cloud account.
  *
  * @param request CreateIdpDepartmentRequest
  * @return CreateIdpDepartmentResponse
@@ -520,7 +528,7 @@ CreateIdpDepartmentResponse Client::createIdpDepartment(const CreateIdpDepartmen
 }
 
 /**
- * @summary Create an internal network access diagnostic task
+ * @summary Creates a diagnostic task for internal network access.
  *
  * @param tmpReq CreatePADiagnosisTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -593,7 +601,7 @@ CreatePADiagnosisTaskResponse Client::createPADiagnosisTaskWithOptions(const Cre
 }
 
 /**
- * @summary Create an internal network access diagnostic task
+ * @summary Creates a diagnostic task for internal network access.
  *
  * @param request CreatePADiagnosisTaskRequest
  * @return CreatePADiagnosisTaskResponse
@@ -604,9 +612,9 @@ CreatePADiagnosisTaskResponse Client::createPADiagnosisTask(const CreatePADiagno
 }
 
 /**
- * @summary Creates an office application within the current Alibaba Cloud account.
+ * @summary Creates an internal-facing access application under the current Alibaba Cloud account.
  *
- * @description By default, you can create a maximum of 500 office applications.
+ * @description You can create up to 500 internal-facing access applications by default.
  *
  * @param tmpReq CreatePrivateAccessApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -618,6 +626,10 @@ CreatePrivateAccessApplicationResponse Client::createPrivateAccessApplicationWit
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasL7Config()) {
     request.setL7ConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getL7Config(), "L7Config", "json"));
+  }
+
+  if (!!tmpReq.hasUnauthorizedAccessConfig()) {
+    request.setUnauthorizedAccessConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUnauthorizedAccessConfig(), "UnauthorizedAccessConfig", "json"));
   }
 
   json body = {};
@@ -674,6 +686,10 @@ CreatePrivateAccessApplicationResponse Client::createPrivateAccessApplicationWit
     bodyFlat["TagIds"] = request.getTagIds();
   }
 
+  if (!!request.hasUnauthorizedAccessConfigShrink()) {
+    body["UnauthorizedAccessConfig"] = request.getUnauthorizedAccessConfigShrink();
+  }
+
   body = Darabonba::Core::merge(body,
     Utils::Utils::query(bodyFlat)
   );
@@ -695,9 +711,9 @@ CreatePrivateAccessApplicationResponse Client::createPrivateAccessApplicationWit
 }
 
 /**
- * @summary Creates an office application within the current Alibaba Cloud account.
+ * @summary Creates an internal-facing access application under the current Alibaba Cloud account.
  *
- * @description By default, you can create a maximum of 500 office applications.
+ * @description You can create up to 500 internal-facing access applications by default.
  *
  * @param request CreatePrivateAccessApplicationRequest
  * @return CreatePrivateAccessApplicationResponse
@@ -834,7 +850,9 @@ CreatePrivateAccessPolicyResponse Client::createPrivateAccessPolicy(const Create
 }
 
 /**
- * @summary 创建内网访问标签
+ * @summary Creates a private access tag for the current Alibaba Cloud account.
+ *
+ * @description By default, you can create up to 500 private access tags.
  *
  * @param request CreatePrivateAccessTagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -869,7 +887,9 @@ CreatePrivateAccessTagResponse Client::createPrivateAccessTagWithOptions(const C
 }
 
 /**
- * @summary 创建内网访问标签
+ * @summary Creates a private access tag for the current Alibaba Cloud account.
+ *
+ * @description By default, you can create up to 500 private access tags.
  *
  * @param request CreatePrivateAccessTagRequest
  * @return CreatePrivateAccessTagResponse
@@ -880,7 +900,7 @@ CreatePrivateAccessTagResponse Client::createPrivateAccessTag(const CreatePrivat
 }
 
 /**
- * @summary 创建设备注册策略
+ * @summary Create a device registration policy for your Alibaba Cloud account.
  *
  * @param tmpReq CreateRegistrationPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -965,7 +985,7 @@ CreateRegistrationPolicyResponse Client::createRegistrationPolicyWithOptions(con
 }
 
 /**
- * @summary 创建设备注册策略
+ * @summary Create a device registration policy for your Alibaba Cloud account.
  *
  * @param request CreateRegistrationPolicyRequest
  * @return CreateRegistrationPolicyResponse
@@ -976,7 +996,9 @@ CreateRegistrationPolicyResponse Client::createRegistrationPolicy(const CreateRe
 }
 
 /**
- * @summary 创建用户组
+ * @summary Creates a user group for your Alibaba Cloud account.
+ *
+ * @description You can create up to 500 user groups.
  *
  * @param request CreateUserGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1019,7 +1041,9 @@ CreateUserGroupResponse Client::createUserGroupWithOptions(const CreateUserGroup
 }
 
 /**
- * @summary 创建用户组
+ * @summary Creates a user group for your Alibaba Cloud account.
+ *
+ * @description You can create up to 500 user groups.
  *
  * @param request CreateUserGroupRequest
  * @return CreateUserGroupResponse
@@ -1030,7 +1054,7 @@ CreateUserGroupResponse Client::createUserGroup(const CreateUserGroupRequest &re
 }
 
 /**
- * @summary 创建数字水印暗水印透明底图
+ * @summary Generates a transparent base image for web, screen, or app watermarks.
  *
  * @param tmpReq CreateWmBaseImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1105,7 +1129,7 @@ CreateWmBaseImageResponse Client::createWmBaseImageWithOptions(const CreateWmBas
 }
 
 /**
- * @summary 创建数字水印暗水印透明底图
+ * @summary Generates a transparent base image for web, screen, or app watermarks.
  *
  * @param request CreateWmBaseImageRequest
  * @return CreateWmBaseImageResponse
@@ -1116,7 +1140,9 @@ CreateWmBaseImageResponse Client::createWmBaseImage(const CreateWmBaseImageReque
 }
 
 /**
- * @summary 创建嵌入水印任务
+ * @summary Create a digital watermarking embedding Job.
+ *
+ * @description By default, you can create up to 500 groups.
  *
  * @param tmpReq CreateWmEmbedTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1229,7 +1255,9 @@ CreateWmEmbedTaskResponse Client::createWmEmbedTaskWithOptions(const CreateWmEmb
 }
 
 /**
- * @summary 创建嵌入水印任务
+ * @summary Create a digital watermarking embedding Job.
+ *
+ * @description By default, you can create up to 500 groups.
  *
  * @param request CreateWmEmbedTaskRequest
  * @return CreateWmEmbedTaskResponse
@@ -1240,7 +1268,7 @@ CreateWmEmbedTaskResponse Client::createWmEmbedTask(const CreateWmEmbedTaskReque
 }
 
 /**
- * @summary Creates a digital watermark extraction task.
+ * @summary Create a digital watermarking fetch job.
  *
  * @param tmpReq CreateWmExtractTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1319,7 +1347,7 @@ CreateWmExtractTaskResponse Client::createWmExtractTaskWithOptions(const CreateW
 }
 
 /**
- * @summary Creates a digital watermark extraction task.
+ * @summary Create a digital watermarking fetch job.
  *
  * @param request CreateWmExtractTaskRequest
  * @return CreateWmExtractTaskResponse
@@ -1330,7 +1358,7 @@ CreateWmExtractTaskResponse Client::createWmExtractTask(const CreateWmExtractTas
 }
 
 /**
- * @summary 创建一条字符串水印信息到数字水印信息的映射记录
+ * @summary Creates a mapping from string-format watermark information to digital-format watermark information.
  *
  * @param request CreateWmInfoMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1369,7 +1397,7 @@ CreateWmInfoMappingResponse Client::createWmInfoMappingWithOptions(const CreateW
 }
 
 /**
- * @summary 创建一条字符串水印信息到数字水印信息的映射记录
+ * @summary Creates a mapping from string-format watermark information to digital-format watermark information.
  *
  * @param request CreateWmInfoMappingRequest
  * @return CreateWmInfoMappingResponse
@@ -1380,7 +1408,7 @@ CreateWmInfoMappingResponse Client::createWmInfoMapping(const CreateWmInfoMappin
 }
 
 /**
- * @summary Batch delete approval flows under the current Alibaba Cloud account.
+ * @summary Deletes approval processes in batches from your Alibaba Cloud account.
  *
  * @param request DeleteApprovalProcessesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1415,7 +1443,7 @@ DeleteApprovalProcessesResponse Client::deleteApprovalProcessesWithOptions(const
 }
 
 /**
- * @summary Batch delete approval flows under the current Alibaba Cloud account.
+ * @summary Deletes approval processes in batches from your Alibaba Cloud account.
  *
  * @param request DeleteApprovalProcessesRequest
  * @return DeleteApprovalProcessesResponse
@@ -1426,7 +1454,7 @@ DeleteApprovalProcessesResponse Client::deleteApprovalProcesses(const DeleteAppr
 }
 
 /**
- * @summary 删除自定义身份源指定用户
+ * @summary Delete a specified user from your Alibaba Cloud account\\"s custom identity source.
  *
  * @param request DeleteClientUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1457,7 +1485,7 @@ DeleteClientUserResponse Client::deleteClientUserWithOptions(const DeleteClientU
 }
 
 /**
- * @summary 删除自定义身份源指定用户
+ * @summary Delete a specified user from your Alibaba Cloud account\\"s custom identity source.
  *
  * @param request DeleteClientUserRequest
  * @return DeleteClientUserResponse
@@ -1468,7 +1496,7 @@ DeleteClientUserResponse Client::deleteClientUser(const DeleteClientUserRequest 
 }
 
 /**
- * @summary 删除动态路由
+ * @summary Delete a dynamic route from your current Alibaba Cloud account.
  *
  * @param request DeleteDynamicRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1499,7 +1527,7 @@ DeleteDynamicRouteResponse Client::deleteDynamicRouteWithOptions(const DeleteDyn
 }
 
 /**
- * @summary 删除动态路由
+ * @summary Delete a dynamic route from your current Alibaba Cloud account.
  *
  * @param request DeleteDynamicRouteRequest
  * @return DeleteDynamicRouteResponse
@@ -1510,7 +1538,7 @@ DeleteDynamicRouteResponse Client::deleteDynamicRoute(const DeleteDynamicRouteRe
 }
 
 /**
- * @summary Delete an enterprise acceleration policy.
+ * @summary Deletes an enterprise acceleration policy.
  *
  * @param request DeleteEnterpriseAcceleratePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1541,7 +1569,7 @@ DeleteEnterpriseAcceleratePolicyResponse Client::deleteEnterpriseAcceleratePolic
 }
 
 /**
- * @summary Delete an enterprise acceleration policy.
+ * @summary Deletes an enterprise acceleration policy.
  *
  * @param request DeleteEnterpriseAcceleratePolicyRequest
  * @return DeleteEnterpriseAcceleratePolicyResponse
@@ -1552,7 +1580,7 @@ DeleteEnterpriseAcceleratePolicyResponse Client::deleteEnterpriseAcceleratePolic
 }
 
 /**
- * @summary Delete an enterprise acceleration address.
+ * @summary Deletes an enterprise acceleration address.
  *
  * @param request DeleteEnterpriseAccelerateTargetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1591,7 +1619,7 @@ DeleteEnterpriseAccelerateTargetResponse Client::deleteEnterpriseAccelerateTarge
 }
 
 /**
- * @summary Delete an enterprise acceleration address.
+ * @summary Deletes an enterprise acceleration address.
  *
  * @param request DeleteEnterpriseAccelerateTargetRequest
  * @return DeleteEnterpriseAccelerateTargetResponse
@@ -1602,7 +1630,7 @@ DeleteEnterpriseAccelerateTargetResponse Client::deleteEnterpriseAccelerateTarge
 }
 
 /**
- * @summary 删除指定自定义身份源部门
+ * @summary Delete a department from a custom identity provider in your Alibaba Cloud account.
  *
  * @param request DeleteIdpDepartmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1637,7 +1665,7 @@ DeleteIdpDepartmentResponse Client::deleteIdpDepartmentWithOptions(const DeleteI
 }
 
 /**
- * @summary 删除指定自定义身份源部门
+ * @summary Delete a department from a custom identity provider in your Alibaba Cloud account.
  *
  * @param request DeleteIdpDepartmentRequest
  * @return DeleteIdpDepartmentResponse
@@ -1648,7 +1676,7 @@ DeleteIdpDepartmentResponse Client::deleteIdpDepartment(const DeleteIdpDepartmen
 }
 
 /**
- * @summary Delete the employee OTP configuration.
+ * @summary Deletes a user\\"s One-Time Password (OTP) configuration.
  *
  * @param request DeleteOtpConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1679,7 +1707,7 @@ DeleteOtpConfigResponse Client::deleteOtpConfigWithOptions(const DeleteOtpConfig
 }
 
 /**
- * @summary Delete the employee OTP configuration.
+ * @summary Deletes a user\\"s One-Time Password (OTP) configuration.
  *
  * @param request DeleteOtpConfigRequest
  * @return DeleteOtpConfigResponse
@@ -1690,7 +1718,11 @@ DeleteOtpConfigResponse Client::deleteOtpConfig(const DeleteOtpConfigRequest &re
 }
 
 /**
- * @summary 删除内网访问应用
+ * @summary Deletes an internal network access application from your Alibaba Cloud account.
+ *
+ * @description You cannot delete an application if it is referenced by an office zone or a policy. For more information, see:
+ * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal network access applications.
+ * - [ListPrivateAccessPolicies](~~ListPrivateAccessPolices~~): Lists internal network access policies.
  *
  * @param request DeletePrivateAccessApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1721,7 +1753,11 @@ DeletePrivateAccessApplicationResponse Client::deletePrivateAccessApplicationWit
 }
 
 /**
- * @summary 删除内网访问应用
+ * @summary Deletes an internal network access application from your Alibaba Cloud account.
+ *
+ * @description You cannot delete an application if it is referenced by an office zone or a policy. For more information, see:
+ * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal network access applications.
+ * - [ListPrivateAccessPolicies](~~ListPrivateAccessPolices~~): Lists internal network access policies.
  *
  * @param request DeletePrivateAccessApplicationRequest
  * @return DeletePrivateAccessApplicationResponse
@@ -1732,7 +1768,7 @@ DeletePrivateAccessApplicationResponse Client::deletePrivateAccessApplication(co
 }
 
 /**
- * @summary 删除内网访问策略
+ * @summary Deletes a private network access policy for the current Alibaba Cloud account.
  *
  * @param request DeletePrivateAccessPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1763,7 +1799,7 @@ DeletePrivateAccessPolicyResponse Client::deletePrivateAccessPolicyWithOptions(c
 }
 
 /**
- * @summary 删除内网访问策略
+ * @summary Deletes a private network access policy for the current Alibaba Cloud account.
  *
  * @param request DeletePrivateAccessPolicyRequest
  * @return DeletePrivateAccessPolicyResponse
@@ -1774,7 +1810,12 @@ DeletePrivateAccessPolicyResponse Client::deletePrivateAccessPolicy(const Delete
 }
 
 /**
- * @summary 删除内网访问标签
+ * @summary Deletes an internal access tag from the current Alibaba Cloud account.
+ *
+ * @description Deletion is not allowed when the tag is referenced by applications, office networks, or policies. References:
+ * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal access applications.
+ * - [ListPrivateAccessTags](~~ListPrivateAccessTags~~): Lists internal access tags.
+ * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal access policies.
  *
  * @param request DeletePrivateAccessTagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1805,7 +1846,12 @@ DeletePrivateAccessTagResponse Client::deletePrivateAccessTagWithOptions(const D
 }
 
 /**
- * @summary 删除内网访问标签
+ * @summary Deletes an internal access tag from the current Alibaba Cloud account.
+ *
+ * @description Deletion is not allowed when the tag is referenced by applications, office networks, or policies. References:
+ * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal access applications.
+ * - [ListPrivateAccessTags](~~ListPrivateAccessTags~~): Lists internal access tags.
+ * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal access policies.
  *
  * @param request DeletePrivateAccessTagRequest
  * @return DeletePrivateAccessTagResponse
@@ -1816,7 +1862,7 @@ DeletePrivateAccessTagResponse Client::deletePrivateAccessTag(const DeletePrivat
 }
 
 /**
- * @summary 删除设备注册策略
+ * @summary Batch delete device registration policies under your Alibaba Cloud account.
  *
  * @param request DeleteRegistrationPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1851,7 +1897,7 @@ DeleteRegistrationPoliciesResponse Client::deleteRegistrationPoliciesWithOptions
 }
 
 /**
- * @summary 删除设备注册策略
+ * @summary Batch delete device registration policies under your Alibaba Cloud account.
  *
  * @param request DeleteRegistrationPoliciesRequest
  * @return DeleteRegistrationPoliciesResponse
@@ -1862,7 +1908,9 @@ DeleteRegistrationPoliciesResponse Client::deleteRegistrationPolicies(const Dele
 }
 
 /**
- * @summary Deletes multiple user terminals at a time.
+ * @summary Deletes user endpoint devices in batches.
+ *
+ * @description You can delete up to 100 devices at a time. Each device must be in a non-online status. If some device IDs in the specified collection do not meet the status requirement, only the devices that meet the requirement are deleted, and the operation still returns a success response.
  *
  * @param request DeleteUserDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1897,7 +1945,9 @@ DeleteUserDevicesResponse Client::deleteUserDevicesWithOptions(const DeleteUserD
 }
 
 /**
- * @summary Deletes multiple user terminals at a time.
+ * @summary Deletes user endpoint devices in batches.
+ *
+ * @description You can delete up to 100 devices at a time. Each device must be in a non-online status. If some device IDs in the specified collection do not meet the status requirement, only the devices that meet the requirement are deleted, and the operation still returns a success response.
  *
  * @param request DeleteUserDevicesRequest
  * @return DeleteUserDevicesResponse
@@ -1908,7 +1958,10 @@ DeleteUserDevicesResponse Client::deleteUserDevices(const DeleteUserDevicesReque
 }
 
 /**
- * @summary 删除用户组
+ * @summary Delete a user group in your Alibaba Cloud account.
+ *
+ * @description For more information, see:
+ * - [ListPolicesForUserGroup](~~ListPolicesForUserGroup~~): Query policies attached to a user group.
  *
  * @param request DeleteUserGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1939,7 +1992,10 @@ DeleteUserGroupResponse Client::deleteUserGroupWithOptions(const DeleteUserGroup
 }
 
 /**
- * @summary 删除用户组
+ * @summary Delete a user group in your Alibaba Cloud account.
+ *
+ * @description For more information, see:
+ * - [ListPolicesForUserGroup](~~ListPolicesForUserGroup~~): Query policies attached to a user group.
  *
  * @param request DeleteUserGroupRequest
  * @return DeleteUserGroupResponse
@@ -1952,7 +2008,7 @@ DeleteUserGroupResponse Client::deleteUserGroup(const DeleteUserGroupRequest &re
 /**
  * @deprecated OpenAPI DetachApplication2Connector is deprecated, please use csas::2023-01-20::ModifyForwardStrategy instead.
  *
- * @summary 卸载connector的应用
+ * @summary Detaches private network access applications from a Connector in your Alibaba Cloud account.
  *
  * @param tmpReq DetachApplication2ConnectorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1995,7 +2051,7 @@ DetachApplication2ConnectorResponse Client::detachApplication2ConnectorWithOptio
 /**
  * @deprecated OpenAPI DetachApplication2Connector is deprecated, please use csas::2023-01-20::ModifyForwardStrategy instead.
  *
- * @summary 卸载connector的应用
+ * @summary Detaches private network access applications from a Connector in your Alibaba Cloud account.
  *
  * @param request DetachApplication2ConnectorRequest
  * @return DetachApplication2ConnectorResponse
@@ -2006,7 +2062,7 @@ DetachApplication2ConnectorResponse Client::detachApplication2Connector(const De
 }
 
 /**
- * @summary Detach business policies from approval flows
+ * @summary Detach a business policy from an approval process.
  *
  * @param request DetachPolicy2ApprovalProcessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2045,7 +2101,7 @@ DetachPolicy2ApprovalProcessResponse Client::detachPolicy2ApprovalProcessWithOpt
 }
 
 /**
- * @summary Detach business policies from approval flows
+ * @summary Detach a business policy from an approval process.
  *
  * @param request DetachPolicy2ApprovalProcessRequest
  * @return DetachPolicy2ApprovalProcessResponse
@@ -2056,7 +2112,7 @@ DetachPolicy2ApprovalProcessResponse Client::detachPolicy2ApprovalProcess(const 
 }
 
 /**
- * @summary Disable enterprise acceleration policy.
+ * @summary Disables an enterprise acceleration policy.
  *
  * @param request DisableEnterpriseAcceleratePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2087,7 +2143,7 @@ DisableEnterpriseAcceleratePolicyResponse Client::disableEnterpriseAcceleratePol
 }
 
 /**
- * @summary Disable enterprise acceleration policy.
+ * @summary Disables an enterprise acceleration policy.
  *
  * @param request DisableEnterpriseAcceleratePolicyRequest
  * @return DisableEnterpriseAcceleratePolicyResponse
@@ -2098,7 +2154,7 @@ DisableEnterpriseAcceleratePolicyResponse Client::disableEnterpriseAcceleratePol
 }
 
 /**
- * @summary Enable enterprise acceleration policy.
+ * @summary Enables an enterprise acceleration policy.
  *
  * @param request EnableEnterpriseAcceleratePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2129,7 +2185,7 @@ EnableEnterpriseAcceleratePolicyResponse Client::enableEnterpriseAcceleratePolic
 }
 
 /**
- * @summary Enable enterprise acceleration policy.
+ * @summary Enables an enterprise acceleration policy.
  *
  * @param request EnableEnterpriseAcceleratePolicyRequest
  * @return EnableEnterpriseAcceleratePolicyResponse
@@ -2140,7 +2196,7 @@ EnableEnterpriseAcceleratePolicyResponse Client::enableEnterpriseAcceleratePolic
 }
 
 /**
- * @summary Exports the information about user terminals in an Excel file.
+ * @summary Export a list of user terminal devices to an Excel file.
  *
  * @param request ExportUserDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2231,7 +2287,7 @@ ExportUserDevicesResponse Client::exportUserDevicesWithOptions(const ExportUserD
 }
 
 /**
- * @summary Exports the information about user terminals in an Excel file.
+ * @summary Export a list of user terminal devices to an Excel file.
  *
  * @param request ExportUserDevicesRequest
  * @return ExportUserDevicesResponse
@@ -2242,7 +2298,7 @@ ExportUserDevicesResponse Client::exportUserDevices(const ExportUserDevicesReque
 }
 
 /**
- * @summary 查询已启用的身份源配置
+ * @summary Queries the identity provider configuration enabled for your Alibaba Cloud account.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetActiveIdpConfigResponse
@@ -2264,7 +2320,7 @@ GetActiveIdpConfigResponse Client::getActiveIdpConfigWithOptions(const Darabonba
 }
 
 /**
- * @summary 查询已启用的身份源配置
+ * @summary Queries the identity provider configuration enabled for your Alibaba Cloud account.
  *
  * @return GetActiveIdpConfigResponse
  */
@@ -2274,7 +2330,7 @@ GetActiveIdpConfigResponse Client::getActiveIdpConfig() {
 }
 
 /**
- * @summary Queries the details of an approval instance within your Alibaba Cloud account.
+ * @summary Retrieves the details of an approval instance for your Alibaba Cloud account.
  *
  * @param request GetApprovalRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2301,7 +2357,7 @@ GetApprovalResponse Client::getApprovalWithOptions(const GetApprovalRequest &req
 }
 
 /**
- * @summary Queries the details of an approval instance within your Alibaba Cloud account.
+ * @summary Retrieves the details of an approval instance for your Alibaba Cloud account.
  *
  * @param request GetApprovalRequest
  * @return GetApprovalResponse
@@ -2350,7 +2406,7 @@ GetApprovalProcessResponse Client::getApprovalProcess(const GetApprovalProcessRe
 }
 
 /**
- * @summary Queries the details of an approval template within your Alibaba Cloud account.
+ * @summary Retrieves the details of an approval template for your Alibaba Cloud account.
  *
  * @param request GetApprovalSchemaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2377,7 +2433,7 @@ GetApprovalSchemaResponse Client::getApprovalSchemaWithOptions(const GetApproval
 }
 
 /**
- * @summary Queries the details of an approval template within your Alibaba Cloud account.
+ * @summary Retrieves the details of an approval template for your Alibaba Cloud account.
  *
  * @param request GetApprovalSchemaRequest
  * @return GetApprovalSchemaResponse
@@ -2388,7 +2444,7 @@ GetApprovalSchemaResponse Client::getApprovalSchema(const GetApprovalSchemaReque
 }
 
 /**
- * @summary Queries the details of the Startup and anti-uninstall policy under the current Alibaba Cloud account.
+ * @summary Queries the details of the auto-start and anti-uninstall policy for your Alibaba Cloud account.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetBootAndAntiUninstallPolicyResponse
@@ -2410,7 +2466,7 @@ GetBootAndAntiUninstallPolicyResponse Client::getBootAndAntiUninstallPolicyWithO
 }
 
 /**
- * @summary Queries the details of the Startup and anti-uninstall policy under the current Alibaba Cloud account.
+ * @summary Queries the details of the auto-start and anti-uninstall policy for your Alibaba Cloud account.
  *
  * @return GetBootAndAntiUninstallPolicyResponse
  */
@@ -2420,7 +2476,7 @@ GetBootAndAntiUninstallPolicyResponse Client::getBootAndAntiUninstallPolicy() {
 }
 
 /**
- * @summary Query a specified user from a custom identity source
+ * @summary Retrieves the details of a user from a custom identity source in your Alibaba Cloud account.
  *
  * @param request GetClientUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2447,7 +2503,7 @@ GetClientUserResponse Client::getClientUserWithOptions(const GetClientUserReques
 }
 
 /**
- * @summary Query a specified user from a custom identity source
+ * @summary Retrieves the details of a user from a custom identity source in your Alibaba Cloud account.
  *
  * @param request GetClientUserRequest
  * @return GetClientUserResponse
@@ -2458,7 +2514,7 @@ GetClientUserResponse Client::getClientUser(const GetClientUserRequest &request)
 }
 
 /**
- * @summary 查询动态路由详情
+ * @summary Retrieves details about a dynamic route in your Alibaba Cloud account.
  *
  * @param request GetDynamicRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2485,7 +2541,7 @@ GetDynamicRouteResponse Client::getDynamicRouteWithOptions(const GetDynamicRoute
 }
 
 /**
- * @summary 查询动态路由详情
+ * @summary Retrieves details about a dynamic route in your Alibaba Cloud account.
  *
  * @param request GetDynamicRouteRequest
  * @return GetDynamicRouteResponse
@@ -2496,7 +2552,7 @@ GetDynamicRouteResponse Client::getDynamicRoute(const GetDynamicRouteRequest &re
 }
 
 /**
- * @summary 查询身份源配置详情
+ * @summary Retrieve the configuration details of a specified identity provider for your Alibaba Cloud account.
  *
  * @param request GetIdpConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2523,7 +2579,7 @@ GetIdpConfigResponse Client::getIdpConfigWithOptions(const GetIdpConfigRequest &
 }
 
 /**
- * @summary 查询身份源配置详情
+ * @summary Retrieve the configuration details of a specified identity provider for your Alibaba Cloud account.
  *
  * @param request GetIdpConfigRequest
  * @return GetIdpConfigResponse
@@ -2534,7 +2590,7 @@ GetIdpConfigResponse Client::getIdpConfig(const GetIdpConfigRequest &request) {
 }
 
 /**
- * @summary Query the details of an internal network access diagnostic task
+ * @summary Retrieves the details of a private access diagnostic task.
  *
  * @param request GetPADiagnosisTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2561,7 +2617,7 @@ GetPADiagnosisTaskResponse Client::getPADiagnosisTaskWithOptions(const GetPADiag
 }
 
 /**
- * @summary Query the details of an internal network access diagnostic task
+ * @summary Retrieves the details of a private access diagnostic task.
  *
  * @param request GetPADiagnosisTaskRequest
  * @return GetPADiagnosisTaskResponse
@@ -2572,7 +2628,7 @@ GetPADiagnosisTaskResponse Client::getPADiagnosisTask(const GetPADiagnosisTaskRe
 }
 
 /**
- * @summary Queries the details of the office applications that belong to the current Alibaba Cloud account.
+ * @summary Queries the details of an internal-facing access application under the current Alibaba Cloud account.
  *
  * @param request GetPrivateAccessApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2599,7 +2655,7 @@ GetPrivateAccessApplicationResponse Client::getPrivateAccessApplicationWithOptio
 }
 
 /**
- * @summary Queries the details of the office applications that belong to the current Alibaba Cloud account.
+ * @summary Queries the details of an internal-facing access application under the current Alibaba Cloud account.
  *
  * @param request GetPrivateAccessApplicationRequest
  * @return GetPrivateAccessApplicationResponse
@@ -2648,7 +2704,7 @@ GetPrivateAccessPolicyResponse Client::getPrivateAccessPolicy(const GetPrivateAc
 }
 
 /**
- * @summary 查询设备注册策略详情
+ * @summary Queries the details of a device registration policy within the current Alibaba Cloud account.
  *
  * @param request GetRegistrationPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2675,7 +2731,7 @@ GetRegistrationPolicyResponse Client::getRegistrationPolicyWithOptions(const Get
 }
 
 /**
- * @summary 查询设备注册策略详情
+ * @summary Queries the details of a device registration policy within the current Alibaba Cloud account.
  *
  * @param request GetRegistrationPolicyRequest
  * @return GetRegistrationPolicyResponse
@@ -2686,7 +2742,7 @@ GetRegistrationPolicyResponse Client::getRegistrationPolicy(const GetRegistratio
 }
 
 /**
- * @summary 查询用户设备详情
+ * @summary Queries the details of a user endpoint device under the current Alibaba Cloud account.
  *
  * @param request GetUserDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2713,7 +2769,7 @@ GetUserDeviceResponse Client::getUserDeviceWithOptions(const GetUserDeviceReques
 }
 
 /**
- * @summary 查询用户设备详情
+ * @summary Queries the details of a user endpoint device under the current Alibaba Cloud account.
  *
  * @param request GetUserDeviceRequest
  * @return GetUserDeviceResponse
@@ -2724,7 +2780,7 @@ GetUserDeviceResponse Client::getUserDevice(const GetUserDeviceRequest &request)
 }
 
 /**
- * @summary 查询用户组详情
+ * @summary Queries the details of a user group in the current Alibaba Cloud account.
  *
  * @param request GetUserGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2751,7 +2807,7 @@ GetUserGroupResponse Client::getUserGroupWithOptions(const GetUserGroupRequest &
 }
 
 /**
- * @summary 查询用户组详情
+ * @summary Queries the details of a user group in the current Alibaba Cloud account.
  *
  * @param request GetUserGroupRequest
  * @return GetUserGroupResponse
@@ -2762,7 +2818,7 @@ GetUserGroupResponse Client::getUserGroup(const GetUserGroupRequest &request) {
 }
 
 /**
- * @summary 查询嵌入水印任务
+ * @summary Use the job ID obtained from creating a watermark embedding job to query the embedding job result.
  *
  * @param request GetWmEmbedTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2789,7 +2845,7 @@ GetWmEmbedTaskResponse Client::getWmEmbedTaskWithOptions(const GetWmEmbedTaskReq
 }
 
 /**
- * @summary 查询嵌入水印任务
+ * @summary Use the job ID obtained from creating a watermark embedding job to query the embedding job result.
  *
  * @param request GetWmEmbedTaskRequest
  * @return GetWmEmbedTaskResponse
@@ -2800,7 +2856,7 @@ GetWmEmbedTaskResponse Client::getWmEmbedTask(const GetWmEmbedTaskRequest &reque
 }
 
 /**
- * @summary 查询文件水印提取任务详情
+ * @summary Queries the result of a watermark extraction task using the task ID that is returned when you create the task.
  *
  * @param request GetWmExtractTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2827,7 +2883,7 @@ GetWmExtractTaskResponse Client::getWmExtractTaskWithOptions(const GetWmExtractT
 }
 
 /**
- * @summary 查询文件水印提取任务详情
+ * @summary Queries the result of a watermark extraction task using the task ID that is returned when you create the task.
  *
  * @param request GetWmExtractTaskRequest
  * @return GetWmExtractTaskResponse
@@ -2838,7 +2894,7 @@ GetWmExtractTaskResponse Client::getWmExtractTask(const GetWmExtractTaskRequest 
 }
 
 /**
- * @summary Batch import accelerated address List.
+ * @summary Batch import acceleration addresses.
  *
  * @param request ImportEnterpriseAccelerateTargetsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2873,7 +2929,7 @@ ImportEnterpriseAccelerateTargetsResponse Client::importEnterpriseAccelerateTarg
 }
 
 /**
- * @summary Batch import accelerated address List.
+ * @summary Batch import acceleration addresses.
  *
  * @param request ImportEnterpriseAccelerateTargetsRequest
  * @return ImportEnterpriseAccelerateTargetsResponse
@@ -2884,7 +2940,7 @@ ImportEnterpriseAccelerateTargetsResponse Client::importEnterpriseAccelerateTarg
 }
 
 /**
- * @summary Batch queries the applications of internal network access policies under the current Alibaba Cloud account.
+ * @summary Queries the applications associated with one or more private access policies.
  *
  * @param request ListApplicationsForPrivateAccessPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2911,7 +2967,7 @@ ListApplicationsForPrivateAccessPolicyResponse Client::listApplicationsForPrivat
 }
 
 /**
- * @summary Batch queries the applications of internal network access policies under the current Alibaba Cloud account.
+ * @summary Queries the applications associated with one or more private access policies.
  *
  * @param request ListApplicationsForPrivateAccessPolicyRequest
  * @return ListApplicationsForPrivateAccessPolicyResponse
@@ -2922,7 +2978,7 @@ ListApplicationsForPrivateAccessPolicyResponse Client::listApplicationsForPrivat
 }
 
 /**
- * @summary 批量查询内网访问标签的应用
+ * @summary Batch-query applications associated with private network access tags within your Alibaba Cloud account.
  *
  * @param request ListApplicationsForPrivateAccessTagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2949,7 +3005,7 @@ ListApplicationsForPrivateAccessTagResponse Client::listApplicationsForPrivateAc
 }
 
 /**
- * @summary 批量查询内网访问标签的应用
+ * @summary Batch-query applications associated with private network access tags within your Alibaba Cloud account.
  *
  * @param request ListApplicationsForPrivateAccessTagRequest
  * @return ListApplicationsForPrivateAccessTagResponse
@@ -2960,7 +3016,7 @@ ListApplicationsForPrivateAccessTagResponse Client::listApplicationsForPrivateAc
 }
 
 /**
- * @summary Queries the approval flow list under the current Alibaba Cloud account.
+ * @summary Queries the list of approval processes under the current Alibaba Cloud account.
  *
  * @param request ListApprovalProcessesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2987,7 +3043,7 @@ ListApprovalProcessesResponse Client::listApprovalProcessesWithOptions(const Lis
 }
 
 /**
- * @summary Queries the approval flow list under the current Alibaba Cloud account.
+ * @summary Queries the list of approval processes under the current Alibaba Cloud account.
  *
  * @param request ListApprovalProcessesRequest
  * @return ListApprovalProcessesResponse
@@ -2998,7 +3054,7 @@ ListApprovalProcessesResponse Client::listApprovalProcesses(const ListApprovalPr
 }
 
 /**
- * @summary Query flows associated with an approval rendering template
+ * @summary Queries the approval flows associated with approval rendering templates.
  *
  * @param request ListApprovalProcessesForApprovalSchemasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3025,7 +3081,7 @@ ListApprovalProcessesForApprovalSchemasResponse Client::listApprovalProcessesFor
 }
 
 /**
- * @summary Query flows associated with an approval rendering template
+ * @summary Queries the approval flows associated with approval rendering templates.
  *
  * @param request ListApprovalProcessesForApprovalSchemasRequest
  * @return ListApprovalProcessesForApprovalSchemasResponse
@@ -3036,7 +3092,7 @@ ListApprovalProcessesForApprovalSchemasResponse Client::listApprovalProcessesFor
 }
 
 /**
- * @summary Queries the list of approval templates under the current Alibaba Cloud account.
+ * @summary Lists the approval templates for your Alibaba Cloud account.
  *
  * @param request ListApprovalSchemasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3063,7 +3119,7 @@ ListApprovalSchemasResponse Client::listApprovalSchemasWithOptions(const ListApp
 }
 
 /**
- * @summary Queries the list of approval templates under the current Alibaba Cloud account.
+ * @summary Lists the approval templates for your Alibaba Cloud account.
  *
  * @param request ListApprovalSchemasRequest
  * @return ListApprovalSchemasResponse
@@ -3074,7 +3130,7 @@ ListApprovalSchemasResponse Client::listApprovalSchemas(const ListApprovalSchema
 }
 
 /**
- * @summary Query rendering templates associated with an approval flow
+ * @summary Queries the rendering templates associated with approval processes.
  *
  * @param request ListApprovalSchemasForApprovalProcessesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3101,7 +3157,7 @@ ListApprovalSchemasForApprovalProcessesResponse Client::listApprovalSchemasForAp
 }
 
 /**
- * @summary Query rendering templates associated with an approval flow
+ * @summary Queries the rendering templates associated with approval processes.
  *
  * @param request ListApprovalSchemasForApprovalProcessesRequest
  * @return ListApprovalSchemasForApprovalProcessesResponse
@@ -3112,7 +3168,7 @@ ListApprovalSchemasForApprovalProcessesResponse Client::listApprovalSchemasForAp
 }
 
 /**
- * @summary Queries the approval instance list under the current Alibaba Cloud account.
+ * @summary Lists approval instances for your Alibaba Cloud account.
  *
  * @param request ListApprovalsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3139,7 +3195,7 @@ ListApprovalsResponse Client::listApprovalsWithOptions(const ListApprovalsReques
 }
 
 /**
- * @summary Queries the approval instance list under the current Alibaba Cloud account.
+ * @summary Lists approval instances for your Alibaba Cloud account.
  *
  * @param request ListApprovalsRequest
  * @return ListApprovalsResponse
@@ -3150,7 +3206,7 @@ ListApprovalsResponse Client::listApprovals(const ListApprovalsRequest &request)
 }
 
 /**
- * @summary 查询自定义身份源用户
+ * @summary Query user information from custom identity sources in your Alibaba Cloud account.
  *
  * @param request ListClientUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3177,7 +3233,7 @@ ListClientUsersResponse Client::listClientUsersWithOptions(const ListClientUsers
 }
 
 /**
- * @summary 查询自定义身份源用户
+ * @summary Query user information from custom identity sources in your Alibaba Cloud account.
  *
  * @param request ListClientUsersRequest
  * @return ListClientUsersResponse
@@ -3188,7 +3244,7 @@ ListClientUsersResponse Client::listClientUsers(const ListClientUsersRequest &re
 }
 
 /**
- * @summary Batch query connectors
+ * @summary Query connectors in batches.
  *
  * @param request ListConnectorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3215,7 +3271,7 @@ ListConnectorsResponse Client::listConnectorsWithOptions(const ListConnectorsReq
 }
 
 /**
- * @summary Batch query connectors
+ * @summary Query connectors in batches.
  *
  * @param request ListConnectorsRequest
  * @return ListConnectorsResponse
@@ -3226,7 +3282,7 @@ ListConnectorsResponse Client::listConnectors(const ListConnectorsRequest &reque
 }
 
 /**
- * @summary Batch query Dynamic policy handling flows.
+ * @summary Batch Query Dynamic Policy Disposal Processes
  *
  * @param request ListDynamicDisposalProcessesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3253,7 +3309,7 @@ ListDynamicDisposalProcessesResponse Client::listDynamicDisposalProcessesWithOpt
 }
 
 /**
- * @summary Batch query Dynamic policy handling flows.
+ * @summary Batch Query Dynamic Policy Disposal Processes
  *
  * @param request ListDynamicDisposalProcessesRequest
  * @return ListDynamicDisposalProcessesResponse
@@ -3264,7 +3320,7 @@ ListDynamicDisposalProcessesResponse Client::listDynamicDisposalProcesses(const 
 }
 
 /**
- * @summary 批量查询动态路由的地域
+ * @summary Queries the regions that are supported by the access points of SASE POP clusters for your Alibaba Cloud account.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListDynamicRouteRegionsResponse
@@ -3286,7 +3342,7 @@ ListDynamicRouteRegionsResponse Client::listDynamicRouteRegionsWithOptions(const
 }
 
 /**
- * @summary 批量查询动态路由的地域
+ * @summary Queries the regions that are supported by the access points of SASE POP clusters for your Alibaba Cloud account.
  *
  * @return ListDynamicRouteRegionsResponse
  */
@@ -3296,7 +3352,7 @@ ListDynamicRouteRegionsResponse Client::listDynamicRouteRegions() {
 }
 
 /**
- * @summary 批量查询动态路由
+ * @summary Retrieves information about all dynamic routes for the current Alibaba Cloud account.
  *
  * @param request ListDynamicRoutesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3323,7 +3379,7 @@ ListDynamicRoutesResponse Client::listDynamicRoutesWithOptions(const ListDynamic
 }
 
 /**
- * @summary 批量查询动态路由
+ * @summary Retrieves information about all dynamic routes for the current Alibaba Cloud account.
  *
  * @param request ListDynamicRoutesRequest
  * @return ListDynamicRoutesResponse
@@ -3334,7 +3390,7 @@ ListDynamicRoutesResponse Client::listDynamicRoutes(const ListDynamicRoutesReque
 }
 
 /**
- * @summary Queries enterprise acceleration Audit logs.
+ * @summary Queries audit logs for enterprise acceleration.
  *
  * @param request ListEnterpriseAccelerateLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3361,7 +3417,7 @@ ListEnterpriseAccelerateLogsResponse Client::listEnterpriseAccelerateLogsWithOpt
 }
 
 /**
- * @summary Queries enterprise acceleration Audit logs.
+ * @summary Queries audit logs for enterprise acceleration.
  *
  * @param request ListEnterpriseAccelerateLogsRequest
  * @return ListEnterpriseAccelerateLogsResponse
@@ -3372,7 +3428,7 @@ ListEnterpriseAccelerateLogsResponse Client::listEnterpriseAccelerateLogs(const 
 }
 
 /**
- * @summary Query acceleration policy list
+ * @summary Query acceleration policies
  *
  * @param request ListEnterpriseAcceleratePoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3399,7 +3455,7 @@ ListEnterpriseAcceleratePoliciesResponse Client::listEnterpriseAcceleratePolicie
 }
 
 /**
- * @summary Query acceleration policy list
+ * @summary Query acceleration policies
  *
  * @param request ListEnterpriseAcceleratePoliciesRequest
  * @return ListEnterpriseAcceleratePoliciesResponse
@@ -3410,7 +3466,7 @@ ListEnterpriseAcceleratePoliciesResponse Client::listEnterpriseAcceleratePolicie
 }
 
 /**
- * @summary Query the enterprise acceleration address list.
+ * @summary Query the list of enterprise acceleration targets.
  *
  * @param request ListEnterpriseAccelerateTargetsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3437,7 +3493,7 @@ ListEnterpriseAccelerateTargetsResponse Client::listEnterpriseAccelerateTargetsW
 }
 
 /**
- * @summary Query the enterprise acceleration address list.
+ * @summary Query the list of enterprise acceleration targets.
  *
  * @param request ListEnterpriseAccelerateTargetsRequest
  * @return ListEnterpriseAccelerateTargetsResponse
@@ -3448,7 +3504,7 @@ ListEnterpriseAccelerateTargetsResponse Client::listEnterpriseAccelerateTargets(
 }
 
 /**
- * @summary 批量查询超额注册申请列表
+ * @summary Lists excess end-user device registration applications in the current Alibaba Cloud account.
  *
  * @param request ListExcessiveDeviceRegistrationApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3475,7 +3531,7 @@ ListExcessiveDeviceRegistrationApplicationsResponse Client::listExcessiveDeviceR
 }
 
 /**
- * @summary 批量查询超额注册申请列表
+ * @summary Lists excess end-user device registration applications in the current Alibaba Cloud account.
  *
  * @param request ListExcessiveDeviceRegistrationApplicationsRequest
  * @return ListExcessiveDeviceRegistrationApplicationsResponse
@@ -3486,7 +3542,7 @@ ListExcessiveDeviceRegistrationApplicationsResponse Client::listExcessiveDeviceR
 }
 
 /**
- * @summary Batch query forwarding rules
+ * @summary Queries forwarding rules in batches.
  *
  * @param request ListForwardStrategiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3513,7 +3569,7 @@ ListForwardStrategiesResponse Client::listForwardStrategiesWithOptions(const Lis
 }
 
 /**
- * @summary Batch query forwarding rules
+ * @summary Queries forwarding rules in batches.
  *
  * @param request ListForwardStrategiesRequest
  * @return ListForwardStrategiesResponse
@@ -3524,7 +3580,7 @@ ListForwardStrategiesResponse Client::listForwardStrategies(const ListForwardStr
 }
 
 /**
- * @summary Batch Query Forwarding Rules Attached to Projects
+ * @summary Queries the bindings of forwarding rules in batches.
  *
  * @param request ListForwardStrategyBindingItemsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3551,7 +3607,7 @@ ListForwardStrategyBindingItemsResponse Client::listForwardStrategyBindingItemsW
 }
 
 /**
- * @summary Batch Query Forwarding Rules Attached to Projects
+ * @summary Queries the bindings of forwarding rules in batches.
  *
  * @param request ListForwardStrategyBindingItemsRequest
  * @return ListForwardStrategyBindingItemsResponse
@@ -3562,7 +3618,7 @@ ListForwardStrategyBindingItemsResponse Client::listForwardStrategyBindingItems(
 }
 
 /**
- * @summary 查询IDP配置
+ * @summary Lists identity provider configurations for the current Alibaba Cloud account.
  *
  * @param request ListIdpConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3589,7 +3645,7 @@ ListIdpConfigsResponse Client::listIdpConfigsWithOptions(const ListIdpConfigsReq
 }
 
 /**
- * @summary 查询IDP配置
+ * @summary Lists identity provider configurations for the current Alibaba Cloud account.
  *
  * @param request ListIdpConfigsRequest
  * @return ListIdpConfigsResponse
@@ -3600,7 +3656,7 @@ ListIdpConfigsResponse Client::listIdpConfigs(const ListIdpConfigsRequest &reque
 }
 
 /**
- * @summary 查询自定义身份源部门
+ * @summary Retrieves department information for a custom identity provider (IdP) associated with your Alibaba Cloud account.
  *
  * @param request ListIdpDepartmentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3627,7 +3683,7 @@ ListIdpDepartmentsResponse Client::listIdpDepartmentsWithOptions(const ListIdpDe
 }
 
 /**
- * @summary 查询自定义身份源部门
+ * @summary Retrieves department information for a custom identity provider (IdP) associated with your Alibaba Cloud account.
  *
  * @param request ListIdpDepartmentsRequest
  * @return ListIdpDepartmentsResponse
@@ -3638,7 +3694,7 @@ ListIdpDepartmentsResponse Client::listIdpDepartments(const ListIdpDepartmentsRe
 }
 
 /**
- * @summary Network User List.
+ * @summary Lists onboarded users.
  *
  * @param request ListNacUserCertRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3697,7 +3753,7 @@ ListNacUserCertResponse Client::listNacUserCertWithOptions(const ListNacUserCert
 }
 
 /**
- * @summary Network User List.
+ * @summary Lists onboarded users.
  *
  * @param request ListNacUserCertRequest
  * @return ListNacUserCertResponse
@@ -3708,7 +3764,7 @@ ListNacUserCertResponse Client::listNacUserCert(const ListNacUserCertRequest &re
 }
 
 /**
- * @summary 批量查询内网访问应用的策略
+ * @summary Queries policies for private access applications in your Alibaba Cloud account in batches.
  *
  * @param request ListPolicesForPrivateAccessApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3735,7 +3791,7 @@ ListPolicesForPrivateAccessApplicationResponse Client::listPolicesForPrivateAcce
 }
 
 /**
- * @summary 批量查询内网访问应用的策略
+ * @summary Queries policies for private access applications in your Alibaba Cloud account in batches.
  *
  * @param request ListPolicesForPrivateAccessApplicationRequest
  * @return ListPolicesForPrivateAccessApplicationResponse
@@ -3746,7 +3802,7 @@ ListPolicesForPrivateAccessApplicationResponse Client::listPolicesForPrivateAcce
 }
 
 /**
- * @summary 批量查询内网访问标签的策略
+ * @summary Batch query policies for private network access tags in your Alibaba Cloud account.
  *
  * @param request ListPolicesForPrivateAccessTagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3773,7 +3829,7 @@ ListPolicesForPrivateAccessTagResponse Client::listPolicesForPrivateAccessTagWit
 }
 
 /**
- * @summary 批量查询内网访问标签的策略
+ * @summary Batch query policies for private network access tags in your Alibaba Cloud account.
  *
  * @param request ListPolicesForPrivateAccessTagRequest
  * @return ListPolicesForPrivateAccessTagResponse
@@ -3784,7 +3840,7 @@ ListPolicesForPrivateAccessTagResponse Client::listPolicesForPrivateAccessTag(co
 }
 
 /**
- * @summary 批量查询用户组的策略
+ * @summary Queries policies for multiple user groups within your Alibaba Cloud account.
  *
  * @param request ListPolicesForUserGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3811,7 +3867,7 @@ ListPolicesForUserGroupResponse Client::listPolicesForUserGroupWithOptions(const
 }
 
 /**
- * @summary 批量查询用户组的策略
+ * @summary Queries policies for multiple user groups within your Alibaba Cloud account.
  *
  * @param request ListPolicesForUserGroupRequest
  * @return ListPolicesForUserGroupResponse
@@ -3822,7 +3878,7 @@ ListPolicesForUserGroupResponse Client::listPolicesForUserGroup(const ListPolice
 }
 
 /**
- * @summary pop节点流量统计
+ * @summary Retrieves bandwidth usage statistics for Secure Access Service Edge (SASE) points of presence (POPs).
  *
  * @param request ListPopTrafficStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3849,7 +3905,7 @@ ListPopTrafficStatisticsResponse Client::listPopTrafficStatisticsWithOptions(con
 }
 
 /**
- * @summary pop节点流量统计
+ * @summary Retrieves bandwidth usage statistics for Secure Access Service Edge (SASE) points of presence (POPs).
  *
  * @param request ListPopTrafficStatisticsRequest
  * @return ListPopTrafficStatisticsResponse
@@ -3860,7 +3916,7 @@ ListPopTrafficStatisticsResponse Client::listPopTrafficStatistics(const ListPopT
 }
 
 /**
- * @summary 批量查询内网访问应用
+ * @summary Queries information about all internal-facing access applications under the current Alibaba Cloud account.
  *
  * @param request ListPrivateAccessApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3927,7 +3983,7 @@ ListPrivateAccessApplicationsResponse Client::listPrivateAccessApplicationsWithO
 }
 
 /**
- * @summary 批量查询内网访问应用
+ * @summary Queries information about all internal-facing access applications under the current Alibaba Cloud account.
  *
  * @param request ListPrivateAccessApplicationsRequest
  * @return ListPrivateAccessApplicationsResponse
@@ -3938,7 +3994,7 @@ ListPrivateAccessApplicationsResponse Client::listPrivateAccessApplications(cons
 }
 
 /**
- * @summary 批量查询动态路由的内网访问应用
+ * @summary List private access applications for dynamic routes in your Alibaba Cloud account.
  *
  * @param request ListPrivateAccessApplicationsForDynamicRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3965,7 +4021,7 @@ ListPrivateAccessApplicationsForDynamicRouteResponse Client::listPrivateAccessAp
 }
 
 /**
- * @summary 批量查询动态路由的内网访问应用
+ * @summary List private access applications for dynamic routes in your Alibaba Cloud account.
  *
  * @param request ListPrivateAccessApplicationsForDynamicRouteRequest
  * @return ListPrivateAccessApplicationsForDynamicRouteResponse
@@ -3976,7 +4032,7 @@ ListPrivateAccessApplicationsForDynamicRouteResponse Client::listPrivateAccessAp
 }
 
 /**
- * @summary Queries the private access policies within the current Alibaba Cloud account.
+ * @summary Queries the information about all private access policies under the current Alibaba Cloud account.
  *
  * @param request ListPrivateAccessPolicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4003,7 +4059,7 @@ ListPrivateAccessPolicesResponse Client::listPrivateAccessPolicesWithOptions(con
 }
 
 /**
- * @summary Queries the private access policies within the current Alibaba Cloud account.
+ * @summary Queries the information about all private access policies under the current Alibaba Cloud account.
  *
  * @param request ListPrivateAccessPolicesRequest
  * @return ListPrivateAccessPolicesResponse
@@ -4052,7 +4108,7 @@ ListPrivateAccessTagsResponse Client::listPrivateAccessTags(const ListPrivateAcc
 }
 
 /**
- * @summary 批量查询动态路由的内网访问标签
+ * @summary Lists the tags for dynamic routes in your Alibaba Cloud account.
  *
  * @param request ListPrivateAccessTagsForDynamicRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4079,7 +4135,7 @@ ListPrivateAccessTagsForDynamicRouteResponse Client::listPrivateAccessTagsForDyn
 }
 
 /**
- * @summary 批量查询动态路由的内网访问标签
+ * @summary Lists the tags for dynamic routes in your Alibaba Cloud account.
  *
  * @param request ListPrivateAccessTagsForDynamicRouteRequest
  * @return ListPrivateAccessTagsForDynamicRouteResponse
@@ -4090,7 +4146,7 @@ ListPrivateAccessTagsForDynamicRouteResponse Client::listPrivateAccessTagsForDyn
 }
 
 /**
- * @summary 查询用户设备注册策略列表
+ * @summary Query the list of device registration policies for your Alibaba Cloud account.
  *
  * @param request ListRegistrationPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4117,7 +4173,7 @@ ListRegistrationPoliciesResponse Client::listRegistrationPoliciesWithOptions(con
 }
 
 /**
- * @summary 查询用户设备注册策略列表
+ * @summary Query the list of device registration policies for your Alibaba Cloud account.
  *
  * @param request ListRegistrationPoliciesRequest
  * @return ListRegistrationPoliciesResponse
@@ -4128,7 +4184,7 @@ ListRegistrationPoliciesResponse Client::listRegistrationPolicies(const ListRegi
 }
 
 /**
- * @summary 查询用户组相关的设备注册策略
+ * @summary Queries the device registration policies that are associated with user groups in your Alibaba Cloud account.
  *
  * @param request ListRegistrationPoliciesForUserGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4155,7 +4211,7 @@ ListRegistrationPoliciesForUserGroupResponse Client::listRegistrationPoliciesFor
 }
 
 /**
- * @summary 查询用户组相关的设备注册策略
+ * @summary Queries the device registration policies that are associated with user groups in your Alibaba Cloud account.
  *
  * @param request ListRegistrationPoliciesForUserGroupRequest
  * @return ListRegistrationPoliciesForUserGroupResponse
@@ -4166,7 +4222,7 @@ ListRegistrationPoliciesForUserGroupResponse Client::listRegistrationPoliciesFor
 }
 
 /**
- * @summary 批量查询终端安装软件列表
+ * @summary Lists the software installed on a user device.
  *
  * @param request ListSoftwareForUserDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4193,7 +4249,7 @@ ListSoftwareForUserDeviceResponse Client::listSoftwareForUserDeviceWithOptions(c
 }
 
 /**
- * @summary 批量查询终端安装软件列表
+ * @summary Lists the software installed on a user device.
  *
  * @param request ListSoftwareForUserDeviceRequest
  * @return ListSoftwareForUserDeviceResponse
@@ -4204,7 +4260,7 @@ ListSoftwareForUserDeviceResponse Client::listSoftwareForUserDevice(const ListSo
 }
 
 /**
- * @summary 批量查询内网访问应用的标签
+ * @summary Batch query tags for private network access applications under the current Alibaba Cloud account.
  *
  * @param request ListTagsForPrivateAccessApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4231,7 +4287,7 @@ ListTagsForPrivateAccessApplicationResponse Client::listTagsForPrivateAccessAppl
 }
 
 /**
- * @summary 批量查询内网访问应用的标签
+ * @summary Batch query tags for private network access applications under the current Alibaba Cloud account.
  *
  * @param request ListTagsForPrivateAccessApplicationRequest
  * @return ListTagsForPrivateAccessApplicationResponse
@@ -4242,7 +4298,7 @@ ListTagsForPrivateAccessApplicationResponse Client::listTagsForPrivateAccessAppl
 }
 
 /**
- * @summary 批量查询内网访问策略的标签
+ * @summary Queries the tags of internal network access policies in your Alibaba Cloud account.
  *
  * @param request ListTagsForPrivateAccessPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4269,7 +4325,7 @@ ListTagsForPrivateAccessPolicyResponse Client::listTagsForPrivateAccessPolicyWit
 }
 
 /**
- * @summary 批量查询内网访问策略的标签
+ * @summary Queries the tags of internal network access policies in your Alibaba Cloud account.
  *
  * @param request ListTagsForPrivateAccessPolicyRequest
  * @return ListTagsForPrivateAccessPolicyResponse
@@ -4280,7 +4336,7 @@ ListTagsForPrivateAccessPolicyResponse Client::listTagsForPrivateAccessPolicy(co
 }
 
 /**
- * @summary Batch queries the uninstall request list under the current Alibaba Cloud account.
+ * @summary Retrieves a list of uninstallation requests for your Alibaba Cloud account.
  *
  * @param request ListUninstallApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4307,7 +4363,7 @@ ListUninstallApplicationsResponse Client::listUninstallApplicationsWithOptions(c
 }
 
 /**
- * @summary Batch queries the uninstall request list under the current Alibaba Cloud account.
+ * @summary Retrieves a list of uninstallation requests for your Alibaba Cloud account.
  *
  * @param request ListUninstallApplicationsRequest
  * @return ListUninstallApplicationsResponse
@@ -4318,7 +4374,7 @@ ListUninstallApplicationsResponse Client::listUninstallApplications(const ListUn
 }
 
 /**
- * @summary Queries the application permissions of a logon user under the current Alibaba Cloud account.
+ * @summary Queries the application permissions of the logged-in user in the current Alibaba Cloud account.
  *
  * @param request ListUserApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4345,7 +4401,7 @@ ListUserApplicationsResponse Client::listUserApplicationsWithOptions(const ListU
 }
 
 /**
- * @summary Queries the application permissions of a logon user under the current Alibaba Cloud account.
+ * @summary Queries the application permissions of the logged-in user in the current Alibaba Cloud account.
  *
  * @param request ListUserApplicationsRequest
  * @return ListUserApplicationsResponse
@@ -4356,7 +4412,7 @@ ListUserApplicationsResponse Client::listUserApplications(const ListUserApplicat
 }
 
 /**
- * @summary 批量查询用户设备列表
+ * @summary Queries the list of user endpoint devices under the current Alibaba Cloud account.
  *
  * @param request ListUserDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4364,7 +4420,107 @@ ListUserApplicationsResponse Client::listUserApplications(const ListUserApplicat
  */
 ListUserDevicesResponse Client::listUserDevicesWithOptions(const ListUserDevicesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  map<string, string> query = Utils::Utils::query(request.toMap());
+  json query = {};
+  if (!!request.hasAppStatuses()) {
+    query["AppStatuses"] = request.getAppStatuses();
+  }
+
+  if (!!request.hasAppVersions()) {
+    query["AppVersions"] = request.getAppVersions();
+  }
+
+  if (!!request.hasAutoLoginStatuses()) {
+    query["AutoLoginStatuses"] = request.getAutoLoginStatuses();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasDepartment()) {
+    query["Department"] = request.getDepartment();
+  }
+
+  if (!!request.hasDeviceBelong()) {
+    query["DeviceBelong"] = request.getDeviceBelong();
+  }
+
+  if (!!request.hasDeviceGroupId()) {
+    query["DeviceGroupId"] = request.getDeviceGroupId();
+  }
+
+  if (!!request.hasDeviceStatuses()) {
+    query["DeviceStatuses"] = request.getDeviceStatuses();
+  }
+
+  if (!!request.hasDeviceTags()) {
+    query["DeviceTags"] = request.getDeviceTags();
+  }
+
+  if (!!request.hasDeviceTypes()) {
+    query["DeviceTypes"] = request.getDeviceTypes();
+  }
+
+  if (!!request.hasDlpStatuses()) {
+    query["DlpStatuses"] = request.getDlpStatuses();
+  }
+
+  if (!!request.hasHostname()) {
+    query["Hostname"] = request.getHostname();
+  }
+
+  if (!!request.hasIaStatuses()) {
+    query["IaStatuses"] = request.getIaStatuses();
+  }
+
+  if (!!request.hasInnerIp()) {
+    query["InnerIp"] = request.getInnerIp();
+  }
+
+  if (!!request.hasMac()) {
+    query["Mac"] = request.getMac();
+  }
+
+  if (!!request.hasNacStatuses()) {
+    query["NacStatuses"] = request.getNacStatuses();
+  }
+
+  if (!!request.hasPaStatuses()) {
+    query["PaStatuses"] = request.getPaStatuses();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSaseUserId()) {
+    query["SaseUserId"] = request.getSaseUserId();
+  }
+
+  if (!!request.hasSharingStatus()) {
+    query["SharingStatus"] = request.getSharingStatus();
+  }
+
+  if (!!request.hasSnBios()) {
+    query["SnBios"] = request.getSnBios();
+  }
+
+  if (!!request.hasSnSystem()) {
+    query["SnSystem"] = request.getSnSystem();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasUsername()) {
+    query["Username"] = request.getUsername();
+  }
+
+  if (!!request.hasWorkshop()) {
+    query["Workshop"] = request.getWorkshop();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -4373,7 +4529,7 @@ ListUserDevicesResponse Client::listUserDevicesWithOptions(const ListUserDevices
     {"version" , "2023-01-20"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
-    {"method" , "GET"},
+    {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
@@ -4383,7 +4539,7 @@ ListUserDevicesResponse Client::listUserDevicesWithOptions(const ListUserDevices
 }
 
 /**
- * @summary 批量查询用户设备列表
+ * @summary Queries the list of user endpoint devices under the current Alibaba Cloud account.
  *
  * @param request ListUserDevicesRequest
  * @return ListUserDevicesResponse
@@ -4394,7 +4550,7 @@ ListUserDevicesResponse Client::listUserDevices(const ListUserDevicesRequest &re
 }
 
 /**
- * @summary 批量查询用户组
+ * @summary Retrieves information about all user groups in your Alibaba Cloud account.
  *
  * @param request ListUserGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4421,7 +4577,7 @@ ListUserGroupsResponse Client::listUserGroupsWithOptions(const ListUserGroupsReq
 }
 
 /**
- * @summary 批量查询用户组
+ * @summary Retrieves information about all user groups in your Alibaba Cloud account.
  *
  * @param request ListUserGroupsRequest
  * @return ListUserGroupsResponse
@@ -4432,7 +4588,7 @@ ListUserGroupsResponse Client::listUserGroups(const ListUserGroupsRequest &reque
 }
 
 /**
- * @summary 批量查询内网访问策略的用户组
+ * @summary Retrieve user groups for private network access policies in batches under your Alibaba Cloud account.
  *
  * @param request ListUserGroupsForPrivateAccessPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4459,7 +4615,7 @@ ListUserGroupsForPrivateAccessPolicyResponse Client::listUserGroupsForPrivateAcc
 }
 
 /**
- * @summary 批量查询内网访问策略的用户组
+ * @summary Retrieve user groups for private network access policies in batches under your Alibaba Cloud account.
  *
  * @param request ListUserGroupsForPrivateAccessPolicyRequest
  * @return ListUserGroupsForPrivateAccessPolicyResponse
@@ -4470,7 +4626,7 @@ ListUserGroupsForPrivateAccessPolicyResponse Client::listUserGroupsForPrivateAcc
 }
 
 /**
- * @summary 查询设备注册策略相关用户组
+ * @summary Lists the user groups associated with device registration policies in your Alibaba Cloud account.
  *
  * @param request ListUserGroupsForRegistrationPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4497,7 +4653,7 @@ ListUserGroupsForRegistrationPolicyResponse Client::listUserGroupsForRegistratio
 }
 
 /**
- * @summary 查询设备注册策略相关用户组
+ * @summary Lists the user groups associated with device registration policies in your Alibaba Cloud account.
  *
  * @param request ListUserGroupsForRegistrationPolicyRequest
  * @return ListUserGroupsForRegistrationPolicyResponse
@@ -4508,7 +4664,7 @@ ListUserGroupsForRegistrationPolicyResponse Client::listUserGroupsForRegistratio
 }
 
 /**
- * @summary Query the zero trust policies of a User in a List.
+ * @summary Queries the list of user zero trust policies.
  *
  * @param request ListUserPrivateAccessPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4535,7 +4691,7 @@ ListUserPrivateAccessPoliciesResponse Client::listUserPrivateAccessPoliciesWithO
 }
 
 /**
- * @summary Query the zero trust policies of a User in a List.
+ * @summary Queries the list of user zero trust policies.
  *
  * @param request ListUserPrivateAccessPoliciesRequest
  * @return ListUserPrivateAccessPoliciesResponse
@@ -4546,7 +4702,7 @@ ListUserPrivateAccessPoliciesResponse Client::listUserPrivateAccessPolicies(cons
 }
 
 /**
- * @summary 列表查询登陆用户
+ * @summary Queries the users for the current Alibaba Cloud account.
  *
  * @param request ListUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4573,7 +4729,7 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
 }
 
 /**
- * @summary 列表查询登陆用户
+ * @summary Queries the users for the current Alibaba Cloud account.
  *
  * @param request ListUsersRequest
  * @return ListUsersResponse
@@ -4584,7 +4740,7 @@ ListUsersResponse Client::listUsers(const ListUsersRequest &request) {
 }
 
 /**
- * @summary 根据数字水印信息查询字符串水印信息
+ * @summary Look up an existing watermark information mapping to retrieve the corresponding string-formatted watermark information from numeric-formatted watermark data.
  *
  * @param request LookupWmInfoMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4611,7 +4767,7 @@ LookupWmInfoMappingResponse Client::lookupWmInfoMappingWithOptions(const LookupW
 }
 
 /**
- * @summary 根据数字水印信息查询字符串水印信息
+ * @summary Look up an existing watermark information mapping to retrieve the corresponding string-formatted watermark information from numeric-formatted watermark data.
  *
  * @param request LookupWmInfoMappingRequest
  * @return LookupWmInfoMappingResponse
@@ -4622,7 +4778,7 @@ LookupWmInfoMappingResponse Client::lookupWmInfoMapping(const LookupWmInfoMappin
 }
 
 /**
- * @summary Modify enterprise acceleration policy.
+ * @summary Modifies an enterprise acceleration policy.
  *
  * @param request ModifyEnterpriseAcceleratePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4693,7 +4849,7 @@ ModifyEnterpriseAcceleratePolicyResponse Client::modifyEnterpriseAcceleratePolic
 }
 
 /**
- * @summary Modify enterprise acceleration policy.
+ * @summary Modifies an enterprise acceleration policy.
  *
  * @param request ModifyEnterpriseAcceleratePolicyRequest
  * @return ModifyEnterpriseAcceleratePolicyResponse
@@ -4704,7 +4860,7 @@ ModifyEnterpriseAcceleratePolicyResponse Client::modifyEnterpriseAcceleratePolic
 }
 
 /**
- * @summary Revoke a user device session.
+ * @summary Revokes a user device session.
  *
  * @param request RevokeUserDeviceSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4739,7 +4895,7 @@ RevokeUserDeviceSessionResponse Client::revokeUserDeviceSessionWithOptions(const
 }
 
 /**
- * @summary Revoke a user device session.
+ * @summary Revokes a user device session.
  *
  * @param request RevokeUserDeviceSessionRequest
  * @return RevokeUserDeviceSessionResponse
@@ -4752,7 +4908,7 @@ RevokeUserDeviceSessionResponse Client::revokeUserDeviceSession(const RevokeUser
 /**
  * @deprecated OpenAPI RevokeUserSession is deprecated
  *
- * @summary Revoke a User logon session.
+ * @summary Revokes a user logon session.
  *
  * @param request RevokeUserSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4789,7 +4945,7 @@ RevokeUserSessionResponse Client::revokeUserSessionWithOptions(const RevokeUserS
 /**
  * @deprecated OpenAPI RevokeUserSession is deprecated
  *
- * @summary Revoke a User logon session.
+ * @summary Revokes a user logon session.
  *
  * @param request RevokeUserSessionRequest
  * @return RevokeUserSessionResponse
@@ -4800,7 +4956,7 @@ RevokeUserSessionResponse Client::revokeUserSession(const RevokeUserSessionReque
 }
 
 /**
- * @summary Update an approval flow under the current Alibaba Cloud account.
+ * @summary Updates an approval flow under the current Alibaba Cloud account.
  *
  * @param tmpReq UpdateApprovalProcessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4879,7 +5035,7 @@ UpdateApprovalProcessResponse Client::updateApprovalProcessWithOptions(const Upd
 }
 
 /**
- * @summary Update an approval flow under the current Alibaba Cloud account.
+ * @summary Updates an approval flow under the current Alibaba Cloud account.
  *
  * @param request UpdateApprovalProcessRequest
  * @return UpdateApprovalProcessResponse
@@ -4890,7 +5046,7 @@ UpdateApprovalProcessResponse Client::updateApprovalProcess(const UpdateApproval
 }
 
 /**
- * @summary Update the approval instance status under the current Alibaba Cloud account.
+ * @summary Updates the status of an approval instance under your Alibaba Cloud account.
  *
  * @param request UpdateApprovalStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4925,7 +5081,7 @@ UpdateApprovalStatusResponse Client::updateApprovalStatusWithOptions(const Updat
 }
 
 /**
- * @summary Update the approval instance status under the current Alibaba Cloud account.
+ * @summary Updates the status of an approval instance under your Alibaba Cloud account.
  *
  * @param request UpdateApprovalStatusRequest
  * @return UpdateApprovalStatusResponse
@@ -4936,7 +5092,7 @@ UpdateApprovalStatusResponse Client::updateApprovalStatus(const UpdateApprovalSt
 }
 
 /**
- * @summary Update the Startup and anti-uninstall policy under the current Alibaba Cloud account.
+ * @summary Update the auto-start and anti-uninstall policy for your Alibaba Cloud account.
  *
  * @param tmpReq UpdateBootAndAntiUninstallPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4997,7 +5153,7 @@ UpdateBootAndAntiUninstallPolicyResponse Client::updateBootAndAntiUninstallPolic
 }
 
 /**
- * @summary Update the Startup and anti-uninstall policy under the current Alibaba Cloud account.
+ * @summary Update the auto-start and anti-uninstall policy for your Alibaba Cloud account.
  *
  * @param request UpdateBootAndAntiUninstallPolicyRequest
  * @return UpdateBootAndAntiUninstallPolicyResponse
@@ -5008,7 +5164,7 @@ UpdateBootAndAntiUninstallPolicyResponse Client::updateBootAndAntiUninstallPolic
 }
 
 /**
- * @summary 修改自定义身份源指定用户
+ * @summary Update user information for a custom identity provider in your Alibaba Cloud account.
  *
  * @param request UpdateClientUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5055,7 +5211,7 @@ UpdateClientUserResponse Client::updateClientUserWithOptions(const UpdateClientU
 }
 
 /**
- * @summary 修改自定义身份源指定用户
+ * @summary Update user information for a custom identity provider in your Alibaba Cloud account.
  *
  * @param request UpdateClientUserRequest
  * @return UpdateClientUserResponse
@@ -5066,7 +5222,7 @@ UpdateClientUserResponse Client::updateClientUser(const UpdateClientUserRequest 
 }
 
 /**
- * @summary 修改自定义身份源指定用户密码
+ * @summary Sets the password for a specified user that belongs to a custom identity source.
  *
  * @param request UpdateClientUserPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5105,7 +5261,7 @@ UpdateClientUserPasswordResponse Client::updateClientUserPasswordWithOptions(con
 }
 
 /**
- * @summary 修改自定义身份源指定用户密码
+ * @summary Sets the password for a specified user that belongs to a custom identity source.
  *
  * @param request UpdateClientUserPasswordRequest
  * @return UpdateClientUserPasswordResponse
@@ -5116,7 +5272,7 @@ UpdateClientUserPasswordResponse Client::updateClientUserPassword(const UpdateCl
 }
 
 /**
- * @summary 修改自定义身份源指定用户启用状态
+ * @summary Sets the status of a specified user from a custom identity source for your Alibaba Cloud account.
  *
  * @param request UpdateClientUserStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5151,7 +5307,7 @@ UpdateClientUserStatusResponse Client::updateClientUserStatusWithOptions(const U
 }
 
 /**
- * @summary 修改自定义身份源指定用户启用状态
+ * @summary Sets the status of a specified user from a custom identity source for your Alibaba Cloud account.
  *
  * @param request UpdateClientUserStatusRequest
  * @return UpdateClientUserStatusResponse
@@ -5162,7 +5318,7 @@ UpdateClientUserStatusResponse Client::updateClientUserStatus(const UpdateClient
 }
 
 /**
- * @summary 修改动态路由
+ * @summary Modifies a dynamic route in your Alibaba Cloud account.
  *
  * @param request UpdateDynamicRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5241,7 +5397,7 @@ UpdateDynamicRouteResponse Client::updateDynamicRouteWithOptions(const UpdateDyn
 }
 
 /**
- * @summary 修改动态路由
+ * @summary Modifies a dynamic route in your Alibaba Cloud account.
  *
  * @param request UpdateDynamicRouteRequest
  * @return UpdateDynamicRouteResponse
@@ -5252,7 +5408,7 @@ UpdateDynamicRouteResponse Client::updateDynamicRoute(const UpdateDynamicRouteRe
 }
 
 /**
- * @summary 批量更新超额注册申请状态
+ * @summary Update the status of device registration applications that exceed your Alibaba Cloud account\\"s quota.
  *
  * @param request UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5291,7 +5447,7 @@ UpdateExcessiveDeviceRegistrationApplicationsStatusResponse Client::updateExcess
 }
 
 /**
- * @summary 批量更新超额注册申请状态
+ * @summary Update the status of device registration applications that exceed your Alibaba Cloud account\\"s quota.
  *
  * @param request UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
  * @return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
@@ -5302,7 +5458,7 @@ UpdateExcessiveDeviceRegistrationApplicationsStatusResponse Client::updateExcess
 }
 
 /**
- * @summary 修改指定自定义身份源部门
+ * @summary Deletes a department from a custom identity provider for the current Alibaba Cloud account.
  *
  * @param request UpdateIdpDepartmentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5341,7 +5497,7 @@ UpdateIdpDepartmentResponse Client::updateIdpDepartmentWithOptions(const UpdateI
 }
 
 /**
- * @summary 修改指定自定义身份源部门
+ * @summary Deletes a department from a custom identity provider for the current Alibaba Cloud account.
  *
  * @param request UpdateIdpDepartmentRequest
  * @return UpdateIdpDepartmentResponse
@@ -5352,7 +5508,7 @@ UpdateIdpDepartmentResponse Client::updateIdpDepartment(const UpdateIdpDepartmen
 }
 
 /**
- * @summary Batch modifies the Status of network access certificates for Users under the current Alibaba Cloud account.
+ * @summary Updates the network access certificate status for users in your Alibaba Cloud account.
  *
  * @param request UpdateNacUserCertStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5391,7 +5547,7 @@ UpdateNacUserCertStatusResponse Client::updateNacUserCertStatusWithOptions(const
 }
 
 /**
- * @summary Batch modifies the Status of network access certificates for Users under the current Alibaba Cloud account.
+ * @summary Updates the network access certificate status for users in your Alibaba Cloud account.
  *
  * @param request UpdateNacUserCertStatusRequest
  * @return UpdateNacUserCertStatusResponse
@@ -5402,7 +5558,7 @@ UpdateNacUserCertStatusResponse Client::updateNacUserCertStatus(const UpdateNacU
 }
 
 /**
- * @summary Modifies the office applications of the current Alibaba Cloud account.
+ * @summary Modifies an internal-facing access application under the current Alibaba Cloud account.
  *
  * @param tmpReq UpdatePrivateAccessApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5414,6 +5570,10 @@ UpdatePrivateAccessApplicationResponse Client::updatePrivateAccessApplicationWit
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasL7Config()) {
     request.setL7ConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getL7Config(), "L7Config", "json"));
+  }
+
+  if (!!tmpReq.hasUnauthorizedAccessConfig()) {
+    request.setUnauthorizedAccessConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUnauthorizedAccessConfig(), "UnauthorizedAccessConfig", "json"));
   }
 
   json body = {};
@@ -5478,6 +5638,10 @@ UpdatePrivateAccessApplicationResponse Client::updatePrivateAccessApplicationWit
     bodyFlat["TagIds"] = request.getTagIds();
   }
 
+  if (!!request.hasUnauthorizedAccessConfigShrink()) {
+    body["UnauthorizedAccessConfig"] = request.getUnauthorizedAccessConfigShrink();
+  }
+
   body = Darabonba::Core::merge(body,
     Utils::Utils::query(bodyFlat)
   );
@@ -5499,7 +5663,7 @@ UpdatePrivateAccessApplicationResponse Client::updatePrivateAccessApplicationWit
 }
 
 /**
- * @summary Modifies the office applications of the current Alibaba Cloud account.
+ * @summary Modifies an internal-facing access application under the current Alibaba Cloud account.
  *
  * @param request UpdatePrivateAccessApplicationRequest
  * @return UpdatePrivateAccessApplicationResponse
@@ -5510,7 +5674,7 @@ UpdatePrivateAccessApplicationResponse Client::updatePrivateAccessApplication(co
 }
 
 /**
- * @summary Modify Private Access Policy
+ * @summary Update an internal network access policy for your Alibaba Cloud account.
  *
  * @param request UpdatePrivateAccessPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5629,7 +5793,7 @@ UpdatePrivateAccessPolicyResponse Client::updatePrivateAccessPolicyWithOptions(c
 }
 
 /**
- * @summary Modify Private Access Policy
+ * @summary Update an internal network access policy for your Alibaba Cloud account.
  *
  * @param request UpdatePrivateAccessPolicyRequest
  * @return UpdatePrivateAccessPolicyResponse
@@ -5640,7 +5804,7 @@ UpdatePrivateAccessPolicyResponse Client::updatePrivateAccessPolicy(const Update
 }
 
 /**
- * @summary 修改设备注册策略
+ * @summary Modifies a device registration policy for your Alibaba Cloud account.
  *
  * @param tmpReq UpdateRegistrationPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5729,7 +5893,7 @@ UpdateRegistrationPolicyResponse Client::updateRegistrationPolicyWithOptions(con
 }
 
 /**
- * @summary 修改设备注册策略
+ * @summary Modifies a device registration policy for your Alibaba Cloud account.
  *
  * @param request UpdateRegistrationPolicyRequest
  * @return UpdateRegistrationPolicyResponse
@@ -5740,7 +5904,7 @@ UpdateRegistrationPolicyResponse Client::updateRegistrationPolicy(const UpdateRe
 }
 
 /**
- * @summary Batch updates the uninstall request status under the current Alibaba Cloud account.
+ * @summary Batch updates the status of uninstall requests for your Alibaba Cloud account.
  *
  * @param request UpdateUninstallApplicationsStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5779,7 +5943,7 @@ UpdateUninstallApplicationsStatusResponse Client::updateUninstallApplicationsSta
 }
 
 /**
- * @summary Batch updates the uninstall request status under the current Alibaba Cloud account.
+ * @summary Batch updates the status of uninstall requests for your Alibaba Cloud account.
  *
  * @param request UpdateUninstallApplicationsStatusRequest
  * @return UpdateUninstallApplicationsStatusResponse
@@ -5790,7 +5954,7 @@ UpdateUninstallApplicationsStatusResponse Client::updateUninstallApplicationsSta
 }
 
 /**
- * @summary 批量更新用户设备共享状态
+ * @summary Updates the sharing status of devices for multiple enterprise users.
  *
  * @param request UpdateUserDevicesSharingStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5829,7 +5993,7 @@ UpdateUserDevicesSharingStatusResponse Client::updateUserDevicesSharingStatusWit
 }
 
 /**
- * @summary 批量更新用户设备共享状态
+ * @summary Updates the sharing status of devices for multiple enterprise users.
  *
  * @param request UpdateUserDevicesSharingStatusRequest
  * @return UpdateUserDevicesSharingStatusResponse
@@ -5840,7 +6004,7 @@ UpdateUserDevicesSharingStatusResponse Client::updateUserDevicesSharingStatus(co
 }
 
 /**
- * @summary 批量更新用户设备状态
+ * @summary Update the status of endpoint devices for your Alibaba Cloud account.
  *
  * @param request UpdateUserDevicesStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5879,7 +6043,7 @@ UpdateUserDevicesStatusResponse Client::updateUserDevicesStatusWithOptions(const
 }
 
 /**
- * @summary 批量更新用户设备状态
+ * @summary Update the status of endpoint devices for your Alibaba Cloud account.
  *
  * @param request UpdateUserDevicesStatusRequest
  * @return UpdateUserDevicesStatusResponse
@@ -5890,7 +6054,7 @@ UpdateUserDevicesStatusResponse Client::updateUserDevicesStatus(const UpdateUser
 }
 
 /**
- * @summary 修改用户组
+ * @summary Modifies a user group under the current Alibaba Cloud account.
  *
  * @param request UpdateUserGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5937,7 +6101,7 @@ UpdateUserGroupResponse Client::updateUserGroupWithOptions(const UpdateUserGroup
 }
 
 /**
- * @summary 修改用户组
+ * @summary Modifies a user group under the current Alibaba Cloud account.
  *
  * @param request UpdateUserGroupRequest
  * @return UpdateUserGroupResponse
@@ -5948,7 +6112,7 @@ UpdateUserGroupResponse Client::updateUserGroup(const UpdateUserGroupRequest &re
 }
 
 /**
- * @summary 批量修改登陆用户状态
+ * @summary Updates the status of users in your Alibaba Cloud account.
  *
  * @param request UpdateUsersStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5983,7 +6147,7 @@ UpdateUsersStatusResponse Client::updateUsersStatusWithOptions(const UpdateUsers
 }
 
 /**
- * @summary 批量修改登陆用户状态
+ * @summary Updates the status of users in your Alibaba Cloud account.
  *
  * @param request UpdateUsersStatusRequest
  * @return UpdateUsersStatusResponse

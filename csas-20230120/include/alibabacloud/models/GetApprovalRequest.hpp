@@ -38,6 +38,12 @@ namespace Models
 
 
   protected:
+    // The ID of the approval instance. You can obtain the ID from the following sources:
+    // 
+    // - [ListApprovals](~~ListApprovals~~): Queries a list of approval instances.
+    // 
+    // - [GetApproval](~~GetApproval~~): Queries the details of an approval instance.
+    // 
     // This parameter is required.
     shared_ptr<string> approvalId_ {};
   };

@@ -115,16 +115,51 @@ namespace Models
 
 
   protected:
+    // The type of company device registration limit. Valid values:
+    // 
+    // - **Unlimited**: No limit.
+    // 
+    // - **LimitAll**: Limit by total number.
+    // 
+    // - **LimitDiff**: Limit by device categorization.
     shared_ptr<string> companyLimitType_ {};
+    // The current page number for paged queries. Values range from 1 to 10000.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
+    // The policy matching target type. Valid values:
+    // 
+    // - **UserGroupAll**: Associate all users.
+    // 
+    // - **UserGroupNormal**: Associate some user groups.
     shared_ptr<string> matchMode_ {};
+    // The name of the device registration policy. It can be 1 to 128 characters long. It supports Chinese characters, uppercase and lowercase English letters, numbers, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> name_ {};
+    // The number of items per page for paged queries. Values range from 1 to 500.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
+    // The type of personal device registration limit. Valid values:
+    // 
+    // - **Unlimited**: No limit.
+    // 
+    // - **LimitAll**: Limit by total number.
+    // 
+    // - **LimitDiff**: Limit by device categorization.
     shared_ptr<string> personalLimitType_ {};
+    // A collection of device registration policy IDs. You can enter up to 100 device registration policy IDs.
     shared_ptr<vector<string>> policyIds_ {};
+    // The status of the device registration policy. Valid values:
+    // 
+    // - **Enabled**: Enabled.
+    // 
+    // - **Disabled**: Disabled.
     shared_ptr<string> status_ {};
+    // The user group ID. Get this value from:
+    // 
+    // - [ListUserGroups](~~ListUserGroups~~): Batch query user groups.
+    // 
+    // - [CreateUserGroup](~~CreateUserGroup~~): Create user groups.
     shared_ptr<string> userGroupId_ {};
   };
 

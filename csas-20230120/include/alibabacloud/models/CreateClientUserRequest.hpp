@@ -94,14 +94,24 @@ namespace Models
 
 
   protected:
+    // Department ID.
     shared_ptr<string> departmentId_ {};
+    // User description.
     shared_ptr<string> description_ {};
+    // Email address.
+    // 
     // This parameter is required.
     shared_ptr<string> email_ {};
+    // ID of the custom identity source configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> idpConfigId_ {};
+    // Mobile phone number without country code.
     shared_ptr<string> mobileNumber_ {};
+    // Password. If empty, a random password is generated automatically.
     shared_ptr<string> password_ {};
+    // Username.
+    // 
     // This parameter is required.
     shared_ptr<string> username_ {};
   };

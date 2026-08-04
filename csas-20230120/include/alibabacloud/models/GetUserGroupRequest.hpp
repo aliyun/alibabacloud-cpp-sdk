@@ -38,6 +38,12 @@ namespace Models
 
 
   protected:
+    // The ID of the user group. You can obtain the ID from the following sources:
+    // 
+    // - [ListUserGroups](~~ListUserGroups~~): Queries a list of user groups.
+    // 
+    // - [CreateUserGroup](~~CreateUserGroup~~): Creates a user group.
+    // 
     // This parameter is required.
     shared_ptr<string> userGroupId_ {};
   };

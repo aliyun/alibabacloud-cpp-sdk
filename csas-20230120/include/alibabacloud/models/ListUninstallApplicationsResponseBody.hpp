@@ -184,19 +184,51 @@ namespace Models
 
 
     protected:
+      // The uninstall application ID.
       shared_ptr<string> applicationId_ {};
+      // The time when the uninstall application was created.
       shared_ptr<string> createTime_ {};
+      // The user\\"s department.
       shared_ptr<string> department_ {};
+      // The device ID.
       shared_ptr<string> devTag_ {};
+      // The operating system of the device. Valid values:
+      // 
+      // - **Windows**
+      // 
+      // - **macOS**
+      // 
+      // - **Linux**
+      // 
+      // - **Android**
+      // 
+      // - **iOS**
+      // 
+      // - **Windows_Wuying**: Elastic Desktop Service.
       shared_ptr<string> devType_ {};
+      // The list of full department paths.
       shared_ptr<vector<string>> fullDepartment_ {};
+      // The hostname of the device.
       shared_ptr<string> hostname_ {};
+      // The name of the Identity Provider (IdP).
       shared_ptr<string> idpName_ {};
+      // Indicates whether the application has been uninstalled.
       shared_ptr<bool> isUninstall_ {};
+      // The MAC address of the device.
       shared_ptr<string> mac_ {};
+      // The reason for the application.
       shared_ptr<string> reason_ {};
+      // The user ID.
       shared_ptr<string> saseUserId_ {};
+      // The status of the uninstall application. Valid values:
+      // 
+      // - **Pending**
+      // 
+      // - **Approved**
+      // 
+      // - **Rejected**
       shared_ptr<string> status_ {};
+      // The username.
       shared_ptr<string> username_ {};
     };
 
@@ -226,8 +258,11 @@ namespace Models
 
 
   protected:
+    // The list of uninstall applications.
     shared_ptr<vector<ListUninstallApplicationsResponseBody::Applications>> applications_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of uninstall applications.
     shared_ptr<int64_t> totalNum_ {};
   };
 

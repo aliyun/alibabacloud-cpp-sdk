@@ -89,11 +89,18 @@ namespace Models
 
 
   protected:
+    // The page number of the current page in paging query. Valid values: 1 to 10000.
     shared_ptr<string> currentPage_ {};
+    // The list of access destination instance IDs.
     shared_ptr<vector<string>> destinationIds_ {};
+    // The type of the access destination. Valid values:
+    // - **Connector**: connector.
     shared_ptr<string> destinationType_ {};
+    // The list of forwarding rule IDs.
     shared_ptr<vector<string>> forwardIds_ {};
+    // The name of the forwarding rule.
     shared_ptr<string> name_ {};
+    // The number of entries per page in paging query. Valid values: 1 to 1000.
     shared_ptr<string> pageSize_ {};
   };
 

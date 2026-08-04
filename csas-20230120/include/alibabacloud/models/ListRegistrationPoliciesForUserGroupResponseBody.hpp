@@ -158,8 +158,11 @@ namespace Models
 
 
           protected:
+            // The total number of allowed device registrations. This field is valid only when LimitType is set to **LimitAll**.
             shared_ptr<string> all_ {};
+            // The number of allowed mobile logons. This field is valid only when LimitType is set to **LimitDiff**.
             shared_ptr<string> mobile_ {};
+            // The number of allowed PC logons. This field is valid only when LimitType is set to **LimitDiff**.
             shared_ptr<string> PC_ {};
           };
 
@@ -189,8 +192,21 @@ namespace Models
 
 
         protected:
+          // Device ownership. Valid values:
+          // 
+          // - **Company**: Company-owned device.
+          // 
+          // - **Personal**: Personal device.
           shared_ptr<string> deviceBelong_ {};
+          // The number of allowed device registrations.
           shared_ptr<LimitDetail::LimitCount> limitCount_ {};
+          // The device registration limit type. Valid values:
+          // 
+          // - **Unlimited**: No limit.
+          // 
+          // - **LimitAll**: Limit by total count.
+          // 
+          // - **LimitDiff**: Limit by device category.
           shared_ptr<string> limitType_ {};
         };
 
@@ -265,14 +281,31 @@ namespace Models
 
 
       protected:
+        // The time when the device registration policy was created.
         shared_ptr<string> createTime_ {};
+        // The description of the device registration policy.
         shared_ptr<string> description_ {};
+        // The list of device registration policy limit details.
         shared_ptr<vector<Policies::LimitDetail>> limitDetail_ {};
+        // The target type for policy matching. Valid values:
+        // 
+        // - **UserGroupAll**: Associate with all users.
+        // 
+        // - **UserGroupNormal**: Associate with specific user groups.
         shared_ptr<string> matchMode_ {};
+        // The name of the device registration policy.
         shared_ptr<string> name_ {};
+        // The ID of the device registration policy.
         shared_ptr<string> policyId_ {};
+        // The policy priority. The number 0 indicates the highest priority. The number 99 indicates the lowest priority.
         shared_ptr<int64_t> priority_ {};
+        // The status of the device registration policy. Valid values:
+        // 
+        // - **Enabled**: Enabled.
+        // 
+        // - **Disabled**: Disabled.
         shared_ptr<string> status_ {};
+        // The list of users on the device registration policy whitelist.
         shared_ptr<vector<string>> whitelist_ {};
       };
 
@@ -295,7 +328,9 @@ namespace Models
 
 
     protected:
+      // The collection of device registration policies.
       shared_ptr<vector<UserGroups::Policies>> policies_ {};
+      // The user group ID.
       shared_ptr<string> userGroupId_ {};
     };
 
@@ -318,7 +353,9 @@ namespace Models
 
 
   protected:
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
+    // The list of user groups.
     shared_ptr<vector<ListRegistrationPoliciesForUserGroupResponseBody::UserGroups>> userGroups_ {};
   };
 

@@ -110,7 +110,9 @@ namespace Models
 
 
       protected:
+        // The user group ID.
         shared_ptr<string> userGroupId_ {};
+        // The user group name.
         shared_ptr<string> userGroupName_ {};
       };
 
@@ -152,7 +154,9 @@ namespace Models
 
 
       protected:
+        // The expected response from the backend server.
         shared_ptr<string> expectedResponse_ {};
+        // The UDP request content.
         shared_ptr<string> requestContent_ {};
       };
 
@@ -249,17 +253,39 @@ namespace Models
 
 
     protected:
+      // The ID of the terminal device.
       shared_ptr<string> devTag_ {};
+      // The diagnostic task ID.
       shared_ptr<string> diagnoseId_ {};
+      // The diagnosis type. Valid values:
+      // 
+      // - FullLink: full-link diagnosis.
+      // - Application: application diagnosis.
       shared_ptr<string> diagnoseType_ {};
+      // The address to diagnose.
       shared_ptr<string> host_ {};
+      // The POP point ID. This parameter is required when manual selection is used.
       shared_ptr<string> popId_ {};
+      // The POP point selection mode. Valid values:
+      // - **AutoSelect**: automatic selection.
+      // - **ManualSelect**: manual selection.
       shared_ptr<string> popMode_ {};
+      // The port.
       shared_ptr<string> port_ {};
+      // The protocol used by the internal network access application. Valid values:
+      // - **TCP**
+      // - **UDP**.
       shared_ptr<string> protocol_ {};
+      // The task running status. Valid values:
+      // - **Running**: The task is running.
+      // - **Finished**: The task is complete.
+      // - **Failed**: The task failed.
       shared_ptr<string> status_ {};
+      // The extra information for UDP diagnosis.
       shared_ptr<DiagnosisTask::UdpExtraConfigs> udpExtraConfigs_ {};
+      // The user group.
       shared_ptr<DiagnosisTask::UserGroup> userGroup_ {};
+      // The username.
       shared_ptr<string> username_ {};
     };
 
@@ -282,6 +308,7 @@ namespace Models
 
 
   protected:
+    // The diagnostic task.
     shared_ptr<CreatePADiagnosisTaskResponseBody::DiagnosisTask> diagnosisTask_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

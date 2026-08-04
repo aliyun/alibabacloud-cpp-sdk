@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // The IDs of the private access applications. You can specify up to 100 IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> applicationIds_ {};
   };

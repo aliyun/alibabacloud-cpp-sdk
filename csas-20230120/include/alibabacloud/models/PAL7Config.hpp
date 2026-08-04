@@ -88,7 +88,13 @@ namespace Models
 
 
     protected:
+      // The rewrite mode. The default value is **auto**. Valid values:
+      // 
+      // - **disabled**: Disables rewriting of internal domain names in HTML.
+      // 
+      // - **auto**: Enables the automatic mode. The system automatically detects and rewrites internal domain names in HTML.
       shared_ptr<string> mode_ {};
+      // An array of rewrite rules.
       shared_ptr<vector<PAL7ConfigReplaceRule>> replaceRules_ {};
     };
 
@@ -122,6 +128,7 @@ namespace Models
 
 
     protected:
+      // An array of rewrite operations.
       shared_ptr<vector<PAL7ConfigRewriteOp>> ops_ {};
     };
 
@@ -155,6 +162,7 @@ namespace Models
 
 
     protected:
+      // An array of rewrite operations.
       shared_ptr<vector<PAL7ConfigRewriteOp>> ops_ {};
     };
 
@@ -188,6 +196,7 @@ namespace Models
 
 
     protected:
+      // An array of rewrite operations.
       shared_ptr<vector<PAL7ConfigRewriteOp>> ops_ {};
     };
 
@@ -231,7 +240,13 @@ namespace Models
 
 
     protected:
+      // The mode for rewriting internal network requests in JavaScript. The default value is **disabled**. Valid values:
+      // 
+      // - **disabled**: Disables traffic redirection for JavaScript.
+      // 
+      // - **whitelist**: Enables the whitelist mode to redirect traffic as needed.
       shared_ptr<string> mode_ {};
+      // An array of rules for rewriting internal network requests in JavaScript.
       shared_ptr<vector<PAL7ConfigReplaceRule>> replaceRules_ {};
     };
 
@@ -265,6 +280,7 @@ namespace Models
 
 
     protected:
+      // An array of DNS server addresses. The gateway preferentially uses the DNS servers configured here to resolve internal domain names.
       shared_ptr<vector<string>> dnsServers_ {};
     };
 
@@ -333,7 +349,9 @@ namespace Models
 
 
       protected:
+        // An array of source IP address ranges that are allowed to anonymously access the application paths.
         shared_ptr<vector<string>> froms_ {};
+        // The URL paths that allow anonymous access.
         shared_ptr<vector<string>> paths_ {};
       };
 
@@ -365,8 +383,17 @@ namespace Models
 
 
     protected:
+      // An array of source IP address ranges that are allowed to anonymously access the application.
       shared_ptr<vector<string>> appBypassFroms_ {};
+      // The anonymous access mode. The default value is **disabled**. Valid values:
+      // 
+      // - **disabled**: Disables anonymous access.
+      // 
+      // - **url**: Sets anonymous access at the URL level.
+      // 
+      // - **app**: Sets anonymous access at the application level.
       shared_ptr<string> mode_ {};
+      // An array of rules for anonymous access to URLs.
       shared_ptr<vector<BypassConfig::UrlBypassRules>> urlBypassRules_ {};
     };
 
@@ -451,14 +478,27 @@ namespace Models
 
 
   protected:
+    // The configuration for anonymous access.
     shared_ptr<PAL7Config::BypassConfig> bypassConfig_ {};
+    // The certificate ID. This parameter is required when you use a custom proxy domain name.
     shared_ptr<string> certId_ {};
+    // The DNS configuration.
     shared_ptr<PAL7Config::DnsConfig> dnsConfig_ {};
+    // The configuration for rewriting internal network requests in JavaScript.
     shared_ptr<PAL7Config::JsHookConfig> jsHookConfig_ {};
+    // The type of the proxy domain name. Valid values:
+    // 
+    // - **automatic**: Uses a mapped proxy domain name.
+    // 
+    // - **custom**: Uses a custom proxy domain name.
     Darabonba::Bytes proxyDomainTypes_ {};
+    // The rules for rewriting HTTP request headers.
     shared_ptr<PAL7Config::RequestHeaderRewriteConfig> requestHeaderRewriteConfig_ {};
+    // The configuration for rewriting HTTP request query parameters.
     shared_ptr<PAL7Config::RequestQueryRewriteConfig> requestQueryRewriteConfig_ {};
+    // The configuration for rewriting HTTP response headers.
     shared_ptr<PAL7Config::ResponseHeaderRewriteConfig> responseHeaderRewriteConfig_ {};
+    // The configuration for rewriting internal domain names in HTML.
     shared_ptr<PAL7Config::ResponseRewriteConfig> responseRewriteConfig_ {};
   };
 

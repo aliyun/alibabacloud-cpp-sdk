@@ -115,7 +115,9 @@ namespace Models
 
 
       protected:
+        // The ID of the user group.
         shared_ptr<string> userGroupId_ {};
+        // The name of the user group.
         shared_ptr<string> userGroupName_ {};
       };
 
@@ -157,7 +159,9 @@ namespace Models
 
 
       protected:
+        // The expected response from the backend server.
         shared_ptr<string> expectedResponse_ {};
+        // The content of the UDP request.
         shared_ptr<string> requestContent_ {};
       };
 
@@ -271,9 +275,19 @@ namespace Models
 
 
           protected:
+            // The policy action:
+            // 
+            // - **Allow**: allow
+            // 
+            // - **Block**: block
+            // 
+            // - **Observe**: monitor mode
             shared_ptr<string> action_ {};
+            // The application name.
             shared_ptr<string> appName_ {};
+            // The block information.
             shared_ptr<string> blockInfo_ {};
+            // The name of the zero-trust policy.
             shared_ptr<string> policyName_ {};
           };
 
@@ -344,10 +358,15 @@ namespace Models
 
 
           protected:
+            // The email address.
             shared_ptr<string> email_ {};
+            // The list of department names.
             shared_ptr<vector<string>> group_ {};
+            // The matched user group.
             shared_ptr<string> matchedUserGroups_ {};
+            // The mobile phone number.
             shared_ptr<string> telephone_ {};
+            // The username.
             shared_ptr<string> username_ {};
           };
 
@@ -398,8 +417,11 @@ namespace Models
 
 
           protected:
+            // The policy type.
             shared_ptr<string> routeType_ {};
+            // The policy ID.
             shared_ptr<string> strategyId_ {};
+            // The policy name.
             shared_ptr<string> strategyName_ {};
           };
 
@@ -527,17 +549,39 @@ namespace Models
 
 
           protected:
+            // The ID of the device.
             shared_ptr<string> devTag_ {};
+            // The operating system of the device. Valid values:
+            // 
+            // - **Windows**: Windows
+            // 
+            // - **macOS**: macOS
+            // 
+            // - **Linux**: Linux
+            // 
+            // - **Android**: Android
+            // 
+            // - **iOS**: iOS
+            // 
+            // - **Windows_Wuying**: Cloud Desktop
             shared_ptr<string> deviceType_ {};
+            // The name of the file.
             shared_ptr<vector<string>> file_ {};
+            // The firewall.
             shared_ptr<string> firewall_ {};
+            // The name of the device. The name can be 1 to 128 characters long and can include letters, numbers, and the following special characters: . , ; - _ / @ and spaces. To query for all devices with names containing 4-byte UTF-8 characters, enter only an underscore (_).
             shared_ptr<string> hostname_ {};
+            // The private IP address of the device.
             shared_ptr<string> innerIp_ {};
+            // The public IP address.
             shared_ptr<string> internetIp_ {};
+            // The MAC address of the device.
             shared_ptr<string> mac_ {};
+            // The matched security baseline.
             shared_ptr<string> matchedSecurityBaseline_ {};
+            // The list of security baseline processes.
             shared_ptr<vector<string>> process_ {};
-            // SSID。
+            // The SSID.
             shared_ptr<string> ssid_ {};
           };
 
@@ -587,10 +631,15 @@ namespace Models
 
 
         protected:
+          // The device information.
           shared_ptr<PolicyInfo::DeviceAttributeInfo> deviceAttributeInfo_ {};
+          // The processing duration.
           shared_ptr<int64_t> processTime_ {};
+          // The name of the routing policy.
           shared_ptr<PolicyInfo::RouteStrategyInfo> routeStrategyInfo_ {};
+          // The user group information.
           shared_ptr<PolicyInfo::UserGroupInfo> userGroupInfo_ {};
+          // The zero-trust policy information.
           shared_ptr<PolicyInfo::ZeroTrustPolicyInfo> zeroTrustPolicyInfo_ {};
         };
 
@@ -712,9 +761,13 @@ namespace Models
 
 
             protected:
+              // The city.
               shared_ptr<string> city_ {};
+              // The country.
               shared_ptr<string> country_ {};
+              // The Internet Service Provider (ISP).
               shared_ptr<string> isp_ {};
+              // The province.
               shared_ptr<string> prov_ {};
             };
 
@@ -794,15 +847,25 @@ namespace Models
 
 
           protected:
+            // The private access application address. The address can be 1 to 128 characters long and can be an IPv4 address, a CIDR block, a domain name, or a wildcard domain name.
             shared_ptr<string> address_ {};
+            // The ID of the cloud network instance.
             shared_ptr<string> cloudNetId_ {};
+            // The error message.
             shared_ptr<string> error_ {};
+            // The geographic location information.
             shared_ptr<Nodes::GeoData> geoData_ {};
+            // The node ID.
             shared_ptr<int64_t> id_ {};
+            // The node name.
             shared_ptr<string> name_ {};
+            // The English name of the node.
             shared_ptr<string> nameEn_ {};
+            // The node type.
             shared_ptr<string> nodeType_ {};
+            // The resource ID.
             shared_ptr<string> resourceId_ {};
+            // Indicates whether the operation was successful.
             shared_ptr<bool> success_ {};
           };
 
@@ -916,9 +979,13 @@ namespace Models
 
 
               protected:
+                // The city.
                 shared_ptr<string> city_ {};
+                // The country.
                 shared_ptr<string> country_ {};
+                // The ISP.
                 shared_ptr<string> isp_ {};
+                // The province.
                 shared_ptr<string> prov_ {};
               };
 
@@ -955,10 +1022,13 @@ namespace Models
 
 
             protected:
+              // The address.
               shared_ptr<string> address_ {};
+              // The geographic location.
               shared_ptr<Hops::GeoData> geoData_ {};
+              // The latency.
               shared_ptr<string> latency_ {};
-              // TTL。
+              // The Time to Live (TTL).
               shared_ptr<string> TTL_ {};
             };
 
@@ -1009,11 +1079,17 @@ namespace Models
 
 
           protected:
+            // The error message.
             shared_ptr<string> error_ {};
+            // The source node.
             shared_ptr<int64_t> fromNode_ {};
+            // The intermediate hops.
             shared_ptr<vector<Links::Hops>> hops_ {};
+            // The latency.
             shared_ptr<string> latency_ {};
+            // Indicates whether the operation was successful.
             shared_ptr<bool> success_ {};
+            // The destination node.
             shared_ptr<int64_t> toNode_ {};
           };
 
@@ -1121,14 +1197,23 @@ namespace Models
 
 
           protected:
+            // The DNS server.
             shared_ptr<string> dnsServer_ {};
+            // The DNS type.
             shared_ptr<string> dnsType_ {};
+            // The error message.
             shared_ptr<string> error_ {};
+            // The source node.
             shared_ptr<int64_t> fromNode_ {};
+            // The intermediate hops.
             shared_ptr<vector<vector<Dns::Hops>>> hops_ {};
+            // The latency.
             shared_ptr<string> latency_ {};
+            // The DNS result.
             shared_ptr<string> result_ {};
+            // Indicates whether the operation was successful.
             shared_ptr<bool> success_ {};
+            // The destination node.
             shared_ptr<int64_t> toNode_ {};
           };
 
@@ -1169,9 +1254,13 @@ namespace Models
 
 
         protected:
+          // The Domain Name System (DNS) information.
           shared_ptr<NetworkLinkInfo::Dns> dns_ {};
+          // The time to first byte.
           shared_ptr<string> FBT_ {};
+          // The connections between nodes.
           shared_ptr<vector<NetworkLinkInfo::Links>> links_ {};
+          // The forwarding nodes.
           shared_ptr<vector<NetworkLinkInfo::Nodes>> nodes_ {};
         };
 
@@ -1217,10 +1306,15 @@ namespace Models
 
 
       protected:
+        // The error message.
         shared_ptr<string> errorMessage_ {};
+        // The ID of the request stream.
         shared_ptr<string> flowId_ {};
+        // The network connectivity information.
         shared_ptr<Result::NetworkLinkInfo> networkLinkInfo_ {};
+        // The policy information.
         shared_ptr<Result::PolicyInfo> policyInfo_ {};
+        // Indicates whether the operation was successful.
         shared_ptr<bool> success_ {};
       };
 
@@ -1333,19 +1427,51 @@ namespace Models
 
 
     protected:
+      // The time when the task was created.
       shared_ptr<string> createTime_ {};
+      // The ID of the device.
       shared_ptr<string> devTag_ {};
+      // The ID of the diagnostic task.
       shared_ptr<string> diagnoseId_ {};
+      // The diagnostic type. Valid values:
+      // 
+      // - **FullLink**: full-link diagnostics
+      // 
+      // - **Application**: application diagnostics
       shared_ptr<string> diagnoseType_ {};
+      // The domain name to be diagnosed.
       shared_ptr<string> host_ {};
+      // The ID of the POP.
       shared_ptr<string> popId_ {};
+      // The point of presence (POP) selection mode:
+      // 
+      // - **AutoSelect**: automatic selection
+      // 
+      // - **ManualSelect**: manual selection
       shared_ptr<string> popMode_ {};
+      // The port.
       shared_ptr<string> port_ {};
+      // The private access application protocol. Valid values:
+      // 
+      // - **TCP**
+      // 
+      // - **UDP**
       shared_ptr<string> protocol_ {};
+      // The diagnostic result.
       shared_ptr<DiagnosisTask::Result> result_ {};
+      // The status of the task. Valid values:
+      // 
+      // - **Running**: The task is running.
+      // 
+      // - **Finished**: The task is complete.
+      // 
+      // - **Failed**: The task failed.
       shared_ptr<string> status_ {};
+      // Additional UDP configurations.
       shared_ptr<DiagnosisTask::UdpExtraConfigs> udpExtraConfigs_ {};
+      // The user group.
       shared_ptr<DiagnosisTask::UserGroup> userGroup_ {};
+      // The username.
       shared_ptr<string> username_ {};
     };
 
@@ -1368,8 +1494,9 @@ namespace Models
 
 
   protected:
+    // The diagnostic task.
     shared_ptr<GetPADiagnosisTaskResponseBody::DiagnosisTask> diagnosisTask_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

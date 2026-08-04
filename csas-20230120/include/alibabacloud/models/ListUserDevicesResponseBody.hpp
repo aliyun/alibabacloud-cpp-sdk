@@ -187,7 +187,9 @@ namespace Models
 
 
       protected:
+        // The MAC address of the network interface.
         shared_ptr<string> mac_ {};
+        // The name of the network interface.
         shared_ptr<string> name_ {};
       };
 
@@ -552,54 +554,132 @@ namespace Models
 
 
     protected:
+      // The client status. Valid values:
+      // - **Online**: online.
+      // - **Offline**: offline.
       shared_ptr<string> appStatus_ {};
+      // The client version.
       shared_ptr<string> appVersion_ {};
+      // The auto-logon status of the client.
       shared_ptr<string> autoLoginStatus_ {};
+      // The CPU model of the endpoint device.
       shared_ptr<string> CPU_ {};
       shared_ptr<string> city_ {};
+      // The city name in English.
       shared_ptr<string> cityEn_ {};
+      // The city name in Chinese.
       shared_ptr<string> cityZh_ {};
       shared_ptr<string> continent_ {};
+      // The continent name in English.
       shared_ptr<string> continentEn_ {};
+      // The continent name in Chinese.
       shared_ptr<string> continentZh_ {};
       shared_ptr<string> country_ {};
+      // The country name in English.
       shared_ptr<string> countryEn_ {};
+      // The country name in Chinese.
       shared_ptr<string> countryZh_ {};
+      // The registration time of the endpoint device.
       shared_ptr<string> createTime_ {};
+      // The department to which the user belongs.
       shared_ptr<string> department_ {};
+      // The ownership of the endpoint device. Valid values:
+      // - **Personal**: personal device.
+      // - **Company**: company device.
       shared_ptr<string> deviceBelong_ {};
+      // The model of the endpoint device.
       shared_ptr<string> deviceModel_ {};
+      // The status of the endpoint device. Valid values:
+      // - **Online**: online.
+      // - **Offline**: offline.
+      // - **LongTermOffline**: long-term offline.
+      // - **Locked**: locked.
+      // - **Lost**: reported as lost.
+      // - **Unbound**: unbound.
       shared_ptr<string> deviceStatus_ {};
+      // The endpoint device ID.
       shared_ptr<string> deviceTag_ {};
+      // The operating system type of the endpoint device. Valid values:
+      // - **Windows**: Windows.
+      // - **macOS**: macOS.
+      // - **Linux**: Linux.
+      // - **Android**: Android.
+      // - **iOS**: iOS.
+      // - **Windows_Wuying**: WUYING Workspace.
       shared_ptr<string> deviceType_ {};
+      // The operating system version of the endpoint device.
       shared_ptr<string> deviceVersion_ {};
+      // The disk model of the endpoint device.
       shared_ptr<string> disk_ {};
+      // The office data protection status. Valid values:
+      // - **Enabled**: enabled.
+      // - **Disabled**: disabled.
+      // - **Unprovisioned**: not configured.
+      // - **Unauthorized**: unauthorized.
       shared_ptr<string> dlpStatus_ {};
+      // The anti-intrusion status. Valid values:
+      // - **Enabled**: enabled.
+      // - **Disabled**: disabled.
       shared_ptr<string> edrStatus_ {};
+      // The list of full department paths.
       shared_ptr<vector<string>> fullDepartment_ {};
+      // The name of the endpoint device.
       shared_ptr<string> hostname_ {};
+      // The Internet access status. Valid values:
+      // - **Enabled**: enabled.
+      // - **Disabled**: disabled.
+      // - **Unprovisioned**: not configured.
       shared_ptr<string> iaStatus_ {};
+      // The internal IP address of the endpoint device.
       shared_ptr<string> innerIP_ {};
+      // Indicates whether the device is joined to an Active Directory (AD) domain.
       shared_ptr<bool> joinAdDomain_ {};
+      // The MAC address of the endpoint device.
       shared_ptr<string> mac_ {};
+      // The collection of matched device group IDs.
       shared_ptr<vector<string>> matchDeviceGroupIds_ {};
+      // The memory capacity of the endpoint device. Unit: GB.
       shared_ptr<string> memory_ {};
+      // The network access control status. Valid values:
+      // - **Enabled**: enabled.
+      // - **Disabled**: disabled.
+      // - **Unprovisioned**: not configured.
       shared_ptr<string> nacStatus_ {};
+      // The list of network interfaces of the endpoint device.
       shared_ptr<vector<Devices::NetInterfaceInfo>> netInterfaceInfo_ {};
+      // The private access status. Valid values:
+      // - **Enabled**: enabled.
+      // - **Disabled**: disabled.
+      // - **Unprovisioned**: not configured.
       shared_ptr<string> paStatus_ {};
       shared_ptr<string> province_ {};
+      // The province name in English.
       shared_ptr<string> provinceEn_ {};
+      // The province name in Chinese.
       shared_ptr<string> provinceZh_ {};
+      // The user ID.
       shared_ptr<string> saseUserId_ {};
+      // Specifies whether sharing is enabled for the device. Valid values:
+      // - **true**: Sharing is enabled.
+      // - **false**: Sharing is disabled.
       shared_ptr<bool> sharingStatus_ {};
+      // The motherboard serial number.
       shared_ptr<string> snBaseBoard_ {};
+      // The BIOS system serial number.
       shared_ptr<string> snBios_ {};
+      // The hard disk serial number.
       shared_ptr<string> snDiskDrive_ {};
+      // The processor serial number.
       shared_ptr<string> snProcessor_ {};
+      // The system serial number.
       shared_ptr<string> snSystem_ {};
+      // The logon IP address of the endpoint device.
       shared_ptr<string> srcIP_ {};
+      // The last online time of the endpoint device.
       shared_ptr<string> updateTime_ {};
+      // The username.
       shared_ptr<string> username_ {};
+      // The name of the office area.
       shared_ptr<string> workshop_ {};
     };
 
@@ -629,8 +709,11 @@ namespace Models
 
 
   protected:
+    // The list of endpoint devices.
     shared_ptr<vector<ListUserDevicesResponseBody::Devices>> devices_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of endpoint devices.
     shared_ptr<int64_t> totalNum_ {};
   };
 

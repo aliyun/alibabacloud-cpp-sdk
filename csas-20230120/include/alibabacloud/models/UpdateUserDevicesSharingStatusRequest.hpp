@@ -51,8 +51,16 @@ namespace Models
 
 
   protected:
+    // Collection of device IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> deviceTags_ {};
+    // Indicates whether device sharing is enabled. Values:
+    // 
+    // - **true**: Enable sharing.
+    // 
+    // - **false**: Disable sharing.
+    // 
     // This parameter is required.
     shared_ptr<bool> sharingStatus_ {};
   };

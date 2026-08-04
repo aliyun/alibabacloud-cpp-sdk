@@ -124,7 +124,9 @@ namespace Models
 
 
         protected:
+          // Start port.
           shared_ptr<int32_t> begin_ {};
+          // End port.
           shared_ptr<int32_t> end_ {};
         };
 
@@ -192,13 +194,31 @@ namespace Models
 
 
       protected:
+        // Collection of private access application addresses.
         shared_ptr<vector<string>> addresses_ {};
+        // Private access application ID.
         shared_ptr<string> applicationId_ {};
+        // Time when the private access application was created.
         shared_ptr<string> createTime_ {};
+        // Private access application description.
         shared_ptr<string> description_ {};
+        // Private access application name.
         shared_ptr<string> name_ {};
+        // Collection of private access application port ranges.
         shared_ptr<vector<Applications::PortRanges>> portRanges_ {};
+        // Protocol used by the private access application. Valid values:
+        // 
+        // - **All**: All protocols.
+        // 
+        // - **TCP**
+        // 
+        // - **UDP**
         shared_ptr<string> protocol_ {};
+        // Status of the private access application. Valid values:
+        // 
+        // - **Enabled**: Enabled.
+        // 
+        // - **Disabled**: Disabled.
         shared_ptr<string> status_ {};
       };
 
@@ -221,7 +241,9 @@ namespace Models
 
 
     protected:
+      // Collection of private access applications.
       shared_ptr<vector<DynamicRoutes::Applications>> applications_ {};
+      // Dynamic route ID.
       shared_ptr<string> dynamicRouteId_ {};
     };
 
@@ -244,7 +266,9 @@ namespace Models
 
 
   protected:
+    // List of dynamic routes.
     shared_ptr<vector<ListPrivateAccessApplicationsForDynamicRouteResponseBody::DynamicRoutes>> dynamicRoutes_ {};
+    // ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

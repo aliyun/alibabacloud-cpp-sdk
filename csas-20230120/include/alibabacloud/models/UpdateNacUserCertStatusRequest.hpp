@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // The device ID.
       shared_ptr<string> devTag_ {};
+      // The end user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -93,7 +95,13 @@ namespace Models
 
 
   protected:
+    // A collection of end user IDs and device IDs.
     shared_ptr<vector<UpdateNacUserCertStatusRequest::IdList>> idList_ {};
+    // The certificate status for the end user device. Valid values:
+    // 
+    // - **Enabled**
+    // 
+    // - **Disabled**
     shared_ptr<string> status_ {};
   };
 

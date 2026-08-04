@@ -75,11 +75,17 @@ namespace Models
 
 
   protected:
+    // Department ID.
     shared_ptr<string> departmentId_ {};
+    // User description.
     shared_ptr<string> description_ {};
+    // Email address.
     shared_ptr<string> email_ {};
+    // User ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // Mobile phone number without country code.
     shared_ptr<string> mobileNumber_ {};
   };
 

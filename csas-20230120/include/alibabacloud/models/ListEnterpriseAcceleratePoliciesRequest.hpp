@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The number of the page to return for a paged query. Valid values: 1 to 10000.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
+    // The name of the enterprise acceleration policy.
     shared_ptr<string> name_ {};
+    // The number of entries to return on each page for a paged query. Valid values: 1 to 1000.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
   };

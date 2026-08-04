@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DomainWhitelistSchemaId, domainWhitelistSchemaId_);
         DARABONBA_PTR_TO_JSON(EndpointHardeningSchemaId, endpointHardeningSchemaId_);
         DARABONBA_PTR_TO_JSON(PeripheralBlockSchemaId, peripheralBlockSchemaId_);
+        DARABONBA_PTR_TO_JSON(PrivateAccessBlockSchemaId, privateAccessBlockSchemaId_);
         DARABONBA_PTR_TO_JSON(SoftwareBlockSchemaId, softwareBlockSchemaId_);
         DARABONBA_PTR_TO_JSON(SoftwareHardeningSchemaId, softwareHardeningSchemaId_);
       };
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DomainWhitelistSchemaId, domainWhitelistSchemaId_);
         DARABONBA_PTR_FROM_JSON(EndpointHardeningSchemaId, endpointHardeningSchemaId_);
         DARABONBA_PTR_FROM_JSON(PeripheralBlockSchemaId, peripheralBlockSchemaId_);
+        DARABONBA_PTR_FROM_JSON(PrivateAccessBlockSchemaId, privateAccessBlockSchemaId_);
         DARABONBA_PTR_FROM_JSON(SoftwareBlockSchemaId, softwareBlockSchemaId_);
         DARABONBA_PTR_FROM_JSON(SoftwareHardeningSchemaId, softwareHardeningSchemaId_);
       };
@@ -73,7 +75,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->appUninstallSchemaId_ == nullptr
         && this->deviceRegistrationSchemaId_ == nullptr && this->dlpSendSchemaId_ == nullptr && this->domainBlacklistSchemaId_ == nullptr && this->domainWhitelistSchemaId_ == nullptr && this->endpointHardeningSchemaId_ == nullptr
-        && this->peripheralBlockSchemaId_ == nullptr && this->softwareBlockSchemaId_ == nullptr && this->softwareHardeningSchemaId_ == nullptr; };
+        && this->peripheralBlockSchemaId_ == nullptr && this->privateAccessBlockSchemaId_ == nullptr && this->softwareBlockSchemaId_ == nullptr && this->softwareHardeningSchemaId_ == nullptr; };
       // appUninstallSchemaId Field Functions 
       bool hasAppUninstallSchemaId() const { return this->appUninstallSchemaId_ != nullptr;};
       void deleteAppUninstallSchemaId() { this->appUninstallSchemaId_ = nullptr;};
@@ -123,6 +125,13 @@ namespace Models
       inline MatchSchemas& setPeripheralBlockSchemaId(string peripheralBlockSchemaId) { DARABONBA_PTR_SET_VALUE(peripheralBlockSchemaId_, peripheralBlockSchemaId) };
 
 
+      // privateAccessBlockSchemaId Field Functions 
+      bool hasPrivateAccessBlockSchemaId() const { return this->privateAccessBlockSchemaId_ != nullptr;};
+      void deletePrivateAccessBlockSchemaId() { this->privateAccessBlockSchemaId_ = nullptr;};
+      inline string getPrivateAccessBlockSchemaId() const { DARABONBA_PTR_GET_DEFAULT(privateAccessBlockSchemaId_, "") };
+      inline MatchSchemas& setPrivateAccessBlockSchemaId(string privateAccessBlockSchemaId) { DARABONBA_PTR_SET_VALUE(privateAccessBlockSchemaId_, privateAccessBlockSchemaId) };
+
+
       // softwareBlockSchemaId Field Functions 
       bool hasSoftwareBlockSchemaId() const { return this->softwareBlockSchemaId_ != nullptr;};
       void deleteSoftwareBlockSchemaId() { this->softwareBlockSchemaId_ = nullptr;};
@@ -138,13 +147,21 @@ namespace Models
 
 
     protected:
+      // The ID of the device uninstall approval template.
       shared_ptr<string> appUninstallSchemaId_ {};
+      // The ID of the device registration approval template.
       shared_ptr<string> deviceRegistrationSchemaId_ {};
+      // The ID of the file outbound transfer approval template.
       shared_ptr<string> dlpSendSchemaId_ {};
+      // The ID of the domain name blacklist approval template.
       shared_ptr<string> domainBlacklistSchemaId_ {};
+      // The ID of the domain name whitelist approval template.
       shared_ptr<string> domainWhitelistSchemaId_ {};
       shared_ptr<string> endpointHardeningSchemaId_ {};
+      // The ID of the peripheral control approval template.
       shared_ptr<string> peripheralBlockSchemaId_ {};
+      shared_ptr<string> privateAccessBlockSchemaId_ {};
+      // The ID of the software blocking approval template.
       shared_ptr<string> softwareBlockSchemaId_ {};
       shared_ptr<string> softwareHardeningSchemaId_ {};
     };
@@ -184,10 +201,16 @@ namespace Models
 
 
   protected:
+    // The description of the approval process. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
     shared_ptr<string> description_ {};
+    // The matched approval templates.
     shared_ptr<CreateApprovalProcessRequest::MatchSchemas> matchSchemas_ {};
+    // The process name. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
+    // 
     // This parameter is required.
     shared_ptr<string> processName_ {};
+    // The list of approval nodes. You can define up to 5 approval nodes.
+    // 
     // This parameter is required.
     shared_ptr<vector<vector<string>>> processNodes_ {};
   };

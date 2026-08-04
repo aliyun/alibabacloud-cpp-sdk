@@ -184,20 +184,43 @@ namespace Models
 
 
   protected:
+    // Collection of client statuses.
     shared_ptr<vector<string>> appStatuses_ {};
+    // Department name. Must be 1 to 128 characters long. Supports Chinese, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces.
     shared_ptr<string> department_ {};
+    // Terminal device ownership. Valid values:
+    // 
+    // - **Personal**: Personal device.
+    // 
+    // - **Company**: Company device.
     shared_ptr<string> deviceBelong_ {};
+    // Collection of terminal device statuses.
     shared_ptr<vector<string>> deviceStatuses_ {};
+    // Collection of terminal device IDs.
     shared_ptr<vector<string>> deviceTags_ {};
+    // Collection of terminal device operating system types.
     shared_ptr<vector<string>> deviceTypes_ {};
+    // Collection of office data protection statuses.
     shared_ptr<vector<string>> dlpStatuses_ {};
+    // Terminal device name. Must be 1 to 128 characters long. Supports Chinese, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces. If you enter only an underscore (_), the system returns all terminal devices whose names contain four-byte UTF-8 characters.
     shared_ptr<string> hostname_ {};
+    // Collection of Internet access statuses.
     shared_ptr<vector<string>> iaStatuses_ {};
+    // MAC address of the terminal device.
     shared_ptr<string> mac_ {};
+    // Collection of network admission statuses.
     shared_ptr<vector<string>> nacStatuses_ {};
+    // Collection of private network access statuses.
     shared_ptr<vector<string>> paStatuses_ {};
+    // User ID.
     shared_ptr<string> saseUserId_ {};
+    // Whether device sharing is enabled. Valid values:
+    // 
+    // - **true**: Sharing is enabled.
+    // 
+    // - **false**: Sharing is disabled.
     shared_ptr<bool> sharingStatus_ {};
+    // Username. Must be 1 to 128 characters long. Supports Chinese, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\\*), at signs (@), and spaces.
     shared_ptr<string> username_ {};
   };
 

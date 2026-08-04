@@ -59,6 +59,7 @@ namespace Models
 
 
     protected:
+      // The Job ID, used for subsequent queries of task execution results.
       shared_ptr<string> taskId_ {};
     };
 
@@ -81,7 +82,9 @@ namespace Models
 
 
   protected:
+    // Job information.
     shared_ptr<CreateWmEmbedTaskResponseBody::Data> data_ {};
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

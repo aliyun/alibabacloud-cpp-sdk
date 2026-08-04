@@ -38,6 +38,9 @@ namespace Models
 
 
   protected:
+    // The job ID obtained when creating the embedding job. Source of the value:  
+    // - [CreateWmEmbedTask](~~CreateWmEmbedTask~~): Create a watermark embedding job.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

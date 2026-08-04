@@ -112,17 +112,40 @@ namespace Models
 
 
   protected:
+    // Acceleration pattern:
+    // 
+    // - **whitelist**: Whitelist acceleration
+    // 
+    // - **global**: Global acceleration
+    // 
+    // - **build-in-list**: Built-in application acceleration
     shared_ptr<string> accelerationType_ {};
+    // Policy description. Length: 1 to 512 characters.
     shared_ptr<string> description_ {};
+    // Policy Name.
     shared_ptr<string> name_ {};
+    // Priority.
     shared_ptr<string> priority_ {};
+    // Whether to display this policy in the client:
+    // 
+    // - **0**: Do not display
+    // 
+    // - **1**: Display
     shared_ptr<int32_t> showInClient_ {};
+    // The IP address or domain name of the acceleration instance.
+    // 
     // This parameter is required.
     shared_ptr<string> upstreamHost_ {};
+    // Port for the accelerated instance. The port must be between 1000 and 60000.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> upstreamPort_ {};
+    // Accelerated instance.
+    // 
     // This parameter is required.
     shared_ptr<string> upstreamType_ {};
+    // User group for acceleration.
+    // 
     // This parameter is required.
     shared_ptr<string> userAttributeGroup_ {};
   };

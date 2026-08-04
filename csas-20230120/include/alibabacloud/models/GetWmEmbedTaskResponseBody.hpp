@@ -115,12 +115,22 @@ namespace Models
 
 
     protected:
+      // The temporary URL of the file embedded with watermark information.
       shared_ptr<string> fileUrl_ {};
+      // Expiration time of FileUrl, formatted as a Unix timestamp with second-level precision.
       shared_ptr<string> fileUrlExp_ {};
+      // The filename of the file embedded with watermark information.
       shared_ptr<string> filename_ {};
+      // The MD5 hash of the file with embedded watermark information, used for troubleshooting.
       shared_ptr<string> outFileHashMd5_ {};
+      // The size in bytes of the file embedded with watermark information. This is used for troubleshooting.
       shared_ptr<int64_t> outFileSize_ {};
+      // The job ID.
       shared_ptr<string> taskId_ {};
+      // Task Status. Valid values:  
+      // - **Running**: The job is running.  
+      // - **Success**: The job succeeded.  
+      // - **Failed**: The job failed.
       shared_ptr<string> taskStatus_ {};
     };
 
@@ -143,7 +153,9 @@ namespace Models
 
 
   protected:
+    // The result of the watermark embedding job.
     shared_ptr<GetWmEmbedTaskResponseBody::Data> data_ {};
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

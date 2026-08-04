@@ -100,8 +100,21 @@ namespace Models
 
 
       protected:
+        // The name of the policy.
         shared_ptr<string> name_ {};
+        // The ID of the policy.
         shared_ptr<string> policyId_ {};
+        // The policy type. Valid values:
+        // 
+        // - **PrivateAccess**: private network access.
+        // 
+        // - **URLFilter**: URL filtering.
+        // 
+        // - **AppAccessControl**: application control.
+        // 
+        // - **DLP**: Data Leakage Prevention.
+        // 
+        // - **NAC**: Network Access Control.
         shared_ptr<string> policyType_ {};
       };
 
@@ -124,7 +137,9 @@ namespace Models
 
 
     protected:
+      // The policies.
       shared_ptr<vector<UserGroups::Polices>> polices_ {};
+      // The ID of the user group.
       shared_ptr<string> userGroupId_ {};
     };
 
@@ -147,7 +162,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of user groups.
     shared_ptr<vector<ListPolicesForUserGroupResponseBody::UserGroups>> userGroups_ {};
   };
 

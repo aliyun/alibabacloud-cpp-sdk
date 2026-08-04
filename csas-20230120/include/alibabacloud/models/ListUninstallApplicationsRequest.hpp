@@ -108,15 +108,25 @@ namespace Models
 
 
   protected:
+    // An array of uninstall application IDs.
     shared_ptr<vector<string>> applicationIds_ {};
+    // The number of the page to return. Valid values: 1 to 10000.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
+    // The department. The value must be 1 to 128 characters long and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces.
     shared_ptr<string> department_ {};
+    // The hostname of the endpoint. The value must be 1 to 128 characters long and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces. If you enter only an underscore (`_`), the query also returns endpoints with names that contain 4-byte UTF-8 characters.
     shared_ptr<string> hostname_ {};
+    // The MAC address of the endpoint.
     shared_ptr<string> mac_ {};
+    // The number of entries per page. Valid values: 1 to 500.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
+    // An array of uninstall application statuses.
     shared_ptr<vector<string>> statuses_ {};
+    // The username. The value must be 1 to 128 characters long and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), hyphens (-), asterisks (\\*), at signs (@), and spaces.
     shared_ptr<string> username_ {};
   };
 

@@ -78,8 +78,11 @@ namespace Models
 
 
     protected:
+      // ID of the transparent image. Images with the same ID have identical content.
       shared_ptr<string> imageId_ {};
+      // Temporary URL for downloading the image.
       shared_ptr<string> imageUrl_ {};
+      // Expiration time of the temporary image URL, in seconds as a UNIX timestamp.
       shared_ptr<int64_t> imageUrlExp_ {};
     };
 
@@ -102,7 +105,9 @@ namespace Models
 
 
   protected:
+    // Transparent image information.
     shared_ptr<CreateWmBaseImageResponseBody::Data> data_ {};
+    // ID of the current request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -124,17 +124,37 @@ namespace Models
 
 
   protected:
+    // The access mode. Valid values:
+    // - **app**: application access. Filters applications that support application access.
+    // - **browser**: browser access. Filters applications that support browser access.
     shared_ptr<string> accessModes_ {};
+    // The address of the internal-facing access application. The address is 1 to 128 characters in length and supports IPv4 addresses, CIDR blocks, domain names, and wildcard domain names.
     shared_ptr<string> address_ {};
+    // The IDs of internal-facing access applications. You can specify up to 100 application IDs.
     shared_ptr<vector<string>> applicationIds_ {};
+    // The connector ID. You can obtain the ID from the [ListConnectors](~~ListConnectors~~) operation.
     shared_ptr<string> connectorId_ {};
+    // The page number of the current page displayed in a paged query. Valid values: 1 to 10000.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
+    // The name of the internal-facing access application. The name is 1 to 128 characters in length, supports Chinese and uppercase and lowercase letters, and can contain digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> name_ {};
+    // The number of entries per page in a paged query. Valid values: 1 to 1000.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the internal-facing access policy. You can obtain the ID from the following operations:
+    // - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): queries internal-facing access policies in batches.
+    // - [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): creates an internal-facing access policy.
     shared_ptr<string> policyId_ {};
+    // The status of the internal-facing access application. Valid values:
+    // - **Enabled**: enabled.
+    // - **Disabled**: disabled.
     shared_ptr<string> status_ {};
+    // The ID of the internal-facing access tag. You can obtain the ID from the following operations:
+    // - [ListPrivateAccessTags](~~ListPrivateAccessTags~~): queries internal-facing access tags in batches.
+    // - [CreatePrivateAccessTag](~~CreatePrivateAccessTag~~): creates an internal-facing access tag.
     shared_ptr<string> tagId_ {};
   };
 

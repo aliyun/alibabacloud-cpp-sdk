@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // A collection of dynamic route IDs. You can enter a maximum of 100 dynamic route IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> dynamicRouteIds_ {};
   };

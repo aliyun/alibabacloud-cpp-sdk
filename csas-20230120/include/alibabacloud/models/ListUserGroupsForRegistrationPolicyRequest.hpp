@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // A collection of device registration policy IDs. You can specify up to 100 IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> policyIds_ {};
   };

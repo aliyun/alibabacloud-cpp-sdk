@@ -57,8 +57,19 @@ namespace Models
 
 
   protected:
+    // The HTTP status code or POP error code. Valid values:
+    // 
+    // - **2xx**: Success.
+    // 
+    // - **3xx**: Redirection.
+    // 
+    // - **4xx**: Client error.
+    // 
+    // - **5xx**: Server error.
     shared_ptr<string> code_ {};
+    // Additional information about the result.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // Start port. Must be less than or equal to the end port.
       shared_ptr<int32_t> begin_ {};
+      // End port. Must be greater than or equal to the start port.
       shared_ptr<int32_t> end_ {};
     };
 
@@ -95,7 +97,9 @@ namespace Models
 
 
   protected:
+    // Address list.
     shared_ptr<vector<string>> addresses_ {};
+    // Port list.
     shared_ptr<vector<AddressGroup::Ports>> ports_ {};
   };
 

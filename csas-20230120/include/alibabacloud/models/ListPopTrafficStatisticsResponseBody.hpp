@@ -91,7 +91,9 @@ namespace Models
 
 
       protected:
+        // The average bandwidth value per minute. The unit is Byte/s.
         shared_ptr<double> average_ {};
+        // The time that corresponds to the data point.
         shared_ptr<string> dateTime_ {};
       };
 
@@ -114,7 +116,9 @@ namespace Models
 
 
     protected:
+      // A list of bandwidth data points for the POPs.
       shared_ptr<vector<TrafficData::Datapoints>> datapoints_ {};
+      // The name of the metric. Metrics are categorized as inbound or outbound.
       shared_ptr<string> metricName_ {};
     };
 
@@ -139,6 +143,7 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // A list of bandwidth data for the POPs.
     shared_ptr<vector<ListPopTrafficStatisticsResponseBody::TrafficData>> trafficData_ {};
   };
 

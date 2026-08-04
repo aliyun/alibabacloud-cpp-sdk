@@ -150,7 +150,9 @@ namespace Models
 
 
         protected:
+          // The ID of the operator for the progress node.
           shared_ptr<string> saseUserId_ {};
+          // The username of the operator for the progress node.
           shared_ptr<string> username_ {};
         };
 
@@ -201,11 +203,33 @@ namespace Models
 
 
       protected:
+        // The action performed on the progress node. Valid values:
+        // 
+        // - **Approve**: Approve
+        // 
+        // - **Reject**: Reject
+        // 
+        // - **Revoke**: Revoke
+        // 
+        // - **Comment**: Comment
         shared_ptr<string> action_ {};
+        // The comment for the action on the progress node.
         shared_ptr<string> comment_ {};
+        // The ID of the executor for the progress node.
         shared_ptr<string> executor_ {};
+        // A list of operators for the progress node.
         shared_ptr<vector<ApprovalProgresses::Operators>> operators_ {};
+        // The status of the progress node. Valid values:
+        // 
+        // - **Pending**: Pending
+        // 
+        // - **Approved**: Approved
+        // 
+        // - **Rejected**: Rejected
+        // 
+        // - **Revoked**: Revoked
         shared_ptr<string> status_ {};
+        // The time when the action was performed on the progress node. This is a UNIX timestamp. Unit: seconds.
         shared_ptr<int64_t> timestamp_ {};
       };
 
@@ -336,22 +360,61 @@ namespace Models
 
 
     protected:
+      // The details of the approval instance.
       shared_ptr<string> approvalDetail_ {};
+      // The ID of the approval instance.
       shared_ptr<string> approvalId_ {};
+      // A list of progress nodes for the approval instance.
       shared_ptr<vector<Approval::ApprovalProgresses>> approvalProgresses_ {};
+      // The time when the approval instance was created.
       shared_ptr<string> createTime_ {};
+      // The department of the user who created the approval instance.
       shared_ptr<string> creatorDepartment_ {};
+      // The ID of the client device from which the approval instance was created.
       shared_ptr<string> creatorDevTag_ {};
+      // The ID of the user who created the approval instance.
       shared_ptr<string> creatorUserId_ {};
+      // The username of the user who created the approval instance.
       shared_ptr<string> creatorUsername_ {};
+      // The expiration time of the approval instance. This is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> endTimestamp_ {};
+      // The type of the associated policy. Valid values:
+      // 
+      // - **DomainBlacklist**: Domain blacklist
+      // 
+      // - **DomainWhitelist**: Domain whitelist
+      // 
+      // - **SoftwareBlock**: Software block
+      // 
+      // - **AppUninstall**: Client uninstall
+      // 
+      // - **DlpSend**: Outbound file transfer
+      // 
+      // - **PeripheralBlock**: Peripheral control
       shared_ptr<string> policyType_ {};
+      // The ID of the associated approval flow.
       shared_ptr<string> processId_ {};
+      // The name of the associated approval flow.
       shared_ptr<string> processName_ {};
+      // The reason for creating the approval instance.
       shared_ptr<string> reason_ {};
+      // The content of the associated template.
       shared_ptr<string> schemaContent_ {};
+      // The ID of the associated template.
       shared_ptr<string> schemaId_ {};
+      // The name of the associated template.
       shared_ptr<string> schemaName_ {};
+      // The status of the approval instance. Valid values:
+      // 
+      // - **Pending**: Pending
+      // 
+      // - **Approved**: Approved
+      // 
+      // - **Rejected**: Rejected
+      // 
+      // - **Revoked**: Revoked
+      // 
+      // - **Expired**: Expired
       shared_ptr<string> status_ {};
     };
 
@@ -374,7 +437,9 @@ namespace Models
 
 
   protected:
+    // The approval instance.
     shared_ptr<vector<GetApprovalResponseBody::Approval>> approval_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

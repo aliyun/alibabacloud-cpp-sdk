@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DomainWhitelistPolicies, domainWhitelistPolicies_);
         DARABONBA_PTR_TO_JSON(EndpointHardeningPolicies, endpointHardeningPolicies_);
         DARABONBA_PTR_TO_JSON(PeripheralBlockPolicies, peripheralBlockPolicies_);
+        DARABONBA_PTR_TO_JSON(PrivateAccessBlockPolicies, privateAccessBlockPolicies_);
         DARABONBA_PTR_TO_JSON(ProcessId, processId_);
         DARABONBA_PTR_TO_JSON(ProcessName, processName_);
         DARABONBA_PTR_TO_JSON(ProcessNodes, processNodes_);
@@ -60,6 +61,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DomainWhitelistPolicies, domainWhitelistPolicies_);
         DARABONBA_PTR_FROM_JSON(EndpointHardeningPolicies, endpointHardeningPolicies_);
         DARABONBA_PTR_FROM_JSON(PeripheralBlockPolicies, peripheralBlockPolicies_);
+        DARABONBA_PTR_FROM_JSON(PrivateAccessBlockPolicies, privateAccessBlockPolicies_);
         DARABONBA_PTR_FROM_JSON(ProcessId, processId_);
         DARABONBA_PTR_FROM_JSON(ProcessName, processName_);
         DARABONBA_PTR_FROM_JSON(ProcessNodes, processNodes_);
@@ -161,6 +163,52 @@ namespace Models
 
 
       protected:
+        // The list of software blocking policy IDs.
+        shared_ptr<vector<string>> policyIds_ {};
+        // The ID of the approval template.
+        shared_ptr<string> schemaId_ {};
+      };
+
+      class PrivateAccessBlockPolicies : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const PrivateAccessBlockPolicies& obj) { 
+          DARABONBA_PTR_TO_JSON(PolicyIds, policyIds_);
+          DARABONBA_PTR_TO_JSON(SchemaId, schemaId_);
+        };
+        friend void from_json(const Darabonba::Json& j, PrivateAccessBlockPolicies& obj) { 
+          DARABONBA_PTR_FROM_JSON(PolicyIds, policyIds_);
+          DARABONBA_PTR_FROM_JSON(SchemaId, schemaId_);
+        };
+        PrivateAccessBlockPolicies() = default ;
+        PrivateAccessBlockPolicies(const PrivateAccessBlockPolicies &) = default ;
+        PrivateAccessBlockPolicies(PrivateAccessBlockPolicies &&) = default ;
+        PrivateAccessBlockPolicies(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~PrivateAccessBlockPolicies() = default ;
+        PrivateAccessBlockPolicies& operator=(const PrivateAccessBlockPolicies &) = default ;
+        PrivateAccessBlockPolicies& operator=(PrivateAccessBlockPolicies &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->policyIds_ == nullptr
+        && this->schemaId_ == nullptr; };
+        // policyIds Field Functions 
+        bool hasPolicyIds() const { return this->policyIds_ != nullptr;};
+        void deletePolicyIds() { this->policyIds_ = nullptr;};
+        inline const vector<string> & getPolicyIds() const { DARABONBA_PTR_GET_CONST(policyIds_, vector<string>) };
+        inline vector<string> getPolicyIds() { DARABONBA_PTR_GET(policyIds_, vector<string>) };
+        inline PrivateAccessBlockPolicies& setPolicyIds(const vector<string> & policyIds) { DARABONBA_PTR_SET_VALUE(policyIds_, policyIds) };
+        inline PrivateAccessBlockPolicies& setPolicyIds(vector<string> && policyIds) { DARABONBA_PTR_SET_RVALUE(policyIds_, policyIds) };
+
+
+        // schemaId Field Functions 
+        bool hasSchemaId() const { return this->schemaId_ != nullptr;};
+        void deleteSchemaId() { this->schemaId_ = nullptr;};
+        inline string getSchemaId() const { DARABONBA_PTR_GET_DEFAULT(schemaId_, "") };
+        inline PrivateAccessBlockPolicies& setSchemaId(string schemaId) { DARABONBA_PTR_SET_VALUE(schemaId_, schemaId) };
+
+
+      protected:
         shared_ptr<vector<string>> policyIds_ {};
         shared_ptr<string> schemaId_ {};
       };
@@ -205,7 +253,9 @@ namespace Models
 
 
       protected:
+        // The list of peripheral control policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -293,7 +343,9 @@ namespace Models
 
 
       protected:
+        // The list of domain name whitelist policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -337,7 +389,9 @@ namespace Models
 
 
       protected:
+        // The list of domain name blacklist policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -381,7 +435,9 @@ namespace Models
 
 
       protected:
+        // The list of file outbound transfer policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -425,7 +481,9 @@ namespace Models
 
 
       protected:
+        // The list of device registration policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
@@ -469,14 +527,16 @@ namespace Models
 
 
       protected:
+        // The list of terminal uninstallation policy IDs.
         shared_ptr<vector<string>> policyIds_ {};
+        // The ID of the approval template.
         shared_ptr<string> schemaId_ {};
       };
 
       virtual bool empty() const override { return this->appUninstallPolicies_ == nullptr
         && this->createTime_ == nullptr && this->description_ == nullptr && this->deviceRegistrationPolicies_ == nullptr && this->dlpSendPolicies_ == nullptr && this->domainBlacklistPolicies_ == nullptr
-        && this->domainWhitelistPolicies_ == nullptr && this->endpointHardeningPolicies_ == nullptr && this->peripheralBlockPolicies_ == nullptr && this->processId_ == nullptr && this->processName_ == nullptr
-        && this->processNodes_ == nullptr && this->softwareBlockPolicies_ == nullptr && this->softwareHardeningPolicies_ == nullptr; };
+        && this->domainWhitelistPolicies_ == nullptr && this->endpointHardeningPolicies_ == nullptr && this->peripheralBlockPolicies_ == nullptr && this->privateAccessBlockPolicies_ == nullptr && this->processId_ == nullptr
+        && this->processName_ == nullptr && this->processNodes_ == nullptr && this->softwareBlockPolicies_ == nullptr && this->softwareHardeningPolicies_ == nullptr; };
       // appUninstallPolicies Field Functions 
       bool hasAppUninstallPolicies() const { return this->appUninstallPolicies_ != nullptr;};
       void deleteAppUninstallPolicies() { this->appUninstallPolicies_ = nullptr;};
@@ -554,6 +614,15 @@ namespace Models
       inline Process& setPeripheralBlockPolicies(Process::PeripheralBlockPolicies && peripheralBlockPolicies) { DARABONBA_PTR_SET_RVALUE(peripheralBlockPolicies_, peripheralBlockPolicies) };
 
 
+      // privateAccessBlockPolicies Field Functions 
+      bool hasPrivateAccessBlockPolicies() const { return this->privateAccessBlockPolicies_ != nullptr;};
+      void deletePrivateAccessBlockPolicies() { this->privateAccessBlockPolicies_ = nullptr;};
+      inline const Process::PrivateAccessBlockPolicies & getPrivateAccessBlockPolicies() const { DARABONBA_PTR_GET_CONST(privateAccessBlockPolicies_, Process::PrivateAccessBlockPolicies) };
+      inline Process::PrivateAccessBlockPolicies getPrivateAccessBlockPolicies() { DARABONBA_PTR_GET(privateAccessBlockPolicies_, Process::PrivateAccessBlockPolicies) };
+      inline Process& setPrivateAccessBlockPolicies(const Process::PrivateAccessBlockPolicies & privateAccessBlockPolicies) { DARABONBA_PTR_SET_VALUE(privateAccessBlockPolicies_, privateAccessBlockPolicies) };
+      inline Process& setPrivateAccessBlockPolicies(Process::PrivateAccessBlockPolicies && privateAccessBlockPolicies) { DARABONBA_PTR_SET_RVALUE(privateAccessBlockPolicies_, privateAccessBlockPolicies) };
+
+
       // processId Field Functions 
       bool hasProcessId() const { return this->processId_ != nullptr;};
       void deleteProcessId() { this->processId_ = nullptr;};
@@ -596,18 +665,31 @@ namespace Models
 
 
     protected:
+      // The list of policies associated with terminal uninstallation.
       shared_ptr<Process::AppUninstallPolicies> appUninstallPolicies_ {};
+      // The time when the approval process was created.
       shared_ptr<string> createTime_ {};
+      // The description of the approval process.
       shared_ptr<string> description_ {};
+      // The list of policies associated with device registration.
       shared_ptr<Process::DeviceRegistrationPolicies> deviceRegistrationPolicies_ {};
+      // The list of policies associated with file outbound transfer.
       shared_ptr<Process::DlpSendPolicies> dlpSendPolicies_ {};
+      // The list of policies associated with the domain name blacklist.
       shared_ptr<Process::DomainBlacklistPolicies> domainBlacklistPolicies_ {};
+      // The list of policies associated with the domain name whitelist.
       shared_ptr<Process::DomainWhitelistPolicies> domainWhitelistPolicies_ {};
       shared_ptr<Process::EndpointHardeningPolicies> endpointHardeningPolicies_ {};
+      // The list of policies associated with peripheral control.
       shared_ptr<Process::PeripheralBlockPolicies> peripheralBlockPolicies_ {};
+      shared_ptr<Process::PrivateAccessBlockPolicies> privateAccessBlockPolicies_ {};
+      // The ID of the approval process.
       shared_ptr<string> processId_ {};
+      // The name of the approval process.
       shared_ptr<string> processName_ {};
+      // The list of approval nodes.
       shared_ptr<vector<vector<Process::ProcessNodes>>> processNodes_ {};
+      // The list of policies associated with software blocking.
       shared_ptr<Process::SoftwareBlockPolicies> softwareBlockPolicies_ {};
       shared_ptr<Process::SoftwareHardeningPolicies> softwareHardeningPolicies_ {};
     };
@@ -631,7 +713,9 @@ namespace Models
 
 
   protected:
+    // The approval process.
     shared_ptr<CreateApprovalProcessResponseBody::Process> process_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

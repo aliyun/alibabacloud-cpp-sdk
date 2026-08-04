@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // Private access tag description. It can be 1 to 128 characters long. It supports Chinese characters, uppercase and lowercase English letters, numbers, periods (.), underscores (_), hyphens (-), and spaces.
     shared_ptr<string> description_ {};
+    // Private access tag name. It can be 1 to 128 characters long. It supports Chinese characters, uppercase and lowercase English letters, numbers, periods (.), underscores (_), and hyphens (-).
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

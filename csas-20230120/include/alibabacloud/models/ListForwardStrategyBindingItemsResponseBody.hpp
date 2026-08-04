@@ -131,11 +131,17 @@ namespace Models
 
 
       protected:
+        // The ID of the internal-facing application.
         shared_ptr<string> applicationId_ {};
+        // The name of the internal-facing application.
         shared_ptr<string> applicationName_ {};
+        // The internal-facing tag ID.
         shared_ptr<string> tagId_ {};
+        // The tag name.
         shared_ptr<string> tagName_ {};
+        // The user group ID.
         shared_ptr<string> userGroupId_ {};
+        // The user group name.
         shared_ptr<string> userGroupName_ {};
       };
 
@@ -165,8 +171,16 @@ namespace Models
 
 
     protected:
+      // The forwarding rule ID.
       shared_ptr<string> forwardId_ {};
+      // The binding items.
       shared_ptr<vector<ForwardStrategyBindingItemsList::Items>> items_ {};
+      // The policy matching target type. Valid values:
+      // - **UserGroupAll**: all users.
+      // - **UserGroupNormal**: specific user groups.
+      // - **ApplicationAll**: all internal-facing applications.
+      // - **Application**: specific internal-facing applications.
+      // - **Tag**: internal-facing application tags.
       shared_ptr<string> matchMode_ {};
     };
 
@@ -196,7 +210,11 @@ namespace Models
 
 
   protected:
+    // The list of forwarding rule bindings.
     shared_ptr<vector<ListForwardStrategyBindingItemsResponseBody::ForwardStrategyBindingItemsList>> forwardStrategyBindingItemsList_ {};
+    // The binding item type. Valid values:
+    // - **Application**: internal-facing application
+    // - **UserGroup**: user group.
     shared_ptr<string> itemType_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

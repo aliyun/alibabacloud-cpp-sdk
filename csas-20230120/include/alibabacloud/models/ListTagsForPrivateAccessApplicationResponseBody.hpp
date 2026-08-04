@@ -118,10 +118,19 @@ namespace Models
 
 
       protected:
+        // Creation time of the private network access tag.
         shared_ptr<string> createTime_ {};
+        // Description of the private network access tag.
         shared_ptr<string> description_ {};
+        // Name of the internal network access tag.
         shared_ptr<string> name_ {};
+        // Private network access tag ID.
         shared_ptr<string> tagId_ {};
+        // Private network access tag type. Values:
+        // 
+        // - **Default**: Default.
+        // 
+        // - **Custom**: Custom.
         shared_ptr<string> tagType_ {};
       };
 
@@ -144,7 +153,9 @@ namespace Models
 
 
     protected:
+      // Private network access application ID.
       shared_ptr<string> applicationId_ {};
+      // Collection of private network access tags.
       shared_ptr<vector<Applications::Tags>> tags_ {};
     };
 
@@ -167,7 +178,9 @@ namespace Models
 
 
   protected:
+    // List of private network access applications.
     shared_ptr<vector<ListTagsForPrivateAccessApplicationResponseBody::Applications>> applications_ {};
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

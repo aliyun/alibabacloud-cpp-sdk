@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // A collection of private network access tag IDs. Enter a maximum of 100 private network access tag IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> tagIds_ {};
   };

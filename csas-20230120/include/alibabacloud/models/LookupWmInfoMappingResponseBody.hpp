@@ -59,6 +59,9 @@ namespace Models
 
 
     protected:
+      // String-formatted watermark information obtained from the mapping lookup. Value source:
+      // 
+      // - [CreateWmInfoMapping](~~CreateWmInfoMapping~~): The **WmInfoBytesB64** parameter from the CreateWmInfoMapping API.
       shared_ptr<string> wmInfoBytesB64_ {};
     };
 
@@ -81,7 +84,9 @@ namespace Models
 
 
   protected:
+    // Query result of the mapping.
     shared_ptr<LookupWmInfoMappingResponseBody::Data> data_ {};
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

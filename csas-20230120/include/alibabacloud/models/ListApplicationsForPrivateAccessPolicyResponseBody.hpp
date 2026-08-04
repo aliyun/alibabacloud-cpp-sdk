@@ -124,7 +124,9 @@ namespace Models
 
 
         protected:
+          // The start port.
           shared_ptr<int32_t> begin_ {};
+          // The end port.
           shared_ptr<int32_t> end_ {};
         };
 
@@ -192,13 +194,31 @@ namespace Models
 
 
       protected:
+        // A collection of private access application addresses.
         shared_ptr<vector<string>> addresses_ {};
+        // The ID of the private access application.
         shared_ptr<string> applicationId_ {};
+        // The time when the private access application was created.
         shared_ptr<string> createTime_ {};
+        // The description of the private access application.
         shared_ptr<string> description_ {};
+        // The name of the private access application.
         shared_ptr<string> name_ {};
+        // A collection of port ranges for the private access application.
         shared_ptr<vector<Applications::PortRanges>> portRanges_ {};
+        // The protocol of the private access application. Valid values:
+        // 
+        // - **All**: All protocols.
+        // 
+        // - **TCP**
+        // 
+        // - **UDP**
         shared_ptr<string> protocol_ {};
+        // The status of the private access application. Valid values:
+        // 
+        // - **Enabled**: The application is enabled.
+        // 
+        // - **Disabled**: The application is disabled.
         shared_ptr<string> status_ {};
       };
 
@@ -221,7 +241,9 @@ namespace Models
 
 
     protected:
+      // A collection of private access applications.
       shared_ptr<vector<Polices::Applications>> applications_ {};
+      // The policy ID.
       shared_ptr<string> policyId_ {};
     };
 
@@ -244,7 +266,9 @@ namespace Models
 
 
   protected:
+    // A list of private access policies.
     shared_ptr<vector<ListApplicationsForPrivateAccessPolicyResponseBody::Polices>> polices_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

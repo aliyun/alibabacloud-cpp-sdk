@@ -117,9 +117,13 @@ namespace Models
 
 
       protected:
+        // Dialog content.
         shared_ptr<string> content_ {};
+        // Main button text.
         shared_ptr<string> mainButtonText_ {};
+        // Secondary button text.
         shared_ptr<string> minorButtonText_ {};
+        // Dialog title.
         shared_ptr<string> title_ {};
       };
 
@@ -179,9 +183,13 @@ namespace Models
 
 
       protected:
+        // Dialog content.
         shared_ptr<string> content_ {};
+        // Main button text.
         shared_ptr<string> mainButtonText_ {};
+        // Secondary button text.
         shared_ptr<string> minorButtonText_ {};
+        // Dialog title.
         shared_ptr<string> title_ {};
       };
 
@@ -206,7 +214,9 @@ namespace Models
 
 
     protected:
+      // English text.
       shared_ptr<BlockContent::BlockTextEn> blockTextEn_ {};
+      // Chinese text.
       shared_ptr<BlockContent::BlockTextZh> blockTextZh_ {};
     };
 
@@ -261,11 +271,17 @@ namespace Models
 
 
   protected:
+    // Let end users submit approval requests.
     shared_ptr<bool> allowReport_ {};
+    // Content shown in the client-side block dialog.
     shared_ptr<UpdateBootAndAntiUninstallPolicyRequest::BlockContent> blockContent_ {};
+    // Enable anti-uninstall.
     shared_ptr<bool> isAntiUninstall_ {};
+    // Enable auto-start.
     shared_ptr<bool> isBoot_ {};
+    // List of user group IDs to which this policy applies.
     shared_ptr<vector<string>> userGroupIds_ {};
+    // List of whitelisted users.
     shared_ptr<vector<string>> whitelistUsers_ {};
   };
 

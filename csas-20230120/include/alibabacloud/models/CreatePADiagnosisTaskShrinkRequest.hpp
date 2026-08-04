@@ -121,20 +121,42 @@ namespace Models
 
 
   protected:
+    // The ID of the terminal device.
     shared_ptr<string> devTag_ {};
+    // The diagnosis type. Valid values:
+    // 
+    // - **FullLink**: full-link diagnosis.
+    // - **Application**: application diagnosis.
+    // 
     // This parameter is required.
     shared_ptr<string> diagnoseType_ {};
+    // The address to diagnose.
+    // 
     // This parameter is required.
     shared_ptr<string> host_ {};
+    // The POP point ID.
     shared_ptr<string> popId_ {};
+    // The POP point selection mode. Valid values:
+    // - **AutoSelect**: automatic selection.
+    // - **ManualSelect**: manual selection.
+    // 
     // This parameter is required.
     shared_ptr<string> popMode_ {};
+    // The port.
+    // 
     // This parameter is required.
     shared_ptr<string> port_ {};
+    // The protocol used by the internal network access application. Valid values:
+    // - **TCP**
+    // - **UDP**.
+    // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};
+    // The extra configurations for UDP diagnosis. If this parameter is not specified, any response received is considered a success.
     shared_ptr<string> udpExtraConfigsShrink_ {};
+    // The user group ID.
     shared_ptr<string> userGroupId_ {};
+    // The username.
     shared_ptr<string> username_ {};
   };
 

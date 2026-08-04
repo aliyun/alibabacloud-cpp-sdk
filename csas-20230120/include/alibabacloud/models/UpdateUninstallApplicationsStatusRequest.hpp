@@ -51,7 +51,13 @@ namespace Models
 
 
   protected:
+    // List of uninstall request IDs.
     shared_ptr<vector<string>> applicationIds_ {};
+    // Status of the uninstall request. Valid values:
+    // 
+    // - **Approved**: Approved.
+    // 
+    // - **Rejected**: Rejected.
     shared_ptr<string> status_ {};
   };
 

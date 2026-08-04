@@ -145,17 +145,29 @@ namespace Models
 
 
   protected:
+    // A brief description of the policy\\"s purpose or scope.
     shared_ptr<string> description_ {};
+    // The timestamp (in UTC) when the policy was created, formatted as `YYYY-MM-DDThh:mm:ssZ`. This is a system-generated, read-only property.
     shared_ptr<string> gmtCreate_ {};
+    // The timestamp (in UTC) when the policy was last modified, formatted as `YYYY-MM-DDThh:mm:ssZ`. This is a system-generated, read-only property.
     shared_ptr<string> gmtModified_ {};
+    // The unique identifier for the usage limit policy. This is a system-generated, read-only value.
     shared_ptr<string> limitPolicyId_ {};
+    // The maximum value for the specified `MetricType` allowed within the `ResetPeriod`. Once this limit is reached, further requests are throttled or rejected.
     shared_ptr<int64_t> limitValue_ {};
+    // The type of metric the limit applies to, such as the number of API requests, tokens processed, or compute units consumed.
     shared_ptr<string> metricType_ {};
+    // A user-friendly name for the policy. This helps you identify the policy in a list.
     shared_ptr<string> name_ {};
+    // The priority of the policy, used to determine the evaluation order when multiple policies apply to the same request. A lower number indicates a higher priority.
     shared_ptr<int32_t> priority_ {};
+    // The time window during which the usage count is accumulated before it resets. For example: `Hour`, `Day`, or `Month`.
     shared_ptr<string> resetPeriod_ {};
+    // A list of service IDs that this policy applies to. The policy is enforced only for requests made to these services.
     shared_ptr<vector<string>> serviceIds_ {};
+    // The status of the policy. Valid values are `Enabled` and `Disabled`. A disabled policy is not enforced.
     shared_ptr<string> status_ {};
+    // A list of user group IDs that this policy applies to. The policy is enforced only for users who belong to these groups.
     shared_ptr<vector<string>> userGroupIds_ {};
   };
 

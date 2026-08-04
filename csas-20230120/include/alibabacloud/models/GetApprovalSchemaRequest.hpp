@@ -38,6 +38,10 @@ namespace Models
 
 
   protected:
+    // The ID of the approval template. Call [ListApprovalSchemas](~~ListApprovalSchemas~~) to list approval templates.
+    // 
+    // - [ListApprovalSchemas](~~ListApprovalSchemas~~): List approval templates in batches.
+    // 
     // This parameter is required.
     shared_ptr<string> schemaId_ {};
   };

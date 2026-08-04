@@ -87,14 +87,25 @@ namespace Models
 
 
   protected:
+    // The value of a user group property. The value must be 1 to 128 characters in length.
     shared_ptr<string> attributeValue_ {};
+    // The page number of the current page in a paged query. Valid values: 1 to 10000.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // 用户组名称。长度为1~128个字符，支持中文和大小写英文字母，可包含数字、半角句号（.）、下划线（_）和短划线（-）。
+    // The name of the user group. The name must be 1 to 128 characters in length. It can contain letters, digits, periods (.), underscores (_), and hyphens (-). It supports both uppercase and lowercase letters and Chinese characters.
     shared_ptr<string> name_ {};
+    // The ID of an internal network access policy. You can get this value from:
+    // 
+    // - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): List internal network access policies.
+    // 
+    // - [CreatePrivateAccessPolicy](~~CreatePrivateAccessPolicy~~): Create an internal network access policy.
     shared_ptr<string> PAPolicyId_ {};
+    // The number of entries per page in a paged query. Valid values: 1 to 1000.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // A collection of user group IDs. You can specify up to 100 IDs.
     shared_ptr<vector<string>> userGroupIds_ {};
   };
 

@@ -75,12 +75,20 @@ namespace Models
 
 
   protected:
+    // The address of the private access application. The address must be 1 to 128 characters in length. It supports IPv4 addresses, CIDR blocks, domain names, and wildcard domain names. Fuzzy search is supported.
     shared_ptr<string> address_ {};
+    // The current page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
+    // The name of the private access application. The name must be 1 to 128 characters in length. It can contain Chinese characters, letters, digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> name_ {};
+    // The number of entries per page for pagination. Valid values: 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The user ID.
+    // 
     // This parameter is required.
     shared_ptr<string> saseUserId_ {};
   };

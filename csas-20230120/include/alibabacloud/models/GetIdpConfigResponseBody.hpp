@@ -216,25 +216,45 @@ namespace Models
 
 
     protected:
-      // AccessKey ID
+      // AccessKey ID for the IDaaS identity provider.
       shared_ptr<string> accessKey_ {};
-      // AccessKey Secret
+      // AccessKey for the IDaaS identity provider.
       shared_ptr<string> accessKeySecret_ {};
+      // Description of the identity provider configuration.
       shared_ptr<string> description_ {};
+      // URL to query the organizational structure from a custom identity provider.
       shared_ptr<string> getGroupUrl_ {};
+      // ID of the identity provider configuration.
       shared_ptr<string> id_ {};
+      // Metadata of the identity provider (IdP).
       shared_ptr<string> idpMetadata_ {};
+      // Type of multi-factor authentication (MFA) configuration.
       shared_ptr<string> mfaConfigType_ {};
+      // Login type for mobile clients.
       shared_ptr<string> mobileLoginType_ {};
+      // Type of MFA configuration for mobile clients.
       shared_ptr<string> mobileMfaConfigType_ {};
+      // List of IDs for multiple identity providers.
       shared_ptr<string> multiIdpInfo_ {};
+      // Name of the identity provider configuration.
       shared_ptr<string> name_ {};
+      // Login type for PC clients.
       shared_ptr<string> pcLoginType_ {};
+      // Status of the identity provider configuration. Valid values:
+      // 
+      // - **Enabled**: Enabled.
+      // 
+      // - **Disabled**: Disabled.
       shared_ptr<string> status_ {};
+      // Type of the identity provider configuration.
       shared_ptr<string> type_ {};
+      // Time when the configuration was last updated.
       shared_ptr<string> updateTime_ {};
+      // AES key used to encrypt requests to a custom MFA service.
       shared_ptr<string> verifyAesKey_ {};
+      // Token used to verify signatures in requests to a custom MFA service.
       shared_ptr<string> verifyToken_ {};
+      // URL used to verify one-time passwords with a custom MFA service.
       shared_ptr<string> verifyUrl_ {};
     };
 
@@ -257,7 +277,9 @@ namespace Models
 
 
   protected:
+    // Identity provider configuration.
     shared_ptr<GetIdpConfigResponseBody::Data> data_ {};
+    // ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

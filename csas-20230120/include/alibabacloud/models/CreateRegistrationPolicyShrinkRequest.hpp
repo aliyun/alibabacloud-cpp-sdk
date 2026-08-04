@@ -135,21 +135,57 @@ namespace Models
 
 
   protected:
+    // The restriction count for company devices.
     shared_ptr<string> companyLimitCountShrink_ {};
+    // The restriction type for company devices. Valid values:
+    // 
+    // - **Unlimited**: No restrictions.
+    // 
+    // - **LimitAll**: Limit by total count.
+    // 
+    // - **LimitDiff**: Limit by device category.
+    // 
     // This parameter is required.
     shared_ptr<string> companyLimitType_ {};
+    // A description of the device registration policy. The description must be 1 to 128 characters in length. It can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
     shared_ptr<string> description_ {};
+    // The target type for policy matching. Valid values:
+    // 
+    // - **UserGroupAll**: Apply to all users.
+    // 
+    // - **UserGroupNormal**: Apply to selected user groups.
+    // 
     // This parameter is required.
     shared_ptr<string> matchMode_ {};
+    // The name of the device registration policy. The name must be 1 to 128 characters in length. It can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The restriction count for personal devices.
     shared_ptr<string> personalLimitCountShrink_ {};
+    // The restriction type for personal devices. Valid values:
+    // 
+    // - **Unlimited**: No restrictions.
+    // 
+    // - **LimitAll**: Limit by total count.
+    // 
+    // - **LimitDiff**: Limit by device category.
+    // 
     // This parameter is required.
     shared_ptr<string> personalLimitType_ {};
+    // The priority of the device registration policy. A value of 0 indicates the highest priority. A value of 99 indicates the lowest priority.
     shared_ptr<int64_t> priority_ {};
+    // The status of the device registration policy. Valid values:
+    // 
+    // - **Enabled**: Enabled.
+    // 
+    // - **Disabled**: Disabled.
+    // 
     // This parameter is required.
     shared_ptr<string> status_ {};
+    // The IDs of user groups to which the device registration policy applies. Required if MatchMode is set to **UserGroupNormal**. A maximum of 100 user groups can be specified per policy.
     shared_ptr<vector<string>> userGroupIds_ {};
+    // The list of usernames in the whitelist for the device registration policy. You can specify up to 1,000 usernames.
     shared_ptr<vector<string>> whitelist_ {};
   };
 

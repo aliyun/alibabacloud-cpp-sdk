@@ -59,6 +59,7 @@ namespace Models
 
 
     protected:
+      // The mapped digital-format watermark information. This value can be used to look up the corresponding string-format watermark information.
       shared_ptr<int64_t> wmInfoUint_ {};
     };
 
@@ -81,7 +82,9 @@ namespace Models
 
 
   protected:
+    // The mapping result.
     shared_ptr<CreateWmInfoMappingResponseBody::Data> data_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

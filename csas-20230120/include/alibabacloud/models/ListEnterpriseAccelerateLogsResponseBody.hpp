@@ -136,14 +136,23 @@ namespace Models
 
 
     protected:
+      // Department.
       shared_ptr<string> department_ {};
+      // Device type.
       shared_ptr<string> deviceType_ {};
+      // Destination endpoint.
       shared_ptr<string> dstAddr_ {};
+      // Inbound traffic, in bytes.
       shared_ptr<string> inBytes_ {};
+      // Outbound traffic, in bytes.
       shared_ptr<string> outBytes_ {};
+      // Enterprise acceleration policy name.
       shared_ptr<string> policyName_ {};
+      // Enterprise acceleration instance address.
       shared_ptr<string> proxyAddr_ {};
+      // Time.
       shared_ptr<string> unixTime_ {};
+      // Username.
       shared_ptr<string> username_ {};
     };
 
@@ -173,8 +182,11 @@ namespace Models
 
 
   protected:
+    // List of logs.
     shared_ptr<vector<ListEnterpriseAccelerateLogsResponseBody::Logs>> logs_ {};
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
+    // Total number of logs.
     shared_ptr<int32_t> totalNumber_ {};
   };
 

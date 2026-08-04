@@ -103,14 +103,27 @@ namespace Models
 
 
   protected:
+    // Current page number.
     shared_ptr<int64_t> currentPage_ {};
+    // Department ID.
     shared_ptr<string> departmentId_ {};
+    // Email address.
     shared_ptr<string> email_ {};
+    // Custom identity source configuration ID.
+    // 
     // This parameter is required.
     shared_ptr<string> idpConfigId_ {};
+    // Mobile phone number without country code.
     shared_ptr<string> mobileNumber_ {};
+    // Page size.
     shared_ptr<int64_t> pageSize_ {};
+    // User enable status. Valid values:
+    // 
+    // - **Enabled**: enabled.
+    // 
+    // - **Disabled**: disabled.
     shared_ptr<string> status_ {};
+    // Username.
     shared_ptr<string> username_ {};
   };
 

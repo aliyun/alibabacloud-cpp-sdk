@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // ID of the enterprise acceleration policy.
+    // 
     // This parameter is required.
     shared_ptr<string> eapId_ {};
+    // URL of the file to import.
+    // 
     // This parameter is required.
     shared_ptr<string> fileUrl_ {};
   };

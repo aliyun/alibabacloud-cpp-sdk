@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // A collection of user group IDs. You can specify up to 100 user group IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> userGroupIds_ {};
   };

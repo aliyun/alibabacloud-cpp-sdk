@@ -103,13 +103,35 @@ namespace Models
 
 
   protected:
+    // Page number of the current page in a paged query. Valid values: 1 to 10000.
     shared_ptr<string> currentPage_ {};
+    // Department that the user belongs to. The value must be 1 to 128 characters in length. It can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces.
     shared_ptr<string> department_ {};
+    // Operating system type of the endpoint device. Valid values:
+    // 
+    // - **windows**: Windows.
+    // 
+    // - **macos**: macOS.
+    // 
+    // - **linux**: Linux.
+    // 
+    // - **android**: Android.
+    // 
+    // - **ios**: iOS.
     shared_ptr<string> deviceType_ {};
+    // End time.
     shared_ptr<int64_t> endTime_ {};
+    // Number of entries per page for a paged query. Valid values: 1 to 1000.
     shared_ptr<string> pageSize_ {};
+    // Start time.
     shared_ptr<int64_t> startTime_ {};
+    // Certificate status. Valid values:
+    // 
+    // - **Enabled**: Enabled.
+    // 
+    // - **Disabled**: Disabled.
     shared_ptr<string> status_ {};
+    // Username.
     shared_ptr<string> username_ {};
   };
 

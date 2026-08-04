@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Current page number.
     shared_ptr<int64_t> currentPage_ {};
+    // Specified IdP configuration types. Separate multiple types with a comma (,).
     shared_ptr<string> include_ {};
+    // Page size.
     shared_ptr<int64_t> pageSize_ {};
   };
 

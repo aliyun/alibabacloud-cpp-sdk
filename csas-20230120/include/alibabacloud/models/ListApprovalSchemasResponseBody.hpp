@@ -127,13 +127,33 @@ namespace Models
 
 
     protected:
+      // The creation time of the approval template.
       shared_ptr<string> createTime_ {};
+      // The description of the approval template.
       shared_ptr<string> description_ {};
+      // Indicates if it is an officially maintained template.
       shared_ptr<bool> isDefault_ {};
+      // The policy type. Valid values:
+      // 
+      // - **DomainBlacklist**: Domain blacklist.
+      // 
+      // - **DomainWhitelist**: Domain whitelist.
+      // 
+      // - **SoftwareBlock**: Software disable.
+      // 
+      // - **AppUninstall**: Terminal uninstall.
+      // 
+      // - **DlpSend**: File outbound.
+      // 
+      // - **PeripheralBlock**: Peripheral control.
       shared_ptr<string> policyType_ {};
+      // The content of the approval template.
       shared_ptr<string> schemaContent_ {};
+      // The approval template ID.
       shared_ptr<string> schemaId_ {};
+      // The approval template name.
       shared_ptr<string> schemaName_ {};
+      // The approval template version.
       shared_ptr<int64_t> schemaVersion_ {};
     };
 
@@ -163,8 +183,11 @@ namespace Models
 
 
   protected:
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
+    // The list of approval templates.
     shared_ptr<vector<ListApprovalSchemasResponseBody::Schemas>> schemas_ {};
+    // The total number of approval templates.
     shared_ptr<string> totalNum_ {};
   };
 

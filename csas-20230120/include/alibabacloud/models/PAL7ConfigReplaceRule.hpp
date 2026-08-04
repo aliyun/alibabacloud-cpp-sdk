@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The original content to be replaced.
     shared_ptr<string> from_ {};
+    // The target content for replacement.
     shared_ptr<string> to_ {};
   };
 

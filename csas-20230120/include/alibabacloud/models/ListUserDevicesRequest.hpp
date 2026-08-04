@@ -34,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(SaseUserId, saseUserId_);
       DARABONBA_PTR_TO_JSON(SharingStatus, sharingStatus_);
+      DARABONBA_PTR_TO_JSON(SnBios, snBios_);
       DARABONBA_PTR_TO_JSON(SnSystem, snSystem_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
       DARABONBA_PTR_TO_JSON(Username, username_);
@@ -60,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(SaseUserId, saseUserId_);
       DARABONBA_PTR_FROM_JSON(SharingStatus, sharingStatus_);
+      DARABONBA_PTR_FROM_JSON(SnBios, snBios_);
       DARABONBA_PTR_FROM_JSON(SnSystem, snSystem_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
       DARABONBA_PTR_FROM_JSON(Username, username_);
@@ -80,8 +82,8 @@ namespace Models
         && this->appVersions_ == nullptr && this->autoLoginStatuses_ == nullptr && this->currentPage_ == nullptr && this->department_ == nullptr && this->deviceBelong_ == nullptr
         && this->deviceGroupId_ == nullptr && this->deviceStatuses_ == nullptr && this->deviceTags_ == nullptr && this->deviceTypes_ == nullptr && this->dlpStatuses_ == nullptr
         && this->hostname_ == nullptr && this->iaStatuses_ == nullptr && this->innerIp_ == nullptr && this->mac_ == nullptr && this->nacStatuses_ == nullptr
-        && this->paStatuses_ == nullptr && this->pageSize_ == nullptr && this->saseUserId_ == nullptr && this->sharingStatus_ == nullptr && this->snSystem_ == nullptr
-        && this->sortBy_ == nullptr && this->username_ == nullptr && this->workshop_ == nullptr; };
+        && this->paStatuses_ == nullptr && this->pageSize_ == nullptr && this->saseUserId_ == nullptr && this->sharingStatus_ == nullptr && this->snBios_ == nullptr
+        && this->snSystem_ == nullptr && this->sortBy_ == nullptr && this->username_ == nullptr && this->workshop_ == nullptr; };
     // appStatuses Field Functions 
     bool hasAppStatuses() const { return this->appStatuses_ != nullptr;};
     void deleteAppStatuses() { this->appStatuses_ = nullptr;};
@@ -242,6 +244,13 @@ namespace Models
     inline ListUserDevicesRequest& setSharingStatus(bool sharingStatus) { DARABONBA_PTR_SET_VALUE(sharingStatus_, sharingStatus) };
 
 
+    // snBios Field Functions 
+    bool hasSnBios() const { return this->snBios_ != nullptr;};
+    void deleteSnBios() { this->snBios_ = nullptr;};
+    inline string getSnBios() const { DARABONBA_PTR_GET_DEFAULT(snBios_, "") };
+    inline ListUserDevicesRequest& setSnBios(string snBios) { DARABONBA_PTR_SET_VALUE(snBios_, snBios) };
+
+
     // snSystem Field Functions 
     bool hasSnSystem() const { return this->snSystem_ != nullptr;};
     void deleteSnSystem() { this->snSystem_ = nullptr;};
@@ -271,31 +280,68 @@ namespace Models
 
 
   protected:
+    // The collection of client statuses.
     shared_ptr<vector<string>> appStatuses_ {};
+    // The collection of client versions.
     shared_ptr<vector<string>> appVersions_ {};
     shared_ptr<vector<string>> autoLoginStatuses_ {};
+    // The page number of the current page in a paging query. Valid values: 1 to 10000.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
+    // The department to which the user belongs. The value is 1 to 128 characters in length and supports Chinese characters and uppercase and lowercase letters. It can contain digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces.
     shared_ptr<string> department_ {};
+    // The ownership of the endpoint device. Valid values:
+    // - **Personal**: personal device.
+    // - **Company**: company device.
     shared_ptr<string> deviceBelong_ {};
+    // The device group ID.
     shared_ptr<string> deviceGroupId_ {};
+    // The collection of endpoint device statuses.
     shared_ptr<vector<string>> deviceStatuses_ {};
+    // The collection of endpoint device IDs.
     shared_ptr<vector<string>> deviceTags_ {};
+    // The collection of endpoint device operating system types.
     shared_ptr<vector<string>> deviceTypes_ {};
+    // The collection of office data protection statuses.
     shared_ptr<vector<string>> dlpStatuses_ {};
+    // The name of the endpoint device. The value is 1 to 128 characters in length and supports Chinese characters and uppercase and lowercase letters. It can contain digits, periods (.), commas (,), semicolons (;), hyphens (-), underscores (_), forward slashes (/), at signs (@), and spaces. If you enter only an underscore (_), endpoint devices whose names contain 4-byte UTF-8 characters are also queried.
     shared_ptr<string> hostname_ {};
+    // The collection of Internet access statuses.
     shared_ptr<vector<string>> iaStatuses_ {};
+    // The internal IP address of the endpoint device.
     shared_ptr<string> innerIp_ {};
+    // The MAC address of the endpoint device.
     shared_ptr<string> mac_ {};
+    // The collection of network access control statuses.
     shared_ptr<vector<string>> nacStatuses_ {};
+    // The collection of private access statuses.
     shared_ptr<vector<string>> paStatuses_ {};
+    // The number of entries per page in a paging query. Settings: 1 to 500.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
+    // The user ID. You can obtain this value from the following operations:
+    // - [GetUserDevice](~~GetUserDevice~~): Queries the details of a user endpoint device.
+    // - [ListUserDevices](~~ListUserDevices~~): Lists user endpoint devices.
     shared_ptr<string> saseUserId_ {};
+    // Specifies whether sharing is enabled for the device. Valid values:
+    // - **true**: Sharing is enabled.
+    // - **false**: Sharing is disabled.
     shared_ptr<bool> sharingStatus_ {};
+    // The BIOS system serial number.
+    shared_ptr<string> snBios_ {};
+    // The system serial number.
     shared_ptr<string> snSystem_ {};
+    // The sort parameter. Valid values:
+    // - **Username**: sorted by Username in ascending order.
+    // - **AppVersion**: sorted by AppVersion in descending order.
+    // - **UpdateTime**: sorted by UpdateTime in descending order.
+    // - **CreateTime**: sorted by CreateTime in descending order.
     shared_ptr<string> sortBy_ {};
+    // The username. The value is 1 to 128 characters in length and supports Chinese characters and uppercase and lowercase letters. It can contain digits, periods (.), underscores (_), hyphens (-), asterisks (*), at signs (@), and spaces.
     shared_ptr<string> username_ {};
+    // The name of the office area.
     shared_ptr<string> workshop_ {};
   };
 

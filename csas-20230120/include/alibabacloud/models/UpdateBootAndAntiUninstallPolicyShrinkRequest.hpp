@@ -89,11 +89,17 @@ namespace Models
 
 
   protected:
+    // Let end users submit approval requests.
     shared_ptr<bool> allowReport_ {};
+    // Content shown in the client-side block dialog.
     shared_ptr<string> blockContentShrink_ {};
+    // Enable anti-uninstall.
     shared_ptr<bool> isAntiUninstall_ {};
+    // Enable auto-start.
     shared_ptr<bool> isBoot_ {};
+    // List of user group IDs to which this policy applies.
     shared_ptr<vector<string>> userGroupIds_ {};
+    // List of whitelisted users.
     shared_ptr<vector<string>> whitelistUsers_ {};
   };
 

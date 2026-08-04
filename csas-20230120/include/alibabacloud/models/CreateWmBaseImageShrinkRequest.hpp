@@ -121,20 +121,55 @@ namespace Models
 
 
   protected:
+    // Height of the watermark image, in pixels. Valid values: 100 to 5000.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> height_ {};
+    // Image watermark control parameters.
     shared_ptr<string> imageControlShrink_ {};
+    // Opacity of the watermark image. Valid values: 1 to 255. Higher values mean lower transparency.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> opacity_ {};
+    // Scaling factor of the watermark image.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> scale_ {};
+    // Width of the watermark image, in pixels. Valid values: 100 to 5000.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> width_ {};
+    // Base64-encoded watermark information. Length: 1 to 300 characters. Do not set this parameter if you set WmInfoUint.
     shared_ptr<string> wmInfoBytesB64_ {};
+    // Bit width of the watermark information. Default value: 32. This value must be the same during embedding and extraction. For example, if you use a 40-bit SDK to embed the watermark, set this value to 40 when extracting it.
     shared_ptr<int64_t> wmInfoSize_ {};
+    // Decimal-form watermark information. Do not set this parameter if you set WmInfoBytesB64.
+    // 
+    // The valid range depends on the WmInfoSize value:
+    // 
+    // - If WmInfoSize is **32**, the valid range is 1 to 4294967295.
+    // 
+    // - If WmInfoSize is **40**, the valid range is 1 to 1099511627775.
+    // 
+    // - If WmInfoSize is **64**, the valid range is 1 to 18446744073709551615.
     shared_ptr<string> wmInfoUint_ {};
+    // Watermark type. Valid values:
+    // 
+    // - **PureWebappInvisible**: Web watermark.
+    // 
+    // - **PureAppInvisible**: App watermark.
+    // 
+    // - **PureScreenInvisible**: Screen watermark.
+    // 
+    // - **AigcWebappInvisible**: AIGC web watermark.
+    // 
+    // - **AigcAppInvisible**: AIGC app watermark.
+    // 
+    // - **AigcScreenInvisible**: AIGC screen watermark.
+    // 
     // This parameter is required.
     shared_ptr<string> wmType_ {};
+    // Comments.
     shared_ptr<string> comment_ {};
   };
 

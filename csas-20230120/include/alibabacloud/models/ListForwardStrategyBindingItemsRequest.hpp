@@ -51,8 +51,13 @@ namespace Models
 
 
   protected:
+    // The forwarding rule ID.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> forwardIds_ {};
+    // The binding item type. Valid values:
+    // - **Application**: internal-facing application
+    // - **UserGroup**: user group.
     shared_ptr<string> itemType_ {};
   };
 

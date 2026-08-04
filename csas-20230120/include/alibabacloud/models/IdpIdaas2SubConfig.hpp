@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the application within the IDaaS instance.
     shared_ptr<string> applicationId_ {};
+    // The client ID of the application registered with the identity provider.
     shared_ptr<string> clientId_ {};
+    // The client secret used to authenticate the application with the identity provider.
     shared_ptr<string> clientSecret_ {};
+    // The AES encryption key for securing event data.
     shared_ptr<string> eventAesKey_ {};
+    // A label that identifies the event subscription.
     shared_ptr<string> eventLabel_ {};
+    // The unique identifier of the IDaaS instance.
     shared_ptr<string> instanceId_ {};
+    // The URL of the endpoint providing the public key for token signature verification.
     shared_ptr<string> publicKeyEndpoint_ {};
+    // The deployment region of the IDaaS instance.
     shared_ptr<string> region_ {};
+    // The SAML metadata in XML format. It specifies the identity provider\\"s configuration, including endpoints and certificates.
     shared_ptr<string> samlMetadata_ {};
   };
 

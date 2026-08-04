@@ -173,16 +173,31 @@ namespace Models
 
 
       protected:
+        // IdP configuration description.
         shared_ptr<string> description_ {};
+        // IdP configuration ID.
         shared_ptr<string> id_ {};
+        // Multi-factor authentication (MFA) type.
         shared_ptr<string> mfa_ {};
+        // Mobile login type.
         shared_ptr<string> mobileLoginType_ {};
+        // Mobile MFA configuration type.
         shared_ptr<string> mobileMfaConfigType_ {};
+        // List of multiple IdP configuration IDs.
         shared_ptr<string> multiIdpInfo_ {};
+        // IdP configuration name.
         shared_ptr<string> name_ {};
+        // PC login type.
         shared_ptr<string> pcLoginType_ {};
+        // IdP configuration enable status. Values:
+        // 
+        // - **Enabled**: Enabled.
+        // 
+        // - **Disabled**: Disabled.
         shared_ptr<string> status_ {};
+        // IdP configuration type.
         shared_ptr<string> type_ {};
+        // Update time.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -205,7 +220,9 @@ namespace Models
 
 
     protected:
+      // List of IdP configurations.
       shared_ptr<vector<Data::DataList>> dataList_ {};
+      // Total number of records.
       shared_ptr<int64_t> totalNum_ {};
     };
 
@@ -228,7 +245,9 @@ namespace Models
 
 
   protected:
+    // IdP configurations.
     shared_ptr<ListIdpConfigsResponseBody::Data> data_ {};
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -51,8 +51,22 @@ namespace Models
 
 
   protected:
+    // The action to perform on the endpoint device status. Valid values:
+    // 
+    // - **Locked**: Lock the device.
+    // 
+    // - **Lost**: Report the device as lost.
+    // 
+    // - **Unbound**: Detach the device. You can detach only offline or long-term offline devices.
+    // 
+    // - **Unlocked**: Unlock the device. You can unlock only locked devices.
+    // 
+    // - **Found**: Mark the device as found. You can mark only lost devices as found.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceAction_ {};
+    // A list of endpoint device IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> deviceTags_ {};
   };

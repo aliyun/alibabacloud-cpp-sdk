@@ -38,6 +38,10 @@ namespace Models
 
 
   protected:
+    // The ID of the extraction task. You can obtain the task ID by calling the [CreateWmExtractTask](~~CreateWmExtractTask~~) operation.
+    // 
+    // - [CreateWmExtractTask](~~CreateWmExtractTask~~): Create a watermark extraction task.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

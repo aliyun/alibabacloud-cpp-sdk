@@ -66,12 +66,19 @@ namespace Models
 
 
   protected:
+    // Page number to display in a paged query. Valid values: 1 to 10000.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
+    // Enterprise Acceleration Policy ID.
+    // 
     // This parameter is required.
     shared_ptr<string> eapId_ {};
+    // Number of entries per page in a paged query. Valid values: 1 to 1000.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
+    // Enterprise acceleration target. Supports fuzzy query.
     shared_ptr<string> target_ {};
   };
 

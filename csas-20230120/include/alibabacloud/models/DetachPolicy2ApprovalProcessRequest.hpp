@@ -57,10 +57,28 @@ namespace Models
 
 
   protected:
+    // Business policy ID.
+    // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
+    // Policy type. Valid values:
+    // 
+    // - **DomainBlacklist**: Domain blacklist.
+    // 
+    // - **DomainWhitelist**: Domain whitelist.
+    // 
+    // - **SoftwareBlock**: Software disable.
+    // 
+    // - **AppUninstall**: Terminal uninstall.
+    // 
+    // - **DlpSend**: File outbound transfer.
+    // 
+    // - **PeripheralBlock**: Peripheral control.
+    // 
     // This parameter is required.
     shared_ptr<string> policyType_ {};
+    // Approval process ID.
+    // 
     // This parameter is required.
     shared_ptr<string> processId_ {};
   };

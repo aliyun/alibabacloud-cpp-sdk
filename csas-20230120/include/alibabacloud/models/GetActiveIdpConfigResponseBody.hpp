@@ -87,9 +87,13 @@ namespace Models
 
 
     protected:
+      // A description of the identity provider configuration.
       shared_ptr<string> description_ {};
+      // The ID of the identity provider configuration.
       shared_ptr<string> id_ {};
+      // The name of the identity provider configuration.
       shared_ptr<string> name_ {};
+      // The type of the identity provider configuration.
       shared_ptr<string> type_ {};
     };
 
@@ -112,7 +116,9 @@ namespace Models
 
 
   protected:
+    // The identity provider configuration.
     shared_ptr<GetActiveIdpConfigResponseBody::Data> data_ {};
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

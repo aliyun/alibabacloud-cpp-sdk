@@ -215,9 +215,13 @@ namespace Models
 
 
       protected:
+        // The CPU usage percentage of the process.
         shared_ptr<double> cpu_ {};
+        // The process running description.
         shared_ptr<string> description_ {};
+        // The memory usage of the process, in MB.
         shared_ptr<int32_t> memory_ {};
+        // The process name.
         shared_ptr<string> name_ {};
       };
 
@@ -259,7 +263,9 @@ namespace Models
 
 
       protected:
+        // The MAC address of the NIC.
         shared_ptr<string> mac_ {};
+        // The name of the NIC.
         shared_ptr<string> name_ {};
       };
 
@@ -301,7 +307,9 @@ namespace Models
 
 
       protected:
+        // The user ID.
         shared_ptr<string> saseUserId_ {};
+        // The username.
         shared_ptr<string> username_ {};
       };
 
@@ -711,60 +719,115 @@ namespace Models
 
 
     protected:
+      // The client status. Valid values:
       shared_ptr<string> appStatus_ {};
+      // The client version.
       shared_ptr<string> appVersion_ {};
+      // The auto-logon status of the device. Valid values:
       shared_ptr<string> autoLoginStatus_ {};
+      // The battery health percentage.
       shared_ptr<int32_t> batteryHealthPercentage_ {};
+      // The battery remaining charge percentage.
       shared_ptr<int32_t> batteryRemainingPercentage_ {};
+      // The CPU model of the terminal device.
       shared_ptr<string> CPU_ {};
+      // The city to which the public IP address belongs.
       shared_ptr<string> city_ {};
+      // The city name in English.
       shared_ptr<string> cityEn_ {};
+      // The city name in Chinese.
       shared_ptr<string> cityZh_ {};
+      // The continent to which the public IP address belongs.
       shared_ptr<string> continent_ {};
+      // The continent name in English.
       shared_ptr<string> continentEn_ {};
+      // The continent name in Chinese.
       shared_ptr<string> continentZh_ {};
+      // The country to which the public IP address belongs.
       shared_ptr<string> country_ {};
+      // The country name in English.
       shared_ptr<string> countryEn_ {};
+      // The country name in Chinese.
       shared_ptr<string> countryZh_ {};
+      // The registration time of the terminal device.
       shared_ptr<string> createTime_ {};
+      // The department to which the user belongs.
       shared_ptr<string> department_ {};
+      // The ownership of the terminal device. Valid values:
       shared_ptr<string> deviceBelong_ {};
+      // The model of the terminal device.
       shared_ptr<string> deviceModel_ {};
+      // The status of the terminal device. Valid values:
       shared_ptr<string> deviceStatus_ {};
+      // The ID of the terminal device.
       shared_ptr<string> deviceTag_ {};
+      // The operating system type of the terminal device. Valid values:
       shared_ptr<string> deviceType_ {};
+      // The operating system version of the terminal device.
       shared_ptr<string> deviceVersion_ {};
+      // The disk model of the terminal device.
       shared_ptr<string> disk_ {};
+      // The available disk space, in GB.
       shared_ptr<int32_t> diskAvailable_ {};
+      // The used disk space, in GB.
       shared_ptr<int32_t> diskUsed_ {};
+      // The office data protection status. Valid values:
       shared_ptr<string> dlpStatus_ {};
+      // The anti-intrusion status. Valid values:
       shared_ptr<string> edrStatus_ {};
+      // The historical users of the terminal device.
       shared_ptr<vector<Device::HistoryUsers>> historyUsers_ {};
+      // The name of the terminal device.
       shared_ptr<string> hostname_ {};
+      // The Internet access status. Valid values:
       shared_ptr<string> iaStatus_ {};
+      // The internal IP address of the terminal device.
       shared_ptr<string> innerIP_ {};
+      // Indicates whether the terminal has joined an AD domain.
       shared_ptr<bool> joinAdDomain_ {};
+      // The MAC address of the terminal device.
       shared_ptr<string> mac_ {};
+      // The IDs of matched device groups.
       shared_ptr<vector<string>> matchDeviceGroupIds_ {};
+      // The memory capacity of the terminal device. Unit: GB.
       shared_ptr<string> memory_ {};
+      // The network access control status. Valid values:
       shared_ptr<string> nacStatus_ {};
+      // The list of network interface controllers (NICs) of the terminal device.
       shared_ptr<vector<Device::NetInterfaceInfo>> netInterfaceInfo_ {};
+      // The private access status. Valid values:
       shared_ptr<string> paStatus_ {};
+      // The list of processes running on the terminal.
       shared_ptr<vector<Device::Processes>> processes_ {};
+      // The province to which the public IP address belongs.
       shared_ptr<string> province_ {};
+      // The province name in English.
       shared_ptr<string> provinceEn_ {};
+      // The province name in Chinese.
       shared_ptr<string> provinceZh_ {};
+      // The user ID.
       shared_ptr<string> saseUserId_ {};
+      // Indicates whether sharing is enabled for the device. Valid values:
       shared_ptr<bool> sharingStatus_ {};
+      // The motherboard serial number.
       shared_ptr<string> snBaseBoard_ {};
+      // The serial number (SN) of the BIOS system.
       shared_ptr<string> snBios_ {};
+      // The hard disk serial number.
       shared_ptr<string> snDiskDrive_ {};
+      // The serial number (SN) of the processor.
       shared_ptr<string> snProcessor_ {};
+      // The system serial number.
       shared_ptr<string> snSystem_ {};
+      // The logon IP address of the terminal device.
       shared_ptr<string> srcIP_ {};
+      // The timestamp when the terminal process information was collected.
       shared_ptr<int64_t> terminalInfoCollectTime_ {};
+      // The last online time of the terminal device.
       shared_ptr<string> updateTime_ {};
+      // The username.
       shared_ptr<string> username_ {};
+      // The name of the office area.
       shared_ptr<string> workshop_ {};
     };
 
@@ -787,7 +850,9 @@ namespace Models
 
 
   protected:
+    // The terminal device.
     shared_ptr<GetUserDeviceResponseBody::Device> device_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

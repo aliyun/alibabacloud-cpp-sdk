@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The collection of endpoint device IDs. A maximum of 100 entries are supported.
     shared_ptr<vector<string>> deviceTags_ {};
   };
 

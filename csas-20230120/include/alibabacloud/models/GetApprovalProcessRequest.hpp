@@ -38,6 +38,9 @@ namespace Models
 
 
   protected:
+    // The approval flow ID. Value source:
+    // - [ListApprovalProcesses](~~ListApprovalProcesses~~): queries the list of approval flows.
+    // 
     // This parameter is required.
     shared_ptr<string> processId_ {};
   };

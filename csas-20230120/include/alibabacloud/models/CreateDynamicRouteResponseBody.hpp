@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The dynamic route ID.
     shared_ptr<string> dynamicRouteId_ {};
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

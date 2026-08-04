@@ -49,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(SwitchStatus, switchStatus_);
         DARABONBA_PTR_TO_JSON(UpgradeTime, upgradeTime_);
+        DARABONBA_PTR_TO_JSON(VipCidr, vipCidr_);
       };
       friend void from_json(const Darabonba::Json& j, Connectors& obj) { 
         DARABONBA_PTR_FROM_JSON(AccelerateStatus, accelerateStatus_);
@@ -63,6 +64,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(SwitchStatus, switchStatus_);
         DARABONBA_PTR_FROM_JSON(UpgradeTime, upgradeTime_);
+        DARABONBA_PTR_FROM_JSON(VipCidr, vipCidr_);
       };
       Connectors() = default ;
       Connectors(const Connectors &) = default ;
@@ -113,9 +115,9 @@ namespace Models
 
 
       protected:
-        // End time.
+        // The end time of the upgrade window.
         shared_ptr<string> end_ {};
-        // Start time.
+        // The start time of the upgrade window.
         shared_ptr<string> start_ {};
       };
 
@@ -175,13 +177,13 @@ namespace Models
 
 
       protected:
-        // Connection status between the ConnectorClient and ConnectorServer.
+        // The connection status between the connector client and connector server.
         shared_ptr<string> connectionStatus_ {};
-        // Unique device identifier for the ConnectorClient.
+        // The unique device ID of the connector client.
         shared_ptr<string> devTag_ {};
-        // Hostname of the ConnectorClient.
+        // The hostname of the connector client.
         shared_ptr<string> hostname_ {};
-        // Public IP of the ConnectorClient.
+        // The public IP address of the connector client.
         shared_ptr<string> publicIp_ {};
       };
 
@@ -223,16 +225,16 @@ namespace Models
 
 
       protected:
-        // Internal network access application ID.
+        // The private access application ID.
         shared_ptr<string> applicationId_ {};
-        // Internal network access application name.
+        // The private access application name.
         shared_ptr<string> applicationName_ {};
       };
 
       virtual bool empty() const override { return this->accelerateStatus_ == nullptr
         && this->applications_ == nullptr && this->clusterIP_ == nullptr && this->clusterPort_ == nullptr && this->connectorClients_ == nullptr && this->connectorId_ == nullptr
         && this->createTime_ == nullptr && this->name_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr && this->switchStatus_ == nullptr
-        && this->upgradeTime_ == nullptr; };
+        && this->upgradeTime_ == nullptr && this->vipCidr_ == nullptr; };
       // accelerateStatus Field Functions 
       bool hasAccelerateStatus() const { return this->accelerateStatus_ != nullptr;};
       void deleteAccelerateStatus() { this->accelerateStatus_ = nullptr;};
@@ -323,37 +325,51 @@ namespace Models
       inline Connectors& setUpgradeTime(Connectors::UpgradeTime && upgradeTime) { DARABONBA_PTR_SET_RVALUE(upgradeTime_, upgradeTime) };
 
 
+      // vipCidr Field Functions 
+      bool hasVipCidr() const { return this->vipCidr_ != nullptr;};
+      void deleteVipCidr() { this->vipCidr_ = nullptr;};
+      inline string getVipCidr() const { DARABONBA_PTR_GET_DEFAULT(vipCidr_, "") };
+      inline Connectors& setVipCidr(string vipCidr) { DARABONBA_PTR_SET_VALUE(vipCidr_, vipCidr) };
+
+
     protected:
-      // Whether to enable global acceleration. Values: 
-      // - **Enabled**: Turn on. 
-      // - **Disabled**: Turn off.
+      // Indicates whether global acceleration is enabled. Valid values:
+      // 
+      // - **Enabled**: Global acceleration is enabled.
+      // 
+      // - **Disabled**: Global acceleration is disabled.
       shared_ptr<string> accelerateStatus_ {};
-      // Collection of associated internal network access applications.
+      // A list of associated private access applications.
       shared_ptr<vector<Connectors::Applications>> applications_ {};
-      // Cluster IP.
+      // The cluster IP address.
       shared_ptr<string> clusterIP_ {};
-      // Cluster port.
+      // The cluster port.
       shared_ptr<string> clusterPort_ {};
-      // Collection of deployed ConnectorClients.
+      // A list of deployed connector clients.
       shared_ptr<vector<Connectors::ConnectorClients>> connectorClients_ {};
-      // ConnectorID.
+      // The connector ID.
       shared_ptr<string> connectorId_ {};
-      // Connector creation time.
+      // The time the connector was created.
       shared_ptr<string> createTime_ {};
-      // Connector name.
+      // The connector name.
       shared_ptr<string> name_ {};
-      // Region ID.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // Connector connection status. Values:
-      // - **Online**: Online.
-      // - **Offline**: Offline.
+      // The connection status of the connector. Valid values:
+      // 
+      // - **Online**: The connector is online.
+      // 
+      // - **Offline**: The connector is offline.
       shared_ptr<string> status_ {};
-      // Connector instance status. Values:
-      // - **Enabled**: Enabled.
-      // - **Disabled**: Disabled.
+      // The status of the connector instance. Valid values:
+      // 
+      // - **Enabled**: The connector is enabled.
+      // 
+      // - **Disabled**: The connector is disabled.
       shared_ptr<string> switchStatus_ {};
-      // Connector升级时间。
+      // The upgrade window for the connector.
       shared_ptr<Connectors::UpgradeTime> upgradeTime_ {};
+      shared_ptr<string> vipCidr_ {};
     };
 
     virtual bool empty() const override { return this->connectors_ == nullptr
@@ -382,11 +398,11 @@ namespace Models
 
 
   protected:
-    // List of Connectors.
+    // A list of connectors.
     shared_ptr<vector<ListConnectorsResponseBody::Connectors>> connectors_ {};
-    // The ID of the current request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of Connectors.
+    // The total number of connectors.
     shared_ptr<int32_t> totalNum_ {};
   };
 

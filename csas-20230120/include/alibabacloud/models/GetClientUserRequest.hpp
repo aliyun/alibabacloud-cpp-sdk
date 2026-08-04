@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // ID of the custom identity source configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> idpConfigId_ {};
+    // Username.
+    // 
     // This parameter is required.
     shared_ptr<string> username_ {};
   };

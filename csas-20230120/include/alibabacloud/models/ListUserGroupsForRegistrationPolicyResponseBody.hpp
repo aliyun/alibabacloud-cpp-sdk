@@ -136,9 +136,33 @@ namespace Models
 
 
         protected:
+          // The identity provider ID for the user group. This field appears only when UserGroupType is **department**.
           shared_ptr<int32_t> idpId_ {};
+          // The relation for the user group. Valid values:
+          // 
+          // - **Equal**: Equal to.
+          // 
+          // - **Unequal**: Not equal to.
           shared_ptr<string> relation_ {};
+          // The type of the user group. Valid values:
+          // 
+          // - **username**: A username.
+          // 
+          // - **department**: A department.
+          // 
+          // - **email**: An email address.
+          // 
+          // - **telephone**: A phone number.
           shared_ptr<string> userGroupType_ {};
+          // The value of the user group attribute.
+          // 
+          // - If UserGroupType is **username**, this is the username. It must be 1–128 characters long and can contain uppercase and lowercase letters, Chinese characters, digits, periods (.), underscores (_), and hyphens (-).
+          // 
+          // - If UserGroupType is **department**, this is the department name. Example: OU=Department 1,OU=SASE DingTalk.
+          // 
+          // - If UserGroupType is **email**, this is the email address. Example: username\\@example.com.
+          // 
+          // - If UserGroupType is **telephone**, this is the phone number. Example: 13900001234.
           shared_ptr<string> value_ {};
         };
 
@@ -182,10 +206,15 @@ namespace Models
 
 
       protected:
+        // A collection of user group attributes.
         shared_ptr<vector<UserGroups::Attributes>> attributes_ {};
+        // The time when the user group was created.
         shared_ptr<string> createTime_ {};
+        // A description of the user group.
         shared_ptr<string> description_ {};
+        // The name of the user group.
         shared_ptr<string> name_ {};
+        // The ID of the user group.
         shared_ptr<string> userGroupId_ {};
       };
 
@@ -208,7 +237,9 @@ namespace Models
 
 
     protected:
+      // The ID of the device registration policy.
       shared_ptr<string> policyId_ {};
+      // A collection of user groups associated with the device registration policy.
       shared_ptr<vector<Policies::UserGroups>> userGroups_ {};
     };
 
@@ -231,7 +262,9 @@ namespace Models
 
 
   protected:
+    // A list of device registration policies.
     shared_ptr<vector<ListUserGroupsForRegistrationPolicyResponseBody::Policies>> policies_ {};
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
   };
 

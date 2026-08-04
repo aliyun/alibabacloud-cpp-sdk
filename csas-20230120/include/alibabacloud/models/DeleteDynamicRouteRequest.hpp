@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the dynamic route.
+    // 
     // This parameter is required.
     shared_ptr<string> dynamicRouteId_ {};
   };

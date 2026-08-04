@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // ID of this request.
     shared_ptr<string> requestId_ {};
+    // URL to download the file. The URL expires in one minute.
     shared_ptr<string> signedUrl_ {};
   };
 

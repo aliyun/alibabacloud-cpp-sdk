@@ -75,10 +75,43 @@ namespace Models
 
 
   protected:
+    // HTTP header or query parameter name. Required.
     shared_ptr<string> key_ {};
+    // Value to find and replace. Used only for the replace operation.
     shared_ptr<string> oldValue_ {};
+    // Operation type. Required.
+    // 
+    // - **add**: Add an item.
+    // 
+    // - **set**: Set a value.
+    // 
+    // - **delete**: Delete an item.
+    // 
+    // - **replace**: Replace a value.
     shared_ptr<string> op_ {};
+    // Target value as a string.
     shared_ptr<string> value_ {};
+    // Target value as a string. Valid values:
+    // 
+    // - **sase_app_name**: Application name.
+    // 
+    // - **sase_app_id**: Application ID.
+    // 
+    // - **sase_policy_name**: Zero Trust policy name.
+    // 
+    // - **sase_user_username**: Username.
+    // 
+    // - **sase_user_department**: User department.
+    // 
+    // - **sase_user_group_infos**: User organizational structure information.
+    // 
+    // - **sase_user_matched_user_groups**: User group information.
+    // 
+    // - **sase_client_addr**: Client address.
+    // 
+    // - **sase_client_ip**: Client IP address.
+    // 
+    // - **sase_client_port**: Client port.
     shared_ptr<string> valueVariable_ {};
   };
 

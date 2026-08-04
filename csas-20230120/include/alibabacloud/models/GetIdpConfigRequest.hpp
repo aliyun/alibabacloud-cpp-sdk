@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // ID of the identity provider configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
   };

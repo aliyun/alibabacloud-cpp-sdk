@@ -115,9 +115,33 @@ namespace Models
 
 
       protected:
+        // The ID of the identity provider (IdP) for the user group. This parameter is returned when UserGroupType is set to **department**.
         shared_ptr<int32_t> idpId_ {};
+        // The relationship of the user group. Valid values:
+        // 
+        // - **Equal**: Equal to.
+        // 
+        // - **Unequal**: Not equal to.
         shared_ptr<string> relation_ {};
+        // The type of the user group. Valid values:
+        // 
+        // - **username**: The username.
+        // 
+        // - **department**: The department.
+        // 
+        // - **email**: The email address.
+        // 
+        // - **telephone**: The mobile phone number.
         shared_ptr<string> userGroupType_ {};
+        // The value of the user group property.
+        // 
+        // - If UserGroupType is set to **username**, this parameter specifies the value of the username. The value can be 1 to 128 characters in length and can contain Chinese characters, letters, digits, periods (.), underscores (_), and hyphens (-).
+        // 
+        // - If UserGroupType is set to **department**, this parameter specifies the value of the department. Example: OU=Department 1,OU=SASE DingTalk.
+        // 
+        // - If UserGroupType is set to **email**, this parameter specifies the value of the email address. Example: username\\@example.com.
+        // 
+        // - If UserGroupType is set to **telephone**, this parameter specifies the value of the mobile phone number. Example: 13900001234.
         shared_ptr<string> value_ {};
       };
 
@@ -161,10 +185,15 @@ namespace Models
 
 
     protected:
+      // The collection of user group properties. The properties are evaluated with a logical OR operator.
       shared_ptr<vector<UserGroup::Attributes>> attributes_ {};
+      // The time when the user group was created.
       shared_ptr<string> createTime_ {};
+      // The description of the user group.
       shared_ptr<string> description_ {};
+      // The name of the user group.
       shared_ptr<string> name_ {};
+      // The ID of the user group.
       shared_ptr<string> userGroupId_ {};
     };
 
@@ -187,7 +216,9 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The user group.
     shared_ptr<GetUserGroupResponseBody::UserGroup> userGroup_ {};
   };
 

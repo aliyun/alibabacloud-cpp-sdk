@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int64_t> currentPage_ {};
+    // The ID of the custom IdP configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> idpConfigId_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
   };
 

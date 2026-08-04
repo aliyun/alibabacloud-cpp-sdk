@@ -56,6 +56,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DomainWhitelistSchemaId, domainWhitelistSchemaId_);
         DARABONBA_PTR_TO_JSON(EndpointHardeningSchemaId, endpointHardeningSchemaId_);
         DARABONBA_PTR_TO_JSON(PeripheralBlockSchemaId, peripheralBlockSchemaId_);
+        DARABONBA_PTR_TO_JSON(PrivateAccessBlockSchemaId, privateAccessBlockSchemaId_);
         DARABONBA_PTR_TO_JSON(SoftwareBlockSchemaId, softwareBlockSchemaId_);
         DARABONBA_PTR_TO_JSON(SoftwareHardeningSchemaId, softwareHardeningSchemaId_);
       };
@@ -67,6 +68,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DomainWhitelistSchemaId, domainWhitelistSchemaId_);
         DARABONBA_PTR_FROM_JSON(EndpointHardeningSchemaId, endpointHardeningSchemaId_);
         DARABONBA_PTR_FROM_JSON(PeripheralBlockSchemaId, peripheralBlockSchemaId_);
+        DARABONBA_PTR_FROM_JSON(PrivateAccessBlockSchemaId, privateAccessBlockSchemaId_);
         DARABONBA_PTR_FROM_JSON(SoftwareBlockSchemaId, softwareBlockSchemaId_);
         DARABONBA_PTR_FROM_JSON(SoftwareHardeningSchemaId, softwareHardeningSchemaId_);
       };
@@ -83,7 +85,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->appUninstallSchemaId_ == nullptr
         && this->deviceRegistrationSchemaId_ == nullptr && this->dlpSendSchemaId_ == nullptr && this->domainBlacklistSchemaId_ == nullptr && this->domainWhitelistSchemaId_ == nullptr && this->endpointHardeningSchemaId_ == nullptr
-        && this->peripheralBlockSchemaId_ == nullptr && this->softwareBlockSchemaId_ == nullptr && this->softwareHardeningSchemaId_ == nullptr; };
+        && this->peripheralBlockSchemaId_ == nullptr && this->privateAccessBlockSchemaId_ == nullptr && this->softwareBlockSchemaId_ == nullptr && this->softwareHardeningSchemaId_ == nullptr; };
       // appUninstallSchemaId Field Functions 
       bool hasAppUninstallSchemaId() const { return this->appUninstallSchemaId_ != nullptr;};
       void deleteAppUninstallSchemaId() { this->appUninstallSchemaId_ = nullptr;};
@@ -133,6 +135,13 @@ namespace Models
       inline MatchSchemas& setPeripheralBlockSchemaId(string peripheralBlockSchemaId) { DARABONBA_PTR_SET_VALUE(peripheralBlockSchemaId_, peripheralBlockSchemaId) };
 
 
+      // privateAccessBlockSchemaId Field Functions 
+      bool hasPrivateAccessBlockSchemaId() const { return this->privateAccessBlockSchemaId_ != nullptr;};
+      void deletePrivateAccessBlockSchemaId() { this->privateAccessBlockSchemaId_ = nullptr;};
+      inline string getPrivateAccessBlockSchemaId() const { DARABONBA_PTR_GET_DEFAULT(privateAccessBlockSchemaId_, "") };
+      inline MatchSchemas& setPrivateAccessBlockSchemaId(string privateAccessBlockSchemaId) { DARABONBA_PTR_SET_VALUE(privateAccessBlockSchemaId_, privateAccessBlockSchemaId) };
+
+
       // softwareBlockSchemaId Field Functions 
       bool hasSoftwareBlockSchemaId() const { return this->softwareBlockSchemaId_ != nullptr;};
       void deleteSoftwareBlockSchemaId() { this->softwareBlockSchemaId_ = nullptr;};
@@ -148,13 +157,21 @@ namespace Models
 
 
     protected:
+      // The ID of the device uninstall approval template.
       shared_ptr<string> appUninstallSchemaId_ {};
+      // The ID of the device registration approval template.
       shared_ptr<string> deviceRegistrationSchemaId_ {};
+      // The ID of the file outgoing approval template.
       shared_ptr<string> dlpSendSchemaId_ {};
+      // The ID of the domain name blacklist approval template.
       shared_ptr<string> domainBlacklistSchemaId_ {};
+      // The ID of the domain name whitelist approval template.
       shared_ptr<string> domainWhitelistSchemaId_ {};
       shared_ptr<string> endpointHardeningSchemaId_ {};
+      // The ID of the peripheral control approval template.
       shared_ptr<string> peripheralBlockSchemaId_ {};
+      shared_ptr<string> privateAccessBlockSchemaId_ {};
+      // The ID of the software blocking approval template.
       shared_ptr<string> softwareBlockSchemaId_ {};
       shared_ptr<string> softwareHardeningSchemaId_ {};
     };
@@ -169,6 +186,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DomainWhitelistSchemaConfig, domainWhitelistSchemaConfig_);
         DARABONBA_PTR_TO_JSON(EndpointHardeningSchemaConfig, endpointHardeningSchemaConfig_);
         DARABONBA_PTR_TO_JSON(PeripheralBlockSchemaConfig, peripheralBlockSchemaConfig_);
+        DARABONBA_PTR_TO_JSON(PrivateAccessBlockSchemaConfig, privateAccessBlockSchemaConfig_);
         DARABONBA_PTR_TO_JSON(SoftwareBlockSchemaConfig, softwareBlockSchemaConfig_);
         DARABONBA_PTR_TO_JSON(SoftwareHardeningSchemaConfig, softwareHardeningSchemaConfig_);
       };
@@ -180,6 +198,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DomainWhitelistSchemaConfig, domainWhitelistSchemaConfig_);
         DARABONBA_PTR_FROM_JSON(EndpointHardeningSchemaConfig, endpointHardeningSchemaConfig_);
         DARABONBA_PTR_FROM_JSON(PeripheralBlockSchemaConfig, peripheralBlockSchemaConfig_);
+        DARABONBA_PTR_FROM_JSON(PrivateAccessBlockSchemaConfig, privateAccessBlockSchemaConfig_);
         DARABONBA_PTR_FROM_JSON(SoftwareBlockSchemaConfig, softwareBlockSchemaConfig_);
         DARABONBA_PTR_FROM_JSON(SoftwareHardeningSchemaConfig, softwareHardeningSchemaConfig_);
       };
@@ -403,6 +422,112 @@ namespace Models
       protected:
         shared_ptr<string> externalProcessId_ {};
         shared_ptr<vector<SoftwareBlockSchemaConfig::FieldMap>> fieldMap_ {};
+        shared_ptr<string> schemaId_ {};
+      };
+
+      class PrivateAccessBlockSchemaConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const PrivateAccessBlockSchemaConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(ExternalProcessId, externalProcessId_);
+          DARABONBA_PTR_TO_JSON(FieldMap, fieldMap_);
+          DARABONBA_PTR_TO_JSON(SchemaId, schemaId_);
+        };
+        friend void from_json(const Darabonba::Json& j, PrivateAccessBlockSchemaConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(ExternalProcessId, externalProcessId_);
+          DARABONBA_PTR_FROM_JSON(FieldMap, fieldMap_);
+          DARABONBA_PTR_FROM_JSON(SchemaId, schemaId_);
+        };
+        PrivateAccessBlockSchemaConfig() = default ;
+        PrivateAccessBlockSchemaConfig(const PrivateAccessBlockSchemaConfig &) = default ;
+        PrivateAccessBlockSchemaConfig(PrivateAccessBlockSchemaConfig &&) = default ;
+        PrivateAccessBlockSchemaConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~PrivateAccessBlockSchemaConfig() = default ;
+        PrivateAccessBlockSchemaConfig& operator=(const PrivateAccessBlockSchemaConfig &) = default ;
+        PrivateAccessBlockSchemaConfig& operator=(PrivateAccessBlockSchemaConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class FieldMap : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const FieldMap& obj) { 
+            DARABONBA_PTR_TO_JSON(DisplayField, displayField_);
+            DARABONBA_PTR_TO_JSON(DisplayFieldValue, displayFieldValue_);
+            DARABONBA_PTR_TO_JSON(SystemField, systemField_);
+          };
+          friend void from_json(const Darabonba::Json& j, FieldMap& obj) { 
+            DARABONBA_PTR_FROM_JSON(DisplayField, displayField_);
+            DARABONBA_PTR_FROM_JSON(DisplayFieldValue, displayFieldValue_);
+            DARABONBA_PTR_FROM_JSON(SystemField, systemField_);
+          };
+          FieldMap() = default ;
+          FieldMap(const FieldMap &) = default ;
+          FieldMap(FieldMap &&) = default ;
+          FieldMap(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~FieldMap() = default ;
+          FieldMap& operator=(const FieldMap &) = default ;
+          FieldMap& operator=(FieldMap &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->displayField_ == nullptr
+        && this->displayFieldValue_ == nullptr && this->systemField_ == nullptr; };
+          // displayField Field Functions 
+          bool hasDisplayField() const { return this->displayField_ != nullptr;};
+          void deleteDisplayField() { this->displayField_ = nullptr;};
+          inline string getDisplayField() const { DARABONBA_PTR_GET_DEFAULT(displayField_, "") };
+          inline FieldMap& setDisplayField(string displayField) { DARABONBA_PTR_SET_VALUE(displayField_, displayField) };
+
+
+          // displayFieldValue Field Functions 
+          bool hasDisplayFieldValue() const { return this->displayFieldValue_ != nullptr;};
+          void deleteDisplayFieldValue() { this->displayFieldValue_ = nullptr;};
+          inline string getDisplayFieldValue() const { DARABONBA_PTR_GET_DEFAULT(displayFieldValue_, "") };
+          inline FieldMap& setDisplayFieldValue(string displayFieldValue) { DARABONBA_PTR_SET_VALUE(displayFieldValue_, displayFieldValue) };
+
+
+          // systemField Field Functions 
+          bool hasSystemField() const { return this->systemField_ != nullptr;};
+          void deleteSystemField() { this->systemField_ = nullptr;};
+          inline string getSystemField() const { DARABONBA_PTR_GET_DEFAULT(systemField_, "") };
+          inline FieldMap& setSystemField(string systemField) { DARABONBA_PTR_SET_VALUE(systemField_, systemField) };
+
+
+        protected:
+          shared_ptr<string> displayField_ {};
+          shared_ptr<string> displayFieldValue_ {};
+          shared_ptr<string> systemField_ {};
+        };
+
+        virtual bool empty() const override { return this->externalProcessId_ == nullptr
+        && this->fieldMap_ == nullptr && this->schemaId_ == nullptr; };
+        // externalProcessId Field Functions 
+        bool hasExternalProcessId() const { return this->externalProcessId_ != nullptr;};
+        void deleteExternalProcessId() { this->externalProcessId_ = nullptr;};
+        inline string getExternalProcessId() const { DARABONBA_PTR_GET_DEFAULT(externalProcessId_, "") };
+        inline PrivateAccessBlockSchemaConfig& setExternalProcessId(string externalProcessId) { DARABONBA_PTR_SET_VALUE(externalProcessId_, externalProcessId) };
+
+
+        // fieldMap Field Functions 
+        bool hasFieldMap() const { return this->fieldMap_ != nullptr;};
+        void deleteFieldMap() { this->fieldMap_ = nullptr;};
+        inline const vector<PrivateAccessBlockSchemaConfig::FieldMap> & getFieldMap() const { DARABONBA_PTR_GET_CONST(fieldMap_, vector<PrivateAccessBlockSchemaConfig::FieldMap>) };
+        inline vector<PrivateAccessBlockSchemaConfig::FieldMap> getFieldMap() { DARABONBA_PTR_GET(fieldMap_, vector<PrivateAccessBlockSchemaConfig::FieldMap>) };
+        inline PrivateAccessBlockSchemaConfig& setFieldMap(const vector<PrivateAccessBlockSchemaConfig::FieldMap> & fieldMap) { DARABONBA_PTR_SET_VALUE(fieldMap_, fieldMap) };
+        inline PrivateAccessBlockSchemaConfig& setFieldMap(vector<PrivateAccessBlockSchemaConfig::FieldMap> && fieldMap) { DARABONBA_PTR_SET_RVALUE(fieldMap_, fieldMap) };
+
+
+        // schemaId Field Functions 
+        bool hasSchemaId() const { return this->schemaId_ != nullptr;};
+        void deleteSchemaId() { this->schemaId_ = nullptr;};
+        inline string getSchemaId() const { DARABONBA_PTR_GET_DEFAULT(schemaId_, "") };
+        inline PrivateAccessBlockSchemaConfig& setSchemaId(string schemaId) { DARABONBA_PTR_SET_VALUE(schemaId_, schemaId) };
+
+
+      protected:
+        shared_ptr<string> externalProcessId_ {};
+        shared_ptr<vector<PrivateAccessBlockSchemaConfig::FieldMap>> fieldMap_ {};
         shared_ptr<string> schemaId_ {};
       };
 
@@ -1150,7 +1275,7 @@ namespace Models
 
       virtual bool empty() const override { return this->appUninstallSchemaConfig_ == nullptr
         && this->deviceRegistrationSchemaConfig_ == nullptr && this->dlpSendSchemaConfig_ == nullptr && this->domainBlacklistSchemaConfig_ == nullptr && this->domainWhitelistSchemaConfig_ == nullptr && this->endpointHardeningSchemaConfig_ == nullptr
-        && this->peripheralBlockSchemaConfig_ == nullptr && this->softwareBlockSchemaConfig_ == nullptr && this->softwareHardeningSchemaConfig_ == nullptr; };
+        && this->peripheralBlockSchemaConfig_ == nullptr && this->privateAccessBlockSchemaConfig_ == nullptr && this->softwareBlockSchemaConfig_ == nullptr && this->softwareHardeningSchemaConfig_ == nullptr; };
       // appUninstallSchemaConfig Field Functions 
       bool hasAppUninstallSchemaConfig() const { return this->appUninstallSchemaConfig_ != nullptr;};
       void deleteAppUninstallSchemaConfig() { this->appUninstallSchemaConfig_ = nullptr;};
@@ -1214,6 +1339,15 @@ namespace Models
       inline MatchSchemaConfigs& setPeripheralBlockSchemaConfig(MatchSchemaConfigs::PeripheralBlockSchemaConfig && peripheralBlockSchemaConfig) { DARABONBA_PTR_SET_RVALUE(peripheralBlockSchemaConfig_, peripheralBlockSchemaConfig) };
 
 
+      // privateAccessBlockSchemaConfig Field Functions 
+      bool hasPrivateAccessBlockSchemaConfig() const { return this->privateAccessBlockSchemaConfig_ != nullptr;};
+      void deletePrivateAccessBlockSchemaConfig() { this->privateAccessBlockSchemaConfig_ = nullptr;};
+      inline const MatchSchemaConfigs::PrivateAccessBlockSchemaConfig & getPrivateAccessBlockSchemaConfig() const { DARABONBA_PTR_GET_CONST(privateAccessBlockSchemaConfig_, MatchSchemaConfigs::PrivateAccessBlockSchemaConfig) };
+      inline MatchSchemaConfigs::PrivateAccessBlockSchemaConfig getPrivateAccessBlockSchemaConfig() { DARABONBA_PTR_GET(privateAccessBlockSchemaConfig_, MatchSchemaConfigs::PrivateAccessBlockSchemaConfig) };
+      inline MatchSchemaConfigs& setPrivateAccessBlockSchemaConfig(const MatchSchemaConfigs::PrivateAccessBlockSchemaConfig & privateAccessBlockSchemaConfig) { DARABONBA_PTR_SET_VALUE(privateAccessBlockSchemaConfig_, privateAccessBlockSchemaConfig) };
+      inline MatchSchemaConfigs& setPrivateAccessBlockSchemaConfig(MatchSchemaConfigs::PrivateAccessBlockSchemaConfig && privateAccessBlockSchemaConfig) { DARABONBA_PTR_SET_RVALUE(privateAccessBlockSchemaConfig_, privateAccessBlockSchemaConfig) };
+
+
       // softwareBlockSchemaConfig Field Functions 
       bool hasSoftwareBlockSchemaConfig() const { return this->softwareBlockSchemaConfig_ != nullptr;};
       void deleteSoftwareBlockSchemaConfig() { this->softwareBlockSchemaConfig_ = nullptr;};
@@ -1240,6 +1374,7 @@ namespace Models
       shared_ptr<MatchSchemaConfigs::DomainWhitelistSchemaConfig> domainWhitelistSchemaConfig_ {};
       shared_ptr<MatchSchemaConfigs::EndpointHardeningSchemaConfig> endpointHardeningSchemaConfig_ {};
       shared_ptr<MatchSchemaConfigs::PeripheralBlockSchemaConfig> peripheralBlockSchemaConfig_ {};
+      shared_ptr<MatchSchemaConfigs::PrivateAccessBlockSchemaConfig> privateAccessBlockSchemaConfig_ {};
       shared_ptr<MatchSchemaConfigs::SoftwareBlockSchemaConfig> softwareBlockSchemaConfig_ {};
       shared_ptr<MatchSchemaConfigs::SoftwareHardeningSchemaConfig> softwareHardeningSchemaConfig_ {};
     };
@@ -1318,14 +1453,20 @@ namespace Models
 
   protected:
     shared_ptr<int32_t> approvalType_ {};
+    // The description of the approval flow. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
     shared_ptr<string> description_ {};
     shared_ptr<string> eventLabel_ {};
     shared_ptr<string> externalConfig_ {};
     shared_ptr<UpdateApprovalProcessRequest::MatchSchemaConfigs> matchSchemaConfigs_ {};
+    // The matched approval templates.
     shared_ptr<UpdateApprovalProcessRequest::MatchSchemas> matchSchemas_ {};
+    // The ID of the approval flow.
+    // 
     // This parameter is required.
     shared_ptr<string> processId_ {};
+    // The name of the approval flow. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
     shared_ptr<string> processName_ {};
+    // The list of approval nodes. You can define up to 5 approval nodes.
     shared_ptr<vector<vector<string>>> processNodes_ {};
   };
 

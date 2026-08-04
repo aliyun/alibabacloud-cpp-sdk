@@ -78,12 +78,31 @@ namespace Models
 
 
   protected:
+    // The current page number for paged queries. Valid values: 1 to 10000.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
+    // The number of entries per page for paged queries. Valid values: 1 to 500.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
+    // The policy type. Valid values:
+    // 
+    // - **DomainBlacklist**: Domain blacklist.
+    // 
+    // - **DomainWhitelist**: Domain whitelist.
+    // 
+    // - **SoftwareBlock**: Software disable.
+    // 
+    // - **AppUninstall**: Terminal uninstall.
+    // 
+    // - **DlpSend**: File outbound.
+    // 
+    // - **PeripheralBlock**: Peripheral control.
     shared_ptr<string> policyType_ {};
+    // Collection of approval template IDs.
     shared_ptr<vector<string>> schemaIds_ {};
+    // The template name. It can be 1 to 128 characters long. It supports Chinese characters, uppercase and lowercase English letters, numbers, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> schemaName_ {};
   };
 

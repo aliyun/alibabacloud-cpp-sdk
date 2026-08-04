@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // Your application\\"s unique identifier. You can get this identifier from the DingTalk Open Platform.
     shared_ptr<string> appKey_ {};
+    // Your application\\"s secret key. You can get this key from the DingTalk Open Platform.
     shared_ptr<string> appSecret_ {};
+    // Your enterprise\\"s unique ID in DingTalk.
     shared_ptr<string> corpId_ {};
+    // The AES key used to decrypt the content of event callbacks. This ensures the confidentiality of the event data.
     shared_ptr<string> eventAesKey_ {};
+    // A custom label for event subscriptions. This field is reserved for future use.
     shared_ptr<string> eventLabel_ {};
+    // The token used to verify the authenticity of event callback requests from DingTalk.
     shared_ptr<string> eventVerifyToken_ {};
+    // Specifies whether this identity provider is the exclusive login method. If set to `true`, other login methods are disabled.
     shared_ptr<bool> exclusive_ {};
+    // Specifies whether to enable the OAuth authentication flow.
     shared_ptr<bool> oauth_ {};
+    // The URL where the user is redirected after successful authorization. You must register this URL on the DingTalk Open Platform.
     shared_ptr<string> redirectUri_ {};
   };
 

@@ -57,10 +57,20 @@ namespace Models
 
 
   protected:
+    // The page number. Valid values: 1 to 10,000.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> currentPage_ {};
+    // The ID of the user device. Call one of the following operations to obtain the device ID:
+    // 
+    // - [GetUserDevice](~~GetUserDevice~~): Get the details of a user device.
+    // 
+    // - [ListUserDevices](~~ListUserDevices~~): Get a list of user devices.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceTag_ {};
+    // The number of entries per page. Valid values: 1 to 500.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
   };

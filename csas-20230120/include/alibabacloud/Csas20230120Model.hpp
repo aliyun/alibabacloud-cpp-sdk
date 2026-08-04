@@ -28,6 +28,7 @@
 #include <alibabacloud/models/OpenStructSaseDepartment.hpp>
 #include <alibabacloud/models/OpenStructSaseUser.hpp>
 #include <alibabacloud/models/OpenStructSaseUserSimple.hpp>
+#include <alibabacloud/models/PAApplicationUnauthorizedAccessConfig.hpp>
 #include <alibabacloud/models/PAL7Config.hpp>
 #include <alibabacloud/models/PAL7ConfigReplaceRule.hpp>
 #include <alibabacloud/models/PAL7ConfigRewriteOp.hpp>

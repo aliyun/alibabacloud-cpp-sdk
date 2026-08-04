@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The end time for the data. This is a UNIX timestamp in seconds.
     shared_ptr<string> endTime_ {};
+    // The region ID.
     shared_ptr<string> region_ {};
+    // The start time for the data. This is a UNIX timestamp in seconds.
     shared_ptr<string> startTime_ {};
   };
 

@@ -130,19 +130,41 @@ namespace Models
 
 
   protected:
+    // The acceleration mode:
+    // - **whiltelist**: whitelist acceleration
+    // - **global**: global acceleration
+    // - **build-in-list**: built-in system application acceleration
     shared_ptr<string> accelerationType_ {};
+    // The description of the enterprise acceleration policy.
     shared_ptr<string> description_ {};
+    // The ID of the enterprise acceleration policy.
     shared_ptr<string> eapId_ {};
+    // The name of the enterprise acceleration policy.
     shared_ptr<string> name_ {};
+    // Specifies whether to enable TLS mode:
+    // - **0**: disable
+    // - **1**: enable
     shared_ptr<int32_t> onTls_ {};
+    // The priority.
     shared_ptr<int32_t> priority_ {};
+    // Specifies whether to display on the client:
+    // - **0**: do not display
+    // - **1**: display
     shared_ptr<int32_t> showInClient_ {};
+    // The address (IP or domain name) of the acceleration instance.
+    // 
     // This parameter is required.
     shared_ptr<string> upstreamHost_ {};
+    // The port of the acceleration instance (between 1000 and 60000).
+    // 
     // This parameter is required.
     shared_ptr<int32_t> upstreamPort_ {};
+    // The acceleration instance.
+    // 
     // This parameter is required.
     shared_ptr<string> upstreamType_ {};
+    // The acceleration user group.
+    // 
     // This parameter is required.
     shared_ptr<string> userAttributeGroup_ {};
   };

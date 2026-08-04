@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // ID of the department.
+    // 
     // This parameter is required.
     shared_ptr<string> departmentId_ {};
+    // ID of the custom identity provider configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> idpConfigId_ {};
   };

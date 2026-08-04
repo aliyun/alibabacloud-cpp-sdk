@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Protocol, protocol_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(TagIds, tagIds_);
+      DARABONBA_PTR_TO_JSON(UnauthorizedAccessConfig, unauthorizedAccessConfigShrink_);
     };
     friend void from_json(const Darabonba::Json& j, CreatePrivateAccessApplicationShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AddressGroups, addressGroups_);
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(TagIds, tagIds_);
+      DARABONBA_PTR_FROM_JSON(UnauthorizedAccessConfig, unauthorizedAccessConfigShrink_);
     };
     CreatePrivateAccessApplicationShrinkRequest() = default ;
     CreatePrivateAccessApplicationShrinkRequest(const CreatePrivateAccessApplicationShrinkRequest &) = default ;
@@ -93,11 +95,11 @@ namespace Models
 
 
     protected:
-      // The start port. The start port must be less than or equal to the end port.
+      // The start port. The value must be less than or equal to the end port.
       // 
       // This parameter is required.
       shared_ptr<int32_t> begin_ {};
-      // The end port. The end port must be greater than or equal to the start port.
+      // The end port. The value must be greater than or equal to the start port.
       // 
       // This parameter is required.
       shared_ptr<int32_t> end_ {};
@@ -106,7 +108,7 @@ namespace Models
     virtual bool empty() const override { return this->addressGroups_ == nullptr
         && this->addresses_ == nullptr && this->browserAccessStatus_ == nullptr && this->configMode_ == nullptr && this->description_ == nullptr && this->l7ConfigShrink_ == nullptr
         && this->l7ProxyDomainAutomaticPrefix_ == nullptr && this->l7ProxyDomainCustom_ == nullptr && this->name_ == nullptr && this->portRanges_ == nullptr && this->protocol_ == nullptr
-        && this->status_ == nullptr && this->tagIds_ == nullptr; };
+        && this->status_ == nullptr && this->tagIds_ == nullptr && this->unauthorizedAccessConfigShrink_ == nullptr; };
     // addressGroups Field Functions 
     bool hasAddressGroups() const { return this->addressGroups_ != nullptr;};
     void deleteAddressGroups() { this->addressGroups_ = nullptr;};
@@ -206,47 +208,52 @@ namespace Models
     inline CreatePrivateAccessApplicationShrinkRequest& setTagIds(vector<string> && tagIds) { DARABONBA_PTR_SET_RVALUE(tagIds_, tagIds) };
 
 
+    // unauthorizedAccessConfigShrink Field Functions 
+    bool hasUnauthorizedAccessConfigShrink() const { return this->unauthorizedAccessConfigShrink_ != nullptr;};
+    void deleteUnauthorizedAccessConfigShrink() { this->unauthorizedAccessConfigShrink_ = nullptr;};
+    inline string getUnauthorizedAccessConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(unauthorizedAccessConfigShrink_, "") };
+    inline CreatePrivateAccessApplicationShrinkRequest& setUnauthorizedAccessConfigShrink(string unauthorizedAccessConfigShrink) { DARABONBA_PTR_SET_VALUE(unauthorizedAccessConfigShrink_, unauthorizedAccessConfigShrink) };
+
+
   protected:
     shared_ptr<vector<AddressGroup>> addressGroups_ {};
-    // The addresses of the office applications. You can enter up to 1,000 addresses of office applications.
+    // The addresses of the internal-facing access application. You can specify up to 1,000 addresses.
     shared_ptr<vector<string>> addresses_ {};
-    // Specifies whether to allow access from a browser. Default value: **Disabled**. Valid values:
-    // 
-    // *   **Enabled**
-    // *   **Disabled**
+    // The browser access status of the internal-facing access application. After this feature is enabled, you can access internal applications without a client. Default value: **Disabled**. Valid values:
+    // - **Enabled**: enabled.
+    // - **Disabled**: disabled.
     shared_ptr<string> browserAccessStatus_ {};
     shared_ptr<string> configMode_ {};
-    // The description of the office application. The value must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces.
+    // The description of the internal-facing access application. The description must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), hyphens (-), and spaces. Chinese characters are supported.
     shared_ptr<string> description_ {};
-    // The browser access mode parameter. The parameter specifies the configurations of Layer 7 applications.
+    // The browser access mode parameter: the application configuration.
     shared_ptr<string> l7ConfigShrink_ {};
-    // The browser access mode parameter. The parameter specifies the prefix of the domain name that the proxy gateway uses. The prefix must be 3 to 20 characters in length, and can contain lowercase letters, digits, and hyphens (-).
+    // The browser access mode parameter: the prefix of the mapped proxy domain name. The prefix must be 3 to 20 characters in length and can contain lowercase letters, digits, and hyphens (-).
     shared_ptr<string> l7ProxyDomainAutomaticPrefix_ {};
-    // The browser access mode parameter. The parameter specifies the custom domain name of the proxy gateway. Enter a valid domain name.
+    // The browser access mode parameter: the custom proxy domain name. The value must be a valid domain name.
     shared_ptr<string> l7ProxyDomainCustom_ {};
-    // The name of the office application. The value must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+    // The name of the internal-facing access application. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). Chinese characters are supported.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The port ranges of the office applications. You can enter up to 65,535 port ranges. Multiple port ranges cannot be duplicated or overlapped.
+    // The port ranges of the internal-facing access application. You can specify up to 65,535 port ranges. Port ranges cannot be duplicate or overlapping.
     shared_ptr<vector<CreatePrivateAccessApplicationShrinkRequest::PortRanges>> portRanges_ {};
-    // The protocol that is used by the office application. Valid values:
-    // 
-    // *   **All**
-    // *   **TCP**
-    // *   **UDP**
+    // The protocol of the internal-facing access application. Valid values:
+    // - **All**: all protocols.
+    // - **TCP**
+    // - **UDP**.
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};
-    // The status of the office application. Valid values:
-    // 
-    // *   **Enabled**
-    // *   **Disabled**
+    // The status of the internal-facing access application. Valid values:
+    // - **Enabled**: enabled.
+    // - **Disabled**: disabled.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};
-    // The IDs of the tags for the office applications. You can add up to six custom tags to an office application.
+    // The IDs of internal-facing access tags. You can associate up to 6 custom internal-facing access tags with each internal-facing access application.
     shared_ptr<vector<string>> tagIds_ {};
+    shared_ptr<string> unauthorizedAccessConfigShrink_ {};
   };
 
   } // namespace Models
