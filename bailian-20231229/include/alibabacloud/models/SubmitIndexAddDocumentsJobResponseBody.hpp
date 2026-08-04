@@ -67,7 +67,7 @@ namespace Models
 
 
     protected:
-      // The job ID, also known as `JobId`.
+      // The task ID, also known as `JobId`.
       shared_ptr<string> id_ {};
     };
 
@@ -118,21 +118,20 @@ namespace Models
 
 
   protected:
-    // The error code returned on failure.
+    // The error code.
     shared_ptr<string> code_ {};
-    // The business data.
+    // The business data returned by the operation.
     shared_ptr<SubmitIndexAddDocumentsJobResponseBody::Data> data_ {};
-    // The error message returned on failure.
+    // The error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The response status code.
+    // The status code returned by the operation.
     shared_ptr<string> status_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the operation was successful. Valid values:
     // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

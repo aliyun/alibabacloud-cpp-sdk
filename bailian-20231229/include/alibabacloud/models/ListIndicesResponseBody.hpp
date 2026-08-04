@@ -85,6 +85,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(SinkType, sinkType_);
           DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
           DARABONBA_PTR_TO_JSON(StructureType, structureType_);
+          DARABONBA_PTR_TO_JSON(StructuredIndexConfig, structuredIndexConfig_);
         };
         friend void from_json(const Darabonba::Json& j, Indices& obj) { 
           DARABONBA_PTR_FROM_JSON(ChunkSize, chunkSize_);
@@ -104,6 +105,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(SinkType, sinkType_);
           DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
           DARABONBA_PTR_FROM_JSON(StructureType, structureType_);
+          DARABONBA_PTR_FROM_JSON(StructuredIndexConfig, structuredIndexConfig_);
         };
         Indices() = default ;
         Indices(const Indices &) = default ;
@@ -116,11 +118,73 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class StructuredIndexConfig : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const StructuredIndexConfig& obj) { 
+            DARABONBA_PTR_TO_JSON(IsRecall, isRecall_);
+            DARABONBA_PTR_TO_JSON(IsSearch, isSearch_);
+            DARABONBA_PTR_TO_JSON(Name, name_);
+            DARABONBA_PTR_TO_JSON(Type, type_);
+          };
+          friend void from_json(const Darabonba::Json& j, StructuredIndexConfig& obj) { 
+            DARABONBA_PTR_FROM_JSON(IsRecall, isRecall_);
+            DARABONBA_PTR_FROM_JSON(IsSearch, isSearch_);
+            DARABONBA_PTR_FROM_JSON(Name, name_);
+            DARABONBA_PTR_FROM_JSON(Type, type_);
+          };
+          StructuredIndexConfig() = default ;
+          StructuredIndexConfig(const StructuredIndexConfig &) = default ;
+          StructuredIndexConfig(StructuredIndexConfig &&) = default ;
+          StructuredIndexConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~StructuredIndexConfig() = default ;
+          StructuredIndexConfig& operator=(const StructuredIndexConfig &) = default ;
+          StructuredIndexConfig& operator=(StructuredIndexConfig &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->isRecall_ == nullptr
+        && this->isSearch_ == nullptr && this->name_ == nullptr && this->type_ == nullptr; };
+          // isRecall Field Functions 
+          bool hasIsRecall() const { return this->isRecall_ != nullptr;};
+          void deleteIsRecall() { this->isRecall_ = nullptr;};
+          inline bool getIsRecall() const { DARABONBA_PTR_GET_DEFAULT(isRecall_, false) };
+          inline StructuredIndexConfig& setIsRecall(bool isRecall) { DARABONBA_PTR_SET_VALUE(isRecall_, isRecall) };
+
+
+          // isSearch Field Functions 
+          bool hasIsSearch() const { return this->isSearch_ != nullptr;};
+          void deleteIsSearch() { this->isSearch_ = nullptr;};
+          inline bool getIsSearch() const { DARABONBA_PTR_GET_DEFAULT(isSearch_, false) };
+          inline StructuredIndexConfig& setIsSearch(bool isSearch) { DARABONBA_PTR_SET_VALUE(isSearch_, isSearch) };
+
+
+          // name Field Functions 
+          bool hasName() const { return this->name_ != nullptr;};
+          void deleteName() { this->name_ = nullptr;};
+          inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+          inline StructuredIndexConfig& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+          // type Field Functions 
+          bool hasType() const { return this->type_ != nullptr;};
+          void deleteType() { this->type_ = nullptr;};
+          inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+          inline StructuredIndexConfig& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+        protected:
+          shared_ptr<bool> isRecall_ {};
+          shared_ptr<bool> isSearch_ {};
+          shared_ptr<string> name_ {};
+          shared_ptr<string> type_ {};
+        };
+
         virtual bool empty() const override { return this->chunkSize_ == nullptr
         && this->confgModel_ == nullptr && this->description_ == nullptr && this->documentIds_ == nullptr && this->embeddingModelName_ == nullptr && this->enableRewrite_ == nullptr
         && this->id_ == nullptr && this->name_ == nullptr && this->overlapSize_ == nullptr && this->rerankMinScore_ == nullptr && this->rerankModelName_ == nullptr
         && this->separator_ == nullptr && this->sinkInstanceId_ == nullptr && this->sinkRegion_ == nullptr && this->sinkType_ == nullptr && this->sourceType_ == nullptr
-        && this->structureType_ == nullptr; };
+        && this->structureType_ == nullptr && this->structuredIndexConfig_ == nullptr; };
         // chunkSize Field Functions 
         bool hasChunkSize() const { return this->chunkSize_ != nullptr;};
         void deleteChunkSize() { this->chunkSize_ = nullptr;};
@@ -242,32 +306,39 @@ namespace Models
         inline Indices& setStructureType(string structureType) { DARABONBA_PTR_SET_VALUE(structureType_, structureType) };
 
 
+        // structuredIndexConfig Field Functions 
+        bool hasStructuredIndexConfig() const { return this->structuredIndexConfig_ != nullptr;};
+        void deleteStructuredIndexConfig() { this->structuredIndexConfig_ = nullptr;};
+        inline const vector<Indices::StructuredIndexConfig> & getStructuredIndexConfig() const { DARABONBA_PTR_GET_CONST(structuredIndexConfig_, vector<Indices::StructuredIndexConfig>) };
+        inline vector<Indices::StructuredIndexConfig> getStructuredIndexConfig() { DARABONBA_PTR_GET(structuredIndexConfig_, vector<Indices::StructuredIndexConfig>) };
+        inline Indices& setStructuredIndexConfig(const vector<Indices::StructuredIndexConfig> & structuredIndexConfig) { DARABONBA_PTR_SET_VALUE(structuredIndexConfig_, structuredIndexConfig) };
+        inline Indices& setStructuredIndexConfig(vector<Indices::StructuredIndexConfig> && structuredIndexConfig) { DARABONBA_PTR_SET_RVALUE(structuredIndexConfig_, structuredIndexConfig) };
+
+
       protected:
-        // The estimated chunk length. Valid values: 1 to 2048.
+        // The estimated chunk size. Valid values: 1 to 2048.
         shared_ptr<int32_t> chunkSize_ {};
         // The configuration mode used by this knowledge base. Valid values:
         // - recommend: recommended configuration.
         // - user-defined: custom configuration.
         shared_ptr<string> confgModel_ {};
-        // The description of the knowledge base.
+        // The knowledge base description.
         shared_ptr<string> description_ {};
         // The list of file IDs.
         shared_ptr<vector<string>> documentIds_ {};
-        // The name of the embedding model. Valid values:
+        // The embedding model name. Valid values:
         // 
         // <props="china">
         // 
-        // - text-embedding-v4: the text-embedding-v4 model.
-        // - text-embedding-v3: the text-embedding-v3 model.
-        // - text-embedding-v2: the text-embedding-v2 model.
+        // - text-embedding-v4: text-embedding-v4 model.
+        // - text-embedding-v3: text-embedding-v3 model.
+        // - text-embedding-v2: text-embedding-v2 model.
         // 
         // 
         // 
         // <props="intl">
         // 
-        // - text-embedding-v2: the text-embedding-v2 model.
-        // 
-        // .
+        // - text-embedding-v2: text-embedding-v2 model.
         shared_ptr<string> embeddingModelName_ {};
         // Indicates whether <props="china">[multi-turn conversation rewriting](https://help.aliyun.com/model-studio/use-cases/rag-optimization#b7031e2ad6cji)<props="intl">[multi-turn conversation rewriting](https://www.alibabacloud.com/help/model-studio/use-cases/rag-optimization#b7031e2ad6cji) is enabled for this knowledge base. Valid values:
         // - true: Enabled.
@@ -275,13 +346,13 @@ namespace Models
         shared_ptr<bool> enableRewrite_ {};
         // The knowledge base ID, which is the `Data.Id` returned by the **CreateIndex** operation.
         shared_ptr<string> id_ {};
-        // The name of the knowledge base.
+        // The knowledge base name.
         shared_ptr<string> name_ {};
-        // The chunk overlap length. Valid values: 0 to 1024.
+        // The chunk overlap size. Valid values: 0 to 1024.
         shared_ptr<int32_t> overlapSize_ {};
         // The similarity threshold. Valid values: 0.01 to 1.00.
         shared_ptr<string> rerankMinScore_ {};
-        // The name of the rerank model. Valid values:
+        // The rerank model name. Valid values:
         // 
         // <props="china">
         // 
@@ -296,8 +367,6 @@ namespace Models
         // 
         // - gte-rerank-hybrid: official reranking.
         // - gte-rerank: gte-rerank reranking.
-        // 
-        // .
         shared_ptr<string> rerankModelName_ {};
         // The sentence separator. If multiple separators are used, they are separated by |. Valid values:
         // - \\
@@ -311,7 +380,7 @@ namespace Models
         // - ；: Chinese semicolon
         // - ;: English semicolon
         // - ？: Chinese question mark
-        // - ?: English question mark.
+        // - ?: English question mark
         shared_ptr<string> separator_ {};
         // The instance ID of the vector storage for the knowledge base.
         shared_ptr<string> sinkInstanceId_ {};
@@ -322,7 +391,7 @@ namespace Models
         // - BUILT_IN: built-in vector database.
         // - ADB: AnalyticDB for PostgreSQL database.
         shared_ptr<string> sinkType_ {};
-        // The data type of Alibaba Cloud Model Studio <props="china">[application data](https://bailian.console.aliyun.com/?tab=app#/data-center)<props="intl">[application data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center).
+        // The data type in Alibaba Cloud Model Studio <props="china">[Application Data](https://bailian.console.aliyun.com/?tab=app#/data-center)<props="intl">[Application Data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center).
         // 
         // 
         // For document search<props="china">/audio and video search knowledge bases, valid values:
@@ -332,10 +401,11 @@ namespace Models
         // For data query/image Q&A knowledge bases, valid values:
         // - DATA_CENTER_STRUCTURED_TABLE: data table type.
         shared_ptr<string> sourceType_ {};
-        // The type of the knowledge base. Valid values:
+        // The knowledge base type. Valid values:
         // 
         // - UNSTRUCTURED: document search.
         shared_ptr<string> structureType_ {};
+        shared_ptr<vector<Indices::StructuredIndexConfig>> structuredIndexConfig_ {};
       };
 
       virtual bool empty() const override { return this->indices_ == nullptr
@@ -373,9 +443,9 @@ namespace Models
     protected:
       // The list of knowledge bases.
       shared_ptr<vector<Data::Indices>> indices_ {};
-      // The page number returned.
+      // The specified page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page returned.
+      // The specified number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -428,7 +498,7 @@ namespace Models
 
 
   protected:
-    // The error code.
+    // The error status code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<ListIndicesResponseBody::Data> data_ {};

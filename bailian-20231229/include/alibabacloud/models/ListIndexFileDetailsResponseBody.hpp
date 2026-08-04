@@ -234,12 +234,13 @@ namespace Models
         shared_ptr<string> documentType_ {};
         // Indicates whether Excel file headers support concatenation.
         shared_ptr<string> enableHeaders_ {};
-        // The time when the file was imported to the knowledge base, in Unix timestamp format.
+        // The time when the file was imported to the knowledge base, in UNIX timestamp format.
         shared_ptr<int64_t> gmtModified_ {};
         // The file ID.
         shared_ptr<string> id_ {};
         // The file import error message.
         shared_ptr<string> message_ {};
+        // The metadata extracted from the document.
         shared_ptr<string> metaExtractInfo_ {};
         // The file name.
         shared_ptr<string> name_ {};
@@ -300,13 +301,13 @@ namespace Models
 
 
     protected:
-      // The list of files in the knowledge base, sorted by file import time in descending order (consistent with the console).
+      // The list of files in the knowledge base, sorted in descending order by file import time (consistent with the console).
       shared_ptr<vector<Data::Documents>> documents_ {};
       // The knowledge base ID.
       shared_ptr<string> indexId_ {};
-      // The specified page number.
+      // The returned page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The specified number of entries per page.
+      // The returned number of items per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of returned results.
       shared_ptr<int64_t> totalCount_ {};
