@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The list of logs.
     shared_ptr<vector<string>> logs_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The number of logs that match the filter condition.
     shared_ptr<string> totalCount_ {};
   };
 

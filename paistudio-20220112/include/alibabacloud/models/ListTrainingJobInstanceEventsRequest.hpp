@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // End time in UTC, in ISO 8601 format. If empty, defaults to the current time.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> endTime_ {};
+    // Page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // Number of items per page.
     shared_ptr<int64_t> pageSize_ {};
+    // Start time in UTC, in ISO 8601 format. If empty, defaults to the training job start time.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> startTime_ {};
   };

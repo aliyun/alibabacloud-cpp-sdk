@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The accelerator type used to filter the results. Valid values: `CPU` and `GPU`.
     shared_ptr<string> acceleratorType_ {};
+    // The GPU type used to filter the results. Fuzzy matching is supported.
     shared_ptr<string> GPUType_ {};
+    // A comma-separated list of node types. If omitted, all node types are returned.
     shared_ptr<string> nodeTypes_ {};
+    // The quota ID. You must specify either this parameter or `ResourceGroupIds`.
     shared_ptr<string> quotaId_ {};
+    // A comma-separated list of resource group IDs. You must specify either this parameter or `QuotaId`. The `UserId` for the specified `ResourceGroupId` must match the `UserId` of the requesting user. All specified `resource group` instances must be of the same type and associated with the same Virtual Private Cloud (VPC).
     shared_ptr<string> resourceGroupIds_ {};
   };
 

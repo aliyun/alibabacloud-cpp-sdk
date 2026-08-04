@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(CreatedBy, createdBy_);
       DARABONBA_PTR_TO_JSON(GmtCreated, gmtCreated_);
+      DARABONBA_PTR_TO_JSON(IsSharded, isSharded_);
       DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
       DARABONBA_PTR_TO_JSON(QuotaId, quotaId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(CreatedBy, createdBy_);
       DARABONBA_PTR_FROM_JSON(GmtCreated, gmtCreated_);
+      DARABONBA_PTR_FROM_JSON(IsSharded, isSharded_);
       DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
       DARABONBA_PTR_FROM_JSON(QuotaId, quotaId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -57,9 +59,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cacheInfos_ == nullptr
-        && this->cacheServiceId_ == nullptr && this->clusterId_ == nullptr && this->createdBy_ == nullptr && this->gmtCreated_ == nullptr && this->networkType_ == nullptr
-        && this->quotaId_ == nullptr && this->status_ == nullptr && this->supportRDMA_ == nullptr && this->supportedClientQuotaIds_ == nullptr && this->tenantId_ == nullptr
-        && this->userId_ == nullptr && this->userVpc_ == nullptr; };
+        && this->cacheServiceId_ == nullptr && this->clusterId_ == nullptr && this->createdBy_ == nullptr && this->gmtCreated_ == nullptr && this->isSharded_ == nullptr
+        && this->networkType_ == nullptr && this->quotaId_ == nullptr && this->status_ == nullptr && this->supportRDMA_ == nullptr && this->supportedClientQuotaIds_ == nullptr
+        && this->tenantId_ == nullptr && this->userId_ == nullptr && this->userVpc_ == nullptr; };
     // cacheInfos Field Functions 
     bool hasCacheInfos() const { return this->cacheInfos_ != nullptr;};
     void deleteCacheInfos() { this->cacheInfos_ = nullptr;};
@@ -95,6 +97,13 @@ namespace Models
     void deleteGmtCreated() { this->gmtCreated_ = nullptr;};
     inline string getGmtCreated() const { DARABONBA_PTR_GET_DEFAULT(gmtCreated_, "") };
     inline CacheService& setGmtCreated(string gmtCreated) { DARABONBA_PTR_SET_VALUE(gmtCreated_, gmtCreated) };
+
+
+    // isSharded Field Functions 
+    bool hasIsSharded() const { return this->isSharded_ != nullptr;};
+    void deleteIsSharded() { this->isSharded_ = nullptr;};
+    inline bool getIsSharded() const { DARABONBA_PTR_GET_DEFAULT(isSharded_, false) };
+    inline CacheService& setIsSharded(bool isSharded) { DARABONBA_PTR_SET_VALUE(isSharded_, isSharded) };
 
 
     // networkType Field Functions 
@@ -158,18 +167,33 @@ namespace Models
 
 
   protected:
+    // Information about each cache node in the service.
     shared_ptr<vector<CacheInfo>> cacheInfos_ {};
+    // The unique identifier of the CacheService.
     shared_ptr<string> cacheServiceId_ {};
+    // The ID of the PAI cluster where the CacheService is deployed.
     shared_ptr<string> clusterId_ {};
+    // The user or entity that created the resource.
     shared_ptr<string> createdBy_ {};
+    // The time (in UTC, ISO 8601 format) when the CacheService was created.
     shared_ptr<string> gmtCreated_ {};
+    // Indicates whether the CacheService is sharded across multiple nodes.
+    shared_ptr<bool> isSharded_ {};
+    // The network type of the CacheService. For example, `VPC`.
     shared_ptr<string> networkType_ {};
+    // The ID of the resource quota associated with the CacheService.
     shared_ptr<string> quotaId_ {};
+    // The current status of the CacheService. For example: `Creating`, `Available`, or `Deleting`.
     shared_ptr<string> status_ {};
+    // Indicates whether the CacheService supports RDMA.
     shared_ptr<string> supportRDMA_ {};
+    // A list of quota IDs for clients that can connect to this CacheService.
     shared_ptr<vector<string>> supportedClientQuotaIds_ {};
+    // The ID of the tenant that owns the CacheService.
     shared_ptr<string> tenantId_ {};
+    // The ID of the user associated with the CacheService.
     shared_ptr<string> userId_ {};
+    // The configuration of the user\\"s VPC where the CacheService is deployed.
     shared_ptr<UserVpc> userVpc_ {};
   };
 

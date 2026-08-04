@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // The resource node specifications.
     shared_ptr<vector<NodeSpec>> nodeSpecs_ {};
   };
 

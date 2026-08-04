@@ -285,31 +285,61 @@ namespace Models
 
 
   protected:
+    // The resource allocation policy.
     shared_ptr<string> allocateStrategy_ {};
+    // The ID of the user who created the resource quota.
     shared_ptr<string> creatorId_ {};
+    // The description of the resource quota.
     shared_ptr<string> description_ {};
+    // The time when the resource quota was created.
     shared_ptr<string> gmtCreatedTime_ {};
+    // The time when the resource quota was last modified.
     shared_ptr<string> gmtModifiedTime_ {};
+    // A list of high-performance network zones.
     shared_ptr<vector<string>> hyperZones_ {};
+    // The labels of the resource quota.
     shared_ptr<vector<Label>> labels_ {};
+    // The ID of the most recent change to the resource quota.
     shared_ptr<string> latestOperationId_ {};
+    // The configuration of the minimum quota.
     shared_ptr<ResourceSpec> min_ {};
+    // The ID of the parent resource quota.
     shared_ptr<string> parentQuotaId_ {};
+    // The queuing policy for tasks in the resource quota.
     shared_ptr<string> queueStrategy_ {};
+    // The specifications and status of the cluster that is composed of resources within the quota.
     shared_ptr<QuotaCluster> quotaCluster_ {};
+    // The configurations of the resource quota:
+    // 
+    // - VPC information
+    // 
+    // - Whether Remote Direct Memory Access (RDMA) is supported
+    // 
+    // - ACS configurations, which take effect if the resource type is ACS
     shared_ptr<QuotaConfig> quotaConfig_ {};
+    // The details of the resource quota.
     shared_ptr<QuotaDetails> quotaDetails_ {};
-    // Quota Id
+    // The ID of the resource quota.
     shared_ptr<string> quotaId_ {};
+    // The name of the resource quota.
     shared_ptr<string> quotaName_ {};
+    // The error code.
     shared_ptr<string> reasonCode_ {};
+    // The cause of the error.
     shared_ptr<string> reasonMessage_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The resource groups that are associated with the resource quota.
     shared_ptr<vector<string>> resourceGroupIds_ {};
+    // The resource type of the quota.
     shared_ptr<string> resourceType_ {};
+    // The status of the resource quota.
     shared_ptr<string> status_ {};
+    // A list of sub-quotas of the resource quota.
     shared_ptr<vector<QuotaIdName>> subQuotas_ {};
+    // The version information. This parameter takes effect when ResourceType is set to ECS.
     shared_ptr<string> version_ {};
+    // The workspaces that are associated with the resource quota.
     shared_ptr<vector<WorkspaceIdName>> workspaces_ {};
   };
 

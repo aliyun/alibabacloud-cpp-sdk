@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The name of the metric to query.
     shared_ptr<string> metricType_ {};
+    // The metric information of the nodes.
     shared_ptr<vector<NodeMetric>> nodesMetrics_ {};
+    // The resource group ID. Each resource group has a globally unique resource group ID. You can use the resource group ID to obtain information about the resource group.
     shared_ptr<string> resourceGroupID_ {};
   };
 

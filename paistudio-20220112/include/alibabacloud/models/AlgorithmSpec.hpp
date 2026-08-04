@@ -120,7 +120,9 @@ namespace Models
 
 
       protected:
+        // The description of the monitoring definition.
         shared_ptr<string> description_ {};
+        // The regular expression for monitoring.
         shared_ptr<string> regex_ {};
       };
 
@@ -162,7 +164,9 @@ namespace Models
 
 
       protected:
+        // The description of the monitoring definition.
         shared_ptr<string> description_ {};
+        // The regular expression for monitoring.
         shared_ptr<string> regex_ {};
       };
 
@@ -187,7 +191,9 @@ namespace Models
 
 
     protected:
+      // Monitors training progress.
       shared_ptr<ProgressDefinitions::OverallProgress> overallProgress_ {};
+      // The definition for monitoring the remaining training time.
       shared_ptr<ProgressDefinitions::RemainingTime> remainingTime_ {};
     };
 
@@ -219,6 +225,7 @@ namespace Models
 
 
     protected:
+      // Indicates whether custom-mounted code is used.
       shared_ptr<bool> codeDir_ {};
     };
 
@@ -279,10 +286,12 @@ namespace Models
 
 
       protected:
-        // Policy Value
+        // Policy content, serialized from a JSON array.
         // 
         // This parameter is required.
         shared_ptr<string> value_ {};
+        // Policy version.
+        // 
         // This parameter is required.
         shared_ptr<string> version_ {};
       };
@@ -298,6 +307,8 @@ namespace Models
 
 
     protected:
+      // Computing resource configuration policy for the algorithm.
+      // 
       // This parameter is required.
       shared_ptr<ComputeResource::Policy> policy_ {};
     };
@@ -427,22 +438,39 @@ namespace Models
 
 
   protected:
+    // The custom code configuration.
     shared_ptr<Location> codeDir_ {};
+    // The list of commands to run the training task.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> command_ {};
+    // The compute resource definition.
     shared_ptr<AlgorithmSpec::ComputeResource> computeResource_ {};
+    // The custom configuration.
     shared_ptr<AlgorithmSpec::Customization> customization_ {};
+    // The list of hyperparameter definitions.
     shared_ptr<vector<HyperParameterDefinition>> hyperParameters_ {};
+    // The training runtime image.
+    // 
     // This parameter is required.
     shared_ptr<string> image_ {};
+    // The list of input channels for the algorithm.
     shared_ptr<vector<Channel>> inputChannels_ {};
+    // The job type.
+    // 
     // This parameter is required.
     shared_ptr<string> jobType_ {};
+    // The list of metric definitions for the training task.
     shared_ptr<vector<MetricDefinition>> metricDefinitions_ {};
+    // The list of output channels for the algorithm.
     shared_ptr<vector<Channel>> outputChannels_ {};
+    // You can use this feature to monitor the training progress.
     shared_ptr<AlgorithmSpec::ProgressDefinitions> progressDefinitions_ {};
+    // The resource requirements.
     shared_ptr<vector<ConditionExpression>> resourceRequirements_ {};
+    // The list of supported elastic computing instance types for training.
     shared_ptr<vector<string>> supportedInstanceTypes_ {};
+    // Indicates whether distributed training is supported.
     shared_ptr<bool> supportsDistributedTraining_ {};
   };
 

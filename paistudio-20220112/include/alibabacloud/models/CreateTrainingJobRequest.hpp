@@ -6,6 +6,7 @@
 #include <alibabacloud/models/AlgorithmSpec.hpp>
 #include <alibabacloud/models/AssignNodeSpec.hpp>
 #include <alibabacloud/models/Location.hpp>
+#include <alibabacloud/models/CredentialConfig.hpp>
 #include <map>
 #include <alibabacloud/models/JobSettings.hpp>
 using namespace std;
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_TO_JSON(CodeDir, codeDir_);
       DARABONBA_PTR_TO_JSON(ComputeResource, computeResource_);
+      DARABONBA_PTR_TO_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_TO_JSON(Environments, environments_);
       DARABONBA_PTR_TO_JSON(ExperimentConfig, experimentConfig_);
       DARABONBA_PTR_TO_JSON(HyperParameters, hyperParameters_);
@@ -50,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_FROM_JSON(CodeDir, codeDir_);
       DARABONBA_PTR_FROM_JSON(ComputeResource, computeResource_);
+      DARABONBA_PTR_FROM_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_FROM_JSON(Environments, environments_);
       DARABONBA_PTR_FROM_JSON(ExperimentConfig, experimentConfig_);
       DARABONBA_PTR_FROM_JSON(HyperParameters, hyperParameters_);
@@ -144,9 +147,13 @@ namespace Models
 
 
     protected:
+      // The default route interface. eth0 indicates that the default route uses the PAI VPC. eth1 indicates that the default route uses the user VPC. Default value: eth0.
       shared_ptr<string> defaultRoute_ {};
+      // The extended CIDR block configuration.
       shared_ptr<vector<string>> extendedCIDRs_ {};
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
+      // The vSwitch ID.
       shared_ptr<string> switchId_ {};
       // VPC ID。
       shared_ptr<string> vpcId_ {};
@@ -190,7 +197,9 @@ namespace Models
 
 
     protected:
+      // The maximum training runtime in minutes. A value of 0 indicates no limit on the maximum runtime.
       shared_ptr<int64_t> maxRunningTimeInMinutes_ {};
+      // The maximum training runtime in seconds. A value of 0 indicates no limit on the maximum runtime.
       shared_ptr<int64_t> maxRunningTimeInSeconds_ {};
     };
 
@@ -200,12 +209,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DatasetId, datasetId_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(OutputUri, outputUri_);
+        DARABONBA_PTR_TO_JSON(RoleArn, roleArn_);
         DARABONBA_PTR_TO_JSON(VersionName, versionName_);
       };
       friend void from_json(const Darabonba::Json& j, OutputChannels& obj) { 
         DARABONBA_PTR_FROM_JSON(DatasetId, datasetId_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(OutputUri, outputUri_);
+        DARABONBA_PTR_FROM_JSON(RoleArn, roleArn_);
         DARABONBA_PTR_FROM_JSON(VersionName, versionName_);
       };
       OutputChannels() = default ;
@@ -220,7 +231,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->datasetId_ == nullptr
-        && this->name_ == nullptr && this->outputUri_ == nullptr && this->versionName_ == nullptr; };
+        && this->name_ == nullptr && this->outputUri_ == nullptr && this->roleArn_ == nullptr && this->versionName_ == nullptr; };
       // datasetId Field Functions 
       bool hasDatasetId() const { return this->datasetId_ != nullptr;};
       void deleteDatasetId() { this->datasetId_ = nullptr;};
@@ -242,6 +253,13 @@ namespace Models
       inline OutputChannels& setOutputUri(string outputUri) { DARABONBA_PTR_SET_VALUE(outputUri_, outputUri) };
 
 
+      // roleArn Field Functions 
+      bool hasRoleArn() const { return this->roleArn_ != nullptr;};
+      void deleteRoleArn() { this->roleArn_ = nullptr;};
+      inline string getRoleArn() const { DARABONBA_PTR_GET_DEFAULT(roleArn_, "") };
+      inline OutputChannels& setRoleArn(string roleArn) { DARABONBA_PTR_SET_VALUE(roleArn_, roleArn) };
+
+
       // versionName Field Functions 
       bool hasVersionName() const { return this->versionName_ != nullptr;};
       void deleteVersionName() { this->versionName_ = nullptr;};
@@ -250,9 +268,13 @@ namespace Models
 
 
     protected:
+      // The dataset ID.
       shared_ptr<string> datasetId_ {};
+      // The output data name.
       shared_ptr<string> name_ {};
+      // The output data URI.
       shared_ptr<string> outputUri_ {};
+      shared_ptr<string> roleArn_ {};
       shared_ptr<string> versionName_ {};
     };
 
@@ -294,7 +316,9 @@ namespace Models
 
 
     protected:
+      // The key of the label.
       shared_ptr<string> key_ {};
+      // The value of the label.
       shared_ptr<string> value_ {};
     };
 
@@ -305,6 +329,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(InputUri, inputUri_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(Options, options_);
+        DARABONBA_PTR_TO_JSON(RoleArn, roleArn_);
         DARABONBA_PTR_TO_JSON(VersionName, versionName_);
       };
       friend void from_json(const Darabonba::Json& j, InputChannels& obj) { 
@@ -312,6 +337,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(InputUri, inputUri_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(Options, options_);
+        DARABONBA_PTR_FROM_JSON(RoleArn, roleArn_);
         DARABONBA_PTR_FROM_JSON(VersionName, versionName_);
       };
       InputChannels() = default ;
@@ -326,7 +352,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->datasetId_ == nullptr
-        && this->inputUri_ == nullptr && this->name_ == nullptr && this->options_ == nullptr && this->versionName_ == nullptr; };
+        && this->inputUri_ == nullptr && this->name_ == nullptr && this->options_ == nullptr && this->roleArn_ == nullptr && this->versionName_ == nullptr; };
       // datasetId Field Functions 
       bool hasDatasetId() const { return this->datasetId_ != nullptr;};
       void deleteDatasetId() { this->datasetId_ = nullptr;};
@@ -355,6 +381,13 @@ namespace Models
       inline InputChannels& setOptions(string options) { DARABONBA_PTR_SET_VALUE(options_, options) };
 
 
+      // roleArn Field Functions 
+      bool hasRoleArn() const { return this->roleArn_ != nullptr;};
+      void deleteRoleArn() { this->roleArn_ = nullptr;};
+      inline string getRoleArn() const { DARABONBA_PTR_GET_DEFAULT(roleArn_, "") };
+      inline InputChannels& setRoleArn(string roleArn) { DARABONBA_PTR_SET_VALUE(roleArn_, roleArn) };
+
+
       // versionName Field Functions 
       bool hasVersionName() const { return this->versionName_ != nullptr;};
       void deleteVersionName() { this->versionName_ = nullptr;};
@@ -363,10 +396,15 @@ namespace Models
 
 
     protected:
+      // The dataset ID.
       shared_ptr<string> datasetId_ {};
+      // The input data URI.
       shared_ptr<string> inputUri_ {};
+      // The input data name.
       shared_ptr<string> name_ {};
+      // The input data parameter settings.
       shared_ptr<string> options_ {};
+      shared_ptr<string> roleArn_ {};
       shared_ptr<string> versionName_ {};
     };
 
@@ -408,7 +446,9 @@ namespace Models
 
 
     protected:
+      // The parameter name.
       shared_ptr<string> name_ {};
+      // The parameter value.
       shared_ptr<string> value_ {};
     };
 
@@ -440,6 +480,7 @@ namespace Models
 
 
     protected:
+      // The experiment ID associated with the training job.
       shared_ptr<string> experimentId_ {};
     };
 
@@ -512,7 +553,11 @@ namespace Models
 
 
       protected:
+        // The maximum hourly price discount for the instance. This parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit.
         shared_ptr<float> spotDiscountLimit_ {};
+        // The bidding strategy for the spot instance. Valid values:
+        // - SpotWithPriceLimit: a spot instance with a maximum price limit.
+        // - SpotAsPriceGo: the system automatically bids at the current market price.
         shared_ptr<string> spotStrategy_ {};
       };
 
@@ -581,10 +626,15 @@ namespace Models
 
 
       protected:
+        // The number of CPU cores for the instance.
         shared_ptr<string> CPU_ {};
+        // The number of GPUs for the instance.
         shared_ptr<string> GPU_ {};
+        // The GPU type for the instance.
         shared_ptr<string> GPUType_ {};
+        // The memory size of the instance. Unit: GiB.
         shared_ptr<string> memory_ {};
+        // The shared memory size of the instance. Unit: GB.
         shared_ptr<string> sharedMemory_ {};
       };
 
@@ -645,21 +695,28 @@ namespace Models
 
 
     protected:
+      // The number of ECS instances.
       shared_ptr<int64_t> ecsCount_ {};
+      // The ECS instance type.
       shared_ptr<string> ecsSpec_ {};
+      // The number of instances used from the resource quota.
       shared_ptr<int64_t> instanceCount_ {};
+      // The instance specification for the resource quota.
       shared_ptr<ComputeResource::InstanceSpec> instanceSpec_ {};
+      // The resource quota ID.
       shared_ptr<string> resourceId_ {};
+      // The spot instance configuration.
       shared_ptr<ComputeResource::SpotSpec> spotSpec_ {};
+      // Specifies whether to use spot instances.
       shared_ptr<bool> useSpotInstance_ {};
     };
 
     virtual bool empty() const override { return this->algorithmName_ == nullptr
         && this->algorithmProvider_ == nullptr && this->algorithmSpec_ == nullptr && this->algorithmVersion_ == nullptr && this->assignNodeSpec_ == nullptr && this->codeDir_ == nullptr
-        && this->computeResource_ == nullptr && this->environments_ == nullptr && this->experimentConfig_ == nullptr && this->hyperParameters_ == nullptr && this->inputChannels_ == nullptr
-        && this->labels_ == nullptr && this->outputChannels_ == nullptr && this->priority_ == nullptr && this->pythonRequirements_ == nullptr && this->roleArn_ == nullptr
-        && this->scheduler_ == nullptr && this->settings_ == nullptr && this->trainingJobDescription_ == nullptr && this->trainingJobName_ == nullptr && this->userVpc_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->computeResource_ == nullptr && this->credentialConfig_ == nullptr && this->environments_ == nullptr && this->experimentConfig_ == nullptr && this->hyperParameters_ == nullptr
+        && this->inputChannels_ == nullptr && this->labels_ == nullptr && this->outputChannels_ == nullptr && this->priority_ == nullptr && this->pythonRequirements_ == nullptr
+        && this->roleArn_ == nullptr && this->scheduler_ == nullptr && this->settings_ == nullptr && this->trainingJobDescription_ == nullptr && this->trainingJobName_ == nullptr
+        && this->userVpc_ == nullptr && this->workspaceId_ == nullptr; };
     // algorithmName Field Functions 
     bool hasAlgorithmName() const { return this->algorithmName_ != nullptr;};
     void deleteAlgorithmName() { this->algorithmName_ = nullptr;};
@@ -715,6 +772,15 @@ namespace Models
     inline CreateTrainingJobRequest::ComputeResource getComputeResource() { DARABONBA_PTR_GET(computeResource_, CreateTrainingJobRequest::ComputeResource) };
     inline CreateTrainingJobRequest& setComputeResource(const CreateTrainingJobRequest::ComputeResource & computeResource) { DARABONBA_PTR_SET_VALUE(computeResource_, computeResource) };
     inline CreateTrainingJobRequest& setComputeResource(CreateTrainingJobRequest::ComputeResource && computeResource) { DARABONBA_PTR_SET_RVALUE(computeResource_, computeResource) };
+
+
+    // credentialConfig Field Functions 
+    bool hasCredentialConfig() const { return this->credentialConfig_ != nullptr;};
+    void deleteCredentialConfig() { this->credentialConfig_ = nullptr;};
+    inline const CredentialConfig & getCredentialConfig() const { DARABONBA_PTR_GET_CONST(credentialConfig_, CredentialConfig) };
+    inline CredentialConfig getCredentialConfig() { DARABONBA_PTR_GET(credentialConfig_, CredentialConfig) };
+    inline CreateTrainingJobRequest& setCredentialConfig(const CredentialConfig & credentialConfig) { DARABONBA_PTR_SET_VALUE(credentialConfig_, credentialConfig) };
+    inline CreateTrainingJobRequest& setCredentialConfig(CredentialConfig && credentialConfig) { DARABONBA_PTR_SET_RVALUE(credentialConfig_, credentialConfig) };
 
 
     // environments Field Functions 
@@ -843,28 +909,52 @@ namespace Models
 
 
   protected:
+    // The algorithm name.
     shared_ptr<string> algorithmName_ {};
+    // The algorithm provider.
     shared_ptr<string> algorithmProvider_ {};
+    // The algorithm configuration for the training job.
     shared_ptr<AlgorithmSpec> algorithmSpec_ {};
+    // The algorithm version.
     shared_ptr<string> algorithmVersion_ {};
     shared_ptr<AssignNodeSpec> assignNodeSpec_ {};
+    // The code directory for the training job.
     shared_ptr<Location> codeDir_ {};
+    // The compute resource configuration.
     shared_ptr<CreateTrainingJobRequest::ComputeResource> computeResource_ {};
+    shared_ptr<CredentialConfig> credentialConfig_ {};
+    // The environment variables for the training job.
     shared_ptr<map<string, string>> environments_ {};
+    // The experiment configuration associated with the training job.
     shared_ptr<CreateTrainingJobRequest::ExperimentConfig> experimentConfig_ {};
+    // The training hyperparameter settings.
     shared_ptr<vector<CreateTrainingJobRequest::HyperParameters>> hyperParameters_ {};
+    // The training input data configuration.
     shared_ptr<vector<CreateTrainingJobRequest::InputChannels>> inputChannels_ {};
+    // The training job labels.
     shared_ptr<vector<CreateTrainingJobRequest::Labels>> labels_ {};
+    // The training output data configuration.
     shared_ptr<vector<CreateTrainingJobRequest::OutputChannels>> outputChannels_ {};
+    // The priority of the training job.
     shared_ptr<int32_t> priority_ {};
+    // The Python package configuration for the training job.
     shared_ptr<vector<string>> pythonRequirements_ {};
+    // The Alibaba Cloud Resource Name (ARN) of the RAM role. Format: acs:ram::$accountID:role/$roleName.
     shared_ptr<string> roleArn_ {};
+    // The training job scheduling configuration.
     shared_ptr<CreateTrainingJobRequest::Scheduler> scheduler_ {};
+    // The additional parameter settings for the training node.
     shared_ptr<JobSettings> settings_ {};
+    // The description of the training job.
     shared_ptr<string> trainingJobDescription_ {};
+    // The name of the training job.
+    // 
     // This parameter is required.
     shared_ptr<string> trainingJobName_ {};
+    // The VPC configuration.
     shared_ptr<CreateTrainingJobRequest::UserVpc> userVpc_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

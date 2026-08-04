@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The ID of the web terminal used to access the instance container.
     shared_ptr<string> webTerminalId_ {};
   };
 

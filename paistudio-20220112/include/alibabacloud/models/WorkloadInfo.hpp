@@ -153,18 +153,31 @@ namespace Models
 
 
   protected:
+    // Specifies whether the workload is scheduled. Valid values are `true` and `false`.
     shared_ptr<string> isScheduled_ {};
+    // The scheduling priority of the workload. A higher value indicates a higher priority.
     shared_ptr<int32_t> priority_ {};
+    // A list of metadata for the queues associated with the workload.
     shared_ptr<vector<QueueMeta>> queueMetas_ {};
+    // The ID of the tenant that contains the workload.
     shared_ptr<string> tenantId_ {};
+    // The ID of the user who created the workload.
     shared_ptr<string> userId_ {};
+    // The name of the user who created the workload.
     shared_ptr<string> userName_ {};
+    // The creation time of the workload, in UTC format.
     shared_ptr<string> workloadCreatedTime_ {};
+    // The unique, system-generated ID for the workload.
     shared_ptr<string> workloadId_ {};
+    // The user-defined name of the workload.
     shared_ptr<string> workloadName_ {};
+    // The current status of the workload. Possible values include `Pending`, `Running`, `Succeeded`, and `Failed`.
     shared_ptr<string> workloadStatus_ {};
+    // The type of the workload.
     shared_ptr<string> workloadType_ {};
+    // The ID of the workspace that contains the workload.
     shared_ptr<string> workspaceId_ {};
+    // The name of the workspace that contains the workload.
     shared_ptr<string> workspaceName_ {};
   };
 

@@ -68,7 +68,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -83,6 +85,7 @@ namespace Models
 
 
   protected:
+    // A list of up to 20 tags.
     shared_ptr<vector<GetResourceGroupMachineGroupRequest::Tag>> tag_ {};
   };
 

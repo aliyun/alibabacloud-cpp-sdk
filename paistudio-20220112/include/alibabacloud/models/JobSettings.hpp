@@ -181,21 +181,37 @@ namespace Models
 
 
   protected:
+    // Additional advanced parameter settings.
     Darabonba::Json advancedSettings_ {};
+    // User ID associated with the job.
     shared_ptr<string> businessUserId_ {};
+    // Caller.
     shared_ptr<string> caller_ {};
+    // NVIDIA driver configuration.
     shared_ptr<string> driver_ {};
+    // Enable job fault tolerance monitoring.
     shared_ptr<bool> enableErrorMonitoringInAIMaster_ {};
+    // Enable OSS append writes.
     shared_ptr<bool> enableOssAppend_ {};
+    // Enable the job to use RDMA.
     shared_ptr<bool> enableRDMA_ {};
+    // Enable computing power health check for the job.
     shared_ptr<bool> enableSanityCheck_ {};
+    // Enable the job to use tide resources.
     shared_ptr<bool> enableTideResource_ {};
+    // Specify configuration parameters for fault tolerance monitoring, such as whether to enable log hang-based detection.
     shared_ptr<string> errorMonitoringArgs_ {};
+    // Duration in minutes to retain the job after completion.
     shared_ptr<int32_t> jobReservedMinutes_ {};
+    // Policy for retaining the job after completion.
     shared_ptr<string> jobReservedPolicy_ {};
+    // Job\\"s oversold resource usage method (not accepted, accepted, or only accepted).
     shared_ptr<string> oversoldType_ {};
+    // Workflow ID.
     shared_ptr<string> pipelineId_ {};
+    // Configuration parameters for computing power health check.
     shared_ptr<string> sanityCheckArgs_ {};
+    // Custom tags.
     shared_ptr<map<string, string>> tags_ {};
   };
 

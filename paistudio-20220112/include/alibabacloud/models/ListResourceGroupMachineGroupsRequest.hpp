@@ -158,19 +158,36 @@ namespace Models
 
 
   protected:
+    // The ID of the user who created the machine group.
     shared_ptr<string> creatorID_ {};
     shared_ptr<string> diskPL_ {};
+    // The ECS instance type.
     shared_ptr<string> ecsSpec_ {};
+    // The machine group IDs. Separate multiple IDs with a comma (,).
     shared_ptr<string> machineGroupIDs_ {};
+    // The name of the machine group.
     shared_ptr<string> name_ {};
+    // The sort order.
+    // 
+    // - `Asc`: Sorts the results in ascending order.
+    // 
+    // - `Desc`: Sorts the results in descending order.
     shared_ptr<string> order_ {};
+    // The ID of the purchase order.
     shared_ptr<string> orderInstanceId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The payment duration. If `PaymentDurationUnit` is set to `Month`, valid values are 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
     shared_ptr<string> paymentDuration_ {};
+    // The billing duration unit of the machine group.
     shared_ptr<string> paymentDurationUnit_ {};
+    // The payment type.
     shared_ptr<string> paymentType_ {};
+    // The field to sort by.
     shared_ptr<string> sortBy_ {};
+    // The instance status. `Creating`: The instance is being created. `Ready`: The instance is running. `Expiring`: The instance is expiring. `Expired`: The instance has expired. `Stopping`: The instance is being stopped. `Stopped`: The instance is stopped.
     shared_ptr<string> status_ {};
   };
 

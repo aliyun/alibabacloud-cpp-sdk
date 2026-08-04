@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The keys of the labels.
+    // 
     // This parameter is required.
     shared_ptr<string> keys_ {};
   };

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Quantity
     shared_ptr<int64_t> count_ {};
+    // Type
     shared_ptr<string> type_ {};
   };
 

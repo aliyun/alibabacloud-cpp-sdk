@@ -51,8 +51,14 @@ namespace Models
 
 
   protected:
-    // ACS Identifier
+    // ACS resource ID.
     shared_ptr<string> ACSQuotaId_ {};
+    // Product codes that can use the ACS Quota.
+    // 
+    // Constraints:  
+    // You can select multiple sub-products, but some sub-products are mutually exclusive. The following combinations can be selected simultaneously:  
+    // - PAI-DLC, PAI-DSW  
+    // - PAI-EAS
     shared_ptr<vector<string>> associatedProducts_ {};
   };
 

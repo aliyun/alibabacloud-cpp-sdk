@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Specifies whether to return detailed information.
     shared_ptr<bool> verbose_ {};
+    // Specifies whether to return the metadata of nodes that are attached to the resource quota.
     shared_ptr<bool> withNodeMeta_ {};
   };
 

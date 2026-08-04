@@ -38,7 +38,12 @@ AlibabaCloud::PaiStudio20220112::Client::Client(Config &config): OpenApiClient(c
     {"cn-qingdao" , "pai.cn-qingdao.aliyuncs.com"},
     {"cn-shanghai-finance-1" , "pai.cn-shanghai-finance-1.aliyuncs.com"},
     {"cn-wulanchabu" , "pai.cn-wulanchabu.aliyuncs.com"},
-    {"cn-zhangjiakou" , "pai.cn-zhangjiakou.aliyuncs.com"}
+    {"cn-zhangjiakou" , "pai.cn-zhangjiakou.aliyuncs.com"},
+    {"us-southeast-1" , "pai.us-southeast-1.aliyuncs.com"},
+    {"cn-zhongwei" , "pai.cn-zhongwei.aliyuncs.com"},
+    {"cn-guangzhou" , "pai.cn-guangzhou.aliyuncs.com"},
+    {"ap-southeast-8" , "pai.ap-southeast-8.aliyuncs.com"},
+    {"ap-northeast-2" , "pai.ap-northeast-2.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("paistudio", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -58,7 +63,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 检查WebTerminal
+ * @summary Checks the connection to the instance container.
  *
  * @param request CheckInstanceWebTerminalRequest
  * @param headers map
@@ -91,7 +96,7 @@ CheckInstanceWebTerminalResponse Client::checkInstanceWebTerminalWithOptions(con
 }
 
 /**
- * @summary 检查WebTerminal
+ * @summary Checks the connection to the instance container.
  *
  * @param request CheckInstanceWebTerminalRequest
  * @return CheckInstanceWebTerminalResponse
@@ -103,7 +108,7 @@ CheckInstanceWebTerminalResponse Client::checkInstanceWebTerminal(const string &
 }
 
 /**
- * @summary 创建新的算法
+ * @summary Creates an algorithm.
  *
  * @param request CreateAlgorithmRequest
  * @param headers map
@@ -148,7 +153,7 @@ CreateAlgorithmResponse Client::createAlgorithmWithOptions(const CreateAlgorithm
 }
 
 /**
- * @summary 创建新的算法
+ * @summary Creates an algorithm.
  *
  * @param request CreateAlgorithmRequest
  * @return CreateAlgorithmResponse
@@ -160,7 +165,7 @@ CreateAlgorithmResponse Client::createAlgorithm(const CreateAlgorithmRequest &re
 }
 
 /**
- * @summary 创建一个新的算法版本
+ * @summary Creates a version of an algorithm.
  *
  * @param tmpReq CreateAlgorithmVersionRequest
  * @param headers map
@@ -199,7 +204,7 @@ CreateAlgorithmVersionResponse Client::createAlgorithmVersionWithOptions(const s
 }
 
 /**
- * @summary 创建一个新的算法版本
+ * @summary Creates a version of an algorithm.
  *
  * @param request CreateAlgorithmVersionRequest
  * @return CreateAlgorithmVersionResponse
@@ -211,7 +216,7 @@ CreateAlgorithmVersionResponse Client::createAlgorithmVersion(const string &Algo
 }
 
 /**
- * @summary 创建WebTerminal
+ * @summary You can create a link to access the container of the instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -236,7 +241,7 @@ CreateInstanceWebTerminalResponse Client::createInstanceWebTerminalWithOptions(c
 }
 
 /**
- * @summary 创建WebTerminal
+ * @summary You can create a link to access the container of the instance.
  *
  * @return CreateInstanceWebTerminalResponse
  */
@@ -247,7 +252,7 @@ CreateInstanceWebTerminalResponse Client::createInstanceWebTerminal(const string
 }
 
 /**
- * @summary 创建Quota
+ * @summary Call the `CreateQuota` operation to create a quota.
  *
  * @param request CreateQuotaRequest
  * @param headers map
@@ -320,7 +325,7 @@ CreateQuotaResponse Client::createQuotaWithOptions(const CreateQuotaRequest &req
 }
 
 /**
- * @summary 创建Quota
+ * @summary Call the `CreateQuota` operation to create a quota.
  *
  * @param request CreateQuotaRequest
  * @return CreateQuotaResponse
@@ -332,7 +337,7 @@ CreateQuotaResponse Client::createQuota(const CreateQuotaRequest &request) {
 }
 
 /**
- * @summary 创建资源组
+ * @summary Use the CreateResourceGroup operation to create a resource group.
  *
  * @param request CreateResourceGroupRequest
  * @param headers map
@@ -389,7 +394,7 @@ CreateResourceGroupResponse Client::createResourceGroupWithOptions(const CreateR
 }
 
 /**
- * @summary 创建资源组
+ * @summary Use the CreateResourceGroup operation to create a resource group.
  *
  * @param request CreateResourceGroupRequest
  * @return CreateResourceGroupResponse
@@ -401,7 +406,7 @@ CreateResourceGroupResponse Client::createResourceGroup(const CreateResourceGrou
 }
 
 /**
- * @summary 创建TrainingJob
+ * @summary Creates a training job.
  *
  * @param request CreateTrainingJobRequest
  * @param headers map
@@ -437,6 +442,10 @@ CreateTrainingJobResponse Client::createTrainingJobWithOptions(const CreateTrain
 
   if (!!request.hasComputeResource()) {
     body["ComputeResource"] = request.getComputeResource();
+  }
+
+  if (!!request.hasCredentialConfig()) {
+    body["CredentialConfig"] = request.getCredentialConfig();
   }
 
   if (!!request.hasEnvironments()) {
@@ -518,7 +527,7 @@ CreateTrainingJobResponse Client::createTrainingJobWithOptions(const CreateTrain
 }
 
 /**
- * @summary 创建TrainingJob
+ * @summary Creates a training job.
  *
  * @param request CreateTrainingJobRequest
  * @return CreateTrainingJobResponse
@@ -530,7 +539,7 @@ CreateTrainingJobResponse Client::createTrainingJob(const CreateTrainingJobReque
 }
 
 /**
- * @summary 删除算法
+ * @summary Deletes an algorithm.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -555,7 +564,7 @@ DeleteAlgorithmResponse Client::deleteAlgorithmWithOptions(const string &Algorit
 }
 
 /**
- * @summary 删除算法
+ * @summary Deletes an algorithm.
  *
  * @return DeleteAlgorithmResponse
  */
@@ -566,7 +575,7 @@ DeleteAlgorithmResponse Client::deleteAlgorithm(const string &AlgorithmId) {
 }
 
 /**
- * @summary 删除算法版本
+ * @summary Deletes an algorithm version.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -591,7 +600,7 @@ DeleteAlgorithmVersionResponse Client::deleteAlgorithmVersionWithOptions(const s
 }
 
 /**
- * @summary 删除算法版本
+ * @summary Deletes an algorithm version.
  *
  * @return DeleteAlgorithmVersionResponse
  */
@@ -604,7 +613,7 @@ DeleteAlgorithmVersionResponse Client::deleteAlgorithmVersion(const string &Algo
 /**
  * @deprecated OpenAPI DeleteMachineGroup is deprecated
  *
- * @summary delete machine group
+ * @summary Deletes a machine group.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -631,7 +640,7 @@ DeleteMachineGroupResponse Client::deleteMachineGroupWithOptions(const string &M
 /**
  * @deprecated OpenAPI DeleteMachineGroup is deprecated
  *
- * @summary delete machine group
+ * @summary Deletes a machine group.
  *
  * @return DeleteMachineGroupResponse
  */
@@ -642,7 +651,7 @@ DeleteMachineGroupResponse Client::deleteMachineGroup(const string &MachineGroup
 }
 
 /**
- * @summary 删除Quota
+ * @summary You can delete a resource quota by using DeleteQuota.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -667,7 +676,7 @@ DeleteQuotaResponse Client::deleteQuotaWithOptions(const string &QuotaId, const 
 }
 
 /**
- * @summary 删除Quota
+ * @summary You can delete a resource quota by using DeleteQuota.
  *
  * @return DeleteQuotaResponse
  */
@@ -678,7 +687,7 @@ DeleteQuotaResponse Client::deleteQuota(const string &QuotaId) {
 }
 
 /**
- * @summary 删除资源组
+ * @summary Deletes a resource group.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -703,7 +712,7 @@ DeleteResourceGroupResponse Client::deleteResourceGroupWithOptions(const string 
 }
 
 /**
- * @summary 删除资源组
+ * @summary Deletes a resource group.
  *
  * @return DeleteResourceGroupResponse
  */
@@ -716,7 +725,7 @@ DeleteResourceGroupResponse Client::deleteResourceGroup(const string &ResourceGr
 /**
  * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
  *
- * @summary delete machine group
+ * @summary Deletes the specified machine group from a resource group.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -743,7 +752,7 @@ DeleteResourceGroupMachineGroupResponse Client::deleteResourceGroupMachineGroupW
 /**
  * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
  *
- * @summary delete machine group
+ * @summary Deletes the specified machine group from a resource group.
  *
  * @return DeleteResourceGroupMachineGroupResponse
  */
@@ -754,7 +763,7 @@ DeleteResourceGroupMachineGroupResponse Client::deleteResourceGroupMachineGroup(
 }
 
 /**
- * @summary 删除一个TrainingJob
+ * @summary Deletes a training task.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -779,7 +788,7 @@ DeleteTrainingJobResponse Client::deleteTrainingJobWithOptions(const string &Tra
 }
 
 /**
- * @summary 删除一个TrainingJob
+ * @summary Deletes a training task.
  *
  * @return DeleteTrainingJobResponse
  */
@@ -790,7 +799,7 @@ DeleteTrainingJobResponse Client::deleteTrainingJob(const string &TrainingJobId)
 }
 
 /**
- * @summary 删除TrainingJob的Labels
+ * @summary Deletes the labels of a training task.
  *
  * @param request DeleteTrainingJobLabelsRequest
  * @param headers map
@@ -823,7 +832,7 @@ DeleteTrainingJobLabelsResponse Client::deleteTrainingJobLabelsWithOptions(const
 }
 
 /**
- * @summary 删除TrainingJob的Labels
+ * @summary Deletes the labels of a training task.
  *
  * @param request DeleteTrainingJobLabelsRequest
  * @return DeleteTrainingJobLabelsResponse
@@ -835,7 +844,7 @@ DeleteTrainingJobLabelsResponse Client::deleteTrainingJobLabels(const string &Tr
 }
 
 /**
- * @summary 获取一个算法信息
+ * @summary Retrieves algorithm details.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -860,7 +869,7 @@ GetAlgorithmResponse Client::getAlgorithmWithOptions(const string &AlgorithmId, 
 }
 
 /**
- * @summary 获取一个算法信息
+ * @summary Retrieves algorithm details.
  *
  * @return GetAlgorithmResponse
  */
@@ -871,7 +880,7 @@ GetAlgorithmResponse Client::getAlgorithm(const string &AlgorithmId) {
 }
 
 /**
- * @summary 创建一个新的算法版本
+ * @summary Retrieve details about an algorithm version.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -896,7 +905,7 @@ GetAlgorithmVersionResponse Client::getAlgorithmVersionWithOptions(const string 
 }
 
 /**
- * @summary 创建一个新的算法版本
+ * @summary Retrieve details about an algorithm version.
  *
  * @return GetAlgorithmVersionResponse
  */
@@ -909,7 +918,7 @@ GetAlgorithmVersionResponse Client::getAlgorithmVersion(const string &AlgorithmI
 /**
  * @deprecated OpenAPI GetMachineGroup is deprecated
  *
- * @summary get machine group
+ * @summary Retrieves the details of a specific machine group.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -936,7 +945,7 @@ GetMachineGroupResponse Client::getMachineGroupWithOptions(const string &Machine
 /**
  * @deprecated OpenAPI GetMachineGroup is deprecated
  *
- * @summary get machine group
+ * @summary Retrieves the details of a specific machine group.
  *
  * @return GetMachineGroupResponse
  */
@@ -949,7 +958,7 @@ GetMachineGroupResponse Client::getMachineGroup(const string &MachineGroupID) {
 /**
  * @deprecated OpenAPI GetNodeMetrics is deprecated
  *
- * @summary get resource group node metrics
+ * @summary You can call the GetNodeMetrics operation to obtain the metric information of resource group nodes.
  *
  * @param request GetNodeMetricsRequest
  * @param headers map
@@ -1000,7 +1009,7 @@ GetNodeMetricsResponse Client::getNodeMetricsWithOptions(const string &ResourceG
 /**
  * @deprecated OpenAPI GetNodeMetrics is deprecated
  *
- * @summary get resource group node metrics
+ * @summary You can call the GetNodeMetrics operation to obtain the metric information of resource group nodes.
  *
  * @param request GetNodeMetricsRequest
  * @return GetNodeMetricsResponse
@@ -1012,7 +1021,7 @@ GetNodeMetricsResponse Client::getNodeMetrics(const string &ResourceGroupID, con
 }
 
 /**
- * @summary 获取Quota
+ * @summary Call GetQuota to retrieve the details of a resource quota. This helps you monitor current resource usage for effective resource management and planning.
  *
  * @param request GetQuotaRequest
  * @param headers map
@@ -1049,7 +1058,7 @@ GetQuotaResponse Client::getQuotaWithOptions(const string &QuotaId, const GetQuo
 }
 
 /**
- * @summary 获取Quota
+ * @summary Call GetQuota to retrieve the details of a resource quota. This helps you monitor current resource usage for effective resource management and planning.
  *
  * @param request GetQuotaRequest
  * @return GetQuotaResponse
@@ -1061,7 +1070,7 @@ GetQuotaResponse Client::getQuota(const string &QuotaId, const GetQuotaRequest &
 }
 
 /**
- * @summary get resource group by group id
+ * @summary `GetResourceGroup` retrieves details for a resource group.
  *
  * @param tmpReq GetResourceGroupRequest
  * @param headers map
@@ -1104,7 +1113,7 @@ GetResourceGroupResponse Client::getResourceGroupWithOptions(const string &Resou
 }
 
 /**
- * @summary get resource group by group id
+ * @summary `GetResourceGroup` retrieves details for a resource group.
  *
  * @param request GetResourceGroupRequest
  * @return GetResourceGroupResponse
@@ -1116,7 +1125,7 @@ GetResourceGroupResponse Client::getResourceGroup(const string &ResourceGroupID,
 }
 
 /**
- * @summary get machine group
+ * @summary Call GetResourceGroupMachineGroup to retrieve the details of a machine group.
  *
  * @param tmpReq GetResourceGroupMachineGroupRequest
  * @param headers map
@@ -1155,7 +1164,7 @@ GetResourceGroupMachineGroupResponse Client::getResourceGroupMachineGroupWithOpt
 }
 
 /**
- * @summary get machine group
+ * @summary Call GetResourceGroupMachineGroup to retrieve the details of a machine group.
  *
  * @param request GetResourceGroupMachineGroupRequest
  * @return GetResourceGroupMachineGroupResponse
@@ -1169,7 +1178,7 @@ GetResourceGroupMachineGroupResponse Client::getResourceGroupMachineGroup(const 
 /**
  * @deprecated OpenAPI GetResourceGroupRequest is deprecated
  *
- * @summary get resource group requested resource by resource group id
+ * @summary You can call the GetResourceGroupRequest operation to obtain the number of resources that have been allocated to a resource group.
  *
  * @param request GetResourceGroupRequestRequest
  * @param headers map
@@ -1208,7 +1217,7 @@ GetResourceGroupRequestResponse Client::getResourceGroupRequestWithOptions(const
 /**
  * @deprecated OpenAPI GetResourceGroupRequest is deprecated
  *
- * @summary get resource group requested resource by resource group id
+ * @summary You can call the GetResourceGroupRequest operation to obtain the number of resources that have been allocated to a resource group.
  *
  * @param request GetResourceGroupRequestRequest
  * @return GetResourceGroupRequestResponse
@@ -1220,7 +1229,7 @@ GetResourceGroupRequestResponse Client::getResourceGroupRequest(const GetResourc
 }
 
 /**
- * @summary get resource group total resource by group id
+ * @summary You can call GetResourceGroupTotal to get the total resources of a Resource Group.
  *
  * @param request GetResourceGroupTotalRequest
  * @param headers map
@@ -1253,7 +1262,7 @@ GetResourceGroupTotalResponse Client::getResourceGroupTotalWithOptions(const Get
 }
 
 /**
- * @summary get resource group total resource by group id
+ * @summary You can call GetResourceGroupTotal to get the total resources of a Resource Group.
  *
  * @param request GetResourceGroupTotalRequest
  * @return GetResourceGroupTotalResponse
@@ -1265,7 +1274,7 @@ GetResourceGroupTotalResponse Client::getResourceGroupTotal(const GetResourceGro
 }
 
 /**
- * @summary 获取抢占式实例历史价格
+ * @summary Retrieves the historical prices of spot instances.
  *
  * @param request GetSpotPriceHistoryRequest
  * @param headers map
@@ -1322,7 +1331,7 @@ GetSpotPriceHistoryResponse Client::getSpotPriceHistoryWithOptions(const string 
 }
 
 /**
- * @summary 获取抢占式实例历史价格
+ * @summary Retrieves the historical prices of spot instances.
  *
  * @param request GetSpotPriceHistoryRequest
  * @return GetSpotPriceHistoryResponse
@@ -1334,7 +1343,7 @@ GetSpotPriceHistoryResponse Client::getSpotPriceHistory(const string &InstanceTy
 }
 
 /**
- * @summary 调用GetToken获取临时鉴权信息
+ * @summary Obtains a share token for a training task.
  *
  * @param request GetTokenRequest
  * @param headers map
@@ -1371,7 +1380,7 @@ GetTokenResponse Client::getTokenWithOptions(const GetTokenRequest &request, con
 }
 
 /**
- * @summary 调用GetToken获取临时鉴权信息
+ * @summary Obtains a share token for a training task.
  *
  * @param request GetTokenRequest
  * @return GetTokenResponse
@@ -1383,7 +1392,7 @@ GetTokenResponse Client::getToken(const GetTokenRequest &request) {
 }
 
 /**
- * @summary 获取TrainingJob的详情
+ * @summary Retrieves the details of a training job.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1408,7 +1417,7 @@ GetTrainingJobResponse Client::getTrainingJobWithOptions(const string &TrainingJ
 }
 
 /**
- * @summary 获取TrainingJob的详情
+ * @summary Retrieves the details of a training job.
  *
  * @return GetTrainingJobResponse
  */
@@ -1419,7 +1428,7 @@ GetTrainingJobResponse Client::getTrainingJob(const string &TrainingJobId) {
 }
 
 /**
- * @summary 获取Training Job的算法错误信息
+ * @summary Retrieves the runtime fault error message of a training node.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1444,7 +1453,7 @@ GetTrainingJobErrorInfoResponse Client::getTrainingJobErrorInfoWithOptions(const
 }
 
 /**
- * @summary 获取Training Job的算法错误信息
+ * @summary Retrieves the runtime fault error message of a training node.
  *
  * @return GetTrainingJobErrorInfoResponse
  */
@@ -1455,7 +1464,7 @@ GetTrainingJobErrorInfoResponse Client::getTrainingJobErrorInfo(const string &Tr
 }
 
 /**
- * @summary 获取TrainingJob最近的Metrics
+ * @summary Retrieves the latest metrics for a training task.
  *
  * @param request GetTrainingJobLatestMetricsRequest
  * @param headers map
@@ -1488,7 +1497,7 @@ GetTrainingJobLatestMetricsResponse Client::getTrainingJobLatestMetricsWithOptio
 }
 
 /**
- * @summary 获取TrainingJob最近的Metrics
+ * @summary Retrieves the latest metrics for a training task.
  *
  * @param request GetTrainingJobLatestMetricsRequest
  * @return GetTrainingJobLatestMetricsResponse
@@ -1502,7 +1511,7 @@ GetTrainingJobLatestMetricsResponse Client::getTrainingJobLatestMetrics(const st
 /**
  * @deprecated OpenAPI GetUserViewMetrics is deprecated
  *
- * @summary get user view  metrics
+ * @summary Retrieves metric data at the user dimension.
  *
  * @param request GetUserViewMetricsRequest
  * @param headers map
@@ -1561,7 +1570,7 @@ GetUserViewMetricsResponse Client::getUserViewMetricsWithOptions(const string &R
 /**
  * @deprecated OpenAPI GetUserViewMetrics is deprecated
  *
- * @summary get user view  metrics
+ * @summary Retrieves metric data at the user dimension.
  *
  * @param request GetUserViewMetricsRequest
  * @return GetUserViewMetricsResponse
@@ -1573,7 +1582,7 @@ GetUserViewMetricsResponse Client::getUserViewMetrics(const string &ResourceGrou
 }
 
 /**
- * @summary 获取算法的所有版本信息
+ * @summary Retrieve a list of algorithm version details.
  *
  * @param request ListAlgorithmVersionsRequest
  * @param headers map
@@ -1610,7 +1619,7 @@ ListAlgorithmVersionsResponse Client::listAlgorithmVersionsWithOptions(const str
 }
 
 /**
- * @summary 获取算法的所有版本信息
+ * @summary Retrieve a list of algorithm version details.
  *
  * @param request ListAlgorithmVersionsRequest
  * @return ListAlgorithmVersionsResponse
@@ -1622,7 +1631,7 @@ ListAlgorithmVersionsResponse Client::listAlgorithmVersions(const string &Algori
 }
 
 /**
- * @summary 获取算法列表
+ * @summary Lists algorithm details.
  *
  * @param request ListAlgorithmsRequest
  * @param headers map
@@ -1675,7 +1684,7 @@ ListAlgorithmsResponse Client::listAlgorithmsWithOptions(const ListAlgorithmsReq
 }
 
 /**
- * @summary 获取算法列表
+ * @summary Lists algorithm details.
  *
  * @param request ListAlgorithmsRequest
  * @return ListAlgorithmsResponse
@@ -1687,7 +1696,76 @@ ListAlgorithmsResponse Client::listAlgorithms(const ListAlgorithmsRequest &reque
 }
 
 /**
- * @summary 获取节点规格列表
+ * @summary Retrieves detailed information about all pods on a specified node.
+ *
+ * @description ## Operation description
+ * - This feature is currently available only on the Lingjun AI Computing Service platform and is accessible to customers through a whitelist.
+ * - `NodeName` and `ResourceGroupId` are required parameters that represent the node name and the ID of the resource group to which the node belongs.
+ * - Optional parameters include `OversoldTypes` and `GPUIndexes`, which are used to further filter or specify conditions.
+ *
+ * @param request ListNodePodsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListNodePodsResponse
+ */
+ListNodePodsResponse Client::listNodePodsWithOptions(const string &NodeId, const ListNodePodsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGPUIndexes()) {
+    query["GPUIndexes"] = request.getGPUIndexes();
+  }
+
+  if (!!request.hasOversoldTypes()) {
+    query["OversoldTypes"] = request.getOversoldTypes();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListNodePods"},
+    {"version" , "2022-01-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/nodes/" , Darabonba::Encode::Encoder::percentEncode(NodeId) , "/Pods")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListNodePodsResponse>();
+}
+
+/**
+ * @summary Retrieves detailed information about all pods on a specified node.
+ *
+ * @description ## Operation description
+ * - This feature is currently available only on the Lingjun AI Computing Service platform and is accessible to customers through a whitelist.
+ * - `NodeName` and `ResourceGroupId` are required parameters that represent the node name and the ID of the resource group to which the node belongs.
+ * - Optional parameters include `OversoldTypes` and `GPUIndexes`, which are used to further filter or specify conditions.
+ *
+ * @param request ListNodePodsRequest
+ * @return ListNodePodsResponse
+ */
+ListNodePodsResponse Client::listNodePods(const string &NodeId, const ListNodePodsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listNodePodsWithOptions(NodeId, request, headers, runtime);
+}
+
+/**
+ * @summary Lists the available node types.
+ *
+ * @description ## Description
+ * - Lists the node types that match the specified filter criteria.
+ * - You must specify either the `ResourceGroupIds` or `QuotaId` parameter. The specified resource group IDs or quota ID must belong to the requesting user.
+ * - You can filter the results by using parameters such as accelerator type and GPU type.
+ * - The response includes details and statistics for each node type, indicating the availability of your resources.
  *
  * @param request ListNodeTypesRequest
  * @param headers map
@@ -1736,7 +1814,13 @@ ListNodeTypesResponse Client::listNodeTypesWithOptions(const ListNodeTypesReques
 }
 
 /**
- * @summary 获取节点规格列表
+ * @summary Lists the available node types.
+ *
+ * @description ## Description
+ * - Lists the node types that match the specified filter criteria.
+ * - You must specify either the `ResourceGroupIds` or `QuotaId` parameter. The specified resource group IDs or quota ID must belong to the requesting user.
+ * - You can filter the results by using parameters such as accelerator type and GPU type.
+ * - The response includes details and statistics for each node type, indicating the availability of your resources.
  *
  * @param request ListNodeTypesRequest
  * @return ListNodeTypesResponse
@@ -1748,7 +1832,9 @@ ListNodeTypesResponse Client::listNodeTypes(const ListNodeTypesRequest &request)
 }
 
 /**
- * @summary 获取资源节点列表
+ * @summary Returns a list of resource nodes.
+ *
+ * @description ListNodes retrieves resource nodes that match specified filter conditions.
  *
  * @param tmpReq ListNodesRequest
  * @param headers map
@@ -1911,7 +1997,9 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &tmpReq, c
 }
 
 /**
- * @summary 获取资源节点列表
+ * @summary Returns a list of resource nodes.
+ *
+ * @description ListNodes retrieves resource nodes that match specified filter conditions.
  *
  * @param request ListNodesRequest
  * @return ListNodesResponse
@@ -1923,7 +2011,9 @@ ListNodesResponse Client::listNodes(const ListNodesRequest &request) {
 }
 
 /**
- * @summary 获取当前资源配额用户列表和其所使用的资源
+ * @summary Lists users within a quota and their resource usage.
+ *
+ * @description Retrieves the resource usage of users in a specified quota.
  *
  * @param request ListQuotaActiveUserUsagesRequest
  * @param headers map
@@ -1988,7 +2078,9 @@ ListQuotaActiveUserUsagesResponse Client::listQuotaActiveUserUsagesWithOptions(c
 }
 
 /**
- * @summary 获取当前资源配额用户列表和其所使用的资源
+ * @summary Lists users within a quota and their resource usage.
+ *
+ * @description Retrieves the resource usage of users in a specified quota.
  *
  * @param request ListQuotaActiveUserUsagesRequest
  * @return ListQuotaActiveUserUsagesResponse
@@ -2000,7 +2092,7 @@ ListQuotaActiveUserUsagesResponse Client::listQuotaActiveUserUsages(const string
 }
 
 /**
- * @summary 您可以通过此API获取Quota上的任务信息列表
+ * @summary Retrieves a list of workloads associated with a specific quota.
  *
  * @param request ListQuotaWorkloadsRequest
  * @param headers map
@@ -2125,7 +2217,7 @@ ListQuotaWorkloadsResponse Client::listQuotaWorkloadsWithOptions(const string &Q
 }
 
 /**
- * @summary 您可以通过此API获取Quota上的任务信息列表
+ * @summary Retrieves a list of workloads associated with a specific quota.
  *
  * @param request ListQuotaWorkloadsRequest
  * @return ListQuotaWorkloadsResponse
@@ -2137,7 +2229,7 @@ ListQuotaWorkloadsResponse Client::listQuotaWorkloads(const string &QuotaId, con
 }
 
 /**
- * @summary 获取Quota列表
+ * @summary Lists quotas.
  *
  * @param request ListQuotasRequest
  * @param headers map
@@ -2238,7 +2330,7 @@ ListQuotasResponse Client::listQuotasWithOptions(const ListQuotasRequest &reques
 }
 
 /**
- * @summary 获取Quota列表
+ * @summary Lists quotas.
  *
  * @param request ListQuotasRequest
  * @return ListQuotasResponse
@@ -2250,7 +2342,7 @@ ListQuotasResponse Client::listQuotas(const ListQuotasRequest &request) {
 }
 
 /**
- * @summary list machine groups
+ * @summary Retrieves a list of machine groups in a specified resource group.
  *
  * @param request ListResourceGroupMachineGroupsRequest
  * @param headers map
@@ -2335,7 +2427,7 @@ ListResourceGroupMachineGroupsResponse Client::listResourceGroupMachineGroupsWit
 }
 
 /**
- * @summary list machine groups
+ * @summary Retrieves a list of machine groups in a specified resource group.
  *
  * @param request ListResourceGroupMachineGroupsRequest
  * @return ListResourceGroupMachineGroupsResponse
@@ -2347,7 +2439,9 @@ ListResourceGroupMachineGroupsResponse Client::listResourceGroupMachineGroups(co
 }
 
 /**
- * @summary list resource group
+ * @summary Call this operation to list resource groups for ECS or Lingjun intelligent computing resources.
+ *
+ * @description Currently, AI computing resource groups (including ECS and Lingjun intelligent computing resources) are available only in specific regions. For a list of supported regions, see [AI computing resource management](https://help.aliyun.com/document_detail/143986.html).
  *
  * @param request ListResourceGroupsRequest
  * @param headers map
@@ -2424,7 +2518,9 @@ ListResourceGroupsResponse Client::listResourceGroupsWithOptions(const ListResou
 }
 
 /**
- * @summary list resource group
+ * @summary Call this operation to list resource groups for ECS or Lingjun intelligent computing resources.
+ *
+ * @description Currently, AI computing resource groups (including ECS and Lingjun intelligent computing resources) are available only in specific regions. For a list of supported regions, see [AI computing resource management](https://help.aliyun.com/document_detail/143986.html).
  *
  * @param request ListResourceGroupsRequest
  * @return ListResourceGroupsResponse
@@ -2436,7 +2532,13 @@ ListResourceGroupsResponse Client::listResourceGroups(const ListResourceGroupsRe
 }
 
 /**
- * @summary 查标签接口
+ * @summary Tag query API.
+ *
+ * @description Specify at least one of the following parameters to query for resources.
+ * - ResourceId.N
+ * - Tag.N (Tag.N.Key and Tag.N.Value)
+ * If you specify both parameters, the operation returns only resources that match both criteria.
+ * - Tag.N and ResourceId.N
  *
  * @param tmpReq ListTagResourcesRequest
  * @param headers map
@@ -2495,7 +2597,13 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary 查标签接口
+ * @summary Tag query API.
+ *
+ * @description Specify at least one of the following parameters to query for resources.
+ * - ResourceId.N
+ * - Tag.N (Tag.N.Key and Tag.N.Value)
+ * If you specify both parameters, the operation returns only resources that match both criteria.
+ * - Tag.N and ResourceId.N
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -2507,7 +2615,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary 获取指定TrainingJob的事件。
+ * @summary Retrieve events for a specific training task to gain detailed insight into the training process.
  *
  * @param request ListTrainingJobEventsRequest
  * @param headers map
@@ -2552,7 +2660,7 @@ ListTrainingJobEventsResponse Client::listTrainingJobEventsWithOptions(const str
 }
 
 /**
- * @summary 获取指定TrainingJob的事件。
+ * @summary Retrieve events for a specific training task to gain detailed insight into the training process.
  *
  * @param request ListTrainingJobEventsRequest
  * @return ListTrainingJobEventsResponse
@@ -2564,7 +2672,7 @@ ListTrainingJobEventsResponse Client::listTrainingJobEvents(const string &Traini
 }
 
 /**
- * @summary 获取指定Instance（TrainingJob的运行单元）的日志。
+ * @summary Retrieve events for a training job instance.
  *
  * @param request ListTrainingJobInstanceEventsRequest
  * @param headers map
@@ -2609,7 +2717,7 @@ ListTrainingJobInstanceEventsResponse Client::listTrainingJobInstanceEventsWithO
 }
 
 /**
- * @summary 获取指定Instance（TrainingJob的运行单元）的日志。
+ * @summary Retrieve events for a training job instance.
  *
  * @param request ListTrainingJobInstanceEventsRequest
  * @return ListTrainingJobInstanceEventsResponse
@@ -2621,7 +2729,7 @@ ListTrainingJobInstanceEventsResponse Client::listTrainingJobInstanceEvents(cons
 }
 
 /**
- * @summary 获取Training Job实例的Metrics
+ * @summary Retrieve monitoring metrics for training job instances.
  *
  * @param request ListTrainingJobInstanceMetricsRequest
  * @param headers map
@@ -2670,7 +2778,7 @@ ListTrainingJobInstanceMetricsResponse Client::listTrainingJobInstanceMetricsWit
 }
 
 /**
- * @summary 获取Training Job实例的Metrics
+ * @summary Retrieve monitoring metrics for training job instances.
  *
  * @param request ListTrainingJobInstanceMetricsRequest
  * @return ListTrainingJobInstanceMetricsResponse
@@ -2682,7 +2790,7 @@ ListTrainingJobInstanceMetricsResponse Client::listTrainingJobInstanceMetrics(co
 }
 
 /**
- * @summary 获取Training Job的日志
+ * @summary Retrieves the logs for a training task.
  *
  * @param request ListTrainingJobLogsRequest
  * @param headers map
@@ -2735,7 +2843,7 @@ ListTrainingJobLogsResponse Client::listTrainingJobLogsWithOptions(const string 
 }
 
 /**
- * @summary 获取Training Job的日志
+ * @summary Retrieves the logs for a training task.
  *
  * @param request ListTrainingJobLogsRequest
  * @return ListTrainingJobLogsResponse
@@ -2747,7 +2855,7 @@ ListTrainingJobLogsResponse Client::listTrainingJobLogs(const string &TrainingJo
 }
 
 /**
- * @summary 获取Training Job的Metrics
+ * @summary Retrieve monitoring data for a training task.
  *
  * @param request ListTrainingJobMetricsRequest
  * @param headers map
@@ -2800,7 +2908,7 @@ ListTrainingJobMetricsResponse Client::listTrainingJobMetricsWithOptions(const s
 }
 
 /**
- * @summary 获取Training Job的Metrics
+ * @summary Retrieve monitoring data for a training task.
  *
  * @param request ListTrainingJobMetricsRequest
  * @return ListTrainingJobMetricsResponse
@@ -2812,7 +2920,7 @@ ListTrainingJobMetricsResponse Client::listTrainingJobMetrics(const string &Trai
 }
 
 /**
- * @summary 获取Training Job 产出的所有模型信息
+ * @summary Retrieves information about the output models of a training job.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2837,7 +2945,7 @@ ListTrainingJobOutputModelsResponse Client::listTrainingJobOutputModelsWithOptio
 }
 
 /**
- * @summary 获取Training Job 产出的所有模型信息
+ * @summary Retrieves information about the output models of a training job.
  *
  * @return ListTrainingJobOutputModelsResponse
  */
@@ -2848,7 +2956,7 @@ ListTrainingJobOutputModelsResponse Client::listTrainingJobOutputModels(const st
 }
 
 /**
- * @summary 获取TrainingJob的列表
+ * @summary Retrieves a list of training jobs.
  *
  * @param tmpReq ListTrainingJobsRequest
  * @param headers map
@@ -2939,7 +3047,7 @@ ListTrainingJobsResponse Client::listTrainingJobsWithOptions(const ListTrainingJ
 }
 
 /**
- * @summary 获取TrainingJob的列表
+ * @summary Retrieves a list of training jobs.
  *
  * @param request ListTrainingJobsRequest
  * @return ListTrainingJobsResponse
@@ -2951,7 +3059,9 @@ ListTrainingJobsResponse Client::listTrainingJobs(const ListTrainingJobsRequest 
 }
 
 /**
- * @summary 您可以通过OperateNode对节点进行操作
+ * @summary Use OperateNode to manage nodes.
+ *
+ * @description Use OperateNode to manage a specified resource node. Supported operations include disabling or enabling scheduling.
  *
  * @param request OperateNodeRequest
  * @param headers map
@@ -2992,7 +3102,9 @@ OperateNodeResponse Client::operateNodeWithOptions(const string &NodeId, const O
 }
 
 /**
- * @summary 您可以通过OperateNode对节点进行操作
+ * @summary Use OperateNode to manage nodes.
+ *
+ * @description Use OperateNode to manage a specified resource node. Supported operations include disabling or enabling scheduling.
  *
  * @param request OperateNodeRequest
  * @return OperateNodeResponse
@@ -3004,7 +3116,7 @@ OperateNodeResponse Client::operateNode(const string &NodeId, const OperateNodeR
 }
 
 /**
- * @summary 扩缩容Quota
+ * @summary Use ScaleQuota to scale resource quotas.
  *
  * @param request ScaleQuotaRequest
  * @param headers map
@@ -3041,7 +3153,7 @@ ScaleQuotaResponse Client::scaleQuotaWithOptions(const string &QuotaId, const Sc
 }
 
 /**
- * @summary 扩缩容Quota
+ * @summary Use ScaleQuota to scale resource quotas.
  *
  * @param request ScaleQuotaRequest
  * @return ScaleQuotaResponse
@@ -3053,7 +3165,7 @@ ScaleQuotaResponse Client::scaleQuota(const string &QuotaId, const ScaleQuotaReq
 }
 
 /**
- * @summary 停止一个TrainingJob
+ * @summary Stops a training task.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3078,7 +3190,7 @@ StopTrainingJobResponse Client::stopTrainingJobWithOptions(const string &Trainin
 }
 
 /**
- * @summary 停止一个TrainingJob
+ * @summary Stops a training task.
  *
  * @return StopTrainingJobResponse
  */
@@ -3089,7 +3201,9 @@ StopTrainingJobResponse Client::stopTrainingJob(const string &TrainingJobId) {
 }
 
 /**
- * @summary 打标签接口
+ * @summary Attaches tags to resources.
+ *
+ * @description Alibaba Cloud checks the number of existing tags on the resource before attaching a new tag. If the limit is exceeded, an error message is returned.
  *
  * @param request TagResourcesRequest
  * @param headers map
@@ -3134,7 +3248,9 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary 打标签接口
+ * @summary Attaches tags to resources.
+ *
+ * @description Alibaba Cloud checks the number of existing tags on the resource before attaching a new tag. If the limit is exceeded, an error message is returned.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -3146,7 +3262,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary 删标签接口
+ * @summary Detach tags from a list of specified resources. If a tag is no longer attached to any resource after detachment, Alibaba Cloud deletes it automatically.
  *
  * @param tmpReq UntagResourcesRequest
  * @param headers map
@@ -3205,7 +3321,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary 删标签接口
+ * @summary Detach tags from a list of specified resources. If a tag is no longer attached to any resource after detachment, Alibaba Cloud deletes it automatically.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
@@ -3217,7 +3333,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary 更新算法
+ * @summary Updates an algorithm.
  *
  * @param request UpdateAlgorithmRequest
  * @param headers map
@@ -3254,7 +3370,7 @@ UpdateAlgorithmResponse Client::updateAlgorithmWithOptions(const string &Algorit
 }
 
 /**
- * @summary 更新算法
+ * @summary Updates an algorithm.
  *
  * @param request UpdateAlgorithmRequest
  * @return UpdateAlgorithmResponse
@@ -3266,7 +3382,7 @@ UpdateAlgorithmResponse Client::updateAlgorithm(const string &AlgorithmId, const
 }
 
 /**
- * @summary 更新算法
+ * @summary Updates an algorithm version.
  *
  * @param tmpReq UpdateAlgorithmVersionRequest
  * @param headers map
@@ -3305,7 +3421,7 @@ UpdateAlgorithmVersionResponse Client::updateAlgorithmVersionWithOptions(const s
 }
 
 /**
- * @summary 更新算法
+ * @summary Updates an algorithm version.
  *
  * @param request UpdateAlgorithmVersionRequest
  * @return UpdateAlgorithmVersionResponse
@@ -3317,7 +3433,7 @@ UpdateAlgorithmVersionResponse Client::updateAlgorithmVersion(const string &Algo
 }
 
 /**
- * @summary 更新Quota
+ * @summary Updates the information of a resource quota.
  *
  * @param request UpdateQuotaRequest
  * @param headers map
@@ -3333,6 +3449,10 @@ UpdateQuotaResponse Client::updateQuotaWithOptions(const string &QuotaId, const 
 
   if (!!request.hasLabels()) {
     body["Labels"] = request.getLabels();
+  }
+
+  if (!!request.hasPropagateDefaultGPUDriver()) {
+    body["PropagateDefaultGPUDriver"] = request.getPropagateDefaultGPUDriver();
   }
 
   if (!!request.hasQueueStrategy()) {
@@ -3366,7 +3486,7 @@ UpdateQuotaResponse Client::updateQuotaWithOptions(const string &QuotaId, const 
 }
 
 /**
- * @summary 更新Quota
+ * @summary Updates the information of a resource quota.
  *
  * @param request UpdateQuotaRequest
  * @return UpdateQuotaResponse
@@ -3378,7 +3498,7 @@ UpdateQuotaResponse Client::updateQuota(const string &QuotaId, const UpdateQuota
 }
 
 /**
- * @summary 更新Resource Group
+ * @summary Use UpdateResourceGroup to update resource group information.
  *
  * @param request UpdateResourceGroupRequest
  * @param headers map
@@ -3423,7 +3543,7 @@ UpdateResourceGroupResponse Client::updateResourceGroupWithOptions(const string 
 }
 
 /**
- * @summary 更新Resource Group
+ * @summary Use UpdateResourceGroup to update resource group information.
  *
  * @param request UpdateResourceGroupRequest
  * @return UpdateResourceGroupResponse
@@ -3435,7 +3555,7 @@ UpdateResourceGroupResponse Client::updateResourceGroup(const string &ResourceGr
 }
 
 /**
- * @summary 更新一个TrainingJob的Labels
+ * @summary Updates the labels of a training task.
  *
  * @param request UpdateTrainingJobLabelsRequest
  * @param headers map
@@ -3468,7 +3588,7 @@ UpdateTrainingJobLabelsResponse Client::updateTrainingJobLabelsWithOptions(const
 }
 
 /**
- * @summary 更新一个TrainingJob的Labels
+ * @summary Updates the labels of a training task.
  *
  * @param request UpdateTrainingJobLabelsRequest
  * @return UpdateTrainingJobLabelsResponse

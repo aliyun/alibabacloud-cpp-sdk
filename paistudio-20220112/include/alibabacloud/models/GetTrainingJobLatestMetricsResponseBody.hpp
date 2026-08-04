@@ -79,9 +79,13 @@ namespace Models
 
 
     protected:
+      // The name of the metric.
       shared_ptr<string> name_ {};
+      // The timestamp when the metric was collected.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> timestamp_ {};
+      // The value of the metric.
       shared_ptr<double> value_ {};
     };
 
@@ -104,7 +108,9 @@ namespace Models
 
 
   protected:
+    // The metric information.
     shared_ptr<vector<GetTrainingJobLatestMetricsResponseBody::Metrics>> metrics_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

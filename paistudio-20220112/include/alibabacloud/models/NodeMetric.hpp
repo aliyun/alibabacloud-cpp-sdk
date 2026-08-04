@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The type of GPU.
     shared_ptr<string> GPUType_ {};
+    // Performance Metrics.
     shared_ptr<vector<Metric>> metrics_ {};
+    // Edge zone ID.
     shared_ptr<string> nodeID_ {};
   };
 

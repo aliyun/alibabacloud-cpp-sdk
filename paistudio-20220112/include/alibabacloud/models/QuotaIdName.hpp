@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Resource quota ID
     shared_ptr<string> quotaId_ {};
+    // Resource quota name
     shared_ptr<string> quotaName_ {};
   };
 

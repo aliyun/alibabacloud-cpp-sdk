@@ -127,13 +127,21 @@ namespace Models
 
 
     protected:
+      // The algorithm ID.
       shared_ptr<string> algorithmId_ {};
+      // The algorithm name.
       shared_ptr<string> algorithmName_ {};
+      // The algorithm provider.
       shared_ptr<string> algorithmProvider_ {};
+      // The algorithm version.
       shared_ptr<string> algorithmVersion_ {};
+      // The time when the algorithm was created.
       shared_ptr<string> gmtCreateTime_ {};
+      // The time when the algorithm was last updated.
       shared_ptr<string> gmtModifiedTime_ {};
+      // The tenant ID that owns the algorithm.
       shared_ptr<string> tenantId_ {};
+      // The user ID that owns the algorithm.
       shared_ptr<string> userId_ {};
     };
 
@@ -163,8 +171,11 @@ namespace Models
 
 
   protected:
+    // A list of algorithm version details.
     shared_ptr<vector<ListAlgorithmVersionsResponseBody::AlgorithmVersions>> algorithmVersions_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of algorithm versions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

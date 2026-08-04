@@ -106,13 +106,21 @@ namespace Models
 
 
   protected:
+    // Hyperparameter enumeration list.
     shared_ptr<vector<string>> enum_ {};
+    // Whether the maximum value is exclusive.
     shared_ptr<bool> exclusiveMaximum_ {};
+    // Whether the minimum value is exclusive.
     shared_ptr<bool> exclusiveMinimum_ {};
+    // Maximum length.
     shared_ptr<int64_t> maxLength_ {};
+    // Maximum value.
     shared_ptr<string> maximum_ {};
+    // Minimum length.
     shared_ptr<int64_t> minLength_ {};
+    // Minimum value.
     shared_ptr<string> minimum_ {};
+    // Regular expression.
     shared_ptr<string> pattern_ {};
   };
 

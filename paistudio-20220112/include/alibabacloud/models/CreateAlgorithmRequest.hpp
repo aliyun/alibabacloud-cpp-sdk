@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The description of the algorithm.
     shared_ptr<string> algorithmDescription_ {};
+    // The name of the algorithm.
     shared_ptr<string> algorithmName_ {};
+    // The display name of the algorithm.
     shared_ptr<string> displayName_ {};
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

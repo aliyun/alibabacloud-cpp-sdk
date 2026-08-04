@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // Rule for attaching resource nodes.
     shared_ptr<BindingPolicy> bindingPolicy_ {};
+    // Number of resource nodes with this specification.
     shared_ptr<int64_t> count_ {};
+    // Type of supernode to use. You cannot specify both a node specification and a supernode type.
     shared_ptr<string> hyperType_ {};
+    // Type of the resource node specification.
     shared_ptr<string> type_ {};
   };
 

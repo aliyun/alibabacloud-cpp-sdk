@@ -62,8 +62,11 @@ namespace Models
 
 
   protected:
+    // A list of node IDs to exclude from scheduling.
     shared_ptr<vector<string>> excludeNodes_ {};
+    // A list of node IDs to include in the scheduling.
     shared_ptr<vector<string>> includeNodes_ {};
+    // The number of nodes to be selected by the scheduler.
     shared_ptr<int64_t> nodeSpecCount_ {};
   };
 

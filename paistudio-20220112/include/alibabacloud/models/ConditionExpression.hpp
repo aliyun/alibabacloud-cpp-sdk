@@ -60,10 +60,16 @@ namespace Models
 
 
   protected:
+    // The type of required resource.
+    // 
     // This parameter is required.
     shared_ptr<string> key_ {};
+    // The criterion for evaluation.
+    // 
     // This parameter is required.
     shared_ptr<string> operator_ {};
+    // List of resource values.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> values_ {};
   };

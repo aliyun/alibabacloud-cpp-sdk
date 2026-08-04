@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // ID of the training algorithm.
     shared_ptr<string> algorithmId_ {};
+    // Algorithm version.
     shared_ptr<string> algorithmVersion_ {};
   };
 

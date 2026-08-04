@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The algorithm description.
     shared_ptr<string> algorithmDescription_ {};
+    // The display name of the algorithm.
     shared_ptr<string> displayName_ {};
   };
 

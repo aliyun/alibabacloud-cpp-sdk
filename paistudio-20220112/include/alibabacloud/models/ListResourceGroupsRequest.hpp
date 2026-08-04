@@ -140,17 +140,35 @@ namespace Models
 
 
   protected:
+    // The provider of the compute resources.
     shared_ptr<string> computingResourceProvider_ {};
     shared_ptr<bool> hasResource_ {};
+    // The name of the resource group.
     shared_ptr<string> name_ {};
+    // The sort order. Valid values:
+    // 
+    // - `desc`: descending.
+    // 
+    // - `asc`: ascending.
     shared_ptr<string> order_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceGroupIDs_ {};
+    // The resource type. Valid values:
+    // 
+    // - `ECS`: ECS.
+    // 
+    // - `Lingjun`: Lingjun intelligent computing resources.
     shared_ptr<string> resourceType_ {};
+    // Specifies whether to return all results.
     shared_ptr<bool> showAll_ {};
+    // The field to sort by. Valid values include: `DisplayName`, `GmtCreated`, `GmtModified`, `RegionID`, `Duration`, `PricingCycle`, and `PayType`.
     shared_ptr<string> sortBy_ {};
+    // The status of the resource group.
     shared_ptr<string> status_ {};
+    // The version to filter by.
     shared_ptr<string> versions_ {};
   };
 

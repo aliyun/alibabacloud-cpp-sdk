@@ -166,17 +166,27 @@ namespace Models
 
 
   protected:
+    // Total MinQuota amount actually assigned
     shared_ptr<ResourceAmount> actualMinQuota_ {};
+    // Quota amount assignable by the User
     shared_ptr<ResourceAmount> allocatableQuota_ {};
+    // Total Quota usage information
     shared_ptr<ResourceAmount> allocatedQuota_ {};
+    // Quota usage information of ancestors
     shared_ptr<ResourceAmount> ancestorsAllocatedQuota_ {};
+    // Quota usage information of descendants
     shared_ptr<ResourceAmount> descendantsAllocatedQuota_ {};
+    // Total MinQuota amount requested by the User
     shared_ptr<ResourceAmount> desiredMinQuota_ {};
     shared_ptr<QuotaNodeStatistics> nodeStatistics_ {};
+    // Quota request amount
     shared_ptr<ResourceAmount> requestedQuota_ {};
+    // Quota usage information at the current level
     shared_ptr<ResourceAmount> selfAllocatedQuota_ {};
     shared_ptr<ResourceAmount> selfSubmittedQuota_ {};
+    // System-reserved Quota amount
     shared_ptr<ResourceAmount> systemReservedQuota_ {};
+    // Quota usage amount
     shared_ptr<ResourceAmount> usedQuota_ {};
   };
 

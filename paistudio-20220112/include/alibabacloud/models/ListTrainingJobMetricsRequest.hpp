@@ -84,12 +84,20 @@ namespace Models
 
 
   protected:
+    // The end time in UTC, in ISO 8601 format. If you omit this parameter, the current time is used.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> endTime_ {};
+    // The name of the metric.
     shared_ptr<string> name_ {};
+    // The sort order of returned metrics. Valid values: ASC or DESC.
     shared_ptr<string> order_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of items per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The start time in UTC, in ISO 8601 format. If you omit this parameter, the task start time is used.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> startTime_ {};
   };

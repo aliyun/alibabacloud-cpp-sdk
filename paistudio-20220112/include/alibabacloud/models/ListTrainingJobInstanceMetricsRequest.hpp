@@ -75,13 +75,37 @@ namespace Models
 
 
   protected:
+    // End time in UTC, in ISO 8601 format. If empty, use the current time.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> endTime_ {};
+    // Instance ID.
     shared_ptr<string> instanceId_ {};
+    // Metric type:
+    // 
+    // - GpuCoreUsage: POD GPU usage
+    // 
+    // - GpuMemoryUsage: POD GPU memory usage
+    // 
+    // - CpuCoreUsage: POD CPU usage
+    // 
+    // - MemoryUsage: POD memory usage
+    // 
+    // - NetworkInputRate: POD network input rate (TCP/IP) (MB/s)
+    // 
+    // - NetworkOutputRate: POD network output rate (TCP/IP) (MB/s)
+    // 
+    // - DiskReadRate: POD disk read rate (MB/s)
+    // 
+    // - DiskWriteRate: POD disk write rate (MB/s)
+    // 
     // This parameter is required.
     shared_ptr<string> metricType_ {};
+    // Start time in UTC, in ISO 8601 format. If empty, use the job start time.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> startTime_ {};
+    // Time interval. Valid values: 1h, 30m, 5m, 10s.
     shared_ptr<string> timeStep_ {};
   };
 

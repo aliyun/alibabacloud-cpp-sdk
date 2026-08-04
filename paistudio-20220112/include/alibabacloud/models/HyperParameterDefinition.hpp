@@ -97,13 +97,22 @@ namespace Models
 
 
   protected:
+    // The default value of the hyperparameter.
     shared_ptr<string> defaultValue_ {};
+    // The description of the hyperparameter.
     shared_ptr<string> description_ {};
+    // The display name of the parameter.
     shared_ptr<string> displayName_ {};
+    // The name of the parameter.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The value range of the parameter.
     shared_ptr<HyperParameterRange> range_ {};
+    // Specifies whether the parameter is required.
     shared_ptr<bool> required_ {};
+    // The type of the hyperparameter.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

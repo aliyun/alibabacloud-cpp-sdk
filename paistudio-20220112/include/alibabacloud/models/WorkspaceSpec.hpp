@@ -97,12 +97,19 @@ namespace Models
 
 
   protected:
+    // Invalidity reason code when using guaranteed resources is invalid
     shared_ptr<string> code_ {};
+    // Type of invalidity reason when using guaranteed resources is invalid
     shared_ptr<string> codeType_ {};
+    // Indicates whether the use of guaranteed resources is valid.
     shared_ptr<bool> isGuaranteedValid_ {};
+    // Indicates whether the use of oversold resources is valid.
     shared_ptr<bool> isOverSoldValid_ {};
+    // Invalidity reason content when using guaranteed resources is invalid
     shared_ptr<string> reason_ {};
+    // Specification resource information
     shared_ptr<ResourceAmount> spec_ {};
+    // Template Name
     shared_ptr<string> specName_ {};
   };
 

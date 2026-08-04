@@ -31,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnableSelfQuotaPreemption, enableSelfQuotaPreemption_);
       DARABONBA_PTR_TO_JSON(EnableSubQuotaPreemption, enableSubQuotaPreemption_);
       DARABONBA_PTR_TO_JSON(EniCacheConfig, eniCacheConfig_);
+      DARABONBA_PTR_TO_JSON(IsEncryptedResource, isEncryptedResource_);
       DARABONBA_PTR_TO_JSON(OversoldUsageConfig, oversoldUsageConfig_);
       DARABONBA_PTR_TO_JSON(ResourceSpecs, resourceSpecs_);
       DARABONBA_PTR_TO_JSON(SandboxCacheConfig, sandboxCacheConfig_);
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SupportRDMA, supportRDMA_);
       DARABONBA_PTR_TO_JSON(UseCase, useCase_);
       DARABONBA_PTR_TO_JSON(UserVpc, userVpc_);
+      DARABONBA_PTR_TO_JSON(WorkloadTypes, workloadTypes_);
     };
     friend void from_json(const Darabonba::Json& j, QuotaConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(ACS, ACS_);
@@ -51,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EnableSelfQuotaPreemption, enableSelfQuotaPreemption_);
       DARABONBA_PTR_FROM_JSON(EnableSubQuotaPreemption, enableSubQuotaPreemption_);
       DARABONBA_PTR_FROM_JSON(EniCacheConfig, eniCacheConfig_);
+      DARABONBA_PTR_FROM_JSON(IsEncryptedResource, isEncryptedResource_);
       DARABONBA_PTR_FROM_JSON(OversoldUsageConfig, oversoldUsageConfig_);
       DARABONBA_PTR_FROM_JSON(ResourceSpecs, resourceSpecs_);
       DARABONBA_PTR_FROM_JSON(SandboxCacheConfig, sandboxCacheConfig_);
@@ -60,6 +63,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SupportRDMA, supportRDMA_);
       DARABONBA_PTR_FROM_JSON(UseCase, useCase_);
       DARABONBA_PTR_FROM_JSON(UserVpc, userVpc_);
+      DARABONBA_PTR_FROM_JSON(WorkloadTypes, workloadTypes_);
     };
     QuotaConfig() = default ;
     QuotaConfig(const QuotaConfig &) = default ;
@@ -74,9 +78,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ACS_ == nullptr
         && this->clusterId_ == nullptr && this->controlPlaneClusterId_ == nullptr && this->defaultGPUDriver_ == nullptr && this->enableGPUShare_ == nullptr && this->enablePreemptSubquotaWorkloads_ == nullptr
-        && this->enableSelfQuotaPreemption_ == nullptr && this->enableSubQuotaPreemption_ == nullptr && this->eniCacheConfig_ == nullptr && this->oversoldUsageConfig_ == nullptr && this->resourceSpecs_ == nullptr
-        && this->sandboxCacheConfig_ == nullptr && this->selfQuotaPreemptionConfig_ == nullptr && this->subQuotaPreemptionConfig_ == nullptr && this->supportGPUDrivers_ == nullptr && this->supportRDMA_ == nullptr
-        && this->useCase_ == nullptr && this->userVpc_ == nullptr; };
+        && this->enableSelfQuotaPreemption_ == nullptr && this->enableSubQuotaPreemption_ == nullptr && this->eniCacheConfig_ == nullptr && this->isEncryptedResource_ == nullptr && this->oversoldUsageConfig_ == nullptr
+        && this->resourceSpecs_ == nullptr && this->sandboxCacheConfig_ == nullptr && this->selfQuotaPreemptionConfig_ == nullptr && this->subQuotaPreemptionConfig_ == nullptr && this->supportGPUDrivers_ == nullptr
+        && this->supportRDMA_ == nullptr && this->useCase_ == nullptr && this->userVpc_ == nullptr && this->workloadTypes_ == nullptr; };
     // ACS Field Functions 
     bool hasACS() const { return this->ACS_ != nullptr;};
     void deleteACS() { this->ACS_ = nullptr;};
@@ -142,6 +146,13 @@ namespace Models
     inline EniCacheConfig getEniCacheConfig() { DARABONBA_PTR_GET(eniCacheConfig_, EniCacheConfig) };
     inline QuotaConfig& setEniCacheConfig(const EniCacheConfig & eniCacheConfig) { DARABONBA_PTR_SET_VALUE(eniCacheConfig_, eniCacheConfig) };
     inline QuotaConfig& setEniCacheConfig(EniCacheConfig && eniCacheConfig) { DARABONBA_PTR_SET_RVALUE(eniCacheConfig_, eniCacheConfig) };
+
+
+    // isEncryptedResource Field Functions 
+    bool hasIsEncryptedResource() const { return this->isEncryptedResource_ != nullptr;};
+    void deleteIsEncryptedResource() { this->isEncryptedResource_ = nullptr;};
+    inline bool getIsEncryptedResource() const { DARABONBA_PTR_GET_DEFAULT(isEncryptedResource_, false) };
+    inline QuotaConfig& setIsEncryptedResource(bool isEncryptedResource) { DARABONBA_PTR_SET_VALUE(isEncryptedResource_, isEncryptedResource) };
 
 
     // oversoldUsageConfig Field Functions 
@@ -221,25 +232,47 @@ namespace Models
     inline QuotaConfig& setUserVpc(UserVpc && userVpc) { DARABONBA_PTR_SET_RVALUE(userVpc_, userVpc) };
 
 
+    // workloadTypes Field Functions 
+    bool hasWorkloadTypes() const { return this->workloadTypes_ != nullptr;};
+    void deleteWorkloadTypes() { this->workloadTypes_ = nullptr;};
+    inline const vector<string> & getWorkloadTypes() const { DARABONBA_PTR_GET_CONST(workloadTypes_, vector<string>) };
+    inline vector<string> getWorkloadTypes() { DARABONBA_PTR_GET(workloadTypes_, vector<string>) };
+    inline QuotaConfig& setWorkloadTypes(const vector<string> & workloadTypes) { DARABONBA_PTR_SET_VALUE(workloadTypes_, workloadTypes) };
+    inline QuotaConfig& setWorkloadTypes(vector<string> && workloadTypes) { DARABONBA_PTR_SET_RVALUE(workloadTypes_, workloadTypes) };
+
+
   protected:
+    // The ACS-related configurations.
     shared_ptr<ACS> ACS_ {};
+    // The ID of the cluster where the quota resides.
     shared_ptr<string> clusterId_ {};
     shared_ptr<string> controlPlaneClusterId_ {};
+    // The default GPU driver version for the resource quota.
     shared_ptr<string> defaultGPUDriver_ {};
     shared_ptr<bool> enableGPUShare_ {};
+    // Specifies whether workloads in sub-quotas can be preempted.
     shared_ptr<bool> enablePreemptSubquotaWorkloads_ {};
+    // Specifies whether guaranteed resources within this quota can be preempted.
     shared_ptr<bool> enableSelfQuotaPreemption_ {};
+    // Specifies whether resources in sub-quotas can be preempted.
     shared_ptr<bool> enableSubQuotaPreemption_ {};
     shared_ptr<EniCacheConfig> eniCacheConfig_ {};
+    shared_ptr<bool> isEncryptedResource_ {};
     shared_ptr<OversoldUsageConfig> oversoldUsageConfig_ {};
+    // The resource specification templates.
     shared_ptr<vector<WorkspaceSpecs>> resourceSpecs_ {};
     shared_ptr<SandboxCacheConfig> sandboxCacheConfig_ {};
     shared_ptr<SelfQuotaPreemptionConfig> selfQuotaPreemptionConfig_ {};
+    // The configuration for the sub-quota preemption task.
     shared_ptr<SubQuotaPreemptionConfig> subQuotaPreemptionConfig_ {};
+    // The GPU driver versions supported by the resource quota.
     shared_ptr<vector<string>> supportGPUDrivers_ {};
+    // Specifies whether RDMA is supported.
     shared_ptr<bool> supportRDMA_ {};
     shared_ptr<string> useCase_ {};
+    // The user VPC information.
     shared_ptr<UserVpc> userVpc_ {};
+    shared_ptr<vector<string>> workloadTypes_ {};
   };
 
   } // namespace Models

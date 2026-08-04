@@ -14,10 +14,12 @@ namespace Models
   class NodeDrainParameters : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const NodeDrainParameters& obj) { 
+      DARABONBA_PTR_TO_JSON(Force, force_);
       DARABONBA_PTR_TO_JSON(PodFromSubProducts, podFromSubProducts_);
       DARABONBA_PTR_TO_JSON(PodNames, podNames_);
     };
     friend void from_json(const Darabonba::Json& j, NodeDrainParameters& obj) { 
+      DARABONBA_PTR_FROM_JSON(Force, force_);
       DARABONBA_PTR_FROM_JSON(PodFromSubProducts, podFromSubProducts_);
       DARABONBA_PTR_FROM_JSON(PodNames, podNames_);
     };
@@ -32,8 +34,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->podFromSubProducts_ == nullptr
-        && this->podNames_ == nullptr; };
+    virtual bool empty() const override { return this->force_ == nullptr
+        && this->podFromSubProducts_ == nullptr && this->podNames_ == nullptr; };
+    // force Field Functions 
+    bool hasForce() const { return this->force_ != nullptr;};
+    void deleteForce() { this->force_ = nullptr;};
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline NodeDrainParameters& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
+
+
     // podFromSubProducts Field Functions 
     bool hasPodFromSubProducts() const { return this->podFromSubProducts_ != nullptr;};
     void deletePodFromSubProducts() { this->podFromSubProducts_ = nullptr;};
@@ -53,7 +62,10 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> force_ {};
+    // Delete pods of the specified job types
     shared_ptr<vector<string>> podFromSubProducts_ {};
+    // Delete specified pods
     shared_ptr<vector<string>> podNames_ {};
   };
 

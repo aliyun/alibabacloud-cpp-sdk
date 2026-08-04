@@ -100,18 +100,21 @@ namespace Models
 
 
   protected:
+    // The default public gateway information.
     shared_ptr<ForwardInfo> defaultForwardInfo_ {};
-    // DefaultRoute
+    // The default routing. Valid values:
+    // - eth0: uses the default network interface controller (NIC) to access external networks through the public gateway.
+    // - eth1: uses the user\\"s elastic network interfaces (ENIs) to access external networks through the private gateway.
     shared_ptr<string> defaultRoute_ {};
-    // ExtendedCIDRs
+    // The secondary CIDR blocks.
     shared_ptr<vector<string>> extendedCIDRs_ {};
-    // RoleArn
+    // The OSS access authorization information.
     shared_ptr<string> roleArn_ {};
-    // SecurityGroupID
+    // The security group ID.
     shared_ptr<string> securityGroupId_ {};
-    // VSW ID
+    // The vSwitch ID.
     shared_ptr<string> switchId_ {};
-    // VPC ID
+    // VPC ID。
     shared_ptr<string> vpcId_ {};
   };
 

@@ -311,31 +311,48 @@ namespace Models
     shared_ptr<int64_t> allocatableCpu_ {};
     shared_ptr<int64_t> allocatableMemory_ {};
     shared_ptr<int64_t> cpu_ {};
+    // Machine group creator ID
     shared_ptr<string> creatorID_ {};
+    // Default driver supported by the machine group
     shared_ptr<string> defaultDriver_ {};
     shared_ptr<int64_t> diskCapacity_ {};
     shared_ptr<string> diskPL_ {};
+    // Resource count
     shared_ptr<int64_t> ecsCount_ {};
+    // ECS specification
     shared_ptr<string> ecsSpec_ {};
+    // Creation Time
     shared_ptr<string> gmtCreatedTime_ {};
+    // Expiration Time
     shared_ptr<string> gmtExpiredTime_ {};
+    // Update Time
     shared_ptr<string> gmtModifiedTime_ {};
+    // Start At
     shared_ptr<string> gmtStartedTime_ {};
     shared_ptr<int64_t> gpu_ {};
     shared_ptr<int64_t> gpuMemory_ {};
     shared_ptr<string> gpuType_ {};
+    // Machine Group ID
     shared_ptr<string> machineGroupID_ {};
     shared_ptr<int64_t> memory_ {};
+    // Order ID
     shared_ptr<string> orderInstanceId_ {};
+    // Duration
     shared_ptr<string> paymentDuration_ {};
-    // region ID
+    // Region ID
     shared_ptr<string> paymentDurationUnit_ {};
+    // Payment type
     shared_ptr<string> paymentType_ {};
+    // Machine group error code
     shared_ptr<string> reasonCode_ {};
+    // Machine group fault message
     shared_ptr<string> reasonMessage_ {};
+    // Resource group ID
     shared_ptr<string> resourceGroupID_ {};
     shared_ptr<string> resourceType_ {};
+    // Machine group status
     shared_ptr<string> status_ {};
+    // List of NVIDIA GPU driver versions supported by the machine group
     shared_ptr<vector<string>> supportedDrivers_ {};
     shared_ptr<int64_t> systemReservedCpu_ {};
     shared_ptr<int64_t> systemReservedMemory_ {};

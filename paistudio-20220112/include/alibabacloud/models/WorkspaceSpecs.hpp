@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // Applicable product (DLC, DSW, EAS, ...)
     shared_ptr<string> product_ {};
+    // List of resource specifications
     shared_ptr<vector<WorkspaceSpec>> specs_ {};
+    // Workspace ID
     shared_ptr<string> workspaceId_ {};
   };
 

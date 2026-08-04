@@ -50,7 +50,9 @@ namespace Models
 
 
   protected:
+    // The code location type. Valid values: OSS and NAS.
     shared_ptr<string> locationType_ {};
+    // The code path.
     Darabonba::Json locationValue_ {};
   };
 

@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // Resource ID
       shared_ptr<string> resourceId_ {};
+      // Resource type
       shared_ptr<string> resourceType_ {};
+      // Tag key
       shared_ptr<string> tagKey_ {};
+      // Tag value
       shared_ptr<string> tagValue_ {};
     };
 
@@ -122,8 +126,11 @@ namespace Models
 
 
   protected:
+    // Pagination token for the next page of results
     shared_ptr<string> nextToken_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // The list of resources.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

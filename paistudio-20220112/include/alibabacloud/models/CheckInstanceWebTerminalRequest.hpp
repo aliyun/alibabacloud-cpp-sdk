@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The check information.
     shared_ptr<string> checkInfo_ {};
   };
 

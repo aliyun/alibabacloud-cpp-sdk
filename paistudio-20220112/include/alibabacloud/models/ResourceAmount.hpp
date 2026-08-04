@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Total CPU
     shared_ptr<string> CPU_ {};
+    // Total GPU cards
     shared_ptr<string> GPU_ {};
+    // GPU card type
     shared_ptr<string> GPUType_ {};
+    // Total memory
     shared_ptr<string> memory_ {};
   };
 

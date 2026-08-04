@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The number of allocated nodes in the hyper node.
     shared_ptr<int64_t> allocatedNodeNum_ {};
+    // The number of idle nodes in the hyper node.
     shared_ptr<int64_t> emptyNodeNum_ {};
+    // The name of the hyper node.
     shared_ptr<string> hyperNodeName_ {};
+    // The total number of nodes in the hyper node.
     shared_ptr<int64_t> totalNodeNum_ {};
   };
 

@@ -18,6 +18,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateQuotaRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Labels, labels_);
+      DARABONBA_PTR_TO_JSON(PropagateDefaultGPUDriver, propagateDefaultGPUDriver_);
       DARABONBA_PTR_TO_JSON(QueueStrategy, queueStrategy_);
       DARABONBA_PTR_TO_JSON(QuotaConfig, quotaConfig_);
       DARABONBA_PTR_TO_JSON(QuotaName, quotaName_);
@@ -25,6 +26,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, UpdateQuotaRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Labels, labels_);
+      DARABONBA_PTR_FROM_JSON(PropagateDefaultGPUDriver, propagateDefaultGPUDriver_);
       DARABONBA_PTR_FROM_JSON(QueueStrategy, queueStrategy_);
       DARABONBA_PTR_FROM_JSON(QuotaConfig, quotaConfig_);
       DARABONBA_PTR_FROM_JSON(QuotaName, quotaName_);
@@ -41,7 +43,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->labels_ == nullptr && this->queueStrategy_ == nullptr && this->quotaConfig_ == nullptr && this->quotaName_ == nullptr; };
+        && this->labels_ == nullptr && this->propagateDefaultGPUDriver_ == nullptr && this->queueStrategy_ == nullptr && this->quotaConfig_ == nullptr && this->quotaName_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     inline vector<Label> getLabels() { DARABONBA_PTR_GET(labels_, vector<Label>) };
     inline UpdateQuotaRequest& setLabels(const vector<Label> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
     inline UpdateQuotaRequest& setLabels(vector<Label> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
+
+
+    // propagateDefaultGPUDriver Field Functions 
+    bool hasPropagateDefaultGPUDriver() const { return this->propagateDefaultGPUDriver_ != nullptr;};
+    void deletePropagateDefaultGPUDriver() { this->propagateDefaultGPUDriver_ = nullptr;};
+    inline bool getPropagateDefaultGPUDriver() const { DARABONBA_PTR_GET_DEFAULT(propagateDefaultGPUDriver_, false) };
+    inline UpdateQuotaRequest& setPropagateDefaultGPUDriver(bool propagateDefaultGPUDriver) { DARABONBA_PTR_SET_VALUE(propagateDefaultGPUDriver_, propagateDefaultGPUDriver) };
 
 
     // queueStrategy Field Functions 
@@ -82,10 +91,16 @@ namespace Models
 
 
   protected:
+    // The description of the resource quota.
     shared_ptr<string> description_ {};
+    // The list of user-defined labels. This is a full update.
     shared_ptr<vector<Label>> labels_ {};
+    shared_ptr<bool> propagateDefaultGPUDriver_ {};
+    // The queuing strategy for jobs in the quota.
     shared_ptr<string> queueStrategy_ {};
+    // The resource quota configuration.
     shared_ptr<QuotaConfig> quotaConfig_ {};
+    // The resource quota name.
     shared_ptr<string> quotaName_ {};
   };
 

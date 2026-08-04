@@ -285,30 +285,66 @@ namespace Models
 
 
   protected:
+    // The resource allocation strategy. Currently, only `ByNodeSpec` is supported.
     shared_ptr<string> allocateStrategy_ {};
+    // The ID of the user who created the quota.
     shared_ptr<string> creatorId_ {};
+    // The quota description.
     shared_ptr<string> description_ {};
     shared_ptr<string> GPUType_ {};
+    // The time when the quota was created.
     shared_ptr<string> gmtCreatedTime_ {};
+    // The time when the quota was last modified.
     shared_ptr<string> gmtModifiedTime_ {};
     shared_ptr<vector<string>> hyperZones_ {};
+    // The quota labels.
     shared_ptr<vector<Label>> labels_ {};
+    // The ID of the most recent operation on the quota.
     shared_ptr<string> latestOperationId_ {};
+    // The guaranteed resources.
     shared_ptr<ResourceSpec> min_ {};
+    // The parent quota ID.
     shared_ptr<string> parentQuotaId_ {};
+    // The queuing strategy. Valid values:
+    // 
+    // - `PaiStrategyIntelligent`: intelligent strategy.
+    // 
+    // - `PaiStrategyBalance`: balanced strategy.
+    // 
+    // - `PaiStrategyRoundRobin`: round-robin strategy.
+    // 
+    // - `PaiStrategyStrictFIFO`: FIFO strategy.
     shared_ptr<string> queueStrategy_ {};
     shared_ptr<QuotaCluster> quotaCluster_ {};
+    // The quota configuration.
     shared_ptr<QuotaConfig> quotaConfig_ {};
+    // The quota details.
     shared_ptr<QuotaDetails> quotaDetails_ {};
+    // The quota ID.
     shared_ptr<string> quotaId_ {};
+    // The quota name.
     shared_ptr<string> quotaName_ {};
+    // The error code.
     shared_ptr<string> reasonCode_ {};
+    // The error message.
     shared_ptr<string> reasonMessage_ {};
+    // A list of resource group IDs.
     shared_ptr<vector<string>> resourceGroupIds_ {};
+    // The resource type. Valid values:
+    // 
+    // - `Lingjun`
+    // 
+    // - `ECS` (default)
+    // 
+    // - `ACS`
     shared_ptr<string> resourceType_ {};
+    // The quota status.
     shared_ptr<string> status_ {};
+    // A list of sub-quotas.
     shared_ptr<vector<QuotaIdName>> subQuotas_ {};
+    // The version.
     shared_ptr<string> version_ {};
+    // The workspaces that are associated with the quota.
     shared_ptr<vector<WorkspaceIdName>> workspaces_ {};
   };
 

@@ -115,14 +115,23 @@ namespace Models
 
 
   protected:
+    // The ID of the algorithm.
     shared_ptr<string> algorithmId_ {};
+    // The name of the algorithm.
     shared_ptr<string> algorithmName_ {};
+    // The provider of the algorithm.
     shared_ptr<string> algorithmProvider_ {};
+    // Details about the algorithm.
     shared_ptr<AlgorithmSpec> algorithmSpec_ {};
+    // The version of the algorithm.
     shared_ptr<string> algorithmVersion_ {};
+    // The time when the algorithm was created.
     shared_ptr<string> gmtCreateTime_ {};
+    // The time when the algorithm was last updated.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The ID of the tenant who owns the algorithm.
     shared_ptr<string> tenantId_ {};
+    // The ID of the user who owns the algorithm.
     shared_ptr<string> userId_ {};
   };
 

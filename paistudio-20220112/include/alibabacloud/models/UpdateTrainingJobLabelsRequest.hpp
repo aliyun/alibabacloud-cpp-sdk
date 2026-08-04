@@ -68,7 +68,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -83,6 +85,7 @@ namespace Models
 
 
   protected:
+    // The list of labels.
     shared_ptr<vector<UpdateTrainingJobLabelsRequest::Labels>> labels_ {};
   };
 

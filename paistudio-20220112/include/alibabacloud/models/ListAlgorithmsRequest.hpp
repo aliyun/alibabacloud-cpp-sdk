@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Algorithm ID.
     shared_ptr<string> algorithmId_ {};
+    // Algorithm name.
     shared_ptr<string> algorithmName_ {};
+    // Algorithm provider.
     shared_ptr<string> algorithmProvider_ {};
+    // Page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // Page size.
     shared_ptr<int64_t> pageSize_ {};
+    // Workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

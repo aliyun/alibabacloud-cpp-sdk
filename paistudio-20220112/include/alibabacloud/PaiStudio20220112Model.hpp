@@ -16,6 +16,7 @@
 #include <alibabacloud/models/AllocateStrategySpec.hpp>
 #include <alibabacloud/models/AllocatedHyperNodeDetail.hpp>
 #include <alibabacloud/models/AssignNodeSpec.hpp>
+#include <alibabacloud/models/AssumeUserInfo.hpp>
 #include <alibabacloud/models/CacheInfo.hpp>
 #include <alibabacloud/models/ForwardInfo.hpp>
 #include <alibabacloud/models/UserVpc.hpp>
@@ -25,6 +26,9 @@
 #include <alibabacloud/models/DataSource.hpp>
 #include <alibabacloud/models/ClusterSpec.hpp>
 #include <alibabacloud/models/ComponentSpec.hpp>
+#include <alibabacloud/models/CredentialRole.hpp>
+#include <alibabacloud/models/CredentialConfigItem.hpp>
+#include <alibabacloud/models/CredentialConfig.hpp>
 #include <alibabacloud/models/EcsSpec.hpp>
 #include <alibabacloud/models/EniCacheConfig.hpp>
 #include <alibabacloud/models/Event.hpp>
@@ -87,7 +91,10 @@
 #include <alibabacloud/models/ResourceOperation.hpp>
 #include <alibabacloud/models/SchedulingRule.hpp>
 #include <alibabacloud/models/Rules.hpp>
+#include <alibabacloud/models/SpotBidPreviewItem.hpp>
 #include <alibabacloud/models/SpotPriceItem.hpp>
+#include <alibabacloud/models/SpotStockInternalInfo.hpp>
+#include <alibabacloud/models/SpotStockItem.hpp>
 #include <alibabacloud/models/SpotStockPreview.hpp>
 #include <alibabacloud/models/StatisticsDetails.hpp>
 #include <alibabacloud/models/Task.hpp>
@@ -184,6 +191,9 @@
 #include <alibabacloud/models/ListAlgorithmsRequest.hpp>
 #include <alibabacloud/models/ListAlgorithmsResponseBody.hpp>
 #include <alibabacloud/models/ListAlgorithmsResponse.hpp>
+#include <alibabacloud/models/ListNodePodsRequest.hpp>
+#include <alibabacloud/models/ListNodePodsResponseBody.hpp>
+#include <alibabacloud/models/ListNodePodsResponse.hpp>
 #include <alibabacloud/models/ListNodeTypesRequest.hpp>
 #include <alibabacloud/models/ListNodeTypesResponseBody.hpp>
 #include <alibabacloud/models/ListNodeTypesResponse.hpp>

@@ -198,23 +198,41 @@ namespace Models
 
 
   protected:
+    // The number of instances in the machine group.
     shared_ptr<int64_t> count_ {};
+    // The default driver.
     shared_ptr<string> defaultDriver_ {};
+    // The subscription duration. This parameter is returned only when `PayType` is `PrePay`.
     shared_ptr<string> duration_ {};
+    // The ECS instance type of the machine group.
     shared_ptr<string> ecsType_ {};
+    // The time when the machine group was created.
     shared_ptr<string> gmtCreated_ {};
+    // The expiration time. This parameter is returned only when `PayType` is `PrePay`.
     shared_ptr<string> gmtExpired_ {};
+    // The time when the machine group was last modified.
     shared_ptr<string> gmtModified_ {};
+    // The time when the machine group started.
     shared_ptr<string> gmtStarted_ {};
+    // The ID of the machine group.
     shared_ptr<string> machineGroupID_ {};
+    // The order ID.
     shared_ptr<string> orderID_ {};
+    // The instance ID of the order.
     shared_ptr<string> orderInstanceId_ {};
+    // The PAI resource ID.
     shared_ptr<string> PAIResourceID_ {};
+    // The payment type. Valid values: `PostPay` (pay-as-you-go) and `PrePay` (subscription).
     shared_ptr<string> payType_ {};
+    // The billing cycle. This parameter is returned only when `PayType` is `PrePay`.
     shared_ptr<string> pricingCycle_ {};
+    // The region ID.
     shared_ptr<string> regionID_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the machine group.
     shared_ptr<string> status_ {};
+    // The drivers that the machine group supports.
     shared_ptr<vector<string>> supportedDrivers_ {};
   };
 

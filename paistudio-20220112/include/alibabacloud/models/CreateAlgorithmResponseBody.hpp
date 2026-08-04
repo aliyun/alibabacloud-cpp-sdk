@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the algorithm.
     shared_ptr<string> algorithmId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

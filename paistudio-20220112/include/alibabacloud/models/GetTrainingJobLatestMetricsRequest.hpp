@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The name of the metric.
     shared_ptr<string> names_ {};
   };
 

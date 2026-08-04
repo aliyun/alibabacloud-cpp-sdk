@@ -54,7 +54,10 @@ namespace Models
 
 
   protected:
+    // Scaling Min Quota.
+    // >Notice: NodeSpecs specifies the post-scaling specifications and quantity. If the Count in NodeSpecs is less than the current Quota\\"s Count, it indicates scale-in. Otherwise, it indicates scale-out.
     shared_ptr<ResourceSpec> min_ {};
+    // Resource group IDs.
     shared_ptr<vector<string>> resourceGroupIds_ {};
   };
 

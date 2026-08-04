@@ -64,8 +64,11 @@ namespace Models
 
 
   protected:
+    // A collection of node types.
     shared_ptr<vector<NodeType>> nodeTypes_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Statistics for the node types that match the filter criteria.
     shared_ptr<vector<NodeTypeStatistic>> statistics_ {};
   };
 

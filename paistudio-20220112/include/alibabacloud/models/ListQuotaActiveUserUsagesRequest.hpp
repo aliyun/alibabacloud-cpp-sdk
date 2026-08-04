@@ -112,14 +112,42 @@ namespace Models
 
 
   protected:
+    // The sort order. Valid values:
+    // 
+    // - `desc`: descending order.
+    // 
+    // - `asc`: ascending order.
     shared_ptr<string> order_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // If true, retrieves resource usage from the current quota only.
     shared_ptr<bool> selfOnly_ {};
+    // The field to sort the results by. Valid values:
+    // 
+    // - QuotaId
+    // 
+    // - SubmittedCPU
+    // 
+    // - SubmittedMemory
+    // 
+    // - SubmittedGPU
+    // 
+    // - UsedCPU
+    // 
+    // - UsedMemory
+    // 
+    // - UsedGPU
+    // 
+    // - WorkloadCount
     shared_ptr<string> sortBy_ {};
+    // Filters the results by user ID.
     shared_ptr<string> userId_ {};
+    // Filters the results by username.
     shared_ptr<string> username_ {};
     shared_ptr<int32_t> workloadCount_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

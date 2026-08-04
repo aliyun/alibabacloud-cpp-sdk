@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // End UTC time (ISO8601 format). If empty, it is the current time.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> endTime_ {};
+    // Page number (default is 1).
     shared_ptr<int64_t> pageNumber_ {};
+    // Page size (default is 100).
     shared_ptr<int64_t> pageSize_ {};
+    // Start UTC time (ISO8601 format). If empty, it is the task start time.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> startTime_ {};
   };

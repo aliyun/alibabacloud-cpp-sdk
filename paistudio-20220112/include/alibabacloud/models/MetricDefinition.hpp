@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The description of the metric.
     shared_ptr<string> description_ {};
+    // The name of the metric.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The regular expression to collect metrics from logs.
+    // 
     // This parameter is required.
     shared_ptr<string> regex_ {};
   };

@@ -81,7 +81,9 @@ namespace Models
 
 
     protected:
+      // The tag key of the instance. N ranges from 1 to 20.
       shared_ptr<string> key_ {};
+      // Tag value for the resource group. N ranges from 1 to 20.
       shared_ptr<string> value_ {};
     };
 
@@ -142,12 +144,23 @@ namespace Models
 
 
   protected:
+    // Compute resource type for the resource group.
     shared_ptr<string> computingResourceProvider_ {};
+    // Resource group description.
     shared_ptr<string> description_ {};
+    // Resource group name.
     shared_ptr<string> name_ {};
+    // Resource type. Valid values:
+    // 
+    // - Ecs: general computing resources
+    // 
+    // - Lingjun: Lingjun resources
     shared_ptr<string> resourceType_ {};
+    // List of tags to add. Maximum 20 items.
     shared_ptr<vector<CreateResourceGroupRequest::Tag>> tag_ {};
+    // VPC connectivity information for the resource group.
     shared_ptr<UserVpc> userVpc_ {};
+    // Resource group version. This parameter takes effect only when the resource type is ECS.
     shared_ptr<string> version_ {};
   };
 

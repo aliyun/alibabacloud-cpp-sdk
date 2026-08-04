@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the deleted machine group.
     shared_ptr<string> machineGroupID_ {};
+    // The request ID. Provide this ID to our technical support for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

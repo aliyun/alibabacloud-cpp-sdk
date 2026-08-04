@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // A list of up to 20 tags.
     shared_ptr<string> tagShrink_ {};
   };
 

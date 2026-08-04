@@ -78,8 +78,11 @@ namespace Models
 
 
     protected:
+      // The additional information.
       shared_ptr<string> additionalInfo_ {};
+      // The error code.
       shared_ptr<string> code_ {};
+      // The fault error message.
       shared_ptr<string> message_ {};
     };
 
@@ -102,7 +105,9 @@ namespace Models
 
 
   protected:
+    // The fault error message.
     shared_ptr<GetTrainingJobErrorInfoResponseBody::ErrorInfo> errorInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -133,16 +133,27 @@ namespace Models
 
 
   protected:
+    // The time the entry was removed from the queue.
     shared_ptr<string> gmtDequeuedTime_ {};
+    // The time the entry was added to the queue.
     shared_ptr<string> gmtEnqueuedTime_ {};
+    // The last time the position of the entry was modified.
     shared_ptr<string> gmtPositionModifiedTime_ {};
+    // The name of the queue entry.
     shared_ptr<string> name_ {};
+    // The position of the entry in the queue.
     shared_ptr<string> position_ {};
+    // The queuing strategy for the entry.
     shared_ptr<string> queueStrategy_ {};
+    // The ID of the associated quota.
     shared_ptr<string> quotaId_ {};
+    // The resources that the queue entry requires.
     shared_ptr<ResourceAmount> resource_ {};
+    // The resources scheduled for the entry.
     shared_ptr<string> scheduledResource_ {};
+    // The current status of the entry.
     shared_ptr<string> status_ {};
+    // Indicates whether the entry can use oversold resources.
     shared_ptr<bool> useOversoldResource_ {};
   };
 

@@ -84,13 +84,21 @@ namespace Models
 
 
   protected:
+    // The end UTC time in ISO 8601 format. If empty, the current time is used.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> endTime_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
+    // The start UTC time in ISO 8601 format. If empty, the task start time is used.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> startTime_ {};
+    // The instance ID of the training task. This parameter is deprecated. Use InstanceId instead.
     shared_ptr<string> workerId_ {};
   };
 

@@ -314,12 +314,22 @@ namespace Models
 
 
   protected:
+    // The accelerator type. Valid values:
+    // 
+    // - CPU
+    // 
+    // - GPU
+    // 
+    // If omitted, this operation returns nodes of all accelerator types.
     shared_ptr<string> acceleratorType_ {};
     shared_ptr<string> availabilityZone_ {};
     shared_ptr<string> cliqueID_ {};
     shared_ptr<string> diskPL_ {};
+    // When used with `ResourceGroupIds`, this parameter further filters the results to include only nodes from the specified resource quota.
     shared_ptr<string> filterByQuotaId_ {};
+    // When used with `QuotaId`, this parameter further filters the results to include only nodes from the specified resource groups.
     shared_ptr<string> filterByResourceGroupIds_ {};
+    // The GPU type. Fuzzy matching is supported.
     shared_ptr<string> GPUType_ {};
     shared_ptr<string> healthCountShrink_ {};
     shared_ptr<string> healthRateShrink_ {};
@@ -327,21 +337,44 @@ namespace Models
     shared_ptr<string> hyperZone_ {};
     shared_ptr<string> layoutMode_ {};
     shared_ptr<string> machineGroupIds_ {};
+    // A comma-separated list of node names. Only nodes with names that match this list are returned.
     shared_ptr<string> nodeNames_ {};
+    // A comma-separated list of node statuses. If this parameter is omitted, this operation returns nodes of all statuses.
     shared_ptr<string> nodeStatuses_ {};
+    // A comma-separated list of node specifications. If this parameter is omitted, this operation returns nodes of all specifications.
     shared_ptr<string> nodeTypes_ {};
+    // The sort order. Valid values:
+    // 
+    // - `desc`: Descending
+    // 
+    // - `asc`: Ascending
     shared_ptr<string> order_ {};
+    // A comma-separated list of order IDs.
     shared_ptr<string> orderInstanceIds_ {};
+    // A comma-separated list of order statuses.
     shared_ptr<string> orderStatuses_ {};
+    // The page number. The first page is 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return per page.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> paymentType_ {};
     shared_ptr<int32_t> podNum_ {};
+    // The ID of the resource quota that contains the nodes.
     shared_ptr<string> quotaId_ {};
     shared_ptr<string> reasonCodes_ {};
+    // A comma-separated list of resource group IDs. You must specify either this parameter or `QuotaId`.
+    // Constraints:
+    // 
+    // 1. The user ID of the request must match the user ID associated with the specified resource groups.
+    // 
+    // 2. All specified resource groups must be of the same type.
+    // 
+    // 3. All specified resource groups must be in the same VPC.
     shared_ptr<string> resourceGroupIds_ {};
     shared_ptr<string> resourceGroupName_ {};
+    // The field by which to sort the results.
     shared_ptr<string> sortBy_ {};
+    // Specifies whether to return resource usage information. This parameter applies only when `QuotaId` is specified.
     shared_ptr<bool> verbose_ {};
     shared_ptr<int32_t> workloadNum_ {};
     shared_ptr<string> workspaceId_ {};

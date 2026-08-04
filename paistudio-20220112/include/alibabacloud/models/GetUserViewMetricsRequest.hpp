@@ -94,14 +94,33 @@ namespace Models
 
 
   protected:
+    // The sort order. Valid values:
+    // - asc: ascending order.
+    // - desc: descending order.
     shared_ptr<string> order_ {};
+    // The current page number.
+    // 
     // This parameter is required.
     shared_ptr<string> pageNumber_ {};
+    // The page size.
+    // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
+    // The sorting criterion.
     shared_ptr<string> sortBy_ {};
+    // The time step. Default value: 5m. Valid values for the time unit:
+    // 
+    // - h: hours.
+    // 
+    // - m: minutes.
+    // 
+    // - s: seconds.
+    // 
+    // If no unit is specified, the default unit s (seconds) is used.
     shared_ptr<string> timeStep_ {};
+    // The ID of the Alibaba Cloud account.
     shared_ptr<string> userId_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

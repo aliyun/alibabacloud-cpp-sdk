@@ -105,7 +105,9 @@ namespace Models
 
 
       protected:
+        // Tag name.
         shared_ptr<string> key_ {};
+        // Tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -195,15 +197,31 @@ namespace Models
 
 
     protected:
+      // Model compression configuration.
       Darabonba::Json compressionSpec_ {};
+      // Model evaluation configuration.
       Darabonba::Json evaluationSpec_ {};
+      // Model inference configuration.
       Darabonba::Json inferenceSpec_ {};
+      // List of tags.
       shared_ptr<vector<OutputModels::Labels>> labels_ {};
+      // Training job metrics.
       Darabonba::Json metrics_ {};
+      // Name of the training output data.
       shared_ptr<string> outputChannelName_ {};
+      // Source ID (optional):
+      // 
+      // - If the source is Custom, there are no format requirements.
+      // 
+      // - If the source is PAIFlow, use the format: region=cn-shanghai,workspaceId=1345,kind=PipelineRun,id=run-sakdbaskjdf.
+      // 
+      // - If the source is TrainingService, use the format: region=cn-shanghai,workspaceId=1345,kind=TrainingJob,id=job-sakdbaskjdf.
       shared_ptr<string> sourceId_ {};
+      // Source (the type of job that produced the model). Default: Custom.
       shared_ptr<string> sourceType_ {};
+      // Model training configuration.
       Darabonba::Json trainingSpec_ {};
+      // Link to the training output data.
       shared_ptr<string> uri_ {};
     };
 
@@ -218,6 +236,7 @@ namespace Models
 
 
   protected:
+    // List of models produced by training.
     shared_ptr<vector<ListTrainingJobOutputModelsResponseBody::OutputModels>> outputModels_ {};
   };
 

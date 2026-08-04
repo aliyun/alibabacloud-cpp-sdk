@@ -66,8 +66,11 @@ namespace Models
 
 
   protected:
+    // Node cordon parameter settings
     shared_ptr<NodeCordonParameters> cordonParameters_ {};
+    // Node drain task instance parameter settings
     shared_ptr<NodeDrainParameters> drainParameters_ {};
+    // Node uncordon parameter settings
     shared_ptr<NodeUncordonParameters> uncordonParameters_ {};
   };
 

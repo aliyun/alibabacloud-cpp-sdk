@@ -136,14 +136,23 @@ namespace Models
 
 
     protected:
+      // Algorithm description.
       shared_ptr<string> algorithmDescription_ {};
+      // Algorithm ID.
       shared_ptr<string> algorithmId_ {};
+      // Algorithm name.
       shared_ptr<string> algorithmName_ {};
+      // Algorithm provider.
       shared_ptr<string> algorithmProvider_ {};
+      // Algorithm display name.
       shared_ptr<string> displayName_ {};
+      // Algorithm creation time.
       shared_ptr<string> gmtCreateTime_ {};
+      // Algorithm update time.
       shared_ptr<string> gmtModifiedTime_ {};
+      // Algorithm owner ID.
       shared_ptr<string> userId_ {};
+      // Workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -173,8 +182,11 @@ namespace Models
 
 
   protected:
+    // Algorithm list.
     shared_ptr<vector<ListAlgorithmsResponseBody::Algorithms>> algorithms_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total algorithms.
     shared_ptr<int64_t> totalCount_ {};
   };
 

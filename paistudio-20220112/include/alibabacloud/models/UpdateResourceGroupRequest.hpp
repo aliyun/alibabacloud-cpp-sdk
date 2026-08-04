@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The description of the resource group.
     shared_ptr<string> description_ {};
+    // The name of the resource group.
     shared_ptr<string> name_ {};
+    // Whether to detach the resource group from the currently connected VPC.
     shared_ptr<bool> unbind_ {};
+    // Information about the VPC connected to the resource group.
     shared_ptr<UserVpc> userVpc_ {};
   };
 

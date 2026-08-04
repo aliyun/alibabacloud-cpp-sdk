@@ -80,11 +80,17 @@ namespace Models
 
 
   protected:
+    // Channel description.
     shared_ptr<string> description_ {};
+    // Channel name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // Storage configuration of the channel.
     Darabonba::Json properties_ {};
+    // Indicates whether the channel must be configured.
     shared_ptr<bool> required_ {};
+    // List of storage classes supported by the channel.
     shared_ptr<vector<string>> supportedChannelTypes_ {};
   };
 

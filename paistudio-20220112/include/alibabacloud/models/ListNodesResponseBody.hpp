@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The list of nodes.
     shared_ptr<vector<Node>> nodes_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The number of nodes that meet the filter conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -61,8 +61,12 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of resource groups.
     shared_ptr<vector<ResourceGroup>> resourceGroups_ {};
+    // The total number of matching resource groups.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> totalCount_ {};
   };

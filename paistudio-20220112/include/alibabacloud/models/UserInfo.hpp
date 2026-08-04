@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // User ID
     shared_ptr<string> userId_ {};
+    // username
     shared_ptr<string> userName_ {};
   };
 

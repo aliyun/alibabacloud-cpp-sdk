@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // User-configurable reason for disabling scheduling
     shared_ptr<string> comment_ {};
+    // Quota ID, used when disabling edge zone scheduling in a workspace
     shared_ptr<string> quotaId_ {};
+    // Workspace ID, used when disabling edge zone scheduling in a workspace
     shared_ptr<string> workspaceId_ {};
   };
 

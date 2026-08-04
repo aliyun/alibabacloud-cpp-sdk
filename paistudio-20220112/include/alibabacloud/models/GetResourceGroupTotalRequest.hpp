@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the Resource Group.
     shared_ptr<string> resourceGroupID_ {};
   };
 

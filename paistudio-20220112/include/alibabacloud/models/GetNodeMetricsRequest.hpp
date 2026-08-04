@@ -75,10 +75,32 @@ namespace Models
 
 
   protected:
+    // The end time.
     shared_ptr<string> endTime_ {};
+    // The GPU type. Valid values:
+    // - V100
+    // - A100
+    // - A10
+    // - T4
+    // - P100
     shared_ptr<string> GPUType_ {};
+    // The start time.
     shared_ptr<string> startTime_ {};
+    // The time step. Default value: 5m. The supported time units are:
+    // 
+    // - h: hours.
+    // 
+    // - m: minutes.
+    // 
+    // - s: seconds.
+    // 
+    // If the value does not contain a unit, the default unit is s (seconds).
     shared_ptr<string> timeStep_ {};
+    // Specifies whether to display non-essential information. Non-essential information currently includes Labels.
+    // Valid values:
+    // 
+    // false: does not display non-essential information (default value)
+    // true: displays non-essential information
     shared_ptr<bool> verbose_ {};
   };
 

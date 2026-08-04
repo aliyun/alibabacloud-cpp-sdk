@@ -75,13 +75,29 @@ namespace Models
 
 
   protected:
+    // Whether to detach all tags from the resource. Valid values:
+    // 
+    // - **true**: Detach all tags from the resource.
+    // 
+    // - **false**: Do not detach all tags from the resource.
+    // 
+    // > * Default value: false.
+    // 
+    // - If you specify both TagKey and this parameter, this parameter is ignored.
     shared_ptr<bool> all_ {};
+    // Region
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // Resource IDs. Maximum: 50 items.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceIdShrink_ {};
+    // Resource type
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // List of tag keys. Maximum: 20 items.
     shared_ptr<string> tagKeyShrink_ {};
   };
 

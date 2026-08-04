@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // The event content.
     shared_ptr<string> content_ {};
+    // The event ID.
     shared_ptr<string> eventId_ {};
+    // The event type.
     shared_ptr<string> eventType_ {};
+    // The reserved field.
     shared_ptr<string> function_ {};
+    // Indicates whether the content is truncated.
     shared_ptr<bool> isTruncated_ {};
+    // Object ID
     shared_ptr<string> objectId_ {};
+    // The object type.
     shared_ptr<string> objectType_ {};
+    // The Alibaba Cloud account.
     shared_ptr<string> triggerTenantId_ {};
+    // The trigger time.
     shared_ptr<string> triggerTime_ {};
+    // The RAM user.
     shared_ptr<string> triggerUserId_ {};
+    // The trigger source.
     shared_ptr<string> triggeredBy_ {};
   };
 

@@ -5,6 +5,7 @@
 #include <vector>
 #include <alibabacloud/models/AlgorithmSpec.hpp>
 #include <alibabacloud/models/AssignNodeSpec.hpp>
+#include <alibabacloud/models/CredentialConfig.hpp>
 #include <map>
 #include <alibabacloud/models/JobSettings.hpp>
 using namespace std;
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AlgorithmVersion, algorithmVersion_);
       DARABONBA_PTR_TO_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_TO_JSON(ComputeResource, computeResource_);
+      DARABONBA_PTR_TO_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_TO_JSON(Duration, duration_);
       DARABONBA_PTR_TO_JSON(Environments, environments_);
       DARABONBA_PTR_TO_JSON(ExperimentConfig, experimentConfig_);
@@ -65,6 +67,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AlgorithmVersion, algorithmVersion_);
       DARABONBA_PTR_FROM_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_FROM_JSON(ComputeResource, computeResource_);
+      DARABONBA_PTR_FROM_JSON(CredentialConfig, credentialConfig_);
       DARABONBA_PTR_FROM_JSON(Duration, duration_);
       DARABONBA_PTR_FROM_JSON(Environments, environments_);
       DARABONBA_PTR_FROM_JSON(ExperimentConfig, experimentConfig_);
@@ -166,8 +169,11 @@ namespace Models
 
 
     protected:
+      // The extended CIDR block configuration.
       shared_ptr<vector<string>> extendedCIDRs_ {};
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
+      // The vSwitch ID.
       shared_ptr<string> switchId_ {};
       // VPC ID。
       shared_ptr<string> vpcId_ {};
@@ -238,10 +244,15 @@ namespace Models
 
 
     protected:
+      // The end time of the status.
       shared_ptr<string> endTime_ {};
+      // The status code.
       shared_ptr<string> reasonCode_ {};
+      // The status update message.
       shared_ptr<string> reasonMessage_ {};
+      // The start time of the status.
       shared_ptr<string> startTime_ {};
+      // The training job status.
       shared_ptr<string> status_ {};
     };
 
@@ -283,7 +294,9 @@ namespace Models
 
 
     protected:
+      // The maximum runtime in minutes.
       shared_ptr<string> maxRunningTimeInMinutes_ {};
+      // The maximum training runtime in seconds. A value of 0 indicates no limit on the maximum runtime.
       shared_ptr<string> maxRunningTimeInSeconds_ {};
     };
 
@@ -325,7 +338,9 @@ namespace Models
 
 
     protected:
+      // The OutputChannel name corresponding to the model.
       shared_ptr<string> outputChannelName_ {};
+      // The model URI.
       shared_ptr<string> uri_ {};
     };
 
@@ -335,12 +350,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DatasetId, datasetId_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(OutputUri, outputUri_);
+        DARABONBA_PTR_TO_JSON(RoleArn, roleArn_);
         DARABONBA_PTR_TO_JSON(VersionName, versionName_);
       };
       friend void from_json(const Darabonba::Json& j, OutputChannels& obj) { 
         DARABONBA_PTR_FROM_JSON(DatasetId, datasetId_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(OutputUri, outputUri_);
+        DARABONBA_PTR_FROM_JSON(RoleArn, roleArn_);
         DARABONBA_PTR_FROM_JSON(VersionName, versionName_);
       };
       OutputChannels() = default ;
@@ -355,7 +372,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->datasetId_ == nullptr
-        && this->name_ == nullptr && this->outputUri_ == nullptr && this->versionName_ == nullptr; };
+        && this->name_ == nullptr && this->outputUri_ == nullptr && this->roleArn_ == nullptr && this->versionName_ == nullptr; };
       // datasetId Field Functions 
       bool hasDatasetId() const { return this->datasetId_ != nullptr;};
       void deleteDatasetId() { this->datasetId_ = nullptr;};
@@ -377,6 +394,13 @@ namespace Models
       inline OutputChannels& setOutputUri(string outputUri) { DARABONBA_PTR_SET_VALUE(outputUri_, outputUri) };
 
 
+      // roleArn Field Functions 
+      bool hasRoleArn() const { return this->roleArn_ != nullptr;};
+      void deleteRoleArn() { this->roleArn_ = nullptr;};
+      inline string getRoleArn() const { DARABONBA_PTR_GET_DEFAULT(roleArn_, "") };
+      inline OutputChannels& setRoleArn(string roleArn) { DARABONBA_PTR_SET_VALUE(roleArn_, roleArn) };
+
+
       // versionName Field Functions 
       bool hasVersionName() const { return this->versionName_ != nullptr;};
       void deleteVersionName() { this->versionName_ = nullptr;};
@@ -385,9 +409,14 @@ namespace Models
 
 
     protected:
+      // The dataset ID.
       shared_ptr<string> datasetId_ {};
+      // The name of the output data.
       shared_ptr<string> name_ {};
+      // The URI of the output data.
       shared_ptr<string> outputUri_ {};
+      shared_ptr<string> roleArn_ {};
+      // The dataset version.
       shared_ptr<string> versionName_ {};
     };
 
@@ -450,7 +479,9 @@ namespace Models
 
 
       protected:
+        // The progress timestamp.
         shared_ptr<string> timestamp_ {};
+        // The remaining time, in seconds.
         shared_ptr<int64_t> value_ {};
       };
 
@@ -492,7 +523,9 @@ namespace Models
 
 
       protected:
+        // The progress timestamp.
         shared_ptr<string> timestamp_ {};
+        // The progress value.
         shared_ptr<float> value_ {};
       };
 
@@ -517,7 +550,9 @@ namespace Models
 
 
     protected:
+      // The overall progress of the training job execution.
       shared_ptr<LatestProgress::OverallProgress> overallProgress_ {};
+      // The estimated remaining time for the training job execution, in seconds.
       shared_ptr<LatestProgress::RemainingTime> remainingTime_ {};
     };
 
@@ -568,8 +603,11 @@ namespace Models
 
 
     protected:
+      // The metric name.
       shared_ptr<string> name_ {};
+      // The time when the metric was collected.
       shared_ptr<string> timestamp_ {};
+      // The metric value.
       shared_ptr<double> value_ {};
     };
 
@@ -611,7 +649,9 @@ namespace Models
 
 
     protected:
+      // The label name.
       shared_ptr<string> key_ {};
+      // The label value.
       shared_ptr<string> value_ {};
     };
 
@@ -662,8 +702,11 @@ namespace Models
 
 
     protected:
+      // The instance name.
       shared_ptr<string> name_ {};
+      // The instance role.
       shared_ptr<string> role_ {};
+      // The instance status.
       shared_ptr<string> status_ {};
     };
 
@@ -674,6 +717,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(InputUri, inputUri_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(Options, options_);
+        DARABONBA_PTR_TO_JSON(RoleArn, roleArn_);
         DARABONBA_PTR_TO_JSON(VersionName, versionName_);
       };
       friend void from_json(const Darabonba::Json& j, InputChannels& obj) { 
@@ -681,6 +725,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(InputUri, inputUri_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(Options, options_);
+        DARABONBA_PTR_FROM_JSON(RoleArn, roleArn_);
         DARABONBA_PTR_FROM_JSON(VersionName, versionName_);
       };
       InputChannels() = default ;
@@ -695,7 +740,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->datasetId_ == nullptr
-        && this->inputUri_ == nullptr && this->name_ == nullptr && this->options_ == nullptr && this->versionName_ == nullptr; };
+        && this->inputUri_ == nullptr && this->name_ == nullptr && this->options_ == nullptr && this->roleArn_ == nullptr && this->versionName_ == nullptr; };
       // datasetId Field Functions 
       bool hasDatasetId() const { return this->datasetId_ != nullptr;};
       void deleteDatasetId() { this->datasetId_ = nullptr;};
@@ -724,6 +769,13 @@ namespace Models
       inline InputChannels& setOptions(string options) { DARABONBA_PTR_SET_VALUE(options_, options) };
 
 
+      // roleArn Field Functions 
+      bool hasRoleArn() const { return this->roleArn_ != nullptr;};
+      void deleteRoleArn() { this->roleArn_ = nullptr;};
+      inline string getRoleArn() const { DARABONBA_PTR_GET_DEFAULT(roleArn_, "") };
+      inline InputChannels& setRoleArn(string roleArn) { DARABONBA_PTR_SET_VALUE(roleArn_, roleArn) };
+
+
       // versionName Field Functions 
       bool hasVersionName() const { return this->versionName_ != nullptr;};
       void deleteVersionName() { this->versionName_ = nullptr;};
@@ -732,10 +784,16 @@ namespace Models
 
 
     protected:
+      // The dataset ID.
       shared_ptr<string> datasetId_ {};
+      // The URI of the input data.
       shared_ptr<string> inputUri_ {};
+      // The name of the input data.
       shared_ptr<string> name_ {};
+      // The file system parameters of the input data.
       shared_ptr<string> options_ {};
+      shared_ptr<string> roleArn_ {};
+      // The dataset version.
       shared_ptr<string> versionName_ {};
     };
 
@@ -777,7 +835,9 @@ namespace Models
 
 
     protected:
+      // The parameter name.
       shared_ptr<string> name_ {};
+      // The parameter value.
       shared_ptr<string> value_ {};
     };
 
@@ -819,7 +879,9 @@ namespace Models
 
 
     protected:
+      // The experiment ID associated with the training job.
       shared_ptr<string> experimentId_ {};
+      // The experiment name associated with the training job.
       shared_ptr<string> experimentName_ {};
     };
 
@@ -894,7 +956,9 @@ namespace Models
 
 
       protected:
+        // The maximum hourly price discount for the instance. This parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit.
         shared_ptr<float> spotDiscountLimit_ {};
+        // SpotStrategy: The bidding policy of the instance. Valid values:
         shared_ptr<string> spotStrategy_ {};
       };
 
@@ -963,10 +1027,15 @@ namespace Models
 
 
       protected:
+        // The number of CPU cores of the instance.
         shared_ptr<string> CPU_ {};
+        // The number of GPUs of the instance.
         shared_ptr<string> GPU_ {};
+        // The GPU type of the instance.
         shared_ptr<string> GPUType_ {};
+        // The memory size of the instance, in GiB.
         shared_ptr<string> memory_ {};
+        // The shared memory size of the instance, in GiB.
         shared_ptr<string> sharedMemory_ {};
       };
 
@@ -1034,25 +1103,33 @@ namespace Models
 
 
     protected:
+      // The number of ECS instances.
       shared_ptr<int64_t> ecsCount_ {};
+      // The ECS instance type.
       shared_ptr<string> ecsSpec_ {};
+      // The number of instances used by the resource quota.
       shared_ptr<int64_t> instanceCount_ {};
+      // The instance specification of the resource quota.
       shared_ptr<ComputeResource::InstanceSpec> instanceSpec_ {};
+      // The resource quota ID.
       shared_ptr<string> resourceId_ {};
+      // The resource quota name.
       shared_ptr<string> resourceName_ {};
+      // The spot instance configuration.
       shared_ptr<ComputeResource::SpotSpec> spotSpec_ {};
+      // Indicates whether spot instances are used.
       shared_ptr<bool> useSpotInstance_ {};
     };
 
     virtual bool empty() const override { return this->algorithmId_ == nullptr
         && this->algorithmName_ == nullptr && this->algorithmProvider_ == nullptr && this->algorithmSpec_ == nullptr && this->algorithmVersion_ == nullptr && this->assignNodeSpec_ == nullptr
-        && this->computeResource_ == nullptr && this->duration_ == nullptr && this->environments_ == nullptr && this->experimentConfig_ == nullptr && this->gmtCreateTime_ == nullptr
-        && this->gmtModifiedTime_ == nullptr && this->hyperParameters_ == nullptr && this->inputChannels_ == nullptr && this->instances_ == nullptr && this->isTempAlgo_ == nullptr
-        && this->labels_ == nullptr && this->latestMetrics_ == nullptr && this->latestProgress_ == nullptr && this->outputChannels_ == nullptr && this->outputModel_ == nullptr
-        && this->priority_ == nullptr && this->pythonRequirements_ == nullptr && this->reasonCode_ == nullptr && this->reasonMessage_ == nullptr && this->requestId_ == nullptr
-        && this->roleArn_ == nullptr && this->scheduler_ == nullptr && this->settings_ == nullptr && this->status_ == nullptr && this->statusTransitions_ == nullptr
-        && this->trainingJobDescription_ == nullptr && this->trainingJobId_ == nullptr && this->trainingJobName_ == nullptr && this->trainingJobUrl_ == nullptr && this->userId_ == nullptr
-        && this->userVpc_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->computeResource_ == nullptr && this->credentialConfig_ == nullptr && this->duration_ == nullptr && this->environments_ == nullptr && this->experimentConfig_ == nullptr
+        && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->hyperParameters_ == nullptr && this->inputChannels_ == nullptr && this->instances_ == nullptr
+        && this->isTempAlgo_ == nullptr && this->labels_ == nullptr && this->latestMetrics_ == nullptr && this->latestProgress_ == nullptr && this->outputChannels_ == nullptr
+        && this->outputModel_ == nullptr && this->priority_ == nullptr && this->pythonRequirements_ == nullptr && this->reasonCode_ == nullptr && this->reasonMessage_ == nullptr
+        && this->requestId_ == nullptr && this->roleArn_ == nullptr && this->scheduler_ == nullptr && this->settings_ == nullptr && this->status_ == nullptr
+        && this->statusTransitions_ == nullptr && this->trainingJobDescription_ == nullptr && this->trainingJobId_ == nullptr && this->trainingJobName_ == nullptr && this->trainingJobUrl_ == nullptr
+        && this->userId_ == nullptr && this->userVpc_ == nullptr && this->workspaceId_ == nullptr; };
     // algorithmId Field Functions 
     bool hasAlgorithmId() const { return this->algorithmId_ != nullptr;};
     void deleteAlgorithmId() { this->algorithmId_ = nullptr;};
@@ -1106,6 +1183,15 @@ namespace Models
     inline GetTrainingJobResponseBody::ComputeResource getComputeResource() { DARABONBA_PTR_GET(computeResource_, GetTrainingJobResponseBody::ComputeResource) };
     inline GetTrainingJobResponseBody& setComputeResource(const GetTrainingJobResponseBody::ComputeResource & computeResource) { DARABONBA_PTR_SET_VALUE(computeResource_, computeResource) };
     inline GetTrainingJobResponseBody& setComputeResource(GetTrainingJobResponseBody::ComputeResource && computeResource) { DARABONBA_PTR_SET_RVALUE(computeResource_, computeResource) };
+
+
+    // credentialConfig Field Functions 
+    bool hasCredentialConfig() const { return this->credentialConfig_ != nullptr;};
+    void deleteCredentialConfig() { this->credentialConfig_ = nullptr;};
+    inline const CredentialConfig & getCredentialConfig() const { DARABONBA_PTR_GET_CONST(credentialConfig_, CredentialConfig) };
+    inline CredentialConfig getCredentialConfig() { DARABONBA_PTR_GET(credentialConfig_, CredentialConfig) };
+    inline GetTrainingJobResponseBody& setCredentialConfig(const CredentialConfig & credentialConfig) { DARABONBA_PTR_SET_VALUE(credentialConfig_, credentialConfig) };
+    inline GetTrainingJobResponseBody& setCredentialConfig(CredentialConfig && credentialConfig) { DARABONBA_PTR_SET_RVALUE(credentialConfig_, credentialConfig) };
 
 
     // duration Field Functions 
@@ -1356,43 +1442,81 @@ namespace Models
 
 
   protected:
+    // The training algorithm ID.
     shared_ptr<string> algorithmId_ {};
+    // The algorithm name.
     shared_ptr<string> algorithmName_ {};
+    // The algorithm provider.
     shared_ptr<string> algorithmProvider_ {};
+    // The temporary algorithm definition.
     shared_ptr<AlgorithmSpec> algorithmSpec_ {};
+    // The algorithm version.
     shared_ptr<string> algorithmVersion_ {};
     shared_ptr<AssignNodeSpec> assignNodeSpec_ {};
+    // The compute resource configuration.
     shared_ptr<GetTrainingJobResponseBody::ComputeResource> computeResource_ {};
+    shared_ptr<CredentialConfig> credentialConfig_ {};
+    // The running duration of the training job. Unit: seconds.
     shared_ptr<int64_t> duration_ {};
+    // The environment variables of the training job.
     shared_ptr<map<string, string>> environments_ {};
+    // The experiment configuration associated with the training job.
     shared_ptr<GetTrainingJobResponseBody::ExperimentConfig> experimentConfig_ {};
+    // The time when the training job was created.
     shared_ptr<string> gmtCreateTime_ {};
+    // The time when the training job status was last updated.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The training hyperparameter settings.
     shared_ptr<vector<GetTrainingJobResponseBody::HyperParameters>> hyperParameters_ {};
+    // The training input data configurations.
     shared_ptr<vector<GetTrainingJobResponseBody::InputChannels>> inputChannels_ {};
+    // The list of training job instances.
     shared_ptr<vector<GetTrainingJobResponseBody::Instances>> instances_ {};
+    // Indicates whether a temporary algorithm is used.
     shared_ptr<bool> isTempAlgo_ {};
+    // The list of training job labels.
     shared_ptr<vector<GetTrainingJobResponseBody::Labels>> labels_ {};
+    // The list of training job metrics.
     shared_ptr<vector<GetTrainingJobResponseBody::LatestMetrics>> latestMetrics_ {};
+    // The latest progress of the training job.
     shared_ptr<GetTrainingJobResponseBody::LatestProgress> latestProgress_ {};
+    // The training output data configurations.
     shared_ptr<vector<GetTrainingJobResponseBody::OutputChannels>> outputChannels_ {};
+    // The model produced by the training job.
     shared_ptr<GetTrainingJobResponseBody::OutputModel> outputModel_ {};
+    // The job priority.
     shared_ptr<int32_t> priority_ {};
+    // The Python package configuration for the training job.
     shared_ptr<vector<string>> pythonRequirements_ {};
+    // The status code of the training job.
     shared_ptr<string> reasonCode_ {};
+    // The error message of the training job.
     shared_ptr<string> reasonMessage_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The ARN of the RAM role used for proxy authorization.
     shared_ptr<string> roleArn_ {};
+    // The scheduling configuration of the training job.
     shared_ptr<GetTrainingJobResponseBody::Scheduler> scheduler_ {};
+    // The additional parameter settings for the training node.
     shared_ptr<JobSettings> settings_ {};
+    // The task status.
     shared_ptr<string> status_ {};
+    // The list of training job status transitions.
     shared_ptr<vector<GetTrainingJobResponseBody::StatusTransitions>> statusTransitions_ {};
+    // The description of the training job.
     shared_ptr<string> trainingJobDescription_ {};
+    // The training job ID.
     shared_ptr<string> trainingJobId_ {};
+    // The name of the training job.
     shared_ptr<string> trainingJobName_ {};
+    // The URL of the training job details page.
     shared_ptr<string> trainingJobUrl_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
+    // The user VPC configuration.
     shared_ptr<GetTrainingJobResponseBody::UserVpc> userVpc_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

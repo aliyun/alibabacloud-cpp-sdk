@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // List of events.
     shared_ptr<vector<string>> events_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total number of events.
     shared_ptr<string> totalCount_ {};
   };
 

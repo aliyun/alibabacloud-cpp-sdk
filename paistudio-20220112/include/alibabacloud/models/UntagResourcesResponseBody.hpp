@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Common parameter. Each request has a unique ID. Use this ID to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
   };
 

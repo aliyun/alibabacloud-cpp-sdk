@@ -70,9 +70,13 @@ namespace Models
 
 
   protected:
+    // The total number of allocated CPUs.
     shared_ptr<int32_t> requestCPU_ {};
+    // The total number of allocated GPUs.
     shared_ptr<int32_t> requestGPU_ {};
+    // The allocated GPU resources counted separately by card type.
     shared_ptr<vector<GPUInfo>> requestGPUInfos_ {};
+    // The total amount of allocated memory.
     shared_ptr<int32_t> requestMemory_ {};
   };
 

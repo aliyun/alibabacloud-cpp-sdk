@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Optional. Defaults to `true`.
     shared_ptr<bool> isAIWorkspaceDataEnabled_ {};
+    // A list of up to 20 tags to add to the instance.
     shared_ptr<string> tagShrink_ {};
   };
 

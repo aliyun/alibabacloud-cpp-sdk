@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Algorithm configuration.
     shared_ptr<string> algorithmSpecShrink_ {};
   };
 

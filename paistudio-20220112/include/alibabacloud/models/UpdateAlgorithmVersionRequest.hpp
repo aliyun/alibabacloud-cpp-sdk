@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The details of the algorithm.
     shared_ptr<AlgorithmSpec> algorithmSpec_ {};
   };
 

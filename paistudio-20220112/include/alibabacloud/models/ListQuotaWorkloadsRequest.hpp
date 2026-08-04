@@ -259,29 +259,48 @@ namespace Models
 
 
   protected:
+    // Retrieves workloads that precede the specified workload ID in the queue.
     shared_ptr<string> beforeWorkloadId_ {};
+    // Filters workloads by their dequeue time range.
     shared_ptr<TimeRangeFilter> gmtDequeuedTimeRange_ {};
+    // Filters workloads by their enqueue time range.
     shared_ptr<TimeRangeFilter> gmtEnqueuedTimeRange_ {};
+    // Filters workloads by the time range of their last queue position change.
     shared_ptr<TimeRangeFilter> gmtPositionModifiedTimeRange_ {};
     shared_ptr<string> instanceId_ {};
+    // Filters workloads by node name.
     shared_ptr<string> nodeName_ {};
+    // The sort order for the results. Valid values are `asc` for ascending and `desc` for descending.
     shared_ptr<string> order_ {};
+    // The number of the page to return.
     shared_ptr<int32_t> pageNumber_ {};
+    // The maximum number of entries to return on a single page.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<int32_t> position_ {};
     shared_ptr<int32_t> priority_ {};
+    // Specifies whether to return only workloads that belong to the specified quota.
     shared_ptr<bool> showOwn_ {};
+    // The field to use for sorting the results.
     shared_ptr<string> sortBy_ {};
+    // Filters workloads by their status in the queue.
     shared_ptr<string> status_ {};
+    // Filters workloads by sub-quota ID. You can specify multiple IDs, separated by commas.
     shared_ptr<string> subQuotaIds_ {};
     shared_ptr<bool> useOversoldResource_ {};
+    // Filters workloads by user ID. You can specify multiple IDs, separated by commas.
     shared_ptr<string> userIds_ {};
+    // Specifies whether to include historical data in the query results.
     shared_ptr<bool> withHistoricalData_ {};
+    // Filters workloads based on their creation time range.
     shared_ptr<TimeRangeFilter> workloadCreatedTimeRange_ {};
+    // Filters workloads by workload ID. You can specify multiple IDs, separated by commas.
     shared_ptr<string> workloadIds_ {};
     shared_ptr<string> workloadNames_ {};
+    // Filters workloads by status. You can specify multiple statuses, separated by commas.
     shared_ptr<string> workloadStatuses_ {};
+    // Filters workloads by the sub-product type of the instance.
     shared_ptr<string> workloadType_ {};
+    // Filters workloads by workspace ID. You can specify multiple IDs, separated by commas.
     shared_ptr<string> workspaceIds_ {};
   };
 

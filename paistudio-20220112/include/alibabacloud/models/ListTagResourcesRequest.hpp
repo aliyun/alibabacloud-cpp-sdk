@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // Tag key
       shared_ptr<string> key_ {};
+      // Tag value
       shared_ptr<string> value_ {};
     };
 
@@ -122,12 +124,19 @@ namespace Models
 
 
   protected:
+    // Pagination token for the next page of results
     shared_ptr<string> nextToken_ {};
+    // Region ID
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // Resource IDs. Maximum: 50 items.
     shared_ptr<vector<string>> resourceId_ {};
+    // Resource type
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // Tags to filter by. Maximum: 20 items.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

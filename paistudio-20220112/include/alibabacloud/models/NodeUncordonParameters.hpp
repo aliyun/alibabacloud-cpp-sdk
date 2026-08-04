@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Quota ID. You can use this ID when you start a workspace or disable scheduling nodes.
     shared_ptr<string> quotaId_ {};
+    // The ID of the workspace that contains the node to uncordon.
     shared_ptr<string> workspaceId_ {};
   };
 
