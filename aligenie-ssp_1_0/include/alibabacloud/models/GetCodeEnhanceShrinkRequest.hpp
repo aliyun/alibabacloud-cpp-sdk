@@ -31,27 +31,31 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->channelInfoShrink_ != nullptr
-        && this->userInfoShrink_ != nullptr; };
+    virtual bool empty() const override { return this->channelInfoShrink_ == nullptr
+        && this->userInfoShrink_ == nullptr; };
     // channelInfoShrink Field Functions 
     bool hasChannelInfoShrink() const { return this->channelInfoShrink_ != nullptr;};
     void deleteChannelInfoShrink() { this->channelInfoShrink_ = nullptr;};
-    inline string channelInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(channelInfoShrink_, "") };
+    inline string getChannelInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(channelInfoShrink_, "") };
     inline GetCodeEnhanceShrinkRequest& setChannelInfoShrink(string channelInfoShrink) { DARABONBA_PTR_SET_VALUE(channelInfoShrink_, channelInfoShrink) };
 
 
     // userInfoShrink Field Functions 
     bool hasUserInfoShrink() const { return this->userInfoShrink_ != nullptr;};
     void deleteUserInfoShrink() { this->userInfoShrink_ = nullptr;};
-    inline string userInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
+    inline string getUserInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
     inline GetCodeEnhanceShrinkRequest& setUserInfoShrink(string userInfoShrink) { DARABONBA_PTR_SET_VALUE(userInfoShrink_, userInfoShrink) };
 
 
   protected:
+    // Activation Channel, such as WeChat mini program or third-party app.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> channelInfoShrink_ = nullptr;
+    shared_ptr<string> channelInfoShrink_ {};
+    // List of User Identifier information.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> userInfoShrink_ = nullptr;
+    shared_ptr<string> userInfoShrink_ {};
   };
 
   } // namespace Models

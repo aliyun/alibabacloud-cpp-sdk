@@ -29,17 +29,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->loginStateAccessToken_ != nullptr; };
+    virtual bool empty() const override { return this->loginStateAccessToken_ == nullptr; };
     // loginStateAccessToken Field Functions 
     bool hasLoginStateAccessToken() const { return this->loginStateAccessToken_ != nullptr;};
     void deleteLoginStateAccessToken() { this->loginStateAccessToken_ = nullptr;};
-    inline string loginStateAccessToken() const { DARABONBA_PTR_GET_DEFAULT(loginStateAccessToken_, "") };
+    inline string getLoginStateAccessToken() const { DARABONBA_PTR_GET_DEFAULT(loginStateAccessToken_, "") };
     inline UnbindAligenieUserRequest& setLoginStateAccessToken(string loginStateAccessToken) { DARABONBA_PTR_SET_VALUE(loginStateAccessToken_, loginStateAccessToken) };
 
 
   protected:
+    // Logon credential
+    // 
     // This parameter is required.
-    std::shared_ptr<string> loginStateAccessToken_ = nullptr;
+    shared_ptr<string> loginStateAccessToken_ {};
   };
 
   } // namespace Models

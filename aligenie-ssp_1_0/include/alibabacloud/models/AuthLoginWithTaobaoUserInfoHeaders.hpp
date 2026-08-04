@@ -34,13 +34,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commonHeaders_ != nullptr
-        && this->xAcsAligenieAccessToken_ != nullptr && this->authorization_ != nullptr; };
+    virtual bool empty() const override { return this->commonHeaders_ == nullptr
+        && this->xAcsAligenieAccessToken_ == nullptr && this->authorization_ == nullptr; };
     // commonHeaders Field Functions 
     bool hasCommonHeaders() const { return this->commonHeaders_ != nullptr;};
     void deleteCommonHeaders() { this->commonHeaders_ = nullptr;};
-    inline const map<string, string> & commonHeaders() const { DARABONBA_PTR_GET_CONST(commonHeaders_, map<string, string>) };
-    inline map<string, string> commonHeaders() { DARABONBA_PTR_GET(commonHeaders_, map<string, string>) };
+    inline const map<string, string> & getCommonHeaders() const { DARABONBA_PTR_GET_CONST(commonHeaders_, map<string, string>) };
+    inline map<string, string> getCommonHeaders() { DARABONBA_PTR_GET(commonHeaders_, map<string, string>) };
     inline AuthLoginWithTaobaoUserInfoHeaders& setCommonHeaders(const map<string, string> & commonHeaders) { DARABONBA_PTR_SET_VALUE(commonHeaders_, commonHeaders) };
     inline AuthLoginWithTaobaoUserInfoHeaders& setCommonHeaders(map<string, string> && commonHeaders) { DARABONBA_PTR_SET_RVALUE(commonHeaders_, commonHeaders) };
 
@@ -48,21 +48,21 @@ namespace Models
     // xAcsAligenieAccessToken Field Functions 
     bool hasXAcsAligenieAccessToken() const { return this->xAcsAligenieAccessToken_ != nullptr;};
     void deleteXAcsAligenieAccessToken() { this->xAcsAligenieAccessToken_ = nullptr;};
-    inline string xAcsAligenieAccessToken() const { DARABONBA_PTR_GET_DEFAULT(xAcsAligenieAccessToken_, "") };
+    inline string getXAcsAligenieAccessToken() const { DARABONBA_PTR_GET_DEFAULT(xAcsAligenieAccessToken_, "") };
     inline AuthLoginWithTaobaoUserInfoHeaders& setXAcsAligenieAccessToken(string xAcsAligenieAccessToken) { DARABONBA_PTR_SET_VALUE(xAcsAligenieAccessToken_, xAcsAligenieAccessToken) };
 
 
     // authorization Field Functions 
     bool hasAuthorization() const { return this->authorization_ != nullptr;};
     void deleteAuthorization() { this->authorization_ = nullptr;};
-    inline string authorization() const { DARABONBA_PTR_GET_DEFAULT(authorization_, "") };
+    inline string getAuthorization() const { DARABONBA_PTR_GET_DEFAULT(authorization_, "") };
     inline AuthLoginWithTaobaoUserInfoHeaders& setAuthorization(string authorization) { DARABONBA_PTR_SET_VALUE(authorization_, authorization) };
 
 
   protected:
-    std::shared_ptr<map<string, string>> commonHeaders_ = nullptr;
-    std::shared_ptr<string> xAcsAligenieAccessToken_ = nullptr;
-    std::shared_ptr<string> authorization_ = nullptr;
+    shared_ptr<map<string, string>> commonHeaders_ {};
+    shared_ptr<string> xAcsAligenieAccessToken_ {};
+    shared_ptr<string> authorization_ {};
   };
 
   } // namespace Models

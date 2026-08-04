@@ -33,36 +33,42 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deviceInfoShrink_ != nullptr
-        && this->requestShrink_ != nullptr && this->userInfoShrink_ != nullptr; };
+    virtual bool empty() const override { return this->deviceInfoShrink_ == nullptr
+        && this->requestShrink_ == nullptr && this->userInfoShrink_ == nullptr; };
     // deviceInfoShrink Field Functions 
     bool hasDeviceInfoShrink() const { return this->deviceInfoShrink_ != nullptr;};
     void deleteDeviceInfoShrink() { this->deviceInfoShrink_ = nullptr;};
-    inline string deviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
+    inline string getDeviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
     inline ListCateContentShrinkRequest& setDeviceInfoShrink(string deviceInfoShrink) { DARABONBA_PTR_SET_VALUE(deviceInfoShrink_, deviceInfoShrink) };
 
 
     // requestShrink Field Functions 
     bool hasRequestShrink() const { return this->requestShrink_ != nullptr;};
     void deleteRequestShrink() { this->requestShrink_ = nullptr;};
-    inline string requestShrink() const { DARABONBA_PTR_GET_DEFAULT(requestShrink_, "") };
+    inline string getRequestShrink() const { DARABONBA_PTR_GET_DEFAULT(requestShrink_, "") };
     inline ListCateContentShrinkRequest& setRequestShrink(string requestShrink) { DARABONBA_PTR_SET_VALUE(requestShrink_, requestShrink) };
 
 
     // userInfoShrink Field Functions 
     bool hasUserInfoShrink() const { return this->userInfoShrink_ != nullptr;};
     void deleteUserInfoShrink() { this->userInfoShrink_ = nullptr;};
-    inline string userInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
+    inline string getUserInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
     inline ListCateContentShrinkRequest& setUserInfoShrink(string userInfoShrink) { DARABONBA_PTR_SET_VALUE(userInfoShrink_, userInfoShrink) };
 
 
   protected:
+    // Device identifier information
+    // 
     // This parameter is required.
-    std::shared_ptr<string> deviceInfoShrink_ = nullptr;
+    shared_ptr<string> deviceInfoShrink_ {};
+    // Request Parameters
+    // 
     // This parameter is required.
-    std::shared_ptr<string> requestShrink_ = nullptr;
+    shared_ptr<string> requestShrink_ {};
+    // User identifier information
+    // 
     // This parameter is required.
-    std::shared_ptr<string> userInfoShrink_ = nullptr;
+    shared_ptr<string> userInfoShrink_ {};
   };
 
   } // namespace Models

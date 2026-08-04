@@ -29,16 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->date_ != nullptr; };
+    virtual bool empty() const override { return this->date_ == nullptr; };
     // date Field Functions 
     bool hasDate() const { return this->date_ != nullptr;};
     void deleteDate() { this->date_ = nullptr;};
-    inline string date() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
+    inline string getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
     inline GetJiangSuTelecomDataRequest& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
 
 
   protected:
-    std::shared_ptr<string> date_ = nullptr;
+    // Date in the format yyyy-MM-dd. This refers to the data timestamp when the data becomes available, not the date when the data was generated. Data is always produced on a T+1 basis.
+    shared_ptr<string> date_ {};
   };
 
   } // namespace Models

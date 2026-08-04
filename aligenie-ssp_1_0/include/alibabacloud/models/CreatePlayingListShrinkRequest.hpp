@@ -33,36 +33,42 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deviceInfoShrink_ != nullptr
-        && this->openCreatePlayingListRequestShrink_ != nullptr && this->userInfoShrink_ != nullptr; };
+    virtual bool empty() const override { return this->deviceInfoShrink_ == nullptr
+        && this->openCreatePlayingListRequestShrink_ == nullptr && this->userInfoShrink_ == nullptr; };
     // deviceInfoShrink Field Functions 
     bool hasDeviceInfoShrink() const { return this->deviceInfoShrink_ != nullptr;};
     void deleteDeviceInfoShrink() { this->deviceInfoShrink_ = nullptr;};
-    inline string deviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
+    inline string getDeviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
     inline CreatePlayingListShrinkRequest& setDeviceInfoShrink(string deviceInfoShrink) { DARABONBA_PTR_SET_VALUE(deviceInfoShrink_, deviceInfoShrink) };
 
 
     // openCreatePlayingListRequestShrink Field Functions 
     bool hasOpenCreatePlayingListRequestShrink() const { return this->openCreatePlayingListRequestShrink_ != nullptr;};
     void deleteOpenCreatePlayingListRequestShrink() { this->openCreatePlayingListRequestShrink_ = nullptr;};
-    inline string openCreatePlayingListRequestShrink() const { DARABONBA_PTR_GET_DEFAULT(openCreatePlayingListRequestShrink_, "") };
+    inline string getOpenCreatePlayingListRequestShrink() const { DARABONBA_PTR_GET_DEFAULT(openCreatePlayingListRequestShrink_, "") };
     inline CreatePlayingListShrinkRequest& setOpenCreatePlayingListRequestShrink(string openCreatePlayingListRequestShrink) { DARABONBA_PTR_SET_VALUE(openCreatePlayingListRequestShrink_, openCreatePlayingListRequestShrink) };
 
 
     // userInfoShrink Field Functions 
     bool hasUserInfoShrink() const { return this->userInfoShrink_ != nullptr;};
     void deleteUserInfoShrink() { this->userInfoShrink_ = nullptr;};
-    inline string userInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
+    inline string getUserInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
     inline CreatePlayingListShrinkRequest& setUserInfoShrink(string userInfoShrink) { DARABONBA_PTR_SET_VALUE(userInfoShrink_, userInfoShrink) };
 
 
   protected:
+    // Device ID information
+    // 
     // This parameter is required.
-    std::shared_ptr<string> deviceInfoShrink_ = nullptr;
+    shared_ptr<string> deviceInfoShrink_ {};
+    // Business parameters
+    // 
     // This parameter is required.
-    std::shared_ptr<string> openCreatePlayingListRequestShrink_ = nullptr;
+    shared_ptr<string> openCreatePlayingListRequestShrink_ {};
+    // User identity information
+    // 
     // This parameter is required.
-    std::shared_ptr<string> userInfoShrink_ = nullptr;
+    shared_ptr<string> userInfoShrink_ {};
   };
 
   } // namespace Models

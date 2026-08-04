@@ -31,27 +31,31 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bindReqShrink_ != nullptr
-        && this->userInfoShrink_ != nullptr; };
+    virtual bool empty() const override { return this->bindReqShrink_ == nullptr
+        && this->userInfoShrink_ == nullptr; };
     // bindReqShrink Field Functions 
     bool hasBindReqShrink() const { return this->bindReqShrink_ != nullptr;};
     void deleteBindReqShrink() { this->bindReqShrink_ = nullptr;};
-    inline string bindReqShrink() const { DARABONBA_PTR_GET_DEFAULT(bindReqShrink_, "") };
+    inline string getBindReqShrink() const { DARABONBA_PTR_GET_DEFAULT(bindReqShrink_, "") };
     inline ScanCodeBindShrinkRequest& setBindReqShrink(string bindReqShrink) { DARABONBA_PTR_SET_VALUE(bindReqShrink_, bindReqShrink) };
 
 
     // userInfoShrink Field Functions 
     bool hasUserInfoShrink() const { return this->userInfoShrink_ != nullptr;};
     void deleteUserInfoShrink() { this->userInfoShrink_ = nullptr;};
-    inline string userInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
+    inline string getUserInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
     inline ScanCodeBindShrinkRequest& setUserInfoShrink(string userInfoShrink) { DARABONBA_PTR_SET_VALUE(userInfoShrink_, userInfoShrink) };
 
 
   protected:
+    // Input parameters for QR code scanning binding
+    // 
     // This parameter is required.
-    std::shared_ptr<string> bindReqShrink_ = nullptr;
+    shared_ptr<string> bindReqShrink_ {};
+    // User identity information
+    // 
     // This parameter is required.
-    std::shared_ptr<string> userInfoShrink_ = nullptr;
+    shared_ptr<string> userInfoShrink_ {};
   };
 
   } // namespace Models

@@ -29,16 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->categoryName_ != nullptr; };
+    virtual bool empty() const override { return this->categoryName_ == nullptr; };
     // categoryName Field Functions 
     bool hasCategoryName() const { return this->categoryName_ != nullptr;};
     void deleteCategoryName() { this->categoryName_ = nullptr;};
-    inline string categoryName() const { DARABONBA_PTR_GET_DEFAULT(categoryName_, "") };
+    inline string getCategoryName() const { DARABONBA_PTR_GET_DEFAULT(categoryName_, "") };
     inline ListSubscriptionAlbumCategoryRequest& setCategoryName(string categoryName) { DARABONBA_PTR_SET_VALUE(categoryName_, categoryName) };
 
 
   protected:
-    std::shared_ptr<string> categoryName_ = nullptr;
+    // Category name
+    shared_ptr<string> categoryName_ {};
   };
 
   } // namespace Models

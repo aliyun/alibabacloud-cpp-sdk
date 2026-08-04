@@ -31,26 +31,29 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->controlRequestShrink_ != nullptr
-        && this->deviceInfoShrink_ != nullptr; };
+    virtual bool empty() const override { return this->controlRequestShrink_ == nullptr
+        && this->deviceInfoShrink_ == nullptr; };
     // controlRequestShrink Field Functions 
     bool hasControlRequestShrink() const { return this->controlRequestShrink_ != nullptr;};
     void deleteControlRequestShrink() { this->controlRequestShrink_ = nullptr;};
-    inline string controlRequestShrink() const { DARABONBA_PTR_GET_DEFAULT(controlRequestShrink_, "") };
+    inline string getControlRequestShrink() const { DARABONBA_PTR_GET_DEFAULT(controlRequestShrink_, "") };
     inline DeviceControlShrinkRequest& setControlRequestShrink(string controlRequestShrink) { DARABONBA_PTR_SET_VALUE(controlRequestShrink_, controlRequestShrink) };
 
 
     // deviceInfoShrink Field Functions 
     bool hasDeviceInfoShrink() const { return this->deviceInfoShrink_ != nullptr;};
     void deleteDeviceInfoShrink() { this->deviceInfoShrink_ = nullptr;};
-    inline string deviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
+    inline string getDeviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
     inline DeviceControlShrinkRequest& setDeviceInfoShrink(string deviceInfoShrink) { DARABONBA_PTR_SET_VALUE(deviceInfoShrink_, deviceInfoShrink) };
 
 
   protected:
-    std::shared_ptr<string> controlRequestShrink_ = nullptr;
+    // Input parameters for volume control
+    shared_ptr<string> controlRequestShrink_ {};
+    // List of device ID information.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> deviceInfoShrink_ = nullptr;
+    shared_ptr<string> deviceInfoShrink_ {};
   };
 
   } // namespace Models

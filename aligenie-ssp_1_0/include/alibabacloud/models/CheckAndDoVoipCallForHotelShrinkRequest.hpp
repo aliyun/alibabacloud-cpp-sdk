@@ -37,51 +37,51 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizData_ != nullptr
-        && this->calleeNick_ != nullptr && this->calleePhoneNum_ != nullptr && this->deviceInfoShrink_ != nullptr && this->userInfoShrink_ != nullptr; };
+    virtual bool empty() const override { return this->bizData_ == nullptr
+        && this->calleeNick_ == nullptr && this->calleePhoneNum_ == nullptr && this->deviceInfoShrink_ == nullptr && this->userInfoShrink_ == nullptr; };
     // bizData Field Functions 
     bool hasBizData() const { return this->bizData_ != nullptr;};
     void deleteBizData() { this->bizData_ = nullptr;};
-    inline string bizData() const { DARABONBA_PTR_GET_DEFAULT(bizData_, "") };
+    inline string getBizData() const { DARABONBA_PTR_GET_DEFAULT(bizData_, "") };
     inline CheckAndDoVoipCallForHotelShrinkRequest& setBizData(string bizData) { DARABONBA_PTR_SET_VALUE(bizData_, bizData) };
 
 
     // calleeNick Field Functions 
     bool hasCalleeNick() const { return this->calleeNick_ != nullptr;};
     void deleteCalleeNick() { this->calleeNick_ = nullptr;};
-    inline string calleeNick() const { DARABONBA_PTR_GET_DEFAULT(calleeNick_, "") };
+    inline string getCalleeNick() const { DARABONBA_PTR_GET_DEFAULT(calleeNick_, "") };
     inline CheckAndDoVoipCallForHotelShrinkRequest& setCalleeNick(string calleeNick) { DARABONBA_PTR_SET_VALUE(calleeNick_, calleeNick) };
 
 
     // calleePhoneNum Field Functions 
     bool hasCalleePhoneNum() const { return this->calleePhoneNum_ != nullptr;};
     void deleteCalleePhoneNum() { this->calleePhoneNum_ = nullptr;};
-    inline string calleePhoneNum() const { DARABONBA_PTR_GET_DEFAULT(calleePhoneNum_, "") };
+    inline string getCalleePhoneNum() const { DARABONBA_PTR_GET_DEFAULT(calleePhoneNum_, "") };
     inline CheckAndDoVoipCallForHotelShrinkRequest& setCalleePhoneNum(string calleePhoneNum) { DARABONBA_PTR_SET_VALUE(calleePhoneNum_, calleePhoneNum) };
 
 
     // deviceInfoShrink Field Functions 
     bool hasDeviceInfoShrink() const { return this->deviceInfoShrink_ != nullptr;};
     void deleteDeviceInfoShrink() { this->deviceInfoShrink_ = nullptr;};
-    inline string deviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
+    inline string getDeviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
     inline CheckAndDoVoipCallForHotelShrinkRequest& setDeviceInfoShrink(string deviceInfoShrink) { DARABONBA_PTR_SET_VALUE(deviceInfoShrink_, deviceInfoShrink) };
 
 
     // userInfoShrink Field Functions 
     bool hasUserInfoShrink() const { return this->userInfoShrink_ != nullptr;};
     void deleteUserInfoShrink() { this->userInfoShrink_ = nullptr;};
-    inline string userInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
+    inline string getUserInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
     inline CheckAndDoVoipCallForHotelShrinkRequest& setUserInfoShrink(string userInfoShrink) { DARABONBA_PTR_SET_VALUE(userInfoShrink_, userInfoShrink) };
 
 
   protected:
-    std::shared_ptr<string> bizData_ = nullptr;
-    std::shared_ptr<string> calleeNick_ = nullptr;
-    std::shared_ptr<string> calleePhoneNum_ = nullptr;
+    shared_ptr<string> bizData_ {};
+    shared_ptr<string> calleeNick_ {};
+    shared_ptr<string> calleePhoneNum_ {};
     // This parameter is required.
-    std::shared_ptr<string> deviceInfoShrink_ = nullptr;
+    shared_ptr<string> deviceInfoShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> userInfoShrink_ = nullptr;
+    shared_ptr<string> userInfoShrink_ {};
   };
 
   } // namespace Models

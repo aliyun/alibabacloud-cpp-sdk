@@ -31,26 +31,30 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deviceInfoShrink_ != nullptr
-        && this->keysShrink_ != nullptr; };
+    virtual bool empty() const override { return this->deviceInfoShrink_ == nullptr
+        && this->keysShrink_ == nullptr; };
     // deviceInfoShrink Field Functions 
     bool hasDeviceInfoShrink() const { return this->deviceInfoShrink_ != nullptr;};
     void deleteDeviceInfoShrink() { this->deviceInfoShrink_ = nullptr;};
-    inline string deviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
+    inline string getDeviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
     inline GetDeviceSettingShrinkRequest& setDeviceInfoShrink(string deviceInfoShrink) { DARABONBA_PTR_SET_VALUE(deviceInfoShrink_, deviceInfoShrink) };
 
 
     // keysShrink Field Functions 
     bool hasKeysShrink() const { return this->keysShrink_ != nullptr;};
     void deleteKeysShrink() { this->keysShrink_ = nullptr;};
-    inline string keysShrink() const { DARABONBA_PTR_GET_DEFAULT(keysShrink_, "") };
+    inline string getKeysShrink() const { DARABONBA_PTR_GET_DEFAULT(keysShrink_, "") };
     inline GetDeviceSettingShrinkRequest& setKeysShrink(string keysShrink) { DARABONBA_PTR_SET_VALUE(keysShrink_, keysShrink) };
 
 
   protected:
-    std::shared_ptr<string> deviceInfoShrink_ = nullptr;
+    // List of device identity information.
+    shared_ptr<string> deviceInfoShrink_ {};
+    // Set of specified keys for device Settings,  
+    // Do Not Disturb mode: nightMode
+    // 
     // This parameter is required.
-    std::shared_ptr<string> keysShrink_ = nullptr;
+    shared_ptr<string> keysShrink_ {};
   };
 
   } // namespace Models

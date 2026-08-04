@@ -33,33 +33,36 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addSubscriptionInfoRequestShrink_ != nullptr
-        && this->deviceInfoShrink_ != nullptr && this->userInfoShrink_ != nullptr; };
+    virtual bool empty() const override { return this->addSubscriptionInfoRequestShrink_ == nullptr
+        && this->deviceInfoShrink_ == nullptr && this->userInfoShrink_ == nullptr; };
     // addSubscriptionInfoRequestShrink Field Functions 
     bool hasAddSubscriptionInfoRequestShrink() const { return this->addSubscriptionInfoRequestShrink_ != nullptr;};
     void deleteAddSubscriptionInfoRequestShrink() { this->addSubscriptionInfoRequestShrink_ = nullptr;};
-    inline string addSubscriptionInfoRequestShrink() const { DARABONBA_PTR_GET_DEFAULT(addSubscriptionInfoRequestShrink_, "") };
+    inline string getAddSubscriptionInfoRequestShrink() const { DARABONBA_PTR_GET_DEFAULT(addSubscriptionInfoRequestShrink_, "") };
     inline AddSubShrinkRequest& setAddSubscriptionInfoRequestShrink(string addSubscriptionInfoRequestShrink) { DARABONBA_PTR_SET_VALUE(addSubscriptionInfoRequestShrink_, addSubscriptionInfoRequestShrink) };
 
 
     // deviceInfoShrink Field Functions 
     bool hasDeviceInfoShrink() const { return this->deviceInfoShrink_ != nullptr;};
     void deleteDeviceInfoShrink() { this->deviceInfoShrink_ = nullptr;};
-    inline string deviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
+    inline string getDeviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
     inline AddSubShrinkRequest& setDeviceInfoShrink(string deviceInfoShrink) { DARABONBA_PTR_SET_VALUE(deviceInfoShrink_, deviceInfoShrink) };
 
 
     // userInfoShrink Field Functions 
     bool hasUserInfoShrink() const { return this->userInfoShrink_ != nullptr;};
     void deleteUserInfoShrink() { this->userInfoShrink_ = nullptr;};
-    inline string userInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
+    inline string getUserInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
     inline AddSubShrinkRequest& setUserInfoShrink(string userInfoShrink) { DARABONBA_PTR_SET_VALUE(userInfoShrink_, userInfoShrink) };
 
 
   protected:
-    std::shared_ptr<string> addSubscriptionInfoRequestShrink_ = nullptr;
-    std::shared_ptr<string> deviceInfoShrink_ = nullptr;
-    std::shared_ptr<string> userInfoShrink_ = nullptr;
+    // Subscribe to album request
+    shared_ptr<string> addSubscriptionInfoRequestShrink_ {};
+    // Device Information
+    shared_ptr<string> deviceInfoShrink_ {};
+    // User Information
+    shared_ptr<string> userInfoShrink_ {};
   };
 
   } // namespace Models

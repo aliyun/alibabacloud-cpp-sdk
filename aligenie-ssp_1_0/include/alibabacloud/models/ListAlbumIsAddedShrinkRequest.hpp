@@ -33,33 +33,36 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->albumIdListShrink_ != nullptr
-        && this->deviceInfoShrink_ != nullptr && this->userInfoShrink_ != nullptr; };
+    virtual bool empty() const override { return this->albumIdListShrink_ == nullptr
+        && this->deviceInfoShrink_ == nullptr && this->userInfoShrink_ == nullptr; };
     // albumIdListShrink Field Functions 
     bool hasAlbumIdListShrink() const { return this->albumIdListShrink_ != nullptr;};
     void deleteAlbumIdListShrink() { this->albumIdListShrink_ = nullptr;};
-    inline string albumIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(albumIdListShrink_, "") };
+    inline string getAlbumIdListShrink() const { DARABONBA_PTR_GET_DEFAULT(albumIdListShrink_, "") };
     inline ListAlbumIsAddedShrinkRequest& setAlbumIdListShrink(string albumIdListShrink) { DARABONBA_PTR_SET_VALUE(albumIdListShrink_, albumIdListShrink) };
 
 
     // deviceInfoShrink Field Functions 
     bool hasDeviceInfoShrink() const { return this->deviceInfoShrink_ != nullptr;};
     void deleteDeviceInfoShrink() { this->deviceInfoShrink_ = nullptr;};
-    inline string deviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
+    inline string getDeviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
     inline ListAlbumIsAddedShrinkRequest& setDeviceInfoShrink(string deviceInfoShrink) { DARABONBA_PTR_SET_VALUE(deviceInfoShrink_, deviceInfoShrink) };
 
 
     // userInfoShrink Field Functions 
     bool hasUserInfoShrink() const { return this->userInfoShrink_ != nullptr;};
     void deleteUserInfoShrink() { this->userInfoShrink_ = nullptr;};
-    inline string userInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
+    inline string getUserInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
     inline ListAlbumIsAddedShrinkRequest& setUserInfoShrink(string userInfoShrink) { DARABONBA_PTR_SET_VALUE(userInfoShrink_, userInfoShrink) };
 
 
   protected:
-    std::shared_ptr<string> albumIdListShrink_ = nullptr;
-    std::shared_ptr<string> deviceInfoShrink_ = nullptr;
-    std::shared_ptr<string> userInfoShrink_ = nullptr;
+    // Album ID list
+    shared_ptr<string> albumIdListShrink_ {};
+    // Device Information
+    shared_ptr<string> deviceInfoShrink_ {};
+    // User information
+    shared_ptr<string> userInfoShrink_ {};
   };
 
   } // namespace Models

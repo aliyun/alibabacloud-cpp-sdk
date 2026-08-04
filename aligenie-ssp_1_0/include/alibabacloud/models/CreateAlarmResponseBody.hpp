@@ -35,41 +35,45 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->message_ != nullptr && this->requestId_ != nullptr && this->result_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->message_ == nullptr && this->requestId_ == nullptr && this->result_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline CreateAlarmResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline CreateAlarmResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateAlarmResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline int64_t result() const { DARABONBA_PTR_GET_DEFAULT(result_, 0L) };
+    inline int64_t getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, 0L) };
     inline CreateAlarmResponseBody& setResult(int64_t result) { DARABONBA_PTR_SET_VALUE(result_, result) };
 
 
   protected:
-    std::shared_ptr<int32_t> code_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int64_t> result_ = nullptr;
+    // Request result status code
+    shared_ptr<int32_t> code_ {};
+    // error message
+    shared_ptr<string> message_ {};
+    // request ID
+    shared_ptr<string> requestId_ {};
+    // Alarm ID
+    shared_ptr<int64_t> result_ {};
   };
 
   } // namespace Models

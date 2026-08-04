@@ -31,27 +31,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sp_ != nullptr
-        && this->tmeUserId_ != nullptr; };
+    virtual bool empty() const override { return this->sp_ == nullptr
+        && this->tmeUserId_ == nullptr; };
     // sp Field Functions 
     bool hasSp() const { return this->sp_ != nullptr;};
     void deleteSp() { this->sp_ = nullptr;};
-    inline string sp() const { DARABONBA_PTR_GET_DEFAULT(sp_, "") };
+    inline string getSp() const { DARABONBA_PTR_GET_DEFAULT(sp_, "") };
     inline QueryUserDeviceListByTmeUserIdRequest& setSp(string sp) { DARABONBA_PTR_SET_VALUE(sp_, sp) };
 
 
     // tmeUserId Field Functions 
     bool hasTmeUserId() const { return this->tmeUserId_ != nullptr;};
     void deleteTmeUserId() { this->tmeUserId_ = nullptr;};
-    inline string tmeUserId() const { DARABONBA_PTR_GET_DEFAULT(tmeUserId_, "") };
+    inline string getTmeUserId() const { DARABONBA_PTR_GET_DEFAULT(tmeUserId_, "") };
     inline QueryUserDeviceListByTmeUserIdRequest& setTmeUserId(string tmeUserId) { DARABONBA_PTR_SET_VALUE(tmeUserId_, tmeUserId) };
 
 
   protected:
+    // "KG": KuGou  
+    // "KW": Kuwo  
+    // "QM": QQ Music
+    // 
     // This parameter is required.
-    std::shared_ptr<string> sp_ = nullptr;
+    shared_ptr<string> sp_ {};
+    // TME User ID
+    // 
     // This parameter is required.
-    std::shared_ptr<string> tmeUserId_ = nullptr;
+    shared_ptr<string> tmeUserId_ {};
   };
 
   } // namespace Models

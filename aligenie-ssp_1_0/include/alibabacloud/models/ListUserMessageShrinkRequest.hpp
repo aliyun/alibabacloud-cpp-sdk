@@ -33,34 +33,38 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->beforeTime_ != nullptr
-        && this->userInfoShrink_ != nullptr && this->limit_ != nullptr; };
+    virtual bool empty() const override { return this->beforeTime_ == nullptr
+        && this->userInfoShrink_ == nullptr && this->limit_ == nullptr; };
     // beforeTime Field Functions 
     bool hasBeforeTime() const { return this->beforeTime_ != nullptr;};
     void deleteBeforeTime() { this->beforeTime_ = nullptr;};
-    inline string beforeTime() const { DARABONBA_PTR_GET_DEFAULT(beforeTime_, "") };
+    inline string getBeforeTime() const { DARABONBA_PTR_GET_DEFAULT(beforeTime_, "") };
     inline ListUserMessageShrinkRequest& setBeforeTime(string beforeTime) { DARABONBA_PTR_SET_VALUE(beforeTime_, beforeTime) };
 
 
     // userInfoShrink Field Functions 
     bool hasUserInfoShrink() const { return this->userInfoShrink_ != nullptr;};
     void deleteUserInfoShrink() { this->userInfoShrink_ = nullptr;};
-    inline string userInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
+    inline string getUserInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
     inline ListUserMessageShrinkRequest& setUserInfoShrink(string userInfoShrink) { DARABONBA_PTR_SET_VALUE(userInfoShrink_, userInfoShrink) };
 
 
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline int32_t limit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
+    inline int32_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
     inline ListUserMessageShrinkRequest& setLimit(int32_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
   protected:
-    std::shared_ptr<string> beforeTime_ = nullptr;
+    // After a specific point in time
+    shared_ptr<string> beforeTime_ {};
+    // User identifier information
+    // 
     // This parameter is required.
-    std::shared_ptr<string> userInfoShrink_ = nullptr;
-    std::shared_ptr<int32_t> limit_ = nullptr;
+    shared_ptr<string> userInfoShrink_ {};
+    // Number of records to query
+    shared_ptr<int32_t> limit_ {};
   };
 
   } // namespace Models

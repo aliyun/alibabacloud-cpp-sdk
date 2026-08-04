@@ -31,27 +31,31 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deviceInfoShrink_ != nullptr
-        && this->thirdPartyAppId_ != nullptr; };
+    virtual bool empty() const override { return this->deviceInfoShrink_ == nullptr
+        && this->thirdPartyAppId_ == nullptr; };
     // deviceInfoShrink Field Functions 
     bool hasDeviceInfoShrink() const { return this->deviceInfoShrink_ != nullptr;};
     void deleteDeviceInfoShrink() { this->deviceInfoShrink_ = nullptr;};
-    inline string deviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
+    inline string getDeviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
     inline InvalidateThirdPartyAppLoginStateShrinkRequest& setDeviceInfoShrink(string deviceInfoShrink) { DARABONBA_PTR_SET_VALUE(deviceInfoShrink_, deviceInfoShrink) };
 
 
     // thirdPartyAppId Field Functions 
     bool hasThirdPartyAppId() const { return this->thirdPartyAppId_ != nullptr;};
     void deleteThirdPartyAppId() { this->thirdPartyAppId_ = nullptr;};
-    inline string thirdPartyAppId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartyAppId_, "") };
+    inline string getThirdPartyAppId() const { DARABONBA_PTR_GET_DEFAULT(thirdPartyAppId_, "") };
     inline InvalidateThirdPartyAppLoginStateShrinkRequest& setThirdPartyAppId(string thirdPartyAppId) { DARABONBA_PTR_SET_VALUE(thirdPartyAppId_, thirdPartyAppId) };
 
 
   protected:
+    // Device identification information
+    // 
     // This parameter is required.
-    std::shared_ptr<string> deviceInfoShrink_ = nullptr;
+    shared_ptr<string> deviceInfoShrink_ {};
+    // Third-party application identity
+    // 
     // This parameter is required.
-    std::shared_ptr<string> thirdPartyAppId_ = nullptr;
+    shared_ptr<string> thirdPartyAppId_ {};
   };
 
   } // namespace Models

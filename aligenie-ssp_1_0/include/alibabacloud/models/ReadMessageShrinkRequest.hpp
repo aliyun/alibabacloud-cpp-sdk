@@ -31,26 +31,29 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->messageId_ != nullptr
-        && this->userInfoShrink_ != nullptr; };
+    virtual bool empty() const override { return this->messageId_ == nullptr
+        && this->userInfoShrink_ == nullptr; };
     // messageId Field Functions 
     bool hasMessageId() const { return this->messageId_ != nullptr;};
     void deleteMessageId() { this->messageId_ = nullptr;};
-    inline int64_t messageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, 0L) };
+    inline int64_t getMessageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, 0L) };
     inline ReadMessageShrinkRequest& setMessageId(int64_t messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
 
 
     // userInfoShrink Field Functions 
     bool hasUserInfoShrink() const { return this->userInfoShrink_ != nullptr;};
     void deleteUserInfoShrink() { this->userInfoShrink_ = nullptr;};
-    inline string userInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
+    inline string getUserInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
     inline ReadMessageShrinkRequest& setUserInfoShrink(string userInfoShrink) { DARABONBA_PTR_SET_VALUE(userInfoShrink_, userInfoShrink) };
 
 
   protected:
-    std::shared_ptr<int64_t> messageId_ = nullptr;
+    // Message ID
+    shared_ptr<int64_t> messageId_ {};
+    // User information
+    // 
     // This parameter is required.
-    std::shared_ptr<string> userInfoShrink_ = nullptr;
+    shared_ptr<string> userInfoShrink_ {};
   };
 
   } // namespace Models

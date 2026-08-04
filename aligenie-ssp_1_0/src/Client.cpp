@@ -18,7 +18,7 @@ namespace AliGeniessp_1_0
 {
 
 AlibabaCloud::AliGeniessp_1_0::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("aligenie", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -37,7 +37,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 收藏/取消收藏
+ * @summary Collect or remove from favorites.
  *
  * @param tmpReq AddAndRemoveFavoriteContentRequest
  * @param headers AddAndRemoveFavoriteContentHeaders
@@ -49,42 +49,42 @@ AddAndRemoveFavoriteContentResponse Client::addAndRemoveFavoriteContentWithOptio
   AddAndRemoveFavoriteContentShrinkRequest request = AddAndRemoveFavoriteContentShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasOpenAddAndRemoveFavoriteContentRequest()) {
-    request.setOpenAddAndRemoveFavoriteContentRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.openAddAndRemoveFavoriteContentRequest(), "OpenAddAndRemoveFavoriteContentRequest", "json"));
+    request.setOpenAddAndRemoveFavoriteContentRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOpenAddAndRemoveFavoriteContentRequest(), "OpenAddAndRemoveFavoriteContentRequest", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   json body = {};
   if (!!request.hasOpenAddAndRemoveFavoriteContentRequestShrink()) {
-    body["OpenAddAndRemoveFavoriteContentRequest"] = request.openAddAndRemoveFavoriteContentRequestShrink();
+    body["OpenAddAndRemoveFavoriteContentRequest"] = request.getOpenAddAndRemoveFavoriteContentRequestShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -107,7 +107,7 @@ AddAndRemoveFavoriteContentResponse Client::addAndRemoveFavoriteContentWithOptio
 }
 
 /**
- * @summary 收藏/取消收藏
+ * @summary Collect or remove from favorites.
  *
  * @param request AddAndRemoveFavoriteContentRequest
  * @return AddAndRemoveFavoriteContentResponse
@@ -119,7 +119,7 @@ AddAndRemoveFavoriteContentResponse Client::addAndRemoveFavoriteContent(const Ad
 }
 
 /**
- * @summary 新增订阅
+ * @summary Subscribe to an album.
  *
  * @param tmpReq AddSubRequest
  * @param headers AddSubHeaders
@@ -131,41 +131,41 @@ AddSubResponse Client::addSubWithOptions(const AddSubRequest &tmpReq, const AddS
   AddSubShrinkRequest request = AddSubShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAddSubscriptionInfoRequest()) {
-    request.setAddSubscriptionInfoRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.addSubscriptionInfoRequest(), "AddSubscriptionInfoRequest", "json"));
+    request.setAddSubscriptionInfoRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAddSubscriptionInfoRequest(), "AddSubscriptionInfoRequest", "json"));
   }
 
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasAddSubscriptionInfoRequestShrink()) {
-    query["AddSubscriptionInfoRequest"] = request.addSubscriptionInfoRequestShrink();
+    query["AddSubscriptionInfoRequest"] = request.getAddSubscriptionInfoRequestShrink();
   }
 
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -187,7 +187,7 @@ AddSubResponse Client::addSubWithOptions(const AddSubRequest &tmpReq, const AddS
 }
 
 /**
- * @summary 新增订阅
+ * @summary Subscribe to an album.
  *
  * @param request AddSubRequest
  * @return AddSubResponse
@@ -199,7 +199,7 @@ AddSubResponse Client::addSub(const AddSubRequest &request) {
 }
 
 /**
- * @summary 通过指定精灵账号进行授权登录
+ * @summary Authorize logon by specifying an Aligenie account.
  *
  * @param request AuthLoginWithAligenieUserInfoRequest
  * @param headers AuthLoginWithAligenieUserInfoHeaders
@@ -210,24 +210,24 @@ AuthLoginWithAligenieUserInfoResponse Client::authLoginWithAligenieUserInfoWithO
   request.validate();
   json body = {};
   if (!!request.hasEncryptedAligenieUserIdentifier()) {
-    body["EncryptedAligenieUserIdentifier"] = request.encryptedAligenieUserIdentifier();
+    body["EncryptedAligenieUserIdentifier"] = request.getEncryptedAligenieUserIdentifier();
   }
 
   if (!!request.hasSessionId()) {
-    body["SessionId"] = request.sessionId();
+    body["SessionId"] = request.getSessionId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -249,7 +249,7 @@ AuthLoginWithAligenieUserInfoResponse Client::authLoginWithAligenieUserInfoWithO
 }
 
 /**
- * @summary 通过指定精灵账号进行授权登录
+ * @summary Authorize logon by specifying an Aligenie account.
  *
  * @param request AuthLoginWithAligenieUserInfoRequest
  * @return AuthLoginWithAligenieUserInfoResponse
@@ -261,7 +261,7 @@ AuthLoginWithAligenieUserInfoResponse Client::authLoginWithAligenieUserInfo(cons
 }
 
 /**
- * @summary 通过手机号生成精灵账号进行授权登录
+ * @summary Generate a Genie account by phone number for authorization logon.
  *
  * @param request AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest
  * @param headers AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders
@@ -272,20 +272,20 @@ AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse Client::authLoginWit
   request.validate();
   json body = {};
   if (!!request.hasSessionId()) {
-    body["SessionId"] = request.sessionId();
+    body["SessionId"] = request.getSessionId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -307,7 +307,7 @@ AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse Client::authLoginWit
 }
 
 /**
- * @summary 通过手机号生成精灵账号进行授权登录
+ * @summary Generate a Genie account by phone number for authorization logon.
  *
  * @param request AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest
  * @return AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse
@@ -319,7 +319,7 @@ AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse Client::authLoginWit
 }
 
 /**
- * @summary 通过指定淘宝账号进行授权登录
+ * @summary Authorize logon by specifying a Taobao account
  *
  * @param request AuthLoginWithTaobaoUserInfoRequest
  * @param headers AuthLoginWithTaobaoUserInfoHeaders
@@ -330,24 +330,24 @@ AuthLoginWithTaobaoUserInfoResponse Client::authLoginWithTaobaoUserInfoWithOptio
   request.validate();
   json body = {};
   if (!!request.hasEncryptedTaobaoUserIdentifier()) {
-    body["EncryptedTaobaoUserIdentifier"] = request.encryptedTaobaoUserIdentifier();
+    body["EncryptedTaobaoUserIdentifier"] = request.getEncryptedTaobaoUserIdentifier();
   }
 
   if (!!request.hasSessionId()) {
-    body["SessionId"] = request.sessionId();
+    body["SessionId"] = request.getSessionId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -369,7 +369,7 @@ AuthLoginWithTaobaoUserInfoResponse Client::authLoginWithTaobaoUserInfoWithOptio
 }
 
 /**
- * @summary 通过指定淘宝账号进行授权登录
+ * @summary Authorize logon by specifying a Taobao account
  *
  * @param request AuthLoginWithTaobaoUserInfoRequest
  * @return AuthLoginWithTaobaoUserInfoResponse
@@ -381,7 +381,7 @@ AuthLoginWithTaobaoUserInfoResponse Client::authLoginWithTaobaoUserInfo(const Au
 }
 
 /**
- * @summary 通过三方用户信息进行授权登录
+ * @summary Authorize logon by using third-party user information.
  *
  * @param tmpReq AuthLoginWithThirdUserInfoRequest
  * @param headers AuthLoginWithThirdUserInfoHeaders
@@ -393,37 +393,37 @@ AuthLoginWithThirdUserInfoResponse Client::authLoginWithThirdUserInfoWithOptions
   AuthLoginWithThirdUserInfoShrinkRequest request = AuthLoginWithThirdUserInfoShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasExtInfo()) {
-    request.setExtInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.extInfo(), "ExtInfo", "json"));
+    request.setExtInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExtInfo(), "ExtInfo", "json"));
   }
 
   json body = {};
   if (!!request.hasExtInfoShrink()) {
-    body["ExtInfo"] = request.extInfoShrink();
+    body["ExtInfo"] = request.getExtInfoShrink();
   }
 
   if (!!request.hasSceneCode()) {
-    body["SceneCode"] = request.sceneCode();
+    body["SceneCode"] = request.getSceneCode();
   }
 
   if (!!request.hasThirdUserIdentifier()) {
-    body["ThirdUserIdentifier"] = request.thirdUserIdentifier();
+    body["ThirdUserIdentifier"] = request.getThirdUserIdentifier();
   }
 
   if (!!request.hasThirdUserType()) {
-    body["ThirdUserType"] = request.thirdUserType();
+    body["ThirdUserType"] = request.getThirdUserType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -445,7 +445,7 @@ AuthLoginWithThirdUserInfoResponse Client::authLoginWithThirdUserInfoWithOptions
 }
 
 /**
- * @summary 通过三方用户信息进行授权登录
+ * @summary Authorize logon by using third-party user information.
  *
  * @param request AuthLoginWithThirdUserInfoRequest
  * @return AuthLoginWithThirdUserInfoResponse
@@ -469,45 +469,45 @@ CheckAndDoVoipCallForHotelResponse Client::checkAndDoVoipCallForHotelWithOptions
   CheckAndDoVoipCallForHotelShrinkRequest request = CheckAndDoVoipCallForHotelShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json body = {};
   if (!!request.hasBizData()) {
-    body["BizData"] = request.bizData();
+    body["BizData"] = request.getBizData();
   }
 
   if (!!request.hasCalleeNick()) {
-    body["CalleeNick"] = request.calleeNick();
+    body["CalleeNick"] = request.getCalleeNick();
   }
 
   if (!!request.hasCalleePhoneNum()) {
-    body["CalleePhoneNum"] = request.calleePhoneNum();
+    body["CalleePhoneNum"] = request.getCalleePhoneNum();
   }
 
   if (!!request.hasDeviceInfoShrink()) {
-    body["DeviceInfo"] = request.deviceInfoShrink();
+    body["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    body["UserInfo"] = request.userInfoShrink();
+    body["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -541,7 +541,7 @@ CheckAndDoVoipCallForHotelResponse Client::checkAndDoVoipCallForHotel(const Chec
 }
 
 /**
- * @summary 轮询激活绑定结果
+ * @summary Poll the result of the activation attachment.
  *
  * @param tmpReq CheckAuthCodeBindForExtRequest
  * @param headers CheckAuthCodeBindForExtHeaders
@@ -553,37 +553,37 @@ CheckAuthCodeBindForExtResponse Client::checkAuthCodeBindForExtWithOptions(const
   CheckAuthCodeBindForExtShrinkRequest request = CheckAuthCodeBindForExtShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasAuthCode()) {
-    query["AuthCode"] = request.authCode();
+    query["AuthCode"] = request.getAuthCode();
   }
 
   if (!!request.hasEncodeKey()) {
-    query["EncodeKey"] = request.encodeKey();
+    query["EncodeKey"] = request.getEncodeKey();
   }
 
   if (!!request.hasEncodeType()) {
-    query["EncodeType"] = request.encodeType();
+    query["EncodeType"] = request.getEncodeType();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -605,7 +605,7 @@ CheckAuthCodeBindForExtResponse Client::checkAuthCodeBindForExtWithOptions(const
 }
 
 /**
- * @summary 轮询激活绑定结果
+ * @summary Poll the result of the activation attachment.
  *
  * @param request CheckAuthCodeBindForExtRequest
  * @return CheckAuthCodeBindForExtResponse
@@ -617,7 +617,9 @@ CheckAuthCodeBindForExtResponse Client::checkAuthCodeBindForExt(const CheckAuthC
 }
 
 /**
- * @summary 云播放器：对外
+ * @summary Cloud Push Song: Create a playlist by providing the device openUuid and the Tmall Genie openUserId.
+ *
+ * @description After synchronously validating the input parameters, the system asynchronously creates the playlist.
  *
  * @param tmpReq CloudPlayerRequest
  * @param headers CloudPlayerHeaders
@@ -629,57 +631,57 @@ CloudPlayerResponse Client::cloudPlayerWithOptions(const CloudPlayerRequest &tmp
   CloudPlayerShrinkRequest request = CloudPlayerShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasSongIdList()) {
-    request.setSongIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.songIdList(), "SongIdList", "json"));
+    request.setSongIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSongIdList(), "SongIdList", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasCurPlayIndex()) {
-    query["CurPlayIndex"] = request.curPlayIndex();
+    query["CurPlayIndex"] = request.getCurPlayIndex();
   }
 
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasPlayMode()) {
-    query["PlayMode"] = request.playMode();
+    query["PlayMode"] = request.getPlayMode();
   }
 
   if (!!request.hasSongId()) {
-    query["SongId"] = request.songId();
+    query["SongId"] = request.getSongId();
   }
 
   if (!!request.hasSongIdListShrink()) {
-    query["SongIdList"] = request.songIdListShrink();
+    query["SongIdList"] = request.getSongIdListShrink();
   }
 
   if (!!request.hasSource()) {
-    query["Source"] = request.source();
+    query["Source"] = request.getSource();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -701,7 +703,9 @@ CloudPlayerResponse Client::cloudPlayerWithOptions(const CloudPlayerRequest &tmp
 }
 
 /**
- * @summary 云播放器：对外
+ * @summary Cloud Push Song: Create a playlist by providing the device openUuid and the Tmall Genie openUserId.
+ *
+ * @description After synchronously validating the input parameters, the system asynchronously creates the playlist.
  *
  * @param request CloudPlayerRequest
  * @return CloudPlayerResponse
@@ -713,7 +717,7 @@ CloudPlayerResponse Client::cloudPlayer(const CloudPlayerRequest &request) {
 }
 
 /**
- * @summary 创建闹钟
+ * @summary Create an alarm that supports three types: one-time, weekly, and legal working days.
  *
  * @param tmpReq CreateAlarmRequest
  * @param headers CreateAlarmHeaders
@@ -725,41 +729,41 @@ CreateAlarmResponse Client::createAlarmWithOptions(const CreateAlarmRequest &tmp
   CreateAlarmShrinkRequest request = CreateAlarmShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasPayload()) {
-    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.payload(), "Payload", "json"));
+    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPayload(), "Payload", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json body = {};
   if (!!request.hasDeviceInfoShrink()) {
-    body["DeviceInfo"] = request.deviceInfoShrink();
+    body["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasPayloadShrink()) {
-    body["Payload"] = request.payloadShrink();
+    body["Payload"] = request.getPayloadShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    body["UserInfo"] = request.userInfoShrink();
+    body["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -781,7 +785,7 @@ CreateAlarmResponse Client::createAlarmWithOptions(const CreateAlarmRequest &tmp
 }
 
 /**
- * @summary 创建闹钟
+ * @summary Create an alarm that supports three types: one-time, weekly, and legal working days.
  *
  * @param request CreateAlarmRequest
  * @return CreateAlarmResponse
@@ -793,7 +797,7 @@ CreateAlarmResponse Client::createAlarm(const CreateAlarmRequest &request) {
 }
 
 /**
- * @summary 播放列表创建
+ * @summary Create a playlist and play the specified content.
  *
  * @param tmpReq CreatePlayingListRequest
  * @param headers CreatePlayingListHeaders
@@ -805,42 +809,42 @@ CreatePlayingListResponse Client::createPlayingListWithOptions(const CreatePlayi
   CreatePlayingListShrinkRequest request = CreatePlayingListShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasOpenCreatePlayingListRequest()) {
-    request.setOpenCreatePlayingListRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.openCreatePlayingListRequest(), "OpenCreatePlayingListRequest", "json"));
+    request.setOpenCreatePlayingListRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOpenCreatePlayingListRequest(), "OpenCreatePlayingListRequest", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   json body = {};
   if (!!request.hasOpenCreatePlayingListRequestShrink()) {
-    body["OpenCreatePlayingListRequest"] = request.openCreatePlayingListRequestShrink();
+    body["OpenCreatePlayingListRequest"] = request.getOpenCreatePlayingListRequestShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -863,7 +867,7 @@ CreatePlayingListResponse Client::createPlayingListWithOptions(const CreatePlayi
 }
 
 /**
- * @summary 播放列表创建
+ * @summary Create a playlist and play the specified content.
  *
  * @param request CreatePlayingListRequest
  * @return CreatePlayingListResponse
@@ -875,7 +879,7 @@ CreatePlayingListResponse Client::createPlayingList(const CreatePlayingListReque
 }
 
 /**
- * @summary 播放列表创建走OAuth2授权
+ * @summary Playlist creation uses OAuth2 authorization.
  *
  * @param tmpReq CreatePlayingListOAuth2Request
  * @param headers map
@@ -887,21 +891,21 @@ CreatePlayingListOAuth2Response Client::createPlayingListOAuth2WithOptions(const
   CreatePlayingListOAuth2ShrinkRequest request = CreatePlayingListOAuth2ShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasOpenCreatePlayingListRequest()) {
-    request.setOpenCreatePlayingListRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.openCreatePlayingListRequest(), "OpenCreatePlayingListRequest", "json"));
+    request.setOpenCreatePlayingListRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOpenCreatePlayingListRequest(), "OpenCreatePlayingListRequest", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   json body = {};
   if (!!request.hasOpenCreatePlayingListRequestShrink()) {
-    body["OpenCreatePlayingListRequest"] = request.openCreatePlayingListRequestShrink();
+    body["OpenCreatePlayingListRequest"] = request.getOpenCreatePlayingListRequestShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -924,7 +928,7 @@ CreatePlayingListOAuth2Response Client::createPlayingListOAuth2WithOptions(const
 }
 
 /**
- * @summary 播放列表创建走OAuth2授权
+ * @summary Playlist creation uses OAuth2 authorization.
  *
  * @param request CreatePlayingListOAuth2Request
  * @return CreatePlayingListOAuth2Response
@@ -936,7 +940,9 @@ CreatePlayingListOAuth2Response Client::createPlayingListOAuth2(const CreatePlay
 }
 
 /**
- * @summary 创建定时任务
+ * @summary Create a scheduled task.
+ *
+ * @description Configure a triggering task for Custom instruction data in the ecosystem based on scheduling rules such as one-time, daily, or business days.
  *
  * @param tmpReq CreateScheduleTaskRequest
  * @param headers CreateScheduleTaskHeaders
@@ -948,41 +954,41 @@ CreateScheduleTaskResponse Client::createScheduleTaskWithOptions(const CreateSch
   CreateScheduleTaskShrinkRequest request = CreateScheduleTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasPayload()) {
-    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.payload(), "Payload", "json"));
+    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPayload(), "Payload", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json body = {};
   if (!!request.hasDeviceInfoShrink()) {
-    body["DeviceInfo"] = request.deviceInfoShrink();
+    body["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasPayloadShrink()) {
-    body["Payload"] = request.payloadShrink();
+    body["Payload"] = request.getPayloadShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    body["UserInfo"] = request.userInfoShrink();
+    body["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1004,7 +1010,9 @@ CreateScheduleTaskResponse Client::createScheduleTaskWithOptions(const CreateSch
 }
 
 /**
- * @summary 创建定时任务
+ * @summary Create a scheduled task.
+ *
+ * @description Configure a triggering task for Custom instruction data in the ecosystem based on scheduling rules such as one-time, daily, or business days.
  *
  * @param request CreateScheduleTaskRequest
  * @return CreateScheduleTaskResponse
@@ -1016,7 +1024,7 @@ CreateScheduleTaskResponse Client::createScheduleTask(const CreateScheduleTaskRe
 }
 
 /**
- * @summary 闹钟批量删除
+ * @summary Delete alarms. You can delete multiple alarms at the same time.
  *
  * @param tmpReq DeleteAlarmsRequest
  * @param headers DeleteAlarmsHeaders
@@ -1028,41 +1036,41 @@ DeleteAlarmsResponse Client::deleteAlarmsWithOptions(const DeleteAlarmsRequest &
   DeleteAlarmsShrinkRequest request = DeleteAlarmsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasPayload()) {
-    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.payload(), "Payload", "json"));
+    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPayload(), "Payload", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json body = {};
   if (!!request.hasDeviceInfoShrink()) {
-    body["DeviceInfo"] = request.deviceInfoShrink();
+    body["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasPayloadShrink()) {
-    body["Payload"] = request.payloadShrink();
+    body["Payload"] = request.getPayloadShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    body["UserInfo"] = request.userInfoShrink();
+    body["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1084,7 +1092,7 @@ DeleteAlarmsResponse Client::deleteAlarmsWithOptions(const DeleteAlarmsRequest &
 }
 
 /**
- * @summary 闹钟批量删除
+ * @summary Delete alarms. You can delete multiple alarms at the same time.
  *
  * @param request DeleteAlarmsRequest
  * @return DeleteAlarmsResponse
@@ -1096,7 +1104,9 @@ DeleteAlarmsResponse Client::deleteAlarms(const DeleteAlarmsRequest &request) {
 }
 
 /**
- * @summary 删除定时任务
+ * @summary Delete a scheduled task.
+ *
+ * @description Deletes a specified scheduled task by its ID.
  *
  * @param tmpReq DeleteScheduleTaskRequest
  * @param headers DeleteScheduleTaskHeaders
@@ -1108,41 +1118,41 @@ DeleteScheduleTaskResponse Client::deleteScheduleTaskWithOptions(const DeleteSch
   DeleteScheduleTaskShrinkRequest request = DeleteScheduleTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasPayload()) {
-    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.payload(), "Payload", "json"));
+    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPayload(), "Payload", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json body = {};
   if (!!request.hasDeviceInfoShrink()) {
-    body["DeviceInfo"] = request.deviceInfoShrink();
+    body["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasPayloadShrink()) {
-    body["Payload"] = request.payloadShrink();
+    body["Payload"] = request.getPayloadShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    body["UserInfo"] = request.userInfoShrink();
+    body["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1164,7 +1174,9 @@ DeleteScheduleTaskResponse Client::deleteScheduleTaskWithOptions(const DeleteSch
 }
 
 /**
- * @summary 删除定时任务
+ * @summary Delete a scheduled task.
+ *
+ * @description Deletes a specified scheduled task by its ID.
  *
  * @param request DeleteScheduleTaskRequest
  * @return DeleteScheduleTaskResponse
@@ -1176,7 +1188,7 @@ DeleteScheduleTaskResponse Client::deleteScheduleTask(const DeleteScheduleTaskRe
 }
 
 /**
- * @summary 删除订阅
+ * @summary Delete a subscribed album.
  *
  * @param request DeleteSubRequest
  * @param headers DeleteSubHeaders
@@ -1187,20 +1199,20 @@ DeleteSubResponse Client::deleteSubWithOptions(const DeleteSubRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasSubId()) {
-    query["SubId"] = request.subId();
+    query["SubId"] = request.getSubId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1222,7 +1234,7 @@ DeleteSubResponse Client::deleteSubWithOptions(const DeleteSubRequest &request, 
 }
 
 /**
- * @summary 删除订阅
+ * @summary Delete a subscribed album.
  *
  * @param request DeleteSubRequest
  * @return DeleteSubResponse
@@ -1234,7 +1246,9 @@ DeleteSubResponse Client::deleteSub(const DeleteSubRequest &request) {
 }
 
 /**
- * @summary 设备控制
+ * @summary Control property values such as device volume.
+ *
+ * @description Specify a device to modify property values such as volume.
  *
  * @param tmpReq DeviceControlRequest
  * @param headers DeviceControlHeaders
@@ -1246,34 +1260,34 @@ DeviceControlResponse Client::deviceControlWithOptions(const DeviceControlReques
   DeviceControlShrinkRequest request = DeviceControlShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasControlRequest()) {
-    request.setControlRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.controlRequest(), "ControlRequest", "json"));
+    request.setControlRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getControlRequest(), "ControlRequest", "json"));
   }
 
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   json body = {};
   if (!!request.hasControlRequestShrink()) {
-    body["ControlRequest"] = request.controlRequestShrink();
+    body["ControlRequest"] = request.getControlRequestShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1296,7 +1310,9 @@ DeviceControlResponse Client::deviceControlWithOptions(const DeviceControlReques
 }
 
 /**
- * @summary 设备控制
+ * @summary Control property values such as device volume.
+ *
+ * @description Specify a device to modify property values such as volume.
  *
  * @param request DeviceControlRequest
  * @return DeviceControlResponse
@@ -1308,7 +1324,13 @@ DeviceControlResponse Client::deviceControl(const DeviceControlRequest &request)
 }
 
 /**
- * @summary 生态开放鉴权
+ * @summary Use the login-state access token for authentication to obtain the third-party user identifier and the Tmall Genie user\\"s openId.
+ *
+ * @description Note: When the login state expires, the integrator must reinitiate the authorization login flow to obtain a new login state (entry service API: AuthLoginWithThirdUserInfo).
+ * - Invoke the service API with the login-state access credential (LoginStateAccessToken) parameter by using the Java SDK (for SDKs in other languages, consult Tmall Genie developers during integration).  
+ * If the API call throws a TeaException and TeaException.code is InvalidAuthentication, the login state has expired.
+ * - Invoke the service API by sending an HTTP request with the login-state access credential (LoginStateAccessToken) parameter.  
+ * If the HTTP response status code returned by the API call is 400, the login state has expired.
  *
  * @param request EcologyOpennessAuthenticateRequest
  * @param headers EcologyOpennessAuthenticateHeaders
@@ -1319,28 +1341,28 @@ EcologyOpennessAuthenticateResponse Client::ecologyOpennessAuthenticateWithOptio
   request.validate();
   json body = {};
   if (!!request.hasEncodeKey()) {
-    body["EncodeKey"] = request.encodeKey();
+    body["EncodeKey"] = request.getEncodeKey();
   }
 
   if (!!request.hasEncodeType()) {
-    body["EncodeType"] = request.encodeType();
+    body["EncodeType"] = request.getEncodeType();
   }
 
   if (!!request.hasLoginStateAccessToken()) {
-    body["LoginStateAccessToken"] = request.loginStateAccessToken();
+    body["LoginStateAccessToken"] = request.getLoginStateAccessToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1362,7 +1384,13 @@ EcologyOpennessAuthenticateResponse Client::ecologyOpennessAuthenticateWithOptio
 }
 
 /**
- * @summary 生态开放鉴权
+ * @summary Use the login-state access token for authentication to obtain the third-party user identifier and the Tmall Genie user\\"s openId.
+ *
+ * @description Note: When the login state expires, the integrator must reinitiate the authorization login flow to obtain a new login state (entry service API: AuthLoginWithThirdUserInfo).
+ * - Invoke the service API with the login-state access credential (LoginStateAccessToken) parameter by using the Java SDK (for SDKs in other languages, consult Tmall Genie developers during integration).  
+ * If the API call throws a TeaException and TeaException.code is InvalidAuthentication, the login state has expired.
+ * - Invoke the service API by sending an HTTP request with the login-state access credential (LoginStateAccessToken) parameter.  
+ * If the HTTP response status code returned by the API call is 400, the login state has expired.
  *
  * @param request EcologyOpennessAuthenticateRequest
  * @return EcologyOpennessAuthenticateResponse
@@ -1374,7 +1402,7 @@ EcologyOpennessAuthenticateResponse Client::ecologyOpennessAuthenticate(const Ec
 }
 
 /**
- * @summary 生态开放发送短信验证码
+ * @summary Ecosystem Open API for sending SMS verification codes
  *
  * @param request EcologyOpennessSendVerificationCodeRequest
  * @param headers EcologyOpennessSendVerificationCodeHeaders
@@ -1385,28 +1413,28 @@ EcologyOpennessSendVerificationCodeResponse Client::ecologyOpennessSendVerificat
   request.validate();
   json body = {};
   if (!!request.hasPhoneNumber()) {
-    body["PhoneNumber"] = request.phoneNumber();
+    body["PhoneNumber"] = request.getPhoneNumber();
   }
 
   if (!!request.hasRegion()) {
-    body["Region"] = request.region();
+    body["Region"] = request.getRegion();
   }
 
   if (!!request.hasSessionId()) {
-    body["SessionId"] = request.sessionId();
+    body["SessionId"] = request.getSessionId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1428,7 +1456,7 @@ EcologyOpennessSendVerificationCodeResponse Client::ecologyOpennessSendVerificat
 }
 
 /**
- * @summary 生态开放发送短信验证码
+ * @summary Ecosystem Open API for sending SMS verification codes
  *
  * @param request EcologyOpennessSendVerificationCodeRequest
  * @return EcologyOpennessSendVerificationCodeResponse
@@ -1440,7 +1468,7 @@ EcologyOpennessSendVerificationCodeResponse Client::ecologyOpennessSendVerificat
 }
 
 /**
- * @summary 通过手机号寻找可授权登录的账号列表
+ * @summary Find a list of accounts that can be authorized to log on by phone number
  *
  * @param request FindUserlistToAuthLoginWithPhoneNumberRequest
  * @param headers FindUserlistToAuthLoginWithPhoneNumberHeaders
@@ -1451,32 +1479,32 @@ FindUserlistToAuthLoginWithPhoneNumberResponse Client::findUserlistToAuthLoginWi
   request.validate();
   json query = {};
   if (!!request.hasCode()) {
-    query["Code"] = request.code();
+    query["Code"] = request.getCode();
   }
 
   if (!!request.hasPhoneNumber()) {
-    query["PhoneNumber"] = request.phoneNumber();
+    query["PhoneNumber"] = request.getPhoneNumber();
   }
 
   if (!!request.hasRegion()) {
-    query["Region"] = request.region();
+    query["Region"] = request.getRegion();
   }
 
   if (!!request.hasSessionId()) {
-    query["SessionId"] = request.sessionId();
+    query["SessionId"] = request.getSessionId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1498,7 +1526,7 @@ FindUserlistToAuthLoginWithPhoneNumberResponse Client::findUserlistToAuthLoginWi
 }
 
 /**
- * @summary 通过手机号寻找可授权登录的账号列表
+ * @summary Find a list of accounts that can be authorized to log on by phone number
  *
  * @param request FindUserlistToAuthLoginWithPhoneNumberRequest
  * @return FindUserlistToAuthLoginWithPhoneNumberResponse
@@ -1510,7 +1538,7 @@ FindUserlistToAuthLoginWithPhoneNumberResponse Client::findUserlistToAuthLoginWi
 }
 
 /**
- * @summary 获取单个闹钟
+ * @summary Retrieve the detailed information of a specific alarm clock.
  *
  * @param tmpReq GetAlarmRequest
  * @param headers GetAlarmHeaders
@@ -1522,41 +1550,41 @@ GetAlarmResponse Client::getAlarmWithOptions(const GetAlarmRequest &tmpReq, cons
   GetAlarmShrinkRequest request = GetAlarmShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasPayload()) {
-    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.payload(), "Payload", "json"));
+    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPayload(), "Payload", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json body = {};
   if (!!request.hasDeviceInfoShrink()) {
-    body["DeviceInfo"] = request.deviceInfoShrink();
+    body["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasPayloadShrink()) {
-    body["Payload"] = request.payloadShrink();
+    body["Payload"] = request.getPayloadShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    body["UserInfo"] = request.userInfoShrink();
+    body["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1578,7 +1606,7 @@ GetAlarmResponse Client::getAlarmWithOptions(const GetAlarmRequest &tmpReq, cons
 }
 
 /**
- * @summary 获取单个闹钟
+ * @summary Retrieve the detailed information of a specific alarm clock.
  *
  * @param request GetAlarmRequest
  * @return GetAlarmResponse
@@ -1590,7 +1618,7 @@ GetAlarmResponse Client::getAlarm(const GetAlarmRequest &request) {
 }
 
 /**
- * @summary 根据id获取专辑信息
+ * @summary Retrieve album information by a specific ID.
  *
  * @param request GetAlbumRequest
  * @param headers GetAlbumHeaders
@@ -1601,24 +1629,24 @@ GetAlbumResponse Client::getAlbumWithOptions(const GetAlbumRequest &request, con
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1640,7 +1668,7 @@ GetAlbumResponse Client::getAlbumWithOptions(const GetAlbumRequest &request, con
 }
 
 /**
- * @summary 根据id获取专辑信息
+ * @summary Retrieve album information by a specific ID.
  *
  * @param request GetAlbumRequest
  * @return GetAlbumResponse
@@ -1652,7 +1680,7 @@ GetAlbumResponse Client::getAlbum(const GetAlbumRequest &request) {
 }
 
 /**
- * @summary 获取专辑数据
+ * @summary Retrieve album information.
  *
  * @param request GetAlbumDetailByIdRequest
  * @param headers GetAlbumDetailByIdHeaders
@@ -1663,20 +1691,20 @@ GetAlbumDetailByIdResponse Client::getAlbumDetailByIdWithOptions(const GetAlbumD
   request.validate();
   json query = {};
   if (!!request.hasAlbumId()) {
-    query["AlbumId"] = request.albumId();
+    query["AlbumId"] = request.getAlbumId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1698,7 +1726,7 @@ GetAlbumDetailByIdResponse Client::getAlbumDetailByIdWithOptions(const GetAlbumD
 }
 
 /**
- * @summary 获取专辑数据
+ * @summary Retrieve album information.
  *
  * @param request GetAlbumDetailByIdRequest
  * @return GetAlbumDetailByIdResponse
@@ -1710,7 +1738,13 @@ GetAlbumDetailByIdResponse Client::getAlbumDetailById(const GetAlbumDetailByIdRe
 }
 
 /**
- * @summary 获取三方绑定的精灵账号信息
+ * @summary Obtain the Aligenie account information bound to a third party by using the logon state credential
+ *
+ * @description Note: When the logon state expires, the integrator must initiate the authorization logon flow again to obtain a new logon state (entry service API: AuthLoginWithThirdUserInfo).
+ * - Invoke the service API with the logon state access credential (LoginStateAccessToken) parameter by using the Java software development kit (SDK). For SDKs in other languages, consult the Tmall Genie developer team during integration.  
+ * If the API call throws a TeaException and TeaException.code is InvalidAuthentication, the logon state has expired.
+ * - Invoke the service API by sending an HTTP request with the logon state access credential (LoginStateAccessToken) parameter.  
+ * If the HTTP response status code returned by the API call is 400, the logon state has expired.
  *
  * @param request GetAligenieUserInfoRequest
  * @param headers GetAligenieUserInfoHeaders
@@ -1721,20 +1755,20 @@ GetAligenieUserInfoResponse Client::getAligenieUserInfoWithOptions(const GetAlig
   request.validate();
   json query = {};
   if (!!request.hasLoginStateAccessToken()) {
-    query["LoginStateAccessToken"] = request.loginStateAccessToken();
+    query["LoginStateAccessToken"] = request.getLoginStateAccessToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1756,7 +1790,13 @@ GetAligenieUserInfoResponse Client::getAligenieUserInfoWithOptions(const GetAlig
 }
 
 /**
- * @summary 获取三方绑定的精灵账号信息
+ * @summary Obtain the Aligenie account information bound to a third party by using the logon state credential
+ *
+ * @description Note: When the logon state expires, the integrator must initiate the authorization logon flow again to obtain a new logon state (entry service API: AuthLoginWithThirdUserInfo).
+ * - Invoke the service API with the logon state access credential (LoginStateAccessToken) parameter by using the Java software development kit (SDK). For SDKs in other languages, consult the Tmall Genie developer team during integration.  
+ * If the API call throws a TeaException and TeaException.code is InvalidAuthentication, the logon state has expired.
+ * - Invoke the service API by sending an HTTP request with the logon state access credential (LoginStateAccessToken) parameter.  
+ * If the HTTP response status code returned by the API call is 400, the logon state has expired.
  *
  * @param request GetAligenieUserInfoRequest
  * @return GetAligenieUserInfoResponse
@@ -1768,7 +1808,9 @@ GetAligenieUserInfoResponse Client::getAligenieUserInfo(const GetAligenieUserInf
 }
 
 /**
- * @summary 获取authCode
+ * @summary Obtain the authCode.
+ *
+ * @description Obtain the corresponding authCode by specifying the user ID.
  *
  * @param tmpReq GetCodeEnhanceRequest
  * @param headers GetCodeEnhanceHeaders
@@ -1780,33 +1822,33 @@ GetCodeEnhanceResponse Client::getCodeEnhanceWithOptions(const GetCodeEnhanceReq
   GetCodeEnhanceShrinkRequest request = GetCodeEnhanceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasChannelInfo()) {
-    request.setChannelInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.channelInfo(), "ChannelInfo", "json"));
+    request.setChannelInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChannelInfo(), "ChannelInfo", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasChannelInfoShrink()) {
-    query["ChannelInfo"] = request.channelInfoShrink();
+    query["ChannelInfo"] = request.getChannelInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1828,7 +1870,9 @@ GetCodeEnhanceResponse Client::getCodeEnhanceWithOptions(const GetCodeEnhanceReq
 }
 
 /**
- * @summary 获取authCode
+ * @summary Obtain the authCode.
+ *
+ * @description Obtain the corresponding authCode by specifying the user ID.
  *
  * @param request GetCodeEnhanceRequest
  * @return GetCodeEnhanceResponse
@@ -1840,7 +1884,7 @@ GetCodeEnhanceResponse Client::getCodeEnhance(const GetCodeEnhanceRequest &reque
 }
 
 /**
- * @summary 按照特定的id获取内容信息
+ * @summary Retrieve content information by a specific ID
  *
  * @param request GetContentRequest
  * @param headers GetContentHeaders
@@ -1851,24 +1895,24 @@ GetContentResponse Client::getContentWithOptions(const GetContentRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1890,7 +1934,7 @@ GetContentResponse Client::getContentWithOptions(const GetContentRequest &reques
 }
 
 /**
- * @summary 按照特定的id获取内容信息
+ * @summary Retrieve content information by a specific ID
  *
  * @param request GetContentRequest
  * @return GetContentResponse
@@ -1902,7 +1946,7 @@ GetContentResponse Client::getContent(const GetContentRequest &request) {
 }
 
 /**
- * @summary 获取当前播放项
+ * @summary Obtain the current playback item.
  *
  * @param tmpReq GetCurrentPlayingItemRequest
  * @param headers GetCurrentPlayingItemHeaders
@@ -1914,33 +1958,33 @@ GetCurrentPlayingItemResponse Client::getCurrentPlayingItemWithOptions(const Get
   GetCurrentPlayingItemShrinkRequest request = GetCurrentPlayingItemShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1962,7 +2006,7 @@ GetCurrentPlayingItemResponse Client::getCurrentPlayingItemWithOptions(const Get
 }
 
 /**
- * @summary 获取当前播放项
+ * @summary Obtain the current playback item.
  *
  * @param request GetCurrentPlayingItemRequest
  * @return GetCurrentPlayingItemResponse
@@ -1974,7 +2018,7 @@ GetCurrentPlayingItemResponse Client::getCurrentPlayingItem(const GetCurrentPlay
 }
 
 /**
- * @summary 获取当前播放列表
+ * @summary Obtain the current playlist.
  *
  * @param tmpReq GetCurrentPlayingListRequest
  * @param headers GetCurrentPlayingListHeaders
@@ -1986,42 +2030,42 @@ GetCurrentPlayingListResponse Client::getCurrentPlayingListWithOptions(const Get
   GetCurrentPlayingListShrinkRequest request = GetCurrentPlayingListShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasOpenQueryPlayListRequest()) {
-    request.setOpenQueryPlayListRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.openQueryPlayListRequest(), "OpenQueryPlayListRequest", "json"));
+    request.setOpenQueryPlayListRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOpenQueryPlayListRequest(), "OpenQueryPlayListRequest", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   json body = {};
   if (!!request.hasOpenQueryPlayListRequestShrink()) {
-    body["OpenQueryPlayListRequest"] = request.openQueryPlayListRequestShrink();
+    body["OpenQueryPlayListRequest"] = request.getOpenQueryPlayListRequestShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2044,7 +2088,7 @@ GetCurrentPlayingListResponse Client::getCurrentPlayingListWithOptions(const Get
 }
 
 /**
- * @summary 获取当前播放列表
+ * @summary Obtain the current playlist.
  *
  * @param request GetCurrentPlayingListRequest
  * @return GetCurrentPlayingListResponse
@@ -2056,7 +2100,7 @@ GetCurrentPlayingListResponse Client::getCurrentPlayingList(const GetCurrentPlay
 }
 
 /**
- * @summary 获取设备认证信息
+ * @summary Obtain basic device information by Device ID.
  *
  * @param tmpReq GetDeviceBasicInfoRequest
  * @param headers GetDeviceBasicInfoHeaders
@@ -2068,25 +2112,25 @@ GetDeviceBasicInfoResponse Client::getDeviceBasicInfoWithOptions(const GetDevice
   GetDeviceBasicInfoShrinkRequest request = GetDeviceBasicInfoShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2108,7 +2152,7 @@ GetDeviceBasicInfoResponse Client::getDeviceBasicInfoWithOptions(const GetDevice
 }
 
 /**
- * @summary 获取设备认证信息
+ * @summary Obtain basic device information by Device ID.
  *
  * @param request GetDeviceBasicInfoRequest
  * @return GetDeviceBasicInfoResponse
@@ -2120,7 +2164,7 @@ GetDeviceBasicInfoResponse Client::getDeviceBasicInfo(const GetDeviceBasicInfoRe
 }
 
 /**
- * @summary 获取设备信息
+ * @summary Obtain the Device ID based on the device MAC or SN.
  *
  * @param request GetDeviceIdByIdentityRequest
  * @param headers GetDeviceIdByIdentityHeaders
@@ -2131,36 +2175,36 @@ GetDeviceIdByIdentityResponse Client::getDeviceIdByIdentityWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasEncodeKey()) {
-    query["EncodeKey"] = request.encodeKey();
+    query["EncodeKey"] = request.getEncodeKey();
   }
 
   if (!!request.hasEncodeType()) {
-    query["EncodeType"] = request.encodeType();
+    query["EncodeType"] = request.getEncodeType();
   }
 
   if (!!request.hasIdentityId()) {
-    query["IdentityId"] = request.identityId();
+    query["IdentityId"] = request.getIdentityId();
   }
 
   if (!!request.hasIdentityType()) {
-    query["IdentityType"] = request.identityType();
+    query["IdentityType"] = request.getIdentityType();
   }
 
   if (!!request.hasProductKey()) {
-    query["ProductKey"] = request.productKey();
+    query["ProductKey"] = request.getProductKey();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2182,7 +2226,7 @@ GetDeviceIdByIdentityResponse Client::getDeviceIdByIdentityWithOptions(const Get
 }
 
 /**
- * @summary 获取设备信息
+ * @summary Obtain the Device ID based on the device MAC or SN.
  *
  * @param request GetDeviceIdByIdentityRequest
  * @return GetDeviceIdByIdentityResponse
@@ -2194,7 +2238,7 @@ GetDeviceIdByIdentityResponse Client::getDeviceIdByIdentity(const GetDeviceIdByI
 }
 
 /**
- * @summary 获取设备的用户设置
+ * @summary Obtain the user settings of a device.
  *
  * @param tmpReq GetDeviceSettingRequest
  * @param headers GetDeviceSettingHeaders
@@ -2206,33 +2250,33 @@ GetDeviceSettingResponse Client::getDeviceSettingWithOptions(const GetDeviceSett
   GetDeviceSettingShrinkRequest request = GetDeviceSettingShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasKeys()) {
-    request.setKeysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.keys(), "Keys", "json"));
+    request.setKeysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getKeys(), "Keys", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasKeysShrink()) {
-    query["Keys"] = request.keysShrink();
+    query["Keys"] = request.getKeysShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2254,7 +2298,7 @@ GetDeviceSettingResponse Client::getDeviceSettingWithOptions(const GetDeviceSett
 }
 
 /**
- * @summary 获取设备的用户设置
+ * @summary Obtain the user settings of a device.
  *
  * @param request GetDeviceSettingRequest
  * @return GetDeviceSettingResponse
@@ -2266,7 +2310,7 @@ GetDeviceSettingResponse Client::getDeviceSetting(const GetDeviceSettingRequest 
 }
 
 /**
- * @summary 获取设备状态详情
+ * @summary Obtain device status details.
  *
  * @param tmpReq GetDeviceStatusDetailRequest
  * @param headers GetDeviceStatusDetailHeaders
@@ -2278,33 +2322,33 @@ GetDeviceStatusDetailResponse Client::getDeviceStatusDetailWithOptions(const Get
   GetDeviceStatusDetailShrinkRequest request = GetDeviceStatusDetailShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasKeys()) {
-    request.setKeysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.keys(), "Keys", "json"));
+    request.setKeysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getKeys(), "Keys", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasKeysShrink()) {
-    query["Keys"] = request.keysShrink();
+    query["Keys"] = request.getKeysShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2326,7 +2370,7 @@ GetDeviceStatusDetailResponse Client::getDeviceStatusDetailWithOptions(const Get
 }
 
 /**
- * @summary 获取设备状态详情
+ * @summary Obtain device status details.
  *
  * @param request GetDeviceStatusDetailRequest
  * @return GetDeviceStatusDetailResponse
@@ -2338,7 +2382,7 @@ GetDeviceStatusDetailResponse Client::getDeviceStatusDetail(const GetDeviceStatu
 }
 
 /**
- * @summary 获取设备状态信息
+ * @summary Obtain the online status of a device based on its openID.
  *
  * @param tmpReq GetDeviceStatusInfoRequest
  * @param headers GetDeviceStatusInfoHeaders
@@ -2350,25 +2394,25 @@ GetDeviceStatusInfoResponse Client::getDeviceStatusInfoWithOptions(const GetDevi
   GetDeviceStatusInfoShrinkRequest request = GetDeviceStatusInfoShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2390,7 +2434,7 @@ GetDeviceStatusInfoResponse Client::getDeviceStatusInfoWithOptions(const GetDevi
 }
 
 /**
- * @summary 获取设备状态信息
+ * @summary Obtain the online status of a device based on its openID.
  *
  * @param request GetDeviceStatusInfoRequest
  * @return GetDeviceStatusInfoResponse
@@ -2402,7 +2446,7 @@ GetDeviceStatusInfoResponse Client::getDeviceStatusInfo(const GetDeviceStatusInf
 }
 
 /**
- * @summary 获取设备标签
+ * @summary Obtain the tag information of a device.
  *
  * @param tmpReq GetDeviceTagRequest
  * @param headers GetDeviceTagHeaders
@@ -2414,25 +2458,25 @@ GetDeviceTagResponse Client::getDeviceTagWithOptions(const GetDeviceTagRequest &
   GetDeviceTagShrinkRequest request = GetDeviceTagShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2454,7 +2498,7 @@ GetDeviceTagResponse Client::getDeviceTagWithOptions(const GetDeviceTagRequest &
 }
 
 /**
- * @summary 获取设备标签
+ * @summary Obtain the tag information of a device.
  *
  * @param request GetDeviceTagRequest
  * @return GetDeviceTagResponse
@@ -2466,7 +2510,7 @@ GetDeviceTagResponse Client::getDeviceTag(const GetDeviceTagRequest &request) {
 }
 
 /**
- * @summary 江苏电信号百
+ * @summary Derived requirements from Jiangsu Telecom\\"s self-developed desktop launcher project. HaoBai expects to collect statistics on the activation rate, active user rate, and top user usage patterns after the project is published, and to generate daily and weekly reports. Daily reports are synchronized automatically via API, while weekly reports are synchronized offline.
  *
  * @param request GetJiangSuTelecomDataRequest
  * @param headers GetJiangSuTelecomDataHeaders
@@ -2477,20 +2521,20 @@ GetJiangSuTelecomDataResponse Client::getJiangSuTelecomDataWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasDate()) {
-    query["Date"] = request.date();
+    query["Date"] = request.getDate();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2512,7 +2556,7 @@ GetJiangSuTelecomDataResponse Client::getJiangSuTelecomDataWithOptions(const Get
 }
 
 /**
- * @summary 江苏电信号百
+ * @summary Derived requirements from Jiangsu Telecom\\"s self-developed desktop launcher project. HaoBai expects to collect statistics on the activation rate, active user rate, and top user usage patterns after the project is published, and to generate daily and weekly reports. Daily reports are synchronized automatically via API, while weekly reports are synchronized offline.
  *
  * @param request GetJiangSuTelecomDataRequest
  * @return GetJiangSuTelecomDataResponse
@@ -2524,7 +2568,9 @@ GetJiangSuTelecomDataResponse Client::getJiangSuTelecomData(const GetJiangSuTele
 }
 
 /**
- * @summary 查询定时任务
+ * @summary Obtain scheduled task information.
+ *
+ * @description Query the details of a specified scheduled task by its ID.
  *
  * @param tmpReq GetScheduleTaskRequest
  * @param headers GetScheduleTaskHeaders
@@ -2536,41 +2582,41 @@ GetScheduleTaskResponse Client::getScheduleTaskWithOptions(const GetScheduleTask
   GetScheduleTaskShrinkRequest request = GetScheduleTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasPayload()) {
-    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.payload(), "Payload", "json"));
+    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPayload(), "Payload", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json body = {};
   if (!!request.hasDeviceInfoShrink()) {
-    body["DeviceInfo"] = request.deviceInfoShrink();
+    body["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasPayloadShrink()) {
-    body["Payload"] = request.payloadShrink();
+    body["Payload"] = request.getPayloadShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    body["UserInfo"] = request.userInfoShrink();
+    body["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2592,7 +2638,9 @@ GetScheduleTaskResponse Client::getScheduleTaskWithOptions(const GetScheduleTask
 }
 
 /**
- * @summary 查询定时任务
+ * @summary Obtain scheduled task information.
+ *
+ * @description Query the details of a specified scheduled task by its ID.
  *
  * @param request GetScheduleTaskRequest
  * @return GetScheduleTaskResponse
@@ -2604,7 +2652,7 @@ GetScheduleTaskResponse Client::getScheduleTask(const GetScheduleTaskRequest &re
 }
 
 /**
- * @summary 查询未读留言数量
+ * @summary Query the number of unread messages for a user.
  *
  * @param tmpReq GetUnreadMessageCountRequest
  * @param headers GetUnreadMessageCountHeaders
@@ -2616,25 +2664,25 @@ GetUnreadMessageCountResponse Client::getUnreadMessageCountWithOptions(const Get
   GetUnreadMessageCountShrinkRequest request = GetUnreadMessageCountShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2656,7 +2704,7 @@ GetUnreadMessageCountResponse Client::getUnreadMessageCountWithOptions(const Get
 }
 
 /**
- * @summary 查询未读留言数量
+ * @summary Query the number of unread messages for a user.
  *
  * @param request GetUnreadMessageCountRequest
  * @return GetUnreadMessageCountResponse
@@ -2668,7 +2716,7 @@ GetUnreadMessageCountResponse Client::getUnreadMessageCount(const GetUnreadMessa
 }
 
 /**
- * @summary 查询设备绑定的用户
+ * @summary Obtain the User ID attached to a device by the device\\"s openID.
  *
  * @param tmpReq GetUserByDeviceIdRequest
  * @param headers GetUserByDeviceIdHeaders
@@ -2680,25 +2728,25 @@ GetUserByDeviceIdResponse Client::getUserByDeviceIdWithOptions(const GetUserByDe
   GetUserByDeviceIdShrinkRequest request = GetUserByDeviceIdShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2720,7 +2768,7 @@ GetUserByDeviceIdResponse Client::getUserByDeviceIdWithOptions(const GetUserByDe
 }
 
 /**
- * @summary 查询设备绑定的用户
+ * @summary Obtain the User ID attached to a device by the device\\"s openID.
  *
  * @param request GetUserByDeviceIdRequest
  * @return GetUserByDeviceIdResponse
@@ -2732,7 +2780,9 @@ GetUserByDeviceIdResponse Client::getUserByDeviceId(const GetUserByDeviceIdReque
 }
 
 /**
- * @summary 查询天气
+ * @summary Query the weather.
+ *
+ * @description Query the weather data for the location of the device based on the Device Information obtained from system parameters.
  *
  * @param tmpReq GetWeatherRequest
  * @param headers GetWeatherHeaders
@@ -2744,41 +2794,41 @@ GetWeatherResponse Client::getWeatherWithOptions(const GetWeatherRequest &tmpReq
   GetWeatherShrinkRequest request = GetWeatherShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasPayload()) {
-    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.payload(), "Payload", "json"));
+    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPayload(), "Payload", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json body = {};
   if (!!request.hasDeviceInfoShrink()) {
-    body["DeviceInfo"] = request.deviceInfoShrink();
+    body["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasPayloadShrink()) {
-    body["Payload"] = request.payloadShrink();
+    body["Payload"] = request.getPayloadShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    body["UserInfo"] = request.userInfoShrink();
+    body["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2800,7 +2850,9 @@ GetWeatherResponse Client::getWeatherWithOptions(const GetWeatherRequest &tmpReq
 }
 
 /**
- * @summary 查询天气
+ * @summary Query the weather.
+ *
+ * @description Query the weather data for the location of the device based on the Device Information obtained from system parameters.
  *
  * @param request GetWeatherRequest
  * @return GetWeatherResponse
@@ -2812,7 +2864,7 @@ GetWeatherResponse Client::getWeather(const GetWeatherRequest &request) {
 }
 
 /**
- * @summary 播放列表点击播放
+ * @summary Click a playlist to start playback.
  *
  * @param tmpReq IndexControlPlayingListRequest
  * @param headers IndexControlPlayingListHeaders
@@ -2824,42 +2876,42 @@ IndexControlPlayingListResponse Client::indexControlPlayingListWithOptions(const
   IndexControlPlayingListShrinkRequest request = IndexControlPlayingListShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasOpenIndexControlRequest()) {
-    request.setOpenIndexControlRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.openIndexControlRequest(), "OpenIndexControlRequest", "json"));
+    request.setOpenIndexControlRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOpenIndexControlRequest(), "OpenIndexControlRequest", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   json body = {};
   if (!!request.hasOpenIndexControlRequestShrink()) {
-    body["OpenIndexControlRequest"] = request.openIndexControlRequestShrink();
+    body["OpenIndexControlRequest"] = request.getOpenIndexControlRequestShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2882,7 +2934,7 @@ IndexControlPlayingListResponse Client::indexControlPlayingListWithOptions(const
 }
 
 /**
- * @summary 播放列表点击播放
+ * @summary Click a playlist to start playback.
  *
  * @param request IndexControlPlayingListRequest
  * @return IndexControlPlayingListResponse
@@ -2894,7 +2946,10 @@ IndexControlPlayingListResponse Client::indexControlPlayingList(const IndexContr
 }
 
 /**
- * @summary 失效三方应用登录态
+ * @summary When a user operation (not initiated from the device side) causes the login session of a third-party application on the device to become invalid (for example, the user logs on to the same account from a new device, invalidating the session on the old device, or the user changes their password, which invalidates the session on the old device), the third party must invoke this API to notify Tmall Genie.
+ *
+ * @description > Modify message notification template  
+ * > - You need to query the templateId first, then modify other parameters based on the templateId.
  *
  * @param tmpReq InvalidateThirdPartyAppLoginStateRequest
  * @param headers InvalidateThirdPartyAppLoginStateHeaders
@@ -2906,29 +2961,29 @@ InvalidateThirdPartyAppLoginStateResponse Client::invalidateThirdPartyAppLoginSt
   InvalidateThirdPartyAppLoginStateShrinkRequest request = InvalidateThirdPartyAppLoginStateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   json body = {};
   if (!!request.hasDeviceInfoShrink()) {
-    body["DeviceInfo"] = request.deviceInfoShrink();
+    body["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasThirdPartyAppId()) {
-    body["ThirdPartyAppId"] = request.thirdPartyAppId();
+    body["ThirdPartyAppId"] = request.getThirdPartyAppId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2950,7 +3005,10 @@ InvalidateThirdPartyAppLoginStateResponse Client::invalidateThirdPartyAppLoginSt
 }
 
 /**
- * @summary 失效三方应用登录态
+ * @summary When a user operation (not initiated from the device side) causes the login session of a third-party application on the device to become invalid (for example, the user logs on to the same account from a new device, invalidating the session on the old device, or the user changes their password, which invalidates the session on the old device), the third party must invoke this API to notify Tmall Genie.
+ *
+ * @description > Modify message notification template  
+ * > - You need to query the templateId first, then modify other parameters based on the templateId.
  *
  * @param request InvalidateThirdPartyAppLoginStateRequest
  * @return InvalidateThirdPartyAppLoginStateResponse
@@ -2962,7 +3020,7 @@ InvalidateThirdPartyAppLoginStateResponse Client::invalidateThirdPartyAppLoginSt
 }
 
 /**
- * @summary 查询闹钟列表
+ * @summary Perform a paged query to retrieve the alarm clock list of a specific User on a device.
  *
  * @param tmpReq ListAlarmsRequest
  * @param headers ListAlarmsHeaders
@@ -2974,41 +3032,41 @@ ListAlarmsResponse Client::listAlarmsWithOptions(const ListAlarmsRequest &tmpReq
   ListAlarmsShrinkRequest request = ListAlarmsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasPayload()) {
-    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.payload(), "Payload", "json"));
+    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPayload(), "Payload", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json body = {};
   if (!!request.hasDeviceInfoShrink()) {
-    body["DeviceInfo"] = request.deviceInfoShrink();
+    body["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasPayloadShrink()) {
-    body["Payload"] = request.payloadShrink();
+    body["Payload"] = request.getPayloadShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    body["UserInfo"] = request.userInfoShrink();
+    body["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3030,7 +3088,7 @@ ListAlarmsResponse Client::listAlarmsWithOptions(const ListAlarmsRequest &tmpReq
 }
 
 /**
- * @summary 查询闹钟列表
+ * @summary Perform a paged query to retrieve the alarm clock list of a specific User on a device.
  *
  * @param request ListAlarmsRequest
  * @return ListAlarmsResponse
@@ -3042,7 +3100,7 @@ ListAlarmsResponse Client::listAlarms(const ListAlarmsRequest &request) {
 }
 
 /**
- * @summary 获取音乐音频专辑里面的内容列表
+ * @summary Obtain the content list within a music audio album.
  *
  * @param request ListAlbumDetailRequest
  * @param headers ListAlbumDetailHeaders
@@ -3053,28 +3111,28 @@ ListAlbumDetailResponse Client::listAlbumDetailWithOptions(const ListAlbumDetail
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3096,7 +3154,7 @@ ListAlbumDetailResponse Client::listAlbumDetailWithOptions(const ListAlbumDetail
 }
 
 /**
- * @summary 获取音乐音频专辑里面的内容列表
+ * @summary Obtain the content list within a music audio album.
  *
  * @param request ListAlbumDetailRequest
  * @return ListAlbumDetailResponse
@@ -3108,7 +3166,7 @@ ListAlbumDetailResponse Client::listAlbumDetail(const ListAlbumDetailRequest &re
 }
 
 /**
- * @summary 专辑是否被订阅
+ * @summary Whether the album is subscribed.
  *
  * @param tmpReq ListAlbumIsAddedRequest
  * @param headers ListAlbumIsAddedHeaders
@@ -3120,41 +3178,41 @@ ListAlbumIsAddedResponse Client::listAlbumIsAddedWithOptions(const ListAlbumIsAd
   ListAlbumIsAddedShrinkRequest request = ListAlbumIsAddedShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasAlbumIdList()) {
-    request.setAlbumIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.albumIdList(), "AlbumIdList", "json"));
+    request.setAlbumIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAlbumIdList(), "AlbumIdList", "json"));
   }
 
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasAlbumIdListShrink()) {
-    query["AlbumIdList"] = request.albumIdListShrink();
+    query["AlbumIdList"] = request.getAlbumIdListShrink();
   }
 
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3176,7 +3234,7 @@ ListAlbumIsAddedResponse Client::listAlbumIsAddedWithOptions(const ListAlbumIsAd
 }
 
 /**
- * @summary 专辑是否被订阅
+ * @summary Whether the album is subscribed.
  *
  * @param request ListAlbumIsAddedRequest
  * @return ListAlbumIsAddedResponse
@@ -3188,7 +3246,7 @@ ListAlbumIsAddedResponse Client::listAlbumIsAdded(const ListAlbumIsAddedRequest 
 }
 
 /**
- * @summary 根据特定的类目,按照指定的排序顺序获取该类目下的内容.
+ * @summary Obtain the content under a specific category according to the specified sorting order.
  *
  * @param tmpReq ListCateContentRequest
  * @param headers ListCateContentHeaders
@@ -3200,42 +3258,42 @@ ListCateContentResponse Client::listCateContentWithOptions(const ListCateContent
   ListCateContentShrinkRequest request = ListCateContentShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasRequest()) {
-    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.request(), "Request", "json"));
+    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRequest(), "Request", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   json body = {};
   if (!!request.hasRequestShrink()) {
-    body["Request"] = request.requestShrink();
+    body["Request"] = request.getRequestShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3258,7 +3316,7 @@ ListCateContentResponse Client::listCateContentWithOptions(const ListCateContent
 }
 
 /**
- * @summary 根据特定的类目,按照指定的排序顺序获取该类目下的内容.
+ * @summary Obtain the content under a specific category according to the specified sorting order.
  *
  * @param request ListCateContentRequest
  * @return ListCateContentResponse
@@ -3270,7 +3328,7 @@ ListCateContentResponse Client::listCateContent(const ListCateContentRequest &re
 }
 
 /**
- * @summary 获取音乐音频类目列表
+ * @summary Obtain category information.
  *
  * @param request ListCateInfoRequest
  * @param headers ListCateInfoHeaders
@@ -3281,20 +3339,20 @@ ListCateInfoResponse Client::listCateInfoWithOptions(const ListCateInfoRequest &
   request.validate();
   json query = {};
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3316,7 +3374,7 @@ ListCateInfoResponse Client::listCateInfoWithOptions(const ListCateInfoRequest &
 }
 
 /**
- * @summary 获取音乐音频类目列表
+ * @summary Obtain category information.
  *
  * @param request ListCateInfoRequest
  * @return ListCateInfoResponse
@@ -3328,7 +3386,7 @@ ListCateInfoResponse Client::listCateInfo(const ListCateInfoRequest &request) {
 }
 
 /**
- * @summary 获取音乐/音频的一级类目列表
+ * @summary Obtain the top-level category list for music or audio.
  *
  * @param request ListCommonCateFirstFloorRequest
  * @param headers ListCommonCateFirstFloorHeaders
@@ -3339,20 +3397,20 @@ ListCommonCateFirstFloorResponse Client::listCommonCateFirstFloorWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3374,7 +3432,7 @@ ListCommonCateFirstFloorResponse Client::listCommonCateFirstFloorWithOptions(con
 }
 
 /**
- * @summary 获取音乐/音频的一级类目列表
+ * @summary Obtain the top-level category list for music or audio.
  *
  * @param request ListCommonCateFirstFloorRequest
  * @return ListCommonCateFirstFloorResponse
@@ -3386,7 +3444,7 @@ ListCommonCateFirstFloorResponse Client::listCommonCateFirstFloor(const ListComm
 }
 
 /**
- * @summary 获取指定一级类目下面的二级类目列表
+ * @summary Retrieve the list of level-2 categories under a specified level-1 category.
  *
  * @param request ListCommonCateSecondFloorRequest
  * @param headers ListCommonCateSecondFloorHeaders
@@ -3397,20 +3455,20 @@ ListCommonCateSecondFloorResponse Client::listCommonCateSecondFloorWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasParentCateId()) {
-    query["ParentCateId"] = request.parentCateId();
+    query["ParentCateId"] = request.getParentCateId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3432,7 +3490,7 @@ ListCommonCateSecondFloorResponse Client::listCommonCateSecondFloorWithOptions(c
 }
 
 /**
- * @summary 获取指定一级类目下面的二级类目列表
+ * @summary Retrieve the list of level-2 categories under a specified level-1 category.
  *
  * @param request ListCommonCateSecondFloorRequest
  * @return ListCommonCateSecondFloorResponse
@@ -3444,7 +3502,7 @@ ListCommonCateSecondFloorResponse Client::listCommonCateSecondFloor(const ListCo
 }
 
 /**
- * @summary 批量获取设备基本信息
+ * @summary Batch retrieve basic device information based on a list of device openIDs.
  *
  * @param tmpReq ListDeviceBasicInfoRequest
  * @param headers ListDeviceBasicInfoHeaders
@@ -3456,25 +3514,25 @@ ListDeviceBasicInfoResponse Client::listDeviceBasicInfoWithOptions(const ListDev
   ListDeviceBasicInfoShrinkRequest request = ListDeviceBasicInfoShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfos()) {
-    request.setDeviceInfosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfos(), "DeviceInfos", "json"));
+    request.setDeviceInfosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfos(), "DeviceInfos", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfosShrink()) {
-    query["DeviceInfos"] = request.deviceInfosShrink();
+    query["DeviceInfos"] = request.getDeviceInfosShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3496,7 +3554,7 @@ ListDeviceBasicInfoResponse Client::listDeviceBasicInfoWithOptions(const ListDev
 }
 
 /**
- * @summary 批量获取设备基本信息
+ * @summary Batch retrieve basic device information based on a list of device openIDs.
  *
  * @param request ListDeviceBasicInfoRequest
  * @return ListDeviceBasicInfoResponse
@@ -3508,7 +3566,7 @@ ListDeviceBasicInfoResponse Client::listDeviceBasicInfo(const ListDeviceBasicInf
 }
 
 /**
- * @summary 查询用户名下的设备
+ * @summary Obtain the list of attached Device IDs based on the user\\"s openID.
  *
  * @param tmpReq ListDeviceByUserIdRequest
  * @param headers ListDeviceByUserIdHeaders
@@ -3520,25 +3578,25 @@ ListDeviceByUserIdResponse Client::listDeviceByUserIdWithOptions(const ListDevic
   ListDeviceByUserIdShrinkRequest request = ListDeviceByUserIdShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3560,7 +3618,7 @@ ListDeviceByUserIdResponse Client::listDeviceByUserIdWithOptions(const ListDevic
 }
 
 /**
- * @summary 查询用户名下的设备
+ * @summary Obtain the list of attached Device IDs based on the user\\"s openID.
  *
  * @param request ListDeviceByUserIdRequest
  * @return ListDeviceByUserIdResponse
@@ -3572,7 +3630,7 @@ ListDeviceByUserIdResponse Client::listDeviceByUserId(const ListDeviceByUserIdRe
 }
 
 /**
- * @summary 获取指定渠道的设备列表
+ * @summary Obtain the device list for a specified channel.
  *
  * @param tmpReq ListDeviceByUserIdAndChanelRequest
  * @param headers ListDeviceByUserIdAndChanelHeaders
@@ -3584,33 +3642,33 @@ ListDeviceByUserIdAndChanelResponse Client::listDeviceByUserIdAndChanelWithOptio
   ListDeviceByUserIdAndChanelShrinkRequest request = ListDeviceByUserIdAndChanelShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasChannelInfo()) {
-    request.setChannelInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.channelInfo(), "ChannelInfo", "json"));
+    request.setChannelInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChannelInfo(), "ChannelInfo", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasChannelInfoShrink()) {
-    query["ChannelInfo"] = request.channelInfoShrink();
+    query["ChannelInfo"] = request.getChannelInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3632,7 +3690,7 @@ ListDeviceByUserIdAndChanelResponse Client::listDeviceByUserIdAndChanelWithOptio
 }
 
 /**
- * @summary 获取指定渠道的设备列表
+ * @summary Obtain the device list for a specified channel.
  *
  * @param request ListDeviceByUserIdAndChanelRequest
  * @return ListDeviceByUserIdAndChanelResponse
@@ -3644,7 +3702,7 @@ ListDeviceByUserIdAndChanelResponse Client::listDeviceByUserIdAndChanel(const Li
 }
 
 /**
- * @summary 批量获取设备openId
+ * @summary Batch retrieve Device IDs by device MAC/SN.
  *
  * @param tmpReq ListDeviceIdByIdentitiesRequest
  * @param headers ListDeviceIdByIdentitiesHeaders
@@ -3656,41 +3714,41 @@ ListDeviceIdByIdentitiesResponse Client::listDeviceIdByIdentitiesWithOptions(con
   ListDeviceIdByIdentitiesShrinkRequest request = ListDeviceIdByIdentitiesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasIdentityIds()) {
-    request.setIdentityIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.identityIds(), "IdentityIds", "json"));
+    request.setIdentityIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIdentityIds(), "IdentityIds", "json"));
   }
 
   json query = {};
   if (!!request.hasEncodeKey()) {
-    query["EncodeKey"] = request.encodeKey();
+    query["EncodeKey"] = request.getEncodeKey();
   }
 
   if (!!request.hasEncodeType()) {
-    query["EncodeType"] = request.encodeType();
+    query["EncodeType"] = request.getEncodeType();
   }
 
   if (!!request.hasIdentityIdsShrink()) {
-    query["IdentityIds"] = request.identityIdsShrink();
+    query["IdentityIds"] = request.getIdentityIdsShrink();
   }
 
   if (!!request.hasIdentityType()) {
-    query["IdentityType"] = request.identityType();
+    query["IdentityType"] = request.getIdentityType();
   }
 
   if (!!request.hasProductKey()) {
-    query["ProductKey"] = request.productKey();
+    query["ProductKey"] = request.getProductKey();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3712,7 +3770,7 @@ ListDeviceIdByIdentitiesResponse Client::listDeviceIdByIdentitiesWithOptions(con
 }
 
 /**
- * @summary 批量获取设备openId
+ * @summary Batch retrieve Device IDs by device MAC/SN.
  *
  * @param request ListDeviceIdByIdentitiesRequest
  * @return ListDeviceIdByIdentitiesResponse
@@ -3724,7 +3782,7 @@ ListDeviceIdByIdentitiesResponse Client::listDeviceIdByIdentities(const ListDevi
 }
 
 /**
- * @summary 基于音乐类型查询铃声列表（分页）
+ * @summary Query the list of ringtones under a specified music category.
  *
  * @param tmpReq ListMusicRequest
  * @param headers ListMusicHeaders
@@ -3736,41 +3794,41 @@ ListMusicResponse Client::listMusicWithOptions(const ListMusicRequest &tmpReq, c
   ListMusicShrinkRequest request = ListMusicShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasPayload()) {
-    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.payload(), "Payload", "json"));
+    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPayload(), "Payload", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json body = {};
   if (!!request.hasDeviceInfoShrink()) {
-    body["DeviceInfo"] = request.deviceInfoShrink();
+    body["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasPayloadShrink()) {
-    body["Payload"] = request.payloadShrink();
+    body["Payload"] = request.getPayloadShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    body["UserInfo"] = request.userInfoShrink();
+    body["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3792,7 +3850,7 @@ ListMusicResponse Client::listMusicWithOptions(const ListMusicRequest &tmpReq, c
 }
 
 /**
- * @summary 基于音乐类型查询铃声列表（分页）
+ * @summary Query the list of ringtones under a specified music category.
  *
  * @param request ListMusicRequest
  * @return ListMusicResponse
@@ -3804,7 +3862,7 @@ ListMusicResponse Client::listMusic(const ListMusicRequest &request) {
 }
 
 /**
- * @summary 获取用户的播放历史
+ * @summary Obtain the history playback API.
  *
  * @param tmpReq ListPlayHistoryRequest
  * @param headers ListPlayHistoryHeaders
@@ -3816,42 +3874,42 @@ ListPlayHistoryResponse Client::listPlayHistoryWithOptions(const ListPlayHistory
   ListPlayHistoryShrinkRequest request = ListPlayHistoryShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasRequest()) {
-    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.request(), "Request", "json"));
+    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRequest(), "Request", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   json body = {};
   if (!!request.hasRequestShrink()) {
-    body["Request"] = request.requestShrink();
+    body["Request"] = request.getRequestShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3874,7 +3932,7 @@ ListPlayHistoryResponse Client::listPlayHistoryWithOptions(const ListPlayHistory
 }
 
 /**
- * @summary 获取用户的播放历史
+ * @summary Obtain the history playback API.
  *
  * @param request ListPlayHistoryRequest
  * @return ListPlayHistoryResponse
@@ -3886,7 +3944,7 @@ ListPlayHistoryResponse Client::listPlayHistory(const ListPlayHistoryRequest &re
 }
 
 /**
- * @summary 获取每日推荐的音乐或者音频
+ * @summary Obtain daily recommended music or audio.
  *
  * @param tmpReq ListRecommendContentRequest
  * @param headers ListRecommendContentHeaders
@@ -3898,42 +3956,42 @@ ListRecommendContentResponse Client::listRecommendContentWithOptions(const ListR
   ListRecommendContentShrinkRequest request = ListRecommendContentShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasRequest()) {
-    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.request(), "Request", "json"));
+    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRequest(), "Request", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   json body = {};
   if (!!request.hasRequestShrink()) {
-    body["Request"] = request.requestShrink();
+    body["Request"] = request.getRequestShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3956,7 +4014,7 @@ ListRecommendContentResponse Client::listRecommendContentWithOptions(const ListR
 }
 
 /**
- * @summary 获取每日推荐的音乐或者音频
+ * @summary Obtain daily recommended music or audio.
  *
  * @param request ListRecommendContentRequest
  * @return ListRecommendContentResponse
@@ -3968,7 +4026,7 @@ ListRecommendContentResponse Client::listRecommendContent(const ListRecommendCon
 }
 
 /**
- * @summary 订阅列表
+ * @summary The user has subscribed to the list.
  *
  * @param tmpReq ListSubRequest
  * @param headers ListSubHeaders
@@ -3980,41 +4038,41 @@ ListSubResponse Client::listSubWithOptions(const ListSubRequest &tmpReq, const L
   ListSubShrinkRequest request = ListSubShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasPage()) {
-    request.setPageShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.page(), "Page", "json"));
+    request.setPageShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPage(), "Page", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasPageShrink()) {
-    query["Page"] = request.pageShrink();
+    query["Page"] = request.getPageShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4036,7 +4094,7 @@ ListSubResponse Client::listSubWithOptions(const ListSubRequest &tmpReq, const L
 }
 
 /**
- * @summary 订阅列表
+ * @summary The user has subscribed to the list.
  *
  * @param request ListSubRequest
  * @return ListSubResponse
@@ -4048,7 +4106,7 @@ ListSubResponse Client::listSub(const ListSubRequest &request) {
 }
 
 /**
- * @summary 订阅专辑元数据列表
+ * @summary Album List.
  *
  * @param tmpReq ListSubAlbumRequest
  * @param headers ListSubAlbumHeaders
@@ -4060,41 +4118,41 @@ ListSubAlbumResponse Client::listSubAlbumWithOptions(const ListSubAlbumRequest &
   ListSubAlbumShrinkRequest request = ListSubAlbumShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasQuerySubscriptionAlbumRequest()) {
-    request.setQuerySubscriptionAlbumRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.querySubscriptionAlbumRequest(), "QuerySubscriptionAlbumRequest", "json"));
+    request.setQuerySubscriptionAlbumRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQuerySubscriptionAlbumRequest(), "QuerySubscriptionAlbumRequest", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasQuerySubscriptionAlbumRequestShrink()) {
-    query["QuerySubscriptionAlbumRequest"] = request.querySubscriptionAlbumRequestShrink();
+    query["QuerySubscriptionAlbumRequest"] = request.getQuerySubscriptionAlbumRequestShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4116,7 +4174,7 @@ ListSubAlbumResponse Client::listSubAlbumWithOptions(const ListSubAlbumRequest &
 }
 
 /**
- * @summary 订阅专辑元数据列表
+ * @summary Album List.
  *
  * @param request ListSubAlbumRequest
  * @return ListSubAlbumResponse
@@ -4128,7 +4186,7 @@ ListSubAlbumResponse Client::listSubAlbum(const ListSubAlbumRequest &request) {
 }
 
 /**
- * @summary 内容订阅元数据分类
+ * @summary Album categorization.
  *
  * @param request ListSubscriptionAlbumCategoryRequest
  * @param headers ListSubscriptionAlbumCategoryHeaders
@@ -4139,20 +4197,20 @@ ListSubscriptionAlbumCategoryResponse Client::listSubscriptionAlbumCategoryWithO
   request.validate();
   json query = {};
   if (!!request.hasCategoryName()) {
-    query["CategoryName"] = request.categoryName();
+    query["CategoryName"] = request.getCategoryName();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4174,7 +4232,7 @@ ListSubscriptionAlbumCategoryResponse Client::listSubscriptionAlbumCategoryWithO
 }
 
 /**
- * @summary 内容订阅元数据分类
+ * @summary Album categorization.
  *
  * @param request ListSubscriptionAlbumCategoryRequest
  * @return ListSubscriptionAlbumCategoryResponse
@@ -4186,7 +4244,7 @@ ListSubscriptionAlbumCategoryResponse Client::listSubscriptionAlbumCategory(cons
 }
 
 /**
- * @summary 获取留言列表
+ * @summary Query the list of user message records based on the query conditions, including the start time and the number of entries to return.
  *
  * @param tmpReq ListUserMessageRequest
  * @param headers ListUserMessageHeaders
@@ -4198,33 +4256,33 @@ ListUserMessageResponse Client::listUserMessageWithOptions(const ListUserMessage
   ListUserMessageShrinkRequest request = ListUserMessageShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasBeforeTime()) {
-    query["BeforeTime"] = request.beforeTime();
+    query["BeforeTime"] = request.getBeforeTime();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   if (!!request.hasLimit()) {
-    query["limit"] = request.limit();
+    query["limit"] = request.getLimit();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4246,7 +4304,7 @@ ListUserMessageResponse Client::listUserMessageWithOptions(const ListUserMessage
 }
 
 /**
- * @summary 获取留言列表
+ * @summary Query the list of user message records based on the query conditions, including the start time and the number of entries to return.
  *
  * @param request ListUserMessageRequest
  * @return ListUserMessageResponse
@@ -4258,7 +4316,9 @@ ListUserMessageResponse Client::listUserMessage(const ListUserMessageRequest &re
 }
 
 /**
- * @summary 移动轻纳管
+ * @summary Shift the project to obtain recommended songs, including daily recommendations, popular songs, and genre-based playlists.
+ *
+ * @description Different scenarios (such as daily recommendations and popular songs) can be distinguished by the Type parameter.
  *
  * @param tmpReq MobileRecommendRequest
  * @param headers MobileRecommendHeaders
@@ -4270,49 +4330,49 @@ MobileRecommendResponse Client::mobileRecommendWithOptions(const MobileRecommend
   MobileRecommendShrinkRequest request = MobileRecommendShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasBotId()) {
-    query["BotId"] = request.botId();
+    query["BotId"] = request.getBotId();
   }
 
   if (!!request.hasCount()) {
-    query["Count"] = request.count();
+    query["Count"] = request.getCount();
   }
 
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasStyle()) {
-    query["Style"] = request.style();
+    query["Style"] = request.getStyle();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4334,7 +4394,9 @@ MobileRecommendResponse Client::mobileRecommendWithOptions(const MobileRecommend
 }
 
 /**
- * @summary 移动轻纳管
+ * @summary Shift the project to obtain recommended songs, including daily recommendations, popular songs, and genre-based playlists.
+ *
+ * @description Different scenarios (such as daily recommendations and popular songs) can be distinguished by the Type parameter.
  *
  * @param request MobileRecommendRequest
  * @return MobileRecommendResponse
@@ -4346,7 +4408,7 @@ MobileRecommendResponse Client::mobileRecommend(const MobileRecommendRequest &re
 }
 
 /**
- * @summary 播放暂停控制
+ * @summary Playback and pause control.
  *
  * @param tmpReq PlayAndPauseControlRequest
  * @param headers PlayAndPauseControlHeaders
@@ -4358,42 +4420,42 @@ PlayAndPauseControlResponse Client::playAndPauseControlWithOptions(const PlayAnd
   PlayAndPauseControlShrinkRequest request = PlayAndPauseControlShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasOpenPlayAndPauseControlParam()) {
-    request.setOpenPlayAndPauseControlParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.openPlayAndPauseControlParam(), "OpenPlayAndPauseControlParam", "json"));
+    request.setOpenPlayAndPauseControlParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOpenPlayAndPauseControlParam(), "OpenPlayAndPauseControlParam", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   json body = {};
   if (!!request.hasOpenPlayAndPauseControlParamShrink()) {
-    body["OpenPlayAndPauseControlParam"] = request.openPlayAndPauseControlParamShrink();
+    body["OpenPlayAndPauseControlParam"] = request.getOpenPlayAndPauseControlParamShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4416,7 +4478,7 @@ PlayAndPauseControlResponse Client::playAndPauseControlWithOptions(const PlayAnd
 }
 
 /**
- * @summary 播放暂停控制
+ * @summary Playback and pause control.
  *
  * @param request PlayAndPauseControlRequest
  * @return PlayAndPauseControlResponse
@@ -4428,7 +4490,7 @@ PlayAndPauseControlResponse Client::playAndPauseControl(const PlayAndPauseContro
 }
 
 /**
- * @summary 播放模式切换
+ * @summary Switch playback mode.
  *
  * @param tmpReq PlayModeControlRequest
  * @param headers PlayModeControlHeaders
@@ -4440,42 +4502,42 @@ PlayModeControlResponse Client::playModeControlWithOptions(const PlayModeControl
   PlayModeControlShrinkRequest request = PlayModeControlShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasOpenPlayModeControlRequest()) {
-    request.setOpenPlayModeControlRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.openPlayModeControlRequest(), "OpenPlayModeControlRequest", "json"));
+    request.setOpenPlayModeControlRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOpenPlayModeControlRequest(), "OpenPlayModeControlRequest", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   json body = {};
   if (!!request.hasOpenPlayModeControlRequestShrink()) {
-    body["OpenPlayModeControlRequest"] = request.openPlayModeControlRequestShrink();
+    body["OpenPlayModeControlRequest"] = request.getOpenPlayModeControlRequestShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4498,7 +4560,7 @@ PlayModeControlResponse Client::playModeControlWithOptions(const PlayModeControl
 }
 
 /**
- * @summary 播放模式切换
+ * @summary Switch playback mode.
  *
  * @param request PlayModeControlRequest
  * @return PlayModeControlResponse
@@ -4510,7 +4572,7 @@ PlayModeControlResponse Client::playModeControl(const PlayModeControlRequest &re
 }
 
 /**
- * @summary 上下首控制
+ * @summary Control the next or previous track in the created playlist.
  *
  * @param tmpReq PreviousAndNextControlRequest
  * @param headers PreviousAndNextControlHeaders
@@ -4522,42 +4584,42 @@ PreviousAndNextControlResponse Client::previousAndNextControlWithOptions(const P
   PreviousAndNextControlShrinkRequest request = PreviousAndNextControlShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasOpenControlPlayingListRequest()) {
-    request.setOpenControlPlayingListRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.openControlPlayingListRequest(), "OpenControlPlayingListRequest", "json"));
+    request.setOpenControlPlayingListRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOpenControlPlayingListRequest(), "OpenControlPlayingListRequest", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   json body = {};
   if (!!request.hasOpenControlPlayingListRequestShrink()) {
-    body["OpenControlPlayingListRequest"] = request.openControlPlayingListRequestShrink();
+    body["OpenControlPlayingListRequest"] = request.getOpenControlPlayingListRequestShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4580,7 +4642,7 @@ PreviousAndNextControlResponse Client::previousAndNextControlWithOptions(const P
 }
 
 /**
- * @summary 上下首控制
+ * @summary Control the next or previous track in the created playlist.
  *
  * @param request PreviousAndNextControlRequest
  * @return PreviousAndNextControlResponse
@@ -4592,7 +4654,7 @@ PreviousAndNextControlResponse Client::previousAndNextControl(const PreviousAndN
 }
 
 /**
- * @summary 进度控制
+ * @summary Progress control.
  *
  * @param tmpReq ProgressControlRequest
  * @param headers ProgressControlHeaders
@@ -4604,42 +4666,42 @@ ProgressControlResponse Client::progressControlWithOptions(const ProgressControl
   ProgressControlShrinkRequest request = ProgressControlShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasOpenProgressControlRequest()) {
-    request.setOpenProgressControlRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.openProgressControlRequest(), "OpenProgressControlRequest", "json"));
+    request.setOpenProgressControlRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOpenProgressControlRequest(), "OpenProgressControlRequest", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   json body = {};
   if (!!request.hasOpenProgressControlRequestShrink()) {
-    body["OpenProgressControlRequest"] = request.openProgressControlRequestShrink();
+    body["OpenProgressControlRequest"] = request.getOpenProgressControlRequestShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4662,7 +4724,7 @@ ProgressControlResponse Client::progressControlWithOptions(const ProgressControl
 }
 
 /**
- * @summary 进度控制
+ * @summary Progress control.
  *
  * @param request ProgressControlRequest
  * @return ProgressControlResponse
@@ -4674,7 +4736,7 @@ ProgressControlResponse Client::progressControl(const ProgressControlRequest &re
 }
 
 /**
- * @summary 获取闹钟音乐类型列表
+ * @summary Obtain the collection of alarm music types supported by the device.
  *
  * @param tmpReq QueryMusicTypeRequest
  * @param headers QueryMusicTypeHeaders
@@ -4686,41 +4748,41 @@ QueryMusicTypeResponse Client::queryMusicTypeWithOptions(const QueryMusicTypeReq
   QueryMusicTypeShrinkRequest request = QueryMusicTypeShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasPayload()) {
-    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.payload(), "Payload", "json"));
+    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPayload(), "Payload", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json body = {};
   if (!!request.hasDeviceInfoShrink()) {
-    body["DeviceInfo"] = request.deviceInfoShrink();
+    body["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasPayloadShrink()) {
-    body["Payload"] = request.payloadShrink();
+    body["Payload"] = request.getPayloadShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    body["UserInfo"] = request.userInfoShrink();
+    body["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4742,7 +4804,7 @@ QueryMusicTypeResponse Client::queryMusicTypeWithOptions(const QueryMusicTypeReq
 }
 
 /**
- * @summary 获取闹钟音乐类型列表
+ * @summary Obtain the collection of alarm music types supported by the device.
  *
  * @param request QueryMusicTypeRequest
  * @return QueryMusicTypeResponse
@@ -4754,7 +4816,7 @@ QueryMusicTypeResponse Client::queryMusicType(const QueryMusicTypeRequest &reque
 }
 
 /**
- * @summary 通过tme用户id获取授权的天猫精灵用户+设备列表
+ * @summary Obtain the list of authorized Tmall Genie users and their devices by using the TME user ID, for use by KuGou Cloud Push Song service
  *
  * @param request QueryUserDeviceListByTmeUserIdRequest
  * @param headers QueryUserDeviceListByTmeUserIdHeaders
@@ -4765,24 +4827,24 @@ QueryUserDeviceListByTmeUserIdResponse Client::queryUserDeviceListByTmeUserIdWit
   request.validate();
   json query = {};
   if (!!request.hasSp()) {
-    query["Sp"] = request.sp();
+    query["Sp"] = request.getSp();
   }
 
   if (!!request.hasTmeUserId()) {
-    query["TmeUserId"] = request.tmeUserId();
+    query["TmeUserId"] = request.getTmeUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4804,7 +4866,7 @@ QueryUserDeviceListByTmeUserIdResponse Client::queryUserDeviceListByTmeUserIdWit
 }
 
 /**
- * @summary 通过tme用户id获取授权的天猫精灵用户+设备列表
+ * @summary Obtain the list of authorized Tmall Genie users and their devices by using the TME user ID, for use by KuGou Cloud Push Song service
  *
  * @param request QueryUserDeviceListByTmeUserIdRequest
  * @return QueryUserDeviceListByTmeUserIdResponse
@@ -4816,7 +4878,7 @@ QueryUserDeviceListByTmeUserIdResponse Client::queryUserDeviceListByTmeUserId(co
 }
 
 /**
- * @summary 读取留言
+ * @summary Set a message to read status.
  *
  * @param tmpReq ReadMessageRequest
  * @param headers ReadMessageHeaders
@@ -4828,29 +4890,29 @@ ReadMessageResponse Client::readMessageWithOptions(const ReadMessageRequest &tmp
   ReadMessageShrinkRequest request = ReadMessageShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasMessageId()) {
-    query["MessageId"] = request.messageId();
+    query["MessageId"] = request.getMessageId();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4872,7 +4934,7 @@ ReadMessageResponse Client::readMessageWithOptions(const ReadMessageRequest &tmp
 }
 
 /**
- * @summary 读取留言
+ * @summary Set a message to read status.
  *
  * @param request ReadMessageRequest
  * @return ReadMessageResponse
@@ -4884,7 +4946,9 @@ ReadMessageResponse Client::readMessage(const ReadMessageRequest &request) {
 }
 
 /**
- * @summary 扫描二维码激活绑定设备
+ * @summary A screen-equipped device completes activation and attachment between the user and the device by scanning a QR code.
+ *
+ * @description Perform activation and attachment by scanning the QR code related to activation and attachment displayed on the device.
  *
  * @param tmpReq ScanCodeBindRequest
  * @param headers ScanCodeBindHeaders
@@ -4896,33 +4960,33 @@ ScanCodeBindResponse Client::scanCodeBindWithOptions(const ScanCodeBindRequest &
   ScanCodeBindShrinkRequest request = ScanCodeBindShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasBindReq()) {
-    request.setBindReqShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.bindReq(), "BindReq", "json"));
+    request.setBindReqShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBindReq(), "BindReq", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json body = {};
   if (!!request.hasBindReqShrink()) {
-    body["BindReq"] = request.bindReqShrink();
+    body["BindReq"] = request.getBindReqShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    body["UserInfo"] = request.userInfoShrink();
+    body["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4944,7 +5008,9 @@ ScanCodeBindResponse Client::scanCodeBindWithOptions(const ScanCodeBindRequest &
 }
 
 /**
- * @summary 扫描二维码激活绑定设备
+ * @summary A screen-equipped device completes activation and attachment between the user and the device by scanning a QR code.
+ *
+ * @description Perform activation and attachment by scanning the QR code related to activation and attachment displayed on the device.
  *
  * @param request ScanCodeBindRequest
  * @return ScanCodeBindResponse
@@ -4956,7 +5022,7 @@ ScanCodeBindResponse Client::scanCodeBind(const ScanCodeBindRequest &request) {
 }
 
 /**
- * @summary 选品池投放能力
+ * @summary Query the content of a selection pool by its ID.
  *
  * @param tmpReq ScgSearchRequest
  * @param headers ScgSearchHeaders
@@ -4968,29 +5034,29 @@ ScgSearchResponse Client::scgSearchWithOptions(const ScgSearchRequest &tmpReq, c
   ScgSearchShrinkRequest request = ScgSearchShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasScgFilter()) {
-    request.setScgFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.scgFilter(), "ScgFilter", "json"));
+    request.setScgFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScgFilter(), "ScgFilter", "json"));
   }
 
   json query = {};
   if (!!request.hasScgFilterShrink()) {
-    query["ScgFilter"] = request.scgFilterShrink();
+    query["ScgFilter"] = request.getScgFilterShrink();
   }
 
   if (!!request.hasTopicId()) {
-    query["TopicId"] = request.topicId();
+    query["TopicId"] = request.getTopicId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5012,7 +5078,7 @@ ScgSearchResponse Client::scgSearchWithOptions(const ScgSearchRequest &tmpReq, c
 }
 
 /**
- * @summary 选品池投放能力
+ * @summary Query the content of a selection pool by its ID.
  *
  * @param request ScgSearchRequest
  * @return ScgSearchResponse
@@ -5024,7 +5090,7 @@ ScgSearchResponse Client::scgSearch(const ScgSearchRequest &request) {
 }
 
 /**
- * @summary 按照特定的搜索条件搜索
+ * @summary Search according to specific search criteria.
  *
  * @param tmpReq SearchContentRequest
  * @param headers SearchContentHeaders
@@ -5036,42 +5102,42 @@ SearchContentResponse Client::searchContentWithOptions(const SearchContentReques
   SearchContentShrinkRequest request = SearchContentShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasRequest()) {
-    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.request(), "Request", "json"));
+    request.setRequestShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRequest(), "Request", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   json body = {};
   if (!!request.hasRequestShrink()) {
-    body["Request"] = request.requestShrink();
+    body["Request"] = request.getRequestShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5094,7 +5160,7 @@ SearchContentResponse Client::searchContentWithOptions(const SearchContentReques
 }
 
 /**
- * @summary 按照特定的搜索条件搜索
+ * @summary Search according to specific search criteria.
  *
  * @param request SearchContentRequest
  * @return SearchContentResponse
@@ -5106,7 +5172,7 @@ SearchContentResponse Client::searchContent(const SearchContentRequest &request)
 }
 
 /**
- * @summary 发送留言
+ * @summary Send a message.
  *
  * @param tmpReq SendMessageRequest
  * @param headers SendMessageHeaders
@@ -5118,29 +5184,29 @@ SendMessageResponse Client::sendMessageWithOptions(const SendMessageRequest &tmp
   SendMessageShrinkRequest request = SendMessageShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasUrl()) {
-    query["Url"] = request.url();
+    query["Url"] = request.getUrl();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    query["UserInfo"] = request.userInfoShrink();
+    query["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5162,7 +5228,7 @@ SendMessageResponse Client::sendMessageWithOptions(const SendMessageRequest &tmp
 }
 
 /**
- * @summary 发送留言
+ * @summary Send a message.
  *
  * @param request SendMessageRequest
  * @return SendMessageResponse
@@ -5174,7 +5240,7 @@ SendMessageResponse Client::sendMessage(const SendMessageRequest &request) {
 }
 
 /**
- * @summary 修改设备设置
+ * @summary Modify the user settings of a device.
  *
  * @param tmpReq SetDeviceSettingRequest
  * @param headers SetDeviceSettingHeaders
@@ -5186,34 +5252,34 @@ SetDeviceSettingResponse Client::setDeviceSettingWithOptions(const SetDeviceSett
   SetDeviceSettingShrinkRequest request = SetDeviceSettingShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   json query = {};
   if (!!request.hasDeviceInfoShrink()) {
-    query["DeviceInfo"] = request.deviceInfoShrink();
+    query["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   json body = {};
   if (!!request.hasKey()) {
-    body["Key"] = request.key();
+    body["Key"] = request.getKey();
   }
 
   if (!!request.hasValue()) {
-    body["Value"] = request.value();
+    body["Value"] = request.getValue();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5236,7 +5302,7 @@ SetDeviceSettingResponse Client::setDeviceSettingWithOptions(const SetDeviceSett
 }
 
 /**
- * @summary 修改设备设置
+ * @summary Modify the user settings of a device.
  *
  * @param request SetDeviceSettingRequest
  * @return SetDeviceSettingResponse
@@ -5248,7 +5314,7 @@ SetDeviceSettingResponse Client::setDeviceSetting(const SetDeviceSettingRequest 
 }
 
 /**
- * @summary 三方即时信息数据变更事件推送
+ * @summary Third-party real-time information data change event push
  *
  * @param request ThirdImmediateMsgPushRequest
  * @param headers ThirdImmediateMsgPushHeaders
@@ -5259,56 +5325,56 @@ ThirdImmediateMsgPushResponse Client::thirdImmediateMsgPushWithOptions(const Thi
   request.validate();
   json query = {};
   if (!!request.hasBizType()) {
-    query["BizType"] = request.bizType();
+    query["BizType"] = request.getBizType();
   }
 
   if (!!request.hasChangeDetail()) {
-    query["ChangeDetail"] = request.changeDetail();
+    query["ChangeDetail"] = request.getChangeDetail();
   }
 
   if (!!request.hasOrderId()) {
-    query["OrderId"] = request.orderId();
+    query["OrderId"] = request.getOrderId();
   }
 
   if (!!request.hasPsgIds()) {
-    query["PsgIds"] = request.psgIds();
+    query["PsgIds"] = request.getPsgIds();
   }
 
   if (!!request.hasSource()) {
-    query["Source"] = request.source();
+    query["Source"] = request.getSource();
   }
 
   if (!!request.hasTrafficChangeType()) {
-    query["TrafficChangeType"] = request.trafficChangeType();
+    query["TrafficChangeType"] = request.getTrafficChangeType();
   }
 
   if (!!request.hasTrafficChangeTypeDesc()) {
-    query["TrafficChangeTypeDesc"] = request.trafficChangeTypeDesc();
+    query["TrafficChangeTypeDesc"] = request.getTrafficChangeTypeDesc();
   }
 
   if (!!request.hasTrafficJourneyIds()) {
-    query["TrafficJourneyIds"] = request.trafficJourneyIds();
+    query["TrafficJourneyIds"] = request.getTrafficJourneyIds();
   }
 
   if (!!request.hasTrafficSubOrderIds()) {
-    query["TrafficSubOrderIds"] = request.trafficSubOrderIds();
+    query["TrafficSubOrderIds"] = request.getTrafficSubOrderIds();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5330,7 +5396,7 @@ ThirdImmediateMsgPushResponse Client::thirdImmediateMsgPushWithOptions(const Thi
 }
 
 /**
- * @summary 三方即时信息数据变更事件推送
+ * @summary Third-party real-time information data change event push
  *
  * @param request ThirdImmediateMsgPushRequest
  * @return ThirdImmediateMsgPushResponse
@@ -5342,7 +5408,13 @@ ThirdImmediateMsgPushResponse Client::thirdImmediateMsgPush(const ThirdImmediate
 }
 
 /**
- * @summary 解除三方和精灵账号的关系
+ * @summary Detach the relationship between a third-party account and a Tmall Genie account by using a logon credential.
+ *
+ * @description Note: When the logon credential expires, the integrator must initiate the authorization logon flow again to obtain a new logon credential (entry service API: AuthLoginWithThirdUserInfo).
+ * - Invoke the service API with the logon credential (LoginStateAccessToken) parameter via the Java software development kit (SDK). For SDKs in other languages, consult Tmall Genie developers during integration.  
+ * If the API call throws a TeaException and TeaException.code is "InvalidAuthentication", the logon credential has expired.
+ * - Invoke the service API by sending an HTTP request with the logon credential (LoginStateAccessToken) parameter.  
+ * If the HTTP response status code returned by the API call is 400, the logon credential has expired.
  *
  * @param request UnbindAligenieUserRequest
  * @param headers UnbindAligenieUserHeaders
@@ -5353,20 +5425,20 @@ UnbindAligenieUserResponse Client::unbindAligenieUserWithOptions(const UnbindAli
   request.validate();
   json body = {};
   if (!!request.hasLoginStateAccessToken()) {
-    body["LoginStateAccessToken"] = request.loginStateAccessToken();
+    body["LoginStateAccessToken"] = request.getLoginStateAccessToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5388,7 +5460,13 @@ UnbindAligenieUserResponse Client::unbindAligenieUserWithOptions(const UnbindAli
 }
 
 /**
- * @summary 解除三方和精灵账号的关系
+ * @summary Detach the relationship between a third-party account and a Tmall Genie account by using a logon credential.
+ *
+ * @description Note: When the logon credential expires, the integrator must initiate the authorization logon flow again to obtain a new logon credential (entry service API: AuthLoginWithThirdUserInfo).
+ * - Invoke the service API with the logon credential (LoginStateAccessToken) parameter via the Java software development kit (SDK). For SDKs in other languages, consult Tmall Genie developers during integration.  
+ * If the API call throws a TeaException and TeaException.code is "InvalidAuthentication", the logon credential has expired.
+ * - Invoke the service API by sending an HTTP request with the logon credential (LoginStateAccessToken) parameter.  
+ * If the HTTP response status code returned by the API call is 400, the logon credential has expired.
  *
  * @param request UnbindAligenieUserRequest
  * @return UnbindAligenieUserResponse
@@ -5400,7 +5478,7 @@ UnbindAligenieUserResponse Client::unbindAligenieUser(const UnbindAligenieUserRe
 }
 
 /**
- * @summary 解绑设备
+ * @summary Detach the binding relationship based on the user\\"s open information and the device\\"s open information.
  *
  * @param tmpReq UnbindDeviceRequest
  * @param headers UnbindDeviceHeaders
@@ -5412,33 +5490,33 @@ UnbindDeviceResponse Client::unbindDeviceWithOptions(const UnbindDeviceRequest &
   UnbindDeviceShrinkRequest request = UnbindDeviceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json body = {};
   if (!!request.hasDeviceInfoShrink()) {
-    body["DeviceInfo"] = request.deviceInfoShrink();
+    body["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    body["UserInfo"] = request.userInfoShrink();
+    body["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5460,7 +5538,7 @@ UnbindDeviceResponse Client::unbindDeviceWithOptions(const UnbindDeviceRequest &
 }
 
 /**
- * @summary 解绑设备
+ * @summary Detach the binding relationship based on the user\\"s open information and the device\\"s open information.
  *
  * @param request UnbindDeviceRequest
  * @return UnbindDeviceResponse
@@ -5472,7 +5550,7 @@ UnbindDeviceResponse Client::unbindDevice(const UnbindDeviceRequest &request) {
 }
 
 /**
- * @summary 更新闹钟
+ * @summary Update an alarm, including its trigger time, loop type, and music.
  *
  * @param tmpReq UpdateAlarmRequest
  * @param headers UpdateAlarmHeaders
@@ -5484,41 +5562,41 @@ UpdateAlarmResponse Client::updateAlarmWithOptions(const UpdateAlarmRequest &tmp
   UpdateAlarmShrinkRequest request = UpdateAlarmShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasDeviceInfo()) {
-    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deviceInfo(), "DeviceInfo", "json"));
+    request.setDeviceInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeviceInfo(), "DeviceInfo", "json"));
   }
 
   if (!!tmpReq.hasPayload()) {
-    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.payload(), "Payload", "json"));
+    request.setPayloadShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPayload(), "Payload", "json"));
   }
 
   if (!!tmpReq.hasUserInfo()) {
-    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.userInfo(), "UserInfo", "json"));
+    request.setUserInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserInfo(), "UserInfo", "json"));
   }
 
   json body = {};
   if (!!request.hasDeviceInfoShrink()) {
-    body["DeviceInfo"] = request.deviceInfoShrink();
+    body["DeviceInfo"] = request.getDeviceInfoShrink();
   }
 
   if (!!request.hasPayloadShrink()) {
-    body["Payload"] = request.payloadShrink();
+    body["Payload"] = request.getPayloadShrink();
   }
 
   if (!!request.hasUserInfoShrink()) {
-    body["UserInfo"] = request.userInfoShrink();
+    body["UserInfo"] = request.getUserInfoShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAligenieAccessToken()) {
-    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAligenieAccessToken());
+    realHeaders["x-acs-aligenie-access-token"] = Darabonba::Convert::stringVal(headers.getXAcsAligenieAccessToken());
   }
 
   if (!!headers.hasAuthorization()) {
-    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.authorization());
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5540,7 +5618,7 @@ UpdateAlarmResponse Client::updateAlarmWithOptions(const UpdateAlarmRequest &tmp
 }
 
 /**
- * @summary 更新闹钟
+ * @summary Update an alarm, including its trigger time, loop type, and music.
  *
  * @param request UpdateAlarmRequest
  * @return UpdateAlarmResponse

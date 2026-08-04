@@ -29,17 +29,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->subId_ != nullptr; };
+    virtual bool empty() const override { return this->subId_ == nullptr; };
     // subId Field Functions 
     bool hasSubId() const { return this->subId_ != nullptr;};
     void deleteSubId() { this->subId_ = nullptr;};
-    inline int64_t subId() const { DARABONBA_PTR_GET_DEFAULT(subId_, 0L) };
+    inline int64_t getSubId() const { DARABONBA_PTR_GET_DEFAULT(subId_, 0L) };
     inline DeleteSubRequest& setSubId(int64_t subId) { DARABONBA_PTR_SET_VALUE(subId_, subId) };
 
 
   protected:
+    // Subscription album record ID
+    // 
     // This parameter is required.
-    std::shared_ptr<int64_t> subId_ = nullptr;
+    shared_ptr<int64_t> subId_ {};
   };
 
   } // namespace Models

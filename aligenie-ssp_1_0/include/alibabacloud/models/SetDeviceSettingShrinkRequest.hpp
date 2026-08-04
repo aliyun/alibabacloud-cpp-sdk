@@ -33,37 +33,43 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deviceInfoShrink_ != nullptr
-        && this->key_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->deviceInfoShrink_ == nullptr
+        && this->key_ == nullptr && this->value_ == nullptr; };
     // deviceInfoShrink Field Functions 
     bool hasDeviceInfoShrink() const { return this->deviceInfoShrink_ != nullptr;};
     void deleteDeviceInfoShrink() { this->deviceInfoShrink_ = nullptr;};
-    inline string deviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
+    inline string getDeviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
     inline SetDeviceSettingShrinkRequest& setDeviceInfoShrink(string deviceInfoShrink) { DARABONBA_PTR_SET_VALUE(deviceInfoShrink_, deviceInfoShrink) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline SetDeviceSettingShrinkRequest& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
-    inline     const Darabonba::Json & value() const { DARABONBA_GET(value_) };
-    Darabonba::Json & value() { DARABONBA_GET(value_) };
+    inline     const Darabonba::Json & getValue() const { DARABONBA_GET(value_) };
+    Darabonba::Json & getValue() { DARABONBA_GET(value_) };
     inline SetDeviceSettingShrinkRequest& setValue(const Darabonba::Json & value) { DARABONBA_SET_VALUE(value_, value) };
-    inline SetDeviceSettingShrinkRequest& setValue(Darabonba::Json & value) { DARABONBA_SET_RVALUE(value_, value) };
+    inline SetDeviceSettingShrinkRequest& setValue(Darabonba::Json && value) { DARABONBA_SET_RVALUE(value_, value) };
 
 
   protected:
+    // List of user identifier information.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> deviceInfoShrink_ = nullptr;
+    shared_ptr<string> deviceInfoShrink_ {};
+    // The collection of keys specified for device settings:  
+    // Do Not Disturb mode: nightMode
+    // 
     // This parameter is required.
-    std::shared_ptr<string> key_ = nullptr;
-    Darabonba::Json value_ = nullptr;
+    shared_ptr<string> key_ {};
+    // Attribute Value
+    Darabonba::Json value_ {};
   };
 
   } // namespace Models

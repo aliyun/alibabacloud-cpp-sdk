@@ -31,27 +31,31 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->encryptedTaobaoUserIdentifier_ != nullptr
-        && this->sessionId_ != nullptr; };
+    virtual bool empty() const override { return this->encryptedTaobaoUserIdentifier_ == nullptr
+        && this->sessionId_ == nullptr; };
     // encryptedTaobaoUserIdentifier Field Functions 
     bool hasEncryptedTaobaoUserIdentifier() const { return this->encryptedTaobaoUserIdentifier_ != nullptr;};
     void deleteEncryptedTaobaoUserIdentifier() { this->encryptedTaobaoUserIdentifier_ = nullptr;};
-    inline string encryptedTaobaoUserIdentifier() const { DARABONBA_PTR_GET_DEFAULT(encryptedTaobaoUserIdentifier_, "") };
+    inline string getEncryptedTaobaoUserIdentifier() const { DARABONBA_PTR_GET_DEFAULT(encryptedTaobaoUserIdentifier_, "") };
     inline AuthLoginWithTaobaoUserInfoRequest& setEncryptedTaobaoUserIdentifier(string encryptedTaobaoUserIdentifier) { DARABONBA_PTR_SET_VALUE(encryptedTaobaoUserIdentifier_, encryptedTaobaoUserIdentifier) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline AuthLoginWithTaobaoUserInfoRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
   protected:
+    // Encrypted Taobao User Identifier
+    // 
     // This parameter is required.
-    std::shared_ptr<string> encryptedTaobaoUserIdentifier_ = nullptr;
+    shared_ptr<string> encryptedTaobaoUserIdentifier_ {};
+    // Session ID
+    // 
     // This parameter is required.
-    std::shared_ptr<string> sessionId_ = nullptr;
+    shared_ptr<string> sessionId_ {};
   };
 
   } // namespace Models

@@ -21,7 +21,7 @@ namespace AliGeniessp_1_0
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 收藏/取消收藏
+       * @summary Collect or remove from favorites.
        *
        * @param tmpReq AddAndRemoveFavoriteContentRequest
        * @param headers AddAndRemoveFavoriteContentHeaders
@@ -31,7 +31,7 @@ namespace AliGeniessp_1_0
       Models::AddAndRemoveFavoriteContentResponse addAndRemoveFavoriteContentWithOptions(const Models::AddAndRemoveFavoriteContentRequest &tmpReq, const Models::AddAndRemoveFavoriteContentHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 收藏/取消收藏
+       * @summary Collect or remove from favorites.
        *
        * @param request AddAndRemoveFavoriteContentRequest
        * @return AddAndRemoveFavoriteContentResponse
@@ -39,7 +39,7 @@ namespace AliGeniessp_1_0
       Models::AddAndRemoveFavoriteContentResponse addAndRemoveFavoriteContent(const Models::AddAndRemoveFavoriteContentRequest &request);
 
       /**
-       * @summary 新增订阅
+       * @summary Subscribe to an album.
        *
        * @param tmpReq AddSubRequest
        * @param headers AddSubHeaders
@@ -49,7 +49,7 @@ namespace AliGeniessp_1_0
       Models::AddSubResponse addSubWithOptions(const Models::AddSubRequest &tmpReq, const Models::AddSubHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增订阅
+       * @summary Subscribe to an album.
        *
        * @param request AddSubRequest
        * @return AddSubResponse
@@ -57,7 +57,7 @@ namespace AliGeniessp_1_0
       Models::AddSubResponse addSub(const Models::AddSubRequest &request);
 
       /**
-       * @summary 通过指定精灵账号进行授权登录
+       * @summary Authorize logon by specifying an Aligenie account.
        *
        * @param request AuthLoginWithAligenieUserInfoRequest
        * @param headers AuthLoginWithAligenieUserInfoHeaders
@@ -67,7 +67,7 @@ namespace AliGeniessp_1_0
       Models::AuthLoginWithAligenieUserInfoResponse authLoginWithAligenieUserInfoWithOptions(const Models::AuthLoginWithAligenieUserInfoRequest &request, const Models::AuthLoginWithAligenieUserInfoHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过指定精灵账号进行授权登录
+       * @summary Authorize logon by specifying an Aligenie account.
        *
        * @param request AuthLoginWithAligenieUserInfoRequest
        * @return AuthLoginWithAligenieUserInfoResponse
@@ -75,7 +75,7 @@ namespace AliGeniessp_1_0
       Models::AuthLoginWithAligenieUserInfoResponse authLoginWithAligenieUserInfo(const Models::AuthLoginWithAligenieUserInfoRequest &request);
 
       /**
-       * @summary 通过手机号生成精灵账号进行授权登录
+       * @summary Generate a Genie account by phone number for authorization logon.
        *
        * @param request AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest
        * @param headers AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders
@@ -85,7 +85,7 @@ namespace AliGeniessp_1_0
       Models::AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse authLoginWithAligenieUserInfoGeneratedByPhoneNumberWithOptions(const Models::AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest &request, const Models::AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过手机号生成精灵账号进行授权登录
+       * @summary Generate a Genie account by phone number for authorization logon.
        *
        * @param request AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest
        * @return AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse
@@ -93,7 +93,7 @@ namespace AliGeniessp_1_0
       Models::AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse authLoginWithAligenieUserInfoGeneratedByPhoneNumber(const Models::AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest &request);
 
       /**
-       * @summary 通过指定淘宝账号进行授权登录
+       * @summary Authorize logon by specifying a Taobao account
        *
        * @param request AuthLoginWithTaobaoUserInfoRequest
        * @param headers AuthLoginWithTaobaoUserInfoHeaders
@@ -103,7 +103,7 @@ namespace AliGeniessp_1_0
       Models::AuthLoginWithTaobaoUserInfoResponse authLoginWithTaobaoUserInfoWithOptions(const Models::AuthLoginWithTaobaoUserInfoRequest &request, const Models::AuthLoginWithTaobaoUserInfoHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过指定淘宝账号进行授权登录
+       * @summary Authorize logon by specifying a Taobao account
        *
        * @param request AuthLoginWithTaobaoUserInfoRequest
        * @return AuthLoginWithTaobaoUserInfoResponse
@@ -111,7 +111,7 @@ namespace AliGeniessp_1_0
       Models::AuthLoginWithTaobaoUserInfoResponse authLoginWithTaobaoUserInfo(const Models::AuthLoginWithTaobaoUserInfoRequest &request);
 
       /**
-       * @summary 通过三方用户信息进行授权登录
+       * @summary Authorize logon by using third-party user information.
        *
        * @param tmpReq AuthLoginWithThirdUserInfoRequest
        * @param headers AuthLoginWithThirdUserInfoHeaders
@@ -121,7 +121,7 @@ namespace AliGeniessp_1_0
       Models::AuthLoginWithThirdUserInfoResponse authLoginWithThirdUserInfoWithOptions(const Models::AuthLoginWithThirdUserInfoRequest &tmpReq, const Models::AuthLoginWithThirdUserInfoHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过三方用户信息进行授权登录
+       * @summary Authorize logon by using third-party user information.
        *
        * @param request AuthLoginWithThirdUserInfoRequest
        * @return AuthLoginWithThirdUserInfoResponse
@@ -147,7 +147,7 @@ namespace AliGeniessp_1_0
       Models::CheckAndDoVoipCallForHotelResponse checkAndDoVoipCallForHotel(const Models::CheckAndDoVoipCallForHotelRequest &request);
 
       /**
-       * @summary 轮询激活绑定结果
+       * @summary Poll the result of the activation attachment.
        *
        * @param tmpReq CheckAuthCodeBindForExtRequest
        * @param headers CheckAuthCodeBindForExtHeaders
@@ -157,7 +157,7 @@ namespace AliGeniessp_1_0
       Models::CheckAuthCodeBindForExtResponse checkAuthCodeBindForExtWithOptions(const Models::CheckAuthCodeBindForExtRequest &tmpReq, const Models::CheckAuthCodeBindForExtHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 轮询激活绑定结果
+       * @summary Poll the result of the activation attachment.
        *
        * @param request CheckAuthCodeBindForExtRequest
        * @return CheckAuthCodeBindForExtResponse
@@ -165,7 +165,9 @@ namespace AliGeniessp_1_0
       Models::CheckAuthCodeBindForExtResponse checkAuthCodeBindForExt(const Models::CheckAuthCodeBindForExtRequest &request);
 
       /**
-       * @summary 云播放器：对外
+       * @summary Cloud Push Song: Create a playlist by providing the device openUuid and the Tmall Genie openUserId.
+       *
+       * @description After synchronously validating the input parameters, the system asynchronously creates the playlist.
        *
        * @param tmpReq CloudPlayerRequest
        * @param headers CloudPlayerHeaders
@@ -175,7 +177,9 @@ namespace AliGeniessp_1_0
       Models::CloudPlayerResponse cloudPlayerWithOptions(const Models::CloudPlayerRequest &tmpReq, const Models::CloudPlayerHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 云播放器：对外
+       * @summary Cloud Push Song: Create a playlist by providing the device openUuid and the Tmall Genie openUserId.
+       *
+       * @description After synchronously validating the input parameters, the system asynchronously creates the playlist.
        *
        * @param request CloudPlayerRequest
        * @return CloudPlayerResponse
@@ -183,7 +187,7 @@ namespace AliGeniessp_1_0
       Models::CloudPlayerResponse cloudPlayer(const Models::CloudPlayerRequest &request);
 
       /**
-       * @summary 创建闹钟
+       * @summary Create an alarm that supports three types: one-time, weekly, and legal working days.
        *
        * @param tmpReq CreateAlarmRequest
        * @param headers CreateAlarmHeaders
@@ -193,7 +197,7 @@ namespace AliGeniessp_1_0
       Models::CreateAlarmResponse createAlarmWithOptions(const Models::CreateAlarmRequest &tmpReq, const Models::CreateAlarmHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建闹钟
+       * @summary Create an alarm that supports three types: one-time, weekly, and legal working days.
        *
        * @param request CreateAlarmRequest
        * @return CreateAlarmResponse
@@ -201,7 +205,7 @@ namespace AliGeniessp_1_0
       Models::CreateAlarmResponse createAlarm(const Models::CreateAlarmRequest &request);
 
       /**
-       * @summary 播放列表创建
+       * @summary Create a playlist and play the specified content.
        *
        * @param tmpReq CreatePlayingListRequest
        * @param headers CreatePlayingListHeaders
@@ -211,7 +215,7 @@ namespace AliGeniessp_1_0
       Models::CreatePlayingListResponse createPlayingListWithOptions(const Models::CreatePlayingListRequest &tmpReq, const Models::CreatePlayingListHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 播放列表创建
+       * @summary Create a playlist and play the specified content.
        *
        * @param request CreatePlayingListRequest
        * @return CreatePlayingListResponse
@@ -219,7 +223,7 @@ namespace AliGeniessp_1_0
       Models::CreatePlayingListResponse createPlayingList(const Models::CreatePlayingListRequest &request);
 
       /**
-       * @summary 播放列表创建走OAuth2授权
+       * @summary Playlist creation uses OAuth2 authorization.
        *
        * @param tmpReq CreatePlayingListOAuth2Request
        * @param headers map
@@ -229,7 +233,7 @@ namespace AliGeniessp_1_0
       Models::CreatePlayingListOAuth2Response createPlayingListOAuth2WithOptions(const Models::CreatePlayingListOAuth2Request &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 播放列表创建走OAuth2授权
+       * @summary Playlist creation uses OAuth2 authorization.
        *
        * @param request CreatePlayingListOAuth2Request
        * @return CreatePlayingListOAuth2Response
@@ -237,7 +241,9 @@ namespace AliGeniessp_1_0
       Models::CreatePlayingListOAuth2Response createPlayingListOAuth2(const Models::CreatePlayingListOAuth2Request &request);
 
       /**
-       * @summary 创建定时任务
+       * @summary Create a scheduled task.
+       *
+       * @description Configure a triggering task for Custom instruction data in the ecosystem based on scheduling rules such as one-time, daily, or business days.
        *
        * @param tmpReq CreateScheduleTaskRequest
        * @param headers CreateScheduleTaskHeaders
@@ -247,7 +253,9 @@ namespace AliGeniessp_1_0
       Models::CreateScheduleTaskResponse createScheduleTaskWithOptions(const Models::CreateScheduleTaskRequest &tmpReq, const Models::CreateScheduleTaskHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建定时任务
+       * @summary Create a scheduled task.
+       *
+       * @description Configure a triggering task for Custom instruction data in the ecosystem based on scheduling rules such as one-time, daily, or business days.
        *
        * @param request CreateScheduleTaskRequest
        * @return CreateScheduleTaskResponse
@@ -255,7 +263,7 @@ namespace AliGeniessp_1_0
       Models::CreateScheduleTaskResponse createScheduleTask(const Models::CreateScheduleTaskRequest &request);
 
       /**
-       * @summary 闹钟批量删除
+       * @summary Delete alarms. You can delete multiple alarms at the same time.
        *
        * @param tmpReq DeleteAlarmsRequest
        * @param headers DeleteAlarmsHeaders
@@ -265,7 +273,7 @@ namespace AliGeniessp_1_0
       Models::DeleteAlarmsResponse deleteAlarmsWithOptions(const Models::DeleteAlarmsRequest &tmpReq, const Models::DeleteAlarmsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 闹钟批量删除
+       * @summary Delete alarms. You can delete multiple alarms at the same time.
        *
        * @param request DeleteAlarmsRequest
        * @return DeleteAlarmsResponse
@@ -273,7 +281,9 @@ namespace AliGeniessp_1_0
       Models::DeleteAlarmsResponse deleteAlarms(const Models::DeleteAlarmsRequest &request);
 
       /**
-       * @summary 删除定时任务
+       * @summary Delete a scheduled task.
+       *
+       * @description Deletes a specified scheduled task by its ID.
        *
        * @param tmpReq DeleteScheduleTaskRequest
        * @param headers DeleteScheduleTaskHeaders
@@ -283,7 +293,9 @@ namespace AliGeniessp_1_0
       Models::DeleteScheduleTaskResponse deleteScheduleTaskWithOptions(const Models::DeleteScheduleTaskRequest &tmpReq, const Models::DeleteScheduleTaskHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除定时任务
+       * @summary Delete a scheduled task.
+       *
+       * @description Deletes a specified scheduled task by its ID.
        *
        * @param request DeleteScheduleTaskRequest
        * @return DeleteScheduleTaskResponse
@@ -291,7 +303,7 @@ namespace AliGeniessp_1_0
       Models::DeleteScheduleTaskResponse deleteScheduleTask(const Models::DeleteScheduleTaskRequest &request);
 
       /**
-       * @summary 删除订阅
+       * @summary Delete a subscribed album.
        *
        * @param request DeleteSubRequest
        * @param headers DeleteSubHeaders
@@ -301,7 +313,7 @@ namespace AliGeniessp_1_0
       Models::DeleteSubResponse deleteSubWithOptions(const Models::DeleteSubRequest &request, const Models::DeleteSubHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除订阅
+       * @summary Delete a subscribed album.
        *
        * @param request DeleteSubRequest
        * @return DeleteSubResponse
@@ -309,7 +321,9 @@ namespace AliGeniessp_1_0
       Models::DeleteSubResponse deleteSub(const Models::DeleteSubRequest &request);
 
       /**
-       * @summary 设备控制
+       * @summary Control property values such as device volume.
+       *
+       * @description Specify a device to modify property values such as volume.
        *
        * @param tmpReq DeviceControlRequest
        * @param headers DeviceControlHeaders
@@ -319,7 +333,9 @@ namespace AliGeniessp_1_0
       Models::DeviceControlResponse deviceControlWithOptions(const Models::DeviceControlRequest &tmpReq, const Models::DeviceControlHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设备控制
+       * @summary Control property values such as device volume.
+       *
+       * @description Specify a device to modify property values such as volume.
        *
        * @param request DeviceControlRequest
        * @return DeviceControlResponse
@@ -327,7 +343,13 @@ namespace AliGeniessp_1_0
       Models::DeviceControlResponse deviceControl(const Models::DeviceControlRequest &request);
 
       /**
-       * @summary 生态开放鉴权
+       * @summary Use the login-state access token for authentication to obtain the third-party user identifier and the Tmall Genie user\\"s openId.
+       *
+       * @description Note: When the login state expires, the integrator must reinitiate the authorization login flow to obtain a new login state (entry service API: AuthLoginWithThirdUserInfo).
+       * - Invoke the service API with the login-state access credential (LoginStateAccessToken) parameter by using the Java SDK (for SDKs in other languages, consult Tmall Genie developers during integration).  
+       * If the API call throws a TeaException and TeaException.code is InvalidAuthentication, the login state has expired.
+       * - Invoke the service API by sending an HTTP request with the login-state access credential (LoginStateAccessToken) parameter.  
+       * If the HTTP response status code returned by the API call is 400, the login state has expired.
        *
        * @param request EcologyOpennessAuthenticateRequest
        * @param headers EcologyOpennessAuthenticateHeaders
@@ -337,7 +359,13 @@ namespace AliGeniessp_1_0
       Models::EcologyOpennessAuthenticateResponse ecologyOpennessAuthenticateWithOptions(const Models::EcologyOpennessAuthenticateRequest &request, const Models::EcologyOpennessAuthenticateHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生态开放鉴权
+       * @summary Use the login-state access token for authentication to obtain the third-party user identifier and the Tmall Genie user\\"s openId.
+       *
+       * @description Note: When the login state expires, the integrator must reinitiate the authorization login flow to obtain a new login state (entry service API: AuthLoginWithThirdUserInfo).
+       * - Invoke the service API with the login-state access credential (LoginStateAccessToken) parameter by using the Java SDK (for SDKs in other languages, consult Tmall Genie developers during integration).  
+       * If the API call throws a TeaException and TeaException.code is InvalidAuthentication, the login state has expired.
+       * - Invoke the service API by sending an HTTP request with the login-state access credential (LoginStateAccessToken) parameter.  
+       * If the HTTP response status code returned by the API call is 400, the login state has expired.
        *
        * @param request EcologyOpennessAuthenticateRequest
        * @return EcologyOpennessAuthenticateResponse
@@ -345,7 +373,7 @@ namespace AliGeniessp_1_0
       Models::EcologyOpennessAuthenticateResponse ecologyOpennessAuthenticate(const Models::EcologyOpennessAuthenticateRequest &request);
 
       /**
-       * @summary 生态开放发送短信验证码
+       * @summary Ecosystem Open API for sending SMS verification codes
        *
        * @param request EcologyOpennessSendVerificationCodeRequest
        * @param headers EcologyOpennessSendVerificationCodeHeaders
@@ -355,7 +383,7 @@ namespace AliGeniessp_1_0
       Models::EcologyOpennessSendVerificationCodeResponse ecologyOpennessSendVerificationCodeWithOptions(const Models::EcologyOpennessSendVerificationCodeRequest &request, const Models::EcologyOpennessSendVerificationCodeHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生态开放发送短信验证码
+       * @summary Ecosystem Open API for sending SMS verification codes
        *
        * @param request EcologyOpennessSendVerificationCodeRequest
        * @return EcologyOpennessSendVerificationCodeResponse
@@ -363,7 +391,7 @@ namespace AliGeniessp_1_0
       Models::EcologyOpennessSendVerificationCodeResponse ecologyOpennessSendVerificationCode(const Models::EcologyOpennessSendVerificationCodeRequest &request);
 
       /**
-       * @summary 通过手机号寻找可授权登录的账号列表
+       * @summary Find a list of accounts that can be authorized to log on by phone number
        *
        * @param request FindUserlistToAuthLoginWithPhoneNumberRequest
        * @param headers FindUserlistToAuthLoginWithPhoneNumberHeaders
@@ -373,7 +401,7 @@ namespace AliGeniessp_1_0
       Models::FindUserlistToAuthLoginWithPhoneNumberResponse findUserlistToAuthLoginWithPhoneNumberWithOptions(const Models::FindUserlistToAuthLoginWithPhoneNumberRequest &request, const Models::FindUserlistToAuthLoginWithPhoneNumberHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过手机号寻找可授权登录的账号列表
+       * @summary Find a list of accounts that can be authorized to log on by phone number
        *
        * @param request FindUserlistToAuthLoginWithPhoneNumberRequest
        * @return FindUserlistToAuthLoginWithPhoneNumberResponse
@@ -381,7 +409,7 @@ namespace AliGeniessp_1_0
       Models::FindUserlistToAuthLoginWithPhoneNumberResponse findUserlistToAuthLoginWithPhoneNumber(const Models::FindUserlistToAuthLoginWithPhoneNumberRequest &request);
 
       /**
-       * @summary 获取单个闹钟
+       * @summary Retrieve the detailed information of a specific alarm clock.
        *
        * @param tmpReq GetAlarmRequest
        * @param headers GetAlarmHeaders
@@ -391,7 +419,7 @@ namespace AliGeniessp_1_0
       Models::GetAlarmResponse getAlarmWithOptions(const Models::GetAlarmRequest &tmpReq, const Models::GetAlarmHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取单个闹钟
+       * @summary Retrieve the detailed information of a specific alarm clock.
        *
        * @param request GetAlarmRequest
        * @return GetAlarmResponse
@@ -399,7 +427,7 @@ namespace AliGeniessp_1_0
       Models::GetAlarmResponse getAlarm(const Models::GetAlarmRequest &request);
 
       /**
-       * @summary 根据id获取专辑信息
+       * @summary Retrieve album information by a specific ID.
        *
        * @param request GetAlbumRequest
        * @param headers GetAlbumHeaders
@@ -409,7 +437,7 @@ namespace AliGeniessp_1_0
       Models::GetAlbumResponse getAlbumWithOptions(const Models::GetAlbumRequest &request, const Models::GetAlbumHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据id获取专辑信息
+       * @summary Retrieve album information by a specific ID.
        *
        * @param request GetAlbumRequest
        * @return GetAlbumResponse
@@ -417,7 +445,7 @@ namespace AliGeniessp_1_0
       Models::GetAlbumResponse getAlbum(const Models::GetAlbumRequest &request);
 
       /**
-       * @summary 获取专辑数据
+       * @summary Retrieve album information.
        *
        * @param request GetAlbumDetailByIdRequest
        * @param headers GetAlbumDetailByIdHeaders
@@ -427,7 +455,7 @@ namespace AliGeniessp_1_0
       Models::GetAlbumDetailByIdResponse getAlbumDetailByIdWithOptions(const Models::GetAlbumDetailByIdRequest &request, const Models::GetAlbumDetailByIdHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取专辑数据
+       * @summary Retrieve album information.
        *
        * @param request GetAlbumDetailByIdRequest
        * @return GetAlbumDetailByIdResponse
@@ -435,7 +463,13 @@ namespace AliGeniessp_1_0
       Models::GetAlbumDetailByIdResponse getAlbumDetailById(const Models::GetAlbumDetailByIdRequest &request);
 
       /**
-       * @summary 获取三方绑定的精灵账号信息
+       * @summary Obtain the Aligenie account information bound to a third party by using the logon state credential
+       *
+       * @description Note: When the logon state expires, the integrator must initiate the authorization logon flow again to obtain a new logon state (entry service API: AuthLoginWithThirdUserInfo).
+       * - Invoke the service API with the logon state access credential (LoginStateAccessToken) parameter by using the Java software development kit (SDK). For SDKs in other languages, consult the Tmall Genie developer team during integration.  
+       * If the API call throws a TeaException and TeaException.code is InvalidAuthentication, the logon state has expired.
+       * - Invoke the service API by sending an HTTP request with the logon state access credential (LoginStateAccessToken) parameter.  
+       * If the HTTP response status code returned by the API call is 400, the logon state has expired.
        *
        * @param request GetAligenieUserInfoRequest
        * @param headers GetAligenieUserInfoHeaders
@@ -445,7 +479,13 @@ namespace AliGeniessp_1_0
       Models::GetAligenieUserInfoResponse getAligenieUserInfoWithOptions(const Models::GetAligenieUserInfoRequest &request, const Models::GetAligenieUserInfoHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取三方绑定的精灵账号信息
+       * @summary Obtain the Aligenie account information bound to a third party by using the logon state credential
+       *
+       * @description Note: When the logon state expires, the integrator must initiate the authorization logon flow again to obtain a new logon state (entry service API: AuthLoginWithThirdUserInfo).
+       * - Invoke the service API with the logon state access credential (LoginStateAccessToken) parameter by using the Java software development kit (SDK). For SDKs in other languages, consult the Tmall Genie developer team during integration.  
+       * If the API call throws a TeaException and TeaException.code is InvalidAuthentication, the logon state has expired.
+       * - Invoke the service API by sending an HTTP request with the logon state access credential (LoginStateAccessToken) parameter.  
+       * If the HTTP response status code returned by the API call is 400, the logon state has expired.
        *
        * @param request GetAligenieUserInfoRequest
        * @return GetAligenieUserInfoResponse
@@ -453,7 +493,9 @@ namespace AliGeniessp_1_0
       Models::GetAligenieUserInfoResponse getAligenieUserInfo(const Models::GetAligenieUserInfoRequest &request);
 
       /**
-       * @summary 获取authCode
+       * @summary Obtain the authCode.
+       *
+       * @description Obtain the corresponding authCode by specifying the user ID.
        *
        * @param tmpReq GetCodeEnhanceRequest
        * @param headers GetCodeEnhanceHeaders
@@ -463,7 +505,9 @@ namespace AliGeniessp_1_0
       Models::GetCodeEnhanceResponse getCodeEnhanceWithOptions(const Models::GetCodeEnhanceRequest &tmpReq, const Models::GetCodeEnhanceHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取authCode
+       * @summary Obtain the authCode.
+       *
+       * @description Obtain the corresponding authCode by specifying the user ID.
        *
        * @param request GetCodeEnhanceRequest
        * @return GetCodeEnhanceResponse
@@ -471,7 +515,7 @@ namespace AliGeniessp_1_0
       Models::GetCodeEnhanceResponse getCodeEnhance(const Models::GetCodeEnhanceRequest &request);
 
       /**
-       * @summary 按照特定的id获取内容信息
+       * @summary Retrieve content information by a specific ID
        *
        * @param request GetContentRequest
        * @param headers GetContentHeaders
@@ -481,7 +525,7 @@ namespace AliGeniessp_1_0
       Models::GetContentResponse getContentWithOptions(const Models::GetContentRequest &request, const Models::GetContentHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 按照特定的id获取内容信息
+       * @summary Retrieve content information by a specific ID
        *
        * @param request GetContentRequest
        * @return GetContentResponse
@@ -489,7 +533,7 @@ namespace AliGeniessp_1_0
       Models::GetContentResponse getContent(const Models::GetContentRequest &request);
 
       /**
-       * @summary 获取当前播放项
+       * @summary Obtain the current playback item.
        *
        * @param tmpReq GetCurrentPlayingItemRequest
        * @param headers GetCurrentPlayingItemHeaders
@@ -499,7 +543,7 @@ namespace AliGeniessp_1_0
       Models::GetCurrentPlayingItemResponse getCurrentPlayingItemWithOptions(const Models::GetCurrentPlayingItemRequest &tmpReq, const Models::GetCurrentPlayingItemHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取当前播放项
+       * @summary Obtain the current playback item.
        *
        * @param request GetCurrentPlayingItemRequest
        * @return GetCurrentPlayingItemResponse
@@ -507,7 +551,7 @@ namespace AliGeniessp_1_0
       Models::GetCurrentPlayingItemResponse getCurrentPlayingItem(const Models::GetCurrentPlayingItemRequest &request);
 
       /**
-       * @summary 获取当前播放列表
+       * @summary Obtain the current playlist.
        *
        * @param tmpReq GetCurrentPlayingListRequest
        * @param headers GetCurrentPlayingListHeaders
@@ -517,7 +561,7 @@ namespace AliGeniessp_1_0
       Models::GetCurrentPlayingListResponse getCurrentPlayingListWithOptions(const Models::GetCurrentPlayingListRequest &tmpReq, const Models::GetCurrentPlayingListHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取当前播放列表
+       * @summary Obtain the current playlist.
        *
        * @param request GetCurrentPlayingListRequest
        * @return GetCurrentPlayingListResponse
@@ -525,7 +569,7 @@ namespace AliGeniessp_1_0
       Models::GetCurrentPlayingListResponse getCurrentPlayingList(const Models::GetCurrentPlayingListRequest &request);
 
       /**
-       * @summary 获取设备认证信息
+       * @summary Obtain basic device information by Device ID.
        *
        * @param tmpReq GetDeviceBasicInfoRequest
        * @param headers GetDeviceBasicInfoHeaders
@@ -535,7 +579,7 @@ namespace AliGeniessp_1_0
       Models::GetDeviceBasicInfoResponse getDeviceBasicInfoWithOptions(const Models::GetDeviceBasicInfoRequest &tmpReq, const Models::GetDeviceBasicInfoHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取设备认证信息
+       * @summary Obtain basic device information by Device ID.
        *
        * @param request GetDeviceBasicInfoRequest
        * @return GetDeviceBasicInfoResponse
@@ -543,7 +587,7 @@ namespace AliGeniessp_1_0
       Models::GetDeviceBasicInfoResponse getDeviceBasicInfo(const Models::GetDeviceBasicInfoRequest &request);
 
       /**
-       * @summary 获取设备信息
+       * @summary Obtain the Device ID based on the device MAC or SN.
        *
        * @param request GetDeviceIdByIdentityRequest
        * @param headers GetDeviceIdByIdentityHeaders
@@ -553,7 +597,7 @@ namespace AliGeniessp_1_0
       Models::GetDeviceIdByIdentityResponse getDeviceIdByIdentityWithOptions(const Models::GetDeviceIdByIdentityRequest &request, const Models::GetDeviceIdByIdentityHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取设备信息
+       * @summary Obtain the Device ID based on the device MAC or SN.
        *
        * @param request GetDeviceIdByIdentityRequest
        * @return GetDeviceIdByIdentityResponse
@@ -561,7 +605,7 @@ namespace AliGeniessp_1_0
       Models::GetDeviceIdByIdentityResponse getDeviceIdByIdentity(const Models::GetDeviceIdByIdentityRequest &request);
 
       /**
-       * @summary 获取设备的用户设置
+       * @summary Obtain the user settings of a device.
        *
        * @param tmpReq GetDeviceSettingRequest
        * @param headers GetDeviceSettingHeaders
@@ -571,7 +615,7 @@ namespace AliGeniessp_1_0
       Models::GetDeviceSettingResponse getDeviceSettingWithOptions(const Models::GetDeviceSettingRequest &tmpReq, const Models::GetDeviceSettingHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取设备的用户设置
+       * @summary Obtain the user settings of a device.
        *
        * @param request GetDeviceSettingRequest
        * @return GetDeviceSettingResponse
@@ -579,7 +623,7 @@ namespace AliGeniessp_1_0
       Models::GetDeviceSettingResponse getDeviceSetting(const Models::GetDeviceSettingRequest &request);
 
       /**
-       * @summary 获取设备状态详情
+       * @summary Obtain device status details.
        *
        * @param tmpReq GetDeviceStatusDetailRequest
        * @param headers GetDeviceStatusDetailHeaders
@@ -589,7 +633,7 @@ namespace AliGeniessp_1_0
       Models::GetDeviceStatusDetailResponse getDeviceStatusDetailWithOptions(const Models::GetDeviceStatusDetailRequest &tmpReq, const Models::GetDeviceStatusDetailHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取设备状态详情
+       * @summary Obtain device status details.
        *
        * @param request GetDeviceStatusDetailRequest
        * @return GetDeviceStatusDetailResponse
@@ -597,7 +641,7 @@ namespace AliGeniessp_1_0
       Models::GetDeviceStatusDetailResponse getDeviceStatusDetail(const Models::GetDeviceStatusDetailRequest &request);
 
       /**
-       * @summary 获取设备状态信息
+       * @summary Obtain the online status of a device based on its openID.
        *
        * @param tmpReq GetDeviceStatusInfoRequest
        * @param headers GetDeviceStatusInfoHeaders
@@ -607,7 +651,7 @@ namespace AliGeniessp_1_0
       Models::GetDeviceStatusInfoResponse getDeviceStatusInfoWithOptions(const Models::GetDeviceStatusInfoRequest &tmpReq, const Models::GetDeviceStatusInfoHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取设备状态信息
+       * @summary Obtain the online status of a device based on its openID.
        *
        * @param request GetDeviceStatusInfoRequest
        * @return GetDeviceStatusInfoResponse
@@ -615,7 +659,7 @@ namespace AliGeniessp_1_0
       Models::GetDeviceStatusInfoResponse getDeviceStatusInfo(const Models::GetDeviceStatusInfoRequest &request);
 
       /**
-       * @summary 获取设备标签
+       * @summary Obtain the tag information of a device.
        *
        * @param tmpReq GetDeviceTagRequest
        * @param headers GetDeviceTagHeaders
@@ -625,7 +669,7 @@ namespace AliGeniessp_1_0
       Models::GetDeviceTagResponse getDeviceTagWithOptions(const Models::GetDeviceTagRequest &tmpReq, const Models::GetDeviceTagHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取设备标签
+       * @summary Obtain the tag information of a device.
        *
        * @param request GetDeviceTagRequest
        * @return GetDeviceTagResponse
@@ -633,7 +677,7 @@ namespace AliGeniessp_1_0
       Models::GetDeviceTagResponse getDeviceTag(const Models::GetDeviceTagRequest &request);
 
       /**
-       * @summary 江苏电信号百
+       * @summary Derived requirements from Jiangsu Telecom\\"s self-developed desktop launcher project. HaoBai expects to collect statistics on the activation rate, active user rate, and top user usage patterns after the project is published, and to generate daily and weekly reports. Daily reports are synchronized automatically via API, while weekly reports are synchronized offline.
        *
        * @param request GetJiangSuTelecomDataRequest
        * @param headers GetJiangSuTelecomDataHeaders
@@ -643,7 +687,7 @@ namespace AliGeniessp_1_0
       Models::GetJiangSuTelecomDataResponse getJiangSuTelecomDataWithOptions(const Models::GetJiangSuTelecomDataRequest &request, const Models::GetJiangSuTelecomDataHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 江苏电信号百
+       * @summary Derived requirements from Jiangsu Telecom\\"s self-developed desktop launcher project. HaoBai expects to collect statistics on the activation rate, active user rate, and top user usage patterns after the project is published, and to generate daily and weekly reports. Daily reports are synchronized automatically via API, while weekly reports are synchronized offline.
        *
        * @param request GetJiangSuTelecomDataRequest
        * @return GetJiangSuTelecomDataResponse
@@ -651,7 +695,9 @@ namespace AliGeniessp_1_0
       Models::GetJiangSuTelecomDataResponse getJiangSuTelecomData(const Models::GetJiangSuTelecomDataRequest &request);
 
       /**
-       * @summary 查询定时任务
+       * @summary Obtain scheduled task information.
+       *
+       * @description Query the details of a specified scheduled task by its ID.
        *
        * @param tmpReq GetScheduleTaskRequest
        * @param headers GetScheduleTaskHeaders
@@ -661,7 +707,9 @@ namespace AliGeniessp_1_0
       Models::GetScheduleTaskResponse getScheduleTaskWithOptions(const Models::GetScheduleTaskRequest &tmpReq, const Models::GetScheduleTaskHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询定时任务
+       * @summary Obtain scheduled task information.
+       *
+       * @description Query the details of a specified scheduled task by its ID.
        *
        * @param request GetScheduleTaskRequest
        * @return GetScheduleTaskResponse
@@ -669,7 +717,7 @@ namespace AliGeniessp_1_0
       Models::GetScheduleTaskResponse getScheduleTask(const Models::GetScheduleTaskRequest &request);
 
       /**
-       * @summary 查询未读留言数量
+       * @summary Query the number of unread messages for a user.
        *
        * @param tmpReq GetUnreadMessageCountRequest
        * @param headers GetUnreadMessageCountHeaders
@@ -679,7 +727,7 @@ namespace AliGeniessp_1_0
       Models::GetUnreadMessageCountResponse getUnreadMessageCountWithOptions(const Models::GetUnreadMessageCountRequest &tmpReq, const Models::GetUnreadMessageCountHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询未读留言数量
+       * @summary Query the number of unread messages for a user.
        *
        * @param request GetUnreadMessageCountRequest
        * @return GetUnreadMessageCountResponse
@@ -687,7 +735,7 @@ namespace AliGeniessp_1_0
       Models::GetUnreadMessageCountResponse getUnreadMessageCount(const Models::GetUnreadMessageCountRequest &request);
 
       /**
-       * @summary 查询设备绑定的用户
+       * @summary Obtain the User ID attached to a device by the device\\"s openID.
        *
        * @param tmpReq GetUserByDeviceIdRequest
        * @param headers GetUserByDeviceIdHeaders
@@ -697,7 +745,7 @@ namespace AliGeniessp_1_0
       Models::GetUserByDeviceIdResponse getUserByDeviceIdWithOptions(const Models::GetUserByDeviceIdRequest &tmpReq, const Models::GetUserByDeviceIdHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询设备绑定的用户
+       * @summary Obtain the User ID attached to a device by the device\\"s openID.
        *
        * @param request GetUserByDeviceIdRequest
        * @return GetUserByDeviceIdResponse
@@ -705,7 +753,9 @@ namespace AliGeniessp_1_0
       Models::GetUserByDeviceIdResponse getUserByDeviceId(const Models::GetUserByDeviceIdRequest &request);
 
       /**
-       * @summary 查询天气
+       * @summary Query the weather.
+       *
+       * @description Query the weather data for the location of the device based on the Device Information obtained from system parameters.
        *
        * @param tmpReq GetWeatherRequest
        * @param headers GetWeatherHeaders
@@ -715,7 +765,9 @@ namespace AliGeniessp_1_0
       Models::GetWeatherResponse getWeatherWithOptions(const Models::GetWeatherRequest &tmpReq, const Models::GetWeatherHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询天气
+       * @summary Query the weather.
+       *
+       * @description Query the weather data for the location of the device based on the Device Information obtained from system parameters.
        *
        * @param request GetWeatherRequest
        * @return GetWeatherResponse
@@ -723,7 +775,7 @@ namespace AliGeniessp_1_0
       Models::GetWeatherResponse getWeather(const Models::GetWeatherRequest &request);
 
       /**
-       * @summary 播放列表点击播放
+       * @summary Click a playlist to start playback.
        *
        * @param tmpReq IndexControlPlayingListRequest
        * @param headers IndexControlPlayingListHeaders
@@ -733,7 +785,7 @@ namespace AliGeniessp_1_0
       Models::IndexControlPlayingListResponse indexControlPlayingListWithOptions(const Models::IndexControlPlayingListRequest &tmpReq, const Models::IndexControlPlayingListHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 播放列表点击播放
+       * @summary Click a playlist to start playback.
        *
        * @param request IndexControlPlayingListRequest
        * @return IndexControlPlayingListResponse
@@ -741,7 +793,10 @@ namespace AliGeniessp_1_0
       Models::IndexControlPlayingListResponse indexControlPlayingList(const Models::IndexControlPlayingListRequest &request);
 
       /**
-       * @summary 失效三方应用登录态
+       * @summary When a user operation (not initiated from the device side) causes the login session of a third-party application on the device to become invalid (for example, the user logs on to the same account from a new device, invalidating the session on the old device, or the user changes their password, which invalidates the session on the old device), the third party must invoke this API to notify Tmall Genie.
+       *
+       * @description > Modify message notification template  
+       * > - You need to query the templateId first, then modify other parameters based on the templateId.
        *
        * @param tmpReq InvalidateThirdPartyAppLoginStateRequest
        * @param headers InvalidateThirdPartyAppLoginStateHeaders
@@ -751,7 +806,10 @@ namespace AliGeniessp_1_0
       Models::InvalidateThirdPartyAppLoginStateResponse invalidateThirdPartyAppLoginStateWithOptions(const Models::InvalidateThirdPartyAppLoginStateRequest &tmpReq, const Models::InvalidateThirdPartyAppLoginStateHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 失效三方应用登录态
+       * @summary When a user operation (not initiated from the device side) causes the login session of a third-party application on the device to become invalid (for example, the user logs on to the same account from a new device, invalidating the session on the old device, or the user changes their password, which invalidates the session on the old device), the third party must invoke this API to notify Tmall Genie.
+       *
+       * @description > Modify message notification template  
+       * > - You need to query the templateId first, then modify other parameters based on the templateId.
        *
        * @param request InvalidateThirdPartyAppLoginStateRequest
        * @return InvalidateThirdPartyAppLoginStateResponse
@@ -759,7 +817,7 @@ namespace AliGeniessp_1_0
       Models::InvalidateThirdPartyAppLoginStateResponse invalidateThirdPartyAppLoginState(const Models::InvalidateThirdPartyAppLoginStateRequest &request);
 
       /**
-       * @summary 查询闹钟列表
+       * @summary Perform a paged query to retrieve the alarm clock list of a specific User on a device.
        *
        * @param tmpReq ListAlarmsRequest
        * @param headers ListAlarmsHeaders
@@ -769,7 +827,7 @@ namespace AliGeniessp_1_0
       Models::ListAlarmsResponse listAlarmsWithOptions(const Models::ListAlarmsRequest &tmpReq, const Models::ListAlarmsHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询闹钟列表
+       * @summary Perform a paged query to retrieve the alarm clock list of a specific User on a device.
        *
        * @param request ListAlarmsRequest
        * @return ListAlarmsResponse
@@ -777,7 +835,7 @@ namespace AliGeniessp_1_0
       Models::ListAlarmsResponse listAlarms(const Models::ListAlarmsRequest &request);
 
       /**
-       * @summary 获取音乐音频专辑里面的内容列表
+       * @summary Obtain the content list within a music audio album.
        *
        * @param request ListAlbumDetailRequest
        * @param headers ListAlbumDetailHeaders
@@ -787,7 +845,7 @@ namespace AliGeniessp_1_0
       Models::ListAlbumDetailResponse listAlbumDetailWithOptions(const Models::ListAlbumDetailRequest &request, const Models::ListAlbumDetailHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取音乐音频专辑里面的内容列表
+       * @summary Obtain the content list within a music audio album.
        *
        * @param request ListAlbumDetailRequest
        * @return ListAlbumDetailResponse
@@ -795,7 +853,7 @@ namespace AliGeniessp_1_0
       Models::ListAlbumDetailResponse listAlbumDetail(const Models::ListAlbumDetailRequest &request);
 
       /**
-       * @summary 专辑是否被订阅
+       * @summary Whether the album is subscribed.
        *
        * @param tmpReq ListAlbumIsAddedRequest
        * @param headers ListAlbumIsAddedHeaders
@@ -805,7 +863,7 @@ namespace AliGeniessp_1_0
       Models::ListAlbumIsAddedResponse listAlbumIsAddedWithOptions(const Models::ListAlbumIsAddedRequest &tmpReq, const Models::ListAlbumIsAddedHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 专辑是否被订阅
+       * @summary Whether the album is subscribed.
        *
        * @param request ListAlbumIsAddedRequest
        * @return ListAlbumIsAddedResponse
@@ -813,7 +871,7 @@ namespace AliGeniessp_1_0
       Models::ListAlbumIsAddedResponse listAlbumIsAdded(const Models::ListAlbumIsAddedRequest &request);
 
       /**
-       * @summary 根据特定的类目,按照指定的排序顺序获取该类目下的内容.
+       * @summary Obtain the content under a specific category according to the specified sorting order.
        *
        * @param tmpReq ListCateContentRequest
        * @param headers ListCateContentHeaders
@@ -823,7 +881,7 @@ namespace AliGeniessp_1_0
       Models::ListCateContentResponse listCateContentWithOptions(const Models::ListCateContentRequest &tmpReq, const Models::ListCateContentHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据特定的类目,按照指定的排序顺序获取该类目下的内容.
+       * @summary Obtain the content under a specific category according to the specified sorting order.
        *
        * @param request ListCateContentRequest
        * @return ListCateContentResponse
@@ -831,7 +889,7 @@ namespace AliGeniessp_1_0
       Models::ListCateContentResponse listCateContent(const Models::ListCateContentRequest &request);
 
       /**
-       * @summary 获取音乐音频类目列表
+       * @summary Obtain category information.
        *
        * @param request ListCateInfoRequest
        * @param headers ListCateInfoHeaders
@@ -841,7 +899,7 @@ namespace AliGeniessp_1_0
       Models::ListCateInfoResponse listCateInfoWithOptions(const Models::ListCateInfoRequest &request, const Models::ListCateInfoHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取音乐音频类目列表
+       * @summary Obtain category information.
        *
        * @param request ListCateInfoRequest
        * @return ListCateInfoResponse
@@ -849,7 +907,7 @@ namespace AliGeniessp_1_0
       Models::ListCateInfoResponse listCateInfo(const Models::ListCateInfoRequest &request);
 
       /**
-       * @summary 获取音乐/音频的一级类目列表
+       * @summary Obtain the top-level category list for music or audio.
        *
        * @param request ListCommonCateFirstFloorRequest
        * @param headers ListCommonCateFirstFloorHeaders
@@ -859,7 +917,7 @@ namespace AliGeniessp_1_0
       Models::ListCommonCateFirstFloorResponse listCommonCateFirstFloorWithOptions(const Models::ListCommonCateFirstFloorRequest &request, const Models::ListCommonCateFirstFloorHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取音乐/音频的一级类目列表
+       * @summary Obtain the top-level category list for music or audio.
        *
        * @param request ListCommonCateFirstFloorRequest
        * @return ListCommonCateFirstFloorResponse
@@ -867,7 +925,7 @@ namespace AliGeniessp_1_0
       Models::ListCommonCateFirstFloorResponse listCommonCateFirstFloor(const Models::ListCommonCateFirstFloorRequest &request);
 
       /**
-       * @summary 获取指定一级类目下面的二级类目列表
+       * @summary Retrieve the list of level-2 categories under a specified level-1 category.
        *
        * @param request ListCommonCateSecondFloorRequest
        * @param headers ListCommonCateSecondFloorHeaders
@@ -877,7 +935,7 @@ namespace AliGeniessp_1_0
       Models::ListCommonCateSecondFloorResponse listCommonCateSecondFloorWithOptions(const Models::ListCommonCateSecondFloorRequest &request, const Models::ListCommonCateSecondFloorHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取指定一级类目下面的二级类目列表
+       * @summary Retrieve the list of level-2 categories under a specified level-1 category.
        *
        * @param request ListCommonCateSecondFloorRequest
        * @return ListCommonCateSecondFloorResponse
@@ -885,7 +943,7 @@ namespace AliGeniessp_1_0
       Models::ListCommonCateSecondFloorResponse listCommonCateSecondFloor(const Models::ListCommonCateSecondFloorRequest &request);
 
       /**
-       * @summary 批量获取设备基本信息
+       * @summary Batch retrieve basic device information based on a list of device openIDs.
        *
        * @param tmpReq ListDeviceBasicInfoRequest
        * @param headers ListDeviceBasicInfoHeaders
@@ -895,7 +953,7 @@ namespace AliGeniessp_1_0
       Models::ListDeviceBasicInfoResponse listDeviceBasicInfoWithOptions(const Models::ListDeviceBasicInfoRequest &tmpReq, const Models::ListDeviceBasicInfoHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量获取设备基本信息
+       * @summary Batch retrieve basic device information based on a list of device openIDs.
        *
        * @param request ListDeviceBasicInfoRequest
        * @return ListDeviceBasicInfoResponse
@@ -903,7 +961,7 @@ namespace AliGeniessp_1_0
       Models::ListDeviceBasicInfoResponse listDeviceBasicInfo(const Models::ListDeviceBasicInfoRequest &request);
 
       /**
-       * @summary 查询用户名下的设备
+       * @summary Obtain the list of attached Device IDs based on the user\\"s openID.
        *
        * @param tmpReq ListDeviceByUserIdRequest
        * @param headers ListDeviceByUserIdHeaders
@@ -913,7 +971,7 @@ namespace AliGeniessp_1_0
       Models::ListDeviceByUserIdResponse listDeviceByUserIdWithOptions(const Models::ListDeviceByUserIdRequest &tmpReq, const Models::ListDeviceByUserIdHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户名下的设备
+       * @summary Obtain the list of attached Device IDs based on the user\\"s openID.
        *
        * @param request ListDeviceByUserIdRequest
        * @return ListDeviceByUserIdResponse
@@ -921,7 +979,7 @@ namespace AliGeniessp_1_0
       Models::ListDeviceByUserIdResponse listDeviceByUserId(const Models::ListDeviceByUserIdRequest &request);
 
       /**
-       * @summary 获取指定渠道的设备列表
+       * @summary Obtain the device list for a specified channel.
        *
        * @param tmpReq ListDeviceByUserIdAndChanelRequest
        * @param headers ListDeviceByUserIdAndChanelHeaders
@@ -931,7 +989,7 @@ namespace AliGeniessp_1_0
       Models::ListDeviceByUserIdAndChanelResponse listDeviceByUserIdAndChanelWithOptions(const Models::ListDeviceByUserIdAndChanelRequest &tmpReq, const Models::ListDeviceByUserIdAndChanelHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取指定渠道的设备列表
+       * @summary Obtain the device list for a specified channel.
        *
        * @param request ListDeviceByUserIdAndChanelRequest
        * @return ListDeviceByUserIdAndChanelResponse
@@ -939,7 +997,7 @@ namespace AliGeniessp_1_0
       Models::ListDeviceByUserIdAndChanelResponse listDeviceByUserIdAndChanel(const Models::ListDeviceByUserIdAndChanelRequest &request);
 
       /**
-       * @summary 批量获取设备openId
+       * @summary Batch retrieve Device IDs by device MAC/SN.
        *
        * @param tmpReq ListDeviceIdByIdentitiesRequest
        * @param headers ListDeviceIdByIdentitiesHeaders
@@ -949,7 +1007,7 @@ namespace AliGeniessp_1_0
       Models::ListDeviceIdByIdentitiesResponse listDeviceIdByIdentitiesWithOptions(const Models::ListDeviceIdByIdentitiesRequest &tmpReq, const Models::ListDeviceIdByIdentitiesHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量获取设备openId
+       * @summary Batch retrieve Device IDs by device MAC/SN.
        *
        * @param request ListDeviceIdByIdentitiesRequest
        * @return ListDeviceIdByIdentitiesResponse
@@ -957,7 +1015,7 @@ namespace AliGeniessp_1_0
       Models::ListDeviceIdByIdentitiesResponse listDeviceIdByIdentities(const Models::ListDeviceIdByIdentitiesRequest &request);
 
       /**
-       * @summary 基于音乐类型查询铃声列表（分页）
+       * @summary Query the list of ringtones under a specified music category.
        *
        * @param tmpReq ListMusicRequest
        * @param headers ListMusicHeaders
@@ -967,7 +1025,7 @@ namespace AliGeniessp_1_0
       Models::ListMusicResponse listMusicWithOptions(const Models::ListMusicRequest &tmpReq, const Models::ListMusicHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 基于音乐类型查询铃声列表（分页）
+       * @summary Query the list of ringtones under a specified music category.
        *
        * @param request ListMusicRequest
        * @return ListMusicResponse
@@ -975,7 +1033,7 @@ namespace AliGeniessp_1_0
       Models::ListMusicResponse listMusic(const Models::ListMusicRequest &request);
 
       /**
-       * @summary 获取用户的播放历史
+       * @summary Obtain the history playback API.
        *
        * @param tmpReq ListPlayHistoryRequest
        * @param headers ListPlayHistoryHeaders
@@ -985,7 +1043,7 @@ namespace AliGeniessp_1_0
       Models::ListPlayHistoryResponse listPlayHistoryWithOptions(const Models::ListPlayHistoryRequest &tmpReq, const Models::ListPlayHistoryHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户的播放历史
+       * @summary Obtain the history playback API.
        *
        * @param request ListPlayHistoryRequest
        * @return ListPlayHistoryResponse
@@ -993,7 +1051,7 @@ namespace AliGeniessp_1_0
       Models::ListPlayHistoryResponse listPlayHistory(const Models::ListPlayHistoryRequest &request);
 
       /**
-       * @summary 获取每日推荐的音乐或者音频
+       * @summary Obtain daily recommended music or audio.
        *
        * @param tmpReq ListRecommendContentRequest
        * @param headers ListRecommendContentHeaders
@@ -1003,7 +1061,7 @@ namespace AliGeniessp_1_0
       Models::ListRecommendContentResponse listRecommendContentWithOptions(const Models::ListRecommendContentRequest &tmpReq, const Models::ListRecommendContentHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取每日推荐的音乐或者音频
+       * @summary Obtain daily recommended music or audio.
        *
        * @param request ListRecommendContentRequest
        * @return ListRecommendContentResponse
@@ -1011,7 +1069,7 @@ namespace AliGeniessp_1_0
       Models::ListRecommendContentResponse listRecommendContent(const Models::ListRecommendContentRequest &request);
 
       /**
-       * @summary 订阅列表
+       * @summary The user has subscribed to the list.
        *
        * @param tmpReq ListSubRequest
        * @param headers ListSubHeaders
@@ -1021,7 +1079,7 @@ namespace AliGeniessp_1_0
       Models::ListSubResponse listSubWithOptions(const Models::ListSubRequest &tmpReq, const Models::ListSubHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 订阅列表
+       * @summary The user has subscribed to the list.
        *
        * @param request ListSubRequest
        * @return ListSubResponse
@@ -1029,7 +1087,7 @@ namespace AliGeniessp_1_0
       Models::ListSubResponse listSub(const Models::ListSubRequest &request);
 
       /**
-       * @summary 订阅专辑元数据列表
+       * @summary Album List.
        *
        * @param tmpReq ListSubAlbumRequest
        * @param headers ListSubAlbumHeaders
@@ -1039,7 +1097,7 @@ namespace AliGeniessp_1_0
       Models::ListSubAlbumResponse listSubAlbumWithOptions(const Models::ListSubAlbumRequest &tmpReq, const Models::ListSubAlbumHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 订阅专辑元数据列表
+       * @summary Album List.
        *
        * @param request ListSubAlbumRequest
        * @return ListSubAlbumResponse
@@ -1047,7 +1105,7 @@ namespace AliGeniessp_1_0
       Models::ListSubAlbumResponse listSubAlbum(const Models::ListSubAlbumRequest &request);
 
       /**
-       * @summary 内容订阅元数据分类
+       * @summary Album categorization.
        *
        * @param request ListSubscriptionAlbumCategoryRequest
        * @param headers ListSubscriptionAlbumCategoryHeaders
@@ -1057,7 +1115,7 @@ namespace AliGeniessp_1_0
       Models::ListSubscriptionAlbumCategoryResponse listSubscriptionAlbumCategoryWithOptions(const Models::ListSubscriptionAlbumCategoryRequest &request, const Models::ListSubscriptionAlbumCategoryHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 内容订阅元数据分类
+       * @summary Album categorization.
        *
        * @param request ListSubscriptionAlbumCategoryRequest
        * @return ListSubscriptionAlbumCategoryResponse
@@ -1065,7 +1123,7 @@ namespace AliGeniessp_1_0
       Models::ListSubscriptionAlbumCategoryResponse listSubscriptionAlbumCategory(const Models::ListSubscriptionAlbumCategoryRequest &request);
 
       /**
-       * @summary 获取留言列表
+       * @summary Query the list of user message records based on the query conditions, including the start time and the number of entries to return.
        *
        * @param tmpReq ListUserMessageRequest
        * @param headers ListUserMessageHeaders
@@ -1075,7 +1133,7 @@ namespace AliGeniessp_1_0
       Models::ListUserMessageResponse listUserMessageWithOptions(const Models::ListUserMessageRequest &tmpReq, const Models::ListUserMessageHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取留言列表
+       * @summary Query the list of user message records based on the query conditions, including the start time and the number of entries to return.
        *
        * @param request ListUserMessageRequest
        * @return ListUserMessageResponse
@@ -1083,7 +1141,9 @@ namespace AliGeniessp_1_0
       Models::ListUserMessageResponse listUserMessage(const Models::ListUserMessageRequest &request);
 
       /**
-       * @summary 移动轻纳管
+       * @summary Shift the project to obtain recommended songs, including daily recommendations, popular songs, and genre-based playlists.
+       *
+       * @description Different scenarios (such as daily recommendations and popular songs) can be distinguished by the Type parameter.
        *
        * @param tmpReq MobileRecommendRequest
        * @param headers MobileRecommendHeaders
@@ -1093,7 +1153,9 @@ namespace AliGeniessp_1_0
       Models::MobileRecommendResponse mobileRecommendWithOptions(const Models::MobileRecommendRequest &tmpReq, const Models::MobileRecommendHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 移动轻纳管
+       * @summary Shift the project to obtain recommended songs, including daily recommendations, popular songs, and genre-based playlists.
+       *
+       * @description Different scenarios (such as daily recommendations and popular songs) can be distinguished by the Type parameter.
        *
        * @param request MobileRecommendRequest
        * @return MobileRecommendResponse
@@ -1101,7 +1163,7 @@ namespace AliGeniessp_1_0
       Models::MobileRecommendResponse mobileRecommend(const Models::MobileRecommendRequest &request);
 
       /**
-       * @summary 播放暂停控制
+       * @summary Playback and pause control.
        *
        * @param tmpReq PlayAndPauseControlRequest
        * @param headers PlayAndPauseControlHeaders
@@ -1111,7 +1173,7 @@ namespace AliGeniessp_1_0
       Models::PlayAndPauseControlResponse playAndPauseControlWithOptions(const Models::PlayAndPauseControlRequest &tmpReq, const Models::PlayAndPauseControlHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 播放暂停控制
+       * @summary Playback and pause control.
        *
        * @param request PlayAndPauseControlRequest
        * @return PlayAndPauseControlResponse
@@ -1119,7 +1181,7 @@ namespace AliGeniessp_1_0
       Models::PlayAndPauseControlResponse playAndPauseControl(const Models::PlayAndPauseControlRequest &request);
 
       /**
-       * @summary 播放模式切换
+       * @summary Switch playback mode.
        *
        * @param tmpReq PlayModeControlRequest
        * @param headers PlayModeControlHeaders
@@ -1129,7 +1191,7 @@ namespace AliGeniessp_1_0
       Models::PlayModeControlResponse playModeControlWithOptions(const Models::PlayModeControlRequest &tmpReq, const Models::PlayModeControlHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 播放模式切换
+       * @summary Switch playback mode.
        *
        * @param request PlayModeControlRequest
        * @return PlayModeControlResponse
@@ -1137,7 +1199,7 @@ namespace AliGeniessp_1_0
       Models::PlayModeControlResponse playModeControl(const Models::PlayModeControlRequest &request);
 
       /**
-       * @summary 上下首控制
+       * @summary Control the next or previous track in the created playlist.
        *
        * @param tmpReq PreviousAndNextControlRequest
        * @param headers PreviousAndNextControlHeaders
@@ -1147,7 +1209,7 @@ namespace AliGeniessp_1_0
       Models::PreviousAndNextControlResponse previousAndNextControlWithOptions(const Models::PreviousAndNextControlRequest &tmpReq, const Models::PreviousAndNextControlHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 上下首控制
+       * @summary Control the next or previous track in the created playlist.
        *
        * @param request PreviousAndNextControlRequest
        * @return PreviousAndNextControlResponse
@@ -1155,7 +1217,7 @@ namespace AliGeniessp_1_0
       Models::PreviousAndNextControlResponse previousAndNextControl(const Models::PreviousAndNextControlRequest &request);
 
       /**
-       * @summary 进度控制
+       * @summary Progress control.
        *
        * @param tmpReq ProgressControlRequest
        * @param headers ProgressControlHeaders
@@ -1165,7 +1227,7 @@ namespace AliGeniessp_1_0
       Models::ProgressControlResponse progressControlWithOptions(const Models::ProgressControlRequest &tmpReq, const Models::ProgressControlHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 进度控制
+       * @summary Progress control.
        *
        * @param request ProgressControlRequest
        * @return ProgressControlResponse
@@ -1173,7 +1235,7 @@ namespace AliGeniessp_1_0
       Models::ProgressControlResponse progressControl(const Models::ProgressControlRequest &request);
 
       /**
-       * @summary 获取闹钟音乐类型列表
+       * @summary Obtain the collection of alarm music types supported by the device.
        *
        * @param tmpReq QueryMusicTypeRequest
        * @param headers QueryMusicTypeHeaders
@@ -1183,7 +1245,7 @@ namespace AliGeniessp_1_0
       Models::QueryMusicTypeResponse queryMusicTypeWithOptions(const Models::QueryMusicTypeRequest &tmpReq, const Models::QueryMusicTypeHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取闹钟音乐类型列表
+       * @summary Obtain the collection of alarm music types supported by the device.
        *
        * @param request QueryMusicTypeRequest
        * @return QueryMusicTypeResponse
@@ -1191,7 +1253,7 @@ namespace AliGeniessp_1_0
       Models::QueryMusicTypeResponse queryMusicType(const Models::QueryMusicTypeRequest &request);
 
       /**
-       * @summary 通过tme用户id获取授权的天猫精灵用户+设备列表
+       * @summary Obtain the list of authorized Tmall Genie users and their devices by using the TME user ID, for use by KuGou Cloud Push Song service
        *
        * @param request QueryUserDeviceListByTmeUserIdRequest
        * @param headers QueryUserDeviceListByTmeUserIdHeaders
@@ -1201,7 +1263,7 @@ namespace AliGeniessp_1_0
       Models::QueryUserDeviceListByTmeUserIdResponse queryUserDeviceListByTmeUserIdWithOptions(const Models::QueryUserDeviceListByTmeUserIdRequest &request, const Models::QueryUserDeviceListByTmeUserIdHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过tme用户id获取授权的天猫精灵用户+设备列表
+       * @summary Obtain the list of authorized Tmall Genie users and their devices by using the TME user ID, for use by KuGou Cloud Push Song service
        *
        * @param request QueryUserDeviceListByTmeUserIdRequest
        * @return QueryUserDeviceListByTmeUserIdResponse
@@ -1209,7 +1271,7 @@ namespace AliGeniessp_1_0
       Models::QueryUserDeviceListByTmeUserIdResponse queryUserDeviceListByTmeUserId(const Models::QueryUserDeviceListByTmeUserIdRequest &request);
 
       /**
-       * @summary 读取留言
+       * @summary Set a message to read status.
        *
        * @param tmpReq ReadMessageRequest
        * @param headers ReadMessageHeaders
@@ -1219,7 +1281,7 @@ namespace AliGeniessp_1_0
       Models::ReadMessageResponse readMessageWithOptions(const Models::ReadMessageRequest &tmpReq, const Models::ReadMessageHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 读取留言
+       * @summary Set a message to read status.
        *
        * @param request ReadMessageRequest
        * @return ReadMessageResponse
@@ -1227,7 +1289,9 @@ namespace AliGeniessp_1_0
       Models::ReadMessageResponse readMessage(const Models::ReadMessageRequest &request);
 
       /**
-       * @summary 扫描二维码激活绑定设备
+       * @summary A screen-equipped device completes activation and attachment between the user and the device by scanning a QR code.
+       *
+       * @description Perform activation and attachment by scanning the QR code related to activation and attachment displayed on the device.
        *
        * @param tmpReq ScanCodeBindRequest
        * @param headers ScanCodeBindHeaders
@@ -1237,7 +1301,9 @@ namespace AliGeniessp_1_0
       Models::ScanCodeBindResponse scanCodeBindWithOptions(const Models::ScanCodeBindRequest &tmpReq, const Models::ScanCodeBindHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 扫描二维码激活绑定设备
+       * @summary A screen-equipped device completes activation and attachment between the user and the device by scanning a QR code.
+       *
+       * @description Perform activation and attachment by scanning the QR code related to activation and attachment displayed on the device.
        *
        * @param request ScanCodeBindRequest
        * @return ScanCodeBindResponse
@@ -1245,7 +1311,7 @@ namespace AliGeniessp_1_0
       Models::ScanCodeBindResponse scanCodeBind(const Models::ScanCodeBindRequest &request);
 
       /**
-       * @summary 选品池投放能力
+       * @summary Query the content of a selection pool by its ID.
        *
        * @param tmpReq ScgSearchRequest
        * @param headers ScgSearchHeaders
@@ -1255,7 +1321,7 @@ namespace AliGeniessp_1_0
       Models::ScgSearchResponse scgSearchWithOptions(const Models::ScgSearchRequest &tmpReq, const Models::ScgSearchHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 选品池投放能力
+       * @summary Query the content of a selection pool by its ID.
        *
        * @param request ScgSearchRequest
        * @return ScgSearchResponse
@@ -1263,7 +1329,7 @@ namespace AliGeniessp_1_0
       Models::ScgSearchResponse scgSearch(const Models::ScgSearchRequest &request);
 
       /**
-       * @summary 按照特定的搜索条件搜索
+       * @summary Search according to specific search criteria.
        *
        * @param tmpReq SearchContentRequest
        * @param headers SearchContentHeaders
@@ -1273,7 +1339,7 @@ namespace AliGeniessp_1_0
       Models::SearchContentResponse searchContentWithOptions(const Models::SearchContentRequest &tmpReq, const Models::SearchContentHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 按照特定的搜索条件搜索
+       * @summary Search according to specific search criteria.
        *
        * @param request SearchContentRequest
        * @return SearchContentResponse
@@ -1281,7 +1347,7 @@ namespace AliGeniessp_1_0
       Models::SearchContentResponse searchContent(const Models::SearchContentRequest &request);
 
       /**
-       * @summary 发送留言
+       * @summary Send a message.
        *
        * @param tmpReq SendMessageRequest
        * @param headers SendMessageHeaders
@@ -1291,7 +1357,7 @@ namespace AliGeniessp_1_0
       Models::SendMessageResponse sendMessageWithOptions(const Models::SendMessageRequest &tmpReq, const Models::SendMessageHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发送留言
+       * @summary Send a message.
        *
        * @param request SendMessageRequest
        * @return SendMessageResponse
@@ -1299,7 +1365,7 @@ namespace AliGeniessp_1_0
       Models::SendMessageResponse sendMessage(const Models::SendMessageRequest &request);
 
       /**
-       * @summary 修改设备设置
+       * @summary Modify the user settings of a device.
        *
        * @param tmpReq SetDeviceSettingRequest
        * @param headers SetDeviceSettingHeaders
@@ -1309,7 +1375,7 @@ namespace AliGeniessp_1_0
       Models::SetDeviceSettingResponse setDeviceSettingWithOptions(const Models::SetDeviceSettingRequest &tmpReq, const Models::SetDeviceSettingHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改设备设置
+       * @summary Modify the user settings of a device.
        *
        * @param request SetDeviceSettingRequest
        * @return SetDeviceSettingResponse
@@ -1317,7 +1383,7 @@ namespace AliGeniessp_1_0
       Models::SetDeviceSettingResponse setDeviceSetting(const Models::SetDeviceSettingRequest &request);
 
       /**
-       * @summary 三方即时信息数据变更事件推送
+       * @summary Third-party real-time information data change event push
        *
        * @param request ThirdImmediateMsgPushRequest
        * @param headers ThirdImmediateMsgPushHeaders
@@ -1327,7 +1393,7 @@ namespace AliGeniessp_1_0
       Models::ThirdImmediateMsgPushResponse thirdImmediateMsgPushWithOptions(const Models::ThirdImmediateMsgPushRequest &request, const Models::ThirdImmediateMsgPushHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 三方即时信息数据变更事件推送
+       * @summary Third-party real-time information data change event push
        *
        * @param request ThirdImmediateMsgPushRequest
        * @return ThirdImmediateMsgPushResponse
@@ -1335,7 +1401,13 @@ namespace AliGeniessp_1_0
       Models::ThirdImmediateMsgPushResponse thirdImmediateMsgPush(const Models::ThirdImmediateMsgPushRequest &request);
 
       /**
-       * @summary 解除三方和精灵账号的关系
+       * @summary Detach the relationship between a third-party account and a Tmall Genie account by using a logon credential.
+       *
+       * @description Note: When the logon credential expires, the integrator must initiate the authorization logon flow again to obtain a new logon credential (entry service API: AuthLoginWithThirdUserInfo).
+       * - Invoke the service API with the logon credential (LoginStateAccessToken) parameter via the Java software development kit (SDK). For SDKs in other languages, consult Tmall Genie developers during integration.  
+       * If the API call throws a TeaException and TeaException.code is "InvalidAuthentication", the logon credential has expired.
+       * - Invoke the service API by sending an HTTP request with the logon credential (LoginStateAccessToken) parameter.  
+       * If the HTTP response status code returned by the API call is 400, the logon credential has expired.
        *
        * @param request UnbindAligenieUserRequest
        * @param headers UnbindAligenieUserHeaders
@@ -1345,7 +1417,13 @@ namespace AliGeniessp_1_0
       Models::UnbindAligenieUserResponse unbindAligenieUserWithOptions(const Models::UnbindAligenieUserRequest &request, const Models::UnbindAligenieUserHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解除三方和精灵账号的关系
+       * @summary Detach the relationship between a third-party account and a Tmall Genie account by using a logon credential.
+       *
+       * @description Note: When the logon credential expires, the integrator must initiate the authorization logon flow again to obtain a new logon credential (entry service API: AuthLoginWithThirdUserInfo).
+       * - Invoke the service API with the logon credential (LoginStateAccessToken) parameter via the Java software development kit (SDK). For SDKs in other languages, consult Tmall Genie developers during integration.  
+       * If the API call throws a TeaException and TeaException.code is "InvalidAuthentication", the logon credential has expired.
+       * - Invoke the service API by sending an HTTP request with the logon credential (LoginStateAccessToken) parameter.  
+       * If the HTTP response status code returned by the API call is 400, the logon credential has expired.
        *
        * @param request UnbindAligenieUserRequest
        * @return UnbindAligenieUserResponse
@@ -1353,7 +1431,7 @@ namespace AliGeniessp_1_0
       Models::UnbindAligenieUserResponse unbindAligenieUser(const Models::UnbindAligenieUserRequest &request);
 
       /**
-       * @summary 解绑设备
+       * @summary Detach the binding relationship based on the user\\"s open information and the device\\"s open information.
        *
        * @param tmpReq UnbindDeviceRequest
        * @param headers UnbindDeviceHeaders
@@ -1363,7 +1441,7 @@ namespace AliGeniessp_1_0
       Models::UnbindDeviceResponse unbindDeviceWithOptions(const Models::UnbindDeviceRequest &tmpReq, const Models::UnbindDeviceHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 解绑设备
+       * @summary Detach the binding relationship based on the user\\"s open information and the device\\"s open information.
        *
        * @param request UnbindDeviceRequest
        * @return UnbindDeviceResponse
@@ -1371,7 +1449,7 @@ namespace AliGeniessp_1_0
       Models::UnbindDeviceResponse unbindDevice(const Models::UnbindDeviceRequest &request);
 
       /**
-       * @summary 更新闹钟
+       * @summary Update an alarm, including its trigger time, loop type, and music.
        *
        * @param tmpReq UpdateAlarmRequest
        * @param headers UpdateAlarmHeaders
@@ -1381,7 +1459,7 @@ namespace AliGeniessp_1_0
       Models::UpdateAlarmResponse updateAlarmWithOptions(const Models::UpdateAlarmRequest &tmpReq, const Models::UpdateAlarmHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新闹钟
+       * @summary Update an alarm, including its trigger time, loop type, and music.
        *
        * @param request UpdateAlarmRequest
        * @return UpdateAlarmResponse

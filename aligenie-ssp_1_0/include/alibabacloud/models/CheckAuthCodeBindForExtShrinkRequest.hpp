@@ -35,45 +35,53 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authCode_ != nullptr
-        && this->encodeKey_ != nullptr && this->encodeType_ != nullptr && this->userInfoShrink_ != nullptr; };
+    virtual bool empty() const override { return this->authCode_ == nullptr
+        && this->encodeKey_ == nullptr && this->encodeType_ == nullptr && this->userInfoShrink_ == nullptr; };
     // authCode Field Functions 
     bool hasAuthCode() const { return this->authCode_ != nullptr;};
     void deleteAuthCode() { this->authCode_ = nullptr;};
-    inline string authCode() const { DARABONBA_PTR_GET_DEFAULT(authCode_, "") };
+    inline string getAuthCode() const { DARABONBA_PTR_GET_DEFAULT(authCode_, "") };
     inline CheckAuthCodeBindForExtShrinkRequest& setAuthCode(string authCode) { DARABONBA_PTR_SET_VALUE(authCode_, authCode) };
 
 
     // encodeKey Field Functions 
     bool hasEncodeKey() const { return this->encodeKey_ != nullptr;};
     void deleteEncodeKey() { this->encodeKey_ = nullptr;};
-    inline string encodeKey() const { DARABONBA_PTR_GET_DEFAULT(encodeKey_, "") };
+    inline string getEncodeKey() const { DARABONBA_PTR_GET_DEFAULT(encodeKey_, "") };
     inline CheckAuthCodeBindForExtShrinkRequest& setEncodeKey(string encodeKey) { DARABONBA_PTR_SET_VALUE(encodeKey_, encodeKey) };
 
 
     // encodeType Field Functions 
     bool hasEncodeType() const { return this->encodeType_ != nullptr;};
     void deleteEncodeType() { this->encodeType_ = nullptr;};
-    inline string encodeType() const { DARABONBA_PTR_GET_DEFAULT(encodeType_, "") };
+    inline string getEncodeType() const { DARABONBA_PTR_GET_DEFAULT(encodeType_, "") };
     inline CheckAuthCodeBindForExtShrinkRequest& setEncodeType(string encodeType) { DARABONBA_PTR_SET_VALUE(encodeType_, encodeType) };
 
 
     // userInfoShrink Field Functions 
     bool hasUserInfoShrink() const { return this->userInfoShrink_ != nullptr;};
     void deleteUserInfoShrink() { this->userInfoShrink_ = nullptr;};
-    inline string userInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
+    inline string getUserInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
     inline CheckAuthCodeBindForExtShrinkRequest& setUserInfoShrink(string userInfoShrink) { DARABONBA_PTR_SET_VALUE(userInfoShrink_, userInfoShrink) };
 
 
   protected:
+    // The authCode obtained by specifying a user ID
+    // 
     // This parameter is required.
-    std::shared_ptr<string> authCode_ = nullptr;
+    shared_ptr<string> authCode_ {};
+    // The value corresponding to the encoding type. Enter the Project ID of the project containing the ProductKey of this product in the Tmall Genie AI platform.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> encodeKey_ = nullptr;
+    shared_ptr<string> encodeKey_ {};
+    // Encoding type. Enter PROJECT_ID here.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> encodeType_ = nullptr;
+    shared_ptr<string> encodeType_ {};
+    // List of user identifier information.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> userInfoShrink_ = nullptr;
+    shared_ptr<string> userInfoShrink_ {};
   };
 
   } // namespace Models

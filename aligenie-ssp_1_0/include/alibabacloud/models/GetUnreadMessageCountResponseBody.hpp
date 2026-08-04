@@ -33,33 +33,36 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->message_ != nullptr && this->result_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->message_ == nullptr && this->result_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline GetUnreadMessageCountResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetUnreadMessageCountResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline int32_t result() const { DARABONBA_PTR_GET_DEFAULT(result_, 0) };
+    inline int32_t getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, 0) };
     inline GetUnreadMessageCountResponseBody& setResult(int32_t result) { DARABONBA_PTR_SET_VALUE(result_, result) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<int32_t> result_ = nullptr;
+    // Status code returned by the service
+    shared_ptr<string> code_ {};
+    // Error message
+    shared_ptr<string> message_ {};
+    // Number of unread messages
+    shared_ptr<int32_t> result_ {};
   };
 
   } // namespace Models

@@ -29,16 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deviceInfosShrink_ != nullptr; };
+    virtual bool empty() const override { return this->deviceInfosShrink_ == nullptr; };
     // deviceInfosShrink Field Functions 
     bool hasDeviceInfosShrink() const { return this->deviceInfosShrink_ != nullptr;};
     void deleteDeviceInfosShrink() { this->deviceInfosShrink_ = nullptr;};
-    inline string deviceInfosShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfosShrink_, "") };
+    inline string getDeviceInfosShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfosShrink_, "") };
     inline ListDeviceBasicInfoShrinkRequest& setDeviceInfosShrink(string deviceInfosShrink) { DARABONBA_PTR_SET_VALUE(deviceInfosShrink_, deviceInfosShrink) };
 
 
   protected:
-    std::shared_ptr<string> deviceInfosShrink_ = nullptr;
+    // List of device identity information.
+    shared_ptr<string> deviceInfosShrink_ {};
   };
 
   } // namespace Models

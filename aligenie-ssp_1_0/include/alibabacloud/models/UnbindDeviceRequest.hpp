@@ -2,8 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_UNBINDDEVICEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UNBINDDEVICEREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/UnbindDeviceRequestDeviceInfo.hpp>
-#include <alibabacloud/models/UnbindDeviceRequestUserInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,31 +31,209 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deviceInfo_ != nullptr
-        && this->userInfo_ != nullptr; };
+    class UserInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const UserInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(EncodeKey, encodeKey_);
+        DARABONBA_PTR_TO_JSON(EncodeType, encodeType_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(IdType, idType_);
+        DARABONBA_PTR_TO_JSON(OrganizationId, organizationId_);
+      };
+      friend void from_json(const Darabonba::Json& j, UserInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(EncodeKey, encodeKey_);
+        DARABONBA_PTR_FROM_JSON(EncodeType, encodeType_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(IdType, idType_);
+        DARABONBA_PTR_FROM_JSON(OrganizationId, organizationId_);
+      };
+      UserInfo() = default ;
+      UserInfo(const UserInfo &) = default ;
+      UserInfo(UserInfo &&) = default ;
+      UserInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~UserInfo() = default ;
+      UserInfo& operator=(const UserInfo &) = default ;
+      UserInfo& operator=(UserInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->encodeKey_ == nullptr
+        && this->encodeType_ == nullptr && this->id_ == nullptr && this->idType_ == nullptr && this->organizationId_ == nullptr; };
+      // encodeKey Field Functions 
+      bool hasEncodeKey() const { return this->encodeKey_ != nullptr;};
+      void deleteEncodeKey() { this->encodeKey_ = nullptr;};
+      inline string getEncodeKey() const { DARABONBA_PTR_GET_DEFAULT(encodeKey_, "") };
+      inline UserInfo& setEncodeKey(string encodeKey) { DARABONBA_PTR_SET_VALUE(encodeKey_, encodeKey) };
+
+
+      // encodeType Field Functions 
+      bool hasEncodeType() const { return this->encodeType_ != nullptr;};
+      void deleteEncodeType() { this->encodeType_ = nullptr;};
+      inline string getEncodeType() const { DARABONBA_PTR_GET_DEFAULT(encodeType_, "") };
+      inline UserInfo& setEncodeType(string encodeType) { DARABONBA_PTR_SET_VALUE(encodeType_, encodeType) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline UserInfo& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // idType Field Functions 
+      bool hasIdType() const { return this->idType_ != nullptr;};
+      void deleteIdType() { this->idType_ = nullptr;};
+      inline string getIdType() const { DARABONBA_PTR_GET_DEFAULT(idType_, "") };
+      inline UserInfo& setIdType(string idType) { DARABONBA_PTR_SET_VALUE(idType_, idType) };
+
+
+      // organizationId Field Functions 
+      bool hasOrganizationId() const { return this->organizationId_ != nullptr;};
+      void deleteOrganizationId() { this->organizationId_ = nullptr;};
+      inline string getOrganizationId() const { DARABONBA_PTR_GET_DEFAULT(organizationId_, "") };
+      inline UserInfo& setOrganizationId(string organizationId) { DARABONBA_PTR_SET_VALUE(organizationId_, organizationId) };
+
+
+    protected:
+      // The value corresponding to the encoding type, which is the Project ID of the project where this product resides. You can view it in the Tmall Genie AI Platform console.
+      // 
+      // This parameter is required.
+      shared_ptr<string> encodeKey_ {};
+      // Encoding type. Enter **PROJECT_ID** here.
+      // 
+      // This parameter is required.
+      shared_ptr<string> encodeType_ {};
+      // User identifier. Enter the value of userOpenId or userUnionId.
+      // 
+      // This parameter is required.
+      shared_ptr<string> id_ {};
+      // The type of User ID:  
+      // - OPEN_ID: The default user ID identity.  
+      // - UNION_ID: The organization-dimension user ID identity. You must request an organization in advance on the Open Platform.
+      // 
+      // This parameter is required.
+      shared_ptr<string> idType_ {};
+      // Organization ID. Required if IdType is UNION_ID.
+      shared_ptr<string> organizationId_ {};
+    };
+
+    class DeviceInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DeviceInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(EncodeKey, encodeKey_);
+        DARABONBA_PTR_TO_JSON(EncodeType, encodeType_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(IdType, idType_);
+        DARABONBA_PTR_TO_JSON(OrganizationId, organizationId_);
+      };
+      friend void from_json(const Darabonba::Json& j, DeviceInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(EncodeKey, encodeKey_);
+        DARABONBA_PTR_FROM_JSON(EncodeType, encodeType_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(IdType, idType_);
+        DARABONBA_PTR_FROM_JSON(OrganizationId, organizationId_);
+      };
+      DeviceInfo() = default ;
+      DeviceInfo(const DeviceInfo &) = default ;
+      DeviceInfo(DeviceInfo &&) = default ;
+      DeviceInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DeviceInfo() = default ;
+      DeviceInfo& operator=(const DeviceInfo &) = default ;
+      DeviceInfo& operator=(DeviceInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->encodeKey_ == nullptr
+        && this->encodeType_ == nullptr && this->id_ == nullptr && this->idType_ == nullptr && this->organizationId_ == nullptr; };
+      // encodeKey Field Functions 
+      bool hasEncodeKey() const { return this->encodeKey_ != nullptr;};
+      void deleteEncodeKey() { this->encodeKey_ = nullptr;};
+      inline string getEncodeKey() const { DARABONBA_PTR_GET_DEFAULT(encodeKey_, "") };
+      inline DeviceInfo& setEncodeKey(string encodeKey) { DARABONBA_PTR_SET_VALUE(encodeKey_, encodeKey) };
+
+
+      // encodeType Field Functions 
+      bool hasEncodeType() const { return this->encodeType_ != nullptr;};
+      void deleteEncodeType() { this->encodeType_ = nullptr;};
+      inline string getEncodeType() const { DARABONBA_PTR_GET_DEFAULT(encodeType_, "") };
+      inline DeviceInfo& setEncodeType(string encodeType) { DARABONBA_PTR_SET_VALUE(encodeType_, encodeType) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline DeviceInfo& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // idType Field Functions 
+      bool hasIdType() const { return this->idType_ != nullptr;};
+      void deleteIdType() { this->idType_ = nullptr;};
+      inline string getIdType() const { DARABONBA_PTR_GET_DEFAULT(idType_, "") };
+      inline DeviceInfo& setIdType(string idType) { DARABONBA_PTR_SET_VALUE(idType_, idType) };
+
+
+      // organizationId Field Functions 
+      bool hasOrganizationId() const { return this->organizationId_ != nullptr;};
+      void deleteOrganizationId() { this->organizationId_ = nullptr;};
+      inline string getOrganizationId() const { DARABONBA_PTR_GET_DEFAULT(organizationId_, "") };
+      inline DeviceInfo& setOrganizationId(string organizationId) { DARABONBA_PTR_SET_VALUE(organizationId_, organizationId) };
+
+
+    protected:
+      // The value corresponding to the encoding type, which is the Project ID of the project where the product resides. You can view it in the Tmall Genie AI platform console.
+      // 
+      // This parameter is required.
+      shared_ptr<string> encodeKey_ {};
+      // Encoding type. Set this parameter to **PROJECT_ID**.
+      // 
+      // This parameter is required.
+      shared_ptr<string> encodeType_ {};
+      // Device identifier. Enter the value of deviceOpenId or deviceUnionId.
+      // 
+      // This parameter is required.
+      shared_ptr<string> id_ {};
+      // The type of Device ID.  
+      // - OPEN_ID: The default device ID identity.  
+      // - UNION_ID: The organization-dimension device ID identity. You must request an organization in advance on the Open Platform.
+      // 
+      // This parameter is required.
+      shared_ptr<string> idType_ {};
+      // Organization ID. This parameter is required if IdType is set to UNION_ID.
+      shared_ptr<string> organizationId_ {};
+    };
+
+    virtual bool empty() const override { return this->deviceInfo_ == nullptr
+        && this->userInfo_ == nullptr; };
     // deviceInfo Field Functions 
     bool hasDeviceInfo() const { return this->deviceInfo_ != nullptr;};
     void deleteDeviceInfo() { this->deviceInfo_ = nullptr;};
-    inline const UnbindDeviceRequestDeviceInfo & deviceInfo() const { DARABONBA_PTR_GET_CONST(deviceInfo_, UnbindDeviceRequestDeviceInfo) };
-    inline UnbindDeviceRequestDeviceInfo deviceInfo() { DARABONBA_PTR_GET(deviceInfo_, UnbindDeviceRequestDeviceInfo) };
-    inline UnbindDeviceRequest& setDeviceInfo(const UnbindDeviceRequestDeviceInfo & deviceInfo) { DARABONBA_PTR_SET_VALUE(deviceInfo_, deviceInfo) };
-    inline UnbindDeviceRequest& setDeviceInfo(UnbindDeviceRequestDeviceInfo && deviceInfo) { DARABONBA_PTR_SET_RVALUE(deviceInfo_, deviceInfo) };
+    inline const UnbindDeviceRequest::DeviceInfo & getDeviceInfo() const { DARABONBA_PTR_GET_CONST(deviceInfo_, UnbindDeviceRequest::DeviceInfo) };
+    inline UnbindDeviceRequest::DeviceInfo getDeviceInfo() { DARABONBA_PTR_GET(deviceInfo_, UnbindDeviceRequest::DeviceInfo) };
+    inline UnbindDeviceRequest& setDeviceInfo(const UnbindDeviceRequest::DeviceInfo & deviceInfo) { DARABONBA_PTR_SET_VALUE(deviceInfo_, deviceInfo) };
+    inline UnbindDeviceRequest& setDeviceInfo(UnbindDeviceRequest::DeviceInfo && deviceInfo) { DARABONBA_PTR_SET_RVALUE(deviceInfo_, deviceInfo) };
 
 
     // userInfo Field Functions 
     bool hasUserInfo() const { return this->userInfo_ != nullptr;};
     void deleteUserInfo() { this->userInfo_ = nullptr;};
-    inline const UnbindDeviceRequestUserInfo & userInfo() const { DARABONBA_PTR_GET_CONST(userInfo_, UnbindDeviceRequestUserInfo) };
-    inline UnbindDeviceRequestUserInfo userInfo() { DARABONBA_PTR_GET(userInfo_, UnbindDeviceRequestUserInfo) };
-    inline UnbindDeviceRequest& setUserInfo(const UnbindDeviceRequestUserInfo & userInfo) { DARABONBA_PTR_SET_VALUE(userInfo_, userInfo) };
-    inline UnbindDeviceRequest& setUserInfo(UnbindDeviceRequestUserInfo && userInfo) { DARABONBA_PTR_SET_RVALUE(userInfo_, userInfo) };
+    inline const UnbindDeviceRequest::UserInfo & getUserInfo() const { DARABONBA_PTR_GET_CONST(userInfo_, UnbindDeviceRequest::UserInfo) };
+    inline UnbindDeviceRequest::UserInfo getUserInfo() { DARABONBA_PTR_GET(userInfo_, UnbindDeviceRequest::UserInfo) };
+    inline UnbindDeviceRequest& setUserInfo(const UnbindDeviceRequest::UserInfo & userInfo) { DARABONBA_PTR_SET_VALUE(userInfo_, userInfo) };
+    inline UnbindDeviceRequest& setUserInfo(UnbindDeviceRequest::UserInfo && userInfo) { DARABONBA_PTR_SET_RVALUE(userInfo_, userInfo) };
 
 
   protected:
+    // List of device identity information.
+    // 
     // This parameter is required.
-    std::shared_ptr<UnbindDeviceRequestDeviceInfo> deviceInfo_ = nullptr;
+    shared_ptr<UnbindDeviceRequest::DeviceInfo> deviceInfo_ {};
+    // List of user identifier information.
+    // 
     // This parameter is required.
-    std::shared_ptr<UnbindDeviceRequestUserInfo> userInfo_ = nullptr;
+    shared_ptr<UnbindDeviceRequest::UserInfo> userInfo_ {};
   };
 
   } // namespace Models

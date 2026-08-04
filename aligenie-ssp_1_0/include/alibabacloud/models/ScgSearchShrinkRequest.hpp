@@ -31,27 +31,31 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->scgFilterShrink_ != nullptr
-        && this->topicId_ != nullptr; };
+    virtual bool empty() const override { return this->scgFilterShrink_ == nullptr
+        && this->topicId_ == nullptr; };
     // scgFilterShrink Field Functions 
     bool hasScgFilterShrink() const { return this->scgFilterShrink_ != nullptr;};
     void deleteScgFilterShrink() { this->scgFilterShrink_ = nullptr;};
-    inline string scgFilterShrink() const { DARABONBA_PTR_GET_DEFAULT(scgFilterShrink_, "") };
+    inline string getScgFilterShrink() const { DARABONBA_PTR_GET_DEFAULT(scgFilterShrink_, "") };
     inline ScgSearchShrinkRequest& setScgFilterShrink(string scgFilterShrink) { DARABONBA_PTR_SET_VALUE(scgFilterShrink_, scgFilterShrink) };
 
 
     // topicId Field Functions 
     bool hasTopicId() const { return this->topicId_ != nullptr;};
     void deleteTopicId() { this->topicId_ = nullptr;};
-    inline string topicId() const { DARABONBA_PTR_GET_DEFAULT(topicId_, "") };
+    inline string getTopicId() const { DARABONBA_PTR_GET_DEFAULT(topicId_, "") };
     inline ScgSearchShrinkRequest& setTopicId(string topicId) { DARABONBA_PTR_SET_VALUE(topicId_, topicId) };
 
 
   protected:
+    // Query filter
+    // 
     // This parameter is required.
-    std::shared_ptr<string> scgFilterShrink_ = nullptr;
+    shared_ptr<string> scgFilterShrink_ {};
+    // Selection pool ID. Optional values: MC201132 (Ethnic Chinese Style), MC201136 (Pop Music), MC201139 (Sweet Love), MC201133 (Folk), MC201137 (Relaxing Reading), MC201138 (Happiness), PA202029 (Stories), PA202030 (Children\\"s Songs), PA202028 (Chinese Classics and History), PA202032 (Encyclopedia), PA202031 (English Children\\"s Songs)
+    // 
     // This parameter is required.
-    std::shared_ptr<string> topicId_ = nullptr;
+    shared_ptr<string> topicId_ {};
   };
 
   } // namespace Models

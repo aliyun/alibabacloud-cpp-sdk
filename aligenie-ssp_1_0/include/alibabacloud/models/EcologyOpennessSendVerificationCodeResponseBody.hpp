@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_ECOLOGYOPENNESSSENDVERIFICATIONCODERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_ECOLOGYOPENNESSSENDVERIFICATIONCODERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/EcologyOpennessSendVerificationCodeResponseBodyResult.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,51 +37,100 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->message_ != nullptr && this->requestId_ != nullptr && this->result_ != nullptr && this->success_ != nullptr; };
+    class Result : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Result& obj) { 
+        DARABONBA_PTR_TO_JSON(ExpireIn, expireIn_);
+        DARABONBA_PTR_TO_JSON(RepeatInterval, repeatInterval_);
+      };
+      friend void from_json(const Darabonba::Json& j, Result& obj) { 
+        DARABONBA_PTR_FROM_JSON(ExpireIn, expireIn_);
+        DARABONBA_PTR_FROM_JSON(RepeatInterval, repeatInterval_);
+      };
+      Result() = default ;
+      Result(const Result &) = default ;
+      Result(Result &&) = default ;
+      Result(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Result() = default ;
+      Result& operator=(const Result &) = default ;
+      Result& operator=(Result &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->expireIn_ == nullptr
+        && this->repeatInterval_ == nullptr; };
+      // expireIn Field Functions 
+      bool hasExpireIn() const { return this->expireIn_ != nullptr;};
+      void deleteExpireIn() { this->expireIn_ = nullptr;};
+      inline int32_t getExpireIn() const { DARABONBA_PTR_GET_DEFAULT(expireIn_, 0) };
+      inline Result& setExpireIn(int32_t expireIn) { DARABONBA_PTR_SET_VALUE(expireIn_, expireIn) };
+
+
+      // repeatInterval Field Functions 
+      bool hasRepeatInterval() const { return this->repeatInterval_ != nullptr;};
+      void deleteRepeatInterval() { this->repeatInterval_ = nullptr;};
+      inline int32_t getRepeatInterval() const { DARABONBA_PTR_GET_DEFAULT(repeatInterval_, 0) };
+      inline Result& setRepeatInterval(int32_t repeatInterval) { DARABONBA_PTR_SET_VALUE(repeatInterval_, repeatInterval) };
+
+
+    protected:
+      // Validity Period (unit: seconds)
+      shared_ptr<int32_t> expireIn_ {};
+      // Recency before the next resend is allowed (unit: seconds)
+      shared_ptr<int32_t> repeatInterval_ {};
+    };
+
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->message_ == nullptr && this->requestId_ == nullptr && this->result_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline EcologyOpennessSendVerificationCodeResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline EcologyOpennessSendVerificationCodeResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline EcologyOpennessSendVerificationCodeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline const EcologyOpennessSendVerificationCodeResponseBodyResult & result() const { DARABONBA_PTR_GET_CONST(result_, EcologyOpennessSendVerificationCodeResponseBodyResult) };
-    inline EcologyOpennessSendVerificationCodeResponseBodyResult result() { DARABONBA_PTR_GET(result_, EcologyOpennessSendVerificationCodeResponseBodyResult) };
-    inline EcologyOpennessSendVerificationCodeResponseBody& setResult(const EcologyOpennessSendVerificationCodeResponseBodyResult & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
-    inline EcologyOpennessSendVerificationCodeResponseBody& setResult(EcologyOpennessSendVerificationCodeResponseBodyResult && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+    inline const EcologyOpennessSendVerificationCodeResponseBody::Result & getResult() const { DARABONBA_PTR_GET_CONST(result_, EcologyOpennessSendVerificationCodeResponseBody::Result) };
+    inline EcologyOpennessSendVerificationCodeResponseBody::Result getResult() { DARABONBA_PTR_GET(result_, EcologyOpennessSendVerificationCodeResponseBody::Result) };
+    inline EcologyOpennessSendVerificationCodeResponseBody& setResult(const EcologyOpennessSendVerificationCodeResponseBody::Result & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline EcologyOpennessSendVerificationCodeResponseBody& setResult(EcologyOpennessSendVerificationCodeResponseBody::Result && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline EcologyOpennessSendVerificationCodeResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<int32_t> code_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<EcologyOpennessSendVerificationCodeResponseBodyResult> result_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    // Response code
+    shared_ptr<int32_t> code_ {};
+    // Response message
+    shared_ptr<string> message_ {};
+    // Request ID
+    shared_ptr<string> requestId_ {};
+    // Response Result
+    shared_ptr<EcologyOpennessSendVerificationCodeResponseBody::Result> result_ {};
+    // Flag indicating whether the invocation succeeded
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

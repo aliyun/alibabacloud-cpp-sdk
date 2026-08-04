@@ -39,59 +39,67 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->botId_ != nullptr
-        && this->count_ != nullptr && this->deviceInfoShrink_ != nullptr && this->style_ != nullptr && this->type_ != nullptr && this->userInfoShrink_ != nullptr; };
+    virtual bool empty() const override { return this->botId_ == nullptr
+        && this->count_ == nullptr && this->deviceInfoShrink_ == nullptr && this->style_ == nullptr && this->type_ == nullptr && this->userInfoShrink_ == nullptr; };
     // botId Field Functions 
     bool hasBotId() const { return this->botId_ != nullptr;};
     void deleteBotId() { this->botId_ = nullptr;};
-    inline string botId() const { DARABONBA_PTR_GET_DEFAULT(botId_, "") };
+    inline string getBotId() const { DARABONBA_PTR_GET_DEFAULT(botId_, "") };
     inline MobileRecommendShrinkRequest& setBotId(string botId) { DARABONBA_PTR_SET_VALUE(botId_, botId) };
 
 
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline string count() const { DARABONBA_PTR_GET_DEFAULT(count_, "") };
+    inline string getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, "") };
     inline MobileRecommendShrinkRequest& setCount(string count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // deviceInfoShrink Field Functions 
     bool hasDeviceInfoShrink() const { return this->deviceInfoShrink_ != nullptr;};
     void deleteDeviceInfoShrink() { this->deviceInfoShrink_ = nullptr;};
-    inline string deviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
+    inline string getDeviceInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(deviceInfoShrink_, "") };
     inline MobileRecommendShrinkRequest& setDeviceInfoShrink(string deviceInfoShrink) { DARABONBA_PTR_SET_VALUE(deviceInfoShrink_, deviceInfoShrink) };
 
 
     // style Field Functions 
     bool hasStyle() const { return this->style_ != nullptr;};
     void deleteStyle() { this->style_ = nullptr;};
-    inline string style() const { DARABONBA_PTR_GET_DEFAULT(style_, "") };
+    inline string getStyle() const { DARABONBA_PTR_GET_DEFAULT(style_, "") };
     inline MobileRecommendShrinkRequest& setStyle(string style) { DARABONBA_PTR_SET_VALUE(style_, style) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline MobileRecommendShrinkRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // userInfoShrink Field Functions 
     bool hasUserInfoShrink() const { return this->userInfoShrink_ != nullptr;};
     void deleteUserInfoShrink() { this->userInfoShrink_ = nullptr;};
-    inline string userInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
+    inline string getUserInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(userInfoShrink_, "") };
     inline MobileRecommendShrinkRequest& setUserInfoShrink(string userInfoShrink) { DARABONBA_PTR_SET_VALUE(userInfoShrink_, userInfoShrink) };
 
 
   protected:
-    std::shared_ptr<string> botId_ = nullptr;
-    std::shared_ptr<string> count_ = nullptr;
+    // Bot ID.
+    shared_ptr<string> botId_ {};
+    // Quantity of recommended Result
+    shared_ptr<string> count_ {};
+    // Device identification information.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> deviceInfoShrink_ = nullptr;
-    std::shared_ptr<string> style_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> deviceInfoShrink_ {};
+    // Required when the request type is STYLE.
+    shared_ptr<string> style_ {};
+    // Request Type: Obtain daily recommendations, hot songs, or genre-based playlists.
+    shared_ptr<string> type_ {};
+    // User information – userId
+    // 
     // This parameter is required.
-    std::shared_ptr<string> userInfoShrink_ = nullptr;
+    shared_ptr<string> userInfoShrink_ {};
   };
 
   } // namespace Models

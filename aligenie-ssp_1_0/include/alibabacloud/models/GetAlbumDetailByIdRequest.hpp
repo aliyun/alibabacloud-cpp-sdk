@@ -29,16 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->albumId_ != nullptr; };
+    virtual bool empty() const override { return this->albumId_ == nullptr; };
     // albumId Field Functions 
     bool hasAlbumId() const { return this->albumId_ != nullptr;};
     void deleteAlbumId() { this->albumId_ = nullptr;};
-    inline string albumId() const { DARABONBA_PTR_GET_DEFAULT(albumId_, "") };
+    inline string getAlbumId() const { DARABONBA_PTR_GET_DEFAULT(albumId_, "") };
     inline GetAlbumDetailByIdRequest& setAlbumId(string albumId) { DARABONBA_PTR_SET_VALUE(albumId_, albumId) };
 
 
   protected:
-    std::shared_ptr<string> albumId_ = nullptr;
+    // Album ID
+    shared_ptr<string> albumId_ {};
   };
 
   } // namespace Models

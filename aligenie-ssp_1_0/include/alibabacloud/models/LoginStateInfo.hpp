@@ -35,41 +35,41 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sceneCode_ != nullptr
-        && this->thirdUserIdentifier_ != nullptr && this->thirdUserType_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->sceneCode_ == nullptr
+        && this->thirdUserIdentifier_ == nullptr && this->thirdUserType_ == nullptr && this->userId_ == nullptr; };
     // sceneCode Field Functions 
     bool hasSceneCode() const { return this->sceneCode_ != nullptr;};
     void deleteSceneCode() { this->sceneCode_ = nullptr;};
-    inline string sceneCode() const { DARABONBA_PTR_GET_DEFAULT(sceneCode_, "") };
+    inline string getSceneCode() const { DARABONBA_PTR_GET_DEFAULT(sceneCode_, "") };
     inline LoginStateInfo& setSceneCode(string sceneCode) { DARABONBA_PTR_SET_VALUE(sceneCode_, sceneCode) };
 
 
     // thirdUserIdentifier Field Functions 
     bool hasThirdUserIdentifier() const { return this->thirdUserIdentifier_ != nullptr;};
     void deleteThirdUserIdentifier() { this->thirdUserIdentifier_ = nullptr;};
-    inline string thirdUserIdentifier() const { DARABONBA_PTR_GET_DEFAULT(thirdUserIdentifier_, "") };
+    inline string getThirdUserIdentifier() const { DARABONBA_PTR_GET_DEFAULT(thirdUserIdentifier_, "") };
     inline LoginStateInfo& setThirdUserIdentifier(string thirdUserIdentifier) { DARABONBA_PTR_SET_VALUE(thirdUserIdentifier_, thirdUserIdentifier) };
 
 
     // thirdUserType Field Functions 
     bool hasThirdUserType() const { return this->thirdUserType_ != nullptr;};
     void deleteThirdUserType() { this->thirdUserType_ = nullptr;};
-    inline string thirdUserType() const { DARABONBA_PTR_GET_DEFAULT(thirdUserType_, "") };
+    inline string getThirdUserType() const { DARABONBA_PTR_GET_DEFAULT(thirdUserType_, "") };
     inline LoginStateInfo& setThirdUserType(string thirdUserType) { DARABONBA_PTR_SET_VALUE(thirdUserType_, thirdUserType) };
 
 
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
-    inline string userId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
     inline LoginStateInfo& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
   protected:
-    std::shared_ptr<string> sceneCode_ = nullptr;
-    std::shared_ptr<string> thirdUserIdentifier_ = nullptr;
-    std::shared_ptr<string> thirdUserType_ = nullptr;
-    std::shared_ptr<string> userId_ = nullptr;
+    shared_ptr<string> sceneCode_ {};
+    shared_ptr<string> thirdUserIdentifier_ {};
+    shared_ptr<string> thirdUserType_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

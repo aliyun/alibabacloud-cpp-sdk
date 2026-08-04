@@ -29,16 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->parentCateId_ != nullptr; };
+    virtual bool empty() const override { return this->parentCateId_ == nullptr; };
     // parentCateId Field Functions 
     bool hasParentCateId() const { return this->parentCateId_ != nullptr;};
     void deleteParentCateId() { this->parentCateId_ = nullptr;};
-    inline int64_t parentCateId() const { DARABONBA_PTR_GET_DEFAULT(parentCateId_, 0L) };
+    inline int64_t getParentCateId() const { DARABONBA_PTR_GET_DEFAULT(parentCateId_, 0L) };
     inline ListCommonCateSecondFloorRequest& setParentCateId(int64_t parentCateId) { DARABONBA_PTR_SET_VALUE(parentCateId_, parentCateId) };
 
 
   protected:
-    std::shared_ptr<int64_t> parentCateId_ = nullptr;
+    // Parent category ID
+    shared_ptr<int64_t> parentCateId_ {};
   };
 
   } // namespace Models

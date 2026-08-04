@@ -33,36 +33,42 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->phoneNumber_ != nullptr
-        && this->region_ != nullptr && this->sessionId_ != nullptr; };
+    virtual bool empty() const override { return this->phoneNumber_ == nullptr
+        && this->region_ == nullptr && this->sessionId_ == nullptr; };
     // phoneNumber Field Functions 
     bool hasPhoneNumber() const { return this->phoneNumber_ != nullptr;};
     void deletePhoneNumber() { this->phoneNumber_ = nullptr;};
-    inline string phoneNumber() const { DARABONBA_PTR_GET_DEFAULT(phoneNumber_, "") };
+    inline string getPhoneNumber() const { DARABONBA_PTR_GET_DEFAULT(phoneNumber_, "") };
     inline EcologyOpennessSendVerificationCodeRequest& setPhoneNumber(string phoneNumber) { DARABONBA_PTR_SET_VALUE(phoneNumber_, phoneNumber) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline EcologyOpennessSendVerificationCodeRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline EcologyOpennessSendVerificationCodeRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
   protected:
+    // Phone number
+    // 
     // This parameter is required.
-    std::shared_ptr<string> phoneNumber_ = nullptr;
+    shared_ptr<string> phoneNumber_ {};
+    // Region encoding
+    // 
     // This parameter is required.
-    std::shared_ptr<string> region_ = nullptr;
+    shared_ptr<string> region_ {};
+    // Session ID
+    // 
     // This parameter is required.
-    std::shared_ptr<string> sessionId_ = nullptr;
+    shared_ptr<string> sessionId_ {};
   };
 
   } // namespace Models

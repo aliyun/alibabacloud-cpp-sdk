@@ -31,27 +31,31 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->encryptedAligenieUserIdentifier_ != nullptr
-        && this->sessionId_ != nullptr; };
+    virtual bool empty() const override { return this->encryptedAligenieUserIdentifier_ == nullptr
+        && this->sessionId_ == nullptr; };
     // encryptedAligenieUserIdentifier Field Functions 
     bool hasEncryptedAligenieUserIdentifier() const { return this->encryptedAligenieUserIdentifier_ != nullptr;};
     void deleteEncryptedAligenieUserIdentifier() { this->encryptedAligenieUserIdentifier_ = nullptr;};
-    inline string encryptedAligenieUserIdentifier() const { DARABONBA_PTR_GET_DEFAULT(encryptedAligenieUserIdentifier_, "") };
+    inline string getEncryptedAligenieUserIdentifier() const { DARABONBA_PTR_GET_DEFAULT(encryptedAligenieUserIdentifier_, "") };
     inline AuthLoginWithAligenieUserInfoRequest& setEncryptedAligenieUserIdentifier(string encryptedAligenieUserIdentifier) { DARABONBA_PTR_SET_VALUE(encryptedAligenieUserIdentifier_, encryptedAligenieUserIdentifier) };
 
 
     // sessionId Field Functions 
     bool hasSessionId() const { return this->sessionId_ != nullptr;};
     void deleteSessionId() { this->sessionId_ = nullptr;};
-    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline string getSessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
     inline AuthLoginWithAligenieUserInfoRequest& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
   protected:
+    // Encrypted Aligenie User Identifier
+    // 
     // This parameter is required.
-    std::shared_ptr<string> encryptedAligenieUserIdentifier_ = nullptr;
+    shared_ptr<string> encryptedAligenieUserIdentifier_ {};
+    // Session ID
+    // 
     // This parameter is required.
-    std::shared_ptr<string> sessionId_ = nullptr;
+    shared_ptr<string> sessionId_ {};
   };
 
   } // namespace Models

@@ -33,36 +33,42 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->encodeKey_ != nullptr
-        && this->encodeType_ != nullptr && this->loginStateAccessToken_ != nullptr; };
+    virtual bool empty() const override { return this->encodeKey_ == nullptr
+        && this->encodeType_ == nullptr && this->loginStateAccessToken_ == nullptr; };
     // encodeKey Field Functions 
     bool hasEncodeKey() const { return this->encodeKey_ != nullptr;};
     void deleteEncodeKey() { this->encodeKey_ = nullptr;};
-    inline string encodeKey() const { DARABONBA_PTR_GET_DEFAULT(encodeKey_, "") };
+    inline string getEncodeKey() const { DARABONBA_PTR_GET_DEFAULT(encodeKey_, "") };
     inline EcologyOpennessAuthenticateRequest& setEncodeKey(string encodeKey) { DARABONBA_PTR_SET_VALUE(encodeKey_, encodeKey) };
 
 
     // encodeType Field Functions 
     bool hasEncodeType() const { return this->encodeType_ != nullptr;};
     void deleteEncodeType() { this->encodeType_ = nullptr;};
-    inline string encodeType() const { DARABONBA_PTR_GET_DEFAULT(encodeType_, "") };
+    inline string getEncodeType() const { DARABONBA_PTR_GET_DEFAULT(encodeType_, "") };
     inline EcologyOpennessAuthenticateRequest& setEncodeType(string encodeType) { DARABONBA_PTR_SET_VALUE(encodeType_, encodeType) };
 
 
     // loginStateAccessToken Field Functions 
     bool hasLoginStateAccessToken() const { return this->loginStateAccessToken_ != nullptr;};
     void deleteLoginStateAccessToken() { this->loginStateAccessToken_ = nullptr;};
-    inline string loginStateAccessToken() const { DARABONBA_PTR_GET_DEFAULT(loginStateAccessToken_, "") };
+    inline string getLoginStateAccessToken() const { DARABONBA_PTR_GET_DEFAULT(loginStateAccessToken_, "") };
     inline EcologyOpennessAuthenticateRequest& setLoginStateAccessToken(string loginStateAccessToken) { DARABONBA_PTR_SET_VALUE(loginStateAccessToken_, loginStateAccessToken) };
 
 
   protected:
+    // entity key
+    // 
     // This parameter is required.
-    std::shared_ptr<string> encodeKey_ = nullptr;
+    shared_ptr<string> encodeKey_ {};
+    // entity Type
+    // 
     // This parameter is required.
-    std::shared_ptr<string> encodeType_ = nullptr;
+    shared_ptr<string> encodeType_ {};
+    // logon state access token
+    // 
     // This parameter is required.
-    std::shared_ptr<string> loginStateAccessToken_ = nullptr;
+    shared_ptr<string> loginStateAccessToken_ {};
   };
 
   } // namespace Models
