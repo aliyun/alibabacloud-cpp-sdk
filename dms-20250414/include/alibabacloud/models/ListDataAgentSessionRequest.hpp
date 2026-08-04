@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListDataAgentSessionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CreateEndTime, createEndTime_);
       DARABONBA_PTR_TO_JSON(CreateStartTime, createStartTime_);
+      DARABONBA_PTR_TO_JSON(CreatorId, creatorId_);
       DARABONBA_PTR_TO_JSON(CustomAgentId, customAgentId_);
       DARABONBA_PTR_TO_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_TO_JSON(IsSaved, isSaved_);
@@ -28,6 +29,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListDataAgentSessionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CreateEndTime, createEndTime_);
       DARABONBA_PTR_FROM_JSON(CreateStartTime, createStartTime_);
+      DARABONBA_PTR_FROM_JSON(CreatorId, creatorId_);
       DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
       DARABONBA_PTR_FROM_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_FROM_JSON(IsSaved, isSaved_);
@@ -50,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createEndTime_ == nullptr
-        && this->createStartTime_ == nullptr && this->customAgentId_ == nullptr && this->DMSUnit_ == nullptr && this->isSaved_ == nullptr && this->mode_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->queryType_ == nullptr && this->title_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->createStartTime_ == nullptr && this->creatorId_ == nullptr && this->customAgentId_ == nullptr && this->DMSUnit_ == nullptr && this->isSaved_ == nullptr
+        && this->mode_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->queryType_ == nullptr && this->title_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // createEndTime Field Functions 
     bool hasCreateEndTime() const { return this->createEndTime_ != nullptr;};
     void deleteCreateEndTime() { this->createEndTime_ = nullptr;};
@@ -64,6 +67,13 @@ namespace Models
     void deleteCreateStartTime() { this->createStartTime_ = nullptr;};
     inline int64_t getCreateStartTime() const { DARABONBA_PTR_GET_DEFAULT(createStartTime_, 0L) };
     inline ListDataAgentSessionRequest& setCreateStartTime(int64_t createStartTime) { DARABONBA_PTR_SET_VALUE(createStartTime_, createStartTime) };
+
+
+    // creatorId Field Functions 
+    bool hasCreatorId() const { return this->creatorId_ != nullptr;};
+    void deleteCreatorId() { this->creatorId_ = nullptr;};
+    inline string getCreatorId() const { DARABONBA_PTR_GET_DEFAULT(creatorId_, "") };
+    inline ListDataAgentSessionRequest& setCreatorId(string creatorId) { DARABONBA_PTR_SET_VALUE(creatorId_, creatorId) };
 
 
     // customAgentId Field Functions 
@@ -130,22 +140,26 @@ namespace Models
 
 
   protected:
-    // The end time of the session creation period.
+    // The end time for session creation.
     shared_ptr<int64_t> createEndTime_ {};
-    // The start time of the session creation period.
+    // The start time for session creation.
     shared_ptr<int64_t> createStartTime_ {};
+    shared_ptr<string> creatorId_ {};
     // The custom agent ID.
     shared_ptr<string> customAgentId_ {};
-    // The current DMS unit.
+    // The current Data Management unit.
     shared_ptr<string> DMSUnit_ {};
     // Specifies whether to retrieve only favorited sessions.
     shared_ptr<bool> isSaved_ {};
+    // The mode. Valid values:
+    // - Analysis
+    // - Coding
     shared_ptr<string> mode_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The session type. This parameter is required if a workspace is specified.
+    // The session type. This parameter is required when a workspace is specified.
     shared_ptr<string> queryType_ {};
     // The Data Agent title. Fuzzy match is supported.
     shared_ptr<string> title_ {};

@@ -424,6 +424,23 @@ namespace Dms20250414
       Models::DeleteDataAgentKnowledgeBaseResponse deleteDataAgentKnowledgeBase(const Models::DeleteDataAgentKnowledgeBaseRequest &request);
 
       /**
+       * @summary Deletes MCP Servers from a specified workspace.
+       *
+       * @param tmpReq DeleteDataAgentMcpRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDataAgentMcpResponse
+       */
+      Models::DeleteDataAgentMcpResponse deleteDataAgentMcpWithOptions(const Models::DeleteDataAgentMcpRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes MCP Servers from a specified workspace.
+       *
+       * @param request DeleteDataAgentMcpRequest
+       * @return DeleteDataAgentMcpResponse
+       */
+      Models::DeleteDataAgentMcpResponse deleteDataAgentMcp(const Models::DeleteDataAgentMcpRequest &request);
+
+      /**
        * @summary Deletes the memory of a DataAgent.
        *
        * @param request DeleteDataAgentMemoryRequest
@@ -806,6 +823,23 @@ namespace Dms20250414
       Models::GetChatContentResponse getChatContent(const Models::GetChatContentRequest &request);
 
       /**
+       * @summary Queries the details of an MCP Server by its ID, including the workspace, network, connection method, and running status.
+       *
+       * @param request GetDataAgentMcpRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDataAgentMcpResponse
+       */
+      Models::GetDataAgentMcpResponse getDataAgentMcpWithOptions(const Models::GetDataAgentMcpRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of an MCP Server by its ID, including the workspace, network, connection method, and running status.
+       *
+       * @param request GetDataAgentMcpRequest
+       * @return GetDataAgentMcpResponse
+       */
+      Models::GetDataAgentMcpResponse getDataAgentMcp(const Models::GetDataAgentMcpRequest &request);
+
+      /**
        * @summary Retrieves information about a RAM user that belongs to an Alibaba Cloud account.
        *
        * @param request GetDataAgentSubAccountInfoRequest
@@ -925,6 +959,23 @@ namespace Dms20250414
       Models::GetDataLakeTableResponse getDataLakeTable(const Models::GetDataLakeTableRequest &request);
 
       /**
+       * @summary Queries the MCP Server connectivity and tool list results by the Session ID returned when the detection was started.
+       *
+       * @param request GetListMcpServerToolsResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetListMcpServerToolsResultResponse
+       */
+      Models::GetListMcpServerToolsResultResponse getListMcpServerToolsResultWithOptions(const Models::GetListMcpServerToolsResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the MCP Server connectivity and tool list results by the Session ID returned when the detection was started.
+       *
+       * @param request GetListMcpServerToolsResultRequest
+       * @return GetListMcpServerToolsResultResponse
+       */
+      Models::GetListMcpServerToolsResultResponse getListMcpServerToolsResult(const Models::GetListMcpServerToolsResultRequest &request);
+
+      /**
        * @summary Submits a task to schedule and run a Notebook file.
        *
        * @param request GetNotebookAndSubmitTaskRequest
@@ -1037,6 +1088,44 @@ namespace Dms20250414
        * @return GetWorkspaceQuotaResponse
        */
       Models::GetWorkspaceQuotaResponse getWorkspaceQuota(const Models::GetWorkspaceQuotaRequest &request);
+
+      /**
+       * @summary Installs all currently available system MCP services for a specified Data Agent workspace.
+       *
+       * @param request InitWorkspaceSystemMcpServerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InitWorkspaceSystemMcpServerResponse
+       */
+      Models::InitWorkspaceSystemMcpServerResponse initWorkspaceSystemMcpServerWithOptions(const Models::InitWorkspaceSystemMcpServerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Installs all currently available system MCP services for a specified Data Agent workspace.
+       *
+       * @param request InitWorkspaceSystemMcpServerRequest
+       * @return InitWorkspaceSystemMcpServerResponse
+       */
+      Models::InitWorkspaceSystemMcpServerResponse initWorkspaceSystemMcpServer(const Models::InitWorkspaceSystemMcpServerRequest &request);
+
+      /**
+       * @summary Imports an MCP into DataAgent.
+       *
+       * @description Imports an MCP into DataAgent.
+       *
+       * @param request InstallDataAgentMcpRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InstallDataAgentMcpResponse
+       */
+      Models::InstallDataAgentMcpResponse installDataAgentMcpWithOptions(const Models::InstallDataAgentMcpRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Imports an MCP into DataAgent.
+       *
+       * @description Imports an MCP into DataAgent.
+       *
+       * @param request InstallDataAgentMcpRequest
+       * @return InstallDataAgentMcpResponse
+       */
+      Models::InstallDataAgentMcpResponse installDataAgentMcp(const Models::InstallDataAgentMcpRequest &request);
 
       /**
        * @summary Lists the available Airflow versions.
@@ -1157,6 +1246,23 @@ namespace Dms20250414
       Models::ListDataAgentAccuracyTestTasksResponse listDataAgentAccuracyTestTasks(const Models::ListDataAgentAccuracyTestTasksRequest &request);
 
       /**
+       * @summary Queries MCP Servers in a specified workspace by paging. You can filter results by name, ready status, and service type.
+       *
+       * @param request ListDataAgentMcpRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataAgentMcpResponse
+       */
+      Models::ListDataAgentMcpResponse listDataAgentMcpWithOptions(const Models::ListDataAgentMcpRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries MCP Servers in a specified workspace by paging. You can filter results by name, ready status, and service type.
+       *
+       * @param request ListDataAgentMcpRequest
+       * @return ListDataAgentMcpResponse
+       */
+      Models::ListDataAgentMcpResponse listDataAgentMcp(const Models::ListDataAgentMcpRequest &request);
+
+      /**
        * @summary Retrieves the DataAgent memory list (up to 50 memories per RAM user).
        *
        * @param request ListDataAgentMemoryRequest
@@ -1174,7 +1280,7 @@ namespace Dms20250414
       Models::ListDataAgentMemoryResponse listDataAgentMemory(const Models::ListDataAgentMemoryRequest &request);
 
       /**
-       * @summary Retrieves the list of historical session descriptions for a Data Agent.
+       * @summary Retrieves the list of historical session descriptions for Data Agent.
        *
        * @param request ListDataAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1183,7 +1289,7 @@ namespace Dms20250414
       Models::ListDataAgentSessionResponse listDataAgentSessionWithOptions(const Models::ListDataAgentSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of historical session descriptions for a Data Agent.
+       * @summary Retrieves the list of historical session descriptions for Data Agent.
        *
        * @param request ListDataAgentSessionRequest
        * @return ListDataAgentSessionResponse
@@ -1535,6 +1641,27 @@ namespace Dms20250414
       Models::ModifyCustomAgentResponse modifyCustomAgent(const Models::ModifyCustomAgentRequest &request);
 
       /**
+       * @summary Modifies the configuration of an MCP server.
+       *
+       * @description Modifies the configuration of an MCP server.
+       *
+       * @param request ModifyDataAgentMcpRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDataAgentMcpResponse
+       */
+      Models::ModifyDataAgentMcpResponse modifyDataAgentMcpWithOptions(const Models::ModifyDataAgentMcpRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the configuration of an MCP server.
+       *
+       * @description Modifies the configuration of an MCP server.
+       *
+       * @param request ModifyDataAgentMcpRequest
+       * @return ModifyDataAgentMcpResponse
+       */
+      Models::ModifyDataAgentMcpResponse modifyDataAgentMcp(const Models::ModifyDataAgentMcpRequest &request);
+
+      /**
        * @summary Operate custom agents in personal spaces and workspaces.
        *
        * @param request OperateCustomAgentRequest
@@ -1710,6 +1837,23 @@ namespace Dms20250414
        * @return StartDataAgentAccuracyTestTaskResponse
        */
       Models::StartDataAgentAccuracyTestTaskResponse startDataAgentAccuracyTestTask(const Models::StartDataAgentAccuracyTestTaskRequest &request);
+
+      /**
+       * @summary Asynchronously starts MCP Server connectivity and tool list detection. The first call prompts you to wait one minute for resource provisioning. Subsequent calls return a temporary Session ID for polling the result.
+       *
+       * @param request StartListMcpServerToolsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartListMcpServerToolsResponse
+       */
+      Models::StartListMcpServerToolsResponse startListMcpServerToolsWithOptions(const Models::StartListMcpServerToolsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Asynchronously starts MCP Server connectivity and tool list detection. The first call prompts you to wait one minute for resource provisioning. Subsequent calls return a temporary Session ID for polling the result.
+       *
+       * @param request StartListMcpServerToolsRequest
+       * @return StartListMcpServerToolsResponse
+       */
+      Models::StartListMcpServerToolsResponse startListMcpServerTools(const Models::StartListMcpServerToolsRequest &request);
 
       /**
        * @summary Stops an accuracy self-test task.

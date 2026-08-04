@@ -133,6 +133,10 @@
 #include <alibabacloud/models/DeleteDataAgentKnowledgeBaseRequest.hpp>
 #include <alibabacloud/models/DeleteDataAgentKnowledgeBaseResponseBody.hpp>
 #include <alibabacloud/models/DeleteDataAgentKnowledgeBaseResponse.hpp>
+#include <alibabacloud/models/DeleteDataAgentMcpRequest.hpp>
+#include <alibabacloud/models/DeleteDataAgentMcpShrinkRequest.hpp>
+#include <alibabacloud/models/DeleteDataAgentMcpResponseBody.hpp>
+#include <alibabacloud/models/DeleteDataAgentMcpResponse.hpp>
 #include <alibabacloud/models/DeleteDataAgentMemoryRequest.hpp>
 #include <alibabacloud/models/DeleteDataAgentMemoryResponseBody.hpp>
 #include <alibabacloud/models/DeleteDataAgentMemoryResponse.hpp>
@@ -198,6 +202,9 @@
 #include <alibabacloud/models/GetChatContentRequest.hpp>
 #include <alibabacloud/models/GetChatContentResponseBody.hpp>
 #include <alibabacloud/models/GetChatContentResponse.hpp>
+#include <alibabacloud/models/GetDataAgentMcpRequest.hpp>
+#include <alibabacloud/models/GetDataAgentMcpResponseBody.hpp>
+#include <alibabacloud/models/GetDataAgentMcpResponse.hpp>
 #include <alibabacloud/models/GetDataAgentSubAccountInfoRequest.hpp>
 #include <alibabacloud/models/GetDataAgentSubAccountInfoResponseBody.hpp>
 #include <alibabacloud/models/GetDataAgentSubAccountInfoResponse.hpp>
@@ -220,6 +227,9 @@
 #include <alibabacloud/models/GetDataLakeTableRequest.hpp>
 #include <alibabacloud/models/GetDataLakeTableResponseBody.hpp>
 #include <alibabacloud/models/GetDataLakeTableResponse.hpp>
+#include <alibabacloud/models/GetListMcpServerToolsResultRequest.hpp>
+#include <alibabacloud/models/GetListMcpServerToolsResultResponseBody.hpp>
+#include <alibabacloud/models/GetListMcpServerToolsResultResponse.hpp>
 #include <alibabacloud/models/GetNotebookAndSubmitTaskRequest.hpp>
 #include <alibabacloud/models/GetNotebookAndSubmitTaskResponseBody.hpp>
 #include <alibabacloud/models/GetNotebookAndSubmitTaskResponse.hpp>
@@ -238,6 +248,12 @@
 #include <alibabacloud/models/GetWorkspaceQuotaRequest.hpp>
 #include <alibabacloud/models/GetWorkspaceQuotaResponseBody.hpp>
 #include <alibabacloud/models/GetWorkspaceQuotaResponse.hpp>
+#include <alibabacloud/models/InitWorkspaceSystemMcpServerRequest.hpp>
+#include <alibabacloud/models/InitWorkspaceSystemMcpServerResponseBody.hpp>
+#include <alibabacloud/models/InitWorkspaceSystemMcpServerResponse.hpp>
+#include <alibabacloud/models/InstallDataAgentMcpRequest.hpp>
+#include <alibabacloud/models/InstallDataAgentMcpResponseBody.hpp>
+#include <alibabacloud/models/InstallDataAgentMcpResponse.hpp>
 #include <alibabacloud/models/ListAirflowVersionsRequest.hpp>
 #include <alibabacloud/models/ListAirflowVersionsResponseBody.hpp>
 #include <alibabacloud/models/ListAirflowVersionsResponse.hpp>
@@ -256,6 +272,9 @@
 #include <alibabacloud/models/ListDataAgentAccuracyTestTasksRequest.hpp>
 #include <alibabacloud/models/ListDataAgentAccuracyTestTasksResponseBody.hpp>
 #include <alibabacloud/models/ListDataAgentAccuracyTestTasksResponse.hpp>
+#include <alibabacloud/models/ListDataAgentMcpRequest.hpp>
+#include <alibabacloud/models/ListDataAgentMcpResponseBody.hpp>
+#include <alibabacloud/models/ListDataAgentMcpResponse.hpp>
 #include <alibabacloud/models/ListDataAgentMemoryRequest.hpp>
 #include <alibabacloud/models/ListDataAgentMemoryResponseBody.hpp>
 #include <alibabacloud/models/ListDataAgentMemoryResponse.hpp>
@@ -324,6 +343,9 @@
 #include <alibabacloud/models/ModifyCustomAgentShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/ModifyCustomAgentResponse.hpp>
+#include <alibabacloud/models/ModifyDataAgentMcpRequest.hpp>
+#include <alibabacloud/models/ModifyDataAgentMcpResponseBody.hpp>
+#include <alibabacloud/models/ModifyDataAgentMcpResponse.hpp>
 #include <alibabacloud/models/OperateCustomAgentRequest.hpp>
 #include <alibabacloud/models/OperateCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/OperateCustomAgentResponse.hpp>
@@ -352,6 +374,9 @@
 #include <alibabacloud/models/StartDataAgentAccuracyTestTaskRequest.hpp>
 #include <alibabacloud/models/StartDataAgentAccuracyTestTaskResponseBody.hpp>
 #include <alibabacloud/models/StartDataAgentAccuracyTestTaskResponse.hpp>
+#include <alibabacloud/models/StartListMcpServerToolsRequest.hpp>
+#include <alibabacloud/models/StartListMcpServerToolsResponseBody.hpp>
+#include <alibabacloud/models/StartListMcpServerToolsResponse.hpp>
 #include <alibabacloud/models/StopDataAgentAccuracyTestTaskRequest.hpp>
 #include <alibabacloud/models/StopDataAgentAccuracyTestTaskResponseBody.hpp>
 #include <alibabacloud/models/StopDataAgentAccuracyTestTaskResponse.hpp>

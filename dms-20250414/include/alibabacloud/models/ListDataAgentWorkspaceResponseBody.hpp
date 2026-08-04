@@ -74,11 +74,14 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Content& obj) { 
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
           DARABONBA_PTR_TO_JSON(Creator, creator_);
+          DARABONBA_PTR_TO_JSON(CreatorName, creatorName_);
           DARABONBA_PTR_TO_JSON(Description, description_);
           DARABONBA_PTR_TO_JSON(IsSessionShareEnabled, isSessionShareEnabled_);
           DARABONBA_PTR_TO_JSON(ModifyTime, modifyTime_);
           DARABONBA_PTR_TO_JSON(RoleName, roleName_);
+          DARABONBA_PTR_TO_JSON(RunningSessionCount, runningSessionCount_);
           DARABONBA_PTR_TO_JSON(TotalMember, totalMember_);
+          DARABONBA_PTR_TO_JSON(TotalSessionCount, totalSessionCount_);
           DARABONBA_PTR_TO_JSON(Type, type_);
           DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
           DARABONBA_PTR_TO_JSON(WorkspaceName, workspaceName_);
@@ -87,11 +90,14 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, Content& obj) { 
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
           DARABONBA_PTR_FROM_JSON(Creator, creator_);
+          DARABONBA_PTR_FROM_JSON(CreatorName, creatorName_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
           DARABONBA_PTR_FROM_JSON(IsSessionShareEnabled, isSessionShareEnabled_);
           DARABONBA_PTR_FROM_JSON(ModifyTime, modifyTime_);
           DARABONBA_PTR_FROM_JSON(RoleName, roleName_);
+          DARABONBA_PTR_FROM_JSON(RunningSessionCount, runningSessionCount_);
           DARABONBA_PTR_FROM_JSON(TotalMember, totalMember_);
+          DARABONBA_PTR_FROM_JSON(TotalSessionCount, totalSessionCount_);
           DARABONBA_PTR_FROM_JSON(Type, type_);
           DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
           DARABONBA_PTR_FROM_JSON(WorkspaceName, workspaceName_);
@@ -109,8 +115,9 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->creator_ == nullptr && this->description_ == nullptr && this->isSessionShareEnabled_ == nullptr && this->modifyTime_ == nullptr && this->roleName_ == nullptr
-        && this->totalMember_ == nullptr && this->type_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
+        && this->creator_ == nullptr && this->creatorName_ == nullptr && this->description_ == nullptr && this->isSessionShareEnabled_ == nullptr && this->modifyTime_ == nullptr
+        && this->roleName_ == nullptr && this->runningSessionCount_ == nullptr && this->totalMember_ == nullptr && this->totalSessionCount_ == nullptr && this->type_ == nullptr
+        && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
         // createTime Field Functions 
         bool hasCreateTime() const { return this->createTime_ != nullptr;};
         void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -123,6 +130,13 @@ namespace Models
         void deleteCreator() { this->creator_ = nullptr;};
         inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
         inline Content& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
+
+
+        // creatorName Field Functions 
+        bool hasCreatorName() const { return this->creatorName_ != nullptr;};
+        void deleteCreatorName() { this->creatorName_ = nullptr;};
+        inline string getCreatorName() const { DARABONBA_PTR_GET_DEFAULT(creatorName_, "") };
+        inline Content& setCreatorName(string creatorName) { DARABONBA_PTR_SET_VALUE(creatorName_, creatorName) };
 
 
         // description Field Functions 
@@ -153,11 +167,25 @@ namespace Models
         inline Content& setRoleName(string roleName) { DARABONBA_PTR_SET_VALUE(roleName_, roleName) };
 
 
+        // runningSessionCount Field Functions 
+        bool hasRunningSessionCount() const { return this->runningSessionCount_ != nullptr;};
+        void deleteRunningSessionCount() { this->runningSessionCount_ = nullptr;};
+        inline int32_t getRunningSessionCount() const { DARABONBA_PTR_GET_DEFAULT(runningSessionCount_, 0) };
+        inline Content& setRunningSessionCount(int32_t runningSessionCount) { DARABONBA_PTR_SET_VALUE(runningSessionCount_, runningSessionCount) };
+
+
         // totalMember Field Functions 
         bool hasTotalMember() const { return this->totalMember_ != nullptr;};
         void deleteTotalMember() { this->totalMember_ = nullptr;};
         inline int64_t getTotalMember() const { DARABONBA_PTR_GET_DEFAULT(totalMember_, 0L) };
         inline Content& setTotalMember(int64_t totalMember) { DARABONBA_PTR_SET_VALUE(totalMember_, totalMember) };
+
+
+        // totalSessionCount Field Functions 
+        bool hasTotalSessionCount() const { return this->totalSessionCount_ != nullptr;};
+        void deleteTotalSessionCount() { this->totalSessionCount_ = nullptr;};
+        inline int32_t getTotalSessionCount() const { DARABONBA_PTR_GET_DEFAULT(totalSessionCount_, 0) };
+        inline Content& setTotalSessionCount(int32_t totalSessionCount) { DARABONBA_PTR_SET_VALUE(totalSessionCount_, totalSessionCount) };
 
 
         // type Field Functions 
@@ -189,20 +217,23 @@ namespace Models
 
 
       protected:
-        // The creation time of the workspace, in UNIX timestamp format (milliseconds).
+        // The creation time of the workspace, in milliseconds (UNIX timestamp).
         shared_ptr<int64_t> createTime_ {};
         // The UID of the workspace creator.
         shared_ptr<string> creator_ {};
+        shared_ptr<string> creatorName_ {};
         // The description of the workspace.
         shared_ptr<string> description_ {};
         // Indicates whether session sharing is enabled for the workspace.
         shared_ptr<bool> isSessionShareEnabled_ {};
-        // The most recent modification time of the workspace, in UNIX timestamp format (milliseconds).
+        // The most recent modification time of the workspace, in milliseconds (UNIX timestamp).
         shared_ptr<int64_t> modifyTime_ {};
         // The role name of the user in the workspace.
         shared_ptr<string> roleName_ {};
+        shared_ptr<int32_t> runningSessionCount_ {};
         // The number of members in the workspace.
         shared_ptr<int64_t> totalMember_ {};
+        shared_ptr<int32_t> totalSessionCount_ {};
         // The workspace type.
         shared_ptr<string> type_ {};
         // The workspace ID.

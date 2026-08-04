@@ -13,6 +13,7 @@ namespace Models
   class ListDataAgentWorkspaceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListDataAgentWorkspaceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Creator, creator_);
       DARABONBA_PTR_TO_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceType, workspaceType_);
     };
     friend void from_json(const Darabonba::Json& j, ListDataAgentWorkspaceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Creator, creator_);
       DARABONBA_PTR_FROM_JSON(DMSUnit, DMSUnit_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -45,9 +47,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->DMSUnit_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->order_ == nullptr && this->orderBy_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->workspaceName_ == nullptr && this->workspaceType_ == nullptr; };
+    virtual bool empty() const override { return this->creator_ == nullptr
+        && this->DMSUnit_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->order_ == nullptr && this->orderBy_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->workspaceName_ == nullptr && this->workspaceType_ == nullptr; };
+    // creator Field Functions 
+    bool hasCreator() const { return this->creator_ != nullptr;};
+    void deleteCreator() { this->creator_ = nullptr;};
+    inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
+    inline ListDataAgentWorkspaceRequest& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
+
+
     // DMSUnit Field Functions 
     bool hasDMSUnit() const { return this->DMSUnit_ != nullptr;};
     void deleteDMSUnit() { this->DMSUnit_ = nullptr;};
@@ -112,6 +121,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> creator_ {};
     // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
     // The maximum number of entries per page.
@@ -120,7 +130,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The sort order.
     shared_ptr<string> order_ {};
-    // The field name used for sorting.
+    // The name of the field by which to sort.
     shared_ptr<string> orderBy_ {};
     // The page number.
     // 

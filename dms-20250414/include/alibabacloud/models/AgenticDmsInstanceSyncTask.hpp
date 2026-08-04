@@ -21,6 +21,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FailedCount, failedCount_);
       DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
       DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
+      DARABONBA_PTR_TO_JSON(OperatorMode, operatorMode_);
+      DARABONBA_PTR_TO_JSON(RequestedOperatorMode, requestedOperatorMode_);
       DARABONBA_PTR_TO_JSON(SkippedCount, skippedCount_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(SuccessCount, successCount_);
@@ -37,6 +39,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FailedCount, failedCount_);
       DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
       DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
+      DARABONBA_PTR_FROM_JSON(OperatorMode, operatorMode_);
+      DARABONBA_PTR_FROM_JSON(RequestedOperatorMode, requestedOperatorMode_);
       DARABONBA_PTR_FROM_JSON(SkippedCount, skippedCount_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(SuccessCount, successCount_);
@@ -57,8 +61,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actorId_ == nullptr
         && this->actorName_ == nullptr && this->actorType_ == nullptr && this->errorCode_ == nullptr && this->errorSummary_ == nullptr && this->failedCount_ == nullptr
-        && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->skippedCount_ == nullptr && this->status_ == nullptr && this->successCount_ == nullptr
-        && this->syncUserDataPermission_ == nullptr && this->taskId_ == nullptr && this->totalCount_ == nullptr; };
+        && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->operatorMode_ == nullptr && this->requestedOperatorMode_ == nullptr && this->skippedCount_ == nullptr
+        && this->status_ == nullptr && this->successCount_ == nullptr && this->syncUserDataPermission_ == nullptr && this->taskId_ == nullptr && this->totalCount_ == nullptr; };
     // actorId Field Functions 
     bool hasActorId() const { return this->actorId_ != nullptr;};
     void deleteActorId() { this->actorId_ = nullptr;};
@@ -115,6 +119,20 @@ namespace Models
     inline AgenticDmsInstanceSyncTask& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
 
 
+    // operatorMode Field Functions 
+    bool hasOperatorMode() const { return this->operatorMode_ != nullptr;};
+    void deleteOperatorMode() { this->operatorMode_ = nullptr;};
+    inline string getOperatorMode() const { DARABONBA_PTR_GET_DEFAULT(operatorMode_, "") };
+    inline AgenticDmsInstanceSyncTask& setOperatorMode(string operatorMode) { DARABONBA_PTR_SET_VALUE(operatorMode_, operatorMode) };
+
+
+    // requestedOperatorMode Field Functions 
+    bool hasRequestedOperatorMode() const { return this->requestedOperatorMode_ != nullptr;};
+    void deleteRequestedOperatorMode() { this->requestedOperatorMode_ = nullptr;};
+    inline string getRequestedOperatorMode() const { DARABONBA_PTR_GET_DEFAULT(requestedOperatorMode_, "") };
+    inline AgenticDmsInstanceSyncTask& setRequestedOperatorMode(string requestedOperatorMode) { DARABONBA_PTR_SET_VALUE(requestedOperatorMode_, requestedOperatorMode) };
+
+
     // skippedCount Field Functions 
     bool hasSkippedCount() const { return this->skippedCount_ != nullptr;};
     void deleteSkippedCount() { this->skippedCount_ = nullptr;};
@@ -166,6 +184,8 @@ namespace Models
     shared_ptr<int32_t> failedCount_ {};
     shared_ptr<string> gmtCreate_ {};
     shared_ptr<string> gmtModified_ {};
+    shared_ptr<string> operatorMode_ {};
+    shared_ptr<string> requestedOperatorMode_ {};
     shared_ptr<int32_t> skippedCount_ {};
     shared_ptr<string> status_ {};
     shared_ptr<int32_t> successCount_ {};

@@ -163,7 +163,7 @@ namespace Models
         shared_ptr<string> customAgentId_ {};
         // The usage stage of the custom agent. Valid values:
         // - **debug**: Debug stage.
-        // - **prod**: Production stage.
+        // - **prod**: Production environment stage.
         shared_ptr<string> customAgentStage_ {};
         // Specifies whether to enable web search.
         shared_ptr<bool> enableSearch_ {};
@@ -172,13 +172,13 @@ namespace Models
         // - **ENGLISH**: English.
         shared_ptr<string> language_ {};
         // The mode. Valid values:
-        //  - **ASK_DATA**: Ask data mode.
-        //  - **ANALYSIS**: Analysis mode.
-        //  - **INSIGHT**: Insight mode.
+        // - **ASK_DATA**: Ask data mode.
+        // - **ANALYSIS**: Analysis mode.
+        // - **INSIGHT**: Insight mode.
         shared_ptr<string> mode_ {};
         // The name of the user OSS bucket.
         // 
-        // - Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
+        // - Analysis process files and report outputs can be uploaded to the user-specified OSS bucket.
         shared_ptr<string> userOssBucket_ {};
       };
 
@@ -360,9 +360,9 @@ namespace Models
   protected:
     // The response struct.
     shared_ptr<vector<ListDataAgentSessionResponseBody::Data>> data_ {};
-    // The error code returned if the request fails.
+    // The error code returned when the request is abnormal.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the request fails.
+    // The error message returned when the call fails.
     shared_ptr<string> errorMessage_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -370,10 +370,10 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // - **true**: The request is successful.
-    // - **false**: The request fails.
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
     // The total number of records.
     shared_ptr<int32_t> total_ {};

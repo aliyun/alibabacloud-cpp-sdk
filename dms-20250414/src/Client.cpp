@@ -1551,6 +1551,58 @@ DeleteDataAgentKnowledgeBaseResponse Client::deleteDataAgentKnowledgeBase(const 
 }
 
 /**
+ * @summary Deletes MCP Servers from a specified workspace.
+ *
+ * @param tmpReq DeleteDataAgentMcpRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDataAgentMcpResponse
+ */
+DeleteDataAgentMcpResponse Client::deleteDataAgentMcpWithOptions(const DeleteDataAgentMcpRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteDataAgentMcpShrinkRequest request = DeleteDataAgentMcpShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasMcpServerIds()) {
+    request.setMcpServerIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMcpServerIds(), "McpServerIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasMcpServerIdsShrink()) {
+    query["McpServerIds"] = request.getMcpServerIdsShrink();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDataAgentMcp"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDataAgentMcpResponse>();
+}
+
+/**
+ * @summary Deletes MCP Servers from a specified workspace.
+ *
+ * @param request DeleteDataAgentMcpRequest
+ * @return DeleteDataAgentMcpResponse
+ */
+DeleteDataAgentMcpResponse Client::deleteDataAgentMcp(const DeleteDataAgentMcpRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDataAgentMcpWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes the memory of a DataAgent.
  *
  * @param request DeleteDataAgentMemoryRequest
@@ -2702,6 +2754,52 @@ GetChatContentResponse Client::getChatContent(const GetChatContentRequest &reque
 }
 
 /**
+ * @summary Queries the details of an MCP Server by its ID, including the workspace, network, connection method, and running status.
+ *
+ * @param request GetDataAgentMcpRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDataAgentMcpResponse
+ */
+GetDataAgentMcpResponse Client::getDataAgentMcpWithOptions(const GetDataAgentMcpRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMcpServerId()) {
+    query["McpServerId"] = request.getMcpServerId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDataAgentMcp"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDataAgentMcpResponse>();
+}
+
+/**
+ * @summary Queries the details of an MCP Server by its ID, including the workspace, network, connection method, and running status.
+ *
+ * @param request GetDataAgentMcpRequest
+ * @return GetDataAgentMcpResponse
+ */
+GetDataAgentMcpResponse Client::getDataAgentMcp(const GetDataAgentMcpRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDataAgentMcpWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves information about a RAM user that belongs to an Alibaba Cloud account.
  *
  * @param request GetDataAgentSubAccountInfoRequest
@@ -3082,6 +3180,56 @@ GetDataLakeTableResponse Client::getDataLakeTable(const GetDataLakeTableRequest 
 }
 
 /**
+ * @summary Queries the MCP Server connectivity and tool list results by the Session ID returned when the detection was started.
+ *
+ * @param request GetListMcpServerToolsResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetListMcpServerToolsResultResponse
+ */
+GetListMcpServerToolsResultResponse Client::getListMcpServerToolsResultWithOptions(const GetListMcpServerToolsResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasMcpServerUuid()) {
+    query["McpServerUuid"] = request.getMcpServerUuid();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetListMcpServerToolsResult"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetListMcpServerToolsResultResponse>();
+}
+
+/**
+ * @summary Queries the MCP Server connectivity and tool list results by the Session ID returned when the detection was started.
+ *
+ * @param request GetListMcpServerToolsResultRequest
+ * @return GetListMcpServerToolsResultResponse
+ */
+GetListMcpServerToolsResultResponse Client::getListMcpServerToolsResult(const GetListMcpServerToolsResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getListMcpServerToolsResultWithOptions(request, runtime);
+}
+
+/**
  * @summary Submits a task to schedule and run a Notebook file.
  *
  * @param request GetNotebookAndSubmitTaskRequest
@@ -3405,6 +3553,134 @@ GetWorkspaceQuotaResponse Client::getWorkspaceQuotaWithOptions(const GetWorkspac
 GetWorkspaceQuotaResponse Client::getWorkspaceQuota(const GetWorkspaceQuotaRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getWorkspaceQuotaWithOptions(request, runtime);
+}
+
+/**
+ * @summary Installs all currently available system MCP services for a specified Data Agent workspace.
+ *
+ * @param request InitWorkspaceSystemMcpServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InitWorkspaceSystemMcpServerResponse
+ */
+InitWorkspaceSystemMcpServerResponse Client::initWorkspaceSystemMcpServerWithOptions(const InitWorkspaceSystemMcpServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "InitWorkspaceSystemMcpServer"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InitWorkspaceSystemMcpServerResponse>();
+}
+
+/**
+ * @summary Installs all currently available system MCP services for a specified Data Agent workspace.
+ *
+ * @param request InitWorkspaceSystemMcpServerRequest
+ * @return InitWorkspaceSystemMcpServerResponse
+ */
+InitWorkspaceSystemMcpServerResponse Client::initWorkspaceSystemMcpServer(const InitWorkspaceSystemMcpServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return initWorkspaceSystemMcpServerWithOptions(request, runtime);
+}
+
+/**
+ * @summary Imports an MCP into DataAgent.
+ *
+ * @description Imports an MCP into DataAgent.
+ *
+ * @param request InstallDataAgentMcpRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InstallDataAgentMcpResponse
+ */
+InstallDataAgentMcpResponse Client::installDataAgentMcpWithOptions(const InstallDataAgentMcpRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEndpoint()) {
+    query["Endpoint"] = request.getEndpoint();
+  }
+
+  if (!!request.hasFromJson()) {
+    query["FromJson"] = request.getFromJson();
+  }
+
+  if (!!request.hasHeaders()) {
+    query["Headers"] = request.getHeaders();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasNeedUidInHeader()) {
+    query["NeedUidInHeader"] = request.getNeedUidInHeader();
+  }
+
+  if (!!request.hasNetType()) {
+    query["NetType"] = request.getNetType();
+  }
+
+  if (!!request.hasTransportType()) {
+    query["TransportType"] = request.getTransportType();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasVswId()) {
+    query["VswId"] = request.getVswId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "InstallDataAgentMcp"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InstallDataAgentMcpResponse>();
+}
+
+/**
+ * @summary Imports an MCP into DataAgent.
+ *
+ * @description Imports an MCP into DataAgent.
+ *
+ * @param request InstallDataAgentMcpRequest
+ * @return InstallDataAgentMcpResponse
+ */
+InstallDataAgentMcpResponse Client::installDataAgentMcp(const InstallDataAgentMcpRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return installDataAgentMcpWithOptions(request, runtime);
 }
 
 /**
@@ -3792,6 +4068,76 @@ ListDataAgentAccuracyTestTasksResponse Client::listDataAgentAccuracyTestTasks(co
 }
 
 /**
+ * @summary Queries MCP Servers in a specified workspace by paging. You can filter results by name, ready status, and service type.
+ *
+ * @param request ListDataAgentMcpRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataAgentMcpResponse
+ */
+ListDataAgentMcpResponse Client::listDataAgentMcpWithOptions(const ListDataAgentMcpRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasReadyOnly()) {
+    query["ReadyOnly"] = request.getReadyOnly();
+  }
+
+  if (!!request.hasSearchKey()) {
+    query["SearchKey"] = request.getSearchKey();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataAgentMcp"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataAgentMcpResponse>();
+}
+
+/**
+ * @summary Queries MCP Servers in a specified workspace by paging. You can filter results by name, ready status, and service type.
+ *
+ * @param request ListDataAgentMcpRequest
+ * @return ListDataAgentMcpResponse
+ */
+ListDataAgentMcpResponse Client::listDataAgentMcp(const ListDataAgentMcpRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDataAgentMcpWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the DataAgent memory list (up to 50 memories per RAM user).
  *
  * @param request ListDataAgentMemoryRequest
@@ -3866,7 +4212,7 @@ ListDataAgentMemoryResponse Client::listDataAgentMemory(const ListDataAgentMemor
 }
 
 /**
- * @summary Retrieves the list of historical session descriptions for a Data Agent.
+ * @summary Retrieves the list of historical session descriptions for Data Agent.
  *
  * @param request ListDataAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3881,6 +4227,10 @@ ListDataAgentSessionResponse Client::listDataAgentSessionWithOptions(const ListD
 
   if (!!request.hasCreateStartTime()) {
     query["CreateStartTime"] = request.getCreateStartTime();
+  }
+
+  if (!!request.hasCreatorId()) {
+    query["CreatorId"] = request.getCreatorId();
   }
 
   if (!!request.hasCustomAgentId()) {
@@ -3937,7 +4287,7 @@ ListDataAgentSessionResponse Client::listDataAgentSessionWithOptions(const ListD
 }
 
 /**
- * @summary Retrieves the list of historical session descriptions for a Data Agent.
+ * @summary Retrieves the list of historical session descriptions for Data Agent.
  *
  * @param request ListDataAgentSessionRequest
  * @return ListDataAgentSessionResponse
@@ -3957,6 +4307,10 @@ ListDataAgentSessionResponse Client::listDataAgentSession(const ListDataAgentSes
 ListDataAgentWorkspaceResponse Client::listDataAgentWorkspaceWithOptions(const ListDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCreator()) {
+    query["Creator"] = request.getCreator();
+  }
+
   if (!!request.hasDMSUnit()) {
     query["DMSUnit"] = request.getDMSUnit();
   }
@@ -5344,6 +5698,84 @@ ModifyCustomAgentResponse Client::modifyCustomAgent(const ModifyCustomAgentReque
 }
 
 /**
+ * @summary Modifies the configuration of an MCP server.
+ *
+ * @description Modifies the configuration of an MCP server.
+ *
+ * @param request ModifyDataAgentMcpRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyDataAgentMcpResponse
+ */
+ModifyDataAgentMcpResponse Client::modifyDataAgentMcpWithOptions(const ModifyDataAgentMcpRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEnable()) {
+    query["Enable"] = request.getEnable();
+  }
+
+  if (!!request.hasEndpoint()) {
+    query["Endpoint"] = request.getEndpoint();
+  }
+
+  if (!!request.hasHeaders()) {
+    query["Headers"] = request.getHeaders();
+  }
+
+  if (!!request.hasMcpServerId()) {
+    query["McpServerId"] = request.getMcpServerId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasNeedUidInHeader()) {
+    query["NeedUidInHeader"] = request.getNeedUidInHeader();
+  }
+
+  if (!!request.hasTransportType()) {
+    query["TransportType"] = request.getTransportType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyDataAgentMcp"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyDataAgentMcpResponse>();
+}
+
+/**
+ * @summary Modifies the configuration of an MCP server.
+ *
+ * @description Modifies the configuration of an MCP server.
+ *
+ * @param request ModifyDataAgentMcpRequest
+ * @return ModifyDataAgentMcpResponse
+ */
+ModifyDataAgentMcpResponse Client::modifyDataAgentMcp(const ModifyDataAgentMcpRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyDataAgentMcpWithOptions(request, runtime);
+}
+
+/**
  * @summary Operate custom agents in personal spaces and workspaces.
  *
  * @param request OperateCustomAgentRequest
@@ -5949,6 +6381,56 @@ StartDataAgentAccuracyTestTaskResponse Client::startDataAgentAccuracyTestTaskWit
 StartDataAgentAccuracyTestTaskResponse Client::startDataAgentAccuracyTestTask(const StartDataAgentAccuracyTestTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return startDataAgentAccuracyTestTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary Asynchronously starts MCP Server connectivity and tool list detection. The first call prompts you to wait one minute for resource provisioning. Subsequent calls return a temporary Session ID for polling the result.
+ *
+ * @param request StartListMcpServerToolsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartListMcpServerToolsResponse
+ */
+StartListMcpServerToolsResponse Client::startListMcpServerToolsWithOptions(const StartListMcpServerToolsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasLanguage()) {
+    query["Language"] = request.getLanguage();
+  }
+
+  if (!!request.hasMcpServerUuid()) {
+    query["McpServerUuid"] = request.getMcpServerUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StartListMcpServerTools"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartListMcpServerToolsResponse>();
+}
+
+/**
+ * @summary Asynchronously starts MCP Server connectivity and tool list detection. The first call prompts you to wait one minute for resource provisioning. Subsequent calls return a temporary Session ID for polling the result.
+ *
+ * @param request StartListMcpServerToolsRequest
+ * @return StartListMcpServerToolsResponse
+ */
+StartListMcpServerToolsResponse Client::startListMcpServerTools(const StartListMcpServerToolsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return startListMcpServerToolsWithOptions(request, runtime);
 }
 
 /**
