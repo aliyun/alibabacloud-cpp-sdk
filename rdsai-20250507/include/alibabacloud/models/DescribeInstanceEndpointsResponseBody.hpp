@@ -105,6 +105,7 @@ namespace Models
     protected:
       // The endpoint.
       shared_ptr<string> connectionString_ {};
+      // The domain name.
       shared_ptr<string> domain_ {};
       // The IP address.
       shared_ptr<string> IP_ {};
@@ -217,10 +218,11 @@ namespace Models
 
 
   protected:
+    // Reserved parameter.
     shared_ptr<string> branchName_ {};
-    // The endpoints of the database instance.
+    // The list of endpoint information of the database instance.
     shared_ptr<vector<DescribeInstanceEndpointsResponseBody::DBInstanceEndpoints>> DBInstanceEndpoints_ {};
-    // The endpoints of the AI application instance.
+    // The list of endpoint information of the AI application instance.
     shared_ptr<vector<DescribeInstanceEndpointsResponseBody::InstanceEndpoints>> instanceEndpoints_ {};
     // The instance ID of the AI application.
     shared_ptr<string> instanceName_ {};

@@ -43,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CustomAgentId, customAgentId_);
         DARABONBA_PTR_TO_JSON(EnableThinking, enableThinking_);
         DARABONBA_PTR_TO_JSON(Language, language_);
+        DARABONBA_PTR_TO_JSON(ModelId, modelId_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(ThinkEffort, thinkEffort_);
         DARABONBA_PTR_TO_JSON(Timezone, timezone_);
@@ -51,6 +52,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
         DARABONBA_PTR_FROM_JSON(EnableThinking, enableThinking_);
         DARABONBA_PTR_FROM_JSON(Language, language_);
+        DARABONBA_PTR_FROM_JSON(ModelId, modelId_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(ThinkEffort, thinkEffort_);
         DARABONBA_PTR_FROM_JSON(Timezone, timezone_);
@@ -67,7 +69,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->customAgentId_ == nullptr
-        && this->enableThinking_ == nullptr && this->language_ == nullptr && this->regionId_ == nullptr && this->thinkEffort_ == nullptr && this->timezone_ == nullptr; };
+        && this->enableThinking_ == nullptr && this->language_ == nullptr && this->modelId_ == nullptr && this->regionId_ == nullptr && this->thinkEffort_ == nullptr
+        && this->timezone_ == nullptr; };
       // customAgentId Field Functions 
       bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
       void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
@@ -87,6 +90,13 @@ namespace Models
       void deleteLanguage() { this->language_ = nullptr;};
       inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
       inline Inputs& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
+
+
+      // modelId Field Functions 
+      bool hasModelId() const { return this->modelId_ != nullptr;};
+      void deleteModelId() { this->modelId_ = nullptr;};
+      inline string getModelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, "") };
+      inline Inputs& setModelId(string modelId) { DARABONBA_PTR_SET_VALUE(modelId_, modelId) };
 
 
       // regionId Field Functions 
@@ -116,6 +126,7 @@ namespace Models
       shared_ptr<string> enableThinking_ {};
       // The conversation language.
       shared_ptr<string> language_ {};
+      shared_ptr<string> modelId_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       shared_ptr<string> thinkEffort_ {};
@@ -165,6 +176,7 @@ namespace Models
   protected:
     // The conversation ID.
     shared_ptr<string> conversationId_ {};
+    // The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool invocation events, sub-node events, and document events are included in the answer field of event = message. When set to separate, tool invocation events, sub-node events, and document events each have their own event.
     shared_ptr<string> eventMode_ {};
     // The task input.
     shared_ptr<ChatMessagesRequest::Inputs> inputs_ {};

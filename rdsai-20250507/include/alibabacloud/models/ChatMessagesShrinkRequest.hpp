@@ -77,6 +77,7 @@ namespace Models
   protected:
     // The conversation ID.
     shared_ptr<string> conversationId_ {};
+    // The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool invocation events, sub-node events, and document events are included in the answer field of event = message. When set to separate, tool invocation events, sub-node events, and document events each have their own event.
     shared_ptr<string> eventMode_ {};
     // The task input.
     shared_ptr<string> inputsShrink_ {};

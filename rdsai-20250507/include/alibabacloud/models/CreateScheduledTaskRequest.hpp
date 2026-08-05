@@ -151,7 +151,7 @@ namespace Models
     // * Friday: Friday.
     // * Saturday: Saturday.
     // * Sunday: Sunday.
-    // ### Note: DAILY overrides weekly values. For example, if you specify DAILY,Monday, the system uses DAILY as the inspection frequency.
+    // ### Note: DAILY overrides weekly values. For example, if you specify DAILY,Monday, the backend uses DAILY as the inspection frequency.
     shared_ptr<string> frequency_ {};
     shared_ptr<string> inspectionItems_ {};
     // The list of associated instance IDs. Separate multiple IDs with commas (,).
