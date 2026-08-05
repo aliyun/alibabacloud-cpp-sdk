@@ -14,6 +14,10 @@
 #include <alibabacloud/models/AsymmetricVerifyRequest.hpp>
 #include <alibabacloud/models/AsymmetricVerifyResponseBody.hpp>
 #include <alibabacloud/models/AsymmetricVerifyResponse.hpp>
+#include <alibabacloud/models/BatchGetSecretValueRequest.hpp>
+#include <alibabacloud/models/BatchGetSecretValueShrinkRequest.hpp>
+#include <alibabacloud/models/BatchGetSecretValueResponseBody.hpp>
+#include <alibabacloud/models/BatchGetSecretValueResponse.hpp>
 #include <alibabacloud/models/CancelKeyDeletionRequest.hpp>
 #include <alibabacloud/models/CancelKeyDeletionResponseBody.hpp>
 #include <alibabacloud/models/CancelKeyDeletionResponse.hpp>

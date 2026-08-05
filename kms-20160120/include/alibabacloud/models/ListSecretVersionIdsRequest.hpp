@@ -66,21 +66,18 @@ namespace Models
 
 
   protected:
-    // Specifies whether to include credential versions that have no version stages in the response.
+    // Specifies whether to include secret versions that do not have version stages in the response.
     // 
     // Valid values:
-    // 
-    // - false (default): No
-    // 
-    // - true: Yes
+    // - false (default): does not include
+    // - true: includes
     shared_ptr<string> includeDeprecated_ {};
-    // The number of the page to return for a paged query. Default value: 1.
+    // The page number of the current page in a paged query. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page for a paged query. Default value: 20.
+    // The number of entries per page in a paged query. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The name or Alibaba Cloud Resource Name (ARN) of the credential.
-    // 
-    // > When you access a credential that belongs to another Alibaba Cloud account, you must specify the ARN of the credential. The ARN of a credential is in the format of `acs:kms:${region}:${account}:secret/${secret-name}`.
+    // The secret name or secret Amazon Resource Name (ARN).
+    // >When accessing a secret under another Alibaba Cloud account, you must specify the secret ARN. The format of the secret ARN is `acs:kms:${region}:${account}:secret/${secret-name}`.
     // 
     // This parameter is required.
     shared_ptr<string> secretName_ {};

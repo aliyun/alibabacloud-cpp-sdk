@@ -253,6 +253,35 @@ namespace Kms20160120
       Models::AsymmetricVerifyResponse asymmetricVerify(const Models::AsymmetricVerifyRequest &request);
 
       /**
+       * @summary Retrieves secret values in batches.
+       *
+       * @description - For details about the access policy required for a Resource Access Management (RAM) user or RAM role to invoke this operation, see [Access control](https://help.aliyun.com/document_detail/2767210.html).
+       * - If you do not specify a version number or version stage, KMS returns the secret value of the version marked as ACSCurrent by default.
+       * - The caller must have the `kms:GetSecretValue` permission on all secrets in the batch.
+       * - If a secret uses a customer master key to protect the secret value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
+       * This topic provides an example of how to retrieve the secret value of a secret named `secret001`. The response shows that the secret value `SecretData` is `testdata1`.
+       *
+       * @param tmpReq BatchGetSecretValueRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchGetSecretValueResponse
+       */
+      Models::BatchGetSecretValueResponse batchGetSecretValueWithOptions(const Models::BatchGetSecretValueRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves secret values in batches.
+       *
+       * @description - For details about the access policy required for a Resource Access Management (RAM) user or RAM role to invoke this operation, see [Access control](https://help.aliyun.com/document_detail/2767210.html).
+       * - If you do not specify a version number or version stage, KMS returns the secret value of the version marked as ACSCurrent by default.
+       * - The caller must have the `kms:GetSecretValue` permission on all secrets in the batch.
+       * - If a secret uses a customer master key to protect the secret value, the caller must also have the `kms:Decrypt` permission on the corresponding master key.
+       * This topic provides an example of how to retrieve the secret value of a secret named `secret001`. The response shows that the secret value `SecretData` is `testdata1`.
+       *
+       * @param request BatchGetSecretValueRequest
+       * @return BatchGetSecretValueResponse
+       */
+      Models::BatchGetSecretValueResponse batchGetSecretValue(const Models::BatchGetSecretValueRequest &request);
+
+      /**
        * @summary Cancels the deletion task of a CMK.
        *
        * @description If the deletion task of a CMK is canceled, the CMK returns to the Enabled state.
@@ -1720,10 +1749,10 @@ namespace Kms20160120
       Models::ListResourceTagsResponse listResourceTags(const Models::ListResourceTagsRequest &request);
 
       /**
-       * @summary Queries all version IDs and stage labels of a specified secret.
+       * @summary Queries all version information of a secret.
        *
-       * @description - For more information about the access policy required for a RAM user or RAM role to call this OpenAPI, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
-       * - The version information does not include the secret value. By default, this operation returns only the secret versions that are marked with a version stage.
+       * @description - For details about the access policy required for a Resource Access Management (RAM) user or RAM role to invoke this operation, refer to [Access control](https://help.aliyun.com/document_detail/2767210.html).
+       * - Version information does not include secret values. By default, only secret versions that have version stages are returned.
        *
        * @param request ListSecretVersionIdsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1732,10 +1761,10 @@ namespace Kms20160120
       Models::ListSecretVersionIdsResponse listSecretVersionIdsWithOptions(const Models::ListSecretVersionIdsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries all version IDs and stage labels of a specified secret.
+       * @summary Queries all version information of a secret.
        *
-       * @description - For more information about the access policy required for a RAM user or RAM role to call this OpenAPI, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
-       * - The version information does not include the secret value. By default, this operation returns only the secret versions that are marked with a version stage.
+       * @description - For details about the access policy required for a Resource Access Management (RAM) user or RAM role to invoke this operation, refer to [Access control](https://help.aliyun.com/document_detail/2767210.html).
+       * - Version information does not include secret values. By default, only secret versions that have version stages are returned.
        *
        * @param request ListSecretVersionIdsRequest
        * @return ListSecretVersionIdsResponse
