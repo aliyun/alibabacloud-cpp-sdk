@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The estimated credits to be deducted.
     shared_ptr<double> estimatedCreditCost_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

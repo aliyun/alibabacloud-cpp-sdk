@@ -132,18 +132,18 @@ namespace Models
   protected:
     // The aspect ratio. Valid values: 16:9 (default), 9:16, 4:3, 3:4, and 1:1.
     shared_ptr<string> aspectRatio_ {};
-    // The idempotence parameter.
+    // The idempotency token.
     shared_ptr<string> clientToken_ {};
     // The output duration. Valid values: 4 to 15 seconds. Default value: 5s.
     shared_ptr<string> duration_ {};
     // The task input in JSON string format. The following fields are included:
     // 
-    // - Prompt: String. Required. The prompt.
-    // - Medias: The list of media items.
-    //   - When JobType is set to image_to_video, this field is required. Only 1 Media item is needed.
-    //   - When JobType is set to first_last_frame, this field is required. Only 2 Media items are needed.
-    //   - When JobType is set to reference_to_video, this field is required. A maximum of 9 Media items are supported.
-    // > The Media struct contains: Type, the media type, String, valid values are `image`/`video`/`audio`. URL, the media download URL, String.
+    // - Prompt: String. Required. The prompt text.
+    // - Medias: The media list.
+    //   - When JobType is image_to_video, this field is required. Only 1 Media item is needed.
+    //   - When JobType is first_last_frame, this field is required. Only 2 Media items are needed.
+    //   - When JobType is reference_to_video, this field is required. A maximum of 9 Media items are supported.
+    // > The Media structure contains: Type, the media type, String, valid values are `image`/`video`/`audio`. URL, the media download URL, String.
     // >
     shared_ptr<string> input_ {};
     // The task feature parameters. No configuration is required at this time.

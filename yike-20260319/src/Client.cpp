@@ -216,6 +216,66 @@ BatchGetYikeAssetMediaInfosResponse Client::batchGetYikeAssetMediaInfos(const Ba
 }
 
 /**
+ * @summary 创建无限画布
+ *
+ * @description ## 请求说明
+ * 该API用于查询媒资内容理解作业。
+ *
+ * @param request CreateInfiniteCanvasRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateInfiniteCanvasResponse
+ */
+CreateInfiniteCanvasResponse Client::createInfiniteCanvasWithOptions(const CreateInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCoverUrl()) {
+    query["CoverUrl"] = request.getCoverUrl();
+  }
+
+  if (!!request.hasProductionId()) {
+    query["ProductionId"] = request.getProductionId();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateInfiniteCanvas"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateInfiniteCanvasResponse>();
+}
+
+/**
+ * @summary 创建无限画布
+ *
+ * @description ## 请求说明
+ * 该API用于查询媒资内容理解作业。
+ *
+ * @param request CreateInfiniteCanvasRequest
+ * @return CreateInfiniteCanvasResponse
+ */
+CreateInfiniteCanvasResponse Client::createInfiniteCanvas(const CreateInfiniteCanvasRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createInfiniteCanvasWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the upload credential for a media asset.
  *
  * @param request CreateYikeAssetUploadRequest
@@ -468,6 +528,48 @@ CreateYikeWorkspaceResponse Client::createYikeWorkspace(const CreateYikeWorkspac
 }
 
 /**
+ * @summary 删除无限画布
+ *
+ * @param request DeleteInfiniteCanvasRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteInfiniteCanvasResponse
+ */
+DeleteInfiniteCanvasResponse Client::deleteInfiniteCanvasWithOptions(const DeleteInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCanvasId()) {
+    query["CanvasId"] = request.getCanvasId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteInfiniteCanvas"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteInfiniteCanvasResponse>();
+}
+
+/**
+ * @summary 删除无限画布
+ *
+ * @param request DeleteInfiniteCanvasRequest
+ * @return DeleteInfiniteCanvasResponse
+ */
+DeleteInfiniteCanvasResponse Client::deleteInfiniteCanvas(const DeleteInfiniteCanvasRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteInfiniteCanvasWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes media asset information.
  *
  * @param request DeleteYikeAssetMediaInfosRequest
@@ -514,9 +616,79 @@ DeleteYikeAssetMediaInfosResponse Client::deleteYikeAssetMediaInfos(const Delete
 }
 
 /**
+ * @summary 获取企业账号登录Token
+ *
+ * @param request GenerateYikeLoginTokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateYikeLoginTokenResponse
+ */
+GenerateYikeLoginTokenResponse Client::generateYikeLoginTokenWithOptions(const GenerateYikeLoginTokenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoCreateProduction()) {
+    query["AutoCreateProduction"] = request.getAutoCreateProduction();
+  }
+
+  if (!!request.hasExpires()) {
+    query["Expires"] = request.getExpires();
+  }
+
+  if (!!request.hasNickName()) {
+    query["NickName"] = request.getNickName();
+  }
+
+  if (!!request.hasProductionAuth()) {
+    query["ProductionAuth"] = request.getProductionAuth();
+  }
+
+  if (!!request.hasSubUserCredit()) {
+    query["SubUserCredit"] = request.getSubUserCredit();
+  }
+
+  if (!!request.hasTenant()) {
+    query["Tenant"] = request.getTenant();
+  }
+
+  if (!!request.hasUserName()) {
+    query["UserName"] = request.getUserName();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GenerateYikeLoginToken"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateYikeLoginTokenResponse>();
+}
+
+/**
+ * @summary 获取企业账号登录Token
+ *
+ * @param request GenerateYikeLoginTokenRequest
+ * @return GenerateYikeLoginTokenResponse
+ */
+GenerateYikeLoginTokenResponse Client::generateYikeLoginToken(const GenerateYikeLoginTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return generateYikeLoginTokenWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries an image generation task.
  *
- * @description The AI generation-related operations in the 2026-03-19 version of the API will be discontinued soon. Upgrade to the 2026-07-07 version.
+ * @description >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
  *
  * @param request GetImageGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -549,7 +721,7 @@ GetImageGenerationJobResponse Client::getImageGenerationJobWithOptions(const Get
 /**
  * @summary Queries an image generation task.
  *
- * @description The AI generation-related operations in the 2026-03-19 version of the API will be discontinued soon. Upgrade to the 2026-07-07 version.
+ * @description >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
  *
  * @param request GetImageGenerationJobRequest
  * @return GetImageGenerationJobResponse
@@ -560,9 +732,51 @@ GetImageGenerationJobResponse Client::getImageGenerationJob(const GetImageGenera
 }
 
 /**
+ * @summary 查询无限画布
+ *
+ * @param request GetInfiniteCanvasRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInfiniteCanvasResponse
+ */
+GetInfiniteCanvasResponse Client::getInfiniteCanvasWithOptions(const GetInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCanvasId()) {
+    query["CanvasId"] = request.getCanvasId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetInfiniteCanvas"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInfiniteCanvasResponse>();
+}
+
+/**
+ * @summary 查询无限画布
+ *
+ * @param request GetInfiniteCanvasRequest
+ * @return GetInfiniteCanvasResponse
+ */
+GetInfiniteCanvasResponse Client::getInfiniteCanvas(const GetInfiniteCanvasRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getInfiniteCanvasWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries an AI video generation task.
  *
- * @description The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 version.
+ * @description >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.
  *
  * @param request GetVideoGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -595,7 +809,7 @@ GetVideoGenerationJobResponse Client::getVideoGenerationJobWithOptions(const Get
 /**
  * @summary Queries an AI video generation task.
  *
- * @description The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 version.
+ * @description >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.
  *
  * @param request GetVideoGenerationJobRequest
  * @return GetVideoGenerationJobResponse
@@ -725,7 +939,7 @@ GetYikeAgentJobResponse Client::getYikeAgentJob(const GetYikeAgentJobRequest &re
 }
 
 /**
- * @summary 查询一刻口播任务预估积分
+ * @summary Queries the estimated credits for a digital human oral broadcasting task.
  *
  * @param request GetYikeAgentJobEstimatedCreditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -760,7 +974,7 @@ GetYikeAgentJobEstimatedCreditResponse Client::getYikeAgentJobEstimatedCreditWit
 }
 
 /**
- * @summary 查询一刻口播任务预估积分
+ * @summary Queries the estimated credits for a digital human oral broadcasting task.
  *
  * @param request GetYikeAgentJobEstimatedCreditRequest
  * @return GetYikeAgentJobEstimatedCreditResponse
@@ -813,7 +1027,7 @@ GetYikeAssetMediaInfoResponse Client::getYikeAssetMediaInfo(const GetYikeAssetMe
 }
 
 /**
- * @summary 查询一刻任务实际消耗积分
+ * @summary Queries the actual credit consumption of a task.
  *
  * @param request GetYikeJobCreditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -844,7 +1058,7 @@ GetYikeJobCreditResponse Client::getYikeJobCreditWithOptions(const GetYikeJobCre
 }
 
 /**
- * @summary 查询一刻任务实际消耗积分
+ * @summary Queries the actual credit consumption of a task.
  *
  * @param request GetYikeJobCreditRequest
  * @return GetYikeJobCreditResponse
@@ -1104,6 +1318,64 @@ GetYikeVoiceNarratorJobResponse Client::getYikeVoiceNarratorJobWithOptions(const
 GetYikeVoiceNarratorJobResponse Client::getYikeVoiceNarratorJob(const GetYikeVoiceNarratorJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getYikeVoiceNarratorJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询无限画布列表
+ *
+ * @param request ListInfiniteCanvasesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInfiniteCanvasesResponse
+ */
+ListInfiniteCanvasesResponse Client::listInfiniteCanvasesWithOptions(const ListInfiniteCanvasesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasSortOrder()) {
+    query["SortOrder"] = request.getSortOrder();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListInfiniteCanvases"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInfiniteCanvasesResponse>();
+}
+
+/**
+ * @summary 查询无限画布列表
+ *
+ * @param request ListInfiniteCanvasesRequest
+ * @return ListInfiniteCanvasesResponse
+ */
+ListInfiniteCanvasesResponse Client::listInfiniteCanvases(const ListInfiniteCanvasesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listInfiniteCanvasesWithOptions(request, runtime);
 }
 
 /**
@@ -1543,7 +1815,7 @@ SubYikeUserCreditResponse Client::subYikeUserCredit(const SubYikeUserCreditReque
 /**
  * @summary Submits an image generation task.
  *
- * @description The AI generation API operations in the 2026-03-19 version will be deprecated soon. Upgrade to the 2026-07-07 version.
+ * @description >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
  *
  * @param request SubmitImageGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1612,7 +1884,7 @@ SubmitImageGenerationJobResponse Client::submitImageGenerationJobWithOptions(con
 /**
  * @summary Submits an image generation task.
  *
- * @description The AI generation API operations in the 2026-03-19 version will be deprecated soon. Upgrade to the 2026-07-07 version.
+ * @description >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
  *
  * @param request SubmitImageGenerationJobRequest
  * @return SubmitImageGenerationJobResponse
@@ -1623,9 +1895,9 @@ SubmitImageGenerationJobResponse Client::submitImageGenerationJob(const SubmitIm
 }
 
 /**
- * @summary Submits an AI video generation task.
+ * @summary Submits a video generation task.
  *
- * @description The current version will be deprecated soon. Use the latest version by visiting this [link](https://api.aliyun.com/document/Yike/2026-07-07/SubmitVideoGenerationJob).
+ * @description >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
  *
  * @param request SubmitVideoGenerationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1696,9 +1968,9 @@ SubmitVideoGenerationJobResponse Client::submitVideoGenerationJobWithOptions(con
 }
 
 /**
- * @summary Submits an AI video generation task.
+ * @summary Submits a video generation task.
  *
- * @description The current version will be deprecated soon. Use the latest version by visiting this [link](https://api.aliyun.com/document/Yike/2026-07-07/SubmitVideoGenerationJob).
+ * @description >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
  *
  * @param request SubmitVideoGenerationJobRequest
  * @return SubmitVideoGenerationJobResponse
@@ -2114,6 +2386,56 @@ SubmitYikeVoiceNarratorJobResponse Client::submitYikeVoiceNarratorJobWithOptions
 SubmitYikeVoiceNarratorJobResponse Client::submitYikeVoiceNarratorJob(const SubmitYikeVoiceNarratorJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitYikeVoiceNarratorJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新无限画布信息
+ *
+ * @param request UpdateInfiniteCanvasRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateInfiniteCanvasResponse
+ */
+UpdateInfiniteCanvasResponse Client::updateInfiniteCanvasWithOptions(const UpdateInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCanvasId()) {
+    query["CanvasId"] = request.getCanvasId();
+  }
+
+  if (!!request.hasCoverUrl()) {
+    query["CoverUrl"] = request.getCoverUrl();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateInfiniteCanvas"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateInfiniteCanvasResponse>();
+}
+
+/**
+ * @summary 更新无限画布信息
+ *
+ * @param request UpdateInfiniteCanvasRequest
+ * @return UpdateInfiniteCanvasResponse
+ */
+UpdateInfiniteCanvasResponse Client::updateInfiniteCanvas(const UpdateInfiniteCanvasRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateInfiniteCanvasWithOptions(request, runtime);
 }
 
 /**

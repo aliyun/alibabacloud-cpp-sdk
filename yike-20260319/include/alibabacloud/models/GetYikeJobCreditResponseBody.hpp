@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The credit deduction status.
     shared_ptr<string> creditStatus_ {};
+    // The actual credits consumed.
     shared_ptr<double> jobCreditCost_ {};
+    // The task ID.
     shared_ptr<string> jobId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

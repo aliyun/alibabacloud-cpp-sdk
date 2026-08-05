@@ -89,6 +89,29 @@ namespace Yike20260319
       Models::BatchGetYikeAssetMediaInfosResponse batchGetYikeAssetMediaInfos(const Models::BatchGetYikeAssetMediaInfosRequest &request);
 
       /**
+       * @summary 创建无限画布
+       *
+       * @description ## 请求说明
+       * 该API用于查询媒资内容理解作业。
+       *
+       * @param request CreateInfiniteCanvasRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateInfiniteCanvasResponse
+       */
+      Models::CreateInfiniteCanvasResponse createInfiniteCanvasWithOptions(const Models::CreateInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建无限画布
+       *
+       * @description ## 请求说明
+       * 该API用于查询媒资内容理解作业。
+       *
+       * @param request CreateInfiniteCanvasRequest
+       * @return CreateInfiniteCanvasResponse
+       */
+      Models::CreateInfiniteCanvasResponse createInfiniteCanvas(const Models::CreateInfiniteCanvasRequest &request);
+
+      /**
        * @summary Retrieves the upload credential for a media asset.
        *
        * @param request CreateYikeAssetUploadRequest
@@ -174,6 +197,23 @@ namespace Yike20260319
       Models::CreateYikeWorkspaceResponse createYikeWorkspace(const Models::CreateYikeWorkspaceRequest &request);
 
       /**
+       * @summary 删除无限画布
+       *
+       * @param request DeleteInfiniteCanvasRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteInfiniteCanvasResponse
+       */
+      Models::DeleteInfiniteCanvasResponse deleteInfiniteCanvasWithOptions(const Models::DeleteInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除无限画布
+       *
+       * @param request DeleteInfiniteCanvasRequest
+       * @return DeleteInfiniteCanvasResponse
+       */
+      Models::DeleteInfiniteCanvasResponse deleteInfiniteCanvas(const Models::DeleteInfiniteCanvasRequest &request);
+
+      /**
        * @summary Deletes media asset information.
        *
        * @param request DeleteYikeAssetMediaInfosRequest
@@ -191,9 +231,26 @@ namespace Yike20260319
       Models::DeleteYikeAssetMediaInfosResponse deleteYikeAssetMediaInfos(const Models::DeleteYikeAssetMediaInfosRequest &request);
 
       /**
+       * @summary 获取企业账号登录Token
+       *
+       * @param request GenerateYikeLoginTokenRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateYikeLoginTokenResponse
+       */
+      Models::GenerateYikeLoginTokenResponse generateYikeLoginTokenWithOptions(const Models::GenerateYikeLoginTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取企业账号登录Token
+       *
+       * @param request GenerateYikeLoginTokenRequest
+       * @return GenerateYikeLoginTokenResponse
+       */
+      Models::GenerateYikeLoginTokenResponse generateYikeLoginToken(const Models::GenerateYikeLoginTokenRequest &request);
+
+      /**
        * @summary Queries an image generation task.
        *
-       * @description The AI generation-related operations in the 2026-03-19 version of the API will be discontinued soon. Upgrade to the 2026-07-07 version.
+       * @description >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
        *
        * @param request GetImageGenerationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -204,7 +261,7 @@ namespace Yike20260319
       /**
        * @summary Queries an image generation task.
        *
-       * @description The AI generation-related operations in the 2026-03-19 version of the API will be discontinued soon. Upgrade to the 2026-07-07 version.
+       * @description >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
        *
        * @param request GetImageGenerationJobRequest
        * @return GetImageGenerationJobResponse
@@ -212,9 +269,26 @@ namespace Yike20260319
       Models::GetImageGenerationJobResponse getImageGenerationJob(const Models::GetImageGenerationJobRequest &request);
 
       /**
+       * @summary 查询无限画布
+       *
+       * @param request GetInfiniteCanvasRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInfiniteCanvasResponse
+       */
+      Models::GetInfiniteCanvasResponse getInfiniteCanvasWithOptions(const Models::GetInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询无限画布
+       *
+       * @param request GetInfiniteCanvasRequest
+       * @return GetInfiniteCanvasResponse
+       */
+      Models::GetInfiniteCanvasResponse getInfiniteCanvas(const Models::GetInfiniteCanvasRequest &request);
+
+      /**
        * @summary Queries an AI video generation task.
        *
-       * @description The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 version.
+       * @description >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.
        *
        * @param request GetVideoGenerationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -225,7 +299,7 @@ namespace Yike20260319
       /**
        * @summary Queries an AI video generation task.
        *
-       * @description The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 version.
+       * @description >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.
        *
        * @param request GetVideoGenerationJobRequest
        * @return GetVideoGenerationJobResponse
@@ -284,7 +358,7 @@ namespace Yike20260319
       Models::GetYikeAgentJobResponse getYikeAgentJob(const Models::GetYikeAgentJobRequest &request);
 
       /**
-       * @summary 查询一刻口播任务预估积分
+       * @summary Queries the estimated credits for a digital human oral broadcasting task.
        *
        * @param request GetYikeAgentJobEstimatedCreditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -293,7 +367,7 @@ namespace Yike20260319
       Models::GetYikeAgentJobEstimatedCreditResponse getYikeAgentJobEstimatedCreditWithOptions(const Models::GetYikeAgentJobEstimatedCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询一刻口播任务预估积分
+       * @summary Queries the estimated credits for a digital human oral broadcasting task.
        *
        * @param request GetYikeAgentJobEstimatedCreditRequest
        * @return GetYikeAgentJobEstimatedCreditResponse
@@ -318,7 +392,7 @@ namespace Yike20260319
       Models::GetYikeAssetMediaInfoResponse getYikeAssetMediaInfo(const Models::GetYikeAssetMediaInfoRequest &request);
 
       /**
-       * @summary 查询一刻任务实际消耗积分
+       * @summary Queries the actual credit consumption of a task.
        *
        * @param request GetYikeJobCreditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -327,7 +401,7 @@ namespace Yike20260319
       Models::GetYikeJobCreditResponse getYikeJobCreditWithOptions(const Models::GetYikeJobCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询一刻任务实际消耗积分
+       * @summary Queries the actual credit consumption of a task.
        *
        * @param request GetYikeJobCreditRequest
        * @return GetYikeJobCreditResponse
@@ -435,6 +509,23 @@ namespace Yike20260319
        * @return GetYikeVoiceNarratorJobResponse
        */
       Models::GetYikeVoiceNarratorJobResponse getYikeVoiceNarratorJob(const Models::GetYikeVoiceNarratorJobRequest &request);
+
+      /**
+       * @summary 查询无限画布列表
+       *
+       * @param request ListInfiniteCanvasesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInfiniteCanvasesResponse
+       */
+      Models::ListInfiniteCanvasesResponse listInfiniteCanvasesWithOptions(const Models::ListInfiniteCanvasesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询无限画布列表
+       *
+       * @param request ListInfiniteCanvasesRequest
+       * @return ListInfiniteCanvasesResponse
+       */
+      Models::ListInfiniteCanvasesResponse listInfiniteCanvases(const Models::ListInfiniteCanvasesRequest &request);
 
       /**
        * @summary Retrieves the list of folders.
@@ -592,7 +683,7 @@ namespace Yike20260319
       /**
        * @summary Submits an image generation task.
        *
-       * @description The AI generation API operations in the 2026-03-19 version will be deprecated soon. Upgrade to the 2026-07-07 version.
+       * @description >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
        *
        * @param request SubmitImageGenerationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -603,7 +694,7 @@ namespace Yike20260319
       /**
        * @summary Submits an image generation task.
        *
-       * @description The AI generation API operations in the 2026-03-19 version will be deprecated soon. Upgrade to the 2026-07-07 version.
+       * @description >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
        *
        * @param request SubmitImageGenerationJobRequest
        * @return SubmitImageGenerationJobResponse
@@ -611,9 +702,9 @@ namespace Yike20260319
       Models::SubmitImageGenerationJobResponse submitImageGenerationJob(const Models::SubmitImageGenerationJobRequest &request);
 
       /**
-       * @summary Submits an AI video generation task.
+       * @summary Submits a video generation task.
        *
-       * @description The current version will be deprecated soon. Use the latest version by visiting this [link](https://api.aliyun.com/document/Yike/2026-07-07/SubmitVideoGenerationJob).
+       * @description >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
        *
        * @param request SubmitVideoGenerationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -622,9 +713,9 @@ namespace Yike20260319
       Models::SubmitVideoGenerationJobResponse submitVideoGenerationJobWithOptions(const Models::SubmitVideoGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits an AI video generation task.
+       * @summary Submits a video generation task.
        *
-       * @description The current version will be deprecated soon. Use the latest version by visiting this [link](https://api.aliyun.com/document/Yike/2026-07-07/SubmitVideoGenerationJob).
+       * @description >Notice:  The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
        *
        * @param request SubmitVideoGenerationJobRequest
        * @return SubmitVideoGenerationJobResponse
@@ -761,6 +852,23 @@ namespace Yike20260319
        * @return SubmitYikeVoiceNarratorJobResponse
        */
       Models::SubmitYikeVoiceNarratorJobResponse submitYikeVoiceNarratorJob(const Models::SubmitYikeVoiceNarratorJobRequest &request);
+
+      /**
+       * @summary 更新无限画布信息
+       *
+       * @param request UpdateInfiniteCanvasRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateInfiniteCanvasResponse
+       */
+      Models::UpdateInfiniteCanvasResponse updateInfiniteCanvasWithOptions(const Models::UpdateInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新无限画布信息
+       *
+       * @param request UpdateInfiniteCanvasRequest
+       * @return UpdateInfiniteCanvasResponse
+       */
+      Models::UpdateInfiniteCanvasResponse updateInfiniteCanvas(const Models::UpdateInfiniteCanvasRequest &request);
 
       /**
        * @summary Updates a China Short Video (Yike) project.

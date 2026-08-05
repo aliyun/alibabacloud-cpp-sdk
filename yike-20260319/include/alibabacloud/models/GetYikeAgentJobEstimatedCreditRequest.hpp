@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The name of the task submission operation.
+    // 
     // This parameter is required.
     shared_ptr<string> jobAction_ {};
+    // The task request content. This is a JSON string and uses the same JobParams parameter as the task submission operation.
+    // 
     // This parameter is required.
     shared_ptr<string> jobParams_ {};
   };

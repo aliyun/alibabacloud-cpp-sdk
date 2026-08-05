@@ -183,13 +183,13 @@ namespace Models
       shared_ptr<string> aspectRatio_ {};
       // The video duration. Unit: seconds.
       shared_ptr<string> duration_ {};
-      // The error message. This parameter is returned when the task is in the Failed state.
+      // The error message. This parameter is returned only when the task is in the Failed state.
       shared_ptr<string> errorMessage_ {};
       // The task input.
       shared_ptr<string> input_ {};
       // The task ID.
       shared_ptr<string> jobId_ {};
-      // The task feature configuration. You do not need to set this parameter.
+      // The task feature configuration. No configuration is required at this time.
       shared_ptr<string> jobParameters_ {};
       // The task type.
       shared_ptr<string> jobType_ {};
@@ -214,7 +214,7 @@ namespace Models
       // - Finished: The task is completed.
       // - Failed: The task failed.
       shared_ptr<string> status_ {};
-      // The custom business information.
+      // The user business information.
       shared_ptr<string> userData_ {};
     };
 
