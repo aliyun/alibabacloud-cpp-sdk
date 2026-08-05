@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_NODEPODINFO_HPP_
 #define ALIBABACLOUD_MODELS_NODEPODINFO_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 #include <alibabacloud/models/ResourceAmount.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -14,6 +15,7 @@ namespace Models
   class NodePodInfo : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const NodePodInfo& obj) { 
+      DARABONBA_PTR_TO_JSON(GPUIndexes, GPUIndexes_);
       DARABONBA_PTR_TO_JSON(Phase, phase_);
       DARABONBA_PTR_TO_JSON(PodIP, podIP_);
       DARABONBA_PTR_TO_JSON(PodName, podName_);
@@ -23,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkloadType, workloadType_);
     };
     friend void from_json(const Darabonba::Json& j, NodePodInfo& obj) { 
+      DARABONBA_PTR_FROM_JSON(GPUIndexes, GPUIndexes_);
       DARABONBA_PTR_FROM_JSON(Phase, phase_);
       DARABONBA_PTR_FROM_JSON(PodIP, podIP_);
       DARABONBA_PTR_FROM_JSON(PodName, podName_);
@@ -42,9 +45,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->phase_ == nullptr
-        && this->podIP_ == nullptr && this->podName_ == nullptr && this->podNamespace_ == nullptr && this->resourceSpec_ == nullptr && this->workloadId_ == nullptr
-        && this->workloadType_ == nullptr; };
+    virtual bool empty() const override { return this->GPUIndexes_ == nullptr
+        && this->phase_ == nullptr && this->podIP_ == nullptr && this->podName_ == nullptr && this->podNamespace_ == nullptr && this->resourceSpec_ == nullptr
+        && this->workloadId_ == nullptr && this->workloadType_ == nullptr; };
+    // GPUIndexes Field Functions 
+    bool hasGPUIndexes() const { return this->GPUIndexes_ != nullptr;};
+    void deleteGPUIndexes() { this->GPUIndexes_ = nullptr;};
+    inline const vector<int32_t> & getGPUIndexes() const { DARABONBA_PTR_GET_CONST(GPUIndexes_, vector<int32_t>) };
+    inline vector<int32_t> getGPUIndexes() { DARABONBA_PTR_GET(GPUIndexes_, vector<int32_t>) };
+    inline NodePodInfo& setGPUIndexes(const vector<int32_t> & GPUIndexes) { DARABONBA_PTR_SET_VALUE(GPUIndexes_, GPUIndexes) };
+    inline NodePodInfo& setGPUIndexes(vector<int32_t> && GPUIndexes) { DARABONBA_PTR_SET_RVALUE(GPUIndexes_, GPUIndexes) };
+
+
     // phase Field Functions 
     bool hasPhase() const { return this->phase_ != nullptr;};
     void deletePhase() { this->phase_ = nullptr;};
@@ -97,12 +109,21 @@ namespace Models
 
 
   protected:
+    // The occupied GPU indexes.
+    shared_ptr<vector<int32_t>> GPUIndexes_ {};
+    // The Pod status.
     shared_ptr<string> phase_ {};
+    // The IP address of the Pod.
     shared_ptr<string> podIP_ {};
+    // The Pod name.
     shared_ptr<string> podName_ {};
+    // The namespace of the Pod.
     shared_ptr<string> podNamespace_ {};
+    // The resource usage information.
     shared_ptr<ResourceAmount> resourceSpec_ {};
+    // The task ID or service ID.
     shared_ptr<string> workloadId_ {};
+    // The sub-product that the Pod belongs to.
     shared_ptr<string> workloadType_ {};
   };
 

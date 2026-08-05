@@ -599,7 +599,7 @@ namespace PaiStudio20220112
        *
        * @description ## Operation description
        * - This feature is currently available only on the Lingjun AI Computing Service platform and is accessible to customers through a whitelist.
-       * - `NodeName` and `ResourceGroupId` are required parameters that represent the node name and the ID of the resource group to which the node belongs.
+       * - `NodeName` and `ResourceGroupId` are required parameters that represent the node name and the resource group ID to which the node belongs.
        * - Optional parameters include `OversoldTypes` and `GPUIndexes`, which are used to further filter or specify conditions.
        *
        * @param request ListNodePodsRequest
@@ -614,7 +614,7 @@ namespace PaiStudio20220112
        *
        * @description ## Operation description
        * - This feature is currently available only on the Lingjun AI Computing Service platform and is accessible to customers through a whitelist.
-       * - `NodeName` and `ResourceGroupId` are required parameters that represent the node name and the ID of the resource group to which the node belongs.
+       * - `NodeName` and `ResourceGroupId` are required parameters that represent the node name and the resource group ID to which the node belongs.
        * - Optional parameters include `OversoldTypes` and `GPUIndexes`, which are used to further filter or specify conditions.
        *
        * @param request ListNodePodsRequest
