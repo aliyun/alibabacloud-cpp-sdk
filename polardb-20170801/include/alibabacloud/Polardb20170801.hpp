@@ -1297,6 +1297,23 @@ namespace Polardb20170801
       Models::CreateGwConsumerOrderResponse createGwConsumerOrder(const Models::CreateGwConsumerOrderRequest &request);
 
       /**
+       * @summary Creates a PolarFS S3 account.
+       *
+       * @param request CreateLakebaseS3AccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateLakebaseS3AccountResponse
+       */
+      Models::CreateLakebaseS3AccountResponse createLakebaseS3AccountWithOptions(const Models::CreateLakebaseS3AccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a PolarFS S3 account.
+       *
+       * @param request CreateLakebaseS3AccountRequest
+       * @return CreateLakebaseS3AccountResponse
+       */
+      Models::CreateLakebaseS3AccountResponse createLakebaseS3Account(const Models::CreateLakebaseS3AccountRequest &request);
+
+      /**
        * @summary Creates a model API.
        *
        * @param request CreateModelApiRequest
@@ -1453,6 +1470,23 @@ namespace Polardb20170801
        * @return CreatePolarClawCronJobResponse
        */
       Models::CreatePolarClawCronJobResponse createPolarClawCronJob(const Models::CreatePolarClawCronJobRequest &request);
+
+      /**
+       * @summary Enables PolarFS support.
+       *
+       * @param request CreatePolarFsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePolarFsResponse
+       */
+      Models::CreatePolarFsResponse createPolarFsWithOptions(const Models::CreatePolarFsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Enables PolarFS support.
+       *
+       * @param request CreatePolarFsRequest
+       * @return CreatePolarFsResponse
+       */
+      Models::CreatePolarFsResponse createPolarFs(const Models::CreatePolarFsRequest &request);
 
       /**
        * @summary Creates a new directory in a specified PolarFS instance.
@@ -2196,6 +2230,23 @@ namespace Polardb20170801
       Models::DeleteGlobalSecurityIPGroupResponse deleteGlobalSecurityIPGroup(const Models::DeleteGlobalSecurityIPGroupRequest &request);
 
       /**
+       * @summary Deletes a PolarFS S3 account.
+       *
+       * @param request DeleteLakebaseS3AccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteLakebaseS3AccountResponse
+       */
+      Models::DeleteLakebaseS3AccountResponse deleteLakebaseS3AccountWithOptions(const Models::DeleteLakebaseS3AccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a PolarFS S3 account.
+       *
+       * @param request DeleteLakebaseS3AccountRequest
+       * @return DeleteLakebaseS3AccountResponse
+       */
+      Models::DeleteLakebaseS3AccountResponse deleteLakebaseS3Account(const Models::DeleteLakebaseS3AccountRequest &request);
+
+      /**
        * @summary Deletes the specified data masking rules.
        *
        * @param request DeleteMaskingRulesRequest
@@ -2358,6 +2409,23 @@ namespace Polardb20170801
        * @return DeletePolarClawCronJobResponse
        */
       Models::DeletePolarClawCronJobResponse deletePolarClawCronJob(const Models::DeletePolarClawCronJobRequest &request);
+
+      /**
+       * @summary Releases a pay-as-you-go PolarFs instance.
+       *
+       * @param request DeletePolarFsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePolarFsResponse
+       */
+      Models::DeletePolarFsResponse deletePolarFsWithOptions(const Models::DeletePolarFsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Releases a pay-as-you-go PolarFs instance.
+       *
+       * @param request DeletePolarFsRequest
+       * @return DeletePolarFsResponse
+       */
+      Models::DeletePolarFsResponse deletePolarFs(const Models::DeletePolarFsRequest &request);
 
       /**
        * @summary Deletes objects from PolarLakebase. This operation supports only Basic Edition and Cold Storage Edition instances.
@@ -4444,6 +4512,23 @@ namespace Polardb20170801
       Models::DescribeHistoryTasksStatResponse describeHistoryTasksStat(const Models::DescribeHistoryTasksStatRequest &request);
 
       /**
+       * @summary Queries the details of a PolarFS S3 account.
+       *
+       * @param request DescribeLakebaseS3AccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeLakebaseS3AccountResponse
+       */
+      Models::DescribeLakebaseS3AccountResponse describeLakebaseS3AccountWithOptions(const Models::DescribeLakebaseS3AccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a PolarFS S3 account.
+       *
+       * @param request DescribeLakebaseS3AccountRequest
+       * @return DescribeLakebaseS3AccountResponse
+       */
+      Models::DescribeLakebaseS3AccountResponse describeLakebaseS3Account(const Models::DescribeLakebaseS3AccountRequest &request);
+
+      /**
        * @summary Queries a license order.
        *
        * @param request DescribeLicenseOrderDetailsRequest
@@ -4963,6 +5048,23 @@ namespace Polardb20170801
        * @return DescribePolarFsAttributeResponse
        */
       Models::DescribePolarFsAttributeResponse describePolarFsAttribute(const Models::DescribePolarFsAttributeRequest &request);
+
+      /**
+       * @summary Queries the list of PolarFS path mappings.
+       *
+       * @param request DescribePolarFsMappingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarFsMappingResponse
+       */
+      Models::DescribePolarFsMappingResponse describePolarFsMappingWithOptions(const Models::DescribePolarFsMappingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of PolarFS path mappings.
+       *
+       * @param request DescribePolarFsMappingRequest
+       * @return DescribePolarFsMappingResponse
+       */
+      Models::DescribePolarFsMappingResponse describePolarFsMapping(const Models::DescribePolarFsMappingRequest &request);
 
       /**
        * @summary Lists the files and subdirectories under a specified path.
@@ -5859,6 +5961,23 @@ namespace Polardb20170801
        * @return InstallPolarClawSkillResponse
        */
       Models::InstallPolarClawSkillResponse installPolarClawSkill(const Models::InstallPolarClawSkillRequest &request);
+
+      /**
+       * @summary Lists PolarFS S3 accounts.
+       *
+       * @param request ListLakebaseS3AccountsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListLakebaseS3AccountsResponse
+       */
+      Models::ListLakebaseS3AccountsResponse listLakebaseS3AccountsWithOptions(const Models::ListLakebaseS3AccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists PolarFS S3 accounts.
+       *
+       * @param request ListLakebaseS3AccountsRequest
+       * @return ListLakebaseS3AccountsResponse
+       */
+      Models::ListLakebaseS3AccountsResponse listLakebaseS3Accounts(const Models::ListLakebaseS3AccountsRequest &request);
 
       /**
        * @summary Queries a list of orders.
@@ -7164,6 +7283,23 @@ namespace Polardb20170801
        * @return ModifyPendingMaintenanceActionResponse
        */
       Models::ModifyPendingMaintenanceActionResponse modifyPendingMaintenanceAction(const Models::ModifyPendingMaintenanceActionRequest &request);
+
+      /**
+       * @summary Modifies the bucket credentials for a PolarFS path mapping.
+       *
+       * @param request ModifyPolarFsMappingAuthRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyPolarFsMappingAuthResponse
+       */
+      Models::ModifyPolarFsMappingAuthResponse modifyPolarFsMappingAuthWithOptions(const Models::ModifyPolarFsMappingAuthRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the bucket credentials for a PolarFS path mapping.
+       *
+       * @param request ModifyPolarFsMappingAuthRequest
+       * @return ModifyPolarFsMappingAuthResponse
+       */
+      Models::ModifyPolarFsMappingAuthResponse modifyPolarFsMappingAuth(const Models::ModifyPolarFsMappingAuthRequest &request);
 
       /**
        * @summary Modifies a rate limit policy.

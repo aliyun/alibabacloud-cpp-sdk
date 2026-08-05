@@ -204,6 +204,9 @@
 #include <alibabacloud/models/CreateGwConsumerOrderRequest.hpp>
 #include <alibabacloud/models/CreateGwConsumerOrderResponseBody.hpp>
 #include <alibabacloud/models/CreateGwConsumerOrderResponse.hpp>
+#include <alibabacloud/models/CreateLakebaseS3AccountRequest.hpp>
+#include <alibabacloud/models/CreateLakebaseS3AccountResponseBody.hpp>
+#include <alibabacloud/models/CreateLakebaseS3AccountResponse.hpp>
 #include <alibabacloud/models/CreateModelApiRequest.hpp>
 #include <alibabacloud/models/CreateModelApiResponseBody.hpp>
 #include <alibabacloud/models/CreateModelApiResponse.hpp>
@@ -230,6 +233,9 @@
 #include <alibabacloud/models/CreatePolarClawCronJobShrinkRequest.hpp>
 #include <alibabacloud/models/CreatePolarClawCronJobResponseBody.hpp>
 #include <alibabacloud/models/CreatePolarClawCronJobResponse.hpp>
+#include <alibabacloud/models/CreatePolarFsRequest.hpp>
+#include <alibabacloud/models/CreatePolarFsResponseBody.hpp>
+#include <alibabacloud/models/CreatePolarFsResponse.hpp>
 #include <alibabacloud/models/CreatePolarFsObjectRequest.hpp>
 #include <alibabacloud/models/CreatePolarFsObjectResponseBody.hpp>
 #include <alibabacloud/models/CreatePolarFsObjectResponse.hpp>
@@ -347,6 +353,9 @@
 #include <alibabacloud/models/DeleteGlobalSecurityIPGroupRequest.hpp>
 #include <alibabacloud/models/DeleteGlobalSecurityIPGroupResponseBody.hpp>
 #include <alibabacloud/models/DeleteGlobalSecurityIPGroupResponse.hpp>
+#include <alibabacloud/models/DeleteLakebaseS3AccountRequest.hpp>
+#include <alibabacloud/models/DeleteLakebaseS3AccountResponseBody.hpp>
+#include <alibabacloud/models/DeleteLakebaseS3AccountResponse.hpp>
 #include <alibabacloud/models/DeleteMaskingRulesRequest.hpp>
 #include <alibabacloud/models/DeleteMaskingRulesResponseBody.hpp>
 #include <alibabacloud/models/DeleteMaskingRulesResponse.hpp>
@@ -371,6 +380,9 @@
 #include <alibabacloud/models/DeletePolarClawCronJobRequest.hpp>
 #include <alibabacloud/models/DeletePolarClawCronJobResponseBody.hpp>
 #include <alibabacloud/models/DeletePolarClawCronJobResponse.hpp>
+#include <alibabacloud/models/DeletePolarFsRequest.hpp>
+#include <alibabacloud/models/DeletePolarFsResponseBody.hpp>
+#include <alibabacloud/models/DeletePolarFsResponse.hpp>
 #include <alibabacloud/models/DeletePolarFsObjectsRequest.hpp>
 #include <alibabacloud/models/DeletePolarFsObjectsShrinkRequest.hpp>
 #include <alibabacloud/models/DeletePolarFsObjectsResponseBody.hpp>
@@ -717,6 +729,9 @@
 #include <alibabacloud/models/DescribeHistoryTasksStatRequest.hpp>
 #include <alibabacloud/models/DescribeHistoryTasksStatResponseBody.hpp>
 #include <alibabacloud/models/DescribeHistoryTasksStatResponse.hpp>
+#include <alibabacloud/models/DescribeLakebaseS3AccountRequest.hpp>
+#include <alibabacloud/models/DescribeLakebaseS3AccountResponseBody.hpp>
+#include <alibabacloud/models/DescribeLakebaseS3AccountResponse.hpp>
 #include <alibabacloud/models/DescribeLicenseOrderDetailsRequest.hpp>
 #include <alibabacloud/models/DescribeLicenseOrderDetailsResponseBody.hpp>
 #include <alibabacloud/models/DescribeLicenseOrderDetailsResponse.hpp>
@@ -807,6 +822,9 @@
 #include <alibabacloud/models/DescribePolarFsAttributeRequest.hpp>
 #include <alibabacloud/models/DescribePolarFsAttributeResponseBody.hpp>
 #include <alibabacloud/models/DescribePolarFsAttributeResponse.hpp>
+#include <alibabacloud/models/DescribePolarFsMappingRequest.hpp>
+#include <alibabacloud/models/DescribePolarFsMappingResponseBody.hpp>
+#include <alibabacloud/models/DescribePolarFsMappingResponse.hpp>
 #include <alibabacloud/models/DescribePolarFsObjectsRequest.hpp>
 #include <alibabacloud/models/DescribePolarFsObjectsResponseBody.hpp>
 #include <alibabacloud/models/DescribePolarFsObjectsResponse.hpp>
@@ -947,6 +965,9 @@
 #include <alibabacloud/models/InstallPolarClawSkillRequest.hpp>
 #include <alibabacloud/models/InstallPolarClawSkillResponseBody.hpp>
 #include <alibabacloud/models/InstallPolarClawSkillResponse.hpp>
+#include <alibabacloud/models/ListLakebaseS3AccountsRequest.hpp>
+#include <alibabacloud/models/ListLakebaseS3AccountsResponseBody.hpp>
+#include <alibabacloud/models/ListLakebaseS3AccountsResponse.hpp>
 #include <alibabacloud/models/ListOrdersRequest.hpp>
 #include <alibabacloud/models/ListOrdersResponseBody.hpp>
 #include <alibabacloud/models/ListOrdersResponse.hpp>
@@ -1171,6 +1192,9 @@
 #include <alibabacloud/models/ModifyPendingMaintenanceActionRequest.hpp>
 #include <alibabacloud/models/ModifyPendingMaintenanceActionResponseBody.hpp>
 #include <alibabacloud/models/ModifyPendingMaintenanceActionResponse.hpp>
+#include <alibabacloud/models/ModifyPolarFsMappingAuthRequest.hpp>
+#include <alibabacloud/models/ModifyPolarFsMappingAuthResponseBody.hpp>
+#include <alibabacloud/models/ModifyPolarFsMappingAuthResponse.hpp>
 #include <alibabacloud/models/ModifyRateLimitPolicyRequest.hpp>
 #include <alibabacloud/models/ModifyRateLimitPolicyResponseBody.hpp>
 #include <alibabacloud/models/ModifyRateLimitPolicyResponse.hpp>

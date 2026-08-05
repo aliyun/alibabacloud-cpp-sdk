@@ -5294,6 +5294,64 @@ CreateGwConsumerOrderResponse Client::createGwConsumerOrder(const CreateGwConsum
 }
 
 /**
+ * @summary Creates a PolarFS S3 account.
+ *
+ * @param request CreateLakebaseS3AccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateLakebaseS3AccountResponse
+ */
+CreateLakebaseS3AccountResponse Client::createLakebaseS3AccountWithOptions(const CreateLakebaseS3AccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPfsInstanceId()) {
+    query["PfsInstanceId"] = request.getPfsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasUserAccAk()) {
+    query["UserAccAk"] = request.getUserAccAk();
+  }
+
+  if (!!request.hasUserAccPolicy()) {
+    query["UserAccPolicy"] = request.getUserAccPolicy();
+  }
+
+  if (!!request.hasUserAccSk()) {
+    query["UserAccSk"] = request.getUserAccSk();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateLakebaseS3Account"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateLakebaseS3AccountResponse>();
+}
+
+/**
+ * @summary Creates a PolarFS S3 account.
+ *
+ * @param request CreateLakebaseS3AccountRequest
+ * @return CreateLakebaseS3AccountResponse
+ */
+CreateLakebaseS3AccountResponse Client::createLakebaseS3Account(const CreateLakebaseS3AccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createLakebaseS3AccountWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a model API.
  *
  * @param request CreateModelApiRequest
@@ -5953,6 +6011,140 @@ CreatePolarClawCronJobResponse Client::createPolarClawCronJobWithOptions(const C
 CreatePolarClawCronJobResponse Client::createPolarClawCronJob(const CreatePolarClawCronJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createPolarClawCronJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Enables PolarFS support.
+ *
+ * @param request CreatePolarFsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePolarFsResponse
+ */
+CreatePolarFsResponse Client::createPolarFsWithOptions(const CreatePolarFsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccelerateStorageSize()) {
+    query["AccelerateStorageSize"] = request.getAccelerateStorageSize();
+  }
+
+  if (!!request.hasAccelerateSwitch()) {
+    query["AccelerateSwitch"] = request.getAccelerateSwitch();
+  }
+
+  if (!!request.hasAccelerateType()) {
+    query["AccelerateType"] = request.getAccelerateType();
+  }
+
+  if (!!request.hasAuthorizedUserIds()) {
+    query["AuthorizedUserIds"] = request.getAuthorizedUserIds();
+  }
+
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasAutoUseCoupon()) {
+    query["AutoUseCoupon"] = request.getAutoUseCoupon();
+  }
+
+  if (!!request.hasCreationCategory()) {
+    query["CreationCategory"] = request.getCreationCategory();
+  }
+
+  if (!!request.hasCustomBucketCount()) {
+    query["CustomBucketCount"] = request.getCustomBucketCount();
+  }
+
+  if (!!request.hasCustomBucketPath()) {
+    query["CustomBucketPath"] = request.getCustomBucketPath();
+  }
+
+  if (!!request.hasCustomBucketPathList()) {
+    query["CustomBucketPathList"] = request.getCustomBucketPathList();
+  }
+
+  if (!!request.hasCustomOssAk()) {
+    query["CustomOssAk"] = request.getCustomOssAk();
+  }
+
+  if (!!request.hasCustomOssSk()) {
+    query["CustomOssSk"] = request.getCustomOssSk();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDBType()) {
+    query["DBType"] = request.getDBType();
+  }
+
+  if (!!request.hasPayType()) {
+    query["PayType"] = request.getPayType();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasPromotionCode()) {
+    query["PromotionCode"] = request.getPromotionCode();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStorageSpace()) {
+    query["StorageSpace"] = request.getStorageSpace();
+  }
+
+  if (!!request.hasStorageType()) {
+    query["StorageType"] = request.getStorageType();
+  }
+
+  if (!!request.hasUsedTime()) {
+    query["UsedTime"] = request.getUsedTime();
+  }
+
+  if (!!request.hasVPCId()) {
+    query["VPCId"] = request.getVPCId();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreatePolarFs"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePolarFsResponse>();
+}
+
+/**
+ * @summary Enables PolarFS support.
+ *
+ * @param request CreatePolarFsRequest
+ * @return CreatePolarFsResponse
+ */
+CreatePolarFsResponse Client::createPolarFs(const CreatePolarFsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPolarFsWithOptions(request, runtime);
 }
 
 /**
@@ -8296,6 +8488,56 @@ DeleteGlobalSecurityIPGroupResponse Client::deleteGlobalSecurityIPGroup(const De
 }
 
 /**
+ * @summary Deletes a PolarFS S3 account.
+ *
+ * @param request DeleteLakebaseS3AccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteLakebaseS3AccountResponse
+ */
+DeleteLakebaseS3AccountResponse Client::deleteLakebaseS3AccountWithOptions(const DeleteLakebaseS3AccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPfsInstanceId()) {
+    query["PfsInstanceId"] = request.getPfsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasUserAccAk()) {
+    query["UserAccAk"] = request.getUserAccAk();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteLakebaseS3Account"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteLakebaseS3AccountResponse>();
+}
+
+/**
+ * @summary Deletes a PolarFS S3 account.
+ *
+ * @param request DeleteLakebaseS3AccountRequest
+ * @return DeleteLakebaseS3AccountResponse
+ */
+DeleteLakebaseS3AccountResponse Client::deleteLakebaseS3Account(const DeleteLakebaseS3AccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteLakebaseS3AccountWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes the specified data masking rules.
  *
  * @param request DeleteMaskingRulesRequest
@@ -8773,6 +9015,52 @@ DeletePolarClawCronJobResponse Client::deletePolarClawCronJobWithOptions(const D
 DeletePolarClawCronJobResponse Client::deletePolarClawCronJob(const DeletePolarClawCronJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deletePolarClawCronJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Releases a pay-as-you-go PolarFs instance.
+ *
+ * @param request DeletePolarFsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePolarFsResponse
+ */
+DeletePolarFsResponse Client::deletePolarFsWithOptions(const DeletePolarFsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePolarFs"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePolarFsResponse>();
+}
+
+/**
+ * @summary Releases a pay-as-you-go PolarFs instance.
+ *
+ * @param request DeletePolarFsRequest
+ * @return DeletePolarFsResponse
+ */
+DeletePolarFsResponse Client::deletePolarFs(const DeletePolarFsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deletePolarFsWithOptions(request, runtime);
 }
 
 /**
@@ -16546,6 +16834,56 @@ DescribeHistoryTasksStatResponse Client::describeHistoryTasksStat(const Describe
 }
 
 /**
+ * @summary Queries the details of a PolarFS S3 account.
+ *
+ * @param request DescribeLakebaseS3AccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLakebaseS3AccountResponse
+ */
+DescribeLakebaseS3AccountResponse Client::describeLakebaseS3AccountWithOptions(const DescribeLakebaseS3AccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPfsInstanceId()) {
+    query["PfsInstanceId"] = request.getPfsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasUserAccAk()) {
+    query["UserAccAk"] = request.getUserAccAk();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLakebaseS3Account"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLakebaseS3AccountResponse>();
+}
+
+/**
+ * @summary Queries the details of a PolarFS S3 account.
+ *
+ * @param request DescribeLakebaseS3AccountRequest
+ * @return DescribeLakebaseS3AccountResponse
+ */
+DescribeLakebaseS3AccountResponse Client::describeLakebaseS3Account(const DescribeLakebaseS3AccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLakebaseS3AccountWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a license order.
  *
  * @param request DescribeLicenseOrderDetailsRequest
@@ -18331,6 +18669,60 @@ DescribePolarFsAttributeResponse Client::describePolarFsAttributeWithOptions(con
 DescribePolarFsAttributeResponse Client::describePolarFsAttribute(const DescribePolarFsAttributeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describePolarFsAttributeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of PolarFS path mappings.
+ *
+ * @param request DescribePolarFsMappingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarFsMappingResponse
+ */
+DescribePolarFsMappingResponse Client::describePolarFsMappingWithOptions(const DescribePolarFsMappingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarFsMapping"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarFsMappingResponse>();
+}
+
+/**
+ * @summary Queries the list of PolarFS path mappings.
+ *
+ * @param request DescribePolarFsMappingRequest
+ * @return DescribePolarFsMappingResponse
+ */
+DescribePolarFsMappingResponse Client::describePolarFsMapping(const DescribePolarFsMappingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarFsMappingWithOptions(request, runtime);
 }
 
 /**
@@ -21538,6 +21930,60 @@ InstallPolarClawSkillResponse Client::installPolarClawSkillWithOptions(const Ins
 InstallPolarClawSkillResponse Client::installPolarClawSkill(const InstallPolarClawSkillRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return installPolarClawSkillWithOptions(request, runtime);
+}
+
+/**
+ * @summary Lists PolarFS S3 accounts.
+ *
+ * @param request ListLakebaseS3AccountsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListLakebaseS3AccountsResponse
+ */
+ListLakebaseS3AccountsResponse Client::listLakebaseS3AccountsWithOptions(const ListLakebaseS3AccountsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPfsInstanceId()) {
+    query["PfsInstanceId"] = request.getPfsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListLakebaseS3Accounts"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListLakebaseS3AccountsResponse>();
+}
+
+/**
+ * @summary Lists PolarFS S3 accounts.
+ *
+ * @param request ListLakebaseS3AccountsRequest
+ * @return ListLakebaseS3AccountsResponse
+ */
+ListLakebaseS3AccountsResponse Client::listLakebaseS3Accounts(const ListLakebaseS3AccountsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listLakebaseS3AccountsWithOptions(request, runtime);
 }
 
 /**
@@ -26974,6 +27420,68 @@ ModifyPendingMaintenanceActionResponse Client::modifyPendingMaintenanceActionWit
 ModifyPendingMaintenanceActionResponse Client::modifyPendingMaintenanceAction(const ModifyPendingMaintenanceActionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyPendingMaintenanceActionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the bucket credentials for a PolarFS path mapping.
+ *
+ * @param request ModifyPolarFsMappingAuthRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyPolarFsMappingAuthResponse
+ */
+ModifyPolarFsMappingAuthResponse Client::modifyPolarFsMappingAuthWithOptions(const ModifyPolarFsMappingAuthRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBucket()) {
+    query["Bucket"] = request.getBucket();
+  }
+
+  if (!!request.hasBucketAccessKeyId()) {
+    query["BucketAccessKeyId"] = request.getBucketAccessKeyId();
+  }
+
+  if (!!request.hasBucketAccessKeySecret()) {
+    query["BucketAccessKeySecret"] = request.getBucketAccessKeySecret();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPath()) {
+    query["Path"] = request.getPath();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyPolarFsMappingAuth"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyPolarFsMappingAuthResponse>();
+}
+
+/**
+ * @summary Modifies the bucket credentials for a PolarFS path mapping.
+ *
+ * @param request ModifyPolarFsMappingAuthRequest
+ * @return ModifyPolarFsMappingAuthResponse
+ */
+ModifyPolarFsMappingAuthResponse Client::modifyPolarFsMappingAuth(const ModifyPolarFsMappingAuthRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyPolarFsMappingAuthWithOptions(request, runtime);
 }
 
 /**
