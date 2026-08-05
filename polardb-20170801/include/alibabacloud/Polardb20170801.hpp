@@ -2387,7 +2387,7 @@ namespace Polardb20170801
       Models::DeletePolarFsObjectsResponse deletePolarFsObjects(const Models::DeletePolarFsObjectsRequest &request);
 
       /**
-       * @summary Deletes a path mapping for transparent acceleration.
+       * @summary Deletes a transparent acceleration path mapping.
        *
        * @param request DeletePolarFsPathMappingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2396,7 +2396,7 @@ namespace Polardb20170801
       Models::DeletePolarFsPathMappingResponse deletePolarFsPathMappingWithOptions(const Models::DeletePolarFsPathMappingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a path mapping for transparent acceleration.
+       * @summary Deletes a transparent acceleration path mapping.
        *
        * @param request DeletePolarFsPathMappingRequest
        * @return DeletePolarFsPathMappingResponse

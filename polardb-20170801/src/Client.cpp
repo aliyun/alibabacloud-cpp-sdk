@@ -8842,7 +8842,7 @@ DeletePolarFsObjectsResponse Client::deletePolarFsObjects(const DeletePolarFsObj
 }
 
 /**
- * @summary Deletes a path mapping for transparent acceleration.
+ * @summary Deletes a transparent acceleration path mapping.
  *
  * @param request DeletePolarFsPathMappingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8881,7 +8881,7 @@ DeletePolarFsPathMappingResponse Client::deletePolarFsPathMappingWithOptions(con
 }
 
 /**
- * @summary Deletes a path mapping for transparent acceleration.
+ * @summary Deletes a transparent acceleration path mapping.
  *
  * @param request DeletePolarFsPathMappingRequest
  * @return DeletePolarFsPathMappingResponse
