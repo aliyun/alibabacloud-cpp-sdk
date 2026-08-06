@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The unique identifier of the created entity type.
+    // The entity type after creation.
     shared_ptr<string> entityType_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

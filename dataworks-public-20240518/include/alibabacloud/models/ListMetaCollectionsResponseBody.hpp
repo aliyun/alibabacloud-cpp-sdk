@@ -161,29 +161,27 @@ namespace Models
 
 
       protected:
-        // The list of administrator IDs. Supported only for album types. Administrators must be users within the same tenant. Multiple administrators can be specified.
+        // The list of administrator user IDs. This parameter is supported only for the album type. The administrators must be users within the same tenant. You can specify multiple administrators.
         shared_ptr<vector<string>> administrators_ {};
-        // The creation time in milliseconds (timestamp).
+        // The creation time as a millisecond-level timestamp.
         shared_ptr<int64_t> createTime_ {};
-        // The creator user ID.
+        // The user ID of the creator.
         shared_ptr<string> createUser_ {};
-        // The collection description.
+        // The description of the collection object.
         shared_ptr<string> description_ {};
-        // The collection name.
+        // The name of the collection object.
         shared_ptr<string> id_ {};
-        // The modification time in milliseconds (timestamp).
+        // The modification time as a millisecond-level timestamp.
         shared_ptr<int64_t> modifyTime_ {};
-        // The collection name.
+        // The name of the collection object.
         shared_ptr<string> name_ {};
-        // The ID of the parent collection. Can be empty.
+        // The ID of the parent node collection object. This value can be empty.
         shared_ptr<string> parentId_ {};
         // The collection type. Valid values:
         // 
-        // - Category
-        // 
-        // - Album
-        // 
-        // - AlbumCategory: Album subcategory
+        //  - Category: category.
+        //  - Album: data album.
+        //  - AlbumCategory: album subcategory.
         shared_ptr<string> type_ {};
       };
 
@@ -224,7 +222,7 @@ namespace Models
       shared_ptr<vector<Data::MetaCollections>> metaCollections_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
@@ -249,7 +247,7 @@ namespace Models
 
 
   protected:
-    // Pagination information.
+    // The paged result object.
     shared_ptr<ListMetaCollectionsResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

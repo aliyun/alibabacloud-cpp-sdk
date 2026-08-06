@@ -121,45 +121,38 @@ namespace Models
 
 
   protected:
-    // The administrator ID. Valid only for album types. Default: The current user ID.
+    // The ID of the collection administrator. This parameter is valid only for the album type. Default value: the current user ID.
     shared_ptr<string> administrator_ {};
-    // The creator user ID. Valid only for album types. Default: The current user ID.
+    // The user ID of the creator. This parameter is valid only for the album type. Default value: the current user ID.
     shared_ptr<string> createUser_ {};
-    // The collection description. Supports fuzzy matching.
+    // The collection description. Fuzzy match is supported.
     shared_ptr<string> description_ {};
-    // The collection name. Supports fuzzy matching.
+    // The collection name. Fuzzy match is supported.
     shared_ptr<string> name_ {};
-    // The sort order. Valid values:
+    // The sort direction. Valid values:
     // 
-    // - Asc (default): Ascending order
-    // 
-    // - Desc
+    //  - Asc (default)
+    //  - Desc
     shared_ptr<string> order_ {};
-    // The page number. Default: 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default: 10. Maximum: 100.
+    // The page size. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the parent collection.
+    // The ID of the parent node collection object.
     shared_ptr<string> parentId_ {};
     // The sort field. Valid values:
     // 
-    // - Id (default)
-    // 
-    // - Name
-    // 
-    // - CreateUser: Creator ID
-    // 
-    // - CreateTime: Creation time
-    // 
-    // - ModifyTime: Modification time
+    //  - Id (default)
+    //  - Name: name.
+    //  - CreateUser: creator ID.
+    //  - CreateTime: creation time.
+    //  - ModifyTime: modification time.
     shared_ptr<string> sortBy_ {};
     // The collection type. Valid values:
     // 
-    // - Category
-    // 
-    // - Album
-    // 
-    // - AlbumCategory: Album subcategory
+    //  - Category: category.
+    //  - Album: data album.
+    //  - AlbumCategory: album subcategory.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

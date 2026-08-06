@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<bool> data_ {};
     // The request ID. Used for locating logs and troubleshooting issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -103,29 +103,30 @@ namespace Models
 
 
   protected:
-    // The ID of the destination entity. You can get the ID for a table or column from the response of the `ListTables` or `ListColumns` operation, or specify the ID of a custom entity.
+    // The destination entity ID. You can use the table or field ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
     // 
     // This parameter is required.
     shared_ptr<string> dstEntityId_ {};
-    // The name of the destination entity. Supports fuzzy matching.
+    // The destination entity name. Fuzzy match is supported.
     shared_ptr<string> dstEntityName_ {};
-    // The sort order. The default value is `Asc`. Valid values:
+    // The sort order. Default value: Asc. Valid values:
     // 
-    // - `Asc`: ascending order
-    // 
-    // - `Desc`: descending order
+    // - Asc: ascending order.
+    // - Desc: descending order.
     shared_ptr<string> order_ {};
-    // The page number. The default value is 1.
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size. The default value is 10. The maximum value is 100.
+    // The page size. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The field to sort the results by. The default value is `Name`.
+    // The sort field. Default value: Name.
     shared_ptr<string> sortBy_ {};
-    // The ID of the source entity. You can get the ID for a table or column from the response of the `ListTables` or `ListColumns` operation, or specify the ID of a custom entity.
+    // The source entity ID. You can use the table or field ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
+    // 
+    // To obtain the table or field entity ID, first call ListCrawlers to obtain the MetaEntityId of the metadata crawler. For types that contain data catalog levels, such as DLF and StarRocks, call ListCatalogs to obtain the catalog ID. Then call ListDatabases to obtain the database ID. If necessary, call ListSchemas to obtain the schema ID. Finally, call ListTables or ListColumns to obtain the table or field ID.
     // 
     // This parameter is required.
     shared_ptr<string> srcEntityId_ {};
-    // The name of the source entity. Supports fuzzy matching.
+    // The source entity name. Fuzzy match is supported.
     shared_ptr<string> srcEntityName_ {};
   };
 

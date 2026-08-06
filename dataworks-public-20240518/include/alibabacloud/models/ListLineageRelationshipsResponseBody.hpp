@@ -93,11 +93,11 @@ namespace Models
 
 
     protected:
-      // An array of data lineage relationships.
+      // The list of data tables.
       shared_ptr<vector<LineageRelationship>> lineageRelationships_ {};
-      // The current page number.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
@@ -129,9 +129,9 @@ namespace Models
 
 
   protected:
-    // The pagination information.
+    // The pagination result.
     shared_ptr<ListLineageRelationshipsResponseBody::PagingInfo> pagingInfo_ {};
-    // The ID of the request. You can use this ID to troubleshoot issues.
+    // The request ID. You can use this ID to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

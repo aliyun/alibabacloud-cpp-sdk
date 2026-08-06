@@ -93,13 +93,13 @@ namespace Models
 
 
     protected:
-      // A list of custom entity definitions.
+      // The list of custom entity definitions.
       shared_ptr<vector<MetaEntityDef>> metaEntityDefs_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total count.
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -129,11 +129,11 @@ namespace Models
 
 
   protected:
-    // The pagination information.
+    // The paging information.
     shared_ptr<ListMetaEntityDefsResponseBody::PagingInfo> pagingInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

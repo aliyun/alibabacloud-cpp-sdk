@@ -100,11 +100,11 @@ namespace Models
 
 
       protected:
-        // The temporary pre-signed download URL of the result file. Download the file by using an HTTP GET request as soon as possible. Do not log, share, or treat the full URL as a long-term address.
+        // The temporary pre-signed download URL of the result file. Download the file promptly by using an HTTP GET request. Do not log, share, or treat the full URL as a long-term address.
         shared_ptr<string> downloadUrl_ {};
-        // The node name to which the artifact belongs. This value is the same as the JobName value in the request.
+        // The job name to which the artifact belongs. This value is the same as the JobName in the request.
         shared_ptr<string> jobName_ {};
-        // The run ID to which the artifact belongs. You can compare this value with the Data.JobRunId value from the RunSemanticJob response or the JobRunId value from ListSemanticJobRuns.
+        // The run ID to which the artifact belongs. You can compare this value with Data.JobRunId in the RunSemanticJob response or JobRunId in the ListSemanticJobRuns response.
         shared_ptr<string> jobRunId_ {};
       };
 
@@ -119,7 +119,7 @@ namespace Models
 
 
     protected:
-      // The list of result files. Each item contains the associated node name, the associated run ID, and a short-lived download URL.
+      // The list of result files. Each item contains the associated job name, run ID, and a short-lived download URL.
       shared_ptr<vector<Data::Results>> results_ {};
     };
 
@@ -149,9 +149,9 @@ namespace Models
 
 
   protected:
-    // The collection of result files for the specified node run. Multiple items are returned if a single run generates multiple files.
+    // The collection of result files for the specified job run. Multiple items are returned if a single run generates multiple files.
     shared_ptr<DownloadSemanticResultsResponseBody::Data> data_ {};
-    // The request ID. Used for locating logs and troubleshooting issues.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

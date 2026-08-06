@@ -183,7 +183,7 @@ namespace Models
     protected:
       // The advanced runtime settings returned by the executor.
       Darabonba::Json advanceSettings_ {};
-      // The code parameter information returned by the executor. Used for troubleshooting the runtime configuration of this run.
+      // The code parameter information returned by the executor. Used to troubleshoot the runtime configuration of this run.
       shared_ptr<string> codeParameters_ {};
       // The index of the SQL fragment currently being processed by the executor.
       shared_ptr<int32_t> currentSqlIndex_ {};

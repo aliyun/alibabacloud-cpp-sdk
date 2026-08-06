@@ -170,29 +170,29 @@ namespace Models
 
 
     protected:
-      // The task creator identifier, equivalent to UserId, used to display creation ownership.
+      // The job creator identifier, equivalent to UserId, used to display creation ownership.
       shared_ptr<string> creator_ {};
-      // The creation time of the task definition, as a UNIX timestamp in milliseconds.
+      // The creation time of the job definition, expressed as a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The last modification time of the task definition, as a UNIX timestamp in milliseconds.
+      // The last modification time of the job definition, expressed as a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> gmtModified_ {};
-      // The internal unique ID of the task definition, which identifies the task created by this call.
+      // The internal unique ID of the job definition, which identifies the job created by this call.
       shared_ptr<int64_t> id_ {};
-      // The saved task name. Use this value for subsequent run, delete, list runs, and download results operations.
+      // The saved job name. Use this value for subsequent operations such as running, deleting, querying run records, and downloading results.
       shared_ptr<string> name_ {};
-      // The DataWorks workspace ID to which the task belongs. Use this value as the ProjectId for GetSemanticJobDetail, GetSemanticJobLog, and KillSemanticJob.
+      // The DataWorks workspace ID to which the job belongs. Use this value as the ProjectId for GetSemanticJobDetail, GetSemanticJobLog, and KillSemanticJob.
       shared_ptr<int64_t> projectId_ {};
       // The list of associated uploaded file IDs. For singleTableFile, the single file in this list is read at runtime.
       shared_ptr<vector<string>> referenceFileIds_ {};
       // The list of associated external reference file URIs. For singleTableFile, the single file in this list is read at runtime.
       shared_ptr<vector<string>> referenceFileUris_ {};
-      // The ID of the resource group that will be used when running this task.
+      // The ID of the resource group that is used when running this job.
       shared_ptr<string> resourceGroupId_ {};
       // The saved input datasource config, corresponding to the Source in the creation request. The data scope to be analyzed is determined based on this configuration at runtime.
       Darabonba::Json source_ {};
-      // The saved Source.type data source type, used to quickly identify the task input type.
+      // The saved Source.type data source type, used to quickly identify the job input type.
       shared_ptr<string> type_ {};
-      // The identifier of the user who created the task.
+      // The identifier of the user who created the job.
       shared_ptr<string> userId_ {};
     };
 
@@ -222,7 +222,7 @@ namespace Models
 
 
   protected:
-    // The saved semantic task definition. Use Data.Name to call RunSemanticJob, DeleteSemanticJob, ListSemanticJobRuns, and DownloadSemanticResults.
+    // The saved semantic job definition. Use Data.Name to call RunSemanticJob, DeleteSemanticJob, ListSemanticJobRuns, and DownloadSemanticResults.
     shared_ptr<CreateSemanticJobResponseBody::Data> data_ {};
     // The request ID. Used for locating logs and troubleshooting issues.
     shared_ptr<string> requestId_ {};

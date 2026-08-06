@@ -105,22 +105,23 @@ namespace Models
   protected:
     // The comment. Fuzzy match is supported.
     shared_ptr<string> comment_ {};
+    // Specifies whether to return extended properties. Set this parameter to `true` to return extended properties or `false` to not return them.
     shared_ptr<bool> includeExtendedProperties_ {};
     // The name. Fuzzy match is supported.
     shared_ptr<string> name_ {};
-    // The sort order. Default value: Asc. Valid values:
-    // - Asc: ascending order
-    // - Desc: descending order
+    // The sort direction. Default value: Asc. Valid values:
+    // - Asc: ascending order.
+    // - Desc: descending order.
     shared_ptr<string> order_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10. Maximum value: 100.
+    // The page size. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
     // The sort field. Default value: Position. Valid values:
-    // - Name: name
-    // - Position: position
+    // - Name: name.
+    // - Position: position.
     shared_ptr<string> sortBy_ {};
-    // The ID of the data table. You can obtain the ID from the response of the ListTables operation. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
+    // The table ID. You can obtain the ID from the response of the ListTables operation. For more information, see [Metadata entity concepts](https://help.aliyun.com/document_detail/2880092.html).
     // 
     // This parameter is required.
     shared_ptr<string> tableId_ {};

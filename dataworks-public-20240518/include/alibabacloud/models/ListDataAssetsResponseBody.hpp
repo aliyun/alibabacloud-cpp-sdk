@@ -166,14 +166,14 @@ namespace Models
           shared_ptr<bool> autoTraceEnabled_ {};
           // The creator of the mapping between the data asset and the tag.
           shared_ptr<string> creator_ {};
-          // The data asset ID.
+          // The ID of the data asset.
           shared_ptr<string> dataAssetId_ {};
           // The tag key.
           shared_ptr<string> key_ {};
           // The source of the mapping between the data asset and the tag. Valid values:
           // 
-          // - System: The mapping is created by the data asset governance system.
-          // - UserDefined: The mapping is manually created by a user.
+          // - System: The mapping originates from data asset governance system operations.
+          // - UserDefined: The mapping originates from manual user-defined operations.
           shared_ptr<string> tagSource_ {};
           // The tag value.
           shared_ptr<string> value_ {};
@@ -226,8 +226,11 @@ namespace Models
 
 
         protected:
+          // The ID of the asset domain.
           shared_ptr<string> assetDomainId_ {};
+          // The ID of the asset category.
           shared_ptr<string> id_ {};
+          // The name of the asset category.
           shared_ptr<string> name_ {};
         };
 
@@ -288,6 +291,7 @@ namespace Models
 
 
       protected:
+        // The asset category information.
         shared_ptr<vector<DataAssets::AssetCategories>> assetCategories_ {};
         // The list of tags associated with the data asset.
         shared_ptr<vector<DataAssets::DataAssetTagMappings>> dataAssetTagMappings_ {};
@@ -295,15 +299,15 @@ namespace Models
         // - Dev: development environment.
         // - Prod: production environment.
         shared_ptr<string> envType_ {};
-        // The data asset ID.
+        // The ID of the data asset.
         shared_ptr<string> id_ {};
         // The name of the data asset.
         shared_ptr<string> name_ {};
-        // The DataWorks workspace ID.
+        // The ID of the DataWorks workspace.
         shared_ptr<int64_t> projectId_ {};
         // The Asset Type of the data asset. Valid values:
         // 
-        // - ACS::DataWorks::Table: table.
+        // - ACS::DataWorks::Table: data table.
         // 
         // - ACS::DataWorks::Task: scheduling node.
         shared_ptr<string> type_ {};

@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The new description.
     shared_ptr<string> description_ {};
-    // The new display name. The maximum length is 32 characters.
+    // The new display name, up to 32 characters.
     shared_ptr<string> displayName_ {};
     // The entity type.
     // 
@@ -85,7 +85,7 @@ namespace Models
     shared_ptr<string> entityType_ {};
     // The new attribute definitions. New attributes must be optional.
     shared_ptr<string> newAttributeDefsShrink_ {};
-    // The updates to existing attribute definitions. You can modify only the display name and description. You can also add enumerated values for attributes of the ENUM type.
+    // Updates to existing attribute definitions. Only modifying the display name, description, and appending enum values to ENUM types are supported.
     shared_ptr<string> updateAttributeDefsShrink_ {};
   };
 

@@ -124,13 +124,13 @@ namespace Models
 
 
       protected:
-        // The executor job ID. Pass this value to the ExecutorJobId parameter of GetSemanticJobDetail, GetSemanticJobLog, or KillSemanticJob.
+        // The executor job ID. Pass this value as the ExecutorJobId parameter to GetSemanticJobDetail, GetSemanticJobLog, or KillSemanticJob.
         shared_ptr<string> executorJobId_ {};
         // The time when the run record was created. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> gmtCreate_ {};
-        // The name of the job to which this run belongs. This value can be used to re-run the job, query run records, or download results.
+        // The name of the job to which this run belongs. You can use this value to rerun the job, query run records, or download results.
         shared_ptr<string> jobName_ {};
-        // The semantic job run ID. Pass this value to the JobRunId parameter of DownloadSemanticResults to download the results of this run.
+        // The semantic job run ID. Pass this value as the JobRunId parameter to DownloadSemanticResults to download the results of this run.
         shared_ptr<string> jobRunId_ {};
         // The ID of the user who submitted this run.
         shared_ptr<string> userId_ {};
@@ -171,9 +171,9 @@ namespace Models
     protected:
       // The list of run records.
       shared_ptr<vector<Data::JobRuns>> jobRuns_ {};
-      // The page number returned, starting from 1.
+      // The page number of the returned page, starting from 1.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of records per page returned.
+      // The number of records per page in the current response.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of run records that match the current job criteria.
       shared_ptr<int64_t> totalCount_ {};
@@ -205,9 +205,9 @@ namespace Models
 
 
   protected:
-    // The paginated run record results. Use the JobRunId to download the results of a specific run, and use the ExecutorJobId to query details, logs, or stop a run.
+    // The paginated run record results. Use the JobRunId to download the results of a specific run, and use the ExecutorJobId to query details, retrieve logs, or stop a run.
     shared_ptr<ListSemanticJobRunsResponseBody::Data> data_ {};
-    // The request ID. Used for locating logs and troubleshooting issues.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

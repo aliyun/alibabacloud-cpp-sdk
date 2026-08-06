@@ -112,25 +112,25 @@ namespace Models
 
 
   protected:
-    // Conditions for filtering entities by entity attributes. The `AND` operator is used between different filters, and the `OR` operator is used for multiple values within a single filter.
+    // The entity attribute filter conditions. Multiple filter conditions have an AND relationship. Multiple values within the same filter condition have an OR relationship.
     shared_ptr<string> attributeFiltersShrink_ {};
-    // Filters entities by comment. This is a token-based match.
+    // The comment filter. Performs token matching.
     shared_ptr<string> comment_ {};
-    // Conditions for filtering entities by custom attributes. The `AND` operator is used between different filters, and the `OR` operator is used for multiple values within a single filter. This parameter supports only `ENUM` custom attributes.
+    // The custom attribute filter conditions. Multiple filter conditions have an AND relationship. Multiple values within the same filter condition have an OR relationship. Only ENUM custom attributes are supported.
     shared_ptr<string> customAttributeFiltersShrink_ {};
-    // The type of the entity to list.
+    // The entity type.
     // 
     // This parameter is required.
     shared_ptr<string> entityType_ {};
-    // The maximum number of results to return per page. Default value: 10. Maximum value: 100.
+    // The maximum number of results per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // Filters entities by name. This is a containment match.
+    // The entity name filter. Performs keyword-contains matching.
     shared_ptr<string> name_ {};
-    // The pagination token that specifies the next page of results. To retrieve the first page, do not specify this parameter. To retrieve subsequent pages, set this parameter to the `NextToken` value from the previous response.
+    // The pagination token. Do not specify this parameter for the first request. For subsequent requests, use the NextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
-    // The sort order. Valid values: `Asc` and `Desc`.
+    // The sort direction.
     shared_ptr<string> order_ {};
-    // The field to use for sorting the results.
+    // The sort field.
     shared_ptr<string> sortBy_ {};
   };
 

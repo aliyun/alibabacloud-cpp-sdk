@@ -1257,6 +1257,112 @@ CreateComputeResourceResponse Client::createComputeResource(const CreateComputeR
 }
 
 /**
+ * @summary 创建元数据采集器
+ *
+ * @description ## 使用场景
+ * 为指定数据源创建元数据采集器，并配置采集范围、资源组、调度方式和扩展配置。
+ * ## 推荐流程
+ * 1. 调用 `GetCrawlerTypeCapabilities` 查询当前地域支持的采集器类型及其配置能力。
+ * 2. 使用与 `Type` 匹配的数据源创建采集器。
+ * 3. 创建成功后，调用 `RunCrawler` 手动运行，或通过周期调度自动运行。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 注意事项
+ * 创建成功仅表示采集器配置已生成，不会立即执行元数据采集。
+ *
+ * @param tmpReq CreateCrawlerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCrawlerResponse
+ */
+CreateCrawlerResponse Client::createCrawlerWithOptions(const CreateCrawlerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateCrawlerShrinkRequest request = CreateCrawlerShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasOptions()) {
+    request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOptions(), "Options", "json"));
+  }
+
+  if (!!tmpReq.hasScheduleConfig()) {
+    request.setScheduleConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScheduleConfig(), "ScheduleConfig", "json"));
+  }
+
+  if (!!tmpReq.hasScope()) {
+    request.setScopeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScope(), "Scope", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDataSourceId()) {
+    body["DataSourceId"] = request.getDataSourceId();
+  }
+
+  if (!!request.hasEnableAiComment()) {
+    body["EnableAiComment"] = request.getEnableAiComment();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasOptionsShrink()) {
+    body["Options"] = request.getOptionsShrink();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasScheduleConfigShrink()) {
+    body["ScheduleConfig"] = request.getScheduleConfigShrink();
+  }
+
+  if (!!request.hasScopeShrink()) {
+    body["Scope"] = request.getScopeShrink();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateCrawler"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCrawlerResponse>();
+}
+
+/**
+ * @summary 创建元数据采集器
+ *
+ * @description ## 使用场景
+ * 为指定数据源创建元数据采集器，并配置采集范围、资源组、调度方式和扩展配置。
+ * ## 推荐流程
+ * 1. 调用 `GetCrawlerTypeCapabilities` 查询当前地域支持的采集器类型及其配置能力。
+ * 2. 使用与 `Type` 匹配的数据源创建采集器。
+ * 3. 创建成功后，调用 `RunCrawler` 手动运行，或通过周期调度自动运行。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 注意事项
+ * 创建成功仅表示采集器配置已生成，不会立即执行元数据采集。
+ *
+ * @param request CreateCrawlerRequest
+ * @return CreateCrawlerResponse
+ */
+CreateCrawlerResponse Client::createCrawler(const CreateCrawlerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCrawlerWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a custom attribute definition.
  *
  * @param tmpReq CreateCustomAttributeRequest
@@ -3047,9 +3153,9 @@ CreateMetaCollectionResponse Client::createMetaCollection(const CreateMetaCollec
 }
 
 /**
- * @summary Creates a metadata entity definition. The definition can be for a pure custom type or an extended table type.
+ * @summary Creates a metadata entity definition, including custom types and extended table types.
  *
- * @description This operation requires DataWorks Professional Edition or a higher edition.
+ * @description DataWorks Professional Edition or a more advanced edition is required.
  *
  * @param tmpReq CreateMetaEntityDefRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3102,9 +3208,9 @@ CreateMetaEntityDefResponse Client::createMetaEntityDefWithOptions(const CreateM
 }
 
 /**
- * @summary Creates a metadata entity definition. The definition can be for a pure custom type or an extended table type.
+ * @summary Creates a metadata entity definition, including custom types and extended table types.
  *
- * @description This operation requires DataWorks Professional Edition or a higher edition.
+ * @description DataWorks Professional Edition or a more advanced edition is required.
  *
  * @param request CreateMetaEntityDefRequest
  * @return CreateMetaEntityDefResponse
@@ -4253,9 +4359,16 @@ CreateSecurityStrategyResponse Client::createSecurityStrategy(const CreateSecuri
 }
 
 /**
- * @summary Saves a reusable semantic task definition. If you use a single-file source, apply for and complete the file upload first. After creation, call RunSemanticJob with the returned Name.
+ * @summary Saves a reusable semantic job definition. If you use a single-file source, apply for and complete the attachment upload first. After creation, call RunSemanticJob with the returned Name.
  *
- * @description Creates a semantic task definition.
+ * @description ## Scenarios
+ * Creates and saves a reusable semantic job definition. This operation only saves the data source, resource group, and reference file configurations without immediately executing the job.
+ * ## Recommended workflow
+ * 1. When `Source.type=singleTableFile`, call `UploadSemanticFile` first, use the returned `Data.UploadUrl` to complete the PUT upload, and then specify `Data.FileId` in `ReferenceFileIds`. Alternatively, you can provide a single accessible URI.
+ * 2. Configure `Source`, `ProjectId`, and `ResourceGroupId`, and then call this operation to save the job.
+ * 3. Use `Data.Name` from the response to call `RunSemanticJob`. After the job is complete, use `DownloadSemanticResults` to retrieve the output.
+ * ## Before you begin
+ * `Name` must be unique within the current tenant. The reference file quantity rules differ between single-file sources and other sources. For details, refer to the descriptions of the `ReferenceFileIds` and `ReferenceFileUris` fields.
  *
  * @param tmpReq CreateSemanticJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4320,9 +4433,16 @@ CreateSemanticJobResponse Client::createSemanticJobWithOptions(const CreateSeman
 }
 
 /**
- * @summary Saves a reusable semantic task definition. If you use a single-file source, apply for and complete the file upload first. After creation, call RunSemanticJob with the returned Name.
+ * @summary Saves a reusable semantic job definition. If you use a single-file source, apply for and complete the attachment upload first. After creation, call RunSemanticJob with the returned Name.
  *
- * @description Creates a semantic task definition.
+ * @description ## Scenarios
+ * Creates and saves a reusable semantic job definition. This operation only saves the data source, resource group, and reference file configurations without immediately executing the job.
+ * ## Recommended workflow
+ * 1. When `Source.type=singleTableFile`, call `UploadSemanticFile` first, use the returned `Data.UploadUrl` to complete the PUT upload, and then specify `Data.FileId` in `ReferenceFileIds`. Alternatively, you can provide a single accessible URI.
+ * 2. Configure `Source`, `ProjectId`, and `ResourceGroupId`, and then call this operation to save the job.
+ * 3. Use `Data.Name` from the response to call `RunSemanticJob`. After the job is complete, use `DownloadSemanticResults` to retrieve the output.
+ * ## Before you begin
+ * `Name` must be unique within the current tenant. The reference file quantity rules differ between single-file sources and other sources. For details, refer to the descriptions of the `ReferenceFileIds` and `ReferenceFileUris` fields.
  *
  * @param request CreateSemanticJobRequest
  * @return CreateSemanticJobResponse
@@ -4968,6 +5088,68 @@ DeleteComputeResourceResponse Client::deleteComputeResourceWithOptions(const Del
 DeleteComputeResourceResponse Client::deleteComputeResource(const DeleteComputeResourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteComputeResourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除元数据采集器
+ *
+ * @description ## 使用场景
+ * 删除不再使用的元数据采集器。
+ * ## 推荐流程
+ * 1. 调用 `ListCrawlers` 查询采集器 ID。
+ * 2. 确认采集器不再需要后调用本接口。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 注意事项
+ * 删除成功后，该采集器不能继续查询、更新或运行。已采集元数据由系统清理，清理结果可能存在延迟。
+ *
+ * @param request DeleteCrawlerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCrawlerResponse
+ */
+DeleteCrawlerResponse Client::deleteCrawlerWithOptions(const DeleteCrawlerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteCrawler"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCrawlerResponse>();
+}
+
+/**
+ * @summary 删除元数据采集器
+ *
+ * @description ## 使用场景
+ * 删除不再使用的元数据采集器。
+ * ## 推荐流程
+ * 1. 调用 `ListCrawlers` 查询采集器 ID。
+ * 2. 确认采集器不再需要后调用本接口。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 注意事项
+ * 删除成功后，该采集器不能继续查询、更新或运行。已采集元数据由系统清理，清理结果可能存在延迟。
+ *
+ * @param request DeleteCrawlerRequest
+ * @return DeleteCrawlerResponse
+ */
+DeleteCrawlerResponse Client::deleteCrawler(const DeleteCrawlerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCrawlerWithOptions(request, runtime);
 }
 
 /**
@@ -5783,9 +5965,9 @@ DeleteFunctionResponse Client::deleteFunction(const DeleteFunctionRequest &reque
 }
 
 /**
- * @summary Deletes a lineage in Data Map.
+ * @summary Deletes a specified data lineage relationship from DataWorks Data Map.
  *
- * @description 1. DataWorks Professional Edition or a higher edition is required.
+ * @description 1. You must purchase DataWorks Professional Edition or a higher edition to use this feature.
  *
  * @param request DeleteLineageRelationshipRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5816,9 +5998,9 @@ DeleteLineageRelationshipResponse Client::deleteLineageRelationshipWithOptions(c
 }
 
 /**
- * @summary Deletes a lineage in Data Map.
+ * @summary Deletes a specified data lineage relationship from DataWorks Data Map.
  *
- * @description 1. DataWorks Professional Edition or a higher edition is required.
+ * @description 1. You must purchase DataWorks Professional Edition or a higher edition to use this feature.
  *
  * @param request DeleteLineageRelationshipRequest
  * @return DeleteLineageRelationshipResponse
@@ -6519,9 +6701,16 @@ DeleteSecurityStrategyResponse Client::deleteSecurityStrategy(const DeleteSecuri
 }
 
 /**
- * @summary Deletes a task definition by the Name of a created task. If the task is running, call KillSemanticJob with the ExecutorJobId of that run and confirm the stop before deletion.
+ * @summary Deletes a semantic job definition by the Name of a created job. If the job is currently running, call KillSemanticJob with the ExecutorJobId of that run and confirm the stop before deletion.
  *
- * @description Operation description for deleting a semantic task.
+ * @description ## Scenarios
+ * Archives and deletes a saved semantic job definition so that it no longer appears in the list of available jobs.
+ * ## Call flow
+ * 1. Obtain the job name from `CreateSemanticJob.Data.Name` or `ListSemanticJobs.Data.SemanticJobs[].Name`.
+ * 2. To check whether any active runs exist, call `ListSemanticJobRuns` first. If necessary, stop the execution by calling `KillSemanticJob`.
+ * 3. Call this operation to delete the job definition.
+ * ## Result description
+ * A successful response indicates that the deletion request is complete. After deletion, you can no longer use the name to call `RunSemanticJob`.
  *
  * @param request DeleteSemanticJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6552,9 +6741,16 @@ DeleteSemanticJobResponse Client::deleteSemanticJobWithOptions(const DeleteSeman
 }
 
 /**
- * @summary Deletes a task definition by the Name of a created task. If the task is running, call KillSemanticJob with the ExecutorJobId of that run and confirm the stop before deletion.
+ * @summary Deletes a semantic job definition by the Name of a created job. If the job is currently running, call KillSemanticJob with the ExecutorJobId of that run and confirm the stop before deletion.
  *
- * @description Operation description for deleting a semantic task.
+ * @description ## Scenarios
+ * Archives and deletes a saved semantic job definition so that it no longer appears in the list of available jobs.
+ * ## Call flow
+ * 1. Obtain the job name from `CreateSemanticJob.Data.Name` or `ListSemanticJobs.Data.SemanticJobs[].Name`.
+ * 2. To check whether any active runs exist, call `ListSemanticJobRuns` first. If necessary, stop the execution by calling `KillSemanticJob`.
+ * 3. Call this operation to delete the job definition.
+ * ## Result description
+ * A successful response indicates that the deletion request is complete. After deletion, you can no longer use the name to call `RunSemanticJob`.
  *
  * @param request DeleteSemanticJobRequest
  * @return DeleteSemanticJobResponse
@@ -7061,9 +7257,16 @@ DissociateProjectFromResourceGroupResponse Client::dissociateProjectFromResource
 }
 
 /**
- * @summary Returns the download URL of artifacts by node name and an optional run ID after execution completes. If JobRunId is not specified, the result of the latest run of the node is returned.
+ * @summary Returns the download URL of artifacts by job name and an optional run ID after a run completes. If JobRunId is not specified, the results of the most recent run of the job are returned.
  *
- * @description Operation description for retrieving the download URL of semantic task results.
+ * @description ## Scenarios
+ * Retrieves temporary download URLs for result files of a submitted semantic job run, such as semantic model YAML artifacts. This operation returns download URLs and does not directly return file content.
+ * ## Procedure
+ * 1. Use the job name `JobName` to locate the job.
+ * 2. To retrieve artifacts of a specific run, specify the `JobRunId` from the `RunSemanticJob.Data.JobRunId` or `ListSemanticJobRuns` response. If you do not specify this parameter, the artifacts of the most recent run are returned.
+ * 3. Download the corresponding files from `Data.Results[].DownloadUrl`.
+ * ## Before you begin
+ * The download URL is a temporary credential. Use it only briefly on the client side. Do not write it to logs or store it for long-term use.
  *
  * @param request DownloadSemanticResultsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7098,9 +7301,16 @@ DownloadSemanticResultsResponse Client::downloadSemanticResultsWithOptions(const
 }
 
 /**
- * @summary Returns the download URL of artifacts by node name and an optional run ID after execution completes. If JobRunId is not specified, the result of the latest run of the node is returned.
+ * @summary Returns the download URL of artifacts by job name and an optional run ID after a run completes. If JobRunId is not specified, the results of the most recent run of the job are returned.
  *
- * @description Operation description for retrieving the download URL of semantic task results.
+ * @description ## Scenarios
+ * Retrieves temporary download URLs for result files of a submitted semantic job run, such as semantic model YAML artifacts. This operation returns download URLs and does not directly return file content.
+ * ## Procedure
+ * 1. Use the job name `JobName` to locate the job.
+ * 2. To retrieve artifacts of a specific run, specify the `JobRunId` from the `RunSemanticJob.Data.JobRunId` or `ListSemanticJobRuns` response. If you do not specify this parameter, the artifacts of the most recent run are returned.
+ * 3. Download the corresponding files from `Data.Results[].DownloadUrl`.
+ * ## Before you begin
+ * The download URL is a temporary credential. Use it only briefly on the client side. Do not write it to logs or store it for long-term use.
  *
  * @param request DownloadSemanticResultsRequest
  * @return DownloadSemanticResultsResponse
@@ -7952,6 +8162,125 @@ GetComputeResourceResponse Client::getComputeResourceWithOptions(const GetComput
 GetComputeResourceResponse Client::getComputeResource(const GetComputeResourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getComputeResourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取元数据采集器详情
+ *
+ * @description ## 使用场景
+ * 查询指定元数据采集器的配置、可用状态和最近一次运行信息。
+ * ## 推荐流程
+ * 1. 调用 `ListCrawlers` 查询采集器 ID。
+ * 2. 调用本接口获取采集器详情。
+ * 3. 如需查询完整运行历史，调用 `ListCrawlerRuns`。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 注意事项
+ * 采集器尚未运行时，最近运行状态和任务实例 ID 可能为空。
+ *
+ * @param request GetCrawlerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCrawlerResponse
+ */
+GetCrawlerResponse Client::getCrawlerWithOptions(const GetCrawlerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetCrawler"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCrawlerResponse>();
+}
+
+/**
+ * @summary 获取元数据采集器详情
+ *
+ * @description ## 使用场景
+ * 查询指定元数据采集器的配置、可用状态和最近一次运行信息。
+ * ## 推荐流程
+ * 1. 调用 `ListCrawlers` 查询采集器 ID。
+ * 2. 调用本接口获取采集器详情。
+ * 3. 如需查询完整运行历史，调用 `ListCrawlerRuns`。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 注意事项
+ * 采集器尚未运行时，最近运行状态和任务实例 ID 可能为空。
+ *
+ * @param request GetCrawlerRequest
+ * @return GetCrawlerResponse
+ */
+GetCrawlerResponse Client::getCrawler(const GetCrawlerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCrawlerWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询当前地域支持创建的元数据采集器类型及能力
+ *
+ * @description ## 使用场景
+ * 查询当前地域支持创建的采集器类型，以及各类型支持的数据源、采集范围、资源组、调度、AI 元数据描述和扩展配置能力。
+ * ## 推荐流程
+ * 1. 在创建或更新采集器前调用本接口。
+ * 2. 根据返回的能力信息构造 `CreateCrawler` 或 `UpdateCrawler` 请求。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 注意事项
+ * 不同地域和采集器类型的能力可能不同，请以本接口的实际返回结果为准。
+ *
+ * @param request GetCrawlerTypeCapabilitiesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCrawlerTypeCapabilitiesResponse
+ */
+GetCrawlerTypeCapabilitiesResponse Client::getCrawlerTypeCapabilitiesWithOptions(const GetCrawlerTypeCapabilitiesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetCrawlerTypeCapabilities"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCrawlerTypeCapabilitiesResponse>();
+}
+
+/**
+ * @summary 查询当前地域支持创建的元数据采集器类型及能力
+ *
+ * @description ## 使用场景
+ * 查询当前地域支持创建的采集器类型，以及各类型支持的数据源、采集范围、资源组、调度、AI 元数据描述和扩展配置能力。
+ * ## 推荐流程
+ * 1. 在创建或更新采集器前调用本接口。
+ * 2. 根据返回的能力信息构造 `CreateCrawler` 或 `UpdateCrawler` 请求。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 注意事项
+ * 不同地域和采集器类型的能力可能不同，请以本接口的实际返回结果为准。
+ *
+ * @param request GetCrawlerTypeCapabilitiesRequest
+ * @return GetCrawlerTypeCapabilitiesResponse
+ */
+GetCrawlerTypeCapabilitiesResponse Client::getCrawlerTypeCapabilities(const GetCrawlerTypeCapabilitiesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCrawlerTypeCapabilitiesWithOptions(request, runtime);
 }
 
 /**
@@ -10043,7 +10372,14 @@ GetSecurityStrategyResponse Client::getSecurityStrategy(const GetSecurityStrateg
 /**
  * @summary Queries the executor status and runtime configuration by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns.
  *
- * @description Operation description for querying semantic job run details.
+ * @description ## Scenarios
+ * Queries the detailed status and runtime information of a semantic job run on the executor side. This is used to poll execution progress or troubleshoot run failures.
+ * ## Procedure
+ * 1. Call `RunSemanticJob` or `ListSemanticJobRuns` to obtain the `ExecutorJobId`.
+ * 2. Use the `ProjectId` returned by the job definition as the `ProjectId` for this operation.
+ * 3. Determine the current status based on the executor details in `Data`. If the job is still running, continue polling this operation.
+ * ## Related operations
+ * To retrieve logs, call `GetSemanticJobLog`. To stop a run, call `KillSemanticJob`.
  *
  * @param request GetSemanticJobDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10080,7 +10416,14 @@ GetSemanticJobDetailResponse Client::getSemanticJobDetailWithOptions(const GetSe
 /**
  * @summary Queries the executor status and runtime configuration by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns.
  *
- * @description Operation description for querying semantic job run details.
+ * @description ## Scenarios
+ * Queries the detailed status and runtime information of a semantic job run on the executor side. This is used to poll execution progress or troubleshoot run failures.
+ * ## Procedure
+ * 1. Call `RunSemanticJob` or `ListSemanticJobRuns` to obtain the `ExecutorJobId`.
+ * 2. Use the `ProjectId` returned by the job definition as the `ProjectId` for this operation.
+ * 3. Determine the current status based on the executor details in `Data`. If the job is still running, continue polling this operation.
+ * ## Related operations
+ * To retrieve logs, call `GetSemanticJobLog`. To stop a run, call `KillSemanticJob`.
  *
  * @param request GetSemanticJobDetailRequest
  * @return GetSemanticJobDetailResponse
@@ -10093,7 +10436,14 @@ GetSemanticJobDetailResponse Client::getSemanticJobDetail(const GetSemanticJobDe
 /**
  * @summary Queries execution logs by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. The current POP contract exposes only the task and workspace identifiers and returns default log segments.
  *
- * @description Operation description for querying semantic job run logs.
+ * @description ## Scenarios
+ * Reads the execution logs of a semantic job run to observe the execution process and identify failure causes.
+ * ## Procedure
+ * 1. Specify the run by using `RunSemanticJob.Data.ExecutorJobId` or `ListSemanticJobRuns[].ExecutorJobId`.
+ * 2. Call this operation with the `ProjectId` of the corresponding task.
+ * 3. Analyze the log segments in `Data` together with the run status returned by `GetSemanticJobDetail`.
+ * ## Before you begin
+ * Logs are used for diagnostics and do not represent the final result files. Obtain result artifacts by calling `DownloadSemanticResults`.
  *
  * @param request GetSemanticJobLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10130,7 +10480,14 @@ GetSemanticJobLogResponse Client::getSemanticJobLogWithOptions(const GetSemantic
 /**
  * @summary Queries execution logs by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. The current POP contract exposes only the task and workspace identifiers and returns default log segments.
  *
- * @description Operation description for querying semantic job run logs.
+ * @description ## Scenarios
+ * Reads the execution logs of a semantic job run to observe the execution process and identify failure causes.
+ * ## Procedure
+ * 1. Specify the run by using `RunSemanticJob.Data.ExecutorJobId` or `ListSemanticJobRuns[].ExecutorJobId`.
+ * 2. Call this operation with the `ProjectId` of the corresponding task.
+ * 3. Analyze the log segments in `Data` together with the run status returned by `GetSemanticJobDetail`.
+ * ## Before you begin
+ * Logs are used for diagnostics and do not represent the final result files. Obtain result artifacts by calling `DownloadSemanticResults`.
  *
  * @param request GetSemanticJobLogRequest
  * @return GetSemanticJobLogResponse
@@ -10193,7 +10550,7 @@ GetSkillResponse Client::getSkill(const GetSkillRequest &request) {
 }
 
 /**
- * @summary Retrieves the details of a specified data table in DataWorks Data Map. You can specify whether to return business metadata.
+ * @summary Retrieves the details of a specified table in Data Map. You can choose whether to return business metadata.
  *
  * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  *
@@ -10222,7 +10579,7 @@ GetTableResponse Client::getTableWithOptions(const GetTableRequest &request, con
 }
 
 /**
- * @summary Retrieves the details of a specified data table in DataWorks Data Map. You can specify whether to return business metadata.
+ * @summary Retrieves the details of a specified table in Data Map. You can choose whether to return business metadata.
  *
  * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  *
@@ -10743,9 +11100,16 @@ ImportWorkflowDefinitionResponse Client::importWorkflowDefinition(const ImportWo
 }
 
 /**
- * @summary Stops a specified run by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. A successful call only indicates that the stop request has been accepted. Query the final status by calling GetSemanticJobDetail.
+ * @summary Stops a specified run by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. A successful call indicates only that the stop request has been accepted. Query the final status by calling GetSemanticJobDetail.
  *
- * @description Operation description for stopping a semantic job run.
+ * @description ## Scenarios
+ * Sends a stop request to the executor for a specified semantic job run. This is applicable to scenarios where a job runs for an extended period, requires manual termination, or needs resource reclamation.
+ * ## Procedure
+ * 1. Obtain the `ExecutorJobId` from `RunSemanticJob` or `ListSemanticJobRuns`, and use the `ProjectId` of the job.
+ * 2. Optionally specify `RetryTimes` as needed.
+ * 3. After the call, poll the final status by using `GetSemanticJobDetail`. If necessary, call `GetSemanticJobLog` for diagnostics.
+ * ## Before you begin
+ * A successful response indicates only that the stop request has been processed. It does not mean the job has reached a desired state.
  *
  * @param request KillSemanticJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10784,9 +11148,16 @@ KillSemanticJobResponse Client::killSemanticJobWithOptions(const KillSemanticJob
 }
 
 /**
- * @summary Stops a specified run by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. A successful call only indicates that the stop request has been accepted. Query the final status by calling GetSemanticJobDetail.
+ * @summary Stops a specified run by using the ExecutorJobId returned by RunSemanticJob or ListSemanticJobRuns. A successful call indicates only that the stop request has been accepted. Query the final status by calling GetSemanticJobDetail.
  *
- * @description Operation description for stopping a semantic job run.
+ * @description ## Scenarios
+ * Sends a stop request to the executor for a specified semantic job run. This is applicable to scenarios where a job runs for an extended period, requires manual termination, or needs resource reclamation.
+ * ## Procedure
+ * 1. Obtain the `ExecutorJobId` from `RunSemanticJob` or `ListSemanticJobRuns`, and use the `ProjectId` of the job.
+ * 2. Optionally specify `RetryTimes` as needed.
+ * 3. After the call, poll the final status by using `GetSemanticJobDetail`. If necessary, call `GetSemanticJobLog` for diagnostics.
+ * ## Before you begin
+ * A successful response indicates only that the stop request has been processed. It does not mean the job has reached a desired state.
  *
  * @param request KillSemanticJobRequest
  * @return KillSemanticJobResponse
@@ -11223,7 +11594,7 @@ ListCertificatesResponse Client::listCertificates(const ListCertificatesRequest 
 }
 
 /**
- * @summary Queries the column list of a specified data table in DataWorks Data Map.
+ * @summary Queries the column list of a specified table in DataWorks Data Map.
  *
  * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  *
@@ -11252,7 +11623,7 @@ ListColumnsResponse Client::listColumnsWithOptions(const ListColumnsRequest &req
 }
 
 /**
- * @summary Queries the column list of a specified data table in DataWorks Data Map.
+ * @summary Queries the column list of a specified table in DataWorks Data Map.
  *
  * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  *
@@ -11407,6 +11778,90 @@ ListComputeResourcesResponse Client::listComputeResources(const ListComputeResou
 }
 
 /**
+ * @summary 查询元数据采集器运行记录
+ *
+ * @description ## 使用场景
+ * 分页查询指定元数据采集器最近 30 天内的运行记录，并可按运行开始时间和状态筛选。
+ * ## 推荐流程
+ * 1. 使用 `ListCrawlers` 查询采集器 ID。
+ * 2. 调用本接口查询运行记录和任务实例 ID。
+ * 3. 对运行、停止等异步操作，以本接口返回的最终状态为准。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 注意事项
+ * 未指定时间范围时，默认查询当前时间向前 30 天。
+ *
+ * @param request ListCrawlerRunsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCrawlerRunsResponse
+ */
+ListCrawlerRunsResponse Client::listCrawlerRunsWithOptions(const ListCrawlerRunsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTimeFrom()) {
+    body["StartTimeFrom"] = request.getStartTimeFrom();
+  }
+
+  if (!!request.hasStartTimeTo()) {
+    body["StartTimeTo"] = request.getStartTimeTo();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListCrawlerRuns"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCrawlerRunsResponse>();
+}
+
+/**
+ * @summary 查询元数据采集器运行记录
+ *
+ * @description ## 使用场景
+ * 分页查询指定元数据采集器最近 30 天内的运行记录，并可按运行开始时间和状态筛选。
+ * ## 推荐流程
+ * 1. 使用 `ListCrawlers` 查询采集器 ID。
+ * 2. 调用本接口查询运行记录和任务实例 ID。
+ * 3. 对运行、停止等异步操作，以本接口返回的最终状态为准。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 注意事项
+ * 未指定时间范围时，默认查询当前时间向前 30 天。
+ *
+ * @param request ListCrawlerRunsRequest
+ * @return ListCrawlerRunsResponse
+ */
+ListCrawlerRunsResponse Client::listCrawlerRuns(const ListCrawlerRunsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCrawlerRunsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of metadata crawler types supported in Data Map. The subtypes of the types and the hierarchical relationship between the subtypes are also returned.
  *
  * @description 1. DataWorks Basic Edition or a higher edition is required.
@@ -11440,6 +11895,102 @@ ListCrawlerTypesResponse Client::listCrawlerTypesWithOptions(const Darabonba::Ru
 ListCrawlerTypesResponse Client::listCrawlerTypes() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCrawlerTypesWithOptions(runtime);
+}
+
+/**
+ * @summary 查询元数据采集器列表
+ *
+ * @description ## 使用场景
+ * 分页查询有权访问的元数据采集器，并可按工作空间、数据源、采集器类型、环境、负责人和名称筛选。
+ * ## 推荐流程
+ * 1. 按需组合筛选条件查询采集器列表。
+ * 2. 使用返回的采集器 ID 调用详情、更新、运行、停止、运行记录或删除接口。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 注意事项
+ * 多个筛选条件同时提供时组合生效，名称支持模糊匹配。
+ *
+ * @param tmpReq ListCrawlersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCrawlersResponse
+ */
+ListCrawlersResponse Client::listCrawlersWithOptions(const ListCrawlersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListCrawlersShrinkRequest request = ListCrawlersShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDataSourceIds()) {
+    request.setDataSourceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataSourceIds(), "DataSourceIds", "simple"));
+  }
+
+  json body = {};
+  if (!!request.hasDataSourceIdsShrink()) {
+    body["DataSourceIds"] = request.getDataSourceIdsShrink();
+  }
+
+  if (!!request.hasEnvType()) {
+    body["EnvType"] = request.getEnvType();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasOwner()) {
+    body["Owner"] = request.getOwner();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListCrawlers"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCrawlersResponse>();
+}
+
+/**
+ * @summary 查询元数据采集器列表
+ *
+ * @description ## 使用场景
+ * 分页查询有权访问的元数据采集器，并可按工作空间、数据源、采集器类型、环境、负责人和名称筛选。
+ * ## 推荐流程
+ * 1. 按需组合筛选条件查询采集器列表。
+ * 2. 使用返回的采集器 ID 调用详情、更新、运行、停止、运行记录或删除接口。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 注意事项
+ * 多个筛选条件同时提供时组合生效，名称支持模糊匹配。
+ *
+ * @param request ListCrawlersRequest
+ * @return ListCrawlersResponse
+ */
+ListCrawlersResponse Client::listCrawlers(const ListCrawlersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCrawlersWithOptions(request, runtime);
 }
 
 /**
@@ -11515,7 +12066,7 @@ ListCustomAgentsResponse Client::listCustomAgents(const ListCustomAgentsRequest 
 }
 
 /**
- * @summary Retrieves a list of custom attribute definitions.
+ * @summary Queries the list of custom attribute definitions.
  *
  * @param request ListCustomAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11570,7 +12121,7 @@ ListCustomAttributesResponse Client::listCustomAttributesWithOptions(const ListC
 }
 
 /**
- * @summary Retrieves a list of custom attribute definitions.
+ * @summary Queries the list of custom attribute definitions.
  *
  * @param request ListCustomAttributesRequest
  * @return ListCustomAttributesResponse
@@ -13457,9 +14008,9 @@ ListImagesResponse Client::listImages(const ListImagesRequest &request) {
 }
 
 /**
- * @summary Queries the data map for data lineage relationships between specified entities, such as tables, columns, and OSS objects.
+ * @summary Queries the list of data lineage relationships between two specified entities (tables, fields, OSS files, etc.) in DataWorks Data Map.
  *
- * @description 1. This operation is available in DataWorks Standard Edition and later versions.
+ * @description 1. You must purchase DataWorks Standard Edition or a higher edition to use this feature.
  *
  * @param request ListLineageRelationshipsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13486,9 +14037,9 @@ ListLineageRelationshipsResponse Client::listLineageRelationshipsWithOptions(con
 }
 
 /**
- * @summary Queries the data map for data lineage relationships between specified entities, such as tables, columns, and OSS objects.
+ * @summary Queries the list of data lineage relationships between two specified entities (tables, fields, OSS files, etc.) in DataWorks Data Map.
  *
- * @description 1. This operation is available in DataWorks Standard Edition and later versions.
+ * @description 1. You must purchase DataWorks Standard Edition or a higher edition to use this feature.
  *
  * @param request ListLineageRelationshipsRequest
  * @return ListLineageRelationshipsResponse
@@ -13619,9 +14170,9 @@ ListMcpServersResponse Client::listMcpServers(const ListMcpServersRequest &reque
 }
 
 /**
- * @summary Queries a list of collections in Data Map. Collections include categories and data albums.
+ * @summary Queries the list of Data Map collections. Supports querying both Data Map categories and data albums.
  *
- * @description 1. DataWorks Professional Edition or a higher edition is required.
+ * @description 1. You must purchase DataWorks Professional Edition or a higher edition to use this feature.
  *
  * @param request ListMetaCollectionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13648,9 +14199,9 @@ ListMetaCollectionsResponse Client::listMetaCollectionsWithOptions(const ListMet
 }
 
 /**
- * @summary Queries a list of collections in Data Map. Collections include categories and data albums.
+ * @summary Queries the list of Data Map collections. Supports querying both Data Map categories and data albums.
  *
- * @description 1. DataWorks Professional Edition or a higher edition is required.
+ * @description 1. You must purchase DataWorks Professional Edition or a higher edition to use this feature.
  *
  * @param request ListMetaCollectionsRequest
  * @return ListMetaCollectionsResponse
@@ -13661,7 +14212,7 @@ ListMetaCollectionsResponse Client::listMetaCollections(const ListMetaCollection
 }
 
 /**
- * @summary Lists metadata entities. Support is currently limited to custom types.
+ * @summary Queries a list of metadata entities. Currently, only custom entity types are supported.
  *
  * @param tmpReq ListMetaEntitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13734,7 +14285,7 @@ ListMetaEntitiesResponse Client::listMetaEntitiesWithOptions(const ListMetaEntit
 }
 
 /**
- * @summary Lists metadata entities. Support is currently limited to custom types.
+ * @summary Queries a list of metadata entities. Currently, only custom entity types are supported.
  *
  * @param request ListMetaEntitiesRequest
  * @return ListMetaEntitiesResponse
@@ -13745,7 +14296,7 @@ ListMetaEntitiesResponse Client::listMetaEntities(const ListMetaEntitiesRequest 
 }
 
 /**
- * @summary Retrieves a list of custom entity definitions, including custom entity types and extended table types.
+ * @summary Queries the list of custom entity definitions, including custom entity types and extension table types.
  *
  * @param request ListMetaEntityDefsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13800,7 +14351,7 @@ ListMetaEntityDefsResponse Client::listMetaEntityDefsWithOptions(const ListMetaE
 }
 
 /**
- * @summary Retrieves a list of custom entity definitions, including custom entity types and extended table types.
+ * @summary Queries the list of custom entity definitions, including custom entity types and extension table types.
  *
  * @param request ListMetaEntityDefsRequest
  * @return ListMetaEntityDefsResponse
@@ -14289,10 +14840,11 @@ ListParametersResponse Client::listParameters(const ListParametersRequest &reque
 }
 
 /**
- * @summary Queries a list of partitions in a table in Data Map. Only tables of the MaxCompute and E-MapReduce (EMR)-type Hive Metastore Service (HMS) metadata crawlers are supported.
+ * @summary Queries the partition list of a specified table in DataWorks Data Map. Currently supports MaxCompute and HMS (EMR cluster) types.
  *
- * @description 1. DataWorks Basic Edition or a higher edition is required.
- * 2. Only maxcompute and hms (EMR cluster) table types are supported.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * 2. Only MaxCompute and HMS (EMR cluster) table types are supported.
+ * 3. Before calling this API, call ListCrawlers to obtain the MetaEntityId of the metadata crawler, then call ListDatabases to obtain the database ID. For MaxCompute projects with Schema enabled, call ListSchemas to obtain the schema ID. Then call ListTables to obtain the TableId, and pass the returned table ID to this API.
  *
  * @param request ListPartitionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14319,10 +14871,11 @@ ListPartitionsResponse Client::listPartitionsWithOptions(const ListPartitionsReq
 }
 
 /**
- * @summary Queries a list of partitions in a table in Data Map. Only tables of the MaxCompute and E-MapReduce (EMR)-type Hive Metastore Service (HMS) metadata crawlers are supported.
+ * @summary Queries the partition list of a specified table in DataWorks Data Map. Currently supports MaxCompute and HMS (EMR cluster) types.
  *
- * @description 1. DataWorks Basic Edition or a higher edition is required.
- * 2. Only maxcompute and hms (EMR cluster) table types are supported.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * 2. Only MaxCompute and HMS (EMR cluster) table types are supported.
+ * 3. Before calling this API, call ListCrawlers to obtain the MetaEntityId of the metadata crawler, then call ListDatabases to obtain the database ID. For MaxCompute projects with Schema enabled, call ListSchemas to obtain the schema ID. Then call ListTables to obtain the TableId, and pass the returned table ID to this API.
  *
  * @param request ListPartitionsRequest
  * @return ListPartitionsResponse
@@ -15217,9 +15770,16 @@ ListSecurityStrategiesResponse Client::listSecurityStrategies(const ListSecurity
 }
 
 /**
- * @summary Queries the run records of a created node by its Name with paging. The JobRunId in each record is active for retrieving the results of a specific run, and the ExecutorJobId is active for getting details, logs, or stopping the run.
+ * @summary Queries the run records of a created node by Name with paging. The JobRunId in each record is active for retrieving the results of a specific run, and the ExecutorJobId is active for querying details, retrieving logs, or stopping the run.
  *
- * @description Queries the run records of a semantic job.
+ * @description ## Scenarios
+ * View the historical run records of a semantic job with pagination to obtain the run ID, executor job ID, status, and time information for each submission.
+ * ## Procedure
+ * 1. Use the job name from `CreateSemanticJob.Data.Name` or `ListSemanticJobs` as the `JobName`.
+ * 2. Use `PageNumber` and `PageSize` to read records page by page.
+ * 3. Use the `JobRunId` from a record to call `DownloadSemanticResults`, and use the `ExecutorJobId` to call the detail, log, or stop operations.
+ * ## Before you begin
+ * Pagination starts from page 1 by default. Each page contains a maximum of 200 records.
  *
  * @param request ListSemanticJobRunsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15258,9 +15818,16 @@ ListSemanticJobRunsResponse Client::listSemanticJobRunsWithOptions(const ListSem
 }
 
 /**
- * @summary Queries the run records of a created node by its Name with paging. The JobRunId in each record is active for retrieving the results of a specific run, and the ExecutorJobId is active for getting details, logs, or stopping the run.
+ * @summary Queries the run records of a created node by Name with paging. The JobRunId in each record is active for retrieving the results of a specific run, and the ExecutorJobId is active for querying details, retrieving logs, or stopping the run.
  *
- * @description Queries the run records of a semantic job.
+ * @description ## Scenarios
+ * View the historical run records of a semantic job with pagination to obtain the run ID, executor job ID, status, and time information for each submission.
+ * ## Procedure
+ * 1. Use the job name from `CreateSemanticJob.Data.Name` or `ListSemanticJobs` as the `JobName`.
+ * 2. Use `PageNumber` and `PageSize` to read records page by page.
+ * 3. Use the `JobRunId` from a record to call `DownloadSemanticResults`, and use the `ExecutorJobId` to call the detail, log, or stop operations.
+ * ## Before you begin
+ * Pagination starts from page 1 by default. Each page contains a maximum of 200 records.
  *
  * @param request ListSemanticJobRunsRequest
  * @return ListSemanticJobRunsResponse
@@ -15271,9 +15838,16 @@ ListSemanticJobRunsResponse Client::listSemanticJobRuns(const ListSemanticJobRun
 }
 
 /**
- * @summary Queries semantics node definitions of the current tenant by paging. The Name, ProjectId, and Source fields in the list items can be used for running/deleting nodes, querying run details, and verifying input scope, respectively.
+ * @summary Queries the semantic node definitions of the current tenant with paging. The Name, ProjectId, and Source fields in the list items can be used for running/deleting nodes, querying run details, and verifying input scope, respectively.
  *
- * @description Queries the list of semantic task definitions.
+ * @description ## Scenarios
+ * Queries the saved semantic node definitions of the current tenant with paging. Use this operation to display the node list, select a node to run, or obtain the workspace to which a node belongs.
+ * ## Invoke flow
+ * 1. Use `PageNumber` and `PageSize` to read `Data.SemanticJobs` with paging.
+ * 2. Use the `Name` field of a list item to invoke `RunSemanticJob`, `DeleteSemanticJob`, or `ListSemanticJobRuns`.
+ * 3. Use the `ProjectId` field of a list item together with `ExecutorJobId` to invoke the details, log, and stop operations.
+ * ## Notes
+ * This operation returns node definitions, not real-time run statuses. To query run statuses, invoke `ListSemanticJobRuns`.
  *
  * @param request ListSemanticJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15308,9 +15882,16 @@ ListSemanticJobsResponse Client::listSemanticJobsWithOptions(const ListSemanticJ
 }
 
 /**
- * @summary Queries semantics node definitions of the current tenant by paging. The Name, ProjectId, and Source fields in the list items can be used for running/deleting nodes, querying run details, and verifying input scope, respectively.
+ * @summary Queries the semantic node definitions of the current tenant with paging. The Name, ProjectId, and Source fields in the list items can be used for running/deleting nodes, querying run details, and verifying input scope, respectively.
  *
- * @description Queries the list of semantic task definitions.
+ * @description ## Scenarios
+ * Queries the saved semantic node definitions of the current tenant with paging. Use this operation to display the node list, select a node to run, or obtain the workspace to which a node belongs.
+ * ## Invoke flow
+ * 1. Use `PageNumber` and `PageSize` to read `Data.SemanticJobs` with paging.
+ * 2. Use the `Name` field of a list item to invoke `RunSemanticJob`, `DeleteSemanticJob`, or `ListSemanticJobRuns`.
+ * 3. Use the `ProjectId` field of a list item together with `ExecutorJobId` to invoke the details, log, and stop operations.
+ * ## Notes
+ * This operation returns node definitions, not real-time run statuses. To query run statuses, invoke `ListSemanticJobRuns`.
  *
  * @param request ListSemanticJobsRequest
  * @return ListSemanticJobsResponse
@@ -15399,7 +15980,7 @@ ListSkillsResponse Client::listSkills(const ListSkillsRequest &request) {
 /**
  * @summary Queries the list of data tables in DataWorks Data Map. For types that do not support the schema level, you can query data tables under a specified database. For types that support the schema level, you can query data tables under a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical metadata or business metadata.
  *
- * @description 1. DataWorks Basic Edition or a higher edition is required.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  *
  * @param tmpReq ListTablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15434,7 +16015,7 @@ ListTablesResponse Client::listTablesWithOptions(const ListTablesRequest &tmpReq
 /**
  * @summary Queries the list of data tables in DataWorks Data Map. For types that do not support the schema level, you can query data tables under a specified database. For types that support the schema level, you can query data tables under a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical metadata or business metadata.
  *
- * @description 1. DataWorks Basic Edition or a higher edition is required.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  *
  * @param request ListTablesRequest
  * @return ListTablesResponse
@@ -17246,9 +17827,86 @@ RollbackParameterResponse Client::rollbackParameter(const RollbackParameterReque
 }
 
 /**
- * @summary Submits a semantic job for execution by its Name and returns the run identifier and executor identifier. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
+ * @summary 运行元数据采集器
  *
- * @description **Before using this operation, make sure that you fully understand the [billing method and pricing](https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing) of model calls used by semantic building.**
+ * @description ## 使用场景
+ * 提交指定元数据采集器的运行请求。
+ * ## 推荐流程
+ * 1. 调用 `ListCrawlers` 查询可运行的采集器 ID。
+ * 2. 调用本接口提交运行请求。
+ * 3. 调用 `ListCrawlerRuns` 查询最终运行状态。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 费用说明
+ * 运行采集任务会使用计算资源，可能产生费用，具体以实际使用的资源组和 DataWorks 计费规则为准。
+ * 当采集器已开启 AI 元数据描述能力（`EnableAiComment=true`）时，采集元数据并生成 AI 说明会消耗 Token。Token 赠送额度及超出额度后的计费规则，请参见 [Data Agent 费用](https://help.aliyun.com/zh/dataworks/dataworks-data-agent-agent-billing)。
+ * ## 注意事项
+ * 接口成功仅表示运行请求已受理，不表示采集任务已经完成。
+ *
+ * @param request RunCrawlerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunCrawlerResponse
+ */
+RunCrawlerResponse Client::runCrawlerWithOptions(const RunCrawlerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunCrawler"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunCrawlerResponse>();
+}
+
+/**
+ * @summary 运行元数据采集器
+ *
+ * @description ## 使用场景
+ * 提交指定元数据采集器的运行请求。
+ * ## 推荐流程
+ * 1. 调用 `ListCrawlers` 查询可运行的采集器 ID。
+ * 2. 调用本接口提交运行请求。
+ * 3. 调用 `ListCrawlerRuns` 查询最终运行状态。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 费用说明
+ * 运行采集任务会使用计算资源，可能产生费用，具体以实际使用的资源组和 DataWorks 计费规则为准。
+ * 当采集器已开启 AI 元数据描述能力（`EnableAiComment=true`）时，采集元数据并生成 AI 说明会消耗 Token。Token 赠送额度及超出额度后的计费规则，请参见 [Data Agent 费用](https://help.aliyun.com/zh/dataworks/dataworks-data-agent-agent-billing)。
+ * ## 注意事项
+ * 接口成功仅表示运行请求已受理，不表示采集任务已经完成。
+ *
+ * @param request RunCrawlerRequest
+ * @return RunCrawlerResponse
+ */
+RunCrawlerResponse Client::runCrawler(const RunCrawlerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return runCrawlerWithOptions(request, runtime);
+}
+
+/**
+ * @summary Submits a saved semantic job for execution by name and returns the run identifier and executor job identifier. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
+ *
+ * @description ## Description
+ * Loads a saved semantic job definition by `Name` and submits a new analysis run to the executor. This operation does not accept runtime `Source`, resource group, or reference file overrides. The execution always uses the configuration saved by `CreateSemanticJob`.
+ * ## Pre-execution validation
+ * The service validates the existence and access permissions of the job, and re-validates whether the associated files still exist. For files associated through `ReferenceFileIds`, the service resolves them to temporary addresses readable by the current run before submission. Deleting a file after upload or specifying an invalid file ID causes the submission to fail.
+ * ## Response and What to do next
+ * `Data.JobRunId` is the identity of the current semantics node run and is used by `DownloadSemanticResults` to download the exact output of this run. `Data.ExecutorJobId` is the identity of the executor node and is used by `GetSemanticJobDetail`, `GetSemanticJobLog`, and `KillSemanticJob`. A successful response indicates that the executor has accepted the submission, not that the model analysis or result files are complete.
+ * ## Billing
+ * **Before using this operation, make sure that you fully understand the billing method and pricing of the [model calls](https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing) used by semantic construction.**
  *
  * @param request RunSemanticJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17279,9 +17937,16 @@ RunSemanticJobResponse Client::runSemanticJobWithOptions(const RunSemanticJobReq
 }
 
 /**
- * @summary Submits a semantic job for execution by its Name and returns the run identifier and executor identifier. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
+ * @summary Submits a saved semantic job for execution by name and returns the run identifier and executor job identifier. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
  *
- * @description **Before using this operation, make sure that you fully understand the [billing method and pricing](https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing) of model calls used by semantic building.**
+ * @description ## Description
+ * Loads a saved semantic job definition by `Name` and submits a new analysis run to the executor. This operation does not accept runtime `Source`, resource group, or reference file overrides. The execution always uses the configuration saved by `CreateSemanticJob`.
+ * ## Pre-execution validation
+ * The service validates the existence and access permissions of the job, and re-validates whether the associated files still exist. For files associated through `ReferenceFileIds`, the service resolves them to temporary addresses readable by the current run before submission. Deleting a file after upload or specifying an invalid file ID causes the submission to fail.
+ * ## Response and What to do next
+ * `Data.JobRunId` is the identity of the current semantics node run and is used by `DownloadSemanticResults` to download the exact output of this run. `Data.ExecutorJobId` is the identity of the executor node and is used by `GetSemanticJobDetail`, `GetSemanticJobLog`, and `KillSemanticJob`. A successful response indicates that the executor has accepted the submission, not that the model analysis or result files are complete.
+ * ## Billing
+ * **Before using this operation, make sure that you fully understand the billing method and pricing of the [model calls](https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing) used by semantic construction.**
  *
  * @param request RunSemanticJobRequest
  * @return RunSemanticJobResponse
@@ -17449,6 +18114,70 @@ StartWorkflowInstancesResponse Client::startWorkflowInstancesWithOptions(const S
 StartWorkflowInstancesResponse Client::startWorkflowInstances(const StartWorkflowInstancesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return startWorkflowInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 停止元数据采集器运行
+ *
+ * @description ## 使用场景
+ * 停止指定元数据采集器当前正在执行的运行任务。
+ * ## 推荐流程
+ * 1. 调用 `ListCrawlerRuns` 确认采集器存在正在执行的运行任务。
+ * 2. 调用本接口提交停止请求。
+ * 3. 再次调用 `ListCrawlerRuns` 确认最终运行状态。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 注意事项
+ * 没有正在执行的运行任务时调用会失败。接口成功仅表示停止请求已受理。
+ *
+ * @param request StopCrawlerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopCrawlerResponse
+ */
+StopCrawlerResponse Client::stopCrawlerWithOptions(const StopCrawlerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "StopCrawler"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopCrawlerResponse>();
+}
+
+/**
+ * @summary 停止元数据采集器运行
+ *
+ * @description ## 使用场景
+ * 停止指定元数据采集器当前正在执行的运行任务。
+ * ## 推荐流程
+ * 1. 调用 `ListCrawlerRuns` 确认采集器存在正在执行的运行任务。
+ * 2. 调用本接口提交停止请求。
+ * 3. 再次调用 `ListCrawlerRuns` 确认最终运行状态。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 注意事项
+ * 没有正在执行的运行任务时调用会失败。接口成功仅表示停止请求已受理。
+ *
+ * @param request StopCrawlerRequest
+ * @return StopCrawlerResponse
+ */
+StopCrawlerResponse Client::stopCrawler(const StopCrawlerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return stopCrawlerWithOptions(request, runtime);
 }
 
 /**
@@ -18353,6 +19082,104 @@ UpdateComputeResourceResponse Client::updateComputeResourceWithOptions(const Upd
 UpdateComputeResourceResponse Client::updateComputeResource(const UpdateComputeResourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateComputeResourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新元数据采集器
+ *
+ * @description ## 使用场景
+ * 部分更新指定元数据采集器的资源组、采集范围、调度、AI 元数据描述或扩展配置。
+ * ## 推荐流程
+ * 1. 调用 `GetCrawler` 查询当前配置。
+ * 2. 调用 `GetCrawlerTypeCapabilities` 确认该采集器类型支持的配置能力。
+ * 3. 仅传入需要更新的字段调用本接口。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 注意事项
+ * 至少需要提供一个可更新字段；未提供的字段保持不变。
+ *
+ * @param tmpReq UpdateCrawlerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCrawlerResponse
+ */
+UpdateCrawlerResponse Client::updateCrawlerWithOptions(const UpdateCrawlerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateCrawlerShrinkRequest request = UpdateCrawlerShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasOptions()) {
+    request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOptions(), "Options", "json"));
+  }
+
+  if (!!tmpReq.hasScheduleConfig()) {
+    request.setScheduleConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScheduleConfig(), "ScheduleConfig", "json"));
+  }
+
+  if (!!tmpReq.hasScope()) {
+    request.setScopeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScope(), "Scope", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasEnableAiComment()) {
+    body["EnableAiComment"] = request.getEnableAiComment();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasOptionsShrink()) {
+    body["Options"] = request.getOptionsShrink();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasScheduleConfigShrink()) {
+    body["ScheduleConfig"] = request.getScheduleConfigShrink();
+  }
+
+  if (!!request.hasScopeShrink()) {
+    body["Scope"] = request.getScopeShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateCrawler"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCrawlerResponse>();
+}
+
+/**
+ * @summary 更新元数据采集器
+ *
+ * @description ## 使用场景
+ * 部分更新指定元数据采集器的资源组、采集范围、调度、AI 元数据描述或扩展配置。
+ * ## 推荐流程
+ * 1. 调用 `GetCrawler` 查询当前配置。
+ * 2. 调用 `GetCrawlerTypeCapabilities` 确认该采集器类型支持的配置能力。
+ * 3. 仅传入需要更新的字段调用本接口。
+ * ## 版本要求
+ * 需要购买DataWorks基础版及以上版本才能使用。
+ * ## 注意事项
+ * 至少需要提供一个可更新字段；未提供的字段保持不变。
+ *
+ * @param request UpdateCrawlerRequest
+ * @return UpdateCrawlerResponse
+ */
+UpdateCrawlerResponse Client::updateCrawler(const UpdateCrawlerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCrawlerWithOptions(request, runtime);
 }
 
 /**
@@ -19886,9 +20713,9 @@ UpdateMetaEntityResponse Client::updateMetaEntity(const UpdateMetaEntityRequest 
 }
 
 /**
- * @summary Updates a meta entity definition. This operation supports both custom and extended table entity types.
+ * @summary Updates a metadata entity definition, including custom entity types and extension table types.
  *
- * @description This operation requires DataWorks Professional Edition or a later version.
+ * @description DataWorks Professional Edition or a more advanced edition is required.
  *
  * @param tmpReq UpdateMetaEntityDefRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19945,9 +20772,9 @@ UpdateMetaEntityDefResponse Client::updateMetaEntityDefWithOptions(const UpdateM
 }
 
 /**
- * @summary Updates a meta entity definition. This operation supports both custom and extended table entity types.
+ * @summary Updates a metadata entity definition, including custom entity types and extension table types.
  *
- * @description This operation requires DataWorks Professional Edition or a later version.
+ * @description DataWorks Professional Edition or a more advanced edition is required.
  *
  * @param request UpdateMetaEntityDefRequest
  * @return UpdateMetaEntityDefResponse
@@ -20716,9 +21543,9 @@ UpdateSkillResponse Client::updateSkill(const UpdateSkillRequest &request) {
 }
 
 /**
- * @summary Updates the business metadata for a data table in the data map. You can update only the table\\"s Readme and custom attributes.
+ * @summary Updates the business metadata of a table in Data Map. Currently, only the table usage description and custom attributes can be updated.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a later version to use this operation.
+ * @description 1. You must have DataWorks Basic Edition or a higher edition to use this feature.
  *
  * @param tmpReq UpdateTableBusinessMetadataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20763,9 +21590,9 @@ UpdateTableBusinessMetadataResponse Client::updateTableBusinessMetadataWithOptio
 }
 
 /**
- * @summary Updates the business metadata for a data table in the data map. You can update only the table\\"s Readme and custom attributes.
+ * @summary Updates the business metadata of a table in Data Map. Currently, only the table usage description and custom attributes can be updated.
  *
- * @description 1. You must purchase DataWorks Basic Edition or a later version to use this operation.
+ * @description 1. You must have DataWorks Basic Edition or a higher edition to use this feature.
  *
  * @param request UpdateTableBusinessMetadataRequest
  * @return UpdateTableBusinessMetadataResponse
@@ -21238,9 +22065,16 @@ UpdateWorkflowDefinitionResponse Client::updateWorkflowDefinition(const UpdateWo
 }
 
 /**
- * @summary Requests a temporary OSS PUT upload URL. Complete the PUT upload before the URL expires, and then pass the returned FileId to the ReferenceFileIds parameter of CreateSemanticJob.
+ * @summary Requests a temporary OSS PUT upload URL. Complete the PUT upload before the URL expires, then pass the returned FileId to the ReferenceFileIds parameter of CreateSemanticJob.
  *
- * @description Requests an upload URL for semantic job attachments.
+ * @description ## Scenarios
+ * Requests an upload slot for a reference file to prepare a file for the `singleTableFile` source of `CreateSemanticJob`.
+ * ## Procedure
+ * 1. Pass the file name, MIME type, and actual size to this operation to obtain `Data.UploadUrl` and `Data.FileId`.
+ * 2. Perform an HTTP PUT upload with the same `Content-Type` before the `UploadUrl` expires.
+ * 3. After the upload is complete, use `FileId` as the only element of `CreateSemanticJob.ReferenceFileIds`.
+ * ## Security considerations
+ * `UploadUrl` is a short-lived pre-signed PUT URL. The holder can write to the corresponding object. Do not log, share, or persist this URL.
  *
  * @param request UploadSemanticFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21279,9 +22113,16 @@ UploadSemanticFileResponse Client::uploadSemanticFileWithOptions(const UploadSem
 }
 
 /**
- * @summary Requests a temporary OSS PUT upload URL. Complete the PUT upload before the URL expires, and then pass the returned FileId to the ReferenceFileIds parameter of CreateSemanticJob.
+ * @summary Requests a temporary OSS PUT upload URL. Complete the PUT upload before the URL expires, then pass the returned FileId to the ReferenceFileIds parameter of CreateSemanticJob.
  *
- * @description Requests an upload URL for semantic job attachments.
+ * @description ## Scenarios
+ * Requests an upload slot for a reference file to prepare a file for the `singleTableFile` source of `CreateSemanticJob`.
+ * ## Procedure
+ * 1. Pass the file name, MIME type, and actual size to this operation to obtain `Data.UploadUrl` and `Data.FileId`.
+ * 2. Perform an HTTP PUT upload with the same `Content-Type` before the `UploadUrl` expires.
+ * 3. After the upload is complete, use `FileId` as the only element of `CreateSemanticJob.ReferenceFileIds`.
+ * ## Security considerations
+ * `UploadUrl` is a short-lived pre-signed PUT URL. The holder can write to the corresponding object. Do not log, share, or persist this URL.
  *
  * @param request UploadSemanticFileRequest
  * @return UploadSemanticFileResponse

@@ -195,29 +195,29 @@ namespace Models
 
 
       protected:
-        // The user ID of the semantic task creator.
+        // The user identifier of the semantic job creator.
         shared_ptr<string> creator_ {};
         // The creation time, expressed as a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> gmtCreate_ {};
         // The last modification time, expressed as a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> gmtModified_ {};
-        // The internal unique ID of the task definition.
+        // The internal unique ID of the job definition.
         shared_ptr<int64_t> id_ {};
-        // The task name. Used for RunSemanticJob, DeleteSemanticJob, ListSemanticJobRuns, and DownloadSemanticResults.
+        // The job name. Used for RunSemanticJob, DeleteSemanticJob, ListSemanticJobRuns, and DownloadSemanticResults.
         shared_ptr<string> name_ {};
-        // The workspace ID to which the task belongs. Used for GetSemanticJobDetail, GetSemanticJobLog, and KillSemanticJob.
+        // The workspace ID to which the job belongs. Used for GetSemanticJobDetail, GetSemanticJobLog, and KillSemanticJob.
         shared_ptr<int64_t> projectId_ {};
-        // The list of uploaded file IDs associated with the task.
+        // The list of uploaded file IDs associated with the job.
         shared_ptr<vector<string>> referenceFileIds_ {};
-        // The list of external reference file URIs associated with the task.
+        // The list of external reference file URIs associated with the job.
         shared_ptr<vector<string>> referenceFileUris_ {};
-        // The ID of the resource group used to run this task.
+        // The resource group identifier used when running this job.
         shared_ptr<string> resourceGroupId_ {};
-        // The input datasource config saved in the node. This configuration determines the analysis scope at runtime.
+        // The input datasource config saved with the node. This configuration determines the analysis scope at runtime.
         Darabonba::Json source_ {};
-        // The Source.type data source type saved in the task.
+        // The Source.type data source type saved with the job.
         shared_ptr<string> type_ {};
-        // The user ID of the semantic task creator.
+        // The user identifier of the semantic job creator.
         shared_ptr<string> userId_ {};
       };
 
@@ -254,13 +254,13 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page, starting from 1.
+      // The page number returned, starting from 1.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of task definitions per page in the current response.
+      // The number of job definitions per page returned.
       shared_ptr<int32_t> pageSize_ {};
-      // The list of task definitions.
+      // The list of job definitions.
       shared_ptr<vector<Data::SemanticJobs>> semanticJobs_ {};
-      // The total number of task definitions that meet the conditions within the current tenant.
+      // The total number of job definitions that meet the conditions in the current tenant.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -290,11 +290,11 @@ namespace Models
 
 
   protected:
-    // The paginated result of task definitions. Use the Name field of a list item to run, delete, query run records, or download results. Use the ProjectId field to query run details, view logs, or stop a run.
+    // The paginated result of job definitions. Use the Name field of a list item to run, delete, query run records, or download results. Use the ProjectId field to query run details, logs, or stop a run.
     shared_ptr<ListSemanticJobsResponseBody::Data> data_ {};
     // The request ID. Used for locating logs and troubleshooting issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

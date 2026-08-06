@@ -122,7 +122,7 @@ namespace Models
       shared_ptr<string> executorJobId_ {};
       // The unique identifier of this run. Pass this value to the JobRunId parameter of DownloadSemanticResults to obtain the output of this run.
       shared_ptr<string> jobRunId_ {};
-      // The list of status codes returned by the executor in the submission response. The status at the submission stage does not indicate that the results are complete.
+      // The list of status codes returned by the executor in the submission response. The status at the submission stage does not indicate that results are complete.
       shared_ptr<vector<int32_t>> statuses_ {};
     };
 

@@ -94,11 +94,11 @@ namespace Models
 
 
   protected:
-    // The comment on the custom attribute. The service performs a fuzzy search based on this parameter\\"s value.
+    // The description of the custom attribute. The value is fuzzy matched.
     shared_ptr<string> comment_ {};
-    // The display name of the custom attribute. The service performs a partial match based on this parameter\\"s value.
+    // The display name of the custom attribute. The value is matched by plain text containment.
     shared_ptr<string> displayName_ {};
-    // The entity types to which the custom attribute applies. To specify multiple entity types, separate them with commas (,), for example, `*-table,*-column`. This parameter supports specific entity types, such as `hms-table` and `emr-table`, and wildcard types, such as `*-table` and `*-column`.
+    // The entity types to which the custom attribute applies. Separate multiple entity types with commas, such as `*-table,*-column`. Specific entity types (such as hms-table and emr-table) and wildcard types `*-table` and `*-column` are supported.
     shared_ptr<string> entityTypes_ {};
     // The sort order. Valid values: Asc and Desc.
     shared_ptr<string> order_ {};
@@ -106,7 +106,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The field to sort by. Valid values: CreateTime and ModifyTime.
+    // The sort field. Valid values: CreateTime and ModifyTime.
     shared_ptr<string> sortBy_ {};
   };
 

@@ -121,13 +121,15 @@ namespace Models
 
 
   protected:
+    // The ID of the asset domain.
     shared_ptr<int64_t> assetDomainId_ {};
+    // The ID of the asset category.
     shared_ptr<string> categoryUuid_ {};
     // The list of unique data asset IDs.
     shared_ptr<string> dataAssetIdsShrink_ {};
     // The Asset Type of the data asset. Valid values:
     // 
-    // - ACS::DataWorks::Table: table.
+    // - ACS::DataWorks::Table: data table.
     // 
     // - ACS::DataWorks::Task: scheduling node.
     shared_ptr<string> dataAssetType_ {};
@@ -135,15 +137,16 @@ namespace Models
     // - Dev: development environment.
     // - Prod: production environment.
     shared_ptr<string> envType_ {};
+    // The name of the asset. Fuzzy search by name is supported.
     shared_ptr<string> name_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The workspace ID.
+    // The ID of the workspace.
     shared_ptr<int64_t> projectId_ {};
     // The list of tags associated with data assets. Tags are used as query filters:
-    // - Multiple values have an OR relationship. For example, `["key1:v1", "key2:v1", "key3:v1"]` queries data assets that contain any of the specified tags.
+    // - Multiple values have an OR relationship. For example, `["key1:v1", "key2:v1", "key3:v1"]` queries data assets that contain any one of the specified tags.
     // - If this parameter is not specified or is left empty, no tag-based filtering is applied.
     shared_ptr<string> tagsShrink_ {};
   };

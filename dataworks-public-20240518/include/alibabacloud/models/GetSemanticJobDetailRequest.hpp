@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> executorJobId_ {};
-    // The DataWorks workspace ID to which the job belongs. Use the ProjectId from the CreateSemanticJob response or a ListSemanticJobs list item.
+    // The ID of the DataWorks workspace to which the job belongs. Use the ProjectId from the CreateSemanticJob response or a ListSemanticJobs list item.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
