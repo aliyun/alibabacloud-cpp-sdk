@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The format of the exported content. Valid values: json and yaml. Default value: yaml.
     shared_ptr<string> outputFormat_ {};
+    // The version number. If this parameter is empty or set to -1, the model metadata in draft state is returned. If this parameter is set to 0, the model metadata of the latest version is returned.
     shared_ptr<int32_t> versionId_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

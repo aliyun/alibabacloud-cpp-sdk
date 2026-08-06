@@ -131,8 +131,11 @@ namespace Models
 
 
         protected:
+          // The property code.
           shared_ptr<string> code_ {};
+          // The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (float), BOOLEAN (Boolean), DATE (date), LIST (list), and others.
           shared_ptr<string> dataType_ {};
+          // The property value.
           shared_ptr<string> value_ {};
         };
 
@@ -162,8 +165,11 @@ namespace Models
 
 
       protected:
+        // The entity record ID.
         shared_ptr<string> entityId_ {};
+        // The entity type code.
         shared_ptr<string> entityType_ {};
+        // The entity record property list.
         shared_ptr<vector<NodeList::PropertyList>> propertyList_ {};
       };
 
@@ -241,8 +247,11 @@ namespace Models
 
 
         protected:
+          // The property code.
           shared_ptr<string> code_ {};
+          // The property data type. Valid values: STRING (string), INTEGER (integer), FLOAT (float), BOOLEAN (Boolean), DATE (date), LIST (list), and others.
           shared_ptr<string> dataType_ {};
+          // The property value.
           shared_ptr<string> value_ {};
         };
 
@@ -286,10 +295,15 @@ namespace Models
 
 
       protected:
+        // The relation record property list.
         shared_ptr<vector<EdgeList::PropertyList>> propertyList_ {};
+        // The relation record ID.
         shared_ptr<string> relationId_ {};
+        // The relation type code.
         shared_ptr<string> relationType_ {};
+        // The source entity ID.
         shared_ptr<string> sourceEntityId_ {};
+        // The target entity ID.
         shared_ptr<string> targetEntityId_ {};
       };
 
@@ -314,7 +328,9 @@ namespace Models
 
 
     protected:
+      // The edge list.
       shared_ptr<vector<Data::EdgeList>> edgeList_ {};
+      // The node list.
       shared_ptr<vector<Data::NodeList>> nodeList_ {};
     };
 
@@ -365,11 +381,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The query result.
     shared_ptr<GetKgNeighborResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The backend exception details.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

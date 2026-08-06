@@ -86,8 +86,16 @@ namespace Models
 
 
     protected:
+      // The publish content.
       shared_ptr<string> content_ {};
+      // The publish status. Valid values:
+      // - Publishing: Publishing in progress.
+      // - Published: Published successfully.
+      // - Partial: Partially completed.
+      // - Failed: Failed.
+      // - RollbackFailed: Publish failed and rollback failed.
       shared_ptr<string> status_ {};
+      // The version number.
       shared_ptr<int32_t> versionId_ {};
     };
 
@@ -138,11 +146,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The publish result.
     shared_ptr<GetKgSchemaPublishResultResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The backend exception details.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -167,7 +167,7 @@ namespace Models
           shared_ptr<string> exampleValue_ {};
           // The field authorization status.
           shared_ptr<int32_t> isAuthorized_ {};
-          // The parameter data type.
+          // The parameter type.
           shared_ptr<int32_t> parameterDataType_ {};
           // The description.
           shared_ptr<string> parameterDescription_ {};
@@ -244,7 +244,7 @@ namespace Models
           shared_ptr<string> exampleValue_ {};
           // The field authorization status.
           shared_ptr<int32_t> isAuthorized_ {};
-          // The parameter data type.
+          // The parameter type.
           shared_ptr<int32_t> parameterDataType_ {};
           // The description.
           shared_ptr<string> parameterDescription_ {};
@@ -338,9 +338,9 @@ namespace Models
         shared_ptr<int64_t> appId_ {};
         // The permission type.
         shared_ptr<string> authType_ {};
-        // The list of authorized fields for the API in the development environment.
+        // The list of fields authorized for the API in the development environment.
         shared_ptr<vector<Data::AuthorizedDevReturnParameters>> authorizedDevReturnParameters_ {};
-        // The list of authorized fields for the API in the production environment.
+        // The list of fields authorized for the API in the production environment.
         shared_ptr<vector<Data::AuthorizedProdReturnParameters>> authorizedProdReturnParameters_ {};
         // The API description.
         shared_ptr<string> description_ {};

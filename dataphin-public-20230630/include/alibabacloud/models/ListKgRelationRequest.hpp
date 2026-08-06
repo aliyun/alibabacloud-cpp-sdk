@@ -91,9 +91,13 @@ namespace Models
 
 
     protected:
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNum_ {};
+      // The number of records per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
+      // The source entity record ID.
       shared_ptr<string> sourceEntityId_ {};
+      // The target entity record ID.
       shared_ptr<string> targetEntityId_ {};
     };
 
@@ -130,11 +134,18 @@ namespace Models
 
 
   protected:
+    // The paged search filter conditions.
     shared_ptr<ListKgRelationRequest::ListQuery> listQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The relationship type code.
+    // 
     // This parameter is required.
     shared_ptr<string> relationType_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

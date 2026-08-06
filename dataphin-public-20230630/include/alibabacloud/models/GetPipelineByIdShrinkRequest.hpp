@@ -65,7 +65,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID used to query the pipeline task.
+    // The query ID used to query the pipeline node.
     // 
     // This parameter is required.
     shared_ptr<string> queryIdShrink_ {};

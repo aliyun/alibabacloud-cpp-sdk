@@ -157,21 +157,22 @@ namespace Models
 
 
         protected:
-          // Specifies the data distribution method when the current component has multiple downstream components. Valid values:
-          // - true: The data of the current component is sent to all downstream components in a round-robin manner. For example, if the current component has 100 records and two downstream components, each downstream component receives 50 records. Default value: true.
-          // - false: The full data of the current component is sent to all downstream components. For example, if the current component has 100 records and two downstream components, each downstream component receives 100 records.
+          // Specifies the data distribution mode when the current component has multiple downstream components. Valid values:
+          // - true: the data of the current component is distributed to all downstream components in a round-robin manner. For example, if the current component has 100 records and two downstream components, each downstream component receives 50 records. Default value: true.
+          // - false: the full data of the current component is sent to all downstream components. For example, if the current component has 100 records and two downstream components, both downstream components receive 100 records.
           shared_ptr<bool> isDistribute_ {};
           // The plugin ID. Each plugin has a unique identifier. Refer to the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig#stepKey. Developers should inherit this component configuration class and implement the corresponding component configuration. Each component configuration has the same structure as the pipeline configuration created on the Dataphin console.
           shared_ptr<string> key_ {};
           // The specific component configuration in JSON string format. Refer to the toJsonString method of the subclasses of the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig. Developers should inherit this component configuration class and implement the corresponding component configuration. Each component configuration has the same structure as the pipeline configuration created on the Dataphin console.
           shared_ptr<string> pluginConfig_ {};
-          // The step name. Step names must be unique within the same pipeline task.
+          // The step name. Step names must be unique within the same pipeline node.
           shared_ptr<string> stepName_ {};
           // The component type. Valid values:
           // - input: an input component.
           // - output: an output component.
-          // - transfrom: a transformation component.
+          // - transfrom: a transform component.
           // - process: a flow control component.
+          // 
           // Refer to the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig#stepType. Developers should inherit this component configuration class and implement the corresponding component configuration. Each component configuration has the same structure as the pipeline configuration created on the Dataphin console.
           shared_ptr<string> stepType_ {};
         };
@@ -223,7 +224,7 @@ namespace Models
 
 
         protected:
-          // For conditional distribution components, set this parameter to true when the downstream condition is true. Otherwise, set it to false.
+          // Specifies the conditional distribution setting. Set this parameter to true when the downstream condition is true for a conditional distribution component. Otherwise, set it to false.
           shared_ptr<bool> sendTo_ {};
           // The input step name, which corresponds to Steps[*].StepName.
           shared_ptr<string> source_ {};
@@ -252,9 +253,9 @@ namespace Models
 
 
       protected:
-        // The DAG (directed acyclic graph) link configuration that describes the connections between all components.
+        // The directed acyclic graph (DAG) link configuration that describes the connections between all components.
         shared_ptr<vector<PipelineConfig::Hops>> hops_ {};
-        // The component configurations, including detailed configurations of all components used.
+        // The component configurations, which contain the detailed configurations of all components used.
         shared_ptr<vector<PipelineConfig::Steps>> steps_ {};
       };
 
@@ -332,17 +333,17 @@ namespace Models
 
 
       protected:
-        // The task description.
+        // The node description.
         shared_ptr<string> desc_ {};
-        // The folder of the integration pipeline task node. The default value is the root folder. The folder must exist. If it does not exist, call the relevant API operation to create a folder of the offlinePipeline type.
+        // The folder of the integration pipeline node. The default value is the root folder. This folder must exist. If it does not exist, call the relevant API operation to create a folder of the offlinePipeline type.
         shared_ptr<string> directory_ {};
-        // The pipeline file ID. This parameter is empty when the task is first created. When updating a pipeline task, specify at least one of pipelineId, fileId, or nodeId.
+        // The pipeline file ID. This value is empty during initial creation. When updating a pipeline node, at least one of pipelineId, fileId, or nodeId must be specified.
         shared_ptr<int64_t> fileId_ {};
-        // The scheduling node ID of the pipeline task. This parameter is empty when the task is first created. When updating a pipeline task, specify at least one of pipelineId, fileId, or nodeId.
+        // The scheduling node ID of the pipeline node. This value is empty during initial creation. When updating a pipeline node, at least one of pipelineId, fileId, or nodeId must be specified.
         shared_ptr<string> nodeId_ {};
-        // The name of the integration pipeline task.
+        // The name of the integration pipeline node.
         shared_ptr<string> nodeName_ {};
-        // The pipeline task ID. This parameter is empty when the task is first created. When updating a pipeline task, specify at least one of pipelineId, fileId, or nodeId.
+        // The pipeline node ID. This value is empty during initial creation. When updating a pipeline node, at least one of pipelineId, fileId, or nodeId must be specified.
         shared_ptr<int64_t> pipelineId_ {};
       };
 
@@ -403,19 +404,19 @@ namespace Models
 
 
     protected:
-      // The configuration mode of the integration pipeline.
+      // The integration pipeline configuration mode.
       shared_ptr<string> mode_ {};
-      // The basic information of the pipeline task.
+      // The basic information of the pipeline node.
       shared_ptr<Data::NodeInfo> nodeInfo_ {};
-      // The component configuration of the integration pipeline.
+      // The integration pipeline component configuration.
       shared_ptr<Data::PipelineConfig> pipelineConfig_ {};
-      // The script mode configuration of the integration pipeline.
+      // The integration pipeline script mode configuration.
       shared_ptr<string> pipelineJson_ {};
-      // The pipeline task type.
+      // The pipeline node type.
       shared_ptr<int32_t> pipelineType_ {};
-      // The schedule configuration of the integration pipeline. The value is a JSON string. Deserialize it by using the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.vo.OAScheduleConfigVO.
+      // The integration pipeline scheduling configuration. The value is a JSON string. You can use the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.vo.OAScheduleConfigVO to deserialize it.
       shared_ptr<string> scheduleConfig_ {};
-      // The channel configuration of the integration pipeline. The value is a JSON string. Deserialize it by using the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAPipelineSetting.
+      // The integration pipeline channel configuration. The value is a JSON string. You can use the utility class com.alibaba.dataphin.pipeline.common.facade.openapi.model.OAPipelineSetting to deserialize it.
       shared_ptr<string> settings_ {};
     };
 
@@ -468,11 +469,11 @@ namespace Models
   protected:
     // The backend response code.
     shared_ptr<string> code_ {};
-    // The pipeline task details.
+    // The pipeline node details.
     shared_ptr<GetPipelineByIdResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error details returned by the backend.
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

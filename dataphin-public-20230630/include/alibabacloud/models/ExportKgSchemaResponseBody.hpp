@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // The knowledge graph definition content converted based on the specified format.
       shared_ptr<string> content_ {};
+      // The format of the returned knowledge graph definition content. Valid values: json and yaml.
       shared_ptr<string> outputFormat_ {};
     };
 
@@ -128,11 +130,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The backend exception details.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The knowledge graph definition details.
     shared_ptr<ExportKgSchemaResponseBody::SchemaInfo> schemaInfo_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The instruction for importing the knowledge graph definition.
+    // 
     // This parameter is required.
     shared_ptr<string> importCommandShrink_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

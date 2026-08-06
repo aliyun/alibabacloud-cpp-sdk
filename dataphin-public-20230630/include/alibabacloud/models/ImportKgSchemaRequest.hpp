@@ -80,8 +80,11 @@ namespace Models
 
 
     protected:
+      // The knowledge graph definition content converted based on the specified format.
       shared_ptr<string> content_ {};
+      // The format of the knowledge graph definition content. Valid values: json and yaml. Default value: yaml.
       shared_ptr<string> inputFormat_ {};
+      // The merge strategy for the knowledge graph definition content. Valid values: replace and merge. Default value: replace.
       shared_ptr<string> mergeStrategy_ {};
     };
 
@@ -111,10 +114,16 @@ namespace Models
 
 
   protected:
+    // The instruction for importing the knowledge graph definition.
+    // 
     // This parameter is required.
     shared_ptr<ImportKgSchemaRequest::ImportCommand> importCommand_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

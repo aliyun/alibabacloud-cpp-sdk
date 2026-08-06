@@ -87,8 +87,16 @@ namespace Models
 
 
     protected:
+      // The maximum depth of neighbor nodes. Default value: 1.
       shared_ptr<int32_t> depth_ {};
+      // The direction type. Valid values:
+      // - in: the current entity is the target node.
+      // - out: the current entity is the source node.
+      // - both: the current entity is both the source node and the target node.
+      // 
+      // Default value: both.
       shared_ptr<string> directionType_ {};
+      // The list of relation types.
       shared_ptr<vector<string>> relationTypes_ {};
     };
 
@@ -132,13 +140,22 @@ namespace Models
 
 
   protected:
+    // The entity record data ID.
+    // 
     // This parameter is required.
     shared_ptr<string> entityDataId_ {};
+    // The entity type.
+    // 
     // This parameter is required.
     shared_ptr<string> entityType_ {};
+    // The entity record neighbor node query instruction.
     shared_ptr<GetKgNeighborRequest::NeighborsQuery> neighborsQuery_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The model ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

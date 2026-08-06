@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The relationship record ID.
+    // 
     // This parameter is required.
     shared_ptr<string> relationId_ {};
+    // The relationship type code.
+    // 
     // This parameter is required.
     shared_ptr<string> relationType_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

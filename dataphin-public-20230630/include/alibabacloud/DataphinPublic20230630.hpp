@@ -1712,7 +1712,7 @@ namespace DataphinPublic20230630
       Models::ExecuteTriggerNodeResponse executeTriggerNode(const Models::ExecuteTriggerNodeRequest &request);
 
       /**
-       * @summary 导出知识图谱定义。
+       * @summary Exports knowledge graph metadata definitions. Online version: v6.1.1.
        *
        * @param request ExportKgSchemaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1721,7 +1721,7 @@ namespace DataphinPublic20230630
       Models::ExportKgSchemaResponse exportKgSchemaWithOptions(const Models::ExportKgSchemaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导出知识图谱定义。
+       * @summary Exports knowledge graph metadata definitions. Online version: v6.1.1.
        *
        * @param request ExportKgSchemaRequest
        * @return ExportKgSchemaResponse
@@ -2480,7 +2480,7 @@ namespace DataphinPublic20230630
       Models::GetInstanceUpDownStreamResponse getInstanceUpDownStream(const Models::GetInstanceUpDownStreamRequest &request);
 
       /**
-       * @summary 获取知识图谱实体记录。
+       * @summary Retrieves the details of a knowledge graph entity record. Online version: v6.1.1.
        *
        * @param request GetKgEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2489,7 +2489,7 @@ namespace DataphinPublic20230630
       Models::GetKgEntityResponse getKgEntityWithOptions(const Models::GetKgEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取知识图谱实体记录。
+       * @summary Retrieves the details of a knowledge graph entity record. Online version: v6.1.1.
        *
        * @param request GetKgEntityRequest
        * @return GetKgEntityResponse
@@ -2497,7 +2497,7 @@ namespace DataphinPublic20230630
       Models::GetKgEntityResponse getKgEntity(const Models::GetKgEntityRequest &request);
 
       /**
-       * @summary 获取图谱模型邻居节点。
+       * @summary Retrieves neighbor nodes of a graph model entity. Online version: v6.2.0.
        *
        * @param tmpReq GetKgNeighborRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2506,7 +2506,7 @@ namespace DataphinPublic20230630
       Models::GetKgNeighborResponse getKgNeighborWithOptions(const Models::GetKgNeighborRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取图谱模型邻居节点。
+       * @summary Retrieves neighbor nodes of a graph model entity. Online version: v6.2.0.
        *
        * @param request GetKgNeighborRequest
        * @return GetKgNeighborResponse
@@ -2514,7 +2514,7 @@ namespace DataphinPublic20230630
       Models::GetKgNeighborResponse getKgNeighbor(const Models::GetKgNeighborRequest &request);
 
       /**
-       * @summary 获取知识图谱关系记录。
+       * @summary Retrieves the details of a knowledge graph relationship record. Online version: v6.1.1.
        *
        * @param request GetKgRelationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2523,7 +2523,7 @@ namespace DataphinPublic20230630
       Models::GetKgRelationResponse getKgRelationWithOptions(const Models::GetKgRelationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取知识图谱关系记录。
+       * @summary Retrieves the details of a knowledge graph relationship record. Online version: v6.1.1.
        *
        * @param request GetKgRelationRequest
        * @return GetKgRelationResponse
@@ -2531,7 +2531,7 @@ namespace DataphinPublic20230630
       Models::GetKgRelationResponse getKgRelation(const Models::GetKgRelationRequest &request);
 
       /**
-       * @summary 获取图谱模型发布结果。
+       * @summary Retrieves the publish result of a knowledge graph model. Online version: v6.2.0.
        *
        * @param request GetKgSchemaPublishResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2540,7 +2540,7 @@ namespace DataphinPublic20230630
       Models::GetKgSchemaPublishResultResponse getKgSchemaPublishResultWithOptions(const Models::GetKgSchemaPublishResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取图谱模型发布结果。
+       * @summary Retrieves the publish result of a knowledge graph model. Online version: v6.2.0.
        *
        * @param request GetKgSchemaPublishResultRequest
        * @return GetKgSchemaPublishResultResponse
@@ -2803,7 +2803,7 @@ namespace DataphinPublic20230630
       Models::GetPipelineAsyncResultResponse getPipelineAsyncResult(const Models::GetPipelineAsyncResultRequest &request);
 
       /**
-       * @summary Queries a pipeline task by pipeline task ID.
+       * @summary Queries a pipeline node by pipeline node ID.
        *
        * @param tmpReq GetPipelineByIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2812,7 +2812,7 @@ namespace DataphinPublic20230630
       Models::GetPipelineByIdResponse getPipelineByIdWithOptions(const Models::GetPipelineByIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a pipeline task by pipeline task ID.
+       * @summary Queries a pipeline node by pipeline node ID.
        *
        * @param request GetPipelineByIdRequest
        * @return GetPipelineByIdResponse
@@ -3640,7 +3640,7 @@ namespace DataphinPublic20230630
       Models::GrantResourcePermissionResponse grantResourcePermission(const Models::GrantResourcePermissionRequest &request);
 
       /**
-       * @summary 导入知识图谱定义。
+       * @summary Imports a knowledge graph model definition. Online version: v6.1.1.
        *
        * @param tmpReq ImportKgSchemaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3649,7 +3649,7 @@ namespace DataphinPublic20230630
       Models::ImportKgSchemaResponse importKgSchemaWithOptions(const Models::ImportKgSchemaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导入知识图谱定义。
+       * @summary Imports a knowledge graph model definition. Online version: v6.1.1.
        *
        * @param request ImportKgSchemaRequest
        * @return ImportKgSchemaResponse
@@ -3748,8 +3748,7 @@ namespace DataphinPublic20230630
       /**
        * @summary Queries the specific field list of APIs that an application has requested.
        *
-       * @description ## 请求说明
-       * 该 API 允许用户通过提供租户 ID、数据服务应用的AppKey 或应用名称的关键词来已授权给应用的API。支持分页查询，返回的数据包括API的ID、名称、所属项目、已授权的有效期（开发及生产环境）、权限类型、生产及开发环境字段列表（字段/参数名称、参数类型、描述、示例值、是否已授权等）。请注意，分页参数是必填值。
+       * @description ## Request description.
        *
        * @param tmpReq ListAuthorizedDataServiceApiDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3760,8 +3759,7 @@ namespace DataphinPublic20230630
       /**
        * @summary Queries the specific field list of APIs that an application has requested.
        *
-       * @description ## 请求说明
-       * 该 API 允许用户通过提供租户 ID、数据服务应用的AppKey 或应用名称的关键词来已授权给应用的API。支持分页查询，返回的数据包括API的ID、名称、所属项目、已授权的有效期（开发及生产环境）、权限类型、生产及开发环境字段列表（字段/参数名称、参数类型、描述、示例值、是否已授权等）。请注意，分页参数是必填值。
+       * @description ## Request description.
        *
        * @param request ListAuthorizedDataServiceApiDetailsRequest
        * @return ListAuthorizedDataServiceApiDetailsResponse
@@ -4100,7 +4098,7 @@ namespace DataphinPublic20230630
       Models::ListKgEntityResponse listKgEntity(const Models::ListKgEntityRequest &request);
 
       /**
-       * @summary 分页查询知识图谱关系记录。
+       * @summary Queries knowledge graph relationship records by paging. Online version: v6.1.1.
        *
        * @param tmpReq ListKgRelationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4109,7 +4107,7 @@ namespace DataphinPublic20230630
       Models::ListKgRelationResponse listKgRelationWithOptions(const Models::ListKgRelationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询知识图谱关系记录。
+       * @summary Queries knowledge graph relationship records by paging. Online version: v6.1.1.
        *
        * @param request ListKgRelationRequest
        * @return ListKgRelationResponse
@@ -5317,15 +5315,9 @@ namespace DataphinPublic20230630
       Models::UpdateDataSourceConfigResponse updateDataSourceConfig(const Models::UpdateDataSourceConfigRequest &request);
 
       /**
-       * @summary Dataphin OpenAPI 模板。
+       * @summary Updates the information of a dataset in a specified project. Available since v6.2.0.
        *
-       * @description ## 请求说明
-       * - 该 API 用于更新特定项目下已存在的数据集的详细信息。
-       * - 必须提供 `ProjectId` 和 `UpdateCommand` 参数，其中 `UpdateCommand` 包含了需要更新的数据集的具体字段。
-       * - `UpdateCommand` 中的 `Id` 字段是必需的，用来标识要更新的数据集。
-       * - 其他字段如 `Name`, `Type`, `DataCellId` 等为可选项，根据实际需求选择性填写。
-       * - 版本配置（`VersionConfig`）和实时元表配置（`RealtimeMetaTableConfig`）提供了更详细的设置选项，包括存储路径、表结构等，这些也是可选的。
-       * - 注意确保所有提供的 ID 值（如 `ProjectId`, `Id`, `DataSourceId` 等）在系统中有效且正确关联。
+       * @description ## Request description.
        *
        * @param tmpReq UpdateDatasetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5334,15 +5326,9 @@ namespace DataphinPublic20230630
       Models::UpdateDatasetResponse updateDatasetWithOptions(const Models::UpdateDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Dataphin OpenAPI 模板。
+       * @summary Updates the information of a dataset in a specified project. Available since v6.2.0.
        *
-       * @description ## 请求说明
-       * - 该 API 用于更新特定项目下已存在的数据集的详细信息。
-       * - 必须提供 `ProjectId` 和 `UpdateCommand` 参数，其中 `UpdateCommand` 包含了需要更新的数据集的具体字段。
-       * - `UpdateCommand` 中的 `Id` 字段是必需的，用来标识要更新的数据集。
-       * - 其他字段如 `Name`, `Type`, `DataCellId` 等为可选项，根据实际需求选择性填写。
-       * - 版本配置（`VersionConfig`）和实时元表配置（`RealtimeMetaTableConfig`）提供了更详细的设置选项，包括存储路径、表结构等，这些也是可选的。
-       * - 注意确保所有提供的 ID 值（如 `ProjectId`, `Id`, `DataSourceId` 等）在系统中有效且正确关联。
+       * @description ## Request description.
        *
        * @param request UpdateDatasetRequest
        * @return UpdateDatasetResponse

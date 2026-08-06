@@ -80,11 +80,11 @@ namespace Models
 
 
     protected:
-      // Supports querying by the integration task file ID (fileId).
+      // The file ID of the integration node. You can use this parameter to query the pipeline node.
       shared_ptr<int64_t> fileId_ {};
-      // Supports querying by the integration task scheduling node ID (nodeId).
+      // The scheduling node ID of the integration node. You can use this parameter to query the pipeline node.
       shared_ptr<string> nodeId_ {};
-      // Supports querying by the integration pipeline primary key (pipelineId).
+      // The primary key ID of the integration pipeline. You can use this parameter to query the pipeline node.
       shared_ptr<int64_t> pipelineId_ {};
     };
 
@@ -132,7 +132,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> env_ {};
-      // The ID of the project to which the integration pipeline task belongs.
+      // The project ID to which the integration pipeline node belongs.
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
@@ -174,7 +174,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
-    // The ID used to query the pipeline task.
+    // The query ID used to query the pipeline node.
     // 
     // This parameter is required.
     shared_ptr<GetPipelineByIdRequest::QueryId> queryId_ {};

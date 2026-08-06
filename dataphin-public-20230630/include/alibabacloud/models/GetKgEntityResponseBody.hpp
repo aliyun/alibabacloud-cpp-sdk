@@ -110,8 +110,18 @@ namespace Models
 
 
       protected:
+        // The property code.
         shared_ptr<string> code_ {};
+        // The property data type. Valid values:
+        // 
+        // - STRING: string
+        // - INTEGER: integer
+        // - FLOAT: floating-point number
+        // - BOOLEAN: Boolean
+        // - DATE: date
+        // - LIST: list
         shared_ptr<string> dataType_ {};
+        // The property value.
         shared_ptr<string> value_ {};
       };
 
@@ -141,8 +151,11 @@ namespace Models
 
 
     protected:
+      // The entity record ID.
       shared_ptr<string> entityId_ {};
+      // The entity type code.
       shared_ptr<string> entityType_ {};
+      // The list of entity record properties.
       shared_ptr<vector<EntityInfo::PropertyList>> propertyList_ {};
     };
 
@@ -193,11 +206,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The entity record details.
     shared_ptr<GetKgEntityResponseBody::EntityInfo> entityInfo_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The backend exception details.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

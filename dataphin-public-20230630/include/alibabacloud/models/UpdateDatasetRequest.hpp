@@ -246,13 +246,22 @@ namespace Models
 
 
               protected:
+                // The embedding dimension.
+                // 
                 // This parameter is required.
                 shared_ptr<int64_t> dimension_ {};
+                // The embedding model.
+                // 
                 // This parameter is required.
                 shared_ptr<string> embeddingModel_ {};
+                // The index build parameters. Different parameters are required based on the indexType. For example, HNSW requires {M:30, efConstruction:360}, and IVF_FLAT requires {nlist:128}.
                 Darabonba::Json indexParams_ {};
+                // The index type. PostgreSQL supports IVFFlat and HNSW. Milvus supports all types.
+                // 
                 // This parameter is required.
                 shared_ptr<string> indexType_ {};
+                // The similarity type. Default value: COSINE. Valid values: COSINE, L2, and IP.
+                // 
                 // This parameter is required.
                 shared_ptr<string> similarityType_ {};
               };
@@ -319,15 +328,25 @@ namespace Models
 
 
             protected:
+              // The field description.
               shared_ptr<string> comment_ {};
+              // **The array element subtype. Valid only when type is set to ARRAY.**
               shared_ptr<string> elementType_ {};
+              // **The maximum capacity of the array. This parameter is valid only when type is set to ARRAY. Default value: 4096.**
               shared_ptr<int32_t> maxCapacity_ {};
+              // **The field name.**
+              // 
               // This parameter is required.
               shared_ptr<string> name_ {};
+              // Indicates whether the field is a primary key.
               shared_ptr<bool> pk_ {};
+              // **The field type.**
+              // 
               // This parameter is required.
               shared_ptr<string> type_ {};
+              // Indicates whether the field is a URL.
               shared_ptr<bool> url_ {};
+              // The vector index configuration. Configure this parameter when the field type is FLOAT_VECTOR, FLOAT16_VECTOR, or BFLOAT16_VECTOR. This parameter is used to specify the dimensions, index type, and similarity metric.
               shared_ptr<Columns::VectorIndexConfig> vectorIndexConfig_ {};
             };
 
@@ -342,6 +361,7 @@ namespace Models
 
 
           protected:
+            // **The field list.**
             shared_ptr<vector<TableSchema::Columns>> columns_ {};
           };
 
@@ -378,12 +398,19 @@ namespace Models
 
 
         protected:
+          // The meta table data source type (only KAFKA is supported in the current release).
+          // 
           // This parameter is required.
           shared_ptr<string> datasourceType_ {};
+          // The meta table name.
+          // 
           // This parameter is required.
           shared_ptr<string> metaTableName_ {};
+          // The project ID to which the meta table belongs (cross-project access is supported).
+          // 
           // This parameter is required.
           shared_ptr<int64_t> projectId_ {};
+          // The table schema.
           shared_ptr<RealtimeMetaTableConfig::TableSchema> tableSchema_ {};
         };
 
@@ -539,13 +566,22 @@ namespace Models
 
 
               protected:
+                // The embedding dimension.
+                // 
                 // This parameter is required.
                 shared_ptr<int64_t> dimension_ {};
+                // The embedding model.
+                // 
                 // This parameter is required.
                 shared_ptr<string> embeddingModel_ {};
+                // The index build parameters. Different parameters are required based on the indexType. For example, HNSW requires {M:30, efConstruction:360}, and IVF_FLAT requires {nlist:128}.
                 Darabonba::Json indexParams_ {};
+                // The index type. PostgreSQL supports IVFFlat and HNSW. Milvus supports all types.
+                // 
                 // This parameter is required.
                 shared_ptr<string> indexType_ {};
+                // The similarity type. Default value: COSINE. Valid values: COSINE, L2, and IP.
+                // 
                 // This parameter is required.
                 shared_ptr<string> similarityType_ {};
               };
@@ -612,15 +648,25 @@ namespace Models
 
 
             protected:
+              // The field description.
               shared_ptr<string> comment_ {};
+              // **The array element subtype. Valid only when type is set to ARRAY.**
               shared_ptr<string> elementType_ {};
+              // The maximum capacity of the array. Valid only when type is set to ARRAY. Default value: 4096.
               shared_ptr<int32_t> maxCapacity_ {};
+              // **The field name.**
+              // 
               // This parameter is required.
               shared_ptr<string> name_ {};
+              // Indicates whether the field is a primary key.
               shared_ptr<bool> pk_ {};
+              // **The field type.**
+              // 
               // This parameter is required.
               shared_ptr<string> type_ {};
+              // Indicates whether the field is a URL.
               shared_ptr<bool> url_ {};
+              // The vector index configuration.
               shared_ptr<Columns::VectorIndexConfig> vectorIndexConfig_ {};
             };
 
@@ -635,6 +681,7 @@ namespace Models
 
 
           protected:
+            // The field list.
             shared_ptr<vector<TableSchema::Columns>> columns_ {};
           };
 
@@ -700,17 +747,29 @@ namespace Models
 
 
         protected:
+          // **The data source ID.**
+          // 
           // This parameter is required.
           shared_ptr<string> dataSourceId_ {};
+          // **The data source name.**
           shared_ptr<string> dataSourceName_ {};
+          // **The development database/schema.**
           shared_ptr<string> devSchema_ {};
+          // Specifies whether to store metadata in a new table or an existing table.
+          // 
           // This parameter is required.
           shared_ptr<string> metadataStorageMode_ {};
+          // **The metastore type.**
           shared_ptr<string> metadataStorageType_ {};
+          // **The production database/schema.**
+          // 
           // This parameter is required.
           shared_ptr<string> prodSchema_ {};
+          // **The table name.**
+          // 
           // This parameter is required.
           shared_ptr<string> tableName_ {};
+          // The table schema.
           shared_ptr<MetadataStorageConfig::TableSchema> tableSchema_ {};
         };
 
@@ -779,12 +838,20 @@ namespace Models
 
 
         protected:
+          // **The data source ID.**
+          // 
           // This parameter is required.
           shared_ptr<string> dataSourceId_ {};
+          // The data source name.
           shared_ptr<string> dataSourceName_ {};
+          // The development path (not required for basic projects).
           shared_ptr<string> devPath_ {};
+          // The mount path.
+          // 
           // This parameter is required.
           shared_ptr<string> mountPath_ {};
+          // The production path.
+          // 
           // This parameter is required.
           shared_ptr<string> prodPath_ {};
         };
@@ -826,9 +893,13 @@ namespace Models
 
 
       protected:
+        // The file storage configuration.
         shared_ptr<VersionConfig::FileStorageConfig> fileStorageConfig_ {};
+        // The metastore configuration.
         shared_ptr<VersionConfig::MetadataStorageConfig> metadataStorageConfig_ {};
+        // The real-time meta table configuration. Takes effect when metadataStorageType is set to STREAM_TABLE.
         shared_ptr<VersionConfig::RealtimeMetaTableConfig> realtimeMetaTableConfig_ {};
+        // **Version description**
         shared_ptr<string> versionDescription_ {};
       };
 
@@ -930,20 +1001,35 @@ namespace Models
 
 
     protected:
+      // **The content type.**
       shared_ptr<string> contentType_ {};
+      // The subject area ID.
       shared_ptr<string> dataCellId_ {};
+      // **The description.**
       shared_ptr<string> description_ {};
+      // The file ID (the file ID at creation time).
+      // 
       // This parameter is required.
       shared_ptr<string> fileId_ {};
+      // The dataset ID (business primary key).
+      // 
       // This parameter is required.
       shared_ptr<int64_t> id_ {};
+      // **The metastore type.**
       shared_ptr<string> metadataStorageType_ {};
+      // The dataset name.
       shared_ptr<string> name_ {};
+      // The list of owner IDs, separated by commas.
       shared_ptr<string> owner_ {};
+      // **Scenarios:** `OFFLINE` (offline, default) / `REALTIME` (real-time).
       shared_ptr<string> scenario_ {};
+      // **The storage type.**
       shared_ptr<string> storageType_ {};
+      // The dataset type.
       shared_ptr<string> type_ {};
+      // The version.
       shared_ptr<string> version_ {};
+      // The dataset version configuration.
       shared_ptr<UpdateCommand::VersionConfig> versionConfig_ {};
     };
 
@@ -973,10 +1059,16 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The project ID.
+    // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
+    // The update request struct.
+    // 
     // This parameter is required.
     shared_ptr<UpdateDatasetRequest::UpdateCommand> updateCommand_ {};
   };
