@@ -115,7 +115,7 @@ namespace AIWorkSpace20210204
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary Creates a code configuration in PAI using a code branch and commit ID from a Git repository. This configuration can then be referenced in DLC jobs.
+       * @summary Creates a code configuration in PAI. You can configure a Git code branch and CommitId. After the configuration is created, it can be referenced in DLC jobs.
        *
        * @param request CreateCodeSourceRequest
        * @param headers map
@@ -125,7 +125,7 @@ namespace AIWorkSpace20210204
       Models::CreateCodeSourceResponse createCodeSourceWithOptions(const Models::CreateCodeSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a code configuration in PAI using a code branch and commit ID from a Git repository. This configuration can then be referenced in DLC jobs.
+       * @summary Creates a code configuration in PAI. You can configure a Git code branch and CommitId. After the configuration is created, it can be referenced in DLC jobs.
        *
        * @param request CreateCodeSourceRequest
        * @return CreateCodeSourceResponse
@@ -431,6 +431,28 @@ namespace AIWorkSpace20210204
        * @return CreateProductOrdersResponse
        */
       Models::CreateProductOrdersResponse createProductOrders(const Models::CreateProductOrdersRequest &request);
+
+      /**
+       * @summary Creates a prompt.
+       *
+       * @description ## Request description.
+       *
+       * @param request CreatePromptRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePromptResponse
+       */
+      Models::CreatePromptResponse createPromptWithOptions(const Models::CreatePromptRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a prompt.
+       *
+       * @description ## Request description.
+       *
+       * @param request CreatePromptRequest
+       * @return CreatePromptResponse
+       */
+      Models::CreatePromptResponse createPrompt(const Models::CreatePromptRequest &request);
 
       /**
        * @summary Creates a run for an experiment. The run can be associated with a specific workload or be a standalone code execution.
@@ -811,6 +833,32 @@ namespace AIWorkSpace20210204
       Models::DeleteModelVersionLabelsResponse deleteModelVersionLabels(const string &ModelId, const string &VersionName, const Models::DeleteModelVersionLabelsRequest &request);
 
       /**
+       * @summary Deletes a prompt.
+       *
+       * @description When calling this operation, note the following:
+       * - Tag keys and values are non-empty strings and cannot exceed 128 characters in length.
+       * - Tag keys cannot start with aliyun, acs, http://, or https://.
+       *
+       * @param request DeletePromptRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePromptResponse
+       */
+      Models::DeletePromptResponse deletePromptWithOptions(const string &PromptId, const Models::DeletePromptRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a prompt.
+       *
+       * @description When calling this operation, note the following:
+       * - Tag keys and values are non-empty strings and cannot exceed 128 characters in length.
+       * - Tag keys cannot start with aliyun, acs, http://, or https://.
+       *
+       * @param request DeletePromptRequest
+       * @return DeletePromptResponse
+       */
+      Models::DeletePromptResponse deletePrompt(const string &PromptId, const Models::DeletePromptRequest &request);
+
+      /**
        * @summary Deletes a run.
        *
        * @param request DeleteRunRequest
@@ -919,7 +967,7 @@ namespace AIWorkSpace20210204
       Models::DeleteWorkspaceRolesResponse deleteWorkspaceRoles(const string &WorkspaceId, const Models::DeleteWorkspaceRolesRequest &request);
 
       /**
-       * @summary Gets the details of a specified code source configuration.
+       * @summary Retrieves the details of a code source configuration.
        *
        * @param request GetCodeSourceRequest
        * @param headers map
@@ -929,7 +977,7 @@ namespace AIWorkSpace20210204
       Models::GetCodeSourceResponse getCodeSourceWithOptions(const string &CodeSourceId, const Models::GetCodeSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the details of a specified code source configuration.
+       * @summary Retrieves the details of a code source configuration.
        *
        * @param request GetCodeSourceRequest
        * @return GetCodeSourceResponse
@@ -937,7 +985,7 @@ namespace AIWorkSpace20210204
       Models::GetCodeSourceResponse getCodeSource(const string &CodeSourceId, const Models::GetCodeSourceRequest &request);
 
       /**
-       * @summary Retrieves the configurations of a workspace.
+       * @summary Retrieves the workspace configuration.
        *
        * @param request GetConfigRequest
        * @param headers map
@@ -947,7 +995,7 @@ namespace AIWorkSpace20210204
       Models::GetConfigResponse getConfigWithOptions(const string &WorkspaceId, const Models::GetConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the configurations of a workspace.
+       * @summary Retrieves the workspace configuration.
        *
        * @param request GetConfigRequest
        * @return GetConfigResponse
@@ -1225,6 +1273,24 @@ namespace AIWorkSpace20210204
       Models::GetPermissionResponse getPermission(const string &WorkspaceId, const string &PermissionCode, const Models::GetPermissionRequest &request);
 
       /**
+       * @summary Retrieves a prompt.
+       *
+       * @param request GetPromptRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPromptResponse
+       */
+      Models::GetPromptResponse getPromptWithOptions(const string &PromptId, const Models::GetPromptRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a prompt.
+       *
+       * @param request GetPromptRequest
+       * @return GetPromptResponse
+       */
+      Models::GetPromptResponse getPrompt(const string &PromptId, const Models::GetPromptRequest &request);
+
+      /**
        * @summary Retrieves run details.
        *
        * @param request GetRunRequest
@@ -1279,7 +1345,7 @@ namespace AIWorkSpace20210204
       Models::GetWorkspaceRoleResponse getWorkspaceRole(const string &WorkspaceId, const string &RoleId, const Models::GetWorkspaceRoleRequest &request);
 
       /**
-       * @summary Queries a list of code source configurations with support for paging, sorting, and filtering.
+       * @summary Queries a list of code configurations. This operation supports pagination, sorting, and conditional filtering.
        *
        * @param request ListCodeSourcesRequest
        * @param headers map
@@ -1289,7 +1355,7 @@ namespace AIWorkSpace20210204
       Models::ListCodeSourcesResponse listCodeSourcesWithOptions(const Models::ListCodeSourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of code source configurations with support for paging, sorting, and filtering.
+       * @summary Queries a list of code configurations. This operation supports pagination, sorting, and conditional filtering.
        *
        * @param request ListCodeSourcesRequest
        * @return ListCodeSourcesResponse
@@ -1297,7 +1363,7 @@ namespace AIWorkSpace20210204
       Models::ListCodeSourcesResponse listCodeSources(const Models::ListCodeSourcesRequest &request);
 
       /**
-       * @summary Lists the configurations for a workspace.
+       * @summary Retrieves the list of workspace configurations.
        *
        * @param request ListConfigsRequest
        * @param headers map
@@ -1307,7 +1373,7 @@ namespace AIWorkSpace20210204
       Models::ListConfigsResponse listConfigsWithOptions(const string &WorkspaceId, const Models::ListConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the configurations for a workspace.
+       * @summary Retrieves the list of workspace configurations.
        *
        * @param request ListConfigsRequest
        * @return ListConfigsResponse
@@ -1333,7 +1399,7 @@ namespace AIWorkSpace20210204
       Models::ListConnectionsResponse listConnections(const Models::ListConnectionsRequest &request);
 
       /**
-       * @summary Queries the files in a dataset.
+       * @summary Queries the list of dataset files.
        *
        * @param tmpReq ListDatasetFileMetasRequest
        * @param headers map
@@ -1343,7 +1409,7 @@ namespace AIWorkSpace20210204
       Models::ListDatasetFileMetasResponse listDatasetFileMetasWithOptions(const string &DatasetId, const Models::ListDatasetFileMetasRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the files in a dataset.
+       * @summary Queries the list of dataset files.
        *
        * @param request ListDatasetFileMetasRequest
        * @return ListDatasetFileMetasResponse
@@ -1369,7 +1435,7 @@ namespace AIWorkSpace20210204
       Models::ListDatasetJobConfigsResponse listDatasetJobConfigs(const string &DatasetId, const Models::ListDatasetJobConfigsRequest &request);
 
       /**
-       * @summary Lists dataset jobs.
+       * @summary Retrieves a list of dataset tasks.
        *
        * @param request ListDatasetJobsRequest
        * @param headers map
@@ -1379,7 +1445,7 @@ namespace AIWorkSpace20210204
       Models::ListDatasetJobsResponse listDatasetJobsWithOptions(const string &DatasetId, const Models::ListDatasetJobsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists dataset jobs.
+       * @summary Retrieves a list of dataset tasks.
        *
        * @param request ListDatasetJobsRequest
        * @return ListDatasetJobsResponse
@@ -1585,6 +1651,24 @@ namespace AIWorkSpace20210204
       Models::ListProductsResponse listProducts(const Models::ListProductsRequest &request);
 
       /**
+       * @summary Retrieves a list of prompts.
+       *
+       * @param request ListPromptsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPromptsResponse
+       */
+      Models::ListPromptsResponse listPromptsWithOptions(const Models::ListPromptsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a list of prompts.
+       *
+       * @param request ListPromptsRequest
+       * @return ListPromptsResponse
+       */
+      Models::ListPromptsResponse listPrompts(const Models::ListPromptsRequest &request);
+
+      /**
        * @summary Retrieves a list of resource quotas.
        *
        * @param request ListQuotasRequest
@@ -1693,7 +1777,7 @@ namespace AIWorkSpace20210204
       Models::ListWorkspaceRolesResponse listWorkspaceRoles(const string &WorkspaceId, const Models::ListWorkspaceRolesRequest &request);
 
       /**
-       * @summary Lists users that can be added as members to a workspace.
+       * @summary Lists users who have not joined a workspace and can be added as workspace members.
        *
        * @param request ListWorkspaceUsersRequest
        * @param headers map
@@ -1703,7 +1787,7 @@ namespace AIWorkSpace20210204
       Models::ListWorkspaceUsersResponse listWorkspaceUsersWithOptions(const string &WorkspaceId, const Models::ListWorkspaceUsersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists users that can be added as members to a workspace.
+       * @summary Lists users who have not joined a workspace and can be added as workspace members.
        *
        * @param request ListWorkspaceUsersRequest
        * @return ListWorkspaceUsersResponse
@@ -1913,7 +1997,7 @@ namespace AIWorkSpace20210204
       Models::StopDatasetJobResponse stopDatasetJob(const string &DatasetId, const string &DatasetJobId, const Models::StopDatasetJobRequest &request);
 
       /**
-       * @summary Updates a code source.
+       * @summary Updates a code source configuration.
        *
        * @param request UpdateCodeSourceRequest
        * @param headers map
@@ -1923,7 +2007,7 @@ namespace AIWorkSpace20210204
       Models::UpdateCodeSourceResponse updateCodeSourceWithOptions(const string &CodeSourceId, const Models::UpdateCodeSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a code source.
+       * @summary Updates a code source configuration.
        *
        * @param request UpdateCodeSourceRequest
        * @return UpdateCodeSourceResponse
@@ -2145,6 +2229,28 @@ namespace AIWorkSpace20210204
        * @return UpdateModelVersionResponse
        */
       Models::UpdateModelVersionResponse updateModelVersion(const string &ModelId, const string &VersionName, const Models::UpdateModelVersionRequest &request);
+
+      /**
+       * @summary Updates the prompt of a dataset.
+       *
+       * @description ## Request description.
+       *
+       * @param request UpdatePromptRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePromptResponse
+       */
+      Models::UpdatePromptResponse updatePromptWithOptions(const string &PromptId, const Models::UpdatePromptRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the prompt of a dataset.
+       *
+       * @description ## Request description.
+       *
+       * @param request UpdatePromptRequest
+       * @return UpdatePromptResponse
+       */
+      Models::UpdatePromptResponse updatePrompt(const string &PromptId, const Models::UpdatePromptRequest &request);
 
       /**
        * @summary Updates the details of a run.

@@ -176,40 +176,39 @@ namespace Models
 
 
   protected:
-    // The visibility of the code configuration. Valid values:
-    // 
-    // - PRIVATE: The configuration is visible only to you and the administrator in the workspace.
-    // 
-    // - PUBLIC: The configuration is visible to everyone in the workspace.
+    // The visibility of the code source configuration.
     shared_ptr<string> accessibility_ {};
+    // The clone mode. Valid values:
+    // - 0: Create a new subdirectory.
+    // - 1: Tile to the current directory.
     shared_ptr<int32_t> cloneType_ {};
-    // The branch of the code repository.
+    // The code repository branch.
     shared_ptr<string> codeBranch_ {};
-    // The commit ID of the code.
+    // The code commit ID.
     shared_ptr<string> codeCommit_ {};
-    // The URL of the code repository.
+    // The code repository URL.
     shared_ptr<string> codeRepo_ {};
-    // The token used to access the code repository.
+    // The access code repository token.
     shared_ptr<string> codeRepoAccessToken_ {};
-    // The username for the code repository.
+    // The username of the code repository.
     shared_ptr<string> codeRepoUserName_ {};
-    // The ID of the code source configuration.
+    // The code source configuration ID.
     shared_ptr<string> codeSourceId_ {};
-    // The detailed description of the code configuration.
+    // The detailed description of the code source configuration.
     shared_ptr<string> description_ {};
-    // The name of the code source configuration.
+    // The code source configuration name.
     shared_ptr<string> displayName_ {};
-    // The time when the code configuration was created. The time is in the ISO 8601 format.
+    // The creation time of the code source configuration. The time is in ISO 8601 format.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time when the code configuration was last modified. The time is in the ISO 8601 format.
+    // The modification time of the code source configuration. The time is in ISO 8601 format.
     shared_ptr<string> gmtModifyTime_ {};
-    // The local mount path for the code.
+    // The local mount directory of the code.
     shared_ptr<string> mountPath_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the user who created the code source configuration.
+    // The creator ID of the code source configuration.
     shared_ptr<string> userId_ {};
-    // The ID of the workspace.
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

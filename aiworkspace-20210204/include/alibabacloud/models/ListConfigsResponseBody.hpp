@@ -37,6 +37,7 @@ namespace Models
     class Configs : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Configs& obj) { 
+        DARABONBA_PTR_TO_JSON(ConfigId, configId_);
         DARABONBA_PTR_TO_JSON(ConfigKey, configKey_);
         DARABONBA_PTR_TO_JSON(ConfigValue, configValue_);
         DARABONBA_PTR_TO_JSON(GmtCreateTime, gmtCreateTime_);
@@ -44,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Labels, labels_);
       };
       friend void from_json(const Darabonba::Json& j, Configs& obj) { 
+        DARABONBA_PTR_FROM_JSON(ConfigId, configId_);
         DARABONBA_PTR_FROM_JSON(ConfigKey, configKey_);
         DARABONBA_PTR_FROM_JSON(ConfigValue, configValue_);
         DARABONBA_PTR_FROM_JSON(GmtCreateTime, gmtCreateTime_);
@@ -105,8 +107,15 @@ namespace Models
         shared_ptr<string> value_ {};
       };
 
-      virtual bool empty() const override { return this->configKey_ == nullptr
-        && this->configValue_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->labels_ == nullptr; };
+      virtual bool empty() const override { return this->configId_ == nullptr
+        && this->configKey_ == nullptr && this->configValue_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->labels_ == nullptr; };
+      // configId Field Functions 
+      bool hasConfigId() const { return this->configId_ != nullptr;};
+      void deleteConfigId() { this->configId_ = nullptr;};
+      inline string getConfigId() const { DARABONBA_PTR_GET_DEFAULT(configId_, "") };
+      inline Configs& setConfigId(string configId) { DARABONBA_PTR_SET_VALUE(configId_, configId) };
+
+
       // configKey Field Functions 
       bool hasConfigKey() const { return this->configKey_ != nullptr;};
       void deleteConfigKey() { this->configKey_ = nullptr;};
@@ -145,21 +154,21 @@ namespace Models
 
 
     protected:
+      // The configuration ID, which is globally unique.
+      shared_ptr<string> configId_ {};
       // The key of the configuration item. The following keys are supported:
       // 
-      // - tempStoragePath: The path for temporary storage. This key is valid only when CategoryName is set to CommonResourceConfig.
-      // 
-      // - isAutoRecycle: The automatic recycling configuration. This key is valid only when CategoryName is set to DLCAutoRecycle.
-      // 
-      // - priorityConfig: The priority configuration. This key is valid only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
-      // 
-      // - quotaMaximumDuration: The configuration for the maximum runtime of a DLC task in a quota. This key is valid only when CategoryName is set to QuotaMaximumDuration.
-      // 
-      // - predefinedTags: The predefined labels for the workspace. Resources that you create must have these labels.
+      // - tempStoragePath: the temporary storage path. This ConfigKey can be used only when CategoryName is set to CommonResourceConfig.
+      // - isAutoRecycle: the automatic recycling configuration. This ConfigKey can be used only when CategoryName is set to DLCAutoRecycle.
+      // - priorityConfig: the priority configuration. This ConfigKey can be used only when CategoryName is set to DLCPriorityConfig or DSWPriorityConfig.
+      // - quotaMaximumDuration: the maximum runtime duration configuration for DLC jobs in a quota. This ConfigKey can be used only when CategoryName is set to QuotaMaximumDuration.
+      // - predefinedTags: the preset tags for the workspace. Resources that are created must include these tags.
       shared_ptr<string> configKey_ {};
-      // The value of the configuration item.
+      // The configuration value.
       shared_ptr<string> configValue_ {};
+      // The UTC time when the configuration item was created.
       shared_ptr<string> gmtCreateTime_ {};
+      // The UTC time when the configuration item was last modified.
       shared_ptr<string> gmtModifiedTime_ {};
       // The list of labels for the configuration item.
       shared_ptr<vector<Configs::Labels>> labels_ {};
@@ -193,9 +202,9 @@ namespace Models
   protected:
     // The list of configuration items.
     shared_ptr<vector<ListConfigsResponseBody::Configs>> configs_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of returned entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -108,9 +108,9 @@ namespace Models
 
 
     protected:
-      // 标签的key
+      // The key of the label.
       shared_ptr<string> key_ {};
-      // 标签的value
+      // The value of the label.
       shared_ptr<string> value_ {};
     };
 
@@ -284,86 +284,85 @@ namespace Models
 
   protected:
     // The approval status. Valid values:
-    // 
-    // *   Pending
-    // *   Approved
-    // *   Rejected
+    // - Pending: pending.
+    // - Approved: approved for going live.
+    // - Rejected: not approved for going live.
     shared_ptr<string> approvalStatus_ {};
     // The compression configuration.
     Darabonba::Json compressionSpec_ {};
-    // 蒸馏配置。
+    // The distillation configuration.
     Darabonba::Json distillationSpec_ {};
     // The evaluation configuration.
     Darabonba::Json evaluationSpec_ {};
     // The additional information.
     Darabonba::Json extraInfo_ {};
     // The model format.
-    // 
-    // *   OfflineModel
-    // *   SavedModel
-    // *   Keras H5
-    // *   Frozen Pb
-    // *   Caffe Prototxt
-    // *   TorchScript
-    // *   XGBoost
-    // *   PMML
-    // *   AlinkModel
-    // *   ONNX
+    // - OfflineModel
+    // - SavedModel
+    // - Keras H5
+    // - Frozen Pb
+    // - Caffe Prototxt
+    // - TorchScript
+    // - XGBoost
+    // - PMML
+    // - AlinkModel
+    // - ONNX
     shared_ptr<string> formatType_ {};
     // The model framework.
-    // 
-    // *   Pytorch
-    // *   XGBoost
-    // *   Keras
-    // *   Caffe
-    // *   Alink
-    // *   Xflow
-    // *   TensorFlow
+    // - Pytorch
+    // - XGBoost
+    // - Keras
+    // - Caffe
+    // - Alink
+    // - Xflow
+    // - TensorFlow
     shared_ptr<string> frameworkType_ {};
-    // The time when the model was created, in UTC. The time follows the ISO 8601 standard.
+    // The UTC time of model creation, in ISO 8601 format.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time when the model was last modified, in UTC. The time follows the ISO 8601 standard.
+    // The UTC time when the model was last updated, in ISO 8601 format.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The inference configurations applied to the downstream, such as the configuration of the processor or container of Elastic Algorithm Service (EAS). Example: `{ "processor": "tensorflow_gpu_1.12" }`
+    // Describes how to apply the model to downstream inference applications, such as specifying the EAS processor or container. Example:
+    // `{
+    //     "processor": "tensorflow_gpu_1.12"
+    // }`
     Darabonba::Json inferenceSpec_ {};
-    // The labels.
+    // The label list.
     shared_ptr<vector<ModelVersion::Labels>> labels_ {};
     // The model metrics.
     Darabonba::Json metrics_ {};
-    // The extended field. The value is a JSON string.
+    // The extended fields. JsonString type.
     shared_ptr<string> options_ {};
-    // The ID of the Alibaba Cloud account.
+    // The Alibaba Cloud account ID.
     shared_ptr<string> ownerId_ {};
     // The source ID.
     // 
-    // *   If the source type is Custom, this field is not limited.
-    // *   If the source type is PAIFlow or TrainingService, the format is:
+    // * If the source type is Custom, this field has no restrictions.
     // 
-    // <!---->
-    // 
-    //     region=<region_id>,workspaceId=<workspace_id>,kind=<kind>,id=<id>
-    // 
-    // region is the ID of the Alibaba Cloud region. workspacceId is the ID of the workspace. kind is the type. Valid values: PipelineRun (PAIFlow pipeline) and ServiceJob (training service). id is the unique identifier.
+    // * If the source type is PAIFlow or TrainingService, the format is: 
+    // ```
+    // region=<region_id>,workspaceId=<workspace_id>,kind=<kind>,id=<id>
+    // ```
+    // region is the Alibaba Cloud region ID. workspaceId is the workspace ID. kind specifies the type. Valid values: PipelineRun (PAI workflow) and ServiceJob (training service). id is the unique identifier.
     shared_ptr<string> sourceId_ {};
-    // The source type of the model. Default value: Custom.
+    // The model source type. Default value: Custom.
     // 
-    // *   Custom
-    // *   PAIFlow
-    // *   TrainingService
+    // - Custom: custom.
+    // - PAIFlow: PAI workflow.
+    // - TrainingService: PAI training service.
     shared_ptr<string> sourceType_ {};
-    // The training configuration, used for fine-tuning and incremental training.
+    // The training configuration. Used for fine-tuning and incremental training.
     Darabonba::Json trainingSpec_ {};
-    // The URI of the model version, which is the location where the model is stored. The value can be the HTTP(S) address of the model, such as `https://myweb.com/mymodel.tar.gz`. If the model is stored in an Object Storage Service (OSS) bucket, the value is in the `oss://<bucket>.<endpoint>/object` format. The endpoint can be queried in the OSS console, such as `oss://mybucket.oss-cn-beijing.aliyuncs.com/mypath/`.
+    // The model version URI, which specifies the model storage location. This can be an HTTP(S) address of the model, such as `https://myweb.com/mymodel.tar.gz`. If the model is stored in OSS, the format is `oss://<bucket>.<endpoint>/object`. You can query the endpoint in the OSS console. Example: `oss://mybucket.oss-cn-beijing.aliyuncs.com/mypath/`.
     shared_ptr<string> uri_ {};
     // The user ID.
     shared_ptr<string> userId_ {};
     // The model version description.
     shared_ptr<string> versionDescription_ {};
-    // The model version, which is unique for the model. If you leave this parameter empty, `0.1.0` is the first version by default. Then, the minor version number incremented by 1 is used as the second version `0.2.0`.
+    // The model version, unique within the model. If not specified, the first version defaults to `0.1.0`, and subsequent versions increment the minor version number by 1. For example, the second version defaults to `0.2.0`.
     // 
-    // The version consists of a major version number, a minor version number, and a patch version number. The version numbers are separated with periods (`.`). The major and minor version numbers are digits, and the patch version number starts with a digit followed by an underscore (`_`) and a letter. such as 1.1.0 or 2.3.4_beta.
+    // The version number consists of a major version number, a minor version number, and a stage version number, separated by `.`. The major and minor version numbers are numeric. The stage version number starts with a digit, followed by `_` and letters. Examples: 1.1.0 or 2.3.4_beta.
     // 
-    // Regular expression: `"^\\\\d+\\\\.\\\\d+\\\\.\\\\d+(_\\\\w+)?$"`
+    // Regular expression reference: `"^\\d+\\.\\d+\\.\\d+(_\\w+)?$"`
     shared_ptr<string> versionName_ {};
   };
 

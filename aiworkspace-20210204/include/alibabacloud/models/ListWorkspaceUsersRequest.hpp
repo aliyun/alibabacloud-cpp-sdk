@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The user ID.
     shared_ptr<string> userId_ {};
-    // The display name of the user that can be added as a workspace member.
+    // The display name of the user who can be added as a workspace member.
     shared_ptr<string> userName_ {};
   };
 

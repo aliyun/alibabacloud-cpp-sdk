@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // A list of dataset jobs.
+    // The list of dataset tasks.
     shared_ptr<vector<DatasetJob>> datasetJobs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of jobs.
+    // The total number of tasks.
     shared_ptr<int32_t> totalCount_ {};
   };
 

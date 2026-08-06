@@ -150,7 +150,7 @@ namespace Models
 
   protected:
     // The list of return fields for workspace details. This parameter limits the workspace properties returned in the result.
-    // Separate multiple properties with commas (,). Currently, only Id is supported, which represents the workspace ID.
+    // Separate multiple properties with commas (,). Currently, only Id is supported, which indicates the workspace ID.
     shared_ptr<string> fields_ {};
     // The comma-separated list of modules. Default value: PAI.
     shared_ptr<string> moduleList_ {};
@@ -158,17 +158,17 @@ namespace Models
     // * GetWorkspaces (default): retrieves the workspace list. The Workspaces parameter is returned.
     // * GetResourceLimits: retrieves resource limits. The ResourceLimits parameter is returned.
     shared_ptr<string> option_ {};
-    // The sort order for the specified sort field in a paged query. Valid values:
+    // The sorting order for the specified sorting field during paging. Valid values:
     // * ASC (default): ascending order.
     // * DESC: descending order.
     shared_ptr<string> order_ {};
     // The page number of the workspace list. Minimum value: 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Default value: 20.
+    // The number of entries per page for paging. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
     // The resource group ID. For information about how to view the resource group ID, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
-    // The field used for sorting in a paged query. Default value: GmtCreateTime. Valid values:
+    // The sorting field for paging. Default value: GmtCreateTime. Valid values:
     // * GmtCreateTime (default): sorts by creation time.
     // * GmtModifiedTime: sorts by modification time.
     shared_ptr<string> sortBy_ {};
@@ -181,6 +181,7 @@ namespace Models
     // - FROZEN: Frozen due to overdue payment.
     // - UPDATING: Being updated.
     shared_ptr<string> status_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
     // Specifies whether to display detailed workspace information. Valid values:
     // - false (default): does not display detailed information.

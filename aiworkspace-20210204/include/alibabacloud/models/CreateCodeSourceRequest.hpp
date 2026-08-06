@@ -130,32 +130,31 @@ namespace Models
 
 
   protected:
-    // The visibility of the code configuration. Valid values:
-    // 
-    // - PUBLIC: The configuration is visible to everyone in the workspace.
-    // 
-    // - PRIVATE: The configuration is visible only to you and workspace administrators.
+    // The visibility of the code configuration.
     shared_ptr<string> accessibility_ {};
+    // The clone mode. Valid values:
+    // - 0 (default): creates a new subdirectory.
+    // - 1: tiles to the current directory.
     shared_ptr<int32_t> cloneType_ {};
     // The code branch.
     shared_ptr<string> codeBranch_ {};
-    // The commit ID of the code. \\`CodeCommit\\` takes precedence over \\`CodeBranch\\`. If you specify \\`CodeCommit\\`, \\`CodeBranch\\` is ignored.
+    // The CommitID of the code. CodeCommit takes priority over CodeBranch. If you specify CodeCommit, CodeBranch does not take effect.
     shared_ptr<string> codeCommit_ {};
-    // The URL of the code repository.
+    // The URL of the code repository. This parameter is required.
     shared_ptr<string> codeRepo_ {};
-    // The access token for the code repository.
+    // The access token of the code repository.
     shared_ptr<string> codeRepoAccessToken_ {};
-    // The username for the code repository.
+    // The username of the code repository.
     shared_ptr<string> codeRepoUserName_ {};
-    // The description of the code configuration, which helps distinguish it from other configurations.
+    // The description of the code configuration, which helps distinguish different code configurations.
     shared_ptr<string> description_ {};
     // The name of the code configuration.
     // 
     // This parameter is required.
     shared_ptr<string> displayName_ {};
-    // The local mount path for the code. The default is `/root/code/`.
+    // The local mount directory for the code. This parameter is required.
     shared_ptr<string> mountPath_ {};
-    // The workspace ID. For more information, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
+    // The workspace ID. For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

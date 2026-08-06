@@ -100,6 +100,9 @@
 #include <alibabacloud/models/CreateProductOrdersRequest.hpp>
 #include <alibabacloud/models/CreateProductOrdersResponseBody.hpp>
 #include <alibabacloud/models/CreateProductOrdersResponse.hpp>
+#include <alibabacloud/models/CreatePromptRequest.hpp>
+#include <alibabacloud/models/CreatePromptResponseBody.hpp>
+#include <alibabacloud/models/CreatePromptResponse.hpp>
 #include <alibabacloud/models/CreateRunRequest.hpp>
 #include <alibabacloud/models/CreateRunResponseBody.hpp>
 #include <alibabacloud/models/CreateRunResponse.hpp>
@@ -163,6 +166,9 @@
 #include <alibabacloud/models/DeleteModelVersionLabelsRequest.hpp>
 #include <alibabacloud/models/DeleteModelVersionLabelsResponseBody.hpp>
 #include <alibabacloud/models/DeleteModelVersionLabelsResponse.hpp>
+#include <alibabacloud/models/DeletePromptRequest.hpp>
+#include <alibabacloud/models/DeletePromptResponseBody.hpp>
+#include <alibabacloud/models/DeletePromptResponse.hpp>
 #include <alibabacloud/models/DeleteRunRequest.hpp>
 #include <alibabacloud/models/DeleteRunResponseBody.hpp>
 #include <alibabacloud/models/DeleteRunResponse.hpp>
@@ -232,6 +238,9 @@
 #include <alibabacloud/models/GetPermissionShrinkRequest.hpp>
 #include <alibabacloud/models/GetPermissionResponseBody.hpp>
 #include <alibabacloud/models/GetPermissionResponse.hpp>
+#include <alibabacloud/models/GetPromptRequest.hpp>
+#include <alibabacloud/models/GetPromptResponseBody.hpp>
+#include <alibabacloud/models/GetPromptResponse.hpp>
 #include <alibabacloud/models/GetRunRequest.hpp>
 #include <alibabacloud/models/GetRunResponse.hpp>
 #include <alibabacloud/models/GetWorkspaceRequest.hpp>
@@ -295,6 +304,9 @@
 #include <alibabacloud/models/ListProductsRequest.hpp>
 #include <alibabacloud/models/ListProductsResponseBody.hpp>
 #include <alibabacloud/models/ListProductsResponse.hpp>
+#include <alibabacloud/models/ListPromptsRequest.hpp>
+#include <alibabacloud/models/ListPromptsResponseBody.hpp>
+#include <alibabacloud/models/ListPromptsResponse.hpp>
 #include <alibabacloud/models/ListQuotasRequest.hpp>
 #include <alibabacloud/models/ListQuotasResponseBody.hpp>
 #include <alibabacloud/models/ListQuotasResponse.hpp>
@@ -388,6 +400,9 @@
 #include <alibabacloud/models/UpdateModelVersionRequest.hpp>
 #include <alibabacloud/models/UpdateModelVersionResponseBody.hpp>
 #include <alibabacloud/models/UpdateModelVersionResponse.hpp>
+#include <alibabacloud/models/UpdatePromptRequest.hpp>
+#include <alibabacloud/models/UpdatePromptResponseBody.hpp>
+#include <alibabacloud/models/UpdatePromptResponse.hpp>
 #include <alibabacloud/models/UpdateRunRequest.hpp>
 #include <alibabacloud/models/UpdateRunResponseBody.hpp>
 #include <alibabacloud/models/UpdateRunResponse.hpp>

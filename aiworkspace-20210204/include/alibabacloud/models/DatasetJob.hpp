@@ -161,9 +161,9 @@ namespace Models
 
 
   protected:
-    // The total number of completed files.
+    // The number of completed files.
     shared_ptr<int64_t> completedFileCount_ {};
-    // The time when the job was created (UTC).
+    // The job creation time (UTC).
     shared_ptr<string> createTime_ {};
     // The job ID.
     shared_ptr<string> datasetJobId_ {};
@@ -171,21 +171,25 @@ namespace Models
     shared_ptr<string> datasetVersion_ {};
     // The job description.
     shared_ptr<string> description_ {};
-    // The total number of failed files.
+    // The number of failed files.
     shared_ptr<int64_t> failedFileCount_ {};
-    // The time when the job was finished (UTC).
+    // The job finish time (UTC).
     shared_ptr<string> finishTime_ {};
-    // The job operation.
+    // The job action.
     shared_ptr<string> jobAction_ {};
     // The job mode.
+    // 
+    // Valid value:
+    // 
+    // *   Full
     shared_ptr<string> jobMode_ {};
-    // The job specifications.
+    // The job details.
     shared_ptr<string> jobSpec_ {};
-    // A list of task logs.
+    // The job logs.
     shared_ptr<vector<string>> logs_ {};
     // The job status.
     shared_ptr<string> status_ {};
-    // The total number of files for the job.
+    // The number of job files.
     shared_ptr<int64_t> totalFileCount_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

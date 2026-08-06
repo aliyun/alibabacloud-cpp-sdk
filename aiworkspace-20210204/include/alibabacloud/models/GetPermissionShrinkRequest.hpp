@@ -14,6 +14,8 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetPermissionShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_TO_JSON(CallerAccessKeyId, callerAccessKeyId_);
+      DARABONBA_PTR_TO_JSON(CallerSecurityToken, callerSecurityToken_);
       DARABONBA_PTR_TO_JSON(CallerType, callerType_);
       DARABONBA_PTR_TO_JSON(CallerUid, callerUid_);
       DARABONBA_PTR_TO_JSON(Creator, creator_);
@@ -24,6 +26,8 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, GetPermissionShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_FROM_JSON(CallerAccessKeyId, callerAccessKeyId_);
+      DARABONBA_PTR_FROM_JSON(CallerSecurityToken, callerSecurityToken_);
       DARABONBA_PTR_FROM_JSON(CallerType, callerType_);
       DARABONBA_PTR_FROM_JSON(CallerUid, callerUid_);
       DARABONBA_PTR_FROM_JSON(Creator, creator_);
@@ -44,13 +48,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && this->callerType_ == nullptr && this->callerUid_ == nullptr && this->creator_ == nullptr && this->labelsShrink_ == nullptr && this->option_ == nullptr
-        && this->resource_ == nullptr && this->securityToken_ == nullptr; };
+        && this->callerAccessKeyId_ == nullptr && this->callerSecurityToken_ == nullptr && this->callerType_ == nullptr && this->callerUid_ == nullptr && this->creator_ == nullptr
+        && this->labelsShrink_ == nullptr && this->option_ == nullptr && this->resource_ == nullptr && this->securityToken_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
     inline string getAccessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
     inline GetPermissionShrinkRequest& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
+
+
+    // callerAccessKeyId Field Functions 
+    bool hasCallerAccessKeyId() const { return this->callerAccessKeyId_ != nullptr;};
+    void deleteCallerAccessKeyId() { this->callerAccessKeyId_ = nullptr;};
+    inline string getCallerAccessKeyId() const { DARABONBA_PTR_GET_DEFAULT(callerAccessKeyId_, "") };
+    inline GetPermissionShrinkRequest& setCallerAccessKeyId(string callerAccessKeyId) { DARABONBA_PTR_SET_VALUE(callerAccessKeyId_, callerAccessKeyId) };
+
+
+    // callerSecurityToken Field Functions 
+    bool hasCallerSecurityToken() const { return this->callerSecurityToken_ != nullptr;};
+    void deleteCallerSecurityToken() { this->callerSecurityToken_ = nullptr;};
+    inline string getCallerSecurityToken() const { DARABONBA_PTR_GET_DEFAULT(callerSecurityToken_, "") };
+    inline GetPermissionShrinkRequest& setCallerSecurityToken(string callerSecurityToken) { DARABONBA_PTR_SET_VALUE(callerSecurityToken_, callerSecurityToken) };
 
 
     // callerType Field Functions 
@@ -105,20 +123,19 @@ namespace Models
   protected:
     // The access type. Valid values:
     // 
-    // - PUBLIC: All members in the workspace can perform the operation.
-    // 
-    // - PRIVATE: Only the creator can perform the operation.
+    // - PUBLIC: All members in the current workspace can access the instance.
+    // - PRIVATE: Only the creator can access the instance.
     shared_ptr<string> accessibility_ {};
+    shared_ptr<string> callerAccessKeyId_ {};
+    shared_ptr<string> callerSecurityToken_ {};
     shared_ptr<string> callerType_ {};
     shared_ptr<string> callerUid_ {};
-    // The UID of the Alibaba Cloud account that created the workspace permission.
+    // The Alibaba Cloud account UID of the workspace permission creator.
     shared_ptr<string> creator_ {};
     shared_ptr<string> labelsShrink_ {};
-    // Optional configurations. Separate multiple configurations with commas (,). Valid values:
-    // 
-    // - ResourceEmpty: The resource is empty. This value is used if you do not set the Resource parameter.
-    // 
-    // - DisableRam: RAM verification is disabled.
+    // The optional configurations. Separate multiple configurations with commas (,). Valid values:
+    // - ResourceEmpty: The resource is empty. The resource is empty if Resource is not specified.
+    // - DisableRam: RAM authentication is not performed.
     shared_ptr<string> option_ {};
     // The resource.
     shared_ptr<string> resource_ {};

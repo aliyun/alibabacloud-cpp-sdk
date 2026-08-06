@@ -243,48 +243,47 @@ namespace Models
 
 
   protected:
-    // The workspace accessibility. Valid values:
-    // 
-    // *   PRIVATE (default): The model is accessible only to you and the administrator of the workspace.
-    // *   PUBLIC: The model is accessible to all members of the workspace.
+    // The workspace visibility. Valid values:
+    // - PRIVATE (default): visible only to yourself and administrators within the workspace.
+    // - PUBLIC: visible to all users in the workspace.
     shared_ptr<string> accessibility_ {};
-    // The domain where the model is applied, such as nlp (Natural Language Processing) and cv (Computer Vision).
+    // The domain. Describes the domain of the problem that the model solves, such as nlp (natural language processing) or cv (computer vision).
     shared_ptr<string> domain_ {};
     // The additional information.
     Darabonba::Json extraInfo_ {};
-    // The time when the model was created, in UTC. The time follows the ISO 8601 standard.
+    // The UTC time of model creation, in ISO 8601 format.
     shared_ptr<string> gmtCreateTime_ {};
-    // 最后版本更新时间。
+    // The time when the latest version was updated.
     shared_ptr<string> gmtLatestVersionModifiedTime_ {};
-    // The time when the model was last modified, in UTC. The time follows the ISO 8601 standard.
+    // The time when the model was last updated in UTC, in ISO 8601 format.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The labels.
+    // The label list. This parameter will be deprecated and replaced by Tag.
     shared_ptr<vector<Label>> labels_ {};
     // The latest version of the model.
     shared_ptr<ModelVersion> latestVersion_ {};
     // The model description.
     shared_ptr<string> modelDescription_ {};
-    // The model document.
+    // The model documentation.
     shared_ptr<string> modelDoc_ {};
     // The model ID.
     shared_ptr<string> modelId_ {};
     // The model name.
     shared_ptr<string> modelName_ {};
-    // The model type, such as checkpoint and LoRA.
+    // The model type, such as Checkpoint or LoRA.
     shared_ptr<string> modelType_ {};
-    // The sequence number of the model.
+    // The model sequence number.
     shared_ptr<int64_t> orderNumber_ {};
-    // The community or organization to which the source model belongs, such as ModelScope or Hugging Face.
+    // The model origin. Describes the community or organization to which the source model belongs, such as ModelScope or HuggingFace.
     shared_ptr<string> origin_ {};
-    // The ID of the Alibaba Cloud account.
+    // The Alibaba Cloud account ID.
     shared_ptr<string> ownerId_ {};
-    // 参数量，单位M。
+    // The number of parameters, in millions (M).
     shared_ptr<int64_t> parameterSize_ {};
     // The model provider.
     shared_ptr<string> provider_ {};
-    // 标签列表
+    // The tag list.
     shared_ptr<vector<Label>> tags_ {};
-    // The task. The specific issue that the model resolves, such as text-classification.
+    // The task. Describes the specific problem that the model solves, such as text-classification (text categorization).
     shared_ptr<string> task_ {};
     // The user ID.
     shared_ptr<string> userId_ {};

@@ -167,37 +167,35 @@ namespace Models
 
 
   protected:
-    // The visibility of the code source. Valid values:
-    // 
-    // - `PRIVATE`: Visible only to you and workspace administrators.
-    // 
-    // - `PUBLIC`: Visible to all workspace members.
+    // The visibility of the code source configuration.
     shared_ptr<string> accessibility_ {};
-    // The clone type.
+    // The clone mode. Valid values:
+    // - 0: Create a new subdirectory.
+    // - 1: Tile to the current directory.
     shared_ptr<int32_t> cloneType_ {};
     // The code branch.
     shared_ptr<string> codeBranch_ {};
-    // The commit ID.
+    // The code commit ID.
     shared_ptr<string> codeCommit_ {};
     // The code repository URL.
     shared_ptr<string> codeRepo_ {};
-    // The access token for the code repository.
+    // The token used as the access code for the code repository.
     shared_ptr<string> codeRepoAccessToken_ {};
-    // The username for the code repository.
+    // The username used as the access code for the code repository.
     shared_ptr<string> codeRepoUserName_ {};
-    // The code source ID.
+    // The code source configuration ID.
     shared_ptr<string> codeSourceId_ {};
-    // The description of the code source.
+    // The detailed description.
     shared_ptr<string> description_ {};
-    // The display name of the code source.
+    // The display name of the code source configuration.
     shared_ptr<string> displayName_ {};
-    // The time when the code source was created.
+    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time when the code source was last modified.
+    // The modification time.
     shared_ptr<string> gmtModifyTime_ {};
-    // The local mount path for the code repository.
+    // The local mount path of the code.
     shared_ptr<string> mountPath_ {};
-    // The ID of the creator.
+    // The creator ID.
     shared_ptr<string> userId_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

@@ -371,7 +371,7 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary Creates a code configuration in PAI using a code branch and commit ID from a Git repository. This configuration can then be referenced in DLC jobs.
+ * @summary Creates a code configuration in PAI. You can configure a Git code branch and CommitId. After the configuration is created, it can be referenced in DLC jobs.
  *
  * @param request CreateCodeSourceRequest
  * @param headers map
@@ -444,7 +444,7 @@ CreateCodeSourceResponse Client::createCodeSourceWithOptions(const CreateCodeSou
 }
 
 /**
- * @summary Creates a code configuration in PAI using a code branch and commit ID from a Git repository. This configuration can then be referenced in DLC jobs.
+ * @summary Creates a code configuration in PAI. You can configure a Git code branch and CommitId. After the configuration is created, it can be referenced in DLC jobs.
  *
  * @param request CreateCodeSourceRequest
  * @return CreateCodeSourceResponse
@@ -1574,6 +1574,75 @@ CreateProductOrdersResponse Client::createProductOrders(const CreateProductOrder
 }
 
 /**
+ * @summary Creates a prompt.
+ *
+ * @description ## Request description.
+ *
+ * @param request CreatePromptRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePromptResponse
+ */
+CreatePromptResponse Client::createPromptWithOptions(const CreatePromptRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccessibility()) {
+    body["Accessibility"] = request.getAccessibility();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasFrameworkContent()) {
+    body["FrameworkContent"] = request.getFrameworkContent();
+  }
+
+  if (!!request.hasFrameworkType()) {
+    body["FrameworkType"] = request.getFrameworkType();
+  }
+
+  if (!!request.hasPromptName()) {
+    body["PromptName"] = request.getPromptName();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreatePrompt"},
+    {"version" , "2021-02-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/prompts")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePromptResponse>();
+}
+
+/**
+ * @summary Creates a prompt.
+ *
+ * @description ## Request description.
+ *
+ * @param request CreatePromptRequest
+ * @return CreatePromptResponse
+ */
+CreatePromptResponse Client::createPrompt(const CreatePromptRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createPromptWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates a run for an experiment. The run can be associated with a specific workload or be a standalone code execution.
  *
  * @param request CreateRunRequest
@@ -2525,6 +2594,59 @@ DeleteModelVersionLabelsResponse Client::deleteModelVersionLabels(const string &
 }
 
 /**
+ * @summary Deletes a prompt.
+ *
+ * @description When calling this operation, note the following:
+ * - Tag keys and values are non-empty strings and cannot exceed 128 characters in length.
+ * - Tag keys cannot start with aliyun, acs, http://, or https://.
+ *
+ * @param request DeletePromptRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePromptResponse
+ */
+DeletePromptResponse Client::deletePromptWithOptions(const string &PromptId, const DeletePromptRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePrompt"},
+    {"version" , "2021-02-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/prompts/" , Darabonba::Encode::Encoder::percentEncode(PromptId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePromptResponse>();
+}
+
+/**
+ * @summary Deletes a prompt.
+ *
+ * @description When calling this operation, note the following:
+ * - Tag keys and values are non-empty strings and cannot exceed 128 characters in length.
+ * - Tag keys cannot start with aliyun, acs, http://, or https://.
+ *
+ * @param request DeletePromptRequest
+ * @return DeletePromptResponse
+ */
+DeletePromptResponse Client::deletePrompt(const string &PromptId, const DeletePromptRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deletePromptWithOptions(PromptId, request, headers, runtime);
+}
+
+/**
  * @summary Deletes a run.
  *
  * @param request DeleteRunRequest
@@ -2801,7 +2923,7 @@ DeleteWorkspaceRolesResponse Client::deleteWorkspaceRoles(const string &Workspac
 }
 
 /**
- * @summary Gets the details of a specified code source configuration.
+ * @summary Retrieves the details of a code source configuration.
  *
  * @param request GetCodeSourceRequest
  * @param headers map
@@ -2828,7 +2950,7 @@ GetCodeSourceResponse Client::getCodeSourceWithOptions(const string &CodeSourceI
 }
 
 /**
- * @summary Gets the details of a specified code source configuration.
+ * @summary Retrieves the details of a code source configuration.
  *
  * @param request GetCodeSourceRequest
  * @return GetCodeSourceResponse
@@ -2840,7 +2962,7 @@ GetCodeSourceResponse Client::getCodeSource(const string &CodeSourceId, const Ge
 }
 
 /**
- * @summary Retrieves the configurations of a workspace.
+ * @summary Retrieves the workspace configuration.
  *
  * @param request GetConfigRequest
  * @param headers map
@@ -2881,7 +3003,7 @@ GetConfigResponse Client::getConfigWithOptions(const string &WorkspaceId, const 
 }
 
 /**
- * @summary Retrieves the configurations of a workspace.
+ * @summary Retrieves the workspace configuration.
  *
  * @param request GetConfigRequest
  * @return GetConfigResponse
@@ -3537,6 +3659,14 @@ GetPermissionResponse Client::getPermissionWithOptions(const string &WorkspaceId
     query["Accessibility"] = request.getAccessibility();
   }
 
+  if (!!request.hasCallerAccessKeyId()) {
+    query["CallerAccessKeyId"] = request.getCallerAccessKeyId();
+  }
+
+  if (!!request.hasCallerSecurityToken()) {
+    query["CallerSecurityToken"] = request.getCallerSecurityToken();
+  }
+
   if (!!request.hasCallerType()) {
     query["CallerType"] = request.getCallerType();
   }
@@ -3593,6 +3723,51 @@ GetPermissionResponse Client::getPermission(const string &WorkspaceId, const str
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getPermissionWithOptions(WorkspaceId, PermissionCode, request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves a prompt.
+ *
+ * @param request GetPromptRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPromptResponse
+ */
+GetPromptResponse Client::getPromptWithOptions(const string &PromptId, const GetPromptRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPrompt"},
+    {"version" , "2021-02-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/prompts/" , Darabonba::Encode::Encoder::percentEncode(PromptId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPromptResponse>();
+}
+
+/**
+ * @summary Retrieves a prompt.
+ *
+ * @param request GetPromptRequest
+ * @return GetPromptResponse
+ */
+GetPromptResponse Client::getPrompt(const string &PromptId, const GetPromptRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getPromptWithOptions(PromptId, request, headers, runtime);
 }
 
 /**
@@ -3725,7 +3900,7 @@ GetWorkspaceRoleResponse Client::getWorkspaceRole(const string &WorkspaceId, con
 }
 
 /**
- * @summary Queries a list of code source configurations with support for paging, sorting, and filtering.
+ * @summary Queries a list of code configurations. This operation supports pagination, sorting, and conditional filtering.
  *
  * @param request ListCodeSourcesRequest
  * @param headers map
@@ -3778,7 +3953,7 @@ ListCodeSourcesResponse Client::listCodeSourcesWithOptions(const ListCodeSources
 }
 
 /**
- * @summary Queries a list of code source configurations with support for paging, sorting, and filtering.
+ * @summary Queries a list of code configurations. This operation supports pagination, sorting, and conditional filtering.
  *
  * @param request ListCodeSourcesRequest
  * @return ListCodeSourcesResponse
@@ -3790,7 +3965,7 @@ ListCodeSourcesResponse Client::listCodeSources(const ListCodeSourcesRequest &re
 }
 
 /**
- * @summary Lists the configurations for a workspace.
+ * @summary Retrieves the list of workspace configurations.
  *
  * @param request ListConfigsRequest
  * @param headers map
@@ -3835,7 +4010,7 @@ ListConfigsResponse Client::listConfigsWithOptions(const string &WorkspaceId, co
 }
 
 /**
- * @summary Lists the configurations for a workspace.
+ * @summary Retrieves the list of workspace configurations.
  *
  * @param request ListConfigsRequest
  * @return ListConfigsResponse
@@ -3958,7 +4133,7 @@ ListConnectionsResponse Client::listConnections(const ListConnectionsRequest &re
 }
 
 /**
- * @summary Queries the files in a dataset.
+ * @summary Queries the list of dataset files.
  *
  * @param tmpReq ListDatasetFileMetasRequest
  * @param headers map
@@ -4125,7 +4300,7 @@ ListDatasetFileMetasResponse Client::listDatasetFileMetasWithOptions(const strin
 }
 
 /**
- * @summary Queries the files in a dataset.
+ * @summary Queries the list of dataset files.
  *
  * @param request ListDatasetFileMetasRequest
  * @return ListDatasetFileMetasResponse
@@ -4198,7 +4373,7 @@ ListDatasetJobConfigsResponse Client::listDatasetJobConfigs(const string &Datase
 }
 
 /**
- * @summary Lists dataset jobs.
+ * @summary Retrieves a list of dataset tasks.
  *
  * @param request ListDatasetJobsRequest
  * @param headers map
@@ -4263,7 +4438,7 @@ ListDatasetJobsResponse Client::listDatasetJobsWithOptions(const string &Dataset
 }
 
 /**
- * @summary Lists dataset jobs.
+ * @summary Retrieves a list of dataset tasks.
  *
  * @param request ListDatasetJobsRequest
  * @return ListDatasetJobsResponse
@@ -5104,6 +5279,71 @@ ListProductsResponse Client::listProducts(const ListProductsRequest &request) {
 }
 
 /**
+ * @summary Retrieves a list of prompts.
+ *
+ * @param request ListPromptsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPromptsResponse
+ */
+ListPromptsResponse Client::listPromptsWithOptions(const ListPromptsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFrameworkType()) {
+    query["FrameworkType"] = request.getFrameworkType();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPrompts"},
+    {"version" , "2021-02-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/prompts")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPromptsResponse>();
+}
+
+/**
+ * @summary Retrieves a list of prompts.
+ *
+ * @param request ListPromptsRequest
+ * @return ListPromptsResponse
+ */
+ListPromptsResponse Client::listPrompts(const ListPromptsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listPromptsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Retrieves a list of resource quotas.
  *
  * @param request ListQuotasRequest
@@ -5518,7 +5758,7 @@ ListWorkspaceRolesResponse Client::listWorkspaceRoles(const string &WorkspaceId,
 }
 
 /**
- * @summary Lists users that can be added as members to a workspace.
+ * @summary Lists users who have not joined a workspace and can be added as workspace members.
  *
  * @param request ListWorkspaceUsersRequest
  * @param headers map
@@ -5555,7 +5795,7 @@ ListWorkspaceUsersResponse Client::listWorkspaceUsersWithOptions(const string &W
 }
 
 /**
- * @summary Lists users that can be added as members to a workspace.
+ * @summary Lists users who have not joined a workspace and can be added as workspace members.
  *
  * @param request ListWorkspaceUsersRequest
  * @return ListWorkspaceUsersResponse
@@ -6082,7 +6322,7 @@ StopDatasetJobResponse Client::stopDatasetJob(const string &DatasetId, const str
 }
 
 /**
- * @summary Updates a code source.
+ * @summary Updates a code source configuration.
  *
  * @param request UpdateCodeSourceRequest
  * @param headers map
@@ -6147,7 +6387,7 @@ UpdateCodeSourceResponse Client::updateCodeSourceWithOptions(const string &CodeS
 }
 
 /**
- * @summary Updates a code source.
+ * @summary Updates a code source configuration.
  *
  * @param request UpdateCodeSourceRequest
  * @return UpdateCodeSourceResponse
@@ -6876,6 +7116,67 @@ UpdateModelVersionResponse Client::updateModelVersion(const string &ModelId, con
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateModelVersionWithOptions(ModelId, VersionName, request, headers, runtime);
+}
+
+/**
+ * @summary Updates the prompt of a dataset.
+ *
+ * @description ## Request description.
+ *
+ * @param request UpdatePromptRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePromptResponse
+ */
+UpdatePromptResponse Client::updatePromptWithOptions(const string &PromptId, const UpdatePromptRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasFrameworkContent()) {
+    body["FrameworkContent"] = request.getFrameworkContent();
+  }
+
+  if (!!request.hasFrameworkType()) {
+    body["FrameworkType"] = request.getFrameworkType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdatePrompt"},
+    {"version" , "2021-02-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/prompts/" , Darabonba::Encode::Encoder::percentEncode(PromptId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePromptResponse>();
+}
+
+/**
+ * @summary Updates the prompt of a dataset.
+ *
+ * @description ## Request description.
+ *
+ * @param request UpdatePromptRequest
+ * @return UpdatePromptResponse
+ */
+UpdatePromptResponse Client::updatePrompt(const string &PromptId, const UpdatePromptRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updatePromptWithOptions(PromptId, request, headers, runtime);
 }
 
 /**

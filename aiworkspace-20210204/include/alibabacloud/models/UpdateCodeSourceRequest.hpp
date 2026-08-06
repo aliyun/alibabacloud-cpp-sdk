@@ -112,20 +112,23 @@ namespace Models
 
 
   protected:
+    // The clone mode. Valid values:
+    // - 0 (default): creates a new subdirectory.
+    // - 1: tiles to the current directory.
     shared_ptr<int32_t> cloneType_ {};
-    // The name of the code branch.
+    // The branch name of the code.
     shared_ptr<string> codeBranch_ {};
-    // The commit ID.
+    // The commit ID of the code.
     shared_ptr<string> codeCommit_ {};
     // The URL of the code repository.
     shared_ptr<string> codeRepo_ {};
-    // The access token for the username.
+    // The access token associated with the username.
     shared_ptr<string> codeRepoAccessToken_ {};
-    // The username for the code repository.
+    // The username used to access the access code repository.
     shared_ptr<string> codeRepoUserName_ {};
-    // The description of the code source.
+    // The description of the code source configuration.
     shared_ptr<string> description_ {};
-    // The name of the code source.
+    // The name of the code source configuration.
     shared_ptr<string> displayName_ {};
     // The default mount path.
     shared_ptr<string> mountPath_ {};
