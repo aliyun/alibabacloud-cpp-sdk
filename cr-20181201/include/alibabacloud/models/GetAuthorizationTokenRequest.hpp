@@ -13,9 +13,11 @@ namespace Models
   class GetAuthorizationTokenRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetAuthorizationTokenRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ExpiresInHours, expiresInHours_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
     };
     friend void from_json(const Darabonba::Json& j, GetAuthorizationTokenRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ExpiresInHours, expiresInHours_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
     };
     GetAuthorizationTokenRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instanceId_ == nullptr; };
+    virtual bool empty() const override { return this->expiresInHours_ == nullptr
+        && this->instanceId_ == nullptr; };
+    // expiresInHours Field Functions 
+    bool hasExpiresInHours() const { return this->expiresInHours_ != nullptr;};
+    void deleteExpiresInHours() { this->expiresInHours_ = nullptr;};
+    inline int32_t getExpiresInHours() const { DARABONBA_PTR_GET_DEFAULT(expiresInHours_, 0) };
+    inline GetAuthorizationTokenRequest& setExpiresInHours(int32_t expiresInHours) { DARABONBA_PTR_SET_VALUE(expiresInHours_, expiresInHours) };
+
+
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -38,6 +48,8 @@ namespace Models
 
 
   protected:
+    // The validity period of the temporary credential, in hours. Valid values: 1 to 24.
+    shared_ptr<int32_t> expiresInHours_ {};
     // The repository instance ID.
     // 
     // This parameter is required.

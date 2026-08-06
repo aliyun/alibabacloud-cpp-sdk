@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The password used to log on to the Registry.
+    // The password used to log on to the registry.
     shared_ptr<string> authorizationToken_ {};
     // The return code.
     shared_ptr<string> code_ {};
@@ -94,7 +94,7 @@ namespace Models
     shared_ptr<bool> isSuccess_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The username used to log on to the Registry.
+    // The username used to log on to the registry.
     shared_ptr<string> tempUsername_ {};
   };
 

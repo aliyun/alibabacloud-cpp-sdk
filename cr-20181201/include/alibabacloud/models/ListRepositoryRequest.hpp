@@ -14,6 +14,8 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListRepositoryRequest& obj) { 
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PageNo, pageNo_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RepoName, repoName_);
@@ -22,6 +24,8 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListRepositoryRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PageNo, pageNo_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RepoName, repoName_);
@@ -40,12 +44,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->repoName_ == nullptr && this->repoNamespaceName_ == nullptr && this->repoStatus_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->repoName_ == nullptr
+        && this->repoNamespaceName_ == nullptr && this->repoStatus_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListRepositoryRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // maxResults Field Functions 
+    bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+    void deleteMaxResults() { this->maxResults_ = nullptr;};
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline ListRepositoryRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline ListRepositoryRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // pageNo Field Functions 
@@ -84,23 +103,25 @@ namespace Models
 
 
   protected:
-    // The ID of the Container Registry instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page. Maximum value: 100. If you specify a value larger than 100 for this parameter, the system reports a parameter error or uses 100 as the maximum value.
+    // The number of entries per page. The maximum value is 100. If the specified value exceeds 100, the system returns a parameter error or uses 100 as the actual maximum number of entries returned.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the repository.
+    // The repository name.
     shared_ptr<string> repoName_ {};
-    // The name of the namespace to which the repository belongs.
+    // The repository namespace name.
     shared_ptr<string> repoNamespaceName_ {};
-    // Repository status. Valid values:
+    // The repository status. Valid values:
     // 
     // - `NORMAL`: Normal.
     // 
-    // - `DELETING`: Deleting.
+    // - `DELETING`: Being deleted.
     // 
     // - `DELETED`: Deleted.
     // 

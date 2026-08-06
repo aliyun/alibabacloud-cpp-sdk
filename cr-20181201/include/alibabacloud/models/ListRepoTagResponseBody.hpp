@@ -17,6 +17,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Images, images_);
       DARABONBA_PTR_TO_JSON(IsSuccess, isSuccess_);
+      DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PageNo, pageNo_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -26,6 +28,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Images, images_);
       DARABONBA_PTR_FROM_JSON(IsSuccess, isSuccess_);
+      DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PageNo, pageNo_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -126,25 +130,25 @@ namespace Models
 
 
     protected:
-      // The digest of the image.
+      // The digest value.
       shared_ptr<string> digest_ {};
       // The time when the image was created.
       shared_ptr<string> imageCreate_ {};
-      // The ID of the image.
+      // The image ID.
       shared_ptr<string> imageId_ {};
-      // The size of the image.
+      // The image size, in bytes.
       shared_ptr<int64_t> imageSize_ {};
-      // The time when the image was last updated.
+      // The time when the image was updated.
       shared_ptr<string> imageUpdate_ {};
-      // The status of the image.
+      // The status.
       shared_ptr<string> status_ {};
-      // The tag of the image.
+      // The image tag.
       shared_ptr<string> tag_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
-        && this->images_ == nullptr && this->isSuccess_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr
-        && this->totalCount_ == nullptr; };
+        && this->images_ == nullptr && this->isSuccess_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->pageNo_ == nullptr
+        && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -166,6 +170,20 @@ namespace Models
     void deleteIsSuccess() { this->isSuccess_ = nullptr;};
     inline bool getIsSuccess() const { DARABONBA_PTR_GET_DEFAULT(isSuccess_, false) };
     inline ListRepoTagResponseBody& setIsSuccess(bool isSuccess) { DARABONBA_PTR_SET_VALUE(isSuccess_, isSuccess) };
+
+
+    // maxResults Field Functions 
+    bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+    void deleteMaxResults() { this->maxResults_ = nullptr;};
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline ListRepoTagResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline ListRepoTagResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // pageNo Field Functions 
@@ -197,19 +215,21 @@ namespace Models
 
 
   protected:
-    // The return value.
+    // The return code.
     shared_ptr<string> code_ {};
-    // The images.
+    // The image list.
     shared_ptr<vector<ListRepoTagResponseBody::Images>> images_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
-    // The page number of the returned page.
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

@@ -638,7 +638,7 @@ namespace Cr20181201
       Models::DeleteEventCenterRuleResponse deleteEventCenterRule(const Models::DeleteEventCenterRuleRequest &request);
 
       /**
-       * @summary 删除实例自定义域名
+       * @summary Deletes a custom domain name from an instance.
        *
        * @param request DeleteInstanceCustomizedDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -647,7 +647,7 @@ namespace Cr20181201
       Models::DeleteInstanceCustomizedDomainResponse deleteInstanceCustomizedDomainWithOptions(const Models::DeleteInstanceCustomizedDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除实例自定义域名
+       * @summary Deletes a custom domain name from an instance.
        *
        * @param request DeleteInstanceCustomizedDomainRequest
        * @return DeleteInstanceCustomizedDomainResponse
@@ -943,12 +943,12 @@ namespace Cr20181201
       Models::GetArtifactSubscriptionTaskResultResponse getArtifactSubscriptionTaskResult(const Models::GetArtifactSubscriptionTaskResultRequest &request);
 
       /**
-       * @summary Retrieves a temporary account and temporary password for logging on to an instance.
+       * @summary Retrieves a temporary username and password for logging on to an instance.
        *
        * @description The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
-       * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as the permissions granted when you log on to the instance with the username and password of the Alibaba Cloud account.
-       * - The permissions granted by a temporary token obtained through a RAM user are the same as the permissions granted when you log on to the instance with the username and password of the RAM user.
-       * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
+       * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when you log on to the instance with the username and password of the Alibaba Cloud account.
+       * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when you log on to the instance with the username and password of the RAM user.
+       * - The permissions granted by a temporary token obtained through STS are the same as those of the STS token.
        *
        * @param request GetAuthorizationTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -957,12 +957,12 @@ namespace Cr20181201
       Models::GetAuthorizationTokenResponse getAuthorizationTokenWithOptions(const Models::GetAuthorizationTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a temporary account and temporary password for logging on to an instance.
+       * @summary Retrieves a temporary username and password for logging on to an instance.
        *
        * @description The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
-       * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as the permissions granted when you log on to the instance with the username and password of the Alibaba Cloud account.
-       * - The permissions granted by a temporary token obtained through a RAM user are the same as the permissions granted when you log on to the instance with the username and password of the RAM user.
-       * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
+       * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when you log on to the instance with the username and password of the Alibaba Cloud account.
+       * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when you log on to the instance with the username and password of the RAM user.
+       * - The permissions granted by a temporary token obtained through STS are the same as those of the STS token.
        *
        * @param request GetAuthorizationTokenRequest
        * @return GetAuthorizationTokenResponse
@@ -1053,6 +1053,8 @@ namespace Cr20181201
       Models::GetInstanceCountResponse getInstanceCount();
 
       /**
+       * @summary Queries the custom domain name of an instance.
+       *
        * @param request GetInstanceCustomizedDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetInstanceCustomizedDomainResponse
@@ -1060,6 +1062,8 @@ namespace Cr20181201
       Models::GetInstanceCustomizedDomainResponse getInstanceCustomizedDomainWithOptions(const Models::GetInstanceCustomizedDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the custom domain name of an instance.
+       *
        * @param request GetInstanceCustomizedDomainRequest
        * @return GetInstanceCustomizedDomainResponse
        */
@@ -1656,7 +1660,7 @@ namespace Cr20181201
       Models::ListRepoSyncTaskResponse listRepoSyncTask(const Models::ListRepoSyncTaskRequest &request);
 
       /**
-       * @summary Queries image tags in a repository.
+       * @summary Queries the list of image versions (tags).
        *
        * @param request ListRepoTagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1665,7 +1669,7 @@ namespace Cr20181201
       Models::ListRepoTagResponse listRepoTagWithOptions(const Models::ListRepoTagRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries image tags in a repository.
+       * @summary Queries the list of image versions (tags).
        *
        * @param request ListRepoTagRequest
        * @return ListRepoTagResponse
@@ -1707,7 +1711,7 @@ namespace Cr20181201
       Models::ListRepoTriggerResponse listRepoTrigger(const Models::ListRepoTriggerRequest &request);
 
       /**
-       * @summary Query the image repository list.
+       * @summary Queries a list of image repositories.
        *
        * @param request ListRepositoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1716,7 +1720,7 @@ namespace Cr20181201
       Models::ListRepositoryResponse listRepositoryWithOptions(const Models::ListRepositoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the image repository list.
+       * @summary Queries a list of image repositories.
        *
        * @param request ListRepositoryRequest
        * @return ListRepositoryResponse
@@ -1969,7 +1973,7 @@ namespace Cr20181201
       Models::UpdateEventCenterRuleResponse updateEventCenterRule(const Models::UpdateEventCenterRuleRequest &request);
 
       /**
-       * @summary 更新实例自定义域名
+       * @summary Updates the custom domain name of an instance.
        *
        * @param request UpdateInstanceCustomizedDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1978,7 +1982,7 @@ namespace Cr20181201
       Models::UpdateInstanceCustomizedDomainResponse updateInstanceCustomizedDomainWithOptions(const Models::UpdateInstanceCustomizedDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新实例自定义域名
+       * @summary Updates the custom domain name of an instance.
        *
        * @param request UpdateInstanceCustomizedDomainRequest
        * @return UpdateInstanceCustomizedDomainResponse

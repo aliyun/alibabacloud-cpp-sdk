@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The custom domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The custom module name.
+    // 
     // This parameter is required.
     shared_ptr<string> moduleName_ {};
   };

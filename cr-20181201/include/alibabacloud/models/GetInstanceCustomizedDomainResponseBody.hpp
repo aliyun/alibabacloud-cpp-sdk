@@ -140,17 +140,29 @@ namespace Models
 
 
   protected:
+    // The certificate ID.
     shared_ptr<string> certId_ {};
+    // The return code.
     shared_ptr<string> code_ {};
+    // The creation time.
     shared_ptr<int64_t> createTime_ {};
+    // The custom domain name.
     shared_ptr<string> domain_ {};
+    // The domain type.
     shared_ptr<string> domainType_ {};
+    // The custom endpoint type.
     shared_ptr<string> endpointType_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // Indicates whether the operation is successful.
     shared_ptr<bool> isSuccess_ {};
+    // The modification time.
     shared_ptr<int64_t> modifiedTime_ {};
+    // The custom module name.
     shared_ptr<string> moduleName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

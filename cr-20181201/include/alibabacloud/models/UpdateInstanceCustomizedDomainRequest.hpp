@@ -75,13 +75,22 @@ namespace Models
 
 
   protected:
+    // The certificate ID.
+    // 
     // This parameter is required.
     shared_ptr<string> certId_ {};
+    // The region where the certificate resides.
     shared_ptr<string> certRegionId_ {};
+    // The custom domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The modified domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> moduleName_ {};
   };

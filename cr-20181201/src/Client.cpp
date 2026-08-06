@@ -57,9 +57,7 @@ AlibabaCloud::Cr20181201::Client::Client(Config &config): OpenApiClient(config){
     {"ap-southeast-6" , "cr.ap-southeast-6.aliyuncs.com"},
     {"ap-southeast-5" , "cr.ap-southeast-5.aliyuncs.com"},
     {"ap-southeast-3" , "cr.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-2" , "cr.ap-southeast-2.aliyuncs.com"},
     {"ap-southeast-1" , "cr.ap-southeast-1.aliyuncs.com"},
-    {"ap-south-1" , "cr.ap-south-1.aliyuncs.com"},
     {"ap-northeast-2" , "cr.ap-northeast-2.aliyuncs.com"},
     {"ap-northeast-1" , "cr.ap-northeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
@@ -2175,7 +2173,7 @@ DeleteEventCenterRuleResponse Client::deleteEventCenterRule(const DeleteEventCen
 }
 
 /**
- * @summary 删除实例自定义域名
+ * @summary Deletes a custom domain name from an instance.
  *
  * @param request DeleteInstanceCustomizedDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2214,7 +2212,7 @@ DeleteInstanceCustomizedDomainResponse Client::deleteInstanceCustomizedDomainWit
 }
 
 /**
- * @summary 删除实例自定义域名
+ * @summary Deletes a custom domain name from an instance.
  *
  * @param request DeleteInstanceCustomizedDomainRequest
  * @return DeleteInstanceCustomizedDomainResponse
@@ -2975,12 +2973,12 @@ GetArtifactSubscriptionTaskResultResponse Client::getArtifactSubscriptionTaskRes
 }
 
 /**
- * @summary Retrieves a temporary account and temporary password for logging on to an instance.
+ * @summary Retrieves a temporary username and password for logging on to an instance.
  *
  * @description The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
- * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as the permissions granted when you log on to the instance with the username and password of the Alibaba Cloud account.
- * - The permissions granted by a temporary token obtained through a RAM user are the same as the permissions granted when you log on to the instance with the username and password of the RAM user.
- * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
+ * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when you log on to the instance with the username and password of the Alibaba Cloud account.
+ * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when you log on to the instance with the username and password of the RAM user.
+ * - The permissions granted by a temporary token obtained through STS are the same as those of the STS token.
  *
  * @param request GetAuthorizationTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2989,6 +2987,10 @@ GetArtifactSubscriptionTaskResultResponse Client::getArtifactSubscriptionTaskRes
 GetAuthorizationTokenResponse Client::getAuthorizationTokenWithOptions(const GetAuthorizationTokenRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasExpiresInHours()) {
+    query["ExpiresInHours"] = request.getExpiresInHours();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -3011,12 +3013,12 @@ GetAuthorizationTokenResponse Client::getAuthorizationTokenWithOptions(const Get
 }
 
 /**
- * @summary Retrieves a temporary account and temporary password for logging on to an instance.
+ * @summary Retrieves a temporary username and password for logging on to an instance.
  *
  * @description The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
- * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as the permissions granted when you log on to the instance with the username and password of the Alibaba Cloud account.
- * - The permissions granted by a temporary token obtained through a RAM user are the same as the permissions granted when you log on to the instance with the username and password of the RAM user.
- * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
+ * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when you log on to the instance with the username and password of the Alibaba Cloud account.
+ * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when you log on to the instance with the username and password of the RAM user.
+ * - The permissions granted by a temporary token obtained through STS are the same as those of the STS token.
  *
  * @param request GetAuthorizationTokenRequest
  * @return GetAuthorizationTokenResponse
@@ -3243,6 +3245,8 @@ GetInstanceCountResponse Client::getInstanceCount() {
 }
 
 /**
+ * @summary Queries the custom domain name of an instance.
+ *
  * @param request GetInstanceCustomizedDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetInstanceCustomizedDomainResponse
@@ -3280,6 +3284,8 @@ GetInstanceCustomizedDomainResponse Client::getInstanceCustomizedDomainWithOptio
 }
 
 /**
+ * @summary Queries the custom domain name of an instance.
+ *
  * @param request GetInstanceCustomizedDomainRequest
  * @return GetInstanceCustomizedDomainResponse
  */
@@ -5009,7 +5015,7 @@ ListRepoSyncTaskResponse Client::listRepoSyncTask(const ListRepoSyncTaskRequest 
 }
 
 /**
- * @summary Queries image tags in a repository.
+ * @summary Queries the list of image versions (tags).
  *
  * @param request ListRepoTagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5020,6 +5026,14 @@ ListRepoTagResponse Client::listRepoTagWithOptions(const ListRepoTagRequest &req
   json query = {};
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPageNo()) {
@@ -5052,7 +5066,7 @@ ListRepoTagResponse Client::listRepoTagWithOptions(const ListRepoTagRequest &req
 }
 
 /**
- * @summary Queries image tags in a repository.
+ * @summary Queries the list of image versions (tags).
  *
  * @param request ListRepoTagRequest
  * @return ListRepoTagResponse
@@ -5191,7 +5205,7 @@ ListRepoTriggerResponse Client::listRepoTrigger(const ListRepoTriggerRequest &re
 }
 
 /**
- * @summary Query the image repository list.
+ * @summary Queries a list of image repositories.
  *
  * @param request ListRepositoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5202,6 +5216,14 @@ ListRepositoryResponse Client::listRepositoryWithOptions(const ListRepositoryReq
   json query = {};
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPageNo()) {
@@ -5242,7 +5264,7 @@ ListRepositoryResponse Client::listRepositoryWithOptions(const ListRepositoryReq
 }
 
 /**
- * @summary Query the image repository list.
+ * @summary Queries a list of image repositories.
  *
  * @param request ListRepositoryRequest
  * @return ListRepositoryResponse
@@ -6033,7 +6055,7 @@ UpdateEventCenterRuleResponse Client::updateEventCenterRule(const UpdateEventCen
 }
 
 /**
- * @summary 更新实例自定义域名
+ * @summary Updates the custom domain name of an instance.
  *
  * @param request UpdateInstanceCustomizedDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6080,7 +6102,7 @@ UpdateInstanceCustomizedDomainResponse Client::updateInstanceCustomizedDomainWit
 }
 
 /**
- * @summary 更新实例自定义域名
+ * @summary Updates the custom domain name of an instance.
  *
  * @param request UpdateInstanceCustomizedDomainRequest
  * @return UpdateInstanceCustomizedDomainResponse

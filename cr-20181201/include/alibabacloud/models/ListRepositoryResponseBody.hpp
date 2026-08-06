@@ -16,6 +16,8 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListRepositoryResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(IsSuccess, isSuccess_);
+      DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PageNo, pageNo_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Repositories, repositories_);
@@ -25,6 +27,8 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListRepositoryResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(IsSuccess, isSuccess_);
+      DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PageNo, pageNo_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Repositories, repositories_);
@@ -172,41 +176,43 @@ namespace Models
 
 
     protected:
-      // The time when the repository was created.
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // The ID of the Container Registry instance to which the repository belongs.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the repository was last modified.
+      // The last modification time.
       shared_ptr<int64_t> modifiedTime_ {};
-      // The type of the repository building. Valid values:
+      // The repository build type. Valid values:
       // 
-      // *   `AUTO`: The repository is automatically built.
-      // *   `MANUAL`: The repository is manually built.
+      // - `AUTO`: Automatically triggered build.
+      // 
+      // - `MANUAL`: Manually triggered build.
       shared_ptr<string> repoBuildType_ {};
-      // The ID of the repository.
+      // The repository ID.
       shared_ptr<string> repoId_ {};
-      // The name of the repository.
+      // The repository name.
       shared_ptr<string> repoName_ {};
-      // The name of the namespace to which the repository belongs.
+      // The repository namespace.
       shared_ptr<string> repoNamespaceName_ {};
-      // The status of the repository.
+      // The repository status.
       shared_ptr<string> repoStatus_ {};
-      // The type of the repository. Valid values:
+      // The repository type. Valid values:
       // 
-      // *   `PUBLIC`
-      // *   `PRIVATE`
+      // - `PUBLIC`: Public.
+      // 
+      // - `PRIVATE`: Private.
       shared_ptr<string> repoType_ {};
-      // The ID of the resource group to which the repository belongs.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The summary of the repository.
+      // The summary information.
       shared_ptr<string> summary_ {};
-      // Indicates whether the feature of image tag immutability is enabled for the repository.
+      // The image tag immutability.
       shared_ptr<bool> tagImmutability_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
-        && this->isSuccess_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->repositories_ == nullptr && this->requestId_ == nullptr
-        && this->totalCount_ == nullptr; };
+        && this->isSuccess_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr
+        && this->repositories_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -219,6 +225,20 @@ namespace Models
     void deleteIsSuccess() { this->isSuccess_ = nullptr;};
     inline bool getIsSuccess() const { DARABONBA_PTR_GET_DEFAULT(isSuccess_, false) };
     inline ListRepositoryResponseBody& setIsSuccess(bool isSuccess) { DARABONBA_PTR_SET_VALUE(isSuccess_, isSuccess) };
+
+
+    // maxResults Field Functions 
+    bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+    void deleteMaxResults() { this->maxResults_ = nullptr;};
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline ListRepositoryResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline ListRepositoryResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // pageNo Field Functions 
@@ -263,15 +283,17 @@ namespace Models
     shared_ptr<string> code_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The information about the repositories.
+    // The list of repositories.
     shared_ptr<vector<ListRepositoryResponseBody::Repositories>> repositories_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of the queried image repositories.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 
