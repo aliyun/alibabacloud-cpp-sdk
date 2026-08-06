@@ -5756,6 +5756,52 @@ DisableAndCleanRecycleBinResponse Client::disableAndCleanRecycleBin(const Disabl
 }
 
 /**
+ * @summary 关闭数据洞察
+ *
+ * @description - 当前邀测使用，如需使用请提交工单申请。
+ *
+ * @param request DisableDataInsightRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableDataInsightResponse
+ */
+DisableDataInsightResponse Client::disableDataInsightWithOptions(const DisableDataInsightRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileSystemId()) {
+    query["FileSystemId"] = request.getFileSystemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableDataInsight"},
+    {"version" , "2017-06-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableDataInsightResponse>();
+}
+
+/**
+ * @summary 关闭数据洞察
+ *
+ * @description - 当前邀测使用，如需使用请提交工单申请。
+ *
+ * @param request DisableDataInsightRequest
+ * @return DisableDataInsightResponse
+ */
+DisableDataInsightResponse Client::disableDataInsight(const DisableDataInsightRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableDataInsightWithOptions(request, runtime);
+}
+
+/**
  * @summary Disables the NFS ACL feature for a file system.
  *
  * @description 仅通用型NAS NFS协议文件系统支持该功能。
@@ -5845,6 +5891,52 @@ DisableSmbAclResponse Client::disableSmbAclWithOptions(const DisableSmbAclReques
 DisableSmbAclResponse Client::disableSmbAcl(const DisableSmbAclRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return disableSmbAclWithOptions(request, runtime);
+}
+
+/**
+ * @summary 开启数据洞察
+ *
+ * @description - 当前邀测使用，如需使用请提交工单申请。
+ *
+ * @param request EnableDataInsightRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableDataInsightResponse
+ */
+EnableDataInsightResponse Client::enableDataInsightWithOptions(const EnableDataInsightRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileSystemId()) {
+    query["FileSystemId"] = request.getFileSystemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableDataInsight"},
+    {"version" , "2017-06-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableDataInsightResponse>();
+}
+
+/**
+ * @summary 开启数据洞察
+ *
+ * @description - 当前邀测使用，如需使用请提交工单申请。
+ *
+ * @param request EnableDataInsightRequest
+ * @return EnableDataInsightResponse
+ */
+EnableDataInsightResponse Client::enableDataInsight(const EnableDataInsightRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableDataInsightWithOptions(request, runtime);
 }
 
 /**
@@ -6309,6 +6401,64 @@ ListAccessPointsResponse Client::listAccessPointsWithOptions(const ListAccessPoi
 ListAccessPointsResponse Client::listAccessPoints(const ListAccessPointsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listAccessPointsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取数据洞察目录结构
+ *
+ * @description - 当前邀测使用，如需使用请提交工单申请。
+ *
+ * @param request ListDataInsightDirectoriesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataInsightDirectoriesResponse
+ */
+ListDataInsightDirectoriesResponse Client::listDataInsightDirectoriesWithOptions(const ListDataInsightDirectoriesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileSystemId()) {
+    query["FileSystemId"] = request.getFileSystemId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasParentDir()) {
+    query["ParentDir"] = request.getParentDir();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataInsightDirectories"},
+    {"version" , "2017-06-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataInsightDirectoriesResponse>();
+}
+
+/**
+ * @summary 获取数据洞察目录结构
+ *
+ * @description - 当前邀测使用，如需使用请提交工单申请。
+ *
+ * @param request ListDataInsightDirectoriesRequest
+ * @return ListDataInsightDirectoriesResponse
+ */
+ListDataInsightDirectoriesResponse Client::listDataInsightDirectories(const ListDataInsightDirectoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDataInsightDirectoriesWithOptions(request, runtime);
 }
 
 /**

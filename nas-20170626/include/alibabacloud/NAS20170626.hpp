@@ -2299,6 +2299,27 @@ namespace NAS20170626
       Models::DisableAndCleanRecycleBinResponse disableAndCleanRecycleBin(const Models::DisableAndCleanRecycleBinRequest &request);
 
       /**
+       * @summary 关闭数据洞察
+       *
+       * @description - 当前邀测使用，如需使用请提交工单申请。
+       *
+       * @param request DisableDataInsightRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableDataInsightResponse
+       */
+      Models::DisableDataInsightResponse disableDataInsightWithOptions(const Models::DisableDataInsightRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 关闭数据洞察
+       *
+       * @description - 当前邀测使用，如需使用请提交工单申请。
+       *
+       * @param request DisableDataInsightRequest
+       * @return DisableDataInsightResponse
+       */
+      Models::DisableDataInsightResponse disableDataInsight(const Models::DisableDataInsightRequest &request);
+
+      /**
        * @summary Disables the NFS ACL feature for a file system.
        *
        * @description 仅通用型NAS NFS协议文件系统支持该功能。
@@ -2339,6 +2360,27 @@ namespace NAS20170626
        * @return DisableSmbAclResponse
        */
       Models::DisableSmbAclResponse disableSmbAcl(const Models::DisableSmbAclRequest &request);
+
+      /**
+       * @summary 开启数据洞察
+       *
+       * @description - 当前邀测使用，如需使用请提交工单申请。
+       *
+       * @param request EnableDataInsightRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableDataInsightResponse
+       */
+      Models::EnableDataInsightResponse enableDataInsightWithOptions(const Models::EnableDataInsightRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开启数据洞察
+       *
+       * @description - 当前邀测使用，如需使用请提交工单申请。
+       *
+       * @param request EnableDataInsightRequest
+       * @return EnableDataInsightResponse
+       */
+      Models::EnableDataInsightResponse enableDataInsight(const Models::EnableDataInsightRequest &request);
 
       /**
        * @summary Enables the NFS ACL feature for a file system.
@@ -2526,6 +2568,27 @@ namespace NAS20170626
        * @return ListAccessPointsResponse
        */
       Models::ListAccessPointsResponse listAccessPoints(const Models::ListAccessPointsRequest &request);
+
+      /**
+       * @summary 获取数据洞察目录结构
+       *
+       * @description - 当前邀测使用，如需使用请提交工单申请。
+       *
+       * @param request ListDataInsightDirectoriesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataInsightDirectoriesResponse
+       */
+      Models::ListDataInsightDirectoriesResponse listDataInsightDirectoriesWithOptions(const Models::ListDataInsightDirectoriesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据洞察目录结构
+       *
+       * @description - 当前邀测使用，如需使用请提交工单申请。
+       *
+       * @param request ListDataInsightDirectoriesRequest
+       * @return ListDataInsightDirectoriesResponse
+       */
+      Models::ListDataInsightDirectoriesResponse listDataInsightDirectories(const Models::ListDataInsightDirectoriesRequest &request);
 
       /**
        * @summary Retrieves the list of IA storage class files and subdirectories that contain IA storage class files under a specified directory in a General-purpose NAS file system.
