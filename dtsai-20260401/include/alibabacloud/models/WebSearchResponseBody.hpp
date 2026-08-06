@@ -91,8 +91,11 @@ namespace Models
 
 
     protected:
+      // The summary of the web page content.
       shared_ptr<string> snippet_ {};
+      // The title of the web page.
       shared_ptr<string> title_ {};
+      // The URL of the web page.
       shared_ptr<string> url_ {};
     };
 
@@ -158,13 +161,21 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The search query statement.
     shared_ptr<string> query_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The search result list.
     shared_ptr<vector<WebSearchResponseBody::SearchResult>> searchResult_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of results returned.
     shared_ptr<int32_t> totalResults_ {};
   };
 

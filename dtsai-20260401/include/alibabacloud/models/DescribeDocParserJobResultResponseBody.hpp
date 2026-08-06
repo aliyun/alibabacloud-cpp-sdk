@@ -18,6 +18,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Result, result_);
+      DARABONBA_PTR_TO_JSON(ResultType, resultType_);
+      DARABONBA_PTR_TO_JSON(ResultUrl, resultUrl_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDocParserJobResultResponseBody& obj) { 
@@ -26,6 +28,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Result, result_);
+      DARABONBA_PTR_FROM_JSON(ResultType, resultType_);
+      DARABONBA_PTR_FROM_JSON(ResultUrl, resultUrl_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
     DescribeDocParserJobResultResponseBody() = default ;
@@ -40,7 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->errorCode_ == nullptr
-        && this->errorMessage_ == nullptr && this->httpStatusCode_ == nullptr && this->requestId_ == nullptr && this->result_ == nullptr && this->success_ == nullptr; };
+        && this->errorMessage_ == nullptr && this->httpStatusCode_ == nullptr && this->requestId_ == nullptr && this->result_ == nullptr && this->resultType_ == nullptr
+        && this->resultUrl_ == nullptr && this->success_ == nullptr; };
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
@@ -76,6 +81,20 @@ namespace Models
     inline DescribeDocParserJobResultResponseBody& setResult(string result) { DARABONBA_PTR_SET_VALUE(result_, result) };
 
 
+    // resultType Field Functions 
+    bool hasResultType() const { return this->resultType_ != nullptr;};
+    void deleteResultType() { this->resultType_ = nullptr;};
+    inline string getResultType() const { DARABONBA_PTR_GET_DEFAULT(resultType_, "") };
+    inline DescribeDocParserJobResultResponseBody& setResultType(string resultType) { DARABONBA_PTR_SET_VALUE(resultType_, resultType) };
+
+
+    // resultUrl Field Functions 
+    bool hasResultUrl() const { return this->resultUrl_ != nullptr;};
+    void deleteResultUrl() { this->resultUrl_ = nullptr;};
+    inline string getResultUrl() const { DARABONBA_PTR_GET_DEFAULT(resultUrl_, "") };
+    inline DescribeDocParserJobResultResponseBody& setResultUrl(string resultUrl) { DARABONBA_PTR_SET_VALUE(resultUrl_, resultUrl) };
+
+
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
@@ -84,11 +103,19 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The document parsing result. The format is determined by the OutputFormat parameter specified in the CreateDocParserJob request.
     shared_ptr<string> result_ {};
+    shared_ptr<string> resultType_ {};
+    shared_ptr<string> resultUrl_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -121,15 +121,37 @@ namespace Models
 
 
   protected:
+    // The content of the web page.
     shared_ptr<string> content_ {};
+    // The actual output format. Valid values:
+    // 
+    // - **markdown**: Markdown format.
+    // 
+    // - **html**: HTML format.
+    // 
+    // - **text**: Plain text format.
     shared_ptr<string> contentFormat_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The title of the web page.
     shared_ptr<string> title_ {};
+    // The URL of the web page.
     shared_ptr<string> url_ {};
+    // The URL classification result. Valid values:
+    // - **static_html**: Static HTML page.
+    // - **dynamic_js**: Single-page application (SPA) page that requires JavaScript rendering.
+    // - **audio**: Audio file.
+    // - **video**: Video file.
+    // - **document**: Document file (PDF, Word, PPT, or Excel).
+    // - **unknown**: Unrecognizable.
     shared_ptr<string> urlType_ {};
   };
 

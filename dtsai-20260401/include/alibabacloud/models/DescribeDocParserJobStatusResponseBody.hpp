@@ -94,12 +94,31 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The failure cause. This parameter has a value only when Status is failed.
     shared_ptr<string> failureMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task status. Valid values:
+    // 
+    // - **init**: Created and being prepared.
+    // 
+    // - **pending**: Queued and waiting to be scheduled.
+    // 
+    // - **running**: Being processed and parsed.
+    // 
+    // - **success**: Completed. You can call DescribeDocParserJobResult to obtain the result.
+    // 
+    // - **failed**: Failed. The cause is provided in FailureMessage.
+    // 
+    // - **cancelled**: Canceled.
     shared_ptr<string> status_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

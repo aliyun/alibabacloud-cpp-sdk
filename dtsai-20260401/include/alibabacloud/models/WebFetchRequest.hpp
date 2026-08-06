@@ -57,9 +57,20 @@ namespace Models
 
 
   protected:
+    // The output format. Valid values:
+    // 
+    // - **markdown**: Markdown format.
+    // 
+    // - **html**: HTML format.
+    // 
+    // - **text**: Plain text format.
     shared_ptr<string> outputFormat_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The URL of the target web page to crawl.
+    // 
     // This parameter is required.
     shared_ptr<string> url_ {};
   };

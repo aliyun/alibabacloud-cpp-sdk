@@ -16,15 +16,23 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FileFormat, fileFormat_);
       DARABONBA_PTR_TO_JSON(FileName, fileName_);
       DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
+      DARABONBA_PTR_TO_JSON(ImageMode, imageMode_);
+      DARABONBA_PTR_TO_JSON(OssFileUrl, ossFileUrl_);
       DARABONBA_PTR_TO_JSON(OutputFormat, outputFormat_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ResultType, resultType_);
+      DARABONBA_PTR_TO_JSON(TableFormat, tableFormat_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDocParserJobRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(FileFormat, fileFormat_);
       DARABONBA_PTR_FROM_JSON(FileName, fileName_);
       DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
+      DARABONBA_PTR_FROM_JSON(ImageMode, imageMode_);
+      DARABONBA_PTR_FROM_JSON(OssFileUrl, ossFileUrl_);
       DARABONBA_PTR_FROM_JSON(OutputFormat, outputFormat_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ResultType, resultType_);
+      DARABONBA_PTR_FROM_JSON(TableFormat, tableFormat_);
     };
     CreateDocParserJobRequest() = default ;
     CreateDocParserJobRequest(const CreateDocParserJobRequest &) = default ;
@@ -38,7 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileFormat_ == nullptr
-        && this->fileName_ == nullptr && this->fileUrl_ == nullptr && this->outputFormat_ == nullptr && this->regionId_ == nullptr; };
+        && this->fileName_ == nullptr && this->fileUrl_ == nullptr && this->imageMode_ == nullptr && this->ossFileUrl_ == nullptr && this->outputFormat_ == nullptr
+        && this->regionId_ == nullptr && this->resultType_ == nullptr && this->tableFormat_ == nullptr; };
     // fileFormat Field Functions 
     bool hasFileFormat() const { return this->fileFormat_ != nullptr;};
     void deleteFileFormat() { this->fileFormat_ = nullptr;};
@@ -60,6 +69,20 @@ namespace Models
     inline CreateDocParserJobRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
 
 
+    // imageMode Field Functions 
+    bool hasImageMode() const { return this->imageMode_ != nullptr;};
+    void deleteImageMode() { this->imageMode_ = nullptr;};
+    inline string getImageMode() const { DARABONBA_PTR_GET_DEFAULT(imageMode_, "") };
+    inline CreateDocParserJobRequest& setImageMode(string imageMode) { DARABONBA_PTR_SET_VALUE(imageMode_, imageMode) };
+
+
+    // ossFileUrl Field Functions 
+    bool hasOssFileUrl() const { return this->ossFileUrl_ != nullptr;};
+    void deleteOssFileUrl() { this->ossFileUrl_ = nullptr;};
+    inline string getOssFileUrl() const { DARABONBA_PTR_GET_DEFAULT(ossFileUrl_, "") };
+    inline CreateDocParserJobRequest& setOssFileUrl(string ossFileUrl) { DARABONBA_PTR_SET_VALUE(ossFileUrl_, ossFileUrl) };
+
+
     // outputFormat Field Functions 
     bool hasOutputFormat() const { return this->outputFormat_ != nullptr;};
     void deleteOutputFormat() { this->outputFormat_ = nullptr;};
@@ -74,17 +97,70 @@ namespace Models
     inline CreateDocParserJobRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // resultType Field Functions 
+    bool hasResultType() const { return this->resultType_ != nullptr;};
+    void deleteResultType() { this->resultType_ = nullptr;};
+    inline string getResultType() const { DARABONBA_PTR_GET_DEFAULT(resultType_, "") };
+    inline CreateDocParserJobRequest& setResultType(string resultType) { DARABONBA_PTR_SET_VALUE(resultType_, resultType) };
+
+
+    // tableFormat Field Functions 
+    bool hasTableFormat() const { return this->tableFormat_ != nullptr;};
+    void deleteTableFormat() { this->tableFormat_ = nullptr;};
+    inline string getTableFormat() const { DARABONBA_PTR_GET_DEFAULT(tableFormat_, "") };
+    inline CreateDocParserJobRequest& setTableFormat(string tableFormat) { DARABONBA_PTR_SET_VALUE(tableFormat_, tableFormat) };
+
+
   protected:
+    // The format of the input file. Valid values:
+    // 
+    // - **pdf**: PDF file.
+    // 
+    // - **docx**: Word file in docx format.
+    // 
+    // - **doc**: Word file in doc format.
+    // 
+    // - **pptx**: PPT file in pptx format.
+    // 
+    // - **ppt**: PPT file in ppt format.
+    // 
+    // - **txt**: plain text file.
+    // 
+    // - **md**: Markdown file.
+    // 
+    // - **png**: PNG image.
+    // 
+    // - **jpg**: JPG image.
+    // 
+    // - **jpeg**: JPEG image.
+    // 
     // This parameter is required.
     shared_ptr<string> fileFormat_ {};
+    // The file name, which must include the file name extension.
+    // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
-    // This parameter is required.
+    // The HTTP or HTTPS URL of the file to be parsed.
+    // >SDKs for various languages provide an additional `CreateDocParserJobAdvance` method that supports passing a local file stream directly (such as InputStream in Java), without the need to upload the file to OSS and construct a FileUrl in advance. When using the Advance method, replace the `FileUrl` parameter (URL string) with the `FileUrlObject` parameter (file stream). All other request parameters remain unchanged. The SDK automatically performs the following operations:
+    // >1. Obtains temporary OSS upload credentials.
+    // >2. Uploads the file stream directly to OSS.
+    // >3. Calls the CreateDocParserJob operation with the generated OSS URL.
     shared_ptr<string> fileUrl_ {};
+    shared_ptr<string> imageMode_ {};
+    // The OSS file URL.
+    shared_ptr<string> ossFileUrl_ {};
+    // The output format of the parsing result. Valid values:
+    // 
+    // - **markdown**: Markdown format.
+    // 
     // This parameter is required.
     shared_ptr<string> outputFormat_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    shared_ptr<string> resultType_ {};
+    shared_ptr<string> tableFormat_ {};
   };
 
   } // namespace Models

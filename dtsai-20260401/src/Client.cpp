@@ -2,12 +2,12 @@
 #include <alibabacloud/DtsAI20260401.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
+#include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/policy/Retry.hpp>
 #include <darabonba/Exception.hpp>
 #include <darabonba/Convert.hpp>
 #include <darabonba/http/Form.hpp>
-#include <map>
 #include <darabonba/Stream.hpp>
 #include <darabonba/XML.hpp>
 #include <alibabacloud/credentials/Client.hpp>
@@ -28,7 +28,10 @@ namespace DtsAI20260401
 {
 
 AlibabaCloud::DtsAI20260401::Client::Client(AlibabaCloud::OpenApi::Utils::Models::Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-beijing" , "dtsai.cn-beijing.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("dtsai", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -128,7 +131,10 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 网页搜索
+ * @summary Creates a document parsing task.
+ *
+ * @description - Region: Only China (Beijing) is supported.
+ * - Fees: Free during the public preview period. No fees are charged.
  *
  * @param request CreateDocParserJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -149,12 +155,28 @@ CreateDocParserJobResponse Client::createDocParserJobWithOptions(const CreateDoc
     query["FileUrl"] = request.getFileUrl();
   }
 
+  if (!!request.hasImageMode()) {
+    query["ImageMode"] = request.getImageMode();
+  }
+
+  if (!!request.hasOssFileUrl()) {
+    query["OssFileUrl"] = request.getOssFileUrl();
+  }
+
   if (!!request.hasOutputFormat()) {
     query["OutputFormat"] = request.getOutputFormat();
   }
 
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResultType()) {
+    query["ResultType"] = request.getResultType();
+  }
+
+  if (!!request.hasTableFormat()) {
+    query["TableFormat"] = request.getTableFormat();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -175,7 +197,10 @@ CreateDocParserJobResponse Client::createDocParserJobWithOptions(const CreateDoc
 }
 
 /**
- * @summary 网页搜索
+ * @summary Creates a document parsing task.
+ *
+ * @description - Region: Only China (Beijing) is supported.
+ * - Fees: Free during the public preview period. No fees are charged.
  *
  * @param request CreateDocParserJobRequest
  * @return CreateDocParserJobResponse
@@ -272,7 +297,11 @@ CreateDocParserJobResponse Client::createDocParserJobAdvance(const CreateDocPars
 }
 
 /**
- * @summary 网页搜索
+ * @summary Retrieves the result of a document parsing task.
+ *
+ * @description - Region: Only China (Beijing) is supported.
+ * - Fees: Free of charge during the public preview period.
+ * - Call DescribeDocParserJobResult to retrieve the parsing result of a document parsing task. Call this operation only after DescribeDocParserJobStatus returns a Status of success. Task results are retained for 72 hours and cannot be retrieved after expiration.
  *
  * @param request DescribeDocParserJobResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -307,7 +336,11 @@ DescribeDocParserJobResultResponse Client::describeDocParserJobResultWithOptions
 }
 
 /**
- * @summary 网页搜索
+ * @summary Retrieves the result of a document parsing task.
+ *
+ * @description - Region: Only China (Beijing) is supported.
+ * - Fees: Free of charge during the public preview period.
+ * - Call DescribeDocParserJobResult to retrieve the parsing result of a document parsing task. Call this operation only after DescribeDocParserJobStatus returns a Status of success. Task results are retained for 72 hours and cannot be retrieved after expiration.
  *
  * @param request DescribeDocParserJobResultRequest
  * @return DescribeDocParserJobResultResponse
@@ -318,7 +351,10 @@ DescribeDocParserJobResultResponse Client::describeDocParserJobResult(const Desc
 }
 
 /**
- * @summary 网页搜索
+ * @summary Queries the status of a document parsing task.
+ *
+ * @description - Region: Only China (Beijing) is supported.
+ * - Fees: The service is free of charge during the public preview period.
  *
  * @param request DescribeDocParserJobStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +389,10 @@ DescribeDocParserJobStatusResponse Client::describeDocParserJobStatusWithOptions
 }
 
 /**
- * @summary 网页搜索
+ * @summary Queries the status of a document parsing task.
+ *
+ * @description - Region: Only China (Beijing) is supported.
+ * - Fees: The service is free of charge during the public preview period.
  *
  * @param request DescribeDocParserJobStatusRequest
  * @return DescribeDocParserJobStatusResponse
@@ -364,7 +403,10 @@ DescribeDocParserJobStatusResponse Client::describeDocParserJobStatus(const Desc
 }
 
 /**
- * @summary 网页搜索
+ * @summary Retrieves the content of a web page.
+ *
+ * @description - Region: Only China (Beijing) and Singapore regions are supported.
+ * - Pricing: Free of charge during the public preview period.
  *
  * @param request WebFetchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -403,7 +445,10 @@ WebFetchResponse Client::webFetchWithOptions(const WebFetchRequest &request, con
 }
 
 /**
- * @summary 网页搜索
+ * @summary Retrieves the content of a web page.
+ *
+ * @description - Region: Only China (Beijing) and Singapore regions are supported.
+ * - Pricing: Free of charge during the public preview period.
  *
  * @param request WebFetchRequest
  * @return WebFetchResponse
@@ -414,7 +459,10 @@ WebFetchResponse Client::webFetch(const WebFetchRequest &request) {
 }
 
 /**
- * @summary 网页搜索
+ * @summary Performs a web search.
+ *
+ * @description - Region: Only China (Beijing) and Singapore regions are supported.
+ * - Fees: Free of charge during the public preview. No fees are charged.
  *
  * @param request WebSearchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -435,6 +483,14 @@ WebSearchResponse Client::webSearchWithOptions(const WebSearchRequest &request, 
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasUrlScopeDomains()) {
+    query["UrlScopeDomains"] = request.getUrlScopeDomains();
+  }
+
+  if (!!request.hasUrlScopeMode()) {
+    query["UrlScopeMode"] = request.getUrlScopeMode();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -453,7 +509,10 @@ WebSearchResponse Client::webSearchWithOptions(const WebSearchRequest &request, 
 }
 
 /**
- * @summary 网页搜索
+ * @summary Performs a web search.
+ *
+ * @description - Region: Only China (Beijing) and Singapore regions are supported.
+ * - Fees: Free of charge during the public preview. No fees are charged.
  *
  * @param request WebSearchRequest
  * @return WebSearchResponse

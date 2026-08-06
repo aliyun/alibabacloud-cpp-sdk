@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the document parsing task. You can obtain the ID by calling CreateDocParserJob.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

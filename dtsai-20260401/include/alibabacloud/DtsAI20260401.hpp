@@ -23,7 +23,10 @@ namespace DtsAI20260401
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 网页搜索
+       * @summary Creates a document parsing task.
+       *
+       * @description - Region: Only China (Beijing) is supported.
+       * - Fees: Free during the public preview period. No fees are charged.
        *
        * @param request CreateDocParserJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -32,7 +35,10 @@ namespace DtsAI20260401
       Models::CreateDocParserJobResponse createDocParserJobWithOptions(const Models::CreateDocParserJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 网页搜索
+       * @summary Creates a document parsing task.
+       *
+       * @description - Region: Only China (Beijing) is supported.
+       * - Fees: Free during the public preview period. No fees are charged.
        *
        * @param request CreateDocParserJobRequest
        * @return CreateDocParserJobResponse
@@ -42,7 +48,11 @@ namespace DtsAI20260401
       Models::CreateDocParserJobResponse createDocParserJobAdvance(const Models::CreateDocParserJobAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 网页搜索
+       * @summary Retrieves the result of a document parsing task.
+       *
+       * @description - Region: Only China (Beijing) is supported.
+       * - Fees: Free of charge during the public preview period.
+       * - Call DescribeDocParserJobResult to retrieve the parsing result of a document parsing task. Call this operation only after DescribeDocParserJobStatus returns a Status of success. Task results are retained for 72 hours and cannot be retrieved after expiration.
        *
        * @param request DescribeDocParserJobResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -51,7 +61,11 @@ namespace DtsAI20260401
       Models::DescribeDocParserJobResultResponse describeDocParserJobResultWithOptions(const Models::DescribeDocParserJobResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 网页搜索
+       * @summary Retrieves the result of a document parsing task.
+       *
+       * @description - Region: Only China (Beijing) is supported.
+       * - Fees: Free of charge during the public preview period.
+       * - Call DescribeDocParserJobResult to retrieve the parsing result of a document parsing task. Call this operation only after DescribeDocParserJobStatus returns a Status of success. Task results are retained for 72 hours and cannot be retrieved after expiration.
        *
        * @param request DescribeDocParserJobResultRequest
        * @return DescribeDocParserJobResultResponse
@@ -59,7 +73,10 @@ namespace DtsAI20260401
       Models::DescribeDocParserJobResultResponse describeDocParserJobResult(const Models::DescribeDocParserJobResultRequest &request);
 
       /**
-       * @summary 网页搜索
+       * @summary Queries the status of a document parsing task.
+       *
+       * @description - Region: Only China (Beijing) is supported.
+       * - Fees: The service is free of charge during the public preview period.
        *
        * @param request DescribeDocParserJobStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -68,7 +85,10 @@ namespace DtsAI20260401
       Models::DescribeDocParserJobStatusResponse describeDocParserJobStatusWithOptions(const Models::DescribeDocParserJobStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 网页搜索
+       * @summary Queries the status of a document parsing task.
+       *
+       * @description - Region: Only China (Beijing) is supported.
+       * - Fees: The service is free of charge during the public preview period.
        *
        * @param request DescribeDocParserJobStatusRequest
        * @return DescribeDocParserJobStatusResponse
@@ -76,7 +96,10 @@ namespace DtsAI20260401
       Models::DescribeDocParserJobStatusResponse describeDocParserJobStatus(const Models::DescribeDocParserJobStatusRequest &request);
 
       /**
-       * @summary 网页搜索
+       * @summary Retrieves the content of a web page.
+       *
+       * @description - Region: Only China (Beijing) and Singapore regions are supported.
+       * - Pricing: Free of charge during the public preview period.
        *
        * @param request WebFetchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -85,7 +108,10 @@ namespace DtsAI20260401
       Models::WebFetchResponse webFetchWithOptions(const Models::WebFetchRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 网页搜索
+       * @summary Retrieves the content of a web page.
+       *
+       * @description - Region: Only China (Beijing) and Singapore regions are supported.
+       * - Pricing: Free of charge during the public preview period.
        *
        * @param request WebFetchRequest
        * @return WebFetchResponse
@@ -93,7 +119,10 @@ namespace DtsAI20260401
       Models::WebFetchResponse webFetch(const Models::WebFetchRequest &request);
 
       /**
-       * @summary 网页搜索
+       * @summary Performs a web search.
+       *
+       * @description - Region: Only China (Beijing) and Singapore regions are supported.
+       * - Fees: Free of charge during the public preview. No fees are charged.
        *
        * @param request WebSearchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -102,7 +131,10 @@ namespace DtsAI20260401
       Models::WebSearchResponse webSearchWithOptions(const Models::WebSearchRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 网页搜索
+       * @summary Performs a web search.
+       *
+       * @description - Region: Only China (Beijing) and Singapore regions are supported.
+       * - Fees: Free of charge during the public preview. No fees are charged.
        *
        * @param request WebSearchRequest
        * @return WebSearchResponse
