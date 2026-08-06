@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The time when the resource was created.
     shared_ptr<int64_t> createdAt_ {};
+    // The user who created the resource.
     shared_ptr<string> createdBy_ {};
+    // The database name.
     shared_ptr<string> databaseName_ {};
+    // The shared resource type.
     shared_ptr<string> shareType_ {};
+    // The table name.
     shared_ptr<string> tableName_ {};
+    // The time when the resource was last updated.
     shared_ptr<int64_t> updatedAt_ {};
+    // The user who last updated the resource.
     shared_ptr<string> updatedBy_ {};
   };
 

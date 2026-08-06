@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The ID of the catalog.
     shared_ptr<string> catalogId_ {};
+    // The token used to page through results. A null value indicates that this is the last page.
     shared_ptr<string> nextPageToken_ {};
+    // The shared resources.
     shared_ptr<vector<ShareResource>> shareResources_ {};
   };
 

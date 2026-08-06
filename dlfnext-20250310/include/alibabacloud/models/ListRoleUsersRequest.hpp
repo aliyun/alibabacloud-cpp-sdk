@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. If the response does not return a token, pass an empty string ("").
     shared_ptr<string> pageToken_ {};
+    // The resource descriptor for the DLF role.
     shared_ptr<string> rolePrincipal_ {};
   };
 

@@ -98,12 +98,19 @@ namespace Models
 
 
   protected:
+    // The completion time of the task.
     shared_ptr<int64_t> completedAt_ {};
+    // The creation time of the task.
     shared_ptr<int64_t> createdAt_ {};
+    // The query ID, used for subsequent polling of results.
     shared_ptr<string> queryId_ {};
+    // The result list.
     shared_ptr<vector<StatementResult>> results_ {};
+    // The SQL text. Multiple statements separated by semicolons are supported and executed sequentially within the same session.
     shared_ptr<string> sql_ {};
+    // The task running status.
     shared_ptr<string> status_ {};
+    // The execution specifications. Default value: standard.
     shared_ptr<string> tier_ {};
   };
 

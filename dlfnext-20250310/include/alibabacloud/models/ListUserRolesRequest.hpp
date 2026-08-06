@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token used to retrieve the next page of data. If the response does not provide this token, pass an empty string ("").
     shared_ptr<string> pageToken_ {};
+    // The resource descriptor for the user.
     shared_ptr<string> userPrincipal_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The database name.
     shared_ptr<string> database_ {};
+    // The table name.
     shared_ptr<string> object_ {};
   };
 

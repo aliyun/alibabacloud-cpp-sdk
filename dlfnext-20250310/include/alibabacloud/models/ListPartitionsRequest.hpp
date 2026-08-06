@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The maximum number of records to return in a single request.
     shared_ptr<int64_t> maxResults_ {};
+    // The pagination token used to retrieve the next page of results. If the response does not include this token, pass an empty string ("").
     shared_ptr<string> pageToken_ {};
+    // The partition name pattern.
     shared_ptr<string> partitionNamePattern_ {};
   };
 

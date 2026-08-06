@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The date.
     shared_ptr<string> date_ {};
-    // Metric value at corresponding date
+    // The value.
     shared_ptr<int64_t> value_ {};
   };
 

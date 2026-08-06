@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // The partitions.
     shared_ptr<vector<Partition>> partitions_ {};
   };
 

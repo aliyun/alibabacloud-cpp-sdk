@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The default catalog.
     shared_ptr<string> defaultCatalog_ {};
+    // The default database.
     shared_ptr<string> defaultDatabase_ {};
+    // The limit on the number of returned results.
     shared_ptr<int32_t> limit_ {};
+    // The SQL text. Multiple statements separated by semicolons are supported and executed sequentially within the same session.
     shared_ptr<string> sql_ {};
+    // The execution specifications. Default value: standard.
     shared_ptr<string> tier_ {};
   };
 

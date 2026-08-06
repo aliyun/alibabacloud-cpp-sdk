@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // The list of partition specifications.
     shared_ptr<vector<map<string, string>>> specs_ {};
   };
 

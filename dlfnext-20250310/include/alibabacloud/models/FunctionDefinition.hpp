@@ -88,15 +88,15 @@ namespace Models
 
 
   protected:
-    // required in FileFunctionDefinition
+    // Required in FileFunctionDefinition.
     shared_ptr<string> className_ {};
-    // required in SQLFunctionDefinition/LambdaFunctionDefinition
+    // Required in SQLFunctionDefinition and LambdaFunctionDefinition.
     shared_ptr<string> definition_ {};
-    // required in FileFunctionDefinition
+    // Required in FileFunctionDefinition.
     shared_ptr<vector<FunctionFileResource>> fileResources_ {};
-    // required in FileFunctionDefinition
+    // Required in FileFunctionDefinition.
     shared_ptr<string> functionName_ {};
-    // required in LambdaFunctionDefinition/FileFunctionDefinition
+    // Required in LambdaFunctionDefinition and FileFunctionDefinition.
     shared_ptr<string> language_ {};
     shared_ptr<string> type_ {};
   };

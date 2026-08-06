@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The partition ID.
     shared_ptr<int64_t> fieldId_ {};
+    // The partition name.
     shared_ptr<string> name_ {};
+    // The source ID.
     shared_ptr<int64_t> sourceId_ {};
+    // The transformation rule.
     shared_ptr<string> transform_ {};
   };
 

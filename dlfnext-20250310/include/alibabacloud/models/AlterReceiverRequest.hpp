@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The comment.
     shared_ptr<string> comment_ {};
+    // The name of the sink.
     shared_ptr<string> receiverName_ {};
   };
 

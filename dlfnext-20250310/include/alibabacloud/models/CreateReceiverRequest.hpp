@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The comment.
     shared_ptr<string> comment_ {};
+    // The name of the receiver.
     shared_ptr<string> receiverName_ {};
+    // The ID of the receiver\\"s account.
     shared_ptr<int64_t> receiverTenantId_ {};
   };
 

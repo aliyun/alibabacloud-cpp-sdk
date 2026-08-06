@@ -61,8 +61,13 @@ namespace Models
 
 
   protected:
+    // The error message. This parameter is not empty when success is false, indicating a business error. This parameter is empty when success is true.
     shared_ptr<string> errorMessage_ {};
+    // The list of permissions that failed to be granted.
     shared_ptr<vector<FailurePermission>> failurePermissions_ {};
+    // Indicates whether the API call was successful. Valid values:
+    // - true: The API call was successful.
+    // - false: The API call failed.
     shared_ptr<bool> success_ {};
   };
 

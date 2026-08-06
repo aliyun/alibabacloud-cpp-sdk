@@ -271,38 +271,54 @@ namespace Models
 
 
   protected:
-    // Latest snapshot storage size
+    // The timestamp, in milliseconds, indicating when the table was created.
     shared_ptr<int64_t> createdAt_ {};
-    // Database name
+    // The name of the database.
     shared_ptr<string> databaseName_ {};
+    // The generation date of the storage summary.
     shared_ptr<string> generatedDate_ {};
+    // The timestamp, in milliseconds, indicating when the table data was last accessed.
     shared_ptr<int64_t> lastAccessTime_ {};
     shared_ptr<string> lastRequester_ {};
+    // The total size of data files in the Archive storage class, in bytes.
     shared_ptr<int64_t> objTypeArchiveSize_ {};
+    // The total size of data files in the Cold Archive storage class, in bytes.
     shared_ptr<int64_t> objTypeColdArchiveSize_ {};
+    // The total size of data files in the Infrequent Access storage class, in bytes.
     shared_ptr<int64_t> objTypeIaSize_ {};
+    // The total size of data files in the Standard storage class, in bytes.
     shared_ptr<int64_t> objTypeStandardSize_ {};
-    // Creation timestamp in milliseconds
+    // The total number of partitions in the table.
     shared_ptr<int64_t> partitionCount_ {};
+    // The storage location of the table.
     shared_ptr<string> path_ {};
+    // The storage action parameters.
     shared_ptr<map<string, string>> storageActionParams_ {};
     shared_ptr<int64_t> storageActionTimestamp_ {};
+    // The storage class.
     shared_ptr<string> storageClass_ {};
-    // Table name
+    // The name of the table.
     shared_ptr<string> tableName_ {};
     shared_ptr<string> topRequester_ {};
+    // Total file access count.
     shared_ptr<int64_t> totalFileAccessNum_ {};
+    // Total file access count over the last 30 days.
     shared_ptr<int64_t> totalFileAccessNum30d_ {};
+    // Total file access count over the last 7 days.
     shared_ptr<int64_t> totalFileAccessNum7d_ {};
-    // 30-day access count
+    // The total number of files in the table.
     shared_ptr<int64_t> totalFileCount_ {};
+    // The total storage capacity of the table, in bytes.
     shared_ptr<int64_t> totalFileSizeInBytes_ {};
+    // The total number of metadata files.
     shared_ptr<int64_t> totalMetaFileCount_ {};
+    // The total size of metadata files, in bytes.
     shared_ptr<int64_t> totalMetaSizeInBytes_ {};
-    // Creation timestamp in milliseconds
+    // The number of Standard or Infrequent Access partitions unaccessed in the last 180 days.
     shared_ptr<int64_t> unaccessedStdIaPartitionCount180d_ {};
-    // Creation timestamp in milliseconds
+    // The number of Standard partitions unaccessed in the last 30 days.
     shared_ptr<int64_t> unaccessedStdPartitionCount30d_ {};
+    // The update time.
     shared_ptr<int64_t> updatedAt_ {};
   };
 

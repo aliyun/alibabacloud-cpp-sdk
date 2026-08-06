@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The catalog ID.
     shared_ptr<string> catalogId_ {};
+    // The catalog name.
     shared_ptr<string> catalogName_ {};
+    // The number of CUs.
     shared_ptr<int32_t> cu_ {};
+    // The time when the subscription expires.
     shared_ptr<int64_t> expireTime_ {};
+    // The time when the resources are purchased.
     shared_ptr<int64_t> gmtCreate_ {};
+    // The instance ID of computing resource.
     shared_ptr<string> instanceId_ {};
+    // The status of the computing resource.
     shared_ptr<string> instanceStatus_ {};
   };
 

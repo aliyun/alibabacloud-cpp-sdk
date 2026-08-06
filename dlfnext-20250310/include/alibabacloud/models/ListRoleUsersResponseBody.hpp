@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The token to retrieve the next page of results. If null is returned, all results have been retrieved.
     shared_ptr<string> nextPageToken_ {};
+    // The users.
     shared_ptr<vector<User>> users_ {};
   };
 

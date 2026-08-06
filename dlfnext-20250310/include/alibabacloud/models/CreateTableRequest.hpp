@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The table identifier.
     shared_ptr<Identifier> identifier_ {};
+    // The table schema.
     shared_ptr<Schema> schema_ {};
   };
 

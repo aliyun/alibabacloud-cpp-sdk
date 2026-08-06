@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The namespaces.
     shared_ptr<vector<Namespace>> namespaceDetails_ {};
+    // The token for the next page of results. If this parameter is not returned, all results have been retrieved.
     shared_ptr<string> nextPageToken_ {};
   };
 

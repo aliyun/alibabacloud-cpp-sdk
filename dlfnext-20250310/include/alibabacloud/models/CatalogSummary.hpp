@@ -182,21 +182,35 @@ namespace Models
 
 
   protected:
+    // The total number of metadata requests in the current month.
     shared_ptr<int64_t> apiVisitCountMonthly_ {};
+    // The month-over-month data on the total number of databases.
     shared_ptr<MoMValues> databaseCount_ {};
+    // The total number of file requests for the current month.
     shared_ptr<int64_t> fileAccessCountMonthly_ {};
-    // Update date of the statistics
+    // The date when the storage overview data was updated.
     shared_ptr<string> generatedDate_ {};
+    // The storage usage for Archive data files.
     shared_ptr<int64_t> objTypeArchiveSize_ {};
+    // The storage usage for Cold Archive data files.
     shared_ptr<int64_t> objTypeColdArchiveSize_ {};
+    // The storage usage for Infrequent Access (IA) data files.
     shared_ptr<int64_t> objTypeIaSize_ {};
+    // The storage usage for Standard data files.
     shared_ptr<int64_t> objTypeStandardSize_ {};
+    // The month-over-month data on the total number of partitions.
     shared_ptr<MoMValues> partitionCount_ {};
+    // The month-over-month data on the total number of tables.
     shared_ptr<MoMValues> tableCount_ {};
+    // The data access traffic for the current month, in bytes.
     shared_ptr<int64_t> throughputMonthly_ {};
+    // The month-over-month data on the total number of files.
     shared_ptr<MoMValues> totalFileCount_ {};
+    // The change in storage capacity from the previous period, in bytes.
     shared_ptr<MoMValues> totalFileSizeInBytes_ {};
+    // The month-over-month data for the total number of metadata files.
     shared_ptr<MoMValues> totalMetaFileCount_ {};
+    // The month-over-month data for the storage usage of metadata files, in bytes.
     shared_ptr<MoMValues> totalMetaSizeInBytes_ {};
   };
 

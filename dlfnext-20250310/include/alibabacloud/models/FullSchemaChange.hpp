@@ -151,25 +151,29 @@ namespace Models
 
 
   protected:
+    // The type of change.
     shared_ptr<string> action_ {};
-    // required in UpdateComment/AddColumn
+    // The description. This parameter is required when `action` is `UpdateComment` or `AddColumn`.
     shared_ptr<string> comment_ {};
+    // The column type. This parameter is required when `action` is `AddColumn`.
     shared_ptr<FullDataType> dataType_ {};
-    // required in AddColumn/RenameColumn/DropColumn/UpdateColumnComment/UpdateColumnType/UpdateColumnNullability
+    // The table column names. This parameter is required when `action` is `AddColumn`, `RenameColumn`, `DropColumn`, `UpdateColumnComment`, `UpdateColumnType`, or `UpdateColumnNullability`.
     shared_ptr<vector<string>> fieldNames_ {};
-    // required in UpdateColumnType
+    // Specifies whether the column is nullable. This parameter is required when the `action` is `UpdateColumnType`.
     shared_ptr<bool> keepNullability_ {};
-    // required in SetOption/RemoveOption
+    // The key for the configuration. This parameter is required when `action` is `SetOption` or `RemoveOption`.
     shared_ptr<string> key_ {};
+    // The column to move. This parameter is required when `action` is `AddColumn` or `UpdateColumnPosition`.
     shared_ptr<Move> move_ {};
-    // required in UpdateColumnComment
+    // The new description for the column. This parameter is required when `action` is `UpdateColumnComment`.
     shared_ptr<string> newComment_ {};
+    // The new column type. This parameter is required when `action` is `UpdateColumnType`.
     shared_ptr<FullDataType> newDataType_ {};
-    // required in RenameColumn
+    // The new name of the column. This parameter is required when `action` is `RenameColumn`.
     shared_ptr<string> newName_ {};
-    // required in UpdateColumnNullability
+    // Specifies whether the new column is nullable. This parameter is required when `action` is `UpdateColumnType`.
     shared_ptr<bool> newNullability_ {};
-    // required in SetOption
+    // The value of the configuration. This parameter is required when `action` is `SetOption`.
     shared_ptr<string> value_ {};
   };
 

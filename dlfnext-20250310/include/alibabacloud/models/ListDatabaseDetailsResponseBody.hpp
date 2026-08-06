@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The list of databases.
     shared_ptr<vector<Database>> databaseDetails_ {};
+    // The pagination token used to retrieve the next page of results. A value of null indicates that the current page is the last page.
     shared_ptr<string> nextPageToken_ {};
   };
 

@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The expiration time of the temporary access credential.
     shared_ptr<int64_t> expiresAtMillis_ {};
+    // The temporary access credential for the catalog hosting the table.
     shared_ptr<map<string, string>> token_ {};
   };
 

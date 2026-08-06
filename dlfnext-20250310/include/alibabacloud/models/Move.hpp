@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The name of the column.
     shared_ptr<string> fieldName_ {};
+    // The name of the reference column.
     shared_ptr<string> referenceFieldName_ {};
+    // The move type.
     shared_ptr<string> type_ {};
   };
 

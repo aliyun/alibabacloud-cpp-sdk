@@ -75,10 +75,17 @@ namespace Models
 
 
   protected:
+    // The maximum number of records to retrieve in a single request.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token used to retrieve the next page of data. If the response does not provide this value, pass an empty string ("") or an empty character (\\"\\").
     shared_ptr<string> pageToken_ {};
+    // The deletion status of the table. Valid values:
+    // - retained: The table is deleted and temporarily stored in the recycle bin.
+    // - active: The table is in a normal state. This is the default value.
     shared_ptr<string> status_ {};
+    // The fuzzy match pattern for the table name.
     shared_ptr<string> tableNamePattern_ {};
+    // The type.
     shared_ptr<string> type_ {};
   };
 

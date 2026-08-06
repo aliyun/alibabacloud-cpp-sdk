@@ -86,10 +86,15 @@ namespace Models
 
 
   protected:
+    // The data type.
     shared_ptr<FullDataType> element_ {};
+    // The list of field definitions. This parameter is required when `type` is `ROW`.
     shared_ptr<vector<DataField>> fields_ {};
+    // The data type of the key. This parameter is required when `type` is `MAP`.
     shared_ptr<FullDataType> key_ {};
+    // The data type. This parameter is required when `type` is `ARRAY` or `MULTISET`.
     shared_ptr<string> type_ {};
+    // The data type of the value. This parameter is required when `type` is `MAP`.
     shared_ptr<FullDataType> value_ {};
   };
 

@@ -86,10 +86,15 @@ namespace Models
 
 
   protected:
+    // The comment for the table.
     shared_ptr<string> comment_ {};
+    // A list of table column definitions.
     shared_ptr<vector<DataField>> fields_ {};
+    // A list of table configuration options.
     shared_ptr<map<string, string>> options_ {};
+    // A list of partition column names.
     shared_ptr<vector<string>> partitionKeys_ {};
+    // A list of primary key column names.
     shared_ptr<vector<string>> primaryKeys_ {};
   };
 

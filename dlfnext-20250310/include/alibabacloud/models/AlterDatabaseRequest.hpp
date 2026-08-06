@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The items to delete.
     shared_ptr<vector<string>> removals_ {};
+    // The items to update.
     shared_ptr<map<string, string>> updates_ {};
   };
 

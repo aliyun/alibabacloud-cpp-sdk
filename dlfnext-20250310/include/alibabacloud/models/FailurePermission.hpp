@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The permission information.
     shared_ptr<Permission> permission_ {};
   };
 

@@ -52,8 +52,9 @@ namespace Models
 
 
   protected:
+    // The token to retrieve the next page of results. A null value indicates that the last page of results has been returned.
     shared_ptr<string> nextPageToken_ {};
-    // Current page of partition profiles
+    // The partitions.
     shared_ptr<vector<PartitionSummary>> partitions_ {};
   };
 

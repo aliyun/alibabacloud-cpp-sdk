@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // Specifies whether to share the catalog.
     shared_ptr<bool> isShared_ {};
+    // The catalog name.
     shared_ptr<string> name_ {};
+    // The configuration options for the catalog.
     shared_ptr<map<string, string>> options_ {};
+    // The share ID.
     shared_ptr<string> shareId_ {};
+    // The catalog type.
     shared_ptr<string> type_ {};
   };
 

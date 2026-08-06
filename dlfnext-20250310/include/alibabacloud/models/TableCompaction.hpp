@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The catalog ID.
     shared_ptr<string> catalogId_ {};
+    // The total CU usage.
     shared_ptr<double> cuUsage_ {};
+    // The time when the last file was compacted.
     shared_ptr<int64_t> lastCompactedFileTime_ {};
+    // The earliest creation time of uncompacted files.
     shared_ptr<int64_t> latencyFileEarliestTime_ {};
+    // The number of Level 0 files.
     shared_ptr<string> maxLevel0FileCount_ {};
+    // The table ID.
     shared_ptr<string> tableId_ {};
   };
 

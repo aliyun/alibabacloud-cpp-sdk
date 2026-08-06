@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the KMS customer master key (CMK) to be validated. The server uses this key to perform an SSE-KMS write probe.
+    // 
     // This parameter is required.
     shared_ptr<string> kmsKeyId_ {};
   };

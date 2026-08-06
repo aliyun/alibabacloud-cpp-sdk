@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The error code returned when the validation fails. An empty string is returned when the validation is successful.
     shared_ptr<string> errorCode_ {};
+    // The description of the failure cause and remediation suggestions returned when the validation fails. An empty string is returned when the validation is successful.
     shared_ptr<string> hint_ {};
+    // The KMS key identifier actually used by the probe object. When the validation is successful, this corresponds to the customer master key (CMK) specified in the request.
     shared_ptr<string> kmsKeyId_ {};
+    // The server-side encryption method actually used by the probe object. Returns KMS when the validation is successful.
     shared_ptr<string> serverSideEncryption_ {};
+    // Indicates whether the validation is successful. A value of true indicates that the write probe succeeded and the SSE-KMS configuration of the object meets expectations. A value of false indicates that the validation failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -84,7 +84,9 @@ namespace Models
 
 
     protected:
+      // The column name.
       shared_ptr<string> name_ {};
+      // The data type.
       shared_ptr<string> type_ {};
     };
 
@@ -157,14 +159,23 @@ namespace Models
 
 
   protected:
+    // The presigned URL of the Arrow IPC file. This parameter is returned when a result set exists. The URL is valid for 1 hour and contains full data. The value is null for an empty result set (rowCount == 0).
     shared_ptr<string> downloadUrl_ {};
+    // The error message. This parameter is returned only when the status is FAILED.
     shared_ptr<string> error_ {};
+    // The error code. This parameter is returned only when the status is FAILED.
     shared_ptr<string> errorCode_ {};
+    // The execution duration of the statement, in milliseconds.
     shared_ptr<int64_t> executionTime_ {};
+    // The statement sequence number (0-based).
     shared_ptr<int32_t> index_ {};
+    // The total number of rows in the result. The value is 0 for statements that do not return a result set.
     shared_ptr<int32_t> rowCount_ {};
+    // The result column information. This parameter is returned when a result set exists.
     shared_ptr<vector<StatementResult::Schema>> schema_ {};
+    // The SQL text of the statement.
     shared_ptr<string> sql_ {};
+    // The status of the statement. Valid values: COMPLETED and FAILED.
     shared_ptr<string> status_ {};
   };
 

@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The ARN of the RAM role used by DLF to access catalog data. When configuring the KMS key policy, you must grant this role permissions to use the customer master key.
     shared_ptr<string> dataAccessRoleArn_ {};
+    // The authorization statement that must be added to the customer master key policy. This statement grants the DLF data access role corresponding to dataAccessRoleArn the KMS permissions required for data encryption and decryption.
     shared_ptr<string> keyPolicyStatement_ {};
+    // The region ID to which the catalog belongs.
     shared_ptr<string> region_ {};
+    // The DLF workflow role ARN. In the current version, the workflow role is not granted customer master key access permissions based on the least privilege principle. Therefore, this field returns an empty value.
     shared_ptr<string> workflowRoleArn_ {};
   };
 

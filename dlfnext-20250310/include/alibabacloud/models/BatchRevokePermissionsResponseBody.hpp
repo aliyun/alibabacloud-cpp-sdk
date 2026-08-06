@@ -61,8 +61,16 @@ namespace Models
 
 
   protected:
+    // - If success is false, a business error message is returned.
+    // 
+    // - If success is true, an empty value is returned.
     shared_ptr<string> errorMessage_ {};
+    // The results of permissions that failed to be revoked in batches.
     shared_ptr<vector<FailurePermission>> failurePermissions_ {};
+    // Indicates whether the API call is successful. Valid values:
+    // 
+    // - true: The API call is successful.
+    // - false: The API call failed.
     shared_ptr<bool> success_ {};
   };
 

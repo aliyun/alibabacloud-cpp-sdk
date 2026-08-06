@@ -121,15 +121,24 @@ namespace Models
 
 
   protected:
+    // The comment for the share.
     shared_ptr<string> comment_ {};
+    // The time when the share was created.
     shared_ptr<int64_t> createdAt_ {};
+    // The user who created the share.
     shared_ptr<string> createdBy_ {};
     shared_ptr<bool> enableWrite_ {};
+    // The resource descriptor of the share owner.
     shared_ptr<string> owner_ {};
+    // The provider\\"s account ID.
     shared_ptr<int64_t> providerTenantId_ {};
+    // The share ID.
     shared_ptr<string> shareId_ {};
+    // The share name.
     shared_ptr<string> shareName_ {};
+    // The time when the share was last updated.
     shared_ptr<int64_t> updatedAt_ {};
+    // The user who last updated the share.
     shared_ptr<string> updatedBy_ {};
   };
 

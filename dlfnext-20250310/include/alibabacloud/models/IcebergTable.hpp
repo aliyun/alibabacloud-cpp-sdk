@@ -124,15 +124,25 @@ namespace Models
 
 
   protected:
+    // The table creation time.
     shared_ptr<int64_t> createdAt_ {};
+    // The table creator.
     shared_ptr<string> createdBy_ {};
+    // The metadata of the table.
     shared_ptr<IcebergTableMetadata> icebergTableMetadata_ {};
+    // The table UUID.
     shared_ptr<string> id_ {};
+    // The table name.
     shared_ptr<string> name_ {};
+    // The owner of the table.
     shared_ptr<string> owner_ {};
+    // The table URI.
     shared_ptr<string> path_ {};
+    // The time when the table was last updated.
     shared_ptr<int64_t> updatedAt_ {};
+    // The user who last updated the table.
     shared_ptr<string> updatedBy_ {};
+    // The version of the table.
     shared_ptr<int64_t> version_ {};
   };
 

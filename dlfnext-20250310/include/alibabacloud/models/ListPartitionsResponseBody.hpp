@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The pagination token that is used to retrieve the next page of results.
     shared_ptr<string> nextPageToken_ {};
+    // The partitions.
     shared_ptr<vector<Partition>> partitions_ {};
   };
 

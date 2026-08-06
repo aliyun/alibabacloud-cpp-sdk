@@ -229,6 +229,8 @@
 #include <alibabacloud/models/UpdateRoleResponse.hpp>
 #include <alibabacloud/models/UpdateRoleUsersRequest.hpp>
 #include <alibabacloud/models/UpdateRoleUsersResponse.hpp>
+#include <alibabacloud/models/UpdateVpcConfigRequest.hpp>
+#include <alibabacloud/models/UpdateVpcConfigResponse.hpp>
 #include <alibabacloud/models/VerifyCatalogKmsRequest.hpp>
 #include <alibabacloud/models/VerifyCatalogKmsResponseBody.hpp>
 #include <alibabacloud/models/VerifyCatalogKmsResponse.hpp>

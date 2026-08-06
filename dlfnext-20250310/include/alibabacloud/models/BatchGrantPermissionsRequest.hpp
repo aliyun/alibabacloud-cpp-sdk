@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // The list of permissions.
     shared_ptr<vector<Permission>> permissions_ {};
   };
 

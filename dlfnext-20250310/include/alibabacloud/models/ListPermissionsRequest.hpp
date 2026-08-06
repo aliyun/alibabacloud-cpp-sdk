@@ -103,14 +103,23 @@ namespace Models
 
 
   protected:
+    // The database name.
     shared_ptr<string> database_ {};
+    // The function name.
     shared_ptr<string> function_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token used to retrieve the next page of data. If the response does not include this token, pass an empty string ("") or an empty character (\\"\\").
     shared_ptr<string> pageToken_ {};
+    // The user resource descriptor.
     shared_ptr<string> principal_ {};
+    // The permission resource type.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The data table name.
     shared_ptr<string> table_ {};
+    // The view name.
     shared_ptr<string> view_ {};
   };
 

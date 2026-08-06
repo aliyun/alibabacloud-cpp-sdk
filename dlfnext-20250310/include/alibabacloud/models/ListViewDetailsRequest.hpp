@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The maximum number of records to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page of results. If the response does not include this token, pass an empty string ("").
     shared_ptr<string> pageToken_ {};
+    // A pattern to filter view names.
     shared_ptr<string> viewNamePattern_ {};
   };
 

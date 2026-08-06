@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The query ID, which is used for subsequent polling of results.
     shared_ptr<string> queryId_ {};
   };
 
