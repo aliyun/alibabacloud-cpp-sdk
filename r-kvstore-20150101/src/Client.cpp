@@ -10964,6 +10964,10 @@ ModifyInstanceSpecResponse Client::modifyInstanceSpecWithOptions(const ModifyIns
     query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
+  if (!!request.hasSecondaryZoneId()) {
+    query["SecondaryZoneId"] = request.getSecondaryZoneId();
+  }
+
   if (!!request.hasSecurityToken()) {
     query["SecurityToken"] = request.getSecurityToken();
   }

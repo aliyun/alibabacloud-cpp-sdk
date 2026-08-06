@@ -32,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ReplicaCount, replicaCount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(SecondaryZoneId, secondaryZoneId_);
       DARABONBA_PTR_TO_JSON(SecurityToken, securityToken_);
       DARABONBA_PTR_TO_JSON(ShardCount, shardCount_);
       DARABONBA_PTR_TO_JSON(SlaveReadOnlyCount, slaveReadOnlyCount_);
@@ -60,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ReplicaCount, replicaCount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(SecondaryZoneId, secondaryZoneId_);
       DARABONBA_PTR_FROM_JSON(SecurityToken, securityToken_);
       DARABONBA_PTR_FROM_JSON(ShardCount, shardCount_);
       DARABONBA_PTR_FROM_JSON(SlaveReadOnlyCount, slaveReadOnlyCount_);
@@ -83,8 +85,9 @@ namespace Models
         && this->businessInfo_ == nullptr && this->clientToken_ == nullptr && this->couponNo_ == nullptr && this->effectiveTime_ == nullptr && this->forceTrans_ == nullptr
         && this->forceUpgrade_ == nullptr && this->instanceClass_ == nullptr && this->instanceId_ == nullptr && this->majorVersion_ == nullptr && this->nodeType_ == nullptr
         && this->orderType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->readOnlyCount_ == nullptr && this->regionId_ == nullptr
-        && this->replicaCount_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityToken_ == nullptr && this->shardCount_ == nullptr
-        && this->slaveReadOnlyCount_ == nullptr && this->slaveReplicaCount_ == nullptr && this->sourceBiz_ == nullptr && this->storage_ == nullptr && this->storageType_ == nullptr; };
+        && this->replicaCount_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->secondaryZoneId_ == nullptr && this->securityToken_ == nullptr
+        && this->shardCount_ == nullptr && this->slaveReadOnlyCount_ == nullptr && this->slaveReplicaCount_ == nullptr && this->sourceBiz_ == nullptr && this->storage_ == nullptr
+        && this->storageType_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -218,6 +221,13 @@ namespace Models
     inline ModifyInstanceSpecRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
+    // secondaryZoneId Field Functions 
+    bool hasSecondaryZoneId() const { return this->secondaryZoneId_ != nullptr;};
+    void deleteSecondaryZoneId() { this->secondaryZoneId_ = nullptr;};
+    inline string getSecondaryZoneId() const { DARABONBA_PTR_GET_DEFAULT(secondaryZoneId_, "") };
+    inline ModifyInstanceSpecRequest& setSecondaryZoneId(string secondaryZoneId) { DARABONBA_PTR_SET_VALUE(secondaryZoneId_, secondaryZoneId) };
+
+
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
@@ -347,6 +357,7 @@ namespace Models
     shared_ptr<int32_t> replicaCount_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    shared_ptr<string> secondaryZoneId_ {};
     shared_ptr<string> securityToken_ {};
     // The number of shards. This parameter is applicable only to cloud-native cluster instances.
     // 
