@@ -1872,6 +1872,74 @@ DescribeMOTokenUsageDetailResponse Client::describeMOTokenUsageDetail(const Desc
 }
 
 /**
+ * @summary 查看 model operator 实例具体 token 汇总情况
+ *
+ * @description ### 适用引擎
+ * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ *
+ * @param request DescribeMOTokenUsageSummaryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeMOTokenUsageSummaryResponse
+ */
+DescribeMOTokenUsageSummaryResponse Client::describeMOTokenUsageSummaryWithOptions(const DescribeMOTokenUsageSummaryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApiKey()) {
+    query["ApiKey"] = request.getApiKey();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasModel()) {
+    query["Model"] = request.getModel();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasUsageType()) {
+    query["UsageType"] = request.getUsageType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeMOTokenUsageSummary"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeMOTokenUsageSummaryResponse>();
+}
+
+/**
+ * @summary 查看 model operator 实例具体 token 汇总情况
+ *
+ * @description ### 适用引擎
+ * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ *
+ * @param request DescribeMOTokenUsageSummaryRequest
+ * @return DescribeMOTokenUsageSummaryResponse
+ */
+DescribeMOTokenUsageSummaryResponse Client::describeMOTokenUsageSummary(const DescribeMOTokenUsageSummaryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeMOTokenUsageSummaryWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询 MO 用量明细 CSV 异步导出任务的状态/下载链接
  *
  * @description ### 适用引擎

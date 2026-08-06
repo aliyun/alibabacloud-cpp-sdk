@@ -87,6 +87,9 @@
 #include <alibabacloud/models/DescribeMOTokenUsageDetailRequest.hpp>
 #include <alibabacloud/models/DescribeMOTokenUsageDetailResponseBody.hpp>
 #include <alibabacloud/models/DescribeMOTokenUsageDetailResponse.hpp>
+#include <alibabacloud/models/DescribeMOTokenUsageSummaryRequest.hpp>
+#include <alibabacloud/models/DescribeMOTokenUsageSummaryResponseBody.hpp>
+#include <alibabacloud/models/DescribeMOTokenUsageSummaryResponse.hpp>
 #include <alibabacloud/models/DescribeMOUsageDetailExportRequest.hpp>
 #include <alibabacloud/models/DescribeMOUsageDetailExportResponseBody.hpp>
 #include <alibabacloud/models/DescribeMOUsageDetailExportResponse.hpp>

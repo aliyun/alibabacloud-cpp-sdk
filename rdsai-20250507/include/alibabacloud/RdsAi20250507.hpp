@@ -651,6 +651,29 @@ namespace RdsAi20250507
       Models::DescribeMOTokenUsageDetailResponse describeMOTokenUsageDetail(const Models::DescribeMOTokenUsageDetailRequest &request);
 
       /**
+       * @summary 查看 model operator 实例具体 token 汇总情况
+       *
+       * @description ### 适用引擎
+       * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       *
+       * @param request DescribeMOTokenUsageSummaryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeMOTokenUsageSummaryResponse
+       */
+      Models::DescribeMOTokenUsageSummaryResponse describeMOTokenUsageSummaryWithOptions(const Models::DescribeMOTokenUsageSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看 model operator 实例具体 token 汇总情况
+       *
+       * @description ### 适用引擎
+       * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       *
+       * @param request DescribeMOTokenUsageSummaryRequest
+       * @return DescribeMOTokenUsageSummaryResponse
+       */
+      Models::DescribeMOTokenUsageSummaryResponse describeMOTokenUsageSummary(const Models::DescribeMOTokenUsageSummaryRequest &request);
+
+      /**
        * @summary 查询 MO 用量明细 CSV 异步导出任务的状态/下载链接
        *
        * @description ### 适用引擎
