@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ImageTo, imageTo_);
       DARABONBA_PTR_TO_JSON(IsSuccess, isSuccess_);
       DARABONBA_PTR_TO_JSON(LayerTasks, layerTasks_);
+      DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(Progress, progress_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(SyncBatchTaskId, syncBatchTaskId_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ImageTo, imageTo_);
       DARABONBA_PTR_FROM_JSON(IsSuccess, isSuccess_);
       DARABONBA_PTR_FROM_JSON(LayerTasks, layerTasks_);
+      DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(Progress, progress_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(SyncBatchTaskId, syncBatchTaskId_);
@@ -304,8 +306,9 @@ namespace Models
 
     virtual bool empty() const override { return this->code_ == nullptr
         && this->crossUser_ == nullptr && this->imageFrom_ == nullptr && this->imageTo_ == nullptr && this->isSuccess_ == nullptr && this->layerTasks_ == nullptr
-        && this->progress_ == nullptr && this->requestId_ == nullptr && this->syncBatchTaskId_ == nullptr && this->syncRuleId_ == nullptr && this->syncTaskId_ == nullptr
-        && this->syncTransAccelerate_ == nullptr && this->syncedSize_ == nullptr && this->taskIssue_ == nullptr && this->taskStatus_ == nullptr && this->taskTrigger_ == nullptr; };
+        && this->priority_ == nullptr && this->progress_ == nullptr && this->requestId_ == nullptr && this->syncBatchTaskId_ == nullptr && this->syncRuleId_ == nullptr
+        && this->syncTaskId_ == nullptr && this->syncTransAccelerate_ == nullptr && this->syncedSize_ == nullptr && this->taskIssue_ == nullptr && this->taskStatus_ == nullptr
+        && this->taskTrigger_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -352,6 +355,13 @@ namespace Models
     inline vector<GetRepoSyncTaskResponseBody::LayerTasks> getLayerTasks() { DARABONBA_PTR_GET(layerTasks_, vector<GetRepoSyncTaskResponseBody::LayerTasks>) };
     inline GetRepoSyncTaskResponseBody& setLayerTasks(const vector<GetRepoSyncTaskResponseBody::LayerTasks> & layerTasks) { DARABONBA_PTR_SET_VALUE(layerTasks_, layerTasks) };
     inline GetRepoSyncTaskResponseBody& setLayerTasks(vector<GetRepoSyncTaskResponseBody::LayerTasks> && layerTasks) { DARABONBA_PTR_SET_RVALUE(layerTasks_, layerTasks) };
+
+
+    // priority Field Functions 
+    bool hasPriority() const { return this->priority_ != nullptr;};
+    void deletePriority() { this->priority_ = nullptr;};
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline GetRepoSyncTaskResponseBody& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // progress Field Functions 
@@ -437,6 +447,7 @@ namespace Models
     shared_ptr<bool> isSuccess_ {};
     // The synchronization tasks for the image layer.
     shared_ptr<vector<GetRepoSyncTaskResponseBody::LayerTasks>> layerTasks_ {};
+    shared_ptr<int32_t> priority_ {};
     // The synchronization progress. Valid values:
     // 
     // *   `0`: The synchronization starts or failed.

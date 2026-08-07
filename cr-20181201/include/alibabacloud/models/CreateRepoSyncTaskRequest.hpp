@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateRepoSyncTaskRequest& obj) { 
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Override, override_);
+      DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(RepoId, repoId_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(TargetInstanceId, targetInstanceId_);
@@ -27,6 +28,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateRepoSyncTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Override, override_);
+      DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(RepoId, repoId_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(TargetInstanceId, targetInstanceId_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->override_ == nullptr && this->repoId_ == nullptr && this->tag_ == nullptr && this->targetInstanceId_ == nullptr && this->targetNamespace_ == nullptr
-        && this->targetRegionId_ == nullptr && this->targetRepoName_ == nullptr && this->targetTag_ == nullptr && this->targetUserId_ == nullptr; };
+        && this->override_ == nullptr && this->priority_ == nullptr && this->repoId_ == nullptr && this->tag_ == nullptr && this->targetInstanceId_ == nullptr
+        && this->targetNamespace_ == nullptr && this->targetRegionId_ == nullptr && this->targetRepoName_ == nullptr && this->targetTag_ == nullptr && this->targetUserId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -62,6 +64,13 @@ namespace Models
     void deleteOverride() { this->override_ = nullptr;};
     inline bool getOverride() const { DARABONBA_PTR_GET_DEFAULT(override_, false) };
     inline CreateRepoSyncTaskRequest& setOverride(bool override) { DARABONBA_PTR_SET_VALUE(override_, override) };
+
+
+    // priority Field Functions 
+    bool hasPriority() const { return this->priority_ != nullptr;};
+    void deletePriority() { this->priority_ = nullptr;};
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline CreateRepoSyncTaskRequest& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // repoId Field Functions 
@@ -131,6 +140,7 @@ namespace Models
     // 
     // - `false`: Do not overwrite the existing image.
     shared_ptr<bool> override_ {};
+    shared_ptr<int32_t> priority_ {};
     // Image repository ID in the source instance
     // 
     // This parameter is required.

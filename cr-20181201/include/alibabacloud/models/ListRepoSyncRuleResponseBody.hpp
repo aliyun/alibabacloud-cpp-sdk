@@ -53,6 +53,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(LocalRegionId, localRegionId_);
         DARABONBA_PTR_TO_JSON(LocalRepoName, localRepoName_);
         DARABONBA_PTR_TO_JSON(ModifiedTime, modifiedTime_);
+        DARABONBA_PTR_TO_JSON(NamespaceNameFilter, namespaceNameFilter_);
+        DARABONBA_PTR_TO_JSON(Priority, priority_);
         DARABONBA_PTR_TO_JSON(RepoNameFilter, repoNameFilter_);
         DARABONBA_PTR_TO_JSON(SyncDirection, syncDirection_);
         DARABONBA_PTR_TO_JSON(SyncRuleId, syncRuleId_);
@@ -74,6 +76,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(LocalRegionId, localRegionId_);
         DARABONBA_PTR_FROM_JSON(LocalRepoName, localRepoName_);
         DARABONBA_PTR_FROM_JSON(ModifiedTime, modifiedTime_);
+        DARABONBA_PTR_FROM_JSON(NamespaceNameFilter, namespaceNameFilter_);
+        DARABONBA_PTR_FROM_JSON(Priority, priority_);
         DARABONBA_PTR_FROM_JSON(RepoNameFilter, repoNameFilter_);
         DARABONBA_PTR_FROM_JSON(SyncDirection, syncDirection_);
         DARABONBA_PTR_FROM_JSON(SyncRuleId, syncRuleId_);
@@ -99,9 +103,9 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createTime_ == nullptr
         && this->crossUser_ == nullptr && this->linkId_ == nullptr && this->localInstanceId_ == nullptr && this->localNamespaceName_ == nullptr && this->localRegionId_ == nullptr
-        && this->localRepoName_ == nullptr && this->modifiedTime_ == nullptr && this->repoNameFilter_ == nullptr && this->syncDirection_ == nullptr && this->syncRuleId_ == nullptr
-        && this->syncRuleName_ == nullptr && this->syncScope_ == nullptr && this->syncTrigger_ == nullptr && this->tagFilter_ == nullptr && this->targetInstanceId_ == nullptr
-        && this->targetNamespaceName_ == nullptr && this->targetRegionId_ == nullptr && this->targetRepoName_ == nullptr; };
+        && this->localRepoName_ == nullptr && this->modifiedTime_ == nullptr && this->namespaceNameFilter_ == nullptr && this->priority_ == nullptr && this->repoNameFilter_ == nullptr
+        && this->syncDirection_ == nullptr && this->syncRuleId_ == nullptr && this->syncRuleName_ == nullptr && this->syncScope_ == nullptr && this->syncTrigger_ == nullptr
+        && this->tagFilter_ == nullptr && this->targetInstanceId_ == nullptr && this->targetNamespaceName_ == nullptr && this->targetRegionId_ == nullptr && this->targetRepoName_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -156,6 +160,20 @@ namespace Models
       void deleteModifiedTime() { this->modifiedTime_ = nullptr;};
       inline int64_t getModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(modifiedTime_, 0L) };
       inline SyncRules& setModifiedTime(int64_t modifiedTime) { DARABONBA_PTR_SET_VALUE(modifiedTime_, modifiedTime) };
+
+
+      // namespaceNameFilter Field Functions 
+      bool hasNamespaceNameFilter() const { return this->namespaceNameFilter_ != nullptr;};
+      void deleteNamespaceNameFilter() { this->namespaceNameFilter_ = nullptr;};
+      inline string getNamespaceNameFilter() const { DARABONBA_PTR_GET_DEFAULT(namespaceNameFilter_, "") };
+      inline SyncRules& setNamespaceNameFilter(string namespaceNameFilter) { DARABONBA_PTR_SET_VALUE(namespaceNameFilter_, namespaceNameFilter) };
+
+
+      // priority Field Functions 
+      bool hasPriority() const { return this->priority_ != nullptr;};
+      void deletePriority() { this->priority_ = nullptr;};
+      inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+      inline SyncRules& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
       // repoNameFilter Field Functions 
@@ -257,6 +275,8 @@ namespace Models
       shared_ptr<string> localRepoName_ {};
       // The time when the synchronization rule was last modified. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> modifiedTime_ {};
+      shared_ptr<string> namespaceNameFilter_ {};
+      shared_ptr<int32_t> priority_ {};
       // The regular expression that is used to filter repositories.
       // 
       // > This parameter is valid only when `SyncScope` is set to `NAMESPACE`.

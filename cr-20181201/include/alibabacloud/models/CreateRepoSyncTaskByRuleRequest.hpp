@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateRepoSyncTaskByRuleRequest& obj) { 
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(RepoId, repoId_);
       DARABONBA_PTR_TO_JSON(SyncRuleId, syncRuleId_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
     };
     friend void from_json(const Darabonba::Json& j, CreateRepoSyncTaskByRuleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(RepoId, repoId_);
       DARABONBA_PTR_FROM_JSON(SyncRuleId, syncRuleId_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->repoId_ == nullptr && this->syncRuleId_ == nullptr && this->tag_ == nullptr; };
+        && this->priority_ == nullptr && this->repoId_ == nullptr && this->syncRuleId_ == nullptr && this->tag_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateRepoSyncTaskByRuleRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // priority Field Functions 
+    bool hasPriority() const { return this->priority_ != nullptr;};
+    void deletePriority() { this->priority_ = nullptr;};
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline CreateRepoSyncTaskByRuleRequest& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // repoId Field Functions 
@@ -70,6 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    shared_ptr<int32_t> priority_ {};
     // The ID of the image repository.
     // 
     // This parameter is required.

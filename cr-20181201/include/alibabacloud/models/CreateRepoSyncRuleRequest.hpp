@@ -16,6 +16,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(LinkId, linkId_);
       DARABONBA_PTR_TO_JSON(NamespaceName, namespaceName_);
+      DARABONBA_PTR_TO_JSON(NamespaceNameFilter, namespaceNameFilter_);
+      DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(RepoName, repoName_);
       DARABONBA_PTR_TO_JSON(RepoNameFilter, repoNameFilter_);
       DARABONBA_PTR_TO_JSON(SyncRuleName, syncRuleName_);
@@ -32,6 +34,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(LinkId, linkId_);
       DARABONBA_PTR_FROM_JSON(NamespaceName, namespaceName_);
+      DARABONBA_PTR_FROM_JSON(NamespaceNameFilter, namespaceNameFilter_);
+      DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(RepoName, repoName_);
       DARABONBA_PTR_FROM_JSON(RepoNameFilter, repoNameFilter_);
       DARABONBA_PTR_FROM_JSON(SyncRuleName, syncRuleName_);
@@ -56,9 +60,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->linkId_ == nullptr && this->namespaceName_ == nullptr && this->repoName_ == nullptr && this->repoNameFilter_ == nullptr && this->syncRuleName_ == nullptr
-        && this->syncScope_ == nullptr && this->syncTrigger_ == nullptr && this->tagFilter_ == nullptr && this->targetInstanceId_ == nullptr && this->targetNamespaceName_ == nullptr
-        && this->targetRegionId_ == nullptr && this->targetRepoName_ == nullptr && this->targetUserId_ == nullptr; };
+        && this->linkId_ == nullptr && this->namespaceName_ == nullptr && this->namespaceNameFilter_ == nullptr && this->priority_ == nullptr && this->repoName_ == nullptr
+        && this->repoNameFilter_ == nullptr && this->syncRuleName_ == nullptr && this->syncScope_ == nullptr && this->syncTrigger_ == nullptr && this->tagFilter_ == nullptr
+        && this->targetInstanceId_ == nullptr && this->targetNamespaceName_ == nullptr && this->targetRegionId_ == nullptr && this->targetRepoName_ == nullptr && this->targetUserId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -78,6 +82,20 @@ namespace Models
     void deleteNamespaceName() { this->namespaceName_ = nullptr;};
     inline string getNamespaceName() const { DARABONBA_PTR_GET_DEFAULT(namespaceName_, "") };
     inline CreateRepoSyncRuleRequest& setNamespaceName(string namespaceName) { DARABONBA_PTR_SET_VALUE(namespaceName_, namespaceName) };
+
+
+    // namespaceNameFilter Field Functions 
+    bool hasNamespaceNameFilter() const { return this->namespaceNameFilter_ != nullptr;};
+    void deleteNamespaceNameFilter() { this->namespaceNameFilter_ = nullptr;};
+    inline string getNamespaceNameFilter() const { DARABONBA_PTR_GET_DEFAULT(namespaceNameFilter_, "") };
+    inline CreateRepoSyncRuleRequest& setNamespaceNameFilter(string namespaceNameFilter) { DARABONBA_PTR_SET_VALUE(namespaceNameFilter_, namespaceNameFilter) };
+
+
+    // priority Field Functions 
+    bool hasPriority() const { return this->priority_ != nullptr;};
+    void deletePriority() { this->priority_ = nullptr;};
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline CreateRepoSyncRuleRequest& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // repoName Field Functions 
@@ -164,9 +182,9 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> linkId_ {};
     // The namespace name of the source instance.
-    // 
-    // This parameter is required.
     shared_ptr<string> namespaceName_ {};
+    shared_ptr<string> namespaceNameFilter_ {};
+    shared_ptr<int32_t> priority_ {};
     // The name of the image repository in the source instance.
     shared_ptr<string> repoName_ {};
     // The regular expression that is used to filter repositories.
@@ -198,8 +216,6 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> targetInstanceId_ {};
     // The namespace name of the destination instance.
-    // 
-    // This parameter is required.
     shared_ptr<string> targetNamespaceName_ {};
     // The region ID of the destination instance.
     // 

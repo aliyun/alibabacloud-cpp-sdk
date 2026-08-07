@@ -53,6 +53,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(LinkId, linkId_);
         DARABONBA_PTR_TO_JSON(ModifedTime, modifedTime_);
         DARABONBA_PTR_TO_JSON(ModifiedTime, modifiedTime_);
+        DARABONBA_PTR_TO_JSON(Priority, priority_);
         DARABONBA_PTR_TO_JSON(SyncBatchTaskId, syncBatchTaskId_);
         DARABONBA_PTR_TO_JSON(SyncRuleId, syncRuleId_);
         DARABONBA_PTR_TO_JSON(SyncTaskId, syncTaskId_);
@@ -70,6 +71,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(LinkId, linkId_);
         DARABONBA_PTR_FROM_JSON(ModifedTime, modifedTime_);
         DARABONBA_PTR_FROM_JSON(ModifiedTime, modifiedTime_);
+        DARABONBA_PTR_FROM_JSON(Priority, priority_);
         DARABONBA_PTR_FROM_JSON(SyncBatchTaskId, syncBatchTaskId_);
         DARABONBA_PTR_FROM_JSON(SyncRuleId, syncRuleId_);
         DARABONBA_PTR_FROM_JSON(SyncTaskId, syncTaskId_);
@@ -245,8 +247,8 @@ namespace Models
 
       virtual bool empty() const override { return this->createTime_ == nullptr
         && this->crossUser_ == nullptr && this->customLink_ == nullptr && this->imageFrom_ == nullptr && this->imageTo_ == nullptr && this->linkId_ == nullptr
-        && this->modifedTime_ == nullptr && this->modifiedTime_ == nullptr && this->syncBatchTaskId_ == nullptr && this->syncRuleId_ == nullptr && this->syncTaskId_ == nullptr
-        && this->syncTransAccelerate_ == nullptr && this->taskIssue_ == nullptr && this->taskStatus_ == nullptr && this->taskTrigger_ == nullptr; };
+        && this->modifedTime_ == nullptr && this->modifiedTime_ == nullptr && this->priority_ == nullptr && this->syncBatchTaskId_ == nullptr && this->syncRuleId_ == nullptr
+        && this->syncTaskId_ == nullptr && this->syncTransAccelerate_ == nullptr && this->taskIssue_ == nullptr && this->taskStatus_ == nullptr && this->taskTrigger_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -305,6 +307,13 @@ namespace Models
       void deleteModifiedTime() { this->modifiedTime_ = nullptr;};
       inline int64_t getModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(modifiedTime_, 0L) };
       inline SyncTasks& setModifiedTime(int64_t modifiedTime) { DARABONBA_PTR_SET_VALUE(modifiedTime_, modifiedTime) };
+
+
+      // priority Field Functions 
+      bool hasPriority() const { return this->priority_ != nullptr;};
+      void deletePriority() { this->priority_ = nullptr;};
+      inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+      inline SyncTasks& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
       // syncBatchTaskId Field Functions 
@@ -379,6 +388,7 @@ namespace Models
       shared_ptr<int64_t> modifedTime_ {};
       // The modification time of the task.
       shared_ptr<int64_t> modifiedTime_ {};
+      shared_ptr<int32_t> priority_ {};
       // The ID of the batch sync task. This ID is the same as the sync record ID (`SyncRecordId`).
       // 
       // > If an image matches multiple sync rules, multiple sync tasks are generated. These tasks share the same `SyncBatchTaskId`.

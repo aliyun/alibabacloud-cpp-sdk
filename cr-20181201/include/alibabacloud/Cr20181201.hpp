@@ -945,10 +945,10 @@ namespace Cr20181201
       /**
        * @summary Retrieves a temporary username and password for logging on to an instance.
        *
-       * @description The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
-       * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when you log on to the instance with the username and password of the Alibaba Cloud account.
-       * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when you log on to the instance with the username and password of the RAM user.
-       * - The permissions granted by a temporary token obtained through STS are the same as those of the STS token.
+       * @description The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password equals the validity period of the STS token used in the request.
+       * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when logging on to the instance with the username and password of the Alibaba Cloud account.
+       * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when logging on to the instance with the username and password of the RAM user.
+       * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
        *
        * @param request GetAuthorizationTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -959,10 +959,10 @@ namespace Cr20181201
       /**
        * @summary Retrieves a temporary username and password for logging on to an instance.
        *
-       * @description The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
-       * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when you log on to the instance with the username and password of the Alibaba Cloud account.
-       * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when you log on to the instance with the username and password of the RAM user.
-       * - The permissions granted by a temporary token obtained through STS are the same as those of the STS token.
+       * @description The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password equals the validity period of the STS token used in the request.
+       * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as those granted when logging on to the instance with the username and password of the Alibaba Cloud account.
+       * - The permissions granted by a temporary token obtained through a RAM user are the same as those granted when logging on to the instance with the username and password of the RAM user.
+       * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
        *
        * @param request GetAuthorizationTokenRequest
        * @return GetAuthorizationTokenResponse

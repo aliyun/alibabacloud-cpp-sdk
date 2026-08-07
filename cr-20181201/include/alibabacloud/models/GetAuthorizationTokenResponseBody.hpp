@@ -90,7 +90,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The expiration timestamp of the temporary token, in milliseconds.
     shared_ptr<int64_t> expireTime_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> isSuccess_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
