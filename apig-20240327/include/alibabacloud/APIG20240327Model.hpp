@@ -2,6 +2,10 @@
 #ifndef ALIBABACLOUD_APIG20240327MODEL_HPP_
 #define ALIBABACLOUD_APIG20240327MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AgentAccessConfig.hpp>
+#include <alibabacloud/models/AgentAuthorizationPrincipal.hpp>
+#include <alibabacloud/models/AgentInfo.hpp>
+#include <alibabacloud/models/AgentModelAccessConfig.hpp>
 #include <alibabacloud/models/AgentServiceConfig.hpp>
 #include <alibabacloud/models/AiPluginStatus.hpp>
 #include <alibabacloud/models/AiPolicyRedisConfig.hpp>

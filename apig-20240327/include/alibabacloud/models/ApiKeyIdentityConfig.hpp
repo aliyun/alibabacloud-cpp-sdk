@@ -15,11 +15,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ApiKeyIdentityConfig& obj) { 
       DARABONBA_PTR_TO_JSON(apikeySource, apikeySource_);
+      DARABONBA_PTR_TO_JSON(apikeySources, apikeySources_);
       DARABONBA_PTR_TO_JSON(credentials, credentials_);
       DARABONBA_PTR_TO_JSON(type, type_);
     };
     friend void from_json(const Darabonba::Json& j, ApiKeyIdentityConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(apikeySource, apikeySource_);
+      DARABONBA_PTR_FROM_JSON(apikeySources, apikeySources_);
       DARABONBA_PTR_FROM_JSON(credentials, credentials_);
       DARABONBA_PTR_FROM_JSON(type, type_);
     };
@@ -74,8 +76,52 @@ namespace Models
     protected:
       // The API key configuration.
       shared_ptr<string> apikey_ {};
-      // The production mode.
+      // The generation mode.
       shared_ptr<string> generateMode_ {};
+    };
+
+    class ApikeySources : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ApikeySources& obj) { 
+        DARABONBA_PTR_TO_JSON(source, source_);
+        DARABONBA_PTR_TO_JSON(value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, ApikeySources& obj) { 
+        DARABONBA_PTR_FROM_JSON(source, source_);
+        DARABONBA_PTR_FROM_JSON(value, value_);
+      };
+      ApikeySources() = default ;
+      ApikeySources(const ApikeySources &) = default ;
+      ApikeySources(ApikeySources &&) = default ;
+      ApikeySources(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ApikeySources() = default ;
+      ApikeySources& operator=(const ApikeySources &) = default ;
+      ApikeySources& operator=(ApikeySources &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->source_ == nullptr
+        && this->value_ == nullptr; };
+      // source Field Functions 
+      bool hasSource() const { return this->source_ != nullptr;};
+      void deleteSource() { this->source_ = nullptr;};
+      inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+      inline ApikeySources& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline ApikeySources& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The credential source type.
+      shared_ptr<string> source_ {};
+      // The field name of the HTTP header or query string.
+      shared_ptr<string> value_ {};
     };
 
     class ApikeySource : public Darabonba::Model {
@@ -116,20 +162,14 @@ namespace Models
 
 
     protected:
-      // The source of the API key.
-      // 
-      // Valid values:
-      // 
-      // *   Header
-      // *   QueryString
-      // *   Default
+      // The API key source.
       shared_ptr<string> source_ {};
-      // The value of the API key.
+      // The API key value.
       shared_ptr<string> value_ {};
     };
 
     virtual bool empty() const override { return this->apikeySource_ == nullptr
-        && this->credentials_ == nullptr && this->type_ == nullptr; };
+        && this->apikeySources_ == nullptr && this->credentials_ == nullptr && this->type_ == nullptr; };
     // apikeySource Field Functions 
     bool hasApikeySource() const { return this->apikeySource_ != nullptr;};
     void deleteApikeySource() { this->apikeySource_ = nullptr;};
@@ -137,6 +177,15 @@ namespace Models
     inline ApiKeyIdentityConfig::ApikeySource getApikeySource() { DARABONBA_PTR_GET(apikeySource_, ApiKeyIdentityConfig::ApikeySource) };
     inline ApiKeyIdentityConfig& setApikeySource(const ApiKeyIdentityConfig::ApikeySource & apikeySource) { DARABONBA_PTR_SET_VALUE(apikeySource_, apikeySource) };
     inline ApiKeyIdentityConfig& setApikeySource(ApiKeyIdentityConfig::ApikeySource && apikeySource) { DARABONBA_PTR_SET_RVALUE(apikeySource_, apikeySource) };
+
+
+    // apikeySources Field Functions 
+    bool hasApikeySources() const { return this->apikeySources_ != nullptr;};
+    void deleteApikeySources() { this->apikeySources_ = nullptr;};
+    inline const vector<ApiKeyIdentityConfig::ApikeySources> & getApikeySources() const { DARABONBA_PTR_GET_CONST(apikeySources_, vector<ApiKeyIdentityConfig::ApikeySources>) };
+    inline vector<ApiKeyIdentityConfig::ApikeySources> getApikeySources() { DARABONBA_PTR_GET(apikeySources_, vector<ApiKeyIdentityConfig::ApikeySources>) };
+    inline ApiKeyIdentityConfig& setApikeySources(const vector<ApiKeyIdentityConfig::ApikeySources> & apikeySources) { DARABONBA_PTR_SET_VALUE(apikeySources_, apikeySources) };
+    inline ApiKeyIdentityConfig& setApikeySources(vector<ApiKeyIdentityConfig::ApikeySources> && apikeySources) { DARABONBA_PTR_SET_RVALUE(apikeySources_, apikeySources) };
 
 
     // credentials Field Functions 
@@ -156,9 +205,11 @@ namespace Models
 
 
   protected:
-    // The source configuration of the API key.
+    // The API key source configuration.
     shared_ptr<ApiKeyIdentityConfig::ApikeySource> apikeySource_ {};
-    // The list of certificates.
+    // The complete set of API key credential sources. The set contains one to three items. Multiple sources are applicable only to AI gateway Header mode. Query String and non-AI gateway allow only a single source. When submitted together with apikeySource, the latter must be consistent with the compatible projection.
+    shared_ptr<vector<ApiKeyIdentityConfig::ApikeySources>> apikeySources_ {};
+    // The list of credentials.
     shared_ptr<vector<ApiKeyIdentityConfig::Credentials>> credentials_ {};
     // The type.
     shared_ptr<string> type_ {};

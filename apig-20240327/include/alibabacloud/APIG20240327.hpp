@@ -1163,7 +1163,7 @@ namespace APIG20240327
       Models::GetEnvironmentResponse getEnvironment(const string &environmentId, const Models::GetEnvironmentRequest &request);
 
       /**
-       * @summary Retrieves basic information about a gateway, including the associated VPC, vSwitch, and gateway ingress.
+       * @summary Retrieves basic information about a gateway, including the VPC, vSwitch, and gateway ingress.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1172,7 +1172,7 @@ namespace APIG20240327
       Models::GetGatewayResponse getGatewayWithOptions(const string &gatewayId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves basic information about a gateway, including the associated VPC, vSwitch, and gateway ingress.
+       * @summary Retrieves basic information about a gateway, including the VPC, vSwitch, and gateway ingress.
        *
        * @return GetGatewayResponse
        */
@@ -2137,7 +2137,7 @@ namespace APIG20240327
       Models::SyncMCPServersResponse syncMCPServers(const Models::SyncMCPServersRequest &request);
 
       /**
-       * @summary Adds labels to resources.
+       * @summary Tags resources.
        *
        * @param request TagResourcesRequest
        * @param headers map
@@ -2147,7 +2147,7 @@ namespace APIG20240327
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds labels to resources.
+       * @summary Tags resources.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -2277,7 +2277,7 @@ namespace APIG20240327
       Models::UpdateAndAttachPolicyResponse updateAndAttachPolicy(const string &policyId, const Models::UpdateAndAttachPolicyRequest &request);
 
       /**
-       * @summary Updates an API consumer.
+       * @summary Updates a consumer.
        *
        * @param request UpdateConsumerRequest
        * @param headers map
@@ -2287,7 +2287,7 @@ namespace APIG20240327
       Models::UpdateConsumerResponse updateConsumerWithOptions(const string &consumerId, const Models::UpdateConsumerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates an API consumer.
+       * @summary Updates a consumer.
        *
        * @param request UpdateConsumerRequest
        * @return UpdateConsumerResponse

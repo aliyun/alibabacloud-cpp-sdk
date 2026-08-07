@@ -72,7 +72,7 @@ namespace Models
 
 
     protected:
-      // The suite name.
+      // The TLS cipher suite name, such as ECDHE-ECDSA-AES256-GCM-SHA384.
       shared_ptr<string> name_ {};
       // The supported versions.
       shared_ptr<vector<string>> supportVersions_ {};

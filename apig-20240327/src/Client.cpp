@@ -1055,6 +1055,10 @@ CreateGatewayResponse Client::createGatewayWithOptions(const CreateGatewayReques
     body["gatewayEdition"] = request.getGatewayEdition();
   }
 
+  if (!!request.hasGatewayMode()) {
+    body["gatewayMode"] = request.getGatewayMode();
+  }
+
   if (!!request.hasGatewayType()) {
     body["gatewayType"] = request.getGatewayType();
   }
@@ -3353,7 +3357,7 @@ GetEnvironmentResponse Client::getEnvironment(const string &environmentId, const
 }
 
 /**
- * @summary Retrieves basic information about a gateway, including the associated VPC, vSwitch, and gateway ingress.
+ * @summary Retrieves basic information about a gateway, including the VPC, vSwitch, and gateway ingress.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3378,7 +3382,7 @@ GetGatewayResponse Client::getGatewayWithOptions(const string &gatewayId, const 
 }
 
 /**
- * @summary Retrieves basic information about a gateway, including the associated VPC, vSwitch, and gateway ingress.
+ * @summary Retrieves basic information about a gateway, including the VPC, vSwitch, and gateway ingress.
  *
  * @return GetGatewayResponse
  */
@@ -6099,6 +6103,10 @@ QueryConsumerAuthorizationRulesResponse Client::queryConsumerAuthorizationRulesW
     query["consumerGroupId"] = request.getConsumerGroupId();
   }
 
+  if (!!request.hasConsumerGroupNameLike()) {
+    query["consumerGroupNameLike"] = request.getConsumerGroupNameLike();
+  }
+
   if (!!request.hasConsumerId()) {
     query["consumerId"] = request.getConsumerId();
   }
@@ -6400,7 +6408,7 @@ SyncMCPServersResponse Client::syncMCPServers(const SyncMCPServersRequest &reque
 }
 
 /**
- * @summary Adds labels to resources.
+ * @summary Tags resources.
  *
  * @param request TagResourcesRequest
  * @param headers map
@@ -6441,7 +6449,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Adds labels to resources.
+ * @summary Tags resources.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -6832,7 +6840,7 @@ UpdateAndAttachPolicyResponse Client::updateAndAttachPolicy(const string &policy
 }
 
 /**
- * @summary Updates an API consumer.
+ * @summary Updates a consumer.
  *
  * @param request UpdateConsumerRequest
  * @param headers map
@@ -6881,7 +6889,7 @@ UpdateConsumerResponse Client::updateConsumerWithOptions(const string &consumerI
 }
 
 /**
- * @summary Updates an API consumer.
+ * @summary Updates a consumer.
  *
  * @param request UpdateConsumerRequest
  * @return UpdateConsumerResponse

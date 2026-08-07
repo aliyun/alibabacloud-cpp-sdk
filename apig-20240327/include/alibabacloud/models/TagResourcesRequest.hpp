@@ -108,7 +108,7 @@ namespace Models
   protected:
     // The resource IDs. A maximum of 50 subkeys are supported.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type.
+    // The resource type used for the tagging operation. Set this to Gateway.
     shared_ptr<string> resourceType_ {};
     // The list of labels.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};

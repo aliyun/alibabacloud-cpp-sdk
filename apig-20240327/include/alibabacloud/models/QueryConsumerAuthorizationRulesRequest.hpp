@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const QueryConsumerAuthorizationRulesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(apiNameLike, apiNameLike_);
       DARABONBA_PTR_TO_JSON(consumerGroupId, consumerGroupId_);
+      DARABONBA_PTR_TO_JSON(consumerGroupNameLike, consumerGroupNameLike_);
       DARABONBA_PTR_TO_JSON(consumerId, consumerId_);
       DARABONBA_PTR_TO_JSON(consumerNameLike, consumerNameLike_);
       DARABONBA_PTR_TO_JSON(environmentId, environmentId_);
@@ -30,6 +31,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, QueryConsumerAuthorizationRulesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(apiNameLike, apiNameLike_);
       DARABONBA_PTR_FROM_JSON(consumerGroupId, consumerGroupId_);
+      DARABONBA_PTR_FROM_JSON(consumerGroupNameLike, consumerGroupNameLike_);
       DARABONBA_PTR_FROM_JSON(consumerId, consumerId_);
       DARABONBA_PTR_FROM_JSON(consumerNameLike, consumerNameLike_);
       DARABONBA_PTR_FROM_JSON(environmentId, environmentId_);
@@ -54,9 +56,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiNameLike_ == nullptr
-        && this->consumerGroupId_ == nullptr && this->consumerId_ == nullptr && this->consumerNameLike_ == nullptr && this->environmentId_ == nullptr && this->groupByApi_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->parentResourceId_ == nullptr && this->principalType_ == nullptr && this->resourceId_ == nullptr
-        && this->resourceType_ == nullptr && this->resourceTypes_ == nullptr; };
+        && this->consumerGroupId_ == nullptr && this->consumerGroupNameLike_ == nullptr && this->consumerId_ == nullptr && this->consumerNameLike_ == nullptr && this->environmentId_ == nullptr
+        && this->groupByApi_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->parentResourceId_ == nullptr && this->principalType_ == nullptr
+        && this->resourceId_ == nullptr && this->resourceType_ == nullptr && this->resourceTypes_ == nullptr; };
     // apiNameLike Field Functions 
     bool hasApiNameLike() const { return this->apiNameLike_ != nullptr;};
     void deleteApiNameLike() { this->apiNameLike_ = nullptr;};
@@ -69,6 +71,13 @@ namespace Models
     void deleteConsumerGroupId() { this->consumerGroupId_ = nullptr;};
     inline string getConsumerGroupId() const { DARABONBA_PTR_GET_DEFAULT(consumerGroupId_, "") };
     inline QueryConsumerAuthorizationRulesRequest& setConsumerGroupId(string consumerGroupId) { DARABONBA_PTR_SET_VALUE(consumerGroupId_, consumerGroupId) };
+
+
+    // consumerGroupNameLike Field Functions 
+    bool hasConsumerGroupNameLike() const { return this->consumerGroupNameLike_ != nullptr;};
+    void deleteConsumerGroupNameLike() { this->consumerGroupNameLike_ = nullptr;};
+    inline string getConsumerGroupNameLike() const { DARABONBA_PTR_GET_DEFAULT(consumerGroupNameLike_, "") };
+    inline QueryConsumerAuthorizationRulesRequest& setConsumerGroupNameLike(string consumerGroupNameLike) { DARABONBA_PTR_SET_VALUE(consumerGroupNameLike_, consumerGroupNameLike) };
 
 
     // consumerId Field Functions 
@@ -153,6 +162,7 @@ namespace Models
     shared_ptr<string> apiNameLike_ {};
     // The consumer group ID. If specified, the authorization rules of the consumer group are queried.
     shared_ptr<string> consumerGroupId_ {};
+    shared_ptr<string> consumerGroupNameLike_ {};
     // The consumer ID.
     shared_ptr<string> consumerId_ {};
     // The consumer name.

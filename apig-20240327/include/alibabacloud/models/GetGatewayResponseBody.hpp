@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(expireTimestamp, expireTimestamp_);
         DARABONBA_PTR_TO_JSON(gatewayEdition, gatewayEdition_);
         DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
+        DARABONBA_PTR_TO_JSON(gatewayMode, gatewayMode_);
         DARABONBA_PTR_TO_JSON(gatewayType, gatewayType_);
         DARABONBA_PTR_TO_JSON(isp, isp_);
         DARABONBA_PTR_TO_JSON(loadBalancers, loadBalancers_);
@@ -58,6 +59,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(tags, tags_);
         DARABONBA_PTR_TO_JSON(targetVersion, targetVersion_);
+        DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
         DARABONBA_PTR_TO_JSON(updateTimestamp, updateTimestamp_);
         DARABONBA_PTR_TO_JSON(vSwitch, vSwitch_);
         DARABONBA_PTR_TO_JSON(version, version_);
@@ -72,6 +74,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(expireTimestamp, expireTimestamp_);
         DARABONBA_PTR_FROM_JSON(gatewayEdition, gatewayEdition_);
         DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
+        DARABONBA_PTR_FROM_JSON(gatewayMode, gatewayMode_);
         DARABONBA_PTR_FROM_JSON(gatewayType, gatewayType_);
         DARABONBA_PTR_FROM_JSON(isp, isp_);
         DARABONBA_PTR_FROM_JSON(loadBalancers, loadBalancers_);
@@ -84,6 +87,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(tags, tags_);
         DARABONBA_PTR_FROM_JSON(targetVersion, targetVersion_);
+        DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
         DARABONBA_PTR_FROM_JSON(updateTimestamp, updateTimestamp_);
         DARABONBA_PTR_FROM_JSON(vSwitch, vSwitch_);
         DARABONBA_PTR_FROM_JSON(version, version_);
@@ -502,8 +506,6 @@ namespace Models
           // The port number.
           shared_ptr<int32_t> port_ {};
           // The protocol. Valid values:
-          // - TCP
-          // - UDP
           shared_ptr<string> protocol_ {};
         };
 
@@ -597,12 +599,8 @@ namespace Models
         // The load balancing address.
         shared_ptr<string> address_ {};
         // The protocol version. Valid values:
-        // - ipv4: IPv4.
-        // - ipv6: IPv6.
         shared_ptr<string> addressIpVersion_ {};
         // The load balancing address type. Valid values:
-        // - Internet: public network.
-        // - Intranet: private network.
         shared_ptr<string> addressType_ {};
         // Indicates whether this is the default ingress address of the gateway.
         shared_ptr<bool> gatewayDefault_ {};
@@ -612,18 +610,13 @@ namespace Models
         shared_ptr<vector<string>> ipv6Addresses_ {};
         // The load balancing instance ID.
         shared_ptr<string> loadBalancerId_ {};
-        // The load balancing provisioning mode of the gateway. Valid values:
-        // - Managed: Managed by the cloud-native API gateway.
+        // The load balancing mode of the gateway. Valid values:
         shared_ptr<string> mode_ {};
         // The list of listening ports.
         shared_ptr<vector<LoadBalancers::Ports>> ports_ {};
-        // The load balancing status. Valid values:
-        // - Ready: Active.
-        // - NotCreate: No associated instance.
+        // The status of load balancing. Valid values:
         shared_ptr<string> status_ {};
-        // The load balancing type. Valid values:
-        // - NLB: Network Load Balancer (NLB).
-        // - CLB: Classic Load Balancer (CLB).
+        // The load balancing type.
         shared_ptr<string> type_ {};
       };
 
@@ -684,10 +677,10 @@ namespace Models
 
       virtual bool empty() const override { return this->chargeType_ == nullptr
         && this->createFrom_ == nullptr && this->createTimestamp_ == nullptr && this->environments_ == nullptr && this->expireTimestamp_ == nullptr && this->gatewayEdition_ == nullptr
-        && this->gatewayId_ == nullptr && this->gatewayType_ == nullptr && this->isp_ == nullptr && this->loadBalancers_ == nullptr && this->maintenancePeriod_ == nullptr
-        && this->name_ == nullptr && this->replicas_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroup_ == nullptr && this->spec_ == nullptr
-        && this->status_ == nullptr && this->tags_ == nullptr && this->targetVersion_ == nullptr && this->updateTimestamp_ == nullptr && this->vSwitch_ == nullptr
-        && this->version_ == nullptr && this->vpc_ == nullptr && this->zones_ == nullptr; };
+        && this->gatewayId_ == nullptr && this->gatewayMode_ == nullptr && this->gatewayType_ == nullptr && this->isp_ == nullptr && this->loadBalancers_ == nullptr
+        && this->maintenancePeriod_ == nullptr && this->name_ == nullptr && this->replicas_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroup_ == nullptr
+        && this->spec_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->targetVersion_ == nullptr && this->tenantId_ == nullptr
+        && this->updateTimestamp_ == nullptr && this->vSwitch_ == nullptr && this->version_ == nullptr && this->vpc_ == nullptr && this->zones_ == nullptr; };
       // chargeType Field Functions 
       bool hasChargeType() const { return this->chargeType_ != nullptr;};
       void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -737,6 +730,13 @@ namespace Models
       void deleteGatewayId() { this->gatewayId_ = nullptr;};
       inline string getGatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
       inline Data& setGatewayId(string gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
+
+
+      // gatewayMode Field Functions 
+      bool hasGatewayMode() const { return this->gatewayMode_ != nullptr;};
+      void deleteGatewayMode() { this->gatewayMode_ = nullptr;};
+      inline string getGatewayMode() const { DARABONBA_PTR_GET_DEFAULT(gatewayMode_, "") };
+      inline Data& setGatewayMode(string gatewayMode) { DARABONBA_PTR_SET_VALUE(gatewayMode_, gatewayMode) };
 
 
       // gatewayType Field Functions 
@@ -831,6 +831,13 @@ namespace Models
       inline Data& setTargetVersion(string targetVersion) { DARABONBA_PTR_SET_VALUE(targetVersion_, targetVersion) };
 
 
+      // tenantId Field Functions 
+      bool hasTenantId() const { return this->tenantId_ != nullptr;};
+      void deleteTenantId() { this->tenantId_ = nullptr;};
+      inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+      inline Data& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
       // updateTimestamp Field Functions 
       bool hasUpdateTimestamp() const { return this->updateTimestamp_ != nullptr;};
       void deleteUpdateTimestamp() { this->updateTimestamp_ = nullptr;};
@@ -873,12 +880,9 @@ namespace Models
 
 
     protected:
-      // The billing type. Valid values:
-      // - POSTPAY: pay-as-you-go
-      // - PREPAY: subscription
+      // The billing method.
       shared_ptr<string> chargeType_ {};
       // The source from which the gateway was created. Valid values:
-      // - Console: The gateway was created from the console.
       shared_ptr<string> createFrom_ {};
       // The creation timestamp. Unit: milliseconds.
       shared_ptr<int64_t> createTimestamp_ {};
@@ -887,18 +891,13 @@ namespace Models
       // The subscription expiration timestamp. Unit: milliseconds.
       shared_ptr<int64_t> expireTimestamp_ {};
       // The gateway instance edition. Valid values:
-      // 
-      // - Professional: Standard instance.
-      // 
-      // - Serverless: Serverless instance.
       shared_ptr<string> gatewayEdition_ {};
       // The gateway ID.
       shared_ptr<string> gatewayId_ {};
+      shared_ptr<string> gatewayMode_ {};
       // The gateway type. Valid values:
-      // - API: API gateway.
-      // - AI: AI gateway.
       shared_ptr<string> gatewayType_ {};
-      // The network ISP type.
+      // The type of the network service provider.
       shared_ptr<string> isp_ {};
       // The list of ingress addresses of the gateway.
       shared_ptr<vector<Data::LoadBalancers>> loadBalancers_ {};
@@ -913,23 +912,14 @@ namespace Models
       // The security group of the gateway.
       shared_ptr<Data::SecurityGroup> securityGroup_ {};
       // The gateway specification. Valid values:
-      // - apigw.small.x1: Small specification.
       shared_ptr<string> spec_ {};
       // The gateway status. Valid values:
-      // - Running: The gateway is running.
-      // - Creating: The gateway is being created.
-      // - CreateFailed: The gateway failed to be created.
-      // - Upgrading: The gateway is being upgraded.
-      // - UpgradeFailed: The gateway failed to be upgraded.
-      // - Restarting: The gateway is being restarted.
-      // - RestartFailed: The gateway failed to be restarted.
-      // - Deleting: The gateway is being released.
-      // - DeleteFailed: The gateway failed to be released.
       shared_ptr<string> status_ {};
       // The resource tags.
       shared_ptr<vector<Data::Tags>> tags_ {};
-      // The target version of the gateway. If this value differs from version, a version upgrade can be performed.
+      // The target version of the gateway. When this value differs from version, a version upgrade can be performed.
       shared_ptr<string> targetVersion_ {};
+      shared_ptr<string> tenantId_ {};
       // The update timestamp. Unit: milliseconds.
       shared_ptr<int64_t> updateTimestamp_ {};
       // The vSwitch associated with the gateway.

@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateGatewayRequest& obj) { 
       DARABONBA_PTR_TO_JSON(chargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(gatewayEdition, gatewayEdition_);
+      DARABONBA_PTR_TO_JSON(gatewayMode, gatewayMode_);
       DARABONBA_PTR_TO_JSON(gatewayType, gatewayType_);
       DARABONBA_PTR_TO_JSON(logConfig, logConfig_);
       DARABONBA_PTR_TO_JSON(name, name_);
@@ -29,6 +30,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateGatewayRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(chargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(gatewayEdition, gatewayEdition_);
+      DARABONBA_PTR_FROM_JSON(gatewayMode, gatewayMode_);
       DARABONBA_PTR_FROM_JSON(gatewayType, gatewayType_);
       DARABONBA_PTR_FROM_JSON(logConfig, logConfig_);
       DARABONBA_PTR_FROM_JSON(name, name_);
@@ -143,9 +145,7 @@ namespace Models
 
 
     protected:
-      // The zone selection option. Valid values:
-      // - Auto: automatic.
-      // - Manual: manual.
+      // The zone selection option.
       shared_ptr<string> selectOption_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
@@ -225,10 +225,7 @@ namespace Models
 
 
     protected:
-      // The network access type. Valid values:
-      // - InternetAndIntranet: public and internal network.
-      // - Intranet: internal network.
-      // - Internet: public network.
+      // The network access type.
       shared_ptr<string> type_ {};
     };
 
@@ -279,7 +276,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable SLS logging.
+        // Specifies whether to enable SLS log collection.
         shared_ptr<bool> enable_ {};
       };
 
@@ -294,13 +291,14 @@ namespace Models
 
 
     protected:
-      // The Simple Log Service (SLS) log configuration.
+      // The Simple Log Service (SLS) configuration, which controls gateway log collection.
       shared_ptr<LogConfig::Sls> sls_ {};
     };
 
     virtual bool empty() const override { return this->chargeType_ == nullptr
-        && this->gatewayEdition_ == nullptr && this->gatewayType_ == nullptr && this->logConfig_ == nullptr && this->name_ == nullptr && this->networkAccessConfig_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->spec_ == nullptr && this->tag_ == nullptr && this->vpcId_ == nullptr && this->zoneConfig_ == nullptr; };
+        && this->gatewayEdition_ == nullptr && this->gatewayMode_ == nullptr && this->gatewayType_ == nullptr && this->logConfig_ == nullptr && this->name_ == nullptr
+        && this->networkAccessConfig_ == nullptr && this->resourceGroupId_ == nullptr && this->spec_ == nullptr && this->tag_ == nullptr && this->vpcId_ == nullptr
+        && this->zoneConfig_ == nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -313,6 +311,13 @@ namespace Models
     void deleteGatewayEdition() { this->gatewayEdition_ = nullptr;};
     inline string getGatewayEdition() const { DARABONBA_PTR_GET_DEFAULT(gatewayEdition_, "") };
     inline CreateGatewayRequest& setGatewayEdition(string gatewayEdition) { DARABONBA_PTR_SET_VALUE(gatewayEdition_, gatewayEdition) };
+
+
+    // gatewayMode Field Functions 
+    bool hasGatewayMode() const { return this->gatewayMode_ != nullptr;};
+    void deleteGatewayMode() { this->gatewayMode_ = nullptr;};
+    inline string getGatewayMode() const { DARABONBA_PTR_GET_DEFAULT(gatewayMode_, "") };
+    inline CreateGatewayRequest& setGatewayMode(string gatewayMode) { DARABONBA_PTR_SET_VALUE(gatewayMode_, gatewayMode) };
 
 
     // gatewayType Field Functions 
@@ -387,9 +392,7 @@ namespace Models
 
 
   protected:
-    // The billing method. Valid values:
-    // - POSTPAY: subscription.
-    // - PREPAY: pay-as-you-go.
+    // The billing method.
     shared_ptr<string> chargeType_ {};
     // The gateway instance edition. Valid values:
     // 
@@ -401,9 +404,8 @@ namespace Models
     // 
     // - Unknown: unknown.
     shared_ptr<string> gatewayEdition_ {};
-    // The gateway type. Valid values:
-    // - AI: AI gateway.
-    // - API: cloud-native API gateway.
+    shared_ptr<string> gatewayMode_ {};
+    // The gateway type.
     shared_ptr<string> gatewayType_ {};
     // The gateway log configuration.
     shared_ptr<CreateGatewayRequest::LogConfig> logConfig_ {};

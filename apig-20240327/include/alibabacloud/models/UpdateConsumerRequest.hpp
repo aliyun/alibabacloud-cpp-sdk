@@ -91,7 +91,7 @@ namespace Models
     shared_ptr<ApiKeyIdentityConfig> apikeyIdentityConfig_ {};
     // The description.
     shared_ptr<string> description_ {};
-    // Specifies whether to enable the API consumer.
+    // Specifies whether to enable the consumer.
     shared_ptr<bool> enable_ {};
     // The JWT authentication configuration.
     shared_ptr<JwtIdentityConfig> jwtIdentityConfig_ {};

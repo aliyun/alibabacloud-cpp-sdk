@@ -163,7 +163,7 @@ namespace Models
     shared_ptr<string> gatewayId_ {};
     // The gateway type.
     shared_ptr<string> gatewayType_ {};
-    // The keyword for full match search. The search is case-insensitive.
+    // The keyword for full match search. Case-insensitive.
     shared_ptr<string> keyword_ {};
     // The gateway name for exact match query.
     shared_ptr<string> name_ {};
@@ -175,7 +175,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The list of tags.
     shared_ptr<vector<ListGatewaysRequest::Tag>> tag_ {};
-    // The virtual private cloud (VPC) ID.
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
   };
 

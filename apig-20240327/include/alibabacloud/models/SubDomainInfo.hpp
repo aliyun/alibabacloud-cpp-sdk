@@ -70,19 +70,9 @@ namespace Models
     shared_ptr<string> domainId_ {};
     // The domain name.
     shared_ptr<string> name_ {};
-    // The network type. Valid values:
-    // 
-    // Valid values:
-    // 
-    // *   Intranet
-    // *   Internet
+    // The network type.
     shared_ptr<string> networkType_ {};
-    // The protocol.
-    // 
-    // Valid values:
-    // 
-    // *   HTTPS
-    // *   HTTP
+    // The protocol type supported by the subdomain. Valid values: HTTP, HTTPS.
     shared_ptr<string> protocol_ {};
   };
 
