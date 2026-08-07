@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // The code of the file type.
+      // The file type code.
       shared_ptr<int64_t> code_ {};
       // The unique ID of the file type.
       shared_ptr<int64_t> id_ {};
-      // The name of the file type.
+      // The file type name.
       shared_ptr<string> name_ {};
     };
 
@@ -106,9 +106,9 @@ namespace Models
 
 
   protected:
-    // A list of OSS file types.
+    // The list of OSS file types in the result.
     shared_ptr<vector<DescribeDocTypesResponseBody::DocTypeList>> docTypeList_ {};
-    // The ID of the request.
+    // The unique identifier that Alibaba Cloud generated for the request.
     shared_ptr<string> requestId_ {};
   };
 

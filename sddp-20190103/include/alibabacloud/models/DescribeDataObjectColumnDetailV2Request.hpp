@@ -94,53 +94,38 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: **1**.
+    // Settings for paging query. The page number of the current page. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
     // The unique ID of the data object to query.
     // 
-    // > You can call the [DescribeDataObjects](https://help.aliyun.com/document_detail/2399253.html) operation to obtain the ID.
+    // > You can call [DescribeDataObjects](https://help.aliyun.com/document_detail/2399253.html) to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-    // 
+    // The language of the request and response. Default value: **zh_cn**. Valid values:
     // - **zh_cn**: Chinese.
-    // 
     // - **en_us**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries to return on each page. Default value: **10**.
+    // Settings for paging query. The maximum number of data asset instances to display on each page. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the product to which the data object belongs. Valid values:
-    // 
     // - **1**: MaxCompute
-    // 
     // - **2**: OSS
-    // 
     // - **3**: ADB-MYSQL
-    // 
-    // - **4**: Tablestore
-    // 
+    // - **4**: TableStore
     // - **5**: RDS
-    // 
     // - **6**: SELF_DB
-    // 
     // - **7**: PolarDB-X
-    // 
     // - **8**: PolarDB
-    // 
     // - **9**: ADB-PG
-    // 
     // - **10**: OceanBase
-    // 
     // - **11**: MongoDB
-    // 
     // - **25**: Redis
     shared_ptr<int64_t> productId_ {};
-    // The ID of the industry-specific template.
-    // 
-    // > You can call the [DescribeDataObjects](https://help.aliyun.com/document_detail/2399253.html) operation to obtain the ID of the industry-specific template.
+    // The industry template ID.
+    // > You can call [DescribeDataObjects](https://help.aliyun.com/document_detail/2399253.html) to obtain the industry template ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> templateId_ {};

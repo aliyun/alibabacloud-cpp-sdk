@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The resource ID of the custom scan task.
     shared_ptr<int32_t> id_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

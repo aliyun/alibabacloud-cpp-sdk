@@ -206,123 +206,89 @@ namespace Models
   protected:
     // Specifies whether to enable auditing. Valid values:
     // 
-    // - **0**: Do not enable auditing.
-    // 
-    // - **1**: Enable auditing.
+    // - **0**: Auditing is disabled.
+    // - **1**: Auditing is enabled.
     shared_ptr<int32_t> auditStatus_ {};
-    // Specifies whether to automatically trigger a rescan when a rule changes. Valid values:
+    // Specifies whether to automatically trigger a rescan when rules are changed. Valid values:
     // 
-    // - **0**: Do not trigger an automatic scan.
+    // - **0**: Automatic rescan is not triggered.
+    // - **1**: Automatic rescan is triggered.
     // 
-    // - **1**: Trigger an automatic scan.
-    // 
-    // > If you enable this feature, a rule change triggers a full scan of all data in the data source.
+    // > When a rule change triggers an automatic rescan, a full scan is performed on all data in the data source.
     shared_ptr<int32_t> autoScan_ {};
-    // The permission level of the credential. Valid values:
-    // 
-    // - **ReadOnly**: Read-only permissions.
-    // 
-    // - **ReadWrite**: Read and write permissions.
+    // The credential permission. Valid values:
+    // - **ReadOnly**: read-only permission.
+    // - **ReadWrite**: read and write permission.
     shared_ptr<string> certificatePermission_ {};
     // Specifies whether to enable sensitive data detection. Valid values:
-    // 
     // - **1**: Enabled.
-    // 
     // - **0**: Disabled.
     // 
-    // > The default value is 1 for the first authorization. For later authorizations, the value from the previous authorization is used. Set this parameter to 1 to detect sensitive data.
+    // > If the asset is authorized for the first time, the default value is 1. If the asset has been previously authorized, the value from the last authorization is used, which may be 0 or 1. To perform sensitive data detection on the asset, set this parameter to 1.
     shared_ptr<int32_t> enable_ {};
-    // The database engine type. Valid values:
-    // 
+    // The type of the database. Valid values:
     // - **MySQL**
-    // 
     // - **SQLServer**
     shared_ptr<string> engineType_ {};
-    // Specifies whether to enable anomalous activity detection. Valid values:
-    // 
+    // The anomalous activity detection status. Valid values:
     // - **0**: Disabled.
-    // 
-    // - **1**: Enabled. This is the default value.
+    // - **1**: Enabled (default).
     shared_ptr<int32_t> eventStatus_ {};
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
-    // Specifies whether to immediately scan the authorized data asset. Valid values:
+    // Specifies whether to immediately scan the authorized asset. Valid values:
     // 
-    // - **false**: Do not scan immediately.
-    // 
-    // - **true**: Scan immediately.
+    // - **false**: The asset is not immediately scanned.
+    // - **true**: The asset is immediately scanned.
     shared_ptr<bool> instantlyScan_ {};
-    // The language of the content that is returned in the response. Default value: **zh_cn**. Valid values:
-    // 
-    // - **zh_cn**: Chinese
-    // 
-    // - **en_us**: English
+    // The language of the request and response. Default value: **zh_cn**. Valid values:
+    // - **zh_cn**: Chinese.
+    // - **en_us**: English.
     shared_ptr<string> lang_ {};
-    // The retention period of raw logs after you enable auditing. Unit: days. Valid values:
-    // 
+    // The retention period of raw logs after auditing is enabled. Unit: days. Valid values:
     // - **30**
-    // 
     // - **90**
-    // 
     // - **180**
-    // 
     // - **365**
     shared_ptr<int32_t> logStoreDay_ {};
-    // Specifies whether to enable Optical Character Recognition (OCR). Valid values:
-    // 
+    // The OCR status. Valid values:
     // - **1**: Enabled.
-    // 
     // - **0**: Disabled.
     shared_ptr<int32_t> ocrStatus_ {};
-    // The name of the data asset. The name consists of the instance ID and the database name, separated by a period (.).
+    // Required. The name of the asset, which consists of the instance ID and the database connection string separated by a period (.).
     shared_ptr<string> parentId_ {};
-    // The password to access the database.
+    // The password used to access the database asset.
     shared_ptr<string> password_ {};
     // The database connection port.
     shared_ptr<int32_t> port_ {};
-    // The service to which the data asset belongs. Valid values:
+    // The type of the service to which the asset to be scanned belongs. Valid values:
     // 
-    // - **1**: MaxCompute
-    // 
-    // - **2**: OSS
-    // 
-    // - **3**: ADS
-    // 
-    // - **4**: OTS
-    // 
-    // - **5**: RDS
+    // - **1**: MaxCompute.
+    // - **2**: OSS.
+    // - **3**: ADS.
+    // - **4**: OTS.
+    // - **5**: RDS.
     // 
     // This parameter is required.
     shared_ptr<int32_t> resourceType_ {};
-    // The number of sensitive data samples to return after a scan. Valid values:
-    // 
+    // The number of sample entries for sensitive data detection after data detection is enabled. Valid values:
     // - **0**
-    // 
     // - **5**
-    // 
     // - **10**
-    // 
-    // > The default value is 10.
+    // > Default value: 10.
     shared_ptr<int32_t> samplingSize_ {};
-    // The region where the data asset is located. Valid values:
-    // 
-    // - **cn-beijing**: China (Beijing)
-    // 
-    // - **cn-zhangjiakou**: China (Zhangjiakou)
-    // 
-    // - **cn-huhehaote**: China (Hohhot)
-    // 
-    // - **cn-hangzhou**: China (Hangzhou)
-    // 
-    // - **cn-shanghai**: China (Shanghai)
-    // 
-    // - **cn-shenzhen**: China (Shenzhen)
-    // 
-    // - **cn-hongkong**: China (Hong Kong)
+    // Required. The region in which the asset resides. Valid values:
+    // - **cn-beijing**: China (Beijing).
+    // - **cn-zhangjiakou**: China (Zhangjiakou).
+    // - **cn-huhehaote**: China (Hohhot).
+    // - **cn-hangzhou**: China (Hangzhou).
+    // - **cn-shanghai**: China (Shanghai).
+    // - **cn-shenzhen**: China (Shenzhen).
+    // - **cn-hongkong**: Hong Kong (China).
     shared_ptr<string> serviceRegionId_ {};
     // This parameter is deprecated.
     shared_ptr<string> sourceIp_ {};
-    // The username for the database.
+    // The username of the database asset.
     shared_ptr<string> userName_ {};
   };
 

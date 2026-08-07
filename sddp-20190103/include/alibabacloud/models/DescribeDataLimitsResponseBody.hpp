@@ -439,166 +439,126 @@ namespace Models
 
     protected:
       // The audit status. Valid values:
-      // 
-      // - **1**: Auditing enabled.
-      // 
-      // - **0**: Auditing disabled.
+      // - **1**: audit enabled.
+      // - **0**: audit disabled.
       shared_ptr<int32_t> auditStatus_ {};
       // Indicates whether automatic scanning is enabled. Valid values:
-      // 
-      // - **0**: No.
-      // 
-      // - **1**: Yes.
+      // - **0**: disabled.
+      // - **1**: enabled.
       shared_ptr<int32_t> autoScan_ {};
-      // The connectivity test status. Valid values:
-      // 
-      // - **0**: Ready.
-      // 
-      // - **1**: Running.
-      // 
-      // - **2**: Connectivity test in progress.
-      // 
-      // - **3**: Connectivity test passed.
-      // 
-      // - **4**: Connectivity test failed.
+      // The data detection status. Valid values:
+      // - **0**: ready.
+      // - **1**: running.
+      // - **2**: connectivity test in progress.
+      // - **3**: connectivity test passed.
+      // - **4**: connectivity test failed.
       shared_ptr<int32_t> checkStatus_ {};
-      // The name of the connectivity test status.
+      // The name of the data detection status.
       shared_ptr<string> checkStatusName_ {};
-      // The data masking status. Valid values:
-      // 
-      // - **1**: Enabled.
-      // 
-      // - **0**: Disabled.
+      // The data masking permission status. Valid values:
+      // - **1**: enabled.
+      // - **0**: disabled.
       shared_ptr<int32_t> datamaskStatus_ {};
       // The database version.
       shared_ptr<string> dbVersion_ {};
-      // The sensitive data detection status. Valid values:
-      // 
-      // - **1**: Enabled.
-      // 
-      // - **0**: Disabled.
+      // The detection permission status. Valid values:
+      // - **1**: enabled.
+      // - **0**: disabled.
       shared_ptr<int32_t> enable_ {};
-      // The database engine type. Examples: **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, and **MongoDB**.
+      // The database type. Valid values: **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, **MongoDB**, and others.
       shared_ptr<string> engineType_ {};
-      // The error code that is returned if the connectivity test fails.
+      // The error code.
       shared_ptr<string> errorCode_ {};
-      // The error message that is returned if the connectivity test fails.
+      // The failure reason.
       shared_ptr<string> errorMessage_ {};
-      // The anomaly detection status. Valid values:
-      // 
-      // - **0**: Disabled.
-      // 
-      // - **1**: Enabled (default).
+      // The data leak prevention switch. Valid values:
+      // - **0**: disabled.
+      // - **1**: enabled (default).
       shared_ptr<int32_t> eventStatus_ {};
-      // The time when the data asset was created. This value is a UNIX timestamp. Unit: milliseconds.
+      // The creation time. Format: timestamp. Unit: milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
       // The unique ID of the data asset.
       shared_ptr<int64_t> id_ {};
       // The description of the instance.
       shared_ptr<string> instanceDescription_ {};
-      // The ID of the instance to which the data asset belongs.
+      // The instance ID of the asset to which the data asset table belongs.
       shared_ptr<string> instanceId_ {};
-      // The time when the last full scan was complete. This value is a UNIX timestamp in milliseconds.
-      // 
-      // - Format: UNIX timestamp
-      // 
+      // The time when the last full scan was completed.
+      // - Format: timestamp
       // - Unit: milliseconds
       shared_ptr<int64_t> lastFinishedTime_ {};
-      // The time when the last scan started. This value is a UNIX timestamp in milliseconds.
+      // The time when the last scan of the data asset started. Unit: milliseconds.
       shared_ptr<int64_t> lastStartTime_ {};
-      // The name of the region in which the data asset is located.
+      // The name of the region where the data resides.
       shared_ptr<string> localName_ {};
-      // The retention period of raw logs, in days.
+      // The raw log storage duration. Unit: days.
       shared_ptr<int32_t> logStoreDay_ {};
-      // The ID of the member account to which the data asset belongs.
+      // The member accounts ID.
       shared_ptr<int64_t> memberAccount_ {};
-      // The time when the next scan is scheduled to start. This value is a UNIX timestamp. Unit: milliseconds.
+      // The next execution time. Format: timestamp. Unit: milliseconds.
       shared_ptr<int64_t> nextStartTime_ {};
-      // The status of Optical Character Recognition (OCR). Valid values:
-      // 
-      // - **0**: Disabled.
-      // 
-      // - **1**: Enabled.
+      // The OCR status. Valid values:
+      // - **0**: disabled.
+      // - **1**: enabled.
       shared_ptr<int32_t> ocrStatus_ {};
-      // The ID of the parent asset, such as a bucket, DB, or **project**.
+      // The parent ID of the asset to query. Valid values: **bucket**, **db**, **project**, and others.
       shared_ptr<string> parentId_ {};
       // The port number of the self-managed database.
       shared_ptr<int32_t> port_ {};
-      // The status of the scan task. Valid values:
-      // 
-      // - **-1**: Invalid.
-      // 
-      // - **0**: Pending.
-      // 
-      // - **1**: Scanning.
-      // 
-      // - **2**: Paused.
-      // 
-      // - **3**: Completed.
+      // The scan status. Valid values:
+      // - **-1**: invalid.
+      // - **0**: waiting.
+      // - **1**: scanning.
+      // - **2**: paused.
+      // - **3**: completed.
       shared_ptr<int32_t> processStatus_ {};
-      // The total number of data tables or files.
+      // The total number of tables or files.
       shared_ptr<int32_t> processTotalCount_ {};
-      // The ID of the region in which the data asset is located.
+      // The region where the asset resides.
       shared_ptr<string> regionId_ {};
-      // The type of service to which the data asset belongs. Data assets can be instances, databases, or buckets. Valid values:
-      // 
+      // The type of the product to which the data asset belongs. Valid values:
       // - **1**: MaxCompute
-      // 
       // - **2**: OSS
-      // 
-      // - **3**: AnalyticDB for MySQL
-      // 
-      // - **4**: Tablestore
-      // 
+      // - **3**: ADS
+      // - **4**: OTS
       // - **5**: RDS
-      // 
-      // - **6**: A self-managed database
+      // - **6**: SELF_DB
       shared_ptr<int64_t> resourceType_ {};
-      // The code of the service to which the data asset belongs. Examples: MaxCompute, OSS, ADS, OTS, and **RDS**.
+      // The product type code of the data source. Valid values: **MaxCompute**, **OSS**, **ADS**, **OTS**, **RDS**, and others.
       shared_ptr<string> resourceTypeCode_ {};
-      // The number of sensitive data samples. Valid values: **0**, **5**, and **10**. Unit: entries.
+      // The sensitive data sampling size. Valid values: **0**, **5**, and **10**. Unit: entries.
       shared_ptr<int32_t> samplingSize_ {};
-      // A list of security group IDs that are used by PrivateLink for agent-based auditing.
+      // The list of security group IDs used by PrivateLink in agent-based auditing.
       shared_ptr<vector<string>> securityGroupIdList_ {};
       // Indicates whether auditing is supported. Valid values:
-      // 
-      // - **true**: Yes.
-      // 
-      // - **false**: No.
+      // - **true**: Supported.
+      // - **false**: Not supported.
       shared_ptr<bool> supportAudit_ {};
       // Indicates whether data masking is supported. Valid values:
-      // 
-      // - **true**: Yes.
-      // 
-      // - **false**: No.
+      // - **true**: Supported.
+      // - **false**: Not supported.
       shared_ptr<bool> supportDatamask_ {};
-      // Indicates whether anomaly detection is supported. Valid values:
-      // 
-      // - **true**: Yes.
-      // 
-      // - **false**: No.
+      // Indicates whether anomalous activity detection is supported. Valid values:
+      // - **true**: Supported.
+      // - **false**: Not supported.
       shared_ptr<bool> supportEvent_ {};
       // Indicates whether OCR is supported. Valid values:
-      // 
-      // - **true**: Yes.
-      // 
-      // - **false**: No.
+      // - **true**: Supported.
+      // - **false**: Not supported.
       shared_ptr<bool> supportOcr_ {};
-      // Indicates whether sensitive data detection is supported. Valid values:
-      // 
-      // - **true**: Yes.
-      // 
-      // - **false**: No.
+      // Indicates whether scanning is supported. Valid values:
+      // - **true**: Supported.
+      // - **false**: Not supported.
       shared_ptr<bool> supportScan_ {};
-      // The alias of the tenant.
+      // The tenant alias.
       shared_ptr<string> tenantName_ {};
-      // The total number of fields. This parameter is returned only when the data asset is a table.
+      // The total number of fields in the data asset table.
       shared_ptr<int32_t> totalCount_ {};
-      // The username of the data asset owner.
+      // The username of the data owner.
       shared_ptr<string> userName_ {};
-      // A list of vSwitch IDs that are used by PrivateLink for agent-based auditing.
+      // The list of vSwitch IDs used by PrivateLink in agent-based auditing.
       shared_ptr<vector<string>> vSwitchIdList_ {};
-      // The ID of the virtual private cloud (VPC) in which the data asset resides.
+      // The VPC ID to which the data asset belongs.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -642,15 +602,15 @@ namespace Models
 
 
   protected:
-    // The number of the returned page.
+    // The page number of the current page.
     shared_ptr<int32_t> currentPage_ {};
-    // A list of data assets.
+    // The list of data assets.
     shared_ptr<vector<DescribeDataLimitsResponseBody::Items>> items_ {};
-    // The number of entries returned per page.
+    // The maximum number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

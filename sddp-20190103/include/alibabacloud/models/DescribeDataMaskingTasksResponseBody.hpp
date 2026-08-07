@@ -223,98 +223,69 @@ namespace Models
 
 
     protected:
-      // The member account that the data masking destination belongs to.
+      // The member accounts to which the destination data belongs.
       shared_ptr<int64_t> dstMemberAccount_ {};
       // The destination path.
       shared_ptr<string> dstPath_ {};
-      // The product that the destination data source belongs to. Valid values:
-      // 
+      // The service to which the destination data source belongs. Valid values:
       // - **1**: MaxCompute.
-      // 
       // - **2**: OSS.
-      // 
       // - **3**: ADS.
-      // 
       // - **4**: OTS.
-      // 
       // - **5**: RDS.
-      // 
       // - **6**: SELF_DB.
       shared_ptr<int32_t> dstType_ {};
-      // The type of the destination product. Valid values:
-      // 
+      // The destination service type. Valid values:
       // - **MaxCompute**.
-      // 
       // - **OSS**.
-      // 
       // - **ADS**.
-      // 
       // - **OTS**.
-      // 
       // - **RDS**.
-      // 
       // - **SELF_DB**.
       shared_ptr<string> dstTypeCode_ {};
-      // The time when the task was created. The value is a UNIX timestamp. Unit: milliseconds.
+      // The creation time. Format: timestamp. Unit: milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
-      // Indicates whether the task is running.
+      // Indicates whether the task is being executed.
       shared_ptr<bool> hasUnfinishProcess_ {};
-      // The numerical ID of the task.
+      // The task ID.
       shared_ptr<int64_t> id_ {};
-      // Indicates whether the source table is masked.
+      // Indicates whether the task masks data in the original table.
       shared_ptr<bool> originalTable_ {};
-      // The creator of the task.
+      // The task creator.
       shared_ptr<string> owner_ {};
       // The number of executions.
       shared_ptr<int32_t> runCount_ {};
-      // The member account that the data masking source belongs to.
+      // The member accounts to which the source data belongs.
       shared_ptr<int64_t> srcMemberAccount_ {};
       // The source path.
       shared_ptr<string> srcPath_ {};
-      // The type of the source product. Valid values:
-      // 
+      // The source service type. Valid values:
       // - **1**: MaxCompute.
-      // 
       // - **2**: OSS.
-      // 
       // - **3**: ADS.
-      // 
       // - **4**: OTS.
-      // 
       // - **5**: RDS.
-      // 
       // - **6**: SELF_DB.
       shared_ptr<int32_t> srcType_ {};
-      // The type of the source product. Valid values:
-      // 
+      // The source service type. Valid values:
       // - **MaxCompute**.
-      // 
       // - **OSS**.
-      // 
       // - **ADS**.
-      // 
       // - **OTS**.
-      // 
       // - **RDS**.
-      // 
       // - **SELF_DB**.
       shared_ptr<string> srcTypeCode_ {};
-      // The status of the task. Valid values:
-      // 
+      // The task status. Valid values:
       // - **0**: Disabled.
-      // 
       // - **1**: Enabled.
       shared_ptr<int32_t> status_ {};
-      // The string ID of the task.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // The name of the task.
+      // The task name.
       shared_ptr<string> taskName_ {};
-      // The execution method of the task. Valid values:
-      // 
+      // The execution mode. Valid values:
       // - **1**: Manual.
-      // 
       // - **2**: Scheduled.
-      // 
       // - **3**: Manual and scheduled.
       shared_ptr<int32_t> triggerType_ {};
     };
@@ -359,15 +330,15 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The page number of the current page in the results.
     shared_ptr<int32_t> currentPage_ {};
-    // A list of data masking tasks.
+    // The list of static data masking tasks.
     shared_ptr<vector<DescribeDataMaskingTasksResponseBody::Items>> items_ {};
-    // The number of entries returned per page.
+    // The number of entries per page in the results.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries in the results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

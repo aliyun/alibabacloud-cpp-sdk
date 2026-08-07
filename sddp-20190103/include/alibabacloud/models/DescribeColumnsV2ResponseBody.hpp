@@ -141,21 +141,15 @@ namespace Models
 
 
       protected:
-        // The ID of the data tag. Valid values:
-        // 
-        // - **101**: Personal sensitive information
-        // 
-        // - **102**: Personal information
-        // 
-        // - **107**: General information
+        // The data tag ID. Valid values:
+        // - **101**: personal sensitive information
+        // - **102**: personal information
+        // - **107**: general information
         shared_ptr<int64_t> id_ {};
-        // The name of the data tag. Valid values:
-        // 
-        // - Personal sensitive information
-        // 
-        // - Personal information
-        // 
-        // - General information
+        // The data tag name. Valid values:
+        // - 个人敏感信息
+        // - 个人信息
+        // - 通用信息
         shared_ptr<string> name_ {};
       };
 
@@ -336,143 +330,105 @@ namespace Models
 
 
     protected:
-      // The time when the data in the column of the data asset table was created. The value is a UNIX timestamp. Unit: milliseconds.
+      // The creation time of the column data in the data asset table, in milliseconds.
       shared_ptr<int64_t> creationTime_ {};
-      // The data type of the data in the column of the data asset table.
+      // The data type of the column data in the data asset table.
       shared_ptr<string> dataType_ {};
-      // The type of the database engine. Valid values:
-      // 
+      // The engine type. Valid values:
       // - **MySQL**
-      // 
       // - **MariaDB**
-      // 
       // - **Oracle**
-      // 
       // - **PostgreSQL**
-      // 
       // - **SQLServer**
       shared_ptr<string> engineType_ {};
       // The unique ID of the column in the data asset table.
       shared_ptr<string> id_ {};
-      // The ID of the data asset instance to which the data in the column belongs.
+      // The instance ID of the asset to which the column data in the data asset table belongs.
       shared_ptr<int64_t> instanceId_ {};
-      // The name of the data asset instance to which the data in the column belongs.
+      // The name of the asset instance to which the column data in the data asset table belongs.
       shared_ptr<string> instanceName_ {};
       // The column encryption status. Valid values:
       // 
-      // - **-1**: not encrypted
+      // - **-1**: not encrypted.
       // 
-      // - **1**: encryption successful
+      // - **1**: encryption succeeded.
       // 
-      // - **2**: encryption failed
+      // - **2**: encryption failed.
       shared_ptr<int32_t> maskingStatus_ {};
-      // A list of data tags.
+      // The list of data tags.
       shared_ptr<vector<Items::ModelTags>> modelTags_ {};
       // The name of the column in the data asset table.
       shared_ptr<string> name_ {};
-      // The name of the risk level for the data asset. Valid values:
-      // 
-      // - **N/A**: No sensitive data is detected.
-      // 
+      // The risk level name of the asset. Valid values:
+      // - **N/A**: no sensitive data detected.
       // - **S1**: Level 1 sensitive data.
-      // 
       // - **S2**: Level 2 sensitive data.
-      // 
       // - **S3**: Level 3 sensitive data.
-      // 
       // - **S4**: Level 4 sensitive data.
       shared_ptr<string> odpsRiskLevelName_ {};
-      // The code of the risk level for the data asset. Valid values:
+      // The risk level code of the asset. Valid values:
       // 
-      // - **1**: N/A
+      // - **1**: N/A.
+      // - **2**: S1.
+      // - **3**: S2.
+      // - **4**: S3.
+      // - **5**: S4.
       // 
-      // - **2**: S1
-      // 
-      // - **3**: S2
-      // 
-      // - **4**: S3
-      // 
-      // - **5**: S4
-      // 
-      // > A return value that is less than or equal to 1 indicates N/A.
+      // > A return value less than or equal to 1 indicates N/A.
       shared_ptr<int32_t> odpsRiskLevelValue_ {};
-      // The name of the product to which the data in the column of the data asset table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+      // The name of the product to which the column data in the data asset table belongs. Valid values: **MaxCompute, OSS, ADS, OTS, RDS**, and others.
       shared_ptr<string> productCode_ {};
-      // The ID of the product to which the data asset belongs. Valid values:
-      // 
-      // - **1**: MaxCompute
-      // 
-      // - **2**: OSS
-      // 
-      // - **3**: ADS
-      // 
-      // - **4**: OTS
-      // 
-      // - **5**: RDS
-      // 
-      // - **6**: SELF_DB
+      // The ID that corresponds to the product name of the data asset. Valid values:
+      // - **1**: MaxCompute.
+      // - **2**: OSS.
+      // - **3**: ADS.
+      // - **4**: OTS.
+      // - **5**: ApsaraDB RDS.
+      // - **6**: SELF_DB.
       shared_ptr<int64_t> productId_ {};
-      // The region where the data asset resides.
+      // The region where the asset resides.
       shared_ptr<string> regionId_ {};
       // The ID of the revision record.
       shared_ptr<int64_t> revisionId_ {};
       // The revision status. Valid values:
-      // 
-      // - 1: revised
-      // 
-      // - 0: not revised
+      // - 1: revised.
+      // - 0: not revised.
       shared_ptr<int64_t> revisionStatus_ {};
-      // The ID of the risk level for the data in the column of the data asset table. Valid values:
+      // The risk level ID of the column data in the data asset table. Valid values:
+      // - **1**: N/A.
+      // - **2**: S1.
+      // - **3**: S2.
+      // - **4**: S3.
+      // - **5**: S4.
       // 
-      // - **1**: N/A
-      // 
-      // - **2**: S1
-      // 
-      // - **3**: S2
-      // 
-      // - **4**: S3
-      // 
-      // - **5**: S4
-      // 
-      // > A return value that is less than or equal to 1 indicates N/A.
+      // > A return value less than or equal to 1 indicates N/A.
       shared_ptr<int64_t> riskLevelId_ {};
-      // The name of the risk level for the data in the column of the data asset table. Valid values:
-      // 
-      // - **N/A**: No sensitive data is detected.
-      // 
+      // The risk level name of the column data in the data asset table. Valid values:
+      // - **N/A**: no sensitive data detected.
       // - **S1**: Level 1 sensitive data.
-      // 
       // - **S2**: Level 2 sensitive data.
-      // 
       // - **S3**: Level 3 sensitive data.
-      // 
       // - **S4**: Level 4 sensitive data.
       shared_ptr<string> riskLevelName_ {};
-      // The ID of the sensitive data detection rule that is hit by the data in the column.
+      // The ID of the sensitive data detection rule that the column data in the data asset table matches.
       shared_ptr<int64_t> ruleId_ {};
-      // The name of the sensitive data detection rule that is hit by the data in the column.
+      // The name of the sensitive data detection rule that the column data in the data asset table matches.
       shared_ptr<string> ruleName_ {};
-      // The name of the sensitivity level. Valid values:
-      // 
-      // - **N/A**: No sensitive data is detected.
-      // 
+      // The sensitivity level name. Valid values:
+      // - **N/A**: no sensitive data detected.
       // - **S1**: Level 1 sensitive data.
-      // 
       // - **S2**: Level 2 sensitive data.
-      // 
       // - **S3**: Level 3 sensitive data.
-      // 
       // - **S4**: Level 4 sensitive data.
       shared_ptr<string> sensLevelName_ {};
-      // Indicates whether the data in the column of the data asset table is sensitive. Valid values:
+      // Indicates whether the column data in the data asset table contains sensitive data. Valid values:
       // 
-      // - true: The data in the column is sensitive.
-      // 
-      // - false: The data in the column is not sensitive.
+      // - true: The column data contains sensitive data.
+      // - false: The column data does not contain sensitive data.
       shared_ptr<bool> sensitive_ {};
-      // The ID of the data asset table to which the data in the column belongs.
+      // The ID of the data asset table to which the column data belongs.
       shared_ptr<int64_t> tableId_ {};
-      // The name of the table that contains the revised target column.
+      // The name of the table to which the revised target column belongs.
       shared_ptr<string> tableName_ {};
     };
 
@@ -516,11 +472,11 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: **1**.
+    // The page number in a paged query. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // A list of detection results for the columns in the data table.
+    // The list of column detection results in the data asset table.
     shared_ptr<vector<DescribeColumnsV2ResponseBody::Items>> items_ {};
-    // The maximum number of entries returned on each page. Default value: **10**.
+    // The maximum number of entries per page in a paged query. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The unique ID generated by Alibaba Cloud for the request.
     shared_ptr<string> requestId_ {};

@@ -204,84 +204,59 @@ namespace Models
 
 
   protected:
-    // The content type of the sensitive data detection rule. Valid values:
-    // 
+    // The type of content in the sensitive data detection rule. Valid values:
     // - **0**: keyword.
-    // 
     // - **2**: regular expression.
     shared_ptr<int32_t> category_ {};
-    // The content of the sensitive data detection rule. The content can be a regular expression or a keyword that is used to match sensitive data fields or text.
+    // The content of the sensitive data detection rule. The content can be a regular expression or keyword used to match sensitive data fields or text.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
     // The content type. Valid values:
     // 
-    // - **1**: SQL injection exploit.
-    // 
-    // - **2**: SQL injection bypass.
-    // 
+    // - **1**: SQL injection exploitation attempt.
+    // - **2**: SQL injection bypass attempt.
     // - **3**: stored procedure abuse.
-    // 
     // - **4**: buffer overflow.
-    // 
     // - **5**: error-based SQL injection.
     shared_ptr<int32_t> contentCategory_ {};
     // The description of the rule.
     shared_ptr<string> description_ {};
-    // The language of the content in the request and response. Valid values:
-    // 
+    // The language type for the request and response messages. Valid values:
     // - **zh**: Chinese.
-    // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
     // The match type. Valid values:
-    // 
     // - **1**: rule-based match.
-    // 
     // - **2**: dictionary-based match.
     shared_ptr<int32_t> matchType_ {};
-    // The IDs of the model rules for sensitive data auditing.
+    // The collection of model IDs for sensitive data auditing.
     shared_ptr<string> modelRuleIds_ {};
     // The name of the sensitive data detection rule.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The name of the service to which the data asset belongs. Valid values: **MaxCompute**, **OSS**, **ADS**, **OTS**, and **RDS**.
+    // The name of the product to which the column data in the data asset table belongs. Valid values: **MaxCompute**, **OSS**, **ADS**, **OTS**, **RDS**, and others.
     shared_ptr<string> productCode_ {};
-    // The ID of the service to which the data asset belongs. Valid values:
-    // 
+    // The ID that corresponds to the product name of the data asset. Valid values:
     // - **1**: MaxCompute
-    // 
     // - **2**: OSS
-    // 
     // - **3**: ADS
-    // 
     // - **4**: OTS
-    // 
     // - **5**: RDS
-    // 
     // - **6**: SELF_DB
     shared_ptr<int64_t> productId_ {};
     // The sensitivity level ID of the sensitive data detection rule. Valid values:
-    // 
     // - **1**: N/A. No sensitive data is detected.
-    // 
-    // - **2**: S1. Level 1 sensitive data.
-    // 
-    // - **3**: S2. Level 2 sensitive data.
-    // 
-    // - **4**: S3. Level 3 sensitive data.
-    // 
-    // - **5**: S4. Level 4 sensitive data.
+    // - **2**: S1. Level-1 sensitive data.
+    // - **3**: S2. Level-2 sensitive data.
+    // - **4**: S3. Level-3 sensitive data.
+    // - **5**: S4. Level-4 sensitive data.
     shared_ptr<int64_t> riskLevelId_ {};
-    // The type of the rule. Valid values:
-    // 
+    // The feature type of the rule. Valid values:
     // - **1**: data detection rule.
-    // 
     // - **2**: audit policy.
-    // 
-    // - **3**: anomaly detection rule.
-    // 
+    // - **3**: outlier detection rule.
     // - **99**: custom rule.
     shared_ptr<int32_t> ruleType_ {};
     // This parameter is deprecated.
@@ -289,30 +264,22 @@ namespace Models
     // The statistical expression.
     shared_ptr<string> statExpress_ {};
     // The status of the rule. Valid values:
-    // 
-    // - **1**: Enabled.
-    // 
-    // - **0**: Disabled.
+    // - **1**: enabled.
+    // - **0**: disabled.
     shared_ptr<int32_t> status_ {};
-    // The type of data assets that the rule supports. Valid values:
-    // 
+    // The asset form supported by the rule. Valid values:
     // - **0**: all assets.
-    // 
     // - **1**: structured assets.
-    // 
     // - **2**: unstructured assets.
     shared_ptr<int32_t> supportForm_ {};
-    // The code of the service to which the rule applies. Valid values: **MaxCompute**, **OSS**, **ADS**, **OTS**, and **RDS**.
+    // The target product code. Valid values: **MaxCompute**, **OSS**, **ADS**, **OTS**, **RDS**, and others.
     shared_ptr<string> target_ {};
-    // The IDs of the template rules for sensitive data auditing.
+    // The collection of template IDs for sensitive data auditing.
     shared_ptr<string> templateRuleIds_ {};
     // The risk level. Valid values:
-    // 
-    // - **1**: Low.
-    // 
-    // - **2**: Medium.
-    // 
-    // - **3**: High.
+    // - **1**: low.
+    // - **2**: medium.
+    // - **3**: high.
     shared_ptr<int32_t> warnLevel_ {};
   };
 

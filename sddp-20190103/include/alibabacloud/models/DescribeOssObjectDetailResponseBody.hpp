@@ -128,20 +128,14 @@ namespace Models
 
 
         protected:
-          // The ID of the data tag for the detection model.
-          // 
-          // - **101**: Personal sensitive information.
-          // 
-          // - **102**: Personal information.
-          // 
-          // - **103**: Important data.
+          // The data tag ID of the detection model. Valid values:
+          // - **101**: personal sensitive information.
+          // - **102**: personal information.
+          // - **103**: important data.
           shared_ptr<int64_t> id_ {};
-          // The name of the data tag for the detection model.
-          // 
+          // The data tag name of the detection model. Valid values:
           // - Personal sensitive information.
-          // 
           // - Personal information.
-          // 
           // - Important data.
           shared_ptr<string> name_ {};
         };
@@ -193,27 +187,22 @@ namespace Models
 
 
       protected:
-        // The name of the OSS object type.
+        // The object type name of the OSS storage object.
         shared_ptr<string> categoryName_ {};
-        // The number of times the sensitive data detection rule was hit.
+        // The number of times the sensitive data detection rule is hit.
         shared_ptr<int64_t> count_ {};
-        // A list of data tags that are hit by the detection model.
+        // The list of data tags for the detection model that is hit.
         shared_ptr<vector<RuleList::ModelTags>> modelTags_ {};
-        // The ID of the risk level for the OSS object.
-        // 
+        // The risk level ID of the OSS storage object. Valid values:
         // - **1**: No sensitive data is detected.
-        // 
         // - **2**: Level 1 sensitive data.
-        // 
         // - **3**: Level 2 sensitive data.
-        // 
         // - **4**: Level 3 sensitive data.
-        // 
         // - **5**: Level 4 sensitive data.
         shared_ptr<int64_t> riskLevelId_ {};
-        // The name of the risk level for the OSS object.
+        // The risk level name of the OSS storage object.
         shared_ptr<string> riskLevelName_ {};
-        // The name of the sensitive data detection rule that was hit.
+        // The name of the sensitive data detection rule that is hit.
         shared_ptr<string> ruleName_ {};
       };
 
@@ -264,17 +253,17 @@ namespace Models
 
 
     protected:
-      // The name of the bucket to which the OSS object belongs.
+      // The name of the bucket to which the OSS storage object belongs.
       shared_ptr<string> bucketName_ {};
-      // The name of the OSS object type.
+      // The object type name of the OSS storage object.
       shared_ptr<string> categoryName_ {};
-      // The name of the OSS object.
+      // The name of the OSS storage object.
       shared_ptr<string> name_ {};
-      // The ID of the region where the OSS object is stored.
+      // The region ID of the OSS storage object.
       shared_ptr<string> regionId_ {};
-      // The name of the risk level for the OSS object.
+      // The risk level name of the OSS storage object.
       shared_ptr<string> riskLevelName_ {};
-      // A list of sensitive data detection rules that the OSS object hits.
+      // The list of sensitive data detection rules that the OSS storage object hits.
       shared_ptr<vector<OssObjectDetail::RuleList>> ruleList_ {};
     };
 
@@ -297,9 +286,9 @@ namespace Models
 
 
   protected:
-    // The details of the OSS object.
+    // The details of the OSS storage object.
     shared_ptr<DescribeOssObjectDetailResponseBody::OssObjectDetail> ossObjectDetail_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

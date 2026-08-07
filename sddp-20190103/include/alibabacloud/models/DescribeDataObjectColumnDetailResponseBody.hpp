@@ -127,21 +127,15 @@ namespace Models
 
 
       protected:
-        // The ID of the data label. Valid values:
-        // 
-        // - **101**: Personal sensitive information
-        // 
-        // - **102**: Personal information
-        // 
-        // - **107**: General information
+        // The ID that corresponds to the data tag name. Valid values:
+        // - **101**: personal sensitive information
+        // - **102**: personal information
+        // - **107**: general information
         shared_ptr<int64_t> id_ {};
-        // The name of the data label. Valid values:
-        // 
-        // - **Personal sensitive information**
-        // 
-        // - **Personal information**
-        // 
-        // - **General information**
+        // The data tag name. Valid values:
+        // - **101**: personal sensitive information
+        // - **102**: personal information
+        // - **107**: general information
         shared_ptr<string> name_ {};
       };
 
@@ -274,103 +268,75 @@ namespace Models
 
 
     protected:
-      // The industry-specific data classifications.
+      // The list of industry categories to which the sensitive data belongs.
       shared_ptr<vector<string>> categories_ {};
-      // The comment on the column.
+      // The comment of the column.
       shared_ptr<string> columnComment_ {};
-      // The name of the column.
+      // The column name.
       shared_ptr<string> columnName_ {};
       // The data type of the column.
       shared_ptr<string> dataType_ {};
-      // The type of the database engine. Valid values:
-      // 
+      // The engine type. Valid values:
       // - **MySQL**
-      // 
       // - **MariaDB**
-      // 
       // - **Oracle**
-      // 
       // - **PostgreSQL**
-      // 
       // - **SQLServer**
       shared_ptr<string> engineType_ {};
-      // The ID of the column.
+      // The unique ID of the column object.
       shared_ptr<string> id_ {};
-      // The name of the instance where the table is located.
+      // The instance name of the data asset table.
       shared_ptr<string> instanceName_ {};
-      // The data masking status of the column. Valid values:
+      // The encryption status of the column. Valid values:
       // 
-      // - **-1**: Not masked
+      // - **-1**: Not encrypted.
       // 
-      // - **1**: Masked
+      // - **1**: Encrypted.
       // 
-      // - **2**: Masking failed
+      // - **2**: Encryption failed.
       shared_ptr<int32_t> maskingStatus_ {};
-      // The data labels.
+      // The list of data tags.
       shared_ptr<vector<Items::ModelTags>> modelTags_ {};
       // Indicates whether the column is a primary key. Valid values:
       // 
       // - **true**: The column is a primary key.
-      // 
       // - **false**: The column is not a primary key.
       shared_ptr<bool> primaryKey_ {};
-      // The ID of the service to which the data object belongs. Valid values:
-      // 
+      // The ID of the product to which the data object belongs. Valid values:
       // - **1**: MaxCompute
-      // 
       // - **2**: OSS
-      // 
       // - **3**: ADB-MYSQL
-      // 
-      // - **4**: Tablestore
-      // 
+      // - **4**: TableStore
       // - **5**: RDS
-      // 
       // - **6**: SELF_DB
-      // 
       // - **7**: PolarDB-X
-      // 
       // - **8**: PolarDB
-      // 
       // - **9**: ADB-PG
-      // 
       // - **10**: OceanBase
-      // 
       // - **11**: MongoDB
-      // 
       // - **25**: Redis
       shared_ptr<int64_t> productId_ {};
-      // The ID of the region where the data asset is located.
+      // The region where the asset resides.
       shared_ptr<string> regionId_ {};
-      // The ID of the sensitivity level. Valid values:
-      // 
-      // - **1**: N/A
-      // 
-      // - **2**: S1
-      // 
-      // - **3**: S2
-      // 
-      // - **4**: S3
-      // 
-      // - **5**: S4
+      // The risk level ID. Valid values:
+      // - **1**: N/A. No sensitive data is detected.
+      // - **2**: S1. Level 1 sensitive data.
+      // - **3**: S2. Level 2 sensitive data.
+      // - **4**: S3. Level 3 sensitive data.
+      // - **5**: S4. Level 4 sensitive data.
       shared_ptr<int64_t> riskLevelId_ {};
-      // The name of the sensitivity level. Valid values:
-      // 
-      // - **N/A**
-      // 
-      // - **S1**
-      // 
-      // - **S2**
-      // 
-      // - **S3**
-      // 
-      // - **S4**
+      // The risk level name. Valid values:
+      // - **N/A**: No sensitive data is detected.
+      // - **S1**: Level 1 sensitive data.
+      // - **S2**: Level 2 sensitive data.
+      // - **S3**: Level 3 sensitive data.
+      // - **S4**: Level 4 sensitive data.
       shared_ptr<string> riskLevelName_ {};
-      // The ID of the sensitive data detection rule that was matched.
+      // The ID of the sensitive data detection rule that is hit.
       shared_ptr<int64_t> ruleId_ {};
-      // The name of the sensitive data detection rule that was matched.
+      // The name of the sensitive data detection rule that is hit.
       shared_ptr<string> ruleName_ {};
-      // The name of the table.
+      // The table name.
       shared_ptr<string> tableName_ {};
     };
 
@@ -414,15 +380,15 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The page number of the current page in a paged query. Settings this parameter for paging. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The details of the columns.
+    // The list of column detection results of the data table.
     shared_ptr<vector<DescribeDataObjectColumnDetailResponseBody::Items>> items_ {};
-    // The number of entries returned on each page.
+    // The maximum number of data asset instances to display on each page in a paged query. Settings this parameter for paging. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

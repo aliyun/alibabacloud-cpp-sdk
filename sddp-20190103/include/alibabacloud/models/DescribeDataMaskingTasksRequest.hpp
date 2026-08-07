@@ -94,35 +94,27 @@ namespace Models
 
 
   protected:
-    // The page number to return.
+    // The page number for a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // The product that the destination data source belongs to. Valid values:
-    // 
+    // The service to which the destination data source belongs. Valid values:
     // - **1**: MaxCompute.
-    // 
     // - **2**: OSS.
-    // 
     // - **3**: ADS.
-    // 
     // - **4**: OTS.
-    // 
     // - **5**: RDS.
-    // 
     // - **6**: SELF_DB.
     shared_ptr<int32_t> dstType_ {};
-    // The end time for creating the data masking task. The value is a UNIX timestamp. Unit: milliseconds.
+    // The end time of the task creation period. Format: timestamp. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
     // The language of the request and response. Default value: **zh_cn**. Valid values:
-    // 
     // - **zh_cn**: Chinese.
-    // 
     // - **en_us**: English.
     shared_ptr<string> lang_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // A keyword to search for tasks. You can search by task name or task ID.
+    // The keyword used to search for tasks. You can search by task name or task ID.
     shared_ptr<string> searchKey_ {};
-    // The start time for creating the task. The value is a UNIX timestamp. Unit: milliseconds.
+    // The start time of the task creation period. Format: timestamp. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

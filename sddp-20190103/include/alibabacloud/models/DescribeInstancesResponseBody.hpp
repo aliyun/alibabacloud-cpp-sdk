@@ -135,21 +135,15 @@ namespace Models
 
 
       protected:
-        // The ID of the data label. Valid values:
-        // 
-        // - **101**: Personal sensitive information
-        // 
-        // - **102**: Personal information
-        // 
-        // - **107**: General information
+        // The data tag ID. Valid values:
+        // - **101**: personal sensitive information
+        // - **102**: personal information
+        // - **107**: general information
         shared_ptr<int64_t> id_ {};
-        // The name of the data label. Valid values:
-        // 
-        // - Personal sensitive information
-        // 
-        // - Personal information
-        // 
-        // - General information
+        // The data tag name. Valid values:
+        // - 个人敏感信息
+        // - 个人信息
+        // - 通用信息
         shared_ptr<string> name_ {};
       };
 
@@ -312,21 +306,20 @@ namespace Models
       shared_ptr<int64_t> creationTime_ {};
       // The name of the department to which the data asset instance belongs.
       shared_ptr<string> departName_ {};
-      // The unique ID of the data asset instance that is recorded in Data Security Center.
+      // The unique ID of the data asset instance recorded in Data Security Center.
       shared_ptr<int64_t> id_ {};
       // The description of the data asset instance.
       shared_ptr<string> instanceDescription_ {};
       // The security status of the data asset instance. Valid values:
       // 
-      // - **true**: secure
-      // 
-      // - **false**: insecure
+      // - **true**: Secure.
+      // - **false**: Not secure.
       shared_ptr<bool> labelsec_ {};
-      // The time when the last scan of the data asset instance was completed. The value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the most recent scan of the data asset instance was completed. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> lastFinishTime_ {};
-      // If multi-account management is enabled and the asset belongs to a member account, this parameter indicates the UID of the member account.
+      // If the management account has enabled multi-account management and the asset belongs to another member account, this field displays the UID of the member account.
       shared_ptr<string> memberAliUid_ {};
-      // The list of data labels.
+      // The list of data tags.
       shared_ptr<vector<Items::ModelTags>> modelTags_ {};
       // The name of the data asset instance.
       shared_ptr<string> name_ {};
@@ -334,55 +327,43 @@ namespace Models
       shared_ptr<string> odpsRiskLevelName_ {};
       // The Alibaba Cloud account that owns the data asset instance.
       shared_ptr<string> owner_ {};
-      // The name of the product to which the data asset instance belongs, such as MaxCompute, OSS, or RDS. For more information about the supported products, see [Data assets that can be scanned for sensitive data](https://help.aliyun.com/document_detail/212906.html).
+      // The name of the product to which the data asset instance belongs, such as MaxCompute, OSS, or RDS. For supported product names, see [Data types from which sensitive data can be detected](https://help.aliyun.com/document_detail/212906.html).
       shared_ptr<string> productCode_ {};
       // The ID of the product to which the data asset instance belongs.
       shared_ptr<string> productId_ {};
       // The protection status of the data asset instance. Valid values:
       // 
-      // - **true**: The instance is protected.
-      // 
-      // - **false**: The instance is not protected.
+      // - **true**: Protected.
+      // - **false**: Not protected.
       shared_ptr<bool> protection_ {};
-      // The ID of the threat level for the data asset instance. The higher the threat level ID, the more sensitive the data.
+      // The risk level ID of the data asset instance. A higher risk level ID indicates more sensitive data is detected.
       // 
-      // - **1**: No sensitive data is detected. No threat.
-      // 
-      // - **2**: Threat level 1.
-      // 
-      // - **3**: Threat level 2.
-      // 
-      // - **4**: Threat level 3.
-      // 
-      // - **5**: Threat level 4.
-      // 
-      // - **6**: Threat level 5.
-      // 
-      // - **7**: Threat level 6.
-      // 
-      // - **8**: Threat level 7.
-      // 
-      // - **9**: Threat level 8.
-      // 
-      // - **10**: Threat level 9.
-      // 
-      // - **11**: Threat level 10.
+      // - **1**: No sensitive data is detected. No risk.
+      // - **2**: Sensitive data risk at level 1.
+      // - **3**: Sensitive data risk at level 2.
+      // - **4**: Sensitive data risk at level 3.
+      // - **5**: Sensitive data risk at level 4.
+      // - **6**: Sensitive data risk at level 5.
+      // - **7**: Sensitive data risk at level 6.
+      // - **8**: Sensitive data risk at level 7.
+      // - **9**: Sensitive data risk at level 8.
+      // - **10**: Sensitive data risk at level 9.
+      // - **11**: Sensitive data risk at level 10.
       shared_ptr<int64_t> riskLevelId_ {};
-      // The name of the threat level for the data asset instance.
+      // The risk level name of the data asset instance.
       shared_ptr<string> riskLevelName_ {};
       // The name of the sensitive data detection rule that the data asset instance hits.
       shared_ptr<string> ruleName_ {};
       // Indicates whether the data asset instance contains sensitive data. Valid values:
       // 
-      // - **true**: yes
-      // 
-      // - **false**: no
+      // - **true**: Contains sensitive data.
+      // - **false**: Does not contain sensitive data.
       shared_ptr<bool> sensitive_ {};
-      // The total amount of sensitive data in the data asset instance. For example, if the data asset is an RDS instance, this parameter indicates the total number of sensitive tables in the instance.
+      // The total number of sensitive data items in the data asset instance. For example, if the data asset is ApsaraDB RDS, this value indicates the total number of sensitive tables in the databases of the instance.
       shared_ptr<int32_t> sensitiveCount_ {};
       // The name of the tenant.
       shared_ptr<string> tenantName_ {};
-      // The total amount of data in the data asset instance. For example, if the data asset is an RDS instance, this parameter indicates the total number of tables in the instance.
+      // The total number of data items in the data asset instance. For example, if the data asset is ApsaraDB RDS, this value indicates the total number of tables in the databases of the instance.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -426,15 +407,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the current page.
     shared_ptr<int32_t> currentPage_ {};
-    // The details of the data asset instances.
+    // The details of the data asset instances returned.
     shared_ptr<vector<DescribeInstancesResponseBody::Items>> items_ {};
-    // The number of data asset instances returned on each page.
+    // The number of data asset instances on each page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of data asset instances.
+    // The total number of data asset instances returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

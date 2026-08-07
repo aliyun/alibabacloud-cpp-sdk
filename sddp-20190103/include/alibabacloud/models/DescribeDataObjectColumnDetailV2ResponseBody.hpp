@@ -128,19 +128,13 @@ namespace Models
 
       protected:
         // The ID of the data tag. Valid values:
-        // 
-        // - **101**: Personal sensitive information
-        // 
-        // - **102**: Personal information
-        // 
-        // - **107**: General information
+        // - **101**: personal sensitive information
+        // - **102**: personal information
+        // - **107**: general information
         shared_ptr<int64_t> id_ {};
         // The name of the data tag. Valid values:
-        // 
         // - Personal sensitive information
-        // 
         // - Personal information
-        // 
         // - General information
         shared_ptr<string> name_ {};
       };
@@ -274,103 +268,75 @@ namespace Models
 
 
     protected:
-      // The list of industry-specific categories for the sensitive data.
+      // The list of industry categories to which the sensitive data belongs.
       shared_ptr<vector<string>> categories_ {};
-      // The comments on the column.
+      // The comment of the column.
       shared_ptr<string> columnComment_ {};
-      // The name of the column.
+      // The column name.
       shared_ptr<string> columnName_ {};
       // The data type of the column.
       shared_ptr<string> dataType_ {};
       // The engine type. Valid values:
-      // 
-      // - **MySQL**.
-      // 
-      // - **MariaDB**.
-      // 
-      // - **Oracle**.
-      // 
-      // - **PostgreSQL**.
-      // 
-      // - **SQLServer**.
+      // - **MySQL**
+      // - **MariaDB**
+      // - **Oracle**
+      // - **PostgreSQL**
+      // - **SQLServer**
       shared_ptr<string> engineType_ {};
       // The unique ID of the data object.
       shared_ptr<string> id_ {};
-      // The name of the instance for the data asset table.
+      // The instance name of the data asset table.
       shared_ptr<string> instanceName_ {};
       // The encryption status of the column. Valid values:
       // 
-      // - **-1**: Not encrypted
+      // - **-1**: Not encrypted.
       // 
-      // - **1**: Encrypted
+      // - **1**: Encrypted.
       // 
-      // - **2**: Encryption failed
+      // - **2**: Encryption failed.
       shared_ptr<int32_t> maskingStatus_ {};
       // The list of data tags.
       shared_ptr<vector<Items::ModelTags>> modelTags_ {};
       // Indicates whether the column is a primary key. Valid values:
       // 
       // - **true**: The column is a primary key.
-      // 
       // - **false**: The column is not a primary key.
       shared_ptr<bool> primaryKey_ {};
       // The ID of the product to which the data object belongs. Valid values:
-      // 
       // - **1**: MaxCompute
-      // 
       // - **2**: OSS
-      // 
       // - **3**: ADB-MYSQL
-      // 
-      // - **4**: Tablestore
-      // 
+      // - **4**: TableStore
       // - **5**: RDS
-      // 
       // - **6**: SELF_DB
-      // 
       // - **7**: PolarDB-X
-      // 
       // - **8**: PolarDB
-      // 
       // - **9**: ADB-PG
-      // 
       // - **10**: OceanBase
-      // 
       // - **11**: MongoDB
-      // 
       // - **25**: Redis
       shared_ptr<int64_t> productId_ {};
       // The region where the asset resides.
       shared_ptr<string> regionId_ {};
-      // The ID of the sensitivity level. Valid values:
-      // 
-      // - **1**: N/A: No sensitive data is detected.
-      // 
-      // - **2**: S1: level-1 sensitive data.
-      // 
-      // - **3**: S2: level-2 sensitive data.
-      // 
-      // - **4**: S3: level-3 sensitive data.
-      // 
-      // - **5**: S4: level-4 sensitive data.
+      // The risk level ID. Valid values:
+      // - **1**: N/A. No sensitive data is detected.
+      // - **2**: S1. Level 1 sensitive data.
+      // - **3**: S2. Level 2 sensitive data.
+      // - **4**: S3. Level 3 sensitive data.
+      // - **5**: S4. Level 4 sensitive data.
       shared_ptr<int64_t> riskLevelId_ {};
-      // The name of the sensitivity level. Valid values:
-      // 
+      // The risk level name. Valid values:
       // - **N/A**: No sensitive data is detected.
-      // 
-      // - **S1**: level-1 sensitive data.
-      // 
-      // - **S2**: level-2 sensitive data.
-      // 
-      // - **S3**: level-3 sensitive data.
-      // 
-      // - **S4**: level-4 sensitive data.
+      // - **S1**: Level 1 sensitive data.
+      // - **S2**: Level 2 sensitive data.
+      // - **S3**: Level 3 sensitive data.
+      // - **S4**: Level 4 sensitive data.
       shared_ptr<string> riskLevelName_ {};
-      // The ID of the hit detection model.
+      // The ID of the sensitive data detection rule that is hit.
       shared_ptr<int64_t> ruleId_ {};
-      // The name of the hit detection model.
+      // The name of the sensitive data detection rule that is hit.
       shared_ptr<string> ruleName_ {};
-      // The name of the table.
+      // The table name.
       shared_ptr<string> tableName_ {};
     };
 
@@ -414,15 +380,15 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page. Default value: 1.
+    // The page number in the paging query. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The list of detection results for the columns in the data table.
+    // The list of column detection results for the data table.
     shared_ptr<vector<DescribeDataObjectColumnDetailV2ResponseBody::Items>> items_ {};
-    // The number of entries returned per page. Default value: **10**.
+    // Settings for paging query. The maximum number of data asset instances to display on each page. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

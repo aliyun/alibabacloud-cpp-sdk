@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Comment, comment_);
         DARABONBA_PTR_TO_JSON(DataType, dataType_);
         DARABONBA_PTR_TO_JSON(DbName, dbName_);
+        DARABONBA_PTR_TO_JSON(EngineType, engineType_);
         DARABONBA_PTR_TO_JSON(FileCategoryCode, fileCategoryCode_);
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(InstanceDescription, instanceDescription_);
@@ -85,6 +86,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Comment, comment_);
         DARABONBA_PTR_FROM_JSON(DataType, dataType_);
         DARABONBA_PTR_FROM_JSON(DbName, dbName_);
+        DARABONBA_PTR_FROM_JSON(EngineType, engineType_);
         DARABONBA_PTR_FROM_JSON(FileCategoryCode, fileCategoryCode_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(InstanceDescription, instanceDescription_);
@@ -306,14 +308,14 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->categories_ == nullptr
-        && this->clusterType_ == nullptr && this->comment_ == nullptr && this->dataType_ == nullptr && this->dbName_ == nullptr && this->fileCategoryCode_ == nullptr
-        && this->id_ == nullptr && this->instanceDescription_ == nullptr && this->instanceId_ == nullptr && this->isRevision_ == nullptr && this->lastModifiedTime_ == nullptr
-        && this->lastScanTime_ == nullptr && this->logStore_ == nullptr && this->maskStatus_ == nullptr && this->memberAccount_ == nullptr && this->modelTags_ == nullptr
-        && this->name_ == nullptr && this->objectFileCategory_ == nullptr && this->objectType_ == nullptr && this->path_ == nullptr && this->productCode_ == nullptr
-        && this->productId_ == nullptr && this->project_ == nullptr && this->regionId_ == nullptr && this->regionName_ == nullptr && this->riskLevelId_ == nullptr
-        && this->ruleCount_ == nullptr && this->ruleList_ == nullptr && this->sensitiveCount_ == nullptr && this->size_ == nullptr && this->sx_ == nullptr
-        && this->tableName_ == nullptr && this->taskId_ == nullptr && this->taskName_ == nullptr && this->taskNumber_ == nullptr && this->templateId_ == nullptr
-        && this->templateName_ == nullptr; };
+        && this->clusterType_ == nullptr && this->comment_ == nullptr && this->dataType_ == nullptr && this->dbName_ == nullptr && this->engineType_ == nullptr
+        && this->fileCategoryCode_ == nullptr && this->id_ == nullptr && this->instanceDescription_ == nullptr && this->instanceId_ == nullptr && this->isRevision_ == nullptr
+        && this->lastModifiedTime_ == nullptr && this->lastScanTime_ == nullptr && this->logStore_ == nullptr && this->maskStatus_ == nullptr && this->memberAccount_ == nullptr
+        && this->modelTags_ == nullptr && this->name_ == nullptr && this->objectFileCategory_ == nullptr && this->objectType_ == nullptr && this->path_ == nullptr
+        && this->productCode_ == nullptr && this->productId_ == nullptr && this->project_ == nullptr && this->regionId_ == nullptr && this->regionName_ == nullptr
+        && this->riskLevelId_ == nullptr && this->ruleCount_ == nullptr && this->ruleList_ == nullptr && this->sensitiveCount_ == nullptr && this->size_ == nullptr
+        && this->sx_ == nullptr && this->tableName_ == nullptr && this->taskId_ == nullptr && this->taskName_ == nullptr && this->taskNumber_ == nullptr
+        && this->templateId_ == nullptr && this->templateName_ == nullptr; };
       // categories Field Functions 
       bool hasCategories() const { return this->categories_ != nullptr;};
       void deleteCategories() { this->categories_ = nullptr;};
@@ -349,6 +351,13 @@ namespace Models
       void deleteDbName() { this->dbName_ = nullptr;};
       inline string getDbName() const { DARABONBA_PTR_GET_DEFAULT(dbName_, "") };
       inline Items& setDbName(string dbName) { DARABONBA_PTR_SET_VALUE(dbName_, dbName) };
+
+
+      // engineType Field Functions 
+      bool hasEngineType() const { return this->engineType_ != nullptr;};
+      void deleteEngineType() { this->engineType_ = nullptr;};
+      inline string getEngineType() const { DARABONBA_PTR_GET_DEFAULT(engineType_, "") };
+      inline Items& setEngineType(string engineType) { DARABONBA_PTR_SET_VALUE(engineType_, engineType) };
 
 
       // fileCategoryCode Field Functions 
@@ -589,6 +598,7 @@ namespace Models
       shared_ptr<string> dataType_ {};
       // The name of the database.
       shared_ptr<string> dbName_ {};
+      shared_ptr<string> engineType_ {};
       // The code for the file category.
       shared_ptr<int32_t> fileCategoryCode_ {};
       // The unique ID of the data object.

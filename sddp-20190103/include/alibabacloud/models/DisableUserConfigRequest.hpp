@@ -57,14 +57,12 @@ namespace Models
 
 
   protected:
-    // The code of the configuration item in the general anomaly alert configuration module. Call the [DescribeConfigs](~~DescribeConfigs~~) operation to obtain the code.
+    // The code of the configuration item in the anomaly alert general configuration module. You can call [DescribeConfigs](~~DescribeConfigs~~) to obtain the Code of the configuration item.
     shared_ptr<string> code_ {};
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
     // The language of the request and response. Valid values:
-    // 
     // - **zh_cn**: Chinese. This is the default value.
-    // 
     // - **en_us**: English.
     shared_ptr<string> lang_ {};
   };

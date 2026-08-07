@@ -141,20 +141,14 @@ namespace Models
 
 
       protected:
-        // The data tag ID of the detection model.
-        // 
+        // The data tag ID of the detection model. Valid values:
         // - **101**: Personal sensitive information.
-        // 
         // - **102**: Personal information.
-        // 
         // - **103**: Important data.
         shared_ptr<int64_t> id_ {};
-        // The data tag name of the detection model.
-        // 
+        // The data tag name of the detection model. Valid values:
         // - Personal sensitive information.
-        // 
         // - Personal information.
-        // 
         // - Important data.
         shared_ptr<string> name_ {};
       };
@@ -336,141 +330,102 @@ namespace Models
 
 
     protected:
-      // The creation time of the column data in the data asset table, in milliseconds.
+      // The creation time of the column data in the data asset table. The value is a timestamp in milliseconds.
       shared_ptr<int64_t> creationTime_ {};
       // The data type of the column data in the data asset table.
       shared_ptr<string> dataType_ {};
-      // Database engine type.
+      // The database engine type.
       shared_ptr<string> engineType_ {};
       // The unique ID of the column in the data asset table.
       shared_ptr<string> id_ {};
-      // The ID of the asset instance to which the column data in the data asset table belongs.
+      // The instance ID of the asset to which the column data in the data asset table belongs.
       shared_ptr<int64_t> instanceId_ {};
       // The name of the asset instance to which the column data in the data asset table belongs.
       shared_ptr<string> instanceName_ {};
-      // Column encryption status. Valid values:
+      // The encryption status of the column. Valid values:
       // 
-      // - **-1**: Not encrypted
+      // - **-1**: Not encrypted.
       // 
-      // - **1**: Encryption successful
+      // - **1**: Encryption succeeded.
       // 
-      // - **2**: Encryption failed
+      // - **2**: Encryption failed.
       shared_ptr<int32_t> maskingStatus_ {};
-      // The list of data tags hit by the detection model.
+      // The list of data tags for the matched detection model.
       shared_ptr<vector<Items::ModelTags>> modelTags_ {};
       // The name of the column in the data asset table.
       shared_ptr<string> name_ {};
       // The risk level name of the asset. Valid values:
-      // 
-      // - **N/A**: No sensitive data detected.
-      // 
-      // - **S1**: Level 1 sensitive data.
-      // 
-      // - **S2**: Level 2 sensitive data.
-      // 
-      // - **S3**: Level 3 sensitive data.
-      // 
-      // - **S4**: Level 4 sensitive data.
+      // - **N/A**: No sensitive data is detected.
+      // - **S1**: Level-1 sensitive data.
+      // - **S2**: Level-2 sensitive data.
+      // - **S3**: Level-3 sensitive data.
+      // - **S4**: Level-4 sensitive data.
       shared_ptr<string> odpsRiskLevelName_ {};
       // The risk level code of the asset. Valid values:
       // 
       // - **1**: N/A.
-      // 
       // - **2**: S1.
-      // 
       // - **3**: S2.
-      // 
       // - **4**: S3.
-      // 
       // - **5**: S4.
       shared_ptr<int32_t> odpsRiskLevelValue_ {};
-      // The product name to which the column data in the data asset table belongs. Valid values: **MaxCompute, OSS, ADS, OTS, RDS**, and others.
+      // The name of the product to which the column data in the data asset table belongs. Valid values: **MaxCompute, OSS, ADS, OTS, RDS**, and others.
       shared_ptr<string> productCode_ {};
-      // The ID corresponding to the product name to which the data object belongs. Valid values:
-      // 
+      // The ID that corresponds to the product name to which the data object belongs. Valid values:
       // - **1**: MaxCompute
-      // 
       // - **2**: OSS
-      // 
       // - **3**: ADB-MYSQL
-      // 
       // - **4**: TableStore
-      // 
       // - **5**: RDS
-      // 
       // - **6**: SELF_DB
-      // 
       // - **7**: PolarDB-X
-      // 
       // - **8**: PolarDB
-      // 
       // - **9**: ADB-PG
-      // 
       // - **10**: OceanBase
-      // 
       // - **11**: MongoDB
-      // 
       // - **25**: Redis
       shared_ptr<int64_t> productId_ {};
-      // The region where the asset is located.
+      // The region where the asset resides.
       shared_ptr<string> regionId_ {};
-      // Correction record ID.
+      // The revision record ID.
       shared_ptr<int64_t> revisionId_ {};
-      // Correction status. Valid values:
-      // 
-      // - 1: Corrected.
-      // 
-      // - 0: Not corrected.
+      // The revision status. Valid values:
+      // - 1: Revised.
+      // - 0: Not revised.
       shared_ptr<int64_t> revisionStatus_ {};
       // The risk level ID of the column data in the data asset table. Valid values:
-      // 
       // - **1**: N/A.
-      // 
       // - **2**: S1.
-      // 
       // - **3**: S2.
-      // 
       // - **4**: S3.
-      // 
       // - **5**: S4.
       shared_ptr<int64_t> riskLevelId_ {};
       // The risk level name of the column data in the data asset table. Valid values:
-      // 
-      // - **N/A**: No sensitive data detected.
-      // 
-      // - **S1**: Level 1 sensitive data.
-      // 
-      // - **S2**: Level 2 sensitive data.
-      // 
-      // - **S3**: Level 3 sensitive data.
-      // 
-      // - **S4**: Level 4 sensitive data.
+      // - **N/A**: No sensitive data is detected.
+      // - **S1**: Level-1 sensitive data.
+      // - **S2**: Level-2 sensitive data.
+      // - **S3**: Level-3 sensitive data.
+      // - **S4**: Level-4 sensitive data.
       shared_ptr<string> riskLevelName_ {};
-      // The ID of the sensitive data detection rule hit by the column data in the data asset table.
+      // The ID of the sensitive data detection rule that the column data in the data asset table matches.
       shared_ptr<int64_t> ruleId_ {};
-      // The name of the sensitive data detection rule hit by the column data in the data asset table.
+      // The name of the sensitive data detection rule that the column data in the data asset table matches.
       shared_ptr<string> ruleName_ {};
-      // Sensitivity level name. Valid values:
-      // 
-      // - **N/A**: No sensitive data detected.
-      // 
-      // - **S1**: Level 1 sensitive data.
-      // 
-      // - **S2**: Level 2 sensitive data.
-      // 
-      // - **S3**: Level 3 sensitive data.
-      // 
-      // - **S4**: Level 4 sensitive data.
+      // The sensitivity level name. Valid values:
+      // - **N/A**: No sensitive data is detected.
+      // - **S1**: Level-1 sensitive data.
+      // - **S2**: Level-2 sensitive data.
+      // - **S3**: Level-3 sensitive data.
+      // - **S4**: Level-4 sensitive data.
       shared_ptr<string> sensLevelName_ {};
       // Indicates whether the column data in the data asset table contains sensitive data. Valid values:
       // 
-      // - true: The column data in the data asset table contains sensitive data.
-      // 
-      // - false: The column data in the data asset table does not contain sensitive data.
+      // - true: The column data contains sensitive data.
+      // - false: The column data does not contain sensitive data.
       shared_ptr<bool> sensitive_ {};
-      // The ID of the asset table to which the column data in the data asset table belongs.
+      // The ID of the data asset table to which the column data belongs.
       shared_ptr<int64_t> tableId_ {};
-      // The name of the table to which the target column for correction belongs.
+      // The name of the table to which the revised target column belongs.
       shared_ptr<string> tableName_ {};
     };
 
@@ -514,15 +469,15 @@ namespace Models
 
 
   protected:
-    // The page number of the current page displayed in the results.
+    // The page number of the current page in the results.
     shared_ptr<int32_t> currentPage_ {};
-    // Column data in the data asset table.
+    // The column data in the data asset tables.
     shared_ptr<vector<DescribeColumnsResponseBody::Items>> items_ {};
-    // The number of data entries displayed per page in the results.
+    // The number of entries per page in the results.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID of the result.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of data entries in the results.
+    // The total number of entries in the results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

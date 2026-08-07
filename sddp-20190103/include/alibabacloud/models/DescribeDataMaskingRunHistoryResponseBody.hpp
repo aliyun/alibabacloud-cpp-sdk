@@ -232,63 +232,54 @@ namespace Models
 
 
     protected:
-      // The number of data conflicts. This is the number of rows to be inserted into the destination table that conflict with existing data.
+      // The number of data conflict rows, which indicates the number of rows where the masked data to be inserted into the destination table conflicts with the existing data in the destination table.
       shared_ptr<int64_t> conflictCount_ {};
-      // The type of service to which the masked data is destined. Valid values: **1** for MaxCompute, **2** for OSS, **3** for ADS, **4** for OTS, and **5** for RDS.
+      // The type of the destination product where the masked data is stored. Valid values: **1**: MaxCompute, **2**: OSS, **3**: ADS, **4**: OTS, **5**: RDS, and others.
       shared_ptr<int32_t> dstType_ {};
-      // The type of the destination service. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+      // The type of the destination product. Valid values: **MaxCompute, OSS, ADS, OTS, RDS**, and others.
       shared_ptr<string> dstTypeCode_ {};
-      // The time when the execution ended. This is a UNIX timestamp in milliseconds.
+      // The end time of the execution.
       shared_ptr<int64_t> endTime_ {};
-      // The error code returned when the task fails. This parameter has a value only if the task fails.
+      // The error code for the task execution failure. This parameter has a value only when the task execution fails.
       shared_ptr<string> failCode_ {};
-      // The reason the task failed.
+      // The reason for the task execution failure.
       shared_ptr<string> failMsg_ {};
-      // Indicates whether a download file is available.
+      // Indicates whether a download file exists. Valid values:
       // 
       // - **1**: Yes.
-      // 
       // - **0**: No.
       shared_ptr<int32_t> hasDownloadFile_ {};
-      // The number of created subtasks.
+      // The number of subtasks that have been created.
       shared_ptr<int32_t> hasSubProcess_ {};
       // The ID of the execution record.
       shared_ptr<int64_t> id_ {};
-      // The number of masked rows.
+      // The number of rows masked.
       shared_ptr<int64_t> maskingCount_ {};
       // The execution progress.
       shared_ptr<int32_t> percentage_ {};
-      // The number of times the task has been executed.
+      // The sequence number of the task execution.
       shared_ptr<int32_t> runIndex_ {};
       // The name of the source table.
       shared_ptr<string> srcTableName_ {};
-      // The type of service to which the source data belongs. Valid values: **1** for MaxCompute, **2** for OSS, **3** for ADS, **4** for OTS, and **5** for RDS.
+      // The type of the source product to which the data to be masked belongs. Valid values: **1**: MaxCompute, **2**: OSS, **3**: ADS, **4**: OTS, **5**: RDS, and others.
       shared_ptr<int32_t> srcType_ {};
-      // The type of the source service. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+      // The type of the source product. Valid values: **MaxCompute, OSS, ADS, OTS, RDS**, and others.
       shared_ptr<string> srcTypeCode_ {};
-      // The time when the execution started. This is a UNIX timestamp in milliseconds.
+      // The execution time. The value is a timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The execution status of the task. Valid values:
-      // 
-      // - -**1**: pending.
-      // 
-      // - **0**: running.
-      // 
-      // - **1**: successful.
-      // 
-      // - **2**: failed.
-      // 
-      // - **3**: stopped by user.
-      // 
-      // - **4**: partially failed.
+      // The task execution status. Valid values:
+      // - **-1**: Waiting for execution.
+      // - **0**: Running.
+      // - **1**: Executed successfully.
+      // - **2**: Execution failed.
+      // - **3**: Terminated by user.
+      // - **4**: Partially failed.
       shared_ptr<int32_t> status_ {};
-      // The ID of the task.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // The execution method. Valid values:
-      // 
-      // - **1**: manual.
-      // 
-      // - **2**: scheduled.
+      // The execution mode. Valid values:
+      // - **1**: Manual.
+      // - **2**: Scheduled.
       shared_ptr<int32_t> type_ {};
     };
 
@@ -332,15 +323,15 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The page number of the current page in the results.
     shared_ptr<int32_t> currentPage_ {};
-    // A list of data masking task details.
+    // The list of data masking task information.
     shared_ptr<vector<DescribeDataMaskingRunHistoryResponseBody::Items>> items_ {};
-    // The number of entries returned per page.
+    // The number of entries per page in the results.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries in the results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -168,78 +168,56 @@ namespace Models
 
   protected:
     // The audit status. Valid values:
-    // 
-    // - **1**: Auditing enabled.
-    // 
-    // - **0**: Auditing disabled.
+    // - **1**: audit enabled.
+    // - **0**: audit disabled.
     shared_ptr<int32_t> auditStatus_ {};
-    // The connectivity test status. Valid values:
-    // 
-    // - **0**: Ready.
-    // 
-    // - **1**: Running.
-    // 
-    // - **2**: Connectivity test in progress.
-    // 
-    // - **3**: Connectivity test passed.
-    // 
-    // - **4**: Connectivity test failed.
+    // The data detection status. Valid values:
+    // - **0**: ready.
+    // - **1**: running.
+    // - **2**: connectivity test in progress.
+    // - **3**: connectivity test passed.
+    // - **4**: connectivity test failed.
     shared_ptr<int32_t> checkStatus_ {};
-    // The page number to return.
+    // Settings the page number of the current page when you perform a paged query. For more information about paging, refer to the paging parameters.
     shared_ptr<int32_t> currentPage_ {};
-    // The data masking status. Valid values:
-    // 
-    // - **1**: Enabled.
-    // 
-    // - **0**: Disabled.
+    // The data masking permission status. Valid values:
+    // - **1**: enabled.
+    // - **0**: disabled.
     shared_ptr<int32_t> datamaskStatus_ {};
-    // The sensitive data detection status. Valid values:
-    // 
-    // - **1**: Enabled.
-    // 
-    // - **0**: Disabled.
+    // The detection permission status. Valid values:
+    // - **1**: enabled.
+    // - **0**: disabled.
     shared_ptr<int32_t> enable_ {};
-    // The end of the time range to query. This value is a UNIX timestamp. Unit: milliseconds.
+    // The end of the creation time range. Format: timestamp. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The type of the database engine. Examples: **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, and **MongoDB**.
+    // The database type. Valid values: **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, **MongoDB**, and others.
     shared_ptr<string> engineType_ {};
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
-    // The language of the content within the request and response. Valid values:
-    // 
+    // The language of the request and response. Valid values:
     // - **zh**: Chinese.
-    // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The ID of the member account.
+    // The ID of the member accounts.
     shared_ptr<int64_t> memberAccount_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries to return on each page when you perform a paged query. For more information about paging, refer to the paging parameters.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the parent asset to which the data asset belongs. Valid values:
-    // 
-    // - The name or ID of a MaxCompute project.
-    // 
-    // - The name or ID of an OSS bucket.
-    // 
-    // - The name or ID of an RDS instance or database.
+    // - The project name or ID for MaxCompute.
+    // - The bucket name or ID for OSS.
+    // - The instance name or ID, or the database name or ID for RDS.
     shared_ptr<string> parentId_ {};
-    // The type of service to which the data asset belongs. Data assets can be instances, databases, or buckets. Valid values:
-    // 
+    // Required. The type of the product to which the data asset belongs. Valid values:
     // - **1**: MaxCompute
-    // 
     // - **2**: OSS
-    // 
-    // - **3**: AnalyticDB for MySQL
-    // 
-    // - **4**: Tablestore
-    // 
+    // - **3**: ADS
+    // - **4**: OTS
     // - **5**: RDS
-    // 
-    // - **6**: A self-managed database
+    // - **6**: SELF_DB
     shared_ptr<int32_t> resourceType_ {};
-    // The ID of the region where the data asset is located.
+    // The region where the asset resides.
     shared_ptr<string> serviceRegionId_ {};
-    // The beginning of the time range to query. This value is a UNIX timestamp. Unit: milliseconds.
+    // The start of the creation time range. Format: timestamp. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

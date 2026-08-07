@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The unique ID of the sensitive data detection rule.
+    // The unique ID of the saved sensitive data detection rule.
     shared_ptr<int32_t> id_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

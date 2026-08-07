@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(DbName, dbName_);
       DARABONBA_PTR_TO_JSON(DomainId, domainId_);
+      DARABONBA_PTR_TO_JSON(EngineType, engineType_);
       DARABONBA_PTR_TO_JSON(FeatureType, featureType_);
       DARABONBA_PTR_TO_JSON(FileCategoryCode, fileCategoryCode_);
       DARABONBA_PTR_TO_JSON(FileType, fileType_);
@@ -50,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(DbName, dbName_);
       DARABONBA_PTR_FROM_JSON(DomainId, domainId_);
+      DARABONBA_PTR_FROM_JSON(EngineType, engineType_);
       DARABONBA_PTR_FROM_JSON(FeatureType, featureType_);
       DARABONBA_PTR_FROM_JSON(FileCategoryCode, fileCategoryCode_);
       DARABONBA_PTR_FROM_JSON(FileType, fileType_);
@@ -88,12 +90,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->APIVersion_ == nullptr
-        && this->bucket_ == nullptr && this->currentPage_ == nullptr && this->dbName_ == nullptr && this->domainId_ == nullptr && this->featureType_ == nullptr
-        && this->fileCategoryCode_ == nullptr && this->fileType_ == nullptr && this->instanceId_ == nullptr && this->lang_ == nullptr && this->logStore_ == nullptr
-        && this->logStoreFlag_ == nullptr && this->memberAccount_ == nullptr && this->modelIds_ == nullptr && this->modelTagIds_ == nullptr && this->pageSize_ == nullptr
-        && this->parentCategoryIds_ == nullptr && this->path_ == nullptr && this->productId_ == nullptr && this->productIds_ == nullptr && this->project_ == nullptr
-        && this->queryName_ == nullptr && this->regionId_ == nullptr && this->riskLevelIdList_ == nullptr && this->riskLevels_ == nullptr && this->ruleIds_ == nullptr
-        && this->serviceRegionId_ == nullptr && this->tableName_ == nullptr && this->taskId_ == nullptr && this->templateId_ == nullptr; };
+        && this->bucket_ == nullptr && this->currentPage_ == nullptr && this->dbName_ == nullptr && this->domainId_ == nullptr && this->engineType_ == nullptr
+        && this->featureType_ == nullptr && this->fileCategoryCode_ == nullptr && this->fileType_ == nullptr && this->instanceId_ == nullptr && this->lang_ == nullptr
+        && this->logStore_ == nullptr && this->logStoreFlag_ == nullptr && this->memberAccount_ == nullptr && this->modelIds_ == nullptr && this->modelTagIds_ == nullptr
+        && this->pageSize_ == nullptr && this->parentCategoryIds_ == nullptr && this->path_ == nullptr && this->productId_ == nullptr && this->productIds_ == nullptr
+        && this->project_ == nullptr && this->queryName_ == nullptr && this->regionId_ == nullptr && this->riskLevelIdList_ == nullptr && this->riskLevels_ == nullptr
+        && this->ruleIds_ == nullptr && this->serviceRegionId_ == nullptr && this->tableName_ == nullptr && this->taskId_ == nullptr && this->templateId_ == nullptr; };
     // APIVersion Field Functions 
     bool hasAPIVersion() const { return this->APIVersion_ != nullptr;};
     void deleteAPIVersion() { this->APIVersion_ = nullptr;};
@@ -127,6 +129,13 @@ namespace Models
     void deleteDomainId() { this->domainId_ = nullptr;};
     inline int64_t getDomainId() const { DARABONBA_PTR_GET_DEFAULT(domainId_, 0L) };
     inline DescribeDataObjectsRequest& setDomainId(int64_t domainId) { DARABONBA_PTR_SET_VALUE(domainId_, domainId) };
+
+
+    // engineType Field Functions 
+    bool hasEngineType() const { return this->engineType_ != nullptr;};
+    void deleteEngineType() { this->engineType_ = nullptr;};
+    inline string getEngineType() const { DARABONBA_PTR_GET_DEFAULT(engineType_, "") };
+    inline DescribeDataObjectsRequest& setEngineType(string engineType) { DARABONBA_PTR_SET_VALUE(engineType_, engineType) };
 
 
     // featureType Field Functions 
@@ -315,6 +324,7 @@ namespace Models
     shared_ptr<string> dbName_ {};
     // The ID of the data domain to which the data asset belongs.
     shared_ptr<int64_t> domainId_ {};
+    shared_ptr<string> engineType_ {};
     // This parameter is deprecated.
     shared_ptr<int32_t> featureType_ {};
     // The code of the file category.

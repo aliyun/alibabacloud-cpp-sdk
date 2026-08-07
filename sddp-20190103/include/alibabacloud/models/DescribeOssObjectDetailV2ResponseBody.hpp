@@ -140,20 +140,14 @@ namespace Models
 
 
         protected:
-          // The ID of the data tag for the detection model.
-          // 
-          // - **101**: Personal sensitive information.
-          // 
-          // - **102**: Personal information.
-          // 
-          // - **103**: Important data.
+          // The data tag ID of the detection model. Valid values:
+          // - **101**: personal sensitive information.
+          // - **102**: personal information.
+          // - **103**: important data.
           shared_ptr<int64_t> id_ {};
-          // The name of the data tag for the detection model.
-          // 
+          // The data tag name of the detection model. Valid values:
           // - Personal sensitive information.
-          // 
           // - Personal information.
-          // 
           // - Important data.
           shared_ptr<string> name_ {};
         };
@@ -207,25 +201,20 @@ namespace Models
       protected:
         // The parent category of the model.
         shared_ptr<string> categoryName_ {};
-        // The number of times the sensitive data detection rule was matched.
+        // The number of times the sensitive data detection rule is hit.
         shared_ptr<int64_t> count_ {};
-        // A list of tags for the detection model.
+        // The list of data tags.
         shared_ptr<vector<RuleList::ModelTags>> modelTags_ {};
-        // The ID of the risk level that is specified in the rule.
-        // 
-        // - **1**: N/A
-        // 
-        // - **2**: S1
-        // 
-        // - **3**: S2
-        // 
-        // - **4**: S3
-        // 
-        // - **5**: S4
+        // The risk level ID of the OSS storage object. Valid values:
+        // - **1**: No sensitive data is detected.
+        // - **2**: Level 1 sensitive data.
+        // - **3**: Level 2 sensitive data.
+        // - **4**: Level 3 sensitive data.
+        // - **5**: Level 4 sensitive data.
         shared_ptr<int64_t> riskLevelId_ {};
-        // The name of the risk level that is specified in the rule.
+        // The risk level name of the OSS storage object.
         shared_ptr<string> riskLevelName_ {};
-        // The name of the matched sensitive data detection rule.
+        // The name of the sensitive data detection rule that is hit.
         shared_ptr<string> ruleName_ {};
       };
 
@@ -320,47 +309,39 @@ namespace Models
 
 
     protected:
-      // The name of the bucket that stores the OSS object.
+      // The name of the bucket to which the OSS storage object belongs.
       shared_ptr<string> bucketName_ {};
       // The parent category of the model.
       shared_ptr<string> categoryName_ {};
       // The file type.
       shared_ptr<string> fileCategoryName_ {};
-      // The unique ID of the object.
+      // The unique ID of the column object.
       shared_ptr<string> id_ {};
-      // The data tags, separated by commas. Example: 101,102. Valid values:
-      // 
-      // - **101**: Personal sensitive information.
-      // 
-      // - **102**: Personal information.
-      // 
-      // - **107**: General information.
+      // The data tags, separated by commas, such as 101,102. Valid values:
+      // - **101**: personal sensitive information.
+      // - **102**: personal information.
+      // - **107**: general information.
       shared_ptr<string> modelTagIds_ {};
-      // The name of the OSS object.
+      // The name of the OSS storage object.
       shared_ptr<string> name_ {};
-      // The access control list (ACL) of the object.
+      // The ACL of the file object.
       shared_ptr<string> objectAcl_ {};
-      // The ID of the region where the OSS object is stored.
+      // The region ID of the OSS storage object.
       shared_ptr<string> regionId_ {};
-      // The ID of the risk level of the data asset. Valid values:
-      // 
+      // The risk level ID of the column data in the data asset table. Valid values:
       // - **1**: N/A.
-      // 
       // - **2**: S1.
-      // 
       // - **3**: S2.
-      // 
       // - **4**: S3.
-      // 
       // - **5**: S4.
       // 
-      // > A return value of 1 or less indicates N/A.
+      // > A return value less than or equal to 1 indicates N/A.
       shared_ptr<int32_t> riskLevelId_ {};
-      // The name of the risk level of the OSS object.
+      // The risk level name of the OSS storage object.
       shared_ptr<string> riskLevelName_ {};
-      // The list of sensitive data detection rules that the OSS object matches.
+      // The list of sensitive data detection rules that the OSS storage object hits.
       shared_ptr<vector<OssObjectDetail::RuleList>> ruleList_ {};
-      // The size of the file in bytes.
+      // The file size. Unit: bytes.
       shared_ptr<int64_t> size_ {};
     };
 
@@ -383,9 +364,9 @@ namespace Models
 
 
   protected:
-    // The details of the OSS object.
+    // The details of the OSS storage object.
     shared_ptr<DescribeOssObjectDetailV2ResponseBody::OssObjectDetail> ossObjectDetail_ {};
-    // The ID of the request. Use this ID to troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

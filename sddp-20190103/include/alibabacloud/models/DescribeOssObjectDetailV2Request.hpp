@@ -84,25 +84,23 @@ namespace Models
 
 
   protected:
-    // The name of the bucket.
+    // The bucket name.
     shared_ptr<string> bucketName_ {};
-    // The unique ID of the OSS object.
+    // The unique ID of the OSS storage object.
     // 
     // > Call the [DescribeOssObjects](https://help.aliyun.com/document_detail/410152.html) operation to obtain the ID.
     shared_ptr<string> id_ {};
-    // The language of the content within the request and response. Default value: **en_us**. Valid values:
+    // The language of the request and response. Default value: **zh_cn**. Valid values:
     // 
-    // - **en_us**: Simplified Chinese
-    // 
-    // - **en_us**: English (US)
+    // - **zh_cn**: Simplified Chinese.
+    // - **en_us**: English (US).
     shared_ptr<string> lang_ {};
-    // The full name of the object stored in OSS.
+    // The full name of the file stored in OSS.
     shared_ptr<string> objectKey_ {};
-    // The ID of the region where the service is enabled. This is also the region where the bucket is located.
+    // The service region ID, which is the region ID of the bucket.
     shared_ptr<string> serviceRegionId_ {};
-    // The ID of the industry-specific template.
-    // 
-    // > Call the [DescribeCategoryTemplateList](https://help.aliyun.com/document_detail/2399296.html) operation to obtain the ID of the industry-specific template.
+    // The industry template ID.
+    // > Call the [DescribeCategoryTemplateList](https://help.aliyun.com/document_detail/2399296.html) operation to obtain the industry template ID.
     shared_ptr<int64_t> templateId_ {};
   };
 

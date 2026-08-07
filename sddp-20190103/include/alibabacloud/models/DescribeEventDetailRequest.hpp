@@ -50,14 +50,12 @@ namespace Models
   protected:
     // The unique ID of the anomalous activity.
     // 
-    // > To query the details of a single anomalous activity, you must provide its unique ID. You can call the **DescribeEvents** operation to obtain the ID.
+    // > To query the details of a single anomalous activity, provide the unique ID of the anomalous activity. You can call the **DescribeEvents** operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The language of the content within the request and response. Valid values:
-    // 
+    // The language of the request and response. Valid values:
     // - **zh**: Chinese.
-    // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
   };

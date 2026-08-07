@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The IDs of the rules whose status failed to be changed. Multiple IDs are separated by commas.
+    // The IDs of the rules whose status failed to be updated. Multiple IDs are separated by commas (,).
     shared_ptr<string> failedIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
