@@ -53,6 +53,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(KeepAlive, keepAlive_);
         DARABONBA_PTR_TO_JSON(PublicIpAddress, publicIpAddress_);
         DARABONBA_PTR_TO_JSON(QueueName, queueName_);
+        DARABONBA_PTR_TO_JSON(Reason, reason_);
         DARABONBA_PTR_TO_JSON(SpotStrategy, spotStrategy_);
         DARABONBA_PTR_TO_JSON(StateInSched, stateInSched_);
         DARABONBA_PTR_TO_JSON(Status, status_);
@@ -74,6 +75,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(KeepAlive, keepAlive_);
         DARABONBA_PTR_FROM_JSON(PublicIpAddress, publicIpAddress_);
         DARABONBA_PTR_FROM_JSON(QueueName, queueName_);
+        DARABONBA_PTR_FROM_JSON(Reason, reason_);
         DARABONBA_PTR_FROM_JSON(SpotStrategy, spotStrategy_);
         DARABONBA_PTR_FROM_JSON(StateInSched, stateInSched_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -151,8 +153,8 @@ namespace Models
       virtual bool empty() const override { return this->addTime_ == nullptr
         && this->deploymentSetId_ == nullptr && this->expiredTime_ == nullptr && this->hostname_ == nullptr && this->htEnabled_ == nullptr && this->id_ == nullptr
         && this->imageId_ == nullptr && this->instanceType_ == nullptr && this->ipAddress_ == nullptr && this->keepAlive_ == nullptr && this->publicIpAddress_ == nullptr
-        && this->queueName_ == nullptr && this->spotStrategy_ == nullptr && this->stateInSched_ == nullptr && this->status_ == nullptr && this->totalResources_ == nullptr
-        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->queueName_ == nullptr && this->reason_ == nullptr && this->spotStrategy_ == nullptr && this->stateInSched_ == nullptr && this->status_ == nullptr
+        && this->totalResources_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
       // addTime Field Functions 
       bool hasAddTime() const { return this->addTime_ != nullptr;};
       void deleteAddTime() { this->addTime_ = nullptr;};
@@ -237,6 +239,13 @@ namespace Models
       inline Nodes& setQueueName(string queueName) { DARABONBA_PTR_SET_VALUE(queueName_, queueName) };
 
 
+      // reason Field Functions 
+      bool hasReason() const { return this->reason_ != nullptr;};
+      void deleteReason() { this->reason_ = nullptr;};
+      inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+      inline Nodes& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
+
+
       // spotStrategy Field Functions 
       bool hasSpotStrategy() const { return this->spotStrategy_ != nullptr;};
       void deleteSpotStrategy() { this->spotStrategy_ = nullptr;};
@@ -316,6 +325,7 @@ namespace Models
       shared_ptr<string> publicIpAddress_ {};
       // The name of the queue to which the node belongs.
       shared_ptr<string> queueName_ {};
+      shared_ptr<string> reason_ {};
       // The bidding policy of the node. Valid values:
       // 
       // *   NoSpot: The instances of the compute node are pay-as-you-go instances.
