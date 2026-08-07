@@ -79,13 +79,13 @@ namespace Models
   protected:
     // channel
     shared_ptr<string> channel_ {};
-    // Conversation information
+    // The conversation messages.
     Darabonba::Json messages_ {};
-    // Temperature value for the large model
+    // The temperature value of the large language model.
     shared_ptr<float> temperature_ {};
-    // Top p parameter controlling the randomness of the large model\\"s output.
+    // The top_p parameter that controls the randomness of the large language model output.
     shared_ptr<float> topP_ {};
-    // Type of conversation
+    // The conversation type.
     shared_ptr<string> type_ {};
   };
 

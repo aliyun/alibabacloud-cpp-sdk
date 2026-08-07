@@ -38,6 +38,23 @@ namespace Green20220926
       Models::AddAnswerSampleResponse addAnswerSample(const Models::AddAnswerSampleRequest &request);
 
       /**
+       * @summary Adds an agent configuration to an app.
+       *
+       * @param request AddAppAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddAppAgentResponse
+       */
+      Models::AddAppAgentResponse addAppAgentWithOptions(const Models::AddAppAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Adds an agent configuration to an app.
+       *
+       * @param request AddAppAgentRequest
+       * @return AddAppAgentResponse
+       */
+      Models::AddAppAgentResponse addAppAgent(const Models::AddAppAgentRequest &request);
+
+      /**
        * @summary Creates an image library.
        *
        * @param request AddImageLibRequest
@@ -157,6 +174,23 @@ namespace Green20220926
       Models::ConfirmAiAppScanResponse confirmAiAppScan(const Models::ConfirmAiAppScanRequest &request);
 
       /**
+       * @summary Copies an App configuration.
+       *
+       * @param request CopyAppConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CopyAppConfigResponse
+       */
+      Models::CopyAppConfigResponse copyAppConfigWithOptions(const Models::CopyAppConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Copies an App configuration.
+       *
+       * @param request CopyAppConfigRequest
+       * @return CopyAppConfigResponse
+       */
+      Models::CopyAppConfigResponse copyAppConfig(const Models::CopyAppConfigRequest &request);
+
+      /**
        * @summary Copies a service.
        *
        * @param request CopyServiceConfigRequest
@@ -208,6 +242,23 @@ namespace Green20220926
       Models::CreateAnswerLibResponse createAnswerLib(const Models::CreateAnswerLibRequest &request);
 
       /**
+       * @summary Creates an app configuration.
+       *
+       * @param request CreateAppConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAppConfigResponse
+       */
+      Models::CreateAppConfigResponse createAppConfigWithOptions(const Models::CreateAppConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an app configuration.
+       *
+       * @param request CreateAppConfigRequest
+       * @return CreateAppConfigResponse
+       */
+      Models::CreateAppConfigResponse createAppConfig(const Models::CreateAppConfigRequest &request);
+
+      /**
        * @summary Creates a message notification.
        *
        * @param request CreateCallbackRequest
@@ -252,7 +303,7 @@ namespace Green20220926
       Models::CreateImageLibResponse createImageLib(const Models::CreateImageLibRequest &request);
 
       /**
-       * @summary Online Test
+       * @summary Creates an online detection task.
        *
        * @param request CreateOnlineTestRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -261,7 +312,7 @@ namespace Green20220926
       Models::CreateOnlineTestResponse createOnlineTestWithOptions(const Models::CreateOnlineTestRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Online Test
+       * @summary Creates an online detection task.
        *
        * @param request CreateOnlineTestRequest
        * @return CreateOnlineTestResponse
@@ -318,6 +369,23 @@ namespace Green20220926
        * @return DeleteAnswerSampleResponse
        */
       Models::DeleteAnswerSampleResponse deleteAnswerSample(const Models::DeleteAnswerSampleRequest &request);
+
+      /**
+       * @summary Deletes an agent configuration.
+       *
+       * @param request DeleteAppAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAppAgentResponse
+       */
+      Models::DeleteAppAgentResponse deleteAppAgentWithOptions(const Models::DeleteAppAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an agent configuration.
+       *
+       * @param request DeleteAppAgentRequest
+       * @return DeleteAppAgentResponse
+       */
+      Models::DeleteAppAgentResponse deleteAppAgent(const Models::DeleteAppAgentRequest &request);
 
       /**
        * @summary Deletes a message notification.
@@ -405,7 +473,7 @@ namespace Green20220926
       Models::DeleteKeywordLibResponse deleteKeywordLib(const Models::DeleteKeywordLibRequest &request);
 
       /**
-       * @summary Delete online test
+       * @summary Deletes an online detection task.
        *
        * @param request DeleteOnlineTestRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -414,7 +482,7 @@ namespace Green20220926
       Models::DeleteOnlineTestResponse deleteOnlineTestWithOptions(const Models::DeleteOnlineTestRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete online test
+       * @summary Deletes an online detection task.
        *
        * @param request DeleteOnlineTestRequest
        * @return DeleteOnlineTestResponse
@@ -439,7 +507,9 @@ namespace Green20220926
       Models::DescribeOnlineTestResultResponse describeOnlineTestResult(const Models::DescribeOnlineTestResultRequest &request);
 
       /**
-       * @summary 获取oss结果v2
+       * @summary Retrieves OSS moderation results v2.
+       *
+       * @description API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation information. API operation is free of charge.
        *
        * @param request DescribeOssV2ResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -448,7 +518,9 @@ namespace Green20220926
       Models::DescribeOssV2ResultResponse describeOssV2ResultWithOptions(const Models::DescribeOssV2ResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取oss结果v2
+       * @summary Retrieves OSS moderation results v2.
+       *
+       * @description API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation information. API operation is free of charge.
        *
        * @param request DescribeOssV2ResultRequest
        * @return DescribeOssV2ResultResponse
@@ -592,6 +664,23 @@ namespace Green20220926
       Models::GetAnswerImportProgressResponse getAnswerImportProgress(const Models::GetAnswerImportProgressRequest &request);
 
       /**
+       * @summary Queries the details of an App configuration.
+       *
+       * @param request GetAppConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppConfigResponse
+       */
+      Models::GetAppConfigResponse getAppConfigWithOptions(const Models::GetAppConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of an App configuration.
+       *
+       * @param request GetAppConfigRequest
+       * @return GetAppConfigResponse
+       */
+      Models::GetAppConfigResponse getAppConfig(const Models::GetAppConfigRequest &request);
+
+      /**
        * @summary Retrieves the list of user buckets for evidence dumping.
        *
        * @param request GetBackupBucketsListRequest
@@ -709,6 +798,23 @@ namespace Green20220926
        * @return GetFeatureConfigResponse
        */
       Models::GetFeatureConfigResponse getFeatureConfig(const Models::GetFeatureConfigRequest &request);
+
+      /**
+       * @summary Retrieves log statistics for AI security guardrails.
+       *
+       * @param request GetGuardLogStatsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetGuardLogStatsResponse
+       */
+      Models::GetGuardLogStatsResponse getGuardLogStatsWithOptions(const Models::GetGuardLogStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves log statistics for AI security guardrails.
+       *
+       * @param request GetGuardLogStatsRequest
+       * @return GetGuardLogStatsResponse
+       */
+      Models::GetGuardLogStatsResponse getGuardLogStats(const Models::GetGuardLogStatsRequest &request);
 
       /**
        * @summary Retrieves image rule tag information.
@@ -847,7 +953,7 @@ namespace Green20220926
       Models::GetOssCheckStatResponse getOssCheckStat(const Models::GetOssCheckStatRequest &request);
 
       /**
-       * @summary Queries the OSS detection status of a user.
+       * @summary Retrieves the OSS detection user status.
        *
        * @param request GetOssCheckStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -856,7 +962,7 @@ namespace Green20220926
       Models::GetOssCheckStatusResponse getOssCheckStatusWithOptions(const Models::GetOssCheckStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the OSS detection status of a user.
+       * @summary Retrieves the OSS detection user status.
        *
        * @param request GetOssCheckStatusRequest
        * @return GetOssCheckStatusResponse
@@ -1038,6 +1144,23 @@ namespace Green20220926
       Models::GetTuneProposalByIdResponse getTuneProposalById(const Models::GetTuneProposalByIdRequest &request);
 
       /**
+       * @summary Retrieves the text content of an uploaded file.
+       *
+       * @param request GetUploadContentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUploadContentResponse
+       */
+      Models::GetUploadContentResponse getUploadContentWithOptions(const Models::GetUploadContentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the text content of an uploaded file.
+       *
+       * @param request GetUploadContentRequest
+       * @return GetUploadContentResponse
+       */
+      Models::GetUploadContentResponse getUploadContent(const Models::GetUploadContentRequest &request);
+
+      /**
        * @summary Retrieves the relevant information for file upload.
        *
        * @param request GetUploadInfoRequest
@@ -1055,7 +1178,7 @@ namespace Green20220926
       Models::GetUploadInfoResponse getUploadInfo(const Models::GetUploadInfoRequest &request);
 
       /**
-       * @summary Obtain an upload link
+       * @summary Retrieves an upload URL.
        *
        * @param request GetUploadLinkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1064,7 +1187,7 @@ namespace Green20220926
       Models::GetUploadLinkResponse getUploadLinkWithOptions(const Models::GetUploadLinkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtain an upload link
+       * @summary Retrieves an upload URL.
        *
        * @param request GetUploadLinkRequest
        * @return GetUploadLinkResponse
@@ -1104,6 +1227,40 @@ namespace Green20220926
        * @return ListAnswerLibResponse
        */
       Models::ListAnswerLibResponse listAnswerLib(const Models::ListAnswerLibRequest &request);
+
+      /**
+       * @summary Retrieves the historical versions of an app.
+       *
+       * @param request ListAppConfigHistoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppConfigHistoryResponse
+       */
+      Models::ListAppConfigHistoryResponse listAppConfigHistoryWithOptions(const Models::ListAppConfigHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the historical versions of an app.
+       *
+       * @param request ListAppConfigHistoryRequest
+       * @return ListAppConfigHistoryResponse
+       */
+      Models::ListAppConfigHistoryResponse listAppConfigHistory(const Models::ListAppConfigHistoryRequest &request);
+
+      /**
+       * @summary Retrieves the list of app configurations.
+       *
+       * @param request ListAppConfigsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppConfigsResponse
+       */
+      Models::ListAppConfigsResponse listAppConfigsWithOptions(const Models::ListAppConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the list of app configurations.
+       *
+       * @param request ListAppConfigsRequest
+       * @return ListAppConfigsResponse
+       */
+      Models::ListAppConfigsResponse listAppConfigs(const Models::ListAppConfigsRequest &request);
 
       /**
        * @summary Queries the list of message notifications.
@@ -1225,7 +1382,7 @@ namespace Green20220926
       Models::ListServiceConfigsResponse listServiceConfigs(const Models::ListServiceConfigsRequest &request);
 
       /**
-       * @summary Use SSE interface to stream large model calls
+       * @summary Calls a large language model in streaming mode using the SSE interface.
        *
        * @param request LlmStreamChatRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1234,7 +1391,7 @@ namespace Green20220926
       FutureGenerator<Models::LlmStreamChatResponse> llmStreamChatWithSSE(const Models::LlmStreamChatRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Use SSE interface to stream large model calls
+       * @summary Calls a large language model in streaming mode using the SSE interface.
        *
        * @param request LlmStreamChatRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1243,7 +1400,7 @@ namespace Green20220926
       Models::LlmStreamChatResponse llmStreamChatWithOptions(const Models::LlmStreamChatRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Use SSE interface to stream large model calls
+       * @summary Calls a large language model in streaming mode using the SSE interface.
        *
        * @param request LlmStreamChatRequest
        * @return LlmStreamChatResponse
@@ -1283,6 +1440,40 @@ namespace Green20220926
        * @return ModifyAnswerLibResponse
        */
       Models::ModifyAnswerLibResponse modifyAnswerLib(const Models::ModifyAnswerLibRequest &request);
+
+      /**
+       * @summary Modifies the agent configuration.
+       *
+       * @param request ModifyAppAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAppAgentResponse
+       */
+      Models::ModifyAppAgentResponse modifyAppAgentWithOptions(const Models::ModifyAppAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the agent configuration.
+       *
+       * @param request ModifyAppAgentRequest
+       * @return ModifyAppAgentResponse
+       */
+      Models::ModifyAppAgentResponse modifyAppAgent(const Models::ModifyAppAgentRequest &request);
+
+      /**
+       * @summary Modifies app information.
+       *
+       * @param request ModifyAppInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAppInfoResponse
+       */
+      Models::ModifyAppInfoResponse modifyAppInfoWithOptions(const Models::ModifyAppInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies app information.
+       *
+       * @param request ModifyAppInfoRequest
+       * @return ModifyAppInfoResponse
+       */
+      Models::ModifyAppInfoResponse modifyAppInfo(const Models::ModifyAppInfoRequest &request);
 
       /**
        * @summary Modifies a message notification.
@@ -1353,6 +1544,23 @@ namespace Green20220926
       Models::OssCheckResultListResponse ossCheckResultList(const Models::OssCheckResultListRequest &request);
 
       /**
+       * @summary Saves and publishes app configurations.
+       *
+       * @param request PublishAppConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PublishAppConfigResponse
+       */
+      Models::PublishAppConfigResponse publishAppConfigWithOptions(const Models::PublishAppConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Saves and publishes app configurations.
+       *
+       * @param request PublishAppConfigRequest
+       * @return PublishAppConfigResponse
+       */
+      Models::PublishAppConfigResponse publishAppConfig(const Models::PublishAppConfigRequest &request);
+
+      /**
        * @summary Queries proxy answer samples by paging.
        *
        * @param tmpReq QueryAnswerSampleByPageRequest
@@ -1404,7 +1612,24 @@ namespace Green20220926
       Models::QueryCallbackByPageResponse queryCallbackByPage(const Models::QueryCallbackByPageRequest &request);
 
       /**
-       * @summary Abort an online Detection Job
+       * @summary Reverts an app to a historical version.
+       *
+       * @param request RecoverAppConfigHistoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RecoverAppConfigHistoryResponse
+       */
+      Models::RecoverAppConfigHistoryResponse recoverAppConfigHistoryWithOptions(const Models::RecoverAppConfigHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Reverts an app to a historical version.
+       *
+       * @param request RecoverAppConfigHistoryRequest
+       * @return RecoverAppConfigHistoryResponse
+       */
+      Models::RecoverAppConfigHistoryResponse recoverAppConfigHistory(const Models::RecoverAppConfigHistoryRequest &request);
+
+      /**
+       * @summary Aborts an online detection task.
        *
        * @param request StopOnlineTestRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1413,7 +1638,7 @@ namespace Green20220926
       Models::StopOnlineTestResponse stopOnlineTestWithOptions(const Models::StopOnlineTestRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Abort an online Detection Job
+       * @summary Aborts an online detection task.
        *
        * @param request StopOnlineTestRequest
        * @return StopOnlineTestResponse
@@ -1489,7 +1714,7 @@ namespace Green20220926
       Models::UpdateKeywordLibResponse updateKeywordLib(const Models::UpdateKeywordLibRequest &request);
 
       /**
-       * @summary Batch update OSS detection result feedback
+       * @summary Updates OSS detection result feedback in batches.
        *
        * @param request UpdateOssCheckResultsBatchFeedbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1498,7 +1723,7 @@ namespace Green20220926
       Models::UpdateOssCheckResultsBatchFeedbackResponse updateOssCheckResultsBatchFeedbackWithOptions(const Models::UpdateOssCheckResultsBatchFeedbackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch update OSS detection result feedback
+       * @summary Updates OSS detection result feedback in batches.
        *
        * @param request UpdateOssCheckResultsBatchFeedbackRequest
        * @return UpdateOssCheckResultsBatchFeedbackResponse
@@ -1506,7 +1731,7 @@ namespace Green20220926
       Models::UpdateOssCheckResultsBatchFeedbackResponse updateOssCheckResultsBatchFeedback(const Models::UpdateOssCheckResultsBatchFeedbackRequest &request);
 
       /**
-       * @summary Update OSS detection result feedback
+       * @summary Updates the feedback for OSS detection results.
        *
        * @param request UpdateOssCheckResultsFeedBackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1515,7 +1740,7 @@ namespace Green20220926
       Models::UpdateOssCheckResultsFeedBackResponse updateOssCheckResultsFeedBackWithOptions(const Models::UpdateOssCheckResultsFeedBackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update OSS detection result feedback
+       * @summary Updates the feedback for OSS detection results.
        *
        * @param request UpdateOssCheckResultsFeedBackRequest
        * @return UpdateOssCheckResultsFeedBackResponse

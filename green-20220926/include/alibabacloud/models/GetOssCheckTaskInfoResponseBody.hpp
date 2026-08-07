@@ -231,7 +231,7 @@ namespace Models
       protected:
         // The primary service.
         shared_ptr<string> copyFrom_ {};
-        // Indicates whether the service is a copy.
+        // Indicates whether the service is copied.
         shared_ptr<bool> isCopy_ {};
         // The service code.
         shared_ptr<string> serviceCode_ {};
@@ -431,27 +431,27 @@ namespace Models
 
 
     protected:
-      // The filter configuration for each bucket. The key is the bucket name, and the value is the filter configuration, which includes prefix and suffix filters and filter character lists.
+      // The filter configuration for each bucket. The key is the bucket name, and the value is the filter configuration, which includes prefix/suffix filters and filter character lists.
       shared_ptr<map<string, ConfigBucketPrefixFilterConfigValue>> bucketPrefixFilterConfig_ {};
       // The callback notification ID.
       shared_ptr<int64_t> callbackId_ {};
-      // Indicates whether to deduplicate historically scanned tasks.
+      // Indicates whether to deduplicate previously scanned tasks.
       shared_ptr<bool> distinctHistoryTasks_ {};
       // The end time. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> endTime_ {};
-      // The execution date of the scheduled task. The value is an integer.
+      // The execution date of the scheduled task. The value is an integer in the format of a single digit, such as 1.
       shared_ptr<int32_t> executeDate_ {};
-      // The estimated execution time of the scheduled task. The format is YYYY-MM-DD HH:mm:ss.
+      // The expected execution time of the scheduled task. The format is YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> executeTime_ {};
-      // Indicates whether freezing is enabled.
+      // Indicates whether to freeze.
       shared_ptr<bool> freeze_ {};
-      // Indicates whether to freeze high-risk images.
+      // Specifies whether to freeze high-risk images.
       shared_ptr<bool> freezeHighRisk1_ {};
-      // Indicates whether to freeze high-risk audio and text.
+      // Specifies whether to freeze high-risk audio and text.
       shared_ptr<bool> freezeHighRisk2_ {};
-      // Indicates whether to freeze medium-risk images.
+      // Specifies whether to freeze medium-risk images.
       shared_ptr<bool> freezeMediumRisk1_ {};
-      // Indicates whether to freeze medium-risk audio and text.
+      // Specifies whether to freeze medium-risk audio and text.
       shared_ptr<bool> freezeMediumRisk2_ {};
       // The transfer path.
       shared_ptr<string> freezeRestorePath_ {};
@@ -465,11 +465,11 @@ namespace Models
       shared_ptr<int32_t> priority_ {};
       // Referer。
       shared_ptr<string> referer_ {};
-      // The scan limit.
+      // The scan limit quantity.
       shared_ptr<int64_t> scanLimit_ {};
       // Indicates whether to scan images without file extensions.
       shared_ptr<bool> scanNoFileType_ {};
-      // The type of files to scan.
+      // The file type to scan.
       shared_ptr<int32_t> scanResourceType_ {};
       // The scan service code.
       shared_ptr<vector<string>> scanService_ {};
@@ -602,7 +602,7 @@ namespace Models
 
 
   protected:
-    // The OSS buckets.
+    // The storage buckets.
     shared_ptr<string> buckets_ {};
     // The configuration item.
     shared_ptr<GetOssCheckTaskInfoResponseBody::Config> config_ {};
@@ -616,7 +616,7 @@ namespace Models
     shared_ptr<string> lastExecuteDate_ {};
     // The media asset type.
     shared_ptr<int32_t> mediaType_ {};
-    // The previous execution time of the scheduled task. The format is YYYY-MM-DD HH:mm:ss.
+    // The last execution time of the scheduled task. The format is YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> nextExecuteDate_ {};
     // The total number of files in the bucket.
     shared_ptr<int64_t> objectNum_ {};

@@ -102,13 +102,13 @@ namespace Models
 
 
     protected:
-      // Error code
+      // The error code.
       shared_ptr<string> code_ {};
-      // Error message
+      // The error message.
       shared_ptr<string> message_ {};
-      // Parameter that caused the error
+      // The parameter that caused the error.
       shared_ptr<string> param_ {};
-      // Error type
+      // The error type.
       shared_ptr<string> type_ {};
     };
 
@@ -175,9 +175,9 @@ namespace Models
 
 
       protected:
-        // Real-time generated text content
+        // The text content generated in real time.
         shared_ptr<string> content_ {};
-        // Role identifier
+        // The role identifier.
         shared_ptr<string> role_ {};
       };
 
@@ -214,13 +214,13 @@ namespace Models
 
 
     protected:
-      // Incremental content object
+      // The incremental content object.
       shared_ptr<Choices::Delta> delta_ {};
-      // For streaming output, it is null while generating and becomes \\"stop\\" if the generation ends due to a stop token.
+      // During streaming output, this value is null while content is being generated. When generation is complete, the value is stop if the generation ended due to a stop token.
       shared_ptr<string> finishReason_ {};
-      // Stream sequence number
+      // The stream sequence number.
       shared_ptr<int64_t> index_ {};
-      // Token probability information
+      // The token probability information.
       shared_ptr<string> logprobs_ {};
     };
 
@@ -295,23 +295,23 @@ namespace Models
 
 
   protected:
-    // List of model generation results
+    // The list of model generation results.
     shared_ptr<vector<LlmStreamChatResponseBody::Choices>> choices_ {};
-    // Timestamp of session creation
+    // The timestamp when the session was created.
     shared_ptr<int64_t> created_ {};
-    // Streaming response error information content
+    // The fault information content in the streaming response.
     shared_ptr<LlmStreamChatResponseBody::Error> error_ {};
-    // Unique ID for this session
+    // The unique ID of this session.
     shared_ptr<string> id_ {};
-    // Model identifier
+    // The model identifier.
     shared_ptr<string> model_ {};
-    // Response type
+    // The response type.
     shared_ptr<string> object_ {};
-    // Unique request ID
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // System fingerprint
+    // The system fingerprint.
     shared_ptr<string> systemFingerprint_ {};
-    // Token usage
+    // The token usage information.
     shared_ptr<string> usage_ {};
   };
 

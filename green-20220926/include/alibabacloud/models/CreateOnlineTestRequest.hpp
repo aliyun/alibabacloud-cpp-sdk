@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Data ID
+    // The data ID.
     shared_ptr<string> dataId_ {};
-    // Resource Type
+    // The resource type.
     shared_ptr<string> resourceType_ {};
-    // Service Code
+    // The service code.
     shared_ptr<string> serviceCode_ {};
-    // Detection URL
+    // The URL to be detected.
     shared_ptr<string> url_ {};
   };
 

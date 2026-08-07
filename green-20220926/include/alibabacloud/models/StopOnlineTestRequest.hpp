@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Resource type
+    // The resource type.
     shared_ptr<string> resourceType_ {};
-    // Service encoding
+    // The service code.
     shared_ptr<string> serviceCode_ {};
-    // Detection TaskId
+    // The ID of the detection task.
     shared_ptr<string> taskId_ {};
   };
 

@@ -160,9 +160,9 @@ namespace Models
   protected:
     // The upload authorization ID.
     shared_ptr<string> accessId_ {};
-    // The error code, consistent with the HTTP status code.
+    // The error code, which is consistent with the HTTP status code.
     shared_ptr<int32_t> code_ {};
-    // Unit: seconds.
+    // The expiration time. Unit: seconds.
     shared_ptr<int64_t> expire_ {};
     // The file name.
     shared_ptr<string> folder_ {};
@@ -170,18 +170,19 @@ namespace Models
     shared_ptr<string> host_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The key used for file upload.
+    // The key used for uploading the file.
     shared_ptr<string> key_ {};
     // The further description of the error code.
     shared_ptr<string> msg_ {};
-    // Used for frontend image upload.
+    // Used by the frontend for image upload.
     shared_ptr<string> name_ {};
-    // The OSS file upload policy.
+    // The policy for uploading files to OSS.
     shared_ptr<string> policy_ {};
-    // The backend-assigned ID that uniquely identifies a request. This ID can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify a request. This ID can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // STS token
     shared_ptr<string> securityToken_ {};
-    // The upload signature information.
+    // The signature information for the upload.
     shared_ptr<string> signature_ {};
     // The success flag.
     shared_ptr<bool> success_ {};

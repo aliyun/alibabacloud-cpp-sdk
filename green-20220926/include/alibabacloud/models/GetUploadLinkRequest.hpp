@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Upload Link address
+    // The upload URL.
     shared_ptr<string> uploadUrl_ {};
   };
 

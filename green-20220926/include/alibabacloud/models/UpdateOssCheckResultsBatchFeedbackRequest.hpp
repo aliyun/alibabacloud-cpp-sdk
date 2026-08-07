@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Feedback.
+    // The feedback.
     shared_ptr<string> feedback_ {};
-    // Result items.
+    // The result items.
     shared_ptr<string> items_ {};
-    // Parent job ID.
+    // The ID of the parent task.
     shared_ptr<string> parentTaskId_ {};
   };
 

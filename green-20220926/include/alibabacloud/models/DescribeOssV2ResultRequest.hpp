@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The OSS bucket.
     shared_ptr<string> bucket_ {};
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // The end time.
     shared_ptr<string> endDate_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The risk level.
     shared_ptr<string> riskLevel_ {};
+    // The start time.
     shared_ptr<string> startDate_ {};
+    // The task name.
     shared_ptr<string> taskName_ {};
   };
 

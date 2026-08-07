@@ -6,6 +6,9 @@
 #include <alibabacloud/models/AddAnswerSampleRequest.hpp>
 #include <alibabacloud/models/AddAnswerSampleResponseBody.hpp>
 #include <alibabacloud/models/AddAnswerSampleResponse.hpp>
+#include <alibabacloud/models/AddAppAgentRequest.hpp>
+#include <alibabacloud/models/AddAppAgentResponseBody.hpp>
+#include <alibabacloud/models/AddAppAgentResponse.hpp>
 #include <alibabacloud/models/AddImageLibRequest.hpp>
 #include <alibabacloud/models/AddImageLibResponseBody.hpp>
 #include <alibabacloud/models/AddImageLibResponse.hpp>
@@ -27,6 +30,9 @@
 #include <alibabacloud/models/ConfirmAiAppScanRequest.hpp>
 #include <alibabacloud/models/ConfirmAiAppScanResponseBody.hpp>
 #include <alibabacloud/models/ConfirmAiAppScanResponse.hpp>
+#include <alibabacloud/models/CopyAppConfigRequest.hpp>
+#include <alibabacloud/models/CopyAppConfigResponseBody.hpp>
+#include <alibabacloud/models/CopyAppConfigResponse.hpp>
 #include <alibabacloud/models/CopyServiceConfigRequest.hpp>
 #include <alibabacloud/models/CopyServiceConfigResponseBody.hpp>
 #include <alibabacloud/models/CopyServiceConfigResponse.hpp>
@@ -36,6 +42,9 @@
 #include <alibabacloud/models/CreateAnswerLibRequest.hpp>
 #include <alibabacloud/models/CreateAnswerLibResponseBody.hpp>
 #include <alibabacloud/models/CreateAnswerLibResponse.hpp>
+#include <alibabacloud/models/CreateAppConfigRequest.hpp>
+#include <alibabacloud/models/CreateAppConfigResponseBody.hpp>
+#include <alibabacloud/models/CreateAppConfigResponse.hpp>
 #include <alibabacloud/models/CreateCallbackRequest.hpp>
 #include <alibabacloud/models/CreateCallbackResponseBody.hpp>
 #include <alibabacloud/models/CreateCallbackResponse.hpp>
@@ -54,6 +63,9 @@
 #include <alibabacloud/models/DeleteAnswerSampleRequest.hpp>
 #include <alibabacloud/models/DeleteAnswerSampleResponseBody.hpp>
 #include <alibabacloud/models/DeleteAnswerSampleResponse.hpp>
+#include <alibabacloud/models/DeleteAppAgentRequest.hpp>
+#include <alibabacloud/models/DeleteAppAgentResponseBody.hpp>
+#include <alibabacloud/models/DeleteAppAgentResponse.hpp>
 #include <alibabacloud/models/DeleteCallbackRequest.hpp>
 #include <alibabacloud/models/DeleteCallbackResponseBody.hpp>
 #include <alibabacloud/models/DeleteCallbackResponse.hpp>
@@ -105,6 +117,9 @@
 #include <alibabacloud/models/GetAnswerImportProgressRequest.hpp>
 #include <alibabacloud/models/GetAnswerImportProgressResponseBody.hpp>
 #include <alibabacloud/models/GetAnswerImportProgressResponse.hpp>
+#include <alibabacloud/models/GetAppConfigRequest.hpp>
+#include <alibabacloud/models/GetAppConfigResponseBody.hpp>
+#include <alibabacloud/models/GetAppConfigResponse.hpp>
 #include <alibabacloud/models/GetBackupBucketsListRequest.hpp>
 #include <alibabacloud/models/GetBackupBucketsListResponseBody.hpp>
 #include <alibabacloud/models/GetBackupBucketsListResponse.hpp>
@@ -126,6 +141,9 @@
 #include <alibabacloud/models/GetFeatureConfigRequest.hpp>
 #include <alibabacloud/models/GetFeatureConfigResponseBody.hpp>
 #include <alibabacloud/models/GetFeatureConfigResponse.hpp>
+#include <alibabacloud/models/GetGuardLogStatsRequest.hpp>
+#include <alibabacloud/models/GetGuardLogStatsResponseBody.hpp>
+#include <alibabacloud/models/GetGuardLogStatsResponse.hpp>
 #include <alibabacloud/models/GetImageSceneLabelConfRequest.hpp>
 #include <alibabacloud/models/GetImageSceneLabelConfResponseBody.hpp>
 #include <alibabacloud/models/GetImageSceneLabelConfResponse.hpp>
@@ -188,6 +206,9 @@
 #include <alibabacloud/models/GetTuneProposalByIdRequest.hpp>
 #include <alibabacloud/models/GetTuneProposalByIdResponseBody.hpp>
 #include <alibabacloud/models/GetTuneProposalByIdResponse.hpp>
+#include <alibabacloud/models/GetUploadContentRequest.hpp>
+#include <alibabacloud/models/GetUploadContentResponseBody.hpp>
+#include <alibabacloud/models/GetUploadContentResponse.hpp>
 #include <alibabacloud/models/GetUploadInfoRequest.hpp>
 #include <alibabacloud/models/GetUploadInfoResponseBody.hpp>
 #include <alibabacloud/models/GetUploadInfoResponse.hpp>
@@ -200,6 +221,12 @@
 #include <alibabacloud/models/ListAnswerLibRequest.hpp>
 #include <alibabacloud/models/ListAnswerLibResponseBody.hpp>
 #include <alibabacloud/models/ListAnswerLibResponse.hpp>
+#include <alibabacloud/models/ListAppConfigHistoryRequest.hpp>
+#include <alibabacloud/models/ListAppConfigHistoryResponseBody.hpp>
+#include <alibabacloud/models/ListAppConfigHistoryResponse.hpp>
+#include <alibabacloud/models/ListAppConfigsRequest.hpp>
+#include <alibabacloud/models/ListAppConfigsResponseBody.hpp>
+#include <alibabacloud/models/ListAppConfigsResponse.hpp>
 #include <alibabacloud/models/ListCallbackRequest.hpp>
 #include <alibabacloud/models/ListCallbackResponseBody.hpp>
 #include <alibabacloud/models/ListCallbackResponse.hpp>
@@ -233,6 +260,12 @@
 #include <alibabacloud/models/ModifyAnswerLibRequest.hpp>
 #include <alibabacloud/models/ModifyAnswerLibResponseBody.hpp>
 #include <alibabacloud/models/ModifyAnswerLibResponse.hpp>
+#include <alibabacloud/models/ModifyAppAgentRequest.hpp>
+#include <alibabacloud/models/ModifyAppAgentResponseBody.hpp>
+#include <alibabacloud/models/ModifyAppAgentResponse.hpp>
+#include <alibabacloud/models/ModifyAppInfoRequest.hpp>
+#include <alibabacloud/models/ModifyAppInfoResponseBody.hpp>
+#include <alibabacloud/models/ModifyAppInfoResponse.hpp>
 #include <alibabacloud/models/ModifyCallbackRequest.hpp>
 #include <alibabacloud/models/ModifyCallbackResponseBody.hpp>
 #include <alibabacloud/models/ModifyCallbackResponse.hpp>
@@ -246,6 +279,9 @@
 #include <alibabacloud/models/OssCheckResultListShrinkRequest.hpp>
 #include <alibabacloud/models/OssCheckResultListResponseBody.hpp>
 #include <alibabacloud/models/OssCheckResultListResponse.hpp>
+#include <alibabacloud/models/PublishAppConfigRequest.hpp>
+#include <alibabacloud/models/PublishAppConfigResponseBody.hpp>
+#include <alibabacloud/models/PublishAppConfigResponse.hpp>
 #include <alibabacloud/models/QueryAnswerSampleByPageRequest.hpp>
 #include <alibabacloud/models/QueryAnswerSampleByPageShrinkRequest.hpp>
 #include <alibabacloud/models/QueryAnswerSampleByPageResponseBody.hpp>
@@ -256,6 +292,9 @@
 #include <alibabacloud/models/QueryCallbackByPageRequest.hpp>
 #include <alibabacloud/models/QueryCallbackByPageResponseBody.hpp>
 #include <alibabacloud/models/QueryCallbackByPageResponse.hpp>
+#include <alibabacloud/models/RecoverAppConfigHistoryRequest.hpp>
+#include <alibabacloud/models/RecoverAppConfigHistoryResponseBody.hpp>
+#include <alibabacloud/models/RecoverAppConfigHistoryResponse.hpp>
 #include <alibabacloud/models/StopOnlineTestRequest.hpp>
 #include <alibabacloud/models/StopOnlineTestResponseBody.hpp>
 #include <alibabacloud/models/StopOnlineTestResponse.hpp>

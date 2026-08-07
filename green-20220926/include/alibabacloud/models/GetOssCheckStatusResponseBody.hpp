@@ -96,15 +96,15 @@ namespace Models
   protected:
     // Bid。
     shared_ptr<string> bid_ {};
-    // Indicates whether the service is activated on Alibaba Cloud.
+    // Indicates whether the commodity is activated on Alibaba Cloud.
     shared_ptr<bool> buy_ {};
     // The commodity code.
     shared_ptr<string> commodityCode_ {};
-    // Indicates whether the account has an overdue payment.
+    // Indicates whether there is an overdue payment.
     shared_ptr<bool> indebt_ {};
     // Indicates whether Security Center is authorized.
     shared_ptr<string> ramStatus_ {};
-    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. This ID can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
     // Indicates whether the log analysis feature is authorized.
     shared_ptr<string> slsStatus_ {};

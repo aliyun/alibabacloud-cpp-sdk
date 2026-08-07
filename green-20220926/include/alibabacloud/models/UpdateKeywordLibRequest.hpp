@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The ID of the keyword library.
+    // The keyword library ID.
     shared_ptr<string> libId_ {};
-    // The name of the keyword library.
+    // The keyword library name.
     shared_ptr<string> libName_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

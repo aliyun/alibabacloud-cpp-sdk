@@ -252,7 +252,7 @@ namespace Models
         protected:
           // The primary service.
           shared_ptr<string> copyFrom_ {};
-          // Indicates whether the service is a copy.
+          // Indicates whether the service is copied.
           shared_ptr<bool> isCopy_ {};
           // The service code.
           shared_ptr<string> serviceCode_ {};
@@ -449,11 +449,11 @@ namespace Models
         shared_ptr<bool> distinctHistoryTasks_ {};
         // The end time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> endTime_ {};
-        // The execution date of the scheduled task.
+        // The scheduled execution date of the task. An integer value, such as 1.
         shared_ptr<int32_t> executeDate_ {};
-        // The expected execution time of the scheduled task. Format: HH:mm:ss.
+        // The scheduled execution time of the task. Format: HH:mm:ss.
         shared_ptr<string> executeTime_ {};
-        // Specifies whether to freeze files.
+        // Specifies whether to freeze.
         shared_ptr<bool> freeze_ {};
         // Specifies whether to freeze high-risk images.
         shared_ptr<bool> freezeHighRisk1_ {};
@@ -475,9 +475,9 @@ namespace Models
         shared_ptr<int32_t> priority_ {};
         // Referer。
         shared_ptr<string> referer_ {};
-        // The maximum number of files to scan.
+        // The scan limit.
         shared_ptr<int64_t> scanLimit_ {};
-        // Specifies whether to scan images without file name extensions.
+        // Specifies whether to scan images without file extensions.
         shared_ptr<bool> scanNoFileType_ {};
         // The type of files to scan.
         shared_ptr<int32_t> scanResourceType_ {};
@@ -487,7 +487,7 @@ namespace Models
         shared_ptr<vector<Config::ScanServiceInfos>> scanServiceInfos_ {};
         // The start time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> startTime_ {};
-        // The scheduling date.
+        // The scheduling cycle. An integer value, such as 1.
         shared_ptr<int32_t> taskCycle_ {};
         // The manual freeze configuration.
         shared_ptr<Config::UserFreezeConfig> userFreezeConfig_ {};
@@ -605,7 +605,7 @@ namespace Models
 
 
     protected:
-      // The OSS bucket.
+      // The storage space.
       shared_ptr<string> buckets_ {};
       // The configuration item.
       shared_ptr<Items::Config> config_ {};
@@ -683,7 +683,7 @@ namespace Models
     shared_ptr<vector<GetStockOssCheckTasksListResponseBody::Items>> items_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int64_t> totalCount_ {};

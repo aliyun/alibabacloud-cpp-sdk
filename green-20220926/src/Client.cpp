@@ -116,6 +116,68 @@ AddAnswerSampleResponse Client::addAnswerSample(const AddAnswerSampleRequest &re
 }
 
 /**
+ * @summary Adds an agent configuration to an app.
+ *
+ * @param request AddAppAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddAppAgentResponse
+ */
+AddAppAgentResponse Client::addAppAgentWithOptions(const AddAppAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasAgentName()) {
+    query["AgentName"] = request.getAgentName();
+  }
+
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasEnable()) {
+    query["Enable"] = request.getEnable();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddAppAgent"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddAppAgentResponse>();
+}
+
+/**
+ * @summary Adds an agent configuration to an app.
+ *
+ * @param request AddAppAgentRequest
+ * @return AddAppAgentResponse
+ */
+AddAppAgentResponse Client::addAppAgent(const AddAppAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addAppAgentWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an image library.
  *
  * @param request AddImageLibRequest
@@ -500,6 +562,60 @@ ConfirmAiAppScanResponse Client::confirmAiAppScan(const ConfirmAiAppScanRequest 
 }
 
 /**
+ * @summary Copies an App configuration.
+ *
+ * @param request CopyAppConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CopyAppConfigResponse
+ */
+CopyAppConfigResponse Client::copyAppConfigWithOptions(const CopyAppConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CopyAppConfig"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CopyAppConfigResponse>();
+}
+
+/**
+ * @summary Copies an App configuration.
+ *
+ * @param request CopyAppConfigRequest
+ * @return CopyAppConfigResponse
+ */
+CopyAppConfigResponse Client::copyAppConfig(const CopyAppConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return copyAppConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Copies a service.
  *
  * @param request CopyServiceConfigRequest
@@ -774,6 +890,64 @@ CreateAnswerLibResponse Client::createAnswerLib(const CreateAnswerLibRequest &re
 }
 
 /**
+ * @summary Creates an app configuration.
+ *
+ * @param request CreateAppConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAppConfigResponse
+ */
+CreateAppConfigResponse Client::createAppConfigWithOptions(const CreateAppConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasSysAppId()) {
+    query["SysAppId"] = request.getSysAppId();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAppConfig"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAppConfigResponse>();
+}
+
+/**
+ * @summary Creates an app configuration.
+ *
+ * @param request CreateAppConfigRequest
+ * @return CreateAppConfigResponse
+ */
+CreateAppConfigResponse Client::createAppConfig(const CreateAppConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAppConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a message notification.
  *
  * @param request CreateCallbackRequest
@@ -896,7 +1070,7 @@ CreateImageLibResponse Client::createImageLib(const CreateImageLibRequest &reque
 }
 
 /**
- * @summary Online Test
+ * @summary Creates an online detection task.
  *
  * @param request CreateOnlineTestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -939,7 +1113,7 @@ CreateOnlineTestResponse Client::createOnlineTestWithOptions(const CreateOnlineT
 }
 
 /**
- * @summary Online Test
+ * @summary Creates an online detection task.
  *
  * @param request CreateOnlineTestRequest
  * @return CreateOnlineTestResponse
@@ -1145,6 +1319,60 @@ DeleteAnswerSampleResponse Client::deleteAnswerSampleWithOptions(const DeleteAns
 DeleteAnswerSampleResponse Client::deleteAnswerSample(const DeleteAnswerSampleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteAnswerSampleWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes an agent configuration.
+ *
+ * @param request DeleteAppAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAppAgentResponse
+ */
+DeleteAppAgentResponse Client::deleteAppAgentWithOptions(const DeleteAppAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAppAgent"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAppAgentResponse>();
+}
+
+/**
+ * @summary Deletes an agent configuration.
+ *
+ * @param request DeleteAppAgentRequest
+ * @return DeleteAppAgentResponse
+ */
+DeleteAppAgentResponse Client::deleteAppAgent(const DeleteAppAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAppAgentWithOptions(request, runtime);
 }
 
 /**
@@ -1420,7 +1648,7 @@ DeleteKeywordLibResponse Client::deleteKeywordLib(const DeleteKeywordLibRequest 
 }
 
 /**
- * @summary Delete online test
+ * @summary Deletes an online detection task.
  *
  * @param request DeleteOnlineTestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1455,7 +1683,7 @@ DeleteOnlineTestResponse Client::deleteOnlineTestWithOptions(const DeleteOnlineT
 }
 
 /**
- * @summary Delete online test
+ * @summary Deletes an online detection task.
  *
  * @param request DeleteOnlineTestRequest
  * @return DeleteOnlineTestResponse
@@ -1516,7 +1744,9 @@ DescribeOnlineTestResultResponse Client::describeOnlineTestResult(const Describe
 }
 
 /**
- * @summary 获取oss结果v2
+ * @summary Retrieves OSS moderation results v2.
+ *
+ * @description API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation information. API operation is free of charge.
  *
  * @param request DescribeOssV2ResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1571,7 +1801,9 @@ DescribeOssV2ResultResponse Client::describeOssV2ResultWithOptions(const Describ
 }
 
 /**
- * @summary 获取oss结果v2
+ * @summary Retrieves OSS moderation results v2.
+ *
+ * @description API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation information. API operation is free of charge.
  *
  * @param request DescribeOssV2ResultRequest
  * @return DescribeOssV2ResultResponse
@@ -2090,6 +2322,64 @@ GetAnswerImportProgressResponse Client::getAnswerImportProgress(const GetAnswerI
 }
 
 /**
+ * @summary Queries the details of an App configuration.
+ *
+ * @param request GetAppConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppConfigResponse
+ */
+GetAppConfigResponse Client::getAppConfigWithOptions(const GetAppConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasAppVersion()) {
+    query["AppVersion"] = request.getAppVersion();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppConfig"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppConfigResponse>();
+}
+
+/**
+ * @summary Queries the details of an App configuration.
+ *
+ * @param request GetAppConfigRequest
+ * @return GetAppConfigResponse
+ */
+GetAppConfigResponse Client::getAppConfig(const GetAppConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the list of user buckets for evidence dumping.
  *
  * @param request GetBackupBucketsListRequest
@@ -2445,6 +2735,41 @@ GetFeatureConfigResponse Client::getFeatureConfigWithOptions(const GetFeatureCon
 GetFeatureConfigResponse Client::getFeatureConfig(const GetFeatureConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getFeatureConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves log statistics for AI security guardrails.
+ *
+ * @param request GetGuardLogStatsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetGuardLogStatsResponse
+ */
+GetGuardLogStatsResponse Client::getGuardLogStatsWithOptions(const GetGuardLogStatsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetGuardLogStats"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetGuardLogStatsResponse>();
+}
+
+/**
+ * @summary Retrieves log statistics for AI security guardrails.
+ *
+ * @param request GetGuardLogStatsRequest
+ * @return GetGuardLogStatsResponse
+ */
+GetGuardLogStatsResponse Client::getGuardLogStats(const GetGuardLogStatsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getGuardLogStatsWithOptions(request, runtime);
 }
 
 /**
@@ -2906,7 +3231,7 @@ GetOssCheckStatResponse Client::getOssCheckStat(const GetOssCheckStatRequest &re
 }
 
 /**
- * @summary Queries the OSS detection status of a user.
+ * @summary Retrieves the OSS detection user status.
  *
  * @param request GetOssCheckStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2937,7 +3262,7 @@ GetOssCheckStatusResponse Client::getOssCheckStatusWithOptions(const GetOssCheck
 }
 
 /**
- * @summary Queries the OSS detection status of a user.
+ * @summary Retrieves the OSS detection user status.
  *
  * @param request GetOssCheckStatusRequest
  * @return GetOssCheckStatusResponse
@@ -3550,6 +3875,48 @@ GetTuneProposalByIdResponse Client::getTuneProposalById(const GetTuneProposalByI
 }
 
 /**
+ * @summary Retrieves the text content of an uploaded file.
+ *
+ * @param request GetUploadContentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUploadContentResponse
+ */
+GetUploadContentResponse Client::getUploadContentWithOptions(const GetUploadContentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasUploadUrl()) {
+    query["UploadUrl"] = request.getUploadUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetUploadContent"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUploadContentResponse>();
+}
+
+/**
+ * @summary Retrieves the text content of an uploaded file.
+ *
+ * @param request GetUploadContentRequest
+ * @return GetUploadContentResponse
+ */
+GetUploadContentResponse Client::getUploadContent(const GetUploadContentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getUploadContentWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the relevant information for file upload.
  *
  * @param request GetUploadInfoRequest
@@ -3602,7 +3969,7 @@ GetUploadInfoResponse Client::getUploadInfo(const GetUploadInfoRequest &request)
 }
 
 /**
- * @summary Obtain an upload link
+ * @summary Retrieves an upload URL.
  *
  * @param request GetUploadLinkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3633,7 +4000,7 @@ GetUploadLinkResponse Client::getUploadLinkWithOptions(const GetUploadLinkReques
 }
 
 /**
- * @summary Obtain an upload link
+ * @summary Retrieves an upload URL.
  *
  * @param request GetUploadLinkRequest
  * @return GetUploadLinkResponse
@@ -3731,6 +4098,106 @@ ListAnswerLibResponse Client::listAnswerLibWithOptions(const ListAnswerLibReques
 ListAnswerLibResponse Client::listAnswerLib(const ListAnswerLibRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listAnswerLibWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the historical versions of an app.
+ *
+ * @param request ListAppConfigHistoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppConfigHistoryResponse
+ */
+ListAppConfigHistoryResponse Client::listAppConfigHistoryWithOptions(const ListAppConfigHistoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAppConfigHistory"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppConfigHistoryResponse>();
+}
+
+/**
+ * @summary Retrieves the historical versions of an app.
+ *
+ * @param request ListAppConfigHistoryRequest
+ * @return ListAppConfigHistoryResponse
+ */
+ListAppConfigHistoryResponse Client::listAppConfigHistory(const ListAppConfigHistoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppConfigHistoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the list of app configurations.
+ *
+ * @param request ListAppConfigsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppConfigsResponse
+ */
+ListAppConfigsResponse Client::listAppConfigsWithOptions(const ListAppConfigsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClassify()) {
+    query["Classify"] = request.getClassify();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAppConfigs"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppConfigsResponse>();
+}
+
+/**
+ * @summary Retrieves the list of app configurations.
+ *
+ * @param request ListAppConfigsRequest
+ * @return ListAppConfigsResponse
+ */
+ListAppConfigsResponse Client::listAppConfigs(const ListAppConfigsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppConfigsWithOptions(request, runtime);
 }
 
 /**
@@ -4162,7 +4629,7 @@ ListServiceConfigsResponse Client::listServiceConfigs(const ListServiceConfigsRe
 }
 
 /**
- * @summary Use SSE interface to stream large model calls
+ * @summary Calls a large language model in streaming mode using the SSE interface.
  *
  * @param request LlmStreamChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4223,7 +4690,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Use SSE interface to stream large model calls
+ * @summary Calls a large language model in streaming mode using the SSE interface.
  *
  * @param request LlmStreamChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4270,7 +4737,7 @@ LlmStreamChatResponse Client::llmStreamChatWithOptions(const LlmStreamChatReques
 }
 
 /**
- * @summary Use SSE interface to stream large model calls
+ * @summary Calls a large language model in streaming mode using the SSE interface.
  *
  * @param request LlmStreamChatRequest
  * @return LlmStreamChatResponse
@@ -4390,6 +4857,126 @@ ModifyAnswerLibResponse Client::modifyAnswerLibWithOptions(const ModifyAnswerLib
 ModifyAnswerLibResponse Client::modifyAnswerLib(const ModifyAnswerLibRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyAnswerLibWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the agent configuration.
+ *
+ * @param request ModifyAppAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAppAgentResponse
+ */
+ModifyAppAgentResponse Client::modifyAppAgentWithOptions(const ModifyAppAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentId()) {
+    body["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasAgentName()) {
+    body["AgentName"] = request.getAgentName();
+  }
+
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasConfig()) {
+    body["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasEnable()) {
+    body["Enable"] = request.getEnable();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceType()) {
+    body["ResourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ModifyAppAgent"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAppAgentResponse>();
+}
+
+/**
+ * @summary Modifies the agent configuration.
+ *
+ * @param request ModifyAppAgentRequest
+ * @return ModifyAppAgentResponse
+ */
+ModifyAppAgentResponse Client::modifyAppAgent(const ModifyAppAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAppAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies app information.
+ *
+ * @param request ModifyAppInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAppInfoResponse
+ */
+ModifyAppInfoResponse Client::modifyAppInfoWithOptions(const ModifyAppInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyAppInfo"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAppInfoResponse>();
+}
+
+/**
+ * @summary Modifies app information.
+ *
+ * @param request ModifyAppInfoRequest
+ * @return ModifyAppInfoResponse
+ */
+ModifyAppInfoResponse Client::modifyAppInfo(const ModifyAppInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAppInfoWithOptions(request, runtime);
 }
 
 /**
@@ -4665,6 +5252,72 @@ OssCheckResultListResponse Client::ossCheckResultList(const OssCheckResultListRe
 }
 
 /**
+ * @summary Saves and publishes app configurations.
+ *
+ * @param request PublishAppConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PublishAppConfigResponse
+ */
+PublishAppConfigResponse Client::publishAppConfigWithOptions(const PublishAppConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasAgentName()) {
+    query["AgentName"] = request.getAgentName();
+  }
+
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasConfig()) {
+    query["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasEnable()) {
+    query["Enable"] = request.getEnable();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PublishAppConfig"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PublishAppConfigResponse>();
+}
+
+/**
+ * @summary Saves and publishes app configurations.
+ *
+ * @param request PublishAppConfigRequest
+ * @return PublishAppConfigResponse
+ */
+PublishAppConfigResponse Client::publishAppConfig(const PublishAppConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return publishAppConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries proxy answer samples by paging.
  *
  * @param tmpReq QueryAnswerSampleByPageRequest
@@ -4837,7 +5490,61 @@ QueryCallbackByPageResponse Client::queryCallbackByPage(const QueryCallbackByPag
 }
 
 /**
- * @summary Abort an online Detection Job
+ * @summary Reverts an app to a historical version.
+ *
+ * @param request RecoverAppConfigHistoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RecoverAppConfigHistoryResponse
+ */
+RecoverAppConfigHistoryResponse Client::recoverAppConfigHistoryWithOptions(const RecoverAppConfigHistoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasAppVersion()) {
+    query["AppVersion"] = request.getAppVersion();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RecoverAppConfigHistory"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RecoverAppConfigHistoryResponse>();
+}
+
+/**
+ * @summary Reverts an app to a historical version.
+ *
+ * @param request RecoverAppConfigHistoryRequest
+ * @return RecoverAppConfigHistoryResponse
+ */
+RecoverAppConfigHistoryResponse Client::recoverAppConfigHistory(const RecoverAppConfigHistoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return recoverAppConfigHistoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary Aborts an online detection task.
  *
  * @param request StopOnlineTestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4876,7 +5583,7 @@ StopOnlineTestResponse Client::stopOnlineTestWithOptions(const StopOnlineTestReq
 }
 
 /**
- * @summary Abort an online Detection Job
+ * @summary Aborts an online detection task.
  *
  * @param request StopOnlineTestRequest
  * @return StopOnlineTestResponse
@@ -5115,7 +5822,7 @@ UpdateKeywordLibResponse Client::updateKeywordLib(const UpdateKeywordLibRequest 
 }
 
 /**
- * @summary Batch update OSS detection result feedback
+ * @summary Updates OSS detection result feedback in batches.
  *
  * @param request UpdateOssCheckResultsBatchFeedbackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5154,7 +5861,7 @@ UpdateOssCheckResultsBatchFeedbackResponse Client::updateOssCheckResultsBatchFee
 }
 
 /**
- * @summary Batch update OSS detection result feedback
+ * @summary Updates OSS detection result feedback in batches.
  *
  * @param request UpdateOssCheckResultsBatchFeedbackRequest
  * @return UpdateOssCheckResultsBatchFeedbackResponse
@@ -5165,7 +5872,7 @@ UpdateOssCheckResultsBatchFeedbackResponse Client::updateOssCheckResultsBatchFee
 }
 
 /**
- * @summary Update OSS detection result feedback
+ * @summary Updates the feedback for OSS detection results.
  *
  * @param request UpdateOssCheckResultsFeedBackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5212,7 +5919,7 @@ UpdateOssCheckResultsFeedBackResponse Client::updateOssCheckResultsFeedBackWithO
 }
 
 /**
- * @summary Update OSS detection result feedback
+ * @summary Updates the feedback for OSS detection results.
  *
  * @param request UpdateOssCheckResultsFeedBackRequest
  * @return UpdateOssCheckResultsFeedBackResponse

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Region ID
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Resource type.
+    // The resource type.
     shared_ptr<string> resourceType_ {};
   };
 

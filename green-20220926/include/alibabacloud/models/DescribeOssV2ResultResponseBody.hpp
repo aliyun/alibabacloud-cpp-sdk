@@ -150,8 +150,11 @@ namespace Models
 
 
       protected:
+        // The confidence score.
         shared_ptr<float> confidence_ {};
+        // The label description.
         shared_ptr<string> description_ {};
+        // The label.
         shared_ptr<string> label_ {};
       };
 
@@ -202,8 +205,11 @@ namespace Models
 
 
       protected:
+        // The confidence score.
         shared_ptr<float> confidence_ {};
+        // The label description.
         shared_ptr<string> description_ {};
+        // The label.
         shared_ptr<string> label_ {};
       };
 
@@ -390,29 +396,53 @@ namespace Models
 
 
     protected:
+      // The storage bucket.
       shared_ptr<string> bucket_ {};
+      // The error code.
       shared_ptr<string> code_ {};
+      // The moderation modality type.
       shared_ptr<string> contentType_ {};
+      // Indicates whether automatic freezing is configured.
       shared_ptr<bool> freeze_ {};
+      // The freeze status.
       shared_ptr<string> freezeStatus_ {};
+      // The freeze type.
       shared_ptr<string> freezeType_ {};
+      // The label details, corresponding to labels.
       shared_ptr<vector<Items::LabelDetails>> labelDetails_ {};
+      // The details of labels2, corresponding to labels2.
       shared_ptr<vector<Items::LabelDetails2>> labelDetails2_ {};
+      // The image labels.
       shared_ptr<vector<string>> labels_ {};
+      // The text labels.
       shared_ptr<vector<string>> labels2_ {};
+      // The manual disposition status.
       shared_ptr<string> manualFreezeAction_ {};
+      // The disposition time.
       shared_ptr<string> manualOperateTime_ {};
+      // The operator who performed the disposition.
       shared_ptr<string> manualOperator_ {};
+      // The MD5 hash of the file.
       shared_ptr<string> md5_ {};
+      // The object name.
       shared_ptr<string> object_ {};
+      // The request ID.
       shared_ptr<string> requestId_ {};
+      // The image risk level.
       shared_ptr<string> riskLevel_ {};
+      // The overall risk level.
       shared_ptr<string> riskLevel0_ {};
+      // The audio or text risk level.
       shared_ptr<string> riskLevel2_ {};
+      // The result details.
       shared_ptr<string> scanResult_ {};
+      // Service code。
       shared_ptr<string> serviceCode_ {};
+      // The automatic system freeze operation.
       shared_ptr<string> sysDisposalStatus_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The task URL.
       shared_ptr<string> url_ {};
     };
 
@@ -456,10 +486,15 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // The data on the current page.
     shared_ptr<vector<DescribeOssV2ResultResponseBody::Items>> items_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

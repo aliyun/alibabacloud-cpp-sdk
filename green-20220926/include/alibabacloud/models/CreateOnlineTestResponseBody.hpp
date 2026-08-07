@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // ID assigned by the backend, used to uniquely identify a request. Can be used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Service Code
+    // The service code.
     shared_ptr<string> serviceCode_ {};
-    // Detection Task ID
+    // The ID of the detection task.
     shared_ptr<string> taskId_ {};
-    // Detection Status
+    // The detection status.
     shared_ptr<string> taskStatus_ {};
-    // Detection URL
+    // The URL to be detected.
     shared_ptr<string> url_ {};
   };
 
