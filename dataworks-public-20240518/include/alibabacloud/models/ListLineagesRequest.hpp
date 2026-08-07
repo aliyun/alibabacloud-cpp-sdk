@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Order, order_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(RecentDays, recentDays_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
       DARABONBA_PTR_TO_JSON(SrcEntityId, srcEntityId_);
       DARABONBA_PTR_TO_JSON(SrcEntityName, srcEntityName_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Order, order_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(RecentDays, recentDays_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
       DARABONBA_PTR_FROM_JSON(SrcEntityId, srcEntityId_);
       DARABONBA_PTR_FROM_JSON(SrcEntityName, srcEntityName_);
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dstEntityId_ == nullptr
         && this->dstEntityName_ == nullptr && this->needAttachRelationship_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->sortBy_ == nullptr && this->srcEntityId_ == nullptr && this->srcEntityName_ == nullptr; };
+        && this->recentDays_ == nullptr && this->sortBy_ == nullptr && this->srcEntityId_ == nullptr && this->srcEntityName_ == nullptr; };
     // dstEntityId Field Functions 
     bool hasDstEntityId() const { return this->dstEntityId_ != nullptr;};
     void deleteDstEntityId() { this->dstEntityId_ = nullptr;};
@@ -90,6 +92,13 @@ namespace Models
     inline ListLineagesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // recentDays Field Functions 
+    bool hasRecentDays() const { return this->recentDays_ != nullptr;};
+    void deleteRecentDays() { this->recentDays_ = nullptr;};
+    inline int32_t getRecentDays() const { DARABONBA_PTR_GET_DEFAULT(recentDays_, 0) };
+    inline ListLineagesRequest& setRecentDays(int32_t recentDays) { DARABONBA_PTR_SET_VALUE(recentDays_, recentDays) };
+
+
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
@@ -128,6 +137,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default: 10. Maximum: 100.
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<int32_t> recentDays_ {};
     // The field to sort the results by. The default is `Name`, which sorts by entity name.
     shared_ptr<string> sortBy_ {};
     // The ID of the source entity. This can be a table or column ID returned by the `ListTables` or `ListColumns` API, or the ID of a custom entity.
