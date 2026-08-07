@@ -84,14 +84,14 @@ namespace Models
 
 
   protected:
-    // The number of entries to return on each page. Maximum value: 50. Default value: 10.
+    // The maximum number of entries per page for a paged query. Maximum value: 50. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. You can obtain this token from the `NextToken` parameter in the previous response.
+    // Specifies whether a next query token exists. Valid values: If NextToken is empty, no more results exist. If NextToken is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The resource category ID.
     shared_ptr<string> resourceCategoryId_ {};
     shared_ptr<string> resourceOwnerIdsShrink_ {};
-    // The ID of the region where the resource resides.
+    // The region ID of the resource.
     shared_ptr<string> resourceRegionId_ {};
     // The resource type.
     shared_ptr<string> resourceType_ {};

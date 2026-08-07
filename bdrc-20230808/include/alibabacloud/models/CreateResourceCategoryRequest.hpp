@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // Resource category name.
+    // The resource category name.
     // 
     // This parameter is required.
     shared_ptr<string> resourceCategoryName_ {};
-    // Resource matcher.
+    // The resource matcher.
     // 
     // This parameter is required.
     shared_ptr<string> resourceMatcher_ {};
-    // Resource type.
+    // The resource type.
     shared_ptr<string> resourceType_ {};
   };
 

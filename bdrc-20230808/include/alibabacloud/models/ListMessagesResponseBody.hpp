@@ -150,21 +150,21 @@ namespace Models
 
 
       protected:
-        // Message ID.
+        // The message ID.
         shared_ptr<string> messageId_ {};
-        // Message level.
+        // The message level.
         shared_ptr<string> messageLevel_ {};
-        // Message name.
+        // The message name.
         shared_ptr<string> messageName_ {};
-        // Message source ID.
+        // The message source ID.
         shared_ptr<string> messageSourceId_ {};
-        // Message source region ID.
+        // The region ID of the message source.
         shared_ptr<string> messageSourceRegionId_ {};
-        // Message source type.
+        // The message source type.
         shared_ptr<string> messageSourceType_ {};
-        // Message time.
+        // The message time.
         shared_ptr<int64_t> messageTime_ {};
-        // Message type.
+        // The message type.
         shared_ptr<string> messageType_ {};
       };
 
@@ -201,13 +201,13 @@ namespace Models
 
 
     protected:
-      // Response parameters.
+      // The response content.
       shared_ptr<vector<Data::Content>> content_ {};
       // The maximum number of results requested.
       shared_ptr<int32_t> maxResults_ {};
       // The pagination token.
       shared_ptr<string> nextToken_ {};
-      // The total number of entries returned.
+      // The total number of results.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -230,9 +230,9 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The response data.
     shared_ptr<ListMessagesResponseBody::Data> data_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

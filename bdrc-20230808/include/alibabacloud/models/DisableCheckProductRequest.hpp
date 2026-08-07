@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Product type
+    // The product type.
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};

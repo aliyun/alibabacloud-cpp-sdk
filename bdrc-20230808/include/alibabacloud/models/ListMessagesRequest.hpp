@@ -86,17 +86,15 @@ namespace Models
   protected:
     // The maximum number of records to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // Message level.
+    // The message level.
     shared_ptr<string> messageLevel_ {};
-    // Messages with time earlier than this value.
+    // Filters messages with a time earlier than the specified value.
     shared_ptr<int64_t> messageTimeEarlierThan_ {};
-    // Messages with time later than this value.
+    // Filters messages with a time later than the specified value.
     shared_ptr<int64_t> messageTimeLaterThan_ {};
-    // Message type.
+    // The message type.
     shared_ptr<string> messageType_ {};
-    // The pagination token. If more entries are to be returned on the next page, a pagination token is returned.
-    // 
-    // > If this parameter returns data, it indicates that there are more pages. You can use the returned NextToken as a request parameter to obtain the next page of data until it returns Null, indicating that all data has been obtained.
+    // The pagination token. If there is a next page, this field has a return value. This parameter indicates that there is a next page as long as data is returned. You can use the returned NextToken as a request parameter to obtain the next page of data until Null is returned, which indicates that all data has been retrieved.
     shared_ptr<string> nextToken_ {};
   };
 

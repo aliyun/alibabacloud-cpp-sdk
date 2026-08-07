@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // The product type of the resource. If you omit this parameter, the API returns resources of all product types. For example, specify `oss` to query resources from Object Storage Service.
+    // Filters by the product type of the resource. If this parameter is not specified, all types are queried.
     shared_ptr<string> productType_ {};
     // The resource category ID.
     shared_ptr<string> resourceCategoryId_ {};
-    // A list of resource owner IDs for cross-account resource queries. If you omit this parameter, the API returns resources from the current account.
+    // The list of resource owner IDs. This parameter is used in cross-account scenarios. If this parameter is left empty, data of the current account is returned by default.
     shared_ptr<vector<int64_t>> resourceOwnerIds_ {};
-    // The ID of the resource\\"s region. If you omit this parameter, the API returns resources from all regions.
+    // Filters by the region where the resource resides. If this parameter is not specified, all regions are queried.
     shared_ptr<string> resourceRegionId_ {};
   };
 

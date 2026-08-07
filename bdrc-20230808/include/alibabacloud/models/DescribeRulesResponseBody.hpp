@@ -161,21 +161,26 @@ namespace Models
       protected:
         // The number of resources for which the check failed.
         shared_ptr<int64_t> checkFailedResourceCount_ {};
-        // The check status. Valid values: NOT_CHECKED (Not checked), PASSED (Passed), FAILED (Failed), CHECKING (Checking), and CHECK_FAILED (Check failed).
+        // The check status. Valid values:
+        // - NOT_CHECKED: not checked.
+        // - PASSED: check passed.
+        // - FAILED: check failed.
+        // - CHECKING: checking in progress.
+        // - CHECK_FAILED: check execution failed.
         shared_ptr<string> checkStatus_ {};
-        // The UNIX timestamp that indicates when the check was performed.
+        // The check time.
         shared_ptr<int64_t> checkTime_ {};
-        // The product type to which the rule applies.
+        // The applicable product type.
         shared_ptr<string> productType_ {};
-        // The resource type to which the rule applies.
+        // The applicable resource type.
         shared_ptr<string> resourceType_ {};
-        // The number of at-risk resources.
+        // The number of resources with risks.
         shared_ptr<int64_t> riskyResourceCount_ {};
-        // The unique ID of the rule.
+        // The unique identifier of the rule.
         shared_ptr<string> ruleId_ {};
         // The rule template.
         shared_ptr<string> ruleTemplate_ {};
-        // The total number of resources that were checked.
+        // The total number of checked resources.
         shared_ptr<int64_t> totalResourceCount_ {};
       };
 
@@ -212,13 +217,13 @@ namespace Models
 
 
     protected:
-      // The list of returned records.
+      // The collection of records returned in this request.
       shared_ptr<vector<Data::Content>> content_ {};
-      // The maximum number of entries returned on the current page.
+      // The maximum number of records returned in this request.
       shared_ptr<int32_t> maxResults_ {};
-      // The token that is used to retrieve the next page of results. If this parameter is empty, all results have been returned.
+      // The position from which the current call starts reading. An empty value indicates that all data has been read.
       shared_ptr<string> nextToken_ {};
-      // The total number of entries that meet the filter criteria. This parameter is optional and is not returned by default.
+      // The total number of records that match the request conditions. This parameter is optional and may not be returned by default.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -243,7 +248,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<DescribeRulesResponseBody::Data> data_ {};
-    // The unique ID of the request.
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
   };
 

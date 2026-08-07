@@ -157,9 +157,9 @@ namespace Models
 
 
           protected:
-            // The lower bound of the score range, inclusive.
+            // The lower bound of the range (inclusive).
             shared_ptr<int32_t> from_ {};
-            // The upper bound of the score range, inclusive.
+            // The upper bound of the range (inclusive).
             shared_ptr<int32_t> to_ {};
           };
 
@@ -182,7 +182,7 @@ namespace Models
 
 
         protected:
-          // The count of resources within this score range.
+          // The number of resources within the range.
           shared_ptr<int64_t> count_ {};
           // The score range.
           shared_ptr<ProtectionScoreDistribution::Range> range_ {};
@@ -279,29 +279,29 @@ namespace Models
 
 
       protected:
-        // The count of failed check items.
+        // The number of failed check items.
         shared_ptr<int64_t> checkFailedCount_ {};
-        // The count of resources that failed the check.
+        // The number of resources that failed the check.
         shared_ptr<int64_t> checkFailedResourceCount_ {};
-        // The count of resources for which the check is disabled.
+        // The number of resources for which the check is disabled.
         shared_ptr<int64_t> disableCheckResourceCount_ {};
-        // Indicates whether the data protection score is enabled for the cloud product.
+        // Indicates whether data protection score assessment is enabled.
         shared_ptr<bool> enableCheck_ {};
-        // The cloud product type, such as `ECS` and `OSS`.
+        // The cloud service type, such as ecs or oss.
         shared_ptr<string> productType_ {};
-        // The data protection score, ranging from 0 to 100.
+        // The data protection score (0 to 100).
         shared_ptr<int32_t> protectionScore_ {};
         // The distribution of resources across different score ranges.
         shared_ptr<vector<Content::ProtectionScoreDistribution>> protectionScoreDistribution_ {};
-        // The UNIX timestamp of the last data protection score update.
+        // The time when the data protection score was last updated (UNIX timestamp).
         shared_ptr<int64_t> protectionScoreUpdatedTime_ {};
-        // The count of risky check items.
+        // The number of check items with risks.
         shared_ptr<int64_t> riskCount_ {};
-        // The count of risky resources.
+        // The number of resources with risks.
         shared_ptr<int64_t> riskyResourceCount_ {};
-        // The total count of resources for the cloud product.
+        // The total number of resources.
         shared_ptr<int64_t> totalResourceCount_ {};
-        // The count of resources pending a check.
+        // The number of resources pending check.
         shared_ptr<int64_t> waitForCheckResourceCount_ {};
       };
 
@@ -338,13 +338,13 @@ namespace Models
 
 
     protected:
-      // A list of cloud products and their data protection status.
+      // The collection of records returned in this request.
       shared_ptr<vector<Data::Content>> content_ {};
-      // The maximum number of entries returned per page.
+      // The maximum number of records returned in this request.
       shared_ptr<int32_t> maxResults_ {};
-      // The token for the next page of results. If this parameter is absent from the response, all results have been retrieved.
+      // The position from which the current call starts reading. An empty value indicates that all data has been read.
       shared_ptr<string> nextToken_ {};
-      // The total number of entries that match the query. This parameter is not returned by default.
+      // The total number of records that match the request conditions. This is an optional parameter and may not be returned by default.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -369,7 +369,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<DescribeProductsResponseBody::Data> data_ {};
-    // The request ID.
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

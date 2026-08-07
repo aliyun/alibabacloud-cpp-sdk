@@ -31,6 +31,9 @@
 #include <alibabacloud/models/DescribeProductsShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeProductsResponseBody.hpp>
 #include <alibabacloud/models/DescribeProductsResponse.hpp>
+#include <alibabacloud/models/DescribeRegionsRequest.hpp>
+#include <alibabacloud/models/DescribeRegionsResponseBody.hpp>
+#include <alibabacloud/models/DescribeRegionsResponse.hpp>
 #include <alibabacloud/models/DescribeResourcesRequest.hpp>
 #include <alibabacloud/models/DescribeResourcesShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeResourcesResponseBody.hpp>

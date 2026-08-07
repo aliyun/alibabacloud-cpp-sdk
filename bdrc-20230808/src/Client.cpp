@@ -451,7 +451,7 @@ DescribeProductDataRedundancyTypeStatResponse Client::describeProductDataRedunda
 }
 
 /**
- * @summary Queries the data protection score status for cloud products.
+ * @summary Queries the data protection score status of cloud services.
  *
  * @param tmpReq DescribeProductsRequest
  * @param headers map
@@ -502,7 +502,7 @@ DescribeProductsResponse Client::describeProductsWithOptions(const DescribeProdu
 }
 
 /**
- * @summary Queries the data protection score status for cloud products.
+ * @summary Queries the data protection score status of cloud services.
  *
  * @param request DescribeProductsRequest
  * @return DescribeProductsResponse
@@ -511,6 +511,49 @@ DescribeProductsResponse Client::describeProducts(const DescribeProductsRequest 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return describeProductsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries available regions.
+ *
+ * @description BDRC本身是中心化的产品，接口用于部分与Region相关的功能使用。
+ *
+ * @param request DescribeRegionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRegionsResponse
+ */
+DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeRegions"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/regions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRegionsResponse>();
+}
+
+/**
+ * @summary Queries available regions.
+ *
+ * @description BDRC本身是中心化的产品，接口用于部分与Region相关的功能使用。
+ *
+ * @param request DescribeRegionsRequest
+ * @return DescribeRegionsResponse
+ */
+DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return describeRegionsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -613,7 +656,7 @@ DescribeResourcesResponse Client::describeResources(const DescribeResourcesReque
 }
 
 /**
- * @summary Lists all data protection rules.
+ * @summary Queries a list of data protection rules.
  *
  * @param tmpReq DescribeRulesRequest
  * @param headers map
@@ -672,7 +715,7 @@ DescribeRulesResponse Client::describeRulesWithOptions(const DescribeRulesReques
 }
 
 /**
- * @summary Lists all data protection rules.
+ * @summary Queries a list of data protection rules.
  *
  * @param request DescribeRulesRequest
  * @return DescribeRulesResponse
@@ -836,7 +879,7 @@ DescribeTopRiskyResourcesResponse Client::describeTopRiskyResources(const Descri
 }
 
 /**
- * @summary Disables the data protection score for a cloud product.
+ * @summary Disables the data protection score for a cloud service.
  *
  * @param request DisableCheckProductRequest
  * @param headers map
@@ -869,7 +912,7 @@ DisableCheckProductResponse Client::disableCheckProductWithOptions(const Disable
 }
 
 /**
- * @summary Disables the data protection score for a cloud product.
+ * @summary Disables the data protection score for a cloud service.
  *
  * @param request DisableCheckProductRequest
  * @return DisableCheckProductResponse
@@ -926,7 +969,7 @@ DisableCheckResourceResponse Client::disableCheckResource(const DisableCheckReso
 }
 
 /**
- * @summary Enables data protection scoring for a cloud product.
+ * @summary Enables data protection scoring for an Alibaba Cloud service.
  *
  * @param request EnableCheckProductRequest
  * @param headers map
@@ -959,7 +1002,7 @@ EnableCheckProductResponse Client::enableCheckProductWithOptions(const EnableChe
 }
 
 /**
- * @summary Enables data protection scoring for a cloud product.
+ * @summary Enables data protection scoring for an Alibaba Cloud service.
  *
  * @param request EnableCheckProductRequest
  * @return EnableCheckProductResponse

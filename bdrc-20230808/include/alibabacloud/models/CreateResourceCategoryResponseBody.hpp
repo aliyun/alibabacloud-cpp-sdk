@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // Resource category ID.
+      // The resource category ID.
       shared_ptr<string> resourceCategoryId_ {};
     };
 
@@ -82,7 +82,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response data.
     shared_ptr<CreateResourceCategoryResponseBody::Data> data_ {};
     // The unique identifier of the request.
     shared_ptr<string> requestId_ {};

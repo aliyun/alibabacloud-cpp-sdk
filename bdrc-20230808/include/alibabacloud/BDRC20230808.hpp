@@ -163,7 +163,7 @@ namespace BDRC20230808
       Models::DescribeProductDataRedundancyTypeStatResponse describeProductDataRedundancyTypeStat(const Models::DescribeProductDataRedundancyTypeStatRequest &request);
 
       /**
-       * @summary Queries the data protection score status for cloud products.
+       * @summary Queries the data protection score status of cloud services.
        *
        * @param tmpReq DescribeProductsRequest
        * @param headers map
@@ -173,12 +173,34 @@ namespace BDRC20230808
       Models::DescribeProductsResponse describeProductsWithOptions(const Models::DescribeProductsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the data protection score status for cloud products.
+       * @summary Queries the data protection score status of cloud services.
        *
        * @param request DescribeProductsRequest
        * @return DescribeProductsResponse
        */
       Models::DescribeProductsResponse describeProducts(const Models::DescribeProductsRequest &request);
+
+      /**
+       * @summary Queries available regions.
+       *
+       * @description BDRC本身是中心化的产品，接口用于部分与Region相关的功能使用。
+       *
+       * @param request DescribeRegionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRegionsResponse
+       */
+      Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries available regions.
+       *
+       * @description BDRC本身是中心化的产品，接口用于部分与Region相关的功能使用。
+       *
+       * @param request DescribeRegionsRequest
+       * @return DescribeRegionsResponse
+       */
+      Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
        * @summary Query resources
@@ -199,7 +221,7 @@ namespace BDRC20230808
       Models::DescribeResourcesResponse describeResources(const Models::DescribeResourcesRequest &request);
 
       /**
-       * @summary Lists all data protection rules.
+       * @summary Queries a list of data protection rules.
        *
        * @param tmpReq DescribeRulesRequest
        * @param headers map
@@ -209,7 +231,7 @@ namespace BDRC20230808
       Models::DescribeRulesResponse describeRulesWithOptions(const Models::DescribeRulesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all data protection rules.
+       * @summary Queries a list of data protection rules.
        *
        * @param request DescribeRulesRequest
        * @return DescribeRulesResponse
@@ -269,7 +291,7 @@ namespace BDRC20230808
       Models::DescribeTopRiskyResourcesResponse describeTopRiskyResources(const Models::DescribeTopRiskyResourcesRequest &request);
 
       /**
-       * @summary Disables the data protection score for a cloud product.
+       * @summary Disables the data protection score for a cloud service.
        *
        * @param request DisableCheckProductRequest
        * @param headers map
@@ -279,7 +301,7 @@ namespace BDRC20230808
       Models::DisableCheckProductResponse disableCheckProductWithOptions(const Models::DisableCheckProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables the data protection score for a cloud product.
+       * @summary Disables the data protection score for a cloud service.
        *
        * @param request DisableCheckProductRequest
        * @return DisableCheckProductResponse
@@ -305,7 +327,7 @@ namespace BDRC20230808
       Models::DisableCheckResourceResponse disableCheckResource(const Models::DisableCheckResourceRequest &request);
 
       /**
-       * @summary Enables data protection scoring for a cloud product.
+       * @summary Enables data protection scoring for an Alibaba Cloud service.
        *
        * @param request EnableCheckProductRequest
        * @param headers map
@@ -315,7 +337,7 @@ namespace BDRC20230808
       Models::EnableCheckProductResponse enableCheckProductWithOptions(const Models::EnableCheckProductRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables data protection scoring for a cloud product.
+       * @summary Enables data protection scoring for an Alibaba Cloud service.
        *
        * @param request EnableCheckProductRequest
        * @return EnableCheckProductResponse
