@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Site ID
+    // The site ID.
     shared_ptr<string> siteId_ {};
   };
 

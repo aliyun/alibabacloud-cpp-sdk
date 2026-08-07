@@ -196,39 +196,39 @@ namespace Models
 
 
     protected:
-      // Business ID
+      // The business ID.
       shared_ptr<string> bizId_ {};
-      // Indicates whether to display.
+      // Indicates whether the item is displayed.
       shared_ptr<int32_t> display_ {};
-      // Indicates whether scheduled delivery of resource snapshots is enabled.  
+      // Specifies whether scheduled delivery of resource snapshots is enabled.
       // 
-      // Valid values:  
-      // - true: Enabled.  
-      // - false: Shutdown.
+      // Valid values:
+      // - true: Enabled.
+      // - false: Disabled.
       shared_ptr<int32_t> enabled_ {};
-      // Extension information
+      // The extension information.
       shared_ptr<map<string, string>> extend_ {};
-      // Creation Time
+      // The creation time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // Updated At
+      // The modification time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
-      // primary key
+      // The primary key.
       shared_ptr<int64_t> id_ {};
-      // Plugin configuration
+      // The plug-in configuration.
       shared_ptr<string> pluginConfig_ {};
-      // Plugin description
+      // The plug-in description.
       shared_ptr<string> pluginDesc_ {};
-      // Plugin ID
+      // The plug-in ID.
       shared_ptr<string> pluginId_ {};
-      // Plugin name
+      // The plug-in name.
       shared_ptr<string> pluginName_ {};
-      // Site name
+      // The site name.
       shared_ptr<string> siteName_ {};
-      // User ID
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -332,34 +332,34 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access was denied.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // is retry allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // Application Name. Query the application with this name.
+    // The application name. The application with this name is queried.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The number of results returned per query.  
+    // The number of entries per query.
     // 
-    // Valid range: 10 to 100. Default Value: 20.
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // task object
+    // The task object.
     shared_ptr<vector<ListAppPluginConfigsResponseBody::Module>> module_ {};
-    // The token to start the next query. It is empty if there is no next query.
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // is synchronous processing enabled
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

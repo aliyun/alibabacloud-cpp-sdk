@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Business ID
+    // The business ID.
     shared_ptr<string> bizId_ {};
-    // Configuration JSON
+    // The configuration JSON.
     shared_ptr<string> configsJson_ {};
   };
 

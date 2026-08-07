@@ -128,23 +128,23 @@ namespace Models
 
 
     protected:
-      // Dictionary Code
+      // The dictionary code.
       shared_ptr<string> dictCode_ {};
-      // Dictionary label
+      // The dictionary label.
       shared_ptr<string> dictLabel_ {};
-      // Enumeration of template dictionary types
+      // The template dictionary type enumeration.
       shared_ptr<string> dictType_ {};
-      // Dictionary value
+      // The dictionary value.
       shared_ptr<string> dictValue_ {};
-      // Indicates whether a template exists.
+      // Indicates whether templates exist.
       shared_ptr<bool> hasTemplates_ {};
-      // Sorting order. The default is descending.  
+      // The sort order. Default value: DESC.
       // 
-      // Enumeration values:  
+      // Valid values:
       // 
-      // ASC: ascending.  
+      // - ASC: Ascending order.
       // 
-      // DESC: descending.
+      // - DESC: Descending order.
       shared_ptr<int32_t> sortOrder_ {};
     };
 
@@ -248,34 +248,34 @@ namespace Models
 
 
   protected:
-    // Detailed reason why access was denied.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // is retry allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // application name; queries the application with this name
+    // The application name to query.
     shared_ptr<string> appName_ {};
-    // dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // dynamic error message used to replace the `%s` placeholder in the **ErrMessage** response parameter.  
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** return parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // faulty parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Number of results per query.  
+    // The number of entries per query.
     // 
-    // Value range: 10–100. Default Value: 20.
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // response Data
+    // The response data.
     shared_ptr<vector<ListAppTemplateDictsResponseBody::Module>> module_ {};
-    // Token for the start of the next query. It is empty when there is no next query.
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // is processing synchronous
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

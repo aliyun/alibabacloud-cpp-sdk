@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // ciphertext of the API key encrypted by AES
+      // The AES-encrypted API key ciphertext.
       shared_ptr<string> encryptedApiKey_ {};
     };
 
@@ -167,27 +167,27 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // is retry allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App Name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // dynamic error message.
+    // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
-    // returned error parameters
+    // The error arguments returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // response data
+    // The response data.
     shared_ptr<CreateAppLlmApiKeyForPartnerResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // abnormal message
+    // The root error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // is processed synchronously
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

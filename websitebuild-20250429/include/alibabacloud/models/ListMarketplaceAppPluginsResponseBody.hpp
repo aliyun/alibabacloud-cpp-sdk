@@ -227,6 +227,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Data& obj) { 
           DARABONBA_PTR_TO_JSON(Category, category_);
           DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(Extend, extend_);
           DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
           DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
           DARABONBA_PTR_TO_JSON(HotCount, hotCount_);
@@ -240,6 +241,7 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, Data& obj) { 
           DARABONBA_PTR_FROM_JSON(Category, category_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(Extend, extend_);
           DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
           DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
           DARABONBA_PTR_FROM_JSON(HotCount, hotCount_);
@@ -262,8 +264,9 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->category_ == nullptr
-        && this->description_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->hotCount_ == nullptr && this->icon_ == nullptr
-        && this->pluginId_ == nullptr && this->pluginName_ == nullptr && this->status_ == nullptr && this->version_ == nullptr && this->visibility_ == nullptr; };
+        && this->description_ == nullptr && this->extend_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->hotCount_ == nullptr
+        && this->icon_ == nullptr && this->pluginId_ == nullptr && this->pluginName_ == nullptr && this->status_ == nullptr && this->version_ == nullptr
+        && this->visibility_ == nullptr; };
         // category Field Functions 
         bool hasCategory() const { return this->category_ != nullptr;};
         void deleteCategory() { this->category_ = nullptr;};
@@ -276,6 +279,13 @@ namespace Models
         void deleteDescription() { this->description_ = nullptr;};
         inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
         inline Data& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // extend Field Functions 
+        bool hasExtend() const { return this->extend_ != nullptr;};
+        void deleteExtend() { this->extend_ = nullptr;};
+        inline string getExtend() const { DARABONBA_PTR_GET_DEFAULT(extend_, "") };
+        inline Data& setExtend(string extend) { DARABONBA_PTR_SET_VALUE(extend_, extend) };
 
 
         // gmtCreate Field Functions 
@@ -351,6 +361,7 @@ namespace Models
         shared_ptr<string> category_ {};
         // The scenario description.
         shared_ptr<string> description_ {};
+        shared_ptr<string> extend_ {};
         // The creation time.
         shared_ptr<string> gmtCreate_ {};
         // The modification time.
@@ -457,7 +468,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to pagination limits, the server processes a maximum of 1000 recent records for the current query. If the results exceed 1000 entries, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to pagination limits, the server processes a maximum of 1000 recent records for the current query. If the results exceed 1000 records, **ResultLimit** is **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};

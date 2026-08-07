@@ -177,31 +177,31 @@ namespace Models
 
 
     protected:
-      // Business ID
+      // The business ID.
       shared_ptr<string> bizId_ {};
-      // Extension information
+      // The extension information.
       shared_ptr<map<string, string>> extend_ {};
-      // Creation Time
+      // The creation time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // Updated At
+      // The modification time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
-      // Primary key
+      // The primary key.
       shared_ptr<int64_t> id_ {};
-      // Plugin configuration
+      // The plugin configuration.
       shared_ptr<string> pluginConfig_ {};
-      // Plugin description
+      // The plugin description.
       shared_ptr<string> pluginDesc_ {};
-      // Plugin ID
+      // The plugin ID.
       shared_ptr<string> pluginId_ {};
-      // Plugin name
+      // The plugin name.
       shared_ptr<string> pluginName_ {};
-      // Site name
+      // The site name.
       shared_ptr<string> siteName_ {};
-      // User ID
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -305,34 +305,34 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App name.
+    // The app name.
     shared_ptr<string> appName_ {};
-    // Dynamic code; currently unused. Ignore this field.
+    // The dynamic code. Not currently used. Ignore this parameter.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Number of results per query.  
+    // The number of entries per query.
     // 
-    // Value range: 10–100. Default Value: 20.
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // Response data
+    // The response data.
     shared_ptr<vector<ListIsvPaymentPluginConfigsResponseBody::Module>> module_ {};
-    // Token for starting the next query. It is empty if there is no next query.
+    // The token for the next query. This parameter is empty if there is no next query.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

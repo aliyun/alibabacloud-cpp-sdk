@@ -252,35 +252,35 @@ namespace Models
         // Indicates whether quick rollback is supported.
         shared_ptr<string> canQuickRevert_ {};
         shared_ptr<string> commitHash_ {};
-        // Current step.
+        // The current step number.
         shared_ptr<string> currentStep_ {};
-        // Deployment channel.
+        // The deployment channel.
         shared_ptr<string> deployChannel_ {};
-        // Application description.
+        // The application description.
         shared_ptr<string> description_ {};
-        // Publishing procedure.
+        // The publish process.
         shared_ptr<string> errorStep_ {};
-        // Indicates whether the process is complete.
+        // Indicates whether the task is complete.
         shared_ptr<bool> isFinish_ {};
-        // Indicates whether resource allocation to the cost center succeeded.
-        // - true indicates success.
-        // - false indicates failure.
+        // Indicates whether the resource allocation of the business unit is successful.
+        // - true: The allocation is successful.
+        // - false: The allocation failed.
         shared_ptr<bool> isSuccess_ {};
-        // Error message.
+        // The error message.
         shared_ptr<string> msg_ {};
-        // Sorting type: ASC or DESC.
+        // The sort type. Valid values: ASC and DESC.
         shared_ptr<string> orderType_ {};
-        // Transcoding progress.
+        // The transcoding progress.
         shared_ptr<int32_t> percent_ {};
-        // Publish number.
+        // The publish number.
         shared_ptr<string> publishNumber_ {};
-        // Publish order ID.
+        // The publish order ID.
         shared_ptr<int64_t> publishOrderId_ {};
-        // Published At.
+        // The publish time.
         // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
         shared_ptr<string> publishTime_ {};
-        // Specific widget configuration.
+        // The component-specific configurations.
         shared_ptr<vector<string>> steps_ {};
         shared_ptr<string> subchannel_ {};
       };
@@ -325,19 +325,19 @@ namespace Models
 
 
     protected:
-      // Current publish order ID
+      // The current publish order ID.
       shared_ptr<int64_t> currentPublishOrderId_ {};
-      // Indicates whether to display the history of applying the alert template to application groups. Valid values:
+      // Indicates whether to display the history of alert templates applied to application groups. Valid values:
       // 
-      // - true: Display.
+      // - true: Displayed.
       // 
-      // - false (default): Do not display.
+      // - false (default): Not displayed.
       shared_ptr<vector<Module::History>> history_ {};
-      // Page number. Default value is 1.
+      // The page number. Default value: 1.
       shared_ptr<int32_t> pageNum_ {};
-      // Paging size.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // Total count.
+      // The total number of entries.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -441,39 +441,39 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // is retry allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // frontend application Name.
+    // The frontend application name.
     shared_ptr<string> appName_ {};
-    // dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // dynamic message, not currently used. Please ignore.
+    // The dynamic message. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // fault parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Number of results per query.  
+    // The number of entries per query.
     // 
-    // Value range: 10 to 100. Default Value: 20.
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // Data Table module.  
+    // The data table module.
     // 
-    // - ABTest: experiment Data Table  
+    // - ABTest: the experiment data table.
     // 
-    // - ExperimentTool: experiment tool table  
+    // - ExperimentTool: the experiment tool table.
     // 
-    // - DataDiagnosis: Data Diagnosis
+    // - DataDiagnosis: data modeling diagnostics.
     shared_ptr<ListAppPublishHistoryResponseBody::Module> module_ {};
-    // Token for the start of the next query. It is empty if there is no next query.
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // abnormal message
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

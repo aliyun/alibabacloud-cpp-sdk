@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The key of the OSS object.
     shared_ptr<string> ossKey_ {};
   };
 

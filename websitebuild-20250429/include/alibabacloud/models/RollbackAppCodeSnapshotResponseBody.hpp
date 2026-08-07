@@ -97,11 +97,11 @@ namespace Models
 
 
     protected:
-      // SDK change log
+      // The SDK change log.
       shared_ptr<string> changeLog_ {};
-      // Creation Time
+      // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // logical value
+      // The logical number.
       shared_ptr<int32_t> logicalNumber_ {};
     };
 
@@ -190,28 +190,28 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // is retry allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App Name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // error code
+    // The error code.
     shared_ptr<string> dynamicCode_ {};
-    // dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** return parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** that you specify is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // response data
+    // The response data.
     shared_ptr<RollbackAppCodeSnapshotResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // is processed synchronously
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The business ID.
     shared_ptr<string> bizId_ {};
+    // The table name.
     shared_ptr<string> tableName_ {};
   };
 

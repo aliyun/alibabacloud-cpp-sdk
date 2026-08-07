@@ -881,7 +881,7 @@ CreateAppAssistantAgentSsoLoginResponse Client::createAppAssistantAgentSsoLogin(
 }
 
 /**
- * @summary Wan Xiaozhi initiates an AI conversation
+ * @summary Initiates an AI conversation with Wan Xiaozhi.
  *
  * @param request CreateAppChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -942,7 +942,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Wan Xiaozhi initiates an AI conversation
+ * @summary Initiates an AI conversation with Wan Xiaozhi.
  *
  * @param request CreateAppChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -989,7 +989,7 @@ CreateAppChatResponse Client::createAppChatWithOptions(const CreateAppChatReques
 }
 
 /**
- * @summary Wan Xiaozhi initiates an AI conversation
+ * @summary Initiates an AI conversation with Wan Xiaozhi.
  *
  * @param request CreateAppChatRequest
  * @return CreateAppChatResponse
@@ -1160,9 +1160,9 @@ CreateAppInstanceTicketResponse Client::createAppInstanceTicket(const CreateAppI
 }
 
 /**
- * @summary Create an LLM gateway API key for an application instance
+ * @summary Creates an LLM gateway API key for an application instance.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the code generation plugin configuration information.
  *
  * @param request CreateAppLlmApiKeyForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1205,9 +1205,9 @@ CreateAppLlmApiKeyForPartnerResponse Client::createAppLlmApiKeyForPartnerWithOpt
 }
 
 /**
- * @summary Create an LLM gateway API key for an application instance
+ * @summary Creates an LLM gateway API key for an application instance.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the code generation plugin configuration information.
  *
  * @param request CreateAppLlmApiKeyForPartnerRequest
  * @return CreateAppLlmApiKeyForPartnerResponse
@@ -1952,9 +1952,9 @@ DeleteAppInstanceFileResponse Client::deleteAppInstanceFile(const DeleteAppInsta
 }
 
 /**
- * @summary 删除消息通知场景
+ * @summary Deletes a message notification scenario.
  *
- * @description 查询应用实例信息
+ * @description Queries application instance information.
  *
  * @param request DeleteAppNotificationSceneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1989,9 +1989,9 @@ DeleteAppNotificationSceneResponse Client::deleteAppNotificationSceneWithOptions
 }
 
 /**
- * @summary 删除消息通知场景
+ * @summary Deletes a message notification scenario.
  *
- * @description 查询应用实例信息
+ * @description Queries application instance information.
  *
  * @param request DeleteAppNotificationSceneRequest
  * @return DeleteAppNotificationSceneResponse
@@ -2652,9 +2652,9 @@ GetAIStaffPreviewUrlResponse Client::getAIStaffPreviewUrl(const GetAIStaffPrevie
 }
 
 /**
- * @summary Retrieve code workspace details
+ * @summary Retrieves the details of a code workspace.
  *
- * @description Query application instance information
+ * @description Queries application instance information.
  *
  * @param request GetAppCodeWorkspaceDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2685,9 +2685,9 @@ GetAppCodeWorkspaceDetailResponse Client::getAppCodeWorkspaceDetailWithOptions(c
 }
 
 /**
- * @summary Retrieve code workspace details
+ * @summary Retrieves the details of a code workspace.
  *
- * @description Query application instance information
+ * @description Queries application instance information.
  *
  * @param request GetAppCodeWorkspaceDetailRequest
  * @return GetAppCodeWorkspaceDetailResponse
@@ -2794,9 +2794,9 @@ GetAppConversationLockStatusResponse Client::getAppConversationLockStatus(const 
 }
 
 /**
- * @summary 查询数据库表结构
+ * @summary Queries the table schema of a database.
  *
- * @description 查询应用实例信息
+ * @description Queries application instance information.
  *
  * @param request GetAppDatabaseTableSchemasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2831,9 +2831,9 @@ GetAppDatabaseTableSchemasResponse Client::getAppDatabaseTableSchemasWithOptions
 }
 
 /**
- * @summary 查询数据库表结构
+ * @summary Queries the table schema of a database.
  *
- * @description 查询应用实例信息
+ * @description Queries application instance information.
  *
  * @param request GetAppDatabaseTableSchemasRequest
  * @return GetAppDatabaseTableSchemasResponse
@@ -3378,9 +3378,9 @@ GetAppRequirementResponse Client::getAppRequirement(const GetAppRequirementReque
 }
 
 /**
- * @summary Obtain sandbox preview URL
+ * @summary Retrieves the sandbox preview URL.
  *
- * @description Wan Xiaozhi 2.0 - Obtain site preview URL
+ * @description Wanxiaozhi 2.0 - Retrieves the site preview URL.
  *
  * @param request GetAppSandboxPreviewUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3415,9 +3415,9 @@ GetAppSandboxPreviewUrlResponse Client::getAppSandboxPreviewUrlWithOptions(const
 }
 
 /**
- * @summary Obtain sandbox preview URL
+ * @summary Retrieves the sandbox preview URL.
  *
- * @description Wan Xiaozhi 2.0 - Obtain site preview URL
+ * @description Wanxiaozhi 2.0 - Retrieves the site preview URL.
  *
  * @param request GetAppSandboxPreviewUrlRequest
  * @return GetAppSandboxPreviewUrlResponse
@@ -3640,9 +3640,9 @@ GetAppSupabaseAuthConfigResponse Client::getAppSupabaseAuthConfig(const GetAppSu
 }
 
 /**
- * @summary Obtain Supabase instance information
+ * @summary Retrieves information about a Supabase instance.
  *
- * @description Query application instance information
+ * @description Queries application instance information.
  *
  * @param request GetAppSupabaseInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3673,9 +3673,9 @@ GetAppSupabaseInstanceResponse Client::getAppSupabaseInstanceWithOptions(const G
 }
 
 /**
- * @summary Obtain Supabase instance information
+ * @summary Retrieves information about a Supabase instance.
  *
- * @description Query application instance information
+ * @description Queries application instance information.
  *
  * @param request GetAppSupabaseInstanceRequest
  * @return GetAppSupabaseInstanceResponse
@@ -3736,9 +3736,9 @@ GetAppSupabaseSecretsResponse Client::getAppSupabaseSecrets(const GetAppSupabase
 }
 
 /**
- * @summary Query template details
+ * @summary Queries the details of a template.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of a code generation plugin.
  *
  * @param request GetAppTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3769,9 +3769,9 @@ GetAppTemplateResponse Client::getAppTemplateWithOptions(const GetAppTemplateReq
 }
 
 /**
- * @summary Query template details
+ * @summary Queries the details of a template.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of a code generation plugin.
  *
  * @param request GetAppTemplateRequest
  * @return GetAppTemplateResponse
@@ -4222,7 +4222,7 @@ GetMiniAppBindingForAdminResponse Client::getMiniAppBindingForAdmin(const GetMin
 /**
  * @summary Generates a file upload policy.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request GetOssUploadPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4255,7 +4255,7 @@ GetOssUploadPolicyResponse Client::getOssUploadPolicyWithOptions(const GetOssUpl
 /**
  * @summary Generates a file upload policy.
  *
- * @description Retrieves the configuration information of the code generation plug-in.
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request GetOssUploadPolicyRequest
  * @return GetOssUploadPolicyResponse
@@ -4266,9 +4266,9 @@ GetOssUploadPolicyResponse Client::getOssUploadPolicy(const GetOssUploadPolicyRe
 }
 
 /**
- * @summary 获取临时下载地址
+ * @summary Retrieves a temporary download URL.
  *
- * @description 获取生码插件配置信息
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request GetTempDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4299,9 +4299,9 @@ GetTempDownloadUrlResponse Client::getTempDownloadUrlWithOptions(const GetTempDo
 }
 
 /**
- * @summary 获取临时下载地址
+ * @summary Retrieves a temporary download URL.
  *
- * @description 获取生码插件配置信息
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request GetTempDownloadUrlRequest
  * @return GetTempDownloadUrlResponse
@@ -4900,9 +4900,9 @@ ListAppCommoditySpecificationsV2ForPartnerResponse Client::listAppCommoditySpeci
 }
 
 /**
- * @summary Paged query of conversation message list
+ * @summary Queries the list of conversation messages by paging.
  *
- * @description Wan Xiaozhi 2.0 - AI session history information query API
+ * @description Wanxiaozhi 2.0 - API for querying AI session history information.
  *
  * @param request ListAppConversationMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4953,9 +4953,9 @@ ListAppConversationMessagesResponse Client::listAppConversationMessagesWithOptio
 }
 
 /**
- * @summary Paged query of conversation message list
+ * @summary Queries the list of conversation messages by paging.
  *
- * @description Wan Xiaozhi 2.0 - AI session history information query API
+ * @description Wanxiaozhi 2.0 - API for querying AI session history information.
  *
  * @param request ListAppConversationMessagesRequest
  * @return ListAppConversationMessagesResponse
@@ -5260,9 +5260,9 @@ ListAppInstancesResponse Client::listAppInstances(const ListAppInstancesRequest 
 }
 
 /**
- * @summary Retrieve the list of Code Farmer plugin configurations
+ * @summary Retrieves the list of code generation plug-in configurations.
  *
- * @description Retrieve the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of code generation plug-ins.
  *
  * @param request ListAppPluginConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5301,9 +5301,9 @@ ListAppPluginConfigsResponse Client::listAppPluginConfigsWithOptions(const ListA
 }
 
 /**
- * @summary Retrieve the list of Code Farmer plugin configurations
+ * @summary Retrieves the list of code generation plug-in configurations.
  *
- * @description Retrieve the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of code generation plug-ins.
  *
  * @param request ListAppPluginConfigsRequest
  * @return ListAppPluginConfigsResponse
@@ -5480,9 +5480,9 @@ ListAppPluginsResponse Client::listAppPlugins(const ListAppPluginsRequest &reque
 }
 
 /**
- * @summary Query publish history
+ * @summary Queries the publish history.
  *
- * @description Query application instance information
+ * @description Queries application instance information.
  *
  * @param request ListAppPublishHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5557,9 +5557,9 @@ ListAppPublishHistoryResponse Client::listAppPublishHistoryWithOptions(const Lis
 }
 
 /**
- * @summary Query publish history
+ * @summary Queries the publish history.
  *
- * @description Query application instance information
+ * @description Queries application instance information.
  *
  * @param request ListAppPublishHistoryRequest
  * @return ListAppPublishHistoryResponse
@@ -5570,9 +5570,9 @@ ListAppPublishHistoryResponse Client::listAppPublishHistory(const ListAppPublish
 }
 
 /**
- * @summary Query dictionary list
+ * @summary Queries a list of dictionaries.
  *
- * @description Query application instance information
+ * @description Queries application instance information.
  *
  * @param request ListAppTemplateDictsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5611,9 +5611,9 @@ ListAppTemplateDictsResponse Client::listAppTemplateDictsWithOptions(const ListA
 }
 
 /**
- * @summary Query dictionary list
+ * @summary Queries a list of dictionaries.
  *
- * @description Query application instance information
+ * @description Queries application instance information.
  *
  * @param request ListAppTemplateDictsRequest
  * @return ListAppTemplateDictsResponse
@@ -5706,9 +5706,9 @@ ListAppTemplatesResponse Client::listAppTemplates(const ListAppTemplatesRequest 
 }
 
 /**
- * @summary Query Alipay ISV plugin configuration
+ * @summary Queries the Alipay ISV plugin configuration.
  *
- * @description Obtain barcode generation plugin configuration information
+ * @description Retrieves the QR code generation plugin configuration information.
  *
  * @param request ListIsvPaymentPluginConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5747,9 +5747,9 @@ ListIsvPaymentPluginConfigsResponse Client::listIsvPaymentPluginConfigsWithOptio
 }
 
 /**
- * @summary Query Alipay ISV plugin configuration
+ * @summary Queries the Alipay ISV plugin configuration.
  *
- * @description Obtain barcode generation plugin configuration information
+ * @description Retrieves the QR code generation plugin configuration information.
  *
  * @param request ListIsvPaymentPluginConfigsRequest
  * @return ListIsvPaymentPluginConfigsResponse
@@ -5760,7 +5760,7 @@ ListIsvPaymentPluginConfigsResponse Client::listIsvPaymentPluginConfigs(const Li
 }
 
 /**
- * @summary Queries the list of application plugins in the marketplace.
+ * @summary Queries the application plugin marketplace list.
  *
  * @description Retrieves the configuration information of code generation plugins.
  *
@@ -5809,7 +5809,7 @@ ListMarketplaceAppPluginsResponse Client::listMarketplaceAppPluginsWithOptions(c
 }
 
 /**
- * @summary Queries the list of application plugins in the marketplace.
+ * @summary Queries the application plugin marketplace list.
  *
  * @description Retrieves the configuration information of code generation plugins.
  *
@@ -7068,9 +7068,9 @@ OperateSupabaseForAdminResponse Client::operateSupabaseForAdmin(const OperateSup
 }
 
 /**
- * @summary Publish application instance
+ * @summary Publishes an application instance.
  *
- * @description Query application instance information
+ * @description Queries application instance information.
  *
  * @param request PublishAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7121,9 +7121,9 @@ PublishAppInstanceResponse Client::publishAppInstanceWithOptions(const PublishAp
 }
 
 /**
- * @summary Publish application instance
+ * @summary Publishes an application instance.
  *
- * @description Query application instance information
+ * @description Queries application instance information.
  *
  * @param request PublishAppInstanceRequest
  * @return PublishAppInstanceResponse
@@ -7315,6 +7315,52 @@ QueryInspirationBalanceResponse Client::queryInspirationBalanceWithOptions(const
 QueryInspirationBalanceResponse Client::queryInspirationBalance() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return queryInspirationBalanceWithOptions(runtime);
+}
+
+/**
+ * @summary 提供给服务商的灵感值查询接口
+ *
+ * @param request QueryInspirationBalanceForPartnerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryInspirationBalanceForPartnerResponse
+ */
+QueryInspirationBalanceForPartnerResponse Client::queryInspirationBalanceForPartnerWithOptions(const QueryInspirationBalanceForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBelongId()) {
+    query["BelongId"] = request.getBelongId();
+  }
+
+  if (!!request.hasBelongIdType()) {
+    query["BelongIdType"] = request.getBelongIdType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryInspirationBalanceForPartner"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryInspirationBalanceForPartnerResponse>();
+}
+
+/**
+ * @summary 提供给服务商的灵感值查询接口
+ *
+ * @param request QueryInspirationBalanceForPartnerRequest
+ * @return QueryInspirationBalanceForPartnerResponse
+ */
+QueryInspirationBalanceForPartnerResponse Client::queryInspirationBalanceForPartner(const QueryInspirationBalanceForPartnerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryInspirationBalanceForPartnerWithOptions(request, runtime);
 }
 
 /**
@@ -8619,9 +8665,9 @@ RevokeRbacUserRoleResponse Client::revokeRbacUserRole(const RevokeRbacUserRoleRe
 }
 
 /**
- * @summary Code snapshot rollback
+ * @summary Rolls back a code snapshot.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request RollbackAppCodeSnapshotRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8656,9 +8702,9 @@ RollbackAppCodeSnapshotResponse Client::rollbackAppCodeSnapshotWithOptions(const
 }
 
 /**
- * @summary Code snapshot rollback
+ * @summary Rolls back a code snapshot.
  *
- * @description Obtain the configuration information of the code generation plugin
+ * @description Retrieves the configuration information of the code generation plugin.
  *
  * @param request RollbackAppCodeSnapshotRequest
  * @return RollbackAppCodeSnapshotResponse
@@ -9829,9 +9875,9 @@ UpdateAppSeoStatusResponse Client::updateAppSeoStatus(const UpdateAppSeoStatusRe
 }
 
 /**
- * @summary Update Supabase authentication configuration
+ * @summary Updates the Supabase authentication configuration.
  *
- * @description Query the auth configuration information of the Supabase instance corresponding to the resource
+ * @description Queries the Supabase instance authentication configuration information corresponding to a resource.
  *
  * @param request UpdateAppSupabaseAuthConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9866,9 +9912,9 @@ UpdateAppSupabaseAuthConfigResponse Client::updateAppSupabaseAuthConfigWithOptio
 }
 
 /**
- * @summary Update Supabase authentication configuration
+ * @summary Updates the Supabase authentication configuration.
  *
- * @description Query the auth configuration information of the Supabase instance corresponding to the resource
+ * @description Queries the Supabase instance authentication configuration information corresponding to a resource.
  *
  * @param request UpdateAppSupabaseAuthConfigRequest
  * @return UpdateAppSupabaseAuthConfigResponse
@@ -9941,7 +9987,7 @@ UpdateAppSupabaseSecretResponse Client::updateAppSupabaseSecret(const UpdateAppS
 }
 
 /**
- * @summary Update miniapp binding information
+ * @summary Updates the binding information of a mini program.
  *
  * @param request UpdateMiniAppBindingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9984,7 +10030,7 @@ UpdateMiniAppBindingResponse Client::updateMiniAppBindingWithOptions(const Updat
 }
 
 /**
- * @summary Update miniapp binding information
+ * @summary Updates the binding information of a mini program.
  *
  * @param request UpdateMiniAppBindingRequest
  * @return UpdateMiniAppBindingResponse

@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Bot ID
+    // The bot ID.
     shared_ptr<string> botId_ {};
-    // Chat ID to be provided when recovering a conversation after an execution break
+    // The chat ID passed in to resume a conversation after execution is interrupted.
     shared_ptr<string> chatId_ {};
-    // Session ID; required from the second turn onward in a multi-turn conversation scenario
+    // The conversation ID. This parameter is required from the second round onward in multi-turn conversation scenarios.
     shared_ptr<string> conversationId_ {};
-    // List of conversation messages (in JSON array format)
+    // The list of conversation messages in JSON array format.
     shared_ptr<string> messages_ {};
-    // Site ID
+    // The site ID.
     shared_ptr<string> siteId_ {};
   };
 

@@ -299,83 +299,83 @@ namespace Models
 
 
     protected:
-      // Application type
+      // The application type.
       shared_ptr<string> appType_ {};
-      // Business ID
+      // The business ID.
       shared_ptr<string> bizId_ {};
-      // color
+      // The color scheme.
       shared_ptr<string> colorScheme_ {};
-      // Color name
+      // The color scheme name.
       shared_ptr<string> colorSchemeName_ {};
-      // The actual data volume of the original table copied during DMS lockless change.
+      // The actual amount of data copied from the original table during a DMS lock-free schema change.
       shared_ptr<int32_t> copyCount_ {};
-      // User ID of the creator.
+      // The user ID of the creator.
       shared_ptr<string> creator_ {};
-      // Creation UTC time, in ISO 8601 date format.
+      // The creation time in UTC. The date format follows ISO 8601.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // Modify time
+      // modify time
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
-      // Primary key
+      // The primary key.
       shared_ptr<int64_t> id_ {};
-      // Industry. Default value: **common** (general industry). Valid values:
+      // The industry. Default value: **common** (general industry). Valid values:
       // 
-      // - **microVideo**: Short video industry.
+      // - **microVideo**: short video industry.
       // 
-      // - **common**: General industry.
+      // - **common**: general industry.
       shared_ptr<string> industry_ {};
-      // Industry name.
+      // The industry name.
       shared_ptr<string> industryName_ {};
-      // Last modifier
+      // The last modifier.
       shared_ptr<string> lastModifier_ {};
-      // Like count.
+      // The number of likes.
       shared_ptr<int32_t> likeCount_ {};
-      // Whether the current user has liked it
+      // Indicates whether the current user has liked the template.
       shared_ptr<bool> liked_ {};
       // <props="china">
       // 
-      // Map of metadata for text segmentation.
+      // The metadata map of the text chunk.
       // 
-      // > In document-search-type knowledge bases, the `file_path` field in the metadata Map is meaningless. Do not use it in your business code.
+      // > The `file_path` field in the metadata map of a document search knowledge base is meaningless. Do not use it in your business code.
       // 
-      // > When retrieving a document-search-type knowledge base, if a segment contains an image, the image URL will be exposed through the `image_url` field in the metadata Map, along with a time-to-live (TTL).
+      // > When retrieving a document search knowledge base, if a chunk contains images, the image URL is returned through the `image_url` field in the metadata map, along with an expiration time.
       // 
       // 
       // <props="intl">
       // 
-      // Map of metadata for text segmentation.
+      // The metadata map of the text chunk.
       // 
-      // > In document-search-type knowledge bases, the `file_path` field in the metadata Map is meaningless. Do not use it in your business code.
+      // > The `file_path` field in the metadata map of a document search knowledge base is meaningless. Do not use it in your business code.
       // 
-      // > When retrieving a document-search-type knowledge base, if a segment contains an image, the image URL will be exposed through the `image_url` field in the metadata Map, along with a time-to-live (TTL).
+      // > When retrieving a document search knowledge base, if a chunk contains images, the image URL is returned through the `image_url` field in the metadata map, along with an expiration time.
       shared_ptr<string> metadata_ {};
-      // Preview URL
+      // The preview URL.
       shared_ptr<string> previewUrl_ {};
-      // Edition. Valid values:
-      // - **BasicVersion**: Basic Edition.
-      // - **EnterpriseVersion**: Enterprise Edition.
+      // The product version. Valid values:
+      // - **BasicVersion**: Basic edition.
+      // - **EnterpriseVersion**: Enterprise edition.
       // > This parameter is required only when ProductForm is set to IntegrationForm.
       shared_ptr<string> productVersion_ {};
-      // Edition Name.
+      // The edition name.
       shared_ptr<string> productVersionName_ {};
-      // Share count
+      // The number of shares.
       shared_ptr<int32_t> shareCount_ {};
-      // trial, draft, live, refunded, expired, released
+      // trial,draft,live,refunded,expired,released
       shared_ptr<string> status_ {};
-      // Template ID
+      // The template ID.
       shared_ptr<string> templateId_ {};
-      // Template Name
+      // The template name.
       shared_ptr<string> templateName_ {};
-      // application thumbnail
+      // The application thumbnail URL.
       shared_ptr<string> thumbnailUrl_ {};
-      // View count.
+      // The number of views.
       shared_ptr<int32_t> viewCount_ {};
-      // Hot word weight, an integer in the range [1, 5].  
-      // Common value: 4.  
-      // If the effect is not obvious, you can moderately increase the weight. However, if the weight is too high, it may cause negative effects and reduce the accuracy of detecting other words.
+      // The weight of the hot word. Valid values: integers in the range of [1, 5].
+      // Common value: 4.
+      // If the effect is not obvious, increase the weight as needed. However, a large weight may cause negative effects and lead to inaccurate recognition of other words.
       shared_ptr<int32_t> weight_ {};
     };
 
@@ -464,28 +464,28 @@ namespace Models
 
 
   protected:
-    // permission denied information
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // is retry allowed
+    // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App Name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // dynamic error Code
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // whether deletion succeeded
+    // Indicates whether the deletion is successful.
     shared_ptr<GetAppTemplateResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // A reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

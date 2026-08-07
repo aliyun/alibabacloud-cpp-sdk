@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_TO_JSON(CustomerService, customerService_);
       DARABONBA_PTR_TO_JSON(DeployArea, deployArea_);
+      DARABONBA_PTR_TO_JSON(IcpbaNo, icpbaNo_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(OpenChatBi, openChatBi_);
       DARABONBA_PTR_TO_JSON(OrdTime, ordTime_);
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_FROM_JSON(CustomerService, customerService_);
       DARABONBA_PTR_FROM_JSON(DeployArea, deployArea_);
+      DARABONBA_PTR_FROM_JSON(IcpbaNo, icpbaNo_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(OpenChatBi, openChatBi_);
       DARABONBA_PTR_FROM_JSON(OrdTime, ordTime_);
@@ -69,9 +71,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationType_ == nullptr
         && this->applicationTypeText_ == nullptr && this->bizId_ == nullptr && this->chatbiTaskId_ == nullptr && this->chatbiTaskStatus_ == nullptr && this->commodityCode_ == nullptr
-        && this->customerService_ == nullptr && this->deployArea_ == nullptr && this->instanceId_ == nullptr && this->openChatBi_ == nullptr && this->ordTime_ == nullptr
-        && this->orderId_ == nullptr && this->payTime_ == nullptr && this->previewUrl_ == nullptr && this->seoSite_ == nullptr && this->siteVersion_ == nullptr
-        && this->siteVersionText_ == nullptr && this->source_ == nullptr && this->templateEtag_ == nullptr && this->templateId_ == nullptr; };
+        && this->customerService_ == nullptr && this->deployArea_ == nullptr && this->icpbaNo_ == nullptr && this->instanceId_ == nullptr && this->openChatBi_ == nullptr
+        && this->ordTime_ == nullptr && this->orderId_ == nullptr && this->payTime_ == nullptr && this->previewUrl_ == nullptr && this->seoSite_ == nullptr
+        && this->siteVersion_ == nullptr && this->siteVersionText_ == nullptr && this->source_ == nullptr && this->templateEtag_ == nullptr && this->templateId_ == nullptr; };
     // applicationType Field Functions 
     bool hasApplicationType() const { return this->applicationType_ != nullptr;};
     void deleteApplicationType() { this->applicationType_ = nullptr;};
@@ -126,6 +128,13 @@ namespace Models
     void deleteDeployArea() { this->deployArea_ = nullptr;};
     inline string getDeployArea() const { DARABONBA_PTR_GET_DEFAULT(deployArea_, "") };
     inline AppInstanceProfile& setDeployArea(string deployArea) { DARABONBA_PTR_SET_VALUE(deployArea_, deployArea) };
+
+
+    // icpbaNo Field Functions 
+    bool hasIcpbaNo() const { return this->icpbaNo_ != nullptr;};
+    void deleteIcpbaNo() { this->icpbaNo_ = nullptr;};
+    inline string getIcpbaNo() const { DARABONBA_PTR_GET_DEFAULT(icpbaNo_, "") };
+    inline AppInstanceProfile& setIcpbaNo(string icpbaNo) { DARABONBA_PTR_SET_VALUE(icpbaNo_, icpbaNo) };
 
 
     // instanceId Field Functions 
@@ -213,25 +222,42 @@ namespace Models
 
 
   protected:
+    // The application type code.
     shared_ptr<string> applicationType_ {};
+    // The text description of the application type.
     shared_ptr<string> applicationTypeText_ {};
+    // The business ID.
     shared_ptr<string> bizId_ {};
     shared_ptr<string> chatbiTaskId_ {};
     shared_ptr<string> chatbiTaskStatus_ {};
+    // The commodity code.
     shared_ptr<string> commodityCode_ {};
+    // The customer service information.
     shared_ptr<string> customerService_ {};
+    // The deployment area.
     shared_ptr<string> deployArea_ {};
+    shared_ptr<string> icpbaNo_ {};
+    // The associated instance ID.
     shared_ptr<string> instanceId_ {};
     shared_ptr<bool> openChatBi_ {};
+    // The time when the order was placed.
     shared_ptr<string> ordTime_ {};
+    // The order ID.
     shared_ptr<string> orderId_ {};
+    // The payment time.
     shared_ptr<string> payTime_ {};
     shared_ptr<string> previewUrl_ {};
+    // The SEO site information.
     shared_ptr<string> seoSite_ {};
+    // The site version code.
     shared_ptr<string> siteVersion_ {};
+    // The text description of the site version.
     shared_ptr<string> siteVersionText_ {};
+    // The source information.
     shared_ptr<string> source_ {};
+    // The ETag of the template.
     shared_ptr<string> templateEtag_ {};
+    // The template ID.
     shared_ptr<string> templateId_ {};
   };
 

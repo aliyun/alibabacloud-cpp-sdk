@@ -140,28 +140,28 @@ namespace Models
 
 
   protected:
-    // Business ID
+    // The business ID.
     shared_ptr<string> bizId_ {};
     shared_ptr<string> deployChannel_ {};
-    // Search keyword
+    // The search keyword.
     shared_ptr<string> keyword_ {};
-    // Number of results per query.  
+    // The number of entries per query.
     // 
-    // Value range: 10 to 100. Default value: 20.
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // Token indicating the start of the next query. Empty if there is no next query.
+    // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
-    // Page number
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // Page size
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> publishEnv_ {};
-    // Sorting method
+    // The sort method.
     shared_ptr<string> sort_ {};
-    // Publish status
+    // The publish status.
     shared_ptr<string> status_ {};
     shared_ptr<string> subchannel_ {};
-    // Website domain name
+    // The website domain name.
     shared_ptr<string> websiteDomain_ {};
   };
 

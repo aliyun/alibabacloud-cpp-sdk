@@ -60,6 +60,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Display, display_);
         DARABONBA_PTR_TO_JSON(Enabled, enabled_);
         DARABONBA_PTR_TO_JSON(Extend, extend_);
+        DARABONBA_PTR_TO_JSON(GitRef, gitRef_);
         DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_TO_JSON(Hooks, hooks_);
@@ -67,6 +68,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Icon, icon_);
         DARABONBA_PTR_TO_JSON(PluginId, pluginId_);
         DARABONBA_PTR_TO_JSON(PluginName, pluginName_);
+        DARABONBA_PTR_TO_JSON(RepositoryUrl, repositoryUrl_);
         DARABONBA_PTR_TO_JSON(SkillHeader, skillHeader_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(Tags, tags_);
@@ -81,6 +83,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Display, display_);
         DARABONBA_PTR_FROM_JSON(Enabled, enabled_);
         DARABONBA_PTR_FROM_JSON(Extend, extend_);
+        DARABONBA_PTR_FROM_JSON(GitRef, gitRef_);
         DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
         DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_FROM_JSON(Hooks, hooks_);
@@ -88,6 +91,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Icon, icon_);
         DARABONBA_PTR_FROM_JSON(PluginId, pluginId_);
         DARABONBA_PTR_FROM_JSON(PluginName, pluginName_);
+        DARABONBA_PTR_FROM_JSON(RepositoryUrl, repositoryUrl_);
         DARABONBA_PTR_FROM_JSON(SkillHeader, skillHeader_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(Tags, tags_);
@@ -107,9 +111,9 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->category_ == nullptr
         && this->configItems_ == nullptr && this->createdBy_ == nullptr && this->description_ == nullptr && this->display_ == nullptr && this->enabled_ == nullptr
-        && this->extend_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->hooks_ == nullptr && this->hotCount_ == nullptr
-        && this->icon_ == nullptr && this->pluginId_ == nullptr && this->pluginName_ == nullptr && this->skillHeader_ == nullptr && this->status_ == nullptr
-        && this->tags_ == nullptr && this->version_ == nullptr && this->visibility_ == nullptr; };
+        && this->extend_ == nullptr && this->gitRef_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->hooks_ == nullptr
+        && this->hotCount_ == nullptr && this->icon_ == nullptr && this->pluginId_ == nullptr && this->pluginName_ == nullptr && this->repositoryUrl_ == nullptr
+        && this->skillHeader_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->version_ == nullptr && this->visibility_ == nullptr; };
       // category Field Functions 
       bool hasCategory() const { return this->category_ != nullptr;};
       void deleteCategory() { this->category_ = nullptr;};
@@ -159,6 +163,13 @@ namespace Models
       inline Module& setExtend(string extend) { DARABONBA_PTR_SET_VALUE(extend_, extend) };
 
 
+      // gitRef Field Functions 
+      bool hasGitRef() const { return this->gitRef_ != nullptr;};
+      void deleteGitRef() { this->gitRef_ = nullptr;};
+      inline string getGitRef() const { DARABONBA_PTR_GET_DEFAULT(gitRef_, "") };
+      inline Module& setGitRef(string gitRef) { DARABONBA_PTR_SET_VALUE(gitRef_, gitRef) };
+
+
       // gmtCreate Field Functions 
       bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
       void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
@@ -206,6 +217,13 @@ namespace Models
       void deletePluginName() { this->pluginName_ = nullptr;};
       inline string getPluginName() const { DARABONBA_PTR_GET_DEFAULT(pluginName_, "") };
       inline Module& setPluginName(string pluginName) { DARABONBA_PTR_SET_VALUE(pluginName_, pluginName) };
+
+
+      // repositoryUrl Field Functions 
+      bool hasRepositoryUrl() const { return this->repositoryUrl_ != nullptr;};
+      void deleteRepositoryUrl() { this->repositoryUrl_ = nullptr;};
+      inline string getRepositoryUrl() const { DARABONBA_PTR_GET_DEFAULT(repositoryUrl_, "") };
+      inline Module& setRepositoryUrl(string repositoryUrl) { DARABONBA_PTR_SET_VALUE(repositoryUrl_, repositoryUrl) };
 
 
       // skillHeader Field Functions 
@@ -265,6 +283,8 @@ namespace Models
       shared_ptr<int32_t> enabled_ {};
       // The extended information.
       shared_ptr<string> extend_ {};
+      // The version number.
+      shared_ptr<string> gitRef_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
       // The modification time.
@@ -275,10 +295,12 @@ namespace Models
       shared_ptr<int32_t> hotCount_ {};
       // The plug-in description.
       shared_ptr<string> icon_ {};
-      // The bound API gateway plug-in ID.
+      // The bound API Gateway plug-in ID.
       shared_ptr<string> pluginId_ {};
       // The plug-in name. The name can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). The name must be 4 to 50 characters in length and cannot start with an underscore.
       shared_ptr<string> pluginName_ {};
+      // The image repository URL.
+      shared_ptr<string> repositoryUrl_ {};
       // The skill header information for model selection.
       shared_ptr<string> skillHeader_ {};
       // trial,draft,live,refunded,expired,released
@@ -287,7 +309,7 @@ namespace Models
       shared_ptr<string> tags_ {};
       // The application instance version.
       shared_ptr<string> version_ {};
-      // The visibility level.
+      // **The visibility level.**
       shared_ptr<string> visibility_ {};
     };
 
@@ -378,7 +400,7 @@ namespace Models
   protected:
     // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};

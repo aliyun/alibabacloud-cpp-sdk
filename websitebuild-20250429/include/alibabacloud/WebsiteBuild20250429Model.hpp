@@ -418,6 +418,9 @@
 #include <alibabacloud/models/QueryInspirationAccountDetailsResponse.hpp>
 #include <alibabacloud/models/QueryInspirationBalanceResponseBody.hpp>
 #include <alibabacloud/models/QueryInspirationBalanceResponse.hpp>
+#include <alibabacloud/models/QueryInspirationBalanceForPartnerRequest.hpp>
+#include <alibabacloud/models/QueryInspirationBalanceForPartnerResponseBody.hpp>
+#include <alibabacloud/models/QueryInspirationBalanceForPartnerResponse.hpp>
 #include <alibabacloud/models/QueryInspirationConsumeRecordsRequest.hpp>
 #include <alibabacloud/models/QueryInspirationConsumeRecordsResponseBody.hpp>
 #include <alibabacloud/models/QueryInspirationConsumeRecordsResponse.hpp>

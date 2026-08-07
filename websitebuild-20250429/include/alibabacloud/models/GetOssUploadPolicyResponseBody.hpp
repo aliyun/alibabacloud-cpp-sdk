@@ -149,7 +149,7 @@ namespace Models
       shared_ptr<string> host_ {};
       // The Base64-encoded policy.
       shared_ptr<string> policy_ {};
-      // The Security Token Service (STS) token. This parameter is null in non-STS scenarios.
+      // The Security Token Service (STS) token. This value is null in non-STS scenarios.
       shared_ptr<string> securityToken_ {};
       // The calculated signature.
       shared_ptr<string> signature_ {};
@@ -246,11 +246,11 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed. Valid values:
-    // - false: No retry is allowed.
-    // - true: A retry is allowed.
+    // Indicates whether retry is allowed. Valid values:
+    // - false: Retry is not allowed.
+    // - true: Retry is allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};

@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // Business ID of the application instance
+    // The business ID of the application instance.
     shared_ptr<string> bizId_ {};
-    // Idempotent token (reserved)
+    // The idempotency token. This parameter is reserved for future use.
     shared_ptr<string> clientToken_ {};
-    // Description of the API key usage
+    // The description of the API key usage.
     shared_ptr<string> description_ {};
-    // Caller-defined IP address whitelist (the backend appends the system default IP segment)
+    // The custom IP address whitelist defined by the invoker. The system default IP ranges are appended by the backend.
     shared_ptr<vector<string>> ipWhiteList_ {};
   };
 

@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether the operation succeeded.
+      // Indicates whether the operation is successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -82,7 +82,7 @@ namespace Models
 
 
   protected:
-    // Request result.
+    // The request result.
     shared_ptr<UpdateMiniAppBindingResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

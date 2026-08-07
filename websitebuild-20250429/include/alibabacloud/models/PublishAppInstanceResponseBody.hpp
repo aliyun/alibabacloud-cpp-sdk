@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // Publish order ID
+      // The publish order ID.
       shared_ptr<int64_t> publishOrderId_ {};
     };
 
@@ -167,27 +167,27 @@ namespace Models
 
 
   protected:
-    // Permission denied information
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App Name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic message. Not currently used. Ignore this field.
+    // The dynamic message. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Response data
+    // The response data.
     shared_ptr<PublishAppInstanceResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

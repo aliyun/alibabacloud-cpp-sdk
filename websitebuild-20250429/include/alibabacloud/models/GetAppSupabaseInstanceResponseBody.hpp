@@ -152,23 +152,23 @@ namespace Models
 
 
     protected:
-      // anonymity key
+      // The anonymous key.
       shared_ptr<string> anonKey_ {};
-      // application instance business ID
+      // The business ID of the application instance.
       shared_ptr<string> bizId_ {};
-      // database instance ID
+      // The database instance ID.
       shared_ptr<string> dbInstanceId_ {};
-      // Database public URL
+      // The public URL of the database.
       shared_ptr<string> dbPublicUrl_ {};
-      // instance creation status
+      // The instance creation status.
       shared_ptr<string> instanceCreateStatus_ {};
-      // service key
+      // The service key.
       shared_ptr<string> serviceKey_ {};
-      // trial, draft, live, refunded, expired, released
+      // trial,draft,live,refunded,expired,released
       shared_ptr<int32_t> status_ {};
-      // Supabase instance ID
+      // The Supabase instance ID.
       shared_ptr<string> supabaseInstanceId_ {};
-      // Supabase public URL
+      // The public URL of the Supabase instance.
       shared_ptr<string> supabasePublicUrl_ {};
     };
 
@@ -257,28 +257,28 @@ namespace Models
 
 
   protected:
-    // Detailed reason for access denial.
+    // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Is retry allowed
+    // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // App Name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** return parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // Returned error parameters
+    // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Task object
+    // The task object.
     shared_ptr<GetAppSupabaseInstanceResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // error code
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // Abnormal message
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Spare parameter.
+    // A reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 
