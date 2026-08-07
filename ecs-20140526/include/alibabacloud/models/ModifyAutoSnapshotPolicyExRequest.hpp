@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(TargetCopyRegions, targetCopyRegions_);
+      DARABONBA_PTR_TO_JSON(TargetTags, targetTags_);
       DARABONBA_PTR_TO_JSON(autoSnapshotPolicyId, autoSnapshotPolicyId_);
       DARABONBA_PTR_TO_JSON(autoSnapshotPolicyName, autoSnapshotPolicyName_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(TargetCopyRegions, targetCopyRegions_);
+      DARABONBA_PTR_FROM_JSON(TargetTags, targetTags_);
       DARABONBA_PTR_FROM_JSON(autoSnapshotPolicyId, autoSnapshotPolicyId_);
       DARABONBA_PTR_FROM_JSON(autoSnapshotPolicyName, autoSnapshotPolicyName_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
@@ -54,6 +56,54 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class TargetTags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TargetTags& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, TargetTags& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      TargetTags() = default ;
+      TargetTags(const TargetTags &) = default ;
+      TargetTags(TargetTags &&) = default ;
+      TargetTags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TargetTags() = default ;
+      TargetTags& operator=(const TargetTags &) = default ;
+      TargetTags& operator=(TargetTags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline TargetTags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline TargetTags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key.
+      // Valid values of N: 1 to 10.
+      // The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with aliyun or acs:. The tag key cannot contain http:// or https://.
+      shared_ptr<string> key_ {};
+      // The tag value.
+      // Valid values of N: 1 to 10. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
+      // Note: If you pass in an empty value or an empty string, it indicates any value.
+      shared_ptr<string> value_ {};
+    };
+
     class CopyEncryptionConfiguration : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const CopyEncryptionConfiguration& obj) { 
@@ -162,8 +212,8 @@ namespace Models
       shared_ptr<vector<CopyEncryptionConfiguration::Arn>> arn_ {};
       // Specifies whether to enable encryption for cross-region snapshot replication. Valid values:
       // 
-      // - true: Enabled. 
-      // - false: Disabled. 
+      // - true: enabled. 
+      // - false: disabled. 
       // 
       // Default value: false.
       shared_ptr<bool> encrypted_ {};
@@ -173,8 +223,8 @@ namespace Models
 
     virtual bool empty() const override { return this->copiedSnapshotsRetentionDays_ == nullptr
         && this->copyEncryptionConfiguration_ == nullptr && this->enableCrossRegionCopy_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->targetCopyRegions_ == nullptr && this->autoSnapshotPolicyId_ == nullptr && this->autoSnapshotPolicyName_ == nullptr && this->regionId_ == nullptr && this->repeatWeekdays_ == nullptr
-        && this->retentionDays_ == nullptr && this->timePoints_ == nullptr; };
+        && this->targetCopyRegions_ == nullptr && this->targetTags_ == nullptr && this->autoSnapshotPolicyId_ == nullptr && this->autoSnapshotPolicyName_ == nullptr && this->regionId_ == nullptr
+        && this->repeatWeekdays_ == nullptr && this->retentionDays_ == nullptr && this->timePoints_ == nullptr; };
     // copiedSnapshotsRetentionDays Field Functions 
     bool hasCopiedSnapshotsRetentionDays() const { return this->copiedSnapshotsRetentionDays_ != nullptr;};
     void deleteCopiedSnapshotsRetentionDays() { this->copiedSnapshotsRetentionDays_ = nullptr;};
@@ -226,6 +276,15 @@ namespace Models
     inline ModifyAutoSnapshotPolicyExRequest& setTargetCopyRegions(string targetCopyRegions) { DARABONBA_PTR_SET_VALUE(targetCopyRegions_, targetCopyRegions) };
 
 
+    // targetTags Field Functions 
+    bool hasTargetTags() const { return this->targetTags_ != nullptr;};
+    void deleteTargetTags() { this->targetTags_ = nullptr;};
+    inline const vector<ModifyAutoSnapshotPolicyExRequest::TargetTags> & getTargetTags() const { DARABONBA_PTR_GET_CONST(targetTags_, vector<ModifyAutoSnapshotPolicyExRequest::TargetTags>) };
+    inline vector<ModifyAutoSnapshotPolicyExRequest::TargetTags> getTargetTags() { DARABONBA_PTR_GET(targetTags_, vector<ModifyAutoSnapshotPolicyExRequest::TargetTags>) };
+    inline ModifyAutoSnapshotPolicyExRequest& setTargetTags(const vector<ModifyAutoSnapshotPolicyExRequest::TargetTags> & targetTags) { DARABONBA_PTR_SET_VALUE(targetTags_, targetTags) };
+    inline ModifyAutoSnapshotPolicyExRequest& setTargetTags(vector<ModifyAutoSnapshotPolicyExRequest::TargetTags> && targetTags) { DARABONBA_PTR_SET_RVALUE(targetTags_, targetTags) };
+
+
     // autoSnapshotPolicyId Field Functions 
     bool hasAutoSnapshotPolicyId() const { return this->autoSnapshotPolicyId_ != nullptr;};
     void deleteAutoSnapshotPolicyId() { this->autoSnapshotPolicyId_ = nullptr;};
@@ -271,28 +330,31 @@ namespace Models
   protected:
     // The retention period of cross-region snapshot replicas. Unit: days. Valid values:
     // 
-    // - -1: Snapshot replicas are permanently retained.
-    // - 1 to 65535: the number of days for which snapshot replicas are retained.
+    // - -1: permanently retained.
+    // - 1 to 65535: retained for the specified number of days.
     // 
     // Default value: -1.
     shared_ptr<int32_t> copiedSnapshotsRetentionDays_ {};
-    // The encryption parameter for cross-region snapshot replication.
+    // The encryption parameter object for cross-region snapshot replication.
     shared_ptr<ModifyAutoSnapshotPolicyExRequest::CopyEncryptionConfiguration> copyEncryptionConfiguration_ {};
-    // Specifies whether to allow automatic cross-region replication. Valid values:
+    // Specifies whether to allow automatic cross-region replication.
     // 
-    // - true: Allowed.
-    // - false: Not allowed.
+    // - true: allowed.
+    // - false: not allowed.
     shared_ptr<bool> enableCrossRegionCopy_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The destination region for cross-region snapshot replication. You can set one destination region.
+    // The destination region to which snapshots are replicated. Currently, you can set only one destination region.
     shared_ptr<string> targetCopyRegions_ {};
+    // The list of target resource tags. The automatic snapshot policy matches target resources based on tags.
+    // This parameter is required when AssociationType is set to AssociatedWithInstanceTag.
+    shared_ptr<vector<ModifyAutoSnapshotPolicyExRequest::TargetTags>> targetTags_ {};
     // The ID of the automatic snapshot policy. You can call [DescribeAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25530.html) to query available automatic snapshot policies.
     // 
     // This parameter is required.
     shared_ptr<string> autoSnapshotPolicyId_ {};
-    // The name of the automatic snapshot policy. If this parameter is empty, the name is not modified.
+    // The name of the automatic snapshot policy. If this parameter is left empty, the name is not modified.
     shared_ptr<string> autoSnapshotPolicyName_ {};
     // The region ID of the automatic snapshot policy. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
@@ -307,8 +369,8 @@ namespace Models
     shared_ptr<string> repeatWeekdays_ {};
     // The retention period of automatic snapshots. Unit: days. Valid values:
     // 
-    // - -1: Automatic snapshots are permanently retained.
-    // - 1 to 65536: the number of days for which automatic snapshots are retained.
+    // - -1: permanently retained.
+    // - 1 to 65536: retained for the specified number of days.
     // 
     // Default value: -1.
     shared_ptr<int32_t> retentionDays_ {};

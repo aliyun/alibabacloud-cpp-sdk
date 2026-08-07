@@ -60,6 +60,7 @@ namespace Models
       class AutoSnapshotPolicy : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const AutoSnapshotPolicy& obj) { 
+          DARABONBA_PTR_TO_JSON(AssociationType, associationType_);
           DARABONBA_PTR_TO_JSON(AutoSnapshotPolicyId, autoSnapshotPolicyId_);
           DARABONBA_PTR_TO_JSON(AutoSnapshotPolicyName, autoSnapshotPolicyName_);
           DARABONBA_PTR_TO_JSON(CopiedSnapshotsRetentionDays, copiedSnapshotsRetentionDays_);
@@ -74,11 +75,13 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Status, status_);
           DARABONBA_PTR_TO_JSON(Tags, tags_);
           DARABONBA_PTR_TO_JSON(TargetCopyRegions, targetCopyRegions_);
+          DARABONBA_PTR_TO_JSON(TargetTags, targetTags_);
           DARABONBA_PTR_TO_JSON(TimePoints, timePoints_);
           DARABONBA_PTR_TO_JSON(Type, type_);
           DARABONBA_PTR_TO_JSON(VolumeNums, volumeNums_);
         };
         friend void from_json(const Darabonba::Json& j, AutoSnapshotPolicy& obj) { 
+          DARABONBA_PTR_FROM_JSON(AssociationType, associationType_);
           DARABONBA_PTR_FROM_JSON(AutoSnapshotPolicyId, autoSnapshotPolicyId_);
           DARABONBA_PTR_FROM_JSON(AutoSnapshotPolicyName, autoSnapshotPolicyName_);
           DARABONBA_PTR_FROM_JSON(CopiedSnapshotsRetentionDays, copiedSnapshotsRetentionDays_);
@@ -93,6 +96,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Status, status_);
           DARABONBA_PTR_FROM_JSON(Tags, tags_);
           DARABONBA_PTR_FROM_JSON(TargetCopyRegions, targetCopyRegions_);
+          DARABONBA_PTR_FROM_JSON(TargetTags, targetTags_);
           DARABONBA_PTR_FROM_JSON(TimePoints, timePoints_);
           DARABONBA_PTR_FROM_JSON(Type, type_);
           DARABONBA_PTR_FROM_JSON(VolumeNums, volumeNums_);
@@ -108,6 +112,81 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class TargetTags : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const TargetTags& obj) { 
+            DARABONBA_PTR_TO_JSON(TargetTag, targetTag_);
+          };
+          friend void from_json(const Darabonba::Json& j, TargetTags& obj) { 
+            DARABONBA_PTR_FROM_JSON(TargetTag, targetTag_);
+          };
+          TargetTags() = default ;
+          TargetTags(const TargetTags &) = default ;
+          TargetTags(TargetTags &&) = default ;
+          TargetTags(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~TargetTags() = default ;
+          TargetTags& operator=(const TargetTags &) = default ;
+          TargetTags& operator=(TargetTags &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class TargetTag : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const TargetTag& obj) { 
+              DARABONBA_PTR_TO_JSON(TagKey, tagKey_);
+              DARABONBA_PTR_TO_JSON(TagValue, tagValue_);
+            };
+            friend void from_json(const Darabonba::Json& j, TargetTag& obj) { 
+              DARABONBA_PTR_FROM_JSON(TagKey, tagKey_);
+              DARABONBA_PTR_FROM_JSON(TagValue, tagValue_);
+            };
+            TargetTag() = default ;
+            TargetTag(const TargetTag &) = default ;
+            TargetTag(TargetTag &&) = default ;
+            TargetTag(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~TargetTag() = default ;
+            TargetTag& operator=(const TargetTag &) = default ;
+            TargetTag& operator=(TargetTag &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->tagKey_ == nullptr
+        && this->tagValue_ == nullptr; };
+            // tagKey Field Functions 
+            bool hasTagKey() const { return this->tagKey_ != nullptr;};
+            void deleteTagKey() { this->tagKey_ = nullptr;};
+            inline string getTagKey() const { DARABONBA_PTR_GET_DEFAULT(tagKey_, "") };
+            inline TargetTag& setTagKey(string tagKey) { DARABONBA_PTR_SET_VALUE(tagKey_, tagKey) };
+
+
+            // tagValue Field Functions 
+            bool hasTagValue() const { return this->tagValue_ != nullptr;};
+            void deleteTagValue() { this->tagValue_ = nullptr;};
+            inline string getTagValue() const { DARABONBA_PTR_GET_DEFAULT(tagValue_, "") };
+            inline TargetTag& setTagValue(string tagValue) { DARABONBA_PTR_SET_VALUE(tagValue_, tagValue) };
+
+
+          protected:
+            shared_ptr<string> tagKey_ {};
+            shared_ptr<string> tagValue_ {};
+          };
+
+          virtual bool empty() const override { return this->targetTag_ == nullptr; };
+          // targetTag Field Functions 
+          bool hasTargetTag() const { return this->targetTag_ != nullptr;};
+          void deleteTargetTag() { this->targetTag_ = nullptr;};
+          inline const vector<TargetTags::TargetTag> & getTargetTag() const { DARABONBA_PTR_GET_CONST(targetTag_, vector<TargetTags::TargetTag>) };
+          inline vector<TargetTags::TargetTag> getTargetTag() { DARABONBA_PTR_GET(targetTag_, vector<TargetTags::TargetTag>) };
+          inline TargetTags& setTargetTag(const vector<TargetTags::TargetTag> & targetTag) { DARABONBA_PTR_SET_VALUE(targetTag_, targetTag) };
+          inline TargetTags& setTargetTag(vector<TargetTags::TargetTag> && targetTag) { DARABONBA_PTR_SET_RVALUE(targetTag_, targetTag) };
+
+
+        protected:
+          shared_ptr<vector<TargetTags::TargetTag>> targetTag_ {};
+        };
+
         class Tags : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Tags& obj) { 
@@ -225,11 +304,18 @@ namespace Models
           shared_ptr<string> KMSKeyId_ {};
         };
 
-        virtual bool empty() const override { return this->autoSnapshotPolicyId_ == nullptr
-        && this->autoSnapshotPolicyName_ == nullptr && this->copiedSnapshotsRetentionDays_ == nullptr && this->copyEncryptionConfiguration_ == nullptr && this->creationTime_ == nullptr && this->diskNums_ == nullptr
-        && this->enableCrossRegionCopy_ == nullptr && this->regionId_ == nullptr && this->repeatWeekdays_ == nullptr && this->resourceGroupId_ == nullptr && this->retentionDays_ == nullptr
-        && this->status_ == nullptr && this->tags_ == nullptr && this->targetCopyRegions_ == nullptr && this->timePoints_ == nullptr && this->type_ == nullptr
-        && this->volumeNums_ == nullptr; };
+        virtual bool empty() const override { return this->associationType_ == nullptr
+        && this->autoSnapshotPolicyId_ == nullptr && this->autoSnapshotPolicyName_ == nullptr && this->copiedSnapshotsRetentionDays_ == nullptr && this->copyEncryptionConfiguration_ == nullptr && this->creationTime_ == nullptr
+        && this->diskNums_ == nullptr && this->enableCrossRegionCopy_ == nullptr && this->regionId_ == nullptr && this->repeatWeekdays_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->retentionDays_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->targetCopyRegions_ == nullptr && this->targetTags_ == nullptr
+        && this->timePoints_ == nullptr && this->type_ == nullptr && this->volumeNums_ == nullptr; };
+        // associationType Field Functions 
+        bool hasAssociationType() const { return this->associationType_ != nullptr;};
+        void deleteAssociationType() { this->associationType_ = nullptr;};
+        inline string getAssociationType() const { DARABONBA_PTR_GET_DEFAULT(associationType_, "") };
+        inline AutoSnapshotPolicy& setAssociationType(string associationType) { DARABONBA_PTR_SET_VALUE(associationType_, associationType) };
+
+
         // autoSnapshotPolicyId Field Functions 
         bool hasAutoSnapshotPolicyId() const { return this->autoSnapshotPolicyId_ != nullptr;};
         void deleteAutoSnapshotPolicyId() { this->autoSnapshotPolicyId_ = nullptr;};
@@ -332,6 +418,15 @@ namespace Models
         inline AutoSnapshotPolicy& setTargetCopyRegions(string targetCopyRegions) { DARABONBA_PTR_SET_VALUE(targetCopyRegions_, targetCopyRegions) };
 
 
+        // targetTags Field Functions 
+        bool hasTargetTags() const { return this->targetTags_ != nullptr;};
+        void deleteTargetTags() { this->targetTags_ = nullptr;};
+        inline const AutoSnapshotPolicy::TargetTags & getTargetTags() const { DARABONBA_PTR_GET_CONST(targetTags_, AutoSnapshotPolicy::TargetTags) };
+        inline AutoSnapshotPolicy::TargetTags getTargetTags() { DARABONBA_PTR_GET(targetTags_, AutoSnapshotPolicy::TargetTags) };
+        inline AutoSnapshotPolicy& setTargetTags(const AutoSnapshotPolicy::TargetTags & targetTags) { DARABONBA_PTR_SET_VALUE(targetTags_, targetTags) };
+        inline AutoSnapshotPolicy& setTargetTags(AutoSnapshotPolicy::TargetTags && targetTags) { DARABONBA_PTR_SET_RVALUE(targetTags_, targetTags) };
+
+
         // timePoints Field Functions 
         bool hasTimePoints() const { return this->timePoints_ != nullptr;};
         void deleteTimePoints() { this->timePoints_ = nullptr;};
@@ -354,6 +449,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<string> associationType_ {};
         shared_ptr<string> autoSnapshotPolicyId_ {};
         shared_ptr<string> autoSnapshotPolicyName_ {};
         shared_ptr<int32_t> copiedSnapshotsRetentionDays_ {};
@@ -368,6 +464,7 @@ namespace Models
         shared_ptr<string> status_ {};
         shared_ptr<AutoSnapshotPolicy::Tags> tags_ {};
         shared_ptr<string> targetCopyRegions_ {};
+        shared_ptr<AutoSnapshotPolicy::TargetTags> targetTags_ {};
         shared_ptr<string> timePoints_ {};
         shared_ptr<string> type_ {};
         shared_ptr<int32_t> volumeNums_ {};
@@ -430,7 +527,7 @@ namespace Models
     shared_ptr<DescribeAutoSnapshotPolicyExResponseBody::AutoSnapshotPolicies> autoSnapshotPolicies_ {};
     // The page number of the automatic snapshot policy list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page when automatic snapshot policies are returned with pagination.
+    // The number of entries per page when the automatic snapshot policies are displayed by page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -155,7 +155,7 @@ namespace Models
 
 
   protected:
-    // The token to retrieve the next page of results.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

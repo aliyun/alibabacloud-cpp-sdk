@@ -179,17 +179,17 @@ namespace Models
   protected:
     // The ID of the automatic snapshot policy.
     shared_ptr<string> autoSnapshotPolicyId_ {};
-    // The name of the automatic snapshot policy. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). It must support characters in the Unicode letter category, which includes characters from various languages such as English and Chinese.
+    // The name of the automatic snapshot policy. The name must be 2 to 128 characters in length and can contain characters that are classified as letter in Unicode, including Chinese characters, English letters, and digits. The name can also contain colons (:), underscores (_), periods (.), or hyphens (-).
     shared_ptr<string> autoSnapshotPolicyName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the automatic snapshot policy list.
+    // The page number of the automatic snapshot policy list. The results are displayed on multiple pages.
     // 
     // Minimum value: 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page when automatic snapshot policies are returned with pagination.
+    // The number of entries per page when the automatic snapshot policies are displayed by page.
     // 
     // Maximum value: 100.
     // 
@@ -199,13 +199,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group. When you use this parameter to filter resources, the resource count cannot exceed 1000.
+    // The ID of the resource group. If you use this parameter to filter resources, the resource count cannot exceed 1,000.
     // 
-    // > Filtering by the default resource group is not supported.
+    // >Filtering by the default resource group is not supported.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<DescribeAutoSnapshotPolicyExRequest::Tag>> tag_ {};
   };
 

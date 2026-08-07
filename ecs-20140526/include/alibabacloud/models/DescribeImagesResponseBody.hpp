@@ -90,6 +90,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
           DARABONBA_PTR_TO_JSON(Progress, progress_);
           DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+          DARABONBA_PTR_TO_JSON(SecureBootOptions, secureBootOptions_);
           DARABONBA_PTR_TO_JSON(Size, size_);
           DARABONBA_PTR_TO_JSON(Status, status_);
           DARABONBA_PTR_TO_JSON(SupplierName, supplierName_);
@@ -126,6 +127,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
           DARABONBA_PTR_FROM_JSON(Progress, progress_);
           DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+          DARABONBA_PTR_FROM_JSON(SecureBootOptions, secureBootOptions_);
           DARABONBA_PTR_FROM_JSON(Size, size_);
           DARABONBA_PTR_FROM_JSON(Status, status_);
           DARABONBA_PTR_FROM_JSON(SupplierName, supplierName_);
@@ -217,6 +219,37 @@ namespace Models
 
         protected:
           shared_ptr<vector<Tags::Tag>> tag_ {};
+        };
+
+        class SecureBootOptions : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const SecureBootOptions& obj) { 
+            DARABONBA_PTR_TO_JSON(SecureBootSupport, secureBootSupport_);
+          };
+          friend void from_json(const Darabonba::Json& j, SecureBootOptions& obj) { 
+            DARABONBA_PTR_FROM_JSON(SecureBootSupport, secureBootSupport_);
+          };
+          SecureBootOptions() = default ;
+          SecureBootOptions(const SecureBootOptions &) = default ;
+          SecureBootOptions(SecureBootOptions &&) = default ;
+          SecureBootOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~SecureBootOptions() = default ;
+          SecureBootOptions& operator=(const SecureBootOptions &) = default ;
+          SecureBootOptions& operator=(SecureBootOptions &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->secureBootSupport_ == nullptr; };
+          // secureBootSupport Field Functions 
+          bool hasSecureBootSupport() const { return this->secureBootSupport_ != nullptr;};
+          void deleteSecureBootSupport() { this->secureBootSupport_ = nullptr;};
+          inline string getSecureBootSupport() const { DARABONBA_PTR_GET_DEFAULT(secureBootSupport_, "") };
+          inline SecureBootOptions& setSecureBootSupport(string secureBootSupport) { DARABONBA_PTR_SET_VALUE(secureBootSupport_, secureBootSupport) };
+
+
+        protected:
+          shared_ptr<string> secureBootSupport_ {};
         };
 
         class Features : public Darabonba::Model {
@@ -602,8 +635,8 @@ namespace Models
         && this->imageOwnerId_ == nullptr && this->imageVersion_ == nullptr && this->isCopied_ == nullptr && this->isPublic_ == nullptr && this->isSelfShared_ == nullptr
         && this->isSubscribed_ == nullptr && this->isSupportCloudinit_ == nullptr && this->isSupportIoOptimized_ == nullptr && this->licenseType_ == nullptr && this->loginAsNonRootSupported_ == nullptr
         && this->OSName_ == nullptr && this->OSNameEn_ == nullptr && this->OSType_ == nullptr && this->platform_ == nullptr && this->productCode_ == nullptr
-        && this->progress_ == nullptr && this->resourceGroupId_ == nullptr && this->size_ == nullptr && this->status_ == nullptr && this->supplierName_ == nullptr
-        && this->tags_ == nullptr && this->usable_ == nullptr && this->usage_ == nullptr; };
+        && this->progress_ == nullptr && this->resourceGroupId_ == nullptr && this->secureBootOptions_ == nullptr && this->size_ == nullptr && this->status_ == nullptr
+        && this->supplierName_ == nullptr && this->tags_ == nullptr && this->usable_ == nullptr && this->usage_ == nullptr; };
         // architecture Field Functions 
         bool hasArchitecture() const { return this->architecture_ != nullptr;};
         void deleteArchitecture() { this->architecture_ = nullptr;};
@@ -806,6 +839,15 @@ namespace Models
         inline Image& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
+        // secureBootOptions Field Functions 
+        bool hasSecureBootOptions() const { return this->secureBootOptions_ != nullptr;};
+        void deleteSecureBootOptions() { this->secureBootOptions_ = nullptr;};
+        inline const Image::SecureBootOptions & getSecureBootOptions() const { DARABONBA_PTR_GET_CONST(secureBootOptions_, Image::SecureBootOptions) };
+        inline Image::SecureBootOptions getSecureBootOptions() { DARABONBA_PTR_GET(secureBootOptions_, Image::SecureBootOptions) };
+        inline Image& setSecureBootOptions(const Image::SecureBootOptions & secureBootOptions) { DARABONBA_PTR_SET_VALUE(secureBootOptions_, secureBootOptions) };
+        inline Image& setSecureBootOptions(Image::SecureBootOptions && secureBootOptions) { DARABONBA_PTR_SET_RVALUE(secureBootOptions_, secureBootOptions) };
+
+
         // size Field Functions 
         bool hasSize() const { return this->size_ != nullptr;};
         void deleteSize() { this->size_ = nullptr;};
@@ -879,6 +921,7 @@ namespace Models
         shared_ptr<string> productCode_ {};
         shared_ptr<string> progress_ {};
         shared_ptr<string> resourceGroupId_ {};
+        shared_ptr<Image::SecureBootOptions> secureBootOptions_ {};
         shared_ptr<int32_t> size_ {};
         shared_ptr<string> status_ {};
         shared_ptr<string> supplierName_ {};

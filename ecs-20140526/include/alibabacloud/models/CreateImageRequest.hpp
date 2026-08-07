@@ -33,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(SecureBootOptions, secureBootOptions_);
       DARABONBA_PTR_TO_JSON(SnapshotId, snapshotId_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
     };
@@ -56,6 +57,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(SecureBootOptions, secureBootOptions_);
       DARABONBA_PTR_FROM_JSON(SnapshotId, snapshotId_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
     };
@@ -108,10 +110,41 @@ namespace Models
 
 
     protected:
-      // The tag key of the image. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag key of the image. Valid values of N: 1 to 20. The tag key cannot be an empty string. It can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value of the image. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
+      // The tag value of the image. Valid values of N: 1 to 20. The tag value can be an empty string. It can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
+    };
+
+    class SecureBootOptions : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SecureBootOptions& obj) { 
+        DARABONBA_PTR_TO_JSON(SecureBootSupport, secureBootSupport_);
+      };
+      friend void from_json(const Darabonba::Json& j, SecureBootOptions& obj) { 
+        DARABONBA_PTR_FROM_JSON(SecureBootSupport, secureBootSupport_);
+      };
+      SecureBootOptions() = default ;
+      SecureBootOptions(const SecureBootOptions &) = default ;
+      SecureBootOptions(SecureBootOptions &&) = default ;
+      SecureBootOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SecureBootOptions() = default ;
+      SecureBootOptions& operator=(const SecureBootOptions &) = default ;
+      SecureBootOptions& operator=(SecureBootOptions &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->secureBootSupport_ == nullptr; };
+      // secureBootSupport Field Functions 
+      bool hasSecureBootSupport() const { return this->secureBootSupport_ != nullptr;};
+      void deleteSecureBootSupport() { this->secureBootSupport_ = nullptr;};
+      inline string getSecureBootSupport() const { DARABONBA_PTR_GET_DEFAULT(secureBootSupport_, "") };
+      inline SecureBootOptions& setSecureBootSupport(string secureBootSupport) { DARABONBA_PTR_SET_VALUE(secureBootSupport_, secureBootSupport) };
+
+
+    protected:
+      shared_ptr<string> secureBootSupport_ {};
     };
 
     class Features : public Darabonba::Model {
@@ -143,10 +176,10 @@ namespace Models
 
     protected:
       // The metadata access mode of the image. Valid values:
-      // - v1: When you create an ECS instance from this image, you cannot set the metadata access mode to "security hardening mode only".
-      // - v2: When you create an ECS instance from this image, you can set the metadata access mode to "security hardening mode only".
+      // - v1: When you create an ECS instance from this image, you cannot set the metadata access mode to "security hardened mode only".
+      // - v2: When you create an ECS instance from this image, you can set the metadata access mode to "security hardened mode only".
       // 
-      // Default value: When you create an image from a snapshot, the default value is v1. When you create an image from an instance, the default value is the ImdsSupport property of the image used to create the instance.
+      // Default value: When creating an image from a snapshot, the default is v1. When creating an image from an instance, the default is the ImdsSupport property value of the image used when the instance was created.
       shared_ptr<string> imdsSupport_ {};
     };
 
@@ -212,16 +245,16 @@ namespace Models
       // 
       // - The device names of data disks are in alphabetical order from /dev/xvdb to /dev/xvdz and cannot be duplicated.
       shared_ptr<string> device_ {};
-      // The type of the disk in the new image. You can use this parameter to specify a data disk snapshot as the system disk of the image. If this parameter is not specified, the disk type defaults to the type of the disk from which the snapshot was created. Valid values:
+      // The type of the disk in the new image. You can use this parameter to specify a data disk snapshot as the system disk of the image. If this parameter is not specified, the disk type defaults to the type of the disk corresponding to the snapshot. Valid values:
       // 
-      // - system: system disk. You can specify only one system disk snapshot.
-      // - data: data disk. You can specify up to 16 data disk snapshots.
+      // - system: system disk. Only one system disk snapshot can be specified.
+      // - data: data disk. Up to 16 data disk snapshots can be specified.
       shared_ptr<string> diskType_ {};
       // The size of the disk, in GiB. The valid values and default value of DiskDeviceMapping.N.Size depend on DiskDeviceMapping.N.SnapshotId:
       // 
       // - If SnapshotId is not specified, the valid values and default value of Size are:
       //     - Basic disk: 5 to 2000 GiB. Default value: 5.
-      //     - Other disk categories: 20 to 32768 GiB. Default value: 20.
+      //     - Other disk types: 20 to 32768 GiB. Default value: 20.
       // - If SnapshotId is specified, the value of Size must be greater than or equal to the size of the snapshot. Default value: the size of the snapshot.
       shared_ptr<int32_t> size_ {};
       // The snapshot ID.
@@ -232,7 +265,8 @@ namespace Models
         && this->bootMode_ == nullptr && this->clientToken_ == nullptr && this->description_ == nullptr && this->detectionStrategy_ == nullptr && this->diskDeviceMapping_ == nullptr
         && this->dryRun_ == nullptr && this->features_ == nullptr && this->imageFamily_ == nullptr && this->imageName_ == nullptr && this->imageVersion_ == nullptr
         && this->instanceId_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->platform_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->snapshotId_ == nullptr && this->tag_ == nullptr; };
+        && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->secureBootOptions_ == nullptr && this->snapshotId_ == nullptr
+        && this->tag_ == nullptr; };
     // architecture Field Functions 
     bool hasArchitecture() const { return this->architecture_ != nullptr;};
     void deleteArchitecture() { this->architecture_ = nullptr;};
@@ -370,6 +404,15 @@ namespace Models
     inline CreateImageRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
+    // secureBootOptions Field Functions 
+    bool hasSecureBootOptions() const { return this->secureBootOptions_ != nullptr;};
+    void deleteSecureBootOptions() { this->secureBootOptions_ = nullptr;};
+    inline const CreateImageRequest::SecureBootOptions & getSecureBootOptions() const { DARABONBA_PTR_GET_CONST(secureBootOptions_, CreateImageRequest::SecureBootOptions) };
+    inline CreateImageRequest::SecureBootOptions getSecureBootOptions() { DARABONBA_PTR_GET(secureBootOptions_, CreateImageRequest::SecureBootOptions) };
+    inline CreateImageRequest& setSecureBootOptions(const CreateImageRequest::SecureBootOptions & secureBootOptions) { DARABONBA_PTR_SET_VALUE(secureBootOptions_, secureBootOptions) };
+    inline CreateImageRequest& setSecureBootOptions(CreateImageRequest::SecureBootOptions && secureBootOptions) { DARABONBA_PTR_SET_RVALUE(secureBootOptions_, secureBootOptions) };
+
+
     // snapshotId Field Functions 
     bool hasSnapshotId() const { return this->snapshotId_ != nullptr;};
     void deleteSnapshotId() { this->snapshotId_ = nullptr;};
@@ -403,7 +446,7 @@ namespace Models
     // 
     // <notice>
     // 
-    // To prevent instances from failing to start due to an unsupported boot mode, make sure that you understand the boot modes supported by the target image before you set this parameter. For more information about image boot modes, see [Image boot modes](~~2244655#b9caa9b8bb1wf~~).
+    // To prevent instances from failing to start due to an unsupported boot mode, make sure that you understand the boot modes supported by the target image before specifying this parameter. For more information about image boot modes, see [Image boot modes](~~2244655#b9caa9b8bb1wf~~).
     // 
     // </notice>
     shared_ptr<string> bootMode_ {};
@@ -411,14 +454,14 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // The description of the image. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
     shared_ptr<string> description_ {};
-    // The image check strategy. If this parameter is not configured, image check is not triggered. Only the Standard check mode is supported. 
+    // The image detection strategy. If this parameter is not configured, detection is not triggered. Only the Standard detection mode is supported. 
     // 
-    // > Most Linux and Windows versions are supported. For more information about image check items and operating system limitations, see [Image check overview](https://help.aliyun.com/document_detail/439819.html) and [Operating system limitations for image check](https://help.aliyun.com/document_detail/475800.html).
+    // > Most Linux and Windows versions are supported. For more information about image detection items and operating system limitations, see [Image detection overview](https://help.aliyun.com/document_detail/439819.html) and [Operating system limitations for image detection](https://help.aliyun.com/document_detail/475800.html).
     shared_ptr<string> detectionStrategy_ {};
-    // The collection of disk and snapshot information used to create the custom image. Use this parameter to specify snapshots when you want to create a custom image from system disk and data disk snapshots.
+    // The disk and snapshot information used to create the custom image. If you want to create a custom image from system disk and data disk snapshots, use this parameter to specify the snapshots.
     shared_ptr<vector<CreateImageRequest::DiskDeviceMapping>> diskDeviceMapping_ {};
     shared_ptr<bool> dryRun_ {};
-    // The image feature properties.
+    // The image feature-related properties.
     shared_ptr<CreateImageRequest::Features> features_ {};
     // The image family name. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with aliyun or acs:. It cannot contain http:// or https://. It can contain digits, colons (:), underscores (_), or hyphens (-).
     shared_ptr<string> imageFamily_ {};
@@ -463,19 +506,20 @@ namespace Models
     // 
     // Default value: Others Linux.
     shared_ptr<string> platform_ {};
-    // The region ID of the image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of Alibaba Cloud regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the custom image belongs. If this parameter is not set, the created image belongs to the default resource group.
+    // The ID of the resource group to which the custom image belongs. If you do not set this parameter, the created image belongs to the default resource group.
     // 
-    // > If you invoke this operation as a Resource Access Management (RAM) user and `ResourceGroupId` is left empty, note that when the RAM user does not have permissions on the default resource group, the error message `Forbidden: User not authorized to operate on the specified resource` is returned. Settings ResourceGroupId to a resource group ID that the Resource Access Management (RAM) user has permissions on, or grant the Resource Access Management (RAM) user permissions on the default resource group before invoking this operation again.
+    // > If you invoke this operation as a Resource Access Management (RAM) user and `ResourceGroupId` is left empty, note that when the RAM user does not have permissions on the default resource group, the error message `Forbidden: User not authorized to operate on the specified resource` is returned. Settings a resource group ID that the RAM user has permissions on, or grant the RAM user permissions on the default resource group through the corresponding Alibaba Cloud account before invoking this operation again.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    shared_ptr<CreateImageRequest::SecureBootOptions> secureBootOptions_ {};
     // The snapshot ID used to create the custom image.
     // 
-    // > If you want to create a custom image from only the system disk snapshot of an instance, you can use this parameter or the `DiskDeviceMapping.N.SnapshotId` parameter. To include data disk snapshots, use only the `DiskDeviceMapping.N.SnapshotId` parameter.
+    // > If you want to create a custom image from only the system disk snapshot of an instance, you can use this parameter or the `DiskDeviceMapping.N.SnapshotId` parameter. If you want to add data disk snapshots, use only the `DiskDeviceMapping.N.SnapshotId` parameter.
     shared_ptr<string> snapshotId_ {};
     // The tags.
     shared_ptr<vector<CreateImageRequest::Tag>> tag_ {};

@@ -87,7 +87,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the automatic snapshot policy.
+    // The ID of the target automatic snapshot policy.
     // 
     // This parameter is required.
     shared_ptr<string> autoSnapshotPolicyId_ {};
