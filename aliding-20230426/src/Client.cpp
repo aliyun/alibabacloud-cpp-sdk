@@ -7598,6 +7598,80 @@ FinishTicketResponse Client::finishTicket(const FinishTicketRequest &request) {
 }
 
 /**
+ * @param tmpReq GenerateAuthCodeRequest
+ * @param tmpHeader GenerateAuthCodeHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateAuthCodeResponse
+ */
+GenerateAuthCodeResponse Client::generateAuthCodeWithOptions(const GenerateAuthCodeRequest &tmpReq, const GenerateAuthCodeHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GenerateAuthCodeShrinkRequest request = GenerateAuthCodeShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  GenerateAuthCodeShrinkHeaders headers = GenerateAuthCodeShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBucAppName()) {
+    body["BucAppName"] = request.getBucAppName();
+  }
+
+  if (!!request.hasSsoTicket()) {
+    body["SsoTicket"] = request.getSsoTicket();
+  }
+
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  if (!!request.hasValidRedirectUri()) {
+    body["ValidRedirectUri"] = request.getValidRedirectUri();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GenerateAuthCode"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/auth/generateAuthCode")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateAuthCodeResponse>();
+}
+
+/**
+ * @param request GenerateAuthCodeRequest
+ * @return GenerateAuthCodeResponse
+ */
+GenerateAuthCodeResponse Client::generateAuthCode(const GenerateAuthCodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GenerateAuthCodeHeaders headers = GenerateAuthCodeHeaders();
+  return generateAuthCodeWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 获取流程设计的节点信息
  *
  * @param request GetActivityListRequest
@@ -13031,6 +13105,88 @@ GetUserResponse Client::getUser(const GetUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   GetUserHeaders headers = GetUserHeaders();
   return getUserWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取用户对钉钉文档的权限情况
+ *
+ * @param tmpReq GetUserDocumentPermissionRequest
+ * @param tmpHeader GetUserDocumentPermissionHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUserDocumentPermissionResponse
+ */
+GetUserDocumentPermissionResponse Client::getUserDocumentPermissionWithOptions(const GetUserDocumentPermissionRequest &tmpReq, const GetUserDocumentPermissionHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetUserDocumentPermissionShrinkRequest request = GetUserDocumentPermissionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  GetUserDocumentPermissionShrinkHeaders headers = GetUserDocumentPermissionShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDentryId()) {
+    body["DentryId"] = request.getDentryId();
+  }
+
+  if (!!request.hasDentryUuid()) {
+    body["DentryUuid"] = request.getDentryUuid();
+  }
+
+  if (!!request.hasResourceType()) {
+    body["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasSpaceId()) {
+    body["SpaceId"] = request.getSpaceId();
+  }
+
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetUserDocumentPermission"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/documents/getUserDocumentPermission")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUserDocumentPermissionResponse>();
+}
+
+/**
+ * @summary 获取用户对钉钉文档的权限情况
+ *
+ * @param request GetUserDocumentPermissionRequest
+ * @return GetUserDocumentPermissionResponse
+ */
+GetUserDocumentPermissionResponse Client::getUserDocumentPermission(const GetUserDocumentPermissionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetUserDocumentPermissionHeaders headers = GetUserDocumentPermissionHeaders();
+  return getUserDocumentPermissionWithOptions(request, headers, runtime);
 }
 
 /**

@@ -520,6 +520,12 @@
 #include <alibabacloud/models/FinishTicketShrinkRequest.hpp>
 #include <alibabacloud/models/FinishTicketResponseBody.hpp>
 #include <alibabacloud/models/FinishTicketResponse.hpp>
+#include <alibabacloud/models/GenerateAuthCodeHeaders.hpp>
+#include <alibabacloud/models/GenerateAuthCodeShrinkHeaders.hpp>
+#include <alibabacloud/models/GenerateAuthCodeRequest.hpp>
+#include <alibabacloud/models/GenerateAuthCodeShrinkRequest.hpp>
+#include <alibabacloud/models/GenerateAuthCodeResponseBody.hpp>
+#include <alibabacloud/models/GenerateAuthCodeResponse.hpp>
 #include <alibabacloud/models/GetActivityListHeaders.hpp>
 #include <alibabacloud/models/GetActivityListShrinkHeaders.hpp>
 #include <alibabacloud/models/GetActivityListRequest.hpp>
@@ -910,6 +916,12 @@
 #include <alibabacloud/models/GetUserShrinkRequest.hpp>
 #include <alibabacloud/models/GetUserResponseBody.hpp>
 #include <alibabacloud/models/GetUserResponse.hpp>
+#include <alibabacloud/models/GetUserDocumentPermissionHeaders.hpp>
+#include <alibabacloud/models/GetUserDocumentPermissionShrinkHeaders.hpp>
+#include <alibabacloud/models/GetUserDocumentPermissionRequest.hpp>
+#include <alibabacloud/models/GetUserDocumentPermissionShrinkRequest.hpp>
+#include <alibabacloud/models/GetUserDocumentPermissionResponseBody.hpp>
+#include <alibabacloud/models/GetUserDocumentPermissionResponse.hpp>
 #include <alibabacloud/models/GetUserIdHeaders.hpp>
 #include <alibabacloud/models/GetUserIdShrinkHeaders.hpp>
 #include <alibabacloud/models/GetUserIdRequest.hpp>

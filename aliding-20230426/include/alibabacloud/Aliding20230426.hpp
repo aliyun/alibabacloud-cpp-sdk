@@ -1621,6 +1621,20 @@ namespace Aliding20230426
       Models::FinishTicketResponse finishTicket(const Models::FinishTicketRequest &request);
 
       /**
+       * @param tmpReq GenerateAuthCodeRequest
+       * @param tmpHeader GenerateAuthCodeHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateAuthCodeResponse
+       */
+      Models::GenerateAuthCodeResponse generateAuthCodeWithOptions(const Models::GenerateAuthCodeRequest &tmpReq, const Models::GenerateAuthCodeHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request GenerateAuthCodeRequest
+       * @return GenerateAuthCodeResponse
+       */
+      Models::GenerateAuthCodeResponse generateAuthCode(const Models::GenerateAuthCodeRequest &request);
+
+      /**
        * @summary 获取流程设计的节点信息
        *
        * @param request GetActivityListRequest
@@ -2849,6 +2863,24 @@ namespace Aliding20230426
        * @return GetUserResponse
        */
       Models::GetUserResponse getUser(const Models::GetUserRequest &request);
+
+      /**
+       * @summary 获取用户对钉钉文档的权限情况
+       *
+       * @param tmpReq GetUserDocumentPermissionRequest
+       * @param tmpHeader GetUserDocumentPermissionHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUserDocumentPermissionResponse
+       */
+      Models::GetUserDocumentPermissionResponse getUserDocumentPermissionWithOptions(const Models::GetUserDocumentPermissionRequest &tmpReq, const Models::GetUserDocumentPermissionHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取用户对钉钉文档的权限情况
+       *
+       * @param request GetUserDocumentPermissionRequest
+       * @return GetUserDocumentPermissionResponse
+       */
+      Models::GetUserDocumentPermissionResponse getUserDocumentPermission(const Models::GetUserDocumentPermissionRequest &request);
 
       /**
        * @summary 根据unionId获取用户userId
