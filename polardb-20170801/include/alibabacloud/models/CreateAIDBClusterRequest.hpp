@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(CreatePublicEndpoint, createPublicEndpoint_);
       DARABONBA_PTR_TO_JSON(DBClusterDescription, DBClusterDescription_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DBNodeClass, DBNodeClass_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(KubernetesConfig, kubernetesConfig_);
       DARABONBA_PTR_TO_JSON(ManagementMode, managementMode_);
       DARABONBA_PTR_TO_JSON(ModelName, modelName_);
+      DARABONBA_PTR_TO_JSON(ModelSpace, modelSpace_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(Password, password_);
@@ -53,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(CreatePublicEndpoint, createPublicEndpoint_);
       DARABONBA_PTR_FROM_JSON(DBClusterDescription, DBClusterDescription_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DBNodeClass, DBNodeClass_);
@@ -65,6 +68,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(KubernetesConfig, kubernetesConfig_);
       DARABONBA_PTR_FROM_JSON(ManagementMode, managementMode_);
       DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
+      DARABONBA_PTR_FROM_JSON(ModelSpace, modelSpace_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(Password, password_);
@@ -139,13 +143,13 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->ackAdmin_ == nullptr
-        && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->clientToken_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr
-        && this->DBNodeClass_ == nullptr && this->extension_ == nullptr && this->inferenceEngine_ == nullptr && this->kubeClusterId_ == nullptr && this->kubeConfig_ == nullptr
-        && this->kubeManagement_ == nullptr && this->kubeType_ == nullptr && this->kubernetesConfig_ == nullptr && this->managementMode_ == nullptr && this->modelName_ == nullptr
-        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->password_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr
-        && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityGroupId_ == nullptr
-        && this->storageSpace_ == nullptr && this->storageType_ == nullptr && this->timeSlices_ == nullptr && this->usedTime_ == nullptr && this->VPCId_ == nullptr
-        && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->clientToken_ == nullptr && this->createPublicEndpoint_ == nullptr && this->DBClusterDescription_ == nullptr
+        && this->DBClusterId_ == nullptr && this->DBNodeClass_ == nullptr && this->extension_ == nullptr && this->inferenceEngine_ == nullptr && this->kubeClusterId_ == nullptr
+        && this->kubeConfig_ == nullptr && this->kubeManagement_ == nullptr && this->kubeType_ == nullptr && this->kubernetesConfig_ == nullptr && this->managementMode_ == nullptr
+        && this->modelName_ == nullptr && this->modelSpace_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->password_ == nullptr
+        && this->payType_ == nullptr && this->period_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->securityGroupId_ == nullptr && this->storageSpace_ == nullptr && this->storageType_ == nullptr && this->timeSlices_ == nullptr
+        && this->usedTime_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
     // ackAdmin Field Functions 
     bool hasAckAdmin() const { return this->ackAdmin_ != nullptr;};
     void deleteAckAdmin() { this->ackAdmin_ = nullptr;};
@@ -172,6 +176,13 @@ namespace Models
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateAIDBClusterRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // createPublicEndpoint Field Functions 
+    bool hasCreatePublicEndpoint() const { return this->createPublicEndpoint_ != nullptr;};
+    void deleteCreatePublicEndpoint() { this->createPublicEndpoint_ = nullptr;};
+    inline string getCreatePublicEndpoint() const { DARABONBA_PTR_GET_DEFAULT(createPublicEndpoint_, "") };
+    inline CreateAIDBClusterRequest& setCreatePublicEndpoint(string createPublicEndpoint) { DARABONBA_PTR_SET_VALUE(createPublicEndpoint_, createPublicEndpoint) };
 
 
     // DBClusterDescription Field Functions 
@@ -256,6 +267,13 @@ namespace Models
     void deleteModelName() { this->modelName_ = nullptr;};
     inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
     inline CreateAIDBClusterRequest& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
+
+
+    // modelSpace Field Functions 
+    bool hasModelSpace() const { return this->modelSpace_ != nullptr;};
+    void deleteModelSpace() { this->modelSpace_ = nullptr;};
+    inline string getModelSpace() const { DARABONBA_PTR_GET_DEFAULT(modelSpace_, "") };
+    inline CreateAIDBClusterRequest& setModelSpace(string modelSpace) { DARABONBA_PTR_SET_VALUE(modelSpace_, modelSpace) };
 
 
     // ownerAccount Field Functions 
@@ -396,13 +414,12 @@ namespace Models
     shared_ptr<bool> autoUseCoupon_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    shared_ptr<string> createPublicEndpoint_ {};
     // The description of the cluster. You can use the description to perform a fuzzy search.
     shared_ptr<string> DBClusterDescription_ {};
     // The ID of the PolarDB cluster that the application depends on.
     shared_ptr<string> DBClusterId_ {};
     // The node specification.
-    // 
-    // This parameter is required.
     shared_ptr<string> DBNodeClass_ {};
     // The extension.
     shared_ptr<string> extension_ {};
@@ -421,6 +438,7 @@ namespace Models
     // The management mode.
     shared_ptr<string> managementMode_ {};
     shared_ptr<string> modelName_ {};
+    shared_ptr<string> modelSpace_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The password.

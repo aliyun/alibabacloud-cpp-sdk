@@ -13,9 +13,11 @@ namespace Models
   class DescribeAIDBClusterApiKeysRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeAIDBClusterApiKeysRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ModelSpaceName, modelSpaceName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeAIDBClusterApiKeysRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ModelSpaceName, modelSpaceName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     DescribeAIDBClusterApiKeysRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->modelSpaceName_ == nullptr
+        && this->regionId_ == nullptr; };
+    // modelSpaceName Field Functions 
+    bool hasModelSpaceName() const { return this->modelSpaceName_ != nullptr;};
+    void deleteModelSpaceName() { this->modelSpaceName_ = nullptr;};
+    inline string getModelSpaceName() const { DARABONBA_PTR_GET_DEFAULT(modelSpaceName_, "") };
+    inline DescribeAIDBClusterApiKeysRequest& setModelSpaceName(string modelSpaceName) { DARABONBA_PTR_SET_VALUE(modelSpaceName_, modelSpaceName) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -38,6 +48,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> modelSpaceName_ {};
     // The region ID.
     // 
     // This parameter is required.

@@ -71,6 +71,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Expired, expired_);
           DARABONBA_PTR_TO_JSON(KubeClusterId, kubeClusterId_);
           DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
+          DARABONBA_PTR_TO_JSON(ModelSpace, modelSpace_);
           DARABONBA_PTR_TO_JSON(ModelType, modelType_);
           DARABONBA_PTR_TO_JSON(PayType, payType_);
           DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -95,6 +96,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Expired, expired_);
           DARABONBA_PTR_FROM_JSON(KubeClusterId, kubeClusterId_);
           DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
+          DARABONBA_PTR_FROM_JSON(ModelSpace, modelSpace_);
           DARABONBA_PTR_FROM_JSON(ModelType, modelType_);
           DARABONBA_PTR_FROM_JSON(PayType, payType_);
           DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -196,9 +198,9 @@ namespace Models
         virtual bool empty() const override { return this->aiNodeType_ == nullptr
         && this->createTime_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr && this->DBClusterStatus_ == nullptr && this->DBNodeClass_ == nullptr
         && this->DBType_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->kubeClusterId_ == nullptr && this->lockMode_ == nullptr
-        && this->modelType_ == nullptr && this->payType_ == nullptr && this->regionId_ == nullptr && this->relativeDBClusterId_ == nullptr && this->runType_ == nullptr
-        && this->storageSpace_ == nullptr && this->storageType_ == nullptr && this->tags_ == nullptr && this->vpcId_ == nullptr && this->vswitchId_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->modelSpace_ == nullptr && this->modelType_ == nullptr && this->payType_ == nullptr && this->regionId_ == nullptr && this->relativeDBClusterId_ == nullptr
+        && this->runType_ == nullptr && this->storageSpace_ == nullptr && this->storageType_ == nullptr && this->tags_ == nullptr && this->vpcId_ == nullptr
+        && this->vswitchId_ == nullptr && this->zoneId_ == nullptr; };
         // aiNodeType Field Functions 
         bool hasAiNodeType() const { return this->aiNodeType_ != nullptr;};
         void deleteAiNodeType() { this->aiNodeType_ = nullptr;};
@@ -274,6 +276,13 @@ namespace Models
         void deleteLockMode() { this->lockMode_ = nullptr;};
         inline string getLockMode() const { DARABONBA_PTR_GET_DEFAULT(lockMode_, "") };
         inline DBCluster& setLockMode(string lockMode) { DARABONBA_PTR_SET_VALUE(lockMode_, lockMode) };
+
+
+        // modelSpace Field Functions 
+        bool hasModelSpace() const { return this->modelSpace_ != nullptr;};
+        void deleteModelSpace() { this->modelSpace_ = nullptr;};
+        inline string getModelSpace() const { DARABONBA_PTR_GET_DEFAULT(modelSpace_, "") };
+        inline DBCluster& setModelSpace(string modelSpace) { DARABONBA_PTR_SET_VALUE(modelSpace_, modelSpace) };
 
 
         // modelType Field Functions 
@@ -367,6 +376,7 @@ namespace Models
         shared_ptr<bool> expired_ {};
         shared_ptr<string> kubeClusterId_ {};
         shared_ptr<string> lockMode_ {};
+        shared_ptr<string> modelSpace_ {};
         shared_ptr<string> modelType_ {};
         shared_ptr<string> payType_ {};
         shared_ptr<string> regionId_ {};

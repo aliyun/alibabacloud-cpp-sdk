@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DeleteAIDBClusterApiKeyRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ApiKey, apiKey_);
+      DARABONBA_PTR_TO_JSON(ModelSpaceName, modelSpaceName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteAIDBClusterApiKeyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApiKey, apiKey_);
+      DARABONBA_PTR_FROM_JSON(ModelSpaceName, modelSpaceName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     DeleteAIDBClusterApiKeyRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->regionId_ == nullptr; };
+        && this->modelSpaceName_ == nullptr && this->regionId_ == nullptr; };
     // apiKey Field Functions 
     bool hasApiKey() const { return this->apiKey_ != nullptr;};
     void deleteApiKey() { this->apiKey_ = nullptr;};
     inline string getApiKey() const { DARABONBA_PTR_GET_DEFAULT(apiKey_, "") };
     inline DeleteAIDBClusterApiKeyRequest& setApiKey(string apiKey) { DARABONBA_PTR_SET_VALUE(apiKey_, apiKey) };
+
+
+    // modelSpaceName Field Functions 
+    bool hasModelSpaceName() const { return this->modelSpaceName_ != nullptr;};
+    void deleteModelSpaceName() { this->modelSpaceName_ = nullptr;};
+    inline string getModelSpaceName() const { DARABONBA_PTR_GET_DEFAULT(modelSpaceName_, "") };
+    inline DeleteAIDBClusterApiKeyRequest& setModelSpaceName(string modelSpaceName) { DARABONBA_PTR_SET_VALUE(modelSpaceName_, modelSpaceName) };
 
 
     // regionId Field Functions 
@@ -52,6 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> apiKey_ {};
+    shared_ptr<string> modelSpaceName_ {};
     // The region ID.
     // >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query region IDs.
     // 

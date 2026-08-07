@@ -45,6 +45,8 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Items& obj) { 
         DARABONBA_PTR_TO_JSON(CacheCostPointsPerMillion, cacheCostPointsPerMillion_);
         DARABONBA_PTR_TO_JSON(CostRuleId, costRuleId_);
+        DARABONBA_PTR_TO_JSON(EffectiveTargetType, effectiveTargetType_);
+        DARABONBA_PTR_TO_JSON(EffectiveTargetValue, effectiveTargetValue_);
         DARABONBA_PTR_TO_JSON(GmtCreated, gmtCreated_);
         DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_TO_JSON(GwClusterId, gwClusterId_);
@@ -56,6 +58,8 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Items& obj) { 
         DARABONBA_PTR_FROM_JSON(CacheCostPointsPerMillion, cacheCostPointsPerMillion_);
         DARABONBA_PTR_FROM_JSON(CostRuleId, costRuleId_);
+        DARABONBA_PTR_FROM_JSON(EffectiveTargetType, effectiveTargetType_);
+        DARABONBA_PTR_FROM_JSON(EffectiveTargetValue, effectiveTargetValue_);
         DARABONBA_PTR_FROM_JSON(GmtCreated, gmtCreated_);
         DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_FROM_JSON(GwClusterId, gwClusterId_);
@@ -76,8 +80,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->cacheCostPointsPerMillion_ == nullptr
-        && this->costRuleId_ == nullptr && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr && this->gwClusterId_ == nullptr && this->inputCostPointsPerMillion_ == nullptr
-        && this->model_ == nullptr && this->modelServiceId_ == nullptr && this->outputCostPointsPerMillion_ == nullptr; };
+        && this->costRuleId_ == nullptr && this->effectiveTargetType_ == nullptr && this->effectiveTargetValue_ == nullptr && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr
+        && this->gwClusterId_ == nullptr && this->inputCostPointsPerMillion_ == nullptr && this->model_ == nullptr && this->modelServiceId_ == nullptr && this->outputCostPointsPerMillion_ == nullptr; };
       // cacheCostPointsPerMillion Field Functions 
       bool hasCacheCostPointsPerMillion() const { return this->cacheCostPointsPerMillion_ != nullptr;};
       void deleteCacheCostPointsPerMillion() { this->cacheCostPointsPerMillion_ = nullptr;};
@@ -90,6 +94,20 @@ namespace Models
       void deleteCostRuleId() { this->costRuleId_ = nullptr;};
       inline string getCostRuleId() const { DARABONBA_PTR_GET_DEFAULT(costRuleId_, "") };
       inline Items& setCostRuleId(string costRuleId) { DARABONBA_PTR_SET_VALUE(costRuleId_, costRuleId) };
+
+
+      // effectiveTargetType Field Functions 
+      bool hasEffectiveTargetType() const { return this->effectiveTargetType_ != nullptr;};
+      void deleteEffectiveTargetType() { this->effectiveTargetType_ = nullptr;};
+      inline string getEffectiveTargetType() const { DARABONBA_PTR_GET_DEFAULT(effectiveTargetType_, "") };
+      inline Items& setEffectiveTargetType(string effectiveTargetType) { DARABONBA_PTR_SET_VALUE(effectiveTargetType_, effectiveTargetType) };
+
+
+      // effectiveTargetValue Field Functions 
+      bool hasEffectiveTargetValue() const { return this->effectiveTargetValue_ != nullptr;};
+      void deleteEffectiveTargetValue() { this->effectiveTargetValue_ = nullptr;};
+      inline string getEffectiveTargetValue() const { DARABONBA_PTR_GET_DEFAULT(effectiveTargetValue_, "") };
+      inline Items& setEffectiveTargetValue(string effectiveTargetValue) { DARABONBA_PTR_SET_VALUE(effectiveTargetValue_, effectiveTargetValue) };
 
 
       // gmtCreated Field Functions 
@@ -142,23 +160,27 @@ namespace Models
 
 
     protected:
-      // The cost in points per one million cached tokens.
+      // The cost points per million cache tokens. Default value: 0.
       shared_ptr<string> cacheCostPointsPerMillion_ {};
       // The cost rule ID.
       shared_ptr<string> costRuleId_ {};
-      // The time when the cost rule was created.
+      // The effective target type.
+      shared_ptr<string> effectiveTargetType_ {};
+      // The effective target value.
+      shared_ptr<string> effectiveTargetValue_ {};
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
-      // The time when the cost rule was last updated.
+      // The last modification time.
       shared_ptr<string> gmtModified_ {};
       // The gateway instance ID.
       shared_ptr<string> gwClusterId_ {};
-      // The cost in points per one million input tokens.
+      // The cost points per million input tokens. Default value: 0.
       shared_ptr<string> inputCostPointsPerMillion_ {};
       // The model name.
       shared_ptr<string> model_ {};
       // The model service ID.
       shared_ptr<string> modelServiceId_ {};
-      // The cost in points per one million output tokens.
+      // The cost points per million output tokens. Default value: 0.
       shared_ptr<string> outputCostPointsPerMillion_ {};
     };
 
@@ -209,15 +231,15 @@ namespace Models
 
 
   protected:
-    // A list of cost rules.
+    // The list of cost rules.
     shared_ptr<vector<DescribeCostRulesResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The number of entries returned per page.
+    // The number of entries per page. Valid values: 30, 50, and 100. Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};

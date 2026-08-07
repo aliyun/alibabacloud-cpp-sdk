@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The cost rule ID.
     shared_ptr<string> costRuleId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

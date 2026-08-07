@@ -18,6 +18,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CreateTimeEnd, createTimeEnd_);
       DARABONBA_PTR_TO_JSON(MemoryAgentId, memoryAgentId_);
       DARABONBA_PTR_TO_JSON(MemoryUserId, memoryUserId_);
+      DARABONBA_PTR_TO_JSON(Page, page_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Query, query_);
       DARABONBA_PTR_TO_JSON(TopK, topK_);
     };
@@ -27,6 +29,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CreateTimeEnd, createTimeEnd_);
       DARABONBA_PTR_FROM_JSON(MemoryAgentId, memoryAgentId_);
       DARABONBA_PTR_FROM_JSON(MemoryUserId, memoryUserId_);
+      DARABONBA_PTR_FROM_JSON(Page, page_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Query, query_);
       DARABONBA_PTR_FROM_JSON(TopK, topK_);
     };
@@ -42,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && this->createTimeBegin_ == nullptr && this->createTimeEnd_ == nullptr && this->memoryAgentId_ == nullptr && this->memoryUserId_ == nullptr && this->query_ == nullptr
-        && this->topK_ == nullptr; };
+        && this->createTimeBegin_ == nullptr && this->createTimeEnd_ == nullptr && this->memoryAgentId_ == nullptr && this->memoryUserId_ == nullptr && this->page_ == nullptr
+        && this->pageSize_ == nullptr && this->query_ == nullptr && this->topK_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -79,6 +83,20 @@ namespace Models
     inline SearchMemoriesRequest& setMemoryUserId(string memoryUserId) { DARABONBA_PTR_SET_VALUE(memoryUserId_, memoryUserId) };
 
 
+    // page Field Functions 
+    bool hasPage() const { return this->page_ != nullptr;};
+    void deletePage() { this->page_ = nullptr;};
+    inline int32_t getPage() const { DARABONBA_PTR_GET_DEFAULT(page_, 0) };
+    inline SearchMemoriesRequest& setPage(int32_t page) { DARABONBA_PTR_SET_VALUE(page_, page) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline SearchMemoriesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
     // query Field Functions 
     bool hasQuery() const { return this->query_ != nullptr;};
     void deleteQuery() { this->query_ = nullptr;};
@@ -98,21 +116,23 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The start time for filtering memories by creation time. Must be in UTC and ISO 8601 format.
+    // The start time for memory creation.
     shared_ptr<string> createTimeBegin_ {};
-    // The end time for filtering memories by creation time. Must be in UTC and ISO 8601 format.
+    // The end time for memory creation.
     shared_ptr<string> createTimeEnd_ {};
-    // The agent ID associated with the memory.
+    // The memory agent ID.
     shared_ptr<string> memoryAgentId_ {};
-    // The user ID associated with the memory.
+    // The memory user ID.
     // 
     // This parameter is required.
     shared_ptr<string> memoryUserId_ {};
+    // The page number.
+    shared_ptr<int32_t> page_ {};
+    // The number of records per page.
+    shared_ptr<int32_t> pageSize_ {};
     // The search query.
-    // 
-    // This parameter is required.
     shared_ptr<string> query_ {};
-    // The maximum number of results to return.
+    // Specifies the number of top results to return.
     shared_ptr<string> topK_ {};
   };
 

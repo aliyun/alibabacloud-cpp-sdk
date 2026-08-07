@@ -13,6 +13,8 @@ namespace Models
   class DescribeCostRulesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeCostRulesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(EffectiveTargetType, effectiveTargetType_);
+      DARABONBA_PTR_TO_JSON(EffectiveTargetValue, effectiveTargetValue_);
       DARABONBA_PTR_TO_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_TO_JSON(ModelName, modelName_);
       DARABONBA_PTR_TO_JSON(ModelServiceId, modelServiceId_);
@@ -21,6 +23,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeCostRulesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(EffectiveTargetType, effectiveTargetType_);
+      DARABONBA_PTR_FROM_JSON(EffectiveTargetValue, effectiveTargetValue_);
       DARABONBA_PTR_FROM_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
       DARABONBA_PTR_FROM_JSON(ModelServiceId, modelServiceId_);
@@ -39,8 +43,23 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->gwClusterId_ == nullptr
-        && this->modelName_ == nullptr && this->modelServiceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->effectiveTargetType_ == nullptr
+        && this->effectiveTargetValue_ == nullptr && this->gwClusterId_ == nullptr && this->modelName_ == nullptr && this->modelServiceId_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->regionId_ == nullptr; };
+    // effectiveTargetType Field Functions 
+    bool hasEffectiveTargetType() const { return this->effectiveTargetType_ != nullptr;};
+    void deleteEffectiveTargetType() { this->effectiveTargetType_ = nullptr;};
+    inline string getEffectiveTargetType() const { DARABONBA_PTR_GET_DEFAULT(effectiveTargetType_, "") };
+    inline DescribeCostRulesRequest& setEffectiveTargetType(string effectiveTargetType) { DARABONBA_PTR_SET_VALUE(effectiveTargetType_, effectiveTargetType) };
+
+
+    // effectiveTargetValue Field Functions 
+    bool hasEffectiveTargetValue() const { return this->effectiveTargetValue_ != nullptr;};
+    void deleteEffectiveTargetValue() { this->effectiveTargetValue_ = nullptr;};
+    inline string getEffectiveTargetValue() const { DARABONBA_PTR_GET_DEFAULT(effectiveTargetValue_, "") };
+    inline DescribeCostRulesRequest& setEffectiveTargetValue(string effectiveTargetValue) { DARABONBA_PTR_SET_VALUE(effectiveTargetValue_, effectiveTargetValue) };
+
+
     // gwClusterId Field Functions 
     bool hasGwClusterId() const { return this->gwClusterId_ != nullptr;};
     void deleteGwClusterId() { this->gwClusterId_ = nullptr;};
@@ -84,23 +103,24 @@ namespace Models
 
 
   protected:
+    // Filters by effective target type. Valid values: global, consumerGroup, and consumer.
+    shared_ptr<string> effectiveTargetType_ {};
+    // Filters by effective target value.
+    shared_ptr<string> effectiveTargetValue_ {};
     // The gateway instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
-    // The model name, such as `gpt-4` or `qwen-turbo`.
+    // The model name, such as gpt-4 or qwen-turbo.
     shared_ptr<string> modelName_ {};
     // The model service ID.
     shared_ptr<string> modelServiceId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
-    // 
-    // - **30**
-    // 
-    // - **50**
-    // 
-    // - **100**
+    // * **30**
+    // * **50**
+    // * **100**
     // 
     // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};

@@ -159,6 +159,23 @@ namespace Polardb20170801
       Models::AddPolarFsQuotaResponse addPolarFsQuota(const Models::AddPolarFsQuotaRequest &request);
 
       /**
+       * @summary 添加冷存授权账号
+       *
+       * @param request AddPolarOSSAuthorizedAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddPolarOSSAuthorizedAccountResponse
+       */
+      Models::AddPolarOSSAuthorizedAccountResponse addPolarOSSAuthorizedAccountWithOptions(const Models::AddPolarOSSAuthorizedAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加冷存授权账号
+       *
+       * @param request AddPolarOSSAuthorizedAccountRequest
+       * @return AddPolarOSSAuthorizedAccountResponse
+       */
+      Models::AddPolarOSSAuthorizedAccountResponse addPolarOSSAuthorizedAccount(const Models::AddPolarOSSAuthorizedAccountRequest &request);
+
+      /**
        * @summary Adds SQL throttling rules.
        *
        * @param request AddSQLRateLimitingRulesRequest
@@ -2499,6 +2516,23 @@ namespace Polardb20170801
       Models::DeletePolarFsQuotaResponse deletePolarFsQuota(const Models::DeletePolarFsQuotaRequest &request);
 
       /**
+       * @summary 删除冷存授权账号
+       *
+       * @param request DeletePolarOSSAuthorizedAccountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePolarOSSAuthorizedAccountResponse
+       */
+      Models::DeletePolarOSSAuthorizedAccountResponse deletePolarOSSAuthorizedAccountWithOptions(const Models::DeletePolarOSSAuthorizedAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除冷存授权账号
+       *
+       * @param request DeletePolarOSSAuthorizedAccountRequest
+       * @return DeletePolarOSSAuthorizedAccountResponse
+       */
+      Models::DeletePolarOSSAuthorizedAccountResponse deletePolarOSSAuthorizedAccount(const Models::DeletePolarOSSAuthorizedAccountRequest &request);
+
+      /**
        * @summary Deletes a throttling policy.
        *
        * @param request DeleteRateLimitPolicyRequest
@@ -3081,11 +3115,11 @@ namespace Polardb20170801
       /**
        * @summary Queries the performance of a PolarDB AI application.
        *
-       * @param request DescribeApplicationPerformanceRequest
+       * @param tmpReq DescribeApplicationPerformanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeApplicationPerformanceResponse
        */
-      Models::DescribeApplicationPerformanceResponse describeApplicationPerformanceWithOptions(const Models::DescribeApplicationPerformanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::DescribeApplicationPerformanceResponse describeApplicationPerformanceWithOptions(const Models::DescribeApplicationPerformanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the performance of a PolarDB AI application.
@@ -5033,7 +5067,7 @@ namespace Polardb20170801
       Models::DescribePolarFsResponse describePolarFs(const Models::DescribePolarFsRequest &request);
 
       /**
-       * @summary Retrieves the details of a PolarLakebase instance.
+       * @summary Retrieves the details of a Polarlakebase instance.
        *
        * @param request DescribePolarFsAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5042,7 +5076,7 @@ namespace Polardb20170801
       Models::DescribePolarFsAttributeResponse describePolarFsAttributeWithOptions(const Models::DescribePolarFsAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a PolarLakebase instance.
+       * @summary Retrieves the details of a Polarlakebase instance.
        *
        * @param request DescribePolarFsAttributeRequest
        * @return DescribePolarFsAttributeResponse
@@ -7857,7 +7891,7 @@ namespace Polardb20170801
       Models::RunPolarClawCronJobResponse runPolarClawCronJob(const Models::RunPolarClawCronJobRequest &request);
 
       /**
-       * @summary Retrieves memories based on a search query.
+       * @summary Retrieves memories.
        *
        * @param request SearchMemoriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7866,7 +7900,7 @@ namespace Polardb20170801
       Models::SearchMemoriesResponse searchMemoriesWithOptions(const Models::SearchMemoriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves memories based on a search query.
+       * @summary Retrieves memories.
        *
        * @param request SearchMemoriesRequest
        * @return SearchMemoriesResponse

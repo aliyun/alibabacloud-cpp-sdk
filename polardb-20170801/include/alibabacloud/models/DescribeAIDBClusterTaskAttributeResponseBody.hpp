@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AccessInfo, accessInfo_);
       DARABONBA_PTR_TO_JSON(ClusterNetworkType, clusterNetworkType_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_TO_JSON(CustomBucketInfo, customBucketInfo_);
       DARABONBA_PTR_TO_JSON(DBClusterDescription, DBClusterDescription_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DBClusterStatus, DBClusterStatus_);
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AccessInfo, accessInfo_);
       DARABONBA_PTR_FROM_JSON(ClusterNetworkType, clusterNetworkType_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_FROM_JSON(CustomBucketInfo, customBucketInfo_);
       DARABONBA_PTR_FROM_JSON(DBClusterDescription, DBClusterDescription_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DBClusterStatus, DBClusterStatus_);
@@ -259,11 +261,43 @@ namespace Models
       shared_ptr<string> type_ {};
     };
 
+    class CustomBucketInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const CustomBucketInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(CustomOssBucketName, customOssBucketName_);
+      };
+      friend void from_json(const Darabonba::Json& j, CustomBucketInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(CustomOssBucketName, customOssBucketName_);
+      };
+      CustomBucketInfo() = default ;
+      CustomBucketInfo(const CustomBucketInfo &) = default ;
+      CustomBucketInfo(CustomBucketInfo &&) = default ;
+      CustomBucketInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~CustomBucketInfo() = default ;
+      CustomBucketInfo& operator=(const CustomBucketInfo &) = default ;
+      CustomBucketInfo& operator=(CustomBucketInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->customOssBucketName_ == nullptr; };
+      // customOssBucketName Field Functions 
+      bool hasCustomOssBucketName() const { return this->customOssBucketName_ != nullptr;};
+      void deleteCustomOssBucketName() { this->customOssBucketName_ = nullptr;};
+      inline string getCustomOssBucketName() const { DARABONBA_PTR_GET_DEFAULT(customOssBucketName_, "") };
+      inline CustomBucketInfo& setCustomOssBucketName(string customOssBucketName) { DARABONBA_PTR_SET_VALUE(customOssBucketName_, customOssBucketName) };
+
+
+    protected:
+      shared_ptr<string> customOssBucketName_ {};
+    };
+
     virtual bool empty() const override { return this->accessInfo_ == nullptr
-        && this->clusterNetworkType_ == nullptr && this->createTime_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr && this->DBClusterStatus_ == nullptr
-        && this->DBClusterStatusDesc_ == nullptr && this->DBType_ == nullptr && this->DBVersion_ == nullptr && this->dataSets_ == nullptr && this->extraInfo_ == nullptr
-        && this->kindCode_ == nullptr && this->lockMode_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->modelPath_ == nullptr
-        && this->requestId_ == nullptr && this->taskInfo_ == nullptr && this->tuneArch_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr; };
+        && this->clusterNetworkType_ == nullptr && this->createTime_ == nullptr && this->customBucketInfo_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr
+        && this->DBClusterStatus_ == nullptr && this->DBClusterStatusDesc_ == nullptr && this->DBType_ == nullptr && this->DBVersion_ == nullptr && this->dataSets_ == nullptr
+        && this->extraInfo_ == nullptr && this->kindCode_ == nullptr && this->lockMode_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr
+        && this->modelPath_ == nullptr && this->requestId_ == nullptr && this->taskInfo_ == nullptr && this->tuneArch_ == nullptr && this->VPCId_ == nullptr
+        && this->vSwitchId_ == nullptr; };
     // accessInfo Field Functions 
     bool hasAccessInfo() const { return this->accessInfo_ != nullptr;};
     void deleteAccessInfo() { this->accessInfo_ = nullptr;};
@@ -283,6 +317,15 @@ namespace Models
     void deleteCreateTime() { this->createTime_ = nullptr;};
     inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline DescribeAIDBClusterTaskAttributeResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+    // customBucketInfo Field Functions 
+    bool hasCustomBucketInfo() const { return this->customBucketInfo_ != nullptr;};
+    void deleteCustomBucketInfo() { this->customBucketInfo_ = nullptr;};
+    inline const DescribeAIDBClusterTaskAttributeResponseBody::CustomBucketInfo & getCustomBucketInfo() const { DARABONBA_PTR_GET_CONST(customBucketInfo_, DescribeAIDBClusterTaskAttributeResponseBody::CustomBucketInfo) };
+    inline DescribeAIDBClusterTaskAttributeResponseBody::CustomBucketInfo getCustomBucketInfo() { DARABONBA_PTR_GET(customBucketInfo_, DescribeAIDBClusterTaskAttributeResponseBody::CustomBucketInfo) };
+    inline DescribeAIDBClusterTaskAttributeResponseBody& setCustomBucketInfo(const DescribeAIDBClusterTaskAttributeResponseBody::CustomBucketInfo & customBucketInfo) { DARABONBA_PTR_SET_VALUE(customBucketInfo_, customBucketInfo) };
+    inline DescribeAIDBClusterTaskAttributeResponseBody& setCustomBucketInfo(DescribeAIDBClusterTaskAttributeResponseBody::CustomBucketInfo && customBucketInfo) { DARABONBA_PTR_SET_RVALUE(customBucketInfo_, customBucketInfo) };
 
 
     // DBClusterDescription Field Functions 
@@ -424,6 +467,7 @@ namespace Models
     shared_ptr<string> clusterNetworkType_ {};
     // The creation time.
     shared_ptr<string> createTime_ {};
+    shared_ptr<DescribeAIDBClusterTaskAttributeResponseBody::CustomBucketInfo> customBucketInfo_ {};
     // The task name.
     shared_ptr<string> DBClusterDescription_ {};
     // The task ID.

@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_DESCRIBEAPPLICATIONPERFORMANCEREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_DESCRIBEAPPLICATIONPERFORMANCEREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_DESCRIBEAPPLICATIONPERFORMANCESHRINKREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBEAPPLICATIONPERFORMANCESHRINKREQUEST_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,9 +10,9 @@ namespace Polardb20170801
 {
 namespace Models
 {
-  class DescribeApplicationPerformanceRequest : public Darabonba::Model {
+  class DescribeApplicationPerformanceShrinkRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const DescribeApplicationPerformanceRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const DescribeApplicationPerformanceShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_TO_JSON(Consumer, consumer_);
       DARABONBA_PTR_TO_JSON(ConsumerGroup, consumerGroup_);
@@ -25,9 +25,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ModelService, modelService_);
       DARABONBA_PTR_TO_JSON(StartStep, startStep_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
-      DARABONBA_ANY_TO_JSON(filter, filter_);
+      DARABONBA_PTR_TO_JSON(filter, filterShrink_);
     };
-    friend void from_json(const Darabonba::Json& j, DescribeApplicationPerformanceRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, DescribeApplicationPerformanceShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_FROM_JSON(Consumer, consumer_);
       DARABONBA_PTR_FROM_JSON(ConsumerGroup, consumerGroup_);
@@ -40,15 +40,15 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ModelService, modelService_);
       DARABONBA_PTR_FROM_JSON(StartStep, startStep_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
-      DARABONBA_ANY_FROM_JSON(filter, filter_);
+      DARABONBA_PTR_FROM_JSON(filter, filterShrink_);
     };
-    DescribeApplicationPerformanceRequest() = default ;
-    DescribeApplicationPerformanceRequest(const DescribeApplicationPerformanceRequest &) = default ;
-    DescribeApplicationPerformanceRequest(DescribeApplicationPerformanceRequest &&) = default ;
-    DescribeApplicationPerformanceRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~DescribeApplicationPerformanceRequest() = default ;
-    DescribeApplicationPerformanceRequest& operator=(const DescribeApplicationPerformanceRequest &) = default ;
-    DescribeApplicationPerformanceRequest& operator=(DescribeApplicationPerformanceRequest &&) = default ;
+    DescribeApplicationPerformanceShrinkRequest() = default ;
+    DescribeApplicationPerformanceShrinkRequest(const DescribeApplicationPerformanceShrinkRequest &) = default ;
+    DescribeApplicationPerformanceShrinkRequest(DescribeApplicationPerformanceShrinkRequest &&) = default ;
+    DescribeApplicationPerformanceShrinkRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeApplicationPerformanceShrinkRequest() = default ;
+    DescribeApplicationPerformanceShrinkRequest& operator=(const DescribeApplicationPerformanceShrinkRequest &) = default ;
+    DescribeApplicationPerformanceShrinkRequest& operator=(DescribeApplicationPerformanceShrinkRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -56,98 +56,96 @@ namespace Models
     virtual bool empty() const override { return this->applicationId_ == nullptr
         && this->consumer_ == nullptr && this->consumerGroup_ == nullptr && this->downsample_ == nullptr && this->endStep_ == nullptr && this->endTime_ == nullptr
         && this->interval_ == nullptr && this->key_ == nullptr && this->maxPoints_ == nullptr && this->modelService_ == nullptr && this->startStep_ == nullptr
-        && this->startTime_ == nullptr && this->filter_ == nullptr; };
+        && this->startTime_ == nullptr && this->filterShrink_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
     inline string getApplicationId() const { DARABONBA_PTR_GET_DEFAULT(applicationId_, "") };
-    inline DescribeApplicationPerformanceRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
+    inline DescribeApplicationPerformanceShrinkRequest& setApplicationId(string applicationId) { DARABONBA_PTR_SET_VALUE(applicationId_, applicationId) };
 
 
     // consumer Field Functions 
     bool hasConsumer() const { return this->consumer_ != nullptr;};
     void deleteConsumer() { this->consumer_ = nullptr;};
     inline string getConsumer() const { DARABONBA_PTR_GET_DEFAULT(consumer_, "") };
-    inline DescribeApplicationPerformanceRequest& setConsumer(string consumer) { DARABONBA_PTR_SET_VALUE(consumer_, consumer) };
+    inline DescribeApplicationPerformanceShrinkRequest& setConsumer(string consumer) { DARABONBA_PTR_SET_VALUE(consumer_, consumer) };
 
 
     // consumerGroup Field Functions 
     bool hasConsumerGroup() const { return this->consumerGroup_ != nullptr;};
     void deleteConsumerGroup() { this->consumerGroup_ = nullptr;};
     inline string getConsumerGroup() const { DARABONBA_PTR_GET_DEFAULT(consumerGroup_, "") };
-    inline DescribeApplicationPerformanceRequest& setConsumerGroup(string consumerGroup) { DARABONBA_PTR_SET_VALUE(consumerGroup_, consumerGroup) };
+    inline DescribeApplicationPerformanceShrinkRequest& setConsumerGroup(string consumerGroup) { DARABONBA_PTR_SET_VALUE(consumerGroup_, consumerGroup) };
 
 
     // downsample Field Functions 
     bool hasDownsample() const { return this->downsample_ != nullptr;};
     void deleteDownsample() { this->downsample_ = nullptr;};
     inline string getDownsample() const { DARABONBA_PTR_GET_DEFAULT(downsample_, "") };
-    inline DescribeApplicationPerformanceRequest& setDownsample(string downsample) { DARABONBA_PTR_SET_VALUE(downsample_, downsample) };
+    inline DescribeApplicationPerformanceShrinkRequest& setDownsample(string downsample) { DARABONBA_PTR_SET_VALUE(downsample_, downsample) };
 
 
     // endStep Field Functions 
     bool hasEndStep() const { return this->endStep_ != nullptr;};
     void deleteEndStep() { this->endStep_ = nullptr;};
     inline int64_t getEndStep() const { DARABONBA_PTR_GET_DEFAULT(endStep_, 0L) };
-    inline DescribeApplicationPerformanceRequest& setEndStep(int64_t endStep) { DARABONBA_PTR_SET_VALUE(endStep_, endStep) };
+    inline DescribeApplicationPerformanceShrinkRequest& setEndStep(int64_t endStep) { DARABONBA_PTR_SET_VALUE(endStep_, endStep) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
     inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
-    inline DescribeApplicationPerformanceRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+    inline DescribeApplicationPerformanceShrinkRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // interval Field Functions 
     bool hasInterval() const { return this->interval_ != nullptr;};
     void deleteInterval() { this->interval_ = nullptr;};
     inline string getInterval() const { DARABONBA_PTR_GET_DEFAULT(interval_, "") };
-    inline DescribeApplicationPerformanceRequest& setInterval(string interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
+    inline DescribeApplicationPerformanceShrinkRequest& setInterval(string interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
 
 
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
     inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
-    inline DescribeApplicationPerformanceRequest& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+    inline DescribeApplicationPerformanceShrinkRequest& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // maxPoints Field Functions 
     bool hasMaxPoints() const { return this->maxPoints_ != nullptr;};
     void deleteMaxPoints() { this->maxPoints_ = nullptr;};
     inline int32_t getMaxPoints() const { DARABONBA_PTR_GET_DEFAULT(maxPoints_, 0) };
-    inline DescribeApplicationPerformanceRequest& setMaxPoints(int32_t maxPoints) { DARABONBA_PTR_SET_VALUE(maxPoints_, maxPoints) };
+    inline DescribeApplicationPerformanceShrinkRequest& setMaxPoints(int32_t maxPoints) { DARABONBA_PTR_SET_VALUE(maxPoints_, maxPoints) };
 
 
     // modelService Field Functions 
     bool hasModelService() const { return this->modelService_ != nullptr;};
     void deleteModelService() { this->modelService_ = nullptr;};
     inline string getModelService() const { DARABONBA_PTR_GET_DEFAULT(modelService_, "") };
-    inline DescribeApplicationPerformanceRequest& setModelService(string modelService) { DARABONBA_PTR_SET_VALUE(modelService_, modelService) };
+    inline DescribeApplicationPerformanceShrinkRequest& setModelService(string modelService) { DARABONBA_PTR_SET_VALUE(modelService_, modelService) };
 
 
     // startStep Field Functions 
     bool hasStartStep() const { return this->startStep_ != nullptr;};
     void deleteStartStep() { this->startStep_ = nullptr;};
     inline int64_t getStartStep() const { DARABONBA_PTR_GET_DEFAULT(startStep_, 0L) };
-    inline DescribeApplicationPerformanceRequest& setStartStep(int64_t startStep) { DARABONBA_PTR_SET_VALUE(startStep_, startStep) };
+    inline DescribeApplicationPerformanceShrinkRequest& setStartStep(int64_t startStep) { DARABONBA_PTR_SET_VALUE(startStep_, startStep) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
     inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
-    inline DescribeApplicationPerformanceRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+    inline DescribeApplicationPerformanceShrinkRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
-    // filter Field Functions 
-    bool hasFilter() const { return this->filter_ != nullptr;};
-    void deleteFilter() { this->filter_ = nullptr;};
-    inline     const Darabonba::Json & getFilter() const { DARABONBA_GET(filter_) };
-    Darabonba::Json & getFilter() { DARABONBA_GET(filter_) };
-    inline DescribeApplicationPerformanceRequest& setFilter(const Darabonba::Json & filter) { DARABONBA_SET_VALUE(filter_, filter) };
-    inline DescribeApplicationPerformanceRequest& setFilter(Darabonba::Json && filter) { DARABONBA_SET_RVALUE(filter_, filter) };
+    // filterShrink Field Functions 
+    bool hasFilterShrink() const { return this->filterShrink_ != nullptr;};
+    void deleteFilterShrink() { this->filterShrink_ = nullptr;};
+    inline string getFilterShrink() const { DARABONBA_PTR_GET_DEFAULT(filterShrink_, "") };
+    inline DescribeApplicationPerformanceShrinkRequest& setFilterShrink(string filterShrink) { DARABONBA_PTR_SET_VALUE(filterShrink_, filterShrink) };
 
 
   protected:
@@ -192,7 +190,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
-    Darabonba::Json filter_ {};
+    shared_ptr<string> filterShrink_ {};
   };
 
   } // namespace Models

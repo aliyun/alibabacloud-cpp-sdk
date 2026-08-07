@@ -14,6 +14,8 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateCostRuleRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CacheCostPointsPerMillion, cacheCostPointsPerMillion_);
+      DARABONBA_PTR_TO_JSON(EffectiveTargetType, effectiveTargetType_);
+      DARABONBA_PTR_TO_JSON(EffectiveTargetValue, effectiveTargetValue_);
       DARABONBA_PTR_TO_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_TO_JSON(InputCostPointsPerMillion, inputCostPointsPerMillion_);
       DARABONBA_PTR_TO_JSON(ModelName, modelName_);
@@ -23,6 +25,8 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateCostRuleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CacheCostPointsPerMillion, cacheCostPointsPerMillion_);
+      DARABONBA_PTR_FROM_JSON(EffectiveTargetType, effectiveTargetType_);
+      DARABONBA_PTR_FROM_JSON(EffectiveTargetValue, effectiveTargetValue_);
       DARABONBA_PTR_FROM_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_FROM_JSON(InputCostPointsPerMillion, inputCostPointsPerMillion_);
       DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
@@ -42,13 +46,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cacheCostPointsPerMillion_ == nullptr
-        && this->gwClusterId_ == nullptr && this->inputCostPointsPerMillion_ == nullptr && this->modelName_ == nullptr && this->modelServiceId_ == nullptr && this->outputCostPointsPerMillion_ == nullptr
-        && this->regionId_ == nullptr; };
+        && this->effectiveTargetType_ == nullptr && this->effectiveTargetValue_ == nullptr && this->gwClusterId_ == nullptr && this->inputCostPointsPerMillion_ == nullptr && this->modelName_ == nullptr
+        && this->modelServiceId_ == nullptr && this->outputCostPointsPerMillion_ == nullptr && this->regionId_ == nullptr; };
     // cacheCostPointsPerMillion Field Functions 
     bool hasCacheCostPointsPerMillion() const { return this->cacheCostPointsPerMillion_ != nullptr;};
     void deleteCacheCostPointsPerMillion() { this->cacheCostPointsPerMillion_ = nullptr;};
     inline string getCacheCostPointsPerMillion() const { DARABONBA_PTR_GET_DEFAULT(cacheCostPointsPerMillion_, "") };
     inline CreateCostRuleRequest& setCacheCostPointsPerMillion(string cacheCostPointsPerMillion) { DARABONBA_PTR_SET_VALUE(cacheCostPointsPerMillion_, cacheCostPointsPerMillion) };
+
+
+    // effectiveTargetType Field Functions 
+    bool hasEffectiveTargetType() const { return this->effectiveTargetType_ != nullptr;};
+    void deleteEffectiveTargetType() { this->effectiveTargetType_ = nullptr;};
+    inline string getEffectiveTargetType() const { DARABONBA_PTR_GET_DEFAULT(effectiveTargetType_, "") };
+    inline CreateCostRuleRequest& setEffectiveTargetType(string effectiveTargetType) { DARABONBA_PTR_SET_VALUE(effectiveTargetType_, effectiveTargetType) };
+
+
+    // effectiveTargetValue Field Functions 
+    bool hasEffectiveTargetValue() const { return this->effectiveTargetValue_ != nullptr;};
+    void deleteEffectiveTargetValue() { this->effectiveTargetValue_ = nullptr;};
+    inline string getEffectiveTargetValue() const { DARABONBA_PTR_GET_DEFAULT(effectiveTargetValue_, "") };
+    inline CreateCostRuleRequest& setEffectiveTargetValue(string effectiveTargetValue) { DARABONBA_PTR_SET_VALUE(effectiveTargetValue_, effectiveTargetValue) };
 
 
     // gwClusterId Field Functions 
@@ -94,15 +112,25 @@ namespace Models
 
 
   protected:
-    // The number of cost points per million cache tokens. The default value is 0.
+    // The cost points per million cached tokens. Default value: 0.
     shared_ptr<string> cacheCostPointsPerMillion_ {};
+    // The effective target type. Valid values:
+    // 
+    // - global
+    // - consumerGroup
+    // - consumer
+    // 
+    // Default value: global.
+    shared_ptr<string> effectiveTargetType_ {};
+    // The effective target value. This parameter is required when EffectiveTargetType is not set to global.
+    shared_ptr<string> effectiveTargetValue_ {};
     // The gateway instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> gwClusterId_ {};
-    // The number of cost points per million input tokens. The default value is 0.
+    // The cost points per million input tokens. Default value: 0.
     shared_ptr<string> inputCostPointsPerMillion_ {};
-    // The name of the model, such as `gpt-4` or `qwen-turbo`.
+    // The model name, such as gpt-4 or qwen-turbo.
     // 
     // This parameter is required.
     shared_ptr<string> modelName_ {};
@@ -110,7 +138,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> modelServiceId_ {};
-    // The number of cost points per million output tokens. The default value is 0.
+    // The cost points per million output tokens. Default value: 0.
     shared_ptr<string> outputCostPointsPerMillion_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

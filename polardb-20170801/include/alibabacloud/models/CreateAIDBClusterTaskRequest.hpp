@@ -13,8 +13,10 @@ namespace Models
   class CreateAIDBClusterTaskRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateAIDBClusterTaskRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CustomOssBucketName, customOssBucketName_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DBInstanceClass, DBInstanceClass_);
+      DARABONBA_PTR_TO_JSON(DataserviceMode, dataserviceMode_);
       DARABONBA_PTR_TO_JSON(DatasetPath, datasetPath_);
       DARABONBA_PTR_TO_JSON(EvalDatasetPath, evalDatasetPath_);
       DARABONBA_PTR_TO_JSON(KubeType, kubeType_);
@@ -35,8 +37,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAIDBClusterTaskRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CustomOssBucketName, customOssBucketName_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DBInstanceClass, DBInstanceClass_);
+      DARABONBA_PTR_FROM_JSON(DataserviceMode, dataserviceMode_);
       DARABONBA_PTR_FROM_JSON(DatasetPath, datasetPath_);
       DARABONBA_PTR_FROM_JSON(EvalDatasetPath, evalDatasetPath_);
       DARABONBA_PTR_FROM_JSON(KubeType, kubeType_);
@@ -67,11 +71,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->DBInstanceClass_ == nullptr && this->datasetPath_ == nullptr && this->evalDatasetPath_ == nullptr && this->kubeType_ == nullptr && this->modelName_ == nullptr
-        && this->modelSource_ == nullptr && this->modelType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->runningParameter_ == nullptr && this->securityGroupId_ == nullptr && this->taskName_ == nullptr
-        && this->tuneArch_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+    virtual bool empty() const override { return this->customOssBucketName_ == nullptr
+        && this->DBClusterId_ == nullptr && this->DBInstanceClass_ == nullptr && this->dataserviceMode_ == nullptr && this->datasetPath_ == nullptr && this->evalDatasetPath_ == nullptr
+        && this->kubeType_ == nullptr && this->modelName_ == nullptr && this->modelSource_ == nullptr && this->modelType_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->runningParameter_ == nullptr
+        && this->securityGroupId_ == nullptr && this->taskName_ == nullptr && this->tuneArch_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr
+        && this->zoneId_ == nullptr; };
+    // customOssBucketName Field Functions 
+    bool hasCustomOssBucketName() const { return this->customOssBucketName_ != nullptr;};
+    void deleteCustomOssBucketName() { this->customOssBucketName_ = nullptr;};
+    inline string getCustomOssBucketName() const { DARABONBA_PTR_GET_DEFAULT(customOssBucketName_, "") };
+    inline CreateAIDBClusterTaskRequest& setCustomOssBucketName(string customOssBucketName) { DARABONBA_PTR_SET_VALUE(customOssBucketName_, customOssBucketName) };
+
+
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -84,6 +96,13 @@ namespace Models
     void deleteDBInstanceClass() { this->DBInstanceClass_ = nullptr;};
     inline string getDBInstanceClass() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceClass_, "") };
     inline CreateAIDBClusterTaskRequest& setDBInstanceClass(string DBInstanceClass) { DARABONBA_PTR_SET_VALUE(DBInstanceClass_, DBInstanceClass) };
+
+
+    // dataserviceMode Field Functions 
+    bool hasDataserviceMode() const { return this->dataserviceMode_ != nullptr;};
+    void deleteDataserviceMode() { this->dataserviceMode_ = nullptr;};
+    inline string getDataserviceMode() const { DARABONBA_PTR_GET_DEFAULT(dataserviceMode_, "") };
+    inline CreateAIDBClusterTaskRequest& setDataserviceMode(string dataserviceMode) { DARABONBA_PTR_SET_VALUE(dataserviceMode_, dataserviceMode) };
 
 
     // datasetPath Field Functions 
@@ -213,12 +232,14 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> customOssBucketName_ {};
     // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The instance type.
     shared_ptr<string> DBInstanceClass_ {};
+    shared_ptr<string> dataserviceMode_ {};
     // The training dataset ID. This parameter is required for fine-tuning.
     shared_ptr<string> datasetPath_ {};
     // The validation dataset ID. This parameter is required for evaluation.

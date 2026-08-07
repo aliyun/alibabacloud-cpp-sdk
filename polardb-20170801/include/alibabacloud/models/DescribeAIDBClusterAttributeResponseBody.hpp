@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBClusterDescription, DBClusterDescription_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DBClusterStatus, DBClusterStatus_);
+      DARABONBA_PTR_TO_JSON(DBInstanceStatusDesc, DBInstanceStatusDesc_);
       DARABONBA_PTR_TO_JSON(DBNodes, DBNodes_);
       DARABONBA_PTR_TO_JSON(DBVersion, DBVersion_);
       DARABONBA_PTR_TO_JSON(EcsSecurityGroupId, ecsSecurityGroupId_);
@@ -32,7 +33,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(KubeClusterId, kubeClusterId_);
       DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
       DARABONBA_PTR_TO_JSON(MaxQPM, maxQPM_);
+      DARABONBA_PTR_TO_JSON(MaxTPM, maxTPM_);
       DARABONBA_PTR_TO_JSON(ModelName, modelName_);
+      DARABONBA_PTR_TO_JSON(ModelSpaceName, modelSpaceName_);
       DARABONBA_PTR_TO_JSON(ModelType, modelType_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(PublicIp, publicIp_);
@@ -56,6 +59,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DBClusterDescription, DBClusterDescription_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DBClusterStatus, DBClusterStatus_);
+      DARABONBA_PTR_FROM_JSON(DBInstanceStatusDesc, DBInstanceStatusDesc_);
       DARABONBA_PTR_FROM_JSON(DBNodes, DBNodes_);
       DARABONBA_PTR_FROM_JSON(DBVersion, DBVersion_);
       DARABONBA_PTR_FROM_JSON(EcsSecurityGroupId, ecsSecurityGroupId_);
@@ -68,7 +72,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(KubeClusterId, kubeClusterId_);
       DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
       DARABONBA_PTR_FROM_JSON(MaxQPM, maxQPM_);
+      DARABONBA_PTR_FROM_JSON(MaxTPM, maxTPM_);
       DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
+      DARABONBA_PTR_FROM_JSON(ModelSpaceName, modelSpaceName_);
       DARABONBA_PTR_FROM_JSON(ModelType, modelType_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(PublicIp, publicIp_);
@@ -454,7 +460,7 @@ namespace Models
 
 
       protected:
-        // The database connection address.
+        // The database endpoint.
         shared_ptr<string> connectionString_ {};
         // The network type of the connection string. Valid values:
         // * **Public**: public endpoint
@@ -493,7 +499,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(GPU, GPU_);
         DARABONBA_PTR_TO_JSON(LinkIP, linkIP_);
         DARABONBA_PTR_TO_JSON(MemorySize, memorySize_);
+        DARABONBA_PTR_TO_JSON(ModelName, modelName_);
         DARABONBA_PTR_TO_JSON(PublicIp, publicIp_);
+        DARABONBA_PTR_TO_JSON(SupportedApis, supportedApis_);
         DARABONBA_PTR_TO_JSON(VNodeId, VNodeId_);
         DARABONBA_PTR_TO_JSON(VPCId, VPCId_);
         DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
@@ -510,7 +518,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(GPU, GPU_);
         DARABONBA_PTR_FROM_JSON(LinkIP, linkIP_);
         DARABONBA_PTR_FROM_JSON(MemorySize, memorySize_);
+        DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
         DARABONBA_PTR_FROM_JSON(PublicIp, publicIp_);
+        DARABONBA_PTR_FROM_JSON(SupportedApis, supportedApis_);
         DARABONBA_PTR_FROM_JSON(VNodeId, VNodeId_);
         DARABONBA_PTR_FROM_JSON(VPCId, VPCId_);
         DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
@@ -527,6 +537,68 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class SupportedApis : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const SupportedApis& obj) { 
+          DARABONBA_PTR_TO_JSON(ApiName, apiName_);
+          DARABONBA_PTR_TO_JSON(GenerationMode, generationMode_);
+          DARABONBA_PTR_TO_JSON(Path, path_);
+          DARABONBA_PTR_TO_JSON(Protocol, protocol_);
+        };
+        friend void from_json(const Darabonba::Json& j, SupportedApis& obj) { 
+          DARABONBA_PTR_FROM_JSON(ApiName, apiName_);
+          DARABONBA_PTR_FROM_JSON(GenerationMode, generationMode_);
+          DARABONBA_PTR_FROM_JSON(Path, path_);
+          DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
+        };
+        SupportedApis() = default ;
+        SupportedApis(const SupportedApis &) = default ;
+        SupportedApis(SupportedApis &&) = default ;
+        SupportedApis(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~SupportedApis() = default ;
+        SupportedApis& operator=(const SupportedApis &) = default ;
+        SupportedApis& operator=(SupportedApis &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->apiName_ == nullptr
+        && this->generationMode_ == nullptr && this->path_ == nullptr && this->protocol_ == nullptr; };
+        // apiName Field Functions 
+        bool hasApiName() const { return this->apiName_ != nullptr;};
+        void deleteApiName() { this->apiName_ = nullptr;};
+        inline string getApiName() const { DARABONBA_PTR_GET_DEFAULT(apiName_, "") };
+        inline SupportedApis& setApiName(string apiName) { DARABONBA_PTR_SET_VALUE(apiName_, apiName) };
+
+
+        // generationMode Field Functions 
+        bool hasGenerationMode() const { return this->generationMode_ != nullptr;};
+        void deleteGenerationMode() { this->generationMode_ = nullptr;};
+        inline string getGenerationMode() const { DARABONBA_PTR_GET_DEFAULT(generationMode_, "") };
+        inline SupportedApis& setGenerationMode(string generationMode) { DARABONBA_PTR_SET_VALUE(generationMode_, generationMode) };
+
+
+        // path Field Functions 
+        bool hasPath() const { return this->path_ != nullptr;};
+        void deletePath() { this->path_ = nullptr;};
+        inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+        inline SupportedApis& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
+
+
+        // protocol Field Functions 
+        bool hasProtocol() const { return this->protocol_ != nullptr;};
+        void deleteProtocol() { this->protocol_ = nullptr;};
+        inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+        inline SupportedApis& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
+
+
+      protected:
+        shared_ptr<string> apiName_ {};
+        shared_ptr<string> generationMode_ {};
+        shared_ptr<string> path_ {};
+        shared_ptr<string> protocol_ {};
+      };
+
       class ChildVolumes : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const ChildVolumes& obj) { 
@@ -606,8 +678,9 @@ namespace Models
 
       virtual bool empty() const override { return this->childVolumes_ == nullptr
         && this->cpuCores_ == nullptr && this->creationTime_ == nullptr && this->DBNodeClass_ == nullptr && this->DBNodeDescription_ == nullptr && this->DBNodeId_ == nullptr
-        && this->DBNodeStatus_ == nullptr && this->GPU_ == nullptr && this->linkIP_ == nullptr && this->memorySize_ == nullptr && this->publicIp_ == nullptr
-        && this->VNodeId_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->DBNodeStatus_ == nullptr && this->GPU_ == nullptr && this->linkIP_ == nullptr && this->memorySize_ == nullptr && this->modelName_ == nullptr
+        && this->publicIp_ == nullptr && this->supportedApis_ == nullptr && this->VNodeId_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr
+        && this->zoneId_ == nullptr; };
       // childVolumes Field Functions 
       bool hasChildVolumes() const { return this->childVolumes_ != nullptr;};
       void deleteChildVolumes() { this->childVolumes_ = nullptr;};
@@ -680,11 +753,27 @@ namespace Models
       inline DBNodes& setMemorySize(string memorySize) { DARABONBA_PTR_SET_VALUE(memorySize_, memorySize) };
 
 
+      // modelName Field Functions 
+      bool hasModelName() const { return this->modelName_ != nullptr;};
+      void deleteModelName() { this->modelName_ = nullptr;};
+      inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
+      inline DBNodes& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
+
+
       // publicIp Field Functions 
       bool hasPublicIp() const { return this->publicIp_ != nullptr;};
       void deletePublicIp() { this->publicIp_ = nullptr;};
       inline string getPublicIp() const { DARABONBA_PTR_GET_DEFAULT(publicIp_, "") };
       inline DBNodes& setPublicIp(string publicIp) { DARABONBA_PTR_SET_VALUE(publicIp_, publicIp) };
+
+
+      // supportedApis Field Functions 
+      bool hasSupportedApis() const { return this->supportedApis_ != nullptr;};
+      void deleteSupportedApis() { this->supportedApis_ = nullptr;};
+      inline const vector<DBNodes::SupportedApis> & getSupportedApis() const { DARABONBA_PTR_GET_CONST(supportedApis_, vector<DBNodes::SupportedApis>) };
+      inline vector<DBNodes::SupportedApis> getSupportedApis() { DARABONBA_PTR_GET(supportedApis_, vector<DBNodes::SupportedApis>) };
+      inline DBNodes& setSupportedApis(const vector<DBNodes::SupportedApis> & supportedApis) { DARABONBA_PTR_SET_VALUE(supportedApis_, supportedApis) };
+      inline DBNodes& setSupportedApis(vector<DBNodes::SupportedApis> && supportedApis) { DARABONBA_PTR_SET_RVALUE(supportedApis_, supportedApis) };
 
 
       // VNodeId Field Functions 
@@ -737,7 +826,7 @@ namespace Models
       // * **DBNodeDeleting**: deleting a node 
       // * **ClassChanging**: changing node specifications  
       // * **MinorVersionUpgrading**: upgrading the minor version
-      // * **Maintaining**: under maintenance  
+      // * **Maintaining**: being maintained  
       // * **Switching**: being switched
       shared_ptr<string> DBNodeStatus_ {};
       // The number of GPU cards.
@@ -746,8 +835,10 @@ namespace Models
       shared_ptr<string> linkIP_ {};
       // The memory size of the node. Unit: MB.
       shared_ptr<string> memorySize_ {};
+      shared_ptr<string> modelName_ {};
       // The public IP address.
       shared_ptr<string> publicIp_ {};
+      shared_ptr<vector<DBNodes::SupportedApis>> supportedApis_ {};
       // The Kubernetes virtual node ID.
       shared_ptr<string> VNodeId_ {};
       // The VPC ID.
@@ -760,12 +851,13 @@ namespace Models
 
     virtual bool empty() const override { return this->aiNodeType_ == nullptr
         && this->apiKey_ == nullptr && this->creationTime_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr && this->DBClusterStatus_ == nullptr
-        && this->DBNodes_ == nullptr && this->DBVersion_ == nullptr && this->ecsSecurityGroupId_ == nullptr && this->endpointList_ == nullptr && this->expireTime_ == nullptr
-        && this->expired_ == nullptr && this->gatewayId_ == nullptr && this->internalIp_ == nullptr && this->KVCacheInstanceId_ == nullptr && this->kubeClusterId_ == nullptr
-        && this->lockMode_ == nullptr && this->maxQPM_ == nullptr && this->modelName_ == nullptr && this->modelType_ == nullptr && this->payType_ == nullptr
-        && this->publicIp_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->runType_ == nullptr && this->storageType_ == nullptr
-        && this->timeSlicesInfo_ == nullptr && this->timeSlicesType_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->vnodeKubernetesConfig_ == nullptr
-        && this->volumes_ == nullptr && this->zoneId_ == nullptr && this->zoneIds_ == nullptr; };
+        && this->DBInstanceStatusDesc_ == nullptr && this->DBNodes_ == nullptr && this->DBVersion_ == nullptr && this->ecsSecurityGroupId_ == nullptr && this->endpointList_ == nullptr
+        && this->expireTime_ == nullptr && this->expired_ == nullptr && this->gatewayId_ == nullptr && this->internalIp_ == nullptr && this->KVCacheInstanceId_ == nullptr
+        && this->kubeClusterId_ == nullptr && this->lockMode_ == nullptr && this->maxQPM_ == nullptr && this->maxTPM_ == nullptr && this->modelName_ == nullptr
+        && this->modelSpaceName_ == nullptr && this->modelType_ == nullptr && this->payType_ == nullptr && this->publicIp_ == nullptr && this->regionId_ == nullptr
+        && this->requestId_ == nullptr && this->runType_ == nullptr && this->storageType_ == nullptr && this->timeSlicesInfo_ == nullptr && this->timeSlicesType_ == nullptr
+        && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->vnodeKubernetesConfig_ == nullptr && this->volumes_ == nullptr && this->zoneId_ == nullptr
+        && this->zoneIds_ == nullptr; };
     // aiNodeType Field Functions 
     bool hasAiNodeType() const { return this->aiNodeType_ != nullptr;};
     void deleteAiNodeType() { this->aiNodeType_ = nullptr;};
@@ -806,6 +898,13 @@ namespace Models
     void deleteDBClusterStatus() { this->DBClusterStatus_ = nullptr;};
     inline string getDBClusterStatus() const { DARABONBA_PTR_GET_DEFAULT(DBClusterStatus_, "") };
     inline DescribeAIDBClusterAttributeResponseBody& setDBClusterStatus(string DBClusterStatus) { DARABONBA_PTR_SET_VALUE(DBClusterStatus_, DBClusterStatus) };
+
+
+    // DBInstanceStatusDesc Field Functions 
+    bool hasDBInstanceStatusDesc() const { return this->DBInstanceStatusDesc_ != nullptr;};
+    void deleteDBInstanceStatusDesc() { this->DBInstanceStatusDesc_ = nullptr;};
+    inline string getDBInstanceStatusDesc() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceStatusDesc_, "") };
+    inline DescribeAIDBClusterAttributeResponseBody& setDBInstanceStatusDesc(string DBInstanceStatusDesc) { DARABONBA_PTR_SET_VALUE(DBInstanceStatusDesc_, DBInstanceStatusDesc) };
 
 
     // DBNodes Field Functions 
@@ -896,11 +995,25 @@ namespace Models
     inline DescribeAIDBClusterAttributeResponseBody& setMaxQPM(string maxQPM) { DARABONBA_PTR_SET_VALUE(maxQPM_, maxQPM) };
 
 
+    // maxTPM Field Functions 
+    bool hasMaxTPM() const { return this->maxTPM_ != nullptr;};
+    void deleteMaxTPM() { this->maxTPM_ = nullptr;};
+    inline string getMaxTPM() const { DARABONBA_PTR_GET_DEFAULT(maxTPM_, "") };
+    inline DescribeAIDBClusterAttributeResponseBody& setMaxTPM(string maxTPM) { DARABONBA_PTR_SET_VALUE(maxTPM_, maxTPM) };
+
+
     // modelName Field Functions 
     bool hasModelName() const { return this->modelName_ != nullptr;};
     void deleteModelName() { this->modelName_ = nullptr;};
     inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
     inline DescribeAIDBClusterAttributeResponseBody& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
+
+
+    // modelSpaceName Field Functions 
+    bool hasModelSpaceName() const { return this->modelSpaceName_ != nullptr;};
+    void deleteModelSpaceName() { this->modelSpaceName_ = nullptr;};
+    inline string getModelSpaceName() const { DARABONBA_PTR_GET_DEFAULT(modelSpaceName_, "") };
+    inline DescribeAIDBClusterAttributeResponseBody& setModelSpaceName(string modelSpaceName) { DARABONBA_PTR_SET_VALUE(modelSpaceName_, modelSpaceName) };
 
 
     // modelType Field Functions 
@@ -1016,7 +1129,7 @@ namespace Models
 
   protected:
     // The node type. Valid values:
-    // - vnode: ACK-managed
+    // - vnode: managed by ACK
     // - container: loginable container
     // - maas: model service
     shared_ptr<string> aiNodeType_ {};
@@ -1038,6 +1151,7 @@ namespace Models
     // - **ClassChanging**: changing node specifications 
     // - **Deleted**: released
     shared_ptr<string> DBClusterStatus_ {};
+    shared_ptr<string> DBInstanceStatusDesc_ {};
     // The node details.
     shared_ptr<vector<DescribeAIDBClusterAttributeResponseBody::DBNodes>> DBNodes_ {};
     // The cluster version. Valid values:
@@ -1054,7 +1168,7 @@ namespace Models
     shared_ptr<vector<DescribeAIDBClusterAttributeResponseBody::EndpointList>> endpointList_ {};
     // The cluster expiration time.
     // 
-    // > This parameter returns a value only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
+    // > A specific value is returned only for clusters whose billing method is **Prepaid** (subscription). An empty value is returned for **Postpaid** (pay-as-you-go) clusters.
     shared_ptr<string> expireTime_ {};
     // Indicates whether the cluster has expired. Valid values:
     // 
@@ -1073,8 +1187,10 @@ namespace Models
     shared_ptr<string> lockMode_ {};
     // The maximum number of requests per minute.
     shared_ptr<string> maxQPM_ {};
+    shared_ptr<string> maxTPM_ {};
     // The model name.
     shared_ptr<string> modelName_ {};
+    shared_ptr<string> modelSpaceName_ {};
     // The model type.
     shared_ptr<string> modelType_ {};
     // The billing method. Valid values:
@@ -1092,11 +1208,11 @@ namespace Models
     // - container: AI container
     // - ainode: AI node
     shared_ptr<string> runType_ {};
-    // Valid values for Enterprise Edition storage type:
+    // The storage type for Enterprise Edition. Valid values:
     // - **PSL5**
     // - **PSL4**
     // 
-    // Valid values for Standard Edition storage type:
+    // The storage type for Standard Edition. Valid values:
     // - **ESSDPL0**
     // - **ESSDPL1**
     // - **ESSDPL2**
@@ -1105,7 +1221,7 @@ namespace Models
     shared_ptr<string> storageType_ {};
     shared_ptr<DescribeAIDBClusterAttributeResponseBody::TimeSlicesInfo> timeSlicesInfo_ {};
     shared_ptr<string> timeSlicesType_ {};
-    // The VPC ID specified for the zone switchover.
+    // The VPC ID that can be specified when switching zones.
     shared_ptr<string> VPCId_ {};
     // The vSwitch ID.
     // 
@@ -1116,7 +1232,7 @@ namespace Models
     shared_ptr<vector<DescribeAIDBClusterAttributeResponseBody::Volumes>> volumes_ {};
     // The zone ID of the PolarDB cluster node.
     shared_ptr<string> zoneId_ {};
-    // The zone IDs.
+    // The zone ID.
     shared_ptr<string> zoneIds_ {};
   };
 

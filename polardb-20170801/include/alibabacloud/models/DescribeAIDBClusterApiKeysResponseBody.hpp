@@ -15,10 +15,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeAIDBClusterApiKeysResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(ApiKeys, apiKeys_);
+      DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeAIDBClusterApiKeysResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(ApiKeys, apiKeys_);
+      DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
     DescribeAIDBClusterApiKeysResponseBody() = default ;
@@ -110,7 +114,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->apiKeys_ == nullptr
-        && this->requestId_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr; };
     // apiKeys Field Functions 
     bool hasApiKeys() const { return this->apiKeys_ != nullptr;};
     void deleteApiKeys() { this->apiKeys_ = nullptr;};
@@ -118,6 +122,20 @@ namespace Models
     inline vector<DescribeAIDBClusterApiKeysResponseBody::ApiKeys> getApiKeys() { DARABONBA_PTR_GET(apiKeys_, vector<DescribeAIDBClusterApiKeysResponseBody::ApiKeys>) };
     inline DescribeAIDBClusterApiKeysResponseBody& setApiKeys(const vector<DescribeAIDBClusterApiKeysResponseBody::ApiKeys> & apiKeys) { DARABONBA_PTR_SET_VALUE(apiKeys_, apiKeys) };
     inline DescribeAIDBClusterApiKeysResponseBody& setApiKeys(vector<DescribeAIDBClusterApiKeysResponseBody::ApiKeys> && apiKeys) { DARABONBA_PTR_SET_RVALUE(apiKeys_, apiKeys) };
+
+
+    // pageNumber Field Functions 
+    bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+    void deletePageNumber() { this->pageNumber_ = nullptr;};
+    inline string getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
+    inline DescribeAIDBClusterApiKeysResponseBody& setPageNumber(string pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline DescribeAIDBClusterApiKeysResponseBody& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // requestId Field Functions 
@@ -130,6 +148,8 @@ namespace Models
   protected:
     // API Keys。
     shared_ptr<vector<DescribeAIDBClusterApiKeysResponseBody::ApiKeys>> apiKeys_ {};
+    shared_ptr<string> pageNumber_ {};
+    shared_ptr<string> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
   };

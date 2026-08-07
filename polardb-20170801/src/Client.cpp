@@ -494,6 +494,60 @@ AddPolarFsQuotaResponse Client::addPolarFsQuota(const AddPolarFsQuotaRequest &re
 }
 
 /**
+ * @summary 添加冷存授权账号
+ *
+ * @param request AddPolarOSSAuthorizedAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddPolarOSSAuthorizedAccountResponse
+ */
+AddPolarOSSAuthorizedAccountResponse Client::addPolarOSSAuthorizedAccountWithOptions(const AddPolarOSSAuthorizedAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizedUserIds()) {
+    query["AuthorizedUserIds"] = request.getAuthorizedUserIds();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPfsInstanceId()) {
+    query["PfsInstanceId"] = request.getPfsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddPolarOSSAuthorizedAccount"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddPolarOSSAuthorizedAccountResponse>();
+}
+
+/**
+ * @summary 添加冷存授权账号
+ *
+ * @param request AddPolarOSSAuthorizedAccountRequest
+ * @return AddPolarOSSAuthorizedAccountResponse
+ */
+AddPolarOSSAuthorizedAccountResponse Client::addPolarOSSAuthorizedAccount(const AddPolarOSSAuthorizedAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addPolarOSSAuthorizedAccountWithOptions(request, runtime);
+}
+
+/**
  * @summary Adds SQL throttling rules.
  *
  * @param request AddSQLRateLimitingRulesRequest
@@ -1905,6 +1959,10 @@ CreateAIDBClusterResponse Client::createAIDBClusterWithOptions(const CreateAIDBC
     query["ClientToken"] = request.getClientToken();
   }
 
+  if (!!request.hasCreatePublicEndpoint()) {
+    query["CreatePublicEndpoint"] = request.getCreatePublicEndpoint();
+  }
+
   if (!!request.hasDBClusterDescription()) {
     query["DBClusterDescription"] = request.getDBClusterDescription();
   }
@@ -1951,6 +2009,10 @@ CreateAIDBClusterResponse Client::createAIDBClusterWithOptions(const CreateAIDBC
 
   if (!!request.hasModelName()) {
     query["ModelName"] = request.getModelName();
+  }
+
+  if (!!request.hasModelSpace()) {
+    query["ModelSpace"] = request.getModelSpace();
   }
 
   if (!!request.hasOwnerAccount()) {
@@ -2061,6 +2123,10 @@ CreateAIDBClusterApiKeyResponse Client::createAIDBClusterApiKeyWithOptions(const
   json query = {};
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasModelSpaceName()) {
+    query["ModelSpaceName"] = request.getModelSpaceName();
   }
 
   if (!!request.hasRegionId()) {
@@ -2183,12 +2249,20 @@ CreateAIDBClusterDatasetResponse Client::createAIDBClusterDataset(const CreateAI
 CreateAIDBClusterTaskResponse Client::createAIDBClusterTaskWithOptions(const CreateAIDBClusterTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCustomOssBucketName()) {
+    query["CustomOssBucketName"] = request.getCustomOssBucketName();
+  }
+
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.getDBClusterId();
   }
 
   if (!!request.hasDBInstanceClass()) {
     query["DBInstanceClass"] = request.getDBInstanceClass();
+  }
+
+  if (!!request.hasDataserviceMode()) {
+    query["DataserviceMode"] = request.getDataserviceMode();
   }
 
   if (!!request.hasDatasetPath()) {
@@ -3639,6 +3713,14 @@ CreateCostRuleResponse Client::createCostRuleWithOptions(const CreateCostRuleReq
   json query = {};
   if (!!request.hasCacheCostPointsPerMillion()) {
     query["CacheCostPointsPerMillion"] = request.getCacheCostPointsPerMillion();
+  }
+
+  if (!!request.hasEffectiveTargetType()) {
+    query["EffectiveTargetType"] = request.getEffectiveTargetType();
+  }
+
+  if (!!request.hasEffectiveTargetValue()) {
+    query["EffectiveTargetValue"] = request.getEffectiveTargetValue();
   }
 
   if (!!request.hasGwClusterId()) {
@@ -6493,6 +6575,10 @@ DeleteAIDBClusterResponse Client::deleteAIDBClusterWithOptions(const DeleteAIDBC
     query["DBClusterId"] = request.getDBClusterId();
   }
 
+  if (!!request.hasModelSpace()) {
+    query["ModelSpace"] = request.getModelSpace();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -6533,6 +6619,10 @@ DeleteAIDBClusterApiKeyResponse Client::deleteAIDBClusterApiKeyWithOptions(const
   json query = {};
   if (!!request.hasApiKey()) {
     query["ApiKey"] = request.getApiKey();
+  }
+
+  if (!!request.hasModelSpaceName()) {
+    query["ModelSpaceName"] = request.getModelSpaceName();
   }
 
   if (!!request.hasRegionId()) {
@@ -9240,6 +9330,60 @@ DeletePolarFsQuotaResponse Client::deletePolarFsQuota(const DeletePolarFsQuotaRe
 }
 
 /**
+ * @summary 删除冷存授权账号
+ *
+ * @param request DeletePolarOSSAuthorizedAccountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePolarOSSAuthorizedAccountResponse
+ */
+DeletePolarOSSAuthorizedAccountResponse Client::deletePolarOSSAuthorizedAccountWithOptions(const DeletePolarOSSAuthorizedAccountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizedUserIds()) {
+    query["AuthorizedUserIds"] = request.getAuthorizedUserIds();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPfsInstanceId()) {
+    query["PfsInstanceId"] = request.getPfsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePolarOSSAuthorizedAccount"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePolarOSSAuthorizedAccountResponse>();
+}
+
+/**
+ * @summary 删除冷存授权账号
+ *
+ * @param request DeletePolarOSSAuthorizedAccountRequest
+ * @return DeletePolarOSSAuthorizedAccountResponse
+ */
+DeletePolarOSSAuthorizedAccountResponse Client::deletePolarOSSAuthorizedAccount(const DeletePolarOSSAuthorizedAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deletePolarOSSAuthorizedAccountWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a throttling policy.
  *
  * @param request DeleteRateLimitPolicyRequest
@@ -9423,6 +9567,10 @@ DeleteSQLRateLimitingRulesResponse Client::deleteSQLRateLimitingRules(const Dele
 DescribeAIDBClusterApiKeysResponse Client::describeAIDBClusterApiKeysWithOptions(const DescribeAIDBClusterApiKeysRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasModelSpaceName()) {
+    query["ModelSpaceName"] = request.getModelSpaceName();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
   }
@@ -11356,12 +11504,18 @@ DescribeApplicationParametersResponse Client::describeApplicationParameters(cons
 /**
  * @summary Queries the performance of a PolarDB AI application.
  *
- * @param request DescribeApplicationPerformanceRequest
+ * @param tmpReq DescribeApplicationPerformanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeApplicationPerformanceResponse
  */
-DescribeApplicationPerformanceResponse Client::describeApplicationPerformanceWithOptions(const DescribeApplicationPerformanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+DescribeApplicationPerformanceResponse Client::describeApplicationPerformanceWithOptions(const DescribeApplicationPerformanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeApplicationPerformanceShrinkRequest request = DescribeApplicationPerformanceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFilter()) {
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "filter", "json"));
+  }
+
   json query = {};
   if (!!request.hasApplicationId()) {
     query["ApplicationId"] = request.getApplicationId();
@@ -11409,6 +11563,10 @@ DescribeApplicationPerformanceResponse Client::describeApplicationPerformanceWit
 
   if (!!request.hasStartTime()) {
     query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasFilterShrink()) {
+    query["filter"] = request.getFilterShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12805,6 +12963,14 @@ DescribeConsumersResponse Client::describeConsumers(const DescribeConsumersReque
 DescribeCostRulesResponse Client::describeCostRulesWithOptions(const DescribeCostRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasEffectiveTargetType()) {
+    query["EffectiveTargetType"] = request.getEffectiveTargetType();
+  }
+
+  if (!!request.hasEffectiveTargetValue()) {
+    query["EffectiveTargetValue"] = request.getEffectiveTargetValue();
+  }
+
   if (!!request.hasGwClusterId()) {
     query["GwClusterId"] = request.getGwClusterId();
   }
@@ -18622,7 +18788,7 @@ DescribePolarFsResponse Client::describePolarFs(const DescribePolarFsRequest &re
 }
 
 /**
- * @summary Retrieves the details of a PolarLakebase instance.
+ * @summary Retrieves the details of a Polarlakebase instance.
  *
  * @param request DescribePolarFsAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18661,7 +18827,7 @@ DescribePolarFsAttributeResponse Client::describePolarFsAttributeWithOptions(con
 }
 
 /**
- * @summary Retrieves the details of a PolarLakebase instance.
+ * @summary Retrieves the details of a Polarlakebase instance.
  *
  * @param request DescribePolarFsAttributeRequest
  * @return DescribePolarFsAttributeResponse
@@ -29339,7 +29505,7 @@ RunPolarClawCronJobResponse Client::runPolarClawCronJob(const RunPolarClawCronJo
 }
 
 /**
- * @summary Retrieves memories based on a search query.
+ * @summary Retrieves memories.
  *
  * @param request SearchMemoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29368,6 +29534,14 @@ SearchMemoriesResponse Client::searchMemoriesWithOptions(const SearchMemoriesReq
     query["MemoryUserId"] = request.getMemoryUserId();
   }
 
+  if (!!request.hasPage()) {
+    query["Page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
   if (!!request.hasQuery()) {
     query["Query"] = request.getQuery();
   }
@@ -29394,7 +29568,7 @@ SearchMemoriesResponse Client::searchMemoriesWithOptions(const SearchMemoriesReq
 }
 
 /**
- * @summary Retrieves memories based on a search query.
+ * @summary Retrieves memories.
  *
  * @param request SearchMemoriesRequest
  * @return SearchMemoriesResponse

@@ -14,12 +14,20 @@ namespace Models
   class SearchMemoriesResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SearchMemoriesResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Page, page_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Results, results_);
+      DARABONBA_PTR_TO_JSON(Total, total_);
+      DARABONBA_PTR_TO_JSON(TotalPages, totalPages_);
     };
     friend void from_json(const Darabonba::Json& j, SearchMemoriesResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Page, page_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Results, results_);
+      DARABONBA_PTR_FROM_JSON(Total, total_);
+      DARABONBA_PTR_FROM_JSON(TotalPages, totalPages_);
     };
     SearchMemoriesResponseBody() = default ;
     SearchMemoriesResponseBody(const SearchMemoriesResponseBody &) = default ;
@@ -125,26 +133,40 @@ namespace Models
 
 
     protected:
-      // The creation time of the memory.
+      // The creation time.
       shared_ptr<string> createTime_ {};
-      // The unique ID of the memory.
+      // The memory ID.
       shared_ptr<string> id_ {};
-      // The content of the memory.
+      // The memory content.
       shared_ptr<string> memory_ {};
-      // The agent ID that owns the memory.
+      // The agent to which the memory belongs.
       shared_ptr<string> memoryAgentId_ {};
-      // The user ID that owns the memory.
+      // The user to whom the memory belongs.
       shared_ptr<string> memoryUserId_ {};
-      // Additional metadata associated with the memory.
+      // The metadata.
       shared_ptr<string> metadata_ {};
-      // The relevance score of the result.
+      // The score.
       shared_ptr<string> score_ {};
-      // The update time of the memory.
+      // The update time.
       shared_ptr<string> updateTime_ {};
     };
 
-    virtual bool empty() const override { return this->requestId_ == nullptr
-        && this->results_ == nullptr; };
+    virtual bool empty() const override { return this->page_ == nullptr
+        && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->results_ == nullptr && this->total_ == nullptr && this->totalPages_ == nullptr; };
+    // page Field Functions 
+    bool hasPage() const { return this->page_ != nullptr;};
+    void deletePage() { this->page_ = nullptr;};
+    inline string getPage() const { DARABONBA_PTR_GET_DEFAULT(page_, "") };
+    inline SearchMemoriesResponseBody& setPage(string page) { DARABONBA_PTR_SET_VALUE(page_, page) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline string getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, "") };
+    inline SearchMemoriesResponseBody& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -161,11 +183,29 @@ namespace Models
     inline SearchMemoriesResponseBody& setResults(vector<SearchMemoriesResponseBody::Results> && results) { DARABONBA_PTR_SET_RVALUE(results_, results) };
 
 
+    // total Field Functions 
+    bool hasTotal() const { return this->total_ != nullptr;};
+    void deleteTotal() { this->total_ = nullptr;};
+    inline string getTotal() const { DARABONBA_PTR_GET_DEFAULT(total_, "") };
+    inline SearchMemoriesResponseBody& setTotal(string total) { DARABONBA_PTR_SET_VALUE(total_, total) };
+
+
+    // totalPages Field Functions 
+    bool hasTotalPages() const { return this->totalPages_ != nullptr;};
+    void deleteTotalPages() { this->totalPages_ = nullptr;};
+    inline string getTotalPages() const { DARABONBA_PTR_GET_DEFAULT(totalPages_, "") };
+    inline SearchMemoriesResponseBody& setTotalPages(string totalPages) { DARABONBA_PTR_SET_VALUE(totalPages_, totalPages) };
+
+
   protected:
-    // The unique request ID.
+    shared_ptr<string> page_ {};
+    shared_ptr<string> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array of search results.
+    // The list of results.
     shared_ptr<vector<SearchMemoriesResponseBody::Results>> results_ {};
+    shared_ptr<string> total_ {};
+    shared_ptr<string> totalPages_ {};
   };
 
   } // namespace Models

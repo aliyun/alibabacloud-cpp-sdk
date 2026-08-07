@@ -60,7 +60,7 @@ namespace Models
     // The cluster ID.
     // > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters under your account, including cluster IDs.
     shared_ptr<string> DBClusterId_ {};
-    // The PolarLakebase instance ID.
+    // The Polarlakebase instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};

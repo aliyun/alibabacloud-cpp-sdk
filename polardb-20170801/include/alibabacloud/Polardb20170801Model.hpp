@@ -21,6 +21,9 @@
 #include <alibabacloud/models/AddPolarFsQuotaRequest.hpp>
 #include <alibabacloud/models/AddPolarFsQuotaResponseBody.hpp>
 #include <alibabacloud/models/AddPolarFsQuotaResponse.hpp>
+#include <alibabacloud/models/AddPolarOSSAuthorizedAccountRequest.hpp>
+#include <alibabacloud/models/AddPolarOSSAuthorizedAccountResponseBody.hpp>
+#include <alibabacloud/models/AddPolarOSSAuthorizedAccountResponse.hpp>
 #include <alibabacloud/models/AddSQLRateLimitingRulesRequest.hpp>
 #include <alibabacloud/models/AddSQLRateLimitingRulesResponseBody.hpp>
 #include <alibabacloud/models/AddSQLRateLimitingRulesResponse.hpp>
@@ -393,6 +396,9 @@
 #include <alibabacloud/models/DeletePolarFsQuotaRequest.hpp>
 #include <alibabacloud/models/DeletePolarFsQuotaResponseBody.hpp>
 #include <alibabacloud/models/DeletePolarFsQuotaResponse.hpp>
+#include <alibabacloud/models/DeletePolarOSSAuthorizedAccountRequest.hpp>
+#include <alibabacloud/models/DeletePolarOSSAuthorizedAccountResponseBody.hpp>
+#include <alibabacloud/models/DeletePolarOSSAuthorizedAccountResponse.hpp>
 #include <alibabacloud/models/DeleteRateLimitPolicyRequest.hpp>
 #include <alibabacloud/models/DeleteRateLimitPolicyResponseBody.hpp>
 #include <alibabacloud/models/DeleteRateLimitPolicyResponse.hpp>
@@ -491,6 +497,7 @@
 #include <alibabacloud/models/DescribeApplicationParametersResponseBody.hpp>
 #include <alibabacloud/models/DescribeApplicationParametersResponse.hpp>
 #include <alibabacloud/models/DescribeApplicationPerformanceRequest.hpp>
+#include <alibabacloud/models/DescribeApplicationPerformanceShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeApplicationPerformanceResponseBody.hpp>
 #include <alibabacloud/models/DescribeApplicationPerformanceResponse.hpp>
 #include <alibabacloud/models/DescribeApplicationPromptsRequest.hpp>
