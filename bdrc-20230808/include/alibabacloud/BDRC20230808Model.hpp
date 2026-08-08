@@ -63,6 +63,9 @@
 #include <alibabacloud/models/EnableCheckResourceRequest.hpp>
 #include <alibabacloud/models/EnableCheckResourceResponseBody.hpp>
 #include <alibabacloud/models/EnableCheckResourceResponse.hpp>
+#include <alibabacloud/models/EnableCrossAccountManagementRequest.hpp>
+#include <alibabacloud/models/EnableCrossAccountManagementResponseBody.hpp>
+#include <alibabacloud/models/EnableCrossAccountManagementResponse.hpp>
 #include <alibabacloud/models/GetBdrcServiceResponseBody.hpp>
 #include <alibabacloud/models/GetBdrcServiceResponse.hpp>
 #include <alibabacloud/models/GetMessageRequest.hpp>
@@ -74,6 +77,9 @@
 #include <alibabacloud/models/GetResourceCategoryRequest.hpp>
 #include <alibabacloud/models/GetResourceCategoryResponseBody.hpp>
 #include <alibabacloud/models/GetResourceCategoryResponse.hpp>
+#include <alibabacloud/models/ListCrossAccountsRequest.hpp>
+#include <alibabacloud/models/ListCrossAccountsResponseBody.hpp>
+#include <alibabacloud/models/ListCrossAccountsResponse.hpp>
 #include <alibabacloud/models/ListMessagesRequest.hpp>
 #include <alibabacloud/models/ListMessagesResponseBody.hpp>
 #include <alibabacloud/models/ListMessagesResponse.hpp>
@@ -88,6 +94,14 @@
 #include <alibabacloud/models/ListResourceCategoriesResponse.hpp>
 #include <alibabacloud/models/OpenBdrcServiceResponseBody.hpp>
 #include <alibabacloud/models/OpenBdrcServiceResponse.hpp>
+#include <alibabacloud/models/PrecheckResourceCountRequest.hpp>
+#include <alibabacloud/models/PrecheckResourceCountShrinkRequest.hpp>
+#include <alibabacloud/models/PrecheckResourceCountResponseBody.hpp>
+#include <alibabacloud/models/PrecheckResourceCountResponse.hpp>
+#include <alibabacloud/models/UpdateCrossAccountsRequest.hpp>
+#include <alibabacloud/models/UpdateCrossAccountsShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateCrossAccountsResponseBody.hpp>
+#include <alibabacloud/models/UpdateCrossAccountsResponse.hpp>
 #include <alibabacloud/models/UpdateProtectionPolicyRequest.hpp>
 #include <alibabacloud/models/UpdateProtectionPolicyShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateProtectionPolicyResponseBody.hpp>

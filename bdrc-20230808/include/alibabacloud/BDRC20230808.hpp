@@ -363,6 +363,24 @@ namespace BDRC20230808
       Models::EnableCheckResourceResponse enableCheckResource(const Models::EnableCheckResourceRequest &request);
 
       /**
+       * @summary 开启跨账号管理
+       *
+       * @param request EnableCrossAccountManagementRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableCrossAccountManagementResponse
+       */
+      Models::EnableCrossAccountManagementResponse enableCrossAccountManagementWithOptions(const Models::EnableCrossAccountManagementRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开启跨账号管理
+       *
+       * @param request EnableCrossAccountManagementRequest
+       * @return EnableCrossAccountManagementResponse
+       */
+      Models::EnableCrossAccountManagementResponse enableCrossAccountManagement(const Models::EnableCrossAccountManagementRequest &request);
+
+      /**
        * @summary Queries the status of the Backup and Disaster Recovery Center.
        *
        * @param headers map
@@ -431,6 +449,24 @@ namespace BDRC20230808
        * @return GetResourceCategoryResponse
        */
       Models::GetResourceCategoryResponse getResourceCategory(const Models::GetResourceCategoryRequest &request);
+
+      /**
+       * @summary 创建跨账号纳管关系
+       *
+       * @param request ListCrossAccountsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCrossAccountsResponse
+       */
+      Models::ListCrossAccountsResponse listCrossAccountsWithOptions(const Models::ListCrossAccountsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建跨账号纳管关系
+       *
+       * @param request ListCrossAccountsRequest
+       * @return ListCrossAccountsResponse
+       */
+      Models::ListCrossAccountsResponse listCrossAccounts(const Models::ListCrossAccountsRequest &request);
 
       /**
        * @summary Queries messages in batches.
@@ -519,6 +555,42 @@ namespace BDRC20230808
        * @return OpenBdrcServiceResponse
        */
       Models::OpenBdrcServiceResponse openBdrcService();
+
+      /**
+       * @summary 预检查资源数量
+       *
+       * @param tmpReq PrecheckResourceCountRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PrecheckResourceCountResponse
+       */
+      Models::PrecheckResourceCountResponse precheckResourceCountWithOptions(const Models::PrecheckResourceCountRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 预检查资源数量
+       *
+       * @param request PrecheckResourceCountRequest
+       * @return PrecheckResourceCountResponse
+       */
+      Models::PrecheckResourceCountResponse precheckResourceCount(const Models::PrecheckResourceCountRequest &request);
+
+      /**
+       * @summary 更新跨账号纳管关系
+       *
+       * @param tmpReq UpdateCrossAccountsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCrossAccountsResponse
+       */
+      Models::UpdateCrossAccountsResponse updateCrossAccountsWithOptions(const Models::UpdateCrossAccountsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新跨账号纳管关系
+       *
+       * @param request UpdateCrossAccountsRequest
+       * @return UpdateCrossAccountsResponse
+       */
+      Models::UpdateCrossAccountsResponse updateCrossAccounts(const Models::UpdateCrossAccountsRequest &request);
 
       /**
        * @summary Updates a protection policy.

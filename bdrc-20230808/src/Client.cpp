@@ -1059,6 +1059,45 @@ EnableCheckResourceResponse Client::enableCheckResource(const EnableCheckResourc
 }
 
 /**
+ * @summary 开启跨账号管理
+ *
+ * @param request EnableCrossAccountManagementRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableCrossAccountManagementResponse
+ */
+EnableCrossAccountManagementResponse Client::enableCrossAccountManagementWithOptions(const EnableCrossAccountManagementRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableCrossAccountManagement"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/cross-accounts/enable-management")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableCrossAccountManagementResponse>();
+}
+
+/**
+ * @summary 开启跨账号管理
+ *
+ * @param request EnableCrossAccountManagementRequest
+ * @return EnableCrossAccountManagementResponse
+ */
+EnableCrossAccountManagementResponse Client::enableCrossAccountManagement(const EnableCrossAccountManagementRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return enableCrossAccountManagementWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries the status of the Backup and Disaster Recovery Center.
  *
  * @param headers map
@@ -1215,6 +1254,71 @@ GetResourceCategoryResponse Client::getResourceCategory(const GetResourceCategor
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getResourceCategoryWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建跨账号纳管关系
+ *
+ * @param request ListCrossAccountsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCrossAccountsResponse
+ */
+ListCrossAccountsResponse Client::listCrossAccountsWithOptions(const ListCrossAccountsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCrossAccountOwnerId()) {
+    query["CrossAccountOwnerId"] = request.getCrossAccountOwnerId();
+  }
+
+  if (!!request.hasManagementMode()) {
+    query["ManagementMode"] = request.getManagementMode();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasTargetId()) {
+    query["TargetId"] = request.getTargetId();
+  }
+
+  if (!!request.hasTargetType()) {
+    query["TargetType"] = request.getTargetType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCrossAccounts"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/cross-accounts")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCrossAccountsResponse>();
+}
+
+/**
+ * @summary 创建跨账号纳管关系
+ *
+ * @param request ListCrossAccountsRequest
+ * @return ListCrossAccountsResponse
+ */
+ListCrossAccountsResponse Client::listCrossAccounts(const ListCrossAccountsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listCrossAccountsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1491,6 +1595,120 @@ OpenBdrcServiceResponse Client::openBdrcService() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return openBdrcServiceWithOptions(headers, runtime);
+}
+
+/**
+ * @summary 预检查资源数量
+ *
+ * @param tmpReq PrecheckResourceCountRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PrecheckResourceCountResponse
+ */
+PrecheckResourceCountResponse Client::precheckResourceCountWithOptions(const PrecheckResourceCountRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  PrecheckResourceCountShrinkRequest request = PrecheckResourceCountShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTagResourceMatchers()) {
+    request.setTagResourceMatchersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTagResourceMatchers(), "TagResourceMatchers", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasResourceType()) {
+    body["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTagResourceMatchersShrink()) {
+    body["TagResourceMatchers"] = request.getTagResourceMatchersShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "PrecheckResourceCount"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/resources/precheck-count")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PrecheckResourceCountResponse>();
+}
+
+/**
+ * @summary 预检查资源数量
+ *
+ * @param request PrecheckResourceCountRequest
+ * @return PrecheckResourceCountResponse
+ */
+PrecheckResourceCountResponse Client::precheckResourceCount(const PrecheckResourceCountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return precheckResourceCountWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 更新跨账号纳管关系
+ *
+ * @param tmpReq UpdateCrossAccountsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCrossAccountsResponse
+ */
+UpdateCrossAccountsResponse Client::updateCrossAccountsWithOptions(const UpdateCrossAccountsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateCrossAccountsShrinkRequest request = UpdateCrossAccountsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCreateTargets()) {
+    request.setCreateTargetsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCreateTargets(), "CreateTargets", "json"));
+  }
+
+  if (!!tmpReq.hasDeleteTargets()) {
+    request.setDeleteTargetsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDeleteTargets(), "DeleteTargets", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasCreateTargetsShrink()) {
+    body["CreateTargets"] = request.getCreateTargetsShrink();
+  }
+
+  if (!!request.hasDeleteTargetsShrink()) {
+    body["DeleteTargets"] = request.getDeleteTargetsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateCrossAccounts"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/cross-accounts")},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCrossAccountsResponse>();
+}
+
+/**
+ * @summary 更新跨账号纳管关系
+ *
+ * @param request UpdateCrossAccountsRequest
+ * @return UpdateCrossAccountsResponse
+ */
+UpdateCrossAccountsResponse Client::updateCrossAccounts(const UpdateCrossAccountsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateCrossAccountsWithOptions(request, headers, runtime);
 }
 
 /**
