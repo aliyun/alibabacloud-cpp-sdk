@@ -158,21 +158,21 @@ namespace Models
 
 
       protected:
-        // Whitelist ID
+        // The whitelist ID.
         shared_ptr<string> contactWhiteListId_ {};
-        // Creation time
+        // The creation time.
         shared_ptr<int64_t> creationTime_ {};
-        // Creator
+        // The creator.
         shared_ptr<string> creator_ {};
-        // Instance ID
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // Name
+        // The name.
         shared_ptr<string> name_ {};
-        // Operator
+        // The operator.
         shared_ptr<string> operator_ {};
-        // Mobile phone number
+        // The phone number.
         shared_ptr<string> phoneNumber_ {};
-        // Remarks
+        // The remarks.
         shared_ptr<string> remark_ {};
       };
 
@@ -209,13 +209,13 @@ namespace Models
 
 
     protected:
-      // Contact list
+      // The contact list.
       shared_ptr<vector<ContactWhitelistList::List>> list_ {};
-      // Page number
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // Number of entries per page
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // Total number of entries
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -266,17 +266,17 @@ namespace Models
 
 
   protected:
-    // API status code
+    // The API status code.
     shared_ptr<string> code_ {};
-    // Contact list
+    // The contact list.
     shared_ptr<GetContactWhiteListResponseBody::ContactWhitelistList> contactWhitelistList_ {};
-    // HTTP status code
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // API message
+    // The API response message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -4052,7 +4052,7 @@ GetConcurrentConversationQuotaResponse Client::getConcurrentConversationQuota() 
 }
 
 /**
- * @summary Retrieves the list of contacts blocked for outbound calls.
+ * @summary Retrieves the outbound call blocklist.
  *
  * @param request GetContactBlockListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4077,6 +4077,10 @@ GetContactBlockListResponse Client::getContactBlockListWithOptions(const GetCont
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasSearchPattern()) {
+    query["SearchPattern"] = request.getSearchPattern();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -4095,7 +4099,7 @@ GetContactBlockListResponse Client::getContactBlockListWithOptions(const GetCont
 }
 
 /**
- * @summary Retrieves the list of contacts blocked for outbound calls.
+ * @summary Retrieves the outbound call blocklist.
  *
  * @param request GetContactBlockListRequest
  * @return GetContactBlockListResponse
@@ -4129,6 +4133,10 @@ GetContactWhiteListResponse Client::getContactWhiteListWithOptions(const GetCont
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSearchPattern()) {
+    query["SearchPattern"] = request.getSearchPattern();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6091,7 +6099,7 @@ ListScriptVoiceConfigsResponse Client::listScriptVoiceConfigs(const ListScriptVo
 }
 
 /**
- * @summary View the script list.
+ * @summary Queries the list of scripts.
  *
  * @param request ListScriptsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6138,7 +6146,7 @@ ListScriptsResponse Client::listScriptsWithOptions(const ListScriptsRequest &req
 }
 
 /**
- * @summary View the script list.
+ * @summary Queries the list of scripts.
  *
  * @param request ListScriptsRequest
  * @return ListScriptsResponse

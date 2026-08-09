@@ -1283,7 +1283,7 @@ namespace OutboundBot20191226
       Models::GetConcurrentConversationQuotaResponse getConcurrentConversationQuota();
 
       /**
-       * @summary Retrieves the list of contacts blocked for outbound calls.
+       * @summary Retrieves the outbound call blocklist.
        *
        * @param request GetContactBlockListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1292,7 +1292,7 @@ namespace OutboundBot20191226
       Models::GetContactBlockListResponse getContactBlockListWithOptions(const Models::GetContactBlockListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of contacts blocked for outbound calls.
+       * @summary Retrieves the outbound call blocklist.
        *
        * @param request GetContactBlockListRequest
        * @return GetContactBlockListResponse
@@ -1961,7 +1961,7 @@ namespace OutboundBot20191226
       Models::ListScriptVoiceConfigsResponse listScriptVoiceConfigs(const Models::ListScriptVoiceConfigsRequest &request);
 
       /**
-       * @summary View the script list.
+       * @summary Queries the list of scripts.
        *
        * @param request ListScriptsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1970,7 +1970,7 @@ namespace OutboundBot20191226
       Models::ListScriptsResponse listScriptsWithOptions(const Models::ListScriptsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View the script list.
+       * @summary Queries the list of scripts.
        *
        * @param request ListScriptsRequest
        * @return ListScriptsResponse

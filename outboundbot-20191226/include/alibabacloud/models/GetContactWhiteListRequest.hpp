@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(SearchPattern, searchPattern_);
     };
     friend void from_json(const Darabonba::Json& j, GetContactWhiteListRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CountTotalRow, countTotalRow_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(SearchPattern, searchPattern_);
     };
     GetContactWhiteListRequest() = default ;
     GetContactWhiteListRequest(const GetContactWhiteListRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->countTotalRow_ == nullptr
-        && this->instanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
+        && this->instanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->searchPattern_ == nullptr; };
     // countTotalRow Field Functions 
     bool hasCountTotalRow() const { return this->countTotalRow_ != nullptr;};
     void deleteCountTotalRow() { this->countTotalRow_ = nullptr;};
@@ -65,17 +67,25 @@ namespace Models
     inline GetContactWhiteListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // searchPattern Field Functions 
+    bool hasSearchPattern() const { return this->searchPattern_ != nullptr;};
+    void deleteSearchPattern() { this->searchPattern_ = nullptr;};
+    inline string getSearchPattern() const { DARABONBA_PTR_GET_DEFAULT(searchPattern_, "") };
+    inline GetContactWhiteListRequest& setSearchPattern(string searchPattern) { DARABONBA_PTR_SET_VALUE(searchPattern_, searchPattern) };
+
+
   protected:
-    // Whether to return the total count
+    // Specifies whether to return the total number of entries.
     shared_ptr<bool> countTotalRow_ {};
-    // Instance ID
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Page number
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of entries per page
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> searchPattern_ {};
   };
 
   } // namespace Models
