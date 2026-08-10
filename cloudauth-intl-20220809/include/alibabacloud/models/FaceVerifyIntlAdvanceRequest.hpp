@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TargetFacePicture, targetFacePicture_);
       // targetFacePictureFileObject_ is stream
       DARABONBA_PTR_TO_JSON(TargetFacePictureUrl, targetFacePictureUrl_);
+      DARABONBA_PTR_TO_JSON(UpdateFaceIfUserExists, updateFaceIfUserExists_);
       DARABONBA_PTR_TO_JSON(VerifyModel, verifyModel_);
     };
     friend void from_json(const Darabonba::Json& j, FaceVerifyIntlAdvanceRequest& obj) { 
@@ -46,6 +47,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TargetFacePicture, targetFacePicture_);
       // targetFacePictureFileObject_ is stream
       DARABONBA_PTR_FROM_JSON(TargetFacePictureUrl, targetFacePictureUrl_);
+      DARABONBA_PTR_FROM_JSON(UpdateFaceIfUserExists, updateFaceIfUserExists_);
       DARABONBA_PTR_FROM_JSON(VerifyModel, verifyModel_);
     };
     FaceVerifyIntlAdvanceRequest() = default ;
@@ -62,7 +64,8 @@ namespace Models
     virtual bool empty() const override { return this->autoRegistration_ == nullptr
         && this->faceAttributeCheck_ == nullptr && this->faceGroupCodes_ == nullptr && this->faceQualityCheck_ == nullptr && this->faceRegisterGroupCode_ == nullptr && this->merchantBizId_ == nullptr
         && this->merchantUserId_ == nullptr && this->productCode_ == nullptr && this->returnFaces_ == nullptr && this->sourceFacePicture_ == nullptr && this->sourceFacePictureFileObject_ == nullptr
-        && this->sourceFacePictureUrl_ == nullptr && this->targetFacePicture_ == nullptr && this->targetFacePictureFileObject_ == nullptr && this->targetFacePictureUrl_ == nullptr && this->verifyModel_ == nullptr; };
+        && this->sourceFacePictureUrl_ == nullptr && this->targetFacePicture_ == nullptr && this->targetFacePictureFileObject_ == nullptr && this->targetFacePictureUrl_ == nullptr && this->updateFaceIfUserExists_ == nullptr
+        && this->verifyModel_ == nullptr; };
     // autoRegistration Field Functions 
     bool hasAutoRegistration() const { return this->autoRegistration_ != nullptr;};
     void deleteAutoRegistration() { this->autoRegistration_ = nullptr;};
@@ -168,6 +171,13 @@ namespace Models
     inline FaceVerifyIntlAdvanceRequest& setTargetFacePictureUrl(string targetFacePictureUrl) { DARABONBA_PTR_SET_VALUE(targetFacePictureUrl_, targetFacePictureUrl) };
 
 
+    // updateFaceIfUserExists Field Functions 
+    bool hasUpdateFaceIfUserExists() const { return this->updateFaceIfUserExists_ != nullptr;};
+    void deleteUpdateFaceIfUserExists() { this->updateFaceIfUserExists_ = nullptr;};
+    inline string getUpdateFaceIfUserExists() const { DARABONBA_PTR_GET_DEFAULT(updateFaceIfUserExists_, "") };
+    inline FaceVerifyIntlAdvanceRequest& setUpdateFaceIfUserExists(string updateFaceIfUserExists) { DARABONBA_PTR_SET_VALUE(updateFaceIfUserExists_, updateFaceIfUserExists) };
+
+
     // verifyModel Field Functions 
     bool hasVerifyModel() const { return this->verifyModel_ != nullptr;};
     void deleteVerifyModel() { this->verifyModel_ = nullptr;};
@@ -176,43 +186,45 @@ namespace Models
 
 
   protected:
-    // Required when ProductCode is set to FACE_IDU_MIN.
+    // Required when ProductCode=FACE_IDU_MIN.
     // 
     // Specifies whether to automatically register the face to the specified face library when no duplicate face is found during retrieval. Valid values:
-    // - 0: Automatic registration.
-    // - 1: No registration. This is the default value.
+    // - 0: automatic registration.
+    // - 1: no registration (default).
     shared_ptr<string> autoRegistration_ {};
     shared_ptr<string> faceAttributeCheck_ {};
-    // Required when ProductCode is set to FACE_IDU_MIN.
+    // Required when ProductCode=FACE_IDU_MIN.
     // 
-    // The face library codes created by the customer through the console. A maximum of 10 face libraries can be queried at the same time. Separate multiple face library codes with commas (,).
+    // The face library codes created by the customer through the console. A maximum of 10 face libraries can be queried simultaneously. Separate multiple face library codes with commas.
     shared_ptr<string> faceGroupCodes_ {};
     // Specifies whether to check the quality of the face image. Valid values:
-    // - Y: Enabled.
-    // - N: Disabled. This is the default value.
+    // - Y: enabled.
+    // - N: disabled (default).
     shared_ptr<string> faceQualityCheck_ {};
-    // Required when ProductCode is set to FACE_IDU_MIN.
+    // Required when ProductCode=FACE_IDU_MIN.
     // 
-    // The code of the face library for registration.
+    // The face library for registration.
     shared_ptr<string> faceRegisterGroupCode_ {};
-    // A custom unique business identifier used for subsequent troubleshooting. The value supports a combination of letters and digits up to 32 characters in length. Make sure the value is unique.
+    // A custom unique business identifier used for subsequent troubleshooting. The value supports a combination of letters and numbers up to 32 characters in length. Ensure that the value is unique.
     shared_ptr<string> merchantBizId_ {};
-    // A custom user ID or other identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize the value of this field in advance, such as by hashing the value.
+    // A custom user ID or other identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize the value of this field in advance, for example, by hashing the value.
     shared_ptr<string> merchantUserId_ {};
     // The product code. Valid values: FACE_VERIFY_MIN and FACE_IDU_MIN.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};
-    // Required when ProductCode is set to FACE_IDU_MIN.
+    // Required when ProductCode=FACE_IDU_MIN.
     // 
-    // Specifies the number of faces to return when multiple faces exist above the matching threshold. Default value: 1. Maximum value: 5.
+    // Specifies the number of faces to return when multiple faces exist above the matching threshold. You can customize the return quantity through this parameter.
+    // - Default value: 1.
+    // - Maximum value: 5.
     shared_ptr<string> returnFaces_ {};
     // The Base64-encoded portrait image.
     // 
-    // > **Note**
-    // >
-    // > - If you use this method to pass in the image, check the image size and do not pass in an excessively large image.
-    // > - Specify one of the following parameters: SourceFacePicture, SourceFacePictureUrl, or SourceFacePictureFile.
+    // Note
+    // 
+    // - If you choose this method to pass in the image, check the image size and do not pass in an excessively large image.
+    // - Specify one of the following parameters: SourceFacePicture, SourceFacePictureUrl, or SourceFacePictureFile.
     shared_ptr<string> sourceFacePicture_ {};
     // The file stream of the face image.
     shared_ptr<Darabonba::IStream> sourceFacePictureFileObject_ {};
@@ -220,28 +232,32 @@ namespace Models
     shared_ptr<string> sourceFacePictureUrl_ {};
     // The Base64-encoded reference face image.
     // 
-    // > **Note**
-    // >
-    // > - If you use this method to pass in the image, check the image size and do not pass in an excessively large image.
-    // > - Specify one of the following parameters: TargetFacePicture, TargetFacePictureUrl, or TargetFacePictureFile.
+    // Note
+    // 
+    // - If you choose this method to pass in the image, check the image size and do not pass in an excessively large image.
+    // - Specify one of the following parameters: TargetFacePicture, TargetFacePictureUrl, or TargetFacePictureFile.
     shared_ptr<string> targetFacePicture_ {};
     // The file stream of the reference face image.
     shared_ptr<Darabonba::IStream> targetFacePictureFileObject_ {};
     // The HTTPS URL of the reference face image.
     shared_ptr<string> targetFacePictureUrl_ {};
-    // Required when ProductCode is set to FACE_IDU_MIN. The verification type. Valid values:
-    // 
-    // - 0: retrieve pattern
-    // > - Feature: Pass in a face library and a user face image (sourceFacePicture). The system automatically retrieves the face library to check whether the specified face image (sourceFacePicture) already exists. Passive liveness detection can be enabled for the face image (sourceFacePicture).
+    // Specifies whether to overwrite the existing face with the current face during automatic registration if MerchantUserId already exists. Valid values:
+    // - Y: overwrite.
+    // - N: do not overwrite and return that the UserId already exists.
+    shared_ptr<string> updateFaceIfUserExists_ {};
+    // Required when ProductCode=FACE_IDU_MIN.
+    // The verification type. Valid values:
+    // - 0: retrieval pattern.
+    // > - Feature: Pass in a face library and a user face image (sourceFacePicture). The system automatically retrieves whether the specified face image (sourceFacePicture) already exists in the face library. Passive liveness detection can be enabled for the face image (sourceFacePicture).
     // > - Recommended scenario: Real-person create an account where duplicate registration is not allowed.
     // 
-    // - 1 (default): authenticate pattern
+    // - 1 (default): authentication pattern.
     // > - Feature: Pass in a specified face image (sourceFacePicture) and a reference face image (TargetFacePicture). The system automatically authenticates whether the faces match. Passive liveness detection can be enabled for the specified face image (sourceFacePicture).
     // > - Recommended scenario: Authenticating the identity of the user when modifying logon credentials or account information.
     // 
-    // - 2: comprehensive pattern
-    // > - Feature: Pass in a face library, a specified face image (sourceFacePicture), and a reference face image (TargetFacePicture). The system automatically retrieves the face library to check whether the specified face image (sourceFacePicture) exists, authenticates whether it matches the reference face, and supports enabling passive liveness detection for the specified face image (sourceFacePicture).
-    // > - Recommended scenario: Authenticating that the user is a new user and the operation is performed by the user in person.
+    // - 2: comprehensive pattern.
+    // > - Feature: Pass in a face library, a specified face image (sourceFacePicture), and a reference face image (TargetFacePicture). The system automatically retrieves whether the specified face image (sourceFacePicture) exists in the face library, authenticates whether it matches the reference face, and supports enabling passive liveness detection for the specified face image (sourceFacePicture).
+    // > - Recommended scenario: Authenticating that the user is new and is performing the operation in person.
     shared_ptr<string> verifyModel_ {};
   };
 

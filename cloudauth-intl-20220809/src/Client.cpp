@@ -2746,7 +2746,7 @@ FaceCrossCompareIntlResponse Client::faceCrossCompareIntl(const FaceCrossCompare
 }
 
 /**
- * @summary Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a stored face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
+ * @summary Performs server-side liveness detection and face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether the user is a real person, compare the face against a retained face image for identity verification, search face libraries to determine whether the face already exists, and automatically register the face to a specified face library after successful verification.
  *
  * @param request FaceDuplicationCheckIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2824,6 +2824,10 @@ FaceDuplicationCheckIntlResponse Client::faceDuplicationCheckIntlWithOptions(con
     body["TargetFacePictureUrl"] = request.getTargetFacePictureUrl();
   }
 
+  if (!!request.hasUpdateFaceIfUserExists()) {
+    body["UpdateFaceIfUserExists"] = request.getUpdateFaceIfUserExists();
+  }
+
   if (!!request.hasVerifyModel()) {
     body["VerifyModel"] = request.getVerifyModel();
   }
@@ -2847,7 +2851,7 @@ FaceDuplicationCheckIntlResponse Client::faceDuplicationCheckIntlWithOptions(con
 }
 
 /**
- * @summary Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a stored face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
+ * @summary Performs server-side liveness detection and face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether the user is a real person, compare the face against a retained face image for identity verification, search face libraries to determine whether the face already exists, and automatically register the face to a specified face library after successful verification.
  *
  * @param request FaceDuplicationCheckIntlRequest
  * @return FaceDuplicationCheckIntlResponse
@@ -3158,7 +3162,7 @@ FaceLivenessV2Response Client::faceLivenessV2Advance(const FaceLivenessV2Advance
 }
 
 /**
- * @summary Performs real face detection by using face images obtained in advance through an API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render such attack types, and supports comparison with another face image to authenticate whether they belong to the same person.
+ * @summary Performs real face detection by receiving pre-captured face images through the API operation. The algorithm primarily identifies whether a face is a screen replay or printed photo type of basic render liveness attack, and supports comparison with another face image to authenticate whether they belong to the same person.
  *
  * @description Calls the FaceVerifyIntl operation to perform liveness detection on face images.
  *
@@ -3221,6 +3225,10 @@ FaceVerifyIntlResponse Client::faceVerifyIntlWithOptions(const FaceVerifyIntlReq
     query["TargetFacePictureUrl"] = request.getTargetFacePictureUrl();
   }
 
+  if (!!request.hasUpdateFaceIfUserExists()) {
+    query["UpdateFaceIfUserExists"] = request.getUpdateFaceIfUserExists();
+  }
+
   if (!!request.hasVerifyModel()) {
     query["VerifyModel"] = request.getVerifyModel();
   }
@@ -3253,7 +3261,7 @@ FaceVerifyIntlResponse Client::faceVerifyIntlWithOptions(const FaceVerifyIntlReq
 }
 
 /**
- * @summary Performs real face detection by using face images obtained in advance through an API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render such attack types, and supports comparison with another face image to authenticate whether they belong to the same person.
+ * @summary Performs real face detection by receiving pre-captured face images through the API operation. The algorithm primarily identifies whether a face is a screen replay or printed photo type of basic render liveness attack, and supports comparison with another face image to authenticate whether they belong to the same person.
  *
  * @description Calls the FaceVerifyIntl operation to perform liveness detection on face images.
  *
@@ -3739,7 +3747,7 @@ IdnAuthorityVerifyIntlResponse Client::idnAuthorityVerifyIntlAdvance(const IdnAu
 }
 
 /**
- * @summary Initializes an authentication session.
+ * @summary Initializes an authentication process.
  *
  * @param tmpReq InitializeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3974,6 +3982,10 @@ InitializeResponse Client::initializeWithOptions(const InitializeRequest &tmpReq
     query["TemplateType"] = request.getTemplateType();
   }
 
+  if (!!request.hasUpdateFaceIfUserExists()) {
+    query["UpdateFaceIfUserExists"] = request.getUpdateFaceIfUserExists();
+  }
+
   if (!!request.hasUseNFC()) {
     query["UseNFC"] = request.getUseNFC();
   }
@@ -4006,7 +4018,7 @@ InitializeResponse Client::initializeWithOptions(const InitializeRequest &tmpReq
 }
 
 /**
- * @summary Initializes an authentication session.
+ * @summary Initializes an authentication process.
  *
  * @param request InitializeRequest
  * @return InitializeResponse
@@ -4254,6 +4266,10 @@ InitializeV2Response Client::initializeV2WithOptions(const InitializeV2Request &
 
   if (!!request.hasTemplateType()) {
     query["TemplateType"] = request.getTemplateType();
+  }
+
+  if (!!request.hasUpdateFaceIfUserExists()) {
+    query["UpdateFaceIfUserExists"] = request.getUpdateFaceIfUserExists();
   }
 
   if (!!request.hasUseNFC()) {
