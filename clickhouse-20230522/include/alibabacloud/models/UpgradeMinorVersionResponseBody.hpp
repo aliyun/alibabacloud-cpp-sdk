@@ -82,7 +82,7 @@ namespace Models
 
 
   protected:
-    // The returned result.
+    // The response result.
     shared_ptr<UpgradeMinorVersionResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

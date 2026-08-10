@@ -177,27 +177,27 @@ namespace Models
 
 
       protected:
-        // The IP address from which the query was initiated.
+        // The query address.
         shared_ptr<string> initialAddress_ {};
         // The query ID.
         shared_ptr<string> initialQueryId_ {};
-        // The user who initiated the query.
+        // The query user.
         shared_ptr<string> initialUser_ {};
-        // The peak memory usage for the query. Unit: bytes.
+        // The peak memory usage of the query. Unit: bytes.
         shared_ptr<int64_t> memoryUsage_ {};
-        // The statement that was being executed.
+        // The query statement being executed.
         shared_ptr<string> query_ {};
-        // The execution duration of the slow query. The minimum value is **1000**. Unit: milliseconds.
+        // The execution duration of the slow SQL statement. The minimum value is **1000**. Unit: milliseconds.
         shared_ptr<int64_t> queryDurationMs_ {};
-        // The start time of the query. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+        // The time when the query started. Format: yyyy-MM-dd hh:mm:ss (UTC).
         shared_ptr<string> queryStartTime_ {};
-        // The size of the scanned data. Unit: bytes.
+        // The size of scanned data. Unit: bytes.
         shared_ptr<int64_t> readBytes_ {};
         // The number of rows read.
         shared_ptr<int64_t> readRows_ {};
         // The size of the result data. Unit: bytes.
         shared_ptr<int64_t> resultBytes_ {};
-        // The type of the slow query log.
+        // The slow log type.
         shared_ptr<string> type_ {};
       };
 
@@ -238,7 +238,7 @@ namespace Models
       shared_ptr<int32_t> DBInstanceID_ {};
       // The cluster name.
       shared_ptr<string> DBInstanceName_ {};
-      // The list of slow log records.
+      // The result set.
       shared_ptr<vector<Data::ResultSet>> resultSet_ {};
       // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
@@ -263,7 +263,7 @@ namespace Models
 
 
   protected:
-    // The result.
+    // The returned result.
     shared_ptr<DescribeSlowLogRecordsResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

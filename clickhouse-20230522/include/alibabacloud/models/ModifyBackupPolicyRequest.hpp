@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The number of days to retain backups.
+    // The number of days for which backups are retained.
     shared_ptr<string> backupRetentionPeriod_ {};
     // The cluster ID.
     // 

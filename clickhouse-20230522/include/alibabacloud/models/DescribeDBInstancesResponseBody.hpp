@@ -343,55 +343,54 @@ namespace Models
 
 
       protected:
-        // The account ID.
+        // The user ID.
         shared_ptr<string> aliUid_ {};
         // The channel ID.
         shared_ptr<string> bid_ {};
-        // The billing method for the instance. Valid values:
+        // The billing method. Valid values:
         // 
-        // - `PrePaid`: subscription.
-        // 
-        // - `PostPaid`: pay-as-you-go.
+        // - PrePaid: subscription.
+        // - PostPaid: pay-as-you-go.
         shared_ptr<string> chargeType_ {};
-        // The instance creation time.
+        // The creation time.
         shared_ptr<string> createTime_ {};
-        // The instance ID.
+        // The cluster ID.
         shared_ptr<string> DBInstanceId_ {};
         // Indicates whether deletion protection is enabled.
         shared_ptr<string> deletionProtection_ {};
-        // The instance description.
+        // The parameter description.
         shared_ptr<string> description_ {};
-        // The engine.
+        // The engine type.
         shared_ptr<string> engine_ {};
-        // The engine version.
+        // The DPI engine version.
         shared_ptr<string> engineVersion_ {};
         // The expiration time.
         shared_ptr<string> expireTime_ {};
         // The lock mode.
         shared_ptr<string> lockMode_ {};
-        // The reason for the lock.
+        // The lock reason.
         shared_ptr<string> lockReason_ {};
-        // The maintenance window end time.
+        // The end time of the maintenance window.
         shared_ptr<string> maintainEndTime_ {};
-        // The maintenance window start time.
+        // The start time of the maintenance window.
         shared_ptr<string> maintainStartTime_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
         // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
-        // The maximum compute capacity for serverless elastic scaling.
+        // The maximum value for serverless elastic scaling.
         shared_ptr<int32_t> scaleMax_ {};
-        // The minimum compute capacity for serverless elastic scaling.
+        // The minimum value for serverless elastic scaling.
         shared_ptr<int32_t> scaleMin_ {};
         // The instance status.
         shared_ptr<string> status_ {};
         // The instance storage type.
         shared_ptr<string> storageType_ {};
-        // The tags attached to the instance.
+        // The tags.
         shared_ptr<vector<DBInstances::Tags>> tags_ {};
         // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // The VPC ID.
+        // VPC ID。
         shared_ptr<string> vpcId_ {};
         // The zone ID.
         shared_ptr<string> zoneId_ {};
@@ -459,7 +458,7 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The returned result.
     shared_ptr<DescribeDBInstancesResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

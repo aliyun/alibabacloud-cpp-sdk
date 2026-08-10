@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // The number of terminated tasks.
+      // The number of stopped tasks.
       shared_ptr<int64_t> count_ {};
       // The cluster ID.
       shared_ptr<int32_t> DBInstanceID_ {};
@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The returned data.
     shared_ptr<KillProcessResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

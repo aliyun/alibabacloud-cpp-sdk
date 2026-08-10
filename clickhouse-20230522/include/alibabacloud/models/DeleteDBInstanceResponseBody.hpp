@@ -82,7 +82,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The returned result.
     shared_ptr<DeleteDBInstanceResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

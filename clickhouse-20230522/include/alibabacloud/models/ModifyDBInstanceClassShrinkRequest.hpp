@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The autoscaling configuration for the compute group.
+    // The automatic horizontal scaling configuration.
     shared_ptr<string> autoScaleConfigShrink_ {};
     // The compute group ID.
     shared_ptr<string> computingGroupId_ {};
@@ -140,19 +140,19 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The number of nodes. Valid values: 2 to 16.
     shared_ptr<int32_t> nodeCount_ {};
-    // The maximum capacity per node for serverless autoscaling. Valid values: 4 to 32. This value must be greater than the minimum value.
+    // The maximum value for serverless node elastic scaling. Valid values: 4 to 32. The value must be greater than the minimum value.
     shared_ptr<int32_t> nodeScaleMax_ {};
-    // The minimum capacity per node for serverless autoscaling. Valid values: 4 to 32.
+    // The minimum value for serverless node elastic scaling. Valid values: 4 to 32.
     shared_ptr<int32_t> nodeScaleMin_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The maximum capacity for serverless autoscaling.
+    // The maximum value for serverless elastic scaling.
     shared_ptr<int64_t> scaleMax_ {};
-    // The minimum capacity for serverless autoscaling.
+    // The minimum value for serverless elastic scaling.
     shared_ptr<int64_t> scaleMin_ {};
-    // The pre-purchased storage capacity in GB.
+    // The pre-purchased storage quota, in GB.
     shared_ptr<int64_t> storageQuota_ {};
     // The storage type.
     shared_ptr<string> storageType_ {};

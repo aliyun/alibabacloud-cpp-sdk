@@ -159,11 +159,11 @@ namespace Models
 
 
   protected:
-    // A comma-separated list of instance IDs.
+    // The list of cluster IDs. Separate multiple cluster IDs with commas (,).
     shared_ptr<string> DBInstanceIds_ {};
-    // The instance status.
+    // The cluster status.
     shared_ptr<string> DBInstanceStatus_ {};
-    // The instance description.
+    // The cluster description.
     shared_ptr<string> description_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -175,9 +175,9 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags for filtering instances.
+    // The tag information.
     shared_ptr<vector<DescribeDBInstancesRequest::Tags>> tags_ {};
-    // A comma-separated list of VPC IDs.
+    // The list of VPC IDs.
     shared_ptr<string> vpcIds_ {};
   };
 

@@ -75,21 +75,20 @@ namespace Models
 
 
   protected:
-    // The ID of the computing group.
+    // The compute group ID.
     shared_ptr<string> computingGroupId_ {};
-    // The connection string of the public endpoint to delete.
+    // The prefix of the endpoint to be released, which is the prefix part of the ConnectionString parameter.
     shared_ptr<string> connectionString_ {};
     // The ID of the cluster.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The network type of the endpoint. Valid values:
+    // The network type. Valid values:
     // 
-    // - VPC: a virtual private cloud (VPC) network.
-    // 
-    // - Public: a public network.
+    // - Vpc: VPC network.
+    // - Public: public network.
     shared_ptr<string> DBInstanceNetType_ {};
-    // The ID of the region.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

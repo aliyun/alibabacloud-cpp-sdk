@@ -137,15 +137,14 @@ namespace Models
         shared_ptr<string> comment_ {};
         // The database name.
         shared_ptr<string> DBName_ {};
-        // Indicates whether the column is the primary key of the table. Valid values:
+        // Indicates whether the column is a primary key. Valid values:
         // 
-        // - **true**
-        // 
-        // - **false**
+        // - **true**: The column is a primary key.
+        // - **false**: The column is not a primary key.
         shared_ptr<string> primaryKey_ {};
         // The table name.
         shared_ptr<string> tableName_ {};
-        // The type of the stored data.
+        // The data type of the stored data.
         shared_ptr<string> type_ {};
       };
 
@@ -184,13 +183,13 @@ namespace Models
 
 
     protected:
-      // The columns.
+      // The column types.
       shared_ptr<vector<Data::Columns>> columns_ {};
       // The cluster ID.
       shared_ptr<string> DBInstanceId_ {};
-      // The account.
+      // The accounts.
       shared_ptr<string> schemas_ {};
-      // The tables.
+      // The list of tables.
       shared_ptr<vector<string>> tables_ {};
     };
 

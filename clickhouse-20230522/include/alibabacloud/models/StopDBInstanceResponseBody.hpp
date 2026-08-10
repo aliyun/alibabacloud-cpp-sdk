@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned result.
     shared_ptr<StopDBInstanceResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -87,13 +87,13 @@ namespace Models
 
 
     protected:
-      // The connection string.
+      // The endpoint.
       shared_ptr<string> connectionString_ {};
       // The cluster ID.
       shared_ptr<int32_t> DBInstanceID_ {};
       // The cluster name.
       shared_ptr<string> DBInstanceName_ {};
-      // The disabled database ports.
+      // The database ports that are disabled.
       shared_ptr<string> disabledPorts_ {};
     };
 

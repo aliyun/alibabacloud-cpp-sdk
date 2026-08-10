@@ -188,6 +188,9 @@
 #include <alibabacloud/models/ModifyLangfuseProjectMembershipRequest.hpp>
 #include <alibabacloud/models/ModifyLangfuseProjectMembershipResponseBody.hpp>
 #include <alibabacloud/models/ModifyLangfuseProjectMembershipResponse.hpp>
+#include <alibabacloud/models/ModifyLangfuseSecurityIPListRequest.hpp>
+#include <alibabacloud/models/ModifyLangfuseSecurityIPListResponseBody.hpp>
+#include <alibabacloud/models/ModifyLangfuseSecurityIPListResponse.hpp>
 #include <alibabacloud/models/ModifySecurityIPListRequest.hpp>
 #include <alibabacloud/models/ModifySecurityIPListResponseBody.hpp>
 #include <alibabacloud/models/ModifySecurityIPListResponse.hpp>

@@ -94,11 +94,11 @@ namespace Models
 
 
   protected:
-    // The computing group ID.
+    // The compute group ID.
     shared_ptr<string> computingGroupId_ {};
-    // The connection string.
+    // The endpoint.
     shared_ptr<string> connectionString_ {};
-    // The connection string prefix.
+    // The prefix of the database endpoint.
     shared_ptr<string> connectionStringPrefix_ {};
     // The cluster ID.
     // 
@@ -106,18 +106,12 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     // The network type. Valid values:
     // 
-    // - `Vpc`: VPC
-    // 
-    // - `Public`: public network
+    // - Vpc: VPC network.
+    // - Public: public network.
     shared_ptr<string> DBInstanceNetType_ {};
-    // - The database ports to disable. You can specify multiple ports, separated by commas.
-    // 
-    // - This parameter is supported only for clusters with a kernel version of 24.10.1.11098_1 or later.
-    // 
-    // 
-    //   >Notice: 
-    // 
-    //   This parameter is not supported for clusters that were upgraded to kernel version 24.10.1.11098_1 or later from an earlier version.
+    // - Disables specified database ports. You can specify multiple ports separated by commas (,).
+    // - Only clusters with a kernel version of 24.10.1.11098_1 or later support this parameter.
+    // >Notice: If the cluster was created with a version earlier than 24.10.1.11098_1 and later upgraded to version 24.10.1.11098_1 or later, this parameter is not supported.</notice>
     shared_ptr<string> disablePorts_ {};
     // The region ID.
     // 

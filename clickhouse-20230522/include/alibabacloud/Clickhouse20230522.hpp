@@ -276,7 +276,7 @@ namespace Clickhouse20230522
       Models::DeleteDBResponse deleteDB(const Models::DeleteDBRequest &request);
 
       /**
-       * @summary The DeleteDBInstance operation releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
+       * @summary Calls the DeleteDBInstance operation to release an ApsaraDB for ClickHouse Enterprise Edition cluster.
        *
        * @param request DeleteDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +285,7 @@ namespace Clickhouse20230522
       Models::DeleteDBInstanceResponse deleteDBInstanceWithOptions(const Models::DeleteDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The DeleteDBInstance operation releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
+       * @summary Calls the DeleteDBInstance operation to release an ApsaraDB for ClickHouse Enterprise Edition cluster.
        *
        * @param request DeleteDBInstanceRequest
        * @return DeleteDBInstanceResponse
@@ -293,7 +293,7 @@ namespace Clickhouse20230522
       Models::DeleteDBInstanceResponse deleteDBInstance(const Models::DeleteDBInstanceRequest &request);
 
       /**
-       * @summary Deletes a public endpoint.
+       * @summary Releases a public endpoint.
        *
        * @param request DeleteEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +302,7 @@ namespace Clickhouse20230522
       Models::DeleteEndpointResponse deleteEndpointWithOptions(const Models::DeleteEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a public endpoint.
+       * @summary Releases a public endpoint.
        *
        * @param request DeleteEndpointRequest
        * @return DeleteEndpointResponse
@@ -531,7 +531,7 @@ namespace Clickhouse20230522
       Models::DescribeDBInstanceConfigChangeLogResponse describeDBInstanceConfigChangeLog(const Models::DescribeDBInstanceConfigChangeLogRequest &request);
 
       /**
-       * @summary Queries the schema of a database or a table.
+       * @summary Queries the data structure of a database or table by calling the DescribeDBInstanceDataSources operation.
        *
        * @param request DescribeDBInstanceDataSourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -540,7 +540,7 @@ namespace Clickhouse20230522
       Models::DescribeDBInstanceDataSourcesResponse describeDBInstanceDataSourcesWithOptions(const Models::DescribeDBInstanceDataSourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the schema of a database or a table.
+       * @summary Queries the data structure of a database or table by calling the DescribeDBInstanceDataSources operation.
        *
        * @param request DescribeDBInstanceDataSourcesRequest
        * @return DescribeDBInstanceDataSourcesResponse
@@ -548,7 +548,7 @@ namespace Clickhouse20230522
       Models::DescribeDBInstanceDataSourcesResponse describeDBInstanceDataSources(const Models::DescribeDBInstanceDataSourcesRequest &request);
 
       /**
-       * @summary Call the DescribeDBInstances API to query a list of DB instances.
+       * @summary Queries the list of clusters.
        *
        * @param request DescribeDBInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -557,7 +557,7 @@ namespace Clickhouse20230522
       Models::DescribeDBInstancesResponse describeDBInstancesWithOptions(const Models::DescribeDBInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call the DescribeDBInstances API to query a list of DB instances.
+       * @summary Queries the list of clusters.
        *
        * @param request DescribeDBInstancesRequest
        * @return DescribeDBInstancesResponse
@@ -720,6 +720,8 @@ namespace Clickhouse20230522
       /**
        * @summary Calls the DescribeProcessList operation to view queries that are currently running.
        *
+       * @description > This operation supports only community-compatible edition clusters created after December 01, 2021.
+       *
        * @param request DescribeProcessListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeProcessListResponse
@@ -728,6 +730,8 @@ namespace Clickhouse20230522
 
       /**
        * @summary Calls the DescribeProcessList operation to view queries that are currently running.
+       *
+       * @description > This operation supports only community-compatible edition clusters created after December 01, 2021.
        *
        * @param request DescribeProcessListRequest
        * @return DescribeProcessListResponse
@@ -767,7 +771,7 @@ namespace Clickhouse20230522
       Models::DescribeSecurityIPListResponse describeSecurityIPList(const Models::DescribeSecurityIPListRequest &request);
 
       /**
-       * @summary Call DescribeSlowLogRecords to query slow log records.
+       * @summary Queries slow query log details by calling the DescribeSlowLogRecords operation.
        *
        * @param request DescribeSlowLogRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -776,7 +780,7 @@ namespace Clickhouse20230522
       Models::DescribeSlowLogRecordsResponse describeSlowLogRecordsWithOptions(const Models::DescribeSlowLogRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call DescribeSlowLogRecords to query slow log records.
+       * @summary Queries slow query log details by calling the DescribeSlowLogRecords operation.
        *
        * @param request DescribeSlowLogRecordsRequest
        * @return DescribeSlowLogRecordsResponse
@@ -784,7 +788,7 @@ namespace Clickhouse20230522
       Models::DescribeSlowLogRecordsResponse describeSlowLogRecords(const Models::DescribeSlowLogRecordsRequest &request);
 
       /**
-       * @summary Queries the slow log trend.
+       * @summary Queries slow log trends by calling the DescribeSlowLogTrend operation.
        *
        * @param request DescribeSlowLogTrendRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -793,7 +797,7 @@ namespace Clickhouse20230522
       Models::DescribeSlowLogTrendResponse describeSlowLogTrendWithOptions(const Models::DescribeSlowLogTrendRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the slow log trend.
+       * @summary Queries slow log trends by calling the DescribeSlowLogTrend operation.
        *
        * @param request DescribeSlowLogTrendRequest
        * @return DescribeSlowLogTrendResponse
@@ -835,7 +839,9 @@ namespace Clickhouse20230522
       Models::GetWhitelistTemplateResponse getWhitelistTemplate(const Models::GetWhitelistTemplateRequest &request);
 
       /**
-       * @summary Terminates a running task.
+       * @summary Stops an ongoing task.
+       *
+       * @description Make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse before you call this operation.
        *
        * @param request KillProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -844,7 +850,9 @@ namespace Clickhouse20230522
       Models::KillProcessResponse killProcessWithOptions(const Models::KillProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Terminates a running task.
+       * @summary Stops an ongoing task.
+       *
+       * @description Make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse before you call this operation.
        *
        * @param request KillProcessRequest
        * @return KillProcessResponse
@@ -939,7 +947,7 @@ namespace Clickhouse20230522
       /**
        * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
        *
-       * @description > Data backup is supported only for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
+       * @description >ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
        *
        * @param request ModifyBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -950,7 +958,7 @@ namespace Clickhouse20230522
       /**
        * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
        *
-       * @description > Data backup is supported only for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
+       * @description >ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
        *
        * @param request ModifyBackupPolicyRequest
        * @return ModifyBackupPolicyResponse
@@ -975,9 +983,9 @@ namespace Clickhouse20230522
       Models::ModifyDBInstanceAttributeResponse modifyDBInstanceAttribute(const Models::ModifyDBInstanceAttributeRequest &request);
 
       /**
-       * @summary Use `ModifyDBInstanceClass` to modify the scaling configuration of a cluster.
+       * @summary Modifies the elastic configuration of an ApsaraDB for ClickHouse cluster.
        *
-       * @description Before you call this API, make sure that you understand the billing method and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
+       * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
        *
        * @param tmpReq ModifyDBInstanceClassRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -986,9 +994,9 @@ namespace Clickhouse20230522
       Models::ModifyDBInstanceClassResponse modifyDBInstanceClassWithOptions(const Models::ModifyDBInstanceClassRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Use `ModifyDBInstanceClass` to modify the scaling configuration of a cluster.
+       * @summary Modifies the elastic configuration of an ApsaraDB for ClickHouse cluster.
        *
-       * @description Before you call this API, make sure that you understand the billing method and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
+       * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
        *
        * @param request ModifyDBInstanceClassRequest
        * @return ModifyDBInstanceClassResponse
@@ -1013,7 +1021,7 @@ namespace Clickhouse20230522
       Models::ModifyDBInstanceConfigResponse modifyDBInstanceConfig(const Models::ModifyDBInstanceConfigRequest &request);
 
       /**
-       * @summary Modifies the connection string of a cluster.
+       * @summary Calls the ModifyDBInstanceConnectionString operation to modify the endpoint of a cluster.
        *
        * @param request ModifyDBInstanceConnectionStringRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1022,7 +1030,7 @@ namespace Clickhouse20230522
       Models::ModifyDBInstanceConnectionStringResponse modifyDBInstanceConnectionStringWithOptions(const Models::ModifyDBInstanceConnectionStringRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the connection string of a cluster.
+       * @summary Calls the ModifyDBInstanceConnectionString operation to modify the endpoint of a cluster.
        *
        * @param request ModifyDBInstanceConnectionStringRequest
        * @return ModifyDBInstanceConnectionStringResponse
@@ -1064,7 +1072,24 @@ namespace Clickhouse20230522
       Models::ModifyLangfuseProjectMembershipResponse modifyLangfuseProjectMembership(const Models::ModifyLangfuseProjectMembershipRequest &request);
 
       /**
-       * @summary Modifies the whitelist settings of an ApsaraDB for ClickHouse cluster.
+       * @summary Modifies the whitelist of a Langfuse instance.
+       *
+       * @param request ModifyLangfuseSecurityIPListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyLangfuseSecurityIPListResponse
+       */
+      Models::ModifyLangfuseSecurityIPListResponse modifyLangfuseSecurityIPListWithOptions(const Models::ModifyLangfuseSecurityIPListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the whitelist of a Langfuse instance.
+       *
+       * @param request ModifyLangfuseSecurityIPListRequest
+       * @return ModifyLangfuseSecurityIPListResponse
+       */
+      Models::ModifyLangfuseSecurityIPListResponse modifyLangfuseSecurityIPList(const Models::ModifyLangfuseSecurityIPListRequest &request);
+
+      /**
+       * @summary Modifies the whitelist settings of a cluster.
        *
        * @param request ModifySecurityIPListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1073,7 +1098,7 @@ namespace Clickhouse20230522
       Models::ModifySecurityIPListResponse modifySecurityIPListWithOptions(const Models::ModifySecurityIPListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the whitelist settings of an ApsaraDB for ClickHouse cluster.
+       * @summary Modifies the whitelist settings of a cluster.
        *
        * @param request ModifySecurityIPListRequest
        * @return ModifySecurityIPListResponse
@@ -1115,7 +1140,7 @@ namespace Clickhouse20230522
       Models::ResetLangfuseUserPasswordResponse resetLangfuseUserPassword(const Models::ResetLangfuseUserPasswordRequest &request);
 
       /**
-       * @summary Restarts an ApsaraDB for ClickHouse Enterprise Edition cluster.
+       * @summary Restarts an ApsaraDB for ClickHouse cluster.
        *
        * @param request RestartDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1124,7 +1149,7 @@ namespace Clickhouse20230522
       Models::RestartDBInstanceResponse restartDBInstanceWithOptions(const Models::RestartDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restarts an ApsaraDB for ClickHouse Enterprise Edition cluster.
+       * @summary Restarts an ApsaraDB for ClickHouse cluster.
        *
        * @param request RestartDBInstanceRequest
        * @return RestartDBInstanceResponse
@@ -1132,7 +1157,7 @@ namespace Clickhouse20230522
       Models::RestartDBInstanceResponse restartDBInstance(const Models::RestartDBInstanceRequest &request);
 
       /**
-       * @summary Starts an ApsaraDB for ClickHouse Enterprise Edition cluster.
+       * @summary Calls the StartDBInstance operation to start an ApsaraDB for ClickHouse Enterprise Edition cluster.
        *
        * @param request StartDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1141,7 +1166,7 @@ namespace Clickhouse20230522
       Models::StartDBInstanceResponse startDBInstanceWithOptions(const Models::StartDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts an ApsaraDB for ClickHouse Enterprise Edition cluster.
+       * @summary Calls the StartDBInstance operation to start an ApsaraDB for ClickHouse Enterprise Edition cluster.
        *
        * @param request StartDBInstanceRequest
        * @return StartDBInstanceResponse
@@ -1149,7 +1174,7 @@ namespace Clickhouse20230522
       Models::StartDBInstanceResponse startDBInstance(const Models::StartDBInstanceRequest &request);
 
       /**
-       * @summary Stops an ApsaraDB for ClickHouse Enterprise Edition cluster.
+       * @summary Calls the StopDBInstance operation to pause an ApsaraDB for ClickHouse Enterprise Edition cluster.
        *
        * @param request StopDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1158,7 +1183,7 @@ namespace Clickhouse20230522
       Models::StopDBInstanceResponse stopDBInstanceWithOptions(const Models::StopDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops an ApsaraDB for ClickHouse Enterprise Edition cluster.
+       * @summary Calls the StopDBInstance operation to pause an ApsaraDB for ClickHouse Enterprise Edition cluster.
        *
        * @param request StopDBInstanceRequest
        * @return StopDBInstanceResponse
@@ -1183,7 +1208,7 @@ namespace Clickhouse20230522
       Models::UpdateWhitelistTemplateResponse updateWhitelistTemplate(const Models::UpdateWhitelistTemplateRequest &request);
 
       /**
-       * @summary Updates the minor engine version of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary Upgrades the minor engine version of a specified ApsaraDB for ClickHouse cluster.
        *
        * @param request UpgradeMinorVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1192,7 +1217,7 @@ namespace Clickhouse20230522
       Models::UpgradeMinorVersionResponse upgradeMinorVersionWithOptions(const Models::UpgradeMinorVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the minor engine version of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+       * @summary Upgrades the minor engine version of a specified ApsaraDB for ClickHouse cluster.
        *
        * @param request UpgradeMinorVersionRequest
        * @return UpgradeMinorVersionResponse

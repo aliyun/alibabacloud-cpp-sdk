@@ -1018,7 +1018,7 @@ DeleteDBResponse Client::deleteDB(const DeleteDBRequest &request) {
 }
 
 /**
- * @summary The DeleteDBInstance operation releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
+ * @summary Calls the DeleteDBInstance operation to release an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request DeleteDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1053,7 +1053,7 @@ DeleteDBInstanceResponse Client::deleteDBInstanceWithOptions(const DeleteDBInsta
 }
 
 /**
- * @summary The DeleteDBInstance operation releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
+ * @summary Calls the DeleteDBInstance operation to release an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request DeleteDBInstanceRequest
  * @return DeleteDBInstanceResponse
@@ -1064,7 +1064,7 @@ DeleteDBInstanceResponse Client::deleteDBInstance(const DeleteDBInstanceRequest 
 }
 
 /**
- * @summary Deletes a public endpoint.
+ * @summary Releases a public endpoint.
  *
  * @param request DeleteEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1111,7 +1111,7 @@ DeleteEndpointResponse Client::deleteEndpointWithOptions(const DeleteEndpointReq
 }
 
 /**
- * @summary Deletes a public endpoint.
+ * @summary Releases a public endpoint.
  *
  * @param request DeleteEndpointRequest
  * @return DeleteEndpointResponse
@@ -1768,7 +1768,7 @@ DescribeDBInstanceConfigChangeLogResponse Client::describeDBInstanceConfigChange
 }
 
 /**
- * @summary Queries the schema of a database or a table.
+ * @summary Queries the data structure of a database or table by calling the DescribeDBInstanceDataSources operation.
  *
  * @param request DescribeDBInstanceDataSourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1811,7 +1811,7 @@ DescribeDBInstanceDataSourcesResponse Client::describeDBInstanceDataSourcesWithO
 }
 
 /**
- * @summary Queries the schema of a database or a table.
+ * @summary Queries the data structure of a database or table by calling the DescribeDBInstanceDataSources operation.
  *
  * @param request DescribeDBInstanceDataSourcesRequest
  * @return DescribeDBInstanceDataSourcesResponse
@@ -1822,7 +1822,7 @@ DescribeDBInstanceDataSourcesResponse Client::describeDBInstanceDataSources(cons
 }
 
 /**
- * @summary Call the DescribeDBInstances API to query a list of DB instances.
+ * @summary Queries the list of clusters.
  *
  * @param request DescribeDBInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1885,7 +1885,7 @@ DescribeDBInstancesResponse Client::describeDBInstancesWithOptions(const Describ
 }
 
 /**
- * @summary Call the DescribeDBInstances API to query a list of DB instances.
+ * @summary Queries the list of clusters.
  *
  * @param request DescribeDBInstancesRequest
  * @return DescribeDBInstancesResponse
@@ -2376,6 +2376,8 @@ DescribeLangfuseUsersResponse Client::describeLangfuseUsers(const DescribeLangfu
 /**
  * @summary Calls the DescribeProcessList operation to view queries that are currently running.
  *
+ * @description > This operation supports only community-compatible edition clusters created after December 01, 2021.
+ *
  * @param request DescribeProcessListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeProcessListResponse
@@ -2442,6 +2444,8 @@ DescribeProcessListResponse Client::describeProcessListWithOptions(const Describ
 
 /**
  * @summary Calls the DescribeProcessList operation to view queries that are currently running.
+ *
+ * @description > This operation supports only community-compatible edition clusters created after December 01, 2021.
  *
  * @param request DescribeProcessListRequest
  * @return DescribeProcessListResponse
@@ -2530,7 +2534,7 @@ DescribeSecurityIPListResponse Client::describeSecurityIPList(const DescribeSecu
 }
 
 /**
- * @summary Call DescribeSlowLogRecords to query slow log records.
+ * @summary Queries slow query log details by calling the DescribeSlowLogRecords operation.
  *
  * @param request DescribeSlowLogRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2589,7 +2593,7 @@ DescribeSlowLogRecordsResponse Client::describeSlowLogRecordsWithOptions(const D
 }
 
 /**
- * @summary Call DescribeSlowLogRecords to query slow log records.
+ * @summary Queries slow query log details by calling the DescribeSlowLogRecords operation.
  *
  * @param request DescribeSlowLogRecordsRequest
  * @return DescribeSlowLogRecordsResponse
@@ -2600,7 +2604,7 @@ DescribeSlowLogRecordsResponse Client::describeSlowLogRecords(const DescribeSlow
 }
 
 /**
- * @summary Queries the slow log trend.
+ * @summary Queries slow log trends by calling the DescribeSlowLogTrend operation.
  *
  * @param request DescribeSlowLogTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2655,7 +2659,7 @@ DescribeSlowLogTrendResponse Client::describeSlowLogTrendWithOptions(const Descr
 }
 
 /**
- * @summary Queries the slow log trend.
+ * @summary Queries slow log trends by calling the DescribeSlowLogTrend operation.
  *
  * @param request DescribeSlowLogTrendRequest
  * @return DescribeSlowLogTrendResponse
@@ -2762,7 +2766,9 @@ GetWhitelistTemplateResponse Client::getWhitelistTemplate(const GetWhitelistTemp
 }
 
 /**
- * @summary Terminates a running task.
+ * @summary Stops an ongoing task.
+ *
+ * @description Make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse before you call this operation.
  *
  * @param request KillProcessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2805,7 +2811,9 @@ KillProcessResponse Client::killProcessWithOptions(const KillProcessRequest &req
 }
 
 /**
- * @summary Terminates a running task.
+ * @summary Stops an ongoing task.
+ *
+ * @description Make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse before you call this operation.
  *
  * @param request KillProcessRequest
  * @return KillProcessResponse
@@ -3078,7 +3086,7 @@ ModifyAccountDescriptionResponse Client::modifyAccountDescription(const ModifyAc
 /**
  * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
  *
- * @description > Data backup is supported only for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
+ * @description >ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
  *
  * @param request ModifyBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3127,7 +3135,7 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicyWithOptions(const ModifyBac
 /**
  * @summary Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
  *
- * @description > Data backup is supported only for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
+ * @description >ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
  *
  * @param request ModifyBackupPolicyRequest
  * @return ModifyBackupPolicyResponse
@@ -3196,9 +3204,9 @@ ModifyDBInstanceAttributeResponse Client::modifyDBInstanceAttribute(const Modify
 }
 
 /**
- * @summary Use `ModifyDBInstanceClass` to modify the scaling configuration of a cluster.
+ * @summary Modifies the elastic configuration of an ApsaraDB for ClickHouse cluster.
  *
- * @description Before you call this API, make sure that you understand the billing method and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
+ * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
  *
  * @param tmpReq ModifyDBInstanceClassRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3275,9 +3283,9 @@ ModifyDBInstanceClassResponse Client::modifyDBInstanceClassWithOptions(const Mod
 }
 
 /**
- * @summary Use `ModifyDBInstanceClass` to modify the scaling configuration of a cluster.
+ * @summary Modifies the elastic configuration of an ApsaraDB for ClickHouse cluster.
  *
- * @description Before you call this API, make sure that you understand the billing method and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
+ * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
  *
  * @param request ModifyDBInstanceClassRequest
  * @return ModifyDBInstanceClassResponse
@@ -3338,7 +3346,7 @@ ModifyDBInstanceConfigResponse Client::modifyDBInstanceConfig(const ModifyDBInst
 }
 
 /**
- * @summary Modifies the connection string of a cluster.
+ * @summary Calls the ModifyDBInstanceConnectionString operation to modify the endpoint of a cluster.
  *
  * @param request ModifyDBInstanceConnectionStringRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3393,7 +3401,7 @@ ModifyDBInstanceConnectionStringResponse Client::modifyDBInstanceConnectionStrin
 }
 
 /**
- * @summary Modifies the connection string of a cluster.
+ * @summary Calls the ModifyDBInstanceConnectionString operation to modify the endpoint of a cluster.
  *
  * @param request ModifyDBInstanceConnectionStringRequest
  * @return ModifyDBInstanceConnectionStringResponse
@@ -3524,7 +3532,65 @@ ModifyLangfuseProjectMembershipResponse Client::modifyLangfuseProjectMembership(
 }
 
 /**
- * @summary Modifies the whitelist settings of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the whitelist of a Langfuse instance.
+ *
+ * @param request ModifyLangfuseSecurityIPListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyLangfuseSecurityIPListResponse
+ */
+ModifyLangfuseSecurityIPListResponse Client::modifyLangfuseSecurityIPListWithOptions(const ModifyLangfuseSecurityIPListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasGroupName()) {
+    query["GroupName"] = request.getGroupName();
+  }
+
+  if (!!request.hasModifyMode()) {
+    query["ModifyMode"] = request.getModifyMode();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSecurityIPList()) {
+    query["SecurityIPList"] = request.getSecurityIPList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyLangfuseSecurityIPList"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyLangfuseSecurityIPListResponse>();
+}
+
+/**
+ * @summary Modifies the whitelist of a Langfuse instance.
+ *
+ * @param request ModifyLangfuseSecurityIPListRequest
+ * @return ModifyLangfuseSecurityIPListResponse
+ */
+ModifyLangfuseSecurityIPListResponse Client::modifyLangfuseSecurityIPList(const ModifyLangfuseSecurityIPListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyLangfuseSecurityIPListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the whitelist settings of a cluster.
  *
  * @param request ModifySecurityIPListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3571,7 +3637,7 @@ ModifySecurityIPListResponse Client::modifySecurityIPListWithOptions(const Modif
 }
 
 /**
- * @summary Modifies the whitelist settings of an ApsaraDB for ClickHouse cluster.
+ * @summary Modifies the whitelist settings of a cluster.
  *
  * @param request ModifySecurityIPListRequest
  * @return ModifySecurityIPListResponse
@@ -3694,7 +3760,7 @@ ResetLangfuseUserPasswordResponse Client::resetLangfuseUserPassword(const ResetL
 }
 
 /**
- * @summary Restarts an ApsaraDB for ClickHouse Enterprise Edition cluster.
+ * @summary Restarts an ApsaraDB for ClickHouse cluster.
  *
  * @param request RestartDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3729,7 +3795,7 @@ RestartDBInstanceResponse Client::restartDBInstanceWithOptions(const RestartDBIn
 }
 
 /**
- * @summary Restarts an ApsaraDB for ClickHouse Enterprise Edition cluster.
+ * @summary Restarts an ApsaraDB for ClickHouse cluster.
  *
  * @param request RestartDBInstanceRequest
  * @return RestartDBInstanceResponse
@@ -3740,7 +3806,7 @@ RestartDBInstanceResponse Client::restartDBInstance(const RestartDBInstanceReque
 }
 
 /**
- * @summary Starts an ApsaraDB for ClickHouse Enterprise Edition cluster.
+ * @summary Calls the StartDBInstance operation to start an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request StartDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3775,7 +3841,7 @@ StartDBInstanceResponse Client::startDBInstanceWithOptions(const StartDBInstance
 }
 
 /**
- * @summary Starts an ApsaraDB for ClickHouse Enterprise Edition cluster.
+ * @summary Calls the StartDBInstance operation to start an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request StartDBInstanceRequest
  * @return StartDBInstanceResponse
@@ -3786,7 +3852,7 @@ StartDBInstanceResponse Client::startDBInstance(const StartDBInstanceRequest &re
 }
 
 /**
- * @summary Stops an ApsaraDB for ClickHouse Enterprise Edition cluster.
+ * @summary Calls the StopDBInstance operation to pause an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request StopDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3821,7 +3887,7 @@ StopDBInstanceResponse Client::stopDBInstanceWithOptions(const StopDBInstanceReq
 }
 
 /**
- * @summary Stops an ApsaraDB for ClickHouse Enterprise Edition cluster.
+ * @summary Calls the StopDBInstance operation to pause an ApsaraDB for ClickHouse Enterprise Edition cluster.
  *
  * @param request StopDBInstanceRequest
  * @return StopDBInstanceResponse
@@ -3886,7 +3952,7 @@ UpdateWhitelistTemplateResponse Client::updateWhitelistTemplate(const UpdateWhit
 }
 
 /**
- * @summary Updates the minor engine version of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary Upgrades the minor engine version of a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request UpgradeMinorVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3933,7 +3999,7 @@ UpgradeMinorVersionResponse Client::upgradeMinorVersionWithOptions(const Upgrade
 }
 
 /**
- * @summary Updates the minor engine version of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+ * @summary Upgrades the minor engine version of a specified ApsaraDB for ClickHouse cluster.
  *
  * @param request UpgradeMinorVersionRequest
  * @return UpgradeMinorVersionResponse

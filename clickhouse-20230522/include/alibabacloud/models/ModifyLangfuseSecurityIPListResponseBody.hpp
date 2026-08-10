@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_MODIFYSECURITYIPLISTRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_MODIFYSECURITYIPLISTRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_MODIFYLANGFUSESECURITYIPLISTRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_MODIFYLANGFUSESECURITYIPLISTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,23 +10,23 @@ namespace Clickhouse20230522
 {
 namespace Models
 {
-  class ModifySecurityIPListResponseBody : public Darabonba::Model {
+  class ModifyLangfuseSecurityIPListResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const ModifySecurityIPListResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const ModifyLangfuseSecurityIPListResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
-    friend void from_json(const Darabonba::Json& j, ModifySecurityIPListResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, ModifyLangfuseSecurityIPListResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
-    ModifySecurityIPListResponseBody() = default ;
-    ModifySecurityIPListResponseBody(const ModifySecurityIPListResponseBody &) = default ;
-    ModifySecurityIPListResponseBody(ModifySecurityIPListResponseBody &&) = default ;
-    ModifySecurityIPListResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~ModifySecurityIPListResponseBody() = default ;
-    ModifySecurityIPListResponseBody& operator=(const ModifySecurityIPListResponseBody &) = default ;
-    ModifySecurityIPListResponseBody& operator=(ModifySecurityIPListResponseBody &&) = default ;
+    ModifyLangfuseSecurityIPListResponseBody() = default ;
+    ModifyLangfuseSecurityIPListResponseBody(const ModifyLangfuseSecurityIPListResponseBody &) = default ;
+    ModifyLangfuseSecurityIPListResponseBody(ModifyLangfuseSecurityIPListResponseBody &&) = default ;
+    ModifyLangfuseSecurityIPListResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ModifyLangfuseSecurityIPListResponseBody() = default ;
+    ModifyLangfuseSecurityIPListResponseBody& operator=(const ModifyLangfuseSecurityIPListResponseBody &) = default ;
+    ModifyLangfuseSecurityIPListResponseBody& operator=(ModifyLangfuseSecurityIPListResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -124,17 +124,17 @@ namespace Models
 
 
     protected:
-      // The cluster ID.
+      // The instance ID.
       shared_ptr<int32_t> DBInstanceID_ {};
-      // The cluster name.
+      // The Langfuse instance ID.
       shared_ptr<string> DBInstanceName_ {};
-      // The group name.
+      // The name of the whitelist group.
       shared_ptr<string> groupName_ {};
       // The group tag.
       shared_ptr<string> groupTag_ {};
-      // The list of IP addresses in the whitelist group.
+      // The IP whitelist.
       shared_ptr<string> securityIPList_ {};
-      // The IP address type.
+      // The IP address type. The value is fixed to IPv4. IPv6 is not supported.
       shared_ptr<string> securityIPType_ {};
       // The task ID.
       shared_ptr<int32_t> taskId_ {};
@@ -147,23 +147,23 @@ namespace Models
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const ModifySecurityIPListResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, ModifySecurityIPListResponseBody::Data) };
-    inline ModifySecurityIPListResponseBody::Data getData() { DARABONBA_PTR_GET(data_, ModifySecurityIPListResponseBody::Data) };
-    inline ModifySecurityIPListResponseBody& setData(const ModifySecurityIPListResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ModifySecurityIPListResponseBody& setData(ModifySecurityIPListResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const ModifyLangfuseSecurityIPListResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, ModifyLangfuseSecurityIPListResponseBody::Data) };
+    inline ModifyLangfuseSecurityIPListResponseBody::Data getData() { DARABONBA_PTR_GET(data_, ModifyLangfuseSecurityIPListResponseBody::Data) };
+    inline ModifyLangfuseSecurityIPListResponseBody& setData(const ModifyLangfuseSecurityIPListResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ModifyLangfuseSecurityIPListResponseBody& setData(ModifyLangfuseSecurityIPListResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline ModifySecurityIPListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline ModifyLangfuseSecurityIPListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    // The returned data.
-    shared_ptr<ModifySecurityIPListResponseBody::Data> data_ {};
-    // The request ID.
+    // The returned result.
+    shared_ptr<ModifyLangfuseSecurityIPListResponseBody::Data> data_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

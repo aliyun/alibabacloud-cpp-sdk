@@ -120,15 +120,15 @@ namespace Models
 
 
       protected:
-        // The average execution duration, in milliseconds, of slow SQL queries within the time interval.
+        // The average execution duration of slow SQL statements. Unit: ms. The minimum value is **1000**.
         shared_ptr<int64_t> avgQueryDurationMs_ {};
-        // The number of slow SQL queries in the time interval.
+        // The total number of SQL statements within the current time period.
         shared_ptr<int64_t> cnt_ {};
-        // The maximum execution duration, in milliseconds, of slow SQL queries within the time interval.
+        // The maximum execution duration of slow SQL statements. Unit: ms. The minimum value is **1000**.
         shared_ptr<int64_t> maxQueryDurationMs_ {};
-        // The minimum execution duration, in milliseconds, of slow SQL queries within the time interval.
+        // The minimum execution duration of slow SQL statements. Unit: ms. The minimum value is **1000**.
         shared_ptr<int64_t> minQueryDurationMs_ {};
-        // The start of the time interval for the data point. The time is in UTC and uses the yyyy-MM-dd hh:mm:ss format.
+        // The time when the query starts. Format: yyyy-MM-dd hh:mm:ss (UTC).
         shared_ptr<string> queryStartTime_ {};
       };
 
@@ -185,7 +185,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned result.
     shared_ptr<DescribeSlowLogTrendResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
