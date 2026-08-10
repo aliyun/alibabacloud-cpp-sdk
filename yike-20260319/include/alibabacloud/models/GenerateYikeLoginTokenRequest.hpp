@@ -103,13 +103,28 @@ namespace Models
 
 
   protected:
+    // Specifies whether automatic creation of a project is enabled. Default value: false.
     shared_ptr<string> autoCreateProduction_ {};
+    // The token expiration time, in seconds. Default value: 30 days.
     shared_ptr<string> expires_ {};
+    // The nickname.
+    // 
+    // - Format check: The maximum length is 50 characters.
+    // - Special character check: Chinese characters, English letters, digits, _ \\ / () ] [
     shared_ptr<string> nickName_ {};
+    // The role of the user in the project. Valid values:
+    // 
+    // - common: Regular member.
+    // - edit: Operator with editing permissions.
+    // - manage: Administrator.
     shared_ptr<string> productionAuth_ {};
+    // The default credits granted to the user.
     shared_ptr<string> subUserCredit_ {};
+    // The tenant ID. Submit a ticket to create one.
     shared_ptr<string> tenant_ {};
+    // The username.
     shared_ptr<string> userName_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

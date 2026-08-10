@@ -105,11 +105,17 @@ namespace Models
 
 
     protected:
+      // The ID of the infinite canvas.
       shared_ptr<string> canvasId_ {};
+      // The cover URL.
       shared_ptr<string> coverUrl_ {};
+      // The creation time in UTC.
       shared_ptr<string> gmtCreate_ {};
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
+      // The thumbnail URL.
       shared_ptr<string> thumbnail_ {};
+      // The title of the infinite canvas.
       shared_ptr<string> title_ {};
     };
 
@@ -132,7 +138,9 @@ namespace Models
 
 
   protected:
+    // The details of the infinite canvas.
     shared_ptr<GetInfiniteCanvasResponseBody::InfiniteCanvas> infiniteCanvas_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

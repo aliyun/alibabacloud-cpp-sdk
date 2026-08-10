@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The session expiration time (UNIX timestamp in milliseconds).
     shared_ptr<string> expiresAt_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The logon token.
     shared_ptr<string> token_ {};
+    // The generated user ID.
     shared_ptr<string> userId_ {};
   };
 

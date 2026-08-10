@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The cover URL.
     shared_ptr<string> coverUrl_ {};
+    // The project ID.
     shared_ptr<string> productionId_ {};
+    // The title of the infinite canvas.
+    // 
     // This parameter is required.
     shared_ptr<string> title_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

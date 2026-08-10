@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the infinite canvas.
+    // 
     // This parameter is required.
     shared_ptr<string> canvasId_ {};
   };

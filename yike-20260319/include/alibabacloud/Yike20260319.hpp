@@ -89,10 +89,10 @@ namespace Yike20260319
       Models::BatchGetYikeAssetMediaInfosResponse batchGetYikeAssetMediaInfos(const Models::BatchGetYikeAssetMediaInfosRequest &request);
 
       /**
-       * @summary 创建无限画布
+       * @summary Creates an infinite canvas.
        *
-       * @description ## 请求说明
-       * 该API用于查询媒资内容理解作业。
+       * @description ## Operation description
+       * This API operation is used to query media asset content understanding jobs.
        *
        * @param request CreateInfiniteCanvasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -101,10 +101,10 @@ namespace Yike20260319
       Models::CreateInfiniteCanvasResponse createInfiniteCanvasWithOptions(const Models::CreateInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建无限画布
+       * @summary Creates an infinite canvas.
        *
-       * @description ## 请求说明
-       * 该API用于查询媒资内容理解作业。
+       * @description ## Operation description
+       * This API operation is used to query media asset content understanding jobs.
        *
        * @param request CreateInfiniteCanvasRequest
        * @return CreateInfiniteCanvasResponse
@@ -197,7 +197,7 @@ namespace Yike20260319
       Models::CreateYikeWorkspaceResponse createYikeWorkspace(const Models::CreateYikeWorkspaceRequest &request);
 
       /**
-       * @summary 删除无限画布
+       * @summary Deletes an infinite canvas.
        *
        * @param request DeleteInfiniteCanvasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -206,7 +206,7 @@ namespace Yike20260319
       Models::DeleteInfiniteCanvasResponse deleteInfiniteCanvasWithOptions(const Models::DeleteInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除无限画布
+       * @summary Deletes an infinite canvas.
        *
        * @param request DeleteInfiniteCanvasRequest
        * @return DeleteInfiniteCanvasResponse
@@ -231,7 +231,7 @@ namespace Yike20260319
       Models::DeleteYikeAssetMediaInfosResponse deleteYikeAssetMediaInfos(const Models::DeleteYikeAssetMediaInfosRequest &request);
 
       /**
-       * @summary 获取企业账号登录Token
+       * @summary Retrieves a logon token for an Enterprise Account Center account.
        *
        * @param request GenerateYikeLoginTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -240,7 +240,7 @@ namespace Yike20260319
       Models::GenerateYikeLoginTokenResponse generateYikeLoginTokenWithOptions(const Models::GenerateYikeLoginTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取企业账号登录Token
+       * @summary Retrieves a logon token for an Enterprise Account Center account.
        *
        * @param request GenerateYikeLoginTokenRequest
        * @return GenerateYikeLoginTokenResponse
@@ -269,7 +269,7 @@ namespace Yike20260319
       Models::GetImageGenerationJobResponse getImageGenerationJob(const Models::GetImageGenerationJobRequest &request);
 
       /**
-       * @summary 查询无限画布
+       * @summary Queries an infinite canvas.
        *
        * @param request GetInfiniteCanvasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -278,7 +278,7 @@ namespace Yike20260319
       Models::GetInfiniteCanvasResponse getInfiniteCanvasWithOptions(const Models::GetInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询无限画布
+       * @summary Queries an infinite canvas.
        *
        * @param request GetInfiniteCanvasRequest
        * @return GetInfiniteCanvasResponse
@@ -511,7 +511,7 @@ namespace Yike20260319
       Models::GetYikeVoiceNarratorJobResponse getYikeVoiceNarratorJob(const Models::GetYikeVoiceNarratorJobRequest &request);
 
       /**
-       * @summary 查询无限画布列表
+       * @summary Queries the list of infinite canvases.
        *
        * @param request ListInfiniteCanvasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -520,7 +520,7 @@ namespace Yike20260319
       Models::ListInfiniteCanvasesResponse listInfiniteCanvasesWithOptions(const Models::ListInfiniteCanvasesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询无限画布列表
+       * @summary Queries the list of infinite canvases.
        *
        * @param request ListInfiniteCanvasesRequest
        * @return ListInfiniteCanvasesResponse
@@ -740,11 +740,10 @@ namespace Yike20260319
       Models::SubmitYikeAIAppJobResponse submitYikeAIAppJob(const Models::SubmitYikeAIAppJobRequest &request);
 
       /**
-       * @summary Creates an intelligent video production task for a digital human oral broadcasting scenario. This operation is applicable to video scenarios such as influencer product promotion and knowledge explanation.
+       * @summary Creates an intelligent video production task for digital human oral broadcasting scenarios, applicable to video scenarios such as influencer product promotion and knowledge explanation.
        *
-       * @description ## Description
-       * This operation generates a video in which a virtual human delivers an oral broadcast based on the provided text content and other parameters such as digital human information and application scenario type. You must specify key configuration items including the text type (raw script or oral broadcast script), video dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can use the `UserData` field to pass custom parameters, which are returned as-is in the callback.
-       * Common scenarios: influencer product promotion, knowledge explanation, and similar video scenarios.
+       * @description ## Request description
+       * This API generates a video featuring a virtual human delivering an oral broadcast based on the provided text content and other parameters such as digital human information and common scenario type. Specify the text type (raw script or oral broadcast script), output dimensions, and resolution as key configuration items. You can optionally add subtitles or specify output languages. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
        *
        * @param request SubmitYikeAvatarNarratorJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -753,11 +752,10 @@ namespace Yike20260319
       Models::SubmitYikeAvatarNarratorJobResponse submitYikeAvatarNarratorJobWithOptions(const Models::SubmitYikeAvatarNarratorJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an intelligent video production task for a digital human oral broadcasting scenario. This operation is applicable to video scenarios such as influencer product promotion and knowledge explanation.
+       * @summary Creates an intelligent video production task for digital human oral broadcasting scenarios, applicable to video scenarios such as influencer product promotion and knowledge explanation.
        *
-       * @description ## Description
-       * This operation generates a video in which a virtual human delivers an oral broadcast based on the provided text content and other parameters such as digital human information and application scenario type. You must specify key configuration items including the text type (raw script or oral broadcast script), video dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can use the `UserData` field to pass custom parameters, which are returned as-is in the callback.
-       * Common scenarios: influencer product promotion, knowledge explanation, and similar video scenarios.
+       * @description ## Request description
+       * This API generates a video featuring a virtual human delivering an oral broadcast based on the provided text content and other parameters such as digital human information and common scenario type. Specify the text type (raw script or oral broadcast script), output dimensions, and resolution as key configuration items. You can optionally add subtitles or specify output languages. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
        *
        * @param request SubmitYikeAvatarNarratorJobRequest
        * @return SubmitYikeAvatarNarratorJobResponse
@@ -854,7 +852,7 @@ namespace Yike20260319
       Models::SubmitYikeVoiceNarratorJobResponse submitYikeVoiceNarratorJob(const Models::SubmitYikeVoiceNarratorJobRequest &request);
 
       /**
-       * @summary 更新无限画布信息
+       * @summary Updates the information of an infinite canvas.
        *
        * @param request UpdateInfiniteCanvasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -863,7 +861,7 @@ namespace Yike20260319
       Models::UpdateInfiniteCanvasResponse updateInfiniteCanvasWithOptions(const Models::UpdateInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新无限画布信息
+       * @summary Updates the information of an infinite canvas.
        *
        * @param request UpdateInfiniteCanvasRequest
        * @return UpdateInfiniteCanvasResponse

@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The ID of the infinite canvas.
+    // 
     // This parameter is required.
     shared_ptr<string> canvasId_ {};
+    // The cover URL.
     shared_ptr<string> coverUrl_ {};
+    // The title of the infinite canvas.
     shared_ptr<string> title_ {};
   };
 

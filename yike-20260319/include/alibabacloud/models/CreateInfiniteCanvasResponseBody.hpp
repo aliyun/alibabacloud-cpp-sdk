@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The canvas ID.
     shared_ptr<string> canvasId_ {};
+    // RequestId
     shared_ptr<string> requestId_ {};
   };
 

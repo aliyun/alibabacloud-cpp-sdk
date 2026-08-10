@@ -112,11 +112,17 @@ namespace Models
 
 
     protected:
+      // The infinite canvas ID.
       shared_ptr<string> canvasId_ {};
+      // The cover URL.
       shared_ptr<string> coverUrl_ {};
+      // The creation time, in milliseconds.
       shared_ptr<string> gmtCreate_ {};
+      // The last modification time.
       shared_ptr<string> gmtModified_ {};
+      // The thumbnail height, in px.
       shared_ptr<string> thumbnail_ {};
+      // The title of the infinite canvas.
       shared_ptr<string> title_ {};
     };
 
@@ -160,10 +166,15 @@ namespace Models
 
 
   protected:
+    // The list of infinite canvases.
     shared_ptr<vector<ListInfiniteCanvasesResponseBody::CanvasList>> canvasList_ {};
+    // The current page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of infinite canvases.
     shared_ptr<int32_t> totalCount_ {};
   };
 

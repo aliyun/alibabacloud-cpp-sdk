@@ -75,10 +75,19 @@ namespace Models
 
 
   protected:
+    // The query keyword. Currently, only searching by infinite canvas ID is supported.
     shared_ptr<string> keyword_ {};
+    // The current page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The field by which the results are sorted.
     shared_ptr<string> sortBy_ {};
+    // The sort order. Valid values:
+    // 
+    //  * asc: ascending order
+    // 
+    //  * desc: descending order
     shared_ptr<string> sortOrder_ {};
   };
 
