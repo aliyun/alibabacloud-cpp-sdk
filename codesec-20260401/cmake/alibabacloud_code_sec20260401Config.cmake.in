@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_code_sec20260401Targets.cmake")
+check_required_components("alibabacloud_code_sec20260401")
