@@ -1837,11 +1837,10 @@ namespace Dds20151201
       Models::ModifyActiveOperationTasksResponse modifyActiveOperationTasks(const Models::ModifyActiveOperationTasksRequest &request);
 
       /**
-       * @summary Modifies the audit log types collected for a MongoDB instance.
+       * @summary Modifies the collection types of audit logs for an ApsaraDB for MongoDB instance.
        *
-       * @description - The instance must be in the running state when you call this operation.
-       * - This operation is applicable only to **general-purpose local-disk** or **dedicated local-disk** instances.
-       * - You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+       * @description - The instance must be in the Running instance status when you invoke this operation.
+       * - This operation is limited to 30 calls per minute. If this limit is exceeded, the calls are throttled. Do not invoke this operation at a high frequency. If you require high-frequency calls, use a Logstore. For details, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
        *
        * @param request ModifyAuditLogFilterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1850,11 +1849,10 @@ namespace Dds20151201
       Models::ModifyAuditLogFilterResponse modifyAuditLogFilterWithOptions(const Models::ModifyAuditLogFilterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the audit log types collected for a MongoDB instance.
+       * @summary Modifies the collection types of audit logs for an ApsaraDB for MongoDB instance.
        *
-       * @description - The instance must be in the running state when you call this operation.
-       * - This operation is applicable only to **general-purpose local-disk** or **dedicated local-disk** instances.
-       * - You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+       * @description - The instance must be in the Running instance status when you invoke this operation.
+       * - This operation is limited to 30 calls per minute. If this limit is exceeded, the calls are throttled. Do not invoke this operation at a high frequency. If you require high-frequency calls, use a Logstore. For details, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
        *
        * @param request ModifyAuditLogFilterRequest
        * @return ModifyAuditLogFilterResponse

@@ -98,21 +98,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The type of logs collected by the audit log feature of the instance. Separate multiple types with commas (,). Valid values:
-    // 
-    // - **admin**: O\\&M and management operations
-    // 
-    // - **slow**: slow query logs
-    // 
-    // - **query**: query operations
-    // 
-    // - **insert**: insert operations
-    // 
-    // - **update**: update operations
-    // 
-    // - **delete**: delete operations
-    // 
-    // - **command**: protocol commands such as the aggregate method
+    // The collection types of audit logs. Separate multiple collection types with commas (,).
+    // - **admin**: O&M and management operations.
+    // - **slow**: Slow queries.
+    // - **query**: Query operations.
+    // - **insert**: Insert operations.  
+    // - **update**: Update operations.  
+    // - **delete**: Delete operations. 
+    // - **command**: Protocol commands, such as the aggregate method.
     // 
     // This parameter is required.
     shared_ptr<string> filter_ {};
@@ -121,10 +114,16 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The role of the node in the instance. Valid values:
+    // - **db**: shard node
+    // - **mongos**: mongos node
     // 
-    // - **primary**
     // 
-    // - **secondary**
+    // 
+    // 
+    // 
+    // 
+    // > Metric description
+    // > - This parameter applies only to sharded cluster instances. If this parameter is left empty, the default value db is used. You do not need to specify this parameter for replica set instances.
     shared_ptr<string> roleType_ {};
   };
 
