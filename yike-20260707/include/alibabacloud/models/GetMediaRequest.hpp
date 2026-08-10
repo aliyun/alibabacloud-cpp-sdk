@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The validity period of the signed file URL. Unit: seconds.
     shared_ptr<int64_t> authTimeout_ {};
+    // Currently unavailable.
     shared_ptr<string> inputURL_ {};
+    // The media asset ID. If this parameter is not empty, the system queries the media asset by this ID and validates whether the value is a valid MediaId.
     shared_ptr<string> mediaId_ {};
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The error code. This parameter is returned when the task is in the Failed state.
     shared_ptr<string> errorCode_ {};
+    // The task ID.
     shared_ptr<string> jobId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

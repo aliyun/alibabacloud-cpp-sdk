@@ -140,6 +140,66 @@ CreateAssetCategoryResponse Client::createAssetCategory(const CreateAssetCategor
 }
 
 /**
+ * @summary Creates an infinite canvas.
+ *
+ * @description ## Operation description
+ * This API operation is used to query media asset content understanding jobs.
+ *
+ * @param request CreateInfiniteCanvasRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateInfiniteCanvasResponse
+ */
+CreateInfiniteCanvasResponse Client::createInfiniteCanvasWithOptions(const CreateInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCoverUrl()) {
+    query["CoverUrl"] = request.getCoverUrl();
+  }
+
+  if (!!request.hasProductionId()) {
+    query["ProductionId"] = request.getProductionId();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateInfiniteCanvas"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateInfiniteCanvasResponse>();
+}
+
+/**
+ * @summary Creates an infinite canvas.
+ *
+ * @description ## Operation description
+ * This API operation is used to query media asset content understanding jobs.
+ *
+ * @param request CreateInfiniteCanvasRequest
+ * @return CreateInfiniteCanvasResponse
+ */
+CreateInfiniteCanvasResponse Client::createInfiniteCanvas(const CreateInfiniteCanvasRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createInfiniteCanvasWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a media asset category.
  *
  * @description This operation also deletes all subcategories (including second-level and third-level categories). Proceed with caution.
@@ -183,6 +243,54 @@ DeleteAssetCategoryResponse Client::deleteAssetCategoryWithOptions(const DeleteA
 DeleteAssetCategoryResponse Client::deleteAssetCategory(const DeleteAssetCategoryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteAssetCategoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes an infinite canvas.
+ *
+ * @description ## Operation description
+ * This API operation is used to query media asset content understanding jobs.
+ *
+ * @param request DeleteInfiniteCanvasRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteInfiniteCanvasResponse
+ */
+DeleteInfiniteCanvasResponse Client::deleteInfiniteCanvasWithOptions(const DeleteInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCanvasId()) {
+    query["CanvasId"] = request.getCanvasId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteInfiniteCanvas"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteInfiniteCanvasResponse>();
+}
+
+/**
+ * @summary Deletes an infinite canvas.
+ *
+ * @description ## Operation description
+ * This API operation is used to query media asset content understanding jobs.
+ *
+ * @param request DeleteInfiniteCanvasRequest
+ * @return DeleteInfiniteCanvasResponse
+ */
+DeleteInfiniteCanvasResponse Client::deleteInfiniteCanvas(const DeleteInfiniteCanvasRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteInfiniteCanvasWithOptions(request, runtime);
 }
 
 /**
@@ -233,6 +341,80 @@ DeleteMediasResponse Client::deleteMediasWithOptions(const DeleteMediasRequest &
 DeleteMediasResponse Client::deleteMedias(const DeleteMediasRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteMediasWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves a login token for an enterprise account.
+ *
+ * @description >Notice:  The AI generation-related API operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
+ *
+ * @param request GenerateYikeLoginTokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateYikeLoginTokenResponse
+ */
+GenerateYikeLoginTokenResponse Client::generateYikeLoginTokenWithOptions(const GenerateYikeLoginTokenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoCreateProduction()) {
+    query["AutoCreateProduction"] = request.getAutoCreateProduction();
+  }
+
+  if (!!request.hasExpires()) {
+    query["Expires"] = request.getExpires();
+  }
+
+  if (!!request.hasNickName()) {
+    query["NickName"] = request.getNickName();
+  }
+
+  if (!!request.hasProductionAuth()) {
+    query["ProductionAuth"] = request.getProductionAuth();
+  }
+
+  if (!!request.hasSubUserCredit()) {
+    query["SubUserCredit"] = request.getSubUserCredit();
+  }
+
+  if (!!request.hasTenant()) {
+    query["Tenant"] = request.getTenant();
+  }
+
+  if (!!request.hasUserName()) {
+    query["UserName"] = request.getUserName();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GenerateYikeLoginToken"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateYikeLoginTokenResponse>();
+}
+
+/**
+ * @summary Retrieves a login token for an enterprise account.
+ *
+ * @description >Notice:  The AI generation-related API operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
+ *
+ * @param request GenerateYikeLoginTokenRequest
+ * @return GenerateYikeLoginTokenResponse
+ */
+GenerateYikeLoginTokenResponse Client::generateYikeLoginToken(const GenerateYikeLoginTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return generateYikeLoginTokenWithOptions(request, runtime);
 }
 
 /**
@@ -320,10 +502,57 @@ GetImageGenerationJobResponse Client::getImageGenerationJob(const GetImageGenera
 }
 
 /**
- * @summary 查询媒资
+ * @summary Queries an infinite canvas.
  *
- * @description ## 请求说明
- * 该API用于查询媒资内容理解作业。
+ * @description ## Description
+ * This API is used to query a media asset content understanding job.
+ *
+ * @param request GetInfiniteCanvasRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInfiniteCanvasResponse
+ */
+GetInfiniteCanvasResponse Client::getInfiniteCanvasWithOptions(const GetInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCanvasId()) {
+    query["CanvasId"] = request.getCanvasId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetInfiniteCanvas"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInfiniteCanvasResponse>();
+}
+
+/**
+ * @summary Queries an infinite canvas.
+ *
+ * @description ## Description
+ * This API is used to query a media asset content understanding job.
+ *
+ * @param request GetInfiniteCanvasRequest
+ * @return GetInfiniteCanvasResponse
+ */
+GetInfiniteCanvasResponse Client::getInfiniteCanvas(const GetInfiniteCanvasRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getInfiniteCanvasWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a media asset.
+ *
+ * @description ## Operation description.
  *
  * @param request GetMediaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -362,10 +591,9 @@ GetMediaResponse Client::getMediaWithOptions(const GetMediaRequest &request, con
 }
 
 /**
- * @summary 查询媒资
+ * @summary Queries a media asset.
  *
- * @description ## 请求说明
- * 该API用于查询媒资内容理解作业。
+ * @description ## Operation description.
  *
  * @param request GetMediaRequest
  * @return GetMediaResponse
@@ -512,7 +740,7 @@ GetVideoGenerationJobResponse Client::getVideoGenerationJob(const GetVideoGenera
 }
 
 /**
- * @summary 查询爆款新视频渲染任务
+ * @summary Submits a video rendering and composition task.
  *
  * @param request GetVideoRenderJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -543,7 +771,7 @@ GetVideoRenderJobResponse Client::getVideoRenderJobWithOptions(const GetVideoRen
 }
 
 /**
- * @summary 查询爆款新视频渲染任务
+ * @summary Submits a video rendering and composition task.
  *
  * @param request GetVideoRenderJobRequest
  * @return GetVideoRenderJobResponse
@@ -551,6 +779,64 @@ GetVideoRenderJobResponse Client::getVideoRenderJobWithOptions(const GetVideoRen
 GetVideoRenderJobResponse Client::getVideoRenderJob(const GetVideoRenderJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getVideoRenderJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询视频翻译任务
+ *
+ * @description ## 请求说明
+ * - 该API用于根据`JobId`获取视频翻译任务的状态和详细信息。
+ * - `JobId`是必需参数，通过query或form方式传递。
+ * - 如果任务不存在或者不属于当前调用方，则返回`InvalidParameter`错误码与400状态码。
+ * - 成功响应时，HTTP状态码为200，任务对象位于`data.Job`中。
+ * - 当任务完成(`Status=Finished`)时，业务产物可以在`data.Job.Output`字段中找到，需要客户端进行一次JSON解析以获取具体结果。
+ * - 对于多语言目标的任务，直接使用`Output.AiResult.ResultMap`来获取各语言的具体结果；如果仅有一个目标语言，可以通过`data.Job.EditingProjectId`便捷地获取剪辑工程ID。
+ *
+ * @param request GetVideoTranslationJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVideoTranslationJobResponse
+ */
+GetVideoTranslationJobResponse Client::getVideoTranslationJobWithOptions(const GetVideoTranslationJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasJobId()) {
+    body["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetVideoTranslationJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVideoTranslationJobResponse>();
+}
+
+/**
+ * @summary 查询视频翻译任务
+ *
+ * @description ## 请求说明
+ * - 该API用于根据`JobId`获取视频翻译任务的状态和详细信息。
+ * - `JobId`是必需参数，通过query或form方式传递。
+ * - 如果任务不存在或者不属于当前调用方，则返回`InvalidParameter`错误码与400状态码。
+ * - 成功响应时，HTTP状态码为200，任务对象位于`data.Job`中。
+ * - 当任务完成(`Status=Finished`)时，业务产物可以在`data.Job.Output`字段中找到，需要客户端进行一次JSON解析以获取具体结果。
+ * - 对于多语言目标的任务，直接使用`Output.AiResult.ResultMap`来获取各语言的具体结果；如果仅有一个目标语言，可以通过`data.Job.EditingProjectId`便捷地获取剪辑工程ID。
+ *
+ * @param request GetVideoTranslationJobRequest
+ * @return GetVideoTranslationJobResponse
+ */
+GetVideoTranslationJobResponse Client::getVideoTranslationJob(const GetVideoTranslationJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getVideoTranslationJobWithOptions(request, runtime);
 }
 
 /**
@@ -773,6 +1059,70 @@ ListAssetCategoriesResponse Client::listAssetCategories(const ListAssetCategorie
 }
 
 /**
+ * @summary Queries the list of infinite canvases.
+ *
+ * @description ## Operation description
+ * This API is used to query media asset content understanding jobs.
+ *
+ * @param request ListInfiniteCanvasesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInfiniteCanvasesResponse
+ */
+ListInfiniteCanvasesResponse Client::listInfiniteCanvasesWithOptions(const ListInfiniteCanvasesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasSortOrder()) {
+    query["SortOrder"] = request.getSortOrder();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListInfiniteCanvases"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInfiniteCanvasesResponse>();
+}
+
+/**
+ * @summary Queries the list of infinite canvases.
+ *
+ * @description ## Operation description
+ * This API is used to query media asset content understanding jobs.
+ *
+ * @param request ListInfiniteCanvasesRequest
+ * @return ListInfiniteCanvasesResponse
+ */
+ListInfiniteCanvasesResponse Client::listInfiniteCanvases(const ListInfiniteCanvasesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listInfiniteCanvasesWithOptions(request, runtime);
+}
+
+/**
  * @summary Returns media asset information that matches the specified filter conditions.
  *
  * @param request SearchMediaRequest
@@ -913,10 +1263,10 @@ SubmitImageGenerationJobResponse Client::submitImageGenerationJob(const SubmitIm
 }
 
 /**
- * @summary 提交媒资内容理解作业
+ * @summary Submits a media asset content understanding job.
  *
- * @description ## 请求说明
- * 该API用于根据提供的媒资文件（比如视频链接）进行内容理解。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+ * @description ## Operation description
+ * This API operation performs content understanding based on the provided media asset files (such as video URLs). You can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
  *
  * @param request SubmitMediaComprehensionJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -959,10 +1309,10 @@ SubmitMediaComprehensionJobResponse Client::submitMediaComprehensionJobWithOptio
 }
 
 /**
- * @summary 提交媒资内容理解作业
+ * @summary Submits a media asset content understanding job.
  *
- * @description ## 请求说明
- * 该API用于根据提供的媒资文件（比如视频链接）进行内容理解。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+ * @description ## Operation description
+ * This API operation performs content understanding based on the provided media asset files (such as video URLs). You can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
  *
  * @param request SubmitMediaComprehensionJobRequest
  * @return SubmitMediaComprehensionJobResponse
@@ -973,9 +1323,9 @@ SubmitMediaComprehensionJobResponse Client::submitMediaComprehensionJob(const Su
 }
 
 /**
- * @summary 提交爆款复刻新脚本生成任务
+ * @summary Submits a creative script generation task.
  *
- * @description 该 API 用于根据内容理解的结果与新商品/模特信息，仿写生成新的口播脚本。此外，支持通过UserData字段传递自定义参数，在回调时原样返回。
+ * @description This API generates a new voiceover script based on content comprehension results and new product/model information by imitating the style of the original script. You can pass custom parameters through the UserData field, which are returned as-is in the callback.
  *
  * @param request SubmitRemakeScriptJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1014,9 +1364,9 @@ SubmitRemakeScriptJobResponse Client::submitRemakeScriptJobWithOptions(const Sub
 }
 
 /**
- * @summary 提交爆款复刻新脚本生成任务
+ * @summary Submits a creative script generation task.
  *
- * @description 该 API 用于根据内容理解的结果与新商品/模特信息，仿写生成新的口播脚本。此外，支持通过UserData字段传递自定义参数，在回调时原样返回。
+ * @description This API generates a new voiceover script based on content comprehension results and new product/model information by imitating the style of the original script. You can pass custom parameters through the UserData field, which are returned as-is in the callback.
  *
  * @param request SubmitRemakeScriptJobRequest
  * @return SubmitRemakeScriptJobResponse
@@ -1068,6 +1418,10 @@ SubmitVideoGenerationJobResponse Client::submitVideoGenerationJobWithOptions(con
     query["N"] = request.getN();
   }
 
+  if (!!request.hasOutput()) {
+    query["Output"] = request.getOutput();
+  }
+
   if (!!request.hasResolution()) {
     query["Resolution"] = request.getResolution();
   }
@@ -1109,7 +1463,7 @@ SubmitVideoGenerationJobResponse Client::submitVideoGenerationJob(const SubmitVi
 }
 
 /**
- * @summary 提交爆款新视频渲染任务
+ * @summary Submits a video rendering and compositing task.
  *
  * @param request SubmitVideoRenderJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1148,7 +1502,7 @@ SubmitVideoRenderJobResponse Client::submitVideoRenderJobWithOptions(const Submi
 }
 
 /**
- * @summary 提交爆款新视频渲染任务
+ * @summary Submits a video rendering and compositing task.
  *
  * @param request SubmitVideoRenderJobRequest
  * @return SubmitVideoRenderJobResponse
@@ -1294,6 +1648,62 @@ UpdateAssetCategoryResponse Client::updateAssetCategoryWithOptions(const UpdateA
 UpdateAssetCategoryResponse Client::updateAssetCategory(const UpdateAssetCategoryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateAssetCategoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the information of an infinite canvas.
+ *
+ * @description ## Operation description
+ * This API operation is used to query media asset content understanding jobs.
+ *
+ * @param request UpdateInfiniteCanvasRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateInfiniteCanvasResponse
+ */
+UpdateInfiniteCanvasResponse Client::updateInfiniteCanvasWithOptions(const UpdateInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCanvasId()) {
+    query["CanvasId"] = request.getCanvasId();
+  }
+
+  if (!!request.hasCoverUrl()) {
+    query["CoverUrl"] = request.getCoverUrl();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateInfiniteCanvas"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateInfiniteCanvasResponse>();
+}
+
+/**
+ * @summary Updates the information of an infinite canvas.
+ *
+ * @description ## Operation description
+ * This API operation is used to query media asset content understanding jobs.
+ *
+ * @param request UpdateInfiniteCanvasRequest
+ * @return UpdateInfiniteCanvasResponse
+ */
+UpdateInfiniteCanvasResponse Client::updateInfiniteCanvas(const UpdateInfiniteCanvasRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateInfiniteCanvasWithOptions(request, runtime);
 }
 
 /**

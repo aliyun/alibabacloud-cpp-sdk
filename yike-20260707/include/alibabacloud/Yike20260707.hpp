@@ -63,6 +63,29 @@ namespace Yike20260707
       Models::CreateAssetCategoryResponse createAssetCategory(const Models::CreateAssetCategoryRequest &request);
 
       /**
+       * @summary Creates an infinite canvas.
+       *
+       * @description ## Operation description
+       * This API operation is used to query media asset content understanding jobs.
+       *
+       * @param request CreateInfiniteCanvasRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateInfiniteCanvasResponse
+       */
+      Models::CreateInfiniteCanvasResponse createInfiniteCanvasWithOptions(const Models::CreateInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an infinite canvas.
+       *
+       * @description ## Operation description
+       * This API operation is used to query media asset content understanding jobs.
+       *
+       * @param request CreateInfiniteCanvasRequest
+       * @return CreateInfiniteCanvasResponse
+       */
+      Models::CreateInfiniteCanvasResponse createInfiniteCanvas(const Models::CreateInfiniteCanvasRequest &request);
+
+      /**
        * @summary Deletes a media asset category.
        *
        * @description This operation also deletes all subcategories (including second-level and third-level categories). Proceed with caution.
@@ -84,6 +107,29 @@ namespace Yike20260707
       Models::DeleteAssetCategoryResponse deleteAssetCategory(const Models::DeleteAssetCategoryRequest &request);
 
       /**
+       * @summary Deletes an infinite canvas.
+       *
+       * @description ## Operation description
+       * This API operation is used to query media asset content understanding jobs.
+       *
+       * @param request DeleteInfiniteCanvasRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteInfiniteCanvasResponse
+       */
+      Models::DeleteInfiniteCanvasResponse deleteInfiniteCanvasWithOptions(const Models::DeleteInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an infinite canvas.
+       *
+       * @description ## Operation description
+       * This API operation is used to query media asset content understanding jobs.
+       *
+       * @param request DeleteInfiniteCanvasRequest
+       * @return DeleteInfiniteCanvasResponse
+       */
+      Models::DeleteInfiniteCanvasResponse deleteInfiniteCanvas(const Models::DeleteInfiniteCanvasRequest &request);
+
+      /**
        * @summary Deletes media asset information.
        *
        * @param request DeleteMediasRequest
@@ -99,6 +145,27 @@ namespace Yike20260707
        * @return DeleteMediasResponse
        */
       Models::DeleteMediasResponse deleteMedias(const Models::DeleteMediasRequest &request);
+
+      /**
+       * @summary Retrieves a login token for an enterprise account.
+       *
+       * @description >Notice:  The AI generation-related API operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
+       *
+       * @param request GenerateYikeLoginTokenRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateYikeLoginTokenResponse
+       */
+      Models::GenerateYikeLoginTokenResponse generateYikeLoginTokenWithOptions(const Models::GenerateYikeLoginTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a login token for an enterprise account.
+       *
+       * @description >Notice:  The AI generation-related API operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
+       *
+       * @param request GenerateYikeLoginTokenRequest
+       * @return GenerateYikeLoginTokenResponse
+       */
+      Models::GenerateYikeLoginTokenResponse generateYikeLoginToken(const Models::GenerateYikeLoginTokenRequest &request);
 
       /**
        * @summary Retrieves the information of a specified category and the list of its subcategories (immediate child categories).
@@ -135,10 +202,32 @@ namespace Yike20260707
       Models::GetImageGenerationJobResponse getImageGenerationJob(const Models::GetImageGenerationJobRequest &request);
 
       /**
-       * @summary 查询媒资
+       * @summary Queries an infinite canvas.
        *
-       * @description ## 请求说明
-       * 该API用于查询媒资内容理解作业。
+       * @description ## Description
+       * This API is used to query a media asset content understanding job.
+       *
+       * @param request GetInfiniteCanvasRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInfiniteCanvasResponse
+       */
+      Models::GetInfiniteCanvasResponse getInfiniteCanvasWithOptions(const Models::GetInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries an infinite canvas.
+       *
+       * @description ## Description
+       * This API is used to query a media asset content understanding job.
+       *
+       * @param request GetInfiniteCanvasRequest
+       * @return GetInfiniteCanvasResponse
+       */
+      Models::GetInfiniteCanvasResponse getInfiniteCanvas(const Models::GetInfiniteCanvasRequest &request);
+
+      /**
+       * @summary Queries a media asset.
+       *
+       * @description ## Operation description.
        *
        * @param request GetMediaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -147,10 +236,9 @@ namespace Yike20260707
       Models::GetMediaResponse getMediaWithOptions(const Models::GetMediaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询媒资
+       * @summary Queries a media asset.
        *
-       * @description ## 请求说明
-       * 该API用于查询媒资内容理解作业。
+       * @description ## Operation description.
        *
        * @param request GetMediaRequest
        * @return GetMediaResponse
@@ -215,7 +303,7 @@ namespace Yike20260707
       Models::GetVideoGenerationJobResponse getVideoGenerationJob(const Models::GetVideoGenerationJobRequest &request);
 
       /**
-       * @summary 查询爆款新视频渲染任务
+       * @summary Submits a video rendering and composition task.
        *
        * @param request GetVideoRenderJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -224,12 +312,45 @@ namespace Yike20260707
       Models::GetVideoRenderJobResponse getVideoRenderJobWithOptions(const Models::GetVideoRenderJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询爆款新视频渲染任务
+       * @summary Submits a video rendering and composition task.
        *
        * @param request GetVideoRenderJobRequest
        * @return GetVideoRenderJobResponse
        */
       Models::GetVideoRenderJobResponse getVideoRenderJob(const Models::GetVideoRenderJobRequest &request);
+
+      /**
+       * @summary 查询视频翻译任务
+       *
+       * @description ## 请求说明
+       * - 该API用于根据`JobId`获取视频翻译任务的状态和详细信息。
+       * - `JobId`是必需参数，通过query或form方式传递。
+       * - 如果任务不存在或者不属于当前调用方，则返回`InvalidParameter`错误码与400状态码。
+       * - 成功响应时，HTTP状态码为200，任务对象位于`data.Job`中。
+       * - 当任务完成(`Status=Finished`)时，业务产物可以在`data.Job.Output`字段中找到，需要客户端进行一次JSON解析以获取具体结果。
+       * - 对于多语言目标的任务，直接使用`Output.AiResult.ResultMap`来获取各语言的具体结果；如果仅有一个目标语言，可以通过`data.Job.EditingProjectId`便捷地获取剪辑工程ID。
+       *
+       * @param request GetVideoTranslationJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetVideoTranslationJobResponse
+       */
+      Models::GetVideoTranslationJobResponse getVideoTranslationJobWithOptions(const Models::GetVideoTranslationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询视频翻译任务
+       *
+       * @description ## 请求说明
+       * - 该API用于根据`JobId`获取视频翻译任务的状态和详细信息。
+       * - `JobId`是必需参数，通过query或form方式传递。
+       * - 如果任务不存在或者不属于当前调用方，则返回`InvalidParameter`错误码与400状态码。
+       * - 成功响应时，HTTP状态码为200，任务对象位于`data.Job`中。
+       * - 当任务完成(`Status=Finished`)时，业务产物可以在`data.Job.Output`字段中找到，需要客户端进行一次JSON解析以获取具体结果。
+       * - 对于多语言目标的任务，直接使用`Output.AiResult.ResultMap`来获取各语言的具体结果；如果仅有一个目标语言，可以通过`data.Job.EditingProjectId`便捷地获取剪辑工程ID。
+       *
+       * @param request GetVideoTranslationJobRequest
+       * @return GetVideoTranslationJobResponse
+       */
+      Models::GetVideoTranslationJobResponse getVideoTranslationJob(const Models::GetVideoTranslationJobRequest &request);
 
       /**
        * @summary Retrieves the membership plan and credit information for a Yike primary account.
@@ -306,6 +427,29 @@ namespace Yike20260707
       Models::ListAssetCategoriesResponse listAssetCategories(const Models::ListAssetCategoriesRequest &request);
 
       /**
+       * @summary Queries the list of infinite canvases.
+       *
+       * @description ## Operation description
+       * This API is used to query media asset content understanding jobs.
+       *
+       * @param request ListInfiniteCanvasesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInfiniteCanvasesResponse
+       */
+      Models::ListInfiniteCanvasesResponse listInfiniteCanvasesWithOptions(const Models::ListInfiniteCanvasesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of infinite canvases.
+       *
+       * @description ## Operation description
+       * This API is used to query media asset content understanding jobs.
+       *
+       * @param request ListInfiniteCanvasesRequest
+       * @return ListInfiniteCanvasesResponse
+       */
+      Models::ListInfiniteCanvasesResponse listInfiniteCanvases(const Models::ListInfiniteCanvasesRequest &request);
+
+      /**
        * @summary Returns media asset information that matches the specified filter conditions.
        *
        * @param request SearchMediaRequest
@@ -340,10 +484,10 @@ namespace Yike20260707
       Models::SubmitImageGenerationJobResponse submitImageGenerationJob(const Models::SubmitImageGenerationJobRequest &request);
 
       /**
-       * @summary 提交媒资内容理解作业
+       * @summary Submits a media asset content understanding job.
        *
-       * @description ## 请求说明
-       * 该API用于根据提供的媒资文件（比如视频链接）进行内容理解。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+       * @description ## Operation description
+       * This API operation performs content understanding based on the provided media asset files (such as video URLs). You can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
        *
        * @param request SubmitMediaComprehensionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -352,10 +496,10 @@ namespace Yike20260707
       Models::SubmitMediaComprehensionJobResponse submitMediaComprehensionJobWithOptions(const Models::SubmitMediaComprehensionJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交媒资内容理解作业
+       * @summary Submits a media asset content understanding job.
        *
-       * @description ## 请求说明
-       * 该API用于根据提供的媒资文件（比如视频链接）进行内容理解。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+       * @description ## Operation description
+       * This API operation performs content understanding based on the provided media asset files (such as video URLs). You can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
        *
        * @param request SubmitMediaComprehensionJobRequest
        * @return SubmitMediaComprehensionJobResponse
@@ -363,9 +507,9 @@ namespace Yike20260707
       Models::SubmitMediaComprehensionJobResponse submitMediaComprehensionJob(const Models::SubmitMediaComprehensionJobRequest &request);
 
       /**
-       * @summary 提交爆款复刻新脚本生成任务
+       * @summary Submits a creative script generation task.
        *
-       * @description 该 API 用于根据内容理解的结果与新商品/模特信息，仿写生成新的口播脚本。此外，支持通过UserData字段传递自定义参数，在回调时原样返回。
+       * @description This API generates a new voiceover script based on content comprehension results and new product/model information by imitating the style of the original script. You can pass custom parameters through the UserData field, which are returned as-is in the callback.
        *
        * @param request SubmitRemakeScriptJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -374,9 +518,9 @@ namespace Yike20260707
       Models::SubmitRemakeScriptJobResponse submitRemakeScriptJobWithOptions(const Models::SubmitRemakeScriptJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交爆款复刻新脚本生成任务
+       * @summary Submits a creative script generation task.
        *
-       * @description 该 API 用于根据内容理解的结果与新商品/模特信息，仿写生成新的口播脚本。此外，支持通过UserData字段传递自定义参数，在回调时原样返回。
+       * @description This API generates a new voiceover script based on content comprehension results and new product/model information by imitating the style of the original script. You can pass custom parameters through the UserData field, which are returned as-is in the callback.
        *
        * @param request SubmitRemakeScriptJobRequest
        * @return SubmitRemakeScriptJobResponse
@@ -401,7 +545,7 @@ namespace Yike20260707
       Models::SubmitVideoGenerationJobResponse submitVideoGenerationJob(const Models::SubmitVideoGenerationJobRequest &request);
 
       /**
-       * @summary 提交爆款新视频渲染任务
+       * @summary Submits a video rendering and compositing task.
        *
        * @param request SubmitVideoRenderJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -410,7 +554,7 @@ namespace Yike20260707
       Models::SubmitVideoRenderJobResponse submitVideoRenderJobWithOptions(const Models::SubmitVideoRenderJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交爆款新视频渲染任务
+       * @summary Submits a video rendering and compositing task.
        *
        * @param request SubmitVideoRenderJobRequest
        * @return SubmitVideoRenderJobResponse
@@ -472,6 +616,29 @@ namespace Yike20260707
        * @return UpdateAssetCategoryResponse
        */
       Models::UpdateAssetCategoryResponse updateAssetCategory(const Models::UpdateAssetCategoryRequest &request);
+
+      /**
+       * @summary Updates the information of an infinite canvas.
+       *
+       * @description ## Operation description
+       * This API operation is used to query media asset content understanding jobs.
+       *
+       * @param request UpdateInfiniteCanvasRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateInfiniteCanvasResponse
+       */
+      Models::UpdateInfiniteCanvasResponse updateInfiniteCanvasWithOptions(const Models::UpdateInfiniteCanvasRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the information of an infinite canvas.
+       *
+       * @description ## Operation description
+       * This API operation is used to query media asset content understanding jobs.
+       *
+       * @param request UpdateInfiniteCanvasRequest
+       * @return UpdateInfiniteCanvasResponse
+       */
+      Models::UpdateInfiniteCanvasResponse updateInfiniteCanvas(const Models::UpdateInfiniteCanvasRequest &request);
 
       /**
        * @summary Updates media asset information.

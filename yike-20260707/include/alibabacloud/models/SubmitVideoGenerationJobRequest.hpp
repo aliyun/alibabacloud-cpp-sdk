@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(JobType, jobType_);
       DARABONBA_PTR_TO_JSON(Model, model_);
       DARABONBA_PTR_TO_JSON(N, n_);
+      DARABONBA_PTR_TO_JSON(Output, output_);
       DARABONBA_PTR_TO_JSON(Resolution, resolution_);
       DARABONBA_PTR_TO_JSON(Scene, scene_);
       DARABONBA_PTR_TO_JSON(UserData, userData_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(JobType, jobType_);
       DARABONBA_PTR_FROM_JSON(Model, model_);
       DARABONBA_PTR_FROM_JSON(N, n_);
+      DARABONBA_PTR_FROM_JSON(Output, output_);
       DARABONBA_PTR_FROM_JSON(Resolution, resolution_);
       DARABONBA_PTR_FROM_JSON(Scene, scene_);
       DARABONBA_PTR_FROM_JSON(UserData, userData_);
@@ -51,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aspectRatio_ == nullptr
         && this->clientToken_ == nullptr && this->duration_ == nullptr && this->input_ == nullptr && this->jobParameters_ == nullptr && this->jobType_ == nullptr
-        && this->model_ == nullptr && this->n_ == nullptr && this->resolution_ == nullptr && this->scene_ == nullptr && this->userData_ == nullptr; };
+        && this->model_ == nullptr && this->n_ == nullptr && this->output_ == nullptr && this->resolution_ == nullptr && this->scene_ == nullptr
+        && this->userData_ == nullptr; };
     // aspectRatio Field Functions 
     bool hasAspectRatio() const { return this->aspectRatio_ != nullptr;};
     void deleteAspectRatio() { this->aspectRatio_ = nullptr;};
@@ -108,6 +111,13 @@ namespace Models
     inline SubmitVideoGenerationJobRequest& setN(int32_t n) { DARABONBA_PTR_SET_VALUE(n_, n) };
 
 
+    // output Field Functions 
+    bool hasOutput() const { return this->output_ != nullptr;};
+    void deleteOutput() { this->output_ = nullptr;};
+    inline string getOutput() const { DARABONBA_PTR_GET_DEFAULT(output_, "") };
+    inline SubmitVideoGenerationJobRequest& setOutput(string output) { DARABONBA_PTR_SET_VALUE(output_, output) };
+
+
     // resolution Field Functions 
     bool hasResolution() const { return this->resolution_ != nullptr;};
     void deleteResolution() { this->resolution_ = nullptr;};
@@ -139,15 +149,14 @@ namespace Models
     // The task input in JSON string format. Fields include:
     // 
     // - Prompt: String. Required. The prompt.
-    // - Medias: The list of media items.
-    //   - When JobType is image_to_video, this field is required and only 1 Media item is needed.
-    //   - When JobType is first_last_frame, this field is required and exactly 2 Media items are needed.
-    //   - When JobType is reference_to_video, this field is required and up to 9 Media items are allowed.
-    // 
-    // > The Media structure contains: Type, the media type (String, valid values: `image`/`video`/`audio`); URL, the media download URL (String); MediaId, the media asset ID (String).
+    // - Medias: The media list.
+    //   - When JobType is image_to_video, this field is required. Only 1 Media item is needed.
+    //   - When JobType is first_last_frame, this field is required. Only 2 Media items are needed.
+    //   - When JobType is reference_to_video, this field is required. A maximum of 9 Media items are supported.
+    // > The Media struct contains: Type, the media type, String, valid values are `image`/`video`/`audio`; URL, the media download URL, String; MediaId, the media asset ID, String.
     // >
     shared_ptr<string> input_ {};
-    // The task feature parameters. No configuration is required at this time.
+    // The task function parameters. No configuration is required at this time.
     shared_ptr<string> jobParameters_ {};
     // The task type. Valid values:
     // 
@@ -164,6 +173,7 @@ namespace Models
     shared_ptr<string> model_ {};
     // The number of outputs. Valid values: 1 to 4. Default value: 1.
     shared_ptr<int32_t> n_ {};
+    shared_ptr<string> output_ {};
     // The resolution. Valid values: 720P (default) and 1080P.
     shared_ptr<string> resolution_ {};
     // The scene type. Currently only `general` is supported.

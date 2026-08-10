@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_GETVIDEORENDERJOBRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_GETVIDEORENDERJOBRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_GETVIDEOTRANSLATIONJOBRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_GETVIDEOTRANSLATIONJOBRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,23 +10,23 @@ namespace Yike20260707
 {
 namespace Models
 {
-  class GetVideoRenderJobResponseBody : public Darabonba::Model {
+  class GetVideoTranslationJobResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const GetVideoRenderJobResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const GetVideoTranslationJobResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Job, job_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
-    friend void from_json(const Darabonba::Json& j, GetVideoRenderJobResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, GetVideoTranslationJobResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Job, job_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
-    GetVideoRenderJobResponseBody() = default ;
-    GetVideoRenderJobResponseBody(const GetVideoRenderJobResponseBody &) = default ;
-    GetVideoRenderJobResponseBody(GetVideoRenderJobResponseBody &&) = default ;
-    GetVideoRenderJobResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~GetVideoRenderJobResponseBody() = default ;
-    GetVideoRenderJobResponseBody& operator=(const GetVideoRenderJobResponseBody &) = default ;
-    GetVideoRenderJobResponseBody& operator=(GetVideoRenderJobResponseBody &&) = default ;
+    GetVideoTranslationJobResponseBody() = default ;
+    GetVideoTranslationJobResponseBody(const GetVideoTranslationJobResponseBody &) = default ;
+    GetVideoTranslationJobResponseBody(GetVideoTranslationJobResponseBody &&) = default ;
+    GetVideoTranslationJobResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetVideoTranslationJobResponseBody() = default ;
+    GetVideoTranslationJobResponseBody& operator=(const GetVideoTranslationJobResponseBody &) = default ;
+    GetVideoTranslationJobResponseBody& operator=(GetVideoTranslationJobResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -34,24 +34,28 @@ namespace Models
     class Job : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Job& obj) { 
+        DARABONBA_PTR_TO_JSON(Duration, duration_);
         DARABONBA_PTR_TO_JSON(EditingProjectId, editingProjectId_);
         DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
         DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
+        DARABONBA_PTR_TO_JSON(Input, input_);
         DARABONBA_PTR_TO_JSON(JobId, jobId_);
-        DARABONBA_PTR_TO_JSON(Language, language_);
-        DARABONBA_PTR_TO_JSON(Result, result_);
+        DARABONBA_PTR_TO_JSON(JobParameters, jobParameters_);
+        DARABONBA_PTR_TO_JSON(JobType, jobType_);
+        DARABONBA_PTR_TO_JSON(Output, output_);
         DARABONBA_PTR_TO_JSON(Status, status_);
-        DARABONBA_PTR_TO_JSON(UserData, userData_);
       };
       friend void from_json(const Darabonba::Json& j, Job& obj) { 
+        DARABONBA_PTR_FROM_JSON(Duration, duration_);
         DARABONBA_PTR_FROM_JSON(EditingProjectId, editingProjectId_);
         DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
         DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
+        DARABONBA_PTR_FROM_JSON(Input, input_);
         DARABONBA_PTR_FROM_JSON(JobId, jobId_);
-        DARABONBA_PTR_FROM_JSON(Language, language_);
-        DARABONBA_PTR_FROM_JSON(Result, result_);
+        DARABONBA_PTR_FROM_JSON(JobParameters, jobParameters_);
+        DARABONBA_PTR_FROM_JSON(JobType, jobType_);
+        DARABONBA_PTR_FROM_JSON(Output, output_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
-        DARABONBA_PTR_FROM_JSON(UserData, userData_);
       };
       Job() = default ;
       Job(const Job &) = default ;
@@ -64,9 +68,16 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->editingProjectId_ == nullptr
-        && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->jobId_ == nullptr && this->language_ == nullptr && this->result_ == nullptr
-        && this->status_ == nullptr && this->userData_ == nullptr; };
+      virtual bool empty() const override { return this->duration_ == nullptr
+        && this->editingProjectId_ == nullptr && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->input_ == nullptr && this->jobId_ == nullptr
+        && this->jobParameters_ == nullptr && this->jobType_ == nullptr && this->output_ == nullptr && this->status_ == nullptr; };
+      // duration Field Functions 
+      bool hasDuration() const { return this->duration_ != nullptr;};
+      void deleteDuration() { this->duration_ = nullptr;};
+      inline double getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0.0) };
+      inline Job& setDuration(double duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
+
+
       // editingProjectId Field Functions 
       bool hasEditingProjectId() const { return this->editingProjectId_ != nullptr;};
       void deleteEditingProjectId() { this->editingProjectId_ = nullptr;};
@@ -88,6 +99,13 @@ namespace Models
       inline Job& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
+      // input Field Functions 
+      bool hasInput() const { return this->input_ != nullptr;};
+      void deleteInput() { this->input_ = nullptr;};
+      inline string getInput() const { DARABONBA_PTR_GET_DEFAULT(input_, "") };
+      inline Job& setInput(string input) { DARABONBA_PTR_SET_VALUE(input_, input) };
+
+
       // jobId Field Functions 
       bool hasJobId() const { return this->jobId_ != nullptr;};
       void deleteJobId() { this->jobId_ = nullptr;};
@@ -95,18 +113,25 @@ namespace Models
       inline Job& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
-      // language Field Functions 
-      bool hasLanguage() const { return this->language_ != nullptr;};
-      void deleteLanguage() { this->language_ = nullptr;};
-      inline string getLanguage() const { DARABONBA_PTR_GET_DEFAULT(language_, "") };
-      inline Job& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
+      // jobParameters Field Functions 
+      bool hasJobParameters() const { return this->jobParameters_ != nullptr;};
+      void deleteJobParameters() { this->jobParameters_ = nullptr;};
+      inline string getJobParameters() const { DARABONBA_PTR_GET_DEFAULT(jobParameters_, "") };
+      inline Job& setJobParameters(string jobParameters) { DARABONBA_PTR_SET_VALUE(jobParameters_, jobParameters) };
 
 
-      // result Field Functions 
-      bool hasResult() const { return this->result_ != nullptr;};
-      void deleteResult() { this->result_ = nullptr;};
-      inline string getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
-      inline Job& setResult(string result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+      // jobType Field Functions 
+      bool hasJobType() const { return this->jobType_ != nullptr;};
+      void deleteJobType() { this->jobType_ = nullptr;};
+      inline string getJobType() const { DARABONBA_PTR_GET_DEFAULT(jobType_, "") };
+      inline Job& setJobType(string jobType) { DARABONBA_PTR_SET_VALUE(jobType_, jobType) };
+
+
+      // output Field Functions 
+      bool hasOutput() const { return this->output_ != nullptr;};
+      void deleteOutput() { this->output_ = nullptr;};
+      inline string getOutput() const { DARABONBA_PTR_GET_DEFAULT(output_, "") };
+      inline Job& setOutput(string output) { DARABONBA_PTR_SET_VALUE(output_, output) };
 
 
       // status Field Functions 
@@ -116,36 +141,17 @@ namespace Models
       inline Job& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
-      // userData Field Functions 
-      bool hasUserData() const { return this->userData_ != nullptr;};
-      void deleteUserData() { this->userData_ = nullptr;};
-      inline string getUserData() const { DARABONBA_PTR_GET_DEFAULT(userData_, "") };
-      inline Job& setUserData(string userData) { DARABONBA_PTR_SET_VALUE(userData_, userData) };
-
-
     protected:
-      // The online editing project ID, which can be used for secondary editing of the output video.
+      shared_ptr<double> duration_ {};
       shared_ptr<string> editingProjectId_ {};
-      // The error code. This parameter is returned when the task is in the Failed state.
       shared_ptr<string> errorCode_ {};
-      // The error message. This parameter is returned when the task is in the Failed state.
       shared_ptr<string> errorMessage_ {};
-      // The task ID.
+      shared_ptr<string> input_ {};
       shared_ptr<string> jobId_ {};
-      // The narration language of the output video.
-      shared_ptr<string> language_ {};
-      // The download URL of the rendered and composed video.
-      shared_ptr<string> result_ {};
-      // The task status. Valid values:
-      // 
-      // - Created: The task is created.
-      // - Executing: The task is being executed.
-      // - Finished: The task is completed.
-      // - Failed: The task has failed.
-      // - Deleted: The task is deleted.
+      shared_ptr<string> jobParameters_ {};
+      shared_ptr<string> jobType_ {};
+      shared_ptr<string> output_ {};
       shared_ptr<string> status_ {};
-      // The custom user data in JSON format.
-      shared_ptr<string> userData_ {};
     };
 
     virtual bool empty() const override { return this->job_ == nullptr
@@ -153,23 +159,21 @@ namespace Models
     // job Field Functions 
     bool hasJob() const { return this->job_ != nullptr;};
     void deleteJob() { this->job_ = nullptr;};
-    inline const GetVideoRenderJobResponseBody::Job & getJob() const { DARABONBA_PTR_GET_CONST(job_, GetVideoRenderJobResponseBody::Job) };
-    inline GetVideoRenderJobResponseBody::Job getJob() { DARABONBA_PTR_GET(job_, GetVideoRenderJobResponseBody::Job) };
-    inline GetVideoRenderJobResponseBody& setJob(const GetVideoRenderJobResponseBody::Job & job) { DARABONBA_PTR_SET_VALUE(job_, job) };
-    inline GetVideoRenderJobResponseBody& setJob(GetVideoRenderJobResponseBody::Job && job) { DARABONBA_PTR_SET_RVALUE(job_, job) };
+    inline const GetVideoTranslationJobResponseBody::Job & getJob() const { DARABONBA_PTR_GET_CONST(job_, GetVideoTranslationJobResponseBody::Job) };
+    inline GetVideoTranslationJobResponseBody::Job getJob() { DARABONBA_PTR_GET(job_, GetVideoTranslationJobResponseBody::Job) };
+    inline GetVideoTranslationJobResponseBody& setJob(const GetVideoTranslationJobResponseBody::Job & job) { DARABONBA_PTR_SET_VALUE(job_, job) };
+    inline GetVideoTranslationJobResponseBody& setJob(GetVideoTranslationJobResponseBody::Job && job) { DARABONBA_PTR_SET_RVALUE(job_, job) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline GetVideoRenderJobResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline GetVideoTranslationJobResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    // The video rendering and composition task object.
-    shared_ptr<GetVideoRenderJobResponseBody::Job> job_ {};
-    // The request ID.
+    shared_ptr<GetVideoTranslationJobResponseBody::Job> job_ {};
     shared_ptr<string> requestId_ {};
   };
 

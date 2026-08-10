@@ -126,9 +126,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> jobType_ {};
-    // The output configuration JSON string.
-    // 
-    // This parameter is required.
+    // The output configuration JSON string. The OssUri value must be a folder.
     shared_ptr<string> output_ {};
     // If not specified, the service generates a default title.
     shared_ptr<string> title_ {};
