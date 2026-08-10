@@ -2264,7 +2264,7 @@ CreateOrderResponse Client::createOrder(const CreateOrderRequest &request) {
 }
 
 /**
- * @summary 申请退款
+ * @summary Applies for a refund.
  *
  * @param request GlobalHotelApplyRefundRequest
  * @param headers map
@@ -2309,7 +2309,7 @@ GlobalHotelApplyRefundResponse Client::globalHotelApplyRefundWithOptions(const G
 }
 
 /**
- * @summary 申请退款
+ * @summary Applies for a refund.
  *
  * @param request GlobalHotelApplyRefundRequest
  * @return GlobalHotelApplyRefundResponse
@@ -2321,7 +2321,7 @@ GlobalHotelApplyRefundResponse Client::globalHotelApplyRefund(const GlobalHotelA
 }
 
 /**
- * @summary 批量查询酒店详情
+ * @summary Queries hotel details in batches.
  *
  * @param tmpReq GlobalHotelBatchGetHotelDetailRequest
  * @param headers map
@@ -2372,7 +2372,7 @@ GlobalHotelBatchGetHotelDetailResponse Client::globalHotelBatchGetHotelDetailWit
 }
 
 /**
- * @summary 批量查询酒店详情
+ * @summary Queries hotel details in batches.
  *
  * @param request GlobalHotelBatchGetHotelDetailRequest
  * @return GlobalHotelBatchGetHotelDetailResponse
@@ -2384,7 +2384,7 @@ GlobalHotelBatchGetHotelDetailResponse Client::globalHotelBatchGetHotelDetail(co
 }
 
 /**
- * @summary 取消或退款
+ * @summary Cancels or refunds an order.
  *
  * @param request GlobalHotelCancelOrRefundRequest
  * @param headers map
@@ -2425,7 +2425,7 @@ GlobalHotelCancelOrRefundResponse Client::globalHotelCancelOrRefundWithOptions(c
 }
 
 /**
- * @summary 取消或退款
+ * @summary Cancels or refunds an order.
  *
  * @param request GlobalHotelCancelOrRefundRequest
  * @return GlobalHotelCancelOrRefundResponse
@@ -2490,7 +2490,7 @@ GlobalHotelCancelOrderResponse Client::globalHotelCancelOrder(const GlobalHotelC
 }
 
 /**
- * @summary 创单并支付
+ * @summary Creates an order and processes the payment.
  *
  * @param tmpReq GlobalHotelCreateAndPayRequest
  * @param headers map
@@ -2557,7 +2557,7 @@ GlobalHotelCreateAndPayResponse Client::globalHotelCreateAndPayWithOptions(const
 }
 
 /**
- * @summary 创单并支付
+ * @summary Creates an order and processes the payment.
  *
  * @param request GlobalHotelCreateAndPayRequest
  * @return GlobalHotelCreateAndPayResponse
@@ -2569,7 +2569,7 @@ GlobalHotelCreateAndPayResponse Client::globalHotelCreateAndPay(const GlobalHote
 }
 
 /**
- * @summary 创建订单
+ * @summary Creates an order.
  *
  * @param tmpReq GlobalHotelCreateOrderRequest
  * @param headers map
@@ -2636,7 +2636,7 @@ GlobalHotelCreateOrderResponse Client::globalHotelCreateOrderWithOptions(const G
 }
 
 /**
- * @summary 创建订单
+ * @summary Creates an order.
  *
  * @param request GlobalHotelCreateOrderRequest
  * @return GlobalHotelCreateOrderResponse
@@ -2648,7 +2648,7 @@ GlobalHotelCreateOrderResponse Client::globalHotelCreateOrder(const GlobalHotelC
 }
 
 /**
- * @summary 分销支付
+ * @summary Processes a distribution payment.
  *
  * @param request GlobalHotelPayRequest
  * @param headers map
@@ -2689,7 +2689,7 @@ GlobalHotelPayResponse Client::globalHotelPayWithOptions(const GlobalHotelPayReq
 }
 
 /**
- * @summary 分销支付
+ * @summary Processes a distribution payment.
  *
  * @param request GlobalHotelPayRequest
  * @return GlobalHotelPayResponse
@@ -2701,7 +2701,7 @@ GlobalHotelPayResponse Client::globalHotelPay(const GlobalHotelPayRequest &reque
 }
 
 /**
- * @summary 查询酒店报价可用性
+ * @summary Queries the availability of hotel rate plans.
  *
  * @param tmpReq GlobalHotelQueryAvailabilityRequest
  * @param headers map
@@ -2776,7 +2776,7 @@ GlobalHotelQueryAvailabilityResponse Client::globalHotelQueryAvailabilityWithOpt
 }
 
 /**
- * @summary 查询酒店报价可用性
+ * @summary Queries the availability of hotel rate plans.
  *
  * @param request GlobalHotelQueryAvailabilityRequest
  * @return GlobalHotelQueryAvailabilityResponse
@@ -2788,7 +2788,7 @@ GlobalHotelQueryAvailabilityResponse Client::globalHotelQueryAvailability(const 
 }
 
 /**
- * @summary 批量日历报价查询
+ * @summary Queries calendar-based availability and pricing for hotels in batch.
  *
  * @param tmpReq GlobalHotelQueryCalendarAvailabilityRequest
  * @param headers map
@@ -2863,7 +2863,7 @@ GlobalHotelQueryCalendarAvailabilityResponse Client::globalHotelQueryCalendarAva
 }
 
 /**
- * @summary 批量日历报价查询
+ * @summary Queries calendar-based availability and pricing for hotels in batch.
  *
  * @param request GlobalHotelQueryCalendarAvailabilityRequest
  * @return GlobalHotelQueryCalendarAvailabilityResponse
@@ -2875,7 +2875,7 @@ GlobalHotelQueryCalendarAvailabilityResponse Client::globalHotelQueryCalendarAva
 }
 
 /**
- * @summary 查询订单
+ * @summary Queries an order.
  *
  * @param request GlobalHotelQueryOrderRequest
  * @param headers map
@@ -2920,7 +2920,7 @@ GlobalHotelQueryOrderResponse Client::globalHotelQueryOrderWithOptions(const Glo
 }
 
 /**
- * @summary 查询订单
+ * @summary Queries an order.
  *
  * @param request GlobalHotelQueryOrderRequest
  * @return GlobalHotelQueryOrderResponse
@@ -2932,7 +2932,7 @@ GlobalHotelQueryOrderResponse Client::globalHotelQueryOrder(const GlobalHotelQue
 }
 
 /**
- * @summary 分页查询城市行政区划（中英文）
+ * @summary Queries city administrative divisions by paging (in Chinese and English).
  *
  * @param request GlobalHotelSearchCityPageRequest
  * @param headers map
@@ -2981,7 +2981,7 @@ GlobalHotelSearchCityPageResponse Client::globalHotelSearchCityPageWithOptions(c
 }
 
 /**
- * @summary 分页查询城市行政区划（中英文）
+ * @summary Queries city administrative divisions by paging (in Chinese and English).
  *
  * @param request GlobalHotelSearchCityPageRequest
  * @return GlobalHotelSearchCityPageResponse
@@ -2993,7 +2993,7 @@ GlobalHotelSearchCityPageResponse Client::globalHotelSearchCityPage(const Global
 }
 
 /**
- * @summary 按城市分页查询酒店列表
+ * @summary Performs a paged query to retrieve the list of hotels by city with paging.
  *
  * @param request GlobalHotelSearchHotelListRequest
  * @param headers map
@@ -3042,7 +3042,7 @@ GlobalHotelSearchHotelListResponse Client::globalHotelSearchHotelListWithOptions
 }
 
 /**
- * @summary 按城市分页查询酒店列表
+ * @summary Performs a paged query to retrieve the list of hotels by city with paging.
  *
  * @param request GlobalHotelSearchHotelListRequest
  * @return GlobalHotelSearchHotelListResponse

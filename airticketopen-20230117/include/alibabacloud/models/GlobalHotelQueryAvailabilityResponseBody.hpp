@@ -82,7 +82,9 @@ namespace Models
 
 
     protected:
+      // The room type offers grouped by standard hotel ID.
       shared_ptr<map<string, vector<DataHotelsValue>>> hotels_ {};
+      // TraceId
       shared_ptr<string> tracerId_ {};
     };
 
@@ -133,11 +135,17 @@ namespace Models
 
 
   protected:
+    // The business data.
     shared_ptr<GlobalHotelQueryAvailabilityResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // TraceId
     shared_ptr<string> tracerId_ {};
   };
 

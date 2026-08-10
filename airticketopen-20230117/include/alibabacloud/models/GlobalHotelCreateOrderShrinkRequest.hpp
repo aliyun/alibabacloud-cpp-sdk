@@ -94,18 +94,31 @@ namespace Models
 
 
   protected:
+    // The distributor account ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> accountNo_ {};
+    // The contact information.
+    // 
     // This parameter is required.
     shared_ptr<string> contactShrink_ {};
+    // The external order number.
+    // 
     // This parameter is required.
     shared_ptr<string> externalOrderNo_ {};
+    // The guests grouped by room.
+    // 
     // This parameter is required.
     shared_ptr<string> guestsShrink_ {};
+    // The offer ID.
+    // 
     // This parameter is required.
     shared_ptr<string> itemOfferId_ {};
+    // The number of rooms.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> roomCount_ {};
+    // TraceId
     shared_ptr<string> tracerId_ {};
   };
 

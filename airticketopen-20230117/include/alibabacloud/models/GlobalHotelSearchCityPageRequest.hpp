@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // The distributor account ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> accountNo_ {};
+    // The number of entries per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> count_ {};
+    // The country code in ISO 3166-1 alpha-2 format.
     shared_ptr<string> countryCode_ {};
+    // The pagination offset, starting from 0.
     shared_ptr<int32_t> start_ {};
+    // TraceId
     shared_ptr<string> tracerId_ {};
   };
 

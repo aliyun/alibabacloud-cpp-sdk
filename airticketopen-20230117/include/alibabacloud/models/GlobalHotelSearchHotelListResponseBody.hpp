@@ -126,10 +126,15 @@ namespace Models
 
 
       protected:
+        // The city name.
         shared_ptr<string> cityName_ {};
+        // The country name.
         shared_ptr<string> countryName_ {};
+        // The hotel name.
         shared_ptr<string> hotelName_ {};
+        // The platform standard hotel ID.
         shared_ptr<string> standardHotelId_ {};
+        // The hotel status (ONLINE/OFFLINE).
         shared_ptr<string> status_ {};
       };
 
@@ -152,7 +157,9 @@ namespace Models
 
 
     protected:
+      // The list of hotels.
       shared_ptr<vector<Data::Hotels>> hotels_ {};
+      // The total number of hotels.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -203,11 +210,17 @@ namespace Models
 
 
   protected:
+    // The business data.
     shared_ptr<GlobalHotelSearchHotelListResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
+    // traceId
     shared_ptr<string> tracerId_ {};
   };
 

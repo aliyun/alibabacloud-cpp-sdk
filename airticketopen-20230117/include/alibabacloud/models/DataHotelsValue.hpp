@@ -145,8 +145,11 @@ namespace Models
 
 
         protected:
+          // The amount.
           shared_ptr<double> amount_ {};
+          // The currency code.
           shared_ptr<string> currency_ {};
+          // TraceId
           shared_ptr<string> tracerId_ {};
         };
 
@@ -176,8 +179,11 @@ namespace Models
 
 
       protected:
+        // The check-in date.
         shared_ptr<string> date_ {};
+        // The price for the day.
         shared_ptr<SellingDailyPrices::Price> price_ {};
+        // TraceId
         shared_ptr<string> tracerId_ {};
       };
 
@@ -228,8 +234,11 @@ namespace Models
 
 
       protected:
+        // The amount.
         shared_ptr<double> amount_ {};
+        // The currency code.
         shared_ptr<string> currency_ {};
+        // TraceId
         shared_ptr<string> tracerId_ {};
       };
 
@@ -330,11 +339,17 @@ namespace Models
 
 
         protected:
+          // The effective start time (UTC millisecond timestamp).
           shared_ptr<int64_t> start_ {};
+          // The effective end time (UTC millisecond timestamp).
           shared_ptr<int64_t> end_ {};
+          // The penalty type (PERCENTAGE/AMOUNT/NIGHTS).
           shared_ptr<string> penaltyType_ {};
+          // The penalty value (percentage/amount/number of nights).
           shared_ptr<string> penaltyValue_ {};
+          // The currency code (only applicable when the penalty type is AMOUNT).
           shared_ptr<string> currency_ {};
+          // TraceId
           shared_ptr<string> tracerId_ {};
         };
 
@@ -364,8 +379,11 @@ namespace Models
 
 
       protected:
+        // The policy type (NON_REFUNDABLE/FREE_CANCELLATION/PARTIAL_REFUND).
         shared_ptr<string> policyType_ {};
+        // The list of penalty details.
         shared_ptr<vector<CancelPolicy::Penalties>> penalties_ {};
+        // TraceId
         shared_ptr<string> tracerId_ {};
       };
 
@@ -449,15 +467,25 @@ namespace Models
 
 
     protected:
+      // The item-domain offer identifier (price verification key, passed through as-is).
       shared_ptr<string> itemOfferKey_ {};
+      // The rate plan name.
       shared_ptr<string> ratePlanName_ {};
+      // The meal type.
       shared_ptr<string> mealType_ {};
+      // The number of meals included.
       shared_ptr<int32_t> mealCount_ {};
+      // The cancellation and modification policy.
       shared_ptr<Offers::CancelPolicy> cancelPolicy_ {};
+      // The total selling price.
       shared_ptr<Offers::SellingTotalPrice> sellingTotalPrice_ {};
+      // The list of daily selling prices.
       shared_ptr<vector<Offers::SellingDailyPrices>> sellingDailyPrices_ {};
+      // The number of available rooms.
       shared_ptr<int32_t> availableRooms_ {};
+      // The maximum number of guests allowed.
       shared_ptr<int32_t> maxOccupancy_ {};
+      // The confirmation type (INSTANT_CONFIRM/NON_INSTANT_CONFIRM).
       shared_ptr<string> confirmType_ {};
     };
 
@@ -591,8 +619,11 @@ namespace Models
 
 
           protected:
+            // The amount.
             shared_ptr<double> amount_ {};
+            // The currency code.
             shared_ptr<string> currency_ {};
+            // traceId
             shared_ptr<string> tracerId_ {};
           };
 
@@ -622,8 +653,11 @@ namespace Models
 
 
         protected:
+          // The check-in date.
           shared_ptr<string> date_ {};
+          // The price for the day.
           shared_ptr<SellingDailyPrices::Price> price_ {};
+          // TraceId
           shared_ptr<string> tracerId_ {};
         };
 
@@ -674,8 +708,11 @@ namespace Models
 
 
         protected:
+          // The amount.
           shared_ptr<double> amount_ {};
+          // The currency code.
           shared_ptr<string> currency_ {};
+          // TraceId
           shared_ptr<string> tracerId_ {};
         };
 
@@ -776,11 +813,17 @@ namespace Models
 
 
           protected:
+            // The effective start time, in UTC millisecond timestamp.
             shared_ptr<int64_t> start_ {};
+            // The effective end time, in UTC millisecond timestamp.
             shared_ptr<int64_t> end_ {};
+            // The penalty type. Valid values: PERCENTAGE, AMOUNT, and NIGHTS.
             shared_ptr<string> penaltyType_ {};
+            // The penalty value (percentage, amount, or number of nights).
             shared_ptr<string> penaltyValue_ {};
+            // The currency. This parameter has a value only when PenaltyType is set to AMOUNT.
             shared_ptr<string> currency_ {};
+            // traceId
             shared_ptr<string> tracerId_ {};
           };
 
@@ -810,8 +853,11 @@ namespace Models
 
 
         protected:
+          // The policy type. Valid values: NON_REFUNDABLE, FREE_CANCELLATION, and PARTIAL_REFUND.
           shared_ptr<string> policyType_ {};
+          // The list of penalty details.
           shared_ptr<vector<CancelPolicy::Penalties>> penalties_ {};
+          // TraceId
           shared_ptr<string> tracerId_ {};
         };
 
@@ -895,15 +941,25 @@ namespace Models
 
 
       protected:
+        // The item-level offer identifier (price verification key, passed through as-is).
         shared_ptr<string> itemOfferKey_ {};
+        // The rate plan name.
         shared_ptr<string> ratePlanName_ {};
+        // The meal type.
         shared_ptr<string> mealType_ {};
+        // The number of meals included.
         shared_ptr<int32_t> mealCount_ {};
+        // The cancellation policy.
         shared_ptr<Offers::CancelPolicy> cancelPolicy_ {};
+        // The total selling price.
         shared_ptr<Offers::SellingTotalPrice> sellingTotalPrice_ {};
+        // The list of daily selling prices.
         shared_ptr<vector<Offers::SellingDailyPrices>> sellingDailyPrices_ {};
+        // The number of available rooms.
         shared_ptr<int32_t> availableRooms_ {};
+        // The maximum number of guests.
         shared_ptr<int32_t> maxOccupancy_ {};
+        // The confirmation type. Valid values: INSTANT_CONFIRM and NON_INSTANT_CONFIRM.
         shared_ptr<string> confirmType_ {};
       };
 
@@ -954,8 +1010,11 @@ namespace Models
 
 
       protected:
+        // The amount.
         shared_ptr<double> amount_ {};
+        // The currency code.
         shared_ptr<string> currency_ {};
+        // traceId
         shared_ptr<string> tracerId_ {};
       };
 
@@ -987,8 +1046,11 @@ namespace Models
 
 
     protected:
+      // The standard room type ID.
       shared_ptr<string> standardRoomId_ {};
+      // The lowest selling price for the room type on the day.
       shared_ptr<Rooms::LowestSellingPrice> lowestSellingPrice_ {};
+      // The list of all available offers for the room type. Calendar quotes cannot be used for price verification, so itemOfferKey is not returned.
       shared_ptr<vector<Rooms::Offers>> offers_ {};
     };
 
@@ -1034,10 +1096,15 @@ namespace Models
 
 
   protected:
+    // The check-in date in the format of yyyy-MM-dd.
     shared_ptr<string> checkInDate_ {};
+    // The check-out date in the format of yyyy-MM-dd.
     shared_ptr<string> checkOutDate_ {};
+    // The list of available room types for the day.
     shared_ptr<vector<DataHotelsValue::Rooms>> rooms_ {};
+    // The standard room type ID.
     shared_ptr<string> standardRoomId_ {};
+    // All available offers for the room type.
     shared_ptr<vector<DataHotelsValue::Offers>> offers_ {};
   };
 

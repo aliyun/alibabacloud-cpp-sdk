@@ -117,20 +117,35 @@ namespace Models
 
 
   protected:
+    // The account ID of the distributor.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> accountNo_ {};
+    // The number of adults.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> adultCount_ {};
+    // The end date of the check-in date range in the format yyyy-MM-dd.
+    // 
     // This parameter is required.
     shared_ptr<string> checkInDateEnd_ {};
+    // The start date of the check-in date range in the format yyyy-MM-dd.
+    // 
     // This parameter is required.
     shared_ptr<string> checkInDateStart_ {};
+    // The number of children.
     shared_ptr<int32_t> childCount_ {};
+    // The list of children\\"s ages.
     shared_ptr<vector<int32_t>> childrenAges_ {};
+    // The number of rooms.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> roomCount_ {};
+    // The IDs of the hotels.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> standardHotelIds_ {};
+    // TraceId
     shared_ptr<string> tracerId_ {};
   };
 

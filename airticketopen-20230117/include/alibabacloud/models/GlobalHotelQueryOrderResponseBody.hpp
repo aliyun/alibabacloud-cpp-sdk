@@ -85,13 +85,13 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ConfirmationId, confirmationId_);
           DARABONBA_PTR_TO_JSON(Guests, guests_);
           DARABONBA_PTR_TO_JSON(RoomIndex, roomIndex_);
-          DARABONBA_PTR_TO_JSON(RoomName, roomName_);
+          DARABONBA_PTR_TO_JSON(Status, status_);
         };
         friend void from_json(const Darabonba::Json& j, RoomStays& obj) { 
           DARABONBA_PTR_FROM_JSON(ConfirmationId, confirmationId_);
           DARABONBA_PTR_FROM_JSON(Guests, guests_);
           DARABONBA_PTR_FROM_JSON(RoomIndex, roomIndex_);
-          DARABONBA_PTR_FROM_JSON(RoomName, roomName_);
+          DARABONBA_PTR_FROM_JSON(Status, status_);
         };
         RoomStays() = default ;
         RoomStays(const RoomStays &) = default ;
@@ -151,13 +151,16 @@ namespace Models
 
 
         protected:
+          // The first name of the guest.
           shared_ptr<string> firstName_ {};
+          // The last name of the guest.
           shared_ptr<string> lastName_ {};
+          // TraceId
           shared_ptr<string> tracerId_ {};
         };
 
         virtual bool empty() const override { return this->confirmationId_ == nullptr
-        && this->guests_ == nullptr && this->roomIndex_ == nullptr && this->roomName_ == nullptr; };
+        && this->guests_ == nullptr && this->roomIndex_ == nullptr && this->status_ == nullptr; };
         // confirmationId Field Functions 
         bool hasConfirmationId() const { return this->confirmationId_ != nullptr;};
         void deleteConfirmationId() { this->confirmationId_ = nullptr;};
@@ -181,18 +184,22 @@ namespace Models
         inline RoomStays& setRoomIndex(int32_t roomIndex) { DARABONBA_PTR_SET_VALUE(roomIndex_, roomIndex) };
 
 
-        // roomName Field Functions 
-        bool hasRoomName() const { return this->roomName_ != nullptr;};
-        void deleteRoomName() { this->roomName_ = nullptr;};
-        inline string getRoomName() const { DARABONBA_PTR_GET_DEFAULT(roomName_, "") };
-        inline RoomStays& setRoomName(string roomName) { DARABONBA_PTR_SET_VALUE(roomName_, roomName) };
+        // status Field Functions 
+        bool hasStatus() const { return this->status_ != nullptr;};
+        void deleteStatus() { this->status_ = nullptr;};
+        inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+        inline RoomStays& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
       protected:
+        // The room confirmation ID.
         shared_ptr<string> confirmationId_ {};
+        // The list of guests.
         shared_ptr<vector<RoomStays::Guests>> guests_ {};
+        // The room index, starting from 1.
         shared_ptr<int32_t> roomIndex_ {};
-        shared_ptr<string> roomName_ {};
+        // The delivery status. Valid values: PENDING_CHECKIN, CHECKED_IN, CHECKED_OUT, and CANCELLED. The value is null before the delivery is created.
+        shared_ptr<string> status_ {};
       };
 
       class RefundOrders : public Darabonba::Model {
@@ -273,8 +280,11 @@ namespace Models
 
 
         protected:
+          // The amount in the smallest currency unit.
           shared_ptr<string> amount_ {};
+          // The currency code in ISO 4217 format.
           shared_ptr<string> currency_ {};
+          // TraceId
           shared_ptr<string> tracerId_ {};
         };
 
@@ -325,8 +335,11 @@ namespace Models
 
 
         protected:
+          // The amount in the smallest currency unit.
           shared_ptr<string> amount_ {};
+          // The currency code in ISO 4217 format.
           shared_ptr<string> currency_ {};
+          // TraceId
           shared_ptr<string> tracerId_ {};
         };
 
@@ -387,12 +400,19 @@ namespace Models
 
 
       protected:
+        // The creation time of the refund order, in UTC millisecond timestamp.
         shared_ptr<int64_t> gmtCreate_ {};
+        // The refund transaction ID.
         shared_ptr<string> refundTransactionId_ {};
+        // The reason for rejection.
         shared_ptr<string> rejectReason_ {};
+        // The external refund order number.
         shared_ptr<string> sellRefundOrderNo_ {};
+        // The unified refund status.
         shared_ptr<string> status_ {};
+        // The penalty amount on the sales side.
         shared_ptr<RefundOrders::TotalPenaltyAmount> totalPenaltyAmount_ {};
+        // The actual refund amount.
         shared_ptr<RefundOrders::TotalRefundAmount> totalRefundAmount_ {};
       };
 
@@ -468,8 +488,11 @@ namespace Models
 
 
         protected:
+          // The amount in the smallest currency unit.
           shared_ptr<string> amount_ {};
+          // The currency code in ISO 4217 format.
           shared_ptr<string> currency_ {};
+          // TracerId
           shared_ptr<string> tracerId_ {};
         };
 
@@ -506,9 +529,13 @@ namespace Models
 
 
       protected:
+        // The payment amount.
         shared_ptr<Payment::Amount> amount_ {};
+        // The payment completion time in UTC millisecond timestamp.
         shared_ptr<int64_t> gmtPaid_ {};
+        // The payment method.
         shared_ptr<string> paymentMethod_ {};
+        // The payment transaction ID.
         shared_ptr<string> paymentTransactionId_ {};
       };
 
@@ -592,8 +619,11 @@ namespace Models
 
 
         protected:
+          // The amount in the smallest currency unit.
           shared_ptr<string> amount_ {};
+          // The currency code in ISO 4217 format.
           shared_ptr<string> currency_ {};
+          // TracerId
           shared_ptr<string> tracerId_ {};
         };
 
@@ -644,8 +674,11 @@ namespace Models
 
 
         protected:
+          // The description.
           shared_ptr<string> description_ {};
+          // The meal type.
           shared_ptr<string> mealType_ {};
+          // TracerId
           shared_ptr<string> tracerId_ {};
         };
 
@@ -738,8 +771,11 @@ namespace Models
 
 
             protected:
+              // The currency code.
               shared_ptr<string> currencyCode_ {};
+              // DefaultFractionDigits
               shared_ptr<int32_t> defaultFractionDigits_ {};
+              // NumericCode
               shared_ptr<int32_t> numericCode_ {};
             };
 
@@ -762,7 +798,9 @@ namespace Models
 
 
           protected:
+            // cent
             shared_ptr<int64_t> cent_ {};
+            // The currency.
             shared_ptr<Price::Currency> currency_ {};
           };
 
@@ -785,7 +823,9 @@ namespace Models
 
 
         protected:
+          // LocalDate
           shared_ptr<string> date_ {};
+          // The price.
           shared_ptr<DailyPrices::Price> price_ {};
         };
 
@@ -886,11 +926,17 @@ namespace Models
 
 
           protected:
+            // The currency code. This parameter is valid only when the penalty type is AMOUNT.
             shared_ptr<string> currency_ {};
+            // The effective end time in UTC millisecond timestamp.
             shared_ptr<int64_t> end_ {};
+            // The penalty type.
             shared_ptr<string> penaltyType_ {};
+            // The penalty value, which can be a percentage, amount, or number of nights.
             shared_ptr<string> penaltyValue_ {};
+            // The effective start time in UTC millisecond timestamp.
             shared_ptr<int64_t> start_ {};
+            // TracerId
             shared_ptr<string> tracerId_ {};
           };
 
@@ -920,8 +966,11 @@ namespace Models
 
 
         protected:
+          // The list of cancellation penalties.
           shared_ptr<vector<CancelPolicy::Penalties>> penalties_ {};
+          // The cancellation policy type.
           shared_ptr<string> policyType_ {};
+          // TracerId
           shared_ptr<string> tracerId_ {};
         };
 
@@ -993,13 +1042,21 @@ namespace Models
 
 
       protected:
+        // The cancellation policy.
         shared_ptr<ItemInfo::CancelPolicy> cancelPolicy_ {};
+        // The check-in date in yyyy-MM-dd format.
         shared_ptr<string> checkIn_ {};
+        // The number of guests checking in.
         shared_ptr<int32_t> checkInNumber_ {};
+        // The check-out date in yyyy-MM-dd format.
         shared_ptr<string> checkOut_ {};
+        // The list of nightly rates.
         shared_ptr<vector<ItemInfo::DailyPrices>> dailyPrices_ {};
+        // The meal information.
         shared_ptr<ItemInfo::Meal> meal_ {};
+        // The number of rooms.
         shared_ptr<int32_t> roomCount_ {};
+        // The total selling price.
         shared_ptr<ItemInfo::SellingTotalPrice> sellingTotalPrice_ {};
       };
 
@@ -1092,16 +1149,27 @@ namespace Models
 
 
     protected:
+      // The buyer ID.
       shared_ptr<string> buyerId_ {};
+      // The external order number of the buyer.
       shared_ptr<string> externalOrderNo_ {};
+      // The creation time in UTC millisecond timestamp.
       shared_ptr<int64_t> gmtCreate_ {};
+      // The item information.
       shared_ptr<Data::ItemInfo> itemInfo_ {};
+      // The order number.
       shared_ptr<string> orderNo_ {};
+      // The payment information.
       shared_ptr<Data::Payment> payment_ {};
+      // The list of refund orders.
       shared_ptr<vector<Data::RefundOrders>> refundOrders_ {};
+      // The list of room stays.
       shared_ptr<vector<Data::RoomStays>> roomStays_ {};
+      // The sales channel.
       shared_ptr<string> salesChannel_ {};
+      // The unified order status.
       shared_ptr<string> status_ {};
+      // TracerId
       shared_ptr<string> tracerId_ {};
     };
 
@@ -1152,11 +1220,17 @@ namespace Models
 
 
   protected:
+    // The business data.
     shared_ptr<GlobalHotelQueryOrderResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
+    // TracerId
     shared_ptr<string> tracerId_ {};
   };
 

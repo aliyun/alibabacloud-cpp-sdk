@@ -107,13 +107,21 @@ namespace Models
 
 
     protected:
+      // The email address of the contact.
+      // 
       // This parameter is required.
       shared_ptr<string> email_ {};
+      // The first name of the contact.
+      // 
       // This parameter is required.
       shared_ptr<string> firstName_ {};
+      // The last name of the contact.
+      // 
       // This parameter is required.
       shared_ptr<string> lastName_ {};
+      // The phone number of the contact.
       shared_ptr<string> phone_ {};
+      // TraceId
       shared_ptr<string> tracerId_ {};
     };
 
@@ -174,18 +182,31 @@ namespace Models
 
 
   protected:
+    // The distributor account ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> accountNo_ {};
+    // The contact information.
+    // 
     // This parameter is required.
     shared_ptr<GlobalHotelCreateAndPayRequest::Contact> contact_ {};
+    // The external order number.
+    // 
     // This parameter is required.
     shared_ptr<string> externalOrderNo_ {};
+    // The guests grouped by room.
+    // 
     // This parameter is required.
     shared_ptr<vector<vector<GlobalHotelCreateAndPayRequest::Guests>>> guests_ {};
+    // The offer ID.
+    // 
     // This parameter is required.
     shared_ptr<string> itemOfferId_ {};
+    // The number of rooms.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> roomCount_ {};
+    // TraceId
     shared_ptr<string> tracerId_ {};
   };
 

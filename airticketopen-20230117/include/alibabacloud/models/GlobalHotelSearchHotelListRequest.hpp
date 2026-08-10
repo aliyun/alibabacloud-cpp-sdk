@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // The distributor account ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> accountNo_ {};
+    // The city code.
+    // 
     // This parameter is required.
     shared_ptr<string> cityCode_ {};
+    // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // traceId
     shared_ptr<string> tracerId_ {};
   };
 

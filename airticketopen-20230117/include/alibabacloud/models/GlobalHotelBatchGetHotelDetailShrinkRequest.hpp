@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The ID of the distributor account.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> accountNo_ {};
+    // The language. For example, en or zh.
     shared_ptr<string> language_ {};
+    // The list of standard hotel IDs. A maximum of 100 IDs are supported.
+    // 
     // This parameter is required.
     shared_ptr<string> standardHotelIdsShrink_ {};
+    // string
     shared_ptr<string> tracerId_ {};
   };
 

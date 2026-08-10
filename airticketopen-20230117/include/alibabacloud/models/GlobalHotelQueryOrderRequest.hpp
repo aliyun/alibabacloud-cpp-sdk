@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The distributor account ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> accountNo_ {};
+    // The external order number. At least one of ExternalOrderNo and OrderNo is required.
     shared_ptr<string> externalOrderNo_ {};
+    // The sales order number. At least one of OrderNo and ExternalOrderNo is required.
     shared_ptr<string> orderNo_ {};
+    // TracerId
     shared_ptr<string> tracerId_ {};
   };
 

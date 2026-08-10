@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The distributor account ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> accountNo_ {};
+    // The sales order number.
+    // 
     // This parameter is required.
     shared_ptr<string> orderNo_ {};
+    // TraceId
     shared_ptr<string> tracerId_ {};
   };
 

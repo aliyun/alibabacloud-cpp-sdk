@@ -74,7 +74,6 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Level, level_);
           DARABONBA_PTR_TO_JSON(ParentCode, parentCode_);
           DARABONBA_PTR_TO_JSON(Region, region_);
-          DARABONBA_PTR_TO_JSON(Type, type_);
         };
         friend void from_json(const Darabonba::Json& j, Cities& obj) { 
           DARABONBA_PTR_FROM_JSON(CnName, cnName_);
@@ -85,7 +84,6 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Level, level_);
           DARABONBA_PTR_FROM_JSON(ParentCode, parentCode_);
           DARABONBA_PTR_FROM_JSON(Region, region_);
-          DARABONBA_PTR_FROM_JSON(Type, type_);
         };
         Cities() = default ;
         Cities(const Cities &) = default ;
@@ -100,7 +98,7 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->cnName_ == nullptr
         && this->code_ == nullptr && this->country_ == nullptr && this->countryCode_ == nullptr && this->enName_ == nullptr && this->level_ == nullptr
-        && this->parentCode_ == nullptr && this->region_ == nullptr && this->type_ == nullptr; };
+        && this->parentCode_ == nullptr && this->region_ == nullptr; };
         // cnName Field Functions 
         bool hasCnName() const { return this->cnName_ != nullptr;};
         void deleteCnName() { this->cnName_ = nullptr;};
@@ -157,23 +155,23 @@ namespace Models
         inline Cities& setRegion(int32_t region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
-        // type Field Functions 
-        bool hasType() const { return this->type_ != nullptr;};
-        void deleteType() { this->type_ = nullptr;};
-        inline int32_t getType() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
-        inline Cities& setType(int32_t type) { DARABONBA_PTR_SET_VALUE(type_, type) };
-
-
       protected:
+        // The Chinese name of the city.
         shared_ptr<string> cnName_ {};
+        // The city code.
         shared_ptr<int32_t> code_ {};
+        // The country code.
         shared_ptr<int32_t> country_ {};
+        // The country code in ISO 3166-1 alpha-2 format.
         shared_ptr<string> countryCode_ {};
+        // The English name of the city.
         shared_ptr<string> enName_ {};
+        // The administrative level.
         shared_ptr<int32_t> level_ {};
+        // The parent city code.
         shared_ptr<int32_t> parentCode_ {};
+        // The region.
         shared_ptr<int32_t> region_ {};
-        shared_ptr<int32_t> type_ {};
       };
 
       virtual bool empty() const override { return this->cities_ == nullptr
@@ -202,8 +200,11 @@ namespace Models
 
 
     protected:
+      // The list of cities.
       shared_ptr<vector<Data::Cities>> cities_ {};
+      // Indicates whether there is a next page.
       shared_ptr<bool> hasNext_ {};
+      // The total number of entries.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -254,11 +255,17 @@ namespace Models
 
 
   protected:
+    // The business data.
     shared_ptr<GlobalHotelSearchCityPageResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
+    // TraceId
     shared_ptr<string> tracerId_ {};
   };
 

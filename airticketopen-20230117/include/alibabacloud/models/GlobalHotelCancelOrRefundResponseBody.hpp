@@ -111,8 +111,11 @@ namespace Models
 
 
       protected:
+        // The amount in the smallest currency unit.
         shared_ptr<string> amount_ {};
+        // The currency code in ISO 4217 format.
         shared_ptr<string> currency_ {};
+        // TraceId
         shared_ptr<string> tracerId_ {};
       };
 
@@ -163,8 +166,11 @@ namespace Models
 
 
       protected:
+        // The amount in the smallest currency unit.
         shared_ptr<string> amount_ {};
+        // The currency code in ISO 4217 format.
         shared_ptr<string> currency_ {};
+        // TraceId
         shared_ptr<string> tracerId_ {};
       };
 
@@ -203,9 +209,13 @@ namespace Models
 
 
     protected:
+      // The after-sales refund order ID.
       shared_ptr<string> refundOrderId_ {};
+      // The total penalty amount on the sales side.
       shared_ptr<Data::TotalPenaltyAmount> totalPenaltyAmount_ {};
+      // The total refund amount.
       shared_ptr<Data::TotalRefundAmount> totalRefundAmount_ {};
+      // TraceId
       shared_ptr<string> tracerId_ {};
     };
 
@@ -256,11 +266,17 @@ namespace Models
 
 
   protected:
+    // The business data.
     shared_ptr<GlobalHotelCancelOrRefundResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
+    // TraceId
     shared_ptr<string> tracerId_ {};
   };
 

@@ -635,7 +635,7 @@ namespace AirticketOpen20230117
       Models::CreateOrderResponse createOrder(const Models::CreateOrderRequest &request);
 
       /**
-       * @summary 申请退款
+       * @summary Applies for a refund.
        *
        * @param request GlobalHotelApplyRefundRequest
        * @param headers map
@@ -645,7 +645,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelApplyRefundResponse globalHotelApplyRefundWithOptions(const Models::GlobalHotelApplyRefundRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 申请退款
+       * @summary Applies for a refund.
        *
        * @param request GlobalHotelApplyRefundRequest
        * @return GlobalHotelApplyRefundResponse
@@ -653,7 +653,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelApplyRefundResponse globalHotelApplyRefund(const Models::GlobalHotelApplyRefundRequest &request);
 
       /**
-       * @summary 批量查询酒店详情
+       * @summary Queries hotel details in batches.
        *
        * @param tmpReq GlobalHotelBatchGetHotelDetailRequest
        * @param headers map
@@ -663,7 +663,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelBatchGetHotelDetailResponse globalHotelBatchGetHotelDetailWithOptions(const Models::GlobalHotelBatchGetHotelDetailRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量查询酒店详情
+       * @summary Queries hotel details in batches.
        *
        * @param request GlobalHotelBatchGetHotelDetailRequest
        * @return GlobalHotelBatchGetHotelDetailResponse
@@ -671,7 +671,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelBatchGetHotelDetailResponse globalHotelBatchGetHotelDetail(const Models::GlobalHotelBatchGetHotelDetailRequest &request);
 
       /**
-       * @summary 取消或退款
+       * @summary Cancels or refunds an order.
        *
        * @param request GlobalHotelCancelOrRefundRequest
        * @param headers map
@@ -681,7 +681,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelCancelOrRefundResponse globalHotelCancelOrRefundWithOptions(const Models::GlobalHotelCancelOrRefundRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消或退款
+       * @summary Cancels or refunds an order.
        *
        * @param request GlobalHotelCancelOrRefundRequest
        * @return GlobalHotelCancelOrRefundResponse
@@ -707,7 +707,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelCancelOrderResponse globalHotelCancelOrder(const Models::GlobalHotelCancelOrderRequest &request);
 
       /**
-       * @summary 创单并支付
+       * @summary Creates an order and processes the payment.
        *
        * @param tmpReq GlobalHotelCreateAndPayRequest
        * @param headers map
@@ -717,7 +717,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelCreateAndPayResponse globalHotelCreateAndPayWithOptions(const Models::GlobalHotelCreateAndPayRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创单并支付
+       * @summary Creates an order and processes the payment.
        *
        * @param request GlobalHotelCreateAndPayRequest
        * @return GlobalHotelCreateAndPayResponse
@@ -725,7 +725,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelCreateAndPayResponse globalHotelCreateAndPay(const Models::GlobalHotelCreateAndPayRequest &request);
 
       /**
-       * @summary 创建订单
+       * @summary Creates an order.
        *
        * @param tmpReq GlobalHotelCreateOrderRequest
        * @param headers map
@@ -735,7 +735,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelCreateOrderResponse globalHotelCreateOrderWithOptions(const Models::GlobalHotelCreateOrderRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建订单
+       * @summary Creates an order.
        *
        * @param request GlobalHotelCreateOrderRequest
        * @return GlobalHotelCreateOrderResponse
@@ -743,7 +743,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelCreateOrderResponse globalHotelCreateOrder(const Models::GlobalHotelCreateOrderRequest &request);
 
       /**
-       * @summary 分销支付
+       * @summary Processes a distribution payment.
        *
        * @param request GlobalHotelPayRequest
        * @param headers map
@@ -753,7 +753,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelPayResponse globalHotelPayWithOptions(const Models::GlobalHotelPayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分销支付
+       * @summary Processes a distribution payment.
        *
        * @param request GlobalHotelPayRequest
        * @return GlobalHotelPayResponse
@@ -761,7 +761,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelPayResponse globalHotelPay(const Models::GlobalHotelPayRequest &request);
 
       /**
-       * @summary 查询酒店报价可用性
+       * @summary Queries the availability of hotel rate plans.
        *
        * @param tmpReq GlobalHotelQueryAvailabilityRequest
        * @param headers map
@@ -771,7 +771,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelQueryAvailabilityResponse globalHotelQueryAvailabilityWithOptions(const Models::GlobalHotelQueryAvailabilityRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询酒店报价可用性
+       * @summary Queries the availability of hotel rate plans.
        *
        * @param request GlobalHotelQueryAvailabilityRequest
        * @return GlobalHotelQueryAvailabilityResponse
@@ -779,7 +779,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelQueryAvailabilityResponse globalHotelQueryAvailability(const Models::GlobalHotelQueryAvailabilityRequest &request);
 
       /**
-       * @summary 批量日历报价查询
+       * @summary Queries calendar-based availability and pricing for hotels in batch.
        *
        * @param tmpReq GlobalHotelQueryCalendarAvailabilityRequest
        * @param headers map
@@ -789,7 +789,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelQueryCalendarAvailabilityResponse globalHotelQueryCalendarAvailabilityWithOptions(const Models::GlobalHotelQueryCalendarAvailabilityRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量日历报价查询
+       * @summary Queries calendar-based availability and pricing for hotels in batch.
        *
        * @param request GlobalHotelQueryCalendarAvailabilityRequest
        * @return GlobalHotelQueryCalendarAvailabilityResponse
@@ -797,7 +797,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelQueryCalendarAvailabilityResponse globalHotelQueryCalendarAvailability(const Models::GlobalHotelQueryCalendarAvailabilityRequest &request);
 
       /**
-       * @summary 查询订单
+       * @summary Queries an order.
        *
        * @param request GlobalHotelQueryOrderRequest
        * @param headers map
@@ -807,7 +807,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelQueryOrderResponse globalHotelQueryOrderWithOptions(const Models::GlobalHotelQueryOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询订单
+       * @summary Queries an order.
        *
        * @param request GlobalHotelQueryOrderRequest
        * @return GlobalHotelQueryOrderResponse
@@ -815,7 +815,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelQueryOrderResponse globalHotelQueryOrder(const Models::GlobalHotelQueryOrderRequest &request);
 
       /**
-       * @summary 分页查询城市行政区划（中英文）
+       * @summary Queries city administrative divisions by paging (in Chinese and English).
        *
        * @param request GlobalHotelSearchCityPageRequest
        * @param headers map
@@ -825,7 +825,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelSearchCityPageResponse globalHotelSearchCityPageWithOptions(const Models::GlobalHotelSearchCityPageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询城市行政区划（中英文）
+       * @summary Queries city administrative divisions by paging (in Chinese and English).
        *
        * @param request GlobalHotelSearchCityPageRequest
        * @return GlobalHotelSearchCityPageResponse
@@ -833,7 +833,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelSearchCityPageResponse globalHotelSearchCityPage(const Models::GlobalHotelSearchCityPageRequest &request);
 
       /**
-       * @summary 按城市分页查询酒店列表
+       * @summary Performs a paged query to retrieve the list of hotels by city with paging.
        *
        * @param request GlobalHotelSearchHotelListRequest
        * @param headers map
@@ -843,7 +843,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelSearchHotelListResponse globalHotelSearchHotelListWithOptions(const Models::GlobalHotelSearchHotelListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 按城市分页查询酒店列表
+       * @summary Performs a paged query to retrieve the list of hotels by city with paging.
        *
        * @param request GlobalHotelSearchHotelListRequest
        * @return GlobalHotelSearchHotelListResponse

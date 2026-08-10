@@ -254,13 +254,21 @@ namespace Models
 
 
           protected:
+            // The description of the picture.
             shared_ptr<string> description_ {};
+            // The first-level category code.
             shared_ptr<string> firstCategoryCode_ {};
+            // The first-level category name.
             shared_ptr<string> firstCategoryName_ {};
+            // Indicates whether the picture is the cover image.
             shared_ptr<bool> isHeadPic_ {};
+            // The picture ID. The URL takes precedence.
             shared_ptr<string> pictureId_ {};
+            // The second-level category code.
             shared_ptr<string> secondCategoryCode_ {};
+            // The second-level category name.
             shared_ptr<string> secondCategoryName_ {};
+            // The URL of the picture.
             shared_ptr<string> url_ {};
           };
 
@@ -311,8 +319,11 @@ namespace Models
 
 
           protected:
+            // The number of beds.
             shared_ptr<int32_t> bedCount_ {};
+            // The bed width in meters.
             shared_ptr<string> bedSize_ {};
+            // The bed type name.
             shared_ptr<string> bedType_ {};
           };
 
@@ -387,14 +398,23 @@ namespace Models
 
 
         protected:
+          // The list of bed types.
           shared_ptr<vector<RoomTypes::BedType>> bedType_ {};
+          // The list of room type pictures.
           shared_ptr<vector<RoomTypes::Pictures>> pictures_ {};
+          // The room type name.
           shared_ptr<string> roomName_ {};
+          // The Chinese room type name.
           shared_ptr<string> roomNameCn_ {};
+          // The room size.
           shared_ptr<double> roomSize_ {};
+          // The size unit (SQM/SQFT).
           shared_ptr<string> roomSizeUnit_ {};
+          // The platform standard room type ID.
           shared_ptr<string> standardRoomId_ {};
+          // The window type.
           shared_ptr<string> windowType_ {};
+          // The defective window type code.
           shared_ptr<string> windowTypeDefect_ {};
         };
 
@@ -479,9 +499,13 @@ namespace Models
 
 
           protected:
+            // The list of child items.
             shared_ptr<vector<Darabonba::Json>> children_ {};
+            // The item name.
             shared_ptr<string> itemName_ {};
+            // The item type ID.
             shared_ptr<string> itemTypeId_ {};
+            // The text value.
             shared_ptr<string> value_ {};
           };
 
@@ -511,8 +535,11 @@ namespace Models
 
 
         protected:
+          // The group name.
           shared_ptr<string> groupName_ {};
+          // The group type ID.
           shared_ptr<string> groupTypeId_ {};
+          // The list of policy items.
           shared_ptr<vector<Policies::Items>> items_ {};
         };
 
@@ -609,13 +636,21 @@ namespace Models
 
 
         protected:
+          // The description of the picture.
           shared_ptr<string> description_ {};
+          // The first-level category code.
           shared_ptr<string> firstCategoryCode_ {};
+          // The first-level category name.
           shared_ptr<string> firstCategoryName_ {};
+          // Indicates whether the picture is the cover image.
           shared_ptr<bool> isHeadPic_ {};
+          // The picture ID. The URL takes precedence.
           shared_ptr<string> pictureId_ {};
+          // The second-level category code.
           shared_ptr<string> secondCategoryCode_ {};
+          // The second-level category name.
           shared_ptr<string> secondCategoryName_ {};
+          // The URL of the picture.
           shared_ptr<string> url_ {};
         };
 
@@ -623,13 +658,13 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const Facilities& obj) { 
             DARABONBA_PTR_TO_JSON(Description, description_);
-            DARABONBA_PTR_TO_JSON(FacilityId, facilityId_);
             DARABONBA_PTR_TO_JSON(Name, name_);
+            DARABONBA_PTR_TO_JSON(Type, type_);
           };
           friend void from_json(const Darabonba::Json& j, Facilities& obj) { 
             DARABONBA_PTR_FROM_JSON(Description, description_);
-            DARABONBA_PTR_FROM_JSON(FacilityId, facilityId_);
             DARABONBA_PTR_FROM_JSON(Name, name_);
+            DARABONBA_PTR_FROM_JSON(Type, type_);
           };
           Facilities() = default ;
           Facilities(const Facilities &) = default ;
@@ -643,19 +678,12 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->description_ == nullptr
-        && this->facilityId_ == nullptr && this->name_ == nullptr; };
+        && this->name_ == nullptr && this->type_ == nullptr; };
           // description Field Functions 
           bool hasDescription() const { return this->description_ != nullptr;};
           void deleteDescription() { this->description_ = nullptr;};
           inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
           inline Facilities& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
-
-
-          // facilityId Field Functions 
-          bool hasFacilityId() const { return this->facilityId_ != nullptr;};
-          void deleteFacilityId() { this->facilityId_ = nullptr;};
-          inline string getFacilityId() const { DARABONBA_PTR_GET_DEFAULT(facilityId_, "") };
-          inline Facilities& setFacilityId(string facilityId) { DARABONBA_PTR_SET_VALUE(facilityId_, facilityId) };
 
 
           // name Field Functions 
@@ -665,10 +693,20 @@ namespace Models
           inline Facilities& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+          // type Field Functions 
+          bool hasType() const { return this->type_ != nullptr;};
+          void deleteType() { this->type_ = nullptr;};
+          inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+          inline Facilities& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
         protected:
+          // The facility description.
           shared_ptr<string> description_ {};
-          shared_ptr<string> facilityId_ {};
+          // The name of the facility.
           shared_ptr<string> name_ {};
+          // The type of the facility.
+          shared_ptr<string> type_ {};
         };
 
         virtual bool empty() const override { return this->address_ == nullptr
@@ -861,30 +899,55 @@ namespace Models
 
 
       protected:
+        // The address of the hotel.
         shared_ptr<string> address_ {};
+        // The default check-in time.
         shared_ptr<string> checkInTime_ {};
+        // The default check-out time.
         shared_ptr<string> checkOutTime_ {};
+        // The city name.
         shared_ptr<string> cityName_ {};
+        // The country name.
         shared_ptr<string> countryName_ {};
+        // The description of the hotel.
         shared_ptr<string> description_ {};
+        // The error code for the individual hotel.
         shared_ptr<string> errorCode_ {};
+        // The error message for the individual hotel.
         shared_ptr<string> errorMessage_ {};
+        // The list of facilities.
         shared_ptr<vector<Hotels::Facilities>> facilities_ {};
+        // The hotel name.
         shared_ptr<string> hotelName_ {};
+        // The Chinese name of the hotel.
         shared_ptr<string> hotelNameCn_ {};
+        // The type of the hotel. Valid values: LUXURY, DELUXE, and COMFORT.
         shared_ptr<string> hotelType_ {};
+        // The latitude of the hotel.
         shared_ptr<string> latitude_ {};
+        // The longitude of the hotel.
         shared_ptr<string> longitude_ {};
+        // The year the hotel opened.
         shared_ptr<int32_t> openingTime_ {};
+        // The list of pictures.
         shared_ptr<vector<Hotels::Pictures>> pictures_ {};
+        // The hotel policy information.
         shared_ptr<vector<Hotels::Policies>> policies_ {};
+        // The source of the latitude and longitude coordinates.
         shared_ptr<string> positionType_ {};
+        // The year the hotel was last renovated.
         shared_ptr<int32_t> renovationTime_ {};
+        // The list of room types.
         shared_ptr<vector<Hotels::RoomTypes>> roomTypes_ {};
+        // The standard hotel ID on the platform.
         shared_ptr<string> standardHotelId_ {};
+        // The star rating of the hotel.
         shared_ptr<string> star_ {};
+        // The status of the hotel. Valid values: ONLINE and OFFLINE.
         shared_ptr<string> status_ {};
+        // The phone number of the hotel.
         shared_ptr<string> tel_ {};
+        // The time zone of the hotel in IANA ID format.
         shared_ptr<string> timezone_ {};
       };
 
@@ -899,6 +962,7 @@ namespace Models
 
 
     protected:
+      // The list of hotel details.
       shared_ptr<vector<Data::Hotels>> hotels_ {};
     };
 
@@ -949,11 +1013,17 @@ namespace Models
 
 
   protected:
+    // The business data.
     shared_ptr<GlobalHotelBatchGetHotelDetailResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
+    // traceId
     shared_ptr<string> tracerId_ {};
   };
 
