@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_ADDTENANTMEMBERSBYSOURCEUSERRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_ADDTENANTMEMBERSBYSOURCEUSERRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_EXECUTEDDLRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_EXECUTEDDLRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,89 +10,78 @@ namespace DataphinPublic20230630
 {
 namespace Models
 {
-  class AddTenantMembersBySourceUserResponseBody : public Darabonba::Model {
+  class ExecuteDDLResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const AddTenantMembersBySourceUserResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const ExecuteDDLResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
-      DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, AddTenantMembersBySourceUserResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, ExecuteDDLResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
-      DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    AddTenantMembersBySourceUserResponseBody() = default ;
-    AddTenantMembersBySourceUserResponseBody(const AddTenantMembersBySourceUserResponseBody &) = default ;
-    AddTenantMembersBySourceUserResponseBody(AddTenantMembersBySourceUserResponseBody &&) = default ;
-    AddTenantMembersBySourceUserResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~AddTenantMembersBySourceUserResponseBody() = default ;
-    AddTenantMembersBySourceUserResponseBody& operator=(const AddTenantMembersBySourceUserResponseBody &) = default ;
-    AddTenantMembersBySourceUserResponseBody& operator=(AddTenantMembersBySourceUserResponseBody &&) = default ;
+    ExecuteDDLResponseBody() = default ;
+    ExecuteDDLResponseBody(const ExecuteDDLResponseBody &) = default ;
+    ExecuteDDLResponseBody(ExecuteDDLResponseBody &&) = default ;
+    ExecuteDDLResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ExecuteDDLResponseBody() = default ;
+    ExecuteDDLResponseBody& operator=(const ExecuteDDLResponseBody &) = default ;
+    ExecuteDDLResponseBody& operator=(ExecuteDDLResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+        && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline AddTenantMembersBySourceUserResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
-
-
-    // data Field Functions 
-    bool hasData() const { return this->data_ != nullptr;};
-    void deleteData() { this->data_ = nullptr;};
-    inline bool getData() const { DARABONBA_PTR_GET_DEFAULT(data_, false) };
-    inline AddTenantMembersBySourceUserResponseBody& setData(bool data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ExecuteDDLResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
     inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
-    inline AddTenantMembersBySourceUserResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
+    inline ExecuteDDLResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline AddTenantMembersBySourceUserResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline ExecuteDDLResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline AddTenantMembersBySourceUserResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline ExecuteDDLResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline AddTenantMembersBySourceUserResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline ExecuteDDLResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    // The error code. A value of OK indicates that the request was successful.
+    // The backend response code.
     shared_ptr<string> code_ {};
-    // The result of the add operation.
-    shared_ptr<bool> data_ {};
-    // The HTTP status code returned by the backend.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned if the request failed.
+    // The backend exception details.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

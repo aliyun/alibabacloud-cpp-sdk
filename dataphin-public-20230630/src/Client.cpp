@@ -323,7 +323,7 @@ AddTenantMembersResponse Client::addTenantMembers(const AddTenantMembersRequest 
 }
 
 /**
- * @summary Adds tenant members by using original user identities.
+ * @summary Adds tenant members by using source users.
  *
  * @param tmpReq AddTenantMembersBySourceUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -366,7 +366,7 @@ AddTenantMembersBySourceUserResponse Client::addTenantMembersBySourceUserWithOpt
 }
 
 /**
- * @summary Adds tenant members by using original user identities.
+ * @summary Adds tenant members by using source users.
  *
  * @param request AddTenantMembersBySourceUserRequest
  * @return AddTenantMembersBySourceUserResponse
@@ -5086,6 +5086,68 @@ ExecuteAdHocTaskResponse Client::executeAdHocTaskWithOptions(const ExecuteAdHocT
 ExecuteAdHocTaskResponse Client::executeAdHocTask(const ExecuteAdHocTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return executeAdHocTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary Executes a DDL statement: creates a table on a data source based on the specified data source identifier and DDL statement.
+ *
+ * @param tmpReq ExecuteDDLRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExecuteDDLResponse
+ */
+ExecuteDDLResponse Client::executeDDLWithOptions(const ExecuteDDLRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ExecuteDDLShrinkRequest request = ExecuteDDLShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContext()) {
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContext(), "Context", "json"));
+  }
+
+  if (!!tmpReq.hasDDLCommand()) {
+    request.setDDLCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDDLCommand(), "DDLCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasContextShrink()) {
+    body["Context"] = request.getContextShrink();
+  }
+
+  if (!!request.hasDDLCommandShrink()) {
+    body["DDLCommand"] = request.getDDLCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ExecuteDDL"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExecuteDDLResponse>();
+}
+
+/**
+ * @summary Executes a DDL statement: creates a table on a data source based on the specified data source identifier and DDL statement.
+ *
+ * @param request ExecuteDDLRequest
+ * @return ExecuteDDLResponse
+ */
+ExecuteDDLResponse Client::executeDDL(const ExecuteDDLRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return executeDDLWithOptions(request, runtime);
 }
 
 /**
@@ -12603,6 +12665,68 @@ ListOperationRecordResponse Client::listOperationRecord(const ListOperationRecor
 }
 
 /**
+ * @summary Queries a list of nodes. Supports querying offline integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, and creator. Results are returned with pagination.
+ *
+ * @param tmpReq ListPipelinesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPipelinesResponse
+ */
+ListPipelinesResponse Client::listPipelinesWithOptions(const ListPipelinesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListPipelinesShrinkRequest request = ListPipelinesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContext()) {
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContext(), "Context", "json"));
+  }
+
+  if (!!tmpReq.hasListCommand()) {
+    request.setListCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListCommand(), "ListCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasContextShrink()) {
+    body["Context"] = request.getContextShrink();
+  }
+
+  if (!!request.hasListCommandShrink()) {
+    body["ListCommand"] = request.getListCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListPipelines"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPipelinesResponse>();
+}
+
+/**
+ * @summary Queries a list of nodes. Supports querying offline integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, and creator. Results are returned with pagination.
+ *
+ * @param request ListPipelinesRequest
+ * @return ListPipelinesResponse
+ */
+ListPipelinesResponse Client::listPipelines(const ListPipelinesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listPipelinesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the list of project members.
  *
  * @param tmpReq ListProjectMembersRequest
@@ -13103,7 +13227,7 @@ ListResourcePermissionOperationLogResponse Client::listResourcePermissionOperati
 }
 
 /**
- * @summary Retrieves permission authorization records with pagination.
+ * @summary Retrieves permission authorization records by page.
  *
  * @param tmpReq ListResourcePermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13146,7 +13270,7 @@ ListResourcePermissionsResponse Client::listResourcePermissionsWithOptions(const
 }
 
 /**
- * @summary Retrieves permission authorization records with pagination.
+ * @summary Retrieves permission authorization records by page.
  *
  * @param request ListResourcePermissionsRequest
  * @return ListResourcePermissionsResponse
@@ -13262,6 +13386,60 @@ ListRowPermissionByUserIdResponse Client::listRowPermissionByUserIdWithOptions(c
 ListRowPermissionByUserIdResponse Client::listRowPermissionByUserId(const ListRowPermissionByUserIdRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listRowPermissionByUserIdWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the data classification list by paging.
+ *
+ * @param tmpReq ListSecurityClassifyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSecurityClassifyResponse
+ */
+ListSecurityClassifyResponse Client::listSecurityClassifyWithOptions(const ListSecurityClassifyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListSecurityClassifyShrinkRequest request = ListSecurityClassifyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListQuery()) {
+    request.setListQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListQuery(), "ListQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasListQueryShrink()) {
+    body["ListQuery"] = request.getListQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListSecurityClassify"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSecurityClassifyResponse>();
+}
+
+/**
+ * @summary Queries the data classification list by paging.
+ *
+ * @param request ListSecurityClassifyRequest
+ * @return ListSecurityClassifyResponse
+ */
+ListSecurityClassifyResponse Client::listSecurityClassify(const ListSecurityClassifyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSecurityClassifyWithOptions(request, runtime);
 }
 
 /**
@@ -15055,6 +15233,64 @@ RevokeResourcePermissionResponse Client::revokeResourcePermission(const RevokeRe
 }
 
 /**
+ * @summary Retrieves knowledge graph entity or relationship records through semantic search.
+ *
+ * @param tmpReq SearchKgBySemanticRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchKgBySemanticResponse
+ */
+SearchKgBySemanticResponse Client::searchKgBySemanticWithOptions(const SearchKgBySemanticRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SearchKgBySemanticShrinkRequest request = SearchKgBySemanticShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSearchCommand()) {
+    request.setSearchCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSearchCommand(), "SearchCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasSearchCommandShrink()) {
+    body["SearchCommand"] = request.getSearchCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SearchKgBySemantic"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchKgBySemanticResponse>();
+}
+
+/**
+ * @summary Retrieves knowledge graph entity or relationship records through semantic search.
+ *
+ * @param request SearchKgBySemanticRequest
+ * @return SearchKgBySemanticResponse
+ */
+SearchKgBySemanticResponse Client::searchKgBySemantic(const SearchKgBySemanticRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return searchKgBySemanticWithOptions(request, runtime);
+}
+
+/**
  * @summary Stops an ad hoc query task.
  *
  * @param request StopAdHocTaskRequest
@@ -15156,6 +15392,68 @@ SubmitBatchTaskResponse Client::submitBatchTaskWithOptions(const SubmitBatchTask
 SubmitBatchTaskResponse Client::submitBatchTask(const SubmitBatchTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitBatchTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary Submits an integration pipeline task by OAQueryId.
+ *
+ * @param tmpReq SubmitPipelineByIdRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitPipelineByIdResponse
+ */
+SubmitPipelineByIdResponse Client::submitPipelineByIdWithOptions(const SubmitPipelineByIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SubmitPipelineByIdShrinkRequest request = SubmitPipelineByIdShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContext()) {
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContext(), "Context", "json"));
+  }
+
+  if (!!tmpReq.hasQueryId()) {
+    request.setQueryIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQueryId(), "QueryId", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasContextShrink()) {
+    body["Context"] = request.getContextShrink();
+  }
+
+  if (!!request.hasQueryIdShrink()) {
+    body["QueryId"] = request.getQueryIdShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubmitPipelineById"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitPipelineByIdResponse>();
+}
+
+/**
+ * @summary Submits an integration pipeline task by OAQueryId.
+ *
+ * @param request SubmitPipelineByIdRequest
+ * @return SubmitPipelineByIdResponse
+ */
+SubmitPipelineByIdResponse Client::submitPipelineById(const SubmitPipelineByIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitPipelineByIdWithOptions(request, runtime);
 }
 
 /**

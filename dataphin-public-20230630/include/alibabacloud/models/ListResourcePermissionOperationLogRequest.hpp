@@ -91,15 +91,16 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int32_t> page_ {};
-      // The number of records per page.
+      // The number of entries per page.
       // 
       // This parameter is required.
       shared_ptr<int32_t> pageSize_ {};
       // The search keyword.
       shared_ptr<string> searchText_ {};
-      // The tab name. Valid values:
-      // - TABLE: table
-      // - DATASOURCE: datasource.
+      // The tab type. Valid values:
+      // 
+      // - TABLE: table.
+      // - DATASOURCE: data source.
       // 
       // This parameter is required.
       shared_ptr<string> tabType_ {};
@@ -124,7 +125,7 @@ namespace Models
 
 
   protected:
-    // The paged request parameters.
+    // The pagination request.
     // 
     // This parameter is required.
     shared_ptr<ListResourcePermissionOperationLogRequest::ListQuery> listQuery_ {};

@@ -143,11 +143,14 @@ namespace Models
 
 
         protected:
-          // The account ID.
+          // The account ID. For a personal account, this is the Dataphin-side userId. For a production account, this is the UserId obtained through the GetProjectProduceUser operation. For a user group, this is the user group ID obtained through the ListUserGroup operation.
           shared_ptr<string> id_ {};
           // The account name.
           shared_ptr<string> name_ {};
-          // The authorized account type.
+          // The authorized account type. Valid values:
+          // - PERSONAL: personal account.
+          // - PRODUCE: production account.
+          // - USER_GROUP: user group.
           shared_ptr<string> type_ {};
         };
 
@@ -240,9 +243,9 @@ namespace Models
           protected:
             // The display name.
             shared_ptr<string> displayName_ {};
-            // The environment identifier. Valid values: 
-            // - DEV
-            // - PROD.
+            // The environment identifier. Valid values:
+            // - DEV: development.
+            // - PROD: production.
             shared_ptr<string> env_ {};
             // The project ID.
             shared_ptr<int64_t> id_ {};
@@ -308,9 +311,9 @@ namespace Models
           protected:
             // The display name.
             shared_ptr<string> displayName_ {};
-            // The environment identifier. Valid values: 
-            // - DEV
-            // - PROD.
+            // The environment identifier. Valid values:
+            // - DEV: development.
+            // - PROD: production.
             shared_ptr<string> env_ {};
             // Id
             shared_ptr<string> id_ {};
@@ -375,28 +378,28 @@ namespace Models
 
 
         protected:
-          // The business unit information.
+          // The business unit.
           shared_ptr<ResourceInfo::BizUnitInfo> bizUnitInfo_ {};
           // The display name of the resource.
           shared_ptr<string> displayName_ {};
           // The resource environment. Valid values:
-          // - DEV
-          // - PROD.
+          // - DEV: development.
+          // - PROD: production.
           shared_ptr<string> env_ {};
           // The permission resource ID.
           shared_ptr<string> id_ {};
           // The permission resource name.
           shared_ptr<string> name_ {};
-          // The project information.
+          // The project.
           shared_ptr<ResourceInfo::ProjectInfo> projectInfo_ {};
           // The resource type. Valid values:
-          // - PHYSICAL_TABLE: physical table
-          // - PHYSICAL_VIEW: physical view
-          // - LOGICAL_TABLE: fact logical table
-          // - LOGICAL_VIEW: fact logical view
-          // - REALTIME_LOGICAL_TABLE: real-time meta table
-          // - REALTIME_MIRROR_TABLE: real-time meta table
-          // - DATASOURCE: datasource.
+          // - PHYSICAL_TABLE: physical table.
+          // - PHYSICAL_VIEW: physical view.
+          // - LOGICAL_TABLE: fact logical table.
+          // - LOGICAL_VIEW: fact logical view.
+          // - REALTIME_LOGICAL_TABLE: real-time meta table.
+          // - REALTIME_MIRROR_TABLE: real-time meta table.
+          // - DATASOURCE: data source.
           shared_ptr<string> type_ {};
         };
 
@@ -442,10 +445,10 @@ namespace Models
           shared_ptr<string> endTime_ {};
           // The validity period type. Valid values:
           // - CUSTOM: custom
-          // - LONG_TERM: permanently valid
+          // - LONG_TERM: long-term validity
           // - DAYS_30: valid for 30 days
           // - DAYS_90: valid for 90 days
-          // - DAYS_180: valid for 180 days.
+          // - DAYS_180: valid for 180 days
           shared_ptr<string> type_ {};
         };
 
@@ -496,16 +499,13 @@ namespace Models
 
 
         protected:
-          // The account ID.
-          // - Individual account: the userId on the Dataphin side.
-          // - Production account: the UserId obtained by calling the GetProjectProduceUser operation.
-          // - User group: the user group ID obtained by calling the ListUserGroup operation.
+          // The account ID. For a personal account, this is the Dataphin-side userId. For a production account, this is the UserId obtained through the GetProjectProduceUser operation. For a user group, this is the user group ID obtained through the ListUserGroup operation.
           shared_ptr<string> id_ {};
           // The account name.
           shared_ptr<string> name_ {};
-          // The authorization account type. Valid values:
-          // - PERSONAL: individual account
-          // - PRODUCE: production account
+          // The authorized account type. Valid values:
+          // - PERSONAL: personal account.
+          // - PRODUCE: production account.
           // - USER_GROUP: user group.
           shared_ptr<string> type_ {};
         };
@@ -588,17 +588,18 @@ namespace Models
         // The operator.
         shared_ptr<Data::Account> account_ {};
         // The authorization scope of the table. Valid values:
+        // 
         // - selectTable: specified table
         // - projectAllTable: all tables in the project
-        // - bizUnitAllLogicTable: all logical tables in the business unit.
+        // - bizUnitAllLogicTable: all logical tables in the business unit
         shared_ptr<string> authScope_ {};
         // The operation ID.
         shared_ptr<int64_t> operateId_ {};
         // The operation time.
         shared_ptr<int64_t> operateTime_ {};
         // The operation type. Valid values:
-        // - APPLY: Apply for permissions.
-        // - GRANT: Grant permissions.
+        // - APPLY: apply.
+        // - GRANT: grant.
         shared_ptr<string> operateType_ {};
         // The validity period settings.
         shared_ptr<Data::Period> period_ {};
@@ -629,7 +630,7 @@ namespace Models
 
 
     protected:
-      // The paginated records.
+      // The paged records.
       shared_ptr<vector<PageResult::Data>> data_ {};
       // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
@@ -686,9 +687,9 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The error message returned if the request failed.
     shared_ptr<string> message_ {};
-    // The paging query result.
+    // The paged query result.
     shared_ptr<ListResourcePermissionOperationLogResponseBody::PageResult> pageResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

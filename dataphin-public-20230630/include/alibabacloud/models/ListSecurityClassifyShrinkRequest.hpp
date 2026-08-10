@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_LISTRESOURCEPERMISSIONOPERATIONLOGSHRINKREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_LISTRESOURCEPERMISSIONOPERATIONLOGSHRINKREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_LISTSECURITYCLASSIFYSHRINKREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_LISTSECURITYCLASSIFYSHRINKREQUEST_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,23 +10,23 @@ namespace DataphinPublic20230630
 {
 namespace Models
 {
-  class ListResourcePermissionOperationLogShrinkRequest : public Darabonba::Model {
+  class ListSecurityClassifyShrinkRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const ListResourcePermissionOperationLogShrinkRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const ListSecurityClassifyShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ListQuery, listQueryShrink_);
       DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
     };
-    friend void from_json(const Darabonba::Json& j, ListResourcePermissionOperationLogShrinkRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, ListSecurityClassifyShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ListQuery, listQueryShrink_);
       DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
     };
-    ListResourcePermissionOperationLogShrinkRequest() = default ;
-    ListResourcePermissionOperationLogShrinkRequest(const ListResourcePermissionOperationLogShrinkRequest &) = default ;
-    ListResourcePermissionOperationLogShrinkRequest(ListResourcePermissionOperationLogShrinkRequest &&) = default ;
-    ListResourcePermissionOperationLogShrinkRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~ListResourcePermissionOperationLogShrinkRequest() = default ;
-    ListResourcePermissionOperationLogShrinkRequest& operator=(const ListResourcePermissionOperationLogShrinkRequest &) = default ;
-    ListResourcePermissionOperationLogShrinkRequest& operator=(ListResourcePermissionOperationLogShrinkRequest &&) = default ;
+    ListSecurityClassifyShrinkRequest() = default ;
+    ListSecurityClassifyShrinkRequest(const ListSecurityClassifyShrinkRequest &) = default ;
+    ListSecurityClassifyShrinkRequest(ListSecurityClassifyShrinkRequest &&) = default ;
+    ListSecurityClassifyShrinkRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListSecurityClassifyShrinkRequest() = default ;
+    ListSecurityClassifyShrinkRequest& operator=(const ListSecurityClassifyShrinkRequest &) = default ;
+    ListSecurityClassifyShrinkRequest& operator=(ListSecurityClassifyShrinkRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -37,20 +37,18 @@ namespace Models
     bool hasListQueryShrink() const { return this->listQueryShrink_ != nullptr;};
     void deleteListQueryShrink() { this->listQueryShrink_ = nullptr;};
     inline string getListQueryShrink() const { DARABONBA_PTR_GET_DEFAULT(listQueryShrink_, "") };
-    inline ListResourcePermissionOperationLogShrinkRequest& setListQueryShrink(string listQueryShrink) { DARABONBA_PTR_SET_VALUE(listQueryShrink_, listQueryShrink) };
+    inline ListSecurityClassifyShrinkRequest& setListQueryShrink(string listQueryShrink) { DARABONBA_PTR_SET_VALUE(listQueryShrink_, listQueryShrink) };
 
 
     // opTenantId Field Functions 
     bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
     void deleteOpTenantId() { this->opTenantId_ = nullptr;};
     inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
-    inline ListResourcePermissionOperationLogShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+    inline ListSecurityClassifyShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
 
 
   protected:
-    // The pagination request.
-    // 
-    // This parameter is required.
+    // The query conditions.
     shared_ptr<string> listQueryShrink_ {};
     // The tenant ID.
     // 

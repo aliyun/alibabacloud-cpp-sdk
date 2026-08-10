@@ -108,7 +108,7 @@ namespace DataphinPublic20230630
       Models::AddTenantMembersResponse addTenantMembers(const Models::AddTenantMembersRequest &request);
 
       /**
-       * @summary Adds tenant members by using original user identities.
+       * @summary Adds tenant members by using source users.
        *
        * @param tmpReq AddTenantMembersBySourceUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -117,7 +117,7 @@ namespace DataphinPublic20230630
       Models::AddTenantMembersBySourceUserResponse addTenantMembersBySourceUserWithOptions(const Models::AddTenantMembersBySourceUserRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds tenant members by using original user identities.
+       * @summary Adds tenant members by using source users.
        *
        * @param request AddTenantMembersBySourceUserRequest
        * @return AddTenantMembersBySourceUserResponse
@@ -1676,6 +1676,23 @@ namespace DataphinPublic20230630
        * @return ExecuteAdHocTaskResponse
        */
       Models::ExecuteAdHocTaskResponse executeAdHocTask(const Models::ExecuteAdHocTaskRequest &request);
+
+      /**
+       * @summary Executes a DDL statement: creates a table on a data source based on the specified data source identifier and DDL statement.
+       *
+       * @param tmpReq ExecuteDDLRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExecuteDDLResponse
+       */
+      Models::ExecuteDDLResponse executeDDLWithOptions(const Models::ExecuteDDLRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Executes a DDL statement: creates a table on a data source based on the specified data source identifier and DDL statement.
+       *
+       * @param request ExecuteDDLRequest
+       * @return ExecuteDDLResponse
+       */
+      Models::ExecuteDDLResponse executeDDL(const Models::ExecuteDDLRequest &request);
 
       /**
        * @summary Runs a manually scheduled node.
@@ -4166,6 +4183,23 @@ namespace DataphinPublic20230630
       Models::ListOperationRecordResponse listOperationRecord(const Models::ListOperationRecordRequest &request);
 
       /**
+       * @summary Queries a list of nodes. Supports querying offline integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, and creator. Results are returned with pagination.
+       *
+       * @param tmpReq ListPipelinesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPipelinesResponse
+       */
+      Models::ListPipelinesResponse listPipelinesWithOptions(const Models::ListPipelinesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a list of nodes. Supports querying offline integration, real-time integration, and unstructured workflows (data aggregation, offline workflows, and real-time workflows). Supports multi-dimensional filtering by folder, keyword, node type, submit status, scheduling type, owner, label, and creator. Results are returned with pagination.
+       *
+       * @param request ListPipelinesRequest
+       * @return ListPipelinesResponse
+       */
+      Models::ListPipelinesResponse listPipelines(const Models::ListPipelinesRequest &request);
+
+      /**
        * @summary Queries the list of project members.
        *
        * @param tmpReq ListProjectMembersRequest
@@ -4329,7 +4363,7 @@ namespace DataphinPublic20230630
       Models::ListResourcePermissionOperationLogResponse listResourcePermissionOperationLog(const Models::ListResourcePermissionOperationLogRequest &request);
 
       /**
-       * @summary Retrieves permission authorization records with pagination.
+       * @summary Retrieves permission authorization records by page.
        *
        * @param tmpReq ListResourcePermissionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4338,7 +4372,7 @@ namespace DataphinPublic20230630
       Models::ListResourcePermissionsResponse listResourcePermissionsWithOptions(const Models::ListResourcePermissionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves permission authorization records with pagination.
+       * @summary Retrieves permission authorization records by page.
        *
        * @param request ListResourcePermissionsRequest
        * @return ListResourcePermissionsResponse
@@ -4378,6 +4412,23 @@ namespace DataphinPublic20230630
        * @return ListRowPermissionByUserIdResponse
        */
       Models::ListRowPermissionByUserIdResponse listRowPermissionByUserId(const Models::ListRowPermissionByUserIdRequest &request);
+
+      /**
+       * @summary Queries the data classification list by paging.
+       *
+       * @param tmpReq ListSecurityClassifyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSecurityClassifyResponse
+       */
+      Models::ListSecurityClassifyResponse listSecurityClassifyWithOptions(const Models::ListSecurityClassifyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the data classification list by paging.
+       *
+       * @param request ListSecurityClassifyRequest
+       * @return ListSecurityClassifyResponse
+       */
+      Models::ListSecurityClassifyResponse listSecurityClassify(const Models::ListSecurityClassifyRequest &request);
 
       /**
        * @summary Queries identification records of security identification results by paging.
@@ -4942,6 +4993,23 @@ namespace DataphinPublic20230630
       Models::RevokeResourcePermissionResponse revokeResourcePermission(const Models::RevokeResourcePermissionRequest &request);
 
       /**
+       * @summary Retrieves knowledge graph entity or relationship records through semantic search.
+       *
+       * @param tmpReq SearchKgBySemanticRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchKgBySemanticResponse
+       */
+      Models::SearchKgBySemanticResponse searchKgBySemanticWithOptions(const Models::SearchKgBySemanticRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves knowledge graph entity or relationship records through semantic search.
+       *
+       * @param request SearchKgBySemanticRequest
+       * @return SearchKgBySemanticResponse
+       */
+      Models::SearchKgBySemanticResponse searchKgBySemantic(const Models::SearchKgBySemanticRequest &request);
+
+      /**
        * @summary Stops an ad hoc query task.
        *
        * @param request StopAdHocTaskRequest
@@ -4974,6 +5042,23 @@ namespace DataphinPublic20230630
        * @return SubmitBatchTaskResponse
        */
       Models::SubmitBatchTaskResponse submitBatchTask(const Models::SubmitBatchTaskRequest &request);
+
+      /**
+       * @summary Submits an integration pipeline task by OAQueryId.
+       *
+       * @param tmpReq SubmitPipelineByIdRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitPipelineByIdResponse
+       */
+      Models::SubmitPipelineByIdResponse submitPipelineByIdWithOptions(const Models::SubmitPipelineByIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Submits an integration pipeline task by OAQueryId.
+       *
+       * @param request SubmitPipelineByIdRequest
+       * @return SubmitPipelineByIdResponse
+       */
+      Models::SubmitPipelineByIdResponse submitPipelineById(const Models::SubmitPipelineByIdRequest &request);
 
       /**
        * @summary Batch submit rule tasks with support for test runs.

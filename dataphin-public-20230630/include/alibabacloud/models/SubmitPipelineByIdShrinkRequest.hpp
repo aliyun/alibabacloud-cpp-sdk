@@ -1,0 +1,77 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_SUBMITPIPELINEBYIDSHRINKREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_SUBMITPIPELINEBYIDSHRINKREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace DataphinPublic20230630
+{
+namespace Models
+{
+  class SubmitPipelineByIdShrinkRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const SubmitPipelineByIdShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Context, contextShrink_);
+      DARABONBA_PTR_TO_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_TO_JSON(QueryId, queryIdShrink_);
+    };
+    friend void from_json(const Darabonba::Json& j, SubmitPipelineByIdShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Context, contextShrink_);
+      DARABONBA_PTR_FROM_JSON(OpTenantId, opTenantId_);
+      DARABONBA_PTR_FROM_JSON(QueryId, queryIdShrink_);
+    };
+    SubmitPipelineByIdShrinkRequest() = default ;
+    SubmitPipelineByIdShrinkRequest(const SubmitPipelineByIdShrinkRequest &) = default ;
+    SubmitPipelineByIdShrinkRequest(SubmitPipelineByIdShrinkRequest &&) = default ;
+    SubmitPipelineByIdShrinkRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~SubmitPipelineByIdShrinkRequest() = default ;
+    SubmitPipelineByIdShrinkRequest& operator=(const SubmitPipelineByIdShrinkRequest &) = default ;
+    SubmitPipelineByIdShrinkRequest& operator=(SubmitPipelineByIdShrinkRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->contextShrink_ == nullptr
+        && this->opTenantId_ == nullptr && this->queryIdShrink_ == nullptr; };
+    // contextShrink Field Functions 
+    bool hasContextShrink() const { return this->contextShrink_ != nullptr;};
+    void deleteContextShrink() { this->contextShrink_ = nullptr;};
+    inline string getContextShrink() const { DARABONBA_PTR_GET_DEFAULT(contextShrink_, "") };
+    inline SubmitPipelineByIdShrinkRequest& setContextShrink(string contextShrink) { DARABONBA_PTR_SET_VALUE(contextShrink_, contextShrink) };
+
+
+    // opTenantId Field Functions 
+    bool hasOpTenantId() const { return this->opTenantId_ != nullptr;};
+    void deleteOpTenantId() { this->opTenantId_ = nullptr;};
+    inline int64_t getOpTenantId() const { DARABONBA_PTR_GET_DEFAULT(opTenantId_, 0L) };
+    inline SubmitPipelineByIdShrinkRequest& setOpTenantId(int64_t opTenantId) { DARABONBA_PTR_SET_VALUE(opTenantId_, opTenantId) };
+
+
+    // queryIdShrink Field Functions 
+    bool hasQueryIdShrink() const { return this->queryIdShrink_ != nullptr;};
+    void deleteQueryIdShrink() { this->queryIdShrink_ = nullptr;};
+    inline string getQueryIdShrink() const { DARABONBA_PTR_GET_DEFAULT(queryIdShrink_, "") };
+    inline SubmitPipelineByIdShrinkRequest& setQueryIdShrink(string queryIdShrink) { DARABONBA_PTR_SET_VALUE(queryIdShrink_, queryIdShrink) };
+
+
+  protected:
+    // The request context information.
+    // 
+    // This parameter is required.
+    shared_ptr<string> contextShrink_ {};
+    // The tenant ID.
+    // 
+    // This parameter is required.
+    shared_ptr<int64_t> opTenantId_ {};
+    // The ID used to query the pipeline task.
+    // 
+    // This parameter is required.
+    shared_ptr<string> queryIdShrink_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace DataphinPublic20230630
+#endif

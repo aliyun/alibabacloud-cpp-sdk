@@ -60,6 +60,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Mail, mail_);
           DARABONBA_PTR_TO_JSON(MobilePhone, mobilePhone_);
           DARABONBA_PTR_TO_JSON(SourceId, sourceId_);
+          DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
         };
         friend void from_json(const Darabonba::Json& j, SourceUserList& obj) { 
           DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
@@ -68,6 +69,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Mail, mail_);
           DARABONBA_PTR_FROM_JSON(MobilePhone, mobilePhone_);
           DARABONBA_PTR_FROM_JSON(SourceId, sourceId_);
+          DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
         };
         SourceUserList() = default ;
         SourceUserList(const SourceUserList &) = default ;
@@ -81,7 +83,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->accountName_ == nullptr
-        && this->dingNumber_ == nullptr && this->displayName_ == nullptr && this->mail_ == nullptr && this->mobilePhone_ == nullptr && this->sourceId_ == nullptr; };
+        && this->dingNumber_ == nullptr && this->displayName_ == nullptr && this->mail_ == nullptr && this->mobilePhone_ == nullptr && this->sourceId_ == nullptr
+        && this->sourceType_ == nullptr; };
         // accountName Field Functions 
         bool hasAccountName() const { return this->accountName_ != nullptr;};
         void deleteAccountName() { this->accountName_ = nullptr;};
@@ -124,6 +127,13 @@ namespace Models
         inline SourceUserList& setSourceId(string sourceId) { DARABONBA_PTR_SET_VALUE(sourceId_, sourceId) };
 
 
+        // sourceType Field Functions 
+        bool hasSourceType() const { return this->sourceType_ != nullptr;};
+        void deleteSourceType() { this->sourceType_ = nullptr;};
+        inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+        inline SourceUserList& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
+
+
       protected:
         // The account name.
         shared_ptr<string> accountName_ {};
@@ -135,8 +145,9 @@ namespace Models
         shared_ptr<string> mail_ {};
         // The phone number.
         shared_ptr<string> mobilePhone_ {};
-        // The original ID of the user.
+        // The source user ID.
         shared_ptr<string> sourceId_ {};
+        shared_ptr<string> sourceType_ {};
       };
 
       virtual bool empty() const override { return this->sourceUserList_ == nullptr; };

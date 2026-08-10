@@ -353,6 +353,10 @@
 #include <alibabacloud/models/ExecuteAdHocTaskShrinkRequest.hpp>
 #include <alibabacloud/models/ExecuteAdHocTaskResponseBody.hpp>
 #include <alibabacloud/models/ExecuteAdHocTaskResponse.hpp>
+#include <alibabacloud/models/ExecuteDDLRequest.hpp>
+#include <alibabacloud/models/ExecuteDDLShrinkRequest.hpp>
+#include <alibabacloud/models/ExecuteDDLResponseBody.hpp>
+#include <alibabacloud/models/ExecuteDDLResponse.hpp>
 #include <alibabacloud/models/ExecuteManualNodeRequest.hpp>
 #include <alibabacloud/models/ExecuteManualNodeShrinkRequest.hpp>
 #include <alibabacloud/models/ExecuteManualNodeResponseBody.hpp>
@@ -836,6 +840,10 @@
 #include <alibabacloud/models/ListOperationRecordShrinkRequest.hpp>
 #include <alibabacloud/models/ListOperationRecordResponseBody.hpp>
 #include <alibabacloud/models/ListOperationRecordResponse.hpp>
+#include <alibabacloud/models/ListPipelinesRequest.hpp>
+#include <alibabacloud/models/ListPipelinesShrinkRequest.hpp>
+#include <alibabacloud/models/ListPipelinesResponseBody.hpp>
+#include <alibabacloud/models/ListPipelinesResponse.hpp>
 #include <alibabacloud/models/ListProjectMembersRequest.hpp>
 #include <alibabacloud/models/ListProjectMembersShrinkRequest.hpp>
 #include <alibabacloud/models/ListProjectMembersResponseBody.hpp>
@@ -884,6 +892,10 @@
 #include <alibabacloud/models/ListRowPermissionByUserIdShrinkRequest.hpp>
 #include <alibabacloud/models/ListRowPermissionByUserIdResponseBody.hpp>
 #include <alibabacloud/models/ListRowPermissionByUserIdResponse.hpp>
+#include <alibabacloud/models/ListSecurityClassifyRequest.hpp>
+#include <alibabacloud/models/ListSecurityClassifyShrinkRequest.hpp>
+#include <alibabacloud/models/ListSecurityClassifyResponseBody.hpp>
+#include <alibabacloud/models/ListSecurityClassifyResponse.hpp>
 #include <alibabacloud/models/ListSecurityIdentifyRecordsRequest.hpp>
 #include <alibabacloud/models/ListSecurityIdentifyRecordsShrinkRequest.hpp>
 #include <alibabacloud/models/ListSecurityIdentifyRecordsResponseBody.hpp>
@@ -1010,6 +1022,10 @@
 #include <alibabacloud/models/RevokeResourcePermissionShrinkRequest.hpp>
 #include <alibabacloud/models/RevokeResourcePermissionResponseBody.hpp>
 #include <alibabacloud/models/RevokeResourcePermissionResponse.hpp>
+#include <alibabacloud/models/SearchKgBySemanticRequest.hpp>
+#include <alibabacloud/models/SearchKgBySemanticShrinkRequest.hpp>
+#include <alibabacloud/models/SearchKgBySemanticResponseBody.hpp>
+#include <alibabacloud/models/SearchKgBySemanticResponse.hpp>
 #include <alibabacloud/models/StopAdHocTaskRequest.hpp>
 #include <alibabacloud/models/StopAdHocTaskResponseBody.hpp>
 #include <alibabacloud/models/StopAdHocTaskResponse.hpp>
@@ -1017,6 +1033,10 @@
 #include <alibabacloud/models/SubmitBatchTaskShrinkRequest.hpp>
 #include <alibabacloud/models/SubmitBatchTaskResponseBody.hpp>
 #include <alibabacloud/models/SubmitBatchTaskResponse.hpp>
+#include <alibabacloud/models/SubmitPipelineByIdRequest.hpp>
+#include <alibabacloud/models/SubmitPipelineByIdShrinkRequest.hpp>
+#include <alibabacloud/models/SubmitPipelineByIdResponseBody.hpp>
+#include <alibabacloud/models/SubmitPipelineByIdResponse.hpp>
 #include <alibabacloud/models/SubmitQualityRuleTasksRequest.hpp>
 #include <alibabacloud/models/SubmitQualityRuleTasksShrinkRequest.hpp>
 #include <alibabacloud/models/SubmitQualityRuleTasksResponseBody.hpp>
