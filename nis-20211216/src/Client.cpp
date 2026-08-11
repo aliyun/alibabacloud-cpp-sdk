@@ -8,6 +8,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using namespace AlibabaCloud::Nis20211216::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -1565,45 +1566,15 @@ GetNetworkReachableAnalysisResponse Client::getNetworkReachableAnalysis(const Ge
  * @description Data query result synchronization:
  * - API data is synchronized every 6 hours. You can query current network analysis data only after 6 hours.
  * Supported analysis scenarios: 
- * - Internet performance observation dashboard scenario
  * - Cross-zone internal network performance observation dashboard scenario
  * - Cross-region internal network performance observation dashboard scenario
- * ## Internet performance observation dashboard scenario
- * **Note**
- * The maximum query time span is 24 hours. If not specified, the most recent 1 hour is queried by default. The query result contains one data point per minute.
- * ### **Request parameters**
- * | **Name** | **Type** | **Required** | **Description** |
- * | --- | --- | --- | --- |
- * | RegionNo | string | Yes | The Alibaba Cloud region where the probing source is located. |
- * | ResourceType | string | Yes | Set to **InternetProbing** to query Internet performance monitoring trends. |
- * | MetricName | string | Yes | The metric for which to query trends. Valid value: **rtt**, the round-trip time of probing. |
- * | Dimensions | object[\\] | Yes | The filter information. |
- * | \\-Name | string | Yes | The filter condition. Valid values:
- *  - **Country**: the probing country.
- *  - **Province**: the probing province.
- *  - **Isp**: the probing ISP.
- *  **Note:** Specify at least one of the preceding parameters. |
- * | \\-Value | string | Yes | The filter value corresponding to the filter condition. Examples:
- *  - Country: China
- *  - Province: Zhejiang 
- * - Isp: Alibaba 
- * **Note:** Country and province values are capitalized. The ISP parameter value must match the name displayed in the console. |
- * ### **Response parameters**
- * | **Name** | **Type** | **Description** |
- * | --- | --- | --- |
- * | RequestId | string | The request ID. |
- * | Data | object | The cloud network metric trends data object. |
- * | Metrics | array | The collection of metric trends data. |
- * | \\-TimeStamp | long | The UNIX timestamp in milliseconds. |
- * | \\-Value | double | The metric value corresponding to the **MetricName** input parameter. |
- * | Unit | String | The unit of **Value**. |
  * ## Cross-zone internal network performance observation dashboard scenario
- * **Note**
- * -   If the query time span exceeds 5 days, the query result contains one data point per day.
+ * **Description**
+ * -   If the query time span exceeds 5 days, the query result contains one data entry per day.
  *     
- * -   If the query time span exceeds 1 day, the query result contains one data point per hour.
+ * -   If the query time span exceeds 1 day, the query result contains one data entry per hour.
  *     
- * -   If the query time span is less than 1 day, the query result contains one data point per 5 minutes.
+ * -   If the query time span is less than 1 day, the query result contains one data entry per 5 minutes.
  * ### **Request parameters**
  * | **Name** | **Type** | **Required** | **Description** |
  * | --- | --- | --- | --- |
@@ -1612,8 +1583,8 @@ GetNetworkReachableAnalysisResponse Client::getNetworkReachableAnalysis(const Ge
  * | MetricName | string | Yes | The metric for which to query trends. Valid value: **rtt**, the round-trip time of probing. |
  * | Dimensions | object[\\] | Yes | The filter information. |
  * | \\-Name | string | Yes | The filter condition. Valid values:
- *  - **SourceZone**: the source zone for probing. This parameter is required.
- *  - **DestinationZone**: the destination zone for probing. This parameter is required. |
+ *  - **SourceZone**: the source zone of probing. This parameter is required.
+ *  - **DestinationZone**: the destination zone of probing. This parameter is required. |
  * | \\-Value | string | Yes | The filter value corresponding to the filter condition. Examples:
  *  - SourceZone: cn-hangzhou-j
  *  - DestinationZone: cn-hangzhou-k |
@@ -1624,15 +1595,15 @@ GetNetworkReachableAnalysisResponse Client::getNetworkReachableAnalysis(const Ge
  * | Data | object | The cloud network metric trends data object. |
  * | Metrics | array | The collection of metric trends data. |
  * | \\-TimeStamp | long | The UNIX timestamp in milliseconds. |
- * | \\-Value | double | The metric value corresponding to the **MetricName** input parameter. |
+ * | \\-Value | double | The metric value corresponding to the input parameter **MetricName**. |
  * | Unit | String | The unit of **Value**. |
  * ## **Cross-region internal network performance observation dashboard scenario**
- * **Note**
- * -   If the query time span exceeds 5 days, the query result contains one data point per day.
+ * **Description**
+ * -   If the query time span exceeds 5 days, the query result contains one data entry per day.
  *     
- * -   If the query time span exceeds 1 day, the query result contains one data point per hour.
+ * -   If the query time span exceeds 1 day, the query result contains one data entry per hour.
  *     
- * -   If the query time span is less than 1 day, the query result contains one data point per 5 minutes.
+ * -   If the query time span is less than 1 day, the query result contains one data entry per 5 minutes.
  * ### **Request parameters**
  * | **Name** | **Type** | **Required** | **Description** |
  * | --- | --- | --- | --- |
@@ -1643,7 +1614,7 @@ GetNetworkReachableAnalysisResponse Client::getNetworkReachableAnalysis(const Ge
  *  - **out**: probing with RegionNo as the source. |
  * | MetricName | string | Yes | The metric for which to query trends. Valid value: **rtt**, the round-trip time of probing. |
  * | Dimensions | object[\\] | No | The filter information. |
- * | \\-Name | string | No | The filter condition. Valid value: **DestinationRegionNo**, the destination region for probing. This parameter is required. |
+ * | \\-Name | string | No | The filter condition. Valid value: **DestinationRegionNo**, the destination region of probing. This parameter is required. |
  * | \\-Value | string | No | The destination region ID. Example: DestinationRegionNo: cn-shenzhen |
  * ### **Response parameters**
  * | **Name** | **Type** | **Description** |
@@ -1652,7 +1623,7 @@ GetNetworkReachableAnalysisResponse Client::getNetworkReachableAnalysis(const Ge
  * | Data | object | The cloud network metric trends data object. |
  * | Metrics | array | The collection of metric trends data. |
  * | \\-TimeStamp | long | The UNIX timestamp in milliseconds. |
- * | \\-Value | double | The metric value corresponding to the **MetricName** input parameter. |
+ * | \\-Value | double | The metric value corresponding to the input parameter **MetricName**. |
  * | Unit | String | The unit of **Value**. |
  *
  * @param tmpReq GetNisNetworkMetricsRequest
@@ -1731,45 +1702,15 @@ GetNisNetworkMetricsResponse Client::getNisNetworkMetricsWithOptions(const GetNi
  * @description Data query result synchronization:
  * - API data is synchronized every 6 hours. You can query current network analysis data only after 6 hours.
  * Supported analysis scenarios: 
- * - Internet performance observation dashboard scenario
  * - Cross-zone internal network performance observation dashboard scenario
  * - Cross-region internal network performance observation dashboard scenario
- * ## Internet performance observation dashboard scenario
- * **Note**
- * The maximum query time span is 24 hours. If not specified, the most recent 1 hour is queried by default. The query result contains one data point per minute.
- * ### **Request parameters**
- * | **Name** | **Type** | **Required** | **Description** |
- * | --- | --- | --- | --- |
- * | RegionNo | string | Yes | The Alibaba Cloud region where the probing source is located. |
- * | ResourceType | string | Yes | Set to **InternetProbing** to query Internet performance monitoring trends. |
- * | MetricName | string | Yes | The metric for which to query trends. Valid value: **rtt**, the round-trip time of probing. |
- * | Dimensions | object[\\] | Yes | The filter information. |
- * | \\-Name | string | Yes | The filter condition. Valid values:
- *  - **Country**: the probing country.
- *  - **Province**: the probing province.
- *  - **Isp**: the probing ISP.
- *  **Note:** Specify at least one of the preceding parameters. |
- * | \\-Value | string | Yes | The filter value corresponding to the filter condition. Examples:
- *  - Country: China
- *  - Province: Zhejiang 
- * - Isp: Alibaba 
- * **Note:** Country and province values are capitalized. The ISP parameter value must match the name displayed in the console. |
- * ### **Response parameters**
- * | **Name** | **Type** | **Description** |
- * | --- | --- | --- |
- * | RequestId | string | The request ID. |
- * | Data | object | The cloud network metric trends data object. |
- * | Metrics | array | The collection of metric trends data. |
- * | \\-TimeStamp | long | The UNIX timestamp in milliseconds. |
- * | \\-Value | double | The metric value corresponding to the **MetricName** input parameter. |
- * | Unit | String | The unit of **Value**. |
  * ## Cross-zone internal network performance observation dashboard scenario
- * **Note**
- * -   If the query time span exceeds 5 days, the query result contains one data point per day.
+ * **Description**
+ * -   If the query time span exceeds 5 days, the query result contains one data entry per day.
  *     
- * -   If the query time span exceeds 1 day, the query result contains one data point per hour.
+ * -   If the query time span exceeds 1 day, the query result contains one data entry per hour.
  *     
- * -   If the query time span is less than 1 day, the query result contains one data point per 5 minutes.
+ * -   If the query time span is less than 1 day, the query result contains one data entry per 5 minutes.
  * ### **Request parameters**
  * | **Name** | **Type** | **Required** | **Description** |
  * | --- | --- | --- | --- |
@@ -1778,8 +1719,8 @@ GetNisNetworkMetricsResponse Client::getNisNetworkMetricsWithOptions(const GetNi
  * | MetricName | string | Yes | The metric for which to query trends. Valid value: **rtt**, the round-trip time of probing. |
  * | Dimensions | object[\\] | Yes | The filter information. |
  * | \\-Name | string | Yes | The filter condition. Valid values:
- *  - **SourceZone**: the source zone for probing. This parameter is required.
- *  - **DestinationZone**: the destination zone for probing. This parameter is required. |
+ *  - **SourceZone**: the source zone of probing. This parameter is required.
+ *  - **DestinationZone**: the destination zone of probing. This parameter is required. |
  * | \\-Value | string | Yes | The filter value corresponding to the filter condition. Examples:
  *  - SourceZone: cn-hangzhou-j
  *  - DestinationZone: cn-hangzhou-k |
@@ -1790,15 +1731,15 @@ GetNisNetworkMetricsResponse Client::getNisNetworkMetricsWithOptions(const GetNi
  * | Data | object | The cloud network metric trends data object. |
  * | Metrics | array | The collection of metric trends data. |
  * | \\-TimeStamp | long | The UNIX timestamp in milliseconds. |
- * | \\-Value | double | The metric value corresponding to the **MetricName** input parameter. |
+ * | \\-Value | double | The metric value corresponding to the input parameter **MetricName**. |
  * | Unit | String | The unit of **Value**. |
  * ## **Cross-region internal network performance observation dashboard scenario**
- * **Note**
- * -   If the query time span exceeds 5 days, the query result contains one data point per day.
+ * **Description**
+ * -   If the query time span exceeds 5 days, the query result contains one data entry per day.
  *     
- * -   If the query time span exceeds 1 day, the query result contains one data point per hour.
+ * -   If the query time span exceeds 1 day, the query result contains one data entry per hour.
  *     
- * -   If the query time span is less than 1 day, the query result contains one data point per 5 minutes.
+ * -   If the query time span is less than 1 day, the query result contains one data entry per 5 minutes.
  * ### **Request parameters**
  * | **Name** | **Type** | **Required** | **Description** |
  * | --- | --- | --- | --- |
@@ -1809,7 +1750,7 @@ GetNisNetworkMetricsResponse Client::getNisNetworkMetricsWithOptions(const GetNi
  *  - **out**: probing with RegionNo as the source. |
  * | MetricName | string | Yes | The metric for which to query trends. Valid value: **rtt**, the round-trip time of probing. |
  * | Dimensions | object[\\] | No | The filter information. |
- * | \\-Name | string | No | The filter condition. Valid value: **DestinationRegionNo**, the destination region for probing. This parameter is required. |
+ * | \\-Name | string | No | The filter condition. Valid value: **DestinationRegionNo**, the destination region of probing. This parameter is required. |
  * | \\-Value | string | No | The destination region ID. Example: DestinationRegionNo: cn-shenzhen |
  * ### **Response parameters**
  * | **Name** | **Type** | **Description** |
@@ -1818,7 +1759,7 @@ GetNisNetworkMetricsResponse Client::getNisNetworkMetricsWithOptions(const GetNi
  * | Data | object | The cloud network metric trends data object. |
  * | Metrics | array | The collection of metric trends data. |
  * | \\-TimeStamp | long | The UNIX timestamp in milliseconds. |
- * | \\-Value | double | The metric value corresponding to the **MetricName** input parameter. |
+ * | \\-Value | double | The metric value corresponding to the input parameter **MetricName**. |
  * | Unit | String | The unit of **Value**. |
  *
  * @param request GetNisNetworkMetricsRequest
@@ -2425,6 +2366,137 @@ ListNisInspectionTasksResponse Client::listNisInspectionTasksWithOptions(const L
 ListNisInspectionTasksResponse Client::listNisInspectionTasks(const ListNisInspectionTasksRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listNisInspectionTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary Sends an A2A streaming message.
+ *
+ * @param tmpReq SendNapalStreamMessageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SendNapalStreamMessageResponse
+ */
+FutureGenerator<SendNapalStreamMessageResponse> Client::sendNapalStreamMessageWithSSE(const SendNapalStreamMessageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SendNapalStreamMessageShrinkRequest request = SendNapalStreamMessageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasConfiguration()) {
+    request.setConfigurationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getConfiguration(), "Configuration", "json"));
+  }
+
+  if (!!tmpReq.hasMessage()) {
+    request.setMessageShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMessage(), "Message", "json"));
+  }
+
+  if (!!tmpReq.hasMetadata()) {
+    request.setMetadataShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMetadata(), "Metadata", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasConfigurationShrink()) {
+    body["Configuration"] = request.getConfigurationShrink();
+  }
+
+  if (!!request.hasMessageShrink()) {
+    body["Message"] = request.getMessageShrink();
+  }
+
+  if (!!request.hasMetadataShrink()) {
+    body["Metadata"] = request.getMetadataShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SendNapalStreamMessage"},
+    {"version" , "2021-12-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<SendNapalStreamMessageResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary Sends an A2A streaming message.
+ *
+ * @param tmpReq SendNapalStreamMessageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SendNapalStreamMessageResponse
+ */
+SendNapalStreamMessageResponse Client::sendNapalStreamMessageWithOptions(const SendNapalStreamMessageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SendNapalStreamMessageShrinkRequest request = SendNapalStreamMessageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasConfiguration()) {
+    request.setConfigurationShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getConfiguration(), "Configuration", "json"));
+  }
+
+  if (!!tmpReq.hasMessage()) {
+    request.setMessageShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMessage(), "Message", "json"));
+  }
+
+  if (!!tmpReq.hasMetadata()) {
+    request.setMetadataShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMetadata(), "Metadata", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasConfigurationShrink()) {
+    body["Configuration"] = request.getConfigurationShrink();
+  }
+
+  if (!!request.hasMessageShrink()) {
+    body["Message"] = request.getMessageShrink();
+  }
+
+  if (!!request.hasMetadataShrink()) {
+    body["Metadata"] = request.getMetadataShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SendNapalStreamMessage"},
+    {"version" , "2021-12-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SendNapalStreamMessageResponse>();
+}
+
+/**
+ * @summary Sends an A2A streaming message.
+ *
+ * @param request SendNapalStreamMessageRequest
+ * @return SendNapalStreamMessageResponse
+ */
+SendNapalStreamMessageResponse Client::sendNapalStreamMessage(const SendNapalStreamMessageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return sendNapalStreamMessageWithOptions(request, runtime);
 }
 
 /**

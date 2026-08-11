@@ -124,9 +124,9 @@ namespace Models
 
 
   protected:
-    // Explicitly passes sub-account IDs.
+    // Explicitly passes member account IDs.
     shared_ptr<vector<string>> accountIds_ {};
-    // The start time, in **ms**, in **UNIX** timestamp format. If not specified, the most recent 1 hour is queried by default. The earliest start time is 7 days ago.
+    // The start time, in **ms**, in **UNIX** timestamp format. If not specified, the most recent 1 hour is queried by default. The earliest start time can be 7 days ago.
     shared_ptr<int64_t> beginTime_ {};
     // The collection of metric query parameters for specific business scenarios. For metric description of each scenario, see [GetNisNetworkMetrics](https://help.aliyun.com/document_detail/2833348.html).
     // 
@@ -141,7 +141,7 @@ namespace Models
     // -   rtt: round-trip time when establishing a TCP connection.
     // -   RetransmitRate: retransmission rate.
     // -   RatelimitDropPps: rate of packets dropped due to throttling.
-    // -   ActiveSessionCount: concurrent sessions.
+    // -   ActiveSessionCount: concurrent session count.
     // -   NewSessionPerSecond: new sessions per second.
     // -   BandwidthUtilization: bandwidth utilization.
     // -   passRate: inspection pass rate.
@@ -160,12 +160,11 @@ namespace Models
     // - ElasticIP: Elastic IP Address (EIP) (IPv4).
     // - PublicIpEcs: static public IP address bound to an ECS instance (IPv4).
     // - PublicIpClb: static public IP address bound to a CLB instance (IPv4).
-    // - NAT: public traffic through SNAT.
+    // - NAT: public network traffic through SNAT.
     // - TR: traffic through Cloud Enterprise Network (CEN) transit routers.
     // - TRAttachment: traffic through CEN connection instances, including intra-region and inter-region connections. Intra-region connections have inbound and outbound directions. Inter-region connections have only the outbound direction.
     // - VBR: traffic through virtual border routers.
     // - GA: traffic through Global Accelerator.
-    // - InternetProbing: Internet quality probing data.
     // - IntranetProbing: internal network quality probing data.
     // - NisInspectionHistoryReportScore: inspection history scores.
     // 
@@ -177,7 +176,7 @@ namespace Models
     // - TimestampDescending: sorts by time in descending order.
     shared_ptr<string> scanBy_ {};
     shared_ptr<int32_t> stepMinutes_ {};
-    // Specifies whether to use cross-account access mode. This is a reserved parameter and is not currently supported.
+    // Specifies whether to use multi-account access mode. This is a reserved parameter and is not currently supported.
     shared_ptr<bool> useCrossAccount_ {};
   };
 

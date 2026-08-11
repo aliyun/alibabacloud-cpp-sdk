@@ -82,6 +82,10 @@
 #include <alibabacloud/models/ListNisInspectionTasksRequest.hpp>
 #include <alibabacloud/models/ListNisInspectionTasksResponseBody.hpp>
 #include <alibabacloud/models/ListNisInspectionTasksResponse.hpp>
+#include <alibabacloud/models/SendNapalStreamMessageRequest.hpp>
+#include <alibabacloud/models/SendNapalStreamMessageShrinkRequest.hpp>
+#include <alibabacloud/models/SendNapalStreamMessageResponseBody.hpp>
+#include <alibabacloud/models/SendNapalStreamMessageResponse.hpp>
 #include <alibabacloud/models/StartNisInspectionTaskRequest.hpp>
 #include <alibabacloud/models/StartNisInspectionTaskResponseBody.hpp>
 #include <alibabacloud/models/StartNisInspectionTaskResponse.hpp>
