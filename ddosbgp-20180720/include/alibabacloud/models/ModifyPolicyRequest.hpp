@@ -53,6 +53,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ReflectBlockUdpPortList, reflectBlockUdpPortList_);
         DARABONBA_PTR_TO_JSON(RegionBlockCountryList, regionBlockCountryList_);
         DARABONBA_PTR_TO_JSON(RegionBlockProvinceList, regionBlockProvinceList_);
+        DARABONBA_PTR_TO_JSON(SipDefense, sipDefense_);
         DARABONBA_PTR_TO_JSON(SourceBlockList, sourceBlockList_);
         DARABONBA_PTR_TO_JSON(SourceLimit, sourceLimit_);
         DARABONBA_PTR_TO_JSON(WhiteIpList, whiteIpList_);
@@ -71,6 +72,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ReflectBlockUdpPortList, reflectBlockUdpPortList_);
         DARABONBA_PTR_FROM_JSON(RegionBlockCountryList, regionBlockCountryList_);
         DARABONBA_PTR_FROM_JSON(RegionBlockProvinceList, regionBlockProvinceList_);
+        DARABONBA_PTR_FROM_JSON(SipDefense, sipDefense_);
         DARABONBA_PTR_FROM_JSON(SourceBlockList, sourceBlockList_);
         DARABONBA_PTR_FROM_JSON(SourceLimit, sourceLimit_);
         DARABONBA_PTR_FROM_JSON(WhiteIpList, whiteIpList_);
@@ -143,13 +145,13 @@ namespace Models
 
 
       protected:
-        // The bandwidth limit on source IP addresses. Unit: bytes per second.
+        // The source bandwidth throttling. Unit: Byte/s.
         shared_ptr<int32_t> bps_ {};
-        // The packets per second (pps) limit on source IP addresses.
+        // The source PPS rate limit. Unit: Packet/s.
         shared_ptr<int32_t> pps_ {};
-        // The bandwidth limit on source SYN packets. Unit: bytes per second.
+        // The source SYN bandwidth throttling. Unit: Byte/s.
         shared_ptr<int32_t> synBps_ {};
-        // The pps limit on source SYN packets.
+        // The source SYN PPS rate limit. Unit: Packet/s.
         shared_ptr<int32_t> synPps_ {};
       };
 
@@ -209,27 +211,144 @@ namespace Models
 
 
       protected:
-        // The validity period of the blacklist to which the source IP address is added. Unit: seconds.
+        // The duration for which the source IP address is added to the blacklist. Unit: seconds.
         // 
         // This parameter is required.
         shared_ptr<int32_t> blockExpireSeconds_ {};
-        // The statistical period during which the system collects data on source IP addresses to determine whether to add the source IP addresses to the blacklist. Unit: seconds.
+        // The statistical period for source rate limiting blacklisting. Unit: seconds.
         // 
         // This parameter is required.
         shared_ptr<int32_t> everySeconds_ {};
-        // The number of times that the source IP address exceeds a limit in a statistical period.
+        // The number of times the source IP address exceeds the rate limit within one statistical period.
         // 
         // This parameter is required.
         shared_ptr<int32_t> exceedLimitTimes_ {};
-        // The type of the source rate limit. Valid values:
-        // 
-        // *   **3**: the pps limit on source IP addresses.
-        // *   **4**: the bandwidth limit on source IP addresses.
-        // *   **5**: the pps limit on source SYN packets.
-        // *   **6**: the bandwidth limit on source SYN packets.
+        // The source rate limiting type. Valid values:
         // 
         // This parameter is required.
         shared_ptr<int32_t> type_ {};
+      };
+
+      class SipDefense : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const SipDefense& obj) { 
+          DARABONBA_PTR_TO_JSON(Enable, enable_);
+          DARABONBA_PTR_TO_JSON(Level, level_);
+          DARABONBA_PTR_TO_JSON(SipDefend, sipDefend_);
+          DARABONBA_PTR_TO_JSON(SipLearn, sipLearn_);
+          DARABONBA_PTR_TO_JSON(SipModule, sipModule_);
+          DARABONBA_PTR_TO_JSON(SipPort, sipPort_);
+          DARABONBA_PTR_TO_JSON(SipRate, sipRate_);
+          DARABONBA_PTR_TO_JSON(SipStartMbps, sipStartMbps_);
+          DARABONBA_PTR_TO_JSON(SipStartPps, sipStartPps_);
+        };
+        friend void from_json(const Darabonba::Json& j, SipDefense& obj) { 
+          DARABONBA_PTR_FROM_JSON(Enable, enable_);
+          DARABONBA_PTR_FROM_JSON(Level, level_);
+          DARABONBA_PTR_FROM_JSON(SipDefend, sipDefend_);
+          DARABONBA_PTR_FROM_JSON(SipLearn, sipLearn_);
+          DARABONBA_PTR_FROM_JSON(SipModule, sipModule_);
+          DARABONBA_PTR_FROM_JSON(SipPort, sipPort_);
+          DARABONBA_PTR_FROM_JSON(SipRate, sipRate_);
+          DARABONBA_PTR_FROM_JSON(SipStartMbps, sipStartMbps_);
+          DARABONBA_PTR_FROM_JSON(SipStartPps, sipStartPps_);
+        };
+        SipDefense() = default ;
+        SipDefense(const SipDefense &) = default ;
+        SipDefense(SipDefense &&) = default ;
+        SipDefense(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~SipDefense() = default ;
+        SipDefense& operator=(const SipDefense &) = default ;
+        SipDefense& operator=(SipDefense &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->enable_ == nullptr
+        && this->level_ == nullptr && this->sipDefend_ == nullptr && this->sipLearn_ == nullptr && this->sipModule_ == nullptr && this->sipPort_ == nullptr
+        && this->sipRate_ == nullptr && this->sipStartMbps_ == nullptr && this->sipStartPps_ == nullptr; };
+        // enable Field Functions 
+        bool hasEnable() const { return this->enable_ != nullptr;};
+        void deleteEnable() { this->enable_ = nullptr;};
+        inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+        inline SipDefense& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
+
+
+        // level Field Functions 
+        bool hasLevel() const { return this->level_ != nullptr;};
+        void deleteLevel() { this->level_ = nullptr;};
+        inline string getLevel() const { DARABONBA_PTR_GET_DEFAULT(level_, "") };
+        inline SipDefense& setLevel(string level) { DARABONBA_PTR_SET_VALUE(level_, level) };
+
+
+        // sipDefend Field Functions 
+        bool hasSipDefend() const { return this->sipDefend_ != nullptr;};
+        void deleteSipDefend() { this->sipDefend_ = nullptr;};
+        inline bool getSipDefend() const { DARABONBA_PTR_GET_DEFAULT(sipDefend_, false) };
+        inline SipDefense& setSipDefend(bool sipDefend) { DARABONBA_PTR_SET_VALUE(sipDefend_, sipDefend) };
+
+
+        // sipLearn Field Functions 
+        bool hasSipLearn() const { return this->sipLearn_ != nullptr;};
+        void deleteSipLearn() { this->sipLearn_ = nullptr;};
+        inline bool getSipLearn() const { DARABONBA_PTR_GET_DEFAULT(sipLearn_, false) };
+        inline SipDefense& setSipLearn(bool sipLearn) { DARABONBA_PTR_SET_VALUE(sipLearn_, sipLearn) };
+
+
+        // sipModule Field Functions 
+        bool hasSipModule() const { return this->sipModule_ != nullptr;};
+        void deleteSipModule() { this->sipModule_ = nullptr;};
+        inline bool getSipModule() const { DARABONBA_PTR_GET_DEFAULT(sipModule_, false) };
+        inline SipDefense& setSipModule(bool sipModule) { DARABONBA_PTR_SET_VALUE(sipModule_, sipModule) };
+
+
+        // sipPort Field Functions 
+        bool hasSipPort() const { return this->sipPort_ != nullptr;};
+        void deleteSipPort() { this->sipPort_ = nullptr;};
+        inline string getSipPort() const { DARABONBA_PTR_GET_DEFAULT(sipPort_, "") };
+        inline SipDefense& setSipPort(string sipPort) { DARABONBA_PTR_SET_VALUE(sipPort_, sipPort) };
+
+
+        // sipRate Field Functions 
+        bool hasSipRate() const { return this->sipRate_ != nullptr;};
+        void deleteSipRate() { this->sipRate_ = nullptr;};
+        inline int64_t getSipRate() const { DARABONBA_PTR_GET_DEFAULT(sipRate_, 0L) };
+        inline SipDefense& setSipRate(int64_t sipRate) { DARABONBA_PTR_SET_VALUE(sipRate_, sipRate) };
+
+
+        // sipStartMbps Field Functions 
+        bool hasSipStartMbps() const { return this->sipStartMbps_ != nullptr;};
+        void deleteSipStartMbps() { this->sipStartMbps_ = nullptr;};
+        inline int64_t getSipStartMbps() const { DARABONBA_PTR_GET_DEFAULT(sipStartMbps_, 0L) };
+        inline SipDefense& setSipStartMbps(int64_t sipStartMbps) { DARABONBA_PTR_SET_VALUE(sipStartMbps_, sipStartMbps) };
+
+
+        // sipStartPps Field Functions 
+        bool hasSipStartPps() const { return this->sipStartPps_ != nullptr;};
+        void deleteSipStartPps() { this->sipStartPps_ = nullptr;};
+        inline int64_t getSipStartPps() const { DARABONBA_PTR_GET_DEFAULT(sipStartPps_, 0L) };
+        inline SipDefense& setSipStartPps(int64_t sipStartPps) { DARABONBA_PTR_SET_VALUE(sipStartPps_, sipStartPps) };
+
+
+      protected:
+        // Specifies whether to enable SIP protection. Valid values:
+        shared_ptr<bool> enable_ {};
+        // The SIP protection level.
+        shared_ptr<string> level_ {};
+        // Specifies whether to enable SIP defense mode.
+        shared_ptr<bool> sipDefend_ {};
+        // Specifies whether to enable SIP learning mode.
+        shared_ptr<bool> sipLearn_ {};
+        // Specifies whether to enable the SIP source rate limiting module.
+        shared_ptr<bool> sipModule_ {};
+        // The SIP protection port. Valid values: **1** to **65535**.
+        shared_ptr<string> sipPort_ {};
+        // The SIP source rate limit value in PPS.
+        shared_ptr<int64_t> sipRate_ {};
+        // The SIP activation threshold in Mbit/s.
+        shared_ptr<int64_t> sipStartMbps_ {};
+        // The SIP activation threshold in PPS.
+        shared_ptr<int64_t> sipStartPps_ {};
       };
 
       class PortRuleList : public Darabonba::Model {
@@ -325,40 +444,33 @@ namespace Models
 
 
       protected:
-        // The end of the destination port range. Valid values: **0** to **65535**.
+        // The end value of the destination port range. Valid values: **0** to **65535**.
         // 
         // This parameter is required.
         shared_ptr<int32_t> dstPortEnd_ {};
-        // The start of the destination port range. Valid values: **0** to **65535**.
+        // The start value of the destination port range. Valid values: **0** to **65535**.
         // 
         // This parameter is required.
         shared_ptr<int32_t> dstPortStart_ {};
-        // The ID of the rule.
+        // The rule ID.
         shared_ptr<string> id_ {};
-        // The action triggered if the rule is matched. Valid values:
-        // 
-        // *   **drop**: The traffic is discarded.
+        // The match action. Valid values:
         // 
         // This parameter is required.
         shared_ptr<string> matchAction_ {};
-        // The type of the protocol. Valid values:
-        // 
-        // *   **tcp**
-        // *   **udp**
+        // The protocol type. Valid values:
         // 
         // This parameter is required.
         shared_ptr<string> protocol_ {};
-        // The sequence number that indicates the order for the rule to take effect. The value is an integer.
-        // 
-        // >  A smaller number indicates a higher priority.
+        // The priority number, represented as an integer.
         // 
         // This parameter is required.
         shared_ptr<int32_t> seqNo_ {};
-        // The end of the source port range. Valid values: **0** to **65535**.
+        // The end value of the source port range. Valid values: **0** to **65535**.
         // 
         // This parameter is required.
         shared_ptr<int32_t> srcPortEnd_ {};
-        // The start of the source port range. Valid values: **0** to **65535**.
+        // The start value of the source port range. Valid values: **0** to **65535**.
         // 
         // This parameter is required.
         shared_ptr<int32_t> srcPortStart_ {};
@@ -464,7 +576,9 @@ namespace Models
 
 
           protected:
+            // The end position. Valid values: **0** to **1499**.
             shared_ptr<int32_t> end_ {};
+            // The start position. Valid values: **0** to **1499**.
             shared_ptr<int32_t> start_ {};
           };
 
@@ -523,17 +637,19 @@ namespace Models
 
 
         protected:
-          // The term that is used for matching.
-          // 
-          // >  If Method is set to **char**, the value of this parameter must be ASCII strings. If Method is set to **hex**, the value of this parameter must be hexadecimal strings. Maximum length: 2,048.
+          // The detection content.
           shared_ptr<string> arg_ {};
+          // The matching content.
           shared_ptr<string> content_ {};
-          // The number of bytes from the start position for matching. Valid values: **1** to **2048**.
+          // The detection window length. Valid values: **1** to **2048**.
           shared_ptr<int32_t> depth_ {};
+          // The character type. Valid values:
           shared_ptr<string> encode_ {};
+          // The matching range.
           shared_ptr<ConditionList::Offset> offset_ {};
+          // The matching pattern.
           shared_ptr<string> pattern_ {};
-          // The start position for matching. Valid values: **0** to **2047**.
+          // The detection start position. Valid values: **0** to **2047**.
           shared_ptr<int32_t> position_ {};
         };
 
@@ -592,31 +708,21 @@ namespace Models
 
 
       protected:
-        // The action that is specified in the rule. Valid value:
-        // 
-        // *   **2**: The traffic is discarded.
+        // The action.
         shared_ptr<string> action_ {};
-        // The match conditions.
+        // The list of detection conditions.
         shared_ptr<vector<L4RuleList::ConditionList>> conditionList_ {};
-        // The minimum number of bytes in a session to trigger matching. Valid values: **0** to **2048**.
+        // The minimum number of bytes in a session flow that triggers rule matching. Valid values: **0** to **2048**.
         shared_ptr<int32_t> limited_ {};
-        // The condition based on which an action is performed. Valid values:
-        // 
-        // *   **0**: If the rule is matched, the action specified in the rule is performed.
-        // *   **1**: If the rule is not matched, the action specified in the rule is performed.
+        // The logical operator. Valid values:
         shared_ptr<string> match_ {};
-        // The type of the rule. Valid values:
-        // 
-        // *   **char**: string match.
-        // *   **hex**: hexadecimal string match.
+        // The rule type. Valid values:
         shared_ptr<string> method_ {};
-        // The name of the rule.
+        // The rule name.
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
-        // The priority of the rule. Valid values: **1** to **100**.
-        // 
-        // >  A smaller value indicates a higher priority.
+        // The rule priority. Valid values: **1** to **100**.
         shared_ptr<int32_t> priority_ {};
       };
 
@@ -759,22 +865,17 @@ namespace Models
 
 
       protected:
-        // The end of the destination port range. Valid values: **0** to **65535**.
+        // The end value of the destination port range. Valid values: **0** to **65535**.
         // 
         // This parameter is required.
         shared_ptr<int32_t> dstPortEnd_ {};
-        // The start of the destination port range. Valid values: **0** to **65535**.
+        // The start value of the destination port range. Valid values: **0** to **65535**.
         // 
         // This parameter is required.
         shared_ptr<int32_t> dstPortStart_ {};
-        // The ID of the rule.
+        // The rule ID.
         shared_ptr<string> id_ {};
-        // The action triggered if the rule is matched. Valid values:
-        // 
-        // *   **accept**: allows the traffic that matches the conditions in the byte-match filter rule.
-        // *   **drop**: discards the traffic that matches the conditions in the byte-match filter rule.
-        // *   **ip_rate**: limits rates on the source IP address whose traffic matches the conditions in the byte-match filter rule. The rate limit is specified by **RateValue**.
-        // *   **session_rate**: limits the number of sessions from the source IP address whose traffic matches the conditions in the byte-match filter rule. The rate limit is specified by **RateValue**.
+        // The match action. Valid values:
         // 
         // This parameter is required.
         shared_ptr<string> matchAction_ {};
@@ -788,30 +889,23 @@ namespace Models
         shared_ptr<int32_t> minPktLen_ {};
         // The offset. Valid values: **0** to **1500**.
         shared_ptr<int32_t> offset_ {};
-        // The payload. The value is a hexadecimal string.
+        // The detection payload. Represented in hexadecimal string format.
         shared_ptr<string> payloadBytes_ {};
-        // The type of the protocol. Valid values:
-        // 
-        // *   **tcp**
-        // *   **udp**
+        // The protocol type. Valid values:
         // 
         // This parameter is required.
         shared_ptr<string> protocol_ {};
-        // The rate limit. Valid values: **1** to **100000**.
-        // 
-        // >  This parameter is required when **MatchAction** is set to **ip_rate** or **session_rate**.
+        // The rate limit value. Valid values: **1** to **100000**.
         shared_ptr<int32_t> rateValue_ {};
-        // The sequence number that indicates the order for the rule to take effect. The value is an integer.
-        // 
-        // >  A smaller number indicates a higher priority.
+        // The priority number, represented as an integer.
         // 
         // This parameter is required.
         shared_ptr<int32_t> seqNo_ {};
-        // The end of the source port range. Valid values: **0** to **65535**.
+        // The end value of the source port range. Valid values: **0** to **65535**.
         // 
         // This parameter is required.
         shared_ptr<int32_t> srcPortEnd_ {};
-        // The start of the source port range. Valid values: **0** to **65535**.
+        // The start value of the source port range. Valid values: **0** to **65535**.
         // 
         // This parameter is required.
         shared_ptr<int32_t> srcPortStart_ {};
@@ -820,7 +914,8 @@ namespace Models
       virtual bool empty() const override { return this->blackIpList_ == nullptr
         && this->blackIpListExpireAt_ == nullptr && this->enableDropIcmp_ == nullptr && this->enableIntelligence_ == nullptr && this->enableL4Defense_ == nullptr && this->fingerPrintRuleList_ == nullptr
         && this->intelligenceLevel_ == nullptr && this->l4RuleList_ == nullptr && this->portRuleList_ == nullptr && this->reflectBlockUdpPortList_ == nullptr && this->regionBlockCountryList_ == nullptr
-        && this->regionBlockProvinceList_ == nullptr && this->sourceBlockList_ == nullptr && this->sourceLimit_ == nullptr && this->whiteIpList_ == nullptr && this->whitenGfbrNets_ == nullptr; };
+        && this->regionBlockProvinceList_ == nullptr && this->sipDefense_ == nullptr && this->sourceBlockList_ == nullptr && this->sourceLimit_ == nullptr && this->whiteIpList_ == nullptr
+        && this->whitenGfbrNets_ == nullptr; };
       // blackIpList Field Functions 
       bool hasBlackIpList() const { return this->blackIpList_ != nullptr;};
       void deleteBlackIpList() { this->blackIpList_ = nullptr;};
@@ -919,6 +1014,15 @@ namespace Models
       inline Content& setRegionBlockProvinceList(vector<int32_t> && regionBlockProvinceList) { DARABONBA_PTR_SET_RVALUE(regionBlockProvinceList_, regionBlockProvinceList) };
 
 
+      // sipDefense Field Functions 
+      bool hasSipDefense() const { return this->sipDefense_ != nullptr;};
+      void deleteSipDefense() { this->sipDefense_ = nullptr;};
+      inline const Content::SipDefense & getSipDefense() const { DARABONBA_PTR_GET_CONST(sipDefense_, Content::SipDefense) };
+      inline Content::SipDefense getSipDefense() { DARABONBA_PTR_GET(sipDefense_, Content::SipDefense) };
+      inline Content& setSipDefense(const Content::SipDefense & sipDefense) { DARABONBA_PTR_SET_VALUE(sipDefense_, sipDefense) };
+      inline Content& setSipDefense(Content::SipDefense && sipDefense) { DARABONBA_PTR_SET_RVALUE(sipDefense_, sipDefense) };
+
+
       // sourceBlockList Field Functions 
       bool hasSourceBlockList() const { return this->sourceBlockList_ != nullptr;};
       void deleteSourceBlockList() { this->sourceBlockList_ = nullptr;};
@@ -954,41 +1058,39 @@ namespace Models
 
 
     protected:
-      // The IP addresses in the blacklist.
+      // The IP blacklist.
       shared_ptr<vector<string>> blackIpList_ {};
-      // The validity period of the IP address blacklist. The value is a UNIX timestamp.
+      // The expiration time of the IP blacklist (UNIX timestamp).
       shared_ptr<int64_t> blackIpListExpireAt_ {};
-      // Specifies whether to enable ICMP blocking.
+      // Specifies whether to disable the ICMP protocol.
       shared_ptr<bool> enableDropIcmp_ {};
-      // Specifies whether to enable intelligent protection.
+      // Specifies whether to enable AI-based intelligent protection.
       shared_ptr<bool> enableIntelligence_ {};
-      // Specifies whether to enable port-specific mitigation.
+      // Specifies whether to enable port protection.
       shared_ptr<bool> enableL4Defense_ {};
-      // The byte-match filter rules.
+      // The list of byte-match filter rules.
       shared_ptr<vector<Content::FingerPrintRuleList>> fingerPrintRuleList_ {};
-      // The level of intelligent protection. Valid values:
-      // 
-      // *   **default**: normal.
-      // *   **hard**: strict.
-      // *   **weak**: loose.
+      // The protection level of AI-based intelligent protection. Valid values:
       shared_ptr<string> intelligenceLevel_ {};
-      // The port-specific mitigation rules.
+      // The list of port-specific mitigation rules.
       shared_ptr<vector<Content::L4RuleList>> l4RuleList_ {};
-      // The port blocking rules.
+      // The list of port blocking rules.
       shared_ptr<vector<Content::PortRuleList>> portRuleList_ {};
-      // The ports whose traffic is filtered out by the filtering policies for UDP reflection attacks.
+      // The list of ports filtered by reflection attack prevention.
       shared_ptr<vector<int32_t>> reflectBlockUdpPortList_ {};
-      // The countries in the location blacklist.
+      // The list of countries for location blacklist.
       shared_ptr<vector<int32_t>> regionBlockCountryList_ {};
-      // The provinces in the location blacklist.
+      // The list of provinces for location blacklist.
       shared_ptr<vector<int32_t>> regionBlockProvinceList_ {};
-      // The source IP addresses that are added to the blacklist.
+      // The SIP protection settings.
+      shared_ptr<Content::SipDefense> sipDefense_ {};
+      // The source rate limiting blacklist.
       shared_ptr<vector<Content::SourceBlockList>> sourceBlockList_ {};
-      // The settings for source rate limiting.
+      // The source rate limiting configuration.
       shared_ptr<Content::SourceLimit> sourceLimit_ {};
-      // The IP addresses in the whitelist.
+      // The IP whitelist.
       shared_ptr<vector<string>> whiteIpList_ {};
-      // Specifies whether to add back-to-origin CIDR blocks of Anti-DDoS Proxy to the whitelist.
+      // Specifies whether to whitelist the back-to-origin IP addresses of Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland & outside the Chinese mainland).
       shared_ptr<bool> whitenGfbrNets_ {};
     };
 
@@ -1032,41 +1134,19 @@ namespace Models
 
 
   protected:
-    // The type of the action. Valid values:
-    // 
-    // *   **10**: modifies the name. If you specify this value, `Name` is required.
-    // *   **11**: modifies the blacklist validity period. If you specify this value, `BlackIpListExpireAt` is required. Only IP-specific mitigation policies support this value.
-    // *   **12**: changes the status of the feature of adding back-to-origin CIDR blocks of Anti-DDoS Proxy to the whitelist. If you specify this value, `WhitenGfbrNets` is required. Only IP-specific mitigation policies support this value.
-    // *   **13**: changes the status of the ICMP blocking feature. If you specify this value, `EnableDropIcmp` is required. Only IP-specific mitigation policies support this value.
-    // *   **20**: adds IP addresses to the blacklist or the whitelist. If you specify this value, you must specify at least one of `WhiteIpList` and `BlackIpList`. Only IP-specific mitigation policies support this value.
-    // *   **21**: removes IP addresses from the blacklist or the whitelist. If you specify this value, at least one of `WhiteIpList` and `BlackIpList` is required. Only IP-specific mitigation policies support this value.
-    // *   **22**: clears the whitelist. Only IP-specific mitigation policies support this value.
-    // *   **23**: clears the blacklist. Only IP-specific mitigation policies support this value.
-    // *   **30**: modifies the status and level of intelligent protection. If you specify this value, `EnableIntelligence` and `IntelligenceLevel` are required. Only IP-specific mitigation policies support this value.
-    // *   **31**: modifies the location blacklist settings. If you specify this value, one of `RegionBlockCountryList` and `RegionBlockProvinceList` is required. Only IP-specific mitigation policies support this value.
-    // *   **32**: modifies the settings for source rate limiting. If you specify this value, `SourceLimit` and `SourceBlockList` are required. Only IP-specific mitigation policies support this value.
-    // *   **33**: modifies the settings for reflection attack filtering. If you specify this value, `ReflectBlockUdpPortList` is required. Only IP-specific mitigation policies support this value.
-    // *   **40**: creates a port blocking rule. If you specify this value, `PortRuleList` is required. Only IP-specific mitigation policies support this value.
-    // *   **41**: modifies the port blocking rule. If you specify this value, `PortRuleList` is required. Only IP-specific mitigation policies support this value.
-    // *   **42**: deletes the port blocking rule. If you specify this value, `PortRuleList` is required. Only IP-specific mitigation policies support this value.
-    // *   **50**: creates a byte-match filter rule. If you specify this value, `FingerPrintRuleList` is required. Only IP-specific mitigation policies support this value.
-    // *   **51**: modifies the byte-match filter rule. If you specify this value, `FingerPrintRuleList` is required. Only IP-specific mitigation policies support this value.
-    // *   **52**: deletes the byte-match filter rule. If you specify this value, `FingerPrintRuleList` is required. Only IP-specific mitigation policies support this value.
-    // *   **60**: changes the status of the port-specific mitigation feature. If you specify this value, `EnableL4Defense` is required. Only port-specific mitigation policies support this value.
-    // *   **61**: creates a port-specific mitigation rule. If you specify this value, `L4RuleList` is required. Only port-specific mitigation policies support this value.
-    // *   **62**: modifies the port-specific mitigation rule. If you specify this value, `L4RuleList` is required. Only port-specific mitigation policies support this value.
-    // *   **63**: deletes the port-specific mitigation rule. If you specify this value, `L4RuleList` is required. Only port-specific mitigation policies support this value.
+    // The action type.
     // 
     // This parameter is required.
     shared_ptr<int32_t> actionType_ {};
     // The policy content.
     shared_ptr<ModifyPolicyRequest::Content> content_ {};
-    // The ID of the policy.
+    // The policy ID.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The name of the policy.
+    // The policy name.
     shared_ptr<string> name_ {};
+    // The version of the port-specific mitigation policy. Valid values:
     shared_ptr<string> portVersion_ {};
   };
 

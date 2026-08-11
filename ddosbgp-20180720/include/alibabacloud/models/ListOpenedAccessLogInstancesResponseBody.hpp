@@ -72,12 +72,12 @@ namespace Models
 
 
     protected:
-      // Indicates whether log analysis was enabled for the Anti-DDoS Origin instance. Valid values:
+      // Indicates whether log analysis is enabled for the instance. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enabled.
+      // - **false**: Not enabled.
       shared_ptr<bool> enable_ {};
-      // The ID of the Anti-DDoS Origin instance.
+      // The instance ID of Anti-DDoS Origin.
       shared_ptr<string> instanceId_ {};
     };
 
@@ -107,11 +107,11 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The configuration of log analysis for the Anti-DDoS Origin instances.
+    // The log analysis configurations of Anti-DDoS Origin instances.
     shared_ptr<vector<ListOpenedAccessLogInstancesResponseBody::SlsConfigStatus>> slsConfigStatus_ {};
-    // The number of the Anti-DDoS Origin instances for which log analysis was enabled.
+    // The number of results returned, which is the number of Anti-DDoS Origin instances that have log analysis enabled.
     shared_ptr<int32_t> totalCount_ {};
   };
 

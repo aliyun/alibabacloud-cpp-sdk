@@ -85,7 +85,7 @@ namespace Models
     protected:
       // The English name of the region.
       shared_ptr<string> regionEnName_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
       // The Chinese name of the region.
       shared_ptr<string> regionName_ {};
@@ -126,14 +126,13 @@ namespace Models
   protected:
     // The HTTP status code.
     shared_ptr<string> code_ {};
-    // The information about the regions of cloud assets that can be protected by Anti-DDoS Origin. The information includes region IDs and names.
+    // The region information of cloud assets that can be protected by Anti-DDoS Origin, including region IDs and names.
     shared_ptr<vector<DescribeRegionsResponseBody::Regions>> regions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

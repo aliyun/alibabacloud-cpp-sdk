@@ -116,9 +116,11 @@ namespace Models
     shared_ptr<string> currentUid_ {};
     // The type of the Alibaba Cloud account. Valid values:
     // 
-    // *   **MasterAccount**: management account.
-    // *   **DelegatedAdminAccount**: delegated administrator account.
-    // *   **MemberAccount**: member.
+    // - **MasterAccount**: management account.
+    // 
+    // - **DelegatedAdminAccount**: delegated administrator account.
+    // 
+    // - **MemberAccount**: member.
     shared_ptr<string> currentUidType_ {};
     // Indicates whether the multi-account management feature is enabled for Anti-DDoS Origin.
     shared_ptr<bool> enabled_ {};

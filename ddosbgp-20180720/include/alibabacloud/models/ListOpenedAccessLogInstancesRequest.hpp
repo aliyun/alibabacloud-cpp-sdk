@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page 1. Default value: **1**.
+    // The page number to return in a paging query. Default value: **1**, which indicates the first page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: **10**.
+    // The number of entries to return on each page in a paging query. Default value: **10**, which indicates 10 entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+    // The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management. By default, this parameter is empty, which indicates that the instance belongs to the default resource group.
     // 
     // For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
     shared_ptr<string> resourceGroupId_ {};

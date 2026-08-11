@@ -1,3 +1,6 @@
+2026-08-11 Version: 2.0.1
+- Generated cpp 2018-07-20 for ddosbgp.
+
 2026-03-18 Version: 2.0.0
 - Delete API ConfigSchedruleOnDemand.
 - Delete API CreateSchedruleOnDemand.

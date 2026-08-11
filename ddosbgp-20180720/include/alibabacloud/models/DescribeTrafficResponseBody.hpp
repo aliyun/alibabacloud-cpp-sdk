@@ -116,26 +116,25 @@ namespace Models
 
 
     protected:
-      // The bandwidth of attack traffic. Unit: bit/s.
+      // The bandwidth of attack traffic. Unit: bps.
       // 
-      // >  This parameter is returned only if attack traffic exists.
+      // > This field is returned only when attack traffic exists.
       shared_ptr<int64_t> attackBps_ {};
-      // The packet forwarding rate of attack traffic. Unit: packets per second.
-      // 
-      // >  This parameter is returned only if attack traffic exists.
+      // The packet forwarding rate of attack traffic. Unit: pps.
+      // > This field is returned only when attack traffic exists.
       shared_ptr<int64_t> attackPps_ {};
       // The type of the traffic statistics. Valid values:
       // 
-      // *   **max**: the peak traffic within the specified interval
-      // *   **avg**: the average traffic within the specified interval
+      // - **max**: the peak traffic within the statistical interval.
+      // - **avg**: the average traffic within the statistical interval.
       shared_ptr<string> flowType_ {};
-      // The bandwidth of the total traffic. Unit: Kbit/s.
+      // The bandwidth of total traffic. Unit: Kbps.
       shared_ptr<int32_t> kbps_ {};
-      // The ID of the traffic statistics.
+      // The ID of the traffic statistics entry.
       shared_ptr<string> name_ {};
-      // The packet forwarding rate of the total traffic. Unit: packets per second.
+      // The packet forwarding rate of total traffic. Unit: pps.
       shared_ptr<int32_t> pps_ {};
-      // The time when the traffic statistics are calculated. This value is a UNIX timestamp. Unit: seconds.
+      // The time of the traffic statistics. Expressed as a UNIX timestamp. Unit: seconds.
       shared_ptr<int32_t> time_ {};
     };
 
@@ -158,7 +157,7 @@ namespace Models
 
 
   protected:
-    // The queried traffic statistics.
+    // The traffic statistics.
     shared_ptr<vector<DescribeTrafficResponseBody::FlowList>> flowList_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

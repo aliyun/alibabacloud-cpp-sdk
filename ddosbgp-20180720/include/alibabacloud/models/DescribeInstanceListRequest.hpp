@@ -92,12 +92,9 @@ namespace Models
 
 
     protected:
-      // The mitigation plan of the Anti-DDoS Origin instance.
+      // The key of the tag bound to the Anti-DDoS Origin instance to query.
       shared_ptr<string> key_ {};
-      // The mitigation plan of the Anti-DDoS Origin instance. Valid values:
-      // 
-      // *   0: the Professional mitigation plan.
-      // *   1: the Enterprise mitigation plan.
+      // The value of the tag bound to the Anti-DDoS Origin instance to query.
       shared_ptr<string> value_ {};
     };
 
@@ -201,48 +198,50 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The IDs of the Anti-DDoS Origin instances to query. Specify the value in the `["<Instance ID 1>","<Instance ID 2>",……]` format.
     shared_ptr<string> instanceIdList_ {};
-    // The field that is used to sort the Anti-DDoS Origin instances. Set the value to **expireTime**, which indicates that the instances are sorted based on the expiration time.
+    // The mitigation plan type of the Anti-DDoS Origin instance to query. Valid values:
     // 
-    // You can set the **Orderdire** parameter to specify the sorting method.
+    // - **0**: Professional.
+    // - **1**: Enterprise.
     shared_ptr<string> instanceType_ {};
-    // The total number of Anti-DDoS Origin instances.
+    // The mitigation plan types of the Anti-DDoS Origin instances to query.
     shared_ptr<vector<string>> instanceTypeList_ {};
-    // The sorting method. Valid values:
-    // 
-    // *   **desc**: the descending order. This is the default value.
-    // *   **asc**: the ascending order.
+    // The IP address of the protected object for the Anti-DDoS Origin instance to query.
     shared_ptr<string> ip_ {};
-    // The IP address of the object that is protected by the Anti-DDoS Origin instance to query.
+    // The protocol type of the IP assets protected by the Anti-DDoS Origin instance to query. Valid values:
+    // 
+    // - **IPv4**: IPv4 protocol.
+    // - **IPv6**: IPv6 protocol.
     shared_ptr<string> ipVersion_ {};
-    // The ID of the region where the Anti-DDoS Origin instance to query resides.
+    // The field used to sort the Anti-DDoS Origin instance list. The value is fixed as **expireTime**, which indicates that instances are sorted by expiration time.
     // 
-    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
+    // You can use the **Orderdire** parameter to specify the sort order.
     shared_ptr<string> orderby_ {};
-    // The tags that are added to the Anti-DDoS Origin instance.
-    shared_ptr<string> orderdire_ {};
-    // The protocol type of the IP address asset that is protected by the Anti-DDoS Origin instance to query. Valid values:
+    // The sort order. Valid values:
     // 
-    // *   **Ipv4**: IPv4
-    // *   **Ipv6**: IPv6
+    // - **desc** (default): descending order by expiration time.
+    // - **asc**: ascending order by expiration time.
+    shared_ptr<string> orderdire_ {};
+    // The number of the page to return when paging is used.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
-    // The mitigation plan of the Anti-DDoS Origin instance to query. Valid values:
-    // 
-    // *   **0**: the Professional mitigation plan
-    // *   **1**: the Enterprise mitigation plan
+    // The number of instances on each page when paging is used.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The tag that is added to the Anti-DDoS Origin instance.
+    // The region ID of the Anti-DDoS Origin instance to query.
+    // 
+    // > You can call [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) to query all region IDs supported by Anti-DDoS Origin.
     shared_ptr<string> regionId_ {};
-    // The number of entries to return on each page.
+    // The remark of the Anti-DDoS Origin instance to query. Fuzzy match is supported.
     shared_ptr<string> remark_ {};
-    // The remarks of the Anti-DDoS Origin instance to query. Fuzzy match is supported.
+    // The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
+    // 
+    // If you do not specify this parameter, the instance belongs to the default resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The key of the tag that is added to the Anti-DDoS Origin instance.
+    // The tags bound to the Anti-DDoS Origin instance to query.
     shared_ptr<vector<DescribeInstanceListRequest::Tag>> tag_ {};
   };
 

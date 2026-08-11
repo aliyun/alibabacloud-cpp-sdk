@@ -90,21 +90,21 @@ namespace Models
 
 
     protected:
-      // The IP address of the protected object.
+      // The IP address of the protection object.
       // 
       // This parameter is required.
       shared_ptr<string> ip_ {};
-      // The port number of the protected object.
-      // 
-      // >  This parameter is available for only port-specific mitigation policies.
+      // The port number of the protection object.
+      // > Only port-specific mitigation policies support this parameter.
       shared_ptr<int32_t> port_ {};
+      // The port range of the protection object.
+      // > Only port-specific mitigation policies support this parameter.
       shared_ptr<string> portRange_ {};
-      // The protocol type of the protected object. Valid values:
+      // The protocol type of the protection object. Valid values:
       // 
-      // *   **tcp**
-      // *   **udp**
-      // 
-      // >  This parameter is available for only port-specific mitigation policies.
+      // - **tcp**: Transmission Control Protocol.
+      // - **udp**: User Datagram Protocol.
+      // > Only port-specific mitigation policies support this parameter.
       shared_ptr<string> protocol_ {};
     };
 
@@ -134,7 +134,7 @@ namespace Models
 
 
   protected:
-    // The protected objects.
+    // The list of protection objects.
     // 
     // This parameter is required.
     shared_ptr<vector<AttachToPolicyRequest::IpPortProtocolList>> ipPortProtocolList_ {};
@@ -142,6 +142,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
+    // The version of the port-specific mitigation policy. Valid values:
+    // 
+    // - **Not specified**: Associates the default surf anti-DDoS engine policy.
+    // - **2**: Associates the new stream anti-DDoS engine policy.
+    // > Only port-specific mitigation policies support this parameter.
     shared_ptr<string> portVersion_ {};
   };
 

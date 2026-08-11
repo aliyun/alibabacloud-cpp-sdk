@@ -68,12 +68,13 @@ namespace Models
   protected:
     // The policy content.
     shared_ptr<string> contentShrink_ {};
-    // The ID of the policy.
+    // The policy ID.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The name of the policy.
+    // The policy name.
     shared_ptr<string> name_ {};
+    // The version of the port-specific mitigation policy. Valid values:
     shared_ptr<string> portVersion_ {};
   };
 

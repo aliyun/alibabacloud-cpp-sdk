@@ -75,26 +75,15 @@ namespace Models
 
 
   protected:
-    // The name of the policy.
+    // The policy name.
     shared_ptr<string> name_ {};
-    // The page number.
+    // Settings the page number of the current page in a paged query.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of entries per page. Default value: **10**.
+    // The number of entries per page in a paged query. Default value: **10**.
     shared_ptr<int64_t> pageSize_ {};
-    // The service type. Valid values:
-    // 
-    // *   **ecs**: Elastic Compute Service (ECS).
-    // *   **slb**: Server Load Balancer (SLB).
-    // *   **eip**: Elastic IP Address (EIP).
-    // *   **gf-eip**: EIP with Anti-DDoS (Enhanced) enabled.
-    // 
-    // >  This parameter is available only if Type is set to `default`.
+    // The applicable product type. Valid values:
     shared_ptr<string> productType_ {};
-    // The type of the policy. Valid values:
-    // 
-    // *   **default**: the default mitigation policy.
-    // *   **l3**: IP-specific mitigation policies.
-    // *   **l4**: port-specific mitigation policies.
+    // The policy type. Valid values:
     shared_ptr<string> type_ {};
   };
 

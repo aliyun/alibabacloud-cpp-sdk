@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
         DARABONBA_PTR_TO_JSON(IpType, ipType_);
+        DARABONBA_PTR_TO_JSON(LogExt, logExt_);
         DARABONBA_PTR_TO_JSON(Product, product_);
         DARABONBA_PTR_TO_JSON(Remark, remark_);
         DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
@@ -65,6 +66,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
         DARABONBA_PTR_FROM_JSON(IpType, ipType_);
+        DARABONBA_PTR_FROM_JSON(LogExt, logExt_);
         DARABONBA_PTR_FROM_JSON(Product, product_);
         DARABONBA_PTR_FROM_JSON(Remark, remark_);
         DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
@@ -111,14 +113,14 @@ namespace Models
 
 
       protected:
-        // Events which result in auto binding.
+        // The events on which automatic binding is based.
         shared_ptr<vector<string>> events_ {};
       };
 
       virtual bool empty() const override { return this->autoProtectCondition_ == nullptr
         && this->autoRenewal_ == nullptr && this->blackholdingCount_ == nullptr && this->commodityType_ == nullptr && this->coverageType_ == nullptr && this->debtStatus_ == nullptr
         && this->expireTime_ == nullptr && this->gmtCreate_ == nullptr && this->instanceId_ == nullptr && this->instanceType_ == nullptr && this->ipType_ == nullptr
-        && this->product_ == nullptr && this->remark_ == nullptr && this->resourceGroupId_ == nullptr && this->status_ == nullptr; };
+        && this->logExt_ == nullptr && this->product_ == nullptr && this->remark_ == nullptr && this->resourceGroupId_ == nullptr && this->status_ == nullptr; };
       // autoProtectCondition Field Functions 
       bool hasAutoProtectCondition() const { return this->autoProtectCondition_ != nullptr;};
       void deleteAutoProtectCondition() { this->autoProtectCondition_ = nullptr;};
@@ -198,6 +200,13 @@ namespace Models
       inline InstanceList& setIpType(string ipType) { DARABONBA_PTR_SET_VALUE(ipType_, ipType) };
 
 
+      // logExt Field Functions 
+      bool hasLogExt() const { return this->logExt_ != nullptr;};
+      void deleteLogExt() { this->logExt_ = nullptr;};
+      inline string getLogExt() const { DARABONBA_PTR_GET_DEFAULT(logExt_, "") };
+      inline InstanceList& setLogExt(string logExt) { DARABONBA_PTR_SET_VALUE(logExt_, logExt) };
+
+
       // product Field Functions 
       bool hasProduct() const { return this->product_ != nullptr;};
       void deleteProduct() { this->product_ = nullptr;};
@@ -227,63 +236,67 @@ namespace Models
 
 
     protected:
-      // The event that triggers automatic association. Valid values:
-      // 
-      // *   **any**: The instance is automatically associated with an object based on traffic scrubbing events or blackhole filtering events.
-      // *   **clean**: The instance is automatically associated with an object based on traffic scrubbing events.
-      // *   **blackhole**: The instance is automatically associated with an object based on blackhole filtering events.
+      // The automatic binding condition.
       shared_ptr<InstanceList::AutoProtectCondition> autoProtectCondition_ {};
-      // The time when the instance expires. The value is a UNIX timestamp. Unit: milliseconds.
+      // Indicates whether auto-renewal is enabled for the instance. Valid values:
+      // 
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> autoRenewal_ {};
-      // The type of the instance.
+      // The number of assets that are assigned public IP addresses protected by the instance that are in blackhole filtering status.
       // 
-      // *   **ddos_ddosorigin_public_cn**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the China site (aliyun.com).
-      // *   **ddos_ddosorigin_public_intl**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the International site (alibabacloud.com).
+      // > You can invoke [DeleteBlackhole](https://help.aliyun.com/document_detail/118692.html) to deactivate blackhole filtering for a single protected IP address.
       shared_ptr<string> blackholdingCount_ {};
-      // The condition that triggers automatic association of the instance with an object.
+      // The commodity type of the instance.
+      // 
+      // - **ddos_ddosorigin_public_cn**: Anti-DDoS Origin 2.0 (Pay-as-you-go) China site.
+      // - **ddos_ddosorigin_public_intl**: Anti-DDoS Origin 2.0 (Pay-as-you-go) International site.
       shared_ptr<string> commodityType_ {};
-      // Indicates whether overdue payments exist. Valid values:
+      // The asset overwrite type of the instance.
       // 
-      // *   **0**: Overdue payments do not exist.
-      // *   **1**: Overdue payments exist.
+      // - **1**: Supports assets that are assigned public IP addresses in multiple regions worldwide.
+      // - **2**: Supports assets that are assigned public IP addresses in multiple regions in the Chinese mainland.
+      // - **3**: Supports assets that are assigned public IP addresses in multiple regions outside the Chinese mainland.
+      // - **4**: Supports assets that are assigned public IP addresses in a single region worldwide.
       shared_ptr<int32_t> coverageType_ {};
-      // The events that trigger automatic association.
+      // The overdue payment status. Valid values:
+      // 
+      // - **0**: No overdue payment.
+      // - **1**: Overdue payment.
       shared_ptr<int64_t> debtStatus_ {};
-      // The time when the instance was purchased. The value is a UNIX timestamp. Unit: milliseconds.
+      // The expiration time of the instance. The value is a timestamp. Unit: milliseconds.
       shared_ptr<int64_t> expireTime_ {};
-      // The mitigation plan of the instance. Valid values:
-      // 
-      // *   **0**: the Professional mitigation plan
-      // *   **1**: the Enterprise mitigation plan
+      // The purchase time of the instance. The value is a timestamp. Unit: milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The number of protected public IP addresses for which blackhole filtering is triggered.
-      // 
-      // >  You can call the [DeleteBlackhole](https://help.aliyun.com/document_detail/118692.html) operation to deactivate blackhole filtering for a protected IP address.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The application scope of the instance.
+      // The mitigation plan type of the instance. Valid values:
       // 
-      // *   **1**: The instance supports public IP addresses in all regions.
-      // *   **2**: The instance supports public IP addresses in regions in the Chinese mainland.
-      // *   **3**: The instance supports public IP addresses in regions outside the Chinese mainland.
-      // *   **4**: The instance supports public IP addresses in a region in or outside the Chinese mainland.
+      // - **0**: Professional.
+      // - **1**: Enterprise.
       shared_ptr<string> instanceType_ {};
-      // The description of the instance.
+      // The protocol type of the IP assets protected by the instance. Valid values:
+      // 
+      // - **IPv4**: IPv4 protocol.
+      // - **IPv6**: IPv6 protocol.
       shared_ptr<string> ipType_ {};
-      // The ID of the instance.
-      shared_ptr<string> product_ {};
-      // The type of the cloud service that is associated with the Anti-DDoS Origin instance By default, this parameter is not returned. If the Anti-DDoS Origin instance is created by using a different cloud service, the code of the cloud service is returned.
+      shared_ptr<string> logExt_ {};
+      // The type of the cloud service associated with the instance. This parameter is not returned by default. It is returned only when the Anti-DDoS Origin instance is created by another cloud service, with the corresponding cloud service code.
       // 
       // Valid values:
       // 
-      // *   **gamebox**: The Anti-DDoS Origin instance is created by using Game Security Box.
-      // *   **eip**: The Anti-DDoS Origin instance is created by using an elastic IP address (EIP) for which Anti-DDoS (Enhanced Edition) is enabled.
+      // - **gamebox**: The Anti-DDoS Origin instance is created by Game Security Box.
+      // - **eip**: The Anti-DDoS Origin instance is created by an EIP with Anti-DDoS (Enhanced) enabled.
+      shared_ptr<string> product_ {};
+      // The remark of the instance.
       shared_ptr<string> remark_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // Indicates whether auto-renewal is enabled for the instance. Valid values:
+      // The status of the instance. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **1**: Normal.
+      // - **2**: Expired.
+      // - **3**: Released.
       shared_ptr<string> status_ {};
     };
 
@@ -313,11 +326,11 @@ namespace Models
 
 
   protected:
-    // The details about the Anti-DDoS Origin instances.
+    // The details of the Anti-DDoS Origin instances.
     shared_ptr<vector<DescribeInstanceListResponseBody::InstanceList>> instanceList_ {};
-    // The details about the Anti-DDoS Origin instance.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details about the Anti-DDoS Origin instances.
+    // The total number of Anti-DDoS Origin instances returned.
     shared_ptr<int64_t> total_ {};
   };
 

@@ -48,12 +48,11 @@ namespace Models
 
 
   protected:
-    // Indicates whether Anti-DDoS Origin was authorized to access Simple Log Service. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether Anti-DDoS Origin is authorized to access Simple Log Service. Valid values:
+    // - **true**: Authorized.
+    // - **false**: Not authorized.
     shared_ptr<bool> accessLogAuth_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

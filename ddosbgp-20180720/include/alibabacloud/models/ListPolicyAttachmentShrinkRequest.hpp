@@ -84,20 +84,23 @@ namespace Models
 
 
   protected:
-    // The protected objects.
+    // The list of protected objects.
     shared_ptr<string> ipPortProtocolListShrink_ {};
-    // The page number.
+    // The page number of the current page in a paging query.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of entries per page. Default value: **10**.
+    // The number of rows per page in a paging query. Default value: **10**.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the policy.
+    // The policy ID.
     shared_ptr<string> policyId_ {};
-    // The type of the policy. Valid values:
-    // 
-    // *   **default**: the default mitigation policies.
-    // *   **l3**: IP-specific mitigation policies.
-    // *   **l4**: port-specific mitigation policies.
+    // The policy type. Valid values:
+    // - **default**: default mitigation policy.
+    // - **l3**: IP-specific mitigation policy.
+    // - **l4**: port-specific mitigation policy.
     shared_ptr<string> policyType_ {};
+    // The version of the port-specific mitigation policy. Valid values:
+    // 
+    // - **Not specified**: queries the policy associations that attach to the default surf DPI engine.
+    // - **2**: queries the policy associations that attach to the new stream DPI engine.
     shared_ptr<string> portVersion_ {};
   };
 

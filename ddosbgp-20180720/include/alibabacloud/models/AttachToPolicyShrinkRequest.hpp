@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The protected objects.
+    // The list of protection objects.
     // 
     // This parameter is required.
     shared_ptr<string> ipPortProtocolListShrink_ {};
@@ -65,6 +65,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
+    // The version of the port-specific mitigation policy. Valid values:
+    // 
+    // - **Not specified**: Associates the default surf anti-DDoS engine policy.
+    // - **2**: Associates the new stream anti-DDoS engine policy.
+    // > Only port-specific mitigation policies support this parameter.
     shared_ptr<string> portVersion_ {};
   };
 

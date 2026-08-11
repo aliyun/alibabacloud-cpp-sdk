@@ -60,6 +60,9 @@
 #include <alibabacloud/models/DescribeInstanceSpecsRequest.hpp>
 #include <alibabacloud/models/DescribeInstanceSpecsResponseBody.hpp>
 #include <alibabacloud/models/DescribeInstanceSpecsResponse.hpp>
+#include <alibabacloud/models/DescribeNetworkLayerInterceptsRequest.hpp>
+#include <alibabacloud/models/DescribeNetworkLayerInterceptsResponseBody.hpp>
+#include <alibabacloud/models/DescribeNetworkLayerInterceptsResponse.hpp>
 #include <alibabacloud/models/DescribeOpEntitiesRequest.hpp>
 #include <alibabacloud/models/DescribeOpEntitiesResponseBody.hpp>
 #include <alibabacloud/models/DescribeOpEntitiesResponse.hpp>

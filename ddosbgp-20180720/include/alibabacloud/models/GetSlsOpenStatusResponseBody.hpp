@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether Simple Log Service was activated. Valid values:
+    // Indicates whether Simple Log Service is activated for the current Alibaba Cloud account. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Simple Log Service is activated.
+    // - **false**: Simple Log Service is not activated.
     shared_ptr<bool> slsOpenStatus_ {};
   };
 
