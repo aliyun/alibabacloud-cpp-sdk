@@ -41,10 +41,12 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Groups, groups_);
         DARABONBA_PTR_TO_JSON(PageInfo, pageInfo_);
         DARABONBA_PTR_TO_JSON(ResponseData, responseData_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Groups, groups_);
         DARABONBA_PTR_FROM_JSON(PageInfo, pageInfo_);
         DARABONBA_PTR_FROM_JSON(ResponseData, responseData_);
       };
@@ -62,6 +64,7 @@ namespace Models
       class ResponseData : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const ResponseData& obj) { 
+          DARABONBA_PTR_TO_JSON(AlertName, alertName_);
           DARABONBA_PTR_TO_JSON(AlertUuid, alertUuid_);
           DARABONBA_PTR_TO_JSON(Aliuid, aliuid_);
           DARABONBA_PTR_TO_JSON(EffectiveStatus, effectiveStatus_);
@@ -86,6 +89,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(TaskUrl, taskUrl_);
         };
         friend void from_json(const Darabonba::Json& j, ResponseData& obj) { 
+          DARABONBA_PTR_FROM_JSON(AlertName, alertName_);
           DARABONBA_PTR_FROM_JSON(AlertUuid, alertUuid_);
           DARABONBA_PTR_FROM_JSON(Aliuid, aliuid_);
           DARABONBA_PTR_FROM_JSON(EffectiveStatus, effectiveStatus_);
@@ -120,12 +124,19 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->alertUuid_ == nullptr
-        && this->aliuid_ == nullptr && this->effectiveStatus_ == nullptr && this->entity_ == nullptr && this->entityId_ == nullptr && this->entityType_ == nullptr
-        && this->errorMessage_ == nullptr && this->finishTime_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr
-        && this->incidentName_ == nullptr && this->incidentUuid_ == nullptr && this->playbookName_ == nullptr && this->playbookType_ == nullptr && this->playbookUuid_ == nullptr
-        && this->scope_ == nullptr && this->sophonTaskId_ == nullptr && this->status_ == nullptr && this->subAliuid_ == nullptr && this->taskParam_ == nullptr
-        && this->taskUrl_ == nullptr; };
+        virtual bool empty() const override { return this->alertName_ == nullptr
+        && this->alertUuid_ == nullptr && this->aliuid_ == nullptr && this->effectiveStatus_ == nullptr && this->entity_ == nullptr && this->entityId_ == nullptr
+        && this->entityType_ == nullptr && this->errorMessage_ == nullptr && this->finishTime_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
+        && this->id_ == nullptr && this->incidentName_ == nullptr && this->incidentUuid_ == nullptr && this->playbookName_ == nullptr && this->playbookType_ == nullptr
+        && this->playbookUuid_ == nullptr && this->scope_ == nullptr && this->sophonTaskId_ == nullptr && this->status_ == nullptr && this->subAliuid_ == nullptr
+        && this->taskParam_ == nullptr && this->taskUrl_ == nullptr; };
+        // alertName Field Functions 
+        bool hasAlertName() const { return this->alertName_ != nullptr;};
+        void deleteAlertName() { this->alertName_ = nullptr;};
+        inline string getAlertName() const { DARABONBA_PTR_GET_DEFAULT(alertName_, "") };
+        inline ResponseData& setAlertName(string alertName) { DARABONBA_PTR_SET_VALUE(alertName_, alertName) };
+
+
         // alertUuid Field Functions 
         bool hasAlertUuid() const { return this->alertUuid_ != nullptr;};
         void deleteAlertUuid() { this->alertUuid_ = nullptr;};
@@ -285,77 +296,55 @@ namespace Models
 
 
       protected:
-        // Alert UUID.
+        shared_ptr<string> alertName_ {};
+        // The alert UUID.
         shared_ptr<string> alertUuid_ {};
-        // SIEM root account ID associated with the strategy.
+        // The SIEM primary account ID associated with the policy.
         shared_ptr<int64_t> aliuid_ {};
-        // Strategy status. Valid values:
-        // 
-        // - 0: disabled
-        // 
-        // - 1: enabled
+        // The policy status. Valid values:
         shared_ptr<int32_t> effectiveStatus_ {};
-        // Entity details in JSON array format.
+        // The entity details in JSON array format.
         shared_ptr<vector<Darabonba::Json>> entity_ {};
-        // Entity ID.
+        // The entity ID.
         shared_ptr<int64_t> entityId_ {};
-        // Entity type. Valid values:
-        // 
-        // - ip
-        // 
-        // - process
-        // 
-        // - file
+        // The entity type. Valid values:
         shared_ptr<string> entityType_ {};
-        // Summary of task failure.
+        // The failure summary of the task.
         shared_ptr<string> errorMessage_ {};
-        // Task completion time.
+        // The end time of the task.
         shared_ptr<string> finishTime_ {};
-        // Creation time.
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // Last modified time.
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // Strategy ID.
+        // The policy ID.
         shared_ptr<int64_t> id_ {};
-        // Event name.
+        // The incident name.
         shared_ptr<string> incidentName_ {};
-        // Global unique UUID of the event.
+        // The globally unique UUID of the incident.
         shared_ptr<string> incidentUuid_ {};
-        // Unique name of the playbook.
+        // The unique identifier name of the playbook.
         shared_ptr<string> playbookName_ {};
-        // Playbook type. Valid values:
-        // 
-        // - system: manual disposal
-        // 
+        // The playbook type. Valid values:
+        // - system: manual handling
         // - custom: event-triggered playbook
-        // 
         // - custom_alert: alert-triggered playbook
-        // 
         // - soar-manual: manually run playbook
-        // 
         // - soar-mdr: MDR-run playbook
         shared_ptr<string> playbookType_ {};
-        // UUID of the playbook.
+        // The playbook UUID.
         shared_ptr<string> playbookUuid_ {};
-        // Disposal scope.
+        // The disposition scope.
         shared_ptr<vector<Darabonba::Json>> scope_ {};
-        // ID of the security orchestration and automated response disposal strategy.
+        // The SOAR disposal policy ID.
         shared_ptr<string> sophonTaskId_ {};
-        // Playbook invocation status. Valid values:
-        // 
-        // - 200: succeeded
-        // 
-        // - 10: deleted
-        // 
-        // - 5: failed
-        // 
-        // - 0: initial state
+        // The playbook invocation status. Valid values:
         shared_ptr<int32_t> status_ {};
-        // The Alibaba Cloud account ID associated with the configuration policy.
+        // The Alibaba Cloud account ID that configured the policy.
         shared_ptr<int64_t> subAliuid_ {};
-        // Parameters used to trigger the playbook, in JSON format.
+        // The playbook trigger parameters in JSON format.
         shared_ptr<string> taskParam_ {};
-        // Playbook URL.
+        // The playbook URL.
         shared_ptr<string> taskUrl_ {};
       };
 
@@ -406,16 +395,204 @@ namespace Models
 
 
       protected:
-        // Current page number.
+        // The current page number of the list.
         shared_ptr<int32_t> currentPage_ {};
-        // Number of entries returned per page.
+        // The number of records returned per page.
         shared_ptr<int32_t> pageSize_ {};
-        // Total number of entries.
+        // The total number of records.
         shared_ptr<int64_t> totalCount_ {};
       };
 
-      virtual bool empty() const override { return this->pageInfo_ == nullptr
-        && this->responseData_ == nullptr; };
+      class Groups : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Groups& obj) { 
+          DARABONBA_PTR_TO_JSON(FailedCount, failedCount_);
+          DARABONBA_PTR_TO_JSON(FirstOccurrenceTime, firstOccurrenceTime_);
+          DARABONBA_PTR_TO_JSON(GroupBy, groupBy_);
+          DARABONBA_PTR_TO_JSON(GroupKey, groupKey_);
+          DARABONBA_PTR_TO_JSON(GroupMeta, groupMeta_);
+          DARABONBA_PTR_TO_JSON(GroupName, groupName_);
+          DARABONBA_PTR_TO_JSON(GroupTitle, groupTitle_);
+          DARABONBA_PTR_TO_JSON(LastOccurrenceTime, lastOccurrenceTime_);
+          DARABONBA_PTR_TO_JSON(LatestModifiedTime, latestModifiedTime_);
+          DARABONBA_PTR_TO_JSON(RunningCount, runningCount_);
+          DARABONBA_PTR_TO_JSON(SuccessCount, successCount_);
+          DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
+        };
+        friend void from_json(const Darabonba::Json& j, Groups& obj) { 
+          DARABONBA_PTR_FROM_JSON(FailedCount, failedCount_);
+          DARABONBA_PTR_FROM_JSON(FirstOccurrenceTime, firstOccurrenceTime_);
+          DARABONBA_PTR_FROM_JSON(GroupBy, groupBy_);
+          DARABONBA_PTR_FROM_JSON(GroupKey, groupKey_);
+          DARABONBA_PTR_FROM_JSON(GroupMeta, groupMeta_);
+          DARABONBA_PTR_FROM_JSON(GroupName, groupName_);
+          DARABONBA_PTR_FROM_JSON(GroupTitle, groupTitle_);
+          DARABONBA_PTR_FROM_JSON(LastOccurrenceTime, lastOccurrenceTime_);
+          DARABONBA_PTR_FROM_JSON(LatestModifiedTime, latestModifiedTime_);
+          DARABONBA_PTR_FROM_JSON(RunningCount, runningCount_);
+          DARABONBA_PTR_FROM_JSON(SuccessCount, successCount_);
+          DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
+        };
+        Groups() = default ;
+        Groups(const Groups &) = default ;
+        Groups(Groups &&) = default ;
+        Groups(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Groups() = default ;
+        Groups& operator=(const Groups &) = default ;
+        Groups& operator=(Groups &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class GroupMeta : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const GroupMeta& obj) { 
+            DARABONBA_ANY_TO_JSON(GroupInfo, groupInfo_);
+          };
+          friend void from_json(const Darabonba::Json& j, GroupMeta& obj) { 
+            DARABONBA_ANY_FROM_JSON(GroupInfo, groupInfo_);
+          };
+          GroupMeta() = default ;
+          GroupMeta(const GroupMeta &) = default ;
+          GroupMeta(GroupMeta &&) = default ;
+          GroupMeta(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~GroupMeta() = default ;
+          GroupMeta& operator=(const GroupMeta &) = default ;
+          GroupMeta& operator=(GroupMeta &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->groupInfo_ == nullptr; };
+          // groupInfo Field Functions 
+          bool hasGroupInfo() const { return this->groupInfo_ != nullptr;};
+          void deleteGroupInfo() { this->groupInfo_ = nullptr;};
+          inline           const Darabonba::Json & getGroupInfo() const { DARABONBA_GET(groupInfo_) };
+          Darabonba::Json & getGroupInfo() { DARABONBA_GET(groupInfo_) };
+          inline GroupMeta& setGroupInfo(const Darabonba::Json & groupInfo) { DARABONBA_SET_VALUE(groupInfo_, groupInfo) };
+          inline GroupMeta& setGroupInfo(Darabonba::Json && groupInfo) { DARABONBA_SET_RVALUE(groupInfo_, groupInfo) };
+
+
+        protected:
+          Darabonba::Json groupInfo_ {};
+        };
+
+        virtual bool empty() const override { return this->failedCount_ == nullptr
+        && this->firstOccurrenceTime_ == nullptr && this->groupBy_ == nullptr && this->groupKey_ == nullptr && this->groupMeta_ == nullptr && this->groupName_ == nullptr
+        && this->groupTitle_ == nullptr && this->lastOccurrenceTime_ == nullptr && this->latestModifiedTime_ == nullptr && this->runningCount_ == nullptr && this->successCount_ == nullptr
+        && this->totalCount_ == nullptr; };
+        // failedCount Field Functions 
+        bool hasFailedCount() const { return this->failedCount_ != nullptr;};
+        void deleteFailedCount() { this->failedCount_ = nullptr;};
+        inline int64_t getFailedCount() const { DARABONBA_PTR_GET_DEFAULT(failedCount_, 0L) };
+        inline Groups& setFailedCount(int64_t failedCount) { DARABONBA_PTR_SET_VALUE(failedCount_, failedCount) };
+
+
+        // firstOccurrenceTime Field Functions 
+        bool hasFirstOccurrenceTime() const { return this->firstOccurrenceTime_ != nullptr;};
+        void deleteFirstOccurrenceTime() { this->firstOccurrenceTime_ = nullptr;};
+        inline int64_t getFirstOccurrenceTime() const { DARABONBA_PTR_GET_DEFAULT(firstOccurrenceTime_, 0L) };
+        inline Groups& setFirstOccurrenceTime(int64_t firstOccurrenceTime) { DARABONBA_PTR_SET_VALUE(firstOccurrenceTime_, firstOccurrenceTime) };
+
+
+        // groupBy Field Functions 
+        bool hasGroupBy() const { return this->groupBy_ != nullptr;};
+        void deleteGroupBy() { this->groupBy_ = nullptr;};
+        inline string getGroupBy() const { DARABONBA_PTR_GET_DEFAULT(groupBy_, "") };
+        inline Groups& setGroupBy(string groupBy) { DARABONBA_PTR_SET_VALUE(groupBy_, groupBy) };
+
+
+        // groupKey Field Functions 
+        bool hasGroupKey() const { return this->groupKey_ != nullptr;};
+        void deleteGroupKey() { this->groupKey_ = nullptr;};
+        inline string getGroupKey() const { DARABONBA_PTR_GET_DEFAULT(groupKey_, "") };
+        inline Groups& setGroupKey(string groupKey) { DARABONBA_PTR_SET_VALUE(groupKey_, groupKey) };
+
+
+        // groupMeta Field Functions 
+        bool hasGroupMeta() const { return this->groupMeta_ != nullptr;};
+        void deleteGroupMeta() { this->groupMeta_ = nullptr;};
+        inline const Groups::GroupMeta & getGroupMeta() const { DARABONBA_PTR_GET_CONST(groupMeta_, Groups::GroupMeta) };
+        inline Groups::GroupMeta getGroupMeta() { DARABONBA_PTR_GET(groupMeta_, Groups::GroupMeta) };
+        inline Groups& setGroupMeta(const Groups::GroupMeta & groupMeta) { DARABONBA_PTR_SET_VALUE(groupMeta_, groupMeta) };
+        inline Groups& setGroupMeta(Groups::GroupMeta && groupMeta) { DARABONBA_PTR_SET_RVALUE(groupMeta_, groupMeta) };
+
+
+        // groupName Field Functions 
+        bool hasGroupName() const { return this->groupName_ != nullptr;};
+        void deleteGroupName() { this->groupName_ = nullptr;};
+        inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+        inline Groups& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
+
+
+        // groupTitle Field Functions 
+        bool hasGroupTitle() const { return this->groupTitle_ != nullptr;};
+        void deleteGroupTitle() { this->groupTitle_ = nullptr;};
+        inline string getGroupTitle() const { DARABONBA_PTR_GET_DEFAULT(groupTitle_, "") };
+        inline Groups& setGroupTitle(string groupTitle) { DARABONBA_PTR_SET_VALUE(groupTitle_, groupTitle) };
+
+
+        // lastOccurrenceTime Field Functions 
+        bool hasLastOccurrenceTime() const { return this->lastOccurrenceTime_ != nullptr;};
+        void deleteLastOccurrenceTime() { this->lastOccurrenceTime_ = nullptr;};
+        inline int64_t getLastOccurrenceTime() const { DARABONBA_PTR_GET_DEFAULT(lastOccurrenceTime_, 0L) };
+        inline Groups& setLastOccurrenceTime(int64_t lastOccurrenceTime) { DARABONBA_PTR_SET_VALUE(lastOccurrenceTime_, lastOccurrenceTime) };
+
+
+        // latestModifiedTime Field Functions 
+        bool hasLatestModifiedTime() const { return this->latestModifiedTime_ != nullptr;};
+        void deleteLatestModifiedTime() { this->latestModifiedTime_ = nullptr;};
+        inline int64_t getLatestModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(latestModifiedTime_, 0L) };
+        inline Groups& setLatestModifiedTime(int64_t latestModifiedTime) { DARABONBA_PTR_SET_VALUE(latestModifiedTime_, latestModifiedTime) };
+
+
+        // runningCount Field Functions 
+        bool hasRunningCount() const { return this->runningCount_ != nullptr;};
+        void deleteRunningCount() { this->runningCount_ = nullptr;};
+        inline int64_t getRunningCount() const { DARABONBA_PTR_GET_DEFAULT(runningCount_, 0L) };
+        inline Groups& setRunningCount(int64_t runningCount) { DARABONBA_PTR_SET_VALUE(runningCount_, runningCount) };
+
+
+        // successCount Field Functions 
+        bool hasSuccessCount() const { return this->successCount_ != nullptr;};
+        void deleteSuccessCount() { this->successCount_ = nullptr;};
+        inline int64_t getSuccessCount() const { DARABONBA_PTR_GET_DEFAULT(successCount_, 0L) };
+        inline Groups& setSuccessCount(int64_t successCount) { DARABONBA_PTR_SET_VALUE(successCount_, successCount) };
+
+
+        // totalCount Field Functions 
+        bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+        void deleteTotalCount() { this->totalCount_ = nullptr;};
+        inline int64_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0L) };
+        inline Groups& setTotalCount(int64_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+      protected:
+        shared_ptr<int64_t> failedCount_ {};
+        shared_ptr<int64_t> firstOccurrenceTime_ {};
+        shared_ptr<string> groupBy_ {};
+        shared_ptr<string> groupKey_ {};
+        shared_ptr<Groups::GroupMeta> groupMeta_ {};
+        shared_ptr<string> groupName_ {};
+        shared_ptr<string> groupTitle_ {};
+        shared_ptr<int64_t> lastOccurrenceTime_ {};
+        shared_ptr<int64_t> latestModifiedTime_ {};
+        shared_ptr<int64_t> runningCount_ {};
+        shared_ptr<int64_t> successCount_ {};
+        shared_ptr<int64_t> totalCount_ {};
+      };
+
+      virtual bool empty() const override { return this->groups_ == nullptr
+        && this->pageInfo_ == nullptr && this->responseData_ == nullptr; };
+      // groups Field Functions 
+      bool hasGroups() const { return this->groups_ != nullptr;};
+      void deleteGroups() { this->groups_ = nullptr;};
+      inline const vector<Data::Groups> & getGroups() const { DARABONBA_PTR_GET_CONST(groups_, vector<Data::Groups>) };
+      inline vector<Data::Groups> getGroups() { DARABONBA_PTR_GET(groups_, vector<Data::Groups>) };
+      inline Data& setGroups(const vector<Data::Groups> & groups) { DARABONBA_PTR_SET_VALUE(groups_, groups) };
+      inline Data& setGroups(vector<Data::Groups> && groups) { DARABONBA_PTR_SET_RVALUE(groups_, groups) };
+
+
       // pageInfo Field Functions 
       bool hasPageInfo() const { return this->pageInfo_ != nullptr;};
       void deletePageInfo() { this->pageInfo_ = nullptr;};
@@ -435,9 +612,10 @@ namespace Models
 
 
     protected:
-      // Paging information.
+      shared_ptr<vector<Data::Groups>> groups_ {};
+      // The pagination information.
       shared_ptr<Data::PageInfo> pageInfo_ {};
-      // Detailed data.
+      // The detailed data.
       shared_ptr<vector<Data::ResponseData>> responseData_ {};
     };
 
@@ -481,19 +659,15 @@ namespace Models
 
 
   protected:
-    // HTTP status code.
+    // The request status code.
     shared_ptr<int32_t> code_ {};
-    // Response data.
+    // The request return value.
     shared_ptr<ListDisposeStrategyResponseBody::Data> data_ {};
-    // Response message.
+    // The request return message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded. Valid values:
-    // 
-    // - true
-    // 
-    // - false
+    // Indicates whether the request was successful. Valid values:
     shared_ptr<bool> success_ {};
   };
 

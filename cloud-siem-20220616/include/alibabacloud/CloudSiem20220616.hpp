@@ -599,7 +599,7 @@ namespace CloudSiem20220616
       Models::DescribeDisposeAndPlaybookResponse describeDisposeAndPlaybook(const Models::DescribeDisposeAndPlaybookRequest &request);
 
       /**
-       * @summary Retrieves the list of playbooks used in a disposal policy.
+       * @summary Retrieves the list of playbooks used by a disposal policy.
        *
        * @param request DescribeDisposeStrategyPlaybookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -608,7 +608,7 @@ namespace CloudSiem20220616
       Models::DescribeDisposeStrategyPlaybookResponse describeDisposeStrategyPlaybookWithOptions(const Models::DescribeDisposeStrategyPlaybookRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of playbooks used in a disposal policy.
+       * @summary Retrieves the list of playbooks used by a disposal policy.
        *
        * @param request DescribeDisposeStrategyPlaybookRequest
        * @return DescribeDisposeStrategyPlaybookResponse
@@ -945,7 +945,7 @@ namespace CloudSiem20220616
       /**
        * @summary Queries entity counts.
        *
-       * @description The input parameter JsonConfig is a complex JSON configuration. A utility class with configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to assist with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request GetEntitiyStatRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -956,7 +956,7 @@ namespace CloudSiem20220616
       /**
        * @summary Queries entity counts.
        *
-       * @description The input parameter JsonConfig is a complex JSON configuration. A utility class with configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to assist with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request GetEntitiyStatRequest
        * @return GetEntitiyStatResponse
@@ -1185,16 +1185,16 @@ namespace CloudSiem20220616
       Models::ListDeliveryResponse listDelivery(const Models::ListDeliveryRequest &request);
 
       /**
-       * @summary Retrieve a list of system-recommended disposal strategies.
+       * @summary Retrieves the list of system-recommended disposal policies.
        *
-       * @param request ListDisposeStrategyRequest
+       * @param tmpReq ListDisposeStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListDisposeStrategyResponse
        */
-      Models::ListDisposeStrategyResponse listDisposeStrategyWithOptions(const Models::ListDisposeStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ListDisposeStrategyResponse listDisposeStrategyWithOptions(const Models::ListDisposeStrategyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve a list of system-recommended disposal strategies.
+       * @summary Retrieves the list of system-recommended disposal policies.
        *
        * @param request ListDisposeStrategyRequest
        * @return ListDisposeStrategyResponse

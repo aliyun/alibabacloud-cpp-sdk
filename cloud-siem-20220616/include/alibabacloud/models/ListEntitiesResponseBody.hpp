@@ -376,7 +376,7 @@ namespace Models
         shared_ptr<string> agentAnalysisReason_ {};
         // The confidence level of the entity as determined by the agent.
         shared_ptr<string> agentConfidence_ {};
-        // The disposal method recommended by the agent.
+        // The recommended disposal method from the agent.
         shared_ptr<string> agentDisposalMethod_ {};
         // The UUID of the playbook recommended by the agent for disposal.
         shared_ptr<string> agentDisposalPlaybookUuid_ {};
@@ -391,27 +391,18 @@ namespace Models
         shared_ptr<string> alertUuid_ {};
         // The Alibaba Cloud account ID.
         shared_ptr<int64_t> aliuid_ {};
-        // The code of the cloud service provider from which the entity originates. Valid values:
-        // - aliyun: Alibaba Cloud
-        // - qcloud: Tencent Cloud
+        // The cloud code of the entity source. Valid values:
+        // - aliyun: Alibaba Cloud.
+        // - qcloud: Tencent Cloud.
         // - hcloud: Huawei Cloud.
         shared_ptr<string> cloudCode_ {};
         // The logical ID of the entity.
         shared_ptr<string> entityId_ {};
-        // The display information of the entity in JSON format.
+        // The entity display information in JSON format.
         shared_ptr<string> entityInfo_ {};
         // The entity name.
         shared_ptr<string> entityName_ {};
         // The entity type. Valid values:
-        // - ip: IP address
-        // - domain: domain name
-        // - url: URL
-        // - process: process
-        // - file: file
-        // - host: host
-        // - cloud_account: cloud account
-        // - container: container
-        // - bucket: Object Storage Service (OSS) bucket.
         shared_ptr<string> entityType_ {};
         // The entity UUID.
         shared_ptr<string> entityUuid_ {};
@@ -426,20 +417,16 @@ namespace Models
         // The incident UUID. You can obtain this value from the incident list operation.
         shared_ptr<string> incidentUuid_ {};
         // Indicates whether the entity is an asset. Valid values:
-        // + 0: No.
-        // + 1: Yes.
         shared_ptr<string> isAsset_ {};
-        // Indicates whether the entity is malicious. Valid values:
-        // + 0: No.
-        // + 1: Yes.
+        // Specifies whether the entity is malicious. Valid values:
         shared_ptr<string> isMalware_ {};
         // The malware type of the entity.
         shared_ptr<string> malwareType_ {};
         // The linked account ID associated with the entity.
         shared_ptr<int64_t> subUserId_ {};
-        // The entity tags. The value is a JSON array string:
+        // The entity tags. The value is a JSON array string in the following format:
         // 
-        // `"[{"tagKey1":"tagValue1"},{"tagKey2":"tagValue2"}]"`.
+        // `"[{"tagKey1":"tagValue1"},{"tagKey2":"tagValue2"}]"`
         shared_ptr<string> tags_ {};
       };
 
@@ -490,11 +477,11 @@ namespace Models
 
 
       protected:
-        // The page number of the current page.
+        // The current page number of the list.
         shared_ptr<int32_t> currentPage_ {};
-        // The number of entries per page.
+        // The number of records returned per page.
         shared_ptr<int32_t> pageSize_ {};
-        // The total number of entries.
+        // The total number of records.
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -565,17 +552,15 @@ namespace Models
 
 
   protected:
-    // The HTTP status code of the request.
+    // The request status code.
     shared_ptr<int32_t> code_ {};
-    // The response data.
+    // The request return value.
     shared_ptr<ListEntitiesResponseBody::Data> data_ {};
-    // The response message.
+    // The request return message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // - true: successful.
-    // - false: failed.
     shared_ptr<bool> success_ {};
   };
 

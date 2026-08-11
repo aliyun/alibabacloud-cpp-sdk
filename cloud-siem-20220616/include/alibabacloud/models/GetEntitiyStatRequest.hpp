@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EntityName, entityName_);
       DARABONBA_PTR_TO_JSON(EntityType, entityType_);
       DARABONBA_PTR_TO_JSON(EntityUuid, entityUuid_);
+      DARABONBA_PTR_TO_JSON(EntityUuids, entityUuids_);
       DARABONBA_PTR_TO_JSON(IncidentUuid, incidentUuid_);
       DARABONBA_PTR_TO_JSON(IsAsset, isAsset_);
       DARABONBA_PTR_TO_JSON(IsMalwareEntity, isMalwareEntity_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EntityName, entityName_);
       DARABONBA_PTR_FROM_JSON(EntityType, entityType_);
       DARABONBA_PTR_FROM_JSON(EntityUuid, entityUuid_);
+      DARABONBA_PTR_FROM_JSON(EntityUuids, entityUuids_);
       DARABONBA_PTR_FROM_JSON(IncidentUuid, incidentUuid_);
       DARABONBA_PTR_FROM_JSON(IsAsset, isAsset_);
       DARABONBA_PTR_FROM_JSON(IsMalwareEntity, isMalwareEntity_);
@@ -52,9 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assetName_ == nullptr
-        && this->assetUuid_ == nullptr && this->entityName_ == nullptr && this->entityType_ == nullptr && this->entityUuid_ == nullptr && this->incidentUuid_ == nullptr
-        && this->isAsset_ == nullptr && this->isMalwareEntity_ == nullptr && this->regionId_ == nullptr && this->roleFor_ == nullptr && this->roleType_ == nullptr
-        && this->tags_ == nullptr; };
+        && this->assetUuid_ == nullptr && this->entityName_ == nullptr && this->entityType_ == nullptr && this->entityUuid_ == nullptr && this->entityUuids_ == nullptr
+        && this->incidentUuid_ == nullptr && this->isAsset_ == nullptr && this->isMalwareEntity_ == nullptr && this->regionId_ == nullptr && this->roleFor_ == nullptr
+        && this->roleType_ == nullptr && this->tags_ == nullptr; };
     // assetName Field Functions 
     bool hasAssetName() const { return this->assetName_ != nullptr;};
     void deleteAssetName() { this->assetName_ = nullptr;};
@@ -88,6 +90,13 @@ namespace Models
     void deleteEntityUuid() { this->entityUuid_ = nullptr;};
     inline string getEntityUuid() const { DARABONBA_PTR_GET_DEFAULT(entityUuid_, "") };
     inline GetEntitiyStatRequest& setEntityUuid(string entityUuid) { DARABONBA_PTR_SET_VALUE(entityUuid_, entityUuid) };
+
+
+    // entityUuids Field Functions 
+    bool hasEntityUuids() const { return this->entityUuids_ != nullptr;};
+    void deleteEntityUuids() { this->entityUuids_ = nullptr;};
+    inline string getEntityUuids() const { DARABONBA_PTR_GET_DEFAULT(entityUuids_, "") };
+    inline GetEntitiyStatRequest& setEntityUuids(string entityUuids) { DARABONBA_PTR_SET_VALUE(entityUuids_, entityUuids) };
 
 
     // incidentUuid Field Functions 
@@ -150,6 +159,7 @@ namespace Models
     shared_ptr<string> entityType_ {};
     // The asset ID associated with the incident.
     shared_ptr<string> entityUuid_ {};
+    shared_ptr<string> entityUuids_ {};
     // The incident ID.
     // 
     // This parameter is required.
@@ -163,8 +173,8 @@ namespace Models
     shared_ptr<string> isMalwareEntity_ {};
     // The region where the threat detection and response data management center resides. Select the management center based on the region of your assets. Valid values:
     // 
-    // - cn-hangzhou: the asset belongs to the Chinese mainland or Hong Kong (China).
-    // - ap-southeast-1: the asset belongs to a region outside the Chinese mainland.
+    // - cn-hangzhou: The assets belong to the Chinese mainland or Hong Kong (China).
+    // - ap-southeast-1: The assets belong to regions outside China.
     shared_ptr<string> regionId_ {};
     // The user ID of the member to which the administrator switches the view.
     shared_ptr<int64_t> roleFor_ {};

@@ -76,7 +76,7 @@ namespace Models
 
 
     protected:
-      // The unique name of the playbook.
+      // The unique identifier name of the playbook.
       shared_ptr<string> playbookName_ {};
       // The UUID of the playbook.
       shared_ptr<string> playbookUuid_ {};
@@ -122,19 +122,17 @@ namespace Models
 
 
   protected:
-    // The status code of the request.
+    // The request status code.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The response data.
     shared_ptr<vector<DescribeDisposeStrategyPlaybookResponseBody::Data>> data_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

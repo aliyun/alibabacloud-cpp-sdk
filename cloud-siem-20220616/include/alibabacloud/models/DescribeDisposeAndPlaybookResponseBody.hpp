@@ -236,10 +236,7 @@ namespace Models
 
 
         protected:
-          // Indicates whether the playbook is available. Valid values:
-          // 
-          // - 1: Available.
-          // - 0: Unavailable.
+          // Indicates whether the playbook is available.
           shared_ptr<string> available_ {};
           // The playbook description.
           shared_ptr<string> description_ {};
@@ -251,26 +248,21 @@ namespace Models
           shared_ptr<string> name_ {};
           // The playbook opcode, which corresponds to the recommended playbook opcode for entity disposition.
           shared_ptr<string> opCode_ {};
-          // Indicates whether the playbook is selected by default for one-click event disposition. Valid values:
-          // 
-          // - 2: Selected. 
-          // - 1: Displayed but not selected.
+          // Specifies whether the playbook is selected by default for one-click incident disposition. Valid values:
           shared_ptr<string> opLevel_ {};
-          // The parameter list and corresponding parameter properties of the playbook.
+          // The parameter list of the playbook and the corresponding parameter properties.
           shared_ptr<vector<Darabonba::Json>> paramConfig_ {};
           // The opcode configuration.
           shared_ptr<string> taskConfig_ {};
-          // The code that indicates why the playbook is unavailable. Valid values:
+          // The code that indicates why the playbook is unavailable.
           // 
-          // - PARAM_INVALID: The input parameters are invalid. 
+          // Valid values:
+          // - PARAM_INVALID: The input parameters are invalid.
           // - NO_INGESTION: The corresponding product is not connected.
           shared_ptr<string> unAvailableCode_ {};
           // The playbook UUID, which is the unique identifier of the playbook.
           shared_ptr<string> uuid_ {};
-          // Indicates whether this is a WAF playbook. Valid values:
-          // 
-          // - true: Yes.
-          // - false: No.
+          // Indicates whether the playbook is a WAF playbook. Valid values:
           shared_ptr<bool> wafPlaybook_ {};
         };
 
@@ -373,7 +365,7 @@ namespace Models
         shared_ptr<vector<string>> opcodeSet_ {};
         // The list of playbooks that can dispose of the entity.
         shared_ptr<vector<ResponseData::PlaybookList>> playbookList_ {};
-        // The disposition scope. The list of user IDs that can perform the disposition.
+        // The disposition scope, which is the list of user IDs that can perform the disposition.
         shared_ptr<vector<Darabonba::Json>> scope_ {};
       };
 
@@ -499,7 +491,7 @@ namespace Models
 
 
   protected:
-    // The response status code.
+    // The request status code.
     shared_ptr<int32_t> code_ {};
     // The response data.
     shared_ptr<DescribeDisposeAndPlaybookResponseBody::Data> data_ {};
@@ -508,8 +500,6 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // - true: Successful.
-    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

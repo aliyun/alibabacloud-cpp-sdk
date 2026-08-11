@@ -41,14 +41,18 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AlertNum, alertNum_);
         DARABONBA_PTR_TO_JSON(EntityNum, entityNum_);
         DARABONBA_PTR_TO_JSON(EntityType, entityType_);
         DARABONBA_PTR_TO_JSON(EntityUuid, entityUuid_);
+        DARABONBA_PTR_TO_JSON(IncidentNum, incidentNum_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AlertNum, alertNum_);
         DARABONBA_PTR_FROM_JSON(EntityNum, entityNum_);
         DARABONBA_PTR_FROM_JSON(EntityType, entityType_);
         DARABONBA_PTR_FROM_JSON(EntityUuid, entityUuid_);
+        DARABONBA_PTR_FROM_JSON(IncidentNum, incidentNum_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -61,8 +65,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->entityNum_ == nullptr
-        && this->entityType_ == nullptr && this->entityUuid_ == nullptr; };
+      virtual bool empty() const override { return this->alertNum_ == nullptr
+        && this->entityNum_ == nullptr && this->entityType_ == nullptr && this->entityUuid_ == nullptr && this->incidentNum_ == nullptr; };
+      // alertNum Field Functions 
+      bool hasAlertNum() const { return this->alertNum_ != nullptr;};
+      void deleteAlertNum() { this->alertNum_ = nullptr;};
+      inline int64_t getAlertNum() const { DARABONBA_PTR_GET_DEFAULT(alertNum_, 0L) };
+      inline Data& setAlertNum(int64_t alertNum) { DARABONBA_PTR_SET_VALUE(alertNum_, alertNum) };
+
+
       // entityNum Field Functions 
       bool hasEntityNum() const { return this->entityNum_ != nullptr;};
       void deleteEntityNum() { this->entityNum_ = nullptr;};
@@ -84,13 +95,22 @@ namespace Models
       inline Data& setEntityUuid(string entityUuid) { DARABONBA_PTR_SET_VALUE(entityUuid_, entityUuid) };
 
 
+      // incidentNum Field Functions 
+      bool hasIncidentNum() const { return this->incidentNum_ != nullptr;};
+      void deleteIncidentNum() { this->incidentNum_ = nullptr;};
+      inline int64_t getIncidentNum() const { DARABONBA_PTR_GET_DEFAULT(incidentNum_, 0L) };
+      inline Data& setIncidentNum(int64_t incidentNum) { DARABONBA_PTR_SET_VALUE(incidentNum_, incidentNum) };
+
+
     protected:
+      shared_ptr<int64_t> alertNum_ {};
       // The number of entities.
       shared_ptr<int32_t> entityNum_ {};
       // The entity type.
       shared_ptr<string> entityType_ {};
       // The entity UUID.
       shared_ptr<string> entityUuid_ {};
+      shared_ptr<int64_t> incidentNum_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
@@ -133,7 +153,7 @@ namespace Models
 
 
   protected:
-    // The status code of the request.
+    // The HTTP status code.
     shared_ptr<int32_t> code_ {};
     // The response data.
     shared_ptr<vector<GetEntitiyStatResponseBody::Data>> data_ {};
@@ -143,8 +163,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // - true: successful.
-    // - false: failed.
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

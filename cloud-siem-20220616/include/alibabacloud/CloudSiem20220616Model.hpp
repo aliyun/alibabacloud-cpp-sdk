@@ -208,6 +208,7 @@
 #include <alibabacloud/models/ListDeliveryResponseBody.hpp>
 #include <alibabacloud/models/ListDeliveryResponse.hpp>
 #include <alibabacloud/models/ListDisposeStrategyRequest.hpp>
+#include <alibabacloud/models/ListDisposeStrategyShrinkRequest.hpp>
 #include <alibabacloud/models/ListDisposeStrategyResponseBody.hpp>
 #include <alibabacloud/models/ListDisposeStrategyResponse.hpp>
 #include <alibabacloud/models/ListEntitiesRequest.hpp>

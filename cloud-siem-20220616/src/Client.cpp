@@ -2160,7 +2160,7 @@ DescribeDisposeAndPlaybookResponse Client::describeDisposeAndPlaybook(const Desc
 }
 
 /**
- * @summary Retrieves the list of playbooks used in a disposal policy.
+ * @summary Retrieves the list of playbooks used by a disposal policy.
  *
  * @param request DescribeDisposeStrategyPlaybookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2207,7 +2207,7 @@ DescribeDisposeStrategyPlaybookResponse Client::describeDisposeStrategyPlaybookW
 }
 
 /**
- * @summary Retrieves the list of playbooks used in a disposal policy.
+ * @summary Retrieves the list of playbooks used by a disposal policy.
  *
  * @param request DescribeDisposeStrategyPlaybookRequest
  * @return DescribeDisposeStrategyPlaybookResponse
@@ -3234,7 +3234,7 @@ GetDataStorageResponse Client::getDataStorage(const GetDataStorageRequest &reque
 /**
  * @summary Queries entity counts.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class with configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to assist with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetEntitiyStatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3261,6 +3261,10 @@ GetEntitiyStatResponse Client::getEntitiyStatWithOptions(const GetEntitiyStatReq
 
   if (!!request.hasEntityUuid()) {
     body["EntityUuid"] = request.getEntityUuid();
+  }
+
+  if (!!request.hasEntityUuids()) {
+    body["EntityUuids"] = request.getEntityUuids();
   }
 
   if (!!request.hasIncidentUuid()) {
@@ -3311,7 +3315,7 @@ GetEntitiyStatResponse Client::getEntitiyStatWithOptions(const GetEntitiyStatReq
 /**
  * @summary Queries entity counts.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. A utility class with configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to assist with specific configuration examples. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetEntitiyStatRequest
  * @return GetEntitiyStatResponse
@@ -4168,15 +4172,34 @@ ListDeliveryResponse Client::listDelivery(const ListDeliveryRequest &request) {
 }
 
 /**
- * @summary Retrieve a list of system-recommended disposal strategies.
+ * @summary Retrieves the list of system-recommended disposal policies.
  *
- * @param request ListDisposeStrategyRequest
+ * @param tmpReq ListDisposeStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListDisposeStrategyResponse
  */
-ListDisposeStrategyResponse Client::listDisposeStrategyWithOptions(const ListDisposeStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListDisposeStrategyResponse Client::listDisposeStrategyWithOptions(const ListDisposeStrategyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListDisposeStrategyShrinkRequest request = ListDisposeStrategyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEntityUuidList()) {
+    request.setEntityUuidListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEntityUuidList(), "EntityUuidList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
   json body = {};
+  if (!!request.hasAlertUuid()) {
+    body["AlertUuid"] = request.getAlertUuid();
+  }
+
   if (!!request.hasCurrentPage()) {
     body["CurrentPage"] = request.getCurrentPage();
   }
@@ -4195,6 +4218,18 @@ ListDisposeStrategyResponse Client::listDisposeStrategyWithOptions(const ListDis
 
   if (!!request.hasEntityType()) {
     body["EntityType"] = request.getEntityType();
+  }
+
+  if (!!request.hasEntityUuidListShrink()) {
+    body["EntityUuidList"] = request.getEntityUuidListShrink();
+  }
+
+  if (!!request.hasGroupBy()) {
+    body["GroupBy"] = request.getGroupBy();
+  }
+
+  if (!!request.hasGroupKey()) {
+    body["GroupKey"] = request.getGroupKey();
   }
 
   if (!!request.hasIncidentUuid()) {
@@ -4225,8 +4260,16 @@ ListDisposeStrategyResponse Client::listDisposeStrategyWithOptions(const ListDis
     body["PlaybookUuid"] = request.getPlaybookUuid();
   }
 
+  if (!!request.hasQueryMode()) {
+    body["QueryMode"] = request.getQueryMode();
+  }
+
   if (!!request.hasRegionId()) {
     body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResponseRuleId()) {
+    body["ResponseRuleId"] = request.getResponseRuleId();
   }
 
   if (!!request.hasRoleFor()) {
@@ -4249,9 +4292,14 @@ ListDisposeStrategyResponse Client::listDisposeStrategyWithOptions(const ListDis
     body["Status"] = request.getStatus();
   }
 
+  if (!!request.hasStrategyId()) {
+    body["StrategyId"] = request.getStrategyId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "ListDisposeStrategy"},
     {"version" , "2022-06-16"},
@@ -4267,7 +4315,7 @@ ListDisposeStrategyResponse Client::listDisposeStrategyWithOptions(const ListDis
 }
 
 /**
- * @summary Retrieve a list of system-recommended disposal strategies.
+ * @summary Retrieves the list of system-recommended disposal policies.
  *
  * @param request ListDisposeStrategyRequest
  * @return ListDisposeStrategyResponse
