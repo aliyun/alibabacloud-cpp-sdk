@@ -117,45 +117,32 @@ namespace Models
 
 
     protected:
-      // The operation that failed the permission check.
+      // The authentication action.
       shared_ptr<string> authAction_ {};
-      // The identity. Values:
-      // 
-      // - RAM user: a UID
-      // 
+      // The identity used for authentication in the request. Valid values:
+      // - RAM user: RAM user UID
       // - RAM role: RoleName:RoleSessionName
-      // 
-      // - Federated user: ProviderType/ProviderName
+      // - Federated: ProviderType/ProviderName
       shared_ptr<string> authPrincipalDisplayName_ {};
-      // The account to which the principal belongs.
+      // The account to which the authenticate principal belongs.
       shared_ptr<string> authPrincipalOwnerId_ {};
-      // The type of identity that made the request. Valid values:
-      // 
+      // The type of the identity used for authentication in the request. Valid values:
       // - SubUser: RAM user
-      // 
       // - AssumedRoleUser: RAM role
-      // 
-      // - Federated: SSO federated user
+      // - Federated: SSO federated identity
       shared_ptr<string> authPrincipalType_ {};
       // The encoded diagnostic message.
       shared_ptr<string> encodedDiagnosticMessage_ {};
-      // The type of policy that resulted in the denial. Valid values:
-      // 
-      // - **ImplicitDeny**: The resource holder has not configured a policy for the current user. By default, unauthorized operations are denied.
-      // 
-      // - **ExplicitDeny**: The RAM policy configured by the resource holder explicitly denies the current user access to the corresponding resources.
+      // The type of denial by the access policy. Valid values:
+      // - **ImplicitDeny**: The resource owner has not configured a relevant permission policy for the current user. Access to unauthorized operations is denied by default.
+      // - **ExplicitDeny**: The RAM policy configured by the resource owner explicitly denies the current user access to the corresponding resource.
       shared_ptr<string> noPermissionType_ {};
-      // The type of policy that triggered the permission failure.
-      // 
-      // - **ControlPolicy**: control policy
-      // 
-      // - **SessionPolicy**: an additional policy attached to a temporary token.
-      // 
+      // The type of the policy that caused the access denial. Valid values:
+      // - **ControlPolicy**: control policy.
+      // - **SessionPolicy**: an additional permission policy attached to a temporary token.
       // - **AssumeRolePolicy**: the trust policy of a RAM role.
-      // 
-      // - **AccountLevelIdentityBasedPolicy**: an identity-based policy at the account level (custom or system).
-      // 
-      // - **ResourceGroupLevelIdentityBasedPolicy**: an identity-based policy scoped to a resource group.
+      // - **AccountLevelIdentityBasedPolicy**: an identity-access policy at the account authorization scope, including custom policies and system policies.
+      // - **ResourceGroupLevelIdentityBasedPolicy**: an identity-access policy at the resource group authorization scope, including custom policies and system policies.
       shared_ptr<string> policyType_ {};
     };
 
@@ -185,11 +172,11 @@ namespace Models
 
 
   protected:
-    // The details about the access denial. This parameter is returned only if Resource Access Management (RAM) permission verification failed.
+    // The details about the access denial. This field is returned only when RAM authentication fails.
     shared_ptr<CancelIProductionJobResponseBody::AccessDeniedDetail> accessDeniedDetail_ {};
-    // The message returned.
+    // The response message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

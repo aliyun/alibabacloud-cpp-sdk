@@ -168,13 +168,13 @@ namespace Models
   protected:
     // The folder list.
     shared_ptr<vector<ListYikeAssetFoldersResponseBody::FolderList>> folderList_ {};
-    // The maximum number of results per page.
+    // The maximum number of results.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to retrieve the next page of results. If this parameter is not returned, all results have been retrieved.
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total count of folders.
+    // The total number of folders.
     shared_ptr<int32_t> total_ {};
   };
 

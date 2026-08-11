@@ -70,9 +70,9 @@ namespace Models
 
 
     protected:
-      // The creation timestamp of the file.
+      // The creation timestamp.
       shared_ptr<int64_t> createTimestamp_ {};
-      // The deletion result. A value of `OK` indicates the operation succeeded. Other values indicate that it failed.
+      // The deletion result. OK indicates that the deletion was successful. Other values indicate that the deletion failed.
       shared_ptr<string> result_ {};
     };
 
@@ -95,9 +95,9 @@ namespace Models
 
 
   protected:
-    // An array of deletion results.
+    // The list of deletion results.
     shared_ptr<vector<DeleteLiveSnapshotFilesResponseBody::DeleteFileResultList>> deleteFileResultList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

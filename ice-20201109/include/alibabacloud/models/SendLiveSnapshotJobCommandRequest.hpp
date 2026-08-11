@@ -48,19 +48,15 @@ namespace Models
 
 
   protected:
-    // The operation command.
+    // The operation instruction. Valid values:
     // 
-    // Valid values:
-    // 
-    // - stop
-    // 
-    // - restart
-    // 
-    // - start
+    // - start: starts the task.
+    // - stop: stops the task.
+    // - restart: restarts the task.
     // 
     // This parameter is required.
     shared_ptr<string> command_ {};
-    // The ID of the snapshot job.
+    // The ID of the snapshot task.
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};

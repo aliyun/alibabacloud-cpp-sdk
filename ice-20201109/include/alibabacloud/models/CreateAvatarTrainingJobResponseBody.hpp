@@ -61,7 +61,7 @@ namespace Models
 
 
     protected:
-      // The ID of the digital human training job.
+      // The ID of the digital human training task.
       shared_ptr<string> jobId_ {};
     };
 
@@ -91,7 +91,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The response data.
     shared_ptr<CreateAvatarTrainingJobResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

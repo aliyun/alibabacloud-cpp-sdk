@@ -57,21 +57,18 @@ namespace Models
 
 
   protected:
-    // The types of additional media asset information to return. If this parameter is not specified, only basic information is returned. Valid values are:
+    // The additional information about the media asset to return in the batch query. By default, only BasicInfo is returned. The additional information includes:
     // 
-    // -FileInfo
+    // \\-FileInfo
     // 
-    // -DynamicMetaData
+    // \\-DynamicMetaData
     shared_ptr<string> additionType_ {};
-    // The authentication timeout, in seconds.
-    // 
+    // The authentication expiration time. Unit: seconds.
     // - Minimum value: **1**.
-    // 
     // - Maximum value: 86400.
-    // 
     // - Default value: 3600.
     shared_ptr<int64_t> authTimeout_ {};
-    // A comma-separated list of media asset IDs to query.
+    // The IDs of the media assets to query, separated by commas.
     shared_ptr<string> mediaIds_ {};
   };
 

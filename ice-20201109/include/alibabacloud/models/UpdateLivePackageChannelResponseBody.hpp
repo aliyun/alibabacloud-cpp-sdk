@@ -204,21 +204,21 @@ namespace Models
     protected:
       // The channel name.
       shared_ptr<string> channelName_ {};
-      // The time when the channel was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
-      // The channel description. It can be up to 1,000 characters in length.
+      // The description. Maximum length: 1000 characters.
       shared_ptr<string> description_ {};
       // The channel group name.
       shared_ptr<string> groupName_ {};
-      // The ingest endpoints.
+      // The array of ingest endpoints.
       shared_ptr<vector<LivePackageChannel::IngestEndpoints>> ingestEndpoints_ {};
-      // The time when the channel was last modified.
+      // The last modified time.
       shared_ptr<string> lastModified_ {};
-      // The ingest protocol. Only HLS is supported.
+      // The input stream protocol. HLS is supported.
       shared_ptr<string> protocol_ {};
-      // The number of segments.
+      // The number of segments in the input stream.
       shared_ptr<int32_t> segmentCount_ {};
-      // The segment duration.
+      // The segment duration of the input stream.
       shared_ptr<int32_t> segmentDuration_ {};
     };
 
@@ -241,7 +241,7 @@ namespace Models
 
 
   protected:
-    // The information about the live package channel.
+    // The details of the live packaging channel.
     shared_ptr<UpdateLivePackageChannelResponseBody::LivePackageChannel> livePackageChannel_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -138,13 +138,13 @@ namespace Models
 
 
       protected:
-        // The job inputs.
+        // The media transcoding task input list.
         shared_ptr<vector<MediaConvertInput>> inputs_ {};
-        // The job name.
+        // The task name.
         shared_ptr<string> jobName_ {};
-        // The output group configurations.
+        // The media transcoding task output group configuration list.
         shared_ptr<vector<MediaConvertOutputGroup>> outputGroups_ {};
-        // The output configurations.
+        // The media transcoding output configuration list.
         shared_ptr<vector<MediaConvertOutput>> outputs_ {};
       };
 
@@ -235,35 +235,30 @@ namespace Models
 
 
     protected:
-      // The idempotency token for the request.
+      // The idempotency parameter for the media transcoding task creation request.
       shared_ptr<string> clientToken_ {};
-      // The error code returned if the job fails.
+      // The error code returned when the media transcoding task fails.
       shared_ptr<string> code_ {};
-      // The job configuration.
+      // The media transcoding task configuration.
       shared_ptr<Job::Config> config_ {};
-      // The job ID.
+      // The media transcoding task ID.
       shared_ptr<string> jobId_ {};
-      // The error message returned if the job fails.
+      // The detailed error message returned when the media transcoding task fails.
       shared_ptr<string> message_ {};
-      // The output details.
+      // The media transcoding output result list.
       shared_ptr<vector<MediaConvertOutputDetail>> outputDetails_ {};
-      // The output group details.
+      // The media transcoding output group result list.
       shared_ptr<vector<MediaConvertOutputGroupDetail>> outputGroupDetails_ {};
       // The pipeline ID.
       shared_ptr<string> pipelineId_ {};
       // The request ID.
       shared_ptr<string> requestId_ {};
-      // The job status. Valid values:
-      // 
-      // - Inited: The job has been initialized.
-      // 
-      // - Running: The job is running.
-      // 
-      // - Success: The job has completed successfully.
-      // 
-      // - Failed: The job has failed.
-      // 
-      // - Canceled: The job has been canceled.
+      // The media transcoding task status. Valid values:
+      // - Inited: initialized.
+      // - Running: running.
+      // - Success: transcoding succeeded.
+      // - Failed: transcoding failed.
+      // - Cancelled: canceled.
       shared_ptr<string> state_ {};
       // The user data.
       shared_ptr<string> userData_ {};
@@ -288,7 +283,7 @@ namespace Models
 
 
   protected:
-    // The media transcoding job.
+    // The media transcoding task.
     shared_ptr<SubmitMediaConvertJobResponseBody::Job> job_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

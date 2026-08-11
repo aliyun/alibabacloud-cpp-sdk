@@ -204,21 +204,21 @@ namespace Models
     protected:
       // The channel name.
       shared_ptr<string> channelName_ {};
-      // The time when the channel was created. It is in the yyyy-MM-ddTHH:mm:ssZ format and displayed in UTC.
+      // The creation time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
       shared_ptr<string> createTime_ {};
-      // The channel description.
+      // The description.
       shared_ptr<string> description_ {};
       // The channel group name.
       shared_ptr<string> groupName_ {};
       // The ingest endpoints.
       shared_ptr<vector<LivePackageChannel::IngestEndpoints>> ingestEndpoints_ {};
-      // The time when the channel was last modified. It is in the yyyy-MM-ddTHH:mm:ssZ format and displayed in UTC.
+      // The creation time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
       shared_ptr<string> lastModified_ {};
-      // The ingest protocol. Only HLS is supported.
+      // The input protocol. Valid value: HLS.
       shared_ptr<string> protocol_ {};
-      // The number of M3U8 segments.
+      // The number of m3u8 segments for the input stream.
       shared_ptr<int32_t> segmentCount_ {};
-      // The segment duration.
+      // The segment duration of the input stream.
       shared_ptr<int32_t> segmentDuration_ {};
     };
 
@@ -241,7 +241,7 @@ namespace Models
 
 
   protected:
-    // The information about the live package channel.
+    // The details of the live packaging channel.
     shared_ptr<CreateLivePackageChannelResponseBody::LivePackageChannel> livePackageChannel_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

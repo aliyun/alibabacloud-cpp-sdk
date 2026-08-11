@@ -66,37 +66,27 @@ namespace Models
 
 
   protected:
-    // The naming format of the snapshot captured in overwrite mode.
+    // The overwrite snapshot file format.
     // 
-    // - The value cannot start with a forward slash (/). Only the suffix .jpg is supported.
-    // 
-    // - It cannot exceed 255 characters in length.
-    // 
-    // - The {JobId} placeholder is supported. It specifies the ID of the snapshot job.
-    // 
-    // - Placeholders such as {UnixTimestamp}, {Sequence}, and {Date} are not allowed.
-    // 
-    // - You must specify at least one of the OverwriteFormat and SequenceFormat parameters.
+    // - The value cannot start with "/". Only the .jpg suffix is supported.
+    // - Maximum length: 255.
+    // - Supported placeholder: {JobId}: snapshot task ID.
+    // - The placeholders {UnixTimestamp}, {Sequence}, and {Date} are not allowed.
+    // - At least one of the overwrite snapshot format or sequence snapshot format must be specified.
     shared_ptr<string> overwriteFormat_ {};
-    // The naming format of the snapshot captured in time series mode.
-    // 
-    // - The value cannot start with a forward slash (/). Only the suffix .jpg is supported.
-    // 
-    // - It cannot exceed 255 characters in length.
-    // 
-    // - The {JobId}, {Date}, {UnixTimestamp}, and {Sequence} placeholders are supported. {JobId} specifies the ID of the snapshot job. {Date} specifies the date on which the snapshot is captured. {UnixTimestamp} specifies the timestamp of the snapshot. {Sequence} specifies the sequence number of the snapshot. You must specify at least one of the {UnixTimestamp} and {Sequence} placeholders.
-    // 
-    // - You must specify at least one of the OverwriteFormat and SequenceFormat parameters.
+    // The sequence snapshot file format.
+    // - The value cannot start with "/". Only the .jpg suffix is supported.
+    // - Maximum length: 255.
+    // - Supported placeholders: {JobId}: snapshot task ID, {Date}: snapshot date, {UnixTimestamp}: timestamp, {Sequence}: serial number. At least one of {UnixTimestamp} or {Sequence} must be specified.
+    // - At least one of the overwrite snapshot format or sequence snapshot format must be specified.
     shared_ptr<string> sequenceFormat_ {};
-    // The name of the template.
-    // 
-    // - It cannot exceed 128 characters in length.
+    // The template name.
+    // - Maximum length: 128.
     // 
     // This parameter is required.
     shared_ptr<string> templateName_ {};
-    // The interval between two adjacent snapshots. Unit: seconds.
-    // 
-    // - Valid values: [5,3600].
+    // The snapshot time interval. Unit: seconds.
+    // - Valid values: 5 to 3600.
     // 
     // This parameter is required.
     shared_ptr<int32_t> timeInterval_ {};

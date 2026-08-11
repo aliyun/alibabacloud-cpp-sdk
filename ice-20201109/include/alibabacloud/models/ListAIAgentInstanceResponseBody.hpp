@@ -115,23 +115,23 @@ namespace Models
 
 
     protected:
-      // Template configuration used by the agent instance.
+      // The template configuration used by the agent instance.
       shared_ptr<AIAgentConfig> agentConfig_ {};
-      // URL of the call log file. The file contains a JSON-formatted CallLog structure.
+      // The URL of the agent conversation call log file. The file contains the CallLog struct in JSON format.
       shared_ptr<string> callLogUrl_ {};
-      // Runtime configuration required by the agent.
+      // The runtime configuration required by the agent.
       shared_ptr<AIAgentRuntimeConfig> runtimeConfig_ {};
-      // Instance status:
+      // The instance status. Valid values:
       // 
-      // - Created: The call started but no connection was established between both ends.
+      // - Created: The call is initiated but the connection between the two ends is not established.
       // 
-      // - Executing: The call is in progress and a connection is established between both ends.
+      // - Executing: The call is in progress and the connection between the two ends is established.
       // 
-      // - Finished: The call ended.
+      // - Finished: The call has ended.
       shared_ptr<string> status_ {};
-      // Template configuration used by the agent instance.
+      // The template configuration used by the agent instance.
       shared_ptr<AIAgentTemplateConfig> templateConfig_ {};
-      // User-defined information.
+      // The user-defined data.
       shared_ptr<string> userData_ {};
     };
 
@@ -154,9 +154,9 @@ namespace Models
 
 
   protected:
-    // List of agent instance objects.
+    // The list of agent instance structs.
     shared_ptr<vector<ListAIAgentInstanceResponseBody::Instances>> instances_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

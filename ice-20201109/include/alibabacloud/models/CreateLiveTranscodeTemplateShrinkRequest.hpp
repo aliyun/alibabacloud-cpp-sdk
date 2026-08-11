@@ -57,21 +57,19 @@ namespace Models
 
 
   protected:
-    // The name of the template.
+    // The template name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The configuration of the template.
+    // The template configuration.
+    // > The pass parameter requirements vary based on the templatetype (Type). When Type is set to normal, at least one of the width and height parameters must be specified, and the frame rate and bitrate parameters are required. For other template types, specify the parameters based on your requirements.
     shared_ptr<string> templateConfigShrink_ {};
-    // The type of the template. Valid values:
+    // The template type. Valid values:
     // 
-    // - normal
-    // 
-    // - narrow-band
-    // 
-    // - audio-only
-    // 
-    // - origin
+    // - normal: standard.
+    // - narrow-band: narrowband HD.
+    // - audio-only: audio only.
+    // - origin: original quality.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

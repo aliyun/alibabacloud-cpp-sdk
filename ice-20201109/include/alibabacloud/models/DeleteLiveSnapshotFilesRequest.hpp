@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // A list of creation timestamps for the files to delete. You can specify up to 200 timestamps per request.
+    // The list of creation timestamps. A maximum of 200 entries can be deleted at a time.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> createTimestampList_ {};
-    // Specifies whether to delete the original OSS files. The default value is false.
+    // Specifies whether to delete the original files. Default value: false.
     shared_ptr<bool> deleteOriginalFile_ {};
     // The ID of the snapshot job.
     // 

@@ -94,29 +94,21 @@ namespace Models
 
 
   protected:
-    // The end of the time range during which the jobs to be queried were created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The end time for filtering by task creation time. Format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> endOfCreateTime_ {};
-    // The job ID.
+    // Filters by jobId.
     shared_ptr<string> jobId_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+    // The token for the next page in consecutive paging query requests. This parameter is not required for the first page.
     shared_ptr<string> nextPageToken_ {};
-    // The order that you use to sort the query results. Valid values:
-    // 
-    // - CreateTimeDesc: sorts the query results by creation time in descending order.
-    // 
-    // - CreateTimeAsc: sorts the query results by creation time in ascending order.
+    // The sort order. Valid values:
+    // - CreateTimeDesc: sorts by creation time in descending order.
+    // - CreateTimeAsc: sorts by creation time in ascending order.
     shared_ptr<string> orderBy_ {};
-    // The number of entries per page. Default value: 10.
+    // The page size. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The beginning of the time range during which the jobs to be queried were created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start time for filtering by task creation time. Format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> startOfCreateTime_ {};
-    // The state of the job. Valid values:
-    // 
-    // - Init: The job is submitted.
-    // 
-    // - Success: The job is successful.
-    // 
-    // - Fail: The job failed.
+    // The task status.
     shared_ptr<string> status_ {};
   };
 

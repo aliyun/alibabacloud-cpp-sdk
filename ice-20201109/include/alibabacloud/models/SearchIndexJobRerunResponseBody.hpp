@@ -66,7 +66,7 @@ namespace Models
 
 
     protected:
-      // The media asset IDs that do not exist.
+      // The list of media asset IDs that do not exist.
       shared_ptr<vector<string>> mediaIdsNoExist_ {};
     };
 
@@ -103,17 +103,15 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The return code.
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<SearchIndexJobRerunResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
-    // 
-    // - true
-    // 
-    // - false
+    // Indicates whether the request was successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<string> success_ {};
   };
 

@@ -133,59 +133,23 @@ namespace Models
 
 
     protected:
-      // The template configurations.
+      // See the Timeline template Config documentation.
       shared_ptr<string> config_ {};
-      // The URL of the template thumbnail.
+      // The template cover URL.
       shared_ptr<string> coverUrl_ {};
-      // The source from which the template was created.
-      // 
-      // Valid values:
-      // 
-      // - AliyunConsole
-      // 
-      // - WebSDK
-      // 
-      // - OpenAPI
+      // The template creation source.
       shared_ptr<string> createSource_ {};
-      // The source from which the template was modified.
-      // 
-      // Valid values:
-      // 
-      // - AliyunConsole
-      // 
-      // - WebSDK
-      // 
-      // - OpenAPI
+      // The template modification source.
       shared_ptr<string> modifiedSource_ {};
       // The template name.
       shared_ptr<string> name_ {};
-      // The ID of the preview video.
+      // The media asset ID of the preview video.
       shared_ptr<string> previewMedia_ {};
-      // The template state.
-      // 
-      // Valid values:
-      // 
-      // - UploadFailed: Failed to upload the video.
-      // 
-      // - ProcessFailed: Failed to process the advanced template.
-      // 
-      // - Available: The template is available.
-      // 
-      // - Uploading: The video is being uploaded.
-      // 
-      // - Created: The template is created but not ready for use.
-      // 
-      // - Processing: The advanced template is being processed.
+      // The template status.
       shared_ptr<string> status_ {};
       // The template ID.
       shared_ptr<string> templateId_ {};
-      // The template type.
-      // 
-      // Valid values:
-      // 
-      // - Timeline: regular template.
-      // 
-      // - VETemplate: advanced template.
+      // The templatetype.
       shared_ptr<string> type_ {};
     };
 
@@ -208,7 +172,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The template information.
     shared_ptr<AddTemplateResponseBody::Template> template_ {};

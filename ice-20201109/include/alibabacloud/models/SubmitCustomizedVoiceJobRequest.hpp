@@ -48,15 +48,12 @@ namespace Models
 
 
   protected:
-    // The OSS URL where the demo audio will be saved.
-    // 
-    // - If specified, the service generates a demo audio file at the provided OSS URL after training completes.
-    // 
-    // - >Notice: 
-    // 
-    //   The URL must be a valid public address for an OSS object in your account.
+    // The audio output address of the sample.  
+    // - If you specify this parameter, a sample audio file is generated at the specified OSS address after training succeeds.  
+    // - If you do not specify this parameter, no sample audio is generated.
+    // >Notice: The address must be a valid public OSS address under your account.
     shared_ptr<string> demoAudioMediaURL_ {};
-    // The unique identifier for the voice.
+    // The voice ID.
     // 
     // This parameter is required.
     shared_ptr<string> voiceId_ {};

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the media asset.
+    // The media asset ID.
     // 
     // This parameter is required.
     shared_ptr<string> mediaId_ {};
-    // The marks of the media asset.
+    // The mark information.
     // 
     // This parameter is required.
     shared_ptr<string> mediaMarks_ {};

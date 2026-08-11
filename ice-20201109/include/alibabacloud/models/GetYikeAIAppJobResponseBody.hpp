@@ -111,7 +111,7 @@ namespace Models
       protected:
         // The media asset ID.
         shared_ptr<string> mediaId_ {};
-        // The OSS URL of the output file.
+        // The downloadable OSS URL.
         shared_ptr<string> outputUrl_ {};
       };
 
@@ -155,7 +155,7 @@ namespace Models
       protected:
         // The media asset ID.
         shared_ptr<string> mediaId_ {};
-        // The OSS URL of the output file.
+        // The downloadable OSS URL.
         shared_ptr<string> outputUrl_ {};
       };
 
@@ -199,7 +199,7 @@ namespace Models
       protected:
         // The media asset ID.
         shared_ptr<string> mediaId_ {};
-        // The OSS URL of the output file.
+        // The downloadable OSS URL.
         shared_ptr<string> outputUrl_ {};
       };
 
@@ -233,11 +233,11 @@ namespace Models
 
 
     protected:
-      // The audio results.
+      // The audio task result.
       shared_ptr<vector<Result::AudioResult>> audioResult_ {};
-      // The image results.
+      // The image task result.
       shared_ptr<vector<Result::ImageResult>> imageResult_ {};
-      // The video results.
+      // The video task result.
       shared_ptr<vector<Result::VideoResult>> videoResult_ {};
     };
 
@@ -317,35 +317,30 @@ namespace Models
 
 
   protected:
-    // The Yike AI App ID.
+    // The AI application ID.
     shared_ptr<string> appId_ {};
-    // The input parameters for the Yike AI App, provided as a JSON string.
+    // The input parameters for running the AI application. The value is a string obtained after JSON serialize.
     shared_ptr<string> appParams_ {};
-    // The UTC time when the job finished, in `yyyy-MM-ddTHH:mm:ssZ` format.
+    // The time when the task ended. The time is in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
     shared_ptr<string> executionFinishTime_ {};
-    // The UTC time when the job started, in `yyyy-MM-ddTHH:mm:ssZ` format.
+    // The time when the task started. The time is in the yyyy-mm-ddTHH:mm:ssZ format (UTC).
     shared_ptr<string> executionStartTime_ {};
     // The folder ID.
     shared_ptr<string> folderId_ {};
-    // The job ID.
+    // The task ID.
     shared_ptr<string> jobId_ {};
     // The project ID.
     shared_ptr<string> productionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The job results.
+    // The task execution result.
     shared_ptr<GetYikeAIAppJobResponseBody::Result> result_ {};
-    // The status of the job. Valid values:
-    // 
-    // - `Created`: The job is created.
-    // 
-    // - `Queuing`: The job is queued for processing.
-    // 
-    // - `Executing`: The job is running.
-    // 
-    // - `Finished`: The job completed successfully.
-    // 
-    // - `Failed`: The job failed.
+    // The task status. Valid values:
+    // - Created: The task is created.
+    // - Queuing: The task is queuing.
+    // - Executing: The task is being executed.
+    // - Finished: The task is completed.
+    // - Failed: The task failed.
     shared_ptr<string> status_ {};
   };
 

@@ -115,33 +115,19 @@ namespace Models
 
 
     protected:
-      // The time when the template was created.
+      // The time when the pipeline was created.
       shared_ptr<string> createTime_ {};
-      // The time when the template was last modified.
+      // The time when the pipeline was last modified.
       shared_ptr<string> modifiedTime_ {};
-      // The name of the MPS queue.
+      // The pipeline name.
       shared_ptr<string> name_ {};
-      // The ID of the MPS queue.
+      // The pipeline ID.
       shared_ptr<string> pipelineId_ {};
-      // The priority of the MPS queue.
+      // The pipeline priority.
       shared_ptr<int32_t> priority_ {};
-      // The type of the MPS queue.
-      // 
-      // Valid values:
-      // 
-      // - Boost: MPS queue with transcoding speed boosted.
-      // 
-      // - Standard: standard MPS queue.
-      // 
-      // - NarrowBandHDV2: MPS queue that supports Narrowband HD 2.0.
+      // The pipeline type.
       shared_ptr<string> speed_ {};
-      // The state of the MPS queue.
-      // 
-      // Valid values:
-      // 
-      // - Active
-      // 
-      // - Paused
+      // The pipeline status.
       shared_ptr<string> status_ {};
     };
 
@@ -164,7 +150,7 @@ namespace Models
 
 
   protected:
-    // The information about the MPS queue.
+    // The pipeline information.
     shared_ptr<CreatePipelineResponseBody::Pipeline> pipeline_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

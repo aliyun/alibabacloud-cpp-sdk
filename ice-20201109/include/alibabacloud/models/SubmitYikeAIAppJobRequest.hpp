@@ -70,11 +70,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The AI application runtime parameters, as a JSON string.
+    // The runtime parameters of the AI application. The value is a JSON-serialized string.
     shared_ptr<string> appParams_ {};
-    // The ID of the folder. If provided, the output is saved to this folder.
+    // The folder ID. This parameter is used to save results to the specified folder.
     shared_ptr<string> folderId_ {};
-    // The ID of the project. If provided, the output is saved to this project.
+    // The project ID. This parameter is used to save results to the specified project.
     shared_ptr<string> productionId_ {};
   };
 

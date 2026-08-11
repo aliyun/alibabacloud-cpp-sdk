@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The ciphertext of the encrypted data key. This parameter is used as CipherText when you create a transcoding job.
+      // The ciphertext of the encrypted data key (DK). This value is used for the CipherText parameter when you submit a transcoding job.
       shared_ptr<string> ciphertextBlob_ {};
-      // The ID of the customer master key (CMK). The ID must be globally unique.
+      // The globally unique identifier of the master key.
       shared_ptr<string> keyId_ {};
-      // The Base64-encoded plaintext of the data key.
+      // The Base64-encoded plaintext of the data key (DK).
       shared_ptr<string> plaintext_ {};
     };
 
@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The information about the data key.
+    // The data key (DK) information.
     shared_ptr<GenerateKMSDataKeyResponseBody::DataKey> dataKey_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

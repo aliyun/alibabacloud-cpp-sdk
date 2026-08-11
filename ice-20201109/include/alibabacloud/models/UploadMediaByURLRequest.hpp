@@ -96,39 +96,30 @@ namespace Models
   protected:
     // The application ID.
     shared_ptr<string> appId_ {};
-    // The entity ID. You can call the CreateEntity API to create an entity and define a custom dynamic metadata schema.
+    // The entity ID. You can call the CreateEntity operation to create an entity and define a custom dynamic metadata structure.
     shared_ptr<string> entityId_ {};
-    // The metadata of the media file, provided as a JSON string.
-    // 
-    // - This metadata takes effect only when it matches a URL in `UploadURLs`.
-    // 
-    // - The value must be a JSON array in the `[UploadMetadata, UploadMetadata, ...]` format, passed as a JSON string.
-    // 
+    // The metadata of the media file to be uploaded. The value is a JSON string.
+    // - The metadata takes effect only when it matches a URL in UploadURLs.
+    // - JSON format: [UploadMetadata, UploadMetadata, ...]. The value must be converted to a JSON string.
     // - For more information, see the UploadMetadata table below.
     shared_ptr<string> mediaMetaData_ {};
-    // Specifies post-upload processing actions for media files of type `video` or `audio`.
+    // The post-upload processing action when Type is set to video or audio.
     // 
-    // The only supported value for `ProcessType` is `Workflow`.
+    // Valid values of ProcessType: Workflow.
     shared_ptr<string> postProcessConfig_ {};
-    // The destination storage location.
+    // The destination storage address.
     // 
-    // - The only valid value for `StorageType` is `oss`.
-    // 
-    // - `StorageLocation` supports VOD storage only and does not support your own OSS buckets.
+    // - StorageType: only oss is supported.
+    // - StorageLocation: only VOD storage is supported. User-owned OSS storage is not supported.
     shared_ptr<string> uploadTargetConfig_ {};
-    // The source URL of the media file.
-    // 
-    // - The URL must include a file extension. For example, in `https://****.mp4`, mp4 is the file extension.
-    // 
-    //   - If the URL does not include a file extension, you can specify it by using the `FileExtension` parameter in `MediaMetaData`.
-    // 
-    //   - If a file extension is present in both the URL and the `FileExtension` parameter, the value of `FileExtension` takes precedence.
-    // 
-    // - The URLs must be URL-encoded. Separate multiple URLs with commas (,). You can specify up to 20 URLs.
-    // 
-    // - To prevent upload failures due to special characters, URL-encode each URL before concatenating them with commas.
+    // The URL of the media source file.
+    // - The URL must include a file name extension. For example, mp4 is the file name extension in `https://****.mp4`.
+    //     - If the URL does not include a file name extension, you can specify the FileExtension parameter in `UploadMetadatas`.
+    //     - If the URL includes a file name extension and the FileExtension parameter is also specified, the value of FileExtension takes precedence.
+    // - URL-encode the URLs. Separate multiple URLs with commas (,). A maximum of 20 URLs are supported.
+    // - To prevent upload failures caused by special characters, URL-encode each URL before concatenating them with commas.
     shared_ptr<string> uploadURLs_ {};
-    // Custom settings, provided as a JSON string. This parameter supports configurations such as message callbacks.
+    // The custom settings. The value is a JSON string that supports settings such as message callbacks.
     shared_ptr<string> userData_ {};
   };
 

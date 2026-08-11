@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The ID of the media asset.
+    // The media asset ID.
     shared_ptr<string> mediaId_ {};
-    // The IDs of the successfully modified marks.
+    // The IDs of the marks that were successfully updated.
     shared_ptr<string> mediaMarkIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

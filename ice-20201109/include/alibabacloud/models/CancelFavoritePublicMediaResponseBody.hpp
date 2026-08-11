@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // List of IDs for which removing from favorites failed.
+    // The list of IDs that failed to be removed from favorites.
     shared_ptr<vector<string>> ignoredList_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

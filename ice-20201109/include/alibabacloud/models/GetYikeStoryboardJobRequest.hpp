@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The storyboard job ID.
+    // The snapshot task ID.
     shared_ptr<string> jobId_ {};
   };
 

@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MinBufferTime, minBufferTime_);
       DARABONBA_PTR_TO_JSON(MinUpdatePeriod, minUpdatePeriod_);
       DARABONBA_PTR_TO_JSON(MinVideoBitrate, minVideoBitrate_);
+      DARABONBA_PTR_TO_JSON(PartHoldBackMs, partHoldBackMs_);
       DARABONBA_PTR_TO_JSON(PresentationDelay, presentationDelay_);
       DARABONBA_PTR_TO_JSON(SegmentCount, segmentCount_);
       DARABONBA_PTR_TO_JSON(SegmentTemplateFormat, segmentTemplateFormat_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MinBufferTime, minBufferTime_);
       DARABONBA_PTR_FROM_JSON(MinUpdatePeriod, minUpdatePeriod_);
       DARABONBA_PTR_FROM_JSON(MinVideoBitrate, minVideoBitrate_);
+      DARABONBA_PTR_FROM_JSON(PartHoldBackMs, partHoldBackMs_);
       DARABONBA_PTR_FROM_JSON(PresentationDelay, presentationDelay_);
       DARABONBA_PTR_FROM_JSON(SegmentCount, segmentCount_);
       DARABONBA_PTR_FROM_JSON(SegmentTemplateFormat, segmentTemplateFormat_);
@@ -51,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->adMarkers_ == nullptr
         && this->dateTimeInterval_ == nullptr && this->manifestDuration_ == nullptr && this->maxVideoBitrate_ == nullptr && this->minBufferTime_ == nullptr && this->minUpdatePeriod_ == nullptr
-        && this->minVideoBitrate_ == nullptr && this->presentationDelay_ == nullptr && this->segmentCount_ == nullptr && this->segmentTemplateFormat_ == nullptr && this->streamOrder_ == nullptr; };
+        && this->minVideoBitrate_ == nullptr && this->partHoldBackMs_ == nullptr && this->presentationDelay_ == nullptr && this->segmentCount_ == nullptr && this->segmentTemplateFormat_ == nullptr
+        && this->streamOrder_ == nullptr; };
     // adMarkers Field Functions 
     bool hasAdMarkers() const { return this->adMarkers_ != nullptr;};
     void deleteAdMarkers() { this->adMarkers_ = nullptr;};
@@ -101,6 +104,13 @@ namespace Models
     inline LiveManifestConfig& setMinVideoBitrate(int32_t minVideoBitrate) { DARABONBA_PTR_SET_VALUE(minVideoBitrate_, minVideoBitrate) };
 
 
+    // partHoldBackMs Field Functions 
+    bool hasPartHoldBackMs() const { return this->partHoldBackMs_ != nullptr;};
+    void deletePartHoldBackMs() { this->partHoldBackMs_ = nullptr;};
+    inline int32_t getPartHoldBackMs() const { DARABONBA_PTR_GET_DEFAULT(partHoldBackMs_, 0) };
+    inline LiveManifestConfig& setPartHoldBackMs(int32_t partHoldBackMs) { DARABONBA_PTR_SET_VALUE(partHoldBackMs_, partHoldBackMs) };
+
+
     // presentationDelay Field Functions 
     bool hasPresentationDelay() const { return this->presentationDelay_ != nullptr;};
     void deletePresentationDelay() { this->presentationDelay_ = nullptr;};
@@ -130,39 +140,38 @@ namespace Models
 
 
   protected:
-    // The type of ad markers to include in the manifest.
-    // 
-    // *   NONE: Removes all ad markers.
-    // *   DATE_RANGE: Inserts EXT-X-DATERANGE tags (HLS spec). Valid for HLS/HLS-CMAF endpoints.
-    // *   XML: Inserts XML-based ad markers (DASH spec). Valid for DASH endpoints.
+    // The ad markers supported in the playlist. Valid values:
+    // - NONE: removes ad markers.
+    // - DATE_RANGE: uses the EXT-X-DATERANGE tag defined in the HLS specification. This value is available when the endpoint protocol is HLS/HLS_CMAF.
+    // - XML: uses the XML ad markers defined in the DASH specification. This value is available when the endpoint protocol is DASH.
     shared_ptr<string> adMarkers_ {};
-    // The interval, in seconds, at which to insert the EXT-X-PROGRAM-DATE-TIME tag into the playlist. By default, no tags are inserted. Valid values: 1 to 3600. Applies only to HLS and HLS-CMAF endpoints.
+    // The interval (in seconds) for inserting the EXT-X-PROGRAM-DATE-TIME time tag. By default, the tag is not inserted. Valid values: 1 to 3600. This parameter applies to the HLS/HLS_CMAF protocol.
     shared_ptr<int32_t> dateTimeInterval_ {};
-    // The duration of the startover window, in seconds. It defines the maximum time a viewer can seek backward in the live stream. Valid values: 1 to 3600. Default value: 60. Applies only to DASH endpoints.
+    // The maximum time-shift duration during live streaming. Unit: seconds. Valid values: 1 to 3600. Default value: 60. This parameter applies to DASH.
     shared_ptr<int32_t> manifestDuration_ {};
-    // The maximum bitrate threshold (in bits per second) that video tracks must be at or below to be available for playback from this endpoint. It must be a positive integer. If not set, no maximum bitrate is enforced.
+    // The maximum input bitrate threshold (unit: bit/s). A video track must have a bitrate less than or equal to this threshold to be played from this endpoint. Valid values: integers greater than 0. By default, this parameter is empty and no maximum bitrate limit is set.
     shared_ptr<int32_t> maxVideoBitrate_ {};
-    // The minimum buffer time, in seconds. Valid values: 1 to 30. Default value: the duration of two segments. Applies only to DASH endpoints.
+    // The minimum buffer time. Unit: seconds. Valid values: 1 to 30. Default value: 2 segment durations. This parameter applies only to DASH.
     // 
-    // Note: Setting this value too low may cause playback to stutter. We recommend a value no less than two segment durations.
+    // >  An excessively small minimum buffer time may cause playback stuttering. Set this parameter to a value no less than 2 segment durations.
     shared_ptr<int32_t> minBufferTime_ {};
-    // The minimum update period for the manifest, in seconds. Valid values: 1 to 3600. Default value: the duration of two segments. Applies only to DASH endpoints.
+    // The minimum update interval. Unit: seconds. Valid values: 1 to 3600. Default value: 2 segment durations. This parameter applies to DASH.
     // 
-    // Note: For smooth playback, set this value to be less than MinBufferTime.
+    // >  Set this parameter to a value less than the minimum buffer time. An excessively large value may cause DASH playback stuttering.
     shared_ptr<int32_t> minUpdatePeriod_ {};
-    // The minimum bitrate threshold (in bits per second) that video tracks must be at or above to be available for playback from this endpoint. It must be a positive integer. If not set, no minimum bitrate is enforced.
+    // The minimum input bitrate threshold (unit: bit/s). A video track must have a bitrate greater than or equal to this threshold to be played from this endpoint. Valid values: integers greater than 0. By default, this parameter is empty and no minimum bitrate is set.
     shared_ptr<int32_t> minVideoBitrate_ {};
-    // The suggested presentation delay, in seconds. Valid values: 1 to 60. Default value: the duration of three segments.
+    shared_ptr<int32_t> partHoldBackMs_ {};
+    // The suggested presentation delay. Unit: seconds. Valid values: 1 to 60. Default value: 3 segment durations.
     shared_ptr<int32_t> presentationDelay_ {};
-    // The number of segments to include in the playlist. Applies to HLS and HLS-CMAF protocols. If not set, the channel\\"s default configuration is used. Valid values: 2 to 100.
+    // The number of segments. This parameter applies to the HLS/HLS_CMAF protocol. By default, the channel configuration is used. Valid values: 2 to 100.
     shared_ptr<int32_t> segmentCount_ {};
-    // The format of the segment template. Only NUMBER_TIMELINE is supported (default). Applies only to DASH endpoints.
+    // The segment template. Currently, only NUMBER_TIMELINE (default) is supported. This parameter applies to DASH.
     shared_ptr<string> segmentTemplateFormat_ {};
-    // The order of streams in the master playlist. Valid values:
-    // 
-    // *   ORIGINAL: Preserves the original order of the input streams.
-    // *   VIDEO_BITRATE_ASCENDING: sorts the streams in ascending order of bitrates, from lowest to highest.
-    // *   VIDEO_BITRATE_DESCENDING: sorts the streams in descending order of bitrates, from highest to lowest.
+    // The stream sorting rule. Valid values:
+    // - ORIGINAL: retains the original order of the input sub-manifest.
+    // - VIDEO_BITRATE_ASCENDING: sorts by video stream bitrate in ascending order.
+    // - VIDEO_BITRATE_DESCENDING: sorts by video stream bitrate in descending order.
     shared_ptr<string> streamOrder_ {};
   };
 

@@ -75,13 +75,12 @@ namespace Models
 
 
     protected:
-      // The type of the input stream. The value can only be rtmp.
+      // The stream input type. Currently, only rtmp is supported.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
-      // The URL of the input stream.
-      // 
-      // - It cannot exceed 255 characters in length.
+      // The stream input URL.
+      // - Maximum length: 255.
       // 
       // This parameter is required.
       shared_ptr<string> url_ {};
@@ -138,11 +137,11 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> bucket_ {};
-      // The output endpoint of the snapshot.
+      // The snapshot output endpoint.
       // 
       // This parameter is required.
       shared_ptr<string> endpoint_ {};
-      // The storage type of the snapshot. The value can only be oss.
+      // The snapshot storage type. Currently, only oss is supported.
       // 
       // This parameter is required.
       shared_ptr<string> storageType_ {};
@@ -191,22 +190,19 @@ namespace Models
 
   protected:
     // The snapshot callback URL.
-    // 
-    // - It cannot exceed 255 characters in length.
-    // 
-    // - Both HTTP and HTTPS URLs are supported.
+    // - Maximum length: 255.
+    // - HTTP and HTTPS are supported.
     shared_ptr<string> callbackUrl_ {};
-    // The name of the job.
-    // 
-    // - It cannot exceed 128 characters in length.
+    // The task name.
+    // - Maximum length: 128.
     // 
     // This parameter is required.
     shared_ptr<string> jobName_ {};
-    // The information about the output snapshot.
+    // The snapshot output information.
     // 
     // This parameter is required.
     shared_ptr<SubmitLiveSnapshotJobRequest::SnapshotOutput> snapshotOutput_ {};
-    // The information about the input stream.
+    // The stream input information.
     // 
     // This parameter is required.
     shared_ptr<SubmitLiveSnapshotJobRequest::StreamInput> streamInput_ {};

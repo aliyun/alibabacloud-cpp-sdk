@@ -17,12 +17,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const LivePackagingConfig& obj) { 
       DARABONBA_PTR_TO_JSON(DrmConfig, drmConfig_);
       DARABONBA_PTR_TO_JSON(LiveManifestConfigs, liveManifestConfigs_);
+      DARABONBA_PTR_TO_JSON(PartDurationMs, partDurationMs_);
       DARABONBA_PTR_TO_JSON(SegmentDuration, segmentDuration_);
       DARABONBA_PTR_TO_JSON(UseAudioRenditionGroups, useAudioRenditionGroups_);
     };
     friend void from_json(const Darabonba::Json& j, LivePackagingConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(DrmConfig, drmConfig_);
       DARABONBA_PTR_FROM_JSON(LiveManifestConfigs, liveManifestConfigs_);
+      DARABONBA_PTR_FROM_JSON(PartDurationMs, partDurationMs_);
       DARABONBA_PTR_FROM_JSON(SegmentDuration, segmentDuration_);
       DARABONBA_PTR_FROM_JSON(UseAudioRenditionGroups, useAudioRenditionGroups_);
     };
@@ -113,36 +115,36 @@ namespace Models
 
 
     protected:
-      // The content ID in the DRM system. The maximum length is 256 characters. Letters, digits, underscores (_), and hyphens (-) are supported. You must ensure this ID is unique to prevent playback failures.
+      // The content ID in the DRM system. Format: [A-Za-z0-9_-]+. Maximum length: 256 characters. Ensure that the content ID is unique. Otherwise, DRM playback may fail.
       shared_ptr<string> contentId_ {};
-      // The encryption method. Valid value:
+      // The encryption algorithm. Valid values:
+      // - SAMPLE_AES
       // 
-      // *   SAMPLE_AES
-      // 
-      // If not specified, encryption is disabled.
+      // Default value: empty, which indicates no encryption.
       shared_ptr<string> encryptionMethod_ {};
-      // A 128-bit, 16-byte hex value represented by a 32-character string that is used with the key for encrypting data blocks. If you leave this parameter empty, MediaPackage creates a constant initialization vector (IV). If it is specified, the value is passed to the DRM service.
+      // An optional 128-bit (16-byte) hexadecimal value represented by a 32-character string. This value is used together with the key to encrypt data blocks. If you do not specify this value, MediaPackage creates a constant initialization vector (IV). Default value: empty. If specified, the value is passed through to the provider as a constant initialization vector.
       shared_ptr<string> IV_ {};
-      // The key rotation interval for DRM, in seconds. The default value of 0 disables key rotation.
+      // The DRM key rotation interval. Unit: seconds. Default value: 0, which indicates that key rotation is disabled.
       shared_ptr<int32_t> rotatePeriod_ {};
-      // The ID of the DRM system. The supported systems depend on the protocol.
+      // The DRM system IDs, determined by the protocol type.
+      // - DASH: supports Google Widevine and Microsoft PlayReady.
+      // - HLS: not supported.
+      // - HLS_CMAF: supports Apple FairPlay, Google Widevine, and Microsoft PlayReady.
       // 
-      // *   DASH: Supports Google Widevine and Microsoft PlayReady.
-      // *   HLS: DRM is not supported.
-      // *   HLS-CMAF: Supports Apple FairPlay, Google Widevine, and Microsoft PlayReady.
-      // 
-      // The corresponding System IDs are:
-      // 
-      // *   Apple FairPlay: 94ce86fb-07ff-4f43-adb8-93d2fa968ca2
-      // *   Google Widevine: edef8ba9-79d6-4ace-a3c8-27dcd51d21ed
-      // *   Microsoft PlayReady: 9a04f079-9840-4286-ab92-e65be0885f95
+      // Three DRM systems are supported: Apple FairPlay, Google Widevine, and Microsoft PlayReady. The corresponding system IDs are:
+      // - Apple FairPlay:
+      // 94ce86fb-07ff-4f43-adb8-93d2fa968ca2
+      // - Google Widevine:
+      // edef8ba9-79d6-4ace-a3c8-27dcd51d21ed
+      // - Microsoft PlayReady:
+      // 9a04f079-9840-4286-ab92-e65be0885f95.
       shared_ptr<vector<string>> systemIds_ {};
       // The URL of the DRM key provider.
       shared_ptr<string> url_ {};
     };
 
     virtual bool empty() const override { return this->drmConfig_ == nullptr
-        && this->liveManifestConfigs_ == nullptr && this->segmentDuration_ == nullptr && this->useAudioRenditionGroups_ == nullptr; };
+        && this->liveManifestConfigs_ == nullptr && this->partDurationMs_ == nullptr && this->segmentDuration_ == nullptr && this->useAudioRenditionGroups_ == nullptr; };
     // drmConfig Field Functions 
     bool hasDrmConfig() const { return this->drmConfig_ != nullptr;};
     void deleteDrmConfig() { this->drmConfig_ = nullptr;};
@@ -161,6 +163,13 @@ namespace Models
     inline LivePackagingConfig& setLiveManifestConfigs(vector<LiveManifestConfig> && liveManifestConfigs) { DARABONBA_PTR_SET_RVALUE(liveManifestConfigs_, liveManifestConfigs) };
 
 
+    // partDurationMs Field Functions 
+    bool hasPartDurationMs() const { return this->partDurationMs_ != nullptr;};
+    void deletePartDurationMs() { this->partDurationMs_ = nullptr;};
+    inline int32_t getPartDurationMs() const { DARABONBA_PTR_GET_DEFAULT(partDurationMs_, 0) };
+    inline LivePackagingConfig& setPartDurationMs(int32_t partDurationMs) { DARABONBA_PTR_SET_VALUE(partDurationMs_, partDurationMs) };
+
+
     // segmentDuration Field Functions 
     bool hasSegmentDuration() const { return this->segmentDuration_ != nullptr;};
     void deleteSegmentDuration() { this->segmentDuration_ = nullptr;};
@@ -176,13 +185,14 @@ namespace Models
 
 
   protected:
-    // Configuration for the DRM provider. To disable DRM, leave all fields in this object empty.
+    // The DRM encryption provider configuration. If encryption is not required, leave all fields empty.
     shared_ptr<LivePackagingConfig::DrmConfig> drmConfig_ {};
-    // Live stream manifest configuration. Only one configuration is supported.
+    // The live manifest configurations. A maximum of one configuration is supported.
     shared_ptr<vector<LiveManifestConfig>> liveManifestConfigs_ {};
-    // The duration of each output segment, in seconds. If not set, this defaults to the channel\\"s configured segment duration. The final segment duration is a multiple of the source segment duration that is closest to and not less than this value. Valid values: 1 to 30.
+    shared_ptr<int32_t> partDurationMs_ {};
+    // The duration of each segment, in seconds. Default value: the channel segment duration. The actual segment duration is the nearest multiple of the source segment duration that is greater than or equal to the configured value. Valid values: 1 to 30.
     shared_ptr<int32_t> segmentDuration_ {};
-    // Specifies whether to create separate audio rendition groups for TS segments.
+    // Specifies whether to separate audio tracks in TS segments.
     shared_ptr<bool> useAudioRenditionGroups_ {};
   };
 

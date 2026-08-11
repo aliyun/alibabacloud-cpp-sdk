@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The ID of the folder.
+    // The folder ID.
     shared_ptr<string> folderId_ {};
-    // The URL of the media asset. You can use the FileURL value that is returned by the CreateYikeAssetUpload operation.
+    // The URL of the media asset. You can pass in the FileURL returned by the CreateYikeAssetUpload operation.
     // 
     // This parameter is required.
     shared_ptr<string> inputURL_ {};
@@ -76,7 +76,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> mediaType_ {};
-    // The ID of the production. If this parameter is omitted, the media asset is uploaded to the default production.
+    // The project ID. If this parameter is not specified, the media asset is uploaded to the default project.
     shared_ptr<string> productionId_ {};
   };
 

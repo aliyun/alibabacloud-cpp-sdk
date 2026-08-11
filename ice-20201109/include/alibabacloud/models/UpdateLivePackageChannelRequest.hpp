@@ -84,27 +84,23 @@ namespace Models
 
 
   protected:
-    // The channel name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
+    // The channel name. The name can contain only uppercase and lowercase letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
     // 
     // This parameter is required.
     shared_ptr<string> channelName_ {};
-    // The channel description. It can be up to 1,000 characters in length.
+    // The description. Maximum length: 1000 characters.
     shared_ptr<string> description_ {};
-    // The channel group name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
+    // The channel group name. The name can contain only uppercase and lowercase letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
     // 
     // This parameter is required.
     shared_ptr<string> groupName_ {};
-    // The ingest protocol. Only HLS is supported.
+    // The input protocol. Currently, only HLS is supported.
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};
-    // The number of M3U8 segments. Valid values: 2 to 100.
-    // 
-    // This parameter is required.
+    // The number of segments in the input stream m3u8 file. Valid values: 2 to 100.
     shared_ptr<int32_t> segmentCount_ {};
-    // The segment duration. Valid values: 1 to 30.
-    // 
-    // This parameter is required.
+    // The segment duration of the input stream. Valid values: 1 to 30.
     shared_ptr<int32_t> segmentDuration_ {};
   };
 

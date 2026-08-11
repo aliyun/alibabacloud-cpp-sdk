@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The ID of the live editing job.
+    // The ID of the live editing task.
     shared_ptr<string> jobId_ {};
-    // The ID of the output media asset.
+    // The media asset ID of the output.
     shared_ptr<string> mediaId_ {};
-    // The URL of the output file.
+    // The URL of the output.
     shared_ptr<string> mediaURL_ {};
     // The ID of the live editing project.
     shared_ptr<string> projectId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the VOD media asset. This parameter is returned only if the output destination is VOD.
+    // The VOD media asset ID. This parameter is returned when the video output destination is VOD.
     shared_ptr<string> vodMediaId_ {};
   };
 

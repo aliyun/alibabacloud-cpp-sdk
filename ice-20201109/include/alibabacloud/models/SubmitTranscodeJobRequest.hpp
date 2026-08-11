@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The MPS queue ID.
+      // The pipeline ID.
       shared_ptr<string> pipelineId_ {};
-      // The job priority. A larger number indicates a higher priority. Valid values: 1 to 10.
+      // The task priority. A larger value indicates a higher priority. Valid values: 1 to 10.
       shared_ptr<int32_t> priority_ {};
     };
 
@@ -367,57 +367,41 @@ namespace Models
 
 
             protected:
-              // The maximum bitrate for adaptive bitrate streaming (ABR). This applies only to narrow-high 1. Valid values: [10, 50000]. Unit: Kbps.
+              // The ABR maximum bitrate. This parameter is effective only for Narrowband HD 1.0. Valid values: 10 to 50000. Unit: Kbit/s.
               shared_ptr<string> abrMax_ {};
-              // The average video bitrate. Valid values: [10, 50000]. Unit: Kbps.
+              // The average video bitrate. Valid values: 10 to 50000. Unit: Kbit/s.
               shared_ptr<string> bitrate_ {};
-              // The buffer size. Valid values: [1000, 128000]. Default value: 6000. Unit: Kb.
+              // The buffer size. Valid values: 1000 to 128000. Default value: 6000. Unit: Kbit/s.
               shared_ptr<string> bufsize_ {};
               // The encoding format.
               shared_ptr<string> codec_ {};
-              // The constant rate factor (CRF), which controls the trade-off between quality and bitrate. Valid values: [0, 51]. Default values: 23 for H.264 and 26 for H.265.
-              // 
-              // > If you set Crf, the Bitrate setting is ignored.
+              // The bitrate-quality control factor. Valid values: 0 to 51. Default value: 23 if the encoding format is H.264, or 26 if the encoding format is H.265.
               shared_ptr<string> crf_ {};
-              // The video cropping method. Two options are available:
-              // 
-              // - Automatically detect and crop black bars. Set this to border.
-              // 
-              // - Custom cropping. Format: width:height:left:top. Example: 1280:800:0:140
+              // The video cropping parameter. Two methods are supported.
               shared_ptr<string> crop_ {};
-              // The frame rate. Valid values: (0, 60]. Default value: The frame rate of the input file.
-              // 
-              // > If the frame rate of the input file exceeds 60, the system uses 60.
+              // The frame rate. Valid values: (0, 60]. Default value: the frame rate of the input file.
               shared_ptr<string> fps_ {};
-              // The maximum number of frames between keyframes. Valid values: [1, 1080000]. Default value: 250.
+              // The maximum number of frames between keyframes. Valid values: 1 to 1080000. Default value: 250.
               shared_ptr<string> gop_ {};
-              // The height. Valid values: [128, 4096]. Unit: px. Default value: The original video height.
+              // The height. Valid values: 128 to 4096. Unit: px. Default value: the original height of the video.
               shared_ptr<string> height_ {};
-              // Specifies whether to enable automatic rotation for portrait or landscape videos (also known as long-side/short-side mode).
+              // Specifies whether to enable landscape and portrait auto-adaptation (long-short side mode).
               shared_ptr<string> longShortMode_ {};
-              // The peak video bitrate. Valid values: [10, 50000]. Unit: Kbps.
+              // The peak video bitrate. Valid values: 10 to 50000. Unit: Kbit/s.
               shared_ptr<string> maxrate_ {};
-              // The padding configuration for black bars. Format: width:height:left:top. Example: 1280:800:0:140
+              // The video padding parameter. Format: width:height:left:top. Example: 1280:800:0:140.
               shared_ptr<string> pad_ {};
-              // The video color format. Valid values include yuv420p and yuvj420p.
+              // The video pixel format.
               shared_ptr<string> pixFmt_ {};
-              // The video encoder preset. Only H.264 supports this parameter. Valid values: veryfast, fast, medium, slow, and slower. Default value: medium.
+              // The video encoder preset. Only H.264 supports this parameter.
               shared_ptr<string> preset_ {};
-              // The encoding profile. Valid values: baseline, main, and high.
-              // 
-              // - baseline: For mobile devices.
-              // 
-              // - main: For standard-resolution devices.
-              // 
-              // - high: For high-resolution devices.
-              // 
-              // Default value: high.
+              // The encoding profile.
               shared_ptr<string> profile_ {};
-              // Specifies whether to remove the video.
+              // Specifies whether to remove the video stream.
               shared_ptr<string> remove_ {};
-              // The scan mode. Valid values: interlaced and progressive.
+              // The scan mode.
               shared_ptr<string> scanMode_ {};
-              // The width. Valid values: [128, 4096]. Unit: px. Default value: The original video width.
+              // The width. Valid values: 128 to 4096. Unit: px. Default value: the original width of the video.
               shared_ptr<string> width_ {};
             };
 
@@ -514,73 +498,21 @@ namespace Models
 
 
             protected:
-              // The method used to adjust the display aspect ratio. This parameter takes effect only when both Width and Height are specified. You can use it with LongShortMode.
-              // 
-              // Valid values: rescale, crop, pad, and none.
-              // 
-              // Default value: none.
+              // The resolution rewriting method. This parameter takes effect only when both Width and Height are specified. It can be used together with LongShortMode.
               shared_ptr<string> adjDarMethod_ {};
-              // Specifies whether to check the audio bitrate. IsCheckAudioBitrate and IsCheckAudioBitrateFail are mutually exclusive. IsCheckAudioBitrateFail has higher priority.
-              // 
-              // - true: Check the bitrate. If the input audio bitrate is lower than the output setting, transcode at the input bitrate.
-              // 
-              // - false: Do not check the bitrate.
-              // 
-              // Default value:
-              // 
-              // - Empty and the codec differs from the input source: false.
-              // 
-              // - Empty and the codec matches the input source: true.
+              // Specifies whether to check the audio bitrate. Only one of IsCheckAudioBitrate and IsCheckAudioBitrateFail can be used. IsCheckAudioBitrateFail takes higher priority.
               shared_ptr<string> isCheckAudioBitrate_ {};
-              // Specifies whether to check the audio bitrate. IsCheckAudioBitrate and IsCheckAudioBitrateFail are mutually exclusive. IsCheckAudioBitrateFail has higher priority.
-              // 
-              // - true: Check the bitrate. If the input audio bitrate is lower than the output setting, return a failure.
-              // 
-              // - false: Do not check the bitrate.
-              // 
-              // Default value: false.
+              // Specifies whether to check the audio bitrate. Only one of IsCheckAudioBitrate and IsCheckAudioBitrateFail can be used. This parameter takes higher priority.
               shared_ptr<string> isCheckAudioBitrateFail_ {};
-              // Specifies whether to check the video resolution. IsCheckReso and IsCheckResoFail are mutually exclusive. IsCheckResoFail has higher priority.
-              // 
-              // - true: Check the resolution. If the input video resolution (width or height) is smaller than the output setting, transcode at the input resolution.
-              // 
-              // - false: Do not check the resolution.
-              // 
-              // Default value: false.
+              // Specifies whether to check the video resolution. Only one of IsCheckReso and IsCheckResoFail can be used. IsCheckResoFail takes higher priority.
               shared_ptr<string> isCheckReso_ {};
-              // Specifies whether to check the video resolution. IsCheckReso and IsCheckResoFail are mutually exclusive. IsCheckResoFail has higher priority.
-              // 
-              // - true: Check the resolution. If the input video resolution (width or height) is smaller than the output setting, return a failure.
-              // 
-              // - false: Do not check the resolution.
-              // 
-              // Default value: false.
+              // Specifies whether to check the video resolution. Only one of IsCheckReso and IsCheckResoFail can be used. This parameter takes higher priority.
               shared_ptr<string> isCheckResoFail_ {};
-              // Specifies whether to check the video bitrate. IsCheckVideoBitrate and IsCheckVideoBitrateFail are mutually exclusive. IsCheckVideoBitrateFail has higher priority.
-              // 
-              // - true: Check the bitrate. If the input video bitrate is lower than the output setting, transcode at the input bitrate.
-              // 
-              // - false: Do not check the bitrate.
-              // 
-              // Default value: false.
+              // Specifies whether to check the video bitrate. Only one of IsCheckVideoBitrate and IsCheckVideoBitrateFail can be used. IsCheckVideoBitrateFail takes higher priority.
               shared_ptr<string> isCheckVideoBitrate_ {};
-              // Specifies whether to check the video bitrate. IsCheckVideoBitrate and IsCheckVideoBitrateFail are mutually exclusive. IsCheckVideoBitrateFail has higher priority.
-              // 
-              // - true: Check the bitrate. If the input video bitrate is lower than the output setting, return a failure.
-              // 
-              // - false: Do not check the bitrate.
-              // 
-              // Default value: false.
+              // Specifies whether to check the video bitrate. Only one of IsCheckVideoBitrate and IsCheckVideoBitrateFail can be used. This parameter takes higher priority.
               shared_ptr<string> isCheckVideoBitrateFail_ {};
               // The video transcoding mode. Valid values:
-              // 
-              // - onepass: Used for adaptive bitrate (ABR) streaming. Encoding is faster than twopass.
-              // 
-              // - twopass: Used for variable bitrate (VBR) streaming. Encoding is slower than onepass.
-              // 
-              // - CBR: Constant bitrate mode.
-              // 
-              // Default value: onepass.
               shared_ptr<string> transMode_ {};
             };
 
@@ -643,7 +575,7 @@ namespace Models
               protected:
                 // The segment duration.
                 shared_ptr<string> duration_ {};
-                // The forced segment time points.
+                // The forced segment time point.
                 shared_ptr<string> forceSegTime_ {};
               };
 
@@ -781,13 +713,13 @@ namespace Models
 
 
               protected:
-                // The target loudness level.
+                // The target loudness.
                 shared_ptr<string> integratedLoudnessTarget_ {};
                 // The loudness range.
                 shared_ptr<string> loudnessRangeTarget_ {};
                 // The volume adjustment method.
                 shared_ptr<string> method_ {};
-                // The true peak volume.
+                // The Peak Volume.
                 shared_ptr<string> truePeak_ {};
               };
 
@@ -846,19 +778,19 @@ namespace Models
 
 
             protected:
-              // The audio bitrate of the output file. Valid values: [8, 1000]. Unit: Kbps. Default value: 128.
+              // The audio bitrate of the output file. Valid values: 8 to 1000. Unit: Kbit/s. Default value: 128.
               shared_ptr<string> bitrate_ {};
-              // The number of sound channels. Default value: 2.
+              // The number of audio channels.
               shared_ptr<string> channels_ {};
-              // The audio codec. Valid values: AAC, MP3, VORBIS, and FLAC. Default value: AAC.
+              // The audio codec format. Valid values: AAC, MP3, VORBIS, and FLAC.
               shared_ptr<string> codec_ {};
-              // The audio encoding profile. When Codec is AAC, valid values are aac_low, aac_he, aac_he_v2, aac_ld, and aac_eld.
+              // The audio encoding preset.
               shared_ptr<string> profile_ {};
-              // Specifies whether to delete the audio stream.
+              // Specifies whether to remove the audio stream.
               shared_ptr<string> remove_ {};
               // The sample rate. Default value: 44100. Valid values: 22050, 32000, 44100, 48000, and 96000. Unit: Hz.
               shared_ptr<string> samplerate_ {};
-              // The volume control.
+              // The volume control settings.
               shared_ptr<Audio::Volume> volume_ {};
             };
 
@@ -914,7 +846,7 @@ namespace Models
             shared_ptr<OverwriteParams::Audio> audio_ {};
             // The container format settings.
             shared_ptr<OverwriteParams::Container> container_ {};
-            // The multiplexing settings.
+            // The muxing settings.
             shared_ptr<OverwriteParams::MuxConfig> muxConfig_ {};
             // The conditional transcoding parameters.
             shared_ptr<OverwriteParams::TransConfig> transConfig_ {};
@@ -941,7 +873,7 @@ namespace Models
 
 
         protected:
-          // Parameters to overwrite. If you specify these, they replace the corresponding parameters in the template.
+          // The override parameters. If specified, these parameters overwrite the corresponding template parameters.
           shared_ptr<Transcode::OverwriteParams> overwriteParams_ {};
           // The template ID.
           // 
@@ -1081,45 +1013,25 @@ namespace Models
 
 
           protected:
-            // Adjusts the font size based on the output video size. Valid values: true or false. Default: false.
+            // Specifies whether to adjust the font size based on the output video size. true / false, default: false.
             shared_ptr<string> adaptive_ {};
-            // The outline color. Default: Black. For more values, see BorderColor.
+            // The border color.
             shared_ptr<string> borderColor_ {};
-            // The outline width.
-            // 
-            // - Default: 0
-            // 
-            // - Valid values: (0, 4096]
+            // The border width.
             shared_ptr<int32_t> borderWidth_ {};
-            // The watermark text. It does not need to be Base64 encoded. The string must be UTF-8 encoded.
+            // The watermark text. Base64 encoding is not required. The string must be UTF-8 encoded.
             shared_ptr<string> content_ {};
             // The font transparency.
-            // 
-            // - Valid values: (0, 1]
-            // 
-            // - Default: 1.0
             shared_ptr<string> fontAlpha_ {};
-            // The color.
+            // The font color.
             shared_ptr<string> fontColor_ {};
-            // The font. Default: SimSun.
+            // The font. Default value: SimSun.
             shared_ptr<string> fontName_ {};
             // The font size.
-            // 
-            // - Default value: 16
-            // 
-            // - Valid values: (4, 120)
             shared_ptr<int32_t> fontSize_ {};
             // The left margin of the text.
-            // 
-            // - Default: 0
-            // 
-            // - Valid values: [0, 4096]
             shared_ptr<string> left_ {};
             // The top margin of the text.
-            // 
-            // - Default: 0
-            // 
-            // - Valid values: [0, 4096]
             shared_ptr<string> top_ {};
           };
 
@@ -1142,7 +1054,7 @@ namespace Models
 
 
         protected:
-          // Parameters to overwrite. If you specify these, they replace the corresponding parameters in the template.
+          // The override parameters. If specified, these parameters overwrite the corresponding template parameters.
           shared_ptr<TextWatermarks::OverwriteParams> overwriteParams_ {};
           // The template ID.
           // 
@@ -1232,17 +1144,9 @@ namespace Models
 
 
             protected:
-              // The media value:
-              // 
-              // - If Type is OSS, this is a URL that supports the OSS or HTTP protocol.
-              // 
-              // - If Type is Media, this is a media asset ID.
+              // The media value.
               shared_ptr<string> media_ {};
-              // The media object type. Valid values:
-              // 
-              // - OSS: An OSS file.
-              // 
-              // - Media: A media asset ID.
+              // The media object type.
               shared_ptr<string> type_ {};
             };
 
@@ -1299,7 +1203,7 @@ namespace Models
 
 
         protected:
-          // Parameters to overwrite. If you specify these, they replace the corresponding parameters in the template.
+          // The override parameters. If specified, these parameters overwrite the corresponding template parameters.
           shared_ptr<Subtitles::OverwriteParams> overwriteParams_ {};
           // The template ID.
           // 
@@ -1397,19 +1301,9 @@ namespace Models
 
 
             protected:
-              // The duration of the watermark.
-              // 
-              // - Valid values: [number, ToEND]
-              // 
-              // - Default value: ToEND
+              // The duration for which the watermark is displayed.
               shared_ptr<string> duration_ {};
-              // The start time of the watermark.
-              // 
-              // - Unit: seconds
-              // 
-              // - Valid values: numbers
-              // 
-              // - Default value: 0
+              // The time when the watermark starts to appear.
               shared_ptr<string> start_ {};
             };
 
@@ -1451,17 +1345,9 @@ namespace Models
 
 
             protected:
-              // The media value:
-              // 
-              // - If Type is OSS, this is a URL that supports the OSS or HTTP protocol.
-              // 
-              // - If Type is Media, this is a media asset ID.
+              // The media value.
               shared_ptr<string> media_ {};
-              // The media object type. Valid values:
-              // 
-              // - OSS: An OSS file.
-              // 
-              // - Media: A media asset ID.
+              // The media object type.
               shared_ptr<string> type_ {};
             };
 
@@ -1522,75 +1408,19 @@ namespace Models
 
 
           protected:
-            // The horizontal offset of the image watermark relative to the output video. Default value: 0.
-            // 
-            // Values can be one of the following:
-            // 
-            // - Integer: The offset in pixels.
-            // 
-            //   - Valid values: [8, 4096]
-            // 
-            //   - Unit: px
-            // 
-            // - Decimal: The ratio of the horizontal offset to the output video width.
-            // 
-            //   - Valid values: (0, 1)
-            // 
-            //   - Up to four decimal places are supported, such as 0.9999. Extra digits are automatically discarded.
+            // The horizontal offset of the watermark image relative to the output video.
             shared_ptr<string> dx_ {};
-            // The vertical offset of the image watermark relative to the output video. Default value: 0.
-            // 
-            // Values can be one of the following:
-            // 
-            // - Integer: The offset in pixels.
-            // 
-            //   - Valid values: [8, 4096]
-            // 
-            //   - Unit: px
-            // 
-            // - Decimal: The ratio of the vertical offset to the output video height.
-            // 
-            //   - Valid values: (0, 1)
-            // 
-            //   - Up to four decimal places are supported, such as 0.9999. Extra digits are automatically discarded.
+            // The vertical offset of the watermark image relative to the output video.
             shared_ptr<string> dy_ {};
             // The watermark image file.
             shared_ptr<OverwriteParams::File> file_ {};
-            // The height of the image watermark on the output video. Values can be one of the following:
-            // 
-            // - Integer: The pixel height of the watermark image.
-            // 
-            //   - Valid values: [8, 4096]
-            // 
-            //   - Unit: px
-            // 
-            // - Decimal: The ratio of the watermark height to the output video height.
-            // 
-            //   - Valid values: (0, 1)
-            // 
-            //   - Up to four decimal places are supported, such as 0.9999. Extra digits are automatically discarded.
+            // The height of the watermark image on the output video.
             shared_ptr<string> height_ {};
             // The position of the watermark.
-            // 
-            // - Valid values: TopRight (top-right), TopLeft (top-left), BottomRight (bottom-right), and BottomLeft (bottom-left).
-            // 
-            // - Default value: TopRight.
             shared_ptr<string> referPos_ {};
-            // The display time settings for a dynamic watermark.
+            // The dynamic watermark display time settings.
             shared_ptr<OverwriteParams::Timeline> timeline_ {};
-            // The width of the image watermark on the output video. Values can be one of the following:
-            // 
-            // - Integer: The pixel width of the watermark image.
-            // 
-            //   - Valid values: [8, 4096]
-            // 
-            //   - Unit: px
-            // 
-            // - Decimal: The ratio of the watermark width to the output video width.
-            // 
-            //   - Valid values: (0, 1)
-            // 
-            //   - Up to four decimal places are supported, such as 0.9999. Extra digits are automatically discarded.
+            // The width of the watermark image on the output video.
             shared_ptr<string> width_ {};
           };
 
@@ -1613,7 +1443,7 @@ namespace Models
 
 
         protected:
-          // Parameters to overwrite. If you specify these, they replace the corresponding parameters in the template.
+          // The override parameters. If specified, these parameters overwrite the corresponding template parameters.
           shared_ptr<ImageWatermarks::OverwriteParams> overwriteParams_ {};
           // The template ID.
           // 
@@ -1677,21 +1507,13 @@ namespace Models
 
 
         protected:
-          // The ciphertext of the key for standard encryption.
+          // The key ciphertext for standard encryption.
           shared_ptr<string> cipherText_ {};
-          // The decryption service endpoint for standard encryption.
+          // The decryption service URL for standard encryption.
           shared_ptr<string> decryptKeyUri_ {};
           // The encryption type. Valid values:
-          // 
-          // - PrivateEncryption: Alibaba Cloud proprietary cryptography.
-          // 
-          // - HLSEncryption: HLS standard encryption.
           shared_ptr<string> encryptType_ {};
           // The key service type for standard encryption. Valid values:
-          // 
-          // - KMS
-          // 
-          // - Base64
           shared_ptr<string> keyServiceType_ {};
         };
 
@@ -1755,9 +1577,9 @@ namespace Models
           // 
           // This parameter is required.
           shared_ptr<string> audioIndex_ {};
-          // The duration of the input stream. Default: The video duration.
+          // The duration of the input stream. Default value: the video duration.
           shared_ptr<double> duration_ {};
-          // The start time of the input stream. Default: 0.
+          // The start time of the input stream. Default value: 0.
           shared_ptr<double> start_ {};
           // The video stream index.
           // 
@@ -1822,7 +1644,7 @@ namespace Models
 
 
       protected:
-        // The configuration for merging multiple inputs.
+        // The multi-input stream merging configuration.
         shared_ptr<vector<ProcessConfig::CombineConfigs>> combineConfigs_ {};
         // The encryption configuration.
         shared_ptr<ProcessConfig::Encryption> encryption_ {};
@@ -1885,39 +1707,13 @@ namespace Models
 
 
       protected:
-        // The media value:
-        // 
-        // - If Type is OSS, this is a URL that supports the OSS or HTTP protocol.
-        // 
-        // > You must add the OSS bucket in the URL to IMS [storage management](https://help.aliyun.com/document_detail/609918.html) before you use it.
-        // 
-        // - If Type is Media, this is a media asset ID.
+        // The media value.
         // 
         // This parameter is required.
         shared_ptr<string> media_ {};
-        // The output stream path:<br>
-        // This parameter takes effect only when Type is Media. It lets you select a specific file from the media asset as the output.<br>
-        // Valid placeholders:<br><br>
-        // 
-        // - {MediaId}: The media asset ID.
-        // 
-        // - {JobId}: The sub-job ID.
-        // 
-        // - {MediaBucket}: The bucket where the media asset resides.
-        // 
-        // - {ExtName}: The file extension. This is the output format specified in the transcoding template.
-        // 
-        // - {DestMd5}: The MD5 hash of the transcoded output file.
-        // 
-        // > 1. You must include both {MediaId} and {JobId} in this parameter.
-        // >
-        // > 2. The output bucket must be the same as the bucket where the media asset resides.
+        // The output stream path.
         shared_ptr<string> outputUrl_ {};
-        // The media object type. Valid values:
-        // 
-        // - OSS: An OSS file.
-        // 
-        // - Media: A media asset ID.
+        // The media object type.
         // 
         // This parameter is required.
         shared_ptr<string> type_ {};
@@ -1948,7 +1744,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<OutputGroup::Output> output_ {};
-      // The job processing configuration.
+      // The task processing configuration.
       // 
       // This parameter is required.
       shared_ptr<OutputGroup::ProcessConfig> processConfig_ {};
@@ -2001,27 +1797,13 @@ namespace Models
 
 
     protected:
-      // The input stream path:
-      // 
-      // - This parameter takes effect only when Type is Media. It lets you select a specific file from the media asset as the input.
-      // 
-      // - The system checks whether the input URL exists in the media asset.
+      // The input stream path. This parameter takes effect only when Type is set to Media, which allows you to specify a specific file under the media asset as the input. The system checks whether the specified inputUrl exists under the media asset.
       shared_ptr<string> inputUrl_ {};
-      // The media value:
-      // 
-      // - If Type is OSS, this is a URL that supports the OSS or HTTP protocol.
-      // 
-      // > You must add the OSS bucket in the URL to IMS [storage management](https://help.aliyun.com/document_detail/609918.html) before you use it.
-      // 
-      // - If Type is Media, this is a media asset ID.
+      // The media value.
       // 
       // This parameter is required.
       shared_ptr<string> media_ {};
-      // The media object type. Valid values:
-      // 
-      // - OSS: An OSS file.
-      // 
-      // - Media: A media asset ID.
+      // The media object type.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
@@ -2078,21 +1860,21 @@ namespace Models
 
 
   protected:
-    // The idempotence key. Ensures request idempotence.
+    // The idempotency key that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
-    // The input group for the job. A single input creates a transcoding job. Multiple inputs create a media merging job.
+    // The job input group. A single input creates a transcoding job. Multiple inputs create an audio and video stream merging job.
     // 
     // This parameter is required.
     shared_ptr<vector<SubmitTranscodeJobRequest::InputGroup>> inputGroup_ {};
-    // The job name.
+    // The name of the job.
     shared_ptr<string> name_ {};
-    // The output group for the job.
+    // The task output group.
     // 
     // This parameter is required.
     shared_ptr<vector<SubmitTranscodeJobRequest::OutputGroup>> outputGroup_ {};
-    // The job scheduling information.
+    // The task scheduling information.
     shared_ptr<SubmitTranscodeJobRequest::ScheduleConfig> scheduleConfig_ {};
-    // Custom settings in JSON format. The length is limited to 512 bytes. Supports [custom webhook address configuration](https://help.aliyun.com/document_detail/451631.html).
+    // Custom settings in JSON format. The value can be up to 512 bytes in length. [Custom callback URL configuration](https://help.aliyun.com/document_detail/451631.html) is supported.
     shared_ptr<string> userData_ {};
   };
 

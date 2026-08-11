@@ -138,27 +138,44 @@ namespace Models
 
 
       protected:
-        // The bitrate of the output video. Unit: Kbit/s. Valid values: 1 to 6000.
+        // The bitrate of the transcoded video. Unit: kbps. Valid values: 1 to 6000.
         shared_ptr<string> bitrate_ {};
         // The encoding type. Valid values:
         // 
         // - H.264
-        // 
         // - H.265
         shared_ptr<string> codec_ {};
-        // The frame rate of the output video. Unit: frames per second (FPS). Valid values: 1 to 60.
+        // The frame rate of the transcoded video. Unit: FPS. Valid values: 1 to 60.
         shared_ptr<string> fps_ {};
-        // The group of pictures (GOP) of the output video. Unit: frame. Valid values: 1 to 3000.
+        // The video GOP (Group of Pictures). Unit: frames. Valid values: 1 to 3000.
         shared_ptr<string> gop_ {};
-        // The height of the output video. Valid values: Height ≥ 128 max (Height,Width) ≤ 2560 min (Height,Width) ≤ 1440
+        // The height of the transcoded video. Valid values:
         // 
-        // Note: The resolution of the output video that is transcoded by using the H.265 Narrowband HD transcoding template cannot exceed 1280 × 720 pixels.
+        // - Height ≥ 128
+        // 
+        // - max(Height, Width) ≤ 2560
+        // 
+        // - min(Height, Width) ≤ 1440
+        // 
+        // >Notice: For H.265 narrowband HD templates, the resolution must not exceed 1280 × 720.
         shared_ptr<string> height_ {};
-        // The encoding profile. The profile determines how a video is encoded. In most cases, a greater value indicates better image quality and higher resource consumption. Valid values: 1: baseline. This value is suitable for mobile devices. 2: main. This value is suitable for standard-definition devices. 3: high. This value is suitable for high-definition devices.
-        shared_ptr<string> profile_ {};
-        // The width of the output video. Valid values: Width ≥ 128 max (Height,Width) ≤ 2560 min (Height,Width) ≤ 1440
+        // The encoding profile. A set of specific encoding features supported by the video. A higher value generally produces better image quality but consumes more encoding and decoding resources. Valid values:
         // 
-        // Note: The resolution of the output video that is transcoded by using the H.265 Narrowband HD transcoding template cannot exceed 1280 × 720 pixels.
+        // - 1: baseline (suitable for mobile devices).
+        // 
+        // - 2: main (suitable for standard resolution devices).
+        // 
+        // - 3: high (suitable for high resolution devices).
+        shared_ptr<string> profile_ {};
+        // The width of the transcoded video. Valid values:
+        // 
+        // - Width ≥ 128
+        // 
+        // - max(Height, Width) ≤ 2560
+        // 
+        // - min(Height, Width) ≤ 1440
+        // 
+        // >Notice: For H.265 narrowband HD templates, the resolution must not exceed 1280 × 720.
         shared_ptr<string> width_ {};
       };
 
@@ -227,29 +244,28 @@ namespace Models
 
 
       protected:
-        // The bitrate of the output audio. Unit: Kbit/s. Valid values: 1 to 1000.
+        // The bitrate of the transcoded audio. Unit: kbps. Valid values: 1 to 1000.
         shared_ptr<string> bitrate_ {};
-        // The number of sound channels. Valid values: 1: mono 2: binaural
+        // The number of audio channels. Valid values:
+        // 
+        // - 1: mono.
+        // 
+        // - 2: stereo.
         shared_ptr<string> channels_ {};
-        // The audio codec. Valid values:
+        // The audio encoding format. Valid values:
         // 
         // - AAC
-        // 
         // - MP3
         shared_ptr<string> codec_ {};
-        // The audio codec profile. Valid values when the Codec parameter is set to AAC:
-        // 
+        // The audio encoding preset. When Codec is set to AAC, valid values:
         // - aac_low
-        // 
         // - aac_he
-        // 
         // - aac_he_v2
-        // 
         // - aac_ld
         shared_ptr<string> profile_ {};
-        // The audio sampling rate. Valid values: 22050 to 96000.
+        // The audio sample rate. Valid values: 22050 to 96000.
         // 
-        // Note: If you set AudioProfile to aac_ld, the audio sampling rate cannot exceed 44,100.
+        // >Notice: If AudioProfile is set to aac_ld, the sample rate must not exceed 44100.
         shared_ptr<string> samplerate_ {};
       };
 
@@ -306,21 +322,19 @@ namespace Models
 
 
   protected:
-    // The name of the template.
+    // The template name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The configuration of the template.
+    // The template configuration.
+    // > The pass parameter requirements vary based on the templatetype (Type). When Type is set to normal, at least one of the width and height parameters must be specified, and the frame rate and bitrate parameters are required. For other template types, specify the parameters based on your requirements.
     shared_ptr<CreateLiveTranscodeTemplateRequest::TemplateConfig> templateConfig_ {};
-    // The type of the template. Valid values:
+    // The template type. Valid values:
     // 
-    // - normal
-    // 
-    // - narrow-band
-    // 
-    // - audio-only
-    // 
-    // - origin
+    // - normal: standard.
+    // - narrow-band: narrowband HD.
+    // - audio-only: audio only.
+    // - origin: original quality.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

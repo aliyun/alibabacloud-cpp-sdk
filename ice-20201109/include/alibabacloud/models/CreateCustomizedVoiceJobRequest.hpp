@@ -76,40 +76,31 @@ namespace Models
 
   protected:
     // The gender. Valid values:
-    // 
-    // - female
-    // 
-    // - male
+    // - female: female.
+    // - male: male.
     // 
     // This parameter is required.
     shared_ptr<string> gender_ {};
     // The scenario. Valid values:
-    // 
-    // - story
-    // 
-    // - interaction
-    // 
-    // - navigation
+    // - story: story.
+    // - interaction: interaction.
+    // - navigation: navigation.
     // 
     // This parameter is required.
     shared_ptr<string> scenario_ {};
     // The voice description.
-    // 
-    // - Must be 256 characters or fewer.
+    // - The description cannot exceed 256 characters.
     shared_ptr<string> voiceDesc_ {};
-    // The custom voice ID. This is typically an English name or Pinyin.
+    // The custom voice ID (English name or pinyin of the voice).
     // 
-    // - Must be unique among your other custom voices.
-    // 
-    // - Must be 32 characters or fewer.
-    // 
-    // - Can contain only letters and numbers.
+    // - The ID cannot be the same as any of your other custom voice IDs.
+    // - The ID cannot exceed 32 characters.
+    // - Only letters and numbers are supported.
     // 
     // This parameter is required.
     shared_ptr<string> voiceId_ {};
-    // The voice name, typically in Chinese.
-    // 
-    // - Must be 32 characters or fewer.
+    // The voice name (generally a Chinese name).
+    // - The name cannot exceed 32 characters.
     shared_ptr<string> voiceName_ {};
   };
 

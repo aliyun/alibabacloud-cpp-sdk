@@ -216,93 +216,84 @@ namespace Models
 
 
     protected:
-      // The business configuration of the project. This parameter can be ignored for general editing projects.
+      // The business configuration of the project. This parameter can be ignored for standard editing projects.
       shared_ptr<string> businessConfig_ {};
-      // The business status of the project. This parameter can be ignored for general editing projects. Valid values:
-      // 
-      // - Reserving
-      // 
-      // - ReservationCanceled
-      // 
-      // - BroadCasting
-      // 
-      // - LoadingFailed
-      // 
-      // - LiveFinished
+      // The business status of the project. This parameter can be ignored for standard editing projects.
+      // - Reserving: The live stream is being reserved.
+      // - ReservationCanceled: The reservation is canceled. 
+      // - BroadCasting: The live stream is broadcasting.
+      // - LoadingFailed: Loading failed.
+      // - LiveFinished: The live stream has ended.
       shared_ptr<string> businessStatus_ {};
       // The template material parameters.
       shared_ptr<string> clipsParam_ {};
-      // The thumbnail URL of the online editing project.
+      // The cover URL of the cloud editing project.
       shared_ptr<string> coverURL_ {};
-      // The method for creating the online editing project. Valid values:
+      // The creation source of the cloud editing project.
       // 
-      // \\- OpenAPI
+      // - OpenAPI
       // 
-      // \\- AliyunConsole
+      // - AliyunConsole
       // 
-      // \\- WebSDK
+      // - WebSDK
       // 
-      // \\- LiveEditingOpenAPI
+      // - LiveEditingOpenAPI 
       // 
-      // \\- LiveEditingConsole
+      // - LiveEditingConsole
       shared_ptr<string> createSource_ {};
-      // The time when the online editing project was created.
+      // The creation time of the cloud editing project.
       shared_ptr<string> createTime_ {};
-      // The description of the online editing project.
+      // The description of the project.
       shared_ptr<string> description_ {};
-      // The duration of the online editing project.
+      // The duration of the cloud editing project.
       shared_ptr<float> duration_ {};
-      // The method for editing the online editing project. Valid values:
+      // The modification source of the cloud editing project.
       // 
-      // \\- OpenAPI
-      // 
-      // \\- AliyunConsole
-      // 
-      // \\- WebSDK
-      // 
-      // \\- LiveEditingOpenAPI
-      // 
-      // \\- LiveEditingConsole
+      // - OpenAPI
+      // - AliyunConsole
+      // - WebSDK
+      // - LiveEditingOpenAPI 
+      // - LiveEditingConsole
       shared_ptr<string> modifiedSource_ {};
-      // The time when the online editing project was last edited.
+      // The modification time of the cloud editing project.
       shared_ptr<string> modifiedTime_ {};
-      // The ID of the online editing project.
+      // The ID of the cloud editing project.
       shared_ptr<string> projectId_ {};
-      // The type of the editing project. Default value: EditingProject. Valid values:
+      // The type of the editing project. Default value: EditingProject.
       // 
-      // \\- EditingProject: a regular editing project.
+      // - EditingProject: standard editing project.
       // 
-      // \\- LiveEditingProject: a live stream editing project.
+      // - LiveEditingProject: live editing project.
       shared_ptr<string> projectType_ {};
-      // The status of the online editing project.
+      // The status of the cloud editing project.
       // 
       // Valid values:
       // 
-      // \\- 1: Draft
+      // - 1: Draft.
       // 
-      // \\- 2: Editing
+      // - 2: Editing.
       // 
-      // \\- 3: Producing
+      // - 3: Producing.
       // 
-      // \\- 4: Produced
+      // - 4: Produced.
       // 
-      // \\- 5: ProduceFailed
+      // - 5: ProduceFailed.
       // 
-      // \\- 7: Deleted
+      // - 7: Deleted.
       shared_ptr<int64_t> status_ {};
-      // The status of the online editing project. For more information, see the status list.
+      // The status name of the cloud editing project, corresponding to the status name in the status list.
       shared_ptr<string> statusName_ {};
       // The template ID.
       shared_ptr<string> templateId_ {};
-      // The template type of the online editing project. Valid values:
+      // The template type of the cloud editing project.
       // 
-      // \\- Timeline
+      // - Timeline
       // 
-      // \\- VETemplate
+      // - VETemplate
       shared_ptr<string> templateType_ {};
-      // The timeline of the online editing project, in the JSON format.<props="china">For more information about objects in a timeline, see [Timeline configurations](https://help.aliyun.com/document_detail/198823.htm?spm=a2c4g.11186623.2.9.90dc653dF67srN#topic-2024662). If you leave this parameter empty, an empty timeline is created and the duration of the online editing project is zero.
+      // The timeline of the cloud editing project in JSON format. For more information about the structure, see [TimeLine](~~198823#topic-2024662~~). If this field is empty, an empty timeline is created and the total duration of the cloud editing project is 0.
       shared_ptr<string> timeline_ {};
-      // The title of the online editing project.
+      // The title of the cloud editing project.
       shared_ptr<string> title_ {};
     };
 
@@ -325,9 +316,9 @@ namespace Models
 
 
   protected:
-    // The information about the online editing project.
+    // The cloud editing project.
     shared_ptr<CreateEditingProjectResponseBody::Project> project_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

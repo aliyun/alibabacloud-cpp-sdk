@@ -267,119 +267,91 @@ namespace Models
     protected:
       // The color bit depth.
       shared_ptr<int32_t> bitDepth_ {};
-      // The bitrate of the media stream in Kbit/s.
+      // The bitrate of the media stream. Unit: Kbps.
       shared_ptr<string> bitrate_ {};
-      // The creation time. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The creation time. The time follows the format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> creationTime_ {};
       // The definition of the video stream. Valid values:
       // 
-      // - **FD**: fluent
-      // 
-      // - **LD**: standard definition
-      // 
-      // - **SD**: high definition
-      // 
-      // - **HD**: ultra-high definition
-      // 
-      // - **OD**: original
-      // 
-      // - **2K**
-      // 
-      // - **4K**
-      // 
-      // - **SQ**: standard-quality audio
-      // 
-      // - **HQ**: high-quality audio
-      // 
-      // - **AUTO**: adaptive bitrate
+      // - **FD**: low definition.
+      // - **LD**: standard definition.
+      // - **SD**: high definition.
+      // - **HD**: ultra-high definition.
+      // - **OD**: original quality.
+      // - **2K**: 2K.
+      // - **4K**: 4K.
+      // - **SQ**: standard sound quality.
+      // - **HQ**: high sound quality.
+      // - **AUTO**: adaptive bitrate.
       shared_ptr<string> definition_ {};
-      // The duration of the media stream in seconds.
+      // The duration of the media stream. Unit: seconds.
       shared_ptr<string> duration_ {};
       // Indicates whether the media stream is encrypted. Valid values:
       // 
-      // - **0**: No.
-      // 
-      // - **1**: Yes.
+      // - **0**: not encrypted.
+      // - **1**: encrypted.
       shared_ptr<int64_t> encrypt_ {};
       // The encryption type of the media stream. Valid values:
       // 
-      // - **AliyunVoDEncryption**: Alibaba Cloud VoD Encryption.
-      // 
+      // - **AliyunVoDEncryption**: Alibaba Cloud video encryption.
       // - **HLSEncryption**: HLS standard encryption.
       // 
-      // > If a stream is encrypted with **AliyunVoDEncryption**, you can play it only with the Alibaba Cloud Player SDK.
+      // > If the encryption type is **AliyunVoDEncryption**, only the Alibaba Cloud Player SDK can be used for playback.
       shared_ptr<string> encryptType_ {};
-      // The OSS file URL.
+      // The OSS URL of the file.
       shared_ptr<string> fileURL_ {};
       // The format of the media stream.
-      // 
-      // - For video streams, valid values are **mp4** and **m3u8**.
-      // 
-      // - For audio-only streams, the value is **mp3**.
+      // - If the media file is a video, valid values are **mp4** and **m3u8**.
+      // - If the media file is audio only, the value is **mp3**.
       shared_ptr<string> format_ {};
-      // The frame rate of the media stream in frames per second.
+      // The frame rate of the media stream. Unit: frames per second.
       shared_ptr<string> fps_ {};
-      // The High Dynamic Range (HDR) type of the media stream. Valid values:
-      // 
+      // The HDR type of the media stream. Valid values:
       // - HDR
-      // 
       // - HDR10
-      // 
       // - HLG
-      // 
       // - DolbyVision
-      // 
       // - HDRVivid
-      // 
       // - SDR+
       shared_ptr<string> HDRType_ {};
-      // The height of the media stream in pixels.
+      // The height of the media stream. Unit: px.
       shared_ptr<int64_t> height_ {};
       // The job ID.
       shared_ptr<string> jobId_ {};
-      // The last modification time. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The modification time. The time follows the format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> modificationTime_ {};
       // The Narrowband HD type. Valid values:
       // 
-      // - **0**: regular.
-      // 
+      // - **0**: normal.
       // - **1.0**: Narrowband HD 1.0.
-      // 
       // - **2.0**: Narrowband HD 2.0.
       // 
-      // This parameter applies only if a definition is configured in the built-in transcoding template for Narrowband HD 1.0. For more information, see [Configure transcoding templates - Definition](https://help.aliyun.com/document_detail/52839.html).
+      // This parameter takes effect only when the definition of a Narrowband HD 1.0 built-in transcoding template is configured. For more information, see [Transcoding template configuration - Definition](https://help.aliyun.com/document_detail/52839.html).
       shared_ptr<string> narrowBandType_ {};
       // The playback URL of the video stream.
       shared_ptr<string> playURL_ {};
-      // The size of the media stream in bytes.
+      // The size of the media stream. Unit: bytes.
       shared_ptr<int64_t> size_ {};
       // The media stream status. Valid values:
       // 
-      // - **Normal**: The stream is available.
-      // 
-      // - **Invisible**: The stream is not visible.
+      // - **Normal**: normal.
+      // - **Invisible**: invisible.
       shared_ptr<string> status_ {};
-      // The stream tags, which are used to identify the transcoding type.
+      // The stream tag that identifies the transcoding processing type.
       shared_ptr<string> streamTags_ {};
-      // The type of the media stream. The value is **video** for video streams or **audio** for audio-only streams.
+      // The media stream type. If the media stream is a video, the value is **video**. If the media stream is audio only, the value is **audio**.
       shared_ptr<string> streamType_ {};
-      // The type of the transcoding template. Valid values:
-      // 
-      // - `Normal`: regular transcoding
-      // 
-      // - `AudioTranscode`: audio transcoding
-      // 
-      // - `Remux`: remuxing
-      // 
-      // - `NarrowBandV1`: Narrowband HD 1.0
-      // 
-      // - `NarrowBandV2`: Narrowband HD 2.0
-      // 
-      // - `UHD`: audio and video enhancement (ultra-high definition)
+      // The transcoding templatetype. Valid values:
+      // - Normal: normal template.
+      // - AudioTranscode: audio transcoding.
+      // - Remux: encapsulation conversion.
+      // - NarrowBandV1: Narrowband HD 1.0.
+      // - NarrowBandV2: Narrowband HD 2.0.
+      // - UHD: audio and video enhancement (ultra-high definition).
       shared_ptr<string> transTemplateType_ {};
-      // The ID of the watermark that is associated with the media stream.
+      // The watermark ID associated with the current media stream.
       shared_ptr<string> watermarkId_ {};
-      // The width of the media stream in pixels.
+      // The width of the media stream. Unit: px.
       shared_ptr<int64_t> width_ {};
     };
 
@@ -485,45 +457,43 @@ namespace Models
 
 
     protected:
-      // The category ID. You can obtain the category ID in one of the following ways:
-      // 
-      // - Log on to the [IMS console](https://ims.console.aliyun.com) and choose **media asset management** > **category management** to view the category ID.
-      // 
-      // - The create category operation returns the category ID in the `CateId` parameter.
-      // 
-      // - The get category operation returns the category ID in the `CateId` parameter.
+      // The category ID. You can obtain the category ID by using the following methods:
+      // - Log on to the [IMS console](https://ims.console.aliyun.com) and choose **Media Asset Management** > **Category Management** to view the category ID.
+      // - When you create a category by calling the create category operation, the category ID is the value of CateId in the response.
+      // - When you query a category by calling the get category operation, the category ID is the value of CateId in the response.
       shared_ptr<int64_t> cateId_ {};
       // The cover URL.
       shared_ptr<string> coverURL_ {};
-      // The time when the media asset was created.
+      // The creation time.
       shared_ptr<string> creationTime_ {};
-      // The description.
+      // The content description.
       shared_ptr<string> description_ {};
       // The media asset ID.
       shared_ptr<string> mediaId_ {};
       // The tags.
       // 
-      // - You can add up to 16 tags.
+      // - A maximum of 16 tags are supported.
       // 
       // - Separate multiple tags with commas (,).
       // 
-      // - The maximum length of a tag is 32 bytes.
+      // - Each tag can be up to 32 bytes in length.
       // 
-      // - Tags must be UTF-8 encoded.
+      // - UTF-8 encoding is used.
       shared_ptr<string> mediaTags_ {};
-      // The type of the media file. Valid values:
+      // The media file type. Valid values:
       // 
-      // `video`: A video file. `audio`: An audio-only file.
+      // video: video.
+      // audio: audio only.
       shared_ptr<string> mediaType_ {};
-      // The status of the media asset. Valid values:
+      // The resource status. Valid values:
       // 
-      // - `Init`: The source file is not ready.
+      // - Init: The source file is not ready.
       // 
-      // - `Preparing`: The source file is being prepared. This process may involve uploading or compositing.
+      // - Preparing: The source file is being prepared, for example, being uploaded or composed.
       // 
-      // - `PrepareFail`: Preparation of the source file failed. For example, the system failed to retrieve the source file metadata.
+      // - PrepareFail: The source file failed to be prepared, for example, failed to obtain source file information.
       // 
-      // - `Normal`: The source file is ready.
+      // - Normal: The source file is ready.
       shared_ptr<string> status_ {};
       // The title.
       shared_ptr<string> title_ {};
@@ -557,9 +527,9 @@ namespace Models
 
 
   protected:
-    // The basic information about the media asset.
+    // The media asset information.
     shared_ptr<GetPlayInfoResponseBody::MediaBase> mediaBase_ {};
-    // A list of audio or video playback streams.
+    // The audio or video playback information (stream information).
     shared_ptr<vector<GetPlayInfoResponseBody::PlayInfoList>> playInfoList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

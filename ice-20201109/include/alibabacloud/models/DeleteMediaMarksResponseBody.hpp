@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The ID of the media asset.
+    // The media asset ID.
     shared_ptr<string> mediaId_ {};
-    // The IDs of the deleted marks separated with commas (,).
+    // The IDs of the deleted marks, separated by commas.
     shared_ptr<string> mediaMarkIds_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the Live Record Template.
+    // The template ID.
     shared_ptr<string> templateId_ {};
   };
 

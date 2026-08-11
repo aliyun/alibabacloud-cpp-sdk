@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the media asset.
+    // The media asset ID.
     shared_ptr<string> mediaId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

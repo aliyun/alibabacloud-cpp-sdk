@@ -57,17 +57,14 @@ namespace Models
 
 
   protected:
-    // The error code returned if the operation fails. A possible value is:
-    // 
-    // - `NOT_ENOUGH_ALLOCATE_CREDIT_QUOTA`: The sub-account\\"s credit balance is insufficient.
+    // The error code returned when the deduction fails. Valid values:
+    // - NOT_ENOUGH_ALLOCATE_CREDIT_QUOTA: the credit balance of the RAM user is insufficient.
     shared_ptr<string> errorCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation succeeded.
-    // 
-    // - `true`: The operation succeeded.
-    // 
-    // - `false`: The operation failed.
+    // Indicates whether the deduction is successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> result_ {};
   };
 

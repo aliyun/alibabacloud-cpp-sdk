@@ -94,65 +94,60 @@ namespace Models
 
 
   protected:
-    // The application ID. The default value is `app-1000000`.
+    // The application ID. Default value: app-1000000.
     shared_ptr<string> appId_ {};
-    // The ID of the entity. You can call the `CreateEntity` operation to create an entity and define a custom schema for dynamic metadata.
+    // The entity ID. You can call the CreateEntity operation to create an entity and customize the dynamic metadata structure.
     shared_ptr<string> entityId_ {};
-    // The file information, provided as a JSON string containing the following fields:
-    // 
-    // - `Type` (Required): The file type. Valid values: `video`, `image`, `audio`, `text`, and `other`.
-    // 
-    // - `Name` (Required): The filename without the extension.
-    // 
-    // - `Size` (Optional): The file size.
-    // 
-    // - `Ext` (Required): The file extension.
+    // The file information in JSON format. This parameter contains the following fields:
+    // - Type (required): the file type. Valid values: video, image, audio, text, and other.
+    // - Name (required): the file name without the file name extension.
+    // - Size (optional): the file size.
+    // - Ext (required): the file name extension.
     shared_ptr<string> fileInfo_ {};
-    // The media asset metadata, provided as a JSON string.
+    // The metadata of the media asset to upload, in JSON format.
     // 
-    // `Title` (Required):
+    // Title (required):
+    // - The maximum length is 128 characters.
+    // - UTF-8 encoded.
     // 
-    // - The title can be up to 128 characters in length.
+    // Description (optional):
+    // - The maximum length is 1024 characters.
+    // - UTF-8 encoded.
     // 
-    // - The title must be UTF-8 encoded.
+    // CateId (optional): the category ID.
     // 
-    // `Description` (Optional):
+    // Tags (optional): the tags.
     // 
-    // - The description can be up to 1,024 characters in length.
+    // BusinessType (required): the business type. Valid values:
+    // - When Type = video:
+    // opening: opening credits. ending: ending credits.
+    // - When Type = image:
+    //   default: default.
+    //   cover: cover image.
+    // - When Type = text:
+    //   subtitles: subtitles.
+    //   font: font.
+    // - When Type = material:
+    //   watermark: watermark.
+    // - general: general-purpose.
     // 
-    // - The description must be UTF-8 encoded.
+    // CoverURL (optional): the cover URL.
     // 
-    // `CateId` (Optional): The category ID.
-    // 
-    // `Tags` (Optional): The tags of the media asset, separated by commas.
-    // 
-    // `BusinessType` (Required): The business type. Valid values depend on the `Type` specified in `FileInfo`.
-    // 
-    // - If `Type` is `video`: `opening` or `ending`.
-    // 
-    // - If `Type` is `image`: `default`, `cover`, or `watermark`.
-    // 
-    // - If `Type` is `text`: `subtitles` or `font`.
-    // 
-    // -
-    // 
-    // - If `Type` is `other`: `general`.
-    // 
-    // `CoverURL` (Optional): The URL of the cover image.<br>`DynamicMetaData` (Optional): A string for custom dynamic metadata.<br>
+    // DynamicMetaData: the dynamic metadata. The value is a string.
     shared_ptr<string> mediaMetaData_ {};
-    // The post-processing configuration for `video` or `audio` uploads.
+    // Specifies the post-upload processing action when Type = video or audio.
     // 
-    // Set `ProcessType` to `Workflow`.
+    // ProcessType: set to Workflow.
     // 
-    // > - This parameter specifies an [asynchronous task](https://help.aliyun.com/document_detail/3027141.html), which is queued and runs in the background after you submit the request.
+    // > 
+    // > - This parameter triggers an [asynchronous task](https://help.aliyun.com/document_detail/3027141.html). After submission, the task is not immediately completed and enters a background queue for asynchronous execution.
     shared_ptr<string> postProcessConfig_ {};
-    // The destination storage configuration, provided as a JSON string.
+    // The destination storage address.
     // 
-    // - `StorageType`: Only `oss` is supported.
-    // 
-    // - `StorageLocation`: Only VOD storage is supported. You cannot upload to your own OSS buckets.
+    // - StorageType: only oss is supported.
+    // - StorageLocation: only VOD storage is supported. User-owned OSS storage is not supported.
     shared_ptr<string> uploadTargetConfig_ {};
-    // A JSON string for custom settings, such as configuring a message callback.
+    // The custom settings. The value is a JSON string that supports settings such as message callbacks.
     shared_ptr<string> userData_ {};
   };
 

@@ -121,35 +121,42 @@ namespace Models
 
 
   protected:
-    // The business configuration of the project. This parameter can be ignored for general editing projects.
+    // The business configuration of the project. This parameter can be ignored for standard editing projects.
     // 
-    // For a live stream editing project, observe the following rules: OutputMediaConfig.StorageLocation is required. OutputMediaConfig.Path is optional. If you do not specify this option, the live streaming clips are stored in the root directory by default.
+    // - For live editing projects, OutputMediaConfig.StorageLocation is required.
     // 
-    // Valid values of OutputMediaTarget include vod-media and oss-object. If you do not specify OutputMediaTarget, the default value oss-object is used.
+    // - If OutputMediaConfig.Path is not specified, the produced live clips are stored in the root path by default. 
     // 
-    // If you set OutputMediaTarget to vod-media, the setting of OutputMediaConfig.Path does not take effect.
+    // - OutputMediaTarget can be set to vod-media or oss-object. Default value: oss-object.
+    // 
+    // - When OutputMediaTarget is set to vod-media, Path does not take effect.
     shared_ptr<string> businessConfig_ {};
-    // The material parameter corresponding to the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified. For more information<props="china">, see [Create and use a regular template](https://help.aliyun.com/document_detail/328557.html) and [Create and use an advanced template](https://help.aliyun.com/document_detail/291418.html).
+    // The material parameters corresponding to the template in JSON format. If TemplateId is specified, ClipsParam must also be specified. For more information about the format, see [Create and use a standard template](https://help.aliyun.com/document_detail/445399.html) and [Create and use an advanced template](https://help.aliyun.com/document_detail/445389.html).
     shared_ptr<string> clipsParam_ {};
-    // The thumbnail URL of the online editing project.
+    // The cover URL of the cloud editing project.
     shared_ptr<string> coverURL_ {};
-    // The description of the online editing project.
+    // The description of the cloud editing project.
     shared_ptr<string> description_ {};
-    // The material associated with the project. Separate multiple material IDs with commas (,). Each type supports up to 10 material IDs.
+    // The materials associated with the project. Separate multiple materials with commas (,). A maximum of 10 material IDs are supported for each type.
     shared_ptr<string> materialMaps_ {};
-    // The type of the editing project. Valid values: EditingProject and LiveEditingProject. A value of EditingProject indicates a regular editing project, and a value of LiveEditingProject indicates a live stream editing project.
+    // The type of the editing project.
+    // 
+    // - EditingProject: standard editing project.
+    // 
+    // - LiveEditingProject: live editing project.
     shared_ptr<string> projectType_ {};
-    // The template ID. This parameter is used to quickly build a timeline with ease. Note: Only one of Timeline and TemplateId can be specified. If TemplateId is specified, ClipsParam must also be specified.
+    // The template ID, which is used to quickly build a timeline with minimal effort.
+    // >Notice: Either Timeline or TemplateId must be specified, but not both. If TemplateId is specified, ClipsParam must also be specified.
     shared_ptr<string> templateId_ {};
-    // The template type. This parameter is required if you create a template-based online editing project. Default value: Timeline. Valid values:
+    // The templatetype. Specify this parameter when you create a template-based cloud editing project. Default value: Timeline.
     // 
-    // - Timeline: a regular template.
-    // 
-    // - VETemplate: an advanced template.
+    // Valid values:
+    // - Timeline: standard template.
+    // - VETemplate: advanced template.
     shared_ptr<string> templateType_ {};
-    // The timeline of the online editing project, in the JSON format.
+    // The timeline of the cloud editing project in JSON format.
     shared_ptr<string> timeline_ {};
-    // The title of the online editing project.
+    // The title of the cloud editing project.
     // 
     // This parameter is required.
     shared_ptr<string> title_ {};

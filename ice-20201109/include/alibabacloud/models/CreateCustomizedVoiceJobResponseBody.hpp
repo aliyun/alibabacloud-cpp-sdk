@@ -71,7 +71,7 @@ namespace Models
 
 
     protected:
-      // The voice cloning job ID.
+      // The voice cloning task ID.
       shared_ptr<string> jobId_ {};
       // The voice ID.
       shared_ptr<string> voiceId_ {};
@@ -107,11 +107,10 @@ namespace Models
     shared_ptr<CreateCustomizedVoiceJobResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     // 
-    // - true: The request was successful.
-    // 
-    // - false: The request failed.
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

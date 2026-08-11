@@ -58,20 +58,16 @@ namespace Models
 
   protected:
     // The category name.
-    // 
-    // - The value can be up to 64 bytes in length.
-    // 
-    // - The value must be encoded in UTF-8.
+    // - The maximum length is 64 bytes.
+    // - UTF-8 encoding.
     // 
     // This parameter is required.
     shared_ptr<string> cateName_ {};
-    // The ID of the parent category.
+    // The parent category ID.
     shared_ptr<int64_t> parentId_ {};
-    // The type of the category. Valid values:
-    // 
-    // - default: audio, video, and image files. This is the default value.
-    // 
-    // - material: short video materials.
+    // The category type. Valid values:
+    // - default (default): audio, video, and image category.                                 
+    // - material: short video material category.
     shared_ptr<string> type_ {};
   };
 

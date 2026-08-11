@@ -84,21 +84,21 @@ namespace Models
 
 
   protected:
-    // The idempotence key. Ensures request idempotence.
+    // The idempotency key that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
-    // The input group for the job. A single input creates a transcoding job. Multiple inputs create a media merging job.
+    // The job input group. A single input creates a transcoding job. Multiple inputs create an audio and video stream merging job.
     // 
     // This parameter is required.
     shared_ptr<string> inputGroupShrink_ {};
-    // The job name.
+    // The name of the job.
     shared_ptr<string> name_ {};
-    // The output group for the job.
+    // The task output group.
     // 
     // This parameter is required.
     shared_ptr<string> outputGroupShrink_ {};
-    // The job scheduling information.
+    // The task scheduling information.
     shared_ptr<string> scheduleConfigShrink_ {};
-    // Custom settings in JSON format. The length is limited to 512 bytes. Supports [custom webhook address configuration](https://help.aliyun.com/document_detail/451631.html).
+    // Custom settings in JSON format. The value can be up to 512 bytes in length. [Custom callback URL configuration](https://help.aliyun.com/document_detail/451631.html) is supported.
     shared_ptr<string> userData_ {};
   };
 

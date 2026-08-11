@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the digital human training job.
+    // The ID of the digital human training task.
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};

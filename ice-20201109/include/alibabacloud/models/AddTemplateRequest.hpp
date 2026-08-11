@@ -103,51 +103,35 @@ namespace Models
 
 
   protected:
-    // - The template configurations. The Config object of a regular template is encapsulated based on the Timeline object of an online editing project. The Config object of a custom template provides more flexible features. If you have special requirements, we recommend that you understand the structure of a Config object and configure a custom template. For more information, see [Config object of a regular template](https://help.aliyun.com/document_detail/456193.html).
-    // 
-    // - For more information about Config object examples, see [Basic template configurations](https://help.aliyun.com/document_detail/451634.html).
+    // - The standard template Config is an encapsulation based on the cloud editing Timeline. Custom template Config provides more flexibility. If you have special requirements, familiarize yourself with the Config structure and customize the template. For details, see [Standard template Config details](https://help.aliyun.com/document_detail/456193.html).
+    // - For more template Config examples, see [Common standard template Config examples](https://help.aliyun.com/document_detail/451634.html).
+    // - For one-click video production template Config configurations, see [One-click video production template configuration parameter description](https://help.aliyun.com/document_detail/2878274.html).
     shared_ptr<string> config_ {};
-    // The URL of the template thumbnail.
+    // The template cover URL.
     shared_ptr<string> coverUrl_ {};
-    // The name of the custom template.
+    // The custom template name.
     shared_ptr<string> name_ {};
-    // The ID of the template preview video.
+    // The media asset ID of the template preview video.
     shared_ptr<string> previewMedia_ {};
-    // The IDs of the materials associated with the template for use by the regular template editor.
+    // The media assets associated with the template, used by the standard template editor.
     shared_ptr<string> relatedMediaids_ {};
-    // The source from which the template is created. Valid values:
-    // 
-    // - OpenAPI
-    // 
-    // - AliyunConsole
-    // 
-    // - WebSDK
-    // 
-    // <!---->
+    // The template creation source. Valid values:
+    // - OpenAPI: created by using OpenAPI.
+    // - AliyunConsole: created by using the Alibaba Cloud Management Console.
+    // - WebSDK: created by using WebSDK.
     shared_ptr<string> source_ {};
-    // The template state. Valid values:
-    // 
-    // - Available: The template is available.
-    // 
-    // - Created: The template is created but not ready for use.
-    // 
-    // - Uploading: The video is being uploaded.
-    // 
-    // - Processing: The advanced template is being processed.
-    // 
-    // - UploadFailed: Failed to upload the video.
-    // 
-    // - ProcessFailed: Failed to process the advanced template.
-    // 
-    // <!---->
+    // The template status. Valid values:
+    // - Available: normal.
+    // - Created: created but not yet available.
+    // - Uploading: uploading.
+    // - Processing: advanced template is being analyzed.
+    // - UploadFailed: upload failed.
+    // - ProcessFailed: advanced template analysis failed.
     shared_ptr<string> status_ {};
-    // The template type. Valid values:
-    // 
-    // - Timeline: a regular template created based on the timeline of a video editing project, in which multiple materials are arranged in sequence across multiple layers. It can be used to convert text and images into videos, create photo albums, add opening and closing parts, and apply the default watermark.
-    // 
-    // - VETemplate: an advanced template created using effects of Adobe After Effects (AE). It can be used to produce complex animations and advanced media effects.
-    // 
-    // <!---->
+    // The templatetype. Valid values:  
+    // - Timeline (standard template): a template created based on the Timeline of a video clip node (multiple materials on multiple tracks are concatenated in sequence). This templatetype can be used to implement effects such as image-to-video conversion, photo albums, intros and outros, and default watermarks.
+    // - VETemplate (advanced template): a template created based on Adobe After Effects (AE) effects. This templatetype can be used to implement advanced media effects with complex animations.
+    // - BatchEditing (one-click video production template): supports configurations for sticker watermarks, background music, background images, narration subtitle styles, title subtitle styles, and output resolution parameters. These configurations are automatically applied when you commit a one-click video production node.
     shared_ptr<string> type_ {};
   };
 

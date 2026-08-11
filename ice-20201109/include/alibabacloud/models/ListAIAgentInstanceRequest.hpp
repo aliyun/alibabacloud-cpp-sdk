@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // Agent ID.
+    // The agent ID.
     // 
     // This parameter is required.
     shared_ptr<string> AIAgentId_ {};
-    // End time of the query in ISO 8601 format. No default value.
+    // The end time of the query in ISO 8601 format. No default value.
     shared_ptr<string> endTime_ {};
-    // Page number. Default is 1. Valid values: 1 to 100.
+    // The page number. Default value: 1. Valid values: 1 to 100.
     shared_ptr<int64_t> pageNumber_ {};
-    // Number of results per page. Default is 10. Valid values: 0 to 100.
+    // The number of entries per page. Default value: 10. Valid values: 0 to 100.
     shared_ptr<int64_t> pageSize_ {};
-    // Start time of the query in ISO 8601 format. No default value.
+    // The start time of the query in ISO 8601 format. No default value.
     shared_ptr<string> startTime_ {};
   };
 

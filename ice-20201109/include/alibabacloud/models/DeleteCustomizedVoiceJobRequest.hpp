@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the human voice cloning job.
+    // The ID of the voice cloning task.
     // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};

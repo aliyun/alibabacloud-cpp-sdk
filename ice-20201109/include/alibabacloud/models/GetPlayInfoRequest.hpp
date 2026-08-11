@@ -57,15 +57,14 @@ namespace Models
 
 
   protected:
-    // The validity period of the playback URL, in seconds. The value defaults to 3600, which is also the minimum.
     shared_ptr<int64_t> authTimeout_ {};
-    // The InputURL used to register the media asset. For more information, see [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html).
-    // 
-    // > Specify at least one of MediaId and InputURL.
+    // The InputURL specified when the media asset was registered. For more information, see [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html).
+    // > 
+    // > At least one of MediaId and InputURL must be specified.
     shared_ptr<string> inputURL_ {};
     // The media asset ID.
-    // 
-    // > Specify at least one of MediaId and InputURL.
+    // > 
+    // > At least one of MediaId and InputURL must be specified.
     shared_ptr<string> mediaId_ {};
   };
 

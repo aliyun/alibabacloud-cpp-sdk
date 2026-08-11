@@ -75,11 +75,11 @@ namespace Models
 
 
     protected:
-      // The type of the live stream URL. The value can only be rtmp.
+      // The type of the live stream address. Currently, only rtmp is supported.
       // 
       // This parameter is required.
       shared_ptr<string> type_ {};
-      // The URL of the live stream.
+      // The live stream address.
       shared_ptr<string> url_ {};
     };
 
@@ -130,9 +130,9 @@ namespace Models
 
 
     protected:
-      // The bucket name.
+      // The name of the storage space.
       shared_ptr<string> bucket_ {};
-      // The endpoint of the storage service.
+      // The storage service endpoint.
       shared_ptr<string> endpoint_ {};
       // The type of the storage address.
       // 
@@ -182,21 +182,21 @@ namespace Models
 
 
   protected:
-    // The name of the recording job.
+    // The name of the recording task.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     // The callback URL.
     shared_ptr<string> notifyUrl_ {};
-    // The storage address of the recording.
+    // The recording storage address.
     // 
     // This parameter is required.
     shared_ptr<SubmitLiveRecordJobRequest::RecordOutput> recordOutput_ {};
-    // The URL of the live stream.
+    // The live stream address.
     // 
     // This parameter is required.
     shared_ptr<SubmitLiveRecordJobRequest::StreamInput> streamInput_ {};
-    // The ID of the recording template.
+    // The recording template ID.
     // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};

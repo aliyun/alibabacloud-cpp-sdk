@@ -156,33 +156,25 @@ namespace Models
     protected:
       // The original subtitle content.
       shared_ptr<string> content_ {};
-      // The thumbnail URL of the original material.
+      // The thumbnail URL of the original media.
       shared_ptr<string> coverUrl_ {};
-      // The height of the original material in the output video, in absolute pixel values. This value is returned only for standard templates created in the console.
+      // The height of the original media in the output video, in absolute pixel values. Currently, this value is returned only for common templates created in the console.
       shared_ptr<int32_t> height_ {};
       // The parameter name.
       shared_ptr<string> key_ {};
-      // The URL of the original material.
+      // The URL of the original media.
       shared_ptr<string> mediaUrl_ {};
-      // In-point of the original material segment relative to the timeline, in seconds. This value is returned only for standard templates created in the console.
+      // The in-point of the original media clip relative to the timeline. Unit: seconds. Currently, this value is returned only for common templates created in the console.
       shared_ptr<float> timelineIn_ {};
-      // Out-point of the original material segment relative to the timeline, in seconds. This value is returned only for standard templates created in the console.
+      // The out-point of the original media clip relative to the timeline. Unit: seconds. Currently, this value is returned only for common templates created in the console.
       shared_ptr<float> timelineOut_ {};
-      // The material type.
-      // 
-      // Valid values:
-      // 
-      // - Video
-      // 
-      // - Text
-      // 
-      // - Image
+      // The media type.
       shared_ptr<string> type_ {};
-      // The width of the original material in the output video, in absolute pixel values. This value is returned only for standard templates created in the console.
+      // The width of the original media in the output video, in absolute pixel values. Currently, this value is returned only for common templates created in the console.
       shared_ptr<int32_t> width_ {};
-      // The horizontal distance of the original material relative to the top-left corner of the video, in absolute pixel values. This value is returned only for standard templates created in the console.
+      // The horizontal distance of the original media from the upper-left corner of the video, in absolute pixel values. Currently, this value is returned only for common templates created in the console.
       shared_ptr<int32_t> x_ {};
-      // The vertical distance of the original material relative to the top-left corner of the video, in absolute pixel values. This value is returned only for standard templates created in the console.
+      // The vertical distance of the original media from the upper-left corner of the video, in absolute pixel values. Currently, this value is returned only for common templates created in the console.
       shared_ptr<int32_t> y_ {};
     };
 
@@ -212,9 +204,9 @@ namespace Models
 
 
   protected:
-    // The queried parameters.
+    // The parameter list.
     shared_ptr<vector<GetTemplateParamsResponseBody::ParamList>> paramList_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The template ID.
     shared_ptr<string> templateId_ {};

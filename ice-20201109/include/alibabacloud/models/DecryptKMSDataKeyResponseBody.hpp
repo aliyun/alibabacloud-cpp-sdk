@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // The ID of the customer master key (CMK) that was used to decrypt the ciphertext.
+      // The ID of the master key used to decrypt the ciphertext.
       shared_ptr<string> keyId_ {};
-      // The plaintext that is generated after decryption.
+      // The plaintext obtained after decryption.
       shared_ptr<string> plaintext_ {};
     };
 
@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The information about the decryption result.
+    // The decryption result.
     shared_ptr<DecryptKMSDataKeyResponseBody::DataKey> dataKey_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The media asset IDs, separated by commas.
+    // The IDs of the media assets to query, separated by commas.
     shared_ptr<string> mediaIds_ {};
   };
 

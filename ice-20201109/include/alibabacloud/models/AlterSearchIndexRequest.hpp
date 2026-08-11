@@ -66,33 +66,26 @@ namespace Models
 
 
   protected:
-    // The configurations of the index.
-    // 
-    // > You must specify either IndexStatus or IndexConfig.
+    // The index configuration.
+    // >Notice:  You must specify either IndexStatus or IndexConfig.
     shared_ptr<string> indexConfig_ {};
-    // The state of the index. Valid values:
+    // The index status. Default value: Active. Valid values:
+    // - Active: activated.
+    // - Deactive: deactivated.
     // 
-    // - active (default): the index is enabled.
-    // 
-    // - Deactive: the index is not enabled.
-    // 
-    // > You must specify either IndexStatus or IndexConfig.
+    // >Notice:  You must specify either IndexStatus or IndexConfig.
     shared_ptr<string> indexStatus_ {};
-    // The category of the index. Valid values:
-    // 
-    // - mm: large visual model.
-    // 
-    // - face: face recognition.
-    // 
-    // - aiLabel: smart tagging.
+    // The index type. Valid values:
+    // - mm: large model.
+    // - face: face.
+    // - aiLabel: intelligent tag.
     // 
     // This parameter is required.
     shared_ptr<string> indexType_ {};
-    // The name of the search library.
+    // The search library name.
     // 
-    // - If you leave this parameter empty, the search index is created in the default search library of Intelligent Media Service (IMS). Default value: ims-default-search-lib.
-    // 
-    // - To query information about an existing search library, call the [QuerySearchLib](https://help.aliyun.com/document_detail/2584455.html) API operation.
+    // - If no search library name is specified, the search index is created in the default IMS search library. Default value: ims-default-search-lib.
+    // - You can call the [QuerySearchLib](https://help.aliyun.com/document_detail/2584455.html) operation to query existing search library information.
     shared_ptr<string> searchLibName_ {};
   };
 

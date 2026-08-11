@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the media asset.
+    // The media asset ID.
     shared_ptr<string> mediaId_ {};
-    // The mark ID. You can specify multiple mark IDs separated with commas (,).
+    // The mark IDs. Multiple IDs are separated by commas.
     // 
-    // If you do not specify MediaMarkIds, all the marks of the media asset are deleted.
+    // If MediaMarkIds is empty, all mark information of the media asset is deleted by default.
     shared_ptr<string> mediaMarkIds_ {};
   };
 

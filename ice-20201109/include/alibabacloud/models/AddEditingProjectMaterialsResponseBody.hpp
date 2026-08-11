@@ -248,45 +248,42 @@ namespace Models
       protected:
         // The business type of the media asset.
         shared_ptr<string> businessType_ {};
-        // The category of the media asset.
+        // The category.
         shared_ptr<string> category_ {};
-        // The thumbnail URL of the media asset.
+        // The cover URL.
         shared_ptr<string> coverURL_ {};
         // The time when the media asset was created.
         shared_ptr<string> createTime_ {};
         // The time when the media asset was deleted.
         shared_ptr<string> deletedTime_ {};
-        // The description of the media asset.
+        // The content description.
         shared_ptr<string> description_ {};
-        // The URL of the media asset in another service.
+        // The address of the media asset to be registered in the corresponding system.
         shared_ptr<string> inputURL_ {};
-        // The ID of the media asset.
+        // The media asset ID.
         shared_ptr<string> mediaId_ {};
-        // The tags of the media asset.
+        // The tags.
         shared_ptr<string> mediaTags_ {};
-        // The type of the media asset.
+        // The media type of the media asset.
         shared_ptr<string> mediaType_ {};
         // The time when the media asset was last modified.
         shared_ptr<string> modifiedTime_ {};
-        // The snapshots of the media asset.
+        // The snapshots.
         shared_ptr<string> snapshots_ {};
-        // The source of the media asset.
+        // The source.
         shared_ptr<string> source_ {};
-        // The sprite of the media asset.
+        // The sprite images.
         shared_ptr<string> spriteImages_ {};
-        // The status of the media asset. Valid values:
+        // The media asset status.
         // 
-        // \\- Init
-        // 
-        // \\- Preparing
-        // 
-        // \\- PrepareFail
-        // 
-        // \\- Normal
+        // - Init
+        // - Preparing
+        // - PrepareFail
+        // - Normal
         shared_ptr<string> status_ {};
-        // The title of the media asset.
+        // The title.
         shared_ptr<string> title_ {};
-        // The transcoding status of the media asset.
+        // The transcoding status.
         shared_ptr<string> transcodeStatus_ {};
         // The user data.
         shared_ptr<string> userData_ {};
@@ -437,29 +434,25 @@ namespace Models
           shared_ptr<string> duration_ {};
           // The file name.
           shared_ptr<string> fileName_ {};
-          // The file size. Unit: bytes.
+          // The file size, in bytes.
           shared_ptr<string> fileSize_ {};
           // The file status.
           // 
-          // -Uploading
-          // 
-          // -Normal
-          // 
-          // -UploadFail
-          // 
-          // -Disable
-          // 
-          // -Deleted
+          // - Uploading
+          // - Normal
+          // - UploadFail
+          // - Disable
+          // - Deleted
           shared_ptr<string> fileStatus_ {};
           // The file type.
           shared_ptr<string> fileType_ {};
-          // The Object Storage Service (OSS) URL of the file.
+          // The OSS URL of the file.
           shared_ptr<string> fileUrl_ {};
           // The container format.
           shared_ptr<string> formatName_ {};
           // The height.
           shared_ptr<string> height_ {};
-          // The region in which the file resides.
+          // The storage region of the file.
           shared_ptr<string> region_ {};
           // The width.
           shared_ptr<string> width_ {};
@@ -476,7 +469,7 @@ namespace Models
 
 
       protected:
-        // The basic information of the file, including the duration and size.
+        // The basic file information, including the duration and size.
         shared_ptr<FileInfoList::FileBasicInfo> fileBasicInfo_ {};
       };
 
@@ -510,9 +503,9 @@ namespace Models
     protected:
       // FileInfos
       shared_ptr<vector<MediaInfos::FileInfoList>> fileInfoList_ {};
-      // The basic information of the media assets.
+      // The basic information about the media asset.
       shared_ptr<MediaInfos::MediaBasicInfo> mediaBasicInfo_ {};
-      // The ID of the media asset.
+      // The media asset ID.
       shared_ptr<string> mediaId_ {};
     };
 
@@ -578,7 +571,7 @@ namespace Models
       shared_ptr<string> domainName_ {};
       // The URL of the live stream.
       shared_ptr<string> liveUrl_ {};
-      // The name of the live stream.
+      // The stream name of the live stream.
       shared_ptr<string> streamName_ {};
     };
 
@@ -628,11 +621,11 @@ namespace Models
   protected:
     // The materials associated with the live stream.
     shared_ptr<vector<AddEditingProjectMaterialsResponseBody::LiveMaterials>> liveMaterials_ {};
-    // The media assets that meet the specified conditions.
+    // The collection of eligible media assets.
     shared_ptr<vector<AddEditingProjectMaterialsResponseBody::MediaInfos>> mediaInfos_ {};
     // The ID of the online editing project.
     shared_ptr<string> projectId_ {};
-    // The materials associated with the editing project. A live stream editing project will be associated with a regular editing project after the live streaming ends.
+    // The materials associated with the editing project. After a live stream ends, the live editing project is associated with a standard editing project.
     shared_ptr<vector<string>> projectMaterials_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -188,7 +188,7 @@ namespace Models
       shared_ptr<string> channelName_ {};
       // The time when the endpoint was created.
       shared_ptr<string> createTime_ {};
-      // The endpoint description.
+      // The description of the endpoint.
       shared_ptr<string> description_ {};
       // The endpoint name.
       shared_ptr<string> endpointName_ {};
@@ -196,19 +196,19 @@ namespace Models
       shared_ptr<string> endpointUrl_ {};
       // The channel group name.
       shared_ptr<string> groupName_ {};
-      // The IP address blacklist. It supports subnet masks. Multiple IP addresses are separated by commas (,).
+      // The IP blacklist. Subnet masks are supported. Separate multiple IP addresses with commas (,).
       shared_ptr<string> ipBlacklist_ {};
-      // The IP address whitelist. It supports subnet masks. Multiple IP addresses are separated by commas (,).
+      // The IP whitelist. Subnet masks are supported. Multiple IP addresses are separated with commas (,).
       shared_ptr<string> ipWhitelist_ {};
       // The time when the endpoint was last modified.
       shared_ptr<string> lastModified_ {};
-      // Live packaging configuration
+      // The live packaging configuration.
       shared_ptr<LivePackagingConfig> livePackagingConfig_ {};
       // The playlist name. Default value: manifest.
       shared_ptr<string> manifestName_ {};
-      // The protocol. Only HLS is supported.
+      // The protocol. Currently, only HLS is supported.
       shared_ptr<string> protocol_ {};
-      // The number of days that time-shifted content is available. Maximum value: 30.
+      // The number of time-shifting days. Maximum value: 30.
       shared_ptr<int32_t> timeshiftVision_ {};
     };
 
@@ -231,7 +231,7 @@ namespace Models
 
 
   protected:
-    // The information about the origin endpoint.
+    // The origin endpoint information.
     shared_ptr<UpdateLivePackageOriginEndpointResponseBody::LivePackageOriginEndpoint> livePackageOriginEndpoint_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -48,13 +48,12 @@ namespace Models
 
 
   protected:
-    // Specifies whether to perform a logical delete or a permanent delete. Valid values:
+    // Specifies whether to logically delete the media asset information and files. Valid values:
     // 
-    // - true (default): Performs a logical delete. This action moves the media asset to the recycle bin and retains its associated file.
-    // 
-    // - false: Performs a permanent delete. This action deletes both the media asset information and the associated file.
+    // - true (default): logically deletes the media asset. The media asset is moved to the recycle bin, and the files are retained.
+    // - false: deletes the media asset information and files.
     shared_ptr<bool> logicDelete_ {};
-    // A comma-separated list of media asset IDs.
+    // The media asset IDs. Separate multiple IDs with commas (,).
     shared_ptr<string> mediaIds_ {};
   };
 

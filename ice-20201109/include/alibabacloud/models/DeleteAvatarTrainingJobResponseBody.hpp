@@ -61,7 +61,7 @@ namespace Models
 
 
     protected:
-      // The ID of the digital human training job.
+      // The ID of the digital human training task.
       shared_ptr<string> jobId_ {};
     };
 
@@ -91,15 +91,13 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The response data.
     shared_ptr<DeleteAvatarTrainingJobResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // 
-    // - true
-    // 
-    // - false
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

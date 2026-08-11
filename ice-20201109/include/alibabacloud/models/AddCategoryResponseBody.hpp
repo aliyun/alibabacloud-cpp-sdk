@@ -100,15 +100,13 @@ namespace Models
       shared_ptr<int64_t> cateId_ {};
       // The category name.
       shared_ptr<string> cateName_ {};
-      // The level of the category. A value of **0** indicates a level-1 category, a value of **1** indicates a level-2 category, and a value of **2** indicates a level-3 category.
+      // The category level. The first-level category has a level of **0**, the second-level category has a level of **1**, and the third-level category has a level of **2**.
       shared_ptr<int64_t> level_ {};
-      // The ID of the parent category. By default, if ParentId is left empty or less than 1, -1 is returned, which indicates that the created category is the root directory.
+      // The parent category ID. If the ParentId parameter is set to empty or a value less than 1, the default return value is -1, which indicates that the created category is a root directory.
       shared_ptr<int64_t> parentId_ {};
-      // The type of the category. Valid values:
-      // 
-      // - **default**: audio, video, and image files. This is the default value.
-      // 
-      // - **material**: short video materials.
+      // The category type. Valid values:
+      // - **default** (default): audio, video, and image category.
+      // - **material**: short video material category.
       shared_ptr<string> type_ {};
     };
 
@@ -131,7 +129,7 @@ namespace Models
 
 
   protected:
-    // The information about the category.
+    // The media asset category information.
     shared_ptr<AddCategoryResponseBody::Category> category_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

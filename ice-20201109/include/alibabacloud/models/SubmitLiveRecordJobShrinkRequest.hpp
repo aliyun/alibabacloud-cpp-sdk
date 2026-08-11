@@ -75,21 +75,21 @@ namespace Models
 
 
   protected:
-    // The name of the recording job.
+    // The name of the recording task.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     // The callback URL.
     shared_ptr<string> notifyUrl_ {};
-    // The storage address of the recording.
+    // The recording storage address.
     // 
     // This parameter is required.
     shared_ptr<string> recordOutputShrink_ {};
-    // The URL of the live stream.
+    // The live stream address.
     // 
     // This parameter is required.
     shared_ptr<string> streamInputShrink_ {};
-    // The ID of the recording template.
+    // The recording template ID.
     // 
     // This parameter is required.
     shared_ptr<string> templateId_ {};

@@ -216,55 +216,56 @@ namespace Models
 
 
     protected:
-      // The clip parameters of the template used for the job.
+      // The template parameters of the media producing job.
       shared_ptr<string> clipsParam_ {};
-      // The error code of the media producing job. >Notice: This parameter is returned only if the job fails.
+      // The error code of the media producing job.
+      // >Notice: Check this field when the job fails.
       shared_ptr<string> code_ {};
-      // The time in UTC when the media producing job was completed, formatted as `YYYY-MM-DD\\"T\\"hh:mm:ss\\"Z\\"`.
+      // The time when the media producing job was completed, in UTC.
+      // 
+      // Format: "YYYY-MM-DD\\"T\\"hh:mm:ss\\"Z\\"".
       shared_ptr<string> completeTime_ {};
-      // The time in UTC when the media producing job was created, formatted as `YYYY-MM-DD\\"T\\"hh:mm:ss\\"Z\\"`.
+      // The time when the media producing job was created, in UTC.
+      // 
+      // Format: "YYYY-MM-DD\\"T\\"hh:mm:ss\\"Z\\"".
       shared_ptr<string> createTime_ {};
-      // The duration of the output media. >Notice: This parameter is returned only if the job is successful and the output is an audio or video file.
+      // The duration of the output media asset.
+      // >Notice: This field has a value only when the producing job succeeds and the output media asset type is audio or video.
       shared_ptr<float> duration_ {};
-      // The job ID.
+      // The ID of the media producing job.
       shared_ptr<string> jobId_ {};
-      // The ID of the output media asset.
+      // The resource ID of the output media asset.
       shared_ptr<string> mediaId_ {};
-      // The URL of the output media file.
+      // The resource file URL of the output media asset.
       shared_ptr<string> mediaURL_ {};
       // The error message of the media producing job.
       // 
-      // >Notice: 
-      // 
-      // This parameter is returned only if the job fails.
+      // >Notice: Check this field when the job fails.
       shared_ptr<string> message_ {};
-      // The time in UTC when the media producing job was last modified, formatted as `YYYY-MM-DD\\"T\\"hh:mm:ss\\"Z\\"`.
+      // The time when the media producing job was last modified, in UTC.
+      // 
+      // Format: "YYYY-MM-DD\\"T\\"hh:mm:ss\\"Z\\"".
       shared_ptr<string> modifiedTime_ {};
-      // The progress of the job. Valid values: 0 to 100.
       shared_ptr<int32_t> progress_ {};
-      // The project ID.
+      // The ID of the cloud editing project.
       shared_ptr<string> projectId_ {};
       // The status of the media producing job. Valid values:
       // 
-      // - `Init` (Initialized)
-      // 
-      // - `Queuing` (In queue)
-      // 
-      // - `Processing` (In progress)
-      // 
-      // - `Success` (Successful)
-      // 
-      // - `Failed` (Failed)
+      // - Init: init state.
+      // - Queuing: queuing.
+      // - Processing: processing.
+      // - Success: succeeded.
+      // - Failed: failed.
       shared_ptr<string> status_ {};
-      // If the job is a subtask of a batch smart one-click video creation task, this parameter contains the subtask\\"s materials, such as the title and speech script.
+      // If this media producing job is a subtask of a batch intelligent one-click video production job, this field returns the material information used by the subtask, such as the narration text and title.
       shared_ptr<string> subJobMaterials_ {};
-      // The ID of the template used for the job.
+      // The template ID of the media producing job.
       shared_ptr<string> templateId_ {};
       // The timeline of the media producing job.
       shared_ptr<string> timeline_ {};
-      // The user data, in JSON format.
+      // The custom settings in JSON format.
       shared_ptr<string> userData_ {};
-      // The ID of the media asset in VOD (Video on Demand). This ID is returned if the job\\"s output is stored in VOD.
+      // If the output of the media producing job is delivered to ApsaraVideo VOD, the output is registered as a VOD media asset. The vodMediaId is the media asset ID in VOD.
       shared_ptr<string> vodMediaId_ {};
     };
 
@@ -287,7 +288,7 @@ namespace Models
 
 
   protected:
-    // The details of the media producing job.
+    // The media producing job information.
     shared_ptr<GetMediaProducingJobResponseBody::MediaProducingJob> mediaProducingJob_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

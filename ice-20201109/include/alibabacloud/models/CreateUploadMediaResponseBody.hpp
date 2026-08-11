@@ -84,23 +84,21 @@ namespace Models
 
 
   protected:
-    // The OSS URL of the file, without authentication parameters.
+    // The OSS URL of the file (without authentication).
     shared_ptr<string> fileURL_ {};
-    // The ID of the media asset.
+    // The media asset ID.
     shared_ptr<string> mediaId_ {};
-    // The URL of the media asset.
-    // 
-    // > This will be a CDN URL if a CDN domain is configured, or an OSS URL otherwise. If you receive a 403 error when accessing this URL in a browser, it is likely because URL authentication is enabled for the VOD domain. To resolve this, either disable URL authentication or generate a signed URL for access.
+    // The media asset URL.
+    // > If a CDN domain name is configured, a CDN URL is returned. Otherwise, an OSS URL is returned. If the returned MediaURL is inaccessible (403) in a browser, URL signing is enabled for the VOD domain name. Disable URL signing or generate a signing signature.
     shared_ptr<string> mediaURL_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The upload address.
-    // 
-    // > The returned upload address is Base64-encoded and must be decoded before use. You only need to manually decode this address if you are using a native OSS SDK or an OSS API to perform the upload.
+    // > The upload address returned by the operation is a Base64-encoded value. When you call an SDK or API to upload media assets, decode the value by using Base64 before use. Only uploads through the native OSS SDK or OSS API require you to parse UploadAddress.
     shared_ptr<string> uploadAddress_ {};
     // The upload credential.
     // 
-    // > The returned upload credential is Base64-encoded and must be decoded before use. You only need to manually decode this credential if you are using a native OSS SDK or an OSS API to perform the upload.
+    // > The upload credential returned by the operation is a Base64-encoded value. When you call an SDK or API to upload media assets, decode the value by using Base64 before use. Only uploads through the native OSS SDK or OSS API require you to parse UploadAuth.
     shared_ptr<string> uploadAuth_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // File extension.
+    // The file name extension.
     // 
     // This parameter is required.
     shared_ptr<string> fileExt_ {};

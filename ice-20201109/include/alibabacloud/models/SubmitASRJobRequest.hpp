@@ -94,21 +94,23 @@ namespace Models
 
 
   protected:
-    // The job description. The maximum length is 128 bytes.
+    // The task description. The description can be up to 128 bytes in length.
     shared_ptr<string> description_ {};
-    // The duration of the segment to transcribe.
+    // The duration.
     shared_ptr<string> duration_ {};
-    // The configuration for speech-to-text conversion:
+    // The audio-to-text recognition configuration:
     // 
-    // - HotwordLibraryIdList: A list of custom vocabulary IDs. Only one custom vocabulary ID is currently supported. Future releases will support multiple IDs.
+    // - HotwordLibraryIdList: the list of hotword library IDs. Currently, only one hotword library ID is supported. Support for multiple hotword library IDs is planned for the future.
+    // - SentenceMaxLength: the maximum length of each sentence in the output. Type: int.
+    // - EnableSemanticSentenceDetection: specifies whether to segment sentences based on semantics in the output. Type: bool. Default value: false.
     shared_ptr<string> editingConfig_ {};
-    // The input configuration. Specify either an OSS URL or a media ID from the media library.
+    // The input configuration. OSS addresses and content library material IDs are supported.
     shared_ptr<string> inputFile_ {};
-    // The start time of the segment to be transcribed from the media file.
+    // The start time.
     shared_ptr<string> startTime_ {};
-    // The job title. The maximum length is 128 bytes.
+    // The task title. The title can be up to 128 bytes in length.
     shared_ptr<string> title_ {};
-    // User-defined settings in JSON format. Use this to pass business-related data, such as the operating environment or other job details.
+    // The custom settings. You can pass in business information such as the business environment and task information. The value is a JSON string.
     shared_ptr<string> userData_ {};
   };
 

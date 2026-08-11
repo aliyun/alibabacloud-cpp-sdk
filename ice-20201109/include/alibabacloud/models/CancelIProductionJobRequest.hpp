@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Idempotency parameter
+    // The idempotency token.
     shared_ptr<string> clientToken_ {};
     // The ID of the intelligent production job.
     // 

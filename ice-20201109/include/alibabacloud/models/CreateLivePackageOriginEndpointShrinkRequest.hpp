@@ -140,37 +140,37 @@ namespace Models
 
 
   protected:
-    // The authorization code. It can be up to 200 characters in length. You must configure AuthorizationCode, IpWhitelist, or both. Format: [A-Za-z0-9-_.]+
+    // The authorization code. You must specify at least one of AuthorizationCode and IpWhitelist. Maximum length: 200 characters. Format: [A-Za-z0-9-_.]+
     shared_ptr<string> authorizationCode_ {};
-    // The channel name.
+    // The name of the channel.
     // 
     // This parameter is required.
     shared_ptr<string> channelName_ {};
-    // The client token that is used to ensure the idempotence of the request.
+    // The idempotency token.
     shared_ptr<string> clientToken_ {};
-    // The endpoint description.
+    // The description of the endpoint.
     shared_ptr<string> description_ {};
-    // The origin endpoint name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
+    // The name of the origin endpoint. The name must contain only letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
     // 
     // This parameter is required.
     shared_ptr<string> endpointName_ {};
-    // The channel group name.
+    // The name of the channel group.
     // 
     // This parameter is required.
     shared_ptr<string> groupName_ {};
-    // The IP address blacklist. It supports subnet masks. 0.0.0.0/0 is not allowed. It can be up to 1,000 characters in length. Separate multiple IP addresses with commas (,).
+    // The IP blacklist. Subnet masks are supported. The value 0.0.0.0/0 is not allowed. Separate multiple IP addresses with commas (,). Maximum length: 1000 characters.
     shared_ptr<string> ipBlacklist_ {};
-    // The IP address whitelist. It supports subnet masks. 0.0.0.0/0 is not allowed. It can be up to 1,000 characters in length. Separate multiple IP addresses with commas (,). You must configure AuthorizationCode, IpWhitelist, or both.
+    // The IP whitelist. Subnet masks are supported. The value 0.0.0.0/0 is not allowed. Separate multiple IP addresses with commas (,). You must specify at least one of IpWhitelist and AuthorizationCode. Maximum length: 1000 characters.
     shared_ptr<string> ipWhitelist_ {};
-    // Live stream encapsulation configuration
+    // The live packaging configuration.
     shared_ptr<string> livePackagingConfigShrink_ {};
-    // The playlist name. Default value: manifest.
+    // The manifest name. Default value: manifest.
     shared_ptr<string> manifestName_ {};
     // The distribution protocol.
     // 
     // This parameter is required.
     shared_ptr<string> protocol_ {};
-    // The number of days that time-shifted content is available. Maximum value: 30. Default value: 0, which indicates that time shifting is not supported.
+    // The number of days for time-shifting. Maximum value: 30. Default value: 0, which indicates that time-shifting is not supported.
     shared_ptr<int32_t> timeshiftVision_ {};
   };
 

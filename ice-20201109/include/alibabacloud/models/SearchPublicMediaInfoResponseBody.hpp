@@ -239,35 +239,35 @@ namespace Models
 
 
         protected:
-          // Media Asset Business Type
+          // The business type of the media asset.
           shared_ptr<string> businessType_ {};
-          // Categorization
+          // The category of the media asset.
           shared_ptr<string> category_ {};
-          // Thumbnail URL
+          // The cover URL of the media asset.
           shared_ptr<string> coverURL_ {};
-          // Media Asset Creation Time
+          // The time when the media asset was created.
           shared_ptr<string> createTime_ {};
-          // Media Asset Deletion Time
+          // The time when the media asset was deleted.
           shared_ptr<string> deletedTime_ {};
-          // Content description
+          // The content description of the media asset.
           shared_ptr<string> description_ {};
           // MediaId
           shared_ptr<string> mediaId_ {};
-          // Label
+          // The tags of the media asset.
           shared_ptr<string> mediaTags_ {};
-          // Media asset media type
+          // The media type of the media asset.
           shared_ptr<string> mediaType_ {};
-          // Updated At
+          // The time when the media asset was last modified.
           shared_ptr<string> modifiedTime_ {};
-          // Source
+          // The source of the media asset.
           shared_ptr<string> source_ {};
-          // sprite
+          // The sprite images of the media asset.
           shared_ptr<string> spriteImages_ {};
-          // Resource status
+          // The status of the resource.
           shared_ptr<string> status_ {};
-          // title
+          // The title of the media asset.
           shared_ptr<string> title_ {};
-          // User Data
+          // The user data of the media asset.
           shared_ptr<string> userData_ {};
         };
 
@@ -309,15 +309,13 @@ namespace Models
 
 
         protected:
-          // Metadata JSON string
+          // The metadata JSON string.
           shared_ptr<string> data_ {};
-          // Type. Valid values:
+          // The type. Valid values:
           // 
-          // - "ai": AI data processed and normalized from original AI results
-          // 
-          // - "user-defined": User-defined metadata
-          // 
-          // - "system": System-provided
+          // - "ai": AI data that is generated after unified processing of AI raw results.
+          // - "user-defined": user-defined metadata.
+          // - "system": system built-in metadata.
           shared_ptr<string> type_ {};
         };
 
@@ -349,11 +347,11 @@ namespace Models
 
 
       protected:
-        // Dynamic metadata
+        // The dynamic metadata.
         shared_ptr<MediaInfo::DynamicMetaData> dynamicMetaData_ {};
         // BasicInfo
         shared_ptr<MediaInfo::MediaBasicInfo> mediaBasicInfo_ {};
-        // Media asset ID
+        // The media asset ID.
         shared_ptr<string> mediaId_ {};
       };
 
@@ -390,13 +388,13 @@ namespace Models
 
 
     protected:
-      // Indicates whether you have purchased a resource plan that includes this media asset.
+      // Indicates whether a resource plan that includes this media asset has been purchased.
       shared_ptr<bool> authorized_ {};
-      // Whether the media asset is collected.
+      // Indicates whether the media asset has been added to favorites.
       shared_ptr<bool> favorite_ {};
-      // Media asset information
+      // The media asset information.
       shared_ptr<PublicMediaInfos::MediaInfo> mediaInfo_ {};
-      // Remaining validity period of the resource plan (Day)
+      // The remaining validity period of the resource plan, in days.
       shared_ptr<string> remainingAuthTime_ {};
     };
 
@@ -426,11 +424,11 @@ namespace Models
 
 
   protected:
-    // Public copyright media asset information
+    // The public copyright media asset information.
     shared_ptr<vector<SearchPublicMediaInfoResponseBody::PublicMediaInfos>> publicMediaInfos_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total amount of Data under the current request conditions.
+    // The total number of entries that match the request conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The job ID.
+    // The producing job ID.
     shared_ptr<string> jobId_ {};
-    // The media ID.
+    // The ID of the produced media asset.
     shared_ptr<string> mediaId_ {};
-    // The project ID.
+    // The editing project ID.
     shared_ptr<string> projectId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The VOD media ID. Returned if the output destination is VOD.
+    // The VOD media asset ID. This parameter is returned when the video output location is VOD.
     shared_ptr<string> vodMediaId_ {};
   };
 

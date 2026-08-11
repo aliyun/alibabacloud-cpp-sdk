@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ciphertext that you want to decrypt.
+    // The ciphertext to be decrypted.
     // 
     // This parameter is required.
     shared_ptr<string> ciphertextBlob_ {};

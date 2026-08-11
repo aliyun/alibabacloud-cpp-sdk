@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The template name.
     shared_ptr<string> name_ {};
-    // The [template parameters](https://help.aliyun.com/document_detail/448291.html).
+    // The [template parameter](https://help.aliyun.com/document_detail/448291.html).
     shared_ptr<string> templateConfig_ {};
     // The template ID.
     // 

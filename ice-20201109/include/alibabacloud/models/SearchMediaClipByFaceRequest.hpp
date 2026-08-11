@@ -84,13 +84,13 @@ namespace Models
 
 
   protected:
-    // The ID of the entity.
+    // The entity ID.
     shared_ptr<string> entityId_ {};
-    // The value of this parameter is the same as that of the FaceSearchToken parameter in the SearchMediaByFace request. This specifies to return media asset clips that meet the same query conditions.
+    // The value must be the same as the FaceSearchToken value in the [coarse search operation](https://help.aliyun.com/document_detail/612893.html). This parameter is used to determine paginated results under the same search condition.
     // 
     // This parameter is required.
     shared_ptr<string> faceSearchToken_ {};
-    // The ID of the media asset.
+    // The media asset ID.
     // 
     // This parameter is required.
     shared_ptr<string> mediaId_ {};

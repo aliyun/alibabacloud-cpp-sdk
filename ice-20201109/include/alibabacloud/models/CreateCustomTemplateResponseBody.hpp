@@ -144,23 +144,23 @@ namespace Models
     protected:
       // The time when the template was created.
       shared_ptr<string> createTime_ {};
-      // Indicates whether the template is the default template.
+      // Indicates whether the template is a default template.
       shared_ptr<bool> isDefault_ {};
       // The time when the template was last modified.
       shared_ptr<string> modifiedTime_ {};
-      // The template state.
+      // The template status.
       shared_ptr<string> status_ {};
-      // The subtype name of the template.
+      // The template subtype name.
       shared_ptr<string> subtype_ {};
-      // The template configurations.
+      // The template configuration.
       shared_ptr<string> templateConfig_ {};
       // The template ID.
       shared_ptr<string> templateId_ {};
       // The template name.
       shared_ptr<string> templateName_ {};
-      // The type ID of the template.
+      // The templatetype ID.
       shared_ptr<int32_t> type_ {};
-      // The type name of the template.
+      // The templatetype name.
       shared_ptr<string> typeName_ {};
     };
 

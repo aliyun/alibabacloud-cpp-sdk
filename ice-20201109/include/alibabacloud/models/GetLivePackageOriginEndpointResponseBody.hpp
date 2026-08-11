@@ -186,7 +186,7 @@ namespace Models
       shared_ptr<string> authorizationCode_ {};
       // The channel name.
       shared_ptr<string> channelName_ {};
-      // The time when the endpoint was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
       // The endpoint description.
       shared_ptr<string> description_ {};
@@ -196,19 +196,19 @@ namespace Models
       shared_ptr<string> endpointUrl_ {};
       // The channel group name.
       shared_ptr<string> groupName_ {};
-      // The IP address blacklist.
+      // The IP blacklist.
       shared_ptr<string> ipBlacklist_ {};
-      // The IP address whitelist.
+      // The IP whitelist.
       shared_ptr<string> ipWhitelist_ {};
-      // The time when the endpoint was last modified.
+      // The last modified time.
       shared_ptr<string> lastModified_ {};
-      // Live packaging configuration
+      // The live packaging configuration.
       shared_ptr<LivePackagingConfig> livePackagingConfig_ {};
-      // The playlist name.
+      // The manifest name.
       shared_ptr<string> manifestName_ {};
       // The distribution protocol.
       shared_ptr<string> protocol_ {};
-      // The number of days that time-shifted content is available.
+      // The number of time-shift days.
       shared_ptr<int32_t> timeshiftVision_ {};
     };
 
@@ -231,7 +231,7 @@ namespace Models
 
 
   protected:
-    // The information about the origin endpoints.
+    // The origin endpoint type.
     shared_ptr<GetLivePackageOriginEndpointResponseBody::LivePackageOriginEndpoint> livePackageOriginEndpoint_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

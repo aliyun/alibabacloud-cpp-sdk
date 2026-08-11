@@ -66,7 +66,7 @@ namespace Models
 
 
     protected:
-      // The ID of the media asset.
+      // The media asset ID.
       shared_ptr<string> mediaId_ {};
     };
 
@@ -110,15 +110,15 @@ namespace Models
 
 
   protected:
-    // The status code returned.
+    // The return code.
     shared_ptr<string> code_ {};
-    // The media assets that meet the conditions.
+    // The list of media assets that match the search criteria.
     shared_ptr<vector<SearchMediaByFaceResponseBody::MediaInfoList>> mediaInfoList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values: true false
+    // Indicates whether the operation was successful. Valid values: true: The operation was successful. false: The operation failed.
     shared_ptr<string> success_ {};
-    // The total number of data records that meet the specified filter condition.
+    // The total number of media assets that match the search criteria.
     shared_ptr<int64_t> total_ {};
   };
 

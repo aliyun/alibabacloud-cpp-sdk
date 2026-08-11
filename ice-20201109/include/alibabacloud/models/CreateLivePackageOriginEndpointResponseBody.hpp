@@ -184,31 +184,31 @@ namespace Models
     protected:
       // The authorization code.
       shared_ptr<string> authorizationCode_ {};
-      // The channel name.
+      // The name of the channel.
       shared_ptr<string> channelName_ {};
       // The time when the endpoint was created.
       shared_ptr<string> createTime_ {};
-      // The endpoint description.
+      // The description of the endpoint.
       shared_ptr<string> description_ {};
-      // The endpoint name.
+      // The name of the endpoint.
       shared_ptr<string> endpointName_ {};
-      // The endpoint URL.
+      // The playback URL of the endpoint.
       shared_ptr<string> endpointUrl_ {};
-      // The channel group name.
+      // The name of the channel group.
       shared_ptr<string> groupName_ {};
-      // The IP address blacklist.
+      // The IP blacklist.
       shared_ptr<string> ipBlacklist_ {};
-      // The IP address whitelist.
+      // The IP whitelist.
       shared_ptr<string> ipWhitelist_ {};
       // The time when the endpoint was last modified.
       shared_ptr<string> lastModified_ {};
-      // Live packaging configuration
+      // The live packaging configuration.
       shared_ptr<LivePackagingConfig> livePackagingConfig_ {};
-      // The playlist name.
+      // The manifest name.
       shared_ptr<string> manifestName_ {};
-      // The protocol. Only HLS is supported.
+      // The protocol. Currently, only HLS is supported.
       shared_ptr<string> protocol_ {};
-      // The number of days that time-shifted content is available. Maximum value: 30.
+      // The number of days for time-shifting. Maximum value: 30.
       shared_ptr<int32_t> timeshiftVision_ {};
     };
 
@@ -231,7 +231,7 @@ namespace Models
 
 
   protected:
-    // The information about the origin endpoint.
+    // The LivePackageOriginEndpoint object.
     shared_ptr<CreateLivePackageOriginEndpointResponseBody::LivePackageOriginEndpoint> livePackageOriginEndpoint_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

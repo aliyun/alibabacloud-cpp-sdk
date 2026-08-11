@@ -109,9 +109,9 @@ namespace Models
 
 
       protected:
-        // The URL of the input stream.
+        // The input stream URL.
         shared_ptr<string> inputUrl_ {};
-        // The type of the input stream.
+        // The input stream type.
         shared_ptr<string> type_ {};
       };
 
@@ -172,9 +172,9 @@ namespace Models
 
 
         protected:
-          // The URL of the output stream.
+          // The output stream URL.
           shared_ptr<string> outputUrl_ {};
-          // The type of the output stream protocol. Only the RTMP protocol is supported.
+          // The output stream protocol type. Currently, only the RTMP protocol is supported.
           shared_ptr<string> type_ {};
         };
 
@@ -189,7 +189,7 @@ namespace Models
 
 
       protected:
-        // The list of stream URLs.
+        // The list of playback URLs.
         shared_ptr<vector<OutputStream::StreamInfos>> streamInfos_ {};
       };
 
@@ -271,25 +271,25 @@ namespace Models
 
 
     protected:
-      // The time when the job was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
-      // The job ID.
+      // The task ID.
       shared_ptr<string> jobId_ {};
-      // The name of the transcoding job.
+      // The name of the transcoding task.
       shared_ptr<string> name_ {};
-      // The information about the output stream.
+      // The output stream information.
       shared_ptr<JobList::OutputStream> outputStream_ {};
-      // The start mode of the job.
+      // The start mode.
       shared_ptr<int32_t> startMode_ {};
-      // The state of the job.
+      // The task status.
       shared_ptr<int32_t> status_ {};
-      // The information about the input stream.
+      // The input stream information.
       shared_ptr<JobList::StreamInput> streamInput_ {};
-      // The ID of the transcoding template used by the transcoding job.
+      // The template ID corresponding to the transcoding task.
       shared_ptr<string> templateId_ {};
       // The template name.
       shared_ptr<string> templateName_ {};
-      // The type of the transcoding template used by the transcoding job.
+      // The type of the transcoding template corresponding to the transcoding task.
       shared_ptr<string> templateType_ {};
     };
 
@@ -319,11 +319,11 @@ namespace Models
 
 
   protected:
-    // The list of transcoding jobs.
+    // The list of transcoding tasks.
     shared_ptr<vector<ListLiveTranscodeJobsResponseBody::JobList>> jobList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

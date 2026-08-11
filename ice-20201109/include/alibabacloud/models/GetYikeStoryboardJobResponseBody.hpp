@@ -111,17 +111,17 @@ namespace Models
 
 
     protected:
-      // A list of IDs for storyboards that encountered an exception.
+      // The list of exception storyboard IDs.
       shared_ptr<string> exceptionStoryboardIds_ {};
-      // A list of shots that failed to generate.
+      // The list of failed shots.
       shared_ptr<string> failureShotList_ {};
       // The downloadable OSS URL.
       shared_ptr<string> outputUrl_ {};
-      // Detailed information about each storyboard in the job.
+      // The detailed storyboard information for the storyboard generation task.
       shared_ptr<string> storyboardInfoList_ {};
-      // A comma-separated list of successful storyboard IDs.
+      // The list of successful storyboard IDs, separated by commas.
       shared_ptr<string> successStoryboardIds_ {};
-      // A list of IDs for successful storyboards.
+      // The list of successful storyboards.
       shared_ptr<string> successStoryboardList_ {};
     };
 
@@ -249,15 +249,15 @@ namespace Models
       shared_ptr<string> aspectRatio_ {};
       // The OSS URL of the file.
       shared_ptr<string> fileURL_ {};
-      // The model parameters.
+      // The random seed.
       shared_ptr<string> modelParams_ {};
-      // The narration voice.
+      // The narration voice ID.
       shared_ptr<string> narrationVoiceId_ {};
       // The resolution of the generated video.
       shared_ptr<string> resolution_ {};
-      // The shot generation mode.
+      // The shot prompt generation mode.
       shared_ptr<string> shotPromptMode_ {};
-      // The shot splitting mode.
+      // The shot split mode.
       shared_ptr<string> shotSplitMode_ {};
       // The source type.
       shared_ptr<string> sourceType_ {};
@@ -267,7 +267,7 @@ namespace Models
       // 
       // \\- Maximum length: 128 bytes.
       // 
-      // \\- UTF-8 encoding.
+      // \\- UTF-8 encoded.
       shared_ptr<string> title_ {};
       // The video model.
       shared_ptr<string> videoModel_ {};
@@ -315,19 +315,19 @@ namespace Models
 
 
   protected:
-    // The storyboard job ID. You can obtain this ID from the response parameters of the [SubmitStoryboardJob](https://help.aliyun.com/document_detail/461964.html) operation.
+    // The job ID. You can obtain this value from the response parameters of [Submit a packaging job](https://help.aliyun.com/document_detail/461964.html).
     shared_ptr<string> jobId_ {};
-    // A JSON object that contains the parameters for the job. The structure of this object varies based on the AI algorithm.
+    // The algorithm job parameters. This is a JSON object whose content varies depending on the algorithm.
     shared_ptr<GetYikeStoryboardJobResponseBody::JobParams> jobParams_ {};
     // The job result.
     shared_ptr<GetYikeStoryboardJobResponseBody::JobResult> jobResult_ {};
     // The job status. Valid values:
     // 
-    // - **Succeeded**: The job completed successfully.
+    // - **Succeeded**: The job is processed.
     // 
-    // - **Failed**: The job failed to complete.
+    // - **Failed**: The job failed.
     // 
-    // - **Running**: The job is in progress.
+    // - **Running**: The job is being processed.
     shared_ptr<string> jobStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -160,15 +160,15 @@ namespace Models
   protected:
     // The aspect ratio of the output video.
     shared_ptr<string> aspectRatio_ {};
-    // The storyboard generation execution mode.
+    // The execution mode for storyboard generation. Valid values:
     // 
-    // - `FullPipeline`: Executes the full generation pipeline, including both storyboard creation and shot video generation.
+    // - FullPipeline: full pipeline generation, which includes storyboard generation and shot video generation.
     // 
-    // - `StoryboardOnly`: Generates only the storyboard.
+    // - StoryboardOnly: generates only the storyboard.
     shared_ptr<string> execMode_ {};
-    // The OSS address of the file.
+    // The OSS URL of the file.
     shared_ptr<string> fileURL_ {};
-    // Parameters for the model, in JSON format.
+    // The model feature parameters in JSON format.
     shared_ptr<string> modelParams_ {};
     // The narration voice ID.
     shared_ptr<string> narrationVoiceId_ {};
@@ -178,17 +178,16 @@ namespace Models
     shared_ptr<string> shotPromptMode_ {};
     // The shot split mode.
     shared_ptr<string> shotSplitMode_ {};
-    // Specifies whether to skip a failed shot. The default value is `true`.
+    // Specifies whether to skip failed shots. Default value: True.
     shared_ptr<bool> skipFailureShot_ {};
     // The source type.
     shared_ptr<string> sourceType_ {};
     // The storyboard style ID.
     shared_ptr<string> styleId_ {};
-    // The job title. It must be a UTF-8 encoded string of up to 128 bytes. If you do not specify a title, the system generates a default one based on the date.
+    // The task title. If not specified, a default title is automatically generated based on the date. The title cannot exceed 128 bytes in length and must be UTF-8 encoded.
     shared_ptr<string> title_ {};
-    // Custom settings in JSON format. This parameter can contain the following field:
-    // 
-    // - The `NotifyAddress` field specifies the callback URL that is invoked when the job is complete. Both MNS and HTTP callbacks are supported.
+    // The custom settings in JSON format. Fields:
+    // - NotifyAddress: the callback URL for task completion. MNS callbacks and HTTP callbacks are supported.
     shared_ptr<string> userData_ {};
     // The video model.
     shared_ptr<string> videoModel_ {};

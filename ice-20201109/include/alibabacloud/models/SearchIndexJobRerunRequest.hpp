@@ -66,21 +66,18 @@ namespace Models
 
 
   protected:
-    // The ID of the media asset. Separate multiple IDs with commas (,).
+    // The media asset IDs. Separate multiple IDs with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> mediaIds_ {};
-    // Namespace.
+    // The namespace.
     shared_ptr<string> namespace_ {};
     // The search library.
     shared_ptr<string> searchLibName_ {};
-    // The type of the job. Separate multiple types with commas (,).
-    // 
-    // - aiLabel: smart tagging.
-    // 
+    // The task type. Separate multiple types with commas (,). Valid values:
+    // - aiLabel: intelligent tagging.
     // - face: face recognition.
-    // 
-    // - mm: large visual model.
+    // - mm: foundation model.
     shared_ptr<string> task_ {};
   };
 

@@ -133,15 +133,15 @@ namespace Models
       shared_ptr<string> auth_ {};
       // The cover URL.
       shared_ptr<string> coverUrl_ {};
-      // The creation time of the project.
+      // The creation time.
       shared_ptr<string> createTime_ {};
-      // The creator name.
+      // The username of the creator.
       shared_ptr<string> createUserName_ {};
       // The project description.
       shared_ptr<string> description_ {};
       // The project ID.
       shared_ptr<string> productionId_ {};
-      // The title of the project.
+      // The title.
       shared_ptr<string> title_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -180,11 +180,11 @@ namespace Models
 
 
   protected:
-    // The maximum number of results returned on each page.
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. If more results are available, you can use this token in the next request to retrieve the next page of results. If this field is empty, all results have been returned.
+    // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The list of projects.
+    // The project list.
     shared_ptr<vector<ListYikeProductionsResponseBody::ProductionList>> productionList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
