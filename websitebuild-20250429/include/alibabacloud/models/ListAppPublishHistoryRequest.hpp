@@ -153,7 +153,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> publishEnv_ {};
     // The sort method.

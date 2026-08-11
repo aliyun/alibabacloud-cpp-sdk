@@ -7318,7 +7318,7 @@ QueryInspirationBalanceResponse Client::queryInspirationBalance() {
 }
 
 /**
- * @summary 提供给服务商的灵感值查询接口
+ * @summary Queries the inspiration value for service providers.
  *
  * @param request QueryInspirationBalanceForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7353,7 +7353,7 @@ QueryInspirationBalanceForPartnerResponse Client::queryInspirationBalanceForPart
 }
 
 /**
- * @summary 提供给服务商的灵感值查询接口
+ * @summary Queries the inspiration value for service providers.
  *
  * @param request QueryInspirationBalanceForPartnerRequest
  * @return QueryInspirationBalanceForPartnerResponse

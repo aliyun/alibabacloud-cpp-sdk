@@ -124,11 +124,17 @@ namespace Models
 
 
     protected:
+      // The remaining amount, calculated as totalQuota minus totalUsed.
       shared_ptr<int64_t> remaining_ {};
+      // The remaining amount as a precise value. This field is of the String type and supports decimal display.
       shared_ptr<string> remainingStr_ {};
+      // The total quota, which is the sum of initQuota for all valid accounts.
       shared_ptr<int64_t> totalQuota_ {};
+      // The total quota as a precise value. This field is of the String type and supports decimal display.
       shared_ptr<string> totalQuotaStr_ {};
+      // The total consumed amount, which is the sum of used for all valid accounts.
       shared_ptr<int64_t> totalUsed_ {};
+      // The total consumed amount as a precise value. This field is of the String type and supports decimal display.
       shared_ptr<string> totalUsedStr_ {};
     };
 
@@ -217,16 +223,27 @@ namespace Models
 
 
   protected:
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // The response data.
     shared_ptr<QueryInspirationBalanceForPartnerResponseBody::Module> module_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

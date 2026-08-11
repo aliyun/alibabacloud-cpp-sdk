@@ -2581,7 +2581,7 @@ namespace WebsiteBuild20250429
       Models::QueryInspirationBalanceResponse queryInspirationBalance();
 
       /**
-       * @summary 提供给服务商的灵感值查询接口
+       * @summary Queries the inspiration value for service providers.
        *
        * @param request QueryInspirationBalanceForPartnerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2590,7 +2590,7 @@ namespace WebsiteBuild20250429
       Models::QueryInspirationBalanceForPartnerResponse queryInspirationBalanceForPartnerWithOptions(const Models::QueryInspirationBalanceForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提供给服务商的灵感值查询接口
+       * @summary Queries the inspiration value for service providers.
        *
        * @param request QueryInspirationBalanceForPartnerRequest
        * @return QueryInspirationBalanceForPartnerResponse

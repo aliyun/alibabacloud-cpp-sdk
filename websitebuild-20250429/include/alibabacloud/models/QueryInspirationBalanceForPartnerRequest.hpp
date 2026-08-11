@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The owner ID, which can be a website ID or an Alibaba Cloud account ID.
     shared_ptr<string> belongId_ {};
+    // The type of the owner ID. Valid values: siteId and uid.
     shared_ptr<string> belongIdType_ {};
   };
 

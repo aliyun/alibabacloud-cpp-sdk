@@ -55,36 +55,44 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Module& obj) { 
         DARABONBA_PTR_TO_JSON(CanQuickRevert, canQuickRevert_);
         DARABONBA_PTR_TO_JSON(CurrentStep, currentStep_);
+        DARABONBA_PTR_TO_JSON(CurrentStepCode, currentStepCode_);
         DARABONBA_PTR_TO_JSON(DeployChannel, deployChannel_);
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(ErrorStep, errorStep_);
+        DARABONBA_PTR_TO_JSON(ErrorStepCode, errorStepCode_);
         DARABONBA_PTR_TO_JSON(IsFinish, isFinish_);
         DARABONBA_PTR_TO_JSON(IsSuccess, isSuccess_);
         DARABONBA_PTR_TO_JSON(Msg, msg_);
         DARABONBA_PTR_TO_JSON(OrderType, orderType_);
+        DARABONBA_PTR_TO_JSON(OrderTypeCode, orderTypeCode_);
         DARABONBA_PTR_TO_JSON(Percent, percent_);
         DARABONBA_PTR_TO_JSON(PublishNumber, publishNumber_);
         DARABONBA_PTR_TO_JSON(PublishOrderId, publishOrderId_);
         DARABONBA_PTR_TO_JSON(PublishTime, publishTime_);
         DARABONBA_PTR_TO_JSON(SiteId, siteId_);
+        DARABONBA_PTR_TO_JSON(StepCodes, stepCodes_);
         DARABONBA_PTR_TO_JSON(Steps, steps_);
         DARABONBA_PTR_TO_JSON(Subchannel, subchannel_);
       };
       friend void from_json(const Darabonba::Json& j, Module& obj) { 
         DARABONBA_PTR_FROM_JSON(CanQuickRevert, canQuickRevert_);
         DARABONBA_PTR_FROM_JSON(CurrentStep, currentStep_);
+        DARABONBA_PTR_FROM_JSON(CurrentStepCode, currentStepCode_);
         DARABONBA_PTR_FROM_JSON(DeployChannel, deployChannel_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(ErrorStep, errorStep_);
+        DARABONBA_PTR_FROM_JSON(ErrorStepCode, errorStepCode_);
         DARABONBA_PTR_FROM_JSON(IsFinish, isFinish_);
         DARABONBA_PTR_FROM_JSON(IsSuccess, isSuccess_);
         DARABONBA_PTR_FROM_JSON(Msg, msg_);
         DARABONBA_PTR_FROM_JSON(OrderType, orderType_);
+        DARABONBA_PTR_FROM_JSON(OrderTypeCode, orderTypeCode_);
         DARABONBA_PTR_FROM_JSON(Percent, percent_);
         DARABONBA_PTR_FROM_JSON(PublishNumber, publishNumber_);
         DARABONBA_PTR_FROM_JSON(PublishOrderId, publishOrderId_);
         DARABONBA_PTR_FROM_JSON(PublishTime, publishTime_);
         DARABONBA_PTR_FROM_JSON(SiteId, siteId_);
+        DARABONBA_PTR_FROM_JSON(StepCodes, stepCodes_);
         DARABONBA_PTR_FROM_JSON(Steps, steps_);
         DARABONBA_PTR_FROM_JSON(Subchannel, subchannel_);
       };
@@ -100,9 +108,10 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->canQuickRevert_ == nullptr
-        && this->currentStep_ == nullptr && this->deployChannel_ == nullptr && this->description_ == nullptr && this->errorStep_ == nullptr && this->isFinish_ == nullptr
-        && this->isSuccess_ == nullptr && this->msg_ == nullptr && this->orderType_ == nullptr && this->percent_ == nullptr && this->publishNumber_ == nullptr
-        && this->publishOrderId_ == nullptr && this->publishTime_ == nullptr && this->siteId_ == nullptr && this->steps_ == nullptr && this->subchannel_ == nullptr; };
+        && this->currentStep_ == nullptr && this->currentStepCode_ == nullptr && this->deployChannel_ == nullptr && this->description_ == nullptr && this->errorStep_ == nullptr
+        && this->errorStepCode_ == nullptr && this->isFinish_ == nullptr && this->isSuccess_ == nullptr && this->msg_ == nullptr && this->orderType_ == nullptr
+        && this->orderTypeCode_ == nullptr && this->percent_ == nullptr && this->publishNumber_ == nullptr && this->publishOrderId_ == nullptr && this->publishTime_ == nullptr
+        && this->siteId_ == nullptr && this->stepCodes_ == nullptr && this->steps_ == nullptr && this->subchannel_ == nullptr; };
       // canQuickRevert Field Functions 
       bool hasCanQuickRevert() const { return this->canQuickRevert_ != nullptr;};
       void deleteCanQuickRevert() { this->canQuickRevert_ = nullptr;};
@@ -115,6 +124,13 @@ namespace Models
       void deleteCurrentStep() { this->currentStep_ = nullptr;};
       inline string getCurrentStep() const { DARABONBA_PTR_GET_DEFAULT(currentStep_, "") };
       inline Module& setCurrentStep(string currentStep) { DARABONBA_PTR_SET_VALUE(currentStep_, currentStep) };
+
+
+      // currentStepCode Field Functions 
+      bool hasCurrentStepCode() const { return this->currentStepCode_ != nullptr;};
+      void deleteCurrentStepCode() { this->currentStepCode_ = nullptr;};
+      inline string getCurrentStepCode() const { DARABONBA_PTR_GET_DEFAULT(currentStepCode_, "") };
+      inline Module& setCurrentStepCode(string currentStepCode) { DARABONBA_PTR_SET_VALUE(currentStepCode_, currentStepCode) };
 
 
       // deployChannel Field Functions 
@@ -136,6 +152,13 @@ namespace Models
       void deleteErrorStep() { this->errorStep_ = nullptr;};
       inline string getErrorStep() const { DARABONBA_PTR_GET_DEFAULT(errorStep_, "") };
       inline Module& setErrorStep(string errorStep) { DARABONBA_PTR_SET_VALUE(errorStep_, errorStep) };
+
+
+      // errorStepCode Field Functions 
+      bool hasErrorStepCode() const { return this->errorStepCode_ != nullptr;};
+      void deleteErrorStepCode() { this->errorStepCode_ = nullptr;};
+      inline string getErrorStepCode() const { DARABONBA_PTR_GET_DEFAULT(errorStepCode_, "") };
+      inline Module& setErrorStepCode(string errorStepCode) { DARABONBA_PTR_SET_VALUE(errorStepCode_, errorStepCode) };
 
 
       // isFinish Field Functions 
@@ -164,6 +187,13 @@ namespace Models
       void deleteOrderType() { this->orderType_ = nullptr;};
       inline string getOrderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
       inline Module& setOrderType(string orderType) { DARABONBA_PTR_SET_VALUE(orderType_, orderType) };
+
+
+      // orderTypeCode Field Functions 
+      bool hasOrderTypeCode() const { return this->orderTypeCode_ != nullptr;};
+      void deleteOrderTypeCode() { this->orderTypeCode_ = nullptr;};
+      inline string getOrderTypeCode() const { DARABONBA_PTR_GET_DEFAULT(orderTypeCode_, "") };
+      inline Module& setOrderTypeCode(string orderTypeCode) { DARABONBA_PTR_SET_VALUE(orderTypeCode_, orderTypeCode) };
 
 
       // percent Field Functions 
@@ -201,6 +231,15 @@ namespace Models
       inline Module& setSiteId(string siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
+      // stepCodes Field Functions 
+      bool hasStepCodes() const { return this->stepCodes_ != nullptr;};
+      void deleteStepCodes() { this->stepCodes_ = nullptr;};
+      inline const vector<string> & getStepCodes() const { DARABONBA_PTR_GET_CONST(stepCodes_, vector<string>) };
+      inline vector<string> getStepCodes() { DARABONBA_PTR_GET(stepCodes_, vector<string>) };
+      inline Module& setStepCodes(const vector<string> & stepCodes) { DARABONBA_PTR_SET_VALUE(stepCodes_, stepCodes) };
+      inline Module& setStepCodes(vector<string> && stepCodes) { DARABONBA_PTR_SET_RVALUE(stepCodes_, stepCodes) };
+
+
       // steps Field Functions 
       bool hasSteps() const { return this->steps_ != nullptr;};
       void deleteSteps() { this->steps_ = nullptr;};
@@ -222,13 +261,15 @@ namespace Models
       shared_ptr<string> canQuickRevert_ {};
       // The current step of the task.
       shared_ptr<string> currentStep_ {};
+      shared_ptr<string> currentStepCode_ {};
       // The deployment channel.
       shared_ptr<string> deployChannel_ {};
       // The application description.
       shared_ptr<string> description_ {};
       // The publish process.
       shared_ptr<string> errorStep_ {};
-      // Indicates whether the task is complete.
+      shared_ptr<string> errorStepCode_ {};
+      // Indicates whether the task is completed.
       shared_ptr<bool> isFinish_ {};
       // Indicates whether the call is successful. Valid values:
       // 
@@ -240,6 +281,7 @@ namespace Models
       shared_ptr<string> msg_ {};
       // The sort type. Valid values: ASC and DESC.
       shared_ptr<string> orderType_ {};
+      shared_ptr<string> orderTypeCode_ {};
       // The task completion percentage.
       shared_ptr<int32_t> percent_ {};
       // The publish number.
@@ -252,6 +294,7 @@ namespace Models
       shared_ptr<string> publishTime_ {};
       // The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
       shared_ptr<string> siteId_ {};
+      shared_ptr<vector<string>> stepCodes_ {};
       // The error level. Valid values: FATAL, ERROR, WARNING, and CRITICAL.
       shared_ptr<vector<string>> steps_ {};
       shared_ptr<string> subchannel_ {};
@@ -342,7 +385,7 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
