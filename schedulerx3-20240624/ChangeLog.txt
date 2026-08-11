@@ -1,4 +1,12 @@
 2026-08-11 Version: 1.10.1
+- Update API CreateJob: add request parameters Label.
+- Update API ListExecutorGroup: add response parameters Body.Data.Records.$.EnableJobs.
+- Update API ListJobs: add request parameters Label.
+- Update API ListJobs: add response parameters Body.Data.Records.$.Label.
+- Update API UpdateJob: add request parameters Label.
+
+
+2026-08-11 Version: 1.10.1
 - Generated cpp 2024-06-24 for SchedulerX3.
 
 2026-07-22 Version: 1.10.0
