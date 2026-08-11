@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // The description of the data catalog.
     shared_ptr<string> description_ {};
-    // The storage path of the data catalog.
     shared_ptr<string> location_ {};
-    // The name of the data catalog.
     shared_ptr<string> name_ {};
   };
 

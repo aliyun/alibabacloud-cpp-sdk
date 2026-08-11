@@ -88,7 +88,7 @@ namespace Models
   protected:
     // The name of the data catalog.
     shared_ptr<string> catalogName_ {};
-    // The ID of the database.
+    // The database ID.
     shared_ptr<int64_t> dbId_ {};
     // The description of the database.
     shared_ptr<string> description_ {};

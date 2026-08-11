@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> comment_ {};
     // The name of the column.
     shared_ptr<string> name_ {};
-    // The data type of the column. Valid values include array, bigint, binary, boolean, char, date, decimal, double, float, int, interval, map, set, smallint, string, struct, timestamp, tinyint, union, and varchar.
+    // The data type of the column. Valid values: array, bigint, binary, boolean, char, date, decimal, double, float, int, interval, map, set, smallint, string, struct, timestamp, tinyint, union, and varchar.
     shared_ptr<string> type_ {};
   };
 
