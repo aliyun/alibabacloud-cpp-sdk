@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Instruction, instruction_);
       DARABONBA_PTR_TO_JSON(Knowledge, knowledge_);
       DARABONBA_PTR_TO_JSON(KnowledgeConfigList, knowledgeConfigList_);
+      DARABONBA_PTR_TO_JSON(KnowledgeSemanticConfigList, knowledgeSemanticConfigList_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(RelatedSessionId, relatedSessionId_);
       DARABONBA_PTR_TO_JSON(ScheduleTaskConfig, scheduleTaskConfig_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Instruction, instruction_);
       DARABONBA_PTR_FROM_JSON(Knowledge, knowledge_);
       DARABONBA_PTR_FROM_JSON(KnowledgeConfigList, knowledgeConfigList_);
+      DARABONBA_PTR_FROM_JSON(KnowledgeSemanticConfigList, knowledgeSemanticConfigList_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(RelatedSessionId, relatedSessionId_);
       DARABONBA_PTR_FROM_JSON(ScheduleTaskConfig, scheduleTaskConfig_);
@@ -107,12 +109,74 @@ namespace Models
 
 
     protected:
-      // The cron expression for time-based scheduling.
+      // The cron expression for the time-based scheduling.
       shared_ptr<string> cronExpression_ {};
       // The query for the scheduled task.
       shared_ptr<string> query_ {};
       // The ID of the referenced historical session.
       shared_ptr<string> relatedSessionId_ {};
+    };
+
+    class KnowledgeSemanticConfigList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const KnowledgeSemanticConfigList& obj) { 
+        DARABONBA_PTR_TO_JSON(DbId, dbId_);
+        DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(KnowledgeUuid, knowledgeUuid_);
+        DARABONBA_PTR_TO_JSON(Type, type_);
+      };
+      friend void from_json(const Darabonba::Json& j, KnowledgeSemanticConfigList& obj) { 
+        DARABONBA_PTR_FROM_JSON(DbId, dbId_);
+        DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(KnowledgeUuid, knowledgeUuid_);
+        DARABONBA_PTR_FROM_JSON(Type, type_);
+      };
+      KnowledgeSemanticConfigList() = default ;
+      KnowledgeSemanticConfigList(const KnowledgeSemanticConfigList &) = default ;
+      KnowledgeSemanticConfigList(KnowledgeSemanticConfigList &&) = default ;
+      KnowledgeSemanticConfigList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~KnowledgeSemanticConfigList() = default ;
+      KnowledgeSemanticConfigList& operator=(const KnowledgeSemanticConfigList &) = default ;
+      KnowledgeSemanticConfigList& operator=(KnowledgeSemanticConfigList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->dbId_ == nullptr
+        && this->instanceId_ == nullptr && this->knowledgeUuid_ == nullptr && this->type_ == nullptr; };
+      // dbId Field Functions 
+      bool hasDbId() const { return this->dbId_ != nullptr;};
+      void deleteDbId() { this->dbId_ = nullptr;};
+      inline string getDbId() const { DARABONBA_PTR_GET_DEFAULT(dbId_, "") };
+      inline KnowledgeSemanticConfigList& setDbId(string dbId) { DARABONBA_PTR_SET_VALUE(dbId_, dbId) };
+
+
+      // instanceId Field Functions 
+      bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+      void deleteInstanceId() { this->instanceId_ = nullptr;};
+      inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+      inline KnowledgeSemanticConfigList& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      // knowledgeUuid Field Functions 
+      bool hasKnowledgeUuid() const { return this->knowledgeUuid_ != nullptr;};
+      void deleteKnowledgeUuid() { this->knowledgeUuid_ = nullptr;};
+      inline string getKnowledgeUuid() const { DARABONBA_PTR_GET_DEFAULT(knowledgeUuid_, "") };
+      inline KnowledgeSemanticConfigList& setKnowledgeUuid(string knowledgeUuid) { DARABONBA_PTR_SET_VALUE(knowledgeUuid_, knowledgeUuid) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline KnowledgeSemanticConfigList& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    protected:
+      shared_ptr<string> dbId_ {};
+      shared_ptr<string> instanceId_ {};
+      shared_ptr<string> knowledgeUuid_ {};
+      shared_ptr<string> type_ {};
     };
 
     class KnowledgeConfigList : public Darabonba::Model {
@@ -165,7 +229,7 @@ namespace Models
       // The access type.
       shared_ptr<string> accessType_ {};
       shared_ptr<string> kbUuid_ {};
-      // The ID of the MCP Server.
+      // The ID of the MCP server.
       shared_ptr<string> mcpServerId_ {};
     };
 
@@ -309,8 +373,9 @@ namespace Models
 
     virtual bool empty() const override { return this->callbackConfig_ == nullptr
         && this->customAgentId_ == nullptr && this->DMSUnit_ == nullptr && this->dataJson_ == nullptr && this->description_ == nullptr && this->executionConfig_ == nullptr
-        && this->instruction_ == nullptr && this->knowledge_ == nullptr && this->knowledgeConfigList_ == nullptr && this->name_ == nullptr && this->relatedSessionId_ == nullptr
-        && this->scheduleTaskConfig_ == nullptr && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->instruction_ == nullptr && this->knowledge_ == nullptr && this->knowledgeConfigList_ == nullptr && this->knowledgeSemanticConfigList_ == nullptr && this->name_ == nullptr
+        && this->relatedSessionId_ == nullptr && this->scheduleTaskConfig_ == nullptr && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // callbackConfig Field Functions 
     bool hasCallbackConfig() const { return this->callbackConfig_ != nullptr;};
     void deleteCallbackConfig() { this->callbackConfig_ = nullptr;};
@@ -380,6 +445,15 @@ namespace Models
     inline ModifyCustomAgentRequest& setKnowledgeConfigList(vector<ModifyCustomAgentRequest::KnowledgeConfigList> && knowledgeConfigList) { DARABONBA_PTR_SET_RVALUE(knowledgeConfigList_, knowledgeConfigList) };
 
 
+    // knowledgeSemanticConfigList Field Functions 
+    bool hasKnowledgeSemanticConfigList() const { return this->knowledgeSemanticConfigList_ != nullptr;};
+    void deleteKnowledgeSemanticConfigList() { this->knowledgeSemanticConfigList_ = nullptr;};
+    inline const vector<ModifyCustomAgentRequest::KnowledgeSemanticConfigList> & getKnowledgeSemanticConfigList() const { DARABONBA_PTR_GET_CONST(knowledgeSemanticConfigList_, vector<ModifyCustomAgentRequest::KnowledgeSemanticConfigList>) };
+    inline vector<ModifyCustomAgentRequest::KnowledgeSemanticConfigList> getKnowledgeSemanticConfigList() { DARABONBA_PTR_GET(knowledgeSemanticConfigList_, vector<ModifyCustomAgentRequest::KnowledgeSemanticConfigList>) };
+    inline ModifyCustomAgentRequest& setKnowledgeSemanticConfigList(const vector<ModifyCustomAgentRequest::KnowledgeSemanticConfigList> & knowledgeSemanticConfigList) { DARABONBA_PTR_SET_VALUE(knowledgeSemanticConfigList_, knowledgeSemanticConfigList) };
+    inline ModifyCustomAgentRequest& setKnowledgeSemanticConfigList(vector<ModifyCustomAgentRequest::KnowledgeSemanticConfigList> && knowledgeSemanticConfigList) { DARABONBA_PTR_SET_RVALUE(knowledgeSemanticConfigList_, knowledgeSemanticConfigList) };
+
+
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
@@ -437,9 +511,73 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> customAgentId_ {};
-    // The current DMS unit.
+    // The current Data Management unit.
     shared_ptr<string> DMSUnit_ {};
-    // The specified data scope, in **JSON string format**.
+    // The specified data scope in **JSON string format**.
+    // - Common parameter description
+    //   - tableFlag: true indicates a specified data scope
+    //   - scope: personal is a fixed value
+    //   - personal: pass parameters for file or database types
+    // 
+    // **File type**. Pass parameters in the following format:
+    // - DataSourceType: remote_data_center is a fixed value
+    // - FileId: the file ID
+    // - Database: the database name returned by the ListDataCenterTable operation, which is typically the file name
+    // - Tables: the table name returned by the ListDataCenterTable operation
+    // - TableIds: the TableId returned by the ListDataCenterTable operation
+    // - RegionId: the current region
+    // ```
+    // {
+    //   "tableFlag": true,
+    //   "scope": "personal",
+    //   "personal": {
+    //     "DataSourceType": "remote_data_center",
+    //     "FileId": "f-f0jksn001ibmkoo********6v2zn6",
+    //     "Database": "diamonds.csv",
+    //     "Tables": [
+    //       "diamonds"
+    //     ],
+    //     "TableIds": [
+    //       "35hfn94pxl********50pi"
+    //     ],
+    //     "RegionId": "ap-southeast-1"
+    //   }
+    // }
+    // ```
+    // 
+    // **Database type**. Pass parameters in the following format:
+    // - DataSourceType: database is a fixed value
+    // - DmsInstanceId: the DMS instance ID returned by the data center operation
+    // - DmsDatabaseId: the DMS database ID returned by the data center operation
+    // - FileId: the instance name (deprecated)
+    // - DbName: the database name returned by the data center operation
+    // - Database: the database name returned by the data center operation
+    // - Tables: the table name returned by the data center operation
+    // - TableIds: the TableId returned by the data center operation
+    // - Engine: the engine type (mysql or postgresql)
+    // - RegionId: the current region
+    // ```
+    // {
+    //   "tableFlag": true,
+    //   "scope": "personal",
+    //   "personal": {
+    //     "DataSourceType": "database",
+    //     "DmsInstanceId": "284***8",
+    //     "DmsDatabaseId": "769***45",
+    //     "FileId": "pgm-bp15095e*******6t",
+    //     "DbName": "pg_catalog",
+    //     "Database": "pg_catalog",
+    //     "Tables": [
+    //       "pg_aggregate"
+    //     ],
+    //     "TableIds": [
+    //       "5263****31"
+    //     ],
+    //     "Engine": "postgresql",
+    //     "RegionId": "ap-southeast-1"
+    //   }
+    // }
+    // ```
     shared_ptr<string> dataJson_ {};
     // The description of the custom agent.
     shared_ptr<string> description_ {};
@@ -451,8 +589,10 @@ namespace Models
     shared_ptr<string> knowledge_ {};
     // The external knowledge bases.
     shared_ptr<vector<ModifyCustomAgentRequest::KnowledgeConfigList>> knowledgeConfigList_ {};
+    shared_ptr<vector<ModifyCustomAgentRequest::KnowledgeSemanticConfigList>> knowledgeSemanticConfigList_ {};
     // The name of the custom agent.
     shared_ptr<string> name_ {};
+    // The ID of the referenced historical session.
     shared_ptr<string> relatedSessionId_ {};
     // The scheduled task configuration.
     shared_ptr<ModifyCustomAgentRequest::ScheduleTaskConfig> scheduleTaskConfig_ {};

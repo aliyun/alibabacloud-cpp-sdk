@@ -615,7 +615,7 @@ namespace Dms20250414
       Models::DeleteWorkspaceCodeResponse deleteWorkspaceCode(const Models::DeleteWorkspaceCodeRequest &request);
 
       /**
-       * @summary Retrieves the details of a custom agent by custom agent ID.
+       * @summary Retrieves the details of a custom agent by its ID.
        *
        * @param request DescribeCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -624,7 +624,7 @@ namespace Dms20250414
       Models::DescribeCustomAgentResponse describeCustomAgentWithOptions(const Models::DescribeCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a custom agent by custom agent ID.
+       * @summary Retrieves the details of a custom agent by its ID.
        *
        * @param request DescribeCustomAgentRequest
        * @return DescribeCustomAgentResponse
@@ -855,6 +855,48 @@ namespace Dms20250414
        * @return GetDataAgentSubAccountInfoResponse
        */
       Models::GetDataAgentSubAccountInfoResponse getDataAgentSubAccountInfo(const Models::GetDataAgentSubAccountInfoRequest &request);
+
+      /**
+       * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
+       *
+       * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+       *
+       * @param request GetDataAgentTaskModelUsageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDataAgentTaskModelUsageResponse
+       */
+      Models::GetDataAgentTaskModelUsageResponse getDataAgentTaskModelUsageWithOptions(const Models::GetDataAgentTaskModelUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
+       *
+       * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+       *
+       * @param request GetDataAgentTaskModelUsageRequest
+       * @return GetDataAgentTaskModelUsageResponse
+       */
+      Models::GetDataAgentTaskModelUsageResponse getDataAgentTaskModelUsage(const Models::GetDataAgentTaskModelUsageRequest &request);
+
+      /**
+       * @summary Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range, returning token consumption at each time point with minute-level granularity.
+       *
+       * @description Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
+       *
+       * @param request GetDataAgentTaskModelUsageMetricsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDataAgentTaskModelUsageMetricsResponse
+       */
+      Models::GetDataAgentTaskModelUsageMetricsResponse getDataAgentTaskModelUsageMetricsWithOptions(const Models::GetDataAgentTaskModelUsageMetricsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range, returning token consumption at each time point with minute-level granularity.
+       *
+       * @description Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
+       *
+       * @param request GetDataAgentTaskModelUsageMetricsRequest
+       * @return GetDataAgentTaskModelUsageMetricsResponse
+       */
+      Models::GetDataAgentTaskModelUsageMetricsResponse getDataAgentTaskModelUsageMetrics(const Models::GetDataAgentTaskModelUsageMetricsRequest &request);
 
       /**
        * @summary Retrieves the details of a collaborative workspace.

@@ -58,6 +58,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(IsScheduleTask, isScheduleTask_);
         DARABONBA_PTR_TO_JSON(Knowledge, knowledge_);
         DARABONBA_PTR_TO_JSON(KnowledgeConfigList, knowledgeConfigList_);
+        DARABONBA_PTR_TO_JSON(KnowledgeSemanticConfigList, knowledgeSemanticConfigList_);
         DARABONBA_PTR_TO_JSON(Modifier, modifier_);
         DARABONBA_PTR_TO_JSON(ModifierUserName, modifierUserName_);
         DARABONBA_PTR_TO_JSON(Name, name_);
@@ -91,6 +92,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(IsScheduleTask, isScheduleTask_);
         DARABONBA_PTR_FROM_JSON(Knowledge, knowledge_);
         DARABONBA_PTR_FROM_JSON(KnowledgeConfigList, knowledgeConfigList_);
+        DARABONBA_PTR_FROM_JSON(KnowledgeSemanticConfigList, knowledgeSemanticConfigList_);
         DARABONBA_PTR_FROM_JSON(Modifier, modifier_);
         DARABONBA_PTR_FROM_JSON(ModifierUserName, modifierUserName_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -170,6 +172,68 @@ namespace Models
         shared_ptr<string> query_ {};
         // The referenced historical session ID.
         shared_ptr<string> relatedSessionId_ {};
+      };
+
+      class KnowledgeSemanticConfigList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const KnowledgeSemanticConfigList& obj) { 
+          DARABONBA_PTR_TO_JSON(DbId, dbId_);
+          DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_TO_JSON(KnowledgeUuid, knowledgeUuid_);
+          DARABONBA_PTR_TO_JSON(Type, type_);
+        };
+        friend void from_json(const Darabonba::Json& j, KnowledgeSemanticConfigList& obj) { 
+          DARABONBA_PTR_FROM_JSON(DbId, dbId_);
+          DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+          DARABONBA_PTR_FROM_JSON(KnowledgeUuid, knowledgeUuid_);
+          DARABONBA_PTR_FROM_JSON(Type, type_);
+        };
+        KnowledgeSemanticConfigList() = default ;
+        KnowledgeSemanticConfigList(const KnowledgeSemanticConfigList &) = default ;
+        KnowledgeSemanticConfigList(KnowledgeSemanticConfigList &&) = default ;
+        KnowledgeSemanticConfigList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~KnowledgeSemanticConfigList() = default ;
+        KnowledgeSemanticConfigList& operator=(const KnowledgeSemanticConfigList &) = default ;
+        KnowledgeSemanticConfigList& operator=(KnowledgeSemanticConfigList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->dbId_ == nullptr
+        && this->instanceId_ == nullptr && this->knowledgeUuid_ == nullptr && this->type_ == nullptr; };
+        // dbId Field Functions 
+        bool hasDbId() const { return this->dbId_ != nullptr;};
+        void deleteDbId() { this->dbId_ = nullptr;};
+        inline string getDbId() const { DARABONBA_PTR_GET_DEFAULT(dbId_, "") };
+        inline KnowledgeSemanticConfigList& setDbId(string dbId) { DARABONBA_PTR_SET_VALUE(dbId_, dbId) };
+
+
+        // instanceId Field Functions 
+        bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+        void deleteInstanceId() { this->instanceId_ = nullptr;};
+        inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+        inline KnowledgeSemanticConfigList& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+        // knowledgeUuid Field Functions 
+        bool hasKnowledgeUuid() const { return this->knowledgeUuid_ != nullptr;};
+        void deleteKnowledgeUuid() { this->knowledgeUuid_ = nullptr;};
+        inline string getKnowledgeUuid() const { DARABONBA_PTR_GET_DEFAULT(knowledgeUuid_, "") };
+        inline KnowledgeSemanticConfigList& setKnowledgeUuid(string knowledgeUuid) { DARABONBA_PTR_SET_VALUE(knowledgeUuid_, knowledgeUuid) };
+
+
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline KnowledgeSemanticConfigList& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      protected:
+        shared_ptr<string> dbId_ {};
+        shared_ptr<string> instanceId_ {};
+        shared_ptr<string> knowledgeUuid_ {};
+        shared_ptr<string> type_ {};
       };
 
       class KnowledgeConfigList : public Darabonba::Model {
@@ -286,7 +350,7 @@ namespace Models
         shared_ptr<bool> skipPlan_ {};
         // Specifies whether to skip all SQL confirmations.
         shared_ptr<bool> skipSqlConfirm_ {};
-        // Specifies whether to skip the web report rendering confirmation.
+        // Specifies whether to skip the web report drawing confirmation.
         shared_ptr<bool> skipWebReportConfirm_ {};
       };
 
@@ -366,9 +430,10 @@ namespace Models
         && this->aliyunUid_ == nullptr && this->callbackConfig_ == nullptr && this->creatorUserName_ == nullptr && this->customAgentId_ == nullptr && this->DMSUnit_ == nullptr
         && this->dataJson_ == nullptr && this->defaultAgent_ == nullptr && this->description_ == nullptr && this->dmsUnit_ == nullptr && this->executionConfig_ == nullptr
         && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr && this->instruction_ == nullptr && this->isScheduleTask_ == nullptr && this->knowledge_ == nullptr
-        && this->knowledgeConfigList_ == nullptr && this->modifier_ == nullptr && this->modifierUserName_ == nullptr && this->name_ == nullptr && this->nextRuntime_ == nullptr
-        && this->offlineTime_ == nullptr && this->region_ == nullptr && this->relatedSessionId_ == nullptr && this->releaseTime_ == nullptr && this->scheduleTaskConfig_ == nullptr
-        && this->status_ == nullptr && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->knowledgeConfigList_ == nullptr && this->knowledgeSemanticConfigList_ == nullptr && this->modifier_ == nullptr && this->modifierUserName_ == nullptr && this->name_ == nullptr
+        && this->nextRuntime_ == nullptr && this->offlineTime_ == nullptr && this->region_ == nullptr && this->relatedSessionId_ == nullptr && this->releaseTime_ == nullptr
+        && this->scheduleTaskConfig_ == nullptr && this->status_ == nullptr && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr
+        && this->workspaceId_ == nullptr; };
       // aliyunParentUid Field Functions 
       bool hasAliyunParentUid() const { return this->aliyunParentUid_ != nullptr;};
       void deleteAliyunParentUid() { this->aliyunParentUid_ = nullptr;};
@@ -494,6 +559,15 @@ namespace Models
       inline Data& setKnowledgeConfigList(vector<Data::KnowledgeConfigList> && knowledgeConfigList) { DARABONBA_PTR_SET_RVALUE(knowledgeConfigList_, knowledgeConfigList) };
 
 
+      // knowledgeSemanticConfigList Field Functions 
+      bool hasKnowledgeSemanticConfigList() const { return this->knowledgeSemanticConfigList_ != nullptr;};
+      void deleteKnowledgeSemanticConfigList() { this->knowledgeSemanticConfigList_ = nullptr;};
+      inline const vector<Data::KnowledgeSemanticConfigList> & getKnowledgeSemanticConfigList() const { DARABONBA_PTR_GET_CONST(knowledgeSemanticConfigList_, vector<Data::KnowledgeSemanticConfigList>) };
+      inline vector<Data::KnowledgeSemanticConfigList> getKnowledgeSemanticConfigList() { DARABONBA_PTR_GET(knowledgeSemanticConfigList_, vector<Data::KnowledgeSemanticConfigList>) };
+      inline Data& setKnowledgeSemanticConfigList(const vector<Data::KnowledgeSemanticConfigList> & knowledgeSemanticConfigList) { DARABONBA_PTR_SET_VALUE(knowledgeSemanticConfigList_, knowledgeSemanticConfigList) };
+      inline Data& setKnowledgeSemanticConfigList(vector<Data::KnowledgeSemanticConfigList> && knowledgeSemanticConfigList) { DARABONBA_PTR_SET_RVALUE(knowledgeSemanticConfigList_, knowledgeSemanticConfigList) };
+
+
       // modifier Field Functions 
       bool hasModifier() const { return this->modifier_ != nullptr;};
       void deleteModifier() { this->modifier_ = nullptr;};
@@ -604,6 +678,7 @@ namespace Models
       shared_ptr<string> creatorUserName_ {};
       // The custom agent ID.
       shared_ptr<string> customAgentId_ {};
+      // The current DMS unit.
       shared_ptr<string> DMSUnit_ {};
       // The specified data scope in JSON string format.
       shared_ptr<string> dataJson_ {};
@@ -625,6 +700,7 @@ namespace Models
       // The knowledge.
       shared_ptr<string> knowledge_ {};
       shared_ptr<vector<Data::KnowledgeConfigList>> knowledgeConfigList_ {};
+      shared_ptr<vector<Data::KnowledgeSemanticConfigList>> knowledgeSemanticConfigList_ {};
       // The modifier.
       shared_ptr<string> modifier_ {};
       // The name of the modifier.
@@ -637,9 +713,11 @@ namespace Models
       shared_ptr<string> offlineTime_ {};
       // The region.
       shared_ptr<string> region_ {};
+      // The referenced historical session ID.
       shared_ptr<string> relatedSessionId_ {};
       // The publish time.
       shared_ptr<string> releaseTime_ {};
+      // The periodic task configuration.
       shared_ptr<Data::ScheduleTaskConfig> scheduleTaskConfig_ {};
       // The status of the custom agent.
       shared_ptr<string> status_ {};
@@ -696,7 +774,7 @@ namespace Models
     shared_ptr<DescribeCustomAgentResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned when the call fails.
+    // The error message returned if the request failed.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

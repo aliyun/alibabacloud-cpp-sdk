@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Instruction, instruction_);
       DARABONBA_PTR_TO_JSON(Knowledge, knowledge_);
       DARABONBA_PTR_TO_JSON(KnowledgeConfigList, knowledgeConfigListShrink_);
+      DARABONBA_PTR_TO_JSON(KnowledgeSemanticConfigList, knowledgeSemanticConfigListShrink_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(RelatedSessionId, relatedSessionId_);
       DARABONBA_PTR_TO_JSON(ScheduleTaskConfig, scheduleTaskConfigShrink_);
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Instruction, instruction_);
       DARABONBA_PTR_FROM_JSON(Knowledge, knowledge_);
       DARABONBA_PTR_FROM_JSON(KnowledgeConfigList, knowledgeConfigListShrink_);
+      DARABONBA_PTR_FROM_JSON(KnowledgeSemanticConfigList, knowledgeSemanticConfigListShrink_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(RelatedSessionId, relatedSessionId_);
       DARABONBA_PTR_FROM_JSON(ScheduleTaskConfig, scheduleTaskConfigShrink_);
@@ -61,8 +63,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callbackConfigShrink_ == nullptr
         && this->customAgentId_ == nullptr && this->DMSUnit_ == nullptr && this->dataJson_ == nullptr && this->description_ == nullptr && this->executionConfigShrink_ == nullptr
-        && this->instruction_ == nullptr && this->knowledge_ == nullptr && this->knowledgeConfigListShrink_ == nullptr && this->name_ == nullptr && this->relatedSessionId_ == nullptr
-        && this->scheduleTaskConfigShrink_ == nullptr && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->instruction_ == nullptr && this->knowledge_ == nullptr && this->knowledgeConfigListShrink_ == nullptr && this->knowledgeSemanticConfigListShrink_ == nullptr && this->name_ == nullptr
+        && this->relatedSessionId_ == nullptr && this->scheduleTaskConfigShrink_ == nullptr && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->webReportTheme_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // callbackConfigShrink Field Functions 
     bool hasCallbackConfigShrink() const { return this->callbackConfigShrink_ != nullptr;};
     void deleteCallbackConfigShrink() { this->callbackConfigShrink_ = nullptr;};
@@ -126,6 +129,13 @@ namespace Models
     inline ModifyCustomAgentShrinkRequest& setKnowledgeConfigListShrink(string knowledgeConfigListShrink) { DARABONBA_PTR_SET_VALUE(knowledgeConfigListShrink_, knowledgeConfigListShrink) };
 
 
+    // knowledgeSemanticConfigListShrink Field Functions 
+    bool hasKnowledgeSemanticConfigListShrink() const { return this->knowledgeSemanticConfigListShrink_ != nullptr;};
+    void deleteKnowledgeSemanticConfigListShrink() { this->knowledgeSemanticConfigListShrink_ = nullptr;};
+    inline string getKnowledgeSemanticConfigListShrink() const { DARABONBA_PTR_GET_DEFAULT(knowledgeSemanticConfigListShrink_, "") };
+    inline ModifyCustomAgentShrinkRequest& setKnowledgeSemanticConfigListShrink(string knowledgeSemanticConfigListShrink) { DARABONBA_PTR_SET_VALUE(knowledgeSemanticConfigListShrink_, knowledgeSemanticConfigListShrink) };
+
+
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
@@ -181,9 +191,73 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> customAgentId_ {};
-    // The current DMS unit.
+    // The current Data Management unit.
     shared_ptr<string> DMSUnit_ {};
-    // The specified data scope, in **JSON string format**.
+    // The specified data scope in **JSON string format**.
+    // - Common parameter description
+    //   - tableFlag: true indicates a specified data scope
+    //   - scope: personal is a fixed value
+    //   - personal: pass parameters for file or database types
+    // 
+    // **File type**. Pass parameters in the following format:
+    // - DataSourceType: remote_data_center is a fixed value
+    // - FileId: the file ID
+    // - Database: the database name returned by the ListDataCenterTable operation, which is typically the file name
+    // - Tables: the table name returned by the ListDataCenterTable operation
+    // - TableIds: the TableId returned by the ListDataCenterTable operation
+    // - RegionId: the current region
+    // ```
+    // {
+    //   "tableFlag": true,
+    //   "scope": "personal",
+    //   "personal": {
+    //     "DataSourceType": "remote_data_center",
+    //     "FileId": "f-f0jksn001ibmkoo********6v2zn6",
+    //     "Database": "diamonds.csv",
+    //     "Tables": [
+    //       "diamonds"
+    //     ],
+    //     "TableIds": [
+    //       "35hfn94pxl********50pi"
+    //     ],
+    //     "RegionId": "ap-southeast-1"
+    //   }
+    // }
+    // ```
+    // 
+    // **Database type**. Pass parameters in the following format:
+    // - DataSourceType: database is a fixed value
+    // - DmsInstanceId: the DMS instance ID returned by the data center operation
+    // - DmsDatabaseId: the DMS database ID returned by the data center operation
+    // - FileId: the instance name (deprecated)
+    // - DbName: the database name returned by the data center operation
+    // - Database: the database name returned by the data center operation
+    // - Tables: the table name returned by the data center operation
+    // - TableIds: the TableId returned by the data center operation
+    // - Engine: the engine type (mysql or postgresql)
+    // - RegionId: the current region
+    // ```
+    // {
+    //   "tableFlag": true,
+    //   "scope": "personal",
+    //   "personal": {
+    //     "DataSourceType": "database",
+    //     "DmsInstanceId": "284***8",
+    //     "DmsDatabaseId": "769***45",
+    //     "FileId": "pgm-bp15095e*******6t",
+    //     "DbName": "pg_catalog",
+    //     "Database": "pg_catalog",
+    //     "Tables": [
+    //       "pg_aggregate"
+    //     ],
+    //     "TableIds": [
+    //       "5263****31"
+    //     ],
+    //     "Engine": "postgresql",
+    //     "RegionId": "ap-southeast-1"
+    //   }
+    // }
+    // ```
     shared_ptr<string> dataJson_ {};
     // The description of the custom agent.
     shared_ptr<string> description_ {};
@@ -195,8 +269,10 @@ namespace Models
     shared_ptr<string> knowledge_ {};
     // The external knowledge bases.
     shared_ptr<string> knowledgeConfigListShrink_ {};
+    shared_ptr<string> knowledgeSemanticConfigListShrink_ {};
     // The name of the custom agent.
     shared_ptr<string> name_ {};
+    // The ID of the referenced historical session.
     shared_ptr<string> relatedSessionId_ {};
     // The scheduled task configuration.
     shared_ptr<string> scheduleTaskConfigShrink_ {};

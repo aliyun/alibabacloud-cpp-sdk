@@ -20,14 +20,14 @@ namespace Dms20250414
 AlibabaCloud::Dms20250414::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"us-west-1" , "dms.us-west-1.aliyuncs.com"},
-    {"us-east-1" , "dms.us-east-1.aliyuncs.com"},
     {"cn-shenzhen" , "dms.cn-shenzhen.aliyuncs.com"},
+    {"cn-beijing" , "dms.cn-beijing.aliyuncs.com"},
     {"cn-shanghai" , "dms.cn-shanghai.aliyuncs.com"},
     {"cn-hongkong" , "dms.cn-hongkong.aliyuncs.com"},
+    {"ap-southeast-1" , "dms.ap-southeast-1.aliyuncs.com"},
     {"cn-hangzhou" , "dms.cn-hangzhou.aliyuncs.com"},
-    {"cn-beijing" , "dms.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-1" , "dms.ap-southeast-1.aliyuncs.com"}
+    {"us-west-1" , "dms.us-west-1.aliyuncs.com"},
+    {"us-east-1" , "dms.us-east-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("dms", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -659,6 +659,10 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
     request.setKnowledgeConfigListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getKnowledgeConfigList(), "KnowledgeConfigList", "json"));
   }
 
+  if (!!tmpReq.hasKnowledgeSemanticConfigList()) {
+    request.setKnowledgeSemanticConfigListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getKnowledgeSemanticConfigList(), "KnowledgeSemanticConfigList", "json"));
+  }
+
   if (!!tmpReq.hasScheduleTaskConfig()) {
     request.setScheduleTaskConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScheduleTaskConfig(), "ScheduleTaskConfig", "json"));
   }
@@ -694,6 +698,10 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
 
   if (!!request.hasKnowledgeConfigListShrink()) {
     query["KnowledgeConfigList"] = request.getKnowledgeConfigListShrink();
+  }
+
+  if (!!request.hasKnowledgeSemanticConfigListShrink()) {
+    query["KnowledgeSemanticConfigList"] = request.getKnowledgeSemanticConfigListShrink();
   }
 
   if (!!request.hasName()) {
@@ -2147,7 +2155,7 @@ DeleteWorkspaceCodeResponse Client::deleteWorkspaceCode(const DeleteWorkspaceCod
 }
 
 /**
- * @summary Retrieves the details of a custom agent by custom agent ID.
+ * @summary Retrieves the details of a custom agent by its ID.
  *
  * @param request DescribeCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2182,7 +2190,7 @@ DescribeCustomAgentResponse Client::describeCustomAgentWithOptions(const Describ
 }
 
 /**
- * @summary Retrieves the details of a custom agent by custom agent ID.
+ * @summary Retrieves the details of a custom agent by its ID.
  *
  * @param request DescribeCustomAgentRequest
  * @return DescribeCustomAgentResponse
@@ -2843,6 +2851,122 @@ GetDataAgentSubAccountInfoResponse Client::getDataAgentSubAccountInfoWithOptions
 GetDataAgentSubAccountInfoResponse Client::getDataAgentSubAccountInfo(const GetDataAgentSubAccountInfoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getDataAgentSubAccountInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
+ *
+ * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+ *
+ * @param request GetDataAgentTaskModelUsageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDataAgentTaskModelUsageResponse
+ */
+GetDataAgentTaskModelUsageResponse Client::getDataAgentTaskModelUsageWithOptions(const GetDataAgentTaskModelUsageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBeginTime()) {
+    query["BeginTime"] = request.getBeginTime();
+  }
+
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDataAgentTaskModelUsage"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDataAgentTaskModelUsageResponse>();
+}
+
+/**
+ * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
+ *
+ * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+ *
+ * @param request GetDataAgentTaskModelUsageRequest
+ * @return GetDataAgentTaskModelUsageResponse
+ */
+GetDataAgentTaskModelUsageResponse Client::getDataAgentTaskModelUsage(const GetDataAgentTaskModelUsageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDataAgentTaskModelUsageWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range, returning token consumption at each time point with minute-level granularity.
+ *
+ * @description Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
+ *
+ * @param request GetDataAgentTaskModelUsageMetricsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDataAgentTaskModelUsageMetricsResponse
+ */
+GetDataAgentTaskModelUsageMetricsResponse Client::getDataAgentTaskModelUsageMetricsWithOptions(const GetDataAgentTaskModelUsageMetricsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBeginTime()) {
+    query["BeginTime"] = request.getBeginTime();
+  }
+
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDataAgentTaskModelUsageMetrics"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDataAgentTaskModelUsageMetricsResponse>();
+}
+
+/**
+ * @summary Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range, returning token consumption at each time point with minute-level granularity.
+ *
+ * @description Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
+ *
+ * @param request GetDataAgentTaskModelUsageMetricsRequest
+ * @return GetDataAgentTaskModelUsageMetricsResponse
+ */
+GetDataAgentTaskModelUsageMetricsResponse Client::getDataAgentTaskModelUsageMetrics(const GetDataAgentTaskModelUsageMetricsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDataAgentTaskModelUsageMetricsWithOptions(request, runtime);
 }
 
 /**
@@ -5600,6 +5724,10 @@ ModifyCustomAgentResponse Client::modifyCustomAgentWithOptions(const ModifyCusto
     request.setKnowledgeConfigListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getKnowledgeConfigList(), "KnowledgeConfigList", "json"));
   }
 
+  if (!!tmpReq.hasKnowledgeSemanticConfigList()) {
+    request.setKnowledgeSemanticConfigListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getKnowledgeSemanticConfigList(), "KnowledgeSemanticConfigList", "json"));
+  }
+
   if (!!tmpReq.hasScheduleTaskConfig()) {
     request.setScheduleTaskConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScheduleTaskConfig(), "ScheduleTaskConfig", "json"));
   }
@@ -5639,6 +5767,10 @@ ModifyCustomAgentResponse Client::modifyCustomAgentWithOptions(const ModifyCusto
 
   if (!!request.hasKnowledgeConfigListShrink()) {
     query["KnowledgeConfigList"] = request.getKnowledgeConfigListShrink();
+  }
+
+  if (!!request.hasKnowledgeSemanticConfigListShrink()) {
+    query["KnowledgeSemanticConfigList"] = request.getKnowledgeSemanticConfigListShrink();
   }
 
   if (!!request.hasName()) {

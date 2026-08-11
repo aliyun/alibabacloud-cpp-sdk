@@ -45,6 +45,7 @@
 #include <alibabacloud/models/OneMetaKnowledgeBase.hpp>
 #include <alibabacloud/models/OneMetaKnowledgeBaseChunk.hpp>
 #include <alibabacloud/models/OneMetaKnowledgeBaseDocument.hpp>
+#include <alibabacloud/models/OneMetaSqlTemplateView.hpp>
 #include <alibabacloud/models/OneMetaTableEngineMeta.hpp>
 #include <alibabacloud/models/OneMetaTableBaseInfo.hpp>
 #include <alibabacloud/models/OneMetaTableColumnEngineMeta.hpp>
@@ -52,6 +53,7 @@
 #include <alibabacloud/models/OneMetaTableIndex.hpp>
 #include <alibabacloud/models/OpenClawInstanceQuotaVO.hpp>
 #include <alibabacloud/models/OpenClawInstanceVO.hpp>
+#include <alibabacloud/models/OssieModelView.hpp>
 #include <alibabacloud/models/PartitionError.hpp>
 #include <alibabacloud/models/TrialOrderEligibilityVO.hpp>
 #include <alibabacloud/models/AddUserToDataAgentWorkspaceRequest.hpp>
@@ -208,6 +210,12 @@
 #include <alibabacloud/models/GetDataAgentSubAccountInfoRequest.hpp>
 #include <alibabacloud/models/GetDataAgentSubAccountInfoResponseBody.hpp>
 #include <alibabacloud/models/GetDataAgentSubAccountInfoResponse.hpp>
+#include <alibabacloud/models/GetDataAgentTaskModelUsageRequest.hpp>
+#include <alibabacloud/models/GetDataAgentTaskModelUsageResponseBody.hpp>
+#include <alibabacloud/models/GetDataAgentTaskModelUsageResponse.hpp>
+#include <alibabacloud/models/GetDataAgentTaskModelUsageMetricsRequest.hpp>
+#include <alibabacloud/models/GetDataAgentTaskModelUsageMetricsResponseBody.hpp>
+#include <alibabacloud/models/GetDataAgentTaskModelUsageMetricsResponse.hpp>
 #include <alibabacloud/models/GetDataAgentWorkspaceInfoRequest.hpp>
 #include <alibabacloud/models/GetDataAgentWorkspaceInfoResponseBody.hpp>
 #include <alibabacloud/models/GetDataAgentWorkspaceInfoResponse.hpp>
