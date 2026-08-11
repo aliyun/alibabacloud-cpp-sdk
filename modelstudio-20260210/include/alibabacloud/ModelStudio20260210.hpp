@@ -427,6 +427,76 @@ namespace ModelStudio20260210
       Models::ListApiKeysResponse listApiKeys(const Models::ListApiKeysRequest &request);
 
       /**
+       * @summary Queries model throttling configurations for a workspace.
+       *
+       * @param request ListModelLimitsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListModelLimitsResponse
+       */
+      Models::ListModelLimitsResponse listModelLimitsWithOptions(const Models::ListModelLimitsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries model throttling configurations for a workspace.
+       *
+       * @param request ListModelLimitsRequest
+       * @return ListModelLimitsResponse
+       */
+      Models::ListModelLimitsResponse listModelLimits(const Models::ListModelLimitsRequest &request);
+
+      /**
+       * @summary Queries model authorizations for a workspace.
+       *
+       * @description ## Operation description
+       * - Use `workspaceId` to specify the workspace to query (required, cannot be empty).
+       * - Token-based pagination is used: `nextToken` is a string-type offset. Do not pass it for the first page. `maxResults` defaults to 20. If the upper limit is exceeded, `InvalidParameter.maxResults` is returned.
+       * - `authorizationScope` controls the query dimension: `AUTHORIZED` = models that have been authorized for the specified action. `AUTHORIZABLE` = full authorizable catalog.
+       * - `modelAction` specifies the authorization action dimension. Currently only `INFERENCE` is supported. If left empty, it defaults to `INFERENCE`.
+       * - `filter` supports filtering by `name` (fuzzy match on model and name) or `model` (exact match on a single model).
+       * - Returns a `TokenBasedPage` that contains the authorization status (inference/fineTune/deploy) and rate limit information for each model.
+       *
+       * @param request ListModelPermissionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListModelPermissionsResponse
+       */
+      Models::ListModelPermissionsResponse listModelPermissionsWithOptions(const Models::ListModelPermissionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries model authorizations for a workspace.
+       *
+       * @description ## Operation description
+       * - Use `workspaceId` to specify the workspace to query (required, cannot be empty).
+       * - Token-based pagination is used: `nextToken` is a string-type offset. Do not pass it for the first page. `maxResults` defaults to 20. If the upper limit is exceeded, `InvalidParameter.maxResults` is returned.
+       * - `authorizationScope` controls the query dimension: `AUTHORIZED` = models that have been authorized for the specified action. `AUTHORIZABLE` = full authorizable catalog.
+       * - `modelAction` specifies the authorization action dimension. Currently only `INFERENCE` is supported. If left empty, it defaults to `INFERENCE`.
+       * - `filter` supports filtering by `name` (fuzzy match on model and name) or `model` (exact match on a single model).
+       * - Returns a `TokenBasedPage` that contains the authorization status (inference/fineTune/deploy) and rate limit information for each model.
+       *
+       * @param request ListModelPermissionsRequest
+       * @return ListModelPermissionsResponse
+       */
+      Models::ListModelPermissionsResponse listModelPermissions(const Models::ListModelPermissionsRequest &request);
+
+      /**
+       * @summary 模型元数据-查询基础模型列表
+       *
+       * @param tmpReq ListModelsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListModelsResponse
+       */
+      Models::ListModelsResponse listModelsWithOptions(const Models::ListModelsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 模型元数据-查询基础模型列表
+       *
+       * @param request ListModelsRequest
+       * @return ListModelsResponse
+       */
+      Models::ListModelsResponse listModels(const Models::ListModelsRequest &request);
+
+      /**
        * @summary Queries the list of organization members including seat information. Supports filtering by name, status, and seat assignment, and supports pagination.
        *
        * @param request ListOrganizationMembersRequest
@@ -595,6 +665,42 @@ namespace ModelStudio20260210
        * @return UpdateApiKeyResponse
        */
       Models::UpdateApiKeyResponse updateApiKey(const string &apiKeyId, const Models::UpdateApiKeyRequest &request);
+
+      /**
+       * @summary Updates the model throttling configuration for a workspace.
+       *
+       * @param tmpReq UpdateModelLimitsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateModelLimitsResponse
+       */
+      Models::UpdateModelLimitsResponse updateModelLimitsWithOptions(const Models::UpdateModelLimitsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the model throttling configuration for a workspace.
+       *
+       * @param request UpdateModelLimitsRequest
+       * @return UpdateModelLimitsResponse
+       */
+      Models::UpdateModelLimitsResponse updateModelLimits(const Models::UpdateModelLimitsRequest &request);
+
+      /**
+       * @summary 更新业务空间模型授权
+       *
+       * @param request UpdateModelPermissionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateModelPermissionsResponse
+       */
+      Models::UpdateModelPermissionsResponse updateModelPermissionsWithOptions(const Models::UpdateModelPermissionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新业务空间模型授权
+       *
+       * @param request UpdateModelPermissionsRequest
+       * @return UpdateModelPermissionsResponse
+       */
+      Models::UpdateModelPermissionsResponse updateModelPermissions(const Models::UpdateModelPermissionsRequest &request);
 
       /**
        * @summary Modifies organization information.

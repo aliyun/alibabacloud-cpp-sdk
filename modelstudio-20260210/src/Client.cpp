@@ -20,10 +20,12 @@ namespace ModelStudio20260210
 AlibabaCloud::ModelStudio20260210::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"eu-central-1" , "modelstudio.eu-central-1.aliyuncs.com"},
-    {"cn-hongkong" , "modelstudio.cn-hongkong.aliyuncs.com"},
     {"cn-beijing" , "modelstudio.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-1" , "modelstudio.ap-southeast-1.aliyuncs.com"}
+    {"cn-hongkong" , "modelstudio.cn-hongkong.aliyuncs.com"},
+    {"ap-southeast-1" , "modelstudio.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-1" , "modelstudio.ap-northeast-1.aliyuncs.com"},
+    {"us-east-1" , "modelstudio.us-east-1.aliyuncs.com"},
+    {"eu-central-1" , "modelstudio.eu-central-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("modelstudio", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -1013,6 +1015,239 @@ ListApiKeysResponse Client::listApiKeys(const ListApiKeysRequest &request) {
 }
 
 /**
+ * @summary Queries model throttling configurations for a workspace.
+ *
+ * @param request ListModelLimitsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListModelLimitsResponse
+ */
+ListModelLimitsResponse Client::listModelLimitsWithOptions(const ListModelLimitsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasModel()) {
+    query["model"] = request.getModel();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["workspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListModelLimits"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/modelstudio/models/limits")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListModelLimitsResponse>();
+}
+
+/**
+ * @summary Queries model throttling configurations for a workspace.
+ *
+ * @param request ListModelLimitsRequest
+ * @return ListModelLimitsResponse
+ */
+ListModelLimitsResponse Client::listModelLimits(const ListModelLimitsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listModelLimitsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries model authorizations for a workspace.
+ *
+ * @description ## Operation description
+ * - Use `workspaceId` to specify the workspace to query (required, cannot be empty).
+ * - Token-based pagination is used: `nextToken` is a string-type offset. Do not pass it for the first page. `maxResults` defaults to 20. If the upper limit is exceeded, `InvalidParameter.maxResults` is returned.
+ * - `authorizationScope` controls the query dimension: `AUTHORIZED` = models that have been authorized for the specified action. `AUTHORIZABLE` = full authorizable catalog.
+ * - `modelAction` specifies the authorization action dimension. Currently only `INFERENCE` is supported. If left empty, it defaults to `INFERENCE`.
+ * - `filter` supports filtering by `name` (fuzzy match on model and name) or `model` (exact match on a single model).
+ * - Returns a `TokenBasedPage` that contains the authorization status (inference/fineTune/deploy) and rate limit information for each model.
+ *
+ * @param request ListModelPermissionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListModelPermissionsResponse
+ */
+ListModelPermissionsResponse Client::listModelPermissionsWithOptions(const ListModelPermissionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthorizationScope()) {
+    query["authorizationScope"] = request.getAuthorizationScope();
+  }
+
+  if (!!request.hasFilter()) {
+    query["filter"] = request.getFilter();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasModelAction()) {
+    query["modelAction"] = request.getModelAction();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["workspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListModelPermissions"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/modelstudio/models/permissions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListModelPermissionsResponse>();
+}
+
+/**
+ * @summary Queries model authorizations for a workspace.
+ *
+ * @description ## Operation description
+ * - Use `workspaceId` to specify the workspace to query (required, cannot be empty).
+ * - Token-based pagination is used: `nextToken` is a string-type offset. Do not pass it for the first page. `maxResults` defaults to 20. If the upper limit is exceeded, `InvalidParameter.maxResults` is returned.
+ * - `authorizationScope` controls the query dimension: `AUTHORIZED` = models that have been authorized for the specified action. `AUTHORIZABLE` = full authorizable catalog.
+ * - `modelAction` specifies the authorization action dimension. Currently only `INFERENCE` is supported. If left empty, it defaults to `INFERENCE`.
+ * - `filter` supports filtering by `name` (fuzzy match on model and name) or `model` (exact match on a single model).
+ * - Returns a `TokenBasedPage` that contains the authorization status (inference/fineTune/deploy) and rate limit information for each model.
+ *
+ * @param request ListModelPermissionsRequest
+ * @return ListModelPermissionsResponse
+ */
+ListModelPermissionsResponse Client::listModelPermissions(const ListModelPermissionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listModelPermissionsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 模型元数据-查询基础模型列表
+ *
+ * @param tmpReq ListModelsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListModelsResponse
+ */
+ListModelsResponse Client::listModelsWithOptions(const ListModelsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListModelsShrinkRequest request = ListModelsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCapabilities()) {
+    request.setCapabilitiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCapabilities(), "capabilities", "json"));
+  }
+
+  if (!!tmpReq.hasFeatures()) {
+    request.setFeaturesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFeatures(), "features", "json"));
+  }
+
+  if (!!tmpReq.hasProviders()) {
+    request.setProvidersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProviders(), "providers", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCapabilitiesShrink()) {
+    query["capabilities"] = request.getCapabilitiesShrink();
+  }
+
+  if (!!request.hasContextWindow()) {
+    query["contextWindow"] = request.getContextWindow();
+  }
+
+  if (!!request.hasFeaturesShrink()) {
+    query["features"] = request.getFeaturesShrink();
+  }
+
+  if (!!request.hasLanguage()) {
+    query["language"] = request.getLanguage();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasModel()) {
+    query["model"] = request.getModel();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasProvidersShrink()) {
+    query["providers"] = request.getProvidersShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListModels"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/modelstudio/models")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListModelsResponse>();
+}
+
+/**
+ * @summary 模型元数据-查询基础模型列表
+ *
+ * @param request ListModelsRequest
+ * @return ListModelsResponse
+ */
+ListModelsResponse Client::listModels(const ListModelsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listModelsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries the list of organization members including seat information. Supports filtering by name, status, and seat assignment, and supports pagination.
  *
  * @param request ListOrganizationMembersRequest
@@ -1461,6 +1696,114 @@ UpdateApiKeyResponse Client::updateApiKey(const string &apiKeyId, const UpdateAp
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateApiKeyWithOptions(apiKeyId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates the model throttling configuration for a workspace.
+ *
+ * @param tmpReq UpdateModelLimitsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateModelLimitsResponse
+ */
+UpdateModelLimitsResponse Client::updateModelLimitsWithOptions(const UpdateModelLimitsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateModelLimitsShrinkRequest request = UpdateModelLimitsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWorkspaceLimits()) {
+    request.setWorkspaceLimitsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWorkspaceLimits(), "workspaceLimits", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasWorkspaceId()) {
+    body["workspaceId"] = request.getWorkspaceId();
+  }
+
+  if (!!request.hasWorkspaceLimitsShrink()) {
+    body["workspaceLimits"] = request.getWorkspaceLimitsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateModelLimits"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/modelstudio/models/limits")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateModelLimitsResponse>();
+}
+
+/**
+ * @summary Updates the model throttling configuration for a workspace.
+ *
+ * @param request UpdateModelLimitsRequest
+ * @return UpdateModelLimitsResponse
+ */
+UpdateModelLimitsResponse Client::updateModelLimits(const UpdateModelLimitsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateModelLimitsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 更新业务空间模型授权
+ *
+ * @param request UpdateModelPermissionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateModelPermissionsResponse
+ */
+UpdateModelPermissionsResponse Client::updateModelPermissionsWithOptions(const UpdateModelPermissionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccessAllEntities()) {
+    body["accessAllEntities"] = request.getAccessAllEntities();
+  }
+
+  if (!!request.hasModels()) {
+    body["models"] = request.getModels();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["workspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateModelPermissions"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/modelstudio/models/permissions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateModelPermissionsResponse>();
+}
+
+/**
+ * @summary 更新业务空间模型授权
+ *
+ * @param request UpdateModelPermissionsRequest
+ * @return UpdateModelPermissionsResponse
+ */
+UpdateModelPermissionsResponse Client::updateModelPermissions(const UpdateModelPermissionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateModelPermissionsWithOptions(request, headers, runtime);
 }
 
 /**
