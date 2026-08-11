@@ -131,6 +131,11 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The specification change type. Valid values:
+    // - ScaleOut: horizontal scale-out
+    // - ScaleIn: horizontal scale-in
+    // - MultiAzUpgrade: upgrade to multi-active zone deployment
+    // - DiskDownGrade: cloud disk downgrade.
     shared_ptr<string> scalingType_ {};
   };
 

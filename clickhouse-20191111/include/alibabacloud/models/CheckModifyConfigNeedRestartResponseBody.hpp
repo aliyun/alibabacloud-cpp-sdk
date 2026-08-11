@@ -48,13 +48,11 @@ namespace Models
 
 
   protected:
-    // 变更配置参数后是否重启。取值说明：
-    // 
-    // - **true**：重启。
-    // 
-    // - **false**：不重启。
+    // Indicates whether a restart is required after the configuration parameters are modified. Valid values:
+    // - **true**: A restart is required.
+    // - **false**: A restart is not required.
     shared_ptr<bool> needRestart_ {};
-    // 请求 ID。
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

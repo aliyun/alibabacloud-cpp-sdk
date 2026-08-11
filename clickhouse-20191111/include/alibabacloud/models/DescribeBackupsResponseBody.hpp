@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(BackupEndTime, backupEndTime_);
         DARABONBA_PTR_TO_JSON(BackupId, backupId_);
         DARABONBA_PTR_TO_JSON(BackupMethod, backupMethod_);
+        DARABONBA_PTR_TO_JSON(BackupScheduleType, backupScheduleType_);
         DARABONBA_PTR_TO_JSON(BackupSetInfo, backupSetInfo_);
         DARABONBA_PTR_TO_JSON(BackupSize, backupSize_);
         DARABONBA_PTR_TO_JSON(BackupStartTime, backupStartTime_);
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(BackupEndTime, backupEndTime_);
         DARABONBA_PTR_FROM_JSON(BackupId, backupId_);
         DARABONBA_PTR_FROM_JSON(BackupMethod, backupMethod_);
+        DARABONBA_PTR_FROM_JSON(BackupScheduleType, backupScheduleType_);
         DARABONBA_PTR_FROM_JSON(BackupSetInfo, backupSetInfo_);
         DARABONBA_PTR_FROM_JSON(BackupSize, backupSize_);
         DARABONBA_PTR_FROM_JSON(BackupStartTime, backupStartTime_);
@@ -76,8 +78,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->backupEndTime_ == nullptr
-        && this->backupId_ == nullptr && this->backupMethod_ == nullptr && this->backupSetInfo_ == nullptr && this->backupSize_ == nullptr && this->backupStartTime_ == nullptr
-        && this->backupStatus_ == nullptr && this->backupType_ == nullptr && this->DBClusterId_ == nullptr && this->expireDate_ == nullptr; };
+        && this->backupId_ == nullptr && this->backupMethod_ == nullptr && this->backupScheduleType_ == nullptr && this->backupSetInfo_ == nullptr && this->backupSize_ == nullptr
+        && this->backupStartTime_ == nullptr && this->backupStatus_ == nullptr && this->backupType_ == nullptr && this->DBClusterId_ == nullptr && this->expireDate_ == nullptr; };
       // backupEndTime Field Functions 
       bool hasBackupEndTime() const { return this->backupEndTime_ != nullptr;};
       void deleteBackupEndTime() { this->backupEndTime_ = nullptr;};
@@ -97,6 +99,13 @@ namespace Models
       void deleteBackupMethod() { this->backupMethod_ = nullptr;};
       inline string getBackupMethod() const { DARABONBA_PTR_GET_DEFAULT(backupMethod_, "") };
       inline Items& setBackupMethod(string backupMethod) { DARABONBA_PTR_SET_VALUE(backupMethod_, backupMethod) };
+
+
+      // backupScheduleType Field Functions 
+      bool hasBackupScheduleType() const { return this->backupScheduleType_ != nullptr;};
+      void deleteBackupScheduleType() { this->backupScheduleType_ = nullptr;};
+      inline string getBackupScheduleType() const { DARABONBA_PTR_GET_DEFAULT(backupScheduleType_, "") };
+      inline Items& setBackupScheduleType(string backupScheduleType) { DARABONBA_PTR_SET_VALUE(backupScheduleType_, backupScheduleType) };
 
 
       // backupSetInfo Field Functions 
@@ -149,37 +158,39 @@ namespace Models
 
 
     protected:
-      // The end time of the backup. The time is in the yyyy-MM-ddTHH:mmZ format and is displayed in UTC.
+      // The time when the backup ended.
+      // Format: yyyy-MM-ddTHH:mmZ (UTC).
       shared_ptr<string> backupEndTime_ {};
-      // The data backup task ID.
+      // The ID of the backup task.
       shared_ptr<string> backupId_ {};
-      // The backup method. The value is always **Physical**, which indicates a physical backup.
+      // The backup method. The value is **Physical**, which indicates physical backup.
       shared_ptr<string> backupMethod_ {};
-      // The number of cluster nodes.
+      // The backup type. Valid values: manual (manual backup) and scheduled (automatic backup).
+      shared_ptr<string> backupScheduleType_ {};
+      // The number of nodes in the cluster.
       // 
-      // - For a single-replica edition cluster, the value is an integer from 1 to 48.
-      // 
-      // - For a double-replica edition cluster, the value is an integer from 1 to 24.
+      // - Single-replica edition: valid values: 1 to 48.
+      // - Master-replica cluster: valid values: 1 to 24.
       shared_ptr<string> backupSetInfo_ {};
-      // The backup size. Unit: MB.
+      // The backup size.
+      // Unit: MB.
       shared_ptr<int64_t> backupSize_ {};
-      // The start time of the backup. The time is in the yyyy-MM-ddTHH:mmZ format and is displayed in UTC.
+      // The time when the backup started. Format: yyyy-MM-ddTHH:mmZ (UTC).
       shared_ptr<string> backupStartTime_ {};
       // The backup status. Valid values:
       // 
-      // - **Success**: The backup is successful.
-      // 
+      // - **Success**: The backup is complete.
       // - **Failure**: The backup failed.
       shared_ptr<string> backupStatus_ {};
       // The backup type. Valid values:
       // 
       // - **FullBackup**: full backup.
-      // 
       // - **IncrementalBackup**: incremental backup.
       shared_ptr<string> backupType_ {};
       // The cluster ID.
       shared_ptr<string> DBClusterId_ {};
-      // The expiration time of the backup set. The time is in the yyyy-MM-ddTHH:mmZ format and is displayed in UTC.
+      // The expiration time of the backup set.
+      // Format: yyyy-MM-ddTHH:mmZ (UTC).
       shared_ptr<string> expireDate_ {};
     };
 
@@ -230,14 +241,12 @@ namespace Models
     // The number of entries per page. Valid values:
     // 
     // - **30** (default)
-    // 
     // - **50**
-    // 
     // - **100**
     shared_ptr<string> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<string> totalCount_ {};
   };
 
