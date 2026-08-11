@@ -78,6 +78,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
           DARABONBA_PTR_TO_JSON(Protected, protected_);
           DARABONBA_PTR_TO_JSON(ServiceType, serviceType_);
+          DARABONBA_PTR_TO_JSON(SpbProjectId, spbProjectId_);
           DARABONBA_PTR_TO_JSON(Status, status_);
           DARABONBA_PTR_TO_JSON(Tags, tags_);
         };
@@ -96,6 +97,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
           DARABONBA_PTR_FROM_JSON(Protected, protected_);
           DARABONBA_PTR_FROM_JSON(ServiceType, serviceType_);
+          DARABONBA_PTR_FROM_JSON(SpbProjectId, spbProjectId_);
           DARABONBA_PTR_FROM_JSON(Status, status_);
           DARABONBA_PTR_FROM_JSON(Tags, tags_);
         };
@@ -188,7 +190,8 @@ namespace Models
         virtual bool empty() const override { return this->branchId_ == nullptr
         && this->branchName_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->expiresAt_ == nullptr && this->initSource_ == nullptr
         && this->isDefault_ == nullptr && this->parentBranchId_ == nullptr && this->parentBranchName_ == nullptr && this->parentLSN_ == nullptr && this->parentTimestamp_ == nullptr
-        && this->projectId_ == nullptr && this->protected_ == nullptr && this->serviceType_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
+        && this->projectId_ == nullptr && this->protected_ == nullptr && this->serviceType_ == nullptr && this->spbProjectId_ == nullptr && this->status_ == nullptr
+        && this->tags_ == nullptr; };
         // branchId Field Functions 
         bool hasBranchId() const { return this->branchId_ != nullptr;};
         void deleteBranchId() { this->branchId_ = nullptr;};
@@ -287,6 +290,13 @@ namespace Models
         inline Branch& setServiceType(string serviceType) { DARABONBA_PTR_SET_VALUE(serviceType_, serviceType) };
 
 
+        // spbProjectId Field Functions 
+        bool hasSpbProjectId() const { return this->spbProjectId_ != nullptr;};
+        void deleteSpbProjectId() { this->spbProjectId_ = nullptr;};
+        inline string getSpbProjectId() const { DARABONBA_PTR_GET_DEFAULT(spbProjectId_, "") };
+        inline Branch& setSpbProjectId(string spbProjectId) { DARABONBA_PTR_SET_VALUE(spbProjectId_, spbProjectId) };
+
+
         // status Field Functions 
         bool hasStatus() const { return this->status_ != nullptr;};
         void deleteStatus() { this->status_ = nullptr;};
@@ -318,6 +328,7 @@ namespace Models
         shared_ptr<string> projectId_ {};
         shared_ptr<bool> protected_ {};
         shared_ptr<string> serviceType_ {};
+        shared_ptr<string> spbProjectId_ {};
         shared_ptr<string> status_ {};
         shared_ptr<Branch::Tags> tags_ {};
       };
@@ -392,9 +403,9 @@ namespace Models
 
   protected:
     shared_ptr<ListBranchesResponseBody::Branches> branches_ {};
-    // The maximum number of records to return in this request.
+    // The maximum number of records to return in this query.
     shared_ptr<int32_t> maxResults_ {};
-    // The cursor for the paged query. You do not need to specify this parameter for the first request. For subsequent requests, use the NextToken value returned in the previous response for paging.
+    // The cursor for paging query. You do not need to specify this parameter for the first query. For subsequent queries, use the NextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
     // The page number. The value must be greater than 0. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -410,7 +421,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of branches that match the query criteria.
+    // The total number of branches that match the query conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

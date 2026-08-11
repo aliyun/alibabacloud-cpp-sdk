@@ -112,9 +112,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of records to return in this request.
+    // The maximum number of records to return in this query.
     shared_ptr<int32_t> maxResults_ {};
-    // The cursor for the paged query. You do not need to specify this parameter for the first request. For subsequent requests, use the NextToken value returned in the previous response for paging.
+    // The cursor for paging query. You do not need to specify this parameter for the first query. For subsequent queries, use the NextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
     // The page number. The value must be greater than 0. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -128,13 +128,13 @@ namespace Models
     // 
     // Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The parent branch ID. This parameter specifies the parent branch for a new branch or a query filter.
+    // The parent branch ID. Specifies the parent branch for a new branch or as a query filter condition.
     shared_ptr<string> parentBranchId_ {};
     // The region ID. This parameter is required when you create a primary branch. When you create a sub-branch, the region is inherited from the primary branch by default.
     shared_ptr<string> regionId_ {};
-    // The search keyword. Fuzzy search by branch ID or branch name is supported.
+    // The search keyword. Supports fuzzy search by branch ID or branch name.
     shared_ptr<string> search_ {};
-    // The field by which to sort the results.
+    // The sort field.
     // 
     // Valid values:
     // - BranchName: sorts by branch name.
@@ -143,7 +143,7 @@ namespace Models
     // 
     // Default value: CreateTime.
     shared_ptr<string> sortBy_ {};
-    // The sort order.
+    // The sort direction.
     // 
     // Valid values:
     // - Asc: ascending order.

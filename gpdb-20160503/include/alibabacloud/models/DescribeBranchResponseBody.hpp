@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
         DARABONBA_PTR_TO_JSON(Protected, protected_);
         DARABONBA_PTR_TO_JSON(ServiceType, serviceType_);
+        DARABONBA_PTR_TO_JSON(SpbProjectId, spbProjectId_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(Tags, tags_);
       };
@@ -69,6 +70,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
         DARABONBA_PTR_FROM_JSON(Protected, protected_);
         DARABONBA_PTR_FROM_JSON(ServiceType, serviceType_);
+        DARABONBA_PTR_FROM_JSON(SpbProjectId, spbProjectId_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(Tags, tags_);
       };
@@ -130,8 +132,8 @@ namespace Models
       virtual bool empty() const override { return this->branchId_ == nullptr
         && this->branchName_ == nullptr && this->computeEndpoint_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->expiresAt_ == nullptr
         && this->initSource_ == nullptr && this->isDefault_ == nullptr && this->parentBranchId_ == nullptr && this->parentBranchName_ == nullptr && this->parentLSN_ == nullptr
-        && this->parentTimestamp_ == nullptr && this->projectId_ == nullptr && this->protected_ == nullptr && this->serviceType_ == nullptr && this->status_ == nullptr
-        && this->tags_ == nullptr; };
+        && this->parentTimestamp_ == nullptr && this->projectId_ == nullptr && this->protected_ == nullptr && this->serviceType_ == nullptr && this->spbProjectId_ == nullptr
+        && this->status_ == nullptr && this->tags_ == nullptr; };
       // branchId Field Functions 
       bool hasBranchId() const { return this->branchId_ != nullptr;};
       void deleteBranchId() { this->branchId_ = nullptr;};
@@ -237,6 +239,13 @@ namespace Models
       inline Branch& setServiceType(string serviceType) { DARABONBA_PTR_SET_VALUE(serviceType_, serviceType) };
 
 
+      // spbProjectId Field Functions 
+      bool hasSpbProjectId() const { return this->spbProjectId_ != nullptr;};
+      void deleteSpbProjectId() { this->spbProjectId_ = nullptr;};
+      inline string getSpbProjectId() const { DARABONBA_PTR_GET_DEFAULT(spbProjectId_, "") };
+      inline Branch& setSpbProjectId(string spbProjectId) { DARABONBA_PTR_SET_VALUE(spbProjectId_, spbProjectId) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
@@ -264,7 +273,7 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The branch description.
       shared_ptr<string> description_ {};
-      // The time when the branch automatically expires and is deleted, in ISO 8601 UTC format.
+      // The time when the branch expires and is automatically deleted, in ISO 8601 UTC format.
       shared_ptr<string> expiresAt_ {};
       // The initialization source of the branch.
       // 
@@ -272,9 +281,9 @@ namespace Models
       // - ParentData: Copies the schema and data from the parent branch. This is the default value.
       // - SchemaOnly: Copies only the schema structure.
       shared_ptr<string> initSource_ {};
-      // Indicates whether the branch is the default branch.
+      // Indicates whether this is the default branch.
       shared_ptr<bool> isDefault_ {};
-      // The parent branch ID, which specifies the parent branch for a new branch or a query condition.
+      // The parent branch ID, which specifies the parent branch of a new branch or a query condition.
       shared_ptr<string> parentBranchId_ {};
       // The parent branch name. This value is empty or displayed as - for the primary branch.
       shared_ptr<string> parentBranchName_ {};
@@ -282,11 +291,11 @@ namespace Models
       shared_ptr<string> parentLSN_ {};
       // The data synchronization point in time selected from the parent branch when this branch was created, in ISO 8601 UTC format.
       // 
-      // Note:
+      // Description:
       // - For child branches, this value indicates the point in time of the parent branch selected during creation.
       // - If no parent branch exists, the value 1970-01-01T00:00:00.000Z is returned.
       shared_ptr<string> parentTimestamp_ {};
-      // The Supabase project ID associated with the primary branch.
+      // The Supabase project ID that corresponds to the primary branch.
       shared_ptr<string> projectId_ {};
       // Indicates whether branch protection is enabled. A value of true indicates that branch protection is enabled. A value of false indicates that branch protection is disabled.
       shared_ptr<bool> protected_ {};
@@ -296,9 +305,11 @@ namespace Models
       // - Supabase: Supabase service.
       // - Memory: Memory service.
       shared_ptr<string> serviceType_ {};
+      // The Supabase project ID that corresponds to the current branch.
+      shared_ptr<string> spbProjectId_ {};
       // The branch status.
       shared_ptr<string> status_ {};
-      // The branch tag list.
+      // The list of branch tags.
       shared_ptr<vector<Branch::Tags>> tags_ {};
     };
 

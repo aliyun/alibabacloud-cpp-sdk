@@ -1720,7 +1720,7 @@ namespace Gpdb20160503
       /**
        * @summary Queries the details of a Supabase branch.
        *
-       * @description Queries the detailed information of a specified Supabase branch, including basic branch attributes, parent branch information, protection status, and connection information.
+       * @description This operation queries the details of a specified Supabase branch and returns the basic attributes, parent branch information, protection status, and connection information of the branch.
        *
        * @param request DescribeBranchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1731,7 +1731,7 @@ namespace Gpdb20160503
       /**
        * @summary Queries the details of a Supabase branch.
        *
-       * @description Queries the detailed information of a specified Supabase branch, including basic branch attributes, parent branch information, protection status, and connection information.
+       * @description This operation queries the details of a specified Supabase branch and returns the basic attributes, parent branch information, protection status, and connection information of the branch.
        *
        * @param request DescribeBranchRequest
        * @return DescribeBranchResponse
@@ -3723,7 +3723,7 @@ namespace Gpdb20160503
       /**
        * @summary Queries the branch list of a Supabase project.
        *
-       * @description Performs a paged query for all branches under a specified Supabase project. You can filter branches by parent branch, keyword, and sorting criteria. Paging is supported.
+       * @description This operation performs a paging query of all branches under a specified Supabase project. You can filter results by parent branch, keyword, and sorting conditions.
        *
        * @param request ListBranchesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3734,7 +3734,7 @@ namespace Gpdb20160503
       /**
        * @summary Queries the branch list of a Supabase project.
        *
-       * @description Performs a paged query for all branches under a specified Supabase project. You can filter branches by parent branch, keyword, and sorting criteria. Paging is supported.
+       * @description This operation performs a paging query of all branches under a specified Supabase project. You can filter results by parent branch, keyword, and sorting conditions.
        *
        * @param request ListBranchesRequest
        * @return ListBranchesResponse

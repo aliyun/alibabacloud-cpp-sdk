@@ -1,3 +1,6 @@
+2026-08-11 Version: 3.12.1
+- Generated cpp 2016-05-03 for gpdb.
+
 2026-08-04 Version: 3.12.0
 - Support API CheckSaasServiceVersion.
 - Support API GetApiEndpoints.

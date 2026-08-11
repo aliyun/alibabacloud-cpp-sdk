@@ -39,20 +39,20 @@ AlibabaCloud::Gpdb20160503::Client::Client(AlibabaCloud::OpenApi::Utils::Models:
     {"cn-shenzhen-finance-1" , "gpdb.aliyuncs.com"},
     {"cn-qingdao" , "gpdb.aliyuncs.com"},
     {"cn-north-2-gov-1" , "gpdb.aliyuncs.com"},
-    {"me-east-1" , "gpdb.me-east-1.aliyuncs.com"},
-    {"me-central-1" , "gpdb.me-central-1.aliyuncs.com"},
+    {"cn-wulanchabu" , "gpdb.cn-wulanchabu.aliyuncs.com"},
+    {"cn-zhangjiakou" , "gpdb.cn-zhangjiakou.aliyuncs.com"},
+    {"ap-northeast-2" , "gpdb.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "gpdb.ap-northeast-1.aliyuncs.com"},
+    {"cn-chengdu" , "gpdb.cn-chengdu.aliyuncs.com"},
+    {"ap-southeast-3" , "gpdb.ap-southeast-3.aliyuncs.com"},
+    {"cn-huhehaote" , "gpdb.cn-huhehaote.aliyuncs.com"},
+    {"ap-southeast-5" , "gpdb.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-7" , "gpdb.ap-southeast-7.aliyuncs.com"},
     {"eu-west-1" , "gpdb.eu-west-1.aliyuncs.com"},
     {"eu-central-1" , "gpdb.eu-central-1.aliyuncs.com"},
-    {"cn-zhangjiakou" , "gpdb.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu" , "gpdb.cn-wulanchabu.aliyuncs.com"},
-    {"cn-huhehaote" , "gpdb.cn-huhehaote.aliyuncs.com"},
-    {"cn-chengdu" , "gpdb.cn-chengdu.aliyuncs.com"},
-    {"cn-beijing-finance-1" , "gpdb.cn-beijing-finance-1.aliyuncs.com"},
-    {"ap-southeast-7" , "gpdb.ap-southeast-7.aliyuncs.com"},
-    {"ap-southeast-5" , "gpdb.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-3" , "gpdb.ap-southeast-3.aliyuncs.com"},
-    {"ap-northeast-2" , "gpdb.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "gpdb.ap-northeast-1.aliyuncs.com"}
+    {"me-east-1" , "gpdb.me-east-1.aliyuncs.com"},
+    {"me-central-1" , "gpdb.me-central-1.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "gpdb.cn-beijing-finance-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("gpdb", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -5934,7 +5934,7 @@ DescribeBackupPolicyResponse Client::describeBackupPolicy(const DescribeBackupPo
 /**
  * @summary Queries the details of a Supabase branch.
  *
- * @description Queries the detailed information of a specified Supabase branch, including basic branch attributes, parent branch information, protection status, and connection information.
+ * @description This operation queries the details of a specified Supabase branch and returns the basic attributes, parent branch information, protection status, and connection information of the branch.
  *
  * @param request DescribeBranchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5971,7 +5971,7 @@ DescribeBranchResponse Client::describeBranchWithOptions(const DescribeBranchReq
 /**
  * @summary Queries the details of a Supabase branch.
  *
- * @description Queries the detailed information of a specified Supabase branch, including basic branch attributes, parent branch information, protection status, and connection information.
+ * @description This operation queries the details of a specified Supabase branch and returns the basic attributes, parent branch information, protection status, and connection information of the branch.
  *
  * @param request DescribeBranchRequest
  * @return DescribeBranchResponse
@@ -12008,7 +12008,7 @@ ListBackupJobsResponse Client::listBackupJobs(const ListBackupJobsRequest &reque
 /**
  * @summary Queries the branch list of a Supabase project.
  *
- * @description Performs a paged query for all branches under a specified Supabase project. You can filter branches by parent branch, keyword, and sorting criteria. Paging is supported.
+ * @description This operation performs a paging query of all branches under a specified Supabase project. You can filter results by parent branch, keyword, and sorting conditions.
  *
  * @param request ListBranchesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12073,7 +12073,7 @@ ListBranchesResponse Client::listBranchesWithOptions(const ListBranchesRequest &
 /**
  * @summary Queries the branch list of a Supabase project.
  *
- * @description Performs a paged query for all branches under a specified Supabase project. You can filter branches by parent branch, keyword, and sorting criteria. Paging is supported.
+ * @description This operation performs a paging query of all branches under a specified Supabase project. You can filter results by parent branch, keyword, and sorting conditions.
  *
  * @param request ListBranchesRequest
  * @return ListBranchesResponse
