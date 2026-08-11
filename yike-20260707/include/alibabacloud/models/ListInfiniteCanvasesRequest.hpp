@@ -16,15 +16,19 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Keyword, keyword_);
       DARABONBA_PTR_TO_JSON(PageNo, pageNo_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProductionId, productionId_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
       DARABONBA_PTR_TO_JSON(SortOrder, sortOrder_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListInfiniteCanvasesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(PageNo, pageNo_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProductionId, productionId_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
       DARABONBA_PTR_FROM_JSON(SortOrder, sortOrder_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     ListInfiniteCanvasesRequest() = default ;
     ListInfiniteCanvasesRequest(const ListInfiniteCanvasesRequest &) = default ;
@@ -38,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyword_ == nullptr
-        && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->sortBy_ == nullptr && this->sortOrder_ == nullptr; };
+        && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->productionId_ == nullptr && this->sortBy_ == nullptr && this->sortOrder_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
@@ -60,6 +65,13 @@ namespace Models
     inline ListInfiniteCanvasesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // productionId Field Functions 
+    bool hasProductionId() const { return this->productionId_ != nullptr;};
+    void deleteProductionId() { this->productionId_ = nullptr;};
+    inline string getProductionId() const { DARABONBA_PTR_GET_DEFAULT(productionId_, "") };
+    inline ListInfiniteCanvasesRequest& setProductionId(string productionId) { DARABONBA_PTR_SET_VALUE(productionId_, productionId) };
+
+
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
@@ -74,6 +86,13 @@ namespace Models
     inline ListInfiniteCanvasesRequest& setSortOrder(string sortOrder) { DARABONBA_PTR_SET_VALUE(sortOrder_, sortOrder) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline ListInfiniteCanvasesRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     // The keyword for querying site monitoring tasks. Supports fuzzy match based on task name or task address.
     shared_ptr<string> keyword_ {};
@@ -81,6 +100,7 @@ namespace Models
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> productionId_ {};
     // The sort field and sort order. Separate multiple values with commas (,).
     shared_ptr<string> sortBy_ {};
     // The sort direction.
@@ -91,6 +111,7 @@ namespace Models
     // 
     // Default value: Desc.
     shared_ptr<string> sortOrder_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

@@ -142,15 +142,25 @@ namespace Models
 
 
     protected:
+      // The duration of the input video, in seconds.
       shared_ptr<double> duration_ {};
+      // The editing project ID.
       shared_ptr<string> editingProjectId_ {};
+      // Optional. The error code returned when the task ultimately fails.
       shared_ptr<string> errorCode_ {};
+      // Optional. The error message returned when the task ultimately fails.
       shared_ptr<string> errorMessage_ {};
+      // The normalized Input JSON.
       shared_ptr<string> input_ {};
+      // The task ID.
       shared_ptr<string> jobId_ {};
+      // The normalized JobParameters JSON, including default values.
       shared_ptr<string> jobParameters_ {};
+      // The normalized task type.
       shared_ptr<string> jobType_ {};
+      // The JSON string of the final task result.
       shared_ptr<string> output_ {};
+      // The task status. Valid values: Created, Queuing, Executing, Finished, and Failed.
       shared_ptr<string> status_ {};
     };
 
@@ -173,7 +183,9 @@ namespace Models
 
 
   protected:
+    // The video translation task.
     shared_ptr<GetVideoTranslationJobResponseBody::Job> job_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
