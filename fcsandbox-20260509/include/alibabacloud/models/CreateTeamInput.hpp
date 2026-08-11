@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateTeamInput& obj) { 
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(plan, plan_);
       DARABONBA_PTR_TO_JSON(resourceGroupID, resourceGroupID_);
       DARABONBA_PTR_TO_JSON(teamName, teamName_);
     };
     friend void from_json(const Darabonba::Json& j, CreateTeamInput& obj) { 
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(plan, plan_);
       DARABONBA_PTR_FROM_JSON(resourceGroupID, resourceGroupID_);
       DARABONBA_PTR_FROM_JSON(teamName, teamName_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->resourceGroupID_ == nullptr && this->teamName_ == nullptr; };
+        && this->plan_ == nullptr && this->resourceGroupID_ == nullptr && this->teamName_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateTeamInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // plan Field Functions 
+    bool hasPlan() const { return this->plan_ != nullptr;};
+    void deletePlan() { this->plan_ = nullptr;};
+    inline string getPlan() const { DARABONBA_PTR_GET_DEFAULT(plan_, "") };
+    inline CreateTeamInput& setPlan(string plan) { DARABONBA_PTR_SET_VALUE(plan_, plan) };
 
 
     // resourceGroupID Field Functions 
@@ -57,8 +66,12 @@ namespace Models
 
 
   protected:
+    // The description.
     shared_ptr<string> description_ {};
+    shared_ptr<string> plan_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};
+    // The team name.
     shared_ptr<string> teamName_ {};
   };
 

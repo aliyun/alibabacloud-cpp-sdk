@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The Quota configuration information.
     shared_ptr<Quota> body_ {};
   };
 

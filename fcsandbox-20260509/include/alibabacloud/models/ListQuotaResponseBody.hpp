@@ -88,11 +88,16 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
     shared_ptr<int32_t> maxResults_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The pagination token used to retrieve more results. You do not need to specify this parameter for the first request. For subsequent requests, use the token obtained from the previous response.
     shared_ptr<string> nextToken_ {};
+    // The list of quota configurations.
     shared_ptr<vector<Quota>> quotas_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

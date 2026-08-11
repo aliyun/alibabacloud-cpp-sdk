@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The Quota configuration information.
     shared_ptr<Quota> quota_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

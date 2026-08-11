@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token used to retrieve more results. You do not need to specify this parameter for the first request. For subsequent requests, use the token obtained from the previous response.
     shared_ptr<string> nextToken_ {};
   };
 

@@ -98,12 +98,19 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The list of teams.
     shared_ptr<vector<E2BTeam>> teams_ {};
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

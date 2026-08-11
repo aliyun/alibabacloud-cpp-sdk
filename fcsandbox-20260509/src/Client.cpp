@@ -18,7 +18,15 @@ namespace FCSandbox20260509
 {
 
 AlibabaCloud::FCSandbox20260509::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-shenzhen" , "fcsandbox.cn-shenzhen.aliyuncs.com"},
+    {"cn-beijing" , "fcsandbox.cn-beijing.aliyuncs.com"},
+    {"cn-shanghai" , "fcsandbox.cn-shanghai.aliyuncs.com"},
+    {"cn-hongkong" , "fcsandbox.cn-hongkong.aliyuncs.com"},
+    {"ap-southeast-1" , "fcsandbox.ap-southeast-1.aliyuncs.com"},
+    {"cn-hangzhou" , "fcsandbox.cn-hangzhou.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("fcsandbox", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -37,7 +45,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 创建 ApiKey
+ * @summary Creates an API key.
  *
  * @param request CreateApiKeyRequest
  * @param headers map
@@ -65,7 +73,7 @@ CreateApiKeyResponse Client::createApiKeyWithOptions(const CreateApiKeyRequest &
 }
 
 /**
- * @summary 创建 ApiKey
+ * @summary Creates an API key.
  *
  * @param request CreateApiKeyRequest
  * @return CreateApiKeyResponse
@@ -77,7 +85,7 @@ CreateApiKeyResponse Client::createApiKey(const CreateApiKeyRequest &request) {
 }
 
 /**
- * @summary 创建 Team
+ * @summary Creates a Team.
  *
  * @param request CreateTeamRequest
  * @param headers map
@@ -105,7 +113,7 @@ CreateTeamResponse Client::createTeamWithOptions(const CreateTeamRequest &reques
 }
 
 /**
- * @summary 创建 Team
+ * @summary Creates a Team.
  *
  * @param request CreateTeamRequest
  * @return CreateTeamResponse
@@ -117,7 +125,7 @@ CreateTeamResponse Client::createTeam(const CreateTeamRequest &request) {
 }
 
 /**
- * @summary 删除 ApiKey 
+ * @summary Deletes an API key.
  *
  * @param request DeleteApiKeyRequest
  * @param headers map
@@ -144,7 +152,7 @@ DeleteApiKeyResponse Client::deleteApiKeyWithOptions(const string &apiKeyID, con
 }
 
 /**
- * @summary 删除 ApiKey 
+ * @summary Deletes an API key.
  *
  * @param request DeleteApiKeyRequest
  * @return DeleteApiKeyResponse
@@ -156,7 +164,7 @@ DeleteApiKeyResponse Client::deleteApiKey(const string &apiKeyID, const DeleteAp
 }
 
 /**
- * @summary 删除 quota 配置
+ * @summary Deletes a Quota configuration.
  *
  * @param request DeleteQuotaRequest
  * @param headers map
@@ -189,7 +197,7 @@ DeleteQuotaResponse Client::deleteQuotaWithOptions(const DeleteQuotaRequest &req
 }
 
 /**
- * @summary 删除 quota 配置
+ * @summary Deletes a Quota configuration.
  *
  * @param request DeleteQuotaRequest
  * @return DeleteQuotaResponse
@@ -201,7 +209,7 @@ DeleteQuotaResponse Client::deleteQuota(const DeleteQuotaRequest &request) {
 }
 
 /**
- * @summary 删除 Team
+ * @summary Deletes a team.
  *
  * @param request DeleteTeamRequest
  * @param headers map
@@ -228,7 +236,7 @@ DeleteTeamResponse Client::deleteTeamWithOptions(const string &teamID, const Del
 }
 
 /**
- * @summary 删除 Team
+ * @summary Deletes a team.
  *
  * @param request DeleteTeamRequest
  * @return DeleteTeamResponse
@@ -240,7 +248,7 @@ DeleteTeamResponse Client::deleteTeam(const string &teamID, const DeleteTeamRequ
 }
 
 /**
- * @summary 查看 ApiKey
+ * @summary Queries an API key.
  *
  * @param request DescribeApiKeyRequest
  * @param headers map
@@ -267,7 +275,7 @@ DescribeApiKeyResponse Client::describeApiKeyWithOptions(const string &apiKeyID,
 }
 
 /**
- * @summary 查看 ApiKey
+ * @summary Queries an API key.
  *
  * @param request DescribeApiKeyRequest
  * @return DescribeApiKeyResponse
@@ -279,7 +287,7 @@ DescribeApiKeyResponse Client::describeApiKey(const string &apiKeyID, const Desc
 }
 
 /**
- * @summary 获取 quota 配置
+ * @summary Retrieves the Quota configuration.
  *
  * @param request DescribeQuotaRequest
  * @param headers map
@@ -312,7 +320,7 @@ DescribeQuotaResponse Client::describeQuotaWithOptions(const DescribeQuotaReques
 }
 
 /**
- * @summary 获取 quota 配置
+ * @summary Retrieves the Quota configuration.
  *
  * @param request DescribeQuotaRequest
  * @return DescribeQuotaResponse
@@ -324,7 +332,7 @@ DescribeQuotaResponse Client::describeQuota(const DescribeQuotaRequest &request)
 }
 
 /**
- * @summary 获取Team详情
+ * @summary Retrieves the details of a team.
  *
  * @param request GetTeamRequest
  * @param headers map
@@ -351,7 +359,7 @@ GetTeamResponse Client::getTeamWithOptions(const string &teamID, const GetTeamRe
 }
 
 /**
- * @summary 获取Team详情
+ * @summary Retrieves the details of a team.
  *
  * @param request GetTeamRequest
  * @return GetTeamResponse
@@ -363,7 +371,7 @@ GetTeamResponse Client::getTeam(const string &teamID, const GetTeamRequest &requ
 }
 
 /**
- * @summary 分页查询 ApiKey
+ * @summary Queries API keys by paging.
  *
  * @param request ListApiKeysRequest
  * @param headers map
@@ -420,7 +428,7 @@ ListApiKeysResponse Client::listApiKeysWithOptions(const ListApiKeysRequest &req
 }
 
 /**
- * @summary 分页查询 ApiKey
+ * @summary Queries API keys by paging.
  *
  * @param request ListApiKeysRequest
  * @return ListApiKeysResponse
@@ -432,7 +440,7 @@ ListApiKeysResponse Client::listApiKeys(const ListApiKeysRequest &request) {
 }
 
 /**
- * @summary 查询 quota 配置
+ * @summary Queries the quota configurations of an account.
  *
  * @param request ListQuotaRequest
  * @param headers map
@@ -469,7 +477,7 @@ ListQuotaResponse Client::listQuotaWithOptions(const ListQuotaRequest &request, 
 }
 
 /**
- * @summary 查询 quota 配置
+ * @summary Queries the quota configurations of an account.
  *
  * @param request ListQuotaRequest
  * @return ListQuotaResponse
@@ -481,7 +489,7 @@ ListQuotaResponse Client::listQuota(const ListQuotaRequest &request) {
 }
 
 /**
- * @summary 查询 Team 列表
+ * @summary Queries a list of teams.
  *
  * @param request ListTeamsRequest
  * @param headers map
@@ -497,6 +505,10 @@ ListTeamsResponse Client::listTeamsWithOptions(const ListTeamsRequest &request, 
 
   if (!!request.hasPageSize()) {
     query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPlan()) {
+    query["plan"] = request.getPlan();
   }
 
   if (!!request.hasResourceGroupID()) {
@@ -526,7 +538,7 @@ ListTeamsResponse Client::listTeamsWithOptions(const ListTeamsRequest &request, 
 }
 
 /**
- * @summary 查询 Team 列表
+ * @summary Queries a list of teams.
  *
  * @param request ListTeamsRequest
  * @return ListTeamsResponse
@@ -538,7 +550,7 @@ ListTeamsResponse Client::listTeams(const ListTeamsRequest &request) {
 }
 
 /**
- * @summary 重置 ApiKey 
+ * @summary Resets an API key.
  *
  * @param request ResetApiKeyRequest
  * @param headers map
@@ -565,7 +577,7 @@ ResetApiKeyResponse Client::resetApiKeyWithOptions(const string &apiKeyID, const
 }
 
 /**
- * @summary 重置 ApiKey 
+ * @summary Resets an API key.
  *
  * @param request ResetApiKeyRequest
  * @return ResetApiKeyResponse
@@ -577,7 +589,7 @@ ResetApiKeyResponse Client::resetApiKey(const string &apiKeyID, const ResetApiKe
 }
 
 /**
- * @summary 更新 ApiKey
+ * @summary Updates an API key.
  *
  * @param request UpdateApiKeyRequest
  * @param headers map
@@ -605,7 +617,7 @@ UpdateApiKeyResponse Client::updateApiKeyWithOptions(const string &apiKeyID, con
 }
 
 /**
- * @summary 更新 ApiKey
+ * @summary Updates an API key.
  *
  * @param request UpdateApiKeyRequest
  * @return UpdateApiKeyResponse
@@ -617,7 +629,7 @@ UpdateApiKeyResponse Client::updateApiKey(const string &apiKeyID, const UpdateAp
 }
 
 /**
- * @summary 更新 quota 配置
+ * @summary Updates the Quota configuration.
  *
  * @param request UpdateQuotaRequest
  * @param headers map
@@ -645,7 +657,7 @@ UpdateQuotaResponse Client::updateQuotaWithOptions(const UpdateQuotaRequest &req
 }
 
 /**
- * @summary 更新 quota 配置
+ * @summary Updates the Quota configuration.
  *
  * @param request UpdateQuotaRequest
  * @return UpdateQuotaResponse
@@ -657,7 +669,7 @@ UpdateQuotaResponse Client::updateQuota(const UpdateQuotaRequest &request) {
 }
 
 /**
- * @summary 更新 Team
+ * @summary Updates a team.
  *
  * @param request UpdateTeamRequest
  * @param headers map
@@ -685,7 +697,7 @@ UpdateTeamResponse Client::updateTeamWithOptions(const string &teamID, const Upd
 }
 
 /**
- * @summary 更新 Team
+ * @summary Updates a team.
  *
  * @param request UpdateTeamRequest
  * @return UpdateTeamResponse

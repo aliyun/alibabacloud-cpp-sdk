@@ -2,8 +2,10 @@
 #ifndef ALIBABACLOUD_FCSANDBOX20260509MODEL_HPP_
 #define ALIBABACLOUD_FCSANDBOX20260509MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/IPConfig.hpp>
 #include <alibabacloud/models/ApiKey.hpp>
 #include <alibabacloud/models/CertConfig.hpp>
+#include <alibabacloud/models/ContainerConfiguration.hpp>
 #include <alibabacloud/models/CreateApiKeyInput.hpp>
 #include <alibabacloud/models/TLSConfig.hpp>
 #include <alibabacloud/models/CreateCustomDomainInput.hpp>
@@ -21,6 +23,7 @@
 #include <alibabacloud/models/E2BTemplate.hpp>
 #include <alibabacloud/models/E2BTemplateBuild.hpp>
 #include <alibabacloud/models/E2BVolumeMount.hpp>
+#include <alibabacloud/models/ImportApiKeyInput.hpp>
 #include <alibabacloud/models/Quota.hpp>
 #include <alibabacloud/models/UpdateApiKeyInput.hpp>
 #include <alibabacloud/models/UpdateCustomDomainInput.hpp>

@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(allowUpdateTeamName, allowUpdateTeamName_);
       DARABONBA_PTR_TO_JSON(createdTime, createdTime_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(plan, plan_);
       DARABONBA_PTR_TO_JSON(resourceGroupID, resourceGroupID_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(teamID, teamID_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(allowUpdateTeamName, allowUpdateTeamName_);
       DARABONBA_PTR_FROM_JSON(createdTime, createdTime_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(plan, plan_);
       DARABONBA_PTR_FROM_JSON(resourceGroupID, resourceGroupID_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(teamID, teamID_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowUpdateTeamName_ == nullptr
-        && this->createdTime_ == nullptr && this->description_ == nullptr && this->resourceGroupID_ == nullptr && this->status_ == nullptr && this->teamID_ == nullptr
-        && this->teamName_ == nullptr && this->userID_ == nullptr; };
+        && this->createdTime_ == nullptr && this->description_ == nullptr && this->plan_ == nullptr && this->resourceGroupID_ == nullptr && this->status_ == nullptr
+        && this->teamID_ == nullptr && this->teamName_ == nullptr && this->userID_ == nullptr; };
     // allowUpdateTeamName Field Functions 
     bool hasAllowUpdateTeamName() const { return this->allowUpdateTeamName_ != nullptr;};
     void deleteAllowUpdateTeamName() { this->allowUpdateTeamName_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline E2BTeam& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // plan Field Functions 
+    bool hasPlan() const { return this->plan_ != nullptr;};
+    void deletePlan() { this->plan_ = nullptr;};
+    inline string getPlan() const { DARABONBA_PTR_GET_DEFAULT(plan_, "") };
+    inline E2BTeam& setPlan(string plan) { DARABONBA_PTR_SET_VALUE(plan_, plan) };
 
 
     // resourceGroupID Field Functions 
@@ -103,13 +112,22 @@ namespace Models
 
 
   protected:
+    // Indicates whether the team name can be modified.
     shared_ptr<bool> allowUpdateTeamName_ {};
+    // The time when the team was created.
     shared_ptr<string> createdTime_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    shared_ptr<string> plan_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};
+    // The status of the team.
     shared_ptr<string> status_ {};
+    // The unique identifier of the team.
     shared_ptr<string> teamID_ {};
+    // The name of the team.
     shared_ptr<string> teamName_ {};
+    // The UID of the creator.
     shared_ptr<string> userID_ {};
   };
 

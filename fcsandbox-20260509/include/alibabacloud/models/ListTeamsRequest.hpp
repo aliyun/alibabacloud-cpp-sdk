@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListTeamsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(plan, plan_);
       DARABONBA_PTR_TO_JSON(resourceGroupID, resourceGroupID_);
       DARABONBA_PTR_TO_JSON(teamName, teamName_);
     };
     friend void from_json(const Darabonba::Json& j, ListTeamsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(plan, plan_);
       DARABONBA_PTR_FROM_JSON(resourceGroupID, resourceGroupID_);
       DARABONBA_PTR_FROM_JSON(teamName, teamName_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->resourceGroupID_ == nullptr && this->teamName_ == nullptr; };
+        && this->pageSize_ == nullptr && this->plan_ == nullptr && this->resourceGroupID_ == nullptr && this->teamName_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deletePageSize() { this->pageSize_ = nullptr;};
     inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListTeamsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // plan Field Functions 
+    bool hasPlan() const { return this->plan_ != nullptr;};
+    void deletePlan() { this->plan_ = nullptr;};
+    inline string getPlan() const { DARABONBA_PTR_GET_DEFAULT(plan_, "") };
+    inline ListTeamsRequest& setPlan(string plan) { DARABONBA_PTR_SET_VALUE(plan_, plan) };
 
 
     // resourceGroupID Field Functions 
@@ -66,9 +75,14 @@ namespace Models
 
 
   protected:
+    // The page number, starting from 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of teams to display per page.
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> plan_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};
+    // The team name.
     shared_ptr<string> teamName_ {};
   };
 

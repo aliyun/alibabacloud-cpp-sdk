@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The template base structure.
     shared_ptr<CreateApiKeyInput> body_ {};
   };
 

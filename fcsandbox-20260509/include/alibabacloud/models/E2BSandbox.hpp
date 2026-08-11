@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(state, state_);
       DARABONBA_PTR_TO_JSON(teamID, teamID_);
       DARABONBA_PTR_TO_JSON(teamName, teamName_);
+      DARABONBA_PTR_TO_JSON(teamPlan, teamPlan_);
       DARABONBA_PTR_TO_JSON(templateID, templateID_);
       DARABONBA_PTR_TO_JSON(templateName, templateName_);
       DARABONBA_PTR_TO_JSON(userID, userID_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(state, state_);
       DARABONBA_PTR_FROM_JSON(teamID, teamID_);
       DARABONBA_PTR_FROM_JSON(teamName, teamName_);
+      DARABONBA_PTR_FROM_JSON(teamPlan, teamPlan_);
       DARABONBA_PTR_FROM_JSON(templateID, templateID_);
       DARABONBA_PTR_FROM_JSON(templateName, templateName_);
       DARABONBA_PTR_FROM_JSON(userID, userID_);
@@ -70,7 +72,7 @@ namespace Models
         && this->cpuCount_ == nullptr && this->diskSizeMB_ == nullptr && this->domain_ == nullptr && this->endAt_ == nullptr && this->fcFunctionName_ == nullptr
         && this->fcInstanceID_ == nullptr && this->fcSessionID_ == nullptr && this->memoryMB_ == nullptr && this->metadata_ == nullptr && this->resourceGroupID_ == nullptr
         && this->sandboxID_ == nullptr && this->startedAt_ == nullptr && this->state_ == nullptr && this->teamID_ == nullptr && this->teamName_ == nullptr
-        && this->templateID_ == nullptr && this->templateName_ == nullptr && this->userID_ == nullptr; };
+        && this->teamPlan_ == nullptr && this->templateID_ == nullptr && this->templateName_ == nullptr && this->userID_ == nullptr; };
     // accessEndpoint Field Functions 
     bool hasAccessEndpoint() const { return this->accessEndpoint_ != nullptr;};
     void deleteAccessEndpoint() { this->accessEndpoint_ = nullptr;};
@@ -185,6 +187,13 @@ namespace Models
     inline E2BSandbox& setTeamName(string teamName) { DARABONBA_PTR_SET_VALUE(teamName_, teamName) };
 
 
+    // teamPlan Field Functions 
+    bool hasTeamPlan() const { return this->teamPlan_ != nullptr;};
+    void deleteTeamPlan() { this->teamPlan_ = nullptr;};
+    inline string getTeamPlan() const { DARABONBA_PTR_GET_DEFAULT(teamPlan_, "") };
+    inline E2BSandbox& setTeamPlan(string teamPlan) { DARABONBA_PTR_SET_VALUE(teamPlan_, teamPlan) };
+
+
     // templateID Field Functions 
     bool hasTemplateID() const { return this->templateID_ != nullptr;};
     void deleteTemplateID() { this->templateID_ = nullptr;};
@@ -223,6 +232,7 @@ namespace Models
     shared_ptr<string> state_ {};
     shared_ptr<string> teamID_ {};
     shared_ptr<string> teamName_ {};
+    shared_ptr<string> teamPlan_ {};
     shared_ptr<string> templateID_ {};
     shared_ptr<string> templateName_ {};
     shared_ptr<string> userID_ {};

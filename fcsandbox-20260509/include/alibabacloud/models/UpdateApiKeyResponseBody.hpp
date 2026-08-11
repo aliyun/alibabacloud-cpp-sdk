@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_MODELS_UPDATEAPIKEYRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/ApiKey.hpp>
+#include <vector>
+#include <alibabacloud/models/IPConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,12 +18,16 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateApiKeyResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(apiKey, apiKey_);
       DARABONBA_PTR_TO_JSON(code, code_);
+      DARABONBA_PTR_TO_JSON(ipBlacklist, ipBlacklist_);
+      DARABONBA_PTR_TO_JSON(ipWhitelist, ipWhitelist_);
       DARABONBA_PTR_TO_JSON(message, message_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateApiKeyResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(apiKey, apiKey_);
       DARABONBA_PTR_FROM_JSON(code, code_);
+      DARABONBA_PTR_FROM_JSON(ipBlacklist, ipBlacklist_);
+      DARABONBA_PTR_FROM_JSON(ipWhitelist, ipWhitelist_);
       DARABONBA_PTR_FROM_JSON(message, message_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
     };
@@ -37,7 +43,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->code_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr; };
+        && this->code_ == nullptr && this->ipBlacklist_ == nullptr && this->ipWhitelist_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr; };
     // apiKey Field Functions 
     bool hasApiKey() const { return this->apiKey_ != nullptr;};
     void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -52,6 +58,24 @@ namespace Models
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline UpdateApiKeyResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // ipBlacklist Field Functions 
+    bool hasIpBlacklist() const { return this->ipBlacklist_ != nullptr;};
+    void deleteIpBlacklist() { this->ipBlacklist_ = nullptr;};
+    inline const vector<IPConfig> & getIpBlacklist() const { DARABONBA_PTR_GET_CONST(ipBlacklist_, vector<IPConfig>) };
+    inline vector<IPConfig> getIpBlacklist() { DARABONBA_PTR_GET(ipBlacklist_, vector<IPConfig>) };
+    inline UpdateApiKeyResponseBody& setIpBlacklist(const vector<IPConfig> & ipBlacklist) { DARABONBA_PTR_SET_VALUE(ipBlacklist_, ipBlacklist) };
+    inline UpdateApiKeyResponseBody& setIpBlacklist(vector<IPConfig> && ipBlacklist) { DARABONBA_PTR_SET_RVALUE(ipBlacklist_, ipBlacklist) };
+
+
+    // ipWhitelist Field Functions 
+    bool hasIpWhitelist() const { return this->ipWhitelist_ != nullptr;};
+    void deleteIpWhitelist() { this->ipWhitelist_ = nullptr;};
+    inline const vector<IPConfig> & getIpWhitelist() const { DARABONBA_PTR_GET_CONST(ipWhitelist_, vector<IPConfig>) };
+    inline vector<IPConfig> getIpWhitelist() { DARABONBA_PTR_GET(ipWhitelist_, vector<IPConfig>) };
+    inline UpdateApiKeyResponseBody& setIpWhitelist(const vector<IPConfig> & ipWhitelist) { DARABONBA_PTR_SET_VALUE(ipWhitelist_, ipWhitelist) };
+    inline UpdateApiKeyResponseBody& setIpWhitelist(vector<IPConfig> && ipWhitelist) { DARABONBA_PTR_SET_RVALUE(ipWhitelist_, ipWhitelist) };
 
 
     // message Field Functions 
@@ -69,9 +93,15 @@ namespace Models
 
 
   protected:
+    // API Key。
     shared_ptr<ApiKey> apiKey_ {};
+    // The response status code.
     shared_ptr<string> code_ {};
+    shared_ptr<vector<IPConfig>> ipBlacklist_ {};
+    shared_ptr<vector<IPConfig>> ipWhitelist_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

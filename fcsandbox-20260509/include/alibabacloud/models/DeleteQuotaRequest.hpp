@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Team ID
     shared_ptr<string> tagValue_ {};
   };
 

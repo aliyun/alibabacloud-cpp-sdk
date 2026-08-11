@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATETEMPLATEINPUT_HPP_
 #define ALIBABACLOUD_MODELS_UPDATETEMPLATEINPUT_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ContainerConfiguration.hpp>
 #include <alibabacloud/models/LogConfiguration.hpp>
 #include <alibabacloud/models/NetworkConfiguration.hpp>
 using namespace std;
@@ -15,10 +16,12 @@ namespace Models
   class UpdateTemplateInput : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateTemplateInput& obj) { 
+      DARABONBA_PTR_TO_JSON(containerConfiguration, containerConfiguration_);
       DARABONBA_PTR_TO_JSON(logConfiguration, logConfiguration_);
       DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateTemplateInput& obj) { 
+      DARABONBA_PTR_FROM_JSON(containerConfiguration, containerConfiguration_);
       DARABONBA_PTR_FROM_JSON(logConfiguration, logConfiguration_);
       DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
     };
@@ -33,8 +36,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->logConfiguration_ == nullptr
-        && this->networkConfiguration_ == nullptr; };
+    virtual bool empty() const override { return this->containerConfiguration_ == nullptr
+        && this->logConfiguration_ == nullptr && this->networkConfiguration_ == nullptr; };
+    // containerConfiguration Field Functions 
+    bool hasContainerConfiguration() const { return this->containerConfiguration_ != nullptr;};
+    void deleteContainerConfiguration() { this->containerConfiguration_ = nullptr;};
+    inline const ContainerConfiguration & getContainerConfiguration() const { DARABONBA_PTR_GET_CONST(containerConfiguration_, ContainerConfiguration) };
+    inline ContainerConfiguration getContainerConfiguration() { DARABONBA_PTR_GET(containerConfiguration_, ContainerConfiguration) };
+    inline UpdateTemplateInput& setContainerConfiguration(const ContainerConfiguration & containerConfiguration) { DARABONBA_PTR_SET_VALUE(containerConfiguration_, containerConfiguration) };
+    inline UpdateTemplateInput& setContainerConfiguration(ContainerConfiguration && containerConfiguration) { DARABONBA_PTR_SET_RVALUE(containerConfiguration_, containerConfiguration) };
+
+
     // logConfiguration Field Functions 
     bool hasLogConfiguration() const { return this->logConfiguration_ != nullptr;};
     void deleteLogConfiguration() { this->logConfiguration_ = nullptr;};
@@ -54,6 +66,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<ContainerConfiguration> containerConfiguration_ {};
     shared_ptr<LogConfiguration> logConfiguration_ {};
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
   };

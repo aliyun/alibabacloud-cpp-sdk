@@ -94,12 +94,21 @@ namespace Models
 
 
   protected:
+    // The API key name.
     shared_ptr<string> apiKeyName_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of teams to display per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupID_ {};
+    // The status. Valid values:
+    // - active
+    // - inactive
     shared_ptr<string> status_ {};
+    // The unique identifier of the team.
     shared_ptr<string> teamID_ {};
+    // The UID of the creator.
     shared_ptr<string> userID_ {};
   };
 

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_E2BLISTEDTEMPLATE_HPP_
 #define ALIBABACLOUD_MODELS_E2BLISTEDTEMPLATE_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ContainerConfiguration.hpp>
 #include <alibabacloud/models/LogConfiguration.hpp>
 #include <vector>
 #include <alibabacloud/models/E2BTemplateTag.hpp>
@@ -18,6 +19,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const E2BListedTemplate& obj) { 
       DARABONBA_PTR_TO_JSON(buildStatus, buildStatus_);
       DARABONBA_PTR_TO_JSON(category, category_);
+      DARABONBA_PTR_TO_JSON(containerConfiguration, containerConfiguration_);
       DARABONBA_PTR_TO_JSON(cpuCount, cpuCount_);
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
       DARABONBA_PTR_TO_JSON(functionName, functionName_);
@@ -30,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(tags, tags_);
       DARABONBA_PTR_TO_JSON(teamID, teamID_);
       DARABONBA_PTR_TO_JSON(teamName, teamName_);
+      DARABONBA_PTR_TO_JSON(teamPlan, teamPlan_);
       DARABONBA_PTR_TO_JSON(templateID, templateID_);
       DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
       DARABONBA_PTR_TO_JSON(userID, userID_);
@@ -37,6 +40,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, E2BListedTemplate& obj) { 
       DARABONBA_PTR_FROM_JSON(buildStatus, buildStatus_);
       DARABONBA_PTR_FROM_JSON(category, category_);
+      DARABONBA_PTR_FROM_JSON(containerConfiguration, containerConfiguration_);
       DARABONBA_PTR_FROM_JSON(cpuCount, cpuCount_);
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
       DARABONBA_PTR_FROM_JSON(functionName, functionName_);
@@ -49,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(tags, tags_);
       DARABONBA_PTR_FROM_JSON(teamID, teamID_);
       DARABONBA_PTR_FROM_JSON(teamName, teamName_);
+      DARABONBA_PTR_FROM_JSON(teamPlan, teamPlan_);
       DARABONBA_PTR_FROM_JSON(templateID, templateID_);
       DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
       DARABONBA_PTR_FROM_JSON(userID, userID_);
@@ -65,10 +70,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->buildStatus_ == nullptr
-        && this->category_ == nullptr && this->cpuCount_ == nullptr && this->createdAt_ == nullptr && this->functionName_ == nullptr && this->logConfiguration_ == nullptr
-        && this->memoryMB_ == nullptr && this->names_ == nullptr && this->public_ == nullptr && this->resourceGroupID_ == nullptr && this->statusReason_ == nullptr
-        && this->tags_ == nullptr && this->teamID_ == nullptr && this->teamName_ == nullptr && this->templateID_ == nullptr && this->updatedAt_ == nullptr
-        && this->userID_ == nullptr; };
+        && this->category_ == nullptr && this->containerConfiguration_ == nullptr && this->cpuCount_ == nullptr && this->createdAt_ == nullptr && this->functionName_ == nullptr
+        && this->logConfiguration_ == nullptr && this->memoryMB_ == nullptr && this->names_ == nullptr && this->public_ == nullptr && this->resourceGroupID_ == nullptr
+        && this->statusReason_ == nullptr && this->tags_ == nullptr && this->teamID_ == nullptr && this->teamName_ == nullptr && this->teamPlan_ == nullptr
+        && this->templateID_ == nullptr && this->updatedAt_ == nullptr && this->userID_ == nullptr; };
     // buildStatus Field Functions 
     bool hasBuildStatus() const { return this->buildStatus_ != nullptr;};
     void deleteBuildStatus() { this->buildStatus_ = nullptr;};
@@ -81,6 +86,15 @@ namespace Models
     void deleteCategory() { this->category_ = nullptr;};
     inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline E2BListedTemplate& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
+
+
+    // containerConfiguration Field Functions 
+    bool hasContainerConfiguration() const { return this->containerConfiguration_ != nullptr;};
+    void deleteContainerConfiguration() { this->containerConfiguration_ = nullptr;};
+    inline const ContainerConfiguration & getContainerConfiguration() const { DARABONBA_PTR_GET_CONST(containerConfiguration_, ContainerConfiguration) };
+    inline ContainerConfiguration getContainerConfiguration() { DARABONBA_PTR_GET(containerConfiguration_, ContainerConfiguration) };
+    inline E2BListedTemplate& setContainerConfiguration(const ContainerConfiguration & containerConfiguration) { DARABONBA_PTR_SET_VALUE(containerConfiguration_, containerConfiguration) };
+    inline E2BListedTemplate& setContainerConfiguration(ContainerConfiguration && containerConfiguration) { DARABONBA_PTR_SET_RVALUE(containerConfiguration_, containerConfiguration) };
 
 
     // cpuCount Field Functions 
@@ -173,6 +187,13 @@ namespace Models
     inline E2BListedTemplate& setTeamName(string teamName) { DARABONBA_PTR_SET_VALUE(teamName_, teamName) };
 
 
+    // teamPlan Field Functions 
+    bool hasTeamPlan() const { return this->teamPlan_ != nullptr;};
+    void deleteTeamPlan() { this->teamPlan_ = nullptr;};
+    inline string getTeamPlan() const { DARABONBA_PTR_GET_DEFAULT(teamPlan_, "") };
+    inline E2BListedTemplate& setTeamPlan(string teamPlan) { DARABONBA_PTR_SET_VALUE(teamPlan_, teamPlan) };
+
+
     // templateID Field Functions 
     bool hasTemplateID() const { return this->templateID_ != nullptr;};
     void deleteTemplateID() { this->templateID_ = nullptr;};
@@ -197,6 +218,7 @@ namespace Models
   protected:
     shared_ptr<string> buildStatus_ {};
     shared_ptr<string> category_ {};
+    shared_ptr<ContainerConfiguration> containerConfiguration_ {};
     shared_ptr<int32_t> cpuCount_ {};
     shared_ptr<string> createdAt_ {};
     shared_ptr<string> functionName_ {};
@@ -209,6 +231,7 @@ namespace Models
     shared_ptr<vector<E2BTemplateTag>> tags_ {};
     shared_ptr<string> teamID_ {};
     shared_ptr<string> teamName_ {};
+    shared_ptr<string> teamPlan_ {};
     shared_ptr<string> templateID_ {};
     shared_ptr<string> updatedAt_ {};
     shared_ptr<string> userID_ {};

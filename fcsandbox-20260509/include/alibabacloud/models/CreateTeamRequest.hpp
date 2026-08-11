@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The request struct.
     shared_ptr<CreateTeamInput> body_ {};
   };
 

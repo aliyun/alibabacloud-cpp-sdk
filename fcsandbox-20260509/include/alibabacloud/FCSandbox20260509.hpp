@@ -21,7 +21,7 @@ namespace FCSandbox20260509
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 创建 ApiKey
+       * @summary Creates an API key.
        *
        * @param request CreateApiKeyRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace FCSandbox20260509
       Models::CreateApiKeyResponse createApiKeyWithOptions(const Models::CreateApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建 ApiKey
+       * @summary Creates an API key.
        *
        * @param request CreateApiKeyRequest
        * @return CreateApiKeyResponse
@@ -39,7 +39,7 @@ namespace FCSandbox20260509
       Models::CreateApiKeyResponse createApiKey(const Models::CreateApiKeyRequest &request);
 
       /**
-       * @summary 创建 Team
+       * @summary Creates a Team.
        *
        * @param request CreateTeamRequest
        * @param headers map
@@ -49,7 +49,7 @@ namespace FCSandbox20260509
       Models::CreateTeamResponse createTeamWithOptions(const Models::CreateTeamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建 Team
+       * @summary Creates a Team.
        *
        * @param request CreateTeamRequest
        * @return CreateTeamResponse
@@ -57,7 +57,7 @@ namespace FCSandbox20260509
       Models::CreateTeamResponse createTeam(const Models::CreateTeamRequest &request);
 
       /**
-       * @summary 删除 ApiKey 
+       * @summary Deletes an API key.
        *
        * @param request DeleteApiKeyRequest
        * @param headers map
@@ -67,7 +67,7 @@ namespace FCSandbox20260509
       Models::DeleteApiKeyResponse deleteApiKeyWithOptions(const string &apiKeyID, const Models::DeleteApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除 ApiKey 
+       * @summary Deletes an API key.
        *
        * @param request DeleteApiKeyRequest
        * @return DeleteApiKeyResponse
@@ -75,7 +75,7 @@ namespace FCSandbox20260509
       Models::DeleteApiKeyResponse deleteApiKey(const string &apiKeyID, const Models::DeleteApiKeyRequest &request);
 
       /**
-       * @summary 删除 quota 配置
+       * @summary Deletes a Quota configuration.
        *
        * @param request DeleteQuotaRequest
        * @param headers map
@@ -85,7 +85,7 @@ namespace FCSandbox20260509
       Models::DeleteQuotaResponse deleteQuotaWithOptions(const Models::DeleteQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除 quota 配置
+       * @summary Deletes a Quota configuration.
        *
        * @param request DeleteQuotaRequest
        * @return DeleteQuotaResponse
@@ -93,7 +93,7 @@ namespace FCSandbox20260509
       Models::DeleteQuotaResponse deleteQuota(const Models::DeleteQuotaRequest &request);
 
       /**
-       * @summary 删除 Team
+       * @summary Deletes a team.
        *
        * @param request DeleteTeamRequest
        * @param headers map
@@ -103,7 +103,7 @@ namespace FCSandbox20260509
       Models::DeleteTeamResponse deleteTeamWithOptions(const string &teamID, const Models::DeleteTeamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除 Team
+       * @summary Deletes a team.
        *
        * @param request DeleteTeamRequest
        * @return DeleteTeamResponse
@@ -111,7 +111,7 @@ namespace FCSandbox20260509
       Models::DeleteTeamResponse deleteTeam(const string &teamID, const Models::DeleteTeamRequest &request);
 
       /**
-       * @summary 查看 ApiKey
+       * @summary Queries an API key.
        *
        * @param request DescribeApiKeyRequest
        * @param headers map
@@ -121,7 +121,7 @@ namespace FCSandbox20260509
       Models::DescribeApiKeyResponse describeApiKeyWithOptions(const string &apiKeyID, const Models::DescribeApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看 ApiKey
+       * @summary Queries an API key.
        *
        * @param request DescribeApiKeyRequest
        * @return DescribeApiKeyResponse
@@ -129,7 +129,7 @@ namespace FCSandbox20260509
       Models::DescribeApiKeyResponse describeApiKey(const string &apiKeyID, const Models::DescribeApiKeyRequest &request);
 
       /**
-       * @summary 获取 quota 配置
+       * @summary Retrieves the Quota configuration.
        *
        * @param request DescribeQuotaRequest
        * @param headers map
@@ -139,7 +139,7 @@ namespace FCSandbox20260509
       Models::DescribeQuotaResponse describeQuotaWithOptions(const Models::DescribeQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取 quota 配置
+       * @summary Retrieves the Quota configuration.
        *
        * @param request DescribeQuotaRequest
        * @return DescribeQuotaResponse
@@ -147,7 +147,7 @@ namespace FCSandbox20260509
       Models::DescribeQuotaResponse describeQuota(const Models::DescribeQuotaRequest &request);
 
       /**
-       * @summary 获取Team详情
+       * @summary Retrieves the details of a team.
        *
        * @param request GetTeamRequest
        * @param headers map
@@ -157,7 +157,7 @@ namespace FCSandbox20260509
       Models::GetTeamResponse getTeamWithOptions(const string &teamID, const Models::GetTeamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Team详情
+       * @summary Retrieves the details of a team.
        *
        * @param request GetTeamRequest
        * @return GetTeamResponse
@@ -165,7 +165,7 @@ namespace FCSandbox20260509
       Models::GetTeamResponse getTeam(const string &teamID, const Models::GetTeamRequest &request);
 
       /**
-       * @summary 分页查询 ApiKey
+       * @summary Queries API keys by paging.
        *
        * @param request ListApiKeysRequest
        * @param headers map
@@ -175,7 +175,7 @@ namespace FCSandbox20260509
       Models::ListApiKeysResponse listApiKeysWithOptions(const Models::ListApiKeysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询 ApiKey
+       * @summary Queries API keys by paging.
        *
        * @param request ListApiKeysRequest
        * @return ListApiKeysResponse
@@ -183,7 +183,7 @@ namespace FCSandbox20260509
       Models::ListApiKeysResponse listApiKeys(const Models::ListApiKeysRequest &request);
 
       /**
-       * @summary 查询 quota 配置
+       * @summary Queries the quota configurations of an account.
        *
        * @param request ListQuotaRequest
        * @param headers map
@@ -193,7 +193,7 @@ namespace FCSandbox20260509
       Models::ListQuotaResponse listQuotaWithOptions(const Models::ListQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询 quota 配置
+       * @summary Queries the quota configurations of an account.
        *
        * @param request ListQuotaRequest
        * @return ListQuotaResponse
@@ -201,7 +201,7 @@ namespace FCSandbox20260509
       Models::ListQuotaResponse listQuota(const Models::ListQuotaRequest &request);
 
       /**
-       * @summary 查询 Team 列表
+       * @summary Queries a list of teams.
        *
        * @param request ListTeamsRequest
        * @param headers map
@@ -211,7 +211,7 @@ namespace FCSandbox20260509
       Models::ListTeamsResponse listTeamsWithOptions(const Models::ListTeamsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询 Team 列表
+       * @summary Queries a list of teams.
        *
        * @param request ListTeamsRequest
        * @return ListTeamsResponse
@@ -219,7 +219,7 @@ namespace FCSandbox20260509
       Models::ListTeamsResponse listTeams(const Models::ListTeamsRequest &request);
 
       /**
-       * @summary 重置 ApiKey 
+       * @summary Resets an API key.
        *
        * @param request ResetApiKeyRequest
        * @param headers map
@@ -229,7 +229,7 @@ namespace FCSandbox20260509
       Models::ResetApiKeyResponse resetApiKeyWithOptions(const string &apiKeyID, const Models::ResetApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重置 ApiKey 
+       * @summary Resets an API key.
        *
        * @param request ResetApiKeyRequest
        * @return ResetApiKeyResponse
@@ -237,7 +237,7 @@ namespace FCSandbox20260509
       Models::ResetApiKeyResponse resetApiKey(const string &apiKeyID, const Models::ResetApiKeyRequest &request);
 
       /**
-       * @summary 更新 ApiKey
+       * @summary Updates an API key.
        *
        * @param request UpdateApiKeyRequest
        * @param headers map
@@ -247,7 +247,7 @@ namespace FCSandbox20260509
       Models::UpdateApiKeyResponse updateApiKeyWithOptions(const string &apiKeyID, const Models::UpdateApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新 ApiKey
+       * @summary Updates an API key.
        *
        * @param request UpdateApiKeyRequest
        * @return UpdateApiKeyResponse
@@ -255,7 +255,7 @@ namespace FCSandbox20260509
       Models::UpdateApiKeyResponse updateApiKey(const string &apiKeyID, const Models::UpdateApiKeyRequest &request);
 
       /**
-       * @summary 更新 quota 配置
+       * @summary Updates the Quota configuration.
        *
        * @param request UpdateQuotaRequest
        * @param headers map
@@ -265,7 +265,7 @@ namespace FCSandbox20260509
       Models::UpdateQuotaResponse updateQuotaWithOptions(const Models::UpdateQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新 quota 配置
+       * @summary Updates the Quota configuration.
        *
        * @param request UpdateQuotaRequest
        * @return UpdateQuotaResponse
@@ -273,7 +273,7 @@ namespace FCSandbox20260509
       Models::UpdateQuotaResponse updateQuota(const Models::UpdateQuotaRequest &request);
 
       /**
-       * @summary 更新 Team
+       * @summary Updates a team.
        *
        * @param request UpdateTeamRequest
        * @param headers map
@@ -283,7 +283,7 @@ namespace FCSandbox20260509
       Models::UpdateTeamResponse updateTeamWithOptions(const string &teamID, const Models::UpdateTeamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新 Team
+       * @summary Updates a team.
        *
        * @param request UpdateTeamRequest
        * @return UpdateTeamResponse

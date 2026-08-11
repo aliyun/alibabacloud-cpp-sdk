@@ -98,12 +98,19 @@ namespace Models
 
 
   protected:
+    // The list of API keys.
     shared_ptr<vector<ApiKey>> apiKeys_ {};
+    // The error code.
     shared_ptr<string> code_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The page number, starting from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of API keys displayed per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

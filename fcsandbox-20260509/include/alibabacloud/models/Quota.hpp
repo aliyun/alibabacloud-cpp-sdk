@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The vCPU quota limit. Unit: cores.
     shared_ptr<int32_t> cpuCores_ {};
+    // The memory quota limit. Unit: GB.
     shared_ptr<int32_t> memoryGB_ {};
+    // Team ID
     shared_ptr<string> tagValue_ {};
   };
 
