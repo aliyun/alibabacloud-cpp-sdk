@@ -84,11 +84,24 @@ namespace Models
 
 
   protected:
+    // The end time.
     shared_ptr<string> endDate_ {};
+    // The freeze type. This parameter is required when Operation is set to freeze. Valid values:
+    // - ACL: Modify file permissions.
+    // - COPY: Move the file to a directory. The destination directory is determined as follows: 1. The directory selected when the task was created takes priority. 2. If automatic freezing was not enabled during creation, or ACL freezing was configured, the directory selected during freezing in the console is used. 3. The default directory is alicip_riskfile_backup/.
     shared_ptr<string> freezeType_ {};
+    // The processing operation. Valid values:
+    // 
+    // - freeze: freeze.
+    // - unfreeze: unfreeze.
+    // - misreport: false positive (not in violation).
+    // - missOut: missed violation.
     shared_ptr<string> operation_ {};
+    // The request ID.
     shared_ptr<string> requestIds_ {};
+    // The start time.
     shared_ptr<string> startDate_ {};
+    // The task name.
     shared_ptr<string> taskName_ {};
   };
 

@@ -55,6 +55,23 @@ namespace Green20220926
       Models::AddAppAgentResponse addAppAgent(const Models::AddAppAgentRequest &request);
 
       /**
+       * @summary Creates an app configuration.
+       *
+       * @param request AddAppConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddAppConfigResponse
+       */
+      Models::AddAppConfigResponse addAppConfigWithOptions(const Models::AddAppConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an app configuration.
+       *
+       * @param request AddAppConfigRequest
+       * @return AddAppConfigResponse
+       */
+      Models::AddAppConfigResponse addAppConfig(const Models::AddAppConfigRequest &request);
+
+      /**
        * @summary Creates an image library.
        *
        * @param request AddImageLibRequest
@@ -647,6 +664,125 @@ namespace Green20220926
       Models::ExportTextScanResultResponse exportTextScanResult(const Models::ExportTextScanResultRequest &request);
 
       /**
+       * @summary Retrieves the details of an AI application.
+       *
+       * @param request GetAiAppDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAiAppDetailResponse
+       */
+      Models::GetAiAppDetailResponse getAiAppDetailWithOptions(const Models::GetAiAppDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of an AI application.
+       *
+       * @param request GetAiAppDetailRequest
+       * @return GetAiAppDetailResponse
+       */
+      Models::GetAiAppDetailResponse getAiAppDetail(const Models::GetAiAppDetailRequest &request);
+
+      /**
+       * @summary Retrieves statistics for AI application details.
+       *
+       * @param request GetAiAppDetailStatRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAiAppDetailStatResponse
+       */
+      Models::GetAiAppDetailStatResponse getAiAppDetailStatWithOptions(const Models::GetAiAppDetailStatRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves statistics for AI application details.
+       *
+       * @param request GetAiAppDetailStatRequest
+       * @return GetAiAppDetailStatResponse
+       */
+      Models::GetAiAppDetailStatResponse getAiAppDetailStat(const Models::GetAiAppDetailStatRequest &request);
+
+      /**
+       * @summary Retrieves the topology of an AI application.
+       *
+       * @param tmpReq GetAiAppDetailTopoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAiAppDetailTopoResponse
+       */
+      Models::GetAiAppDetailTopoResponse getAiAppDetailTopoWithOptions(const Models::GetAiAppDetailTopoRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the topology of an AI application.
+       *
+       * @param request GetAiAppDetailTopoRequest
+       * @return GetAiAppDetailTopoResponse
+       */
+      Models::GetAiAppDetailTopoResponse getAiAppDetailTopo(const Models::GetAiAppDetailTopoRequest &request);
+
+      /**
+       * @summary Retrieves the details of an application node in the agent topology.
+       *
+       * @param request GetAiAppNodeDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAiAppNodeDetailResponse
+       */
+      Models::GetAiAppNodeDetailResponse getAiAppNodeDetailWithOptions(const Models::GetAiAppNodeDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of an application node in the agent topology.
+       *
+       * @param request GetAiAppNodeDetailRequest
+       * @return GetAiAppNodeDetailResponse
+       */
+      Models::GetAiAppNodeDetailResponse getAiAppNodeDetail(const Models::GetAiAppNodeDetailRequest &request);
+
+      /**
+       * @summary Retrieves the overview information of AI applications.
+       *
+       * @param request GetAiAppOverviewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAiAppOverviewResponse
+       */
+      Models::GetAiAppOverviewResponse getAiAppOverviewWithOptions(const Models::GetAiAppOverviewRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the overview information of AI applications.
+       *
+       * @param request GetAiAppOverviewRequest
+       * @return GetAiAppOverviewResponse
+       */
+      Models::GetAiAppOverviewResponse getAiAppOverview(const Models::GetAiAppOverviewRequest &request);
+
+      /**
+       * @summary Retrieves statistics data for AI applications.
+       *
+       * @param request GetAiAppStatsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAiAppStatsResponse
+       */
+      Models::GetAiAppStatsResponse getAiAppStatsWithOptions(const Models::GetAiAppStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves statistics data for AI applications.
+       *
+       * @param request GetAiAppStatsRequest
+       * @return GetAiAppStatsResponse
+       */
+      Models::GetAiAppStatsResponse getAiAppStats(const Models::GetAiAppStatsRequest &request);
+
+      /**
+       * @summary Retrieves the details of an app alert.
+       *
+       * @param request GetAiAppTraceDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAiAppTraceDetailResponse
+       */
+      Models::GetAiAppTraceDetailResponse getAiAppTraceDetailWithOptions(const Models::GetAiAppTraceDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of an app alert.
+       *
+       * @param request GetAiAppTraceDetailRequest
+       * @return GetAiAppTraceDetailResponse
+       */
+      Models::GetAiAppTraceDetailResponse getAiAppTraceDetail(const Models::GetAiAppTraceDetailRequest &request);
+
+      /**
        * @summary Retrieves the import progress of proxy answer samples.
        *
        * @param request GetAnswerImportProgressRequest
@@ -815,6 +951,23 @@ namespace Green20220926
        * @return GetGuardLogStatsResponse
        */
       Models::GetGuardLogStatsResponse getGuardLogStats(const Models::GetGuardLogStatsRequest &request);
+
+      /**
+       * @summary Retrieves statistics information on AI application protection data.
+       *
+       * @param request GetGuardStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetGuardStatusResponse
+       */
+      Models::GetGuardStatusResponse getGuardStatusWithOptions(const Models::GetGuardStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves statistics information on AI application protection data.
+       *
+       * @param request GetGuardStatusRequest
+       * @return GetGuardStatusResponse
+       */
+      Models::GetGuardStatusResponse getGuardStatus(const Models::GetGuardStatusRequest &request);
 
       /**
        * @summary Retrieves image rule tag information.
@@ -1002,6 +1155,40 @@ namespace Green20220926
        * @return GetPromptTestResultResponse
        */
       Models::GetPromptTestResultResponse getPromptTestResult(const Models::GetPromptTestResultRequest &request);
+
+      /**
+       * @summary Queries QPS statistics information.
+       *
+       * @param request GetQpsStatsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetQpsStatsResponse
+       */
+      Models::GetQpsStatsResponse getQpsStatsWithOptions(const Models::GetQpsStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries QPS statistics information.
+       *
+       * @param request GetQpsStatsRequest
+       * @return GetQpsStatsResponse
+       */
+      Models::GetQpsStatsResponse getQpsStats(const Models::GetQpsStatsRequest &request);
+
+      /**
+       * @summary Queries risk posture statistics.
+       *
+       * @param request GetRiskStatsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRiskStatsResponse
+       */
+      Models::GetRiskStatsResponse getRiskStatsWithOptions(const Models::GetRiskStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries risk posture statistics.
+       *
+       * @param request GetRiskStatsRequest
+       * @return GetRiskStatsResponse
+       */
+      Models::GetRiskStatsResponse getRiskStats(const Models::GetRiskStatsRequest &request);
 
       /**
        * @summary Queries the information about files pending detection for a user.
@@ -1212,6 +1399,91 @@ namespace Green20220926
       Models::GetUserBuyStatusResponse getUserBuyStatus(const Models::GetUserBuyStatusRequest &request);
 
       /**
+       * @summary Initializes AI application log scanning and activates the service.
+       *
+       * @param request InitAiAppScanRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InitAiAppScanResponse
+       */
+      Models::InitAiAppScanResponse initAiAppScanWithOptions(const Models::InitAiAppScanRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Initializes AI application log scanning and activates the service.
+       *
+       * @param request InitAiAppScanRequest
+       * @return InitAiAppScanResponse
+       */
+      Models::InitAiAppScanResponse initAiAppScan(const Models::InitAiAppScanRequest &request);
+
+      /**
+       * @summary Retrieves a paginated list of AI applications.
+       *
+       * @param request ListAiAppByPageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAiAppByPageResponse
+       */
+      Models::ListAiAppByPageResponse listAiAppByPageWithOptions(const Models::ListAiAppByPageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a paginated list of AI applications.
+       *
+       * @param request ListAiAppByPageRequest
+       * @return ListAiAppByPageResponse
+       */
+      Models::ListAiAppByPageResponse listAiAppByPage(const Models::ListAiAppByPageRequest &request);
+
+      /**
+       * @summary Retrieves the list of risk events for AI applications.
+       *
+       * @param request ListAiAppRiskEventRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAiAppRiskEventResponse
+       */
+      Models::ListAiAppRiskEventResponse listAiAppRiskEventWithOptions(const Models::ListAiAppRiskEventRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the list of risk events for AI applications.
+       *
+       * @param request ListAiAppRiskEventRequest
+       * @return ListAiAppRiskEventResponse
+       */
+      Models::ListAiAppRiskEventResponse listAiAppRiskEvent(const Models::ListAiAppRiskEventRequest &request);
+
+      /**
+       * @summary Retrieves a paginated list of risk events for AI applications.
+       *
+       * @param request ListAiAppRiskEventByPageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAiAppRiskEventByPageResponse
+       */
+      Models::ListAiAppRiskEventByPageResponse listAiAppRiskEventByPageWithOptions(const Models::ListAiAppRiskEventByPageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a paginated list of risk events for AI applications.
+       *
+       * @param request ListAiAppRiskEventByPageRequest
+       * @return ListAiAppRiskEventByPageResponse
+       */
+      Models::ListAiAppRiskEventByPageResponse listAiAppRiskEventByPage(const Models::ListAiAppRiskEventByPageRequest &request);
+
+      /**
+       * @summary Queries the alert list of an application with pagination.
+       *
+       * @param request ListAiAppWarningByPageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAiAppWarningByPageResponse
+       */
+      Models::ListAiAppWarningByPageResponse listAiAppWarningByPageWithOptions(const Models::ListAiAppWarningByPageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the alert list of an application with pagination.
+       *
+       * @param request ListAiAppWarningByPageRequest
+       * @return ListAiAppWarningByPageResponse
+       */
+      Models::ListAiAppWarningByPageResponse listAiAppWarningByPage(const Models::ListAiAppWarningByPageRequest &request);
+
+      /**
        * @summary Queries the list of proxy answer libraries.
        *
        * @param request ListAnswerLibRequest
@@ -1408,7 +1680,9 @@ namespace Green20220926
       Models::LlmStreamChatResponse llmStreamChat(const Models::LlmStreamChatRequest &request);
 
       /**
-       * @summary oss结果反馈
+       * @summary Provides feedback on OSS detection results.
+       *
+       * @description This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, results are automatically deleted.
        *
        * @param request MarkOssV2ResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1417,7 +1691,9 @@ namespace Green20220926
       Models::MarkOssV2ResultResponse markOssV2ResultWithOptions(const Models::MarkOssV2ResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary oss结果反馈
+       * @summary Provides feedback on OSS detection results.
+       *
+       * @description This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, results are automatically deleted.
        *
        * @param request MarkOssV2ResultRequest
        * @return MarkOssV2ResultResponse
@@ -1612,6 +1888,23 @@ namespace Green20220926
       Models::QueryCallbackByPageResponse queryCallbackByPage(const Models::QueryCallbackByPageRequest &request);
 
       /**
+       * @summary Queries label configurations.
+       *
+       * @param request QueryLabelConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryLabelConfigResponse
+       */
+      Models::QueryLabelConfigResponse queryLabelConfigWithOptions(const Models::QueryLabelConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries label configurations.
+       *
+       * @param request QueryLabelConfigRequest
+       * @return QueryLabelConfigResponse
+       */
+      Models::QueryLabelConfigResponse queryLabelConfig(const Models::QueryLabelConfigRequest &request);
+
+      /**
        * @summary Reverts an app to a historical version.
        *
        * @param request RecoverAppConfigHistoryRequest
@@ -1646,6 +1939,23 @@ namespace Green20220926
       Models::StopOnlineTestResponse stopOnlineTest(const Models::StopOnlineTestRequest &request);
 
       /**
+       * @summary Updates the scan status of AI applications.
+       *
+       * @param request UpdateAiAppScanStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAiAppScanStatusResponse
+       */
+      Models::UpdateAiAppScanStatusResponse updateAiAppScanStatusWithOptions(const Models::UpdateAiAppScanStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the scan status of AI applications.
+       *
+       * @param request UpdateAiAppScanStatusRequest
+       * @return UpdateAiAppScanStatusResponse
+       */
+      Models::UpdateAiAppScanStatusResponse updateAiAppScanStatus(const Models::UpdateAiAppScanStatusRequest &request);
+
+      /**
        * @summary Updates the evidence transfer configuration.
        *
        * @param request UpdateBackupConfigRequest
@@ -1661,6 +1971,23 @@ namespace Green20220926
        * @return UpdateBackupConfigResponse
        */
       Models::UpdateBackupConfigResponse updateBackupConfig(const Models::UpdateBackupConfigRequest &request);
+
+      /**
+       * @summary Updates the status of risk events.
+       *
+       * @param tmpReq UpdateEventStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateEventStatusResponse
+       */
+      Models::UpdateEventStatusResponse updateEventStatusWithOptions(const Models::UpdateEventStatusRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the status of risk events.
+       *
+       * @param request UpdateEventStatusRequest
+       * @return UpdateEventStatusResponse
+       */
+      Models::UpdateEventStatusResponse updateEventStatus(const Models::UpdateEventStatusRequest &request);
 
       /**
        * @summary Edits an image library.
@@ -1712,6 +2039,23 @@ namespace Green20220926
        * @return UpdateKeywordLibResponse
        */
       Models::UpdateKeywordLibResponse updateKeywordLib(const Models::UpdateKeywordLibRequest &request);
+
+      /**
+       * @summary Updates Meta log information.
+       *
+       * @param request UpdateMetaLogRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMetaLogResponse
+       */
+      Models::UpdateMetaLogResponse updateMetaLogWithOptions(const Models::UpdateMetaLogRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates Meta log information.
+       *
+       * @param request UpdateMetaLogRequest
+       * @return UpdateMetaLogResponse
+       */
+      Models::UpdateMetaLogResponse updateMetaLog(const Models::UpdateMetaLogRequest &request);
 
       /**
        * @summary Updates OSS detection result feedback in batches.

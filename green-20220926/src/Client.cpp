@@ -39,10 +39,10 @@ AlibabaCloud::Green20220926::Client::Client(Config &config): OpenApiClient(confi
     {"cn-shanghai-finance-1" , "green.aliyuncs.com"},
     {"cn-north-2-gov-1" , "green.aliyuncs.com"},
     {"cn-shenzhen" , "green-cip.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai" , "green-cip.cn-shanghai.aliyuncs.com"},
-    {"cn-hangzhou" , "green-cip.cn-hangzhou.aliyuncs.com"},
     {"cn-beijing" , "green-cip.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-1" , "green-cip.ap-southeast-1.aliyuncs.com"}
+    {"cn-shanghai" , "green-cip.cn-shanghai.aliyuncs.com"},
+    {"ap-southeast-1" , "green-cip.ap-southeast-1.aliyuncs.com"},
+    {"cn-hangzhou" , "green-cip.cn-hangzhou.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("green", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -175,6 +175,68 @@ AddAppAgentResponse Client::addAppAgentWithOptions(const AddAppAgentRequest &req
 AddAppAgentResponse Client::addAppAgent(const AddAppAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return addAppAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates an app configuration.
+ *
+ * @param request AddAppConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddAppConfigResponse
+ */
+AddAppConfigResponse Client::addAppConfigWithOptions(const AddAppConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClassify()) {
+    query["Classify"] = request.getClassify();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasSysAppId()) {
+    query["SysAppId"] = request.getSysAppId();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddAppConfig"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddAppConfigResponse>();
+}
+
+/**
+ * @summary Creates an app configuration.
+ *
+ * @param request AddAppConfigRequest
+ * @return AddAppConfigResponse
+ */
+AddAppConfigResponse Client::addAppConfig(const AddAppConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addAppConfigWithOptions(request, runtime);
 }
 
 /**
@@ -2276,6 +2338,398 @@ ExportTextScanResultResponse Client::exportTextScanResult(const ExportTextScanRe
 }
 
 /**
+ * @summary Retrieves the details of an AI application.
+ *
+ * @param request GetAiAppDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAiAppDetailResponse
+ */
+GetAiAppDetailResponse Client::getAiAppDetailWithOptions(const GetAiAppDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAiAppDetail"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAiAppDetailResponse>();
+}
+
+/**
+ * @summary Retrieves the details of an AI application.
+ *
+ * @param request GetAiAppDetailRequest
+ * @return GetAiAppDetailResponse
+ */
+GetAiAppDetailResponse Client::getAiAppDetail(const GetAiAppDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAiAppDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves statistics for AI application details.
+ *
+ * @param request GetAiAppDetailStatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAiAppDetailStatResponse
+ */
+GetAiAppDetailStatResponse Client::getAiAppDetailStatWithOptions(const GetAiAppDetailStatRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAiAppDetailStat"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAiAppDetailStatResponse>();
+}
+
+/**
+ * @summary Retrieves statistics for AI application details.
+ *
+ * @param request GetAiAppDetailStatRequest
+ * @return GetAiAppDetailStatResponse
+ */
+GetAiAppDetailStatResponse Client::getAiAppDetailStat(const GetAiAppDetailStatRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAiAppDetailStatWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the topology of an AI application.
+ *
+ * @param tmpReq GetAiAppDetailTopoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAiAppDetailTopoResponse
+ */
+GetAiAppDetailTopoResponse Client::getAiAppDetailTopoWithOptions(const GetAiAppDetailTopoRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetAiAppDetailTopoShrinkRequest request = GetAiAppDetailTopoShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTimeQuery()) {
+    request.setTimeQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTimeQuery(), "TimeQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTimeQueryShrink()) {
+    query["TimeQuery"] = request.getTimeQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAiAppDetailTopo"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAiAppDetailTopoResponse>();
+}
+
+/**
+ * @summary Retrieves the topology of an AI application.
+ *
+ * @param request GetAiAppDetailTopoRequest
+ * @return GetAiAppDetailTopoResponse
+ */
+GetAiAppDetailTopoResponse Client::getAiAppDetailTopo(const GetAiAppDetailTopoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAiAppDetailTopoWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the details of an application node in the agent topology.
+ *
+ * @param request GetAiAppNodeDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAiAppNodeDetailResponse
+ */
+GetAiAppNodeDetailResponse Client::getAiAppNodeDetailWithOptions(const GetAiAppNodeDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasNodeId()) {
+    query["NodeId"] = request.getNodeId();
+  }
+
+  if (!!request.hasNodeName()) {
+    query["NodeName"] = request.getNodeName();
+  }
+
+  if (!!request.hasNodeType()) {
+    query["NodeType"] = request.getNodeType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAiAppNodeDetail"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAiAppNodeDetailResponse>();
+}
+
+/**
+ * @summary Retrieves the details of an application node in the agent topology.
+ *
+ * @param request GetAiAppNodeDetailRequest
+ * @return GetAiAppNodeDetailResponse
+ */
+GetAiAppNodeDetailResponse Client::getAiAppNodeDetail(const GetAiAppNodeDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAiAppNodeDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the overview information of AI applications.
+ *
+ * @param request GetAiAppOverviewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAiAppOverviewResponse
+ */
+GetAiAppOverviewResponse Client::getAiAppOverviewWithOptions(const GetAiAppOverviewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAiAppOverview"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAiAppOverviewResponse>();
+}
+
+/**
+ * @summary Retrieves the overview information of AI applications.
+ *
+ * @param request GetAiAppOverviewRequest
+ * @return GetAiAppOverviewResponse
+ */
+GetAiAppOverviewResponse Client::getAiAppOverview(const GetAiAppOverviewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAiAppOverviewWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves statistics data for AI applications.
+ *
+ * @param request GetAiAppStatsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAiAppStatsResponse
+ */
+GetAiAppStatsResponse Client::getAiAppStatsWithOptions(const GetAiAppStatsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasByMonth()) {
+    query["ByMonth"] = request.getByMonth();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.getStartDate();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAiAppStats"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAiAppStatsResponse>();
+}
+
+/**
+ * @summary Retrieves statistics data for AI applications.
+ *
+ * @param request GetAiAppStatsRequest
+ * @return GetAiAppStatsResponse
+ */
+GetAiAppStatsResponse Client::getAiAppStats(const GetAiAppStatsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAiAppStatsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the details of an app alert.
+ *
+ * @param request GetAiAppTraceDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAiAppTraceDetailResponse
+ */
+GetAiAppTraceDetailResponse Client::getAiAppTraceDetailWithOptions(const GetAiAppTraceDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTraceId()) {
+    query["TraceId"] = request.getTraceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAiAppTraceDetail"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAiAppTraceDetailResponse>();
+}
+
+/**
+ * @summary Retrieves the details of an app alert.
+ *
+ * @param request GetAiAppTraceDetailRequest
+ * @return GetAiAppTraceDetailResponse
+ */
+GetAiAppTraceDetailResponse Client::getAiAppTraceDetail(const GetAiAppTraceDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAiAppTraceDetailWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the import progress of proxy answer samples.
  *
  * @param request GetAnswerImportProgressRequest
@@ -2770,6 +3224,52 @@ GetGuardLogStatsResponse Client::getGuardLogStatsWithOptions(const GetGuardLogSt
 GetGuardLogStatsResponse Client::getGuardLogStats(const GetGuardLogStatsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getGuardLogStatsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves statistics information on AI application protection data.
+ *
+ * @param request GetGuardStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetGuardStatusResponse
+ */
+GetGuardStatusResponse Client::getGuardStatusWithOptions(const GetGuardStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCommodityCode()) {
+    query["CommodityCode"] = request.getCommodityCode();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetGuardStatus"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetGuardStatusResponse>();
+}
+
+/**
+ * @summary Retrieves statistics information on AI application protection data.
+ *
+ * @param request GetGuardStatusRequest
+ * @return GetGuardStatusResponse
+ */
+GetGuardStatusResponse Client::getGuardStatus(const GetGuardStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getGuardStatusWithOptions(request, runtime);
 }
 
 /**
@@ -3370,6 +3870,110 @@ GetPromptTestResultResponse Client::getPromptTestResultWithOptions(const GetProm
 GetPromptTestResultResponse Client::getPromptTestResult(const GetPromptTestResultRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getPromptTestResultWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries QPS statistics information.
+ *
+ * @param request GetQpsStatsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetQpsStatsResponse
+ */
+GetQpsStatsResponse Client::getQpsStatsWithOptions(const GetQpsStatsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetQpsStats"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetQpsStatsResponse>();
+}
+
+/**
+ * @summary Queries QPS statistics information.
+ *
+ * @param request GetQpsStatsRequest
+ * @return GetQpsStatsResponse
+ */
+GetQpsStatsResponse Client::getQpsStats(const GetQpsStatsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getQpsStatsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries risk posture statistics.
+ *
+ * @param request GetRiskStatsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRiskStatsResponse
+ */
+GetRiskStatsResponse Client::getRiskStatsWithOptions(const GetRiskStatsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClassify()) {
+    query["Classify"] = request.getClassify();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRiskStats"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRiskStatsResponse>();
+}
+
+/**
+ * @summary Queries risk posture statistics.
+ *
+ * @param request GetRiskStatsRequest
+ * @return GetRiskStatsResponse
+ */
+GetRiskStatsResponse Client::getRiskStats(const GetRiskStatsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getRiskStatsWithOptions(request, runtime);
 }
 
 /**
@@ -4056,6 +4660,284 @@ GetUserBuyStatusResponse Client::getUserBuyStatusWithOptions(const GetUserBuySta
 GetUserBuyStatusResponse Client::getUserBuyStatus(const GetUserBuyStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getUserBuyStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary Initializes AI application log scanning and activates the service.
+ *
+ * @param request InitAiAppScanRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InitAiAppScanResponse
+ */
+InitAiAppScanResponse Client::initAiAppScanWithOptions(const InitAiAppScanRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChannel()) {
+    query["Channel"] = request.getChannel();
+  }
+
+  if (!!request.hasCommodityCode()) {
+    query["CommodityCode"] = request.getCommodityCode();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "InitAiAppScan"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InitAiAppScanResponse>();
+}
+
+/**
+ * @summary Initializes AI application log scanning and activates the service.
+ *
+ * @param request InitAiAppScanRequest
+ * @return InitAiAppScanResponse
+ */
+InitAiAppScanResponse Client::initAiAppScan(const InitAiAppScanRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return initAiAppScanWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves a paginated list of AI applications.
+ *
+ * @param request ListAiAppByPageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAiAppByPageResponse
+ */
+ListAiAppByPageResponse Client::listAiAppByPageWithOptions(const ListAiAppByPageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAiAppByPage"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAiAppByPageResponse>();
+}
+
+/**
+ * @summary Retrieves a paginated list of AI applications.
+ *
+ * @param request ListAiAppByPageRequest
+ * @return ListAiAppByPageResponse
+ */
+ListAiAppByPageResponse Client::listAiAppByPage(const ListAiAppByPageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAiAppByPageWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the list of risk events for AI applications.
+ *
+ * @param request ListAiAppRiskEventRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAiAppRiskEventResponse
+ */
+ListAiAppRiskEventResponse Client::listAiAppRiskEventWithOptions(const ListAiAppRiskEventRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAiAppRiskEvent"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAiAppRiskEventResponse>();
+}
+
+/**
+ * @summary Retrieves the list of risk events for AI applications.
+ *
+ * @param request ListAiAppRiskEventRequest
+ * @return ListAiAppRiskEventResponse
+ */
+ListAiAppRiskEventResponse Client::listAiAppRiskEvent(const ListAiAppRiskEventRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAiAppRiskEventWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves a paginated list of risk events for AI applications.
+ *
+ * @param request ListAiAppRiskEventByPageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAiAppRiskEventByPageResponse
+ */
+ListAiAppRiskEventByPageResponse Client::listAiAppRiskEventByPageWithOptions(const ListAiAppRiskEventByPageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAiAppRiskEventByPage"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAiAppRiskEventByPageResponse>();
+}
+
+/**
+ * @summary Retrieves a paginated list of risk events for AI applications.
+ *
+ * @param request ListAiAppRiskEventByPageRequest
+ * @return ListAiAppRiskEventByPageResponse
+ */
+ListAiAppRiskEventByPageResponse Client::listAiAppRiskEventByPage(const ListAiAppRiskEventByPageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAiAppRiskEventByPageWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the alert list of an application with pagination.
+ *
+ * @param request ListAiAppWarningByPageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAiAppWarningByPageResponse
+ */
+ListAiAppWarningByPageResponse Client::listAiAppWarningByPageWithOptions(const ListAiAppWarningByPageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAiAppWarningByPage"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAiAppWarningByPageResponse>();
+}
+
+/**
+ * @summary Queries the alert list of an application with pagination.
+ *
+ * @param request ListAiAppWarningByPageRequest
+ * @return ListAiAppWarningByPageResponse
+ */
+ListAiAppWarningByPageResponse Client::listAiAppWarningByPage(const ListAiAppWarningByPageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAiAppWarningByPageWithOptions(request, runtime);
 }
 
 /**
@@ -4748,7 +5630,9 @@ LlmStreamChatResponse Client::llmStreamChat(const LlmStreamChatRequest &request)
 }
 
 /**
- * @summary oss结果反馈
+ * @summary Provides feedback on OSS detection results.
+ *
+ * @description This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, results are automatically deleted.
  *
  * @param request MarkOssV2ResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4799,7 +5683,9 @@ MarkOssV2ResultResponse Client::markOssV2ResultWithOptions(const MarkOssV2Result
 }
 
 /**
- * @summary oss结果反馈
+ * @summary Provides feedback on OSS detection results.
+ *
+ * @description This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, results are automatically deleted.
  *
  * @param request MarkOssV2ResultRequest
  * @return MarkOssV2ResultResponse
@@ -5490,6 +6376,64 @@ QueryCallbackByPageResponse Client::queryCallbackByPage(const QueryCallbackByPag
 }
 
 /**
+ * @summary Queries label configurations.
+ *
+ * @param request QueryLabelConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryLabelConfigResponse
+ */
+QueryLabelConfigResponse Client::queryLabelConfigWithOptions(const QueryLabelConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClassify()) {
+    query["Classify"] = request.getClassify();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasServiceCode()) {
+    query["ServiceCode"] = request.getServiceCode();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryLabelConfig"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryLabelConfigResponse>();
+}
+
+/**
+ * @summary Queries label configurations.
+ *
+ * @param request QueryLabelConfigRequest
+ * @return QueryLabelConfigResponse
+ */
+QueryLabelConfigResponse Client::queryLabelConfig(const QueryLabelConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryLabelConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Reverts an app to a historical version.
  *
  * @param request RecoverAppConfigHistoryRequest
@@ -5594,6 +6538,56 @@ StopOnlineTestResponse Client::stopOnlineTest(const StopOnlineTestRequest &reque
 }
 
 /**
+ * @summary Updates the scan status of AI applications.
+ *
+ * @param request UpdateAiAppScanStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAiAppScanStatusResponse
+ */
+UpdateAiAppScanStatusResponse Client::updateAiAppScanStatusWithOptions(const UpdateAiAppScanStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppIds()) {
+    query["AppIds"] = request.getAppIds();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateAiAppScanStatus"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAiAppScanStatusResponse>();
+}
+
+/**
+ * @summary Updates the scan status of AI applications.
+ *
+ * @param request UpdateAiAppScanStatusRequest
+ * @return UpdateAiAppScanStatusResponse
+ */
+UpdateAiAppScanStatusResponse Client::updateAiAppScanStatus(const UpdateAiAppScanStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAiAppScanStatusWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates the evidence transfer configuration.
  *
  * @param request UpdateBackupConfigRequest
@@ -5645,6 +6639,74 @@ UpdateBackupConfigResponse Client::updateBackupConfigWithOptions(const UpdateBac
 UpdateBackupConfigResponse Client::updateBackupConfig(const UpdateBackupConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateBackupConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the status of risk events.
+ *
+ * @param tmpReq UpdateEventStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateEventStatusResponse
+ */
+UpdateEventStatusResponse Client::updateEventStatusWithOptions(const UpdateEventStatusRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateEventStatusShrinkRequest request = UpdateEventStatusShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEventIds()) {
+    request.setEventIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEventIds(), "EventIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasEventIdsShrink()) {
+    query["EventIds"] = request.getEventIdsShrink();
+  }
+
+  if (!!request.hasOperationCode()) {
+    query["OperationCode"] = request.getOperationCode();
+  }
+
+  if (!!request.hasOperationParams()) {
+    query["OperationParams"] = request.getOperationParams();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateEventStatus"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateEventStatusResponse>();
+}
+
+/**
+ * @summary Updates the status of risk events.
+ *
+ * @param request UpdateEventStatusRequest
+ * @return UpdateEventStatusResponse
+ */
+UpdateEventStatusResponse Client::updateEventStatus(const UpdateEventStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateEventStatusWithOptions(request, runtime);
 }
 
 /**
@@ -5819,6 +6881,60 @@ UpdateKeywordLibResponse Client::updateKeywordLibWithOptions(const UpdateKeyword
 UpdateKeywordLibResponse Client::updateKeywordLib(const UpdateKeywordLibRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateKeywordLibWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates Meta log information.
+ *
+ * @param request UpdateMetaLogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMetaLogResponse
+ */
+UpdateMetaLogResponse Client::updateMetaLogWithOptions(const UpdateMetaLogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCommodityCode()) {
+    query["CommodityCode"] = request.getCommodityCode();
+  }
+
+  if (!!request.hasDeliveryRegion()) {
+    query["DeliveryRegion"] = request.getDeliveryRegion();
+  }
+
+  if (!!request.hasStorage()) {
+    query["Storage"] = request.getStorage();
+  }
+
+  if (!!request.hasTtl()) {
+    query["Ttl"] = request.getTtl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateMetaLog"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMetaLogResponse>();
+}
+
+/**
+ * @summary Updates Meta log information.
+ *
+ * @param request UpdateMetaLogRequest
+ * @return UpdateMetaLogResponse
+ */
+UpdateMetaLogResponse Client::updateMetaLog(const UpdateMetaLogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateMetaLogWithOptions(request, runtime);
 }
 
 /**
