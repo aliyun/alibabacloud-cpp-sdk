@@ -127,7 +127,7 @@ namespace Models
 
   protected:
     shared_ptr<string> agentType_ {};
-    // The cloud platform resource group ID.
+    // The Alibaba Cloud resource group ID.
     shared_ptr<vector<string>> aliyunResourceGroupIds_ {};
     // The channel tag.
     shared_ptr<string> businessChannel_ {};
@@ -140,10 +140,11 @@ namespace Models
     // > Fixed value: AliyunConsole.
     // > - For Elastic Desktop Service Enterprise Edition, set this parameter to AliyunConsole. Other platforms are not publicly available.
     shared_ptr<string> platform_ {};
+    // The resource classification within the resource group.
     shared_ptr<string> resourceClassification_ {};
     // The list of resource group IDs.
     shared_ptr<vector<string>> resourceGroupIds_ {};
-    // The name of the resource group.
+    // The resource group name.
     shared_ptr<string> resourceGroupName_ {};
   };
 

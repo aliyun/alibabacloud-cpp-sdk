@@ -1,3 +1,6 @@
+2026-08-11 Version: 2.2.2
+- Generated cpp 2021-03-08 for eds-user.
+
 2026-06-26 Version: 2.2.1
 - Update API CreateResourceGroup: add request parameters AgentType.
 - Update API DescribeResourceGroups: add request parameters AgentType.

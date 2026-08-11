@@ -78,12 +78,14 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Id, id_);
           DARABONBA_PTR_TO_JSON(Name, name_);
           DARABONBA_PTR_TO_JSON(TimerStatus, timerStatus_);
+          DARABONBA_PTR_TO_JSON(Type, type_);
         };
         friend void from_json(const Darabonba::Json& j, Timers& obj) { 
           DARABONBA_PTR_FROM_JSON(BindStatus, bindStatus_);
           DARABONBA_PTR_FROM_JSON(Id, id_);
           DARABONBA_PTR_FROM_JSON(Name, name_);
           DARABONBA_PTR_FROM_JSON(TimerStatus, timerStatus_);
+          DARABONBA_PTR_FROM_JSON(Type, type_);
         };
         Timers() = default ;
         Timers(const Timers &) = default ;
@@ -97,7 +99,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->bindStatus_ == nullptr
-        && this->id_ == nullptr && this->name_ == nullptr && this->timerStatus_ == nullptr; };
+        && this->id_ == nullptr && this->name_ == nullptr && this->timerStatus_ == nullptr && this->type_ == nullptr; };
         // bindStatus Field Functions 
         bool hasBindStatus() const { return this->bindStatus_ != nullptr;};
         void deleteBindStatus() { this->bindStatus_ = nullptr;};
@@ -126,6 +128,13 @@ namespace Models
         inline Timers& setTimerStatus(string timerStatus) { DARABONBA_PTR_SET_VALUE(timerStatus_, timerStatus) };
 
 
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline Timers& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
       protected:
         shared_ptr<string> bindStatus_ {};
         // The scheduled task ID.
@@ -133,6 +142,7 @@ namespace Models
         // The scheduled task name.
         shared_ptr<string> name_ {};
         shared_ptr<string> timerStatus_ {};
+        shared_ptr<string> type_ {};
       };
 
       class Policies : public Darabonba::Model {
@@ -331,17 +341,17 @@ namespace Models
       // The creation time.
       shared_ptr<string> createTime_ {};
       // > The policies associated with the resource group.
-      // > - Associated policies take effect on cloud desktops in the resource group. If multiple policies are associated, they take effect based on policy priority.
-      // > - If a cloud desktop in the resource group already has other policies specified, the policies associated with the resource group take precedence.
+      // > - Associated policies take effect on cloud computers in the resource group. If multiple policies are associated, they take effect based on policy priority.
+      // > - If a cloud computer in the resource group already has other policies specified, the policies associated with the resource group take effect first.
       shared_ptr<vector<ResourceGroup::Policies>> policies_ {};
       // The resource count in the resource group.
       shared_ptr<string> resourceCount_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The name of the resource group.
+      // The resource group name.
       shared_ptr<string> resourceGroupName_ {};
       // > The associated scheduled tasks.
-      // > - Associated scheduled tasks take effect on cloud desktops in the resource group. If a cloud desktop in the resource group already has other scheduled tasks associated, the tasks associated with the resource group take precedence.
+      // > - Associated scheduled tasks take effect on cloud computers in the resource group. If a cloud computer in the resource group already has other scheduled tasks associated, the tasks associated with the resource group take effect first.
       shared_ptr<vector<ResourceGroup::Timers>> timers_ {};
     };
 
@@ -373,7 +383,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of resource groups.
+    // The list of resource group information.
     shared_ptr<vector<DescribeResourceGroupsResponseBody::ResourceGroup>> resourceGroup_ {};
     // The total number of resource groups.
     shared_ptr<string> totalCount_ {};
