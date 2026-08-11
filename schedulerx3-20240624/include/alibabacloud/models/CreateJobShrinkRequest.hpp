@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ExecutorBlockStrategy, executorBlockStrategy_);
       DARABONBA_PTR_TO_JSON(JobHandler, jobHandler_);
       DARABONBA_PTR_TO_JSON(JobType, jobType_);
+      DARABONBA_PTR_TO_JSON(Label, label_);
       DARABONBA_PTR_TO_JSON(MaxAttempt, maxAttempt_);
       DARABONBA_PTR_TO_JSON(MaxConcurrency, maxConcurrency_);
       DARABONBA_PTR_TO_JSON(Name, name_);
@@ -54,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ExecutorBlockStrategy, executorBlockStrategy_);
       DARABONBA_PTR_FROM_JSON(JobHandler, jobHandler_);
       DARABONBA_PTR_FROM_JSON(JobType, jobType_);
+      DARABONBA_PTR_FROM_JSON(Label, label_);
       DARABONBA_PTR_FROM_JSON(MaxAttempt, maxAttempt_);
       DARABONBA_PTR_FROM_JSON(MaxConcurrency, maxConcurrency_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -86,10 +88,10 @@ namespace Models
     virtual bool empty() const override { return this->appName_ == nullptr
         && this->attemptInterval_ == nullptr && this->calendar_ == nullptr && this->childJobId_ == nullptr && this->clusterId_ == nullptr && this->coordinateShrink_ == nullptr
         && this->dependentStrategy_ == nullptr && this->description_ == nullptr && this->executorBlockStrategy_ == nullptr && this->jobHandler_ == nullptr && this->jobType_ == nullptr
-        && this->maxAttempt_ == nullptr && this->maxConcurrency_ == nullptr && this->name_ == nullptr && this->noticeConfigShrink_ == nullptr && this->noticeContactsShrink_ == nullptr
-        && this->parameters_ == nullptr && this->priority_ == nullptr && this->routeStrategy_ == nullptr && this->script_ == nullptr && this->startTime_ == nullptr
-        && this->startTimeType_ == nullptr && this->status_ == nullptr && this->timeExpression_ == nullptr && this->timeType_ == nullptr && this->timezone_ == nullptr
-        && this->weight_ == nullptr && this->XAttrs_ == nullptr; };
+        && this->label_ == nullptr && this->maxAttempt_ == nullptr && this->maxConcurrency_ == nullptr && this->name_ == nullptr && this->noticeConfigShrink_ == nullptr
+        && this->noticeContactsShrink_ == nullptr && this->parameters_ == nullptr && this->priority_ == nullptr && this->routeStrategy_ == nullptr && this->script_ == nullptr
+        && this->startTime_ == nullptr && this->startTimeType_ == nullptr && this->status_ == nullptr && this->timeExpression_ == nullptr && this->timeType_ == nullptr
+        && this->timezone_ == nullptr && this->weight_ == nullptr && this->XAttrs_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -165,6 +167,13 @@ namespace Models
     void deleteJobType() { this->jobType_ = nullptr;};
     inline string getJobType() const { DARABONBA_PTR_GET_DEFAULT(jobType_, "") };
     inline CreateJobShrinkRequest& setJobType(string jobType) { DARABONBA_PTR_SET_VALUE(jobType_, jobType) };
+
+
+    // label Field Functions 
+    bool hasLabel() const { return this->label_ != nullptr;};
+    void deleteLabel() { this->label_ = nullptr;};
+    inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
+    inline CreateJobShrinkRequest& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
 
 
     // maxAttempt Field Functions 
@@ -291,7 +300,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // The retry interval. Unit: seconds. Default value: 30.
+    // The retry interval upon failure. Unit: seconds. Default value: 30.
     shared_ptr<int32_t> attemptInterval_ {};
     // The custom calendar. This parameter is optional for the cron time type.
     shared_ptr<string> calendar_ {};
@@ -318,6 +327,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> jobType_ {};
+    // The node label information.
+    shared_ptr<string> label_ {};
     // The maximum number of retry attempts upon failure. Set this parameter based on your business requirements.
     shared_ptr<int32_t> maxAttempt_ {};
     // The maximum number of concurrent instances.
@@ -354,7 +365,7 @@ namespace Models
     shared_ptr<int64_t> startTime_ {};
     // The start time type.
     shared_ptr<int32_t> startTimeType_ {};
-    // The node status. Default value: 1 (enabled). Valid values:
+    // The node status. Default value: enabled. Valid values:
     // - 0: disabled
     // - 1: enabled
     shared_ptr<int32_t> status_ {};
@@ -378,7 +389,7 @@ namespace Models
     shared_ptr<string> timezone_ {};
     // The node weight.
     shared_ptr<int32_t> weight_ {};
-    // The configuration for K8s node types. Set this parameter if the node type is K8s.
+    // The configuration for K8s node types. This parameter is required for K8s node types.
     // Job node: {"resource":"job"}
     // Shell node: {"image":"busybox","resource":"shell"}
     shared_ptr<string> XAttrs_ {};

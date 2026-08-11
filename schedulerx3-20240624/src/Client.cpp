@@ -20,18 +20,18 @@ namespace SchedulerX320240624
 AlibabaCloud::SchedulerX320240624::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"eu-central-1" , "schedulerx3.eu-central-1.aliyuncs.com"},
-    {"cn-zhangjiakou" , "schedulerx3.cn-zhangjiakou.aliyuncs.com"},
     {"cn-shenzhen" , "schedulerx3.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "schedulerx3.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-shanghai" , "schedulerx3.cn-shanghai.aliyuncs.com"},
-    {"cn-hongkong" , "schedulerx3.cn-hongkong.aliyuncs.com"},
-    {"cn-hangzhou" , "schedulerx3.cn-hangzhou.aliyuncs.com"},
-    {"cn-guangzhou" , "schedulerx3.cn-guangzhou.aliyuncs.com"},
-    {"cn-chengdu" , "schedulerx3.cn-chengdu.aliyuncs.com"},
     {"cn-beijing" , "schedulerx3.cn-beijing.aliyuncs.com"},
+    {"ap-northeast-1" , "schedulerx3.ap-northeast-1.aliyuncs.com"},
+    {"cn-chengdu" , "schedulerx3.cn-chengdu.aliyuncs.com"},
+    {"cn-shanghai" , "schedulerx3.cn-shanghai.aliyuncs.com"},
+    {"cn-guangzhou" , "schedulerx3.cn-guangzhou.aliyuncs.com"},
+    {"cn-hongkong" , "schedulerx3.cn-hongkong.aliyuncs.com"},
     {"ap-southeast-1" , "schedulerx3.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-1" , "schedulerx3.ap-northeast-1.aliyuncs.com"}
+    {"cn-zhangjiakou" , "schedulerx3.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-hangzhou" , "schedulerx3.cn-hangzhou.aliyuncs.com"},
+    {"eu-central-1" , "schedulerx3.eu-central-1.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "schedulerx3.cn-shanghai-finance-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("schedulerx3", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -606,6 +606,10 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &tmpReq, c
 
   if (!!request.hasJobType()) {
     body["JobType"] = request.getJobType();
+  }
+
+  if (!!request.hasLabel()) {
+    body["Label"] = request.getLabel();
   }
 
   if (!!request.hasMaxAttempt()) {
@@ -3037,6 +3041,10 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &request, con
     query["JobName"] = request.getJobName();
   }
 
+  if (!!request.hasLabel()) {
+    query["Label"] = request.getLabel();
+  }
+
   if (!!request.hasPageNum()) {
     query["PageNum"] = request.getPageNum();
   }
@@ -5383,6 +5391,10 @@ UpdateJobResponse Client::updateJobWithOptions(const UpdateJobRequest &tmpReq, c
 
   if (!!request.hasJobId()) {
     body["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasLabel()) {
+    body["Label"] = request.getLabel();
   }
 
   if (!!request.hasMaxAttempt()) {

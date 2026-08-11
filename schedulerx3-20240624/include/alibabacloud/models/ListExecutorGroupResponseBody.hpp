@@ -77,6 +77,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(CmsWorkspaceId, cmsWorkspaceId_);
           DARABONBA_PTR_TO_JSON(CurrentJobs, currentJobs_);
           DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(EnableJobs, enableJobs_);
           DARABONBA_PTR_TO_JSON(IntegrationType, integrationType_);
           DARABONBA_PTR_TO_JSON(MaxJobs, maxJobs_);
           DARABONBA_PTR_TO_JSON(Name, name_);
@@ -96,6 +97,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(CmsWorkspaceId, cmsWorkspaceId_);
           DARABONBA_PTR_FROM_JSON(CurrentJobs, currentJobs_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(EnableJobs, enableJobs_);
           DARABONBA_PTR_FROM_JSON(IntegrationType, integrationType_);
           DARABONBA_PTR_FROM_JSON(MaxJobs, maxJobs_);
           DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -162,9 +164,9 @@ namespace Models
 
         virtual bool empty() const override { return this->apiKey_ == nullptr
         && this->authType_ == nullptr && this->autoScale_ == nullptr && this->citeList_ == nullptr && this->cmsWorkspaceId_ == nullptr && this->currentJobs_ == nullptr
-        && this->description_ == nullptr && this->integrationType_ == nullptr && this->maxJobs_ == nullptr && this->name_ == nullptr && this->network_ == nullptr
-        && this->protocol_ == nullptr && this->resolvedWorkers_ == nullptr && this->workerId_ == nullptr && this->workerType_ == nullptr && this->workers_ == nullptr
-        && this->XAttrs_ == nullptr; };
+        && this->description_ == nullptr && this->enableJobs_ == nullptr && this->integrationType_ == nullptr && this->maxJobs_ == nullptr && this->name_ == nullptr
+        && this->network_ == nullptr && this->protocol_ == nullptr && this->resolvedWorkers_ == nullptr && this->workerId_ == nullptr && this->workerType_ == nullptr
+        && this->workers_ == nullptr && this->XAttrs_ == nullptr; };
         // apiKey Field Functions 
         bool hasApiKey() const { return this->apiKey_ != nullptr;};
         void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -214,6 +216,13 @@ namespace Models
         void deleteDescription() { this->description_ = nullptr;};
         inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
         inline Records& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // enableJobs Field Functions 
+        bool hasEnableJobs() const { return this->enableJobs_ != nullptr;};
+        void deleteEnableJobs() { this->enableJobs_ = nullptr;};
+        inline int32_t getEnableJobs() const { DARABONBA_PTR_GET_DEFAULT(enableJobs_, 0) };
+        inline Records& setEnableJobs(int32_t enableJobs) { DARABONBA_PTR_SET_VALUE(enableJobs_, enableJobs) };
 
 
         // integrationType Field Functions 
@@ -294,6 +303,7 @@ namespace Models
         shared_ptr<string> cmsWorkspaceId_ {};
         shared_ptr<int32_t> currentJobs_ {};
         shared_ptr<string> description_ {};
+        shared_ptr<int32_t> enableJobs_ {};
         shared_ptr<string> integrationType_ {};
         shared_ptr<int32_t> maxJobs_ {};
         shared_ptr<string> name_ {};

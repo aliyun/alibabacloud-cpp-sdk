@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ExecutorBlockStrategy, executorBlockStrategy_);
       DARABONBA_PTR_TO_JSON(JobHandler, jobHandler_);
       DARABONBA_PTR_TO_JSON(JobId, jobId_);
+      DARABONBA_PTR_TO_JSON(Label, label_);
       DARABONBA_PTR_TO_JSON(MaxAttempt, maxAttempt_);
       DARABONBA_PTR_TO_JSON(MaxConcurrency, maxConcurrency_);
       DARABONBA_PTR_TO_JSON(Name, name_);
@@ -54,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ExecutorBlockStrategy, executorBlockStrategy_);
       DARABONBA_PTR_FROM_JSON(JobHandler, jobHandler_);
       DARABONBA_PTR_FROM_JSON(JobId, jobId_);
+      DARABONBA_PTR_FROM_JSON(Label, label_);
       DARABONBA_PTR_FROM_JSON(MaxAttempt, maxAttempt_);
       DARABONBA_PTR_FROM_JSON(MaxConcurrency, maxConcurrency_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -121,7 +123,7 @@ namespace Models
 
     protected:
       // The contact type. 
-      // > Default configurations: 1.
+      // >Default configurations: 1.
       shared_ptr<int32_t> contactType_ {};
       // The contact name.
       shared_ptr<string> name_ {};
@@ -238,25 +240,25 @@ namespace Models
 
 
     protected:
-      // The early termination threshold, in seconds.
+      // The early completion threshold, in seconds.
       shared_ptr<int32_t> endEarly_ {};
-      // Specifies whether to enable the early termination alert.
+      // Specifies whether to enable the early completion alert.
       shared_ptr<bool> endEarlyEnable_ {};
       // Specifies whether to enable the failure alert. Valid values:
       // 
-      // - **true**: Enabled.
-      // - **false**: Disabled.
+      // - **true**: Enables the failure alert.
+      // - **false**: Disables the failure alert.
       shared_ptr<bool> failEnable_ {};
       // The number of consecutive failures.
       // > An alert is sent only when the number of consecutive failures exceeds the configured value.
       shared_ptr<int32_t> failLimitTimes_ {};
       // Specifies whether to enable the no-available-machine alert. Valid values:
-      // - **true**: Enabled.
-      // - **false**: Disabled.
+      // - **true**: Enables the no-available-machine alert.
+      // - **false**: Disables the no-available-machine alert.
       shared_ptr<bool> missWorkerEnable_ {};
       // The notification channel. Valid values:
-      // - sms: text message
-      // - phone: phone call
+      //  - sms: SMS
+      //  - phone: phone call
       // - mail: email
       // - webhook: webhook
       // > Separate multiple notification channels with commas.
@@ -276,18 +278,18 @@ namespace Models
       shared_ptr<bool> timeoutEnable_ {};
       // Specifies whether to enable the timeout termination for the current trigger. Valid values:
       // 
-      // - **true**: Enabled.
-      // - **false**: Disabled.
+      // - **true**: Enables the timeout termination.
+      // - **false**: Disables the timeout termination.
       shared_ptr<bool> timeoutKillEnable_ {};
     };
 
     virtual bool empty() const override { return this->appGroupId_ == nullptr
         && this->appName_ == nullptr && this->attemptInterval_ == nullptr && this->calendar_ == nullptr && this->childJobId_ == nullptr && this->clusterId_ == nullptr
         && this->dependentStrategy_ == nullptr && this->description_ == nullptr && this->executorBlockStrategy_ == nullptr && this->jobHandler_ == nullptr && this->jobId_ == nullptr
-        && this->maxAttempt_ == nullptr && this->maxConcurrency_ == nullptr && this->name_ == nullptr && this->noticeConfig_ == nullptr && this->noticeContacts_ == nullptr
-        && this->parameters_ == nullptr && this->priority_ == nullptr && this->routeStrategy_ == nullptr && this->script_ == nullptr && this->startTime_ == nullptr
-        && this->startTimeType_ == nullptr && this->timeExpression_ == nullptr && this->timeType_ == nullptr && this->timezone_ == nullptr && this->weight_ == nullptr
-        && this->XAttrs_ == nullptr; };
+        && this->label_ == nullptr && this->maxAttempt_ == nullptr && this->maxConcurrency_ == nullptr && this->name_ == nullptr && this->noticeConfig_ == nullptr
+        && this->noticeContacts_ == nullptr && this->parameters_ == nullptr && this->priority_ == nullptr && this->routeStrategy_ == nullptr && this->script_ == nullptr
+        && this->startTime_ == nullptr && this->startTimeType_ == nullptr && this->timeExpression_ == nullptr && this->timeType_ == nullptr && this->timezone_ == nullptr
+        && this->weight_ == nullptr && this->XAttrs_ == nullptr; };
     // appGroupId Field Functions 
     bool hasAppGroupId() const { return this->appGroupId_ != nullptr;};
     void deleteAppGroupId() { this->appGroupId_ = nullptr;};
@@ -363,6 +365,13 @@ namespace Models
     void deleteJobId() { this->jobId_ = nullptr;};
     inline int64_t getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, 0L) };
     inline UpdateJobRequest& setJobId(int64_t jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
+
+
+    // label Field Functions 
+    bool hasLabel() const { return this->label_ != nullptr;};
+    void deleteLabel() { this->label_ = nullptr;};
+    inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
+    inline UpdateJobRequest& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
 
 
     // maxAttempt Field Functions 
@@ -482,6 +491,7 @@ namespace Models
 
 
   protected:
+    // The application ID.
     shared_ptr<int64_t> appGroupId_ {};
     // The application name.
     // 
@@ -506,15 +516,17 @@ namespace Models
     // - 2: ignore subsequent scheduling
     // - 3: override previous scheduling
     shared_ptr<int32_t> executorBlockStrategy_ {};
-    // The JobHandler name.
+    // The jobhandler name.
     shared_ptr<string> jobHandler_ {};
     // The node ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
+    // The node label information.
+    shared_ptr<string> label_ {};
     // The maximum number of retry attempts upon node failure.
     shared_ptr<int32_t> maxAttempt_ {};
-    // The maximum number of concurrent instances for the node.
+    // The maximum concurrency of the node.
     // >The maximum number of instances that can run simultaneously for the same node. A value of 1 indicates that repeated execution is not allowed. If the concurrency limit is exceeded, the current scheduling is skipped.
     shared_ptr<int32_t> maxConcurrency_ {};
     // The node name.
@@ -525,7 +537,7 @@ namespace Models
     shared_ptr<vector<UpdateJobRequest::NoticeContacts>> noticeContacts_ {};
     // The node parameters.
     shared_ptr<string> parameters_ {};
-    // The node execution priority. Valid values:
+    // The execution priority of the node. Valid values:
     // 
     // - 1: low
     // - 5: medium
@@ -543,7 +555,7 @@ namespace Models
     // - 7: consistent hashing
     // - 8: shard broadcast
     shared_ptr<int32_t> routeStrategy_ {};
-    // The script content for non-BEAN nodes. Use this field to configure the script.
+    // The script configured for non-BEAN nodes.
     shared_ptr<string> script_ {};
     // The scheduling start time.
     shared_ptr<int64_t> startTime_ {};
@@ -552,10 +564,10 @@ namespace Models
     // The time expression. Set the time expression based on the selected time type.
     // 
     // - none: No value is required.
-    // - cron: Specify a standard cron expression. Online verification is supported.
+    // - cron: Enter a standard cron expression. Online verification is supported.
     // - api: No value is required.
-    // - fixed_rate: Specify a fixed frequency value in seconds. For example, 30 indicates that the node is triggered every 30 seconds.
-    // - one_time: Specify a scheduling time in the format of yyyy-MM-dd HH:mm:ss or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
+    // - fixed_rate: Enter a fixed frequency value in seconds. For example, 30 indicates that the node is triggered every 30 seconds.
+    // - one_time: Enter a scheduling time in the format of yyyy-MM-dd HH:mm:ss or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
     shared_ptr<string> timeExpression_ {};
     // The time type. Valid values:
     // 
@@ -566,10 +578,11 @@ namespace Models
     // - 100: api
     shared_ptr<int32_t> timeType_ {};
     // The time zone.
-    // > The default value is the time zone of the SchedulerX server.
+    // > Default value: the time zone of the SchedulerX server.
     shared_ptr<string> timezone_ {};
     // The node weight.
     shared_ptr<int32_t> weight_ {};
+    // The extended properties of the node.
     shared_ptr<string> XAttrs_ {};
   };
 

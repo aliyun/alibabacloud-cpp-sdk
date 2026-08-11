@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(JobHandler, jobHandler_);
       DARABONBA_PTR_TO_JSON(JobId, jobId_);
       DARABONBA_PTR_TO_JSON(JobName, jobName_);
+      DARABONBA_PTR_TO_JSON(Label, label_);
       DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(JobHandler, jobHandler_);
       DARABONBA_PTR_FROM_JSON(JobId, jobId_);
       DARABONBA_PTR_FROM_JSON(JobName, jobName_);
+      DARABONBA_PTR_FROM_JSON(Label, label_);
       DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
         && this->clusterId_ == nullptr && this->description_ == nullptr && this->jobHandler_ == nullptr && this->jobId_ == nullptr && this->jobName_ == nullptr
-        && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr && this->workflowId_ == nullptr; };
+        && this->label_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr && this->workflowId_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -92,6 +94,13 @@ namespace Models
     inline ListJobsRequest& setJobName(string jobName) { DARABONBA_PTR_SET_VALUE(jobName_, jobName) };
 
 
+    // label Field Functions 
+    bool hasLabel() const { return this->label_ != nullptr;};
+    void deleteLabel() { this->label_ = nullptr;};
+    inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
+    inline ListJobsRequest& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
+
+
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
@@ -127,19 +136,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // The job description.
+    // The description.
     shared_ptr<string> description_ {};
-    // The jobhandler name.
+    // The `jobhandler` name.
     shared_ptr<string> jobHandler_ {};
     // The job ID.
     shared_ptr<int64_t> jobId_ {};
     // The job name.
     shared_ptr<string> jobName_ {};
+    // The job label filter condition.
+    shared_ptr<string> label_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The job status.
+    // The status.
     shared_ptr<string> status_ {};
     // The workflow ID.
     shared_ptr<int64_t> workflowId_ {};
