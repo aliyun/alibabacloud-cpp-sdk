@@ -105,9 +105,9 @@ namespace Models
 
 
       protected:
-        // 模板ID
+        // The template ID.
         shared_ptr<string> templateId_ {};
-        // 模板名称
+        // The template name.
         shared_ptr<string> templateName_ {};
       };
 
@@ -144,13 +144,13 @@ namespace Models
 
 
     protected:
-      // 数据列表
+      // The data list.
       shared_ptr<vector<Data::FlashSmsTemplates>> flashSmsTemplates_ {};
-      // 页码，从1开始
+      // The page number, starting from 1.
       shared_ptr<int32_t> pageNumber_ {};
-      // 每页记录数
+      // The number of records per page.
       shared_ptr<int32_t> pageSize_ {};
-      // 符合条件的记录总数
+      // The total number of records that match the conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -211,19 +211,19 @@ namespace Models
 
 
   protected:
-    // 返回码
+    // The return code.
     shared_ptr<string> code_ {};
-    // 返回数据
+    // The response data.
     shared_ptr<ListFlashSmsTemplatesResponseBody::Data> data_ {};
-    // HTTP状态码
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // 错误信息
+    // The error message.
     shared_ptr<string> message_ {};
-    // 错误信息中的变量值列表
+    // The list of variable values in the error message.
     shared_ptr<vector<string>> params_ {};
-    // 请求ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 是否调用成功
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

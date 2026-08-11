@@ -87,17 +87,17 @@ namespace Models
 
 
   protected:
-    // 实例ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // 搜索关键词
+    // The scenario name.
     shared_ptr<string> name_ {};
-    // 页码，从1开始
+    // The page number, starting from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // 每页记录数
+    // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
-    // 是否仅返回已发布的场景
+    // Specifies whether to return only published scenarios.
     shared_ptr<bool> publishOnly_ {};
-    // 场景ID列表
+    // The list of scenario IDs.
     shared_ptr<vector<string>> scriptIds_ {};
   };
 

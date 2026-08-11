@@ -72,7 +72,15 @@ namespace Models
 
 
     protected:
+      // The system configuration name. Valid values:
+      // - callableTime: the outbound job window.
+      // - calleeDailyAttemptLimit: the maximum number of daily calls to a single callee number.
       shared_ptr<string> name_ {};
+      // The configuration value.
+      // 
+      // - If Name is set to callableTime, a sample Value is [{"beginTime":"09:00:00","endTime":"12:00:00"},{"beginTime":"14:00:00","endTime":"18:00:00"}].
+      // 
+      // - If Name is set to calleeDailyAttemptLimit, the Value is an integer from 1 to 50.
       shared_ptr<string> value_ {};
     };
 
@@ -102,11 +110,13 @@ namespace Models
 
 
   protected:
-    // 配置列表
+    // The list of configurations.
     shared_ptr<vector<UpdateSystemConfigsRequest::Configs>> configs_ {};
-    // 对象ID
+    // The configuration type ID. If ObjectType is set to INSTANCE, this parameter specifies the instance ID. If ObjectType is set to TENANT, this parameter specifies the tenant ID.
     shared_ptr<string> objectId_ {};
-    // 外呼开发时补充参数限制
+    // The configuration type. Valid values:
+    // - INSTANCE: instance level.
+    // - TENANT: tenant level.
     shared_ptr<string> objectType_ {};
   };
 

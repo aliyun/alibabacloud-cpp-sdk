@@ -337,7 +337,7 @@ namespace Models
     // - ChuangLan: Beijing Chuanglan Yunzhi Information Co., Ltd.
     // - ChinaMobile: China Mobile.
     // - ShangHaiTianNan: Shanghai Tiannan.
-    // - HeDao: Galexes.
+    // - HeDao: Galaxis.
     // - DySms: Alibaba Communication.
     shared_ptr<string> providerId_ {};
   };

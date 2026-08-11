@@ -141,9 +141,13 @@ namespace Models
 
 
       protected:
+        // The template content.
         shared_ptr<string> description_ {};
+        // The template name.
         shared_ptr<string> name_ {};
+        // The signature name.
         shared_ptr<string> signName_ {};
+        // The template code.
         shared_ptr<string> templateCode_ {};
       };
 
@@ -266,21 +270,37 @@ namespace Models
 
 
     protected:
+      // Required when ProviderId is set to ShangHaiTianNan or Uincall.
       shared_ptr<string> account_ {};
+      // Required when ProviderId is set to ChinaMobile.
       shared_ptr<string> aesKey_ {};
+      // Required when ProviderId is set to ChuangLan.
       shared_ptr<string> apiAccount_ {};
+      // Required when ProviderId is set to ChinaMobile.
       shared_ptr<string> apiId_ {};
+      // Required when ProviderId is set to ChinaMobile.
       shared_ptr<string> apiKey_ {};
+      // Required when ProviderId is set to ChuangLan.
       shared_ptr<string> apiPassword_ {};
+      // Required when ProviderId is set to ChinaMobile.
       shared_ptr<string> capAppId_ {};
+      // The list of Alibaba Communication configurations. Required when ProviderId is set to DySms.
       shared_ptr<vector<AccessProfile::DySmsAccessProfiles>> dySmsAccessProfiles_ {};
+      // Required when ProviderId is set to ShangHaiTianNan.
       shared_ptr<string> extno_ {};
+      // Required when ProviderId is set to ChuangLan.
       shared_ptr<string> managementPassword_ {};
+      // Required when ProviderId is set to ChuangLan.
       shared_ptr<string> managementSubUserId_ {};
+      // Required when ProviderId is set to ChuangLan.
       shared_ptr<string> managementUsername_ {};
+      // Required when ProviderId is set to ShangHaiTianNan or HeDao.
       shared_ptr<string> password_ {};
+      // Required when ProviderId is set to Uincall.
       shared_ptr<string> pwd_ {};
+      // Required when ProviderId is set to Uincall.
       shared_ptr<string> user_ {};
+      // Required when ProviderId is set to HeDao.
       shared_ptr<string> userName_ {};
     };
 
@@ -317,13 +337,19 @@ namespace Models
 
 
   protected:
-    // 接入配置
+    // The access configuration.
     shared_ptr<UpdateFlashSmsAccessProfileRequest::AccessProfile> accessProfile_ {};
-    // 接入配置ID
+    // The access configuration ID.
     shared_ptr<string> accessProfileId_ {};
-    // 实例ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // 供应商ID
+    // The provider ID. Valid values:
+    // - Uincall: Beijing Youyin Communication Co., Ltd.
+    // - ChuangLan: Beijing Chuanglan Cloud Intelligence Information Co., Ltd.
+    // - ChinaMobile: China Mobile.
+    // - ShangHaiTianNan: Shanghai Tiannan.
+    // - HeDao: Galaxis.
+    // - DySms: Alibaba Communication.
     shared_ptr<string> providerId_ {};
   };
 

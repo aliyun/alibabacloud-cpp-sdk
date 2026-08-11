@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 接入配置ID
+    // The access profile ID.
     shared_ptr<string> accessProfileId_ {};
-    // 实例ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
   };
 

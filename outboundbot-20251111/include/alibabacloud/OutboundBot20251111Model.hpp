@@ -111,6 +111,10 @@
 #include <alibabacloud/models/UpdateScriptRequest.hpp>
 #include <alibabacloud/models/UpdateScriptResponseBody.hpp>
 #include <alibabacloud/models/UpdateScriptResponse.hpp>
+#include <alibabacloud/models/UpdateScriptVersionRequest.hpp>
+#include <alibabacloud/models/UpdateScriptVersionShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateScriptVersionResponseBody.hpp>
+#include <alibabacloud/models/UpdateScriptVersionResponse.hpp>
 #include <alibabacloud/models/UpdateSubscriptionRequest.hpp>
 #include <alibabacloud/models/UpdateSubscriptionShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateSubscriptionResponseBody.hpp>

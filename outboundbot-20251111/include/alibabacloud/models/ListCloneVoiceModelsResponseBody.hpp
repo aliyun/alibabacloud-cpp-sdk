@@ -114,11 +114,11 @@ namespace Models
 
 
       protected:
-        // 描述
+        // The description.
         shared_ptr<string> description_ {};
-        // 显示名称
+        // The display name.
         shared_ptr<string> displayName_ {};
-        // 名称
+        // The model name.
         shared_ptr<string> name_ {};
       };
 
@@ -155,13 +155,13 @@ namespace Models
 
 
     protected:
-      // 数据列表
+      // The list of voice cloning models.
       shared_ptr<vector<Data::CloneVoiceModels>> cloneVoiceModels_ {};
-      // 页码，从1开始
+      // The page number, starting from 1.
       shared_ptr<int32_t> pageNumber_ {};
-      // 每页记录数
+      // The number of records per page.
       shared_ptr<int32_t> pageSize_ {};
-      // 符合条件的记录总数
+      // The total number of records that match the conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -222,19 +222,19 @@ namespace Models
 
 
   protected:
-    // 返回码
+    // The return code.
     shared_ptr<string> code_ {};
-    // 返回数据
+    // The response data.
     shared_ptr<ListCloneVoiceModelsResponseBody::Data> data_ {};
-    // HTTP状态码
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // 错误信息
+    // The error message.
     shared_ptr<string> message_ {};
-    // 错误信息中的变量值列表
+    // The list of variable values in the error message.
     shared_ptr<vector<string>> params_ {};
-    // 请求ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 是否调用成功
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 实例ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // NLU引擎类型
+    // The NLU engine type.
     shared_ptr<string> nluEngine_ {};
   };
 

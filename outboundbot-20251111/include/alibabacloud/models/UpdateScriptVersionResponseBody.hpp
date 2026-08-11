@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CREATEVOICEACCESSPROFILERESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_CREATEVOICEACCESSPROFILERESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_UPDATESCRIPTVERSIONRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_UPDATESCRIPTVERSIONRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
 using namespace std;
@@ -11,9 +11,9 @@ namespace OutboundBot20251111
 {
 namespace Models
 {
-  class CreateVoiceAccessProfileResponseBody : public Darabonba::Model {
+  class UpdateScriptVersionResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const CreateVoiceAccessProfileResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const UpdateScriptVersionResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(HttpStatusCode, httpStatusCode_);
@@ -22,7 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, CreateVoiceAccessProfileResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, UpdateScriptVersionResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(HttpStatusCode, httpStatusCode_);
@@ -31,13 +31,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    CreateVoiceAccessProfileResponseBody() = default ;
-    CreateVoiceAccessProfileResponseBody(const CreateVoiceAccessProfileResponseBody &) = default ;
-    CreateVoiceAccessProfileResponseBody(CreateVoiceAccessProfileResponseBody &&) = default ;
-    CreateVoiceAccessProfileResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~CreateVoiceAccessProfileResponseBody() = default ;
-    CreateVoiceAccessProfileResponseBody& operator=(const CreateVoiceAccessProfileResponseBody &) = default ;
-    CreateVoiceAccessProfileResponseBody& operator=(CreateVoiceAccessProfileResponseBody &&) = default ;
+    UpdateScriptVersionResponseBody() = default ;
+    UpdateScriptVersionResponseBody(const UpdateScriptVersionResponseBody &) = default ;
+    UpdateScriptVersionResponseBody(UpdateScriptVersionResponseBody &&) = default ;
+    UpdateScriptVersionResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UpdateScriptVersionResponseBody() = default ;
+    UpdateScriptVersionResponseBody& operator=(const UpdateScriptVersionResponseBody &) = default ;
+    UpdateScriptVersionResponseBody& operator=(UpdateScriptVersionResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -49,28 +49,28 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline CreateVoiceAccessProfileResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline UpdateScriptVersionResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
     inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
-    inline CreateVoiceAccessProfileResponseBody& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline UpdateScriptVersionResponseBody& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
     inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
-    inline CreateVoiceAccessProfileResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
+    inline UpdateScriptVersionResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline CreateVoiceAccessProfileResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline UpdateScriptVersionResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // params Field Functions 
@@ -78,38 +78,38 @@ namespace Models
     void deleteParams() { this->params_ = nullptr;};
     inline const vector<string> & getParams() const { DARABONBA_PTR_GET_CONST(params_, vector<string>) };
     inline vector<string> getParams() { DARABONBA_PTR_GET(params_, vector<string>) };
-    inline CreateVoiceAccessProfileResponseBody& setParams(const vector<string> & params) { DARABONBA_PTR_SET_VALUE(params_, params) };
-    inline CreateVoiceAccessProfileResponseBody& setParams(vector<string> && params) { DARABONBA_PTR_SET_RVALUE(params_, params) };
+    inline UpdateScriptVersionResponseBody& setParams(const vector<string> & params) { DARABONBA_PTR_SET_VALUE(params_, params) };
+    inline UpdateScriptVersionResponseBody& setParams(vector<string> && params) { DARABONBA_PTR_SET_RVALUE(params_, params) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline CreateVoiceAccessProfileResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline UpdateScriptVersionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline CreateVoiceAccessProfileResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline UpdateScriptVersionResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    // The return code.
+    // 返回码
     shared_ptr<string> code_ {};
-    // The configuration ID.
+    // 返回数据
     shared_ptr<string> data_ {};
-    // The HTTP status code.
+    // HTTP状态码
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // 错误信息
     shared_ptr<string> message_ {};
-    // The list of variable values in the error message.
+    // 错误信息中的变量值列表
     shared_ptr<vector<string>> params_ {};
-    // The request ID.
+    // 请求ID
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // 是否调用成功
     shared_ptr<bool> success_ {};
   };
 

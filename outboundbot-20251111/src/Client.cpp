@@ -39,7 +39,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 创建克隆音色
+ * @summary Creates an instance.
  *
  * @param request CreateCloneVoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -78,7 +78,7 @@ CreateCloneVoiceResponse Client::createCloneVoiceWithOptions(const CreateCloneVo
 }
 
 /**
- * @summary 创建克隆音色
+ * @summary Creates an instance.
  *
  * @param request CreateCloneVoiceRequest
  * @return CreateCloneVoiceResponse
@@ -89,7 +89,7 @@ CreateCloneVoiceResponse Client::createCloneVoice(const CreateCloneVoiceRequest 
 }
 
 /**
- * @summary Creates an instance.
+ * @summary Creates a flash message configuration.
  *
  * @param tmpReq CreateFlashSmsAccessProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -134,7 +134,7 @@ CreateFlashSmsAccessProfileResponse Client::createFlashSmsAccessProfileWithOptio
 }
 
 /**
- * @summary Creates an instance.
+ * @summary Creates a flash message configuration.
  *
  * @param request CreateFlashSmsAccessProfileRequest
  * @return CreateFlashSmsAccessProfileResponse
@@ -255,7 +255,7 @@ CreateOutboundCallRestrictionResponse Client::createOutboundCallRestriction(cons
 }
 
 /**
- * @summary 创建场景
+ * @summary Creates an instance.
  *
  * @param request CreateScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -298,7 +298,7 @@ CreateScriptResponse Client::createScriptWithOptions(const CreateScriptRequest &
 }
 
 /**
- * @summary 创建场景
+ * @summary Creates an instance.
  *
  * @param request CreateScriptRequest
  * @return CreateScriptResponse
@@ -309,7 +309,7 @@ CreateScriptResponse Client::createScript(const CreateScriptRequest &request) {
 }
 
 /**
- * @summary 创建场景配置
+ * @summary Creates a scenario configuration.
  *
  * @param tmpReq CreateScriptVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -390,7 +390,7 @@ CreateScriptVersionResponse Client::createScriptVersionWithOptions(const CreateS
 }
 
 /**
- * @summary 创建场景配置
+ * @summary Creates a scenario configuration.
  *
  * @param request CreateScriptVersionRequest
  * @return CreateScriptVersionResponse
@@ -401,7 +401,7 @@ CreateScriptVersionResponse Client::createScriptVersion(const CreateScriptVersio
 }
 
 /**
- * @summary 创建语音接入配置
+ * @summary Creates an instance.
  *
  * @param tmpReq CreateVoiceAccessProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -446,7 +446,7 @@ CreateVoiceAccessProfileResponse Client::createVoiceAccessProfileWithOptions(con
 }
 
 /**
- * @summary 创建语音接入配置
+ * @summary Creates an instance.
  *
  * @param request CreateVoiceAccessProfileRequest
  * @return CreateVoiceAccessProfileResponse
@@ -457,7 +457,7 @@ CreateVoiceAccessProfileResponse Client::createVoiceAccessProfile(const CreateVo
 }
 
 /**
- * @summary 删除克隆音色
+ * @summary Deletes a scene.
  *
  * @param request DeleteCloneVoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -492,7 +492,7 @@ DeleteCloneVoiceResponse Client::deleteCloneVoiceWithOptions(const DeleteCloneVo
 }
 
 /**
- * @summary 删除克隆音色
+ * @summary Deletes a scene.
  *
  * @param request DeleteCloneVoiceRequest
  * @return DeleteCloneVoiceResponse
@@ -503,7 +503,7 @@ DeleteCloneVoiceResponse Client::deleteCloneVoice(const DeleteCloneVoiceRequest 
 }
 
 /**
- * @summary 删除闪信配置
+ * @summary Deletes a flash message configuration.
  *
  * @param request DeleteFlashSmsAccessProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -538,7 +538,7 @@ DeleteFlashSmsAccessProfileResponse Client::deleteFlashSmsAccessProfileWithOptio
 }
 
 /**
- * @summary 删除闪信配置
+ * @summary Deletes a flash message configuration.
  *
  * @param request DeleteFlashSmsAccessProfileRequest
  * @return DeleteFlashSmsAccessProfileResponse
@@ -549,7 +549,7 @@ DeleteFlashSmsAccessProfileResponse Client::deleteFlashSmsAccessProfile(const De
 }
 
 /**
- * @summary Retrieves the details of an instance.
+ * @summary Retrieves instance details.
  *
  * @param request DeleteInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -580,7 +580,7 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
 }
 
 /**
- * @summary Retrieves the details of an instance.
+ * @summary Retrieves instance details.
  *
  * @param request DeleteInstanceRequest
  * @return DeleteInstanceResponse
@@ -643,7 +643,7 @@ DeleteOutboundCallRestrictionResponse Client::deleteOutboundCallRestriction(cons
 }
 
 /**
- * @summary 删除场景
+ * @summary Deletes a scenario.
  *
  * @param request DeleteScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -678,7 +678,7 @@ DeleteScriptResponse Client::deleteScriptWithOptions(const DeleteScriptRequest &
 }
 
 /**
- * @summary 删除场景
+ * @summary Deletes a scenario.
  *
  * @param request DeleteScriptRequest
  * @return DeleteScriptResponse
@@ -689,7 +689,7 @@ DeleteScriptResponse Client::deleteScript(const DeleteScriptRequest &request) {
 }
 
 /**
- * @summary 删除三方语音配置
+ * @summary Deletes a third-party voice configuration.
  *
  * @param request DeleteVoiceAccessProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -724,7 +724,7 @@ DeleteVoiceAccessProfileResponse Client::deleteVoiceAccessProfileWithOptions(con
 }
 
 /**
- * @summary 删除三方语音配置
+ * @summary Deletes a third-party voice configuration.
  *
  * @param request DeleteVoiceAccessProfileRequest
  * @return DeleteVoiceAccessProfileResponse
@@ -735,7 +735,7 @@ DeleteVoiceAccessProfileResponse Client::deleteVoiceAccessProfile(const DeleteVo
 }
 
 /**
- * @summary 禁用消息订阅
+ * @summary Disables message subscription.
  *
  * @param request DisableSubscriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -766,7 +766,7 @@ DisableSubscriptionResponse Client::disableSubscriptionWithOptions(const Disable
 }
 
 /**
- * @summary 禁用消息订阅
+ * @summary Disables message subscription.
  *
  * @param request DisableSubscriptionRequest
  * @return DisableSubscriptionResponse
@@ -819,7 +819,7 @@ GetInstanceResponse Client::getInstance(const GetInstanceRequest &request) {
 }
 
 /**
- * @summary 获取prompt场景模版
+ * @summary Retrieves a prompt scenario template.
  *
  * @param request GetScriptProfileTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -854,7 +854,7 @@ GetScriptProfileTemplateResponse Client::getScriptProfileTemplateWithOptions(con
 }
 
 /**
- * @summary 获取prompt场景模版
+ * @summary Retrieves a prompt scenario template.
  *
  * @param request GetScriptProfileTemplateRequest
  * @return GetScriptProfileTemplateResponse
@@ -865,7 +865,7 @@ GetScriptProfileTemplateResponse Client::getScriptProfileTemplate(const GetScrip
 }
 
 /**
- * @summary 获取MQ配置
+ * @summary Retrieves the MQ configuration.
  *
  * @param request GetSubscriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -896,7 +896,7 @@ GetSubscriptionResponse Client::getSubscriptionWithOptions(const GetSubscription
 }
 
 /**
- * @summary 获取MQ配置
+ * @summary Retrieves the MQ configuration.
  *
  * @param request GetSubscriptionRequest
  * @return GetSubscriptionResponse
@@ -907,7 +907,7 @@ GetSubscriptionResponse Client::getSubscription(const GetSubscriptionRequest &re
 }
 
 /**
- * @summary 获取克隆音色可用模型列表
+ * @summary Retrieves the list of available models for voice cloning.
  *
  * @param request ListCloneVoiceModelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -942,7 +942,7 @@ ListCloneVoiceModelsResponse Client::listCloneVoiceModelsWithOptions(const ListC
 }
 
 /**
- * @summary 获取克隆音色可用模型列表
+ * @summary Retrieves the list of available models for voice cloning.
  *
  * @param request ListCloneVoiceModelsRequest
  * @return ListCloneVoiceModelsResponse
@@ -953,7 +953,7 @@ ListCloneVoiceModelsResponse Client::listCloneVoiceModels(const ListCloneVoiceMo
 }
 
 /**
- * @summary 获取克隆音色列表
+ * @summary Retrieves the list of cloned voices.
  *
  * @param request ListCloneVoicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -996,7 +996,7 @@ ListCloneVoicesResponse Client::listCloneVoicesWithOptions(const ListCloneVoices
 }
 
 /**
- * @summary 获取克隆音色列表
+ * @summary Retrieves the list of cloned voices.
  *
  * @param request ListCloneVoicesRequest
  * @return ListCloneVoicesResponse
@@ -1007,7 +1007,7 @@ ListCloneVoicesResponse Client::listCloneVoices(const ListCloneVoicesRequest &re
 }
 
 /**
- * @summary 获取闪信配置列表
+ * @summary Retrieves the list of flash SMS configurations.
  *
  * @param request ListFlashSmsAccessProfilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1046,7 +1046,7 @@ ListFlashSmsAccessProfilesResponse Client::listFlashSmsAccessProfilesWithOptions
 }
 
 /**
- * @summary 获取闪信配置列表
+ * @summary Retrieves the list of flash SMS configurations.
  *
  * @param request ListFlashSmsAccessProfilesRequest
  * @return ListFlashSmsAccessProfilesResponse
@@ -1057,7 +1057,7 @@ ListFlashSmsAccessProfilesResponse Client::listFlashSmsAccessProfiles(const List
 }
 
 /**
- * @summary 获取闪信厂商列表
+ * @summary Retrieves the list of flash message providers.
  *
  * @param request ListFlashSmsProvidersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1088,7 +1088,7 @@ ListFlashSmsProvidersResponse Client::listFlashSmsProvidersWithOptions(const Lis
 }
 
 /**
- * @summary 获取闪信厂商列表
+ * @summary Retrieves the list of flash message providers.
  *
  * @param request ListFlashSmsProvidersRequest
  * @return ListFlashSmsProvidersResponse
@@ -1099,7 +1099,7 @@ ListFlashSmsProvidersResponse Client::listFlashSmsProviders(const ListFlashSmsPr
 }
 
 /**
- * @summary 获取闪信模版列表
+ * @summary Retrieves flash SMS templates.
  *
  * @param request ListFlashSmsTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1142,7 +1142,7 @@ ListFlashSmsTemplatesResponse Client::listFlashSmsTemplatesWithOptions(const Lis
 }
 
 /**
- * @summary 获取闪信模版列表
+ * @summary Retrieves flash SMS templates.
  *
  * @param request ListFlashSmsTemplatesRequest
  * @return ListFlashSmsTemplatesResponse
@@ -1203,7 +1203,7 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary Retrieves the blacklists and whitelists of an outbound robot.
+ * @summary Retrieves the blacklists and whitelists.
  *
  * @param request ListOutboundCallRestrictionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1246,7 +1246,7 @@ ListOutboundCallRestrictionsResponse Client::listOutboundCallRestrictionsWithOpt
 }
 
 /**
- * @summary Retrieves the blacklists and whitelists of an outbound robot.
+ * @summary Retrieves the blacklists and whitelists.
  *
  * @param request ListOutboundCallRestrictionsRequest
  * @return ListOutboundCallRestrictionsResponse
@@ -1257,7 +1257,7 @@ ListOutboundCallRestrictionsResponse Client::listOutboundCallRestrictions(const 
 }
 
 /**
- * @summary 获取场景配置模板列表
+ * @summary Retrieves the list of scenario configuration templates.
  *
  * @param request ListScriptProfileTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1292,7 +1292,7 @@ ListScriptProfileTemplatesResponse Client::listScriptProfileTemplatesWithOptions
 }
 
 /**
- * @summary 获取场景配置模板列表
+ * @summary Retrieves the list of scenario configuration templates.
  *
  * @param request ListScriptProfileTemplatesRequest
  * @return ListScriptProfileTemplatesResponse
@@ -1303,7 +1303,7 @@ ListScriptProfileTemplatesResponse Client::listScriptProfileTemplates(const List
 }
 
 /**
- * @summary 获取场景列表
+ * @summary Retrieves the details of an instance.
  *
  * @param tmpReq ListScriptsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1360,7 +1360,7 @@ ListScriptsResponse Client::listScriptsWithOptions(const ListScriptsRequest &tmp
 }
 
 /**
- * @summary 获取场景列表
+ * @summary Retrieves the details of an instance.
  *
  * @param request ListScriptsRequest
  * @return ListScriptsResponse
@@ -1371,7 +1371,7 @@ ListScriptsResponse Client::listScripts(const ListScriptsRequest &request) {
 }
 
 /**
- * @summary 根据流程ID获取场景列表
+ * @summary Retrieves the list of scenarios associated with a flow by flow ID.
  *
  * @param request ListScriptsByFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1406,7 +1406,7 @@ ListScriptsByFlowResponse Client::listScriptsByFlowWithOptions(const ListScripts
 }
 
 /**
- * @summary 根据流程ID获取场景列表
+ * @summary Retrieves the list of scenarios associated with a flow by flow ID.
  *
  * @param request ListScriptsByFlowRequest
  * @return ListScriptsByFlowResponse
@@ -1417,7 +1417,7 @@ ListScriptsByFlowResponse Client::listScriptsByFlow(const ListScriptsByFlowReque
 }
 
 /**
- * @summary 获取系统配置列表
+ * @summary Retrieves the list of system configurations.
  *
  * @param request ListSystemConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1456,7 +1456,7 @@ ListSystemConfigsResponse Client::listSystemConfigsWithOptions(const ListSystemC
 }
 
 /**
- * @summary 获取系统配置列表
+ * @summary Retrieves the list of system configurations.
  *
  * @param request ListSystemConfigsRequest
  * @return ListSystemConfigsResponse
@@ -1467,7 +1467,7 @@ ListSystemConfigsResponse Client::listSystemConfigs(const ListSystemConfigsReque
 }
 
 /**
- * @summary 获取语音接入配置列表
+ * @summary Retrieves the list of voice access configurations.
  *
  * @param request ListVoiceAccessProfilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1506,7 +1506,7 @@ ListVoiceAccessProfilesResponse Client::listVoiceAccessProfilesWithOptions(const
 }
 
 /**
- * @summary 获取语音接入配置列表
+ * @summary Retrieves the list of voice access configurations.
  *
  * @param request ListVoiceAccessProfilesRequest
  * @return ListVoiceAccessProfilesResponse
@@ -1517,7 +1517,7 @@ ListVoiceAccessProfilesResponse Client::listVoiceAccessProfiles(const ListVoiceA
 }
 
 /**
- * @summary 发布场景
+ * @summary Updates an instance.
  *
  * @param request PublishScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1556,7 +1556,7 @@ PublishScriptResponse Client::publishScriptWithOptions(const PublishScriptReques
 }
 
 /**
- * @summary 发布场景
+ * @summary Updates an instance.
  *
  * @param request PublishScriptRequest
  * @return PublishScriptResponse
@@ -1567,7 +1567,7 @@ PublishScriptResponse Client::publishScript(const PublishScriptRequest &request)
 }
 
 /**
- * @summary 更新克隆音色
+ * @summary Updates an instance.
  *
  * @param request UpdateCloneVoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1606,7 +1606,7 @@ UpdateCloneVoiceResponse Client::updateCloneVoiceWithOptions(const UpdateCloneVo
 }
 
 /**
- * @summary 更新克隆音色
+ * @summary Updates an instance.
  *
  * @param request UpdateCloneVoiceRequest
  * @return UpdateCloneVoiceResponse
@@ -1617,7 +1617,7 @@ UpdateCloneVoiceResponse Client::updateCloneVoice(const UpdateCloneVoiceRequest 
 }
 
 /**
- * @summary 更新闪信配置
+ * @summary Updates the flash message configuration.
  *
  * @param tmpReq UpdateFlashSmsAccessProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1666,7 +1666,7 @@ UpdateFlashSmsAccessProfileResponse Client::updateFlashSmsAccessProfileWithOptio
 }
 
 /**
- * @summary 更新闪信配置
+ * @summary Updates the flash message configuration.
  *
  * @param request UpdateFlashSmsAccessProfileRequest
  * @return UpdateFlashSmsAccessProfileResponse
@@ -1731,7 +1731,7 @@ UpdateInstanceResponse Client::updateInstance(const UpdateInstanceRequest &reque
 }
 
 /**
- * @summary 更新场景
+ * @summary Updates an instance.
  *
  * @param request UpdateScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1774,7 +1774,7 @@ UpdateScriptResponse Client::updateScriptWithOptions(const UpdateScriptRequest &
 }
 
 /**
- * @summary 更新场景
+ * @summary Updates an instance.
  *
  * @param request UpdateScriptRequest
  * @return UpdateScriptResponse
@@ -1785,7 +1785,103 @@ UpdateScriptResponse Client::updateScript(const UpdateScriptRequest &request) {
 }
 
 /**
- * @summary 创建或更新MQ配置
+ * @summary 更新场景配置
+ *
+ * @description ****
+ *
+ * @param tmpReq UpdateScriptVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateScriptVersionResponse
+ */
+UpdateScriptVersionResponse Client::updateScriptVersionWithOptions(const UpdateScriptVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateScriptVersionShrinkRequest request = UpdateScriptVersionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInteractionConfig()) {
+    request.setInteractionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInteractionConfig(), "InteractionConfig", "json"));
+  }
+
+  if (!!tmpReq.hasLabelConfigs()) {
+    request.setLabelConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLabelConfigs(), "LabelConfigs", "json"));
+  }
+
+  if (!!tmpReq.hasScriptProfile()) {
+    request.setScriptProfileShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScriptProfile(), "ScriptProfile", "json"));
+  }
+
+  if (!!tmpReq.hasSynthesizerConfig()) {
+    request.setSynthesizerConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSynthesizerConfig(), "SynthesizerConfig", "json"));
+  }
+
+  if (!!tmpReq.hasTranscriberConfig()) {
+    request.setTranscriberConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTranscriberConfig(), "TranscriberConfig", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasInteractionConfigShrink()) {
+    body["InteractionConfig"] = request.getInteractionConfigShrink();
+  }
+
+  if (!!request.hasLabelConfigsShrink()) {
+    body["LabelConfigs"] = request.getLabelConfigsShrink();
+  }
+
+  if (!!request.hasScriptId()) {
+    body["ScriptId"] = request.getScriptId();
+  }
+
+  if (!!request.hasScriptProfileShrink()) {
+    body["ScriptProfile"] = request.getScriptProfileShrink();
+  }
+
+  if (!!request.hasSynthesizerConfigShrink()) {
+    body["SynthesizerConfig"] = request.getSynthesizerConfigShrink();
+  }
+
+  if (!!request.hasTranscriberConfigShrink()) {
+    body["TranscriberConfig"] = request.getTranscriberConfigShrink();
+  }
+
+  if (!!request.hasVersionId()) {
+    body["VersionId"] = request.getVersionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateScriptVersion"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateScriptVersionResponse>();
+}
+
+/**
+ * @summary 更新场景配置
+ *
+ * @description ****
+ *
+ * @param request UpdateScriptVersionRequest
+ * @return UpdateScriptVersionResponse
+ */
+UpdateScriptVersionResponse Client::updateScriptVersion(const UpdateScriptVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateScriptVersionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates or updates a message queue (MQ) configuration.
  *
  * @param tmpReq UpdateSubscriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1854,7 +1950,7 @@ UpdateSubscriptionResponse Client::updateSubscriptionWithOptions(const UpdateSub
 }
 
 /**
- * @summary 创建或更新MQ配置
+ * @summary Creates or updates a message queue (MQ) configuration.
  *
  * @param request UpdateSubscriptionRequest
  * @return UpdateSubscriptionResponse
@@ -1865,7 +1961,7 @@ UpdateSubscriptionResponse Client::updateSubscription(const UpdateSubscriptionRe
 }
 
 /**
- * @summary 更新系统配置
+ * @summary Updates system configurations.
  *
  * @param tmpReq UpdateSystemConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1910,7 +2006,7 @@ UpdateSystemConfigsResponse Client::updateSystemConfigsWithOptions(const UpdateS
 }
 
 /**
- * @summary 更新系统配置
+ * @summary Updates system configurations.
  *
  * @param request UpdateSystemConfigsRequest
  * @return UpdateSystemConfigsResponse
@@ -1921,7 +2017,7 @@ UpdateSystemConfigsResponse Client::updateSystemConfigs(const UpdateSystemConfig
 }
 
 /**
- * @summary 更新语音接入配置
+ * @summary Updates an instance.
  *
  * @param tmpReq UpdateVoiceAccessProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1970,7 +2066,7 @@ UpdateVoiceAccessProfileResponse Client::updateVoiceAccessProfileWithOptions(con
 }
 
 /**
- * @summary 更新语音接入配置
+ * @summary Updates an instance.
  *
  * @param request UpdateVoiceAccessProfileRequest
  * @return UpdateVoiceAccessProfileResponse

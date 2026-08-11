@@ -115,23 +115,23 @@ namespace Models
 
 
   protected:
-    // 接入点
+    // The endpoint.
     shared_ptr<string> endpoint_ {};
-    // 事件订阅列表
+    // The list of subscription items.
     shared_ptr<vector<string>> eventSubscriptions_ {};
-    // 实例ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // MQ的实例ID
+    // The instance ID of the message queue.
     shared_ptr<string> mqInstanceId_ {};
-    // 消息队列类型
+    // The MSMQ type.
     shared_ptr<string> mqType_ {};
-    // 田南+伽雷可斯
+    // The password.
     shared_ptr<string> password_ {};
-    // 生产者ID
+    // The producer ID.
     shared_ptr<string> producerId_ {};
-    // 主题
+    // The topic.
     shared_ptr<string> topic_ {};
-    // 伽雷可斯
+    // The username.
     shared_ptr<string> userName_ {};
   };
 

@@ -66,13 +66,16 @@ namespace Models
 
 
   protected:
-    // 描述
+    // The description.
     shared_ptr<string> description_ {};
-    // 实例ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // 名称
+    // The scenario name.
     shared_ptr<string> name_ {};
-    // NLU引擎类型
+    // The NLU engine type. Valid values:
+    // - BEEBOT: integrates with Chatbot.
+    // - PROMPTS: prompt mode.
+    // - FUNCTION: integrates with Function Compute.
     shared_ptr<string> nluEngine_ {};
   };
 

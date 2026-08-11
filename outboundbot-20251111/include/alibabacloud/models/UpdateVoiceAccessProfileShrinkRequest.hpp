@@ -66,13 +66,18 @@ namespace Models
 
 
   protected:
-    // 接入配置ID
+    // The access profile ID.
     shared_ptr<string> accessProfileId_ {};
-    // 实例ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // 目前支持IFLYTEK、VOLC
+    // The voice service provider. Valid values:
+    // 
+    // - BAILIAN: Bailian.
+    // - VOLC: Doubao.
+    // - IFLYTEK: iFLYTEK.
+    // - TENCENT: Tencent.
     shared_ptr<string> nlsEngine_ {};
-    // 配置
+    // The vendor configuration information.
     shared_ptr<string> profileShrink_ {};
   };
 

@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The number of concurrent calls.
+    // The number of concurrent connections.
     shared_ptr<int32_t> concurrency_ {};
     // The instance description.
     shared_ptr<string> description_ {};

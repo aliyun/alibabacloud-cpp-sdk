@@ -178,25 +178,25 @@ namespace Models
 
 
       protected:
-        // 克隆音色ID
+        // The UUID of the cloned voice.
         shared_ptr<string> cloneVoiceId_ {};
-        // 创建时间，毫秒级时间戳
+        // The creation time, in millisecond-level timestamp.
         shared_ptr<int64_t> createdTime_ {};
-        // 实例ID
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // 模型名称
+        // The model name.
         shared_ptr<string> model_ {};
-        // 名称
+        // The name.
         shared_ptr<string> name_ {};
-        // 目前支持IFLYTEK、VOLC
+        // The speech vendor.
         shared_ptr<string> nlsEngine_ {};
-        // 状态
+        // The status.
         shared_ptr<string> status_ {};
-        // 租户ID
+        // The tenant ID.
         shared_ptr<string> tenantId_ {};
-        // 更新时间，毫秒级时间戳
+        // The update time, in millisecond-level timestamp.
         shared_ptr<int64_t> updatedTime_ {};
-        // 音色
+        // The voice ID.
         shared_ptr<string> voice_ {};
       };
 
@@ -233,13 +233,13 @@ namespace Models
 
 
     protected:
-      // 数据列表
+      // The list of cloned voices.
       shared_ptr<vector<Data::CloneVoices>> cloneVoices_ {};
-      // 页码，从1开始
+      // The page number, starting from 1.
       shared_ptr<int32_t> pageNumber_ {};
-      // 每页记录数
+      // The number of records per page.
       shared_ptr<int32_t> pageSize_ {};
-      // 符合条件的记录总数
+      // The total number of records that match the conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -300,19 +300,19 @@ namespace Models
 
 
   protected:
-    // 返回码
+    // The return code.
     shared_ptr<string> code_ {};
-    // 返回数据
+    // The response data.
     shared_ptr<ListCloneVoicesResponseBody::Data> data_ {};
-    // HTTP状态码
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // 错误信息
+    // The error message.
     shared_ptr<string> message_ {};
-    // 错误信息中的变量值列表
+    // The list of variable values in the error message.
     shared_ptr<vector<string>> params_ {};
-    // 请求ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 是否调用成功
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -269,7 +269,7 @@ namespace Models
     shared_ptr<vector<string>> params_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};
   };
 

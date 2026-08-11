@@ -57,11 +57,17 @@ namespace Models
 
 
   protected:
-    // 名称
+    // The system configuration name.\\
+    // callableTime: the outbound job window.\\
+    // calleeDailyAttemptLimit: the maximum number of daily calls to a single callee number.
     shared_ptr<string> name_ {};
-    // 对象ID
+    // The configuration type ID.\\
+    // If ObjectType is set to INSTANCE, this parameter specifies the instance ID.\\
+    // If ObjectType is set to TENANT, this parameter specifies the tenant ID.
     shared_ptr<string> objectId_ {};
-    // 外呼开发时补充参数限制
+    // The configuration type.\\
+    // INSTANCE: instance-level.\\
+    // TENANT: tenant-level.
     shared_ptr<string> objectType_ {};
   };
 

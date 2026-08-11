@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The list of outbound restriction IDs.
+    // The list of outbound call restriction IDs.
     shared_ptr<vector<string>> restrictionIdList_ {};
   };
 

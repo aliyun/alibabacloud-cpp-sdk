@@ -126,11 +126,11 @@ namespace Models
 
 
       protected:
-        // true 表示禁用，false 表示启用
+        // Indicates whether the event push is disabled. A value of true indicates disabled, and a value of false indicates enabled.
         shared_ptr<bool> disabled_ {};
-        // 显示名称
+        // The display name.
         shared_ptr<string> displayName_ {};
-        // 名称
+        // The name.
         shared_ptr<string> name_ {};
       };
 
@@ -210,25 +210,25 @@ namespace Models
 
 
     protected:
-      // true 表示禁用，false 表示启用
+      // Indicates whether the event push is disabled. A value of true indicates disabled, and a value of false indicates enabled.
       shared_ptr<bool> disabled_ {};
-      // 接入点
+      // The endpoint.
       shared_ptr<string> endpoint_ {};
-      // 事件列表
+      // The list of push content.
       shared_ptr<vector<Data::EventList>> eventList_ {};
-      // 实例ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // MQ的实例ID
+      // The MQ instance ID.
       shared_ptr<string> mqInstanceId_ {};
-      // 消息队列类型
+      // The MSMQ type.
       shared_ptr<string> mqType_ {};
-      // 田南+伽雷可斯
+      // The password.
       shared_ptr<string> password_ {};
-      // 生产者ID
+      // The producer ID.
       shared_ptr<string> producerId_ {};
-      // 主题
+      // The topic.
       shared_ptr<string> topic_ {};
-      // 伽雷可斯
+      // The username.
       shared_ptr<string> userName_ {};
     };
 
@@ -289,19 +289,19 @@ namespace Models
 
 
   protected:
-    // 返回码
+    // The return code.
     shared_ptr<string> code_ {};
-    // 返回数据
+    // The response data.
     shared_ptr<GetSubscriptionResponseBody::Data> data_ {};
-    // HTTP状态码
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // 错误信息
+    // The error message.
     shared_ptr<string> message_ {};
-    // 错误信息中的变量值列表
+    // The list of variable values in the error message.
     shared_ptr<vector<string>> params_ {};
-    // 请求ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 是否调用成功
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

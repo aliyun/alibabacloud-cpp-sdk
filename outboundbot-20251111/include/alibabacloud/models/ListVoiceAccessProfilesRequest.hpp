@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // 实例ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // 页码，从1开始
+    // The page number, starting from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // 每页记录数
+    // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

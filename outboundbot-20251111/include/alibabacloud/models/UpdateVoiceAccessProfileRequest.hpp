@@ -137,14 +137,23 @@ namespace Models
 
 
     protected:
+      // Required when NlsEngine is set to VOLC.
       shared_ptr<string> accessKey_ {};
+      // Required when NlsEngine is set to IFLYTEK or BAILIAN.
       shared_ptr<string> apiKey_ {};
+      // Required when NlsEngine is set to IFLYTEK.
       shared_ptr<string> apiSecret_ {};
+      // Required when NlsEngine is set to IFLYTEK or TENCENT.
       shared_ptr<string> appId_ {};
+      // Required when NlsEngine is set to VOLC.
       shared_ptr<string> appKey_ {};
+      // Not currently in use.
       shared_ptr<string> asrAppKey_ {};
+      // Required when NlsEngine is set to TENCENT.
       shared_ptr<string> secretId_ {};
+      // Required when NlsEngine is set to TENCENT.
       shared_ptr<string> secretKey_ {};
+      // Not currently in use.
       shared_ptr<string> ttsApiKey_ {};
     };
 
@@ -181,13 +190,18 @@ namespace Models
 
 
   protected:
-    // 接入配置ID
+    // The access profile ID.
     shared_ptr<string> accessProfileId_ {};
-    // 实例ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // 目前支持IFLYTEK、VOLC
+    // The voice service provider. Valid values:
+    // 
+    // - BAILIAN: Bailian.
+    // - VOLC: Doubao.
+    // - IFLYTEK: iFLYTEK.
+    // - TENCENT: Tencent.
     shared_ptr<string> nlsEngine_ {};
-    // 配置
+    // The vendor configuration information.
     shared_ptr<UpdateVoiceAccessProfileRequest::Profile> profile_ {};
   };
 

@@ -57,11 +57,13 @@ namespace Models
 
 
   protected:
-    // 配置列表
+    // The list of configurations.
     shared_ptr<string> configsShrink_ {};
-    // 对象ID
+    // The configuration type ID. If ObjectType is set to INSTANCE, this parameter specifies the instance ID. If ObjectType is set to TENANT, this parameter specifies the tenant ID.
     shared_ptr<string> objectId_ {};
-    // 外呼开发时补充参数限制
+    // The configuration type. Valid values:
+    // - INSTANCE: instance level.
+    // - TENANT: tenant level.
     shared_ptr<string> objectType_ {};
   };
 

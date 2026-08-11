@@ -135,21 +135,21 @@ namespace Models
 
 
     protected:
-      // 创建时间，毫秒级时间戳
+      // The creation time, in millisecond-level timestamp.
       shared_ptr<int64_t> createdTime_ {};
-      // 描述
+      // The description.
       shared_ptr<string> description_ {};
-      // 标签定义
+      // The label definition.
       shared_ptr<string> labels_ {};
-      // 名称
+      // The name.
       shared_ptr<string> name_ {};
-      // schema定义
+      // The template details.
       shared_ptr<string> schema_ {};
-      // 模板ID
+      // The template ID.
       shared_ptr<string> templateId_ {};
-      // 更新时间，毫秒级时间戳
+      // The update time, in millisecond-level timestamp.
       shared_ptr<int64_t> updatedTime_ {};
-      // 变量定义
+      // The variable definition.
       shared_ptr<string> variables_ {};
     };
 
@@ -210,19 +210,19 @@ namespace Models
 
 
   protected:
-    // 返回码
+    // The return code.
     shared_ptr<string> code_ {};
-    // 返回数据
+    // The response data.
     shared_ptr<GetScriptProfileTemplateResponseBody::Data> data_ {};
-    // HTTP状态码
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // 错误信息
+    // The error message.
     shared_ptr<string> message_ {};
-    // 错误信息中的变量值列表
+    // The list of variable values in the error message.
     shared_ptr<vector<string>> params_ {};
-    // 请求ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 是否调用成功
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

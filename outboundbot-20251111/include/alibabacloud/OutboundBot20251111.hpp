@@ -21,7 +21,7 @@ namespace OutboundBot20251111
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 创建克隆音色
+       * @summary Creates an instance.
        *
        * @param request CreateCloneVoiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace OutboundBot20251111
       Models::CreateCloneVoiceResponse createCloneVoiceWithOptions(const Models::CreateCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建克隆音色
+       * @summary Creates an instance.
        *
        * @param request CreateCloneVoiceRequest
        * @return CreateCloneVoiceResponse
@@ -38,7 +38,7 @@ namespace OutboundBot20251111
       Models::CreateCloneVoiceResponse createCloneVoice(const Models::CreateCloneVoiceRequest &request);
 
       /**
-       * @summary Creates an instance.
+       * @summary Creates a flash message configuration.
        *
        * @param tmpReq CreateFlashSmsAccessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace OutboundBot20251111
       Models::CreateFlashSmsAccessProfileResponse createFlashSmsAccessProfileWithOptions(const Models::CreateFlashSmsAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an instance.
+       * @summary Creates a flash message configuration.
        *
        * @param request CreateFlashSmsAccessProfileRequest
        * @return CreateFlashSmsAccessProfileResponse
@@ -89,7 +89,7 @@ namespace OutboundBot20251111
       Models::CreateOutboundCallRestrictionResponse createOutboundCallRestriction(const Models::CreateOutboundCallRestrictionRequest &request);
 
       /**
-       * @summary 创建场景
+       * @summary Creates an instance.
        *
        * @param request CreateScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace OutboundBot20251111
       Models::CreateScriptResponse createScriptWithOptions(const Models::CreateScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建场景
+       * @summary Creates an instance.
        *
        * @param request CreateScriptRequest
        * @return CreateScriptResponse
@@ -106,7 +106,7 @@ namespace OutboundBot20251111
       Models::CreateScriptResponse createScript(const Models::CreateScriptRequest &request);
 
       /**
-       * @summary 创建场景配置
+       * @summary Creates a scenario configuration.
        *
        * @param tmpReq CreateScriptVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace OutboundBot20251111
       Models::CreateScriptVersionResponse createScriptVersionWithOptions(const Models::CreateScriptVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建场景配置
+       * @summary Creates a scenario configuration.
        *
        * @param request CreateScriptVersionRequest
        * @return CreateScriptVersionResponse
@@ -123,7 +123,7 @@ namespace OutboundBot20251111
       Models::CreateScriptVersionResponse createScriptVersion(const Models::CreateScriptVersionRequest &request);
 
       /**
-       * @summary 创建语音接入配置
+       * @summary Creates an instance.
        *
        * @param tmpReq CreateVoiceAccessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +132,7 @@ namespace OutboundBot20251111
       Models::CreateVoiceAccessProfileResponse createVoiceAccessProfileWithOptions(const Models::CreateVoiceAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建语音接入配置
+       * @summary Creates an instance.
        *
        * @param request CreateVoiceAccessProfileRequest
        * @return CreateVoiceAccessProfileResponse
@@ -140,7 +140,7 @@ namespace OutboundBot20251111
       Models::CreateVoiceAccessProfileResponse createVoiceAccessProfile(const Models::CreateVoiceAccessProfileRequest &request);
 
       /**
-       * @summary 删除克隆音色
+       * @summary Deletes a scene.
        *
        * @param request DeleteCloneVoiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +149,7 @@ namespace OutboundBot20251111
       Models::DeleteCloneVoiceResponse deleteCloneVoiceWithOptions(const Models::DeleteCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除克隆音色
+       * @summary Deletes a scene.
        *
        * @param request DeleteCloneVoiceRequest
        * @return DeleteCloneVoiceResponse
@@ -157,7 +157,7 @@ namespace OutboundBot20251111
       Models::DeleteCloneVoiceResponse deleteCloneVoice(const Models::DeleteCloneVoiceRequest &request);
 
       /**
-       * @summary 删除闪信配置
+       * @summary Deletes a flash message configuration.
        *
        * @param request DeleteFlashSmsAccessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +166,7 @@ namespace OutboundBot20251111
       Models::DeleteFlashSmsAccessProfileResponse deleteFlashSmsAccessProfileWithOptions(const Models::DeleteFlashSmsAccessProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除闪信配置
+       * @summary Deletes a flash message configuration.
        *
        * @param request DeleteFlashSmsAccessProfileRequest
        * @return DeleteFlashSmsAccessProfileResponse
@@ -174,7 +174,7 @@ namespace OutboundBot20251111
       Models::DeleteFlashSmsAccessProfileResponse deleteFlashSmsAccessProfile(const Models::DeleteFlashSmsAccessProfileRequest &request);
 
       /**
-       * @summary Retrieves the details of an instance.
+       * @summary Retrieves instance details.
        *
        * @param request DeleteInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +183,7 @@ namespace OutboundBot20251111
       Models::DeleteInstanceResponse deleteInstanceWithOptions(const Models::DeleteInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of an instance.
+       * @summary Retrieves instance details.
        *
        * @param request DeleteInstanceRequest
        * @return DeleteInstanceResponse
@@ -208,7 +208,7 @@ namespace OutboundBot20251111
       Models::DeleteOutboundCallRestrictionResponse deleteOutboundCallRestriction(const Models::DeleteOutboundCallRestrictionRequest &request);
 
       /**
-       * @summary 删除场景
+       * @summary Deletes a scenario.
        *
        * @param request DeleteScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +217,7 @@ namespace OutboundBot20251111
       Models::DeleteScriptResponse deleteScriptWithOptions(const Models::DeleteScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除场景
+       * @summary Deletes a scenario.
        *
        * @param request DeleteScriptRequest
        * @return DeleteScriptResponse
@@ -225,7 +225,7 @@ namespace OutboundBot20251111
       Models::DeleteScriptResponse deleteScript(const Models::DeleteScriptRequest &request);
 
       /**
-       * @summary 删除三方语音配置
+       * @summary Deletes a third-party voice configuration.
        *
        * @param request DeleteVoiceAccessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -234,7 +234,7 @@ namespace OutboundBot20251111
       Models::DeleteVoiceAccessProfileResponse deleteVoiceAccessProfileWithOptions(const Models::DeleteVoiceAccessProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除三方语音配置
+       * @summary Deletes a third-party voice configuration.
        *
        * @param request DeleteVoiceAccessProfileRequest
        * @return DeleteVoiceAccessProfileResponse
@@ -242,7 +242,7 @@ namespace OutboundBot20251111
       Models::DeleteVoiceAccessProfileResponse deleteVoiceAccessProfile(const Models::DeleteVoiceAccessProfileRequest &request);
 
       /**
-       * @summary 禁用消息订阅
+       * @summary Disables message subscription.
        *
        * @param request DisableSubscriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -251,7 +251,7 @@ namespace OutboundBot20251111
       Models::DisableSubscriptionResponse disableSubscriptionWithOptions(const Models::DisableSubscriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用消息订阅
+       * @summary Disables message subscription.
        *
        * @param request DisableSubscriptionRequest
        * @return DisableSubscriptionResponse
@@ -276,7 +276,7 @@ namespace OutboundBot20251111
       Models::GetInstanceResponse getInstance(const Models::GetInstanceRequest &request);
 
       /**
-       * @summary 获取prompt场景模版
+       * @summary Retrieves a prompt scenario template.
        *
        * @param request GetScriptProfileTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +285,7 @@ namespace OutboundBot20251111
       Models::GetScriptProfileTemplateResponse getScriptProfileTemplateWithOptions(const Models::GetScriptProfileTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取prompt场景模版
+       * @summary Retrieves a prompt scenario template.
        *
        * @param request GetScriptProfileTemplateRequest
        * @return GetScriptProfileTemplateResponse
@@ -293,7 +293,7 @@ namespace OutboundBot20251111
       Models::GetScriptProfileTemplateResponse getScriptProfileTemplate(const Models::GetScriptProfileTemplateRequest &request);
 
       /**
-       * @summary 获取MQ配置
+       * @summary Retrieves the MQ configuration.
        *
        * @param request GetSubscriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +302,7 @@ namespace OutboundBot20251111
       Models::GetSubscriptionResponse getSubscriptionWithOptions(const Models::GetSubscriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取MQ配置
+       * @summary Retrieves the MQ configuration.
        *
        * @param request GetSubscriptionRequest
        * @return GetSubscriptionResponse
@@ -310,7 +310,7 @@ namespace OutboundBot20251111
       Models::GetSubscriptionResponse getSubscription(const Models::GetSubscriptionRequest &request);
 
       /**
-       * @summary 获取克隆音色可用模型列表
+       * @summary Retrieves the list of available models for voice cloning.
        *
        * @param request ListCloneVoiceModelsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +319,7 @@ namespace OutboundBot20251111
       Models::ListCloneVoiceModelsResponse listCloneVoiceModelsWithOptions(const Models::ListCloneVoiceModelsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取克隆音色可用模型列表
+       * @summary Retrieves the list of available models for voice cloning.
        *
        * @param request ListCloneVoiceModelsRequest
        * @return ListCloneVoiceModelsResponse
@@ -327,7 +327,7 @@ namespace OutboundBot20251111
       Models::ListCloneVoiceModelsResponse listCloneVoiceModels(const Models::ListCloneVoiceModelsRequest &request);
 
       /**
-       * @summary 获取克隆音色列表
+       * @summary Retrieves the list of cloned voices.
        *
        * @param request ListCloneVoicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -336,7 +336,7 @@ namespace OutboundBot20251111
       Models::ListCloneVoicesResponse listCloneVoicesWithOptions(const Models::ListCloneVoicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取克隆音色列表
+       * @summary Retrieves the list of cloned voices.
        *
        * @param request ListCloneVoicesRequest
        * @return ListCloneVoicesResponse
@@ -344,7 +344,7 @@ namespace OutboundBot20251111
       Models::ListCloneVoicesResponse listCloneVoices(const Models::ListCloneVoicesRequest &request);
 
       /**
-       * @summary 获取闪信配置列表
+       * @summary Retrieves the list of flash SMS configurations.
        *
        * @param request ListFlashSmsAccessProfilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +353,7 @@ namespace OutboundBot20251111
       Models::ListFlashSmsAccessProfilesResponse listFlashSmsAccessProfilesWithOptions(const Models::ListFlashSmsAccessProfilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取闪信配置列表
+       * @summary Retrieves the list of flash SMS configurations.
        *
        * @param request ListFlashSmsAccessProfilesRequest
        * @return ListFlashSmsAccessProfilesResponse
@@ -361,7 +361,7 @@ namespace OutboundBot20251111
       Models::ListFlashSmsAccessProfilesResponse listFlashSmsAccessProfiles(const Models::ListFlashSmsAccessProfilesRequest &request);
 
       /**
-       * @summary 获取闪信厂商列表
+       * @summary Retrieves the list of flash message providers.
        *
        * @param request ListFlashSmsProvidersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +370,7 @@ namespace OutboundBot20251111
       Models::ListFlashSmsProvidersResponse listFlashSmsProvidersWithOptions(const Models::ListFlashSmsProvidersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取闪信厂商列表
+       * @summary Retrieves the list of flash message providers.
        *
        * @param request ListFlashSmsProvidersRequest
        * @return ListFlashSmsProvidersResponse
@@ -378,7 +378,7 @@ namespace OutboundBot20251111
       Models::ListFlashSmsProvidersResponse listFlashSmsProviders(const Models::ListFlashSmsProvidersRequest &request);
 
       /**
-       * @summary 获取闪信模版列表
+       * @summary Retrieves flash SMS templates.
        *
        * @param request ListFlashSmsTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -387,7 +387,7 @@ namespace OutboundBot20251111
       Models::ListFlashSmsTemplatesResponse listFlashSmsTemplatesWithOptions(const Models::ListFlashSmsTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取闪信模版列表
+       * @summary Retrieves flash SMS templates.
        *
        * @param request ListFlashSmsTemplatesRequest
        * @return ListFlashSmsTemplatesResponse
@@ -412,7 +412,7 @@ namespace OutboundBot20251111
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
-       * @summary Retrieves the blacklists and whitelists of an outbound robot.
+       * @summary Retrieves the blacklists and whitelists.
        *
        * @param request ListOutboundCallRestrictionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -421,7 +421,7 @@ namespace OutboundBot20251111
       Models::ListOutboundCallRestrictionsResponse listOutboundCallRestrictionsWithOptions(const Models::ListOutboundCallRestrictionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the blacklists and whitelists of an outbound robot.
+       * @summary Retrieves the blacklists and whitelists.
        *
        * @param request ListOutboundCallRestrictionsRequest
        * @return ListOutboundCallRestrictionsResponse
@@ -429,7 +429,7 @@ namespace OutboundBot20251111
       Models::ListOutboundCallRestrictionsResponse listOutboundCallRestrictions(const Models::ListOutboundCallRestrictionsRequest &request);
 
       /**
-       * @summary 获取场景配置模板列表
+       * @summary Retrieves the list of scenario configuration templates.
        *
        * @param request ListScriptProfileTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -438,7 +438,7 @@ namespace OutboundBot20251111
       Models::ListScriptProfileTemplatesResponse listScriptProfileTemplatesWithOptions(const Models::ListScriptProfileTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取场景配置模板列表
+       * @summary Retrieves the list of scenario configuration templates.
        *
        * @param request ListScriptProfileTemplatesRequest
        * @return ListScriptProfileTemplatesResponse
@@ -446,7 +446,7 @@ namespace OutboundBot20251111
       Models::ListScriptProfileTemplatesResponse listScriptProfileTemplates(const Models::ListScriptProfileTemplatesRequest &request);
 
       /**
-       * @summary 获取场景列表
+       * @summary Retrieves the details of an instance.
        *
        * @param tmpReq ListScriptsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -455,7 +455,7 @@ namespace OutboundBot20251111
       Models::ListScriptsResponse listScriptsWithOptions(const Models::ListScriptsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取场景列表
+       * @summary Retrieves the details of an instance.
        *
        * @param request ListScriptsRequest
        * @return ListScriptsResponse
@@ -463,7 +463,7 @@ namespace OutboundBot20251111
       Models::ListScriptsResponse listScripts(const Models::ListScriptsRequest &request);
 
       /**
-       * @summary 根据流程ID获取场景列表
+       * @summary Retrieves the list of scenarios associated with a flow by flow ID.
        *
        * @param request ListScriptsByFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -472,7 +472,7 @@ namespace OutboundBot20251111
       Models::ListScriptsByFlowResponse listScriptsByFlowWithOptions(const Models::ListScriptsByFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据流程ID获取场景列表
+       * @summary Retrieves the list of scenarios associated with a flow by flow ID.
        *
        * @param request ListScriptsByFlowRequest
        * @return ListScriptsByFlowResponse
@@ -480,7 +480,7 @@ namespace OutboundBot20251111
       Models::ListScriptsByFlowResponse listScriptsByFlow(const Models::ListScriptsByFlowRequest &request);
 
       /**
-       * @summary 获取系统配置列表
+       * @summary Retrieves the list of system configurations.
        *
        * @param request ListSystemConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -489,7 +489,7 @@ namespace OutboundBot20251111
       Models::ListSystemConfigsResponse listSystemConfigsWithOptions(const Models::ListSystemConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取系统配置列表
+       * @summary Retrieves the list of system configurations.
        *
        * @param request ListSystemConfigsRequest
        * @return ListSystemConfigsResponse
@@ -497,7 +497,7 @@ namespace OutboundBot20251111
       Models::ListSystemConfigsResponse listSystemConfigs(const Models::ListSystemConfigsRequest &request);
 
       /**
-       * @summary 获取语音接入配置列表
+       * @summary Retrieves the list of voice access configurations.
        *
        * @param request ListVoiceAccessProfilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -506,7 +506,7 @@ namespace OutboundBot20251111
       Models::ListVoiceAccessProfilesResponse listVoiceAccessProfilesWithOptions(const Models::ListVoiceAccessProfilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取语音接入配置列表
+       * @summary Retrieves the list of voice access configurations.
        *
        * @param request ListVoiceAccessProfilesRequest
        * @return ListVoiceAccessProfilesResponse
@@ -514,7 +514,7 @@ namespace OutboundBot20251111
       Models::ListVoiceAccessProfilesResponse listVoiceAccessProfiles(const Models::ListVoiceAccessProfilesRequest &request);
 
       /**
-       * @summary 发布场景
+       * @summary Updates an instance.
        *
        * @param request PublishScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -523,7 +523,7 @@ namespace OutboundBot20251111
       Models::PublishScriptResponse publishScriptWithOptions(const Models::PublishScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发布场景
+       * @summary Updates an instance.
        *
        * @param request PublishScriptRequest
        * @return PublishScriptResponse
@@ -531,7 +531,7 @@ namespace OutboundBot20251111
       Models::PublishScriptResponse publishScript(const Models::PublishScriptRequest &request);
 
       /**
-       * @summary 更新克隆音色
+       * @summary Updates an instance.
        *
        * @param request UpdateCloneVoiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -540,7 +540,7 @@ namespace OutboundBot20251111
       Models::UpdateCloneVoiceResponse updateCloneVoiceWithOptions(const Models::UpdateCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新克隆音色
+       * @summary Updates an instance.
        *
        * @param request UpdateCloneVoiceRequest
        * @return UpdateCloneVoiceResponse
@@ -548,7 +548,7 @@ namespace OutboundBot20251111
       Models::UpdateCloneVoiceResponse updateCloneVoice(const Models::UpdateCloneVoiceRequest &request);
 
       /**
-       * @summary 更新闪信配置
+       * @summary Updates the flash message configuration.
        *
        * @param tmpReq UpdateFlashSmsAccessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -557,7 +557,7 @@ namespace OutboundBot20251111
       Models::UpdateFlashSmsAccessProfileResponse updateFlashSmsAccessProfileWithOptions(const Models::UpdateFlashSmsAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新闪信配置
+       * @summary Updates the flash message configuration.
        *
        * @param request UpdateFlashSmsAccessProfileRequest
        * @return UpdateFlashSmsAccessProfileResponse
@@ -582,7 +582,7 @@ namespace OutboundBot20251111
       Models::UpdateInstanceResponse updateInstance(const Models::UpdateInstanceRequest &request);
 
       /**
-       * @summary 更新场景
+       * @summary Updates an instance.
        *
        * @param request UpdateScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -591,7 +591,7 @@ namespace OutboundBot20251111
       Models::UpdateScriptResponse updateScriptWithOptions(const Models::UpdateScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新场景
+       * @summary Updates an instance.
        *
        * @param request UpdateScriptRequest
        * @return UpdateScriptResponse
@@ -599,7 +599,28 @@ namespace OutboundBot20251111
       Models::UpdateScriptResponse updateScript(const Models::UpdateScriptRequest &request);
 
       /**
-       * @summary 创建或更新MQ配置
+       * @summary 更新场景配置
+       *
+       * @description ****
+       *
+       * @param tmpReq UpdateScriptVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateScriptVersionResponse
+       */
+      Models::UpdateScriptVersionResponse updateScriptVersionWithOptions(const Models::UpdateScriptVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新场景配置
+       *
+       * @description ****
+       *
+       * @param request UpdateScriptVersionRequest
+       * @return UpdateScriptVersionResponse
+       */
+      Models::UpdateScriptVersionResponse updateScriptVersion(const Models::UpdateScriptVersionRequest &request);
+
+      /**
+       * @summary Creates or updates a message queue (MQ) configuration.
        *
        * @param tmpReq UpdateSubscriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -608,7 +629,7 @@ namespace OutboundBot20251111
       Models::UpdateSubscriptionResponse updateSubscriptionWithOptions(const Models::UpdateSubscriptionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建或更新MQ配置
+       * @summary Creates or updates a message queue (MQ) configuration.
        *
        * @param request UpdateSubscriptionRequest
        * @return UpdateSubscriptionResponse
@@ -616,7 +637,7 @@ namespace OutboundBot20251111
       Models::UpdateSubscriptionResponse updateSubscription(const Models::UpdateSubscriptionRequest &request);
 
       /**
-       * @summary 更新系统配置
+       * @summary Updates system configurations.
        *
        * @param tmpReq UpdateSystemConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -625,7 +646,7 @@ namespace OutboundBot20251111
       Models::UpdateSystemConfigsResponse updateSystemConfigsWithOptions(const Models::UpdateSystemConfigsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新系统配置
+       * @summary Updates system configurations.
        *
        * @param request UpdateSystemConfigsRequest
        * @return UpdateSystemConfigsResponse
@@ -633,7 +654,7 @@ namespace OutboundBot20251111
       Models::UpdateSystemConfigsResponse updateSystemConfigs(const Models::UpdateSystemConfigsRequest &request);
 
       /**
-       * @summary 更新语音接入配置
+       * @summary Updates an instance.
        *
        * @param tmpReq UpdateVoiceAccessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +663,7 @@ namespace OutboundBot20251111
       Models::UpdateVoiceAccessProfileResponse updateVoiceAccessProfileWithOptions(const Models::UpdateVoiceAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新语音接入配置
+       * @summary Updates an instance.
        *
        * @param request UpdateVoiceAccessProfileRequest
        * @return UpdateVoiceAccessProfileResponse

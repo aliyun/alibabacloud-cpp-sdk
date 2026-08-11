@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 实例ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // 模板ID
+    // The template ID.
     shared_ptr<string> templateId_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 克隆音色ID
+    // The UUID of the cloned voice.
     shared_ptr<string> cloneVoiceId_ {};
-    // 实例ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
   };
 

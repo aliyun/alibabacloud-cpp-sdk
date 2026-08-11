@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // 文件Key
+    // The file upload identifier.
     shared_ptr<string> fileKey_ {};
-    // 实例ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // 模型名称
+    // The model name.
     shared_ptr<string> model_ {};
   };
 

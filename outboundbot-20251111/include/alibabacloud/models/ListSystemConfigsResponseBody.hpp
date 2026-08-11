@@ -116,17 +116,23 @@ namespace Models
 
 
     protected:
-      // 创建时间，毫秒级时间戳
+      // The creation time, in millisecond-level timestamp.
       shared_ptr<string> createdTime_ {};
-      // 名称
+      // The system configuration name.\\
+      // callableTime: the outbound job window.\\
+      // calleeDailyAttemptLimit: the maximum number of daily calls to a single callee number.
       shared_ptr<string> name_ {};
-      // 对象ID
+      // The configuration type ID.\\
+      // If ObjectType is set to INSTANCE, this parameter specifies the instance ID.\\
+      // If ObjectType is set to TENANT, this parameter specifies the tenant ID.
       shared_ptr<string> objectId_ {};
-      // 外呼开发时补充参数限制
+      // The configuration type.\\
+      // INSTANCE: instance-level.\\
+      // TENANT: tenant-level.
       shared_ptr<string> objectType_ {};
-      // 更新时间，毫秒级时间戳
+      // The update time, in millisecond-level timestamp.
       shared_ptr<string> updatedTime_ {};
-      // 值
+      // The system configuration content.
       shared_ptr<string> value_ {};
     };
 
@@ -187,19 +193,19 @@ namespace Models
 
 
   protected:
-    // 返回码
+    // The return code.
     shared_ptr<string> code_ {};
-    // 返回数据
+    // The response data.
     shared_ptr<vector<ListSystemConfigsResponseBody::Data>> data_ {};
-    // HTTP状态码
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // 错误信息
+    // The error message.
     shared_ptr<string> message_ {};
-    // 错误信息中的变量值列表
+    // The list of variable values in the error message.
     shared_ptr<vector<string>> params_ {};
-    // 请求ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 是否调用成功
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

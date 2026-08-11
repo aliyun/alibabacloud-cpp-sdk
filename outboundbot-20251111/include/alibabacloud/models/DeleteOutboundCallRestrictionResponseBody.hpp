@@ -99,7 +99,7 @@ namespace Models
   protected:
     // The return code.
     shared_ptr<string> code_ {};
-    // Not in use.
+    // The response data.
     shared_ptr<string> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};

@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CREATESCRIPTVERSIONREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_CREATESCRIPTVERSIONREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_UPDATESCRIPTVERSIONREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_UPDATESCRIPTVERSIONREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
 using namespace std;
@@ -11,35 +11,35 @@ namespace OutboundBot20251111
 {
 namespace Models
 {
-  class CreateScriptVersionRequest : public Darabonba::Model {
+  class UpdateScriptVersionRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const CreateScriptVersionRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const UpdateScriptVersionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InteractionConfig, interactionConfig_);
       DARABONBA_PTR_TO_JSON(LabelConfigs, labelConfigs_);
       DARABONBA_PTR_TO_JSON(ScriptId, scriptId_);
       DARABONBA_PTR_TO_JSON(ScriptProfile, scriptProfile_);
-      DARABONBA_PTR_TO_JSON(SourceVersionId, sourceVersionId_);
       DARABONBA_PTR_TO_JSON(SynthesizerConfig, synthesizerConfig_);
       DARABONBA_PTR_TO_JSON(TranscriberConfig, transcriberConfig_);
+      DARABONBA_PTR_TO_JSON(VersionId, versionId_);
     };
-    friend void from_json(const Darabonba::Json& j, CreateScriptVersionRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, UpdateScriptVersionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InteractionConfig, interactionConfig_);
       DARABONBA_PTR_FROM_JSON(LabelConfigs, labelConfigs_);
       DARABONBA_PTR_FROM_JSON(ScriptId, scriptId_);
       DARABONBA_PTR_FROM_JSON(ScriptProfile, scriptProfile_);
-      DARABONBA_PTR_FROM_JSON(SourceVersionId, sourceVersionId_);
       DARABONBA_PTR_FROM_JSON(SynthesizerConfig, synthesizerConfig_);
       DARABONBA_PTR_FROM_JSON(TranscriberConfig, transcriberConfig_);
+      DARABONBA_PTR_FROM_JSON(VersionId, versionId_);
     };
-    CreateScriptVersionRequest() = default ;
-    CreateScriptVersionRequest(const CreateScriptVersionRequest &) = default ;
-    CreateScriptVersionRequest(CreateScriptVersionRequest &&) = default ;
-    CreateScriptVersionRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~CreateScriptVersionRequest() = default ;
-    CreateScriptVersionRequest& operator=(const CreateScriptVersionRequest &) = default ;
-    CreateScriptVersionRequest& operator=(CreateScriptVersionRequest &&) = default ;
+    UpdateScriptVersionRequest() = default ;
+    UpdateScriptVersionRequest(const UpdateScriptVersionRequest &) = default ;
+    UpdateScriptVersionRequest(UpdateScriptVersionRequest &&) = default ;
+    UpdateScriptVersionRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UpdateScriptVersionRequest() = default ;
+    UpdateScriptVersionRequest& operator=(const UpdateScriptVersionRequest &) = default ;
+    UpdateScriptVersionRequest& operator=(UpdateScriptVersionRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -107,7 +107,6 @@ namespace Models
 
 
       protected:
-        // The third-party speech configuration ID. This parameter is required when you use a third-party ASR service such as Doubao or iFLYTEK.
         shared_ptr<string> accessProfileId_ {};
       };
 
@@ -149,9 +148,7 @@ namespace Models
 
 
       protected:
-        // The incorrectly recognized text.
         shared_ptr<string> pattern_ {};
-        // The corrected text.
         shared_ptr<string> replacement_ {};
       };
 
@@ -226,23 +223,14 @@ namespace Models
 
 
     protected:
-      // The ASR correction dictionary.
       shared_ptr<vector<TranscriberConfig::CorrectionRules>> correctionRules_ {};
-      // The custom language model ID for ASR.
       shared_ptr<string> customizationId_ {};
-      // The silence detection threshold. Sentence segmentation is triggered when the speaking interval exceeds x milliseconds, which is also known as Voice Activity Detection (VAD).
       shared_ptr<int32_t> endSilenceTimeout_ {};
-      // The ASR model.
       shared_ptr<string> model_ {};
-      // The associated configuration.
       shared_ptr<TranscriberConfig::NlsAccessProfile> nlsAccessProfile_ {};
-      // The ASR invocation method.
       shared_ptr<string> nlsAccessType_ {};
-      // The ASR engine.
       shared_ptr<string> nlsEngine_ {};
-      // The noise parameter threshold. Valid values: -100 to 100. Description:
       shared_ptr<int32_t> speechNoiseThreshold_ {};
-      // The hot word list ID. You can obtain this ID from the hot word management page.
       shared_ptr<string> vocabularyId_ {};
     };
 
@@ -319,9 +307,7 @@ namespace Models
 
 
       protected:
-        // The easily mispronounced word.
         shared_ptr<string> pattern_ {};
-        // The homophonic word.
         shared_ptr<string> replacement_ {};
       };
 
@@ -353,7 +339,6 @@ namespace Models
 
 
       protected:
-        // The third-party speech configuration ID. This parameter is required when you use a third-party ASR service such as Doubao or iFLYTEK.
         shared_ptr<string> accessProfileId_ {};
       };
 
@@ -428,23 +413,14 @@ namespace Models
 
 
     protected:
-      // The TTS model.
       shared_ptr<string> model_ {};
-      // The associated configuration.
       shared_ptr<SynthesizerConfig::NlsAccessProfile> nlsAccessProfile_ {};
-      // The TTS invocation method.
       shared_ptr<string> nlsAccessType_ {};
-      // The TTS engine.
       shared_ptr<string> nlsEngine_ {};
-      // The pitch.
       shared_ptr<int32_t> pitchRate_ {};
-      // The TTS correction dictionary.
       shared_ptr<vector<SynthesizerConfig::PronRules>> pronRules_ {};
-      // The speech rate.
       shared_ptr<int32_t> speechRate_ {};
-      // The voice.
       shared_ptr<string> voice_ {};
-      // The volume.
       shared_ptr<int32_t> volume_ {};
     };
 
@@ -511,7 +487,6 @@ namespace Models
 
 
       protected:
-        // The third-party dialogue model configuration ID.
         shared_ptr<string> accessProfileId_ {};
       };
 
@@ -580,15 +555,10 @@ namespace Models
 
 
       protected:
-        // The function service ID.
         shared_ptr<string> functionId_ {};
-        // The function service name.
         shared_ptr<string> functionName_ {};
-        // The function trigger name.
         shared_ptr<string> httpTriggerName_ {};
-        // The function trigger URL.
         shared_ptr<string> httpTriggerUrl_ {};
-        // The region where the function service resides.
         shared_ptr<string> regionId_ {};
       };
 
@@ -630,9 +600,7 @@ namespace Models
 
 
       protected:
-        // The prompt JSON.
         shared_ptr<string> promptsJson_ {};
-        // The scenario template ID.
         shared_ptr<string> scriptProfileTemplateId_ {};
       };
 
@@ -709,23 +677,14 @@ namespace Models
 
 
     protected:
-      // The chatbot AgentKey.
       shared_ptr<string> agentKey_ {};
-      // The dialogue agent configuration.
       shared_ptr<ScriptProfile::AgentProfile> agentProfile_ {};
-      // The chatbot type.
       shared_ptr<string> builderType_ {};
-      // The chatbot ID.
       shared_ptr<string> chatbotId_ {};
-      // The Function Compute configuration.
       shared_ptr<ScriptProfile::FunctionMeta> functionMeta_ {};
-      // The dialogue model.
       shared_ptr<string> model_ {};
-      // The associated configuration.
       shared_ptr<ScriptProfile::NluAccessProfile> nluAccessProfile_ {};
-      // The dialogue model invocation method.
       shared_ptr<string> nluAccessType_ {};
-      // Specifies whether the model is an Omni model.
       shared_ptr<bool> omniModel_ {};
     };
 
@@ -778,11 +737,8 @@ namespace Models
 
 
     protected:
-      // The candidate values for the label.
       shared_ptr<vector<string>> candidateValues_ {};
-      // The description.
       shared_ptr<string> description_ {};
-      // The label name.
       shared_ptr<string> name_ {};
     };
 
@@ -873,13 +829,9 @@ namespace Models
 
 
       protected:
-        // The model generation prompt.
         shared_ptr<string> aiPhrasePrompt_ {};
-        // The list of fixed transition phrases.
         shared_ptr<vector<string>> fixedPhraseList_ {};
-        // The method for generating transition phrases.
         shared_ptr<string> phraseSource_ {};
-        // Specifies whether to enable transition phrases.
         shared_ptr<bool> transitionSwitch_ {};
       };
 
@@ -936,7 +888,6 @@ namespace Models
 
 
         protected:
-          // The action to perform during consecutive silence.
           shared_ptr<string> type_ {};
         };
 
@@ -973,15 +924,9 @@ namespace Models
 
 
       protected:
-        // The list of actions to perform during consecutive silence.
         shared_ptr<vector<SilenceDetectionConfig::FallbackControlParamsList>> fallbackControlParamsList_ {};
-        // The number of consecutive silence rounds before hanging up.
         shared_ptr<int32_t> maxRepeats_ {};
-        // The silence prompt.
         shared_ptr<string> prompt_ {};
-        // The silence timeout period, in milliseconds.\\
-        // When the user remains silent for longer than the specified value, the silence timeout prompt is played.\\
-        // Valid range: 2000 to 10000.
         shared_ptr<int32_t> timeout_ {};
       };
 
@@ -1066,18 +1011,9 @@ namespace Models
 
 
         protected:
-          // The closing statement played when hanging up after reaching the turn limit.
           shared_ptr<string> closingStatement_ {};
-          // The list of custom interception keywords.
           shared_ptr<vector<string>> keywords_ {};
-          // Valid values:
-          // 
-          // - TurnLimit: maximum number of interaction turns.
-          // - IntelligentVoiceAssistant: voice assistant.
-          // - InteractiveVoiceResponse: extension transfer.
-          // - KeyWords: custom interception.
           shared_ptr<string> triggerType_ {};
-          // Hangs up when the number of interaction turns exceeds x. Valid values: 0 to 100. A value of 0 indicates that the turn limit hang-up is disabled.
           shared_ptr<int32_t> turnLimit_ {};
         };
 
@@ -1107,11 +1043,8 @@ namespace Models
 
 
       protected:
-        // Specifies whether barge-in is supported during the delayed hang-up waiting period.
         shared_ptr<bool> bargeInEnabled_ {};
-        // The number of seconds to wait after the closing statement is played before executing the hang-up action. Valid values: 0 to 5.
         shared_ptr<int32_t> delay_ {};
-        // The special condition interception settings.
         shared_ptr<vector<EndConversationConfig::Triggers>> triggers_ {};
       };
 
@@ -1162,11 +1095,8 @@ namespace Models
 
 
       protected:
-        // Specifies whether barge-in is supported during the closing statement.
         shared_ptr<bool> closingBargeInEnabled_ {};
-        // Specifies whether barge-in is supported during the conversation.
         shared_ptr<bool> globalBargeInEnabled_ {};
-        // Specifies whether barge-in is supported during the opening greeting.
         shared_ptr<bool> openingBargeInEnabled_ {};
       };
 
@@ -1223,106 +1153,100 @@ namespace Models
 
 
     protected:
-      // The background music ID.
       shared_ptr<string> backgroundMusicId_ {};
-      // The barge-in configuration.
       shared_ptr<InteractionConfig::BargeInConfig> bargeInConfig_ {};
-      // The hang-up configuration.
       shared_ptr<InteractionConfig::EndConversationConfig> endConversationConfig_ {};
-      // The delay in milliseconds before playing audio after the call is connected.
       shared_ptr<int32_t> initialGreetingDelayMilliseconds_ {};
-      // The silence detection configuration.
       shared_ptr<InteractionConfig::SilenceDetectionConfig> silenceDetectionConfig_ {};
-      // The transition phrase model configuration.
       shared_ptr<InteractionConfig::TransitionConfig> transitionConfig_ {};
     };
 
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->interactionConfig_ == nullptr && this->labelConfigs_ == nullptr && this->scriptId_ == nullptr && this->scriptProfile_ == nullptr && this->sourceVersionId_ == nullptr
-        && this->synthesizerConfig_ == nullptr && this->transcriberConfig_ == nullptr; };
+        && this->interactionConfig_ == nullptr && this->labelConfigs_ == nullptr && this->scriptId_ == nullptr && this->scriptProfile_ == nullptr && this->synthesizerConfig_ == nullptr
+        && this->transcriberConfig_ == nullptr && this->versionId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
-    inline CreateScriptVersionRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+    inline UpdateScriptVersionRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // interactionConfig Field Functions 
     bool hasInteractionConfig() const { return this->interactionConfig_ != nullptr;};
     void deleteInteractionConfig() { this->interactionConfig_ = nullptr;};
-    inline const CreateScriptVersionRequest::InteractionConfig & getInteractionConfig() const { DARABONBA_PTR_GET_CONST(interactionConfig_, CreateScriptVersionRequest::InteractionConfig) };
-    inline CreateScriptVersionRequest::InteractionConfig getInteractionConfig() { DARABONBA_PTR_GET(interactionConfig_, CreateScriptVersionRequest::InteractionConfig) };
-    inline CreateScriptVersionRequest& setInteractionConfig(const CreateScriptVersionRequest::InteractionConfig & interactionConfig) { DARABONBA_PTR_SET_VALUE(interactionConfig_, interactionConfig) };
-    inline CreateScriptVersionRequest& setInteractionConfig(CreateScriptVersionRequest::InteractionConfig && interactionConfig) { DARABONBA_PTR_SET_RVALUE(interactionConfig_, interactionConfig) };
+    inline const UpdateScriptVersionRequest::InteractionConfig & getInteractionConfig() const { DARABONBA_PTR_GET_CONST(interactionConfig_, UpdateScriptVersionRequest::InteractionConfig) };
+    inline UpdateScriptVersionRequest::InteractionConfig getInteractionConfig() { DARABONBA_PTR_GET(interactionConfig_, UpdateScriptVersionRequest::InteractionConfig) };
+    inline UpdateScriptVersionRequest& setInteractionConfig(const UpdateScriptVersionRequest::InteractionConfig & interactionConfig) { DARABONBA_PTR_SET_VALUE(interactionConfig_, interactionConfig) };
+    inline UpdateScriptVersionRequest& setInteractionConfig(UpdateScriptVersionRequest::InteractionConfig && interactionConfig) { DARABONBA_PTR_SET_RVALUE(interactionConfig_, interactionConfig) };
 
 
     // labelConfigs Field Functions 
     bool hasLabelConfigs() const { return this->labelConfigs_ != nullptr;};
     void deleteLabelConfigs() { this->labelConfigs_ = nullptr;};
-    inline const vector<CreateScriptVersionRequest::LabelConfigs> & getLabelConfigs() const { DARABONBA_PTR_GET_CONST(labelConfigs_, vector<CreateScriptVersionRequest::LabelConfigs>) };
-    inline vector<CreateScriptVersionRequest::LabelConfigs> getLabelConfigs() { DARABONBA_PTR_GET(labelConfigs_, vector<CreateScriptVersionRequest::LabelConfigs>) };
-    inline CreateScriptVersionRequest& setLabelConfigs(const vector<CreateScriptVersionRequest::LabelConfigs> & labelConfigs) { DARABONBA_PTR_SET_VALUE(labelConfigs_, labelConfigs) };
-    inline CreateScriptVersionRequest& setLabelConfigs(vector<CreateScriptVersionRequest::LabelConfigs> && labelConfigs) { DARABONBA_PTR_SET_RVALUE(labelConfigs_, labelConfigs) };
+    inline const vector<UpdateScriptVersionRequest::LabelConfigs> & getLabelConfigs() const { DARABONBA_PTR_GET_CONST(labelConfigs_, vector<UpdateScriptVersionRequest::LabelConfigs>) };
+    inline vector<UpdateScriptVersionRequest::LabelConfigs> getLabelConfigs() { DARABONBA_PTR_GET(labelConfigs_, vector<UpdateScriptVersionRequest::LabelConfigs>) };
+    inline UpdateScriptVersionRequest& setLabelConfigs(const vector<UpdateScriptVersionRequest::LabelConfigs> & labelConfigs) { DARABONBA_PTR_SET_VALUE(labelConfigs_, labelConfigs) };
+    inline UpdateScriptVersionRequest& setLabelConfigs(vector<UpdateScriptVersionRequest::LabelConfigs> && labelConfigs) { DARABONBA_PTR_SET_RVALUE(labelConfigs_, labelConfigs) };
 
 
     // scriptId Field Functions 
     bool hasScriptId() const { return this->scriptId_ != nullptr;};
     void deleteScriptId() { this->scriptId_ = nullptr;};
     inline string getScriptId() const { DARABONBA_PTR_GET_DEFAULT(scriptId_, "") };
-    inline CreateScriptVersionRequest& setScriptId(string scriptId) { DARABONBA_PTR_SET_VALUE(scriptId_, scriptId) };
+    inline UpdateScriptVersionRequest& setScriptId(string scriptId) { DARABONBA_PTR_SET_VALUE(scriptId_, scriptId) };
 
 
     // scriptProfile Field Functions 
     bool hasScriptProfile() const { return this->scriptProfile_ != nullptr;};
     void deleteScriptProfile() { this->scriptProfile_ = nullptr;};
-    inline const CreateScriptVersionRequest::ScriptProfile & getScriptProfile() const { DARABONBA_PTR_GET_CONST(scriptProfile_, CreateScriptVersionRequest::ScriptProfile) };
-    inline CreateScriptVersionRequest::ScriptProfile getScriptProfile() { DARABONBA_PTR_GET(scriptProfile_, CreateScriptVersionRequest::ScriptProfile) };
-    inline CreateScriptVersionRequest& setScriptProfile(const CreateScriptVersionRequest::ScriptProfile & scriptProfile) { DARABONBA_PTR_SET_VALUE(scriptProfile_, scriptProfile) };
-    inline CreateScriptVersionRequest& setScriptProfile(CreateScriptVersionRequest::ScriptProfile && scriptProfile) { DARABONBA_PTR_SET_RVALUE(scriptProfile_, scriptProfile) };
-
-
-    // sourceVersionId Field Functions 
-    bool hasSourceVersionId() const { return this->sourceVersionId_ != nullptr;};
-    void deleteSourceVersionId() { this->sourceVersionId_ = nullptr;};
-    inline string getSourceVersionId() const { DARABONBA_PTR_GET_DEFAULT(sourceVersionId_, "") };
-    inline CreateScriptVersionRequest& setSourceVersionId(string sourceVersionId) { DARABONBA_PTR_SET_VALUE(sourceVersionId_, sourceVersionId) };
+    inline const UpdateScriptVersionRequest::ScriptProfile & getScriptProfile() const { DARABONBA_PTR_GET_CONST(scriptProfile_, UpdateScriptVersionRequest::ScriptProfile) };
+    inline UpdateScriptVersionRequest::ScriptProfile getScriptProfile() { DARABONBA_PTR_GET(scriptProfile_, UpdateScriptVersionRequest::ScriptProfile) };
+    inline UpdateScriptVersionRequest& setScriptProfile(const UpdateScriptVersionRequest::ScriptProfile & scriptProfile) { DARABONBA_PTR_SET_VALUE(scriptProfile_, scriptProfile) };
+    inline UpdateScriptVersionRequest& setScriptProfile(UpdateScriptVersionRequest::ScriptProfile && scriptProfile) { DARABONBA_PTR_SET_RVALUE(scriptProfile_, scriptProfile) };
 
 
     // synthesizerConfig Field Functions 
     bool hasSynthesizerConfig() const { return this->synthesizerConfig_ != nullptr;};
     void deleteSynthesizerConfig() { this->synthesizerConfig_ = nullptr;};
-    inline const CreateScriptVersionRequest::SynthesizerConfig & getSynthesizerConfig() const { DARABONBA_PTR_GET_CONST(synthesizerConfig_, CreateScriptVersionRequest::SynthesizerConfig) };
-    inline CreateScriptVersionRequest::SynthesizerConfig getSynthesizerConfig() { DARABONBA_PTR_GET(synthesizerConfig_, CreateScriptVersionRequest::SynthesizerConfig) };
-    inline CreateScriptVersionRequest& setSynthesizerConfig(const CreateScriptVersionRequest::SynthesizerConfig & synthesizerConfig) { DARABONBA_PTR_SET_VALUE(synthesizerConfig_, synthesizerConfig) };
-    inline CreateScriptVersionRequest& setSynthesizerConfig(CreateScriptVersionRequest::SynthesizerConfig && synthesizerConfig) { DARABONBA_PTR_SET_RVALUE(synthesizerConfig_, synthesizerConfig) };
+    inline const UpdateScriptVersionRequest::SynthesizerConfig & getSynthesizerConfig() const { DARABONBA_PTR_GET_CONST(synthesizerConfig_, UpdateScriptVersionRequest::SynthesizerConfig) };
+    inline UpdateScriptVersionRequest::SynthesizerConfig getSynthesizerConfig() { DARABONBA_PTR_GET(synthesizerConfig_, UpdateScriptVersionRequest::SynthesizerConfig) };
+    inline UpdateScriptVersionRequest& setSynthesizerConfig(const UpdateScriptVersionRequest::SynthesizerConfig & synthesizerConfig) { DARABONBA_PTR_SET_VALUE(synthesizerConfig_, synthesizerConfig) };
+    inline UpdateScriptVersionRequest& setSynthesizerConfig(UpdateScriptVersionRequest::SynthesizerConfig && synthesizerConfig) { DARABONBA_PTR_SET_RVALUE(synthesizerConfig_, synthesizerConfig) };
 
 
     // transcriberConfig Field Functions 
     bool hasTranscriberConfig() const { return this->transcriberConfig_ != nullptr;};
     void deleteTranscriberConfig() { this->transcriberConfig_ = nullptr;};
-    inline const CreateScriptVersionRequest::TranscriberConfig & getTranscriberConfig() const { DARABONBA_PTR_GET_CONST(transcriberConfig_, CreateScriptVersionRequest::TranscriberConfig) };
-    inline CreateScriptVersionRequest::TranscriberConfig getTranscriberConfig() { DARABONBA_PTR_GET(transcriberConfig_, CreateScriptVersionRequest::TranscriberConfig) };
-    inline CreateScriptVersionRequest& setTranscriberConfig(const CreateScriptVersionRequest::TranscriberConfig & transcriberConfig) { DARABONBA_PTR_SET_VALUE(transcriberConfig_, transcriberConfig) };
-    inline CreateScriptVersionRequest& setTranscriberConfig(CreateScriptVersionRequest::TranscriberConfig && transcriberConfig) { DARABONBA_PTR_SET_RVALUE(transcriberConfig_, transcriberConfig) };
+    inline const UpdateScriptVersionRequest::TranscriberConfig & getTranscriberConfig() const { DARABONBA_PTR_GET_CONST(transcriberConfig_, UpdateScriptVersionRequest::TranscriberConfig) };
+    inline UpdateScriptVersionRequest::TranscriberConfig getTranscriberConfig() { DARABONBA_PTR_GET(transcriberConfig_, UpdateScriptVersionRequest::TranscriberConfig) };
+    inline UpdateScriptVersionRequest& setTranscriberConfig(const UpdateScriptVersionRequest::TranscriberConfig & transcriberConfig) { DARABONBA_PTR_SET_VALUE(transcriberConfig_, transcriberConfig) };
+    inline UpdateScriptVersionRequest& setTranscriberConfig(UpdateScriptVersionRequest::TranscriberConfig && transcriberConfig) { DARABONBA_PTR_SET_RVALUE(transcriberConfig_, transcriberConfig) };
+
+
+    // versionId Field Functions 
+    bool hasVersionId() const { return this->versionId_ != nullptr;};
+    void deleteVersionId() { this->versionId_ = nullptr;};
+    inline string getVersionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
+    inline UpdateScriptVersionRequest& setVersionId(string versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
 
 
   protected:
-    // The instance ID.
+    // 实例ID
     shared_ptr<string> instanceId_ {};
-    // The interaction configuration.
-    shared_ptr<CreateScriptVersionRequest::InteractionConfig> interactionConfig_ {};
-    // The label configurations.
-    shared_ptr<vector<CreateScriptVersionRequest::LabelConfigs>> labelConfigs_ {};
-    // The scenario ID.
+    // 交互配置
+    shared_ptr<UpdateScriptVersionRequest::InteractionConfig> interactionConfig_ {};
+    // 草稿版本的标签配置（JSON字符串）
+    shared_ptr<vector<UpdateScriptVersionRequest::LabelConfigs>> labelConfigs_ {};
+    // 场景ID
     shared_ptr<string> scriptId_ {};
-    // The dialogue capability configuration.
-    shared_ptr<CreateScriptVersionRequest::ScriptProfile> scriptProfile_ {};
-    // The source version ID.
-    shared_ptr<string> sourceVersionId_ {};
-    // The TTS configuration.
-    shared_ptr<CreateScriptVersionRequest::SynthesizerConfig> synthesizerConfig_ {};
-    // The ASR configuration.
-    shared_ptr<CreateScriptVersionRequest::TranscriberConfig> transcriberConfig_ {};
+    // 话术配置
+    shared_ptr<UpdateScriptVersionRequest::ScriptProfile> scriptProfile_ {};
+    // 语音合成配置
+    shared_ptr<UpdateScriptVersionRequest::SynthesizerConfig> synthesizerConfig_ {};
+    // 语音识别配置
+    shared_ptr<UpdateScriptVersionRequest::TranscriberConfig> transcriberConfig_ {};
+    // 版本ID
+    shared_ptr<string> versionId_ {};
   };
 
   } // namespace Models

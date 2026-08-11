@@ -66,13 +66,19 @@ namespace Models
 
 
   protected:
-    // 接入配置
+    // The access configuration.
     shared_ptr<string> accessProfileShrink_ {};
-    // 接入配置ID
+    // The access configuration ID.
     shared_ptr<string> accessProfileId_ {};
-    // 实例ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // 供应商ID
+    // The provider ID. Valid values:
+    // - Uincall: Beijing Youyin Communication Co., Ltd.
+    // - ChuangLan: Beijing Chuanglan Cloud Intelligence Information Co., Ltd.
+    // - ChinaMobile: China Mobile.
+    // - ShangHaiTianNan: Shanghai Tiannan.
+    // - HeDao: Galaxis.
+    // - DySms: Alibaba Communication.
     shared_ptr<string> providerId_ {};
   };
 

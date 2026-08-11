@@ -202,23 +202,23 @@ namespace Models
 
 
         protected:
-          // 访问密钥
+          // Required when NlsEngine=VOLC.
           shared_ptr<string> accessKey_ {};
-          // 百炼同时使用
+          // Required when NlsEngine=IFLYTEK or NlsEngine=BAILIAN.
           shared_ptr<string> apiKey_ {};
-          // API密钥
+          // Required when NlsEngine=IFLYTEK.
           shared_ptr<string> apiSecret_ {};
-          // 科大讯飞使用
+          // Required when NlsEngine=IFLYTEK or NlsEngine=TENCENT.
           shared_ptr<string> appId_ {};
-          // 豆包使用
+          // Required when NlsEngine=VOLC.
           shared_ptr<string> appKey_ {};
-          // 货拉拉使用
+          // Not currently in use.
           shared_ptr<string> asrAppKey_ {};
-          // 腾讯云使用，appId 已存在
+          // Required when NlsEngine=TENCENT.
           shared_ptr<string> secretId_ {};
-          // 密钥
+          // Required when NlsEngine=TENCENT.
           shared_ptr<string> secretKey_ {};
-          // TTS服务API Key
+          // Not currently in use.
           shared_ptr<string> ttsApiKey_ {};
         };
 
@@ -286,21 +286,25 @@ namespace Models
 
 
       protected:
-        // 接入配置ID
+        // The access profile ID.
         shared_ptr<string> accessProfileId_ {};
-        // 能力列表
+        // The list of supported capabilities.
         shared_ptr<vector<string>> capabilities_ {};
-        // 创建时间，毫秒级时间戳
+        // The creation time, in millisecond-level timestamp.
         shared_ptr<int64_t> createdTime_ {};
-        // 实例ID
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // 目前支持IFLYTEK、VOLC
+        // The voice engine vendor. Valid values:
+        // - BAILIAN: Bailian.
+        // - VOLC: Doubao.
+        // - IFLYTEK: iFLYTEK.
+        // - TENCENT: Tencent.
         shared_ptr<string> nlsEngine_ {};
-        // 引擎显示名称(例如：豆包、货拉拉)
+        // The display name of the voice engine vendor.
         shared_ptr<string> nlsEngineName_ {};
-        // 配置
+        // The configuration.
         shared_ptr<VoiceAccessProfiles::Profile> profile_ {};
-        // 更新时间，毫秒级时间戳
+        // The update time, in millisecond-level timestamp.
         shared_ptr<int64_t> updatedTime_ {};
       };
 
@@ -337,13 +341,13 @@ namespace Models
 
 
     protected:
-      // 页码，从1开始
+      // The page number, starting from 1.
       shared_ptr<int32_t> pageNumber_ {};
-      // 每页记录数
+      // The number of records per page.
       shared_ptr<int32_t> pageSize_ {};
-      // 符合条件的记录总数
+      // The total number of records that match the conditions.
       shared_ptr<int32_t> totalCount_ {};
-      // 数据列表
+      // The data list.
       shared_ptr<vector<Data::VoiceAccessProfiles>> voiceAccessProfiles_ {};
     };
 
@@ -404,19 +408,19 @@ namespace Models
 
 
   protected:
-    // 返回码
+    // The return code.
     shared_ptr<string> code_ {};
-    // 返回数据
+    // The response data.
     shared_ptr<ListVoiceAccessProfilesResponseBody::Data> data_ {};
-    // HTTP状态码
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // 错误信息
+    // The error message.
     shared_ptr<string> message_ {};
-    // 错误信息中的变量值列表
+    // The list of variable values in the error message.
     shared_ptr<vector<string>> params_ {};
-    // 请求ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 是否调用成功
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

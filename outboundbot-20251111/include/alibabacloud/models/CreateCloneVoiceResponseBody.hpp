@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // 克隆音色ID
+      // The UUID of the cloned voice.
       shared_ptr<string> cloneVoiceId_ {};
-      // 音色
+      // The voice ID.
       shared_ptr<string> voice_ {};
     };
 
@@ -143,19 +143,19 @@ namespace Models
 
 
   protected:
-    // 返回码
+    // The return code.
     shared_ptr<string> code_ {};
-    // 返回数据
+    // The response data.
     shared_ptr<CreateCloneVoiceResponseBody::Data> data_ {};
-    // HTTP状态码
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // 错误信息
+    // The error message.
     shared_ptr<string> message_ {};
-    // 错误信息中的变量值列表
+    // The list of variable values in the error message.
     shared_ptr<vector<string>> params_ {};
-    // 请求ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 是否调用成功
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

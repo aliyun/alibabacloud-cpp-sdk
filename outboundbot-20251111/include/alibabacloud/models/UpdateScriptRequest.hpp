@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // 描述
+    // The description.
     shared_ptr<string> description_ {};
-    // 实例ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // 名称
+    // The name.
     shared_ptr<string> name_ {};
-    // 场景ID
+    // The script ID.
     shared_ptr<string> scriptId_ {};
   };
 

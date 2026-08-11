@@ -160,7 +160,7 @@ namespace Models
 
 
       protected:
-        // The number of concurrent connections.
+        // The concurrency.
         shared_ptr<int32_t> concurrency_ {};
         // The creation time.
         shared_ptr<int64_t> createdTime_ {};
@@ -211,7 +211,7 @@ namespace Models
 
 
     protected:
-      // The list of instances.
+      // The instance list.
       shared_ptr<vector<Data::Instances>> instances_ {};
       // The current page number.
       shared_ptr<int32_t> pageNumber_ {};

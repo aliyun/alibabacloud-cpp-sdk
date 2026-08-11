@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // 实例ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // 场景ID
+    // The scenario ID.
     shared_ptr<string> scriptId_ {};
-    // 版本ID
+    // The version ID.
     shared_ptr<string> versionId_ {};
   };
 

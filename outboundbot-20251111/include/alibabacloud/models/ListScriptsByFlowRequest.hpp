@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 流程ID
+    // The flow ID.
     shared_ptr<string> flowId_ {};
-    // 实例ID
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
   };
 
