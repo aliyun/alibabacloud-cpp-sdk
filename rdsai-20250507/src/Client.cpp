@@ -20,8 +20,6 @@ namespace RdsAi20250507
 AlibabaCloud::RdsAi20250507::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"us-west-1" , "rdsai.us-west-1.aliyuncs.com"},
-    {"eu-central-1" , "rdsai.eu-central-1.aliyuncs.com"},
     {"cn-wulanchabu" , "rdsai.aliyuncs.com"},
     {"cn-shenzhen" , "rdsai.aliyuncs.com"},
     {"cn-shanghai" , "rdsai.aliyuncs.com"},
@@ -33,7 +31,9 @@ AlibabaCloud::RdsAi20250507::Client::Client(Config &config): OpenApiClient(confi
     {"ap-southeast-5" , "rdsai.ap-southeast-5.aliyuncs.com"},
     {"ap-southeast-3" , "rdsai.ap-southeast-3.aliyuncs.com"},
     {"ap-southeast-1" , "rdsai.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-1" , "rdsai.ap-northeast-1.aliyuncs.com"}
+    {"ap-northeast-1" , "rdsai.ap-northeast-1.aliyuncs.com"},
+    {"eu-central-1" , "rdsai.eu-central-1.aliyuncs.com"},
+    {"us-west-1" , "rdsai.us-west-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("rdsai", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -63,6 +63,10 @@ FutureGenerator<ChatMessagesResponse> Client::chatMessagesWithSSE(const ChatMess
   tmpReq.validate();
   ChatMessagesShrinkRequest request = ChatMessagesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFiles()) {
+    request.setFilesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFiles(), "Files", "json"));
+  }
+
   if (!!tmpReq.hasInputs()) {
     request.setInputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInputs(), "Inputs", "json"));
   }
@@ -74,6 +78,10 @@ FutureGenerator<ChatMessagesResponse> Client::chatMessagesWithSSE(const ChatMess
 
   if (!!request.hasEventMode()) {
     query["EventMode"] = request.getEventMode();
+  }
+
+  if (!!request.hasFilesShrink()) {
+    query["Files"] = request.getFilesShrink();
   }
 
   if (!!request.hasInputsShrink()) {
@@ -130,6 +138,10 @@ ChatMessagesResponse Client::chatMessagesWithOptions(const ChatMessagesRequest &
   tmpReq.validate();
   ChatMessagesShrinkRequest request = ChatMessagesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFiles()) {
+    request.setFilesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFiles(), "Files", "json"));
+  }
+
   if (!!tmpReq.hasInputs()) {
     request.setInputsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInputs(), "Inputs", "json"));
   }
@@ -141,6 +153,10 @@ ChatMessagesResponse Client::chatMessagesWithOptions(const ChatMessagesRequest &
 
   if (!!request.hasEventMode()) {
     query["EventMode"] = request.getEventMode();
+  }
+
+  if (!!request.hasFilesShrink()) {
+    query["Files"] = request.getFilesShrink();
   }
 
   if (!!request.hasInputsShrink()) {
@@ -421,6 +437,172 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
 CreateAppInstanceResponse Client::createAppInstance(const CreateAppInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createAppInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建上下文数据库 API Key
+ *
+ * @description 创建 API Key（返回明文 apiKey）。
+ *
+ * @param request CreateContextDatabaseApiKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateContextDatabaseApiKeyResponse
+ */
+CreateContextDatabaseApiKeyResponse Client::createContextDatabaseApiKeyWithOptions(const CreateContextDatabaseApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMemberId()) {
+    query["MemberId"] = request.getMemberId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateContextDatabaseApiKey"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateContextDatabaseApiKeyResponse>();
+}
+
+/**
+ * @summary 创建上下文数据库 API Key
+ *
+ * @description 创建 API Key（返回明文 apiKey）。
+ *
+ * @param request CreateContextDatabaseApiKeyRequest
+ * @return CreateContextDatabaseApiKeyResponse
+ */
+CreateContextDatabaseApiKeyResponse Client::createContextDatabaseApiKey(const CreateContextDatabaseApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createContextDatabaseApiKeyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建上下文数据库成员
+ *
+ * @description 创建成员；当 GenerateInitialKey=true 时同时签发首把 API Key，并在响应中返回明文 ApiKey（敏感字段，仅此一次返回，请妥善保存）。创建成功后可通过 List / Get 查询成员及其名下 API Key 的元数据。
+ *
+ * @param request CreateContextDatabaseMemberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateContextDatabaseMemberResponse
+ */
+CreateContextDatabaseMemberResponse Client::createContextDatabaseMemberWithOptions(const CreateContextDatabaseMemberRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGenerateInitialKey()) {
+    query["GenerateInitialKey"] = request.getGenerateInitialKey();
+  }
+
+  if (!!request.hasInitialKeyName()) {
+    query["InitialKeyName"] = request.getInitialKeyName();
+  }
+
+  if (!!request.hasMemberName()) {
+    query["MemberName"] = request.getMemberName();
+  }
+
+  if (!!request.hasRole()) {
+    query["Role"] = request.getRole();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateContextDatabaseMember"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateContextDatabaseMemberResponse>();
+}
+
+/**
+ * @summary 创建上下文数据库成员
+ *
+ * @description 创建成员；当 GenerateInitialKey=true 时同时签发首把 API Key，并在响应中返回明文 ApiKey（敏感字段，仅此一次返回，请妥善保存）。创建成功后可通过 List / Get 查询成员及其名下 API Key 的元数据。
+ *
+ * @param request CreateContextDatabaseMemberRequest
+ * @return CreateContextDatabaseMemberResponse
+ */
+CreateContextDatabaseMemberResponse Client::createContextDatabaseMember(const CreateContextDatabaseMemberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createContextDatabaseMemberWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建上下文数据库工作区
+ *
+ * @description 创建 workspace + 首位成员 + 首把 API Key 的一次性引导，返回明文 apiKey。
+ *
+ * @param request CreateContextDatabaseWorkspaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateContextDatabaseWorkspaceResponse
+ */
+CreateContextDatabaseWorkspaceResponse Client::createContextDatabaseWorkspaceWithOptions(const CreateContextDatabaseWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMemberName()) {
+    query["MemberName"] = request.getMemberName();
+  }
+
+  if (!!request.hasWorkspaceName()) {
+    query["WorkspaceName"] = request.getWorkspaceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateContextDatabaseWorkspace"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateContextDatabaseWorkspaceResponse>();
+}
+
+/**
+ * @summary 创建上下文数据库工作区
+ *
+ * @description 创建 workspace + 首位成员 + 首把 API Key 的一次性引导，返回明文 apiKey。
+ *
+ * @param request CreateContextDatabaseWorkspaceRequest
+ * @return CreateContextDatabaseWorkspaceResponse
+ */
+CreateContextDatabaseWorkspaceResponse Client::createContextDatabaseWorkspace(const CreateContextDatabaseWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createContextDatabaseWorkspaceWithOptions(request, runtime);
 }
 
 /**
@@ -989,6 +1171,102 @@ DeleteAppInstanceResponse Client::deleteAppInstanceWithOptions(const DeleteAppIn
 DeleteAppInstanceResponse Client::deleteAppInstance(const DeleteAppInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteAppInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除上下文数据库成员
+ *
+ * @description 删除成员（硬删除，不可恢复）。
+ *
+ * @param request DeleteContextDatabaseMemberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteContextDatabaseMemberResponse
+ */
+DeleteContextDatabaseMemberResponse Client::deleteContextDatabaseMemberWithOptions(const DeleteContextDatabaseMemberRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMemberId()) {
+    query["MemberId"] = request.getMemberId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteContextDatabaseMember"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteContextDatabaseMemberResponse>();
+}
+
+/**
+ * @summary 删除上下文数据库成员
+ *
+ * @description 删除成员（硬删除，不可恢复）。
+ *
+ * @param request DeleteContextDatabaseMemberRequest
+ * @return DeleteContextDatabaseMemberResponse
+ */
+DeleteContextDatabaseMemberResponse Client::deleteContextDatabaseMember(const DeleteContextDatabaseMemberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteContextDatabaseMemberWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除上下文数据库工作区
+ *
+ * @description 删除业务空间（Workspace），硬删除、不可恢复。删除成功后本地元数据同步软删除，已删除的业务空间不再计入配额。
+ *
+ * @param request DeleteContextDatabaseWorkspaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteContextDatabaseWorkspaceResponse
+ */
+DeleteContextDatabaseWorkspaceResponse Client::deleteContextDatabaseWorkspaceWithOptions(const DeleteContextDatabaseWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteContextDatabaseWorkspace"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteContextDatabaseWorkspaceResponse>();
+}
+
+/**
+ * @summary 删除上下文数据库工作区
+ *
+ * @description 删除业务空间（Workspace），硬删除、不可恢复。删除成功后本地元数据同步软删除，已删除的业务空间不再计入配额。
+ *
+ * @param request DeleteContextDatabaseWorkspaceRequest
+ * @return DeleteContextDatabaseWorkspaceResponse
+ */
+DeleteContextDatabaseWorkspaceResponse Client::deleteContextDatabaseWorkspace(const DeleteContextDatabaseWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteContextDatabaseWorkspaceWithOptions(request, runtime);
 }
 
 /**
@@ -2570,7 +2848,7 @@ GetInspectionReportResponse Client::getInspectionReport(const GetInspectionRepor
 }
 
 /**
- * @summary Retrieves a list of messages in a specific conversation.
+ * @summary Queries the details of specific conversation messages.
  *
  * @param request GetMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2613,7 +2891,7 @@ GetMessagesResponse Client::getMessagesWithOptions(const GetMessagesRequest &req
 }
 
 /**
- * @summary Retrieves a list of messages in a specific conversation.
+ * @summary Queries the details of specific conversation messages.
  *
  * @param request GetMessagesRequest
  * @return GetMessagesResponse
@@ -2928,6 +3206,184 @@ ListApiKeysResponse Client::listApiKeysWithOptions(const ListApiKeysRequest &req
 ListApiKeysResponse Client::listApiKeys(const ListApiKeysRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listApiKeysWithOptions(request, runtime);
+}
+
+/**
+ * @summary 列出成员名下 API Key
+ *
+ * @description 列出指定成员名下的 API Key（不返回明文）。
+ *
+ * @param request ListContextDatabaseApiKeysRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContextDatabaseApiKeysResponse
+ */
+ListContextDatabaseApiKeysResponse Client::listContextDatabaseApiKeysWithOptions(const ListContextDatabaseApiKeysRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasMemberId()) {
+    query["MemberId"] = request.getMemberId();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContextDatabaseApiKeys"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContextDatabaseApiKeysResponse>();
+}
+
+/**
+ * @summary 列出成员名下 API Key
+ *
+ * @description 列出指定成员名下的 API Key（不返回明文）。
+ *
+ * @param request ListContextDatabaseApiKeysRequest
+ * @return ListContextDatabaseApiKeysResponse
+ */
+ListContextDatabaseApiKeysResponse Client::listContextDatabaseApiKeys(const ListContextDatabaseApiKeysRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listContextDatabaseApiKeysWithOptions(request, runtime);
+}
+
+/**
+ * @summary 列出工作区成员
+ *
+ * @description 列出指定业务空间下的全部成员，每个成员附带其名下 API Key 列表（不返回明文）。
+ *
+ * @param request ListContextDatabaseMembersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContextDatabaseMembersResponse
+ */
+ListContextDatabaseMembersResponse Client::listContextDatabaseMembersWithOptions(const ListContextDatabaseMembersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContextDatabaseMembers"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContextDatabaseMembersResponse>();
+}
+
+/**
+ * @summary 列出工作区成员
+ *
+ * @description 列出指定业务空间下的全部成员，每个成员附带其名下 API Key 列表（不返回明文）。
+ *
+ * @param request ListContextDatabaseMembersRequest
+ * @return ListContextDatabaseMembersResponse
+ */
+ListContextDatabaseMembersResponse Client::listContextDatabaseMembers(const ListContextDatabaseMembersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listContextDatabaseMembersWithOptions(request, runtime);
+}
+
+/**
+ * @summary 根据workspaceId和状态过滤调用方账号下的工作区列表。
+ *
+ * @description ## 请求说明
+ * - 该API用于获取指定条件下的工作区列表。
+ * - `workspaceId` 和 `status` 参数均为可选，可以根据需要进行过滤。
+ * - 如果不提供任何过滤参数，则返回调用方账号下的所有工作区。
+ * - 注意：确保在请求中包含必要的认证信息（如callerUid、requestId等），否则将导致请求失败。
+ *
+ * @param request ListContextDatabaseWorkspacesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContextDatabaseWorkspacesResponse
+ */
+ListContextDatabaseWorkspacesResponse Client::listContextDatabaseWorkspacesWithOptions(const ListContextDatabaseWorkspacesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContextDatabaseWorkspaces"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContextDatabaseWorkspacesResponse>();
+}
+
+/**
+ * @summary 根据workspaceId和状态过滤调用方账号下的工作区列表。
+ *
+ * @description ## 请求说明
+ * - 该API用于获取指定条件下的工作区列表。
+ * - `workspaceId` 和 `status` 参数均为可选，可以根据需要进行过滤。
+ * - 如果不提供任何过滤参数，则返回调用方账号下的所有工作区。
+ * - 注意：确保在请求中包含必要的认证信息（如callerUid、requestId等），否则将导致请求失败。
+ *
+ * @param request ListContextDatabaseWorkspacesRequest
+ * @return ListContextDatabaseWorkspacesResponse
+ */
+ListContextDatabaseWorkspacesResponse Client::listContextDatabaseWorkspaces(const ListContextDatabaseWorkspacesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listContextDatabaseWorkspacesWithOptions(request, runtime);
 }
 
 /**
@@ -4307,6 +4763,60 @@ RestartInstanceResponse Client::restartInstance(const RestartInstanceRequest &re
 }
 
 /**
+ * @summary 吊销上下文数据库 API Key
+ *
+ * @description 吊销 API Key。
+ *
+ * @param request RevokeContextDatabaseApiKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeContextDatabaseApiKeyResponse
+ */
+RevokeContextDatabaseApiKeyResponse Client::revokeContextDatabaseApiKeyWithOptions(const RevokeContextDatabaseApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyId()) {
+    query["KeyId"] = request.getKeyId();
+  }
+
+  if (!!request.hasMemberId()) {
+    query["MemberId"] = request.getMemberId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RevokeContextDatabaseApiKey"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokeContextDatabaseApiKeyResponse>();
+}
+
+/**
+ * @summary 吊销上下文数据库 API Key
+ *
+ * @description 吊销 API Key。
+ *
+ * @param request RevokeContextDatabaseApiKeyRequest
+ * @return RevokeContextDatabaseApiKeyResponse
+ */
+RevokeContextDatabaseApiKeyResponse Client::revokeContextDatabaseApiKey(const RevokeContextDatabaseApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return revokeContextDatabaseApiKeyWithOptions(request, runtime);
+}
+
+/**
  * @summary Starts an RDS AI application instance that is in the Stopped state.
  *
  * @description ### Applicable engine
@@ -4486,6 +4996,176 @@ UpdateApiKeyQuotaResponse Client::updateApiKeyQuotaWithOptions(const UpdateApiKe
 UpdateApiKeyQuotaResponse Client::updateApiKeyQuota(const UpdateApiKeyQuotaRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateApiKeyQuotaWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新上下文数据库 API Key 元数据
+ *
+ * @description 更新 API Key 的展示元数据。Name 与 Description 至少传其一；明文 Key 不重新签发。
+ *
+ * @param request UpdateContextDatabaseApiKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateContextDatabaseApiKeyResponse
+ */
+UpdateContextDatabaseApiKeyResponse Client::updateContextDatabaseApiKeyWithOptions(const UpdateContextDatabaseApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasKeyId()) {
+    query["KeyId"] = request.getKeyId();
+  }
+
+  if (!!request.hasMemberId()) {
+    query["MemberId"] = request.getMemberId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateContextDatabaseApiKey"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateContextDatabaseApiKeyResponse>();
+}
+
+/**
+ * @summary 更新上下文数据库 API Key 元数据
+ *
+ * @description 更新 API Key 的展示元数据。Name 与 Description 至少传其一；明文 Key 不重新签发。
+ *
+ * @param request UpdateContextDatabaseApiKeyRequest
+ * @return UpdateContextDatabaseApiKeyResponse
+ */
+UpdateContextDatabaseApiKeyResponse Client::updateContextDatabaseApiKey(const UpdateContextDatabaseApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateContextDatabaseApiKeyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新上下文数据库成员
+ *
+ * @description 更新成员的角色 / 状态。
+ *
+ * @param request UpdateContextDatabaseMemberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateContextDatabaseMemberResponse
+ */
+UpdateContextDatabaseMemberResponse Client::updateContextDatabaseMemberWithOptions(const UpdateContextDatabaseMemberRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMemberId()) {
+    query["MemberId"] = request.getMemberId();
+  }
+
+  if (!!request.hasRole()) {
+    query["Role"] = request.getRole();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateContextDatabaseMember"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateContextDatabaseMemberResponse>();
+}
+
+/**
+ * @summary 更新上下文数据库成员
+ *
+ * @description 更新成员的角色 / 状态。
+ *
+ * @param request UpdateContextDatabaseMemberRequest
+ * @return UpdateContextDatabaseMemberResponse
+ */
+UpdateContextDatabaseMemberResponse Client::updateContextDatabaseMember(const UpdateContextDatabaseMemberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateContextDatabaseMemberWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改上下文数据库工作区
+ *
+ * @description 修改 workspace 名称。
+ *
+ * @param request UpdateContextDatabaseWorkspaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateContextDatabaseWorkspaceResponse
+ */
+UpdateContextDatabaseWorkspaceResponse Client::updateContextDatabaseWorkspaceWithOptions(const UpdateContextDatabaseWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  if (!!request.hasWorkspaceName()) {
+    query["WorkspaceName"] = request.getWorkspaceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateContextDatabaseWorkspace"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateContextDatabaseWorkspaceResponse>();
+}
+
+/**
+ * @summary 修改上下文数据库工作区
+ *
+ * @description 修改 workspace 名称。
+ *
+ * @param request UpdateContextDatabaseWorkspaceRequest
+ * @return UpdateContextDatabaseWorkspaceResponse
+ */
+UpdateContextDatabaseWorkspaceResponse Client::updateContextDatabaseWorkspace(const UpdateContextDatabaseWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateContextDatabaseWorkspaceWithOptions(request, runtime);
 }
 
 /**

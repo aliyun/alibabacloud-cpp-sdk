@@ -66,12 +66,12 @@ namespace Models
 
 
   protected:
-    // The ID of the conversation.
+    // The conversation ID.
     shared_ptr<string> conversationId_ {};
     shared_ptr<string> eventMode_ {};
-    // The ID of the message from which to start fetching the list. Use this for pagination.
+    // The ID of the first message.
     shared_ptr<string> firstId_ {};
-    // The maximum number of messages to return per page. Valid values: 1–100. Default: 100.
+    // The number of entries per page in a paging query. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int64_t> limit_ {};
   };
 

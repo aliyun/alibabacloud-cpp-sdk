@@ -49,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(GenerationStatus, generationStatus_);
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(LastSentEntryId, lastSentEntryId_);
+        DARABONBA_PTR_TO_JSON(MessageFiles, messageFiles_);
         DARABONBA_PTR_TO_JSON(Query, query_);
         DARABONBA_PTR_TO_JSON(RetrieverResources, retrieverResources_);
         DARABONBA_PTR_TO_JSON(StreamKey, streamKey_);
@@ -64,6 +65,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(GenerationStatus, generationStatus_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(LastSentEntryId, lastSentEntryId_);
+        DARABONBA_PTR_FROM_JSON(MessageFiles, messageFiles_);
         DARABONBA_PTR_FROM_JSON(Query, query_);
         DARABONBA_PTR_FROM_JSON(RetrieverResources, retrieverResources_);
         DARABONBA_PTR_FROM_JSON(StreamKey, streamKey_);
@@ -79,6 +81,58 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class MessageFiles : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const MessageFiles& obj) { 
+          DARABONBA_PTR_TO_JSON(Id, id_);
+          DARABONBA_PTR_TO_JSON(PreviewUrl, previewUrl_);
+          DARABONBA_PTR_TO_JSON(Type, type_);
+        };
+        friend void from_json(const Darabonba::Json& j, MessageFiles& obj) { 
+          DARABONBA_PTR_FROM_JSON(Id, id_);
+          DARABONBA_PTR_FROM_JSON(PreviewUrl, previewUrl_);
+          DARABONBA_PTR_FROM_JSON(Type, type_);
+        };
+        MessageFiles() = default ;
+        MessageFiles(const MessageFiles &) = default ;
+        MessageFiles(MessageFiles &&) = default ;
+        MessageFiles(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~MessageFiles() = default ;
+        MessageFiles& operator=(const MessageFiles &) = default ;
+        MessageFiles& operator=(MessageFiles &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->id_ == nullptr
+        && this->previewUrl_ == nullptr && this->type_ == nullptr; };
+        // id Field Functions 
+        bool hasId() const { return this->id_ != nullptr;};
+        void deleteId() { this->id_ = nullptr;};
+        inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+        inline MessageFiles& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+        // previewUrl Field Functions 
+        bool hasPreviewUrl() const { return this->previewUrl_ != nullptr;};
+        void deletePreviewUrl() { this->previewUrl_ = nullptr;};
+        inline string getPreviewUrl() const { DARABONBA_PTR_GET_DEFAULT(previewUrl_, "") };
+        inline MessageFiles& setPreviewUrl(string previewUrl) { DARABONBA_PTR_SET_VALUE(previewUrl_, previewUrl) };
+
+
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline MessageFiles& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      protected:
+        shared_ptr<string> id_ {};
+        shared_ptr<string> previewUrl_ {};
+        shared_ptr<string> type_ {};
+      };
+
       class Events : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Events& obj) { 
@@ -123,8 +177,8 @@ namespace Models
 
       virtual bool empty() const override { return this->answer_ == nullptr
         && this->conversationId_ == nullptr && this->createdAt_ == nullptr && this->events_ == nullptr && this->feedback_ == nullptr && this->generationFinishedAt_ == nullptr
-        && this->generationStartedAt_ == nullptr && this->generationStatus_ == nullptr && this->id_ == nullptr && this->lastSentEntryId_ == nullptr && this->query_ == nullptr
-        && this->retrieverResources_ == nullptr && this->streamKey_ == nullptr; };
+        && this->generationStartedAt_ == nullptr && this->generationStatus_ == nullptr && this->id_ == nullptr && this->lastSentEntryId_ == nullptr && this->messageFiles_ == nullptr
+        && this->query_ == nullptr && this->retrieverResources_ == nullptr && this->streamKey_ == nullptr; };
       // answer Field Functions 
       bool hasAnswer() const { return this->answer_ != nullptr;};
       void deleteAnswer() { this->answer_ = nullptr;};
@@ -197,6 +251,15 @@ namespace Models
       inline Data& setLastSentEntryId(string lastSentEntryId) { DARABONBA_PTR_SET_VALUE(lastSentEntryId_, lastSentEntryId) };
 
 
+      // messageFiles Field Functions 
+      bool hasMessageFiles() const { return this->messageFiles_ != nullptr;};
+      void deleteMessageFiles() { this->messageFiles_ = nullptr;};
+      inline const vector<Data::MessageFiles> & getMessageFiles() const { DARABONBA_PTR_GET_CONST(messageFiles_, vector<Data::MessageFiles>) };
+      inline vector<Data::MessageFiles> getMessageFiles() { DARABONBA_PTR_GET(messageFiles_, vector<Data::MessageFiles>) };
+      inline Data& setMessageFiles(const vector<Data::MessageFiles> & messageFiles) { DARABONBA_PTR_SET_VALUE(messageFiles_, messageFiles) };
+      inline Data& setMessageFiles(vector<Data::MessageFiles> && messageFiles) { DARABONBA_PTR_SET_RVALUE(messageFiles_, messageFiles) };
+
+
       // query Field Functions 
       bool hasQuery() const { return this->query_ != nullptr;};
       void deleteQuery() { this->query_ = nullptr;};
@@ -221,24 +284,25 @@ namespace Models
 
 
     protected:
-      // The AI-generated response to the query.
+      // The answer.
       shared_ptr<string> answer_ {};
-      // The unique identifier for the conversation.
+      // The conversation ID.
       shared_ptr<string> conversationId_ {};
-      // The Unix timestamp (in seconds) when the message was created.
+      // The creation time.
       shared_ptr<string> createdAt_ {};
       shared_ptr<vector<Data::Events>> events_ {};
-      // The user\\"s feedback on the answer, such as "like" or "dislike".
+      // The feedback.
       shared_ptr<string> feedback_ {};
       shared_ptr<string> generationFinishedAt_ {};
       shared_ptr<string> generationStartedAt_ {};
       shared_ptr<string> generationStatus_ {};
-      // The unique identifier for the message.
+      // The message ID.
       shared_ptr<string> id_ {};
       shared_ptr<string> lastSentEntryId_ {};
-      // The user\\"s query.
+      shared_ptr<vector<Data::MessageFiles>> messageFiles_ {};
+      // The query statement.
       shared_ptr<string> query_ {};
-      // The resources that were retrieved to generate the answer.
+      // The retrieval resources.
       shared_ptr<vector<Darabonba::Json>> retrieverResources_ {};
       shared_ptr<string> streamKey_ {};
     };
@@ -276,13 +340,13 @@ namespace Models
 
 
   protected:
-    // A list of message objects.
+    // The query result.
     shared_ptr<vector<GetMessagesResponseBody::Data>> data_ {};
-    // Indicates whether there are more messages to retrieve.
+    // Indicates whether there is a next page.
     shared_ptr<bool> hasMore_ {};
-    // The value of the Limit parameter used for this request.
+    // The maximum number of entries returned.
     shared_ptr<int64_t> limit_ {};
-    // The unique identifier for the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
