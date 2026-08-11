@@ -158,19 +158,33 @@ namespace Models
 
 
   protected:
+    // Application name.
     shared_ptr<string> appName_ {};
+    // Whether to asynchronously verify the email. Must be set to true for API calls. Otherwise, the verification code will be synchronously validated. Use the SendAsyncEmailCaptcha API to send the verification link.
     shared_ptr<bool> asyncEmailVerify_ {};
+    // Whether to asynchronously verify the mobile number. Must be set to true for API calls. Otherwise, the verification code will be synchronously validated. Use the SendAsyncMobileCaptcha API to send the verification link.
     shared_ptr<bool> asyncMobileVerify_ {};
+    // Contact email
     shared_ptr<string> contactEmail_ {};
+    // Contact ID. You can call AccountContactQueryPageList to query account contact information by page.
     shared_ptr<int64_t> contactId_ {};
+    // Contact mobile number
     shared_ptr<string> contactMobile_ {};
+    // Contact name
     shared_ptr<string> contactName_ {};
+    // Position:
     shared_ptr<string> contactPosition_ {};
+    // Email verification code
     shared_ptr<string> emailCode_ {};
+    // SMS verification code
     shared_ptr<string> mobileCode_ {};
+    // Cross-enterprise management object entity ID
     shared_ptr<string> orientedEcId_ {};
+    // Currently switched enterprise
     shared_ptr<string> orientedLeId_ {};
+    // Cross-enterprise management object marketplace ID
     shared_ptr<string> orientedNbId_ {};
+    // Whether it is an enterprise contact. This API sets the value to false by default.
     shared_ptr<bool> sharedContact_ {};
   };
 

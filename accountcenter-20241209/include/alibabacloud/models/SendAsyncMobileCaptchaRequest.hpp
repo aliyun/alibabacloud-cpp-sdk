@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The contact information.
     shared_ptr<string> contactInfo_ {};
+    // The contact ID.
     shared_ptr<string> contactorId_ {};
   };
 

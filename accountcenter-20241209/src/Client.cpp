@@ -17,7 +17,11 @@ namespace AccountCenter20241209
 {
 
 AlibabaCloud::AccountCenter20241209::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"ap-southeast-1" , "accountcenter-intl.aliyuncs.com"},
+    {"cn-hangzhou" , "accountcenter.cn-hangzhou.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("accountcenter", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +40,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 添加私有联系人
+ * @summary Creates an account contact.
+ *
+ * @description Creates an account contact.
  *
  * @param request AccountContactAddRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +121,9 @@ AccountContactAddResponse Client::accountContactAddWithOptions(const AccountCont
 }
 
 /**
- * @summary 添加私有联系人
+ * @summary Creates an account contact.
+ *
+ * @description Creates an account contact.
  *
  * @param request AccountContactAddRequest
  * @return AccountContactAddResponse
@@ -126,7 +134,7 @@ AccountContactAddResponse Client::accountContactAdd(const AccountContactAddReque
 }
 
 /**
- * @summary 删除私有联系人
+ * @summary Delete a private contact.
  *
  * @param request AccountContactDeleteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -173,7 +181,7 @@ AccountContactDeleteResponse Client::accountContactDeleteWithOptions(const Accou
 }
 
 /**
- * @summary 删除私有联系人
+ * @summary Delete a private contact.
  *
  * @param request AccountContactDeleteRequest
  * @return AccountContactDeleteResponse
@@ -184,7 +192,7 @@ AccountContactDeleteResponse Client::accountContactDelete(const AccountContactDe
 }
 
 /**
- * @summary 修改私有联系人
+ * @summary Modify a private contact.
  *
  * @param request AccountContactEditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -267,7 +275,7 @@ AccountContactEditResponse Client::accountContactEditWithOptions(const AccountCo
 }
 
 /**
- * @summary 修改私有联系人
+ * @summary Modify a private contact.
  *
  * @param request AccountContactEditRequest
  * @return AccountContactEditResponse
@@ -278,7 +286,7 @@ AccountContactEditResponse Client::accountContactEdit(const AccountContactEditRe
 }
 
 /**
- * @summary 查询联系人详情
+ * @summary Queries the details of a contact.
  *
  * @param request AccountContactQueryDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -325,7 +333,7 @@ AccountContactQueryDetailResponse Client::accountContactQueryDetailWithOptions(c
 }
 
 /**
- * @summary 查询联系人详情
+ * @summary Queries the details of a contact.
  *
  * @param request AccountContactQueryDetailRequest
  * @return AccountContactQueryDetailResponse
@@ -336,7 +344,7 @@ AccountContactQueryDetailResponse Client::accountContactQueryDetail(const Accoun
 }
 
 /**
- * @summary 查询联系人列表
+ * @summary Queries the contact list.
  *
  * @param request AccountContactQueryPageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -405,7 +413,7 @@ AccountContactQueryPageListResponse Client::accountContactQueryPageListWithOptio
 }
 
 /**
- * @summary 查询联系人列表
+ * @summary Queries the contact list.
  *
  * @param request AccountContactQueryPageListRequest
  * @return AccountContactQueryPageListResponse
@@ -1380,7 +1388,10 @@ EnterpriseAccountUpdateSessionExpireTimeResponse Client::enterpriseAccountUpdate
 }
 
 /**
- * @summary 增加企业联系人
+ * @summary Adds an enterprise contact.
+ *
+ * @description Creates an enterprise public contact.
+ * For information about Alibaba Cloud account authorization, refer to [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
  *
  * @param request EnterpriseContactAddRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1459,7 +1470,10 @@ EnterpriseContactAddResponse Client::enterpriseContactAddWithOptions(const Enter
 }
 
 /**
- * @summary 增加企业联系人
+ * @summary Adds an enterprise contact.
+ *
+ * @description Creates an enterprise public contact.
+ * For information about Alibaba Cloud account authorization, refer to [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
  *
  * @param request EnterpriseContactAddRequest
  * @return EnterpriseContactAddResponse
@@ -1470,7 +1484,9 @@ EnterpriseContactAddResponse Client::enterpriseContactAdd(const EnterpriseContac
 }
 
 /**
- * @summary 删除企业联系人
+ * @summary Deletes an enterprise contact.
+ *
+ * @description Deletes an enterprise public contact. For information about Alibaba Cloud account authorization, refer to the [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
  *
  * @param request EnterpriseContactDeleteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1517,7 +1533,9 @@ EnterpriseContactDeleteResponse Client::enterpriseContactDeleteWithOptions(const
 }
 
 /**
- * @summary 删除企业联系人
+ * @summary Deletes an enterprise contact.
+ *
+ * @description Deletes an enterprise public contact. For information about Alibaba Cloud account authorization, refer to the [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
  *
  * @param request EnterpriseContactDeleteRequest
  * @return EnterpriseContactDeleteResponse
@@ -1528,7 +1546,9 @@ EnterpriseContactDeleteResponse Client::enterpriseContactDelete(const Enterprise
 }
 
 /**
- * @summary 修改私企业联系人
+ * @summary Modifies a private enterprise contact.
+ *
+ * @description Modifies a public enterprise contact. For information about primary account authorization, see [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
  *
  * @param request EnterpriseContactEditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1611,7 +1631,9 @@ EnterpriseContactEditResponse Client::enterpriseContactEditWithOptions(const Ent
 }
 
 /**
- * @summary 修改私企业联系人
+ * @summary Modifies a private enterprise contact.
+ *
+ * @description Modifies a public enterprise contact. For information about primary account authorization, see [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
  *
  * @param request EnterpriseContactEditRequest
  * @return EnterpriseContactEditResponse
@@ -1622,7 +1644,9 @@ EnterpriseContactEditResponse Client::enterpriseContactEdit(const EnterpriseCont
 }
 
 /**
- * @summary 查询联系人详情
+ * @summary Queries the details of a contact.
+ *
+ * @description Queries the details of a single enterprise contact.
  *
  * @param request EnterpriseContactQueryDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1669,7 +1693,9 @@ EnterpriseContactQueryDetailResponse Client::enterpriseContactQueryDetailWithOpt
 }
 
 /**
- * @summary 查询联系人详情
+ * @summary Queries the details of a contact.
+ *
+ * @description Queries the details of a single enterprise contact.
  *
  * @param request EnterpriseContactQueryDetailRequest
  * @return EnterpriseContactQueryDetailResponse
@@ -1680,7 +1706,9 @@ EnterpriseContactQueryDetailResponse Client::enterpriseContactQueryDetail(const 
 }
 
 /**
- * @summary 查询联系人列表
+ * @summary Query the contact list.
+ *
+ * @description Query enterprise contacts by page.
  *
  * @param request EnterpriseContactQueryPageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1749,7 +1777,9 @@ EnterpriseContactQueryPageListResponse Client::enterpriseContactQueryPageListWit
 }
 
 /**
- * @summary 查询联系人列表
+ * @summary Query the contact list.
+ *
+ * @description Query enterprise contacts by page.
  *
  * @param request EnterpriseContactQueryPageListRequest
  * @return EnterpriseContactQueryPageListResponse
@@ -1757,6 +1787,194 @@ EnterpriseContactQueryPageListResponse Client::enterpriseContactQueryPageListWit
 EnterpriseContactQueryPageListResponse Client::enterpriseContactQueryPageList(const EnterpriseContactQueryPageListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return enterpriseContactQueryPageListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建组织节点
+ *
+ * @param tmpReq EnterpriseOrgCreateNodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnterpriseOrgCreateNodeResponse
+ */
+EnterpriseOrgCreateNodeResponse Client::enterpriseOrgCreateNodeWithOptions(const EnterpriseOrgCreateNodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  EnterpriseOrgCreateNodeShrinkRequest request = EnterpriseOrgCreateNodeShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExt()) {
+    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExt(), "Ext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.getAppName();
+  }
+
+  if (!!request.hasBizName()) {
+    body["BizName"] = request.getBizName();
+  }
+
+  if (!!request.hasExtShrink()) {
+    body["Ext"] = request.getExtShrink();
+  }
+
+  if (!!request.hasIsOpenApi()) {
+    body["IsOpenApi"] = request.getIsOpenApi();
+  }
+
+  if (!!request.hasNodeId()) {
+    body["NodeId"] = request.getNodeId();
+  }
+
+  if (!!request.hasNodeName()) {
+    body["NodeName"] = request.getNodeName();
+  }
+
+  if (!!request.hasNodeType()) {
+    body["NodeType"] = request.getNodeType();
+  }
+
+  if (!!request.hasOrientedEcId()) {
+    body["OrientedEcId"] = request.getOrientedEcId();
+  }
+
+  if (!!request.hasOrientedLeId()) {
+    body["OrientedLeId"] = request.getOrientedLeId();
+  }
+
+  if (!!request.hasOrientedNbId()) {
+    body["OrientedNbId"] = request.getOrientedNbId();
+  }
+
+  if (!!request.hasParentNodeId()) {
+    body["ParentNodeId"] = request.getParentNodeId();
+  }
+
+  if (!!request.hasParentNodeType()) {
+    body["ParentNodeType"] = request.getParentNodeType();
+  }
+
+  if (!!request.hasShowCompleteInfo()) {
+    body["ShowCompleteInfo"] = request.getShowCompleteInfo();
+  }
+
+  if (!!request.hasTreeId()) {
+    body["TreeId"] = request.getTreeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "EnterpriseOrgCreateNode"},
+    {"version" , "2024-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnterpriseOrgCreateNodeResponse>();
+}
+
+/**
+ * @summary 创建组织节点
+ *
+ * @param request EnterpriseOrgCreateNodeRequest
+ * @return EnterpriseOrgCreateNodeResponse
+ */
+EnterpriseOrgCreateNodeResponse Client::enterpriseOrgCreateNode(const EnterpriseOrgCreateNodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enterpriseOrgCreateNodeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除组织节点
+ *
+ * @param tmpReq EnterpriseOrgDeleteNodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnterpriseOrgDeleteNodeResponse
+ */
+EnterpriseOrgDeleteNodeResponse Client::enterpriseOrgDeleteNodeWithOptions(const EnterpriseOrgDeleteNodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  EnterpriseOrgDeleteNodeShrinkRequest request = EnterpriseOrgDeleteNodeShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExt()) {
+    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExt(), "Ext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.getAppName();
+  }
+
+  if (!!request.hasBizName()) {
+    body["BizName"] = request.getBizName();
+  }
+
+  if (!!request.hasExtShrink()) {
+    body["Ext"] = request.getExtShrink();
+  }
+
+  if (!!request.hasIsOpenApi()) {
+    body["IsOpenApi"] = request.getIsOpenApi();
+  }
+
+  if (!!request.hasNodeId()) {
+    body["NodeId"] = request.getNodeId();
+  }
+
+  if (!!request.hasNodeType()) {
+    body["NodeType"] = request.getNodeType();
+  }
+
+  if (!!request.hasOrientedEcId()) {
+    body["OrientedEcId"] = request.getOrientedEcId();
+  }
+
+  if (!!request.hasOrientedLeId()) {
+    body["OrientedLeId"] = request.getOrientedLeId();
+  }
+
+  if (!!request.hasOrientedNbId()) {
+    body["OrientedNbId"] = request.getOrientedNbId();
+  }
+
+  if (!!request.hasShowCompleteInfo()) {
+    body["ShowCompleteInfo"] = request.getShowCompleteInfo();
+  }
+
+  if (!!request.hasTreeId()) {
+    body["TreeId"] = request.getTreeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "EnterpriseOrgDeleteNode"},
+    {"version" , "2024-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnterpriseOrgDeleteNodeResponse>();
+}
+
+/**
+ * @summary 删除组织节点
+ *
+ * @param request EnterpriseOrgDeleteNodeRequest
+ * @return EnterpriseOrgDeleteNodeResponse
+ */
+EnterpriseOrgDeleteNodeResponse Client::enterpriseOrgDeleteNode(const EnterpriseOrgDeleteNodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enterpriseOrgDeleteNodeWithOptions(request, runtime);
 }
 
 /**
@@ -1821,6 +2039,98 @@ EnterpriseOrgQueryLoadTreeResponse Client::enterpriseOrgQueryLoadTreeWithOptions
 EnterpriseOrgQueryLoadTreeResponse Client::enterpriseOrgQueryLoadTree(const EnterpriseOrgQueryLoadTreeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return enterpriseOrgQueryLoadTreeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 重命名组织节点
+ *
+ * @param tmpReq EnterpriseOrgRenameNodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnterpriseOrgRenameNodeResponse
+ */
+EnterpriseOrgRenameNodeResponse Client::enterpriseOrgRenameNodeWithOptions(const EnterpriseOrgRenameNodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  EnterpriseOrgRenameNodeShrinkRequest request = EnterpriseOrgRenameNodeShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExt()) {
+    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExt(), "Ext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.getAppName();
+  }
+
+  if (!!request.hasBizName()) {
+    body["BizName"] = request.getBizName();
+  }
+
+  if (!!request.hasExtShrink()) {
+    body["Ext"] = request.getExtShrink();
+  }
+
+  if (!!request.hasIsOpenApi()) {
+    body["IsOpenApi"] = request.getIsOpenApi();
+  }
+
+  if (!!request.hasNodeId()) {
+    body["NodeId"] = request.getNodeId();
+  }
+
+  if (!!request.hasNodeName()) {
+    body["NodeName"] = request.getNodeName();
+  }
+
+  if (!!request.hasNodeType()) {
+    body["NodeType"] = request.getNodeType();
+  }
+
+  if (!!request.hasOrientedEcId()) {
+    body["OrientedEcId"] = request.getOrientedEcId();
+  }
+
+  if (!!request.hasOrientedLeId()) {
+    body["OrientedLeId"] = request.getOrientedLeId();
+  }
+
+  if (!!request.hasOrientedNbId()) {
+    body["OrientedNbId"] = request.getOrientedNbId();
+  }
+
+  if (!!request.hasShowCompleteInfo()) {
+    body["ShowCompleteInfo"] = request.getShowCompleteInfo();
+  }
+
+  if (!!request.hasTreeId()) {
+    body["TreeId"] = request.getTreeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "EnterpriseOrgRenameNode"},
+    {"version" , "2024-12-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnterpriseOrgRenameNodeResponse>();
+}
+
+/**
+ * @summary 重命名组织节点
+ *
+ * @param request EnterpriseOrgRenameNodeRequest
+ * @return EnterpriseOrgRenameNodeResponse
+ */
+EnterpriseOrgRenameNodeResponse Client::enterpriseOrgRenameNode(const EnterpriseOrgRenameNodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enterpriseOrgRenameNodeWithOptions(request, runtime);
 }
 
 /**
@@ -2648,7 +2958,9 @@ EnterpriseUninvitedAdminInviteJoinEnterpriseResponse Client::enterpriseUninvited
 }
 
 /**
- * @summary 账号中心发送异步验证邮件
+ * @summary Sends an asynchronous email verification message to verify the email address of a specified contact.
+ *
+ * @description Sends an asynchronous verification link for a contact\\"s email address. Additional rate limits apply. The same account and contact information combination cannot exceed 20 requests within 5 minutes. The same account cannot exceed 300 requests globally within 24 hours.
  *
  * @param request SendAsyncEmailCaptchaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2687,7 +2999,9 @@ SendAsyncEmailCaptchaResponse Client::sendAsyncEmailCaptchaWithOptions(const Sen
 }
 
 /**
- * @summary 账号中心发送异步验证邮件
+ * @summary Sends an asynchronous email verification message to verify the email address of a specified contact.
+ *
+ * @description Sends an asynchronous verification link for a contact\\"s email address. Additional rate limits apply. The same account and contact information combination cannot exceed 20 requests within 5 minutes. The same account cannot exceed 300 requests globally within 24 hours.
  *
  * @param request SendAsyncEmailCaptchaRequest
  * @return SendAsyncEmailCaptchaResponse
@@ -2698,7 +3012,9 @@ SendAsyncEmailCaptchaResponse Client::sendAsyncEmailCaptcha(const SendAsyncEmail
 }
 
 /**
- * @summary 账号中心发送异步验证短信
+ * @summary Sends an asynchronous verification SMS to a phone number to verify the phone number of a specified contact.
+ *
+ * @description Sends an asynchronous verification link for a contact\\"s contact information. Additional rate limits apply. The same account and contact information combination cannot exceed 20 requests within 5 minutes. The same account cannot exceed 300 requests globally within 24 hours.
  *
  * @param request SendAsyncMobileCaptchaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2737,7 +3053,9 @@ SendAsyncMobileCaptchaResponse Client::sendAsyncMobileCaptchaWithOptions(const S
 }
 
 /**
- * @summary 账号中心发送异步验证短信
+ * @summary Sends an asynchronous verification SMS to a phone number to verify the phone number of a specified contact.
+ *
+ * @description Sends an asynchronous verification link for a contact\\"s contact information. Additional rate limits apply. The same account and contact information combination cannot exceed 20 requests within 5 minutes. The same account cannot exceed 300 requests globally within 24 hours.
  *
  * @param request SendAsyncMobileCaptchaRequest
  * @return SendAsyncMobileCaptchaResponse

@@ -21,7 +21,9 @@ namespace AccountCenter20241209
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 添加私有联系人
+       * @summary Creates an account contact.
+       *
+       * @description Creates an account contact.
        *
        * @param request AccountContactAddRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +32,9 @@ namespace AccountCenter20241209
       Models::AccountContactAddResponse accountContactAddWithOptions(const Models::AccountContactAddRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加私有联系人
+       * @summary Creates an account contact.
+       *
+       * @description Creates an account contact.
        *
        * @param request AccountContactAddRequest
        * @return AccountContactAddResponse
@@ -38,7 +42,7 @@ namespace AccountCenter20241209
       Models::AccountContactAddResponse accountContactAdd(const Models::AccountContactAddRequest &request);
 
       /**
-       * @summary 删除私有联系人
+       * @summary Delete a private contact.
        *
        * @param request AccountContactDeleteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +51,7 @@ namespace AccountCenter20241209
       Models::AccountContactDeleteResponse accountContactDeleteWithOptions(const Models::AccountContactDeleteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除私有联系人
+       * @summary Delete a private contact.
        *
        * @param request AccountContactDeleteRequest
        * @return AccountContactDeleteResponse
@@ -55,7 +59,7 @@ namespace AccountCenter20241209
       Models::AccountContactDeleteResponse accountContactDelete(const Models::AccountContactDeleteRequest &request);
 
       /**
-       * @summary 修改私有联系人
+       * @summary Modify a private contact.
        *
        * @param request AccountContactEditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +68,7 @@ namespace AccountCenter20241209
       Models::AccountContactEditResponse accountContactEditWithOptions(const Models::AccountContactEditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改私有联系人
+       * @summary Modify a private contact.
        *
        * @param request AccountContactEditRequest
        * @return AccountContactEditResponse
@@ -72,7 +76,7 @@ namespace AccountCenter20241209
       Models::AccountContactEditResponse accountContactEdit(const Models::AccountContactEditRequest &request);
 
       /**
-       * @summary 查询联系人详情
+       * @summary Queries the details of a contact.
        *
        * @param request AccountContactQueryDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +85,7 @@ namespace AccountCenter20241209
       Models::AccountContactQueryDetailResponse accountContactQueryDetailWithOptions(const Models::AccountContactQueryDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询联系人详情
+       * @summary Queries the details of a contact.
        *
        * @param request AccountContactQueryDetailRequest
        * @return AccountContactQueryDetailResponse
@@ -89,7 +93,7 @@ namespace AccountCenter20241209
       Models::AccountContactQueryDetailResponse accountContactQueryDetail(const Models::AccountContactQueryDetailRequest &request);
 
       /**
-       * @summary 查询联系人列表
+       * @summary Queries the contact list.
        *
        * @param request AccountContactQueryPageListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +102,7 @@ namespace AccountCenter20241209
       Models::AccountContactQueryPageListResponse accountContactQueryPageListWithOptions(const Models::AccountContactQueryPageListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询联系人列表
+       * @summary Queries the contact list.
        *
        * @param request AccountContactQueryPageListRequest
        * @return AccountContactQueryPageListResponse
@@ -344,7 +348,10 @@ namespace AccountCenter20241209
       Models::EnterpriseAccountUpdateSessionExpireTimeResponse enterpriseAccountUpdateSessionExpireTime(const Models::EnterpriseAccountUpdateSessionExpireTimeRequest &request);
 
       /**
-       * @summary 增加企业联系人
+       * @summary Adds an enterprise contact.
+       *
+       * @description Creates an enterprise public contact.
+       * For information about Alibaba Cloud account authorization, refer to [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
        *
        * @param request EnterpriseContactAddRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +360,10 @@ namespace AccountCenter20241209
       Models::EnterpriseContactAddResponse enterpriseContactAddWithOptions(const Models::EnterpriseContactAddRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 增加企业联系人
+       * @summary Adds an enterprise contact.
+       *
+       * @description Creates an enterprise public contact.
+       * For information about Alibaba Cloud account authorization, refer to [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
        *
        * @param request EnterpriseContactAddRequest
        * @return EnterpriseContactAddResponse
@@ -361,7 +371,9 @@ namespace AccountCenter20241209
       Models::EnterpriseContactAddResponse enterpriseContactAdd(const Models::EnterpriseContactAddRequest &request);
 
       /**
-       * @summary 删除企业联系人
+       * @summary Deletes an enterprise contact.
+       *
+       * @description Deletes an enterprise public contact. For information about Alibaba Cloud account authorization, refer to the [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
        *
        * @param request EnterpriseContactDeleteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +382,9 @@ namespace AccountCenter20241209
       Models::EnterpriseContactDeleteResponse enterpriseContactDeleteWithOptions(const Models::EnterpriseContactDeleteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除企业联系人
+       * @summary Deletes an enterprise contact.
+       *
+       * @description Deletes an enterprise public contact. For information about Alibaba Cloud account authorization, refer to the [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
        *
        * @param request EnterpriseContactDeleteRequest
        * @return EnterpriseContactDeleteResponse
@@ -378,7 +392,9 @@ namespace AccountCenter20241209
       Models::EnterpriseContactDeleteResponse enterpriseContactDelete(const Models::EnterpriseContactDeleteRequest &request);
 
       /**
-       * @summary 修改私企业联系人
+       * @summary Modifies a private enterprise contact.
+       *
+       * @description Modifies a public enterprise contact. For information about primary account authorization, see [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
        *
        * @param request EnterpriseContactEditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -387,7 +403,9 @@ namespace AccountCenter20241209
       Models::EnterpriseContactEditResponse enterpriseContactEditWithOptions(const Models::EnterpriseContactEditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改私企业联系人
+       * @summary Modifies a private enterprise contact.
+       *
+       * @description Modifies a public enterprise contact. For information about primary account authorization, see [documentation](https://www.alibabacloud.com/help/en/account/user-guide/add-business-address-and-business-contact).
        *
        * @param request EnterpriseContactEditRequest
        * @return EnterpriseContactEditResponse
@@ -395,7 +413,9 @@ namespace AccountCenter20241209
       Models::EnterpriseContactEditResponse enterpriseContactEdit(const Models::EnterpriseContactEditRequest &request);
 
       /**
-       * @summary 查询联系人详情
+       * @summary Queries the details of a contact.
+       *
+       * @description Queries the details of a single enterprise contact.
        *
        * @param request EnterpriseContactQueryDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -404,7 +424,9 @@ namespace AccountCenter20241209
       Models::EnterpriseContactQueryDetailResponse enterpriseContactQueryDetailWithOptions(const Models::EnterpriseContactQueryDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询联系人详情
+       * @summary Queries the details of a contact.
+       *
+       * @description Queries the details of a single enterprise contact.
        *
        * @param request EnterpriseContactQueryDetailRequest
        * @return EnterpriseContactQueryDetailResponse
@@ -412,7 +434,9 @@ namespace AccountCenter20241209
       Models::EnterpriseContactQueryDetailResponse enterpriseContactQueryDetail(const Models::EnterpriseContactQueryDetailRequest &request);
 
       /**
-       * @summary 查询联系人列表
+       * @summary Query the contact list.
+       *
+       * @description Query enterprise contacts by page.
        *
        * @param request EnterpriseContactQueryPageListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -421,12 +445,48 @@ namespace AccountCenter20241209
       Models::EnterpriseContactQueryPageListResponse enterpriseContactQueryPageListWithOptions(const Models::EnterpriseContactQueryPageListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询联系人列表
+       * @summary Query the contact list.
+       *
+       * @description Query enterprise contacts by page.
        *
        * @param request EnterpriseContactQueryPageListRequest
        * @return EnterpriseContactQueryPageListResponse
        */
       Models::EnterpriseContactQueryPageListResponse enterpriseContactQueryPageList(const Models::EnterpriseContactQueryPageListRequest &request);
+
+      /**
+       * @summary 创建组织节点
+       *
+       * @param tmpReq EnterpriseOrgCreateNodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnterpriseOrgCreateNodeResponse
+       */
+      Models::EnterpriseOrgCreateNodeResponse enterpriseOrgCreateNodeWithOptions(const Models::EnterpriseOrgCreateNodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建组织节点
+       *
+       * @param request EnterpriseOrgCreateNodeRequest
+       * @return EnterpriseOrgCreateNodeResponse
+       */
+      Models::EnterpriseOrgCreateNodeResponse enterpriseOrgCreateNode(const Models::EnterpriseOrgCreateNodeRequest &request);
+
+      /**
+       * @summary 删除组织节点
+       *
+       * @param tmpReq EnterpriseOrgDeleteNodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnterpriseOrgDeleteNodeResponse
+       */
+      Models::EnterpriseOrgDeleteNodeResponse enterpriseOrgDeleteNodeWithOptions(const Models::EnterpriseOrgDeleteNodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除组织节点
+       *
+       * @param request EnterpriseOrgDeleteNodeRequest
+       * @return EnterpriseOrgDeleteNodeResponse
+       */
+      Models::EnterpriseOrgDeleteNodeResponse enterpriseOrgDeleteNode(const Models::EnterpriseOrgDeleteNodeRequest &request);
 
       /**
        * @summary 组织目录树查询
@@ -444,6 +504,23 @@ namespace AccountCenter20241209
        * @return EnterpriseOrgQueryLoadTreeResponse
        */
       Models::EnterpriseOrgQueryLoadTreeResponse enterpriseOrgQueryLoadTree(const Models::EnterpriseOrgQueryLoadTreeRequest &request);
+
+      /**
+       * @summary 重命名组织节点
+       *
+       * @param tmpReq EnterpriseOrgRenameNodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnterpriseOrgRenameNodeResponse
+       */
+      Models::EnterpriseOrgRenameNodeResponse enterpriseOrgRenameNodeWithOptions(const Models::EnterpriseOrgRenameNodeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重命名组织节点
+       *
+       * @param request EnterpriseOrgRenameNodeRequest
+       * @return EnterpriseOrgRenameNodeResponse
+       */
+      Models::EnterpriseOrgRenameNodeResponse enterpriseOrgRenameNode(const Models::EnterpriseOrgRenameNodeRequest &request);
 
       /**
        * @summary 创建成员账号
@@ -633,7 +710,9 @@ namespace AccountCenter20241209
       Models::EnterpriseUninvitedAdminInviteJoinEnterpriseResponse enterpriseUninvitedAdminInviteJoinEnterprise(const Models::EnterpriseUninvitedAdminInviteJoinEnterpriseRequest &request);
 
       /**
-       * @summary 账号中心发送异步验证邮件
+       * @summary Sends an asynchronous email verification message to verify the email address of a specified contact.
+       *
+       * @description Sends an asynchronous verification link for a contact\\"s email address. Additional rate limits apply. The same account and contact information combination cannot exceed 20 requests within 5 minutes. The same account cannot exceed 300 requests globally within 24 hours.
        *
        * @param request SendAsyncEmailCaptchaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +721,9 @@ namespace AccountCenter20241209
       Models::SendAsyncEmailCaptchaResponse sendAsyncEmailCaptchaWithOptions(const Models::SendAsyncEmailCaptchaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 账号中心发送异步验证邮件
+       * @summary Sends an asynchronous email verification message to verify the email address of a specified contact.
+       *
+       * @description Sends an asynchronous verification link for a contact\\"s email address. Additional rate limits apply. The same account and contact information combination cannot exceed 20 requests within 5 minutes. The same account cannot exceed 300 requests globally within 24 hours.
        *
        * @param request SendAsyncEmailCaptchaRequest
        * @return SendAsyncEmailCaptchaResponse
@@ -650,7 +731,9 @@ namespace AccountCenter20241209
       Models::SendAsyncEmailCaptchaResponse sendAsyncEmailCaptcha(const Models::SendAsyncEmailCaptchaRequest &request);
 
       /**
-       * @summary 账号中心发送异步验证短信
+       * @summary Sends an asynchronous verification SMS to a phone number to verify the phone number of a specified contact.
+       *
+       * @description Sends an asynchronous verification link for a contact\\"s contact information. Additional rate limits apply. The same account and contact information combination cannot exceed 20 requests within 5 minutes. The same account cannot exceed 300 requests globally within 24 hours.
        *
        * @param request SendAsyncMobileCaptchaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -659,7 +742,9 @@ namespace AccountCenter20241209
       Models::SendAsyncMobileCaptchaResponse sendAsyncMobileCaptchaWithOptions(const Models::SendAsyncMobileCaptchaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 账号中心发送异步验证短信
+       * @summary Sends an asynchronous verification SMS to a phone number to verify the phone number of a specified contact.
+       *
+       * @description Sends an asynchronous verification link for a contact\\"s contact information. Additional rate limits apply. The same account and contact information combination cannot exceed 20 requests within 5 minutes. The same account cannot exceed 300 requests globally within 24 hours.
        *
        * @param request SendAsyncMobileCaptchaRequest
        * @return SendAsyncMobileCaptchaResponse

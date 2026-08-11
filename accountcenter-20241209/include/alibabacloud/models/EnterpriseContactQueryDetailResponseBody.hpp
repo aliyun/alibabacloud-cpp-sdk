@@ -194,21 +194,35 @@ namespace Models
 
 
     protected:
+      // The contact email address.
       shared_ptr<string> contactEmail_ {};
+      // The contact ID.
       shared_ptr<int64_t> contactId_ {};
+      // The contact mobile number.
       shared_ptr<string> contactMobile_ {};
+      // The contact name.
       shared_ptr<string> contactName_ {};
+      // The position of the contact.
       shared_ptr<string> contactPosition_ {};
+      // The customer ID, compatible with the legacy model.
       shared_ptr<string> customerId_ {};
+      // Indicates whether the email address is verified.
       shared_ptr<bool> emailConfirmed_ {};
+      // The entity ID.
       shared_ptr<string> entityId_ {};
       // leId/customerId
       shared_ptr<string> entityType_ {};
+      // Indicates whether the contact has subscribed to projects when querying contact details.
       shared_ptr<bool> hasSubscription_ {};
+      // Indicates whether the mobile number is verified.
       shared_ptr<bool> mobileConfirmed_ {};
+      // Indicates whether the contact is a shared contact.
       shared_ptr<bool> sharedContact_ {};
+      // The owner of the contact.
       shared_ptr<string> uid_ {};
+      // The time when the contact was last modified.
       shared_ptr<int64_t> updateDate_ {};
+      // The user who last modified the contact.
       shared_ptr<string> updateUser_ {};
     };
 
@@ -252,10 +266,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The operation result.
     shared_ptr<EnterpriseContactQueryDetailResponseBody::Data> data_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

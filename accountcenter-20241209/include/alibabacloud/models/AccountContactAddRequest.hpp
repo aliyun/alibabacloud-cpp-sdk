@@ -149,18 +149,37 @@ namespace Models
 
 
   protected:
+    // The application name.
     shared_ptr<string> appName_ {};
+    // Specifies whether to asynchronously verify the email address. Set this parameter to true for API calls. Otherwise, the verification code is synchronously verified. Call the SendAsyncEmailCaptcha operation to send a verification link.
     shared_ptr<bool> asyncEmailVerify_ {};
+    // Specifies whether to asynchronously verify the mobile number. Set this parameter to true for API calls. Otherwise, the verification code is synchronously verified. Call the SendAsyncMobileCaptcha operation to send a verification link.
     shared_ptr<bool> asyncMobileVerify_ {};
+    // The email address of the contact.
     shared_ptr<string> contactEmail_ {};
+    // The mobile number of the contact.
     shared_ptr<string> contactMobile_ {};
+    // The name of the contact.
     shared_ptr<string> contactName_ {};
+    // The position of the contact. Valid values:
+    // 
+    // - TECH_MANAGER: technical manager
+    // - MAINTAIN_MANAGER: O&M manager
+    // - PROJECT_MANAGER: project manager
+    // - FINANCE_MANAGER: finance manager
+    // - OTHER: other.
     shared_ptr<string> contactPosition_ {};
+    // The email verification code.
     shared_ptr<string> emailCode_ {};
+    // The SMS verification code.
     shared_ptr<string> mobileCode_ {};
+    // The entity ID of the cross-enterprise management object.
     shared_ptr<string> orientedEcId_ {};
+    // The ID of the enterprise to which you have switched.
     shared_ptr<string> orientedLeId_ {};
+    // The sales channel ID of the cross-enterprise management object.
     shared_ptr<string> orientedNbId_ {};
+    // Specifies whether the contact is a shared contact. This parameter is set to false by default in this operation.
     shared_ptr<bool> sharedContact_ {};
   };
 

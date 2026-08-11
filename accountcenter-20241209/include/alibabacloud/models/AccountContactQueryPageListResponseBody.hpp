@@ -185,19 +185,31 @@ namespace Models
 
 
     protected:
+      // The email address of the contact.
       shared_ptr<string> contactEmail_ {};
+      // The contact ID.
       shared_ptr<int64_t> contactId_ {};
+      // The mobile number of the contact.
       shared_ptr<string> contactMobile_ {};
+      // The contact name.
       shared_ptr<string> contactName_ {};
+      // The position of the contact.
       shared_ptr<string> contactPosition_ {};
+      // The customer ID, compatible with the legacy model.
       shared_ptr<string> customerId_ {};
+      // Indicates whether the email address is verified.
       shared_ptr<bool> emailConfirmed_ {};
+      // The entity ID.
       shared_ptr<string> entityId_ {};
       // leId/customerId
       shared_ptr<string> entityType_ {};
+      // Indicates whether the mobile number is verified.
       shared_ptr<bool> mobileConfirmed_ {};
+      // Indicates whether the contact is a shared contact.
       shared_ptr<bool> sharedContact_ {};
+      // The time when the contact was last modified.
       shared_ptr<int64_t> updateDate_ {};
+      // The user who last modified the contact.
       shared_ptr<string> updateUser_ {};
     };
 
@@ -270,14 +282,25 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The operation result.
     shared_ptr<vector<AccountContactQueryPageListResponseBody::Data>> data_ {};
+    // The log content of the standard output during function execution.
     shared_ptr<string> message_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

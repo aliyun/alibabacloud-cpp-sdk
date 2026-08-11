@@ -158,19 +158,33 @@ namespace Models
 
 
   protected:
+    // The application name.
     shared_ptr<string> appName_ {};
+    // Specifies whether to asynchronously verify the email address. Set this parameter to true for API calls. Otherwise, the verification code is synchronously and strictly verified. Call SendAsyncEmailCaptcha to send a verification link.
     shared_ptr<bool> asyncEmailVerify_ {};
+    // Specifies whether to asynchronously verify the mobile phone number. Set this parameter to true for API calls. Otherwise, the verification code is synchronously and strictly verified. Call SendAsyncMobileCaptcha to send a verification link.
     shared_ptr<bool> asyncMobileVerify_ {};
+    // The email address of the contact.
     shared_ptr<string> contactEmail_ {};
+    // The ID of the contact to modify. You can invoke the EnterpriseContactQueryPageList operation to perform a paged query of account contact information.
     shared_ptr<int64_t> contactId_ {};
+    // The mobile phone number of the contact.
     shared_ptr<string> contactMobile_ {};
+    // The name of the contact.
     shared_ptr<string> contactName_ {};
+    // The position of the contact.
     shared_ptr<string> contactPosition_ {};
+    // The email verification code.
     shared_ptr<string> emailCode_ {};
+    // The SMS verification code.
     shared_ptr<string> mobileCode_ {};
+    // The entity ID of the cross-enterprise management object.
     shared_ptr<string> orientedEcId_ {};
+    // The ID of the enterprise to which you have switched.
     shared_ptr<string> orientedLeId_ {};
+    // The sales channel ID of the cross-enterprise management object.
     shared_ptr<string> orientedNbId_ {};
+    // Specifies whether the contact is a public contact. This operation sets this parameter to true by default.
     shared_ptr<bool> sharedContact_ {};
   };
 

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The result data.
     shared_ptr<bool> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation is successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

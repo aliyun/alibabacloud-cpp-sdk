@@ -108,8 +108,11 @@ namespace Models
 
 
       protected:
+        // The error code.
         shared_ptr<string> errorCode_ {};
+        // The description of the diagnosed issue.
         shared_ptr<string> errorDesc_ {};
+        // The field with an exception.
         shared_ptr<string> item_ {};
       };
 
@@ -139,8 +142,11 @@ namespace Models
 
 
     protected:
+      // The contact ID.
       shared_ptr<int64_t> contactId_ {};
+      // The error message reported by the backup server.
       shared_ptr<vector<Data::ErrorList>> errorList_ {};
+      // Indicates whether the operation was successful.
       shared_ptr<bool> result_ {};
     };
 
@@ -184,10 +190,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The data result of the current category statistics.
     shared_ptr<EnterpriseContactEditResponseBody::Data> data_ {};
+    // The result message of the call.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

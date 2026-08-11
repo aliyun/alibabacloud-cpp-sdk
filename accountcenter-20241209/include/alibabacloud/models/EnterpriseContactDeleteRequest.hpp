@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The application name.
     shared_ptr<string> appName_ {};
+    // The ID of the contact to delete. You can call EnterpriseQueryPageList to query contact information by paging.
     shared_ptr<int64_t> contactId_ {};
+    // The entity ID of the cross-enterprise management object.
     shared_ptr<string> orientedEcId_ {};
+    // The enterprise currently switched to.
     shared_ptr<string> orientedLeId_ {};
+    // The marketplace ID of the cross-enterprise management object.
     shared_ptr<string> orientedNbId_ {};
   };
 

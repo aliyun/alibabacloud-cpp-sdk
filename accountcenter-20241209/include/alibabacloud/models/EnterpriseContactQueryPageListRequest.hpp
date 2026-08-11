@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // The client application name.
     shared_ptr<string> appName_ {};
+    // The entity ID of the cross-enterprise management object.
     shared_ptr<string> orientedEcId_ {};
+    // The currently switched enterprise.
     shared_ptr<string> orientedLeId_ {};
+    // The marketplace ID of the cross-enterprise management object.
     shared_ptr<string> orientedNbId_ {};
+    // Page number, default 1.
     shared_ptr<int32_t> pageNo_ {};
+    // Page size, default 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The flag for querying private contacts. The default value of this parameter is set to false for this API.
     shared_ptr<bool> privateContact_ {};
+    // Name, email, or mobile number.
     shared_ptr<string> query_ {};
+    // Whether it is a shared contact. The default value of this parameter is set to true for this API.
     shared_ptr<bool> sharedContact_ {};
+    // Whether to display complete information.
     shared_ptr<bool> showCompleteInfo_ {};
   };
 

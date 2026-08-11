@@ -108,8 +108,11 @@ namespace Models
 
 
       protected:
+        // Error code
         shared_ptr<string> errorCode_ {};
+        // Cause of the diagnostic issue.
         shared_ptr<string> errorDesc_ {};
+        // Exception field
         shared_ptr<string> item_ {};
       };
 
@@ -139,8 +142,11 @@ namespace Models
 
 
     protected:
+      // Contact ID
       shared_ptr<int64_t> contactId_ {};
+      // Error codes.
       shared_ptr<vector<Data::ErrorList>> errorList_ {};
+      // Whether successful
       shared_ptr<bool> result_ {};
     };
 
@@ -184,10 +190,15 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Data result of the current category statistics
     shared_ptr<AccountContactEditResponseBody::Data> data_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation is successful. Valid values: true: succeeded. false: failed.
     shared_ptr<bool> success_ {};
   };
 

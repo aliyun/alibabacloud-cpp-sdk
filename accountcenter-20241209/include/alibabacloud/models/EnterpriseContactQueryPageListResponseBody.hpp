@@ -185,19 +185,31 @@ namespace Models
 
 
     protected:
+      // The contact email.
       shared_ptr<string> contactEmail_ {};
+      // The contact ID.
       shared_ptr<int64_t> contactId_ {};
+      // The contact mobile number.
       shared_ptr<string> contactMobile_ {};
+      // The contact name.
       shared_ptr<string> contactName_ {};
+      // The position.
       shared_ptr<string> contactPosition_ {};
+      // The customer ID, compatible with the old model.
       shared_ptr<string> customerId_ {};
+      // Whether the email is verified.
       shared_ptr<bool> emailConfirmed_ {};
+      // The entity ID.
       shared_ptr<string> entityId_ {};
-      // leId/customerId
+      // The entity type. Valid values: leId and customerId.
       shared_ptr<string> entityType_ {};
+      // Whether the mobile number is verified.
       shared_ptr<bool> mobileConfirmed_ {};
+      // Whether it is a shared contact.
       shared_ptr<bool> sharedContact_ {};
+      // The time when the contact was last modified.
       shared_ptr<int64_t> updateDate_ {};
+      // The user who last modified the contact.
       shared_ptr<string> updateUser_ {};
     };
 
@@ -270,15 +282,23 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The operation result.
     shared_ptr<vector<EnterpriseContactQueryPageListResponseBody::Data>> data_ {};
-    // msg
+    // The returned message.
     shared_ptr<string> message_ {};
+    // Current page number.
     shared_ptr<int32_t> pageNo_ {};
+    // Page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation is successful. Valid values: true: The operation is successful. false: The operation failed.
     shared_ptr<bool> success_ {};
+    // Total data count.
     shared_ptr<int32_t> totalCount_ {};
+    // Total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 
