@@ -502,11 +502,11 @@ namespace Sddp20190103
       Models::DescribeDataObjectColumnDetailV2Response describeDataObjectColumnDetailV2(const Models::DescribeDataObjectColumnDetailV2Request &request);
 
       /**
-       * @summary Query data detection results for tables and files.
+       * @summary Queries the data detection results of data tables and files.
        *
-       * @description This operation queries data detection results for tables and files, to provide a comprehensive view across all your assets.
+       * @description Queries the detection results of data tables and files. This allows you to query data detection results of assets from a global perspective.
        * ## QPS limit
-       * The per-user QPS limit for this operation is 10 requests per second. If you exceed this limit, the system throttles your API calls. To prevent business disruptions, call this operation only when necessary.
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
        * @param request DescribeDataObjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -515,11 +515,11 @@ namespace Sddp20190103
       Models::DescribeDataObjectsResponse describeDataObjectsWithOptions(const Models::DescribeDataObjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query data detection results for tables and files.
+       * @summary Queries the data detection results of data tables and files.
        *
-       * @description This operation queries data detection results for tables and files, to provide a comprehensive view across all your assets.
+       * @description Queries the detection results of data tables and files. This allows you to query data detection results of assets from a global perspective.
        * ## QPS limit
-       * The per-user QPS limit for this operation is 10 requests per second. If you exceed this limit, the system throttles your API calls. To prevent business disruptions, call this operation only when necessary.
+       * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
        *
        * @param request DescribeDataObjectsRequest
        * @return DescribeDataObjectsResponse

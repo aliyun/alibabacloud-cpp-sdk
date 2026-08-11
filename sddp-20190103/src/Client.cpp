@@ -20,11 +20,11 @@ AlibabaCloud::Sddp20190103::Client::Client(Config &config): OpenApiClient(config
   this->_endpointRule = "regional";
   this->_endpointMap = json({
     {"cn-hongkong" , "sddp-api.cn-hongkong.aliyuncs.com"},
+    {"ap-southeast-1" , "sddp.ap-southeast-1.aliyuncs.com"},
     {"cn-zhangjiakou" , "sddp.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-shanghai" , "sddp.cn-shanghai.aliyuncs.com"},
-    {"cn-hangzhou" , "sddp.cn-hangzhou.aliyuncs.com"},
     {"ap-southeast-5" , "sddp.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-1" , "sddp.ap-southeast-1.aliyuncs.com"}
+    {"cn-hangzhou" , "sddp.cn-hangzhou.aliyuncs.com"},
+    {"cn-shanghai" , "sddp.cn-shanghai.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("sddp", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -1786,11 +1786,11 @@ DescribeDataObjectColumnDetailV2Response Client::describeDataObjectColumnDetailV
 }
 
 /**
- * @summary Query data detection results for tables and files.
+ * @summary Queries the data detection results of data tables and files.
  *
- * @description This operation queries data detection results for tables and files, to provide a comprehensive view across all your assets.
+ * @description Queries the detection results of data tables and files. This allows you to query data detection results of assets from a global perspective.
  * ## QPS limit
- * The per-user QPS limit for this operation is 10 requests per second. If you exceed this limit, the system throttles your API calls. To prevent business disruptions, call this operation only when necessary.
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
  *
  * @param request DescribeDataObjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1809,6 +1809,14 @@ DescribeDataObjectsResponse Client::describeDataObjectsWithOptions(const Describ
 
   if (!!request.hasCurrentPage()) {
     query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasCursor()) {
+    query["Cursor"] = request.getCursor();
+  }
+
+  if (!!request.hasCursorDirection()) {
+    query["CursorDirection"] = request.getCursorDirection();
   }
 
   if (!!request.hasDbName()) {
@@ -1941,11 +1949,11 @@ DescribeDataObjectsResponse Client::describeDataObjectsWithOptions(const Describ
 }
 
 /**
- * @summary Query data detection results for tables and files.
+ * @summary Queries the data detection results of data tables and files.
  *
- * @description This operation queries data detection results for tables and files, to provide a comprehensive view across all your assets.
+ * @description Queries the detection results of data tables and files. This allows you to query data detection results of assets from a global perspective.
  * ## QPS limit
- * The per-user QPS limit for this operation is 10 requests per second. If you exceed this limit, the system throttles your API calls. To prevent business disruptions, call this operation only when necessary.
+ * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
  *
  * @param request DescribeDataObjectsRequest
  * @return DescribeDataObjectsResponse
