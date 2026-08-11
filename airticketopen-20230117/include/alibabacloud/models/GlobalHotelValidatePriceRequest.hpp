@@ -97,16 +97,27 @@ namespace Models
 
 
   protected:
+    // The distributor account ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> accountNo_ {};
+    // The number of adults per room.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> adults_ {};
+    // The number of children per room.
     shared_ptr<int32_t> children_ {};
+    // The list of children ages.
     shared_ptr<vector<int32_t>> childrenAges_ {};
+    // The offer key.
+    // 
     // This parameter is required.
     shared_ptr<string> itemOfferKey_ {};
+    // The number of rooms.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> roomCount_ {};
+    // TracerId
     shared_ptr<string> tracerId_ {};
   };
 

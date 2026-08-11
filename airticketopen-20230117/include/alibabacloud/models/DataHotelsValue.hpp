@@ -46,8 +46,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(MealType, mealType_);
         DARABONBA_PTR_TO_JSON(MealCount, mealCount_);
         DARABONBA_PTR_TO_JSON(CancelPolicy, cancelPolicy_);
-        DARABONBA_PTR_TO_JSON(SellingTotalPrice, sellingTotalPrice_);
-        DARABONBA_PTR_TO_JSON(SellingDailyPrices, sellingDailyPrices_);
+        DARABONBA_PTR_TO_JSON(TotalPrice, totalPrice_);
+        DARABONBA_PTR_TO_JSON(DailyPrices, dailyPrices_);
         DARABONBA_PTR_TO_JSON(AvailableRooms, availableRooms_);
         DARABONBA_PTR_TO_JSON(MaxOccupancy, maxOccupancy_);
         DARABONBA_PTR_TO_JSON(ConfirmType, confirmType_);
@@ -58,8 +58,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(MealType, mealType_);
         DARABONBA_PTR_FROM_JSON(MealCount, mealCount_);
         DARABONBA_PTR_FROM_JSON(CancelPolicy, cancelPolicy_);
-        DARABONBA_PTR_FROM_JSON(SellingTotalPrice, sellingTotalPrice_);
-        DARABONBA_PTR_FROM_JSON(SellingDailyPrices, sellingDailyPrices_);
+        DARABONBA_PTR_FROM_JSON(TotalPrice, totalPrice_);
+        DARABONBA_PTR_FROM_JSON(DailyPrices, dailyPrices_);
         DARABONBA_PTR_FROM_JSON(AvailableRooms, availableRooms_);
         DARABONBA_PTR_FROM_JSON(MaxOccupancy, maxOccupancy_);
         DARABONBA_PTR_FROM_JSON(ConfirmType, confirmType_);
@@ -75,25 +75,25 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      class SellingDailyPrices : public Darabonba::Model {
+      class DailyPrices : public Darabonba::Model {
       public:
-        friend void to_json(Darabonba::Json& j, const SellingDailyPrices& obj) { 
+        friend void to_json(Darabonba::Json& j, const DailyPrices& obj) { 
           DARABONBA_PTR_TO_JSON(Date, date_);
           DARABONBA_PTR_TO_JSON(Price, price_);
           DARABONBA_PTR_TO_JSON(TracerId, tracerId_);
         };
-        friend void from_json(const Darabonba::Json& j, SellingDailyPrices& obj) { 
+        friend void from_json(const Darabonba::Json& j, DailyPrices& obj) { 
           DARABONBA_PTR_FROM_JSON(Date, date_);
           DARABONBA_PTR_FROM_JSON(Price, price_);
           DARABONBA_PTR_FROM_JSON(TracerId, tracerId_);
         };
-        SellingDailyPrices() = default ;
-        SellingDailyPrices(const SellingDailyPrices &) = default ;
-        SellingDailyPrices(SellingDailyPrices &&) = default ;
-        SellingDailyPrices(const Darabonba::Json & obj) { from_json(obj, *this); };
-        virtual ~SellingDailyPrices() = default ;
-        SellingDailyPrices& operator=(const SellingDailyPrices &) = default ;
-        SellingDailyPrices& operator=(SellingDailyPrices &&) = default ;
+        DailyPrices() = default ;
+        DailyPrices(const DailyPrices &) = default ;
+        DailyPrices(DailyPrices &&) = default ;
+        DailyPrices(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~DailyPrices() = default ;
+        DailyPrices& operator=(const DailyPrices &) = default ;
+        DailyPrices& operator=(DailyPrices &&) = default ;
         virtual void validate() const override {
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -126,8 +126,8 @@ namespace Models
           // amount Field Functions 
           bool hasAmount() const { return this->amount_ != nullptr;};
           void deleteAmount() { this->amount_ = nullptr;};
-          inline double getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, 0.0) };
-          inline Price& setAmount(double amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
+          inline string getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, "") };
+          inline Price& setAmount(string amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
 
 
           // currency Field Functions 
@@ -145,11 +145,11 @@ namespace Models
 
 
         protected:
-          // The amount.
-          shared_ptr<double> amount_ {};
+          // The amount in the smallest currency unit.
+          shared_ptr<string> amount_ {};
           // The currency code.
           shared_ptr<string> currency_ {};
-          // TraceId
+          // null
           shared_ptr<string> tracerId_ {};
         };
 
@@ -159,53 +159,53 @@ namespace Models
         bool hasDate() const { return this->date_ != nullptr;};
         void deleteDate() { this->date_ = nullptr;};
         inline string getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
-        inline SellingDailyPrices& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
+        inline DailyPrices& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
 
 
         // price Field Functions 
         bool hasPrice() const { return this->price_ != nullptr;};
         void deletePrice() { this->price_ = nullptr;};
-        inline const SellingDailyPrices::Price & getPrice() const { DARABONBA_PTR_GET_CONST(price_, SellingDailyPrices::Price) };
-        inline SellingDailyPrices::Price getPrice() { DARABONBA_PTR_GET(price_, SellingDailyPrices::Price) };
-        inline SellingDailyPrices& setPrice(const SellingDailyPrices::Price & price) { DARABONBA_PTR_SET_VALUE(price_, price) };
-        inline SellingDailyPrices& setPrice(SellingDailyPrices::Price && price) { DARABONBA_PTR_SET_RVALUE(price_, price) };
+        inline const DailyPrices::Price & getPrice() const { DARABONBA_PTR_GET_CONST(price_, DailyPrices::Price) };
+        inline DailyPrices::Price getPrice() { DARABONBA_PTR_GET(price_, DailyPrices::Price) };
+        inline DailyPrices& setPrice(const DailyPrices::Price & price) { DARABONBA_PTR_SET_VALUE(price_, price) };
+        inline DailyPrices& setPrice(DailyPrices::Price && price) { DARABONBA_PTR_SET_RVALUE(price_, price) };
 
 
         // tracerId Field Functions 
         bool hasTracerId() const { return this->tracerId_ != nullptr;};
         void deleteTracerId() { this->tracerId_ = nullptr;};
         inline string getTracerId() const { DARABONBA_PTR_GET_DEFAULT(tracerId_, "") };
-        inline SellingDailyPrices& setTracerId(string tracerId) { DARABONBA_PTR_SET_VALUE(tracerId_, tracerId) };
+        inline DailyPrices& setTracerId(string tracerId) { DARABONBA_PTR_SET_VALUE(tracerId_, tracerId) };
 
 
       protected:
-        // The check-in date.
+        // The check-in date in yyyy-MM-dd format, based on the hotel local time zone.
         shared_ptr<string> date_ {};
         // The price for the day.
-        shared_ptr<SellingDailyPrices::Price> price_ {};
-        // TraceId
+        shared_ptr<DailyPrices::Price> price_ {};
+        // null
         shared_ptr<string> tracerId_ {};
       };
 
-      class SellingTotalPrice : public Darabonba::Model {
+      class TotalPrice : public Darabonba::Model {
       public:
-        friend void to_json(Darabonba::Json& j, const SellingTotalPrice& obj) { 
+        friend void to_json(Darabonba::Json& j, const TotalPrice& obj) { 
           DARABONBA_PTR_TO_JSON(Amount, amount_);
           DARABONBA_PTR_TO_JSON(Currency, currency_);
           DARABONBA_PTR_TO_JSON(TracerId, tracerId_);
         };
-        friend void from_json(const Darabonba::Json& j, SellingTotalPrice& obj) { 
+        friend void from_json(const Darabonba::Json& j, TotalPrice& obj) { 
           DARABONBA_PTR_FROM_JSON(Amount, amount_);
           DARABONBA_PTR_FROM_JSON(Currency, currency_);
           DARABONBA_PTR_FROM_JSON(TracerId, tracerId_);
         };
-        SellingTotalPrice() = default ;
-        SellingTotalPrice(const SellingTotalPrice &) = default ;
-        SellingTotalPrice(SellingTotalPrice &&) = default ;
-        SellingTotalPrice(const Darabonba::Json & obj) { from_json(obj, *this); };
-        virtual ~SellingTotalPrice() = default ;
-        SellingTotalPrice& operator=(const SellingTotalPrice &) = default ;
-        SellingTotalPrice& operator=(SellingTotalPrice &&) = default ;
+        TotalPrice() = default ;
+        TotalPrice(const TotalPrice &) = default ;
+        TotalPrice(TotalPrice &&) = default ;
+        TotalPrice(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~TotalPrice() = default ;
+        TotalPrice& operator=(const TotalPrice &) = default ;
+        TotalPrice& operator=(TotalPrice &&) = default ;
         virtual void validate() const override {
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -215,30 +215,30 @@ namespace Models
         // amount Field Functions 
         bool hasAmount() const { return this->amount_ != nullptr;};
         void deleteAmount() { this->amount_ = nullptr;};
-        inline double getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, 0.0) };
-        inline SellingTotalPrice& setAmount(double amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
+        inline string getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, "") };
+        inline TotalPrice& setAmount(string amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
 
 
         // currency Field Functions 
         bool hasCurrency() const { return this->currency_ != nullptr;};
         void deleteCurrency() { this->currency_ = nullptr;};
         inline string getCurrency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
-        inline SellingTotalPrice& setCurrency(string currency) { DARABONBA_PTR_SET_VALUE(currency_, currency) };
+        inline TotalPrice& setCurrency(string currency) { DARABONBA_PTR_SET_VALUE(currency_, currency) };
 
 
         // tracerId Field Functions 
         bool hasTracerId() const { return this->tracerId_ != nullptr;};
         void deleteTracerId() { this->tracerId_ = nullptr;};
         inline string getTracerId() const { DARABONBA_PTR_GET_DEFAULT(tracerId_, "") };
-        inline SellingTotalPrice& setTracerId(string tracerId) { DARABONBA_PTR_SET_VALUE(tracerId_, tracerId) };
+        inline TotalPrice& setTracerId(string tracerId) { DARABONBA_PTR_SET_VALUE(tracerId_, tracerId) };
 
 
       protected:
-        // The amount.
-        shared_ptr<double> amount_ {};
+        // The amount in the smallest currency unit.
+        shared_ptr<string> amount_ {};
         // The currency code.
         shared_ptr<string> currency_ {};
-        // TraceId
+        // null
         shared_ptr<string> tracerId_ {};
       };
 
@@ -299,15 +299,15 @@ namespace Models
           // start Field Functions 
           bool hasStart() const { return this->start_ != nullptr;};
           void deleteStart() { this->start_ = nullptr;};
-          inline int64_t getStart() const { DARABONBA_PTR_GET_DEFAULT(start_, 0L) };
-          inline Penalties& setStart(int64_t start) { DARABONBA_PTR_SET_VALUE(start_, start) };
+          inline string getStart() const { DARABONBA_PTR_GET_DEFAULT(start_, "") };
+          inline Penalties& setStart(string start) { DARABONBA_PTR_SET_VALUE(start_, start) };
 
 
           // end Field Functions 
           bool hasEnd() const { return this->end_ != nullptr;};
           void deleteEnd() { this->end_ = nullptr;};
-          inline int64_t getEnd() const { DARABONBA_PTR_GET_DEFAULT(end_, 0L) };
-          inline Penalties& setEnd(int64_t end) { DARABONBA_PTR_SET_VALUE(end_, end) };
+          inline string getEnd() const { DARABONBA_PTR_GET_DEFAULT(end_, "") };
+          inline Penalties& setEnd(string end) { DARABONBA_PTR_SET_VALUE(end_, end) };
 
 
           // penaltyType Field Functions 
@@ -340,14 +340,14 @@ namespace Models
 
         protected:
           // The effective start time (UTC millisecond timestamp).
-          shared_ptr<int64_t> start_ {};
+          shared_ptr<string> start_ {};
           // The effective end time (UTC millisecond timestamp).
-          shared_ptr<int64_t> end_ {};
+          shared_ptr<string> end_ {};
           // The penalty type (PERCENTAGE/AMOUNT/NIGHTS).
           shared_ptr<string> penaltyType_ {};
-          // The penalty value (percentage/amount/number of nights).
+          // The penalty value (percentage/amount/nights).
           shared_ptr<string> penaltyValue_ {};
-          // The currency code (only applicable when the penalty type is AMOUNT).
+          // The currency code. This field has a value only when the penalty type is AMOUNT.
           shared_ptr<string> currency_ {};
           // TraceId
           shared_ptr<string> tracerId_ {};
@@ -388,8 +388,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->itemOfferKey_ == nullptr
-        && this->ratePlanName_ == nullptr && this->mealType_ == nullptr && this->mealCount_ == nullptr && this->cancelPolicy_ == nullptr && this->sellingTotalPrice_ == nullptr
-        && this->sellingDailyPrices_ == nullptr && this->availableRooms_ == nullptr && this->maxOccupancy_ == nullptr && this->confirmType_ == nullptr; };
+        && this->ratePlanName_ == nullptr && this->mealType_ == nullptr && this->mealCount_ == nullptr && this->cancelPolicy_ == nullptr && this->totalPrice_ == nullptr
+        && this->dailyPrices_ == nullptr && this->availableRooms_ == nullptr && this->maxOccupancy_ == nullptr && this->confirmType_ == nullptr; };
       // itemOfferKey Field Functions 
       bool hasItemOfferKey() const { return this->itemOfferKey_ != nullptr;};
       void deleteItemOfferKey() { this->itemOfferKey_ = nullptr;};
@@ -427,22 +427,22 @@ namespace Models
       inline Offers& setCancelPolicy(Offers::CancelPolicy && cancelPolicy) { DARABONBA_PTR_SET_RVALUE(cancelPolicy_, cancelPolicy) };
 
 
-      // sellingTotalPrice Field Functions 
-      bool hasSellingTotalPrice() const { return this->sellingTotalPrice_ != nullptr;};
-      void deleteSellingTotalPrice() { this->sellingTotalPrice_ = nullptr;};
-      inline const Offers::SellingTotalPrice & getSellingTotalPrice() const { DARABONBA_PTR_GET_CONST(sellingTotalPrice_, Offers::SellingTotalPrice) };
-      inline Offers::SellingTotalPrice getSellingTotalPrice() { DARABONBA_PTR_GET(sellingTotalPrice_, Offers::SellingTotalPrice) };
-      inline Offers& setSellingTotalPrice(const Offers::SellingTotalPrice & sellingTotalPrice) { DARABONBA_PTR_SET_VALUE(sellingTotalPrice_, sellingTotalPrice) };
-      inline Offers& setSellingTotalPrice(Offers::SellingTotalPrice && sellingTotalPrice) { DARABONBA_PTR_SET_RVALUE(sellingTotalPrice_, sellingTotalPrice) };
+      // totalPrice Field Functions 
+      bool hasTotalPrice() const { return this->totalPrice_ != nullptr;};
+      void deleteTotalPrice() { this->totalPrice_ = nullptr;};
+      inline const Offers::TotalPrice & getTotalPrice() const { DARABONBA_PTR_GET_CONST(totalPrice_, Offers::TotalPrice) };
+      inline Offers::TotalPrice getTotalPrice() { DARABONBA_PTR_GET(totalPrice_, Offers::TotalPrice) };
+      inline Offers& setTotalPrice(const Offers::TotalPrice & totalPrice) { DARABONBA_PTR_SET_VALUE(totalPrice_, totalPrice) };
+      inline Offers& setTotalPrice(Offers::TotalPrice && totalPrice) { DARABONBA_PTR_SET_RVALUE(totalPrice_, totalPrice) };
 
 
-      // sellingDailyPrices Field Functions 
-      bool hasSellingDailyPrices() const { return this->sellingDailyPrices_ != nullptr;};
-      void deleteSellingDailyPrices() { this->sellingDailyPrices_ = nullptr;};
-      inline const vector<Offers::SellingDailyPrices> & getSellingDailyPrices() const { DARABONBA_PTR_GET_CONST(sellingDailyPrices_, vector<Offers::SellingDailyPrices>) };
-      inline vector<Offers::SellingDailyPrices> getSellingDailyPrices() { DARABONBA_PTR_GET(sellingDailyPrices_, vector<Offers::SellingDailyPrices>) };
-      inline Offers& setSellingDailyPrices(const vector<Offers::SellingDailyPrices> & sellingDailyPrices) { DARABONBA_PTR_SET_VALUE(sellingDailyPrices_, sellingDailyPrices) };
-      inline Offers& setSellingDailyPrices(vector<Offers::SellingDailyPrices> && sellingDailyPrices) { DARABONBA_PTR_SET_RVALUE(sellingDailyPrices_, sellingDailyPrices) };
+      // dailyPrices Field Functions 
+      bool hasDailyPrices() const { return this->dailyPrices_ != nullptr;};
+      void deleteDailyPrices() { this->dailyPrices_ = nullptr;};
+      inline const vector<Offers::DailyPrices> & getDailyPrices() const { DARABONBA_PTR_GET_CONST(dailyPrices_, vector<Offers::DailyPrices>) };
+      inline vector<Offers::DailyPrices> getDailyPrices() { DARABONBA_PTR_GET(dailyPrices_, vector<Offers::DailyPrices>) };
+      inline Offers& setDailyPrices(const vector<Offers::DailyPrices> & dailyPrices) { DARABONBA_PTR_SET_VALUE(dailyPrices_, dailyPrices) };
+      inline Offers& setDailyPrices(vector<Offers::DailyPrices> && dailyPrices) { DARABONBA_PTR_SET_RVALUE(dailyPrices_, dailyPrices) };
 
 
       // availableRooms Field Functions 
@@ -467,7 +467,7 @@ namespace Models
 
 
     protected:
-      // The item-domain offer identifier (price verification key, passed through as-is).
+      // The item offer key used for price verification. Pass through this value as-is.
       shared_ptr<string> itemOfferKey_ {};
       // The rate plan name.
       shared_ptr<string> ratePlanName_ {};
@@ -475,12 +475,12 @@ namespace Models
       shared_ptr<string> mealType_ {};
       // The number of meals included.
       shared_ptr<int32_t> mealCount_ {};
-      // The cancellation and modification policy.
+      // The cancellation policy.
       shared_ptr<Offers::CancelPolicy> cancelPolicy_ {};
       // The total selling price.
-      shared_ptr<Offers::SellingTotalPrice> sellingTotalPrice_ {};
-      // The list of daily selling prices.
-      shared_ptr<vector<Offers::SellingDailyPrices>> sellingDailyPrices_ {};
+      shared_ptr<Offers::TotalPrice> totalPrice_ {};
+      // The list of daily prices.
+      shared_ptr<vector<Offers::DailyPrices>> dailyPrices_ {};
       // The number of available rooms.
       shared_ptr<int32_t> availableRooms_ {};
       // The maximum number of guests allowed.
@@ -493,12 +493,12 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Rooms& obj) { 
         DARABONBA_PTR_TO_JSON(StandardRoomId, standardRoomId_);
-        DARABONBA_PTR_TO_JSON(LowestSellingPrice, lowestSellingPrice_);
+        DARABONBA_PTR_TO_JSON(LowestPrice, lowestPrice_);
         DARABONBA_PTR_TO_JSON(Offers, offers_);
       };
       friend void from_json(const Darabonba::Json& j, Rooms& obj) { 
         DARABONBA_PTR_FROM_JSON(StandardRoomId, standardRoomId_);
-        DARABONBA_PTR_FROM_JSON(LowestSellingPrice, lowestSellingPrice_);
+        DARABONBA_PTR_FROM_JSON(LowestPrice, lowestPrice_);
         DARABONBA_PTR_FROM_JSON(Offers, offers_);
       };
       Rooms() = default ;
@@ -520,8 +520,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(MealType, mealType_);
           DARABONBA_PTR_TO_JSON(MealCount, mealCount_);
           DARABONBA_PTR_TO_JSON(CancelPolicy, cancelPolicy_);
-          DARABONBA_PTR_TO_JSON(SellingTotalPrice, sellingTotalPrice_);
-          DARABONBA_PTR_TO_JSON(SellingDailyPrices, sellingDailyPrices_);
+          DARABONBA_PTR_TO_JSON(TotalPrice, totalPrice_);
+          DARABONBA_PTR_TO_JSON(DailyPrices, dailyPrices_);
           DARABONBA_PTR_TO_JSON(AvailableRooms, availableRooms_);
           DARABONBA_PTR_TO_JSON(MaxOccupancy, maxOccupancy_);
           DARABONBA_PTR_TO_JSON(ConfirmType, confirmType_);
@@ -532,8 +532,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(MealType, mealType_);
           DARABONBA_PTR_FROM_JSON(MealCount, mealCount_);
           DARABONBA_PTR_FROM_JSON(CancelPolicy, cancelPolicy_);
-          DARABONBA_PTR_FROM_JSON(SellingTotalPrice, sellingTotalPrice_);
-          DARABONBA_PTR_FROM_JSON(SellingDailyPrices, sellingDailyPrices_);
+          DARABONBA_PTR_FROM_JSON(TotalPrice, totalPrice_);
+          DARABONBA_PTR_FROM_JSON(DailyPrices, dailyPrices_);
           DARABONBA_PTR_FROM_JSON(AvailableRooms, availableRooms_);
           DARABONBA_PTR_FROM_JSON(MaxOccupancy, maxOccupancy_);
           DARABONBA_PTR_FROM_JSON(ConfirmType, confirmType_);
@@ -549,25 +549,25 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        class SellingDailyPrices : public Darabonba::Model {
+        class DailyPrices : public Darabonba::Model {
         public:
-          friend void to_json(Darabonba::Json& j, const SellingDailyPrices& obj) { 
+          friend void to_json(Darabonba::Json& j, const DailyPrices& obj) { 
             DARABONBA_PTR_TO_JSON(Date, date_);
             DARABONBA_PTR_TO_JSON(Price, price_);
             DARABONBA_PTR_TO_JSON(TracerId, tracerId_);
           };
-          friend void from_json(const Darabonba::Json& j, SellingDailyPrices& obj) { 
+          friend void from_json(const Darabonba::Json& j, DailyPrices& obj) { 
             DARABONBA_PTR_FROM_JSON(Date, date_);
             DARABONBA_PTR_FROM_JSON(Price, price_);
             DARABONBA_PTR_FROM_JSON(TracerId, tracerId_);
           };
-          SellingDailyPrices() = default ;
-          SellingDailyPrices(const SellingDailyPrices &) = default ;
-          SellingDailyPrices(SellingDailyPrices &&) = default ;
-          SellingDailyPrices(const Darabonba::Json & obj) { from_json(obj, *this); };
-          virtual ~SellingDailyPrices() = default ;
-          SellingDailyPrices& operator=(const SellingDailyPrices &) = default ;
-          SellingDailyPrices& operator=(SellingDailyPrices &&) = default ;
+          DailyPrices() = default ;
+          DailyPrices(const DailyPrices &) = default ;
+          DailyPrices(DailyPrices &&) = default ;
+          DailyPrices(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~DailyPrices() = default ;
+          DailyPrices& operator=(const DailyPrices &) = default ;
+          DailyPrices& operator=(DailyPrices &&) = default ;
           virtual void validate() const override {
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -600,8 +600,8 @@ namespace Models
             // amount Field Functions 
             bool hasAmount() const { return this->amount_ != nullptr;};
             void deleteAmount() { this->amount_ = nullptr;};
-            inline double getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, 0.0) };
-            inline Price& setAmount(double amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
+            inline string getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, "") };
+            inline Price& setAmount(string amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
 
 
             // currency Field Functions 
@@ -619,11 +619,11 @@ namespace Models
 
 
           protected:
-            // The amount.
-            shared_ptr<double> amount_ {};
+            // The amount in the smallest currency unit.
+            shared_ptr<string> amount_ {};
             // The currency code.
             shared_ptr<string> currency_ {};
-            // traceId
+            // null
             shared_ptr<string> tracerId_ {};
           };
 
@@ -633,53 +633,53 @@ namespace Models
           bool hasDate() const { return this->date_ != nullptr;};
           void deleteDate() { this->date_ = nullptr;};
           inline string getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
-          inline SellingDailyPrices& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
+          inline DailyPrices& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
 
 
           // price Field Functions 
           bool hasPrice() const { return this->price_ != nullptr;};
           void deletePrice() { this->price_ = nullptr;};
-          inline const SellingDailyPrices::Price & getPrice() const { DARABONBA_PTR_GET_CONST(price_, SellingDailyPrices::Price) };
-          inline SellingDailyPrices::Price getPrice() { DARABONBA_PTR_GET(price_, SellingDailyPrices::Price) };
-          inline SellingDailyPrices& setPrice(const SellingDailyPrices::Price & price) { DARABONBA_PTR_SET_VALUE(price_, price) };
-          inline SellingDailyPrices& setPrice(SellingDailyPrices::Price && price) { DARABONBA_PTR_SET_RVALUE(price_, price) };
+          inline const DailyPrices::Price & getPrice() const { DARABONBA_PTR_GET_CONST(price_, DailyPrices::Price) };
+          inline DailyPrices::Price getPrice() { DARABONBA_PTR_GET(price_, DailyPrices::Price) };
+          inline DailyPrices& setPrice(const DailyPrices::Price & price) { DARABONBA_PTR_SET_VALUE(price_, price) };
+          inline DailyPrices& setPrice(DailyPrices::Price && price) { DARABONBA_PTR_SET_RVALUE(price_, price) };
 
 
           // tracerId Field Functions 
           bool hasTracerId() const { return this->tracerId_ != nullptr;};
           void deleteTracerId() { this->tracerId_ = nullptr;};
           inline string getTracerId() const { DARABONBA_PTR_GET_DEFAULT(tracerId_, "") };
-          inline SellingDailyPrices& setTracerId(string tracerId) { DARABONBA_PTR_SET_VALUE(tracerId_, tracerId) };
+          inline DailyPrices& setTracerId(string tracerId) { DARABONBA_PTR_SET_VALUE(tracerId_, tracerId) };
 
 
         protected:
-          // The check-in date.
+          // The check-in date (yyyy-MM-dd, time zone: hotel local time zone).
           shared_ptr<string> date_ {};
           // The price for the day.
-          shared_ptr<SellingDailyPrices::Price> price_ {};
-          // TraceId
+          shared_ptr<DailyPrices::Price> price_ {};
+          // null
           shared_ptr<string> tracerId_ {};
         };
 
-        class SellingTotalPrice : public Darabonba::Model {
+        class TotalPrice : public Darabonba::Model {
         public:
-          friend void to_json(Darabonba::Json& j, const SellingTotalPrice& obj) { 
+          friend void to_json(Darabonba::Json& j, const TotalPrice& obj) { 
             DARABONBA_PTR_TO_JSON(Amount, amount_);
             DARABONBA_PTR_TO_JSON(Currency, currency_);
             DARABONBA_PTR_TO_JSON(TracerId, tracerId_);
           };
-          friend void from_json(const Darabonba::Json& j, SellingTotalPrice& obj) { 
+          friend void from_json(const Darabonba::Json& j, TotalPrice& obj) { 
             DARABONBA_PTR_FROM_JSON(Amount, amount_);
             DARABONBA_PTR_FROM_JSON(Currency, currency_);
             DARABONBA_PTR_FROM_JSON(TracerId, tracerId_);
           };
-          SellingTotalPrice() = default ;
-          SellingTotalPrice(const SellingTotalPrice &) = default ;
-          SellingTotalPrice(SellingTotalPrice &&) = default ;
-          SellingTotalPrice(const Darabonba::Json & obj) { from_json(obj, *this); };
-          virtual ~SellingTotalPrice() = default ;
-          SellingTotalPrice& operator=(const SellingTotalPrice &) = default ;
-          SellingTotalPrice& operator=(SellingTotalPrice &&) = default ;
+          TotalPrice() = default ;
+          TotalPrice(const TotalPrice &) = default ;
+          TotalPrice(TotalPrice &&) = default ;
+          TotalPrice(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~TotalPrice() = default ;
+          TotalPrice& operator=(const TotalPrice &) = default ;
+          TotalPrice& operator=(TotalPrice &&) = default ;
           virtual void validate() const override {
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -689,30 +689,30 @@ namespace Models
           // amount Field Functions 
           bool hasAmount() const { return this->amount_ != nullptr;};
           void deleteAmount() { this->amount_ = nullptr;};
-          inline double getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, 0.0) };
-          inline SellingTotalPrice& setAmount(double amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
+          inline string getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, "") };
+          inline TotalPrice& setAmount(string amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
 
 
           // currency Field Functions 
           bool hasCurrency() const { return this->currency_ != nullptr;};
           void deleteCurrency() { this->currency_ = nullptr;};
           inline string getCurrency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
-          inline SellingTotalPrice& setCurrency(string currency) { DARABONBA_PTR_SET_VALUE(currency_, currency) };
+          inline TotalPrice& setCurrency(string currency) { DARABONBA_PTR_SET_VALUE(currency_, currency) };
 
 
           // tracerId Field Functions 
           bool hasTracerId() const { return this->tracerId_ != nullptr;};
           void deleteTracerId() { this->tracerId_ = nullptr;};
           inline string getTracerId() const { DARABONBA_PTR_GET_DEFAULT(tracerId_, "") };
-          inline SellingTotalPrice& setTracerId(string tracerId) { DARABONBA_PTR_SET_VALUE(tracerId_, tracerId) };
+          inline TotalPrice& setTracerId(string tracerId) { DARABONBA_PTR_SET_VALUE(tracerId_, tracerId) };
 
 
         protected:
-          // The amount.
-          shared_ptr<double> amount_ {};
+          // The amount in the smallest currency unit.
+          shared_ptr<string> amount_ {};
           // The currency code.
           shared_ptr<string> currency_ {};
-          // TraceId
+          // null
           shared_ptr<string> tracerId_ {};
         };
 
@@ -773,15 +773,15 @@ namespace Models
             // start Field Functions 
             bool hasStart() const { return this->start_ != nullptr;};
             void deleteStart() { this->start_ = nullptr;};
-            inline int64_t getStart() const { DARABONBA_PTR_GET_DEFAULT(start_, 0L) };
-            inline Penalties& setStart(int64_t start) { DARABONBA_PTR_SET_VALUE(start_, start) };
+            inline string getStart() const { DARABONBA_PTR_GET_DEFAULT(start_, "") };
+            inline Penalties& setStart(string start) { DARABONBA_PTR_SET_VALUE(start_, start) };
 
 
             // end Field Functions 
             bool hasEnd() const { return this->end_ != nullptr;};
             void deleteEnd() { this->end_ = nullptr;};
-            inline int64_t getEnd() const { DARABONBA_PTR_GET_DEFAULT(end_, 0L) };
-            inline Penalties& setEnd(int64_t end) { DARABONBA_PTR_SET_VALUE(end_, end) };
+            inline string getEnd() const { DARABONBA_PTR_GET_DEFAULT(end_, "") };
+            inline Penalties& setEnd(string end) { DARABONBA_PTR_SET_VALUE(end_, end) };
 
 
             // penaltyType Field Functions 
@@ -813,15 +813,15 @@ namespace Models
 
 
           protected:
-            // The effective start time, in UTC millisecond timestamp.
-            shared_ptr<int64_t> start_ {};
-            // The effective end time, in UTC millisecond timestamp.
-            shared_ptr<int64_t> end_ {};
-            // The penalty type. Valid values: PERCENTAGE, AMOUNT, and NIGHTS.
+            // The effective start time (UTC millisecond timestamp).
+            shared_ptr<string> start_ {};
+            // The effective end time (UTC millisecond timestamp).
+            shared_ptr<string> end_ {};
+            // The penalty type (PERCENTAGE/AMOUNT/NIGHTS).
             shared_ptr<string> penaltyType_ {};
-            // The penalty value (percentage, amount, or number of nights).
+            // The penalty value (percentage/amount/nights).
             shared_ptr<string> penaltyValue_ {};
-            // The currency. This parameter has a value only when PenaltyType is set to AMOUNT.
+            // The currency code (present only when the penalty type is AMOUNT).
             shared_ptr<string> currency_ {};
             // traceId
             shared_ptr<string> tracerId_ {};
@@ -853,7 +853,7 @@ namespace Models
 
 
         protected:
-          // The policy type. Valid values: NON_REFUNDABLE, FREE_CANCELLATION, and PARTIAL_REFUND.
+          // The policy type (NON_REFUNDABLE/FREE_CANCELLATION/PARTIAL_REFUND).
           shared_ptr<string> policyType_ {};
           // The list of penalty details.
           shared_ptr<vector<CancelPolicy::Penalties>> penalties_ {};
@@ -862,8 +862,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->itemOfferKey_ == nullptr
-        && this->ratePlanName_ == nullptr && this->mealType_ == nullptr && this->mealCount_ == nullptr && this->cancelPolicy_ == nullptr && this->sellingTotalPrice_ == nullptr
-        && this->sellingDailyPrices_ == nullptr && this->availableRooms_ == nullptr && this->maxOccupancy_ == nullptr && this->confirmType_ == nullptr; };
+        && this->ratePlanName_ == nullptr && this->mealType_ == nullptr && this->mealCount_ == nullptr && this->cancelPolicy_ == nullptr && this->totalPrice_ == nullptr
+        && this->dailyPrices_ == nullptr && this->availableRooms_ == nullptr && this->maxOccupancy_ == nullptr && this->confirmType_ == nullptr; };
         // itemOfferKey Field Functions 
         bool hasItemOfferKey() const { return this->itemOfferKey_ != nullptr;};
         void deleteItemOfferKey() { this->itemOfferKey_ = nullptr;};
@@ -901,22 +901,22 @@ namespace Models
         inline Offers& setCancelPolicy(Offers::CancelPolicy && cancelPolicy) { DARABONBA_PTR_SET_RVALUE(cancelPolicy_, cancelPolicy) };
 
 
-        // sellingTotalPrice Field Functions 
-        bool hasSellingTotalPrice() const { return this->sellingTotalPrice_ != nullptr;};
-        void deleteSellingTotalPrice() { this->sellingTotalPrice_ = nullptr;};
-        inline const Offers::SellingTotalPrice & getSellingTotalPrice() const { DARABONBA_PTR_GET_CONST(sellingTotalPrice_, Offers::SellingTotalPrice) };
-        inline Offers::SellingTotalPrice getSellingTotalPrice() { DARABONBA_PTR_GET(sellingTotalPrice_, Offers::SellingTotalPrice) };
-        inline Offers& setSellingTotalPrice(const Offers::SellingTotalPrice & sellingTotalPrice) { DARABONBA_PTR_SET_VALUE(sellingTotalPrice_, sellingTotalPrice) };
-        inline Offers& setSellingTotalPrice(Offers::SellingTotalPrice && sellingTotalPrice) { DARABONBA_PTR_SET_RVALUE(sellingTotalPrice_, sellingTotalPrice) };
+        // totalPrice Field Functions 
+        bool hasTotalPrice() const { return this->totalPrice_ != nullptr;};
+        void deleteTotalPrice() { this->totalPrice_ = nullptr;};
+        inline const Offers::TotalPrice & getTotalPrice() const { DARABONBA_PTR_GET_CONST(totalPrice_, Offers::TotalPrice) };
+        inline Offers::TotalPrice getTotalPrice() { DARABONBA_PTR_GET(totalPrice_, Offers::TotalPrice) };
+        inline Offers& setTotalPrice(const Offers::TotalPrice & totalPrice) { DARABONBA_PTR_SET_VALUE(totalPrice_, totalPrice) };
+        inline Offers& setTotalPrice(Offers::TotalPrice && totalPrice) { DARABONBA_PTR_SET_RVALUE(totalPrice_, totalPrice) };
 
 
-        // sellingDailyPrices Field Functions 
-        bool hasSellingDailyPrices() const { return this->sellingDailyPrices_ != nullptr;};
-        void deleteSellingDailyPrices() { this->sellingDailyPrices_ = nullptr;};
-        inline const vector<Offers::SellingDailyPrices> & getSellingDailyPrices() const { DARABONBA_PTR_GET_CONST(sellingDailyPrices_, vector<Offers::SellingDailyPrices>) };
-        inline vector<Offers::SellingDailyPrices> getSellingDailyPrices() { DARABONBA_PTR_GET(sellingDailyPrices_, vector<Offers::SellingDailyPrices>) };
-        inline Offers& setSellingDailyPrices(const vector<Offers::SellingDailyPrices> & sellingDailyPrices) { DARABONBA_PTR_SET_VALUE(sellingDailyPrices_, sellingDailyPrices) };
-        inline Offers& setSellingDailyPrices(vector<Offers::SellingDailyPrices> && sellingDailyPrices) { DARABONBA_PTR_SET_RVALUE(sellingDailyPrices_, sellingDailyPrices) };
+        // dailyPrices Field Functions 
+        bool hasDailyPrices() const { return this->dailyPrices_ != nullptr;};
+        void deleteDailyPrices() { this->dailyPrices_ = nullptr;};
+        inline const vector<Offers::DailyPrices> & getDailyPrices() const { DARABONBA_PTR_GET_CONST(dailyPrices_, vector<Offers::DailyPrices>) };
+        inline vector<Offers::DailyPrices> getDailyPrices() { DARABONBA_PTR_GET(dailyPrices_, vector<Offers::DailyPrices>) };
+        inline Offers& setDailyPrices(const vector<Offers::DailyPrices> & dailyPrices) { DARABONBA_PTR_SET_VALUE(dailyPrices_, dailyPrices) };
+        inline Offers& setDailyPrices(vector<Offers::DailyPrices> && dailyPrices) { DARABONBA_PTR_SET_RVALUE(dailyPrices_, dailyPrices) };
 
 
         // availableRooms Field Functions 
@@ -941,7 +941,7 @@ namespace Models
 
 
       protected:
-        // The item-level offer identifier (price verification key, passed through as-is).
+        // The item-level offer identifier (price verification key, pass through as-is).
         shared_ptr<string> itemOfferKey_ {};
         // The rate plan name.
         shared_ptr<string> ratePlanName_ {};
@@ -952,36 +952,36 @@ namespace Models
         // The cancellation policy.
         shared_ptr<Offers::CancelPolicy> cancelPolicy_ {};
         // The total selling price.
-        shared_ptr<Offers::SellingTotalPrice> sellingTotalPrice_ {};
-        // The list of daily selling prices.
-        shared_ptr<vector<Offers::SellingDailyPrices>> sellingDailyPrices_ {};
+        shared_ptr<Offers::TotalPrice> totalPrice_ {};
+        // The list of daily prices.
+        shared_ptr<vector<Offers::DailyPrices>> dailyPrices_ {};
         // The number of available rooms.
         shared_ptr<int32_t> availableRooms_ {};
-        // The maximum number of guests.
+        // The maximum number of guests allowed.
         shared_ptr<int32_t> maxOccupancy_ {};
-        // The confirmation type. Valid values: INSTANT_CONFIRM and NON_INSTANT_CONFIRM.
+        // The confirmation type (INSTANT_CONFIRM/NON_INSTANT_CONFIRM).
         shared_ptr<string> confirmType_ {};
       };
 
-      class LowestSellingPrice : public Darabonba::Model {
+      class LowestPrice : public Darabonba::Model {
       public:
-        friend void to_json(Darabonba::Json& j, const LowestSellingPrice& obj) { 
+        friend void to_json(Darabonba::Json& j, const LowestPrice& obj) { 
           DARABONBA_PTR_TO_JSON(Amount, amount_);
           DARABONBA_PTR_TO_JSON(Currency, currency_);
           DARABONBA_PTR_TO_JSON(TracerId, tracerId_);
         };
-        friend void from_json(const Darabonba::Json& j, LowestSellingPrice& obj) { 
+        friend void from_json(const Darabonba::Json& j, LowestPrice& obj) { 
           DARABONBA_PTR_FROM_JSON(Amount, amount_);
           DARABONBA_PTR_FROM_JSON(Currency, currency_);
           DARABONBA_PTR_FROM_JSON(TracerId, tracerId_);
         };
-        LowestSellingPrice() = default ;
-        LowestSellingPrice(const LowestSellingPrice &) = default ;
-        LowestSellingPrice(LowestSellingPrice &&) = default ;
-        LowestSellingPrice(const Darabonba::Json & obj) { from_json(obj, *this); };
-        virtual ~LowestSellingPrice() = default ;
-        LowestSellingPrice& operator=(const LowestSellingPrice &) = default ;
-        LowestSellingPrice& operator=(LowestSellingPrice &&) = default ;
+        LowestPrice() = default ;
+        LowestPrice(const LowestPrice &) = default ;
+        LowestPrice(LowestPrice &&) = default ;
+        LowestPrice(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~LowestPrice() = default ;
+        LowestPrice& operator=(const LowestPrice &) = default ;
+        LowestPrice& operator=(LowestPrice &&) = default ;
         virtual void validate() const override {
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -991,35 +991,35 @@ namespace Models
         // amount Field Functions 
         bool hasAmount() const { return this->amount_ != nullptr;};
         void deleteAmount() { this->amount_ = nullptr;};
-        inline double getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, 0.0) };
-        inline LowestSellingPrice& setAmount(double amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
+        inline string getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, "") };
+        inline LowestPrice& setAmount(string amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
 
 
         // currency Field Functions 
         bool hasCurrency() const { return this->currency_ != nullptr;};
         void deleteCurrency() { this->currency_ = nullptr;};
         inline string getCurrency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
-        inline LowestSellingPrice& setCurrency(string currency) { DARABONBA_PTR_SET_VALUE(currency_, currency) };
+        inline LowestPrice& setCurrency(string currency) { DARABONBA_PTR_SET_VALUE(currency_, currency) };
 
 
         // tracerId Field Functions 
         bool hasTracerId() const { return this->tracerId_ != nullptr;};
         void deleteTracerId() { this->tracerId_ = nullptr;};
         inline string getTracerId() const { DARABONBA_PTR_GET_DEFAULT(tracerId_, "") };
-        inline LowestSellingPrice& setTracerId(string tracerId) { DARABONBA_PTR_SET_VALUE(tracerId_, tracerId) };
+        inline LowestPrice& setTracerId(string tracerId) { DARABONBA_PTR_SET_VALUE(tracerId_, tracerId) };
 
 
       protected:
-        // The amount.
-        shared_ptr<double> amount_ {};
+        // The amount in the smallest currency unit.
+        shared_ptr<string> amount_ {};
         // The currency code.
         shared_ptr<string> currency_ {};
-        // traceId
+        // null
         shared_ptr<string> tracerId_ {};
       };
 
       virtual bool empty() const override { return this->standardRoomId_ == nullptr
-        && this->lowestSellingPrice_ == nullptr && this->offers_ == nullptr; };
+        && this->lowestPrice_ == nullptr && this->offers_ == nullptr; };
       // standardRoomId Field Functions 
       bool hasStandardRoomId() const { return this->standardRoomId_ != nullptr;};
       void deleteStandardRoomId() { this->standardRoomId_ = nullptr;};
@@ -1027,13 +1027,13 @@ namespace Models
       inline Rooms& setStandardRoomId(string standardRoomId) { DARABONBA_PTR_SET_VALUE(standardRoomId_, standardRoomId) };
 
 
-      // lowestSellingPrice Field Functions 
-      bool hasLowestSellingPrice() const { return this->lowestSellingPrice_ != nullptr;};
-      void deleteLowestSellingPrice() { this->lowestSellingPrice_ = nullptr;};
-      inline const Rooms::LowestSellingPrice & getLowestSellingPrice() const { DARABONBA_PTR_GET_CONST(lowestSellingPrice_, Rooms::LowestSellingPrice) };
-      inline Rooms::LowestSellingPrice getLowestSellingPrice() { DARABONBA_PTR_GET(lowestSellingPrice_, Rooms::LowestSellingPrice) };
-      inline Rooms& setLowestSellingPrice(const Rooms::LowestSellingPrice & lowestSellingPrice) { DARABONBA_PTR_SET_VALUE(lowestSellingPrice_, lowestSellingPrice) };
-      inline Rooms& setLowestSellingPrice(Rooms::LowestSellingPrice && lowestSellingPrice) { DARABONBA_PTR_SET_RVALUE(lowestSellingPrice_, lowestSellingPrice) };
+      // lowestPrice Field Functions 
+      bool hasLowestPrice() const { return this->lowestPrice_ != nullptr;};
+      void deleteLowestPrice() { this->lowestPrice_ = nullptr;};
+      inline const Rooms::LowestPrice & getLowestPrice() const { DARABONBA_PTR_GET_CONST(lowestPrice_, Rooms::LowestPrice) };
+      inline Rooms::LowestPrice getLowestPrice() { DARABONBA_PTR_GET(lowestPrice_, Rooms::LowestPrice) };
+      inline Rooms& setLowestPrice(const Rooms::LowestPrice & lowestPrice) { DARABONBA_PTR_SET_VALUE(lowestPrice_, lowestPrice) };
+      inline Rooms& setLowestPrice(Rooms::LowestPrice && lowestPrice) { DARABONBA_PTR_SET_RVALUE(lowestPrice_, lowestPrice) };
 
 
       // offers Field Functions 
@@ -1048,9 +1048,9 @@ namespace Models
     protected:
       // The standard room type ID.
       shared_ptr<string> standardRoomId_ {};
-      // The lowest selling price for the room type on the day.
-      shared_ptr<Rooms::LowestSellingPrice> lowestSellingPrice_ {};
-      // The list of all available offers for the room type. Calendar quotes cannot be used for price verification, so itemOfferKey is not returned.
+      // The lowest price for the room type on the day.
+      shared_ptr<Rooms::LowestPrice> lowestPrice_ {};
+      // The list of all available offers for the room type.
       shared_ptr<vector<Rooms::Offers>> offers_ {};
     };
 
@@ -1096,9 +1096,9 @@ namespace Models
 
 
   protected:
-    // The check-in date in the format of yyyy-MM-dd.
+    // The check-in date (yyyy-MM-dd).
     shared_ptr<string> checkInDate_ {};
-    // The check-out date in the format of yyyy-MM-dd.
+    // The check-out date (yyyy-MM-dd).
     shared_ptr<string> checkOutDate_ {};
     // The list of available room types for the day.
     shared_ptr<vector<DataHotelsValue::Rooms>> rooms_ {};

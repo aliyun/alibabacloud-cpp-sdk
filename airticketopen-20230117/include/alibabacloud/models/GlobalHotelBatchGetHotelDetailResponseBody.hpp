@@ -254,7 +254,7 @@ namespace Models
 
 
           protected:
-            // The description of the picture.
+            // The picture description.
             shared_ptr<string> description_ {};
             // The first-level category code.
             shared_ptr<string> firstCategoryCode_ {};
@@ -262,13 +262,13 @@ namespace Models
             shared_ptr<string> firstCategoryName_ {};
             // Indicates whether the picture is the cover image.
             shared_ptr<bool> isHeadPic_ {};
-            // The picture ID. The URL takes precedence.
+            // The picture ID (subject to the URL).
             shared_ptr<string> pictureId_ {};
             // The second-level category code.
             shared_ptr<string> secondCategoryCode_ {};
             // The second-level category name.
             shared_ptr<string> secondCategoryName_ {};
-            // The URL of the picture.
+            // The picture URL.
             shared_ptr<string> url_ {};
           };
 
@@ -365,8 +365,8 @@ namespace Models
           // roomSize Field Functions 
           bool hasRoomSize() const { return this->roomSize_ != nullptr;};
           void deleteRoomSize() { this->roomSize_ = nullptr;};
-          inline double getRoomSize() const { DARABONBA_PTR_GET_DEFAULT(roomSize_, 0.0) };
-          inline RoomTypes& setRoomSize(double roomSize) { DARABONBA_PTR_SET_VALUE(roomSize_, roomSize) };
+          inline string getRoomSize() const { DARABONBA_PTR_GET_DEFAULT(roomSize_, "") };
+          inline RoomTypes& setRoomSize(string roomSize) { DARABONBA_PTR_SET_VALUE(roomSize_, roomSize) };
 
 
           // roomSizeUnit Field Functions 
@@ -404,17 +404,28 @@ namespace Models
           shared_ptr<vector<RoomTypes::Pictures>> pictures_ {};
           // The room type name.
           shared_ptr<string> roomName_ {};
-          // The Chinese room type name.
+          // The Chinese room type name (always in Chinese, regardless of the language parameter).
           shared_ptr<string> roomNameCn_ {};
-          // The room size.
-          shared_ptr<double> roomSize_ {};
-          // The size unit (SQM/SQFT).
+          // The room area (passed through as-is, may be a range value).
+          shared_ptr<string> roomSize_ {};
+          // The area unit. Valid values: SQM (square meters) and SQFT (square feet). Default value: SQM.
           shared_ptr<string> roomSizeUnit_ {};
           // The platform standard room type ID.
           shared_ptr<string> standardRoomId_ {};
-          // The window type.
+          // The window type. Valid values:
+          // - 0: no window
+          // - 1: with window
+          // - 2: partially with window
+          // - 3: opaque window
+          // - 4: partially opaque window
+          // - 5: floor-to-ceiling window
           shared_ptr<string> windowType_ {};
-          // The defective window type code.
+          // The window defect code. Valid values:
+          // - 0: window cannot be opened for ventilation
+          // - 1: view is obstructed outside the window
+          // - 2: window faces the interior of the hotel
+          // - 3: window is located in a corridor or hallway
+          // - 4: window can be opened for ventilation and faces an outdoor open environment
           shared_ptr<string> windowTypeDefect_ {};
         };
 
@@ -499,7 +510,7 @@ namespace Models
 
 
           protected:
-            // The list of child items.
+            // The list of sub-items.
             shared_ptr<vector<Darabonba::Json>> children_ {};
             // The item name.
             shared_ptr<string> itemName_ {};
@@ -636,7 +647,7 @@ namespace Models
 
 
         protected:
-          // The description of the picture.
+          // The picture description.
           shared_ptr<string> description_ {};
           // The first-level category code.
           shared_ptr<string> firstCategoryCode_ {};
@@ -644,13 +655,13 @@ namespace Models
           shared_ptr<string> firstCategoryName_ {};
           // Indicates whether the picture is the cover image.
           shared_ptr<bool> isHeadPic_ {};
-          // The picture ID. The URL takes precedence.
+          // The picture ID (subject to the URL).
           shared_ptr<string> pictureId_ {};
           // The second-level category code.
           shared_ptr<string> secondCategoryCode_ {};
           // The second-level category name.
           shared_ptr<string> secondCategoryName_ {};
-          // The URL of the picture.
+          // The picture URL.
           shared_ptr<string> url_ {};
         };
 
@@ -703,9 +714,9 @@ namespace Models
         protected:
           // The facility description.
           shared_ptr<string> description_ {};
-          // The name of the facility.
+          // The facility name.
           shared_ptr<string> name_ {};
-          // The type of the facility.
+          // The facility type.
           shared_ptr<string> type_ {};
         };
 
@@ -899,7 +910,7 @@ namespace Models
 
 
       protected:
-        // The address of the hotel.
+        // The address.
         shared_ptr<string> address_ {};
         // The default check-in time.
         shared_ptr<string> checkInTime_ {};
@@ -909,7 +920,7 @@ namespace Models
         shared_ptr<string> cityName_ {};
         // The country name.
         shared_ptr<string> countryName_ {};
-        // The description of the hotel.
+        // The hotel description.
         shared_ptr<string> description_ {};
         // The error code for the individual hotel.
         shared_ptr<string> errorCode_ {};
@@ -919,35 +930,35 @@ namespace Models
         shared_ptr<vector<Hotels::Facilities>> facilities_ {};
         // The hotel name.
         shared_ptr<string> hotelName_ {};
-        // The Chinese name of the hotel.
+        // The Chinese hotel name.
         shared_ptr<string> hotelNameCn_ {};
-        // The type of the hotel. Valid values: LUXURY, DELUXE, and COMFORT.
+        // The hotel type (LUXURY/DELUXE/COMFORT).
         shared_ptr<string> hotelType_ {};
-        // The latitude of the hotel.
+        // The latitude.
         shared_ptr<string> latitude_ {};
-        // The longitude of the hotel.
+        // The longitude.
         shared_ptr<string> longitude_ {};
-        // The year the hotel opened.
+        // The opening year.
         shared_ptr<int32_t> openingTime_ {};
         // The list of pictures.
         shared_ptr<vector<Hotels::Pictures>> pictures_ {};
         // The hotel policy information.
         shared_ptr<vector<Hotels::Policies>> policies_ {};
-        // The source of the latitude and longitude coordinates.
+        // The source of the coordinates.
         shared_ptr<string> positionType_ {};
-        // The year the hotel was last renovated.
+        // The renovation year.
         shared_ptr<int32_t> renovationTime_ {};
         // The list of room types.
         shared_ptr<vector<Hotels::RoomTypes>> roomTypes_ {};
-        // The standard hotel ID on the platform.
+        // The platform standard hotel ID.
         shared_ptr<string> standardHotelId_ {};
-        // The star rating of the hotel.
+        // The star rating.
         shared_ptr<string> star_ {};
-        // The status of the hotel. Valid values: ONLINE and OFFLINE.
+        // The hotel status (ONLINE/OFFLINE).
         shared_ptr<string> status_ {};
-        // The phone number of the hotel.
+        // The phone number.
         shared_ptr<string> tel_ {};
-        // The time zone of the hotel in IANA ID format.
+        // The hotel time zone (IANA ID).
         shared_ptr<string> timezone_ {};
       };
 
@@ -1019,9 +1030,9 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMsg_ {};
-    // The unique ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
     // traceId
     shared_ptr<string> tracerId_ {};

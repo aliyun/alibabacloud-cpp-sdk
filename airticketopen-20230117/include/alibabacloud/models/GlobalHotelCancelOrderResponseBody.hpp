@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation is successful.
     shared_ptr<bool> success_ {};
+    // TraceId
     shared_ptr<string> tracerId_ {};
   };
 

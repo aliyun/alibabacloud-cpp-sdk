@@ -689,7 +689,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelCancelOrRefundResponse globalHotelCancelOrRefund(const Models::GlobalHotelCancelOrRefundRequest &request);
 
       /**
-       * @summary 取消订单
+       * @summary Cancels an order.
        *
        * @param request GlobalHotelCancelOrderRequest
        * @param headers map
@@ -699,7 +699,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelCancelOrderResponse globalHotelCancelOrderWithOptions(const Models::GlobalHotelCancelOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消订单
+       * @summary Cancels an order.
        *
        * @param request GlobalHotelCancelOrderRequest
        * @return GlobalHotelCancelOrderResponse
@@ -779,7 +779,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelQueryAvailabilityResponse globalHotelQueryAvailability(const Models::GlobalHotelQueryAvailabilityRequest &request);
 
       /**
-       * @summary Queries calendar-based availability and pricing for hotels in batch.
+       * @summary Queries calendar-based rate availability for hotels in batch.
        *
        * @param tmpReq GlobalHotelQueryCalendarAvailabilityRequest
        * @param headers map
@@ -789,7 +789,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelQueryCalendarAvailabilityResponse globalHotelQueryCalendarAvailabilityWithOptions(const Models::GlobalHotelQueryCalendarAvailabilityRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries calendar-based availability and pricing for hotels in batch.
+       * @summary Queries calendar-based rate availability for hotels in batch.
        *
        * @param request GlobalHotelQueryCalendarAvailabilityRequest
        * @return GlobalHotelQueryCalendarAvailabilityResponse
@@ -815,7 +815,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelQueryOrderResponse globalHotelQueryOrder(const Models::GlobalHotelQueryOrderRequest &request);
 
       /**
-       * @summary Queries city administrative divisions by paging (in Chinese and English).
+       * @summary Queries city administrative divisions (in Chinese and English) by paging.
        *
        * @param request GlobalHotelSearchCityPageRequest
        * @param headers map
@@ -825,7 +825,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelSearchCityPageResponse globalHotelSearchCityPageWithOptions(const Models::GlobalHotelSearchCityPageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries city administrative divisions by paging (in Chinese and English).
+       * @summary Queries city administrative divisions (in Chinese and English) by paging.
        *
        * @param request GlobalHotelSearchCityPageRequest
        * @return GlobalHotelSearchCityPageResponse
@@ -833,7 +833,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelSearchCityPageResponse globalHotelSearchCityPage(const Models::GlobalHotelSearchCityPageRequest &request);
 
       /**
-       * @summary Performs a paged query to retrieve the list of hotels by city with paging.
+       * @summary Performs a paged query of the hotel list by city with paging support.
        *
        * @param request GlobalHotelSearchHotelListRequest
        * @param headers map
@@ -843,7 +843,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelSearchHotelListResponse globalHotelSearchHotelListWithOptions(const Models::GlobalHotelSearchHotelListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paged query to retrieve the list of hotels by city with paging.
+       * @summary Performs a paged query of the hotel list by city with paging support.
        *
        * @param request GlobalHotelSearchHotelListRequest
        * @return GlobalHotelSearchHotelListResponse
@@ -851,7 +851,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelSearchHotelListResponse globalHotelSearchHotelList(const Models::GlobalHotelSearchHotelListRequest &request);
 
       /**
-       * @summary 验价
+       * @summary Validates the price of a hotel offer.
        *
        * @param tmpReq GlobalHotelValidatePriceRequest
        * @param headers map
@@ -861,7 +861,7 @@ namespace AirticketOpen20230117
       Models::GlobalHotelValidatePriceResponse globalHotelValidatePriceWithOptions(const Models::GlobalHotelValidatePriceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 验价
+       * @summary Validates the price of a hotel offer.
        *
        * @param request GlobalHotelValidatePriceRequest
        * @return GlobalHotelValidatePriceResponse

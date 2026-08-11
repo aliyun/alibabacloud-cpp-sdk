@@ -156,15 +156,15 @@ namespace Models
 
 
       protected:
-        // The Chinese name of the city.
+        // The Chinese name.
         shared_ptr<string> cnName_ {};
         // The city code.
         shared_ptr<int32_t> code_ {};
         // The country code.
         shared_ptr<int32_t> country_ {};
-        // The country code in ISO 3166-1 alpha-2 format.
+        // The country code (ISO 3166-1 alpha-2).
         shared_ptr<string> countryCode_ {};
-        // The English name of the city.
+        // The English name.
         shared_ptr<string> enName_ {};
         // The administrative level.
         shared_ptr<int32_t> level_ {};

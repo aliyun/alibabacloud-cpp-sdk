@@ -2,8 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_GLOBALHOTELQUERYCALENDARAVAILABILITYRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GLOBALHOTELQUERYCALENDARAVAILABILITYRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <vector>
 #include <map>
+#include <vector>
 #include <alibabacloud/models/DataHotelsValue.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -45,12 +45,10 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
-        DARABONBA_PTR_TO_JSON(FailedHotels, failedHotels_);
         DARABONBA_PTR_TO_JSON(Hotels, hotels_);
         DARABONBA_PTR_TO_JSON(TracerId, tracerId_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
-        DARABONBA_PTR_FROM_JSON(FailedHotels, failedHotels_);
         DARABONBA_PTR_FROM_JSON(Hotels, hotels_);
         DARABONBA_PTR_FROM_JSON(TracerId, tracerId_);
       };
@@ -65,72 +63,8 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      class FailedHotels : public Darabonba::Model {
-      public:
-        friend void to_json(Darabonba::Json& j, const FailedHotels& obj) { 
-          DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
-          DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
-          DARABONBA_PTR_TO_JSON(StandardHotelId, standardHotelId_);
-        };
-        friend void from_json(const Darabonba::Json& j, FailedHotels& obj) { 
-          DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
-          DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
-          DARABONBA_PTR_FROM_JSON(StandardHotelId, standardHotelId_);
-        };
-        FailedHotels() = default ;
-        FailedHotels(const FailedHotels &) = default ;
-        FailedHotels(FailedHotels &&) = default ;
-        FailedHotels(const Darabonba::Json & obj) { from_json(obj, *this); };
-        virtual ~FailedHotels() = default ;
-        FailedHotels& operator=(const FailedHotels &) = default ;
-        FailedHotels& operator=(FailedHotels &&) = default ;
-        virtual void validate() const override {
-        };
-        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
-        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->errorCode_ == nullptr
-        && this->errorMessage_ == nullptr && this->standardHotelId_ == nullptr; };
-        // errorCode Field Functions 
-        bool hasErrorCode() const { return this->errorCode_ != nullptr;};
-        void deleteErrorCode() { this->errorCode_ = nullptr;};
-        inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
-        inline FailedHotels& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
-
-
-        // errorMessage Field Functions 
-        bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
-        void deleteErrorMessage() { this->errorMessage_ = nullptr;};
-        inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
-        inline FailedHotels& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
-
-
-        // standardHotelId Field Functions 
-        bool hasStandardHotelId() const { return this->standardHotelId_ != nullptr;};
-        void deleteStandardHotelId() { this->standardHotelId_ = nullptr;};
-        inline string getStandardHotelId() const { DARABONBA_PTR_GET_DEFAULT(standardHotelId_, "") };
-        inline FailedHotels& setStandardHotelId(string standardHotelId) { DARABONBA_PTR_SET_VALUE(standardHotelId_, standardHotelId) };
-
-
-      protected:
-        // The error code.
-        shared_ptr<string> errorCode_ {};
-        // The error description.
-        shared_ptr<string> errorMessage_ {};
-        // The standard hotel ID.
-        shared_ptr<string> standardHotelId_ {};
-      };
-
-      virtual bool empty() const override { return this->failedHotels_ == nullptr
-        && this->hotels_ == nullptr && this->tracerId_ == nullptr; };
-      // failedHotels Field Functions 
-      bool hasFailedHotels() const { return this->failedHotels_ != nullptr;};
-      void deleteFailedHotels() { this->failedHotels_ = nullptr;};
-      inline const vector<Data::FailedHotels> & getFailedHotels() const { DARABONBA_PTR_GET_CONST(failedHotels_, vector<Data::FailedHotels>) };
-      inline vector<Data::FailedHotels> getFailedHotels() { DARABONBA_PTR_GET(failedHotels_, vector<Data::FailedHotels>) };
-      inline Data& setFailedHotels(const vector<Data::FailedHotels> & failedHotels) { DARABONBA_PTR_SET_VALUE(failedHotels_, failedHotels) };
-      inline Data& setFailedHotels(vector<Data::FailedHotels> && failedHotels) { DARABONBA_PTR_SET_RVALUE(failedHotels_, failedHotels) };
-
-
+      virtual bool empty() const override { return this->hotels_ == nullptr
+        && this->tracerId_ == nullptr; };
       // hotels Field Functions 
       bool hasHotels() const { return this->hotels_ != nullptr;};
       void deleteHotels() { this->hotels_ = nullptr;};
@@ -148,8 +82,6 @@ namespace Models
 
 
     protected:
-      // The list of failed hotels (in partial success mode).
-      shared_ptr<vector<Data::FailedHotels>> failedHotels_ {};
       // The calendar quotes grouped by standard hotel ID.
       shared_ptr<map<string, vector<DataHotelsValue>>> hotels_ {};
       // TraceId

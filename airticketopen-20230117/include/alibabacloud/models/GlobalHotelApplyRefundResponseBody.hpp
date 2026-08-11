@@ -42,13 +42,13 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
-        DARABONBA_PTR_TO_JSON(SellRefundOrderId, sellRefundOrderId_);
+        DARABONBA_PTR_TO_JSON(RefundOrderNo, refundOrderNo_);
         DARABONBA_PTR_TO_JSON(TotalPenaltyAmount, totalPenaltyAmount_);
         DARABONBA_PTR_TO_JSON(TotalRefundAmount, totalRefundAmount_);
         DARABONBA_PTR_TO_JSON(TracerId, tracerId_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
-        DARABONBA_PTR_FROM_JSON(SellRefundOrderId, sellRefundOrderId_);
+        DARABONBA_PTR_FROM_JSON(RefundOrderNo, refundOrderNo_);
         DARABONBA_PTR_FROM_JSON(TotalPenaltyAmount, totalPenaltyAmount_);
         DARABONBA_PTR_FROM_JSON(TotalRefundAmount, totalRefundAmount_);
         DARABONBA_PTR_FROM_JSON(TracerId, tracerId_);
@@ -174,13 +174,13 @@ namespace Models
         shared_ptr<string> tracerId_ {};
       };
 
-      virtual bool empty() const override { return this->sellRefundOrderId_ == nullptr
+      virtual bool empty() const override { return this->refundOrderNo_ == nullptr
         && this->totalPenaltyAmount_ == nullptr && this->totalRefundAmount_ == nullptr && this->tracerId_ == nullptr; };
-      // sellRefundOrderId Field Functions 
-      bool hasSellRefundOrderId() const { return this->sellRefundOrderId_ != nullptr;};
-      void deleteSellRefundOrderId() { this->sellRefundOrderId_ = nullptr;};
-      inline int64_t getSellRefundOrderId() const { DARABONBA_PTR_GET_DEFAULT(sellRefundOrderId_, 0L) };
-      inline Data& setSellRefundOrderId(int64_t sellRefundOrderId) { DARABONBA_PTR_SET_VALUE(sellRefundOrderId_, sellRefundOrderId) };
+      // refundOrderNo Field Functions 
+      bool hasRefundOrderNo() const { return this->refundOrderNo_ != nullptr;};
+      void deleteRefundOrderNo() { this->refundOrderNo_ = nullptr;};
+      inline string getRefundOrderNo() const { DARABONBA_PTR_GET_DEFAULT(refundOrderNo_, "") };
+      inline Data& setRefundOrderNo(string refundOrderNo) { DARABONBA_PTR_SET_VALUE(refundOrderNo_, refundOrderNo) };
 
 
       // totalPenaltyAmount Field Functions 
@@ -209,8 +209,8 @@ namespace Models
 
 
     protected:
-      // The after-sales refund order ID.
-      shared_ptr<int64_t> sellRefundOrderId_ {};
+      // The after-sales refund order number.
+      shared_ptr<string> refundOrderNo_ {};
       // The total penalty amount.
       shared_ptr<Data::TotalPenaltyAmount> totalPenaltyAmount_ {};
       // The total refund amount.

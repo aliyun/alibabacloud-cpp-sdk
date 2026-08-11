@@ -2437,7 +2437,7 @@ GlobalHotelCancelOrRefundResponse Client::globalHotelCancelOrRefund(const Global
 }
 
 /**
- * @summary 取消订单
+ * @summary Cancels an order.
  *
  * @param request GlobalHotelCancelOrderRequest
  * @param headers map
@@ -2478,7 +2478,7 @@ GlobalHotelCancelOrderResponse Client::globalHotelCancelOrderWithOptions(const G
 }
 
 /**
- * @summary 取消订单
+ * @summary Cancels an order.
  *
  * @param request GlobalHotelCancelOrderRequest
  * @return GlobalHotelCancelOrderResponse
@@ -2788,7 +2788,7 @@ GlobalHotelQueryAvailabilityResponse Client::globalHotelQueryAvailability(const 
 }
 
 /**
- * @summary Queries calendar-based availability and pricing for hotels in batch.
+ * @summary Queries calendar-based rate availability for hotels in batch.
  *
  * @param tmpReq GlobalHotelQueryCalendarAvailabilityRequest
  * @param headers map
@@ -2863,7 +2863,7 @@ GlobalHotelQueryCalendarAvailabilityResponse Client::globalHotelQueryCalendarAva
 }
 
 /**
- * @summary Queries calendar-based availability and pricing for hotels in batch.
+ * @summary Queries calendar-based rate availability for hotels in batch.
  *
  * @param request GlobalHotelQueryCalendarAvailabilityRequest
  * @return GlobalHotelQueryCalendarAvailabilityResponse
@@ -2932,7 +2932,7 @@ GlobalHotelQueryOrderResponse Client::globalHotelQueryOrder(const GlobalHotelQue
 }
 
 /**
- * @summary Queries city administrative divisions by paging (in Chinese and English).
+ * @summary Queries city administrative divisions (in Chinese and English) by paging.
  *
  * @param request GlobalHotelSearchCityPageRequest
  * @param headers map
@@ -2981,7 +2981,7 @@ GlobalHotelSearchCityPageResponse Client::globalHotelSearchCityPageWithOptions(c
 }
 
 /**
- * @summary Queries city administrative divisions by paging (in Chinese and English).
+ * @summary Queries city administrative divisions (in Chinese and English) by paging.
  *
  * @param request GlobalHotelSearchCityPageRequest
  * @return GlobalHotelSearchCityPageResponse
@@ -2993,7 +2993,7 @@ GlobalHotelSearchCityPageResponse Client::globalHotelSearchCityPage(const Global
 }
 
 /**
- * @summary Performs a paged query to retrieve the list of hotels by city with paging.
+ * @summary Performs a paged query of the hotel list by city with paging support.
  *
  * @param request GlobalHotelSearchHotelListRequest
  * @param headers map
@@ -3042,7 +3042,7 @@ GlobalHotelSearchHotelListResponse Client::globalHotelSearchHotelListWithOptions
 }
 
 /**
- * @summary Performs a paged query to retrieve the list of hotels by city with paging.
+ * @summary Performs a paged query of the hotel list by city with paging support.
  *
  * @param request GlobalHotelSearchHotelListRequest
  * @return GlobalHotelSearchHotelListResponse
@@ -3054,7 +3054,7 @@ GlobalHotelSearchHotelListResponse Client::globalHotelSearchHotelList(const Glob
 }
 
 /**
- * @summary 验价
+ * @summary Validates the price of a hotel offer.
  *
  * @param tmpReq GlobalHotelValidatePriceRequest
  * @param headers map
@@ -3117,7 +3117,7 @@ GlobalHotelValidatePriceResponse Client::globalHotelValidatePriceWithOptions(con
 }
 
 /**
- * @summary 验价
+ * @summary Validates the price of a hotel offer.
  *
  * @param request GlobalHotelValidatePriceRequest
  * @return GlobalHotelValidatePriceResponse

@@ -218,7 +218,7 @@ namespace Models
     shared_ptr<string> errorMsg_ {};
     // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
     // traceId
     shared_ptr<string> tracerId_ {};
