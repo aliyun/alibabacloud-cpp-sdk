@@ -75,10 +75,23 @@ namespace Models
 
 
   protected:
+    // The status code.
+    // 
+    // >  200: The request was successful. Other codes (500, 400, etc.): An error occurred.
     shared_ptr<string> code_ {};
+    // The result of updating the health check result.
+    // 
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> data_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful:
+    // 
+    // - **true**: The call was successful.                                
+    // -  **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

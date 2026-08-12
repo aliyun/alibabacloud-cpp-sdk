@@ -93,9 +93,13 @@ namespace Models
 
 
     protected:
+      // The configuration item check result.
       shared_ptr<string> configCompleted_ {};
+      // The number of pending security alerts.
       shared_ptr<int32_t> pendingSecurityAlertCount_ {};
+      // The number of pending vulnerabilities.
       shared_ptr<int32_t> pendingVulnerabilityCount_ {};
+      // The percentage of the health check task progress.
       shared_ptr<string> progress_ {};
     };
 
@@ -139,10 +143,20 @@ namespace Models
 
 
   protected:
+    // The status code.
+    // 
+    // >  200: The request was successful. Other codes (such as 500 or 400): An error occurred.
     shared_ptr<string> code_ {};
+    // The returned data list.
     shared_ptr<GetSecurityCheckResultBaseInfoResponseBody::Data> data_ {};
+    // The prompt message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the current API call itself was successful. This does not indicate the success of subsequent business operations.
+    // 
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

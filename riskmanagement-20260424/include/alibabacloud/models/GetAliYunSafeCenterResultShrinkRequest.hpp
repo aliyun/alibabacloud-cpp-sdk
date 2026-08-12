@@ -121,16 +121,46 @@ namespace Models
 
 
   protected:
+    // Creates a node to query security alerting events triggered by the same rule or alerting type.
     shared_ptr<string> createSimilarSecurityEventsQueryTaskRequestShrink_ {};
+    // Queries the running status of ECS instances.
     shared_ptr<string> describeInstancesFullStatusRequestShrink_ {};
+    // Queries whether the list of security alerting events that match the same IP rule or same alerting type as the alerting event to be handled is empty.
     shared_ptr<string> describeSecurityEventOperationStatusRequestShrink_ {};
+    // Queries identical security alert events in Security Center.
     shared_ptr<string> describeSimilarSecurityEventsRequestShrink_ {};
+    // The request parameters for querying the Security Center Agent status.
     shared_ptr<string> getAssetDetailByUuidRequestShrink_ {};
+    // Handles security alert events.
     shared_ptr<string> handleSecurityEventsRequestShrink_ {};
+    // Handles security alert events in batches based on the same IP rule or type.
     shared_ptr<string> handleSimilarSecurityEventsRequestShrink_ {};
+    // The code of the public API operation.
+    // 
+    // - **GetAssetDetailByUuid**: Retrieves the Agent status. Request parameter: GetAssetDetailByUuidRequest.
+    // 
+    // - **DescribeSimilarSecurityEvents**: Retrieves the list of instance IDs for identical security alerting events. Request parameter: DescribeSimilarSecurityEventsRequest.
+    // 
+    // - **CreateSimilarSecurityEventsQueryTask**: Creates a node to query security alerting events triggered by the same rule or alerting type. Request parameter: CreateSimilarSecurityEventsQueryTaskRequest.
+    // 
+    // - **DescribeSecurityEventOperationStatus**: Queries whether the list of security alerting events that match the same IP rule or same alerting type as the alerting event to be handled is empty. Request parameter: DescribeSecurityEventOperationStatusRequest.
+    // 
+    // - **HandleSimilarSecurityEvents**: Handles security alerting events in batches based on the same IP rule or type. Request parameter: HandleSimilarSecurityEventsRequest.
+    // HandleSecurityEvents: Handles security alerting events. Request parameter: HandleSecurityEventsRequest.
+    // 
+    // - **DescribeInstancesFullStatus**: Queries the running status of ECS instances. Request parameter: DescribeInstancesFullStatusRequest.
+    // 
+    // - **ListInstances**: Queries the running status of simple application servers. Request parameter: ListInstancesRequest.
+    // 
+    // - **StartConfigRuleEvaluation**: Re-evaluates security check rules.
+    // 
+    // > Each API operation name corresponds to its own request parameters.
+    // 
     // This parameter is required.
     shared_ptr<string> interfaceCode_ {};
+    // Queries the running status of simple application servers.
     shared_ptr<string> listInstancesRequestShrink_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

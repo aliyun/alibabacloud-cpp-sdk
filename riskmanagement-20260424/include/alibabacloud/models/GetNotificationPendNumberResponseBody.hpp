@@ -75,10 +75,18 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The number of pending items for security contacts.
     shared_ptr<int64_t> data_ {};
+    // The prompt message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // 
+    // - **true**: The call was successful.                                
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -147,10 +147,15 @@ namespace Models
 
 
         protected:
+          // The total count.
           shared_ptr<int32_t> count_ {};
+          // The maximum number of rows per page in a paged query.
           shared_ptr<int32_t> currentPage_ {};
+          // The NextToken value returned when the NextToken method is used.
           shared_ptr<string> nextToken_ {};
+          // The number of records per page.
           shared_ptr<int32_t> pageSize_ {};
+          // The total number of records.
           shared_ptr<int32_t> totalCount_ {};
         };
 
@@ -725,65 +730,125 @@ namespace Models
 
 
         protected:
+          // Indicates whether the image has security alerts. Valid values:
           shared_ptr<string> alarmStatus_ {};
+          // The application ID.
           shared_ptr<string> appId_ {};
+          // The application name.
           shared_ptr<string> appName_ {};
+          // The type of the asset. Valid values:
           shared_ptr<string> assetType_ {};
+          // The name of the asset type.
           shared_ptr<string> assetTypeName_ {};
+          // The timestamp when the asset was bound for authorization. Unit: milliseconds.
           shared_ptr<int64_t> authModifyTime_ {};
+          // The authorization version of the asset. Valid values:
           shared_ptr<int32_t> authVersion_ {};
+          // The authorization version name of the asset. Valid values:
           shared_ptr<string> authVersionName_ {};
+          // Indicates whether the asset is bound with authorization. Valid values:
           shared_ptr<bool> bind_ {};
+          // Indicates whether web tamper-proofing authorization is bound. Valid values:
           shared_ptr<string> bindFileProtectType_ {};
+          // The online status of the client on the instance. Valid values:
           shared_ptr<string> clientStatus_ {};
+          // The sub-status of the client on the instance. Valid values:
           shared_ptr<string> clientSubStatus_ {};
+          // The ID of the cluster where the resource group resides.
           shared_ptr<string> clusterId_ {};
+          // The cluster name.
           shared_ptr<string> clusterName_ {};
+          // The number of CPU cores of the asset.
           shared_ptr<int32_t> cores_ {};
+          // The CPU information of the asset.
           shared_ptr<string> cpuInfo_ {};
+          // The timestamp when the cluster was created. Unit: milliseconds.
           shared_ptr<int64_t> createdTime_ {};
+          // The exposure status of the asset. Valid values:
           shared_ptr<int32_t> exposedStatus_ {};
+          // The asset vendor. Separate multiple asset vendors with commas (,). Valid values:
           shared_ptr<int32_t> flag_ {};
+          // The vendor of the asset. Valid values:
           shared_ptr<string> flagName_ {};
+          // The ID of the group to which the instance belongs.
           shared_ptr<int64_t> groupId_ {};
+          // The name of the group to which the asset belongs.
           shared_ptr<string> groupTrace_ {};
+          // Indicates whether the asset contains containers. Valid values:
           shared_ptr<string> hasContainer_ {};
+          // Indicates whether baseline risks are detected on the instance. Valid values:
           shared_ptr<string> hcStatus_ {};
+          // The number of baseline risks on the instance.
           shared_ptr<int32_t> healthCheckCount_ {};
+          // The importance level of the asset. Valid values:
           shared_ptr<int32_t> importance_ {};
+          // The instance ID.
           shared_ptr<string> instanceId_ {};
+          // The instance name.
           shared_ptr<string> instanceName_ {};
+          // The public IP address of the associated instance.
           shared_ptr<string> internetIp_ {};
+          // The private IP address of the current server.
           shared_ptr<string> intranetIp_ {};
+          // The management IP address.
           shared_ptr<string> ip_ {};
+          // The list of IP addresses of the system.
           shared_ptr<string> ipListString_ {};
+          // The kernel version information.
           shared_ptr<string> kernel_ {};
+          // The timestamp when the client last went online. Unit: milliseconds.
           shared_ptr<int64_t> lastLoginTimestamp_ {};
+          // The MAC address of the system.
           shared_ptr<string> macListString_ {};
+          // The total memory. Unit: MB.
           shared_ptr<string> mem_ {};
+          // The namespace.
           shared_ptr<string> namespace_ {};
+          // The operating system of the instance. Valid values:
           shared_ptr<string> os_ {};
+          // The kernel version of the instance.
           shared_ptr<string> osName_ {};
+          // The number of pods.
           shared_ptr<int32_t> podCount_ {};
+          // The billing method of the protection edition bound to the current asset. Valid values:
           shared_ptr<int32_t> postPaidFlag_ {};
+          // The region ID of the instance.
           shared_ptr<string> region_ {};
+          // The ID of the region where the asset resides.
           shared_ptr<string> regionId_ {};
+          // The region name.
           shared_ptr<string> regionName_ {};
+          // The statistics of risk items on the asset. The value is in JSON format and contains the following fields:
           shared_ptr<string> riskCount_ {};
+          // Indicates whether risks exist. Valid values:
           shared_ptr<string> riskStatus_ {};
+          // The number of security alerts on the asset.
           shared_ptr<string> safeEventCount_ {};
+          // The service ID. This parameter has a value only when the instance is a serverless instance that belongs to the PAI platform.
           shared_ptr<string> serviceId_ {};
+          // The running status of the instance. Valid values:
           shared_ptr<string> status_ {};
+          // The tag name of the asset instance.
           shared_ptr<string> tag_ {};
+          // The tag ID of the asset.
           shared_ptr<string> tagId_ {};
+          // The custom tags of the Lingjun node. This parameter is returned only when the machine is a Lingjun machine.
           shared_ptr<string> tagResources_ {};
+          // The UUID of the terminal device.
           shared_ptr<string> uuid_ {};
+          // The vendor of the asset. Valid values:
           shared_ptr<int32_t> vendor_ {};
+          // The service provider name of the asset.
           shared_ptr<string> vendorName_ {};
+          // The account ID of the multi-cloud instance.
           shared_ptr<string> vendorUid_ {};
+          // The account name of the multi-cloud instance.
           shared_ptr<string> vendorUserName_ {};
+          // The ID of the VPC to which the instance belongs.
           shared_ptr<string> vpcInstanceId_ {};
+          // The number of vulnerabilities on the instance.
           shared_ptr<int32_t> vulCount_ {};
+          // Indicates whether vulnerabilities exist on the instance. Valid values:
           shared_ptr<string> vulStatus_ {};
         };
 
@@ -822,9 +887,15 @@ namespace Models
 
 
       protected:
+        // The list of asset details.
         shared_ptr<vector<Body::Instances>> instances_ {};
+        // The pagination information.
         shared_ptr<Body::PageInfo> pageInfo_ {};
+        // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
         shared_ptr<string> requestId_ {};
+        // Indicates whether the call was successful. Valid values:
+        // - true: The call was successful.
+        // - false: The call failed.
         shared_ptr<bool> success_ {};
       };
 
@@ -839,6 +910,7 @@ namespace Models
 
 
     protected:
+      // The string of the message body content encoded by using the Base64 algorithm.
       shared_ptr<Data::Body> body_ {};
     };
 
@@ -882,10 +954,15 @@ namespace Models
 
 
   protected:
+    // The status of the API call.
     shared_ptr<string> code_ {};
+    // The list of instance details.
     shared_ptr<DescribeCloudCenterInstancesResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -131,13 +131,24 @@ namespace Models
 
 
     protected:
+      // The unique ID of the alert event.
       shared_ptr<string> alarmUniqueInfo_ {};
+      // Indicates whether the result is liked. Valid values:
+      // 
+      // - **true**: Liked.
+      // - **false**: Not liked.
       shared_ptr<bool> chooseLike_ {};
+      // The public IP address.
       shared_ptr<string> ip_ {};
+      // The instance ID.
       shared_ptr<string> machineInstanceId_ {};
+      // The query tracing time.
       shared_ptr<string> queryTime_ {};
+      // The vulnerability type.
       shared_ptr<string> type_ {};
+      // The unique identifier of the alert event.
       shared_ptr<string> uniqueInfo_ {};
+      // The unique identifier of the asset.
       shared_ptr<string> uuid_ {};
     };
 
@@ -181,10 +192,18 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the alert event. (Deprecated)
     shared_ptr<string> alarmUniqueInfo_ {};
+    // The language of the content. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // - **en**: English
     shared_ptr<string> aliyunLang_ {};
+    // The unique ID of the alert event. (Deprecated)
     shared_ptr<string> uniqueInfo_ {};
+    // The array of tracing requests.
     shared_ptr<vector<GetAlertRecordAnalysisResultRequest::UniqueTagList>> uniqueTagList_ {};
+    // The unique identifier of the asset. (Deprecated)
     shared_ptr<string> uuid_ {};
   };
 

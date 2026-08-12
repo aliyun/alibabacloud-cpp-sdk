@@ -121,12 +121,26 @@ namespace Models
 
 
     protected:
+      // The subscription status of the cloud security guide. Valid values:
+      // 
+      // - **0**: not subscribed 
+      // - **1**: subscribed
       shared_ptr<int32_t> cloudSecurityGuide_ {};
+      // The number of pending items for configuration audit.
       shared_ptr<int32_t> configCheckNumber_ {};
+      // The number of pending items for security contacts.
       shared_ptr<int32_t> contactCheckNumber_ {};
+      // The number of risk events.
       shared_ptr<int32_t> riskEventNumber_ {};
+      // The number of pending items for Elastic Compute Service.
       shared_ptr<int32_t> sasCheckNumber_ {};
+      // The security check result status. Valid values:
+      // 
+      // - **0**: no risk
+      // - **1**: risks exist 
+      // - **2**: items to be optimized exist
       shared_ptr<int32_t> securityStatus_ {};
+      // The suggestion text.
       shared_ptr<string> suggestionText_ {};
     };
 
@@ -170,10 +184,19 @@ namespace Models
 
 
   protected:
+    // The status code.
+    // 
+    // >  200: The request was successful. Other codes (such as 500 or 400): An error occurred.
     shared_ptr<string> code_ {};
+    // The query result.
     shared_ptr<QuerySecurityCheckReportResponseBody::Data> data_ {};
+    // The description.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

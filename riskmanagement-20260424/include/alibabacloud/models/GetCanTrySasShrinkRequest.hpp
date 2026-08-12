@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The Security Center SDK request parameters.
     shared_ptr<string> sdkRequestShrink_ {};
   };
 

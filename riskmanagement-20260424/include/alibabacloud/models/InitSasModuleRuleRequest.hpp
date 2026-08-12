@@ -92,9 +92,13 @@ namespace Models
 
 
     protected:
+      // The number of CPU cores of the asset.
       shared_ptr<string> cores_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The region of the cloud phone.
       shared_ptr<string> regionId_ {};
+      // The UUID of the instance.
       shared_ptr<string> uuid_ {};
     };
 
@@ -131,9 +135,16 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable automatic binding. Valid values:
+    // 
+    // - **0**: Disabled.
+    // - **1**: Enabled.
     shared_ptr<int32_t> autoBind_ {};
+    // The list of instances.
     shared_ptr<vector<InitSasModuleRuleRequest::Instances>> instances_ {};
+    // Specifies whether to use the trial version.
     shared_ptr<bool> isTrial_ {};
+    // The region ID of the access control instance.
     shared_ptr<string> regionId_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The region ID of the access control instance. You can call the DescribeRegions operation to query the region ID.
     shared_ptr<string> regionId_ {};
+    // The Security Center SDK request.
     shared_ptr<string> sdkRequestShrink_ {};
   };
 

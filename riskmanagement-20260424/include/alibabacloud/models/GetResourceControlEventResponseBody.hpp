@@ -278,21 +278,54 @@ namespace Models
 
 
         protected:
+          // The time when the alert ended.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> alertEndTime_ {};
+          // The time when the first alert was triggered.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> alertStartTime_ {};
+          // The time when the control action was lifted.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> antiPunishTime_ {};
+          // The application time.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> applyTime_ {};
+          // The time when the alert was ignored.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> ignoreAlertTime_ {};
+          // The time when the instance was shut down.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> instanceCloseTime_ {};
+          // The time when the instance was scanned.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> instanceScanTime_ {};
+          // The time of the latest detection.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> lastCheckTime_ {};
+          // The time when the mining alert was processed.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> miningAlertProcessTime_ {};
+          // The estimated shutdown time.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> preCloseTime_ {};
+          // The processing time.
+          // 
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> processTime_ {};
+          // The time when the control action ended.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> punishEndTime_ {};
+          // The time when the control action started.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> punishStartTime_ {};
+          // The rejection time.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> rejectTime_ {};
+          // The removal time.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> removeTime_ {};
+          // The time when the risk check succeeded.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> riskCheckSuccessTime_ {};
         };
 
@@ -336,10 +369,21 @@ namespace Models
 
 
       protected:
+        // The reason for approval.
         shared_ptr<string> approvalReason_ {};
+        // The time records related to the application.
         shared_ptr<ApplyRecordList::EventTimeRecord> eventTimeRecord_ {};
+        // The reason for rejection.
         shared_ptr<string> rejectReason_ {};
+        // The remarks.
         shared_ptr<string> remark_ {};
+        // The task status. Valid values:
+        // 
+        // - **Executing**: executing
+        // - **Removed**: removed
+        // - **Alerting**: alerting
+        // - **Ended**: ended
+        // - **Processed**: processed by the user and under platform review
         shared_ptr<string> status_ {};
       };
 
@@ -455,20 +499,37 @@ namespace Models
 
 
     protected:
+      // The list of application records.
       shared_ptr<vector<Data::ApplyRecordList>> applyRecordList_ {};
+      // The recommended action from the assistant.
       shared_ptr<string> assistantTip_ {};
+      // The blocked IP address.
       shared_ptr<string> blockIp_ {};
+      // The traffic direction. Valid values:
+      // - **in**: inbound to the cloud. 
+      // - **out**: outbound from the cloud.
       shared_ptr<string> direction_ {};
+      // The destination IP address.
       shared_ptr<string> dstIp_ {};
+      // The destination port.
       shared_ptr<string> dstPort_ {};
+      // The ID of the alert event.
       shared_ptr<string> eventId_ {};
+      // The overview of the event impact.
       shared_ptr<string> eventImpact_ {};
+      // The vulnerability name.
       shared_ptr<string> leakName_ {};
+      // The protocol type.
       shared_ptr<string> protocol_ {};
+      // The reason for the penalty.
       shared_ptr<string> punishReason_ {};
+      // The download URL of the penalty snapshot.
       shared_ptr<string> snapshotUrl_ {};
+      // The attack source IP address.
       shared_ptr<string> srcIp_ {};
+      // The source port number.
       shared_ptr<string> srcPort_ {};
+      // The recommended action.
       shared_ptr<string> tip_ {};
     };
 
@@ -512,10 +573,18 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data list.
     shared_ptr<GetResourceControlEventResponseBody::Data> data_ {};
+    // The prompt message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // 
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

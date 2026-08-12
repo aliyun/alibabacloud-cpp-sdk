@@ -255,7 +255,9 @@ namespace Models
 
 
           protected:
+            // The ATT&CK tactic name.
             shared_ptr<string> tacticDisplayName_ {};
+            // The ATT&CK attack stage information.
             shared_ptr<string> tacticId_ {};
           };
 
@@ -306,8 +308,11 @@ namespace Models
 
 
           protected:
+            // The remark information.
             shared_ptr<string> note_ {};
+            // The ID of the remark record.
             shared_ptr<int64_t> noteId_ {};
+            // The time when the event was recorded.
             shared_ptr<string> noteTime_ {};
           };
 
@@ -367,9 +372,13 @@ namespace Models
 
 
           protected:
+            // The display name of the alerting event.
             shared_ptr<string> nameDisplay_ {};
+            // The event type of the alerting event.
             shared_ptr<string> type_ {};
+            // The path where the alerting event occurred.
             shared_ptr<string> value_ {};
+            // The display path where the alerting event occurred.
             shared_ptr<string> valueDisplay_ {};
           };
 
@@ -794,62 +803,119 @@ namespace Models
 
 
         protected:
+          // Indicates whether the alert is from offline analysis.
           shared_ptr<bool> advanced_ {};
+          // The name of the alert event.
           shared_ptr<string> alarmEventName_ {};
+          // The display name of the alerting event.
           shared_ptr<string> alarmEventNameDisplay_ {};
+          // The event type of the alerting event.
           shared_ptr<string> alarmEventType_ {};
+          // The display name of the alerting event type.
           shared_ptr<string> alarmEventTypeDisplay_ {};
+          // The unique ID of the alert event.
           shared_ptr<string> alarmUniqueInfo_ {};
+          // The name of the application to which the alerting event belongs.
           shared_ptr<string> appName_ {};
+          // Indicates whether automatic defense is enabled.
           shared_ptr<bool> autoBreaking_ {};
+          // Specifies whether the alerting event is supported for online handling, such as quarantine. Valid values:
           shared_ptr<bool> canBeDealOnLine_ {};
+          // Indicates whether the false positive marking can be unmarked. Valid values:
           shared_ptr<bool> canCancelFault_ {};
+          // The cluster ID.
           shared_ptr<string> clusterId_ {};
+          // Indicates whether critical event protection pattern is enabled for the server. Valid values:
           shared_ptr<bool> containHwMode_ {};
+          // The container ID.
           shared_ptr<string> containerId_ {};
+          // The container image ID.
           shared_ptr<string> containerImageId_ {};
+          // The container image name.
           shared_ptr<string> containerImageName_ {};
+          // The data source. You can ignore this field.
           shared_ptr<string> dataSource_ {};
+          // The description of the impact of the alerting event.
           shared_ptr<string> desc_ {};
+          // The details of the alerting event.
           shared_ptr<vector<SuspEvents::Details>> details_ {};
+          // The detection source. This is an invalid field.
           shared_ptr<string> detectSource_ {};
+          // Indicates whether cloud sandbox detection is supported. Valid values:
           shared_ptr<bool> displaySandboxResult_ {};
+          // The remarks of the alerting event.
           shared_ptr<vector<SuspEvents::EventNotes>> eventNotes_ {};
+          // The status of the alerting event. Valid values:
           shared_ptr<int32_t> eventStatus_ {};
+          // The child class of the alerting event.
           shared_ptr<string> eventSubType_ {};
+          // Indicates whether the alerting event is associated with tracing information. Valid values:
           shared_ptr<bool> hasTraceInfo_ {};
+          // The unique identity of the alerting event.
           shared_ptr<int64_t> id_ {};
+          // The unique identity of the image.
           shared_ptr<string> imageUuid_ {};
+          // The ID of the asset instance affected by the alerting event.
           shared_ptr<string> instanceId_ {};
+          // The instance name.
           shared_ptr<string> instanceName_ {};
+          // The public IP address of the associated instance.
           shared_ptr<string> internetIp_ {};
+          // The private network IP address of the instance.
           shared_ptr<string> intranetIp_ {};
+          // The K8s cluster ID.
           shared_ptr<string> k8sClusterId_ {};
+          // The K8s cluster name.
           shared_ptr<string> k8sClusterName_ {};
+          // The K8s namespace.
           shared_ptr<string> k8sNamespace_ {};
+          // The K8s node ID.
           shared_ptr<string> k8sNodeId_ {};
+          // The K8s node name.
           shared_ptr<string> k8sNodeName_ {};
+          // The K8s pod name.
           shared_ptr<string> k8sPodName_ {};
+          // Indicates whether large model analysis label is supported. Valid values:
           shared_ptr<bool> largeModel_ {};
+          // The most recent time when the alerting event occurred.
           shared_ptr<string> lastTime_ {};
+          // The UNIX timestamp of the last occurrence, in milliseconds.
           shared_ptr<int64_t> lastTimeStamp_ {};
+          // The risk level of the alerting event. Valid values:
           shared_ptr<string> level_ {};
+          // The status of the malicious behavior defense rule. Valid values:
           shared_ptr<string> maliciousRuleStatus_ {};
+          // The collection of alerting event labels.
           shared_ptr<vector<string>> markList_ {};
+          // The advanced whitelist rules.
           shared_ptr<string> markMisRules_ {};
+          // The full name of the alerting event.
           shared_ptr<string> name_ {};
+          // The time when the alerting event first occurred.
           shared_ptr<string> occurrenceTime_ {};
+          // The UNIX timestamp of the first occurrence, in milliseconds.
           shared_ptr<int64_t> occurrenceTimeStamp_ {};
+          // The fault code of the alerting event operation.
           shared_ptr<string> operateErrorCode_ {};
+          // The remarks of the alerting event operation.
           shared_ptr<string> operateMsg_ {};
+          // The UNIX timestamp of the alerting event operation, in milliseconds.
           shared_ptr<int64_t> operateTime_ {};
+          // The required edition:
           shared_ptr<string> saleVersion_ {};
+          // The IDs of the alerting events associated with this alerting event.
           shared_ptr<string> securityEventIds_ {};
+          // The Alibaba Cloud account ID that generated the alert.
           shared_ptr<int64_t> sourceAliUid_ {};
+          // The attack stage.
           shared_ptr<string> stages_ {};
+          // The operation type supported by the alert:
           shared_ptr<string> supportOperateCode_ {};
+          // The display name of the attack stage.
           shared_ptr<vector<SuspEvents::TacticItems>> tacticItems_ {};
+          // The unique key of the security alert.
           shared_ptr<string> uniqueInfo_ {};
+          // The unique identifier of the associated instance.
           shared_ptr<string> uuid_ {};
         };
 
@@ -900,11 +966,17 @@ namespace Models
 
 
       protected:
+        // The number of tasks.
         shared_ptr<int32_t> count_ {};
+        // The current page number.
         shared_ptr<int32_t> currentPage_ {};
+        // The number of records per page.
         shared_ptr<int32_t> pageSize_ {};
+        // The request ID of Security Center.
         shared_ptr<string> requestId_ {};
+        // The security alert event information.
         shared_ptr<vector<Body::SuspEvents>> suspEvents_ {};
+        // The total number of records.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -919,6 +991,7 @@ namespace Models
 
 
     protected:
+      // The message body.
       shared_ptr<Data::Body> body_ {};
     };
 
@@ -962,10 +1035,15 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response information returned by Meta.
     shared_ptr<DescribeSuspEventsResponseBody::Data> data_ {};
+    // The returned message. If the request is successful, a success message is returned. If the request fails, the failure reason is returned.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation is successful. Valid values: true: Successful. false: Failed.
     shared_ptr<bool> success_ {};
   };
 

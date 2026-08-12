@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The public IP address.
     shared_ptr<string> ip_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

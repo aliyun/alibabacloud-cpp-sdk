@@ -148,7 +148,9 @@ namespace Models
 
 
         protected:
+          // The tag key of the rule.
           shared_ptr<string> key_ {};
+          // The tag value of the rule.
           shared_ptr<string> value_ {};
         };
 
@@ -190,7 +192,9 @@ namespace Models
 
 
         protected:
+          // The ID of the compliance package to which the rule belongs.
           shared_ptr<string> compliancePackId_ {};
+          // The compliance package name.
           shared_ptr<string> compliancePackName_ {};
         };
 
@@ -232,7 +236,13 @@ namespace Models
 
 
         protected:
+          // The compliance evaluation result of the rule. Valid values:
+          // - **COMPLIANT**: Compliant.
+          // - **NON_COMPLIANT**: Non-compliant.
+          // - **NOT_APPLICABLE**: Not applicable.
+          // - **INSUFFICIENT_DATA**: Insufficient data.
           shared_ptr<string> complianceType_ {};
+          // The number of evaluations corresponding to the summary result of the rule evaluation.
           shared_ptr<int32_t> count_ {};
         };
 
@@ -352,20 +362,49 @@ namespace Models
 
 
       protected:
+        // The ID of the account to which the rule belongs.
         shared_ptr<int64_t> accountId_ {};
+        // The remediation type. Only OOS (CloudOps Orchestration Service) is supported.
         shared_ptr<string> automationType_ {};
+        // The aggregated compliance result of the rule.
         shared_ptr<string> compliance_ {};
+        // The aggregated compliance result of the rule.
         shared_ptr<ConfigRuleList::ComplianceObject> complianceObject_ {};
+        // The ARN of the rule.
         shared_ptr<string> configRuleArn_ {};
+        // The rule ID.
         shared_ptr<string> configRuleId_ {};
+        // The rule name.
         shared_ptr<string> configRuleName_ {};
+        // The rule running status. Valid values:
+        // - **ACTIVE**: Active.
+        // - **DELETING**: Being deleted.
+        // - **EVALUATING**: Being evaluated.
+        // - **INACTIVE**: Inactive.
         shared_ptr<string> configRuleState_ {};
+        // The information about the rule creator.
         shared_ptr<ConfigRuleList::CreateBy> createBy_ {};
+        // The rule description.
         shared_ptr<string> description_ {};
+        // The resource type scope. Multiple resource types are separated by commas (,).
         shared_ptr<string> resourceTypesScope_ {};
+        // The risk level of the rule. Valid values:
+        // 
+        // - **1**: High risk.
+        // - **2**: Medium risk.
+        // - **3**: Low risk.
         shared_ptr<int32_t> riskLevel_ {};
+        // The rule identifier.
+        // 
+        // - If the rule uses a managed rule, this parameter is the managed rule name.
+        // 
+        // - If the rule uses a custom function, this parameter is the function ARN.
         shared_ptr<string> sourceIdentifier_ {};
+        // The owner of the rule source. Valid values:
+        // - **CUSTOM_FC**: Custom rule.
+        // - **ALIYUN**: Rule template.
         shared_ptr<string> sourceOwner_ {};
+        // The tags of the rule.
         shared_ptr<vector<ConfigRuleList::Tags>> tags_ {};
       };
 
@@ -402,9 +441,13 @@ namespace Models
 
 
     protected:
+      // The list of rules.
       shared_ptr<vector<Data::ConfigRuleList>> configRuleList_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of rules.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -448,10 +491,21 @@ namespace Models
 
 
   protected:
+    // The status code.
+    // 
+    // - **200**: Success.
+    // - **Other (400, 500)**: Failure.
     shared_ptr<string> code_ {};
+    // The query result.
     shared_ptr<GetSecuritySuggestionListResponseBody::Data> data_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
+    // 
+    // - **true**: The call was successful.         
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

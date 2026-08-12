@@ -75,10 +75,24 @@ namespace Models
 
 
   protected:
+    // The status code.
+    // 
+    // - **200**: Succeeded.
+    // - **Other (400, 500)**: Failed.
     shared_ptr<string> code_ {};
+    // The submission result.
+    // 
+    // - **true**: Submitted.
+    // - **false**: Submission failed.
     shared_ptr<bool> data_ {};
+    // The message content.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The call status.
+    // 
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -48,7 +48,14 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically disable the trial plan when it expires.
+    // 
+    // - **1**: Enabled.
+    // - **0**: Disabled.
+    // 
+    // Default value: 1.
     shared_ptr<int32_t> autoCloseSwitch_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

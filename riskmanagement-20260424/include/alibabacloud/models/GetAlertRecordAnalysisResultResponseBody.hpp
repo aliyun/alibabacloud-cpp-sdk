@@ -170,15 +170,31 @@ namespace Models
 
 
       protected:
+        // The unique identifier of the alert event.
         shared_ptr<string> alarmUniqueInfo_ {};
+        // The 16-digit AliUid of the user.
         shared_ptr<string> aliUid_ {};
+        // The code of the tracing result.
         shared_ptr<string> analysisCode_ {};
+        // The text of the tracing result.
         shared_ptr<string> analysisResult_ {};
+        // Indicates whether the result is liked. Valid values:
+        // 
+        // - **true**: Liked.
+        // - **false**: Not liked.
         shared_ptr<bool> chooseLike_ {};
+        // The IP address.
         shared_ptr<string> ip_ {};
+        // The instance ID of the server.
         shared_ptr<string> machineInstanceId_ {};
+        // The display mode of the exception event details. Valid values:
+        // 
+        // - **text**: plain text
+        // - **html**: rich text
         shared_ptr<string> type_ {};
+        // The unique ID of the alert event.
         shared_ptr<string> uniqueInfo_ {};
+        // The UUID of the server.
         shared_ptr<string> uuid_ {};
       };
 
@@ -201,7 +217,9 @@ namespace Models
 
 
     protected:
+      // The code of the tracing result. (Deprecated)
       shared_ptr<string> analysisCode_ {};
+      // The list of tracing results.
       shared_ptr<vector<Data::UniqueTagList>> uniqueTagList_ {};
     };
 
@@ -245,10 +263,18 @@ namespace Models
 
 
   protected:
+    // The error code returned if the call fails. For more information, see error codes.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetAlertRecordAnalysisResultResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call is successful. Valid values:
+    // 
+    // - **true**: The call is successful.                               
+    // - **false**: The call fails.
     shared_ptr<bool> success_ {};
   };
 

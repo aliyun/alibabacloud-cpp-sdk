@@ -59,6 +59,10 @@ namespace Models
 
 
     protected:
+      // The service-linked role. Default value: **AliyunServiceRoleForSas**. Valid values:
+      // 
+      // - **AliyunServiceRoleForSas**: the service-linked role for Security Center (sas). Security Center uses this role to access your resources in other Alibaba Cloud services.
+      // - **AliyunServiceRoleForSasCspm**: the service-linked role for Security Center - CSPM (sas-cspm). sas-cspm uses this role to access your resources in other Alibaba Cloud services.
       shared_ptr<string> serviceLinkedRole_ {};
     };
 
@@ -81,7 +85,9 @@ namespace Models
 
 
   protected:
+    // The ID of the region in which the instance resides.
     shared_ptr<string> regionId_ {};
+    // The Security Center SDK request.
     shared_ptr<DescribeServiceLinkedRoleStatusRequest::SdkRequest> sdkRequest_ {};
   };
 

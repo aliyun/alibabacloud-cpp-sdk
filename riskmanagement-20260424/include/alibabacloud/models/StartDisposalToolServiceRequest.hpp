@@ -38,6 +38,9 @@ namespace Models
 
 
   protected:
+    // The authorization type.
+    // 
+    // - **DisposalTool**: one-click disposal authorization type
     shared_ptr<string> authType_ {};
   };
 

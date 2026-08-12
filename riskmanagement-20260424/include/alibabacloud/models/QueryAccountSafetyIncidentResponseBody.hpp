@@ -106,8 +106,11 @@ namespace Models
 
 
       protected:
+        // The current page number.
         shared_ptr<string> current_ {};
+        // The number of assets displayed per page when you perform a paging query.
         shared_ptr<string> pageSize_ {};
+        // The total number of events.
         shared_ptr<string> total_ {};
       };
 
@@ -207,8 +210,14 @@ namespace Models
 
 
         protected:
+          // The time when the alert ended.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> alertEndTime_ {};
+          // The time when the first alert was triggered.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> alertStartTime_ {};
+          // The time of the latest detection.
+          // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> lastCheckTime_ {};
         };
 
@@ -331,21 +340,46 @@ namespace Models
 
 
       protected:
+        // The control action name code.
         shared_ptr<string> actionCode_ {};
+        // The control action name.
         shared_ptr<string> actionName_ {};
+        // The time when the control action was removed.
+        // 
+        // > Format: yyyy-MM-dd HH:mm:ss
         shared_ptr<string> antiPunishTime_ {};
+        // The control action time information.
         shared_ptr<List::DateExtras> dateExtras_ {};
+        // The event ID.
         shared_ptr<string> eventId_ {};
+        // The event impact.
         shared_ptr<string> eventImpact_ {};
+        // The control event name.
         shared_ptr<string> eventName_ {};
+        // The event reason.
         shared_ptr<string> eventReason_ {};
+        // The start time of the control action.
+        // 
+        // > Format: yyyy-MM-dd HH:mm:ss
         shared_ptr<string> punishTime_ {};
+        // The hardening suggestion.
         shared_ptr<string> reinforcement_ {};
+        // The cloud resource ID.
         shared_ptr<string> resourceId_ {};
+        // The control object type.
         shared_ptr<string> resourceType_ {};
+        // The event status. Valid values:
+        // 
+        // - **Executing**: In progress.
+        // - **Removed**: Removed.
+        // - **Alerting**: Alerting.
+        // - **Ended**: Ended.
         shared_ptr<string> status_ {};
+        // The handling suggestion.
         shared_ptr<string> tip_ {};
+        // The help topic name.
         shared_ptr<string> userGuideName_ {};
+        // The help topic URL.
         shared_ptr<string> userGuideUrl_ {};
       };
 
@@ -370,7 +404,9 @@ namespace Models
 
 
     protected:
+      // The event data.
       shared_ptr<vector<Data::List>> list_ {};
+      // The pagination information.
       shared_ptr<Data::PageInfo> pageInfo_ {};
     };
 
@@ -414,10 +450,20 @@ namespace Models
 
 
   protected:
+    // The status code.
+    // 
+    // > 200: The request was successful. Other values (such as 500 or 400): An error occurred.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<QueryAccountSafetyIncidentResponseBody::Data> data_ {};
+    // The message returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // - **true**
+    // - **false**
     shared_ptr<bool> success_ {};
   };
 

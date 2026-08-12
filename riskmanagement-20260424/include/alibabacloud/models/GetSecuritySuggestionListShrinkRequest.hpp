@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The request parameters.
     shared_ptr<string> listConfigRulesRequestShrink_ {};
   };
 

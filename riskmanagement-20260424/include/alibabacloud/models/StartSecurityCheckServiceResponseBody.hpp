@@ -66,9 +66,18 @@ namespace Models
 
 
   protected:
+    // The status code.
+    // 
+    // - **200**: Succeeded.
+    // - **Others (400, 500)**: Failed.
     shared_ptr<string> code_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call is successful.
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

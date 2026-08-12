@@ -75,7 +75,15 @@ namespace Models
 
 
     protected:
+      // Indicates whether the user clicked cancel.
+      // 
+      // - **true**: Canceled.
+      // - **false**: Not canceled.
       shared_ptr<string> userCancel_ {};
+      // Indicates whether the user clicked confirm.
+      // 
+      // - **true**: Confirmed.
+      // - **false**: Not confirmed.
       shared_ptr<string> userConfirm_ {};
     };
 
@@ -119,10 +127,23 @@ namespace Models
 
 
   protected:
+    // The status code.
+    // 
+    // - **200**: Succeeded.
+    // - **Others (400, 500)**: Failed.
     shared_ptr<string> code_ {};
+    // The metadata.
     shared_ptr<GetNotificationClickRecordResponseBody::Data> data_ {};
+    // The returned message.
+    // 
+    // > If the request was successful, a success message is returned. If the request failed, the failure reason is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
+    // 
+    // - **true**: The call was successful.         
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

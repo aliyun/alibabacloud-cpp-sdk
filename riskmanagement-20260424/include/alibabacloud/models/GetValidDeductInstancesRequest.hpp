@@ -78,8 +78,15 @@ namespace Models
 
 
     protected:
+      // The resource plan instance ID. You can call QueryResourcePackageInstances to query the ID.
       shared_ptr<string> instanceId_ {};
+      // The resource plan name code. Valid values:
+      // 
+      // - Vulnerability resource plan: **sas_vul_dp_cn**
+      // - CSPM resource plan: **sas_cspm_dp_cn**
+      // - Anti-virus Edition resource plan: **sas_viruspackage_dp_cn**
       shared_ptr<string> modules_ {};
+      // The resource plan status. Default value: valid. This parameter cannot be modified.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -102,7 +109,9 @@ namespace Models
 
 
   protected:
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The Security Center SDK request parameters.
     shared_ptr<GetValidDeductInstancesRequest::SdkRequest> sdkRequest_ {};
   };
 

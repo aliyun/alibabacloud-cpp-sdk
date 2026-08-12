@@ -69,7 +69,10 @@ namespace Models
 
 
     protected:
+      // The ID of the Alibaba Cloud account of the resource folder member accounts.
+      // >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
       shared_ptr<int64_t> resourceDirectoryAccountId_ {};
+      // The IP address of the access source.
       shared_ptr<string> sourceIp_ {};
     };
 
@@ -92,7 +95,9 @@ namespace Models
 
 
   protected:
+    // The ID of the region in which the instance resides.
     shared_ptr<string> regionId_ {};
+    // The Security Center SDK request.
     shared_ptr<DescribeVersionConfigRequest::SdkRequest> sdkRequest_ {};
   };
 

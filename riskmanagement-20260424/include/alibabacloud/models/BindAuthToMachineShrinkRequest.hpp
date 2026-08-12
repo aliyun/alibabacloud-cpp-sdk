@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The region ID of the Smart Access Gateway instance.
     shared_ptr<string> regionId_ {};
+    // The Security Center SDK request.
     shared_ptr<string> sdkRequestShrink_ {};
   };
 

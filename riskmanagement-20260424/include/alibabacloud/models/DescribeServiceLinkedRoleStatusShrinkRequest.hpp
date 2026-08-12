@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the region in which the instance resides.
     shared_ptr<string> regionId_ {};
+    // The Security Center SDK request.
     shared_ptr<string> sdkRequestShrink_ {};
   };
 

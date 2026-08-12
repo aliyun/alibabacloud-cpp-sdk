@@ -75,10 +75,20 @@ namespace Models
 
 
   protected:
+    // The status code.
+    // 
+    // - **200**: Successful.
+    // - **Others (400, 500)**: Failed.
     shared_ptr<string> code_ {};
+    // The number of pending items.
     shared_ptr<int64_t> data_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

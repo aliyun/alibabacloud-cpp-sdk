@@ -65,6 +65,7 @@ namespace Models
 
 
     protected:
+      // The Security Center request ID.
       shared_ptr<string> requestId_ {};
     };
 
@@ -108,10 +109,15 @@ namespace Models
 
 
   protected:
+    // The error code returned if the call fails. For more information, refer to error codes.
     shared_ptr<string> code_ {};
+    // The approval result.
     shared_ptr<InitSasModuleRuleResponseBody::Data> data_ {};
+    // The error message. The value is the same as the Code parameter.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call is successful. true: The call is successful. false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

@@ -38,6 +38,12 @@ namespace Models
 
 
   protected:
+    // The authorization type. Valid values:
+    // 
+    // - **SecuritySense**: security check authorization
+    // - **DisposalTool**: threat removal tool authorization
+    // - **SensePosture**: security posture authorization
+    // 
     // This parameter is required.
     shared_ptr<string> authType_ {};
   };

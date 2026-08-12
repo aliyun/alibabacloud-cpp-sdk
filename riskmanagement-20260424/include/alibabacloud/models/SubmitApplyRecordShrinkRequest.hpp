@@ -84,12 +84,30 @@ namespace Models
 
 
   protected:
+    // The request reason.
+    // 
+    // - **AR01**: Rectified. Request to unblock.
+    // - **AR02**: No violation found after investigation.
+    // - **AR03**: The instance or service has been shut down and cannot be operated. Request to unblock and then clear the violation information.
+    // - **AR04**: Files deleted. Request to unblock.
+    // - **AR05**: The instance has been released.
+    // - **AR00**: Other. Provide a description.
+    // 
     // This parameter is required.
     shared_ptr<string> applyRequest_ {};
+    // The commitment letter.
     shared_ptr<string> commitmentLetter_ {};
+    // The description of the situation.
     shared_ptr<string> description_ {};
+    // The list of specified event IDs.
     shared_ptr<string> eventIdListShrink_ {};
+    // The qualification proof.
     shared_ptr<string> qualificationProof_ {};
+    // Specifies whether manual review is required.
+    // - **true**: Manual review is required.
+    // - **false**: Manual review is not required.
+    // 
+    // > Default value: manual review is not required.
     shared_ptr<bool> trial_ {};
   };
 

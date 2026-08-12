@@ -65,6 +65,10 @@ namespace Models
 
 
     protected:
+      // The authorization status. Valid values:
+      // 
+      // - **true**: Authorized.
+      // - **false**: Not authorized.
       shared_ptr<bool> status_ {};
     };
 
@@ -108,10 +112,18 @@ namespace Models
 
 
   protected:
+    // The status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetDisposalToolStatusResponseBody::Data> data_ {};
+    // The prompt message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // 
+    // - **true**: The call was successful.                               
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

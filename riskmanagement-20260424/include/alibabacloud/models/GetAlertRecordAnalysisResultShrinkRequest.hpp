@@ -75,10 +75,18 @@ namespace Models
 
 
   protected:
+    // The unique identifier of the alert event. (Deprecated)
     shared_ptr<string> alarmUniqueInfo_ {};
+    // The language of the content. Valid values:
+    // 
+    // - **zh** (default): Chinese
+    // - **en**: English
     shared_ptr<string> aliyunLang_ {};
+    // The unique ID of the alert event. (Deprecated)
     shared_ptr<string> uniqueInfo_ {};
+    // The array of tracing requests.
     shared_ptr<string> uniqueTagListShrink_ {};
+    // The unique identifier of the asset. (Deprecated)
     shared_ptr<string> uuid_ {};
   };
 

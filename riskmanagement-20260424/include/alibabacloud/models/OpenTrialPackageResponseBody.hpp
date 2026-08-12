@@ -65,6 +65,7 @@ namespace Models
 
 
     protected:
+      // The Security Center request ID.
       shared_ptr<string> requestId_ {};
     };
 
@@ -108,10 +109,15 @@ namespace Models
 
 
   protected:
+    // The HTTP status code.
     shared_ptr<string> code_ {};
+    // The operation result.
     shared_ptr<OpenTrialPackageResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

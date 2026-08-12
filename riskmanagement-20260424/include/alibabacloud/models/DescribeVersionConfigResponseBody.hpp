@@ -508,52 +508,179 @@ namespace Models
 
 
       protected:
+        // The agentless detection quota.
+        // >Agentless detection is not available for purchase. You can ignore this field.
         shared_ptr<int64_t> agentlessCapacity_ {};
+        // Indicates whether pay-as-you-go purchase is allowed.
+        // 
+        // - **0**: Not allowed.
+        // - **1**: Allowed.
         shared_ptr<int32_t> allowPartialBuy_ {};
+        // The allocated anti-ransomware capacity. Unit: GB.
         shared_ptr<int32_t> antiRansomwareCapacity_ {};
+        // Indicates whether the anti-ransomware managed service is enabled. Valid values:
+        // - **0**: Not enabled.
+        // - **1**: Enabled.
         shared_ptr<int32_t> antiRansomwareService_ {};
+        // Indicates whether the application whitelist feature is enabled. Valid values:
+        // - **0**: Not enabled.
+        // - **2**: Enabled.
         shared_ptr<int32_t> appWhiteList_ {};
+        // The number of application whitelist authorizations.
+        // > One authorization allows you to apply an application whitelist policy to one server. After the application whitelist feature is enabled, the account has 20 authorizations by default.
         shared_ptr<int64_t> appWhiteListAuthCount_ {};
+        // The number of purchased server authorizations.
         shared_ptr<int32_t> assetLevel_ {};
+        // Indicates whether the pay-as-you-go trial plan can be activated. Valid values:
+        // - **0**: Not supported.
+        // - **1**: Supported.
         shared_ptr<int32_t> canTryPostPaidPackage_ {};
+        // The allocated Cloud Security Posture Management (CSPM) scan quota. Unit: times/month.
         shared_ptr<int64_t> cspmCapacity_ {};
+        // The highest purchased edition of Security Center. Valid values:
+        // - **1**: Free Edition.
+        // - **3**: Enterprise Edition.
+        // - **5**: Premium Edition.
+        // - **6**: Anti-virus Edition.
+        // - **7**: Ultimate Edition.
+        // - **10**: Value-added services only.
+        // > If a single edition is purchased, this value indicates the corresponding edition. If multiple editions are purchased, this value indicates the highest edition among them.
         shared_ptr<int32_t> highestVersion_ {};
+        // The allocated number of honeypot authorizations.
         shared_ptr<int64_t> honeypotCapacity_ {};
+        // The number of purchased image scan authorizations.
         shared_ptr<int64_t> imageScanCapacity_ {};
+        // The instance purchase type. Valid values:
+        // - **0**: Self-purchased.
+        // - **1**: Allocated by multi-account management.
         shared_ptr<int32_t> instanceBuyType_ {};
+        // The AI digital human analysis traffic.
         shared_ptr<int32_t> intelligentAnalysisFlow_ {};
+        // Indicates whether the instance is the new Ultimate Edition.
+        // 
+        // - **true**: The instance is the latest edition.
+        // 
+        // - **false**: The instance is not the latest edition.
         shared_ptr<bool> isNewContainerVersion_ {};
+        // Indicates whether the instance is the new multi-edition version.
+        // 
+        // - **true**: The instance is the latest multi-edition version.
+        // 
+        // - **false**: The instance is not the latest multi-edition version.
         shared_ptr<bool> isNewMultiVersion_ {};
+        // Indicates whether the number of existing servers exceeds the maximum purchased authorization quota. Valid values:
+        // - **false**: Not exceeded.
+        // - **true**: Exceeded.
+        // 
+        // >Notice: This parameter is deprecated. You can ignore it.
         shared_ptr<bool> isOverBalance_ {};
+        // Indicates whether pay-as-you-go billing is enabled. Valid values:
+        // - **false**: Not enabled.
+        // - **true**: Enabled.
         shared_ptr<bool> isPostpay_ {};
+        // Indicates whether the current Security Center edition is a trial version. Valid values:
+        // - **0**: Not a trial version.
+        // - **1**: A trial version.
         shared_ptr<int32_t> isTrialVersion_ {};
+        // The end timestamp of the last Security Center trial. Unit: milliseconds.
         shared_ptr<int64_t> lastTrailEndTime_ {};
+        // The higher protection edition when both subscription and pay-as-you-go host and container security services are enabled. Valid values:
+        // - **1**: Free Edition.
+        // - **6**: Anti-virus Edition.
+        // - **5**: Premium Edition.
+        // - **3**: Enterprise Edition.
+        // - **7**: Ultimate Edition.
         shared_ptr<int32_t> mergedVersion_ {};
+        // The multi-edition version numbers and authorization usage.
         shared_ptr<string> multiVersion_ {};
+        // The total number of authorizations when multiple editions are purchased.
         shared_ptr<int32_t> mvAuthCount_ {};
+        // The total number of remaining authorizations when multiple editions are purchased.
         shared_ptr<int32_t> mvUnusedAuthCount_ {};
+        // Indicates whether the new version of Cloud Threat Detection and Response (CTDR) is enabled. The new version supports purchasing access traffic and log storage capacity for Cloud Threat Detection and Response (CTDR). Valid values:
+        // - **0**: No.
+        // - **1**: Yes.
         shared_ptr<int32_t> newThreatAnalysis_ {};
+        // The AI digital human managed instances.
         shared_ptr<int32_t> onboardedAssets_ {};
+        // The timestamp when the service was activated. Unit: milliseconds.
         shared_ptr<int64_t> openTime_ {};
+        // The highest protection edition for bound assets when the pay-as-you-go host and container security service is enabled. Valid values:
+        // - **1**: Free Edition.
+        // - **3**: Enterprise Edition.
+        // - **5**: Premium Edition.
+        // - **6**: Anti-virus Edition.
+        // - **7**: Ultimate Edition.
         shared_ptr<int32_t> postPayHostVersion_ {};
+        // The pay-as-you-go instance ID.
         shared_ptr<string> postPayInstanceId_ {};
+        // The switch status of pay-as-you-go modules in JSON string format. Valid values:
+        // - Key:
+        //   - **VUL**: Vulnerability fix module.
+        //   - **CSPM**: Cloud Security Posture Management module.
+        //   - **AGENTLESS**: Agentless detection module.
+        //   - **SERVERLESS**: Serverless security module.
+        //   - **CTDR**: Threat detection and response module.
+        //   - **POST_HOST**: Host and container security module.
+        //   - **SDK**: Malicious file detection SDK module.
+        //   - **RASP**: Application protection module.
+        // - Value: 0 indicates disabled. 1 indicates enabled.
         shared_ptr<string> postPayModuleSwitch_ {};
+        // The time when pay-as-you-go billing was activated.
         shared_ptr<int64_t> postPayOpenTime_ {};
+        // The instance status of the pay-as-you-go instance. Valid values:
+        // - **1**: Normal.
+        // - **2**: Suspended due to overdue payment.
         shared_ptr<int32_t> postPayStatus_ {};
+        // The number of purchased application protection quotas. Unit: count/month.
         shared_ptr<int64_t> raspCapacity_ {};
+        // The UNIX timestamp that indicates when the Security Center instance expires. Unit: milliseconds.
+        // 
+        // > If you do not perform renewal within 7 days after the instance expires, your paid edition instance is downgraded to Free Edition. You can no longer use the features of the paid edition, and your previous Security Center configuration data and historical alerting data (such as DDoS alerts) become inaccessible. In this case, you must repurchase Security Center to re-enable the paid edition. For more information, refer to the Security Center purchase documentation.
         shared_ptr<int64_t> releaseTime_ {};
+        // The request ID of Security Center.
         shared_ptr<string> requestId_ {};
+        // Indicates whether log analysis has been purchased. Valid values:
+        // - **0**: Not purchased.
+        // - **1**: Purchased.
         shared_ptr<int32_t> sasLog_ {};
+        // Indicates whether the security dashboard has been purchased. Valid values:
+        // - **0**: Not purchased.
+        // - **1**: Purchased.
         shared_ptr<int32_t> sasScreen_ {};
+        // The number of malicious file detection SDK authorizations.
         shared_ptr<int64_t> sdkCapacity_ {};
+        // The purchased log storage capacity. Unit: GB. Value range: 0 to 200000.
         shared_ptr<int64_t> slsCapacity_ {};
+        // The purchased threat analysis capacity. Unit: GB.
         shared_ptr<int64_t> threatAnalysisCapacity_ {};
+        // The purchased threat detection and response log access traffic. Unit: GB/day.
         shared_ptr<int32_t> threatAnalysisFlow_ {};
+        // Indicates whether the custom alert feature is enabled. Valid values:
+        // 
+        // - **0**: Not enabled.
+        // - **2**: Enabled.
         shared_ptr<int32_t> userDefinedAlarms_ {};
+        // The purchased edition of Security Center. Valid values:
+        // 
+        // - **1**: Free Edition.
+        // - **3**: Enterprise Edition.
+        // - **5**: Premium Edition.
+        // - **6**: Anti-virus Edition.
+        // - **7**: Ultimate Edition.
+        // - **8**: Multi-edition.
+        // - **10**: Value-added services only.
         shared_ptr<int32_t> version_ {};
+        // The number of purchased authorized cores.
         shared_ptr<int32_t> vmCores_ {};
+        // The number of purchased vulnerability fix quotas. Unit: times/month.
         shared_ptr<int64_t> vulFixCapacity_ {};
+        // Indicates whether the web tamper proofing service is enabled. Valid values:
+        // - **0**: Not enabled.
+        // - **1**: Enabled.
         shared_ptr<int32_t> webLock_ {};
+        // The number of purchased web tamper proofing authorizations. One authorization enables web tamper proofing protection for one server. Value range: 0 to N.
+        // > N is the number of servers that you own.
         shared_ptr<int64_t> webLockAuthCount_ {};
       };
 
@@ -568,6 +695,7 @@ namespace Models
 
 
     protected:
+      // The message body content encoded by the Base64 algorithm.
       shared_ptr<Data::Body> body_ {};
     };
 
@@ -611,10 +739,15 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<DescribeVersionConfigResponseBody::Data> data_ {};
+    // The response message. A success message is returned if the request succeeds. An error message is returned if the request fails.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation is successful. Valid values: true: The operation is successful. false: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

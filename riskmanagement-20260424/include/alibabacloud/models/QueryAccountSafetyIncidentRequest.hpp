@@ -112,14 +112,35 @@ namespace Models
 
 
   protected:
+    // The language. Default value: zh.
+    // 
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> aliyunLang_ {};
+    // The event name code.
     shared_ptr<string> caseCode_ {};
+    // The current page number. The value must be greater than 0.
     shared_ptr<string> current_ {};
+    // The event ID.
     shared_ptr<string> eventId_ {};
+    // The number of records per page. Valid values: 1 to 100.
     shared_ptr<string> pageSize_ {};
+    // The end time of the control action.
+    // 
+    // > Format: yyyy-MM-dd HH:mm:ss
     shared_ptr<string> punishEndTime_ {};
+    // The start time of the control action.
+    // 
+    // > Format: yyyy-MM-dd HH:mm:ss
     shared_ptr<string> punishStartTime_ {};
+    // The resource ID.
     shared_ptr<string> resourceId_ {};
+    // The event status. Valid values:
+    // 
+    // - **Executing**: In progress.
+    // - **Removed**: Removed.
+    // - **Alerting**: Alerting.
+    // - **Ended**: Ended.
     shared_ptr<string> status_ {};
   };
 

@@ -106,8 +106,21 @@ namespace Models
 
 
       protected:
+        // Specifies whether to bind all assets. Default value: **false**. Valid values:
+        // 
+        // - **true**: Yes.
+        // - **false**: No.
         shared_ptr<bool> bindAll_ {};
+        // The list of specified server UUIDs.
+        // > Number of items <= 1000. Number of items >= 0.
         shared_ptr<vector<string>> uuidList_ {};
+        // The Security Center protection edition to bind. Valid values:
+        // 
+        // - **1**: Free Edition.
+        // - **3**: Enterprise Edition.
+        // - **5**: Advanced Edition.
+        // - **6**: Anti-virus Edition.
+        // - **7**: Ultimate Edition.
         shared_ptr<string> version_ {};
       };
 
@@ -144,9 +157,21 @@ namespace Models
 
 
     protected:
+      // Specifies whether to automatically bind newly added assets. Valid values:
+      // 
+      // - **0**: Disabled.
+      // - **1**: Enabled.
       shared_ptr<int32_t> autoBind_ {};
+      // The edition to automatically bind when new assets are added. Valid values:
+      // - **1**: Free Edition. 
+      // - **3**: Enterprise Edition.
+      // - **5**: Advanced Edition.
+      // - **6**: Anti-virus Edition.    
+      // - **7**: Ultimate Edition.
       shared_ptr<int32_t> autoBindVersion_ {};
+      // The list of binding action parameters.
       shared_ptr<vector<SdkRequest::BindAction>> bindAction_ {};
+      // Specifies whether to forcibly upgrade the edition.
       shared_ptr<bool> updateIfNecessary_ {};
     };
 
@@ -169,7 +194,9 @@ namespace Models
 
 
   protected:
+    // The region ID of the instance.
     shared_ptr<string> regionId_ {};
+    // The Security Center SDK request parameters.
     shared_ptr<UpdatePostPaidBindRelRequest::SdkRequest> sdkRequest_ {};
   };
 

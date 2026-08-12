@@ -106,8 +106,11 @@ namespace Models
 
 
       protected:
+        // The current page number.
         shared_ptr<int32_t> current_ {};
+        // The number of records per page.
         shared_ptr<int32_t> pageSize_ {};
+        // The total number of events.
         shared_ptr<int32_t> total_ {};
       };
 
@@ -415,36 +418,67 @@ namespace Models
 
 
       protected:
+        // The action code.
         shared_ptr<string> actionCode_ {};
+        // The action name.
         shared_ptr<string> actionName_ {};
+        // The time when the alert ended.
         shared_ptr<string> alertEndTime_ {};
+        // The time when the first alert was triggered.
         shared_ptr<string> alertStartTime_ {};
+        // The time when the control action was released.
         shared_ptr<string> antiPunishTime_ {};
+        // The number of unblock application records.
         shared_ptr<int32_t> applyRecordCount_ {};
+        // The application status.
         shared_ptr<string> applyStatus_ {};
+        // Indicates whether the unblock application is processed through the review platform.
         shared_ptr<bool> applyTrial_ {};
+        // The product type name.
         shared_ptr<string> businessName_ {};
+        // The event name code.
         shared_ptr<string> caseCode_ {};
+        // The controlled domain name.
         shared_ptr<string> domain_ {};
+        // The event ID.
         shared_ptr<string> eventId_ {};
+        // The event name.
         shared_ptr<string> eventName_ {};
+        // The extended information about the penalty.
         shared_ptr<string> extras_ {};
+        // The event type.
         shared_ptr<string> formType_ {};
+        // The latest time.
         shared_ptr<string> gmtLatest_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The controlled IP address.
         shared_ptr<string> ip_ {};
+        // The latest detection time.
         shared_ptr<string> lastCheckTime_ {};
+        // The estimated shutdown time.
         shared_ptr<string> preCloseTime_ {};
+        // The source of the penalty.
         shared_ptr<string> punishFrom_ {};
+        // The time when the control action was applied.
         shared_ptr<string> punishTime_ {};
+        // The event reason.
         shared_ptr<string> reason_ {};
+        // The region information.
         shared_ptr<string> region_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
+        // The security hardening suggestion.
         shared_ptr<string> reinforcement_ {};
+        // The task status.
         shared_ptr<string> status_ {};
+        // Indicates whether batch unblock applications are supported.
         shared_ptr<bool> supportBatchApply_ {};
+        // Indicates whether a single unblock application is supported.
         shared_ptr<bool> supportSingleApply_ {};
+        // The trigger type.
         shared_ptr<string> triggerType_ {};
+        // The controlled URL.
         shared_ptr<string> url_ {};
       };
 
@@ -469,7 +503,9 @@ namespace Models
 
 
     protected:
+      // The event list data.
       shared_ptr<vector<Data::List>> list_ {};
+      // The pagination information.
       shared_ptr<Data::PageInfo> pageInfo_ {};
     };
 
@@ -513,10 +549,15 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The metadata returned.
     shared_ptr<QueryResourceControlEventsResponseBody::Data> data_ {};
+    // The description.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

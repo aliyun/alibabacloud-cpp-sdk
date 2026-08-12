@@ -175,14 +175,32 @@ namespace Models
 
 
       protected:
+        // The Alibaba Cloud account ID.
         shared_ptr<int64_t> aliUid_ {};
+        // Indicates whether the contact is bound.
+        // 
+        // - **true**
+        // - **fasle**
         shared_ptr<bool> bindContact_ {};
+        // The contact email address.
         shared_ptr<string> contactEmail_ {};
+        // The Account Center contact ID. A value of 0 indicates the account contact.
         shared_ptr<int64_t> contactId_ {};
+        // The Account Center contact mobile number (masked).
         shared_ptr<string> contactMobile_ {};
+        // The Account Center contact name.
         shared_ptr<string> contactName_ {};
+        // Indicates whether the email address is verified.
+        // 
+        // - **true**
+        // - **false**
         shared_ptr<bool> emailConfirmed_ {};
+        // Indicates whether the Account Center contact mobile number is verified.
+        // 
+        // - **true**
+        // - **false**
         shared_ptr<bool> mobileConfirmed_ {};
+        // The Account Center contact position.
         shared_ptr<string> position_ {};
       };
 
@@ -251,10 +269,24 @@ namespace Models
 
 
       protected:
+        // The channel type.
         shared_ptr<string> channelType_ {};
+        // Indicates whether the subscription is configured.
+        // 
+        // - **NO**
+        // - **YES**
         shared_ptr<string> checkedState_ {};
+        // Indicates whether the channel is selected by default.
+        // 
+        // - **NO**
+        // - **YES**
         shared_ptr<string> defaultChecked_ {};
+        // The fatigue limit.
         shared_ptr<int32_t> fatigueDayLimit_ {};
+        // Indicates whether the channel is modifiable.
+        // 
+        // - **NO**
+        // - **YES**
         shared_ptr<string> optional_ {};
       };
 
@@ -329,14 +361,26 @@ namespace Models
 
 
     protected:
+      // The Alibaba Cloud account ID.
       shared_ptr<int64_t> aliUid_ {};
+      // The message category code.
       shared_ptr<string> categoryCode_ {};
+      // The message category description.
       shared_ptr<string> categoryDesc_ {};
+      // The category group code.
       shared_ptr<string> categoryGroupCode_ {};
+      // The category group name.
       shared_ptr<string> categoryGroupName_ {};
+      // The message category name.
       shared_ptr<string> categoryName_ {};
+      // The channel list.
       shared_ptr<vector<Data::ChannelConfigs>> channelConfigs_ {};
+      // Indicates whether all notification methods are selected.
+      // 
+      // - **true**
+      // - **false**
       shared_ptr<bool> chooseAllChannel_ {};
+      // The general contact list.
       shared_ptr<vector<Data::ContactInfoList>> contactInfoList_ {};
     };
 
@@ -380,10 +424,21 @@ namespace Models
 
 
   protected:
+    // The status code.
+    // 
+    // - **200**: Success.
+    // - **Other (400, 500)**: Failure.
     shared_ptr<string> code_ {};
+    // The query result.
     shared_ptr<vector<GetNotificationContactsResponseBody::Data>> data_ {};
+    // The prompt message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation is successful.
+    // 
+    // - **true**: Success.
+    // - **false**: Failure.
     shared_ptr<bool> success_ {};
   };
 

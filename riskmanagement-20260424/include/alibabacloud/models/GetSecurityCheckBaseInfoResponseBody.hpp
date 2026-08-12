@@ -75,7 +75,15 @@ namespace Models
 
 
     protected:
+      // Indicates whether the security check is enabled.
+      // 
+      // - **true**: Enabled.
+      // - **false**: Disabled.
       shared_ptr<bool> enabled_ {};
+      // Indicates whether the security check is completed.
+      // 
+      // - **true**: Completed.
+      // - **false**: Not completed.
       shared_ptr<bool> taskCompleted_ {};
     };
 
@@ -119,10 +127,19 @@ namespace Models
 
 
   protected:
+    // The status code.
+    // 
+    // >  200: Success. Other codes (500, 400, etc.): Error codes.
     shared_ptr<string> code_ {};
+    // The query result.
     shared_ptr<GetSecurityCheckBaseInfoResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

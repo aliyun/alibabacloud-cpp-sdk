@@ -103,8 +103,11 @@ namespace Models
 
 
       protected:
+        // The number of servers that are successfully bound.
         shared_ptr<int64_t> bindCount_ {};
+        // Id of the request
         shared_ptr<string> requestId_ {};
+        // The result code.
         shared_ptr<int32_t> resultCode_ {};
       };
 
@@ -119,6 +122,7 @@ namespace Models
 
 
     protected:
+      // The message body.
       shared_ptr<Data::Body> body_ {};
     };
 
@@ -162,10 +166,15 @@ namespace Models
 
 
   protected:
+    // The error code returned if the call fails. For more information, see error codes.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<UpdatePostPaidBindRelResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call is successful. Valid values: true: The call is successful. false: The call fails.
     shared_ptr<bool> success_ {};
   };
 

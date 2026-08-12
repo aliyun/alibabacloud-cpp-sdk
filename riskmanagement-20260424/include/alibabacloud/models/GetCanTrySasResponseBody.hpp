@@ -127,8 +127,16 @@ namespace Models
 
 
         protected:
+          // Indicates whether the user is eligible for a free trial. Valid values:
+          // - **1**: Eligible.
+          // - **0**: Not eligible.
           shared_ptr<int32_t> canTry_ {};
+          // The list of editions available for trial.
           shared_ptr<vector<int32_t>> canTryVersions_ {};
+          // The trial type. Valid values:
+          // - **0**: Trial is not allowed.
+          // - **1**: First trial.
+          // - **2**: Second trial.
           shared_ptr<int32_t> tryType_ {};
         };
 
@@ -151,7 +159,9 @@ namespace Models
 
 
       protected:
+        // The data.
         shared_ptr<Body::Data> data_ {};
+        // Id of the request
         shared_ptr<string> requestId_ {};
       };
 
@@ -166,6 +176,7 @@ namespace Models
 
 
     protected:
+      // The message body.
       shared_ptr<Data::Body> body_ {};
     };
 
@@ -209,10 +220,18 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The detailed information.
     shared_ptr<GetCanTrySasResponseBody::Data> data_ {};
+    // The message. The value is the same as the Code parameter value.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the current API call is successful. This does not indicate whether subsequent business operations are successful.
+    // 
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

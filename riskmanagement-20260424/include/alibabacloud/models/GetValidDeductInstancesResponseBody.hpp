@@ -192,13 +192,28 @@ namespace Models
 
 
           protected:
+            // The number of authorizations consumed in the current metering cycle.
             shared_ptr<int64_t> currentPeriodUsed_ {};
+            // The end time.
             shared_ptr<int64_t> endTime_ {};
+            // The total capacity of the resource plan.
             shared_ptr<double> initCapacity_ {};
+            // The resource plan instance ID.
             shared_ptr<string> instanceId_ {};
+            // The module code. Valid values:
+            // 
+            // - **POST_HOST**: Host and container protection.
+            // - **CSPM**: Cloud product configuration check.
+            // - **VUL**: Vulnerability scanning.
             shared_ptr<string> module_ {};
+            // The number of authorizations consumed up to the previous billing cycle.
             shared_ptr<double> periodCapacity_ {};
+            // The start timestamp, in milliseconds.
             shared_ptr<int64_t> startTime_ {};
+            // The resource plan status. Valid values:
+            // 
+            // - **valid**: Valid.
+            // - **invalid**: Invalid.
             shared_ptr<string> status_ {};
           };
 
@@ -221,7 +236,11 @@ namespace Models
 
 
         protected:
+          // Indicates whether the account is eligible for a trial. Valid values:
+          // - **true**: Eligible.
+          // - **false**: Not eligible.
           shared_ptr<bool> canTry_ {};
+          // The resource plan usage details.
           shared_ptr<vector<Data::DeductPackageList>> deductPackageList_ {};
         };
 
@@ -244,7 +263,9 @@ namespace Models
 
 
       protected:
+        // The data body.
         shared_ptr<Body::Data> data_ {};
+        // The Security Center request ID.
         shared_ptr<string> requestId_ {};
       };
 
@@ -259,6 +280,7 @@ namespace Models
 
 
     protected:
+      // The message body.
       shared_ptr<Data::Body> body_ {};
     };
 
@@ -302,10 +324,18 @@ namespace Models
 
 
   protected:
+    // The return code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The returned data list.
     shared_ptr<GetValidDeductInstancesResponseBody::Data> data_ {};
+    // The return message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the current API call itself is successful. This does not indicate the success of subsequent business operations.
+    // 
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

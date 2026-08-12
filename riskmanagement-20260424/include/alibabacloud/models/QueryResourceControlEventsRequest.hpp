@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ActionCodes, actionCodes_);
       DARABONBA_PTR_TO_JSON(AliyunLang, aliyunLang_);
       DARABONBA_PTR_TO_JSON(BusinessCode, businessCode_);
+      DARABONBA_PTR_TO_JSON(BusinessCodes, businessCodes_);
       DARABONBA_PTR_TO_JSON(CaseCodesPrefix, caseCodesPrefix_);
       DARABONBA_PTR_TO_JSON(Current, current_);
       DARABONBA_PTR_TO_JSON(Domain, domain_);
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ActionCodes, actionCodes_);
       DARABONBA_PTR_FROM_JSON(AliyunLang, aliyunLang_);
       DARABONBA_PTR_FROM_JSON(BusinessCode, businessCode_);
+      DARABONBA_PTR_FROM_JSON(BusinessCodes, businessCodes_);
       DARABONBA_PTR_FROM_JSON(CaseCodesPrefix, caseCodesPrefix_);
       DARABONBA_PTR_FROM_JSON(Current, current_);
       DARABONBA_PTR_FROM_JSON(Domain, domain_);
@@ -79,11 +81,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionCode_ == nullptr
-        && this->actionCodes_ == nullptr && this->aliyunLang_ == nullptr && this->businessCode_ == nullptr && this->caseCodesPrefix_ == nullptr && this->current_ == nullptr
-        && this->domain_ == nullptr && this->eventCode_ == nullptr && this->eventCodes_ == nullptr && this->eventId_ == nullptr && this->eventIdList_ == nullptr
-        && this->excludeActionCodes_ == nullptr && this->excludeEventCodes_ == nullptr && this->excludeReasons_ == nullptr && this->includeReasons_ == nullptr && this->instanceId_ == nullptr
-        && this->ip_ == nullptr && this->pageSize_ == nullptr && this->punishEndTime_ == nullptr && this->punishStartTime_ == nullptr && this->reason_ == nullptr
-        && this->sourceCodes_ == nullptr && this->status_ == nullptr && this->statusList_ == nullptr && this->url_ == nullptr; };
+        && this->actionCodes_ == nullptr && this->aliyunLang_ == nullptr && this->businessCode_ == nullptr && this->businessCodes_ == nullptr && this->caseCodesPrefix_ == nullptr
+        && this->current_ == nullptr && this->domain_ == nullptr && this->eventCode_ == nullptr && this->eventCodes_ == nullptr && this->eventId_ == nullptr
+        && this->eventIdList_ == nullptr && this->excludeActionCodes_ == nullptr && this->excludeEventCodes_ == nullptr && this->excludeReasons_ == nullptr && this->includeReasons_ == nullptr
+        && this->instanceId_ == nullptr && this->ip_ == nullptr && this->pageSize_ == nullptr && this->punishEndTime_ == nullptr && this->punishStartTime_ == nullptr
+        && this->reason_ == nullptr && this->sourceCodes_ == nullptr && this->status_ == nullptr && this->statusList_ == nullptr && this->url_ == nullptr; };
     // actionCode Field Functions 
     bool hasActionCode() const { return this->actionCode_ != nullptr;};
     void deleteActionCode() { this->actionCode_ = nullptr;};
@@ -112,6 +114,15 @@ namespace Models
     void deleteBusinessCode() { this->businessCode_ = nullptr;};
     inline string getBusinessCode() const { DARABONBA_PTR_GET_DEFAULT(businessCode_, "") };
     inline QueryResourceControlEventsRequest& setBusinessCode(string businessCode) { DARABONBA_PTR_SET_VALUE(businessCode_, businessCode) };
+
+
+    // businessCodes Field Functions 
+    bool hasBusinessCodes() const { return this->businessCodes_ != nullptr;};
+    void deleteBusinessCodes() { this->businessCodes_ = nullptr;};
+    inline const vector<string> & getBusinessCodes() const { DARABONBA_PTR_GET_CONST(businessCodes_, vector<string>) };
+    inline vector<string> getBusinessCodes() { DARABONBA_PTR_GET(businessCodes_, vector<string>) };
+    inline QueryResourceControlEventsRequest& setBusinessCodes(const vector<string> & businessCodes) { DARABONBA_PTR_SET_VALUE(businessCodes_, businessCodes) };
+    inline QueryResourceControlEventsRequest& setBusinessCodes(vector<string> && businessCodes) { DARABONBA_PTR_SET_RVALUE(businessCodes_, businessCodes) };
 
 
     // caseCodesPrefix Field Functions 
@@ -280,30 +291,56 @@ namespace Models
 
 
   protected:
+    // The action name code.
     shared_ptr<string> actionCode_ {};
+    // The collection of control action name codes.
     shared_ptr<vector<string>> actionCodes_ {};
+    // The internationalization language.
     shared_ptr<string> aliyunLang_ {};
+    // The product.
     shared_ptr<string> businessCode_ {};
+    shared_ptr<vector<string>> businessCodes_ {};
+    // The collection of event name code prefixes.
     shared_ptr<vector<string>> caseCodesPrefix_ {};
+    // The current page number.
     shared_ptr<int32_t> current_ {};
+    // The domain name.
     shared_ptr<string> domain_ {};
+    // The event name code.
     shared_ptr<string> eventCode_ {};
+    // The collection of event name codes.
     shared_ptr<vector<string>> eventCodes_ {};
+    // The event ID.
     shared_ptr<string> eventId_ {};
+    // The collection of event IDs.
     shared_ptr<vector<string>> eventIdList_ {};
+    // The collection of excluded control action name codes.
     shared_ptr<vector<string>> excludeActionCodes_ {};
+    // The collection of excluded event name codes.
     shared_ptr<vector<string>> excludeEventCodes_ {};
+    // The collection of excluded event reasons.
     shared_ptr<vector<string>> excludeReasons_ {};
+    // The collection of included event reasons.
     shared_ptr<vector<string>> includeReasons_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // IP
     shared_ptr<string> ip_ {};
+    // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The penalty end time.
     shared_ptr<string> punishEndTime_ {};
+    // The penalty start time.
     shared_ptr<string> punishStartTime_ {};
+    // The event reason.
     shared_ptr<string> reason_ {};
+    // The collection of event source codes.
     shared_ptr<vector<string>> sourceCodes_ {};
+    // The task status.
     shared_ptr<string> status_ {};
+    // The collection of task statuses.
     shared_ptr<vector<string>> statusList_ {};
+    // The control URL.
     shared_ptr<string> url_ {};
   };
 

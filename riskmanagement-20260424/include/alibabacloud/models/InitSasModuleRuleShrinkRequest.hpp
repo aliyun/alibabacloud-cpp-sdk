@@ -66,9 +66,16 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable automatic binding. Valid values:
+    // 
+    // - **0**: Disabled.
+    // - **1**: Enabled.
     shared_ptr<int32_t> autoBind_ {};
+    // The list of instances.
     shared_ptr<string> instancesShrink_ {};
+    // Specifies whether to use the trial version.
     shared_ptr<bool> isTrial_ {};
+    // The region ID of the access control instance.
     shared_ptr<string> regionId_ {};
   };
 

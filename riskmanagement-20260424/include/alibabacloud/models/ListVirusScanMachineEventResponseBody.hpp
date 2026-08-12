@@ -129,8 +129,11 @@ namespace Models
 
 
         protected:
+          // The page number of the current page in a paged query.
           shared_ptr<int32_t> currentPage_ {};
+          // The maximum number of entries displayed per page in a paged query.
           shared_ptr<int32_t> pageSize_ {};
+          // The total number of alert events returned.
           shared_ptr<int32_t> totalCount_ {};
         };
 
@@ -223,9 +226,13 @@ namespace Models
 
 
           protected:
+            // The display type of valueDisplay. Valid values:
             shared_ptr<string> infoType_ {};
+            // The display name of the alert event.
             shared_ptr<string> nameDisplay_ {};
+            // The display method of the anomalous event details.
             shared_ptr<string> type_ {};
+            // The additional attribute information of the anomalous event, such as the logon time or logon location for abnormal logon alerts, or the trojan file path or trojan type for trojan alerts.
             shared_ptr<string> valueDisplay_ {};
           };
 
@@ -291,13 +298,21 @@ namespace Models
 
 
         protected:
+          // The details of the anomalous event.
           shared_ptr<vector<Data::Details>> details_ {};
+          // The ID of the alert event.
           shared_ptr<int64_t> eventId_ {};
+          // The name (subtype) of the alert event.
           shared_ptr<string> eventName_ {};
+          // The instance name.
           shared_ptr<string> instanceName_ {};
+          // The public IP address.
           shared_ptr<string> internetIp_ {};
+          // The private IP address.
           shared_ptr<string> intranetIp_ {};
+          // The timestamp of the last occurrence, in milliseconds.
           shared_ptr<int64_t> lastTimeStamp_ {};
+          // The risk level of the alert event. Valid values:
           shared_ptr<string> level_ {};
         };
 
@@ -322,7 +337,9 @@ namespace Models
 
 
       protected:
+        // The details of the alert events.
         shared_ptr<vector<VirusScanMachineEventList::Data>> data_ {};
+        // The pagination information.
         shared_ptr<VirusScanMachineEventList::PageInfo> pageInfo_ {};
       };
 
@@ -476,19 +493,33 @@ namespace Models
 
 
       protected:
+        // The number of machines that completed scanning.
         shared_ptr<int32_t> completeMachine_ {};
+        // The server machine name.
         shared_ptr<string> machineName_ {};
+        // The percentage of the scan task progress.
         shared_ptr<string> progress_ {};
+        // The highest risk level of the detected alerts. Valid values:
         shared_ptr<string> riskLevel_ {};
+        // The number of machines on which no risks were detected.
         shared_ptr<int32_t> safeMachine_ {};
+        // The number of machines scanned in this virus scan.
         shared_ptr<int32_t> scanMachine_ {};
+        // The file paths specified for scanning when the user-defined scan type is used.
         shared_ptr<vector<string>> scanPath_ {};
+        // The scan timestamp, in milliseconds.
         shared_ptr<int64_t> scanTime_ {};
+        // The scan type of this virus scan. Valid values:
         shared_ptr<string> scanType_ {};
+        // The status of the scan task.
         shared_ptr<int32_t> status_ {};
+        // The number of security alerts detected during the scan.
         shared_ptr<int32_t> suspiciousCount_ {};
+        // The number of machines on which risks were detected.
         shared_ptr<int32_t> suspiciousMachine_ {};
+        // The ID of the scan task.
         shared_ptr<string> taskId_ {};
+        // The number of machines that did not complete scanning or failed during scanning.
         shared_ptr<int32_t> unCompleteMachine_ {};
       };
 
@@ -520,8 +551,11 @@ namespace Models
 
 
     protected:
+      // The request ID.
       shared_ptr<string> requestId_ {};
+      // The information about the latest virus scan task.
       shared_ptr<Data::VirusScanLatestTaskStatistic> virusScanLatestTaskStatistic_ {};
+      // The virus alerts detected on specific machines during virus scanning.
       shared_ptr<Data::VirusScanMachineEventList> virusScanMachineEventList_ {};
     };
 
@@ -565,10 +599,17 @@ namespace Models
 
 
   protected:
+    // code
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<ListVirusScanMachineEventResponseBody::Data> data_ {};
+    // The message information.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

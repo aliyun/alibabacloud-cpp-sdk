@@ -161,17 +161,29 @@ namespace Models
 
 
     protected:
+      // The search conditions for assets. This parameter is in JSON format. Note that the parameter names are case-sensitive.
       shared_ptr<string> criteria_ {};
+      // The current page number.
       shared_ptr<int32_t> currentPage_ {};
+      // The asset vendor. Separate multiple asset vendors with commas (,). Valid values:
       shared_ptr<string> flags_ {};
+      // The importance level of the asset. Valid values:
       shared_ptr<int32_t> importance_ {};
+      // The language of the response. Valid values:
       shared_ptr<string> lang_ {};
+      // The logical relationship between multiple search conditions. Valid values:
       shared_ptr<string> logicalExp_ {};
+      // The type of asset to query. Valid values:
       shared_ptr<string> machineTypes_ {};
+      // The pagination token used to retrieve the next page of results. If no more results are available, this field is not returned.
       shared_ptr<string> nextToken_ {};
+      // Specifies whether to internationalize the default group name **Ungrouped**. Default value: **false**. Valid values:
       shared_ptr<bool> noGroupTrace_ {};
+      // The number of assets to display per page in a paged query. Default value: 20, which indicates that 20 asset records are displayed per page.
       shared_ptr<string> pageSize_ {};
+      // The ID of the member accounts in the resource folder.
       shared_ptr<string> resourceDirectoryAccountId_ {};
+      // Specifies whether to use the NextToken method to retrieve the vulnerability list data. If this parameter is used, TotalCount is no longer returned. Valid values:
       shared_ptr<bool> useNextToken_ {};
     };
 
@@ -194,7 +206,9 @@ namespace Models
 
 
   protected:
+    // The ID of the region in which the instance resides.
     shared_ptr<string> regionId_ {};
+    // The Security Center SDK request.
     shared_ptr<DescribeCloudCenterInstancesRequest::SdkRequest> sdkRequest_ {};
   };
 

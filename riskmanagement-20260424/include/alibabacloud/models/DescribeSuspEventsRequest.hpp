@@ -390,41 +390,77 @@ namespace Models
 
 
     protected:
+      // The unique ID of the alert event.
       shared_ptr<string> alarmUniqueInfo_ {};
+      // The list of asset types.
       shared_ptr<vector<string>> assetsTypeList_ {};
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
+      // The container search field. Valid values:
       shared_ptr<string> containerFieldName_ {};
+      // The value of the container search field.
       shared_ptr<string> containerFieldValue_ {};
+      // The current page number.
       shared_ptr<string> currentPage_ {};
+      // The status of the alert event.
       shared_ptr<string> dealed_ {};
+      // The detection source. This is an invalid field.
       shared_ptr<string> detectSource_ {};
+      // The subtypes of the alert event. Separate multiple subtypes with commas (,).
       shared_ptr<string> eventNames_ {};
+      // The request source identifier. Set the value to **sas**.
       shared_ptr<string> from_ {};
+      // The tag group ID.
       shared_ptr<int64_t> groupId_ {};
+      // The unique ID that identifies the alert event record.
       shared_ptr<int64_t> id_ {};
+      // The language type of the response. Valid values:
       shared_ptr<string> lang_ {};
+      // The severity levels of the alert event. Separate multiple levels with commas (in descending order of severity).
       shared_ptr<string> levels_ {};
+      // The multi-account query type. Default value: **0**. Valid values:
       shared_ptr<int32_t> multiAccountActionType_ {};
+      // The name of the asset affected by the alert event.
       shared_ptr<string> name_ {};
+      // The list of alert event handling result codes.
       shared_ptr<vector<string>> operateErrorCodeList_ {};
+      // The end timestamp of the handling time.
       shared_ptr<string> operateTimeEnd_ {};
+      // The start timestamp of the handling time.
       shared_ptr<string> operateTimeStart_ {};
+      // The maximum number of entries per page in a paged query.
       shared_ptr<string> pageSize_ {};
+      // The Alarm Metric of the alerting events to query. Valid values:
       shared_ptr<string> parentEventTypes_ {};
+      // The alert name or asset information to query.
       shared_ptr<string> remark_ {};
+      // The Alibaba Cloud account ID of the member accounts in the resource folder.
       shared_ptr<int64_t> resourceDirectoryAccountId_ {};
+      // The custom sort field. Default value: **operateTime**. Valid values:
       shared_ptr<string> sortColumn_ {};
+      // The sort order based on certificate expiration time.
       shared_ptr<string> sortType_ {};
+      // The alert source.
       shared_ptr<string> source_ {};
+      // The list of Alibaba Cloud account IDs that generated the alerts.
       shared_ptr<vector<int64_t>> sourceAliUids_ {};
+      // The IP address of the access source.
       shared_ptr<string> sourceIp_ {};
+      // Indicates whether the alert belongs to strict mode.
       shared_ptr<string> strictMode_ {};
+      // The list of operation types supported by the alert.
       shared_ptr<vector<string>> supportOperateCodeList_ {};
+      // The ATT&CK tactic ID.
       shared_ptr<string> tacticId_ {};
+      // The container search target type. Valid values:
       shared_ptr<string> targetType_ {};
+      // The end time of the latest occurrence time.
       shared_ptr<string> timeEnd_ {};
+      // The start time of the latest occurrence time.
       shared_ptr<string> timeStart_ {};
+      // The unique key of the security alert.
       shared_ptr<string> uniqueInfo_ {};
+      // The UUIDs of the servers for which to query alerts. Separate multiple UUIDs with commas (,).
       shared_ptr<string> uuids_ {};
     };
 
@@ -447,7 +483,9 @@ namespace Models
 
 
   protected:
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The Security Center SDK request parameters.
     shared_ptr<DescribeSuspEventsRequest::SdkRequest> sdkRequest_ {};
   };
 

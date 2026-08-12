@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ActionCodes, actionCodesShrink_);
       DARABONBA_PTR_TO_JSON(AliyunLang, aliyunLang_);
       DARABONBA_PTR_TO_JSON(BusinessCode, businessCode_);
+      DARABONBA_PTR_TO_JSON(BusinessCodes, businessCodesShrink_);
       DARABONBA_PTR_TO_JSON(CaseCodesPrefix, caseCodesPrefixShrink_);
       DARABONBA_PTR_TO_JSON(Current, current_);
       DARABONBA_PTR_TO_JSON(Domain, domain_);
@@ -44,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ActionCodes, actionCodesShrink_);
       DARABONBA_PTR_FROM_JSON(AliyunLang, aliyunLang_);
       DARABONBA_PTR_FROM_JSON(BusinessCode, businessCode_);
+      DARABONBA_PTR_FROM_JSON(BusinessCodes, businessCodesShrink_);
       DARABONBA_PTR_FROM_JSON(CaseCodesPrefix, caseCodesPrefixShrink_);
       DARABONBA_PTR_FROM_JSON(Current, current_);
       DARABONBA_PTR_FROM_JSON(Domain, domain_);
@@ -78,11 +80,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionCode_ == nullptr
-        && this->actionCodesShrink_ == nullptr && this->aliyunLang_ == nullptr && this->businessCode_ == nullptr && this->caseCodesPrefixShrink_ == nullptr && this->current_ == nullptr
-        && this->domain_ == nullptr && this->eventCode_ == nullptr && this->eventCodesShrink_ == nullptr && this->eventId_ == nullptr && this->eventIdListShrink_ == nullptr
-        && this->excludeActionCodesShrink_ == nullptr && this->excludeEventCodesShrink_ == nullptr && this->excludeReasonsShrink_ == nullptr && this->includeReasonsShrink_ == nullptr && this->instanceId_ == nullptr
-        && this->ip_ == nullptr && this->pageSize_ == nullptr && this->punishEndTime_ == nullptr && this->punishStartTime_ == nullptr && this->reason_ == nullptr
-        && this->sourceCodesShrink_ == nullptr && this->status_ == nullptr && this->statusListShrink_ == nullptr && this->url_ == nullptr; };
+        && this->actionCodesShrink_ == nullptr && this->aliyunLang_ == nullptr && this->businessCode_ == nullptr && this->businessCodesShrink_ == nullptr && this->caseCodesPrefixShrink_ == nullptr
+        && this->current_ == nullptr && this->domain_ == nullptr && this->eventCode_ == nullptr && this->eventCodesShrink_ == nullptr && this->eventId_ == nullptr
+        && this->eventIdListShrink_ == nullptr && this->excludeActionCodesShrink_ == nullptr && this->excludeEventCodesShrink_ == nullptr && this->excludeReasonsShrink_ == nullptr && this->includeReasonsShrink_ == nullptr
+        && this->instanceId_ == nullptr && this->ip_ == nullptr && this->pageSize_ == nullptr && this->punishEndTime_ == nullptr && this->punishStartTime_ == nullptr
+        && this->reason_ == nullptr && this->sourceCodesShrink_ == nullptr && this->status_ == nullptr && this->statusListShrink_ == nullptr && this->url_ == nullptr; };
     // actionCode Field Functions 
     bool hasActionCode() const { return this->actionCode_ != nullptr;};
     void deleteActionCode() { this->actionCode_ = nullptr;};
@@ -109,6 +111,13 @@ namespace Models
     void deleteBusinessCode() { this->businessCode_ = nullptr;};
     inline string getBusinessCode() const { DARABONBA_PTR_GET_DEFAULT(businessCode_, "") };
     inline QueryResourceControlEventsShrinkRequest& setBusinessCode(string businessCode) { DARABONBA_PTR_SET_VALUE(businessCode_, businessCode) };
+
+
+    // businessCodesShrink Field Functions 
+    bool hasBusinessCodesShrink() const { return this->businessCodesShrink_ != nullptr;};
+    void deleteBusinessCodesShrink() { this->businessCodesShrink_ = nullptr;};
+    inline string getBusinessCodesShrink() const { DARABONBA_PTR_GET_DEFAULT(businessCodesShrink_, "") };
+    inline QueryResourceControlEventsShrinkRequest& setBusinessCodesShrink(string businessCodesShrink) { DARABONBA_PTR_SET_VALUE(businessCodesShrink_, businessCodesShrink) };
 
 
     // caseCodesPrefixShrink Field Functions 
@@ -259,30 +268,56 @@ namespace Models
 
 
   protected:
+    // The action name code.
     shared_ptr<string> actionCode_ {};
+    // The collection of control action name codes.
     shared_ptr<string> actionCodesShrink_ {};
+    // The internationalization language.
     shared_ptr<string> aliyunLang_ {};
+    // The product.
     shared_ptr<string> businessCode_ {};
+    shared_ptr<string> businessCodesShrink_ {};
+    // The collection of event name code prefixes.
     shared_ptr<string> caseCodesPrefixShrink_ {};
+    // The current page number.
     shared_ptr<int32_t> current_ {};
+    // The domain name.
     shared_ptr<string> domain_ {};
+    // The event name code.
     shared_ptr<string> eventCode_ {};
+    // The collection of event name codes.
     shared_ptr<string> eventCodesShrink_ {};
+    // The event ID.
     shared_ptr<string> eventId_ {};
+    // The collection of event IDs.
     shared_ptr<string> eventIdListShrink_ {};
+    // The collection of excluded control action name codes.
     shared_ptr<string> excludeActionCodesShrink_ {};
+    // The collection of excluded event name codes.
     shared_ptr<string> excludeEventCodesShrink_ {};
+    // The collection of excluded event reasons.
     shared_ptr<string> excludeReasonsShrink_ {};
+    // The collection of included event reasons.
     shared_ptr<string> includeReasonsShrink_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // IP
     shared_ptr<string> ip_ {};
+    // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The penalty end time.
     shared_ptr<string> punishEndTime_ {};
+    // The penalty start time.
     shared_ptr<string> punishStartTime_ {};
+    // The event reason.
     shared_ptr<string> reason_ {};
+    // The collection of event source codes.
     shared_ptr<string> sourceCodesShrink_ {};
+    // The task status.
     shared_ptr<string> status_ {};
+    // The collection of task statuses.
     shared_ptr<string> statusListShrink_ {};
+    // The control URL.
     shared_ptr<string> url_ {};
   };
 

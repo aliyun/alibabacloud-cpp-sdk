@@ -69,7 +69,14 @@ namespace Models
 
 
     protected:
+      // Specifies whether the request is from the ECS console. Valid values:
+      // - **true**: The request is from the ECS console.
+      // - **false**: The request is not from the ECS console.
       shared_ptr<bool> fromEcs_ {};
+      // The language type for the request and response messages. Default value: zh. Valid values:
+      // 
+      // - **zh**: Chinese
+      // - **en**: English
       shared_ptr<string> lang_ {};
     };
 
@@ -92,7 +99,9 @@ namespace Models
 
 
   protected:
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The Security Center SDK request parameters.
     shared_ptr<GetCanTrySasRequest::SdkRequest> sdkRequest_ {};
   };
 

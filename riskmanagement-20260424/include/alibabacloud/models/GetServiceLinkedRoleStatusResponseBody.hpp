@@ -65,6 +65,10 @@ namespace Models
 
 
     protected:
+      // The authorization status. Valid values:
+      // 
+      // - **true**: authorized
+      // - **false**: not authorized
       shared_ptr<bool> status_ {};
     };
 
@@ -108,10 +112,20 @@ namespace Models
 
 
   protected:
+    // The status code. Valid values:
+    // 
+    // - **200**: Succeeded.
+    // - **Other (400, 500)**: Failed.
     shared_ptr<string> code_ {};
+    // The query result.
     shared_ptr<GetServiceLinkedRoleStatusResponseBody::Data> data_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.                                
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

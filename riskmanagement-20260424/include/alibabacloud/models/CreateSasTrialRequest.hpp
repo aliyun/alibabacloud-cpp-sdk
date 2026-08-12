@@ -86,6 +86,7 @@ namespace Models
 
 
       protected:
+        // The reason for applying for the trial.
         shared_ptr<string> tryReason_ {};
       };
 
@@ -129,10 +130,31 @@ namespace Models
 
 
     protected:
+      // Specifies whether the request is from the ECS console. Valid values:
+      // - **true**: The request is from the ECS console.
+      // - **false**: The request is not from the ECS console.
       shared_ptr<bool> fromEcs_ {};
+      // The language of the request and response. Valid values:
+      // 
+      // - **zh** (default): Chinese.
+      // 
+      // - **en**: English.
       shared_ptr<string> lang_ {};
+      // The reason for applying for the trial.
       shared_ptr<SdkRequest::RequestForm> requestForm_ {};
+      // The trial type. Valid values:
+      // - **0**: trial not allowed
+      // - **1**: first trial
+      // - **2**: second trial
+      // 
+      // 
+      // > Call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to obtain this parameter. The trial can be started only when the value is not 0.
       shared_ptr<int32_t> tryType_ {};
+      // The trial edition. Valid values:
+      // - **3**: Enterprise Edition.
+      // - **7**: Ultimate Edition.
+      // 
+      // > Call the [GetCanTrySas](https://help.aliyun.com/document_detail/2623574.html) operation to obtain this parameter.
       shared_ptr<int32_t> tryVersion_ {};
     };
 
@@ -155,7 +177,9 @@ namespace Models
 
 
   protected:
+    // The region ID of the access control instance. You can call the DescribeRegions operation to query the region ID.
     shared_ptr<string> regionId_ {};
+    // The Security Center SDK request.
     shared_ptr<CreateSasTrialRequest::SdkRequest> sdkRequest_ {};
   };
 

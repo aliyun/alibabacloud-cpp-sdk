@@ -147,15 +147,57 @@ namespace Models
 
 
     protected:
+      // The authorization version of the asset. Valid values:
+      // 
+      // - **6**: Anti-virus Edition
+      // - **5**: Advanced Edition
+      // - **3**: Enterprise Edition
+      // - **7**: Ultimate Edition
+      // - **10**: Value-added Service Edition
       shared_ptr<int32_t> authVersion_ {};
+      // Specifies whether to enable automatic binding. Valid values:
+      // 
+      // - **0**: disabled
+      // - **1**: enabled
       shared_ptr<int32_t> autoBind_ {};
+      // The collection of UUIDs to bind.
+      // 
+      // > Bind and UnBind cannot both be empty.
+      // Maximum number of child entries: 1000.
       shared_ptr<vector<string>> bind_ {};
+      // Specifies whether to bind all assets. Default value: **false**. Valid values:
+      // 
+      // - **true**: yes
+      // - **false**: no
       shared_ptr<bool> bindAll_ {};
+      // The search conditions for assets. This parameter is in JSON format. Pay attention to the letter case when you specify this parameter.
+      // > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can call the DescribeCriteria operation to query the supported search conditions.
       shared_ptr<string> criteria_ {};
+      // Specifies whether this is a pre-binding operation. Valid values:
+      // 
+      // - **0**: no
+      // - **1**: yes
+      // 
+      // > After pre-binding is enabled, the corresponding authorization quota is automatically bound to the specified servers after the purchase is completed.
       shared_ptr<int32_t> isPreBind_ {};
+      // The logical relationship between multiple search conditions. Valid values:
+      // 
+      // - **OR**: The search conditions are in an **OR** relationship.
+      // - **AND**: The search conditions are in an **AND** relationship.
       shared_ptr<string> logicalExp_ {};
+      // The order version associated with the pre-binding. Valid values:
+      // 
+      // - **level7**: Anti-virus Edition
+      // - **level3**: Advanced Edition
+      // - **level2**: Enterprise Edition
+      // - **level8**: Ultimate Edition
+      // - **level10**: value-added service only
       shared_ptr<int64_t> ntmVersion_ {};
+      // The order ID associated with the pre-binding.
+      // > Note: This field is of the Long type. Precision loss may occur during the sequence/deserialization procedure. The value must not exceed 9007199254740991.
       shared_ptr<int64_t> preBindOrderId_ {};
+      // The collection of UUIDs to unbind.
+      // > **Bind** and **UnBind** cannot both be empty.
       shared_ptr<vector<string>> unBind_ {};
     };
 
@@ -178,7 +220,9 @@ namespace Models
 
 
   protected:
+    // The region ID of the Smart Access Gateway instance.
     shared_ptr<string> regionId_ {};
+    // The Security Center SDK request.
     shared_ptr<BindAuthToMachineRequest::SdkRequest> sdkRequest_ {};
   };
 

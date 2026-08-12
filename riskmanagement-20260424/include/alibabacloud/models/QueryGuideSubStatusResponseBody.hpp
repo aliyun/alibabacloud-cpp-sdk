@@ -75,10 +75,21 @@ namespace Models
 
 
   protected:
+    // The status of the API call.
     shared_ptr<string> code_ {};
+    // The subscription status. Valid values:
+    // 
+    // - **SUBSCRIBED**: Subscribed.
+    // - **UNSUBSCRIBED**: Unsubscribed.
     shared_ptr<string> data_ {};
+    // The prompt message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // 
+    // - **true**: The call was successful.              
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

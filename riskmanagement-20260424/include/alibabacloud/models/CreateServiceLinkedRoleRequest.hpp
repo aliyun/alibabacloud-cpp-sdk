@@ -59,6 +59,10 @@ namespace Models
 
 
     protected:
+      // The service-linked role. Default value: **AliyunServiceRoleForSas**. Valid values:
+      // 
+      // - **AliyunServiceRoleForSas**: the service-linked role for Security Center (SAS). Security Center uses this role to access your resources in other Alibaba Cloud services.
+      // - **AliyunServiceRoleForSasCspm**: the service-linked role for Security Center - Cloud Security Posture Management (CSPM). SAS-CSPM uses this role to access your resources in other Alibaba Cloud services.
       shared_ptr<string> serviceLinkedRole_ {};
     };
 
@@ -81,7 +85,9 @@ namespace Models
 
 
   protected:
+    // The region ID of the Smart Access Gateway instance.
     shared_ptr<string> regionId_ {};
+    // The Security Center SDK request.
     shared_ptr<CreateServiceLinkedRoleRequest::SdkRequest> sdkRequest_ {};
   };
 

@@ -75,10 +75,21 @@ namespace Models
 
 
   protected:
+    // The status code. Valid values:
+    // 
+    // - **200**: Succeeded.
+    // - **Others (400, 500)**: Failed.
     shared_ptr<string> code_ {};
+    // The compliance package ID.
     shared_ptr<string> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // 
+    // - **true**: The call was successful.                               
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

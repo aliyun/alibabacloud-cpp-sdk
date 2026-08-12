@@ -18,6 +18,9 @@ namespace RiskManagement20260424
 
 AlibabaCloud::RiskManagement20260424::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"public" , "riskmanagement.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("riskmanagement", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +39,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary sas-绑定授权到机器
+ * @summary Bindss authorization to machines in Security Center.
  *
  * @param tmpReq BindAuthToMachineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -77,7 +80,7 @@ BindAuthToMachineResponse Client::bindAuthToMachineWithOptions(const BindAuthToM
 }
 
 /**
- * @summary sas-绑定授权到机器
+ * @summary Bindss authorization to machines in Security Center.
  *
  * @param request BindAuthToMachineRequest
  * @return BindAuthToMachineResponse
@@ -88,7 +91,7 @@ BindAuthToMachineResponse Client::bindAuthToMachine(const BindAuthToMachineReque
 }
 
 /**
- * @summary sas-初始化云安全中心模块规则
+ * @summary Initializes Security Center module rules.
  *
  * @param tmpReq CreateSasTrialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -129,7 +132,7 @@ CreateSasTrialResponse Client::createSasTrialWithOptions(const CreateSasTrialReq
 }
 
 /**
- * @summary sas-初始化云安全中心模块规则
+ * @summary Initializes Security Center module rules.
  *
  * @param request CreateSasTrialRequest
  * @return CreateSasTrialResponse
@@ -140,7 +143,7 @@ CreateSasTrialResponse Client::createSasTrial(const CreateSasTrialRequest &reque
 }
 
 /**
- * @summary sas-创建服务关联角色
+ * @summary Creates a service-linked role for Security Center and authorizes Security Center to access cloud resources.
  *
  * @param tmpReq CreateServiceLinkedRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -181,7 +184,7 @@ CreateServiceLinkedRoleResponse Client::createServiceLinkedRoleWithOptions(const
 }
 
 /**
- * @summary sas-创建服务关联角色
+ * @summary Creates a service-linked role for Security Center and authorizes Security Center to access cloud resources.
  *
  * @param request CreateServiceLinkedRoleRequest
  * @return CreateServiceLinkedRoleResponse
@@ -192,7 +195,7 @@ CreateServiceLinkedRoleResponse Client::createServiceLinkedRole(const CreateServ
 }
 
 /**
- * @summary 创建全盘扫描任务
+ * @summary Creates a full disk scan task.
  *
  * @param request CreateVirusScanOnceTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -231,7 +234,7 @@ CreateVirusScanOnceTaskResponse Client::createVirusScanOnceTaskWithOptions(const
 }
 
 /**
- * @summary 创建全盘扫描任务
+ * @summary Creates a full disk scan task.
  *
  * @param request CreateVirusScanOnceTaskRequest
  * @return CreateVirusScanOnceTaskResponse
@@ -242,7 +245,7 @@ CreateVirusScanOnceTaskResponse Client::createVirusScanOnceTask(const CreateViru
 }
 
 /**
- * @summary sas-查询云安全中心实例列表
+ * @summary Queries the list of Security Center instances.
  *
  * @param tmpReq DescribeCloudCenterInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -283,7 +286,7 @@ DescribeCloudCenterInstancesResponse Client::describeCloudCenterInstancesWithOpt
 }
 
 /**
- * @summary sas-查询云安全中心实例列表
+ * @summary Queries the list of Security Center instances.
  *
  * @param request DescribeCloudCenterInstancesRequest
  * @return DescribeCloudCenterInstancesResponse
@@ -294,7 +297,7 @@ DescribeCloudCenterInstancesResponse Client::describeCloudCenterInstances(const 
 }
 
 /**
- * @summary sas-查询服务关联角色状态
+ * @summary Queries the status of a service-linked role for Security Center.
  *
  * @param tmpReq DescribeServiceLinkedRoleStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -335,7 +338,7 @@ DescribeServiceLinkedRoleStatusResponse Client::describeServiceLinkedRoleStatusW
 }
 
 /**
- * @summary sas-查询服务关联角色状态
+ * @summary Queries the status of a service-linked role for Security Center.
  *
  * @param request DescribeServiceLinkedRoleStatusRequest
  * @return DescribeServiceLinkedRoleStatusResponse
@@ -346,7 +349,7 @@ DescribeServiceLinkedRoleStatusResponse Client::describeServiceLinkedRoleStatus(
 }
 
 /**
- * @summary sas-查询安全告警事件
+ * @summary Queries security alert events in Security Center.
  *
  * @param tmpReq DescribeSuspEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -387,7 +390,7 @@ DescribeSuspEventsResponse Client::describeSuspEventsWithOptions(const DescribeS
 }
 
 /**
- * @summary sas-查询安全告警事件
+ * @summary Queries security alert events in Security Center.
  *
  * @param request DescribeSuspEventsRequest
  * @return DescribeSuspEventsResponse
@@ -398,7 +401,7 @@ DescribeSuspEventsResponse Client::describeSuspEvents(const DescribeSuspEventsRe
 }
 
 /**
- * @summary sas-查看已购买的云安全中心实例的版本详情
+ * @summary Queries the edition details of a purchased Security Center instance.
  *
  * @param tmpReq DescribeVersionConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -439,7 +442,7 @@ DescribeVersionConfigResponse Client::describeVersionConfigWithOptions(const Des
 }
 
 /**
- * @summary sas-查看已购买的云安全中心实例的版本详情
+ * @summary Queries the edition details of a purchased Security Center instance.
  *
  * @param request DescribeVersionConfigRequest
  * @return DescribeVersionConfigResponse
@@ -450,7 +453,7 @@ DescribeVersionConfigResponse Client::describeVersionConfig(const DescribeVersio
 }
 
 /**
- * @summary 获取告警记录分析结果
+ * @summary Retrieves the analysis results of alert records.
  *
  * @param tmpReq GetAlertRecordAnalysisResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -503,7 +506,7 @@ GetAlertRecordAnalysisResultResponse Client::getAlertRecordAnalysisResultWithOpt
 }
 
 /**
- * @summary 获取告警记录分析结果
+ * @summary Retrieves the analysis results of alert records.
  *
  * @param request GetAlertRecordAnalysisResultRequest
  * @return GetAlertRecordAnalysisResultResponse
@@ -514,7 +517,7 @@ GetAlertRecordAnalysisResultResponse Client::getAlertRecordAnalysisResult(const 
 }
 
 /**
- * @summary 调用云安全中心部分接口
+ * @summary Calls specific Security Center API operations.
  *
  * @param tmpReq GetAliYunSafeCenterResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -615,7 +618,7 @@ GetAliYunSafeCenterResultResponse Client::getAliYunSafeCenterResultWithOptions(c
 }
 
 /**
- * @summary 调用云安全中心部分接口
+ * @summary Calls specific Security Center API operations.
  *
  * @param request GetAliYunSafeCenterResultRequest
  * @return GetAliYunSafeCenterResultResponse
@@ -626,7 +629,7 @@ GetAliYunSafeCenterResultResponse Client::getAliYunSafeCenterResult(const GetAli
 }
 
 /**
- * @summary sas-获取能否试用
+ * @summary Queries whether a user is eligible for a Security Center free trial.
  *
  * @param tmpReq GetCanTrySasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -667,7 +670,7 @@ GetCanTrySasResponse Client::getCanTrySasWithOptions(const GetCanTrySasRequest &
 }
 
 /**
- * @summary sas-获取能否试用
+ * @summary Queries whether a user is eligible for a Security Center free trial.
  *
  * @param request GetCanTrySasRequest
  * @return GetCanTrySasResponse
@@ -678,7 +681,7 @@ GetCanTrySasResponse Client::getCanTrySas(const GetCanTrySasRequest &request) {
 }
 
 /**
- * @summary 获取安全合规包id
+ * @summary Retrieves the security compliance package ID.
  *
  * @param request GetCompliancePackIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -702,7 +705,7 @@ GetCompliancePackIdResponse Client::getCompliancePackIdWithOptions(const GetComp
 }
 
 /**
- * @summary 获取安全合规包id
+ * @summary Retrieves the security compliance package ID.
  *
  * @param request GetCompliancePackIdRequest
  * @return GetCompliancePackIdResponse
@@ -713,7 +716,7 @@ GetCompliancePackIdResponse Client::getCompliancePackId(const GetCompliancePackI
 }
 
 /**
- * @summary 获取一键处置赋权状态
+ * @summary Retrieves the authorization status for one-click disposal.
  *
  * @param request GetDisposalToolStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -744,7 +747,7 @@ GetDisposalToolStatusResponse Client::getDisposalToolStatusWithOptions(const Get
 }
 
 /**
- * @summary 获取一键处置赋权状态
+ * @summary Retrieves the authorization status for one-click disposal.
  *
  * @param request GetDisposalToolStatusRequest
  * @return GetDisposalToolStatusResponse
@@ -755,7 +758,7 @@ GetDisposalToolStatusResponse Client::getDisposalToolStatus(const GetDisposalToo
 }
 
 /**
- * @summary 获取用户确认安全联系人记录
+ * @summary Retrieves the record of a user confirming a security contact.
  *
  * @param request GetNotificationClickRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -779,7 +782,7 @@ GetNotificationClickRecordResponse Client::getNotificationClickRecordWithOptions
 }
 
 /**
- * @summary 获取用户确认安全联系人记录
+ * @summary Retrieves the record of a user confirming a security contact.
  *
  * @param request GetNotificationClickRecordRequest
  * @return GetNotificationClickRecordResponse
@@ -790,7 +793,7 @@ GetNotificationClickRecordResponse Client::getNotificationClickRecord(const GetN
 }
 
 /**
- * @summary 获取安全联系人全部信息
+ * @summary Retrieves all information about security contacts.
  *
  * @param request GetNotificationContactsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -814,7 +817,7 @@ GetNotificationContactsResponse Client::getNotificationContactsWithOptions(const
 }
 
 /**
- * @summary 获取安全联系人全部信息
+ * @summary Retrieves all information about security contacts.
  *
  * @param request GetNotificationContactsRequest
  * @return GetNotificationContactsResponse
@@ -825,7 +828,7 @@ GetNotificationContactsResponse Client::getNotificationContacts(const GetNotific
 }
 
 /**
- * @summary 获取安全联系人待处理数
+ * @summary Retrieves the number of pending items for security contacts.
  *
  * @param request GetNotificationPendNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -849,7 +852,7 @@ GetNotificationPendNumberResponse Client::getNotificationPendNumberWithOptions(c
 }
 
 /**
- * @summary 获取安全联系人待处理数
+ * @summary Retrieves the number of pending items for security contacts.
  *
  * @param request GetNotificationPendNumberRequest
  * @return GetNotificationPendNumberResponse
@@ -860,7 +863,7 @@ GetNotificationPendNumberResponse Client::getNotificationPendNumber(const GetNot
 }
 
 /**
- * @summary 查询云资源管控事件详情
+ * @summary Queries the details of cloud resource control events.
  *
  * @param tmpReq GetResourceControlEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -905,7 +908,7 @@ GetResourceControlEventResponse Client::getResourceControlEventWithOptions(const
 }
 
 /**
- * @summary 查询云资源管控事件详情
+ * @summary Queries the details of cloud resource control events.
  *
  * @param request GetResourceControlEventRequest
  * @return GetResourceControlEventResponse
@@ -916,7 +919,7 @@ GetResourceControlEventResponse Client::getResourceControlEvent(const GetResourc
 }
 
 /**
- * @summary 获取安全体检基础信息
+ * @summary Retrieves the basic information of a security check.
  *
  * @param request GetSecurityCheckBaseInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -940,7 +943,7 @@ GetSecurityCheckBaseInfoResponse Client::getSecurityCheckBaseInfoWithOptions(con
 }
 
 /**
- * @summary 获取安全体检基础信息
+ * @summary Retrieves the basic information of a security check.
  *
  * @param request GetSecurityCheckBaseInfoRequest
  * @return GetSecurityCheckBaseInfoResponse
@@ -951,7 +954,7 @@ GetSecurityCheckBaseInfoResponse Client::getSecurityCheckBaseInfo(const GetSecur
 }
 
 /**
- * @summary 获取安全检查结果基础信息
+ * @summary Retrieves the basic information of security check results.
  *
  * @param request GetSecurityCheckResultBaseInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -975,7 +978,7 @@ GetSecurityCheckResultBaseInfoResponse Client::getSecurityCheckResultBaseInfoWit
 }
 
 /**
- * @summary 获取安全检查结果基础信息
+ * @summary Retrieves the basic information of security check results.
  *
  * @param request GetSecurityCheckResultBaseInfoRequest
  * @return GetSecurityCheckResultBaseInfoResponse
@@ -986,7 +989,7 @@ GetSecurityCheckResultBaseInfoResponse Client::getSecurityCheckResultBaseInfo(co
 }
 
 /**
- * @summary 获取安全优化建议列表
+ * @summary Retrieves a list of security optimization suggestions.
  *
  * @param tmpReq GetSecuritySuggestionListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1023,7 +1026,7 @@ GetSecuritySuggestionListResponse Client::getSecuritySuggestionListWithOptions(c
 }
 
 /**
- * @summary 获取安全优化建议列表
+ * @summary Retrieves a list of security optimization suggestions.
  *
  * @param request GetSecuritySuggestionListRequest
  * @return GetSecuritySuggestionListResponse
@@ -1034,7 +1037,7 @@ GetSecuritySuggestionListResponse Client::getSecuritySuggestionList(const GetSec
 }
 
 /**
- * @summary 获取安全优化建议条数
+ * @summary Retrieves the number of security optimization suggestions.
  *
  * @param request GetSecuritySuggestionNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1058,7 +1061,7 @@ GetSecuritySuggestionNumberResponse Client::getSecuritySuggestionNumberWithOptio
 }
 
 /**
- * @summary 获取安全优化建议条数
+ * @summary Retrieves the number of security optimization suggestions.
  *
  * @param request GetSecuritySuggestionNumberRequest
  * @return GetSecuritySuggestionNumberResponse
@@ -1069,7 +1072,7 @@ GetSecuritySuggestionNumberResponse Client::getSecuritySuggestionNumber(const Ge
 }
 
 /**
- * @summary 获取服务关联角色状态
+ * @summary Retrieves the status of a service-linked role.
  *
  * @param request GetServiceLinkedRoleStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1100,7 +1103,7 @@ GetServiceLinkedRoleStatusResponse Client::getServiceLinkedRoleStatusWithOptions
 }
 
 /**
- * @summary 获取服务关联角色状态
+ * @summary Retrieves the status of a service-linked role.
  *
  * @param request GetServiceLinkedRoleStatusRequest
  * @return GetServiceLinkedRoleStatusResponse
@@ -1111,7 +1114,7 @@ GetServiceLinkedRoleStatusResponse Client::getServiceLinkedRoleStatus(const GetS
 }
 
 /**
- * @summary sas-获取有效抵扣实例
+ * @summary Retrieves valid deductible instances for Security Center.
  *
  * @param tmpReq GetValidDeductInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1152,7 +1155,7 @@ GetValidDeductInstancesResponse Client::getValidDeductInstancesWithOptions(const
 }
 
 /**
- * @summary sas-获取有效抵扣实例
+ * @summary Retrieves valid deductible instances for Security Center.
  *
  * @param request GetValidDeductInstancesRequest
  * @return GetValidDeductInstancesResponse
@@ -1163,7 +1166,7 @@ GetValidDeductInstancesResponse Client::getValidDeductInstances(const GetValidDe
 }
 
 /**
- * @summary sas-初始化云安全中心模块规则
+ * @summary Initializes module rules for Security Center.
  *
  * @param tmpReq InitSasModuleRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1212,7 +1215,7 @@ InitSasModuleRuleResponse Client::initSasModuleRuleWithOptions(const InitSasModu
 }
 
 /**
- * @summary sas-初始化云安全中心模块规则
+ * @summary Initializes module rules for Security Center.
  *
  * @param request InitSasModuleRuleRequest
  * @return InitSasModuleRuleResponse
@@ -1223,7 +1226,7 @@ InitSasModuleRuleResponse Client::initSasModuleRule(const InitSasModuleRuleReque
 }
 
 /**
- * @summary 查询全盘扫描结果
+ * @summary Queries the results of a full disk scan.
  *
  * @param request ListVirusScanMachineEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1274,7 +1277,7 @@ ListVirusScanMachineEventResponse Client::listVirusScanMachineEventWithOptions(c
 }
 
 /**
- * @summary 查询全盘扫描结果
+ * @summary Queries the results of a full disk scan.
  *
  * @param request ListVirusScanMachineEventRequest
  * @return ListVirusScanMachineEventResponse
@@ -1285,7 +1288,7 @@ ListVirusScanMachineEventResponse Client::listVirusScanMachineEvent(const ListVi
 }
 
 /**
- * @summary sas-开启试用套餐
+ * @summary Starts a free trial of Security Center.
  *
  * @param request OpenTrialPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1320,7 +1323,7 @@ OpenTrialPackageResponse Client::openTrialPackageWithOptions(const OpenTrialPack
 }
 
 /**
- * @summary sas-开启试用套餐
+ * @summary Starts a free trial of Security Center.
  *
  * @param request OpenTrialPackageRequest
  * @return OpenTrialPackageResponse
@@ -1331,7 +1334,7 @@ OpenTrialPackageResponse Client::openTrialPackage(const OpenTrialPackageRequest 
 }
 
 /**
- * @summary 查询账号安全事件
+ * @summary Queries account security events.
  *
  * @param request QueryAccountSafetyIncidentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1394,7 +1397,7 @@ QueryAccountSafetyIncidentResponse Client::queryAccountSafetyIncidentWithOptions
 }
 
 /**
- * @summary 查询账号安全事件
+ * @summary Queries account security events.
  *
  * @param request QueryAccountSafetyIncidentRequest
  * @return QueryAccountSafetyIncidentResponse
@@ -1405,7 +1408,7 @@ QueryAccountSafetyIncidentResponse Client::queryAccountSafetyIncident(const Quer
 }
 
 /**
- * @summary 查询云上安全指南的订阅状态
+ * @summary Queries the subscription status of the cloud security guide.
  *
  * @param request QueryGuideSubStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1429,7 +1432,7 @@ QueryGuideSubStatusResponse Client::queryGuideSubStatusWithOptions(const QueryGu
 }
 
 /**
- * @summary 查询云上安全指南的订阅状态
+ * @summary Queries the subscription status of the cloud security guide.
  *
  * @param request QueryGuideSubStatusRequest
  * @return QueryGuideSubStatusResponse
@@ -1440,7 +1443,7 @@ QueryGuideSubStatusResponse Client::queryGuideSubStatus(const QueryGuideSubStatu
 }
 
 /**
- * @summary 查询云资源管控事件
+ * @summary Queries cloud resource control events.
  *
  * @param tmpReq QueryResourceControlEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1452,6 +1455,10 @@ QueryResourceControlEventsResponse Client::queryResourceControlEventsWithOptions
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasActionCodes()) {
     request.setActionCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getActionCodes(), "ActionCodes", "json"));
+  }
+
+  if (!!tmpReq.hasBusinessCodes()) {
+    request.setBusinessCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBusinessCodes(), "BusinessCodes", "json"));
   }
 
   if (!!tmpReq.hasCaseCodesPrefix()) {
@@ -1505,6 +1512,10 @@ QueryResourceControlEventsResponse Client::queryResourceControlEventsWithOptions
 
   if (!!request.hasBusinessCode()) {
     query["BusinessCode"] = request.getBusinessCode();
+  }
+
+  if (!!request.hasBusinessCodesShrink()) {
+    query["BusinessCodes"] = request.getBusinessCodesShrink();
   }
 
   if (!!request.hasCaseCodesPrefixShrink()) {
@@ -1609,7 +1620,7 @@ QueryResourceControlEventsResponse Client::queryResourceControlEventsWithOptions
 }
 
 /**
- * @summary 查询云资源管控事件
+ * @summary Queries cloud resource control events.
  *
  * @param request QueryResourceControlEventsRequest
  * @return QueryResourceControlEventsResponse
@@ -1620,7 +1631,7 @@ QueryResourceControlEventsResponse Client::queryResourceControlEvents(const Quer
 }
 
 /**
- * @summary 查询安全体检简报
+ * @summary Queries the security check brief.
  *
  * @param request QuerySecurityCheckReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1644,7 +1655,7 @@ QuerySecurityCheckReportResponse Client::querySecurityCheckReportWithOptions(con
 }
 
 /**
- * @summary 查询安全体检简报
+ * @summary Queries the security check brief.
  *
  * @param request QuerySecurityCheckReportRequest
  * @return QuerySecurityCheckReportResponse
@@ -1655,7 +1666,7 @@ QuerySecurityCheckReportResponse Client::querySecurityCheckReport(const QuerySec
 }
 
 /**
- * @summary 开启处置工具授权
+ * @summary Enables disposal tool authorization.
  *
  * @param request StartDisposalToolServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1686,7 +1697,7 @@ StartDisposalToolServiceResponse Client::startDisposalToolServiceWithOptions(con
 }
 
 /**
- * @summary 开启处置工具授权
+ * @summary Enables disposal tool authorization.
  *
  * @param request StartDisposalToolServiceRequest
  * @return StartDisposalToolServiceResponse
@@ -1697,7 +1708,7 @@ StartDisposalToolServiceResponse Client::startDisposalToolService(const StartDis
 }
 
 /**
- * @summary 开启安全体检
+ * @summary Enables security check.
  *
  * @param request StartSecurityCheckServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1721,7 +1732,7 @@ StartSecurityCheckServiceResponse Client::startSecurityCheckServiceWithOptions(c
 }
 
 /**
- * @summary 开启安全体检
+ * @summary Enables security check.
  *
  * @param request StartSecurityCheckServiceRequest
  * @return StartSecurityCheckServiceResponse
@@ -1732,7 +1743,7 @@ StartSecurityCheckServiceResponse Client::startSecurityCheckService(const StartS
 }
 
 /**
- * @summary 申请解封
+ * @summary Submits an unblocking request.
  *
  * @param tmpReq SubmitApplyRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1789,7 +1800,7 @@ SubmitApplyRecordResponse Client::submitApplyRecordWithOptions(const SubmitApply
 }
 
 /**
- * @summary 申请解封
+ * @summary Submits an unblocking request.
  *
  * @param request SubmitApplyRecordRequest
  * @return SubmitApplyRecordResponse
@@ -1800,7 +1811,7 @@ SubmitApplyRecordResponse Client::submitApplyRecord(const SubmitApplyRecordReque
 }
 
 /**
- * @summary sas-更新后付费绑定关系
+ * @summary Updates the pay-as-you-go binding relationship for Security Center.
  *
  * @param tmpReq UpdatePostPaidBindRelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1841,7 +1852,7 @@ UpdatePostPaidBindRelResponse Client::updatePostPaidBindRelWithOptions(const Upd
 }
 
 /**
- * @summary sas-更新后付费绑定关系
+ * @summary Updates the pay-as-you-go binding relationship for Security Center.
  *
  * @param request UpdatePostPaidBindRelRequest
  * @return UpdatePostPaidBindRelResponse
@@ -1852,7 +1863,7 @@ UpdatePostPaidBindRelResponse Client::updatePostPaidBindRel(const UpdatePostPaid
 }
 
 /**
- * @summary 更新体检结果
+ * @summary Updates the health check result.
  *
  * @param request UpdateSecurityCheckResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1876,7 +1887,7 @@ UpdateSecurityCheckResultResponse Client::updateSecurityCheckResultWithOptions(c
 }
 
 /**
- * @summary 更新体检结果
+ * @summary Updates the health check result.
  *
  * @param request UpdateSecurityCheckResultRequest
  * @return UpdateSecurityCheckResultResponse

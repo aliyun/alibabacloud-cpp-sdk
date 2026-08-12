@@ -124,12 +124,31 @@ namespace Models
 
 
     protected:
+      // The status of the Security Center Agent.
+      // 
+      // - **true**: Enabled.
+      // - **false**: Not enabled.
       shared_ptr<bool> agentStatus_ {};
+      // The running status of the ECS instance.
+      // 
+      // - **true**: Running.
+      // - **false**: Not running.
       shared_ptr<bool> ecsInstanceStatus_ {};
+      // The list of instance IDs of identical security alert events in Security Center.
       shared_ptr<vector<int64_t>> instanceIds_ {};
+      // The request ID.
       shared_ptr<string> requestId_ {};
+      // The running status of the simple application server.
+      // 
+      // - **true**: Running.
+      // - **false**: Not running.
       shared_ptr<bool> swasInstanceStatus_ {};
+      // The task ID for querying security alerting events triggered by the same rule or alerting type.
       shared_ptr<int64_t> taskId_ {};
+      // Indicates whether the list of security alerting events that match the same IP rule or same alerting type as the alerting event to be handled is empty.
+      // 
+      // - **true**: Empty.
+      // - **false**: Not empty.
       shared_ptr<bool> taskStatus_ {};
     };
 
@@ -173,10 +192,17 @@ namespace Models
 
 
   protected:
+    // The status code.
+    // 
+    // > 200: Success. Other values (500, 400, etc.): Error codes.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetAliYunSafeCenterResultResponseBody::Data> data_ {};
+    // The message returned.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the current API call is successful. Valid values: True/False. This does not indicate the success of subsequent business operations.
     shared_ptr<bool> success_ {};
   };
 

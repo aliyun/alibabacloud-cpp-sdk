@@ -111,11 +111,28 @@ namespace Models
 
 
     protected:
+      // The asset selection business type. Valid values:
+      // 
+      // - **VIRUS_SCAN_CYCLE_CONFIG**: virus scan configuration
+      // - **VIRUS_SCAN_ONCE_TASK**: virus scan one-time task
       shared_ptr<string> businessType_ {};
+      // The operating system of the target asset. Valid values:
+      // 
+      // - **windows**: Windows operating system
+      // - **linux**: Linux operating system
       shared_ptr<string> platform_ {};
+      // The request ID.
       shared_ptr<string> requestId_ {};
+      // The unique identifier of this asset selection, which can be used to query or modify the assets corresponding to this selection.
       shared_ptr<int32_t> selectionKey_ {};
+      // The target asset type. Valid values:
+      // 
+      // - **all_instance**: all servers
+      // - **instance**: select by server
+      // - **group**: select by group
+      // - **vpc**: select by VPC
       shared_ptr<string> targetType_ {};
+      // The server ID.
       shared_ptr<string> uuid_ {};
     };
 
@@ -159,10 +176,18 @@ namespace Models
 
 
   protected:
+    // The error code returned if the call fails. For more information, refer to error codes.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<CreateVirusScanOnceTaskResponseBody::Data> data_ {};
+    // The message information.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call is successful. Valid values:
+    // 
+    // - **true**: The call is successful.                               
+    // - **false**: The call fails.
     shared_ptr<bool> success_ {};
   };
 

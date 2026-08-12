@@ -131,14 +131,42 @@ namespace Models
 
 
     protected:
+      // The compliance package ID.
       shared_ptr<string> compliancePackId_ {};
+      // The compliance evaluation result. Valid values:
+      // - **COMPLIANT**: Compliant.
+      // - **NON_COMPLIANT**: Non-compliant.
+      // - **NOT_APPLICABLE**: Not applicable.
+      // - **INSUFFICIENT_DATA**: Insufficient data.
+      // - **IGNORED**: Ignored.
       shared_ptr<string> complianceType_ {};
+      // The rule name.
       shared_ptr<string> configRuleName_ {};
+      // The rule running status. Valid values:
+      // - **ACTIVE**: Active.
+      // - **DELETING**: Being deleted.
+      // - **EVALUATING**: Being evaluated.
+      // - **INACTIVE**: Inactive.
       shared_ptr<string> configRuleState_ {};
+      // The query keyword.
+      // 
+      // Supports fuzzy match on the rule ID, rule name, rule description, and rule template identifier.
       shared_ptr<string> keyword_ {};
+      // The page number.
+      // 
+      // > Minimum value: 1. Default value: 1.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
+      // 
+      // > Valid values: 1 to 100. Minimum value: 1. Default value: 10.
       shared_ptr<int32_t> pageSize_ {};
+      // The resource type evaluated by the rule.
       shared_ptr<string> resourceTypes_ {};
+      // The risk level of the rule. Valid values:
+      // 
+      // - **1**: High risk.
+      // - **2**: Medium risk.
+      // - **3**: Low risk.
       shared_ptr<int32_t> riskLevel_ {};
     };
 
@@ -153,6 +181,7 @@ namespace Models
 
 
   protected:
+    // The request parameters.
     shared_ptr<GetSecuritySuggestionListRequest::ListConfigRulesRequest> listConfigRulesRequest_ {};
   };
 
