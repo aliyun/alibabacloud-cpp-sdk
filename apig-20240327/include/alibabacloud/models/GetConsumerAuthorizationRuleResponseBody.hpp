@@ -160,7 +160,7 @@ namespace Models
   protected:
     // The API information.
     shared_ptr<HttpApiApiInfo> apiInfo_ {};
-    // The consumer authorization rule ID used to filter the API list. The API list in the response contains only authorized APIs.
+    // The ID of the consumer authorization rule used to filter the API list. The API list in the response contains only authorized APIs.
     shared_ptr<string> consumerAuthorizationRuleId_ {};
     // The consumer ID.
     shared_ptr<string> consumerId_ {};
@@ -171,6 +171,7 @@ namespace Models
     // The environment context.
     shared_ptr<EnvironmentInfo> environmentInfo_ {};
     // The expiration mode. Valid values:
+    // 
     // - LongTerm
     // - ShortTerm
     shared_ptr<string> expireMode_ {};

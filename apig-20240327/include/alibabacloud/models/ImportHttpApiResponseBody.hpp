@@ -135,7 +135,7 @@ namespace Models
 
 
         protected:
-          // The action type.
+          // The operation type.
           shared_ptr<string> action_ {};
           // The name.
           shared_ptr<string> name_ {};
@@ -197,10 +197,7 @@ namespace Models
 
 
         protected:
-          // The action to be performed after the dry run. Valid values:
-          // 
-          // - Create: Create.
-          // - Update: Update.
+          // The action to be performed after the dry run.
           shared_ptr<string> action_ {};
           // The operation method.
           shared_ptr<string> method_ {};
@@ -248,10 +245,7 @@ namespace Models
 
 
         protected:
-          // The action to be performed after the dry run. Valid values:
-          // 
-          // - Create: Create.
-          // - Update: Update.
+          // The action to be performed after the dry run.
           shared_ptr<string> action_ {};
           // The data structure name.
           shared_ptr<string> name_ {};
@@ -492,15 +486,15 @@ namespace Models
 
 
       protected:
-        // The error messages. If error messages are not empty, the API cannot be successfully imported.
+        // The error messages. If the error messages are not empty, the API cannot be imported successfully.
         shared_ptr<vector<string>> errorMessages_ {};
-        // The information about the existing API. If this field is not empty, the import action updates this API.
+        // The information about the existing API. If this field is not empty, the import action updates the existing API.
         shared_ptr<HttpApiApiInfo> existHttpApiInfo_ {};
         // The list of data structures that failed the dry run.
         shared_ptr<vector<DryRunInfo::FailureComponents>> failureComponents_ {};
         // The list of operations that failed the dry run.
         shared_ptr<vector<DryRunInfo::FailureOperations>> failureOperations_ {};
-        // The list of routes that failed.
+        // The list of routes that failed to be imported.
         shared_ptr<vector<DryRunInfo::FailureRoutes>> failureRoutes_ {};
         // The MCP tool definition information.
         shared_ptr<string> mcpToolsDefinition_ {};
@@ -510,7 +504,7 @@ namespace Models
         shared_ptr<vector<DryRunInfo::SuccessOperations>> successOperations_ {};
         // The list of routes that were successfully imported.
         shared_ptr<vector<DryRunInfo::SuccessRoutes>> successRoutes_ {};
-        // The warning messages. If warning messages are not empty, some operations or data structures may not be imported successfully.
+        // The warning messages. If the warning messages are not empty, some operations or data structures may fail to be imported.
         shared_ptr<vector<string>> warningMessages_ {};
       };
 

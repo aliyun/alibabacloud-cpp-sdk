@@ -111,6 +111,12 @@
 #include <alibabacloud/models/BatchDeleteConsumerAuthorizationRuleRequest.hpp>
 #include <alibabacloud/models/BatchDeleteConsumerAuthorizationRuleResponseBody.hpp>
 #include <alibabacloud/models/BatchDeleteConsumerAuthorizationRuleResponse.hpp>
+#include <alibabacloud/models/BatchExportHttpApisRequest.hpp>
+#include <alibabacloud/models/BatchExportHttpApisResponseBody.hpp>
+#include <alibabacloud/models/BatchExportHttpApisResponse.hpp>
+#include <alibabacloud/models/BatchImportHttpApisRequest.hpp>
+#include <alibabacloud/models/BatchImportHttpApisResponseBody.hpp>
+#include <alibabacloud/models/BatchImportHttpApisResponse.hpp>
 #include <alibabacloud/models/BatchRemoveConsumerGroupConsumersRequest.hpp>
 #include <alibabacloud/models/BatchRemoveConsumerGroupConsumersResponseBody.hpp>
 #include <alibabacloud/models/BatchRemoveConsumerGroupConsumersResponse.hpp>
@@ -250,6 +256,12 @@
 #include <alibabacloud/models/GetAiModelProviderRequest.hpp>
 #include <alibabacloud/models/GetAiModelProviderResponseBody.hpp>
 #include <alibabacloud/models/GetAiModelProviderResponse.hpp>
+#include <alibabacloud/models/GetBatchExportTaskRequest.hpp>
+#include <alibabacloud/models/GetBatchExportTaskResponseBody.hpp>
+#include <alibabacloud/models/GetBatchExportTaskResponse.hpp>
+#include <alibabacloud/models/GetBatchImportTaskRequest.hpp>
+#include <alibabacloud/models/GetBatchImportTaskResponseBody.hpp>
+#include <alibabacloud/models/GetBatchImportTaskResponse.hpp>
 #include <alibabacloud/models/GetConsumerResponseBody.hpp>
 #include <alibabacloud/models/GetConsumerResponse.hpp>
 #include <alibabacloud/models/GetConsumerAuthorizationRuleResponseBody.hpp>
@@ -318,6 +330,9 @@
 #include <alibabacloud/models/ListAiModelProvidersRequest.hpp>
 #include <alibabacloud/models/ListAiModelProvidersResponseBody.hpp>
 #include <alibabacloud/models/ListAiModelProvidersResponse.hpp>
+#include <alibabacloud/models/ListBatchExportTasksRequest.hpp>
+#include <alibabacloud/models/ListBatchExportTasksResponseBody.hpp>
+#include <alibabacloud/models/ListBatchExportTasksResponse.hpp>
 #include <alibabacloud/models/ListConsumerAuthorizationRulesRequest.hpp>
 #include <alibabacloud/models/ListConsumerAuthorizationRulesResponseBody.hpp>
 #include <alibabacloud/models/ListConsumerAuthorizationRulesResponse.hpp>

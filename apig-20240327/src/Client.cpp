@@ -20,31 +20,31 @@ namespace APIG20240327
 AlibabaCloud::APIG20240327::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
+    {"ap-southeast-2" , "apig.ap-southeast-2.aliyuncs.com"},
+    {"ap-southeast-6" , "apig.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-7" , "apig.ap-southeast-7.aliyuncs.com"},
+    {"cn-guangzhou" , "apig.cn-guangzhou.aliyuncs.com"},
+    {"cn-heyuan" , "apig.cn-heyuan.aliyuncs.com"},
+    {"cn-shenzhen" , "apig.cn-shenzhen.aliyuncs.com"},
+    {"cn-wulanchabu" , "apig.cn-wulanchabu.aliyuncs.com"},
+    {"cn-beijing" , "apig.cn-beijing.aliyuncs.com"},
+    {"ap-northeast-2" , "apig.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "apig.ap-northeast-1.aliyuncs.com"},
+    {"cn-chengdu" , "apig.cn-chengdu.aliyuncs.com"},
+    {"cn-qingdao" , "apig.cn-qingdao.aliyuncs.com"},
+    {"cn-shanghai" , "apig.cn-shanghai.aliyuncs.com"},
+    {"cn-hongkong" , "apig.cn-hongkong.aliyuncs.com"},
+    {"ap-southeast-1" , "apig.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-3" , "apig.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-5" , "apig.ap-southeast-5.aliyuncs.com"},
+    {"cn-zhangjiakou" , "apig.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-hangzhou" , "apig.cn-hangzhou.aliyuncs.com"},
     {"us-west-1" , "apig.us-west-1.aliyuncs.com"},
     {"us-east-1" , "apig.us-east-1.aliyuncs.com"},
-    {"me-east-1" , "apig.me-east-1.aliyuncs.com"},
-    {"me-central-1" , "apig.me-central-1.aliyuncs.com"},
-    {"eu-west-1" , "apig.eu-west-1.aliyuncs.com"},
     {"eu-central-1" , "apig.eu-central-1.aliyuncs.com"},
-    {"cn-zhangjiakou" , "apig.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu" , "apig.cn-wulanchabu.aliyuncs.com"},
-    {"cn-shenzhen" , "apig.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai" , "apig.cn-shanghai.aliyuncs.com"},
-    {"cn-qingdao" , "apig.cn-qingdao.aliyuncs.com"},
-    {"cn-hongkong" , "apig.cn-hongkong.aliyuncs.com"},
-    {"cn-heyuan" , "apig.cn-heyuan.aliyuncs.com"},
-    {"cn-hangzhou" , "apig.cn-hangzhou.aliyuncs.com"},
-    {"cn-guangzhou" , "apig.cn-guangzhou.aliyuncs.com"},
-    {"cn-chengdu" , "apig.cn-chengdu.aliyuncs.com"},
-    {"cn-beijing" , "apig.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-7" , "apig.ap-southeast-7.aliyuncs.com"},
-    {"ap-southeast-6" , "apig.ap-southeast-6.aliyuncs.com"},
-    {"ap-southeast-5" , "apig.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-3" , "apig.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-2" , "apig.ap-southeast-2.aliyuncs.com"},
-    {"ap-southeast-1" , "apig.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-2" , "apig.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "apig.ap-northeast-1.aliyuncs.com"}
+    {"eu-west-1" , "apig.eu-west-1.aliyuncs.com"},
+    {"me-east-1" , "apig.me-east-1.aliyuncs.com"},
+    {"me-central-1" , "apig.me-central-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("apig", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -313,6 +313,144 @@ BatchDeleteConsumerAuthorizationRuleResponse Client::batchDeleteConsumerAuthoriz
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return batchDeleteConsumerAuthorizationRuleWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 批量导出HTTP API
+ *
+ * @param request BatchExportHttpApisRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchExportHttpApisResponse
+ */
+BatchExportHttpApisResponse Client::batchExportHttpApisWithOptions(const BatchExportHttpApisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasApiIds()) {
+    body["apiIds"] = request.getApiIds();
+  }
+
+  if (!!request.hasApiType()) {
+    body["apiType"] = request.getApiType();
+  }
+
+  if (!!request.hasExtensionConfig()) {
+    body["extensionConfig"] = request.getExtensionConfig();
+  }
+
+  if (!!request.hasFormat()) {
+    body["format"] = request.getFormat();
+  }
+
+  if (!!request.hasGatewayId()) {
+    body["gatewayId"] = request.getGatewayId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchExportHttpApis"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/http-apis/batch-export")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchExportHttpApisResponse>();
+}
+
+/**
+ * @summary 批量导出HTTP API
+ *
+ * @param request BatchExportHttpApisRequest
+ * @return BatchExportHttpApisResponse
+ */
+BatchExportHttpApisResponse Client::batchExportHttpApis(const BatchExportHttpApisRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return batchExportHttpApisWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 批量导入HTTP API
+ *
+ * @param request BatchImportHttpApisRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchImportHttpApisResponse
+ */
+BatchImportHttpApisResponse Client::batchImportHttpApisWithOptions(const BatchImportHttpApisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAllowUpdate()) {
+    body["allowUpdate"] = request.getAllowUpdate();
+  }
+
+  if (!!request.hasApiType()) {
+    body["apiType"] = request.getApiType();
+  }
+
+  if (!!request.hasDryRun()) {
+    body["dryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasGatewayId()) {
+    body["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["resourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasSpecFileUrl()) {
+    body["specFileUrl"] = request.getSpecFileUrl();
+  }
+
+  if (!!request.hasSpecOssConfig()) {
+    body["specOssConfig"] = request.getSpecOssConfig();
+  }
+
+  if (!!request.hasStrategy()) {
+    body["strategy"] = request.getStrategy();
+  }
+
+  if (!!request.hasWithGatewayExtension()) {
+    body["withGatewayExtension"] = request.getWithGatewayExtension();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchImportHttpApis"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/http-apis/batch-import")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchImportHttpApisResponse>();
+}
+
+/**
+ * @summary 批量导入HTTP API
+ *
+ * @param request BatchImportHttpApisRequest
+ * @return BatchImportHttpApisResponse
+ */
+BatchImportHttpApisResponse Client::batchImportHttpApis(const BatchImportHttpApisRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return batchImportHttpApisWithOptions(request, headers, runtime);
 }
 
 /**
@@ -3065,6 +3203,84 @@ GetAiModelProviderResponse Client::getAiModelProvider(const string &modelProvide
 }
 
 /**
+ * @summary 查询批量导出任务
+ *
+ * @param request GetBatchExportTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetBatchExportTaskResponse
+ */
+GetBatchExportTaskResponse Client::getBatchExportTaskWithOptions(const string &taskId, const GetBatchExportTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetBatchExportTask"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/http-api-batch-export-tasks/" , Darabonba::Encode::Encoder::percentEncode(taskId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetBatchExportTaskResponse>();
+}
+
+/**
+ * @summary 查询批量导出任务
+ *
+ * @param request GetBatchExportTaskRequest
+ * @return GetBatchExportTaskResponse
+ */
+GetBatchExportTaskResponse Client::getBatchExportTask(const string &taskId, const GetBatchExportTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getBatchExportTaskWithOptions(taskId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询批量操作任务
+ *
+ * @param request GetBatchImportTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetBatchImportTaskResponse
+ */
+GetBatchImportTaskResponse Client::getBatchImportTaskWithOptions(const string &taskId, const GetBatchImportTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetBatchImportTask"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/http-api-batch-import-tasks/" , Darabonba::Encode::Encoder::percentEncode(taskId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetBatchImportTaskResponse>();
+}
+
+/**
+ * @summary 查询批量操作任务
+ *
+ * @param request GetBatchImportTaskRequest
+ * @return GetBatchImportTaskResponse
+ */
+GetBatchImportTaskResponse Client::getBatchImportTask(const string &taskId, const GetBatchImportTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getBatchImportTaskWithOptions(taskId, request, headers, runtime);
+}
+
+/**
  * @summary Retrieves an API consumer.
  *
  * @param headers map
@@ -3617,7 +3833,7 @@ GetHttpApiRouteResponse Client::getHttpApiRoute(const string &httpApiId, const s
 /**
  * @summary Retrieves an MCP server.
  *
- * @description The operation supports creating multiple services.
+ * @description This operation supports creating multiple services.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3644,7 +3860,7 @@ GetMcpServerResponse Client::getMcpServerWithOptions(const string &mcpServerId, 
 /**
  * @summary Retrieves an MCP server.
  *
- * @description The operation supports creating multiple services.
+ * @description This operation supports creating multiple services.
  *
  * @return GetMcpServerResponse
  */
@@ -4044,7 +4260,7 @@ GetTraceConfigResponse Client::getTraceConfig(const string &gatewayId, const Get
 }
 
 /**
- * @summary Imports an HTTP API. This operation supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
+ * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
  *
  * @param request ImportHttpApiRequest
  * @param headers map
@@ -4129,7 +4345,7 @@ ImportHttpApiResponse Client::importHttpApiWithOptions(const ImportHttpApiReques
 }
 
 /**
- * @summary Imports an HTTP API. This operation supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
+ * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
  *
  * @param request ImportHttpApiRequest
  * @return ImportHttpApiResponse
@@ -4301,6 +4517,79 @@ ListAiModelProvidersResponse Client::listAiModelProviders(const ListAiModelProvi
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listAiModelProvidersWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询批量导出任务列表
+ *
+ * @param request ListBatchExportTasksRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListBatchExportTasksResponse
+ */
+ListBatchExportTasksResponse Client::listBatchExportTasksWithOptions(const ListBatchExportTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasGatewayId()) {
+    query["gatewayId"] = request.getGatewayId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatuses()) {
+    query["statuses"] = request.getStatuses();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListBatchExportTasks"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/http-api-batch-export-tasks")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListBatchExportTasksResponse>();
+}
+
+/**
+ * @summary 查询批量导出任务列表
+ *
+ * @param request ListBatchExportTasksRequest
+ * @return ListBatchExportTasksResponse
+ */
+ListBatchExportTasksResponse Client::listBatchExportTasks(const ListBatchExportTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listBatchExportTasksWithOptions(request, headers, runtime);
 }
 
 /**
@@ -4976,7 +5265,7 @@ ListGatewaysResponse Client::listGateways(const ListGatewaysRequest &request) {
 }
 
 /**
- * @summary Retrieves a list of API operations.
+ * @summary Retrieves the list of API operations.
  *
  * @param request ListHttpApiOperationsRequest
  * @param headers map
@@ -5057,7 +5346,7 @@ ListHttpApiOperationsResponse Client::listHttpApiOperationsWithOptions(const str
 }
 
 /**
- * @summary Retrieves a list of API operations.
+ * @summary Retrieves the list of API operations.
  *
  * @param request ListHttpApiOperationsRequest
  * @return ListHttpApiOperationsResponse
@@ -5352,7 +5641,7 @@ ListMcpServersResponse Client::listMcpServers(const ListMcpServersRequest &reque
 }
 
 /**
- * @summary Retrieves the list of plug-in mounts.
+ * @summary Retrieves the list of plugin mounts.
  *
  * @param request ListPluginAttachmentsRequest
  * @param headers map
@@ -5417,7 +5706,7 @@ ListPluginAttachmentsResponse Client::listPluginAttachmentsWithOptions(const Lis
 }
 
 /**
- * @summary Retrieves the list of plug-in mounts.
+ * @summary Retrieves the list of plugin mounts.
  *
  * @param request ListPluginAttachmentsRequest
  * @return ListPluginAttachmentsResponse
@@ -7521,7 +7810,7 @@ UpdateHttpApiOperationResponse Client::updateHttpApiOperation(const string &http
 }
 
 /**
- * @summary Updates a route of an HttpApi.
+ * @summary Updates the route of an HTTP API.
  *
  * @param request UpdateHttpApiRouteRequest
  * @param headers map
@@ -7578,7 +7867,7 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRouteWithOptions(const string &h
 }
 
 /**
- * @summary Updates a route of an HttpApi.
+ * @summary Updates the route of an HTTP API.
  *
  * @param request UpdateHttpApiRouteRequest
  * @return UpdateHttpApiRouteResponse

@@ -123,6 +123,7 @@ namespace Models
       class Services : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Services& obj) { 
+          DARABONBA_PTR_TO_JSON(modelName, modelName_);
           DARABONBA_PTR_TO_JSON(port, port_);
           DARABONBA_PTR_TO_JSON(protocol, protocol_);
           DARABONBA_PTR_TO_JSON(serviceId, serviceId_);
@@ -130,6 +131,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(weight, weight_);
         };
         friend void from_json(const Darabonba::Json& j, Services& obj) { 
+          DARABONBA_PTR_FROM_JSON(modelName, modelName_);
           DARABONBA_PTR_FROM_JSON(port, port_);
           DARABONBA_PTR_FROM_JSON(protocol, protocol_);
           DARABONBA_PTR_FROM_JSON(serviceId, serviceId_);
@@ -147,8 +149,15 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->port_ == nullptr
-        && this->protocol_ == nullptr && this->serviceId_ == nullptr && this->version_ == nullptr && this->weight_ == nullptr; };
+        virtual bool empty() const override { return this->modelName_ == nullptr
+        && this->port_ == nullptr && this->protocol_ == nullptr && this->serviceId_ == nullptr && this->version_ == nullptr && this->weight_ == nullptr; };
+        // modelName Field Functions 
+        bool hasModelName() const { return this->modelName_ != nullptr;};
+        void deleteModelName() { this->modelName_ = nullptr;};
+        inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
+        inline Services& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
+
+
         // port Field Functions 
         bool hasPort() const { return this->port_ != nullptr;};
         void deletePort() { this->port_ = nullptr;};
@@ -185,6 +194,8 @@ namespace Models
 
 
       protected:
+        // The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewrite semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If this field is not configured in the AiAutoRouter scenario, the default model of the AI service is used.
+        shared_ptr<string> modelName_ {};
         // The service port. Do not specify this parameter for dynamic ports.
         shared_ptr<int32_t> port_ {};
         // The service protocol. Valid values:

@@ -58,10 +58,12 @@ namespace Models
       class Items : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Items& obj) { 
+          DARABONBA_PTR_TO_JSON(constraints, constraints_);
           DARABONBA_PTR_TO_JSON(definition, definition_);
           DARABONBA_PTR_TO_JSON(value, value_);
         };
         friend void from_json(const Darabonba::Json& j, Items& obj) { 
+          DARABONBA_PTR_FROM_JSON(constraints, constraints_);
           DARABONBA_PTR_FROM_JSON(definition, definition_);
           DARABONBA_PTR_FROM_JSON(value, value_);
         };
@@ -324,8 +326,48 @@ namespace Models
           shared_ptr<string> valueUnit_ {};
         };
 
-        virtual bool empty() const override { return this->definition_ == nullptr
-        && this->value_ == nullptr; };
+        class Constraints : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Constraints& obj) { 
+            DARABONBA_PTR_TO_JSON(bodyMaxSizeLimit, bodyMaxSizeLimit_);
+          };
+          friend void from_json(const Darabonba::Json& j, Constraints& obj) { 
+            DARABONBA_PTR_FROM_JSON(bodyMaxSizeLimit, bodyMaxSizeLimit_);
+          };
+          Constraints() = default ;
+          Constraints(const Constraints &) = default ;
+          Constraints(Constraints &&) = default ;
+          Constraints(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Constraints() = default ;
+          Constraints& operator=(const Constraints &) = default ;
+          Constraints& operator=(Constraints &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->bodyMaxSizeLimit_ == nullptr; };
+          // bodyMaxSizeLimit Field Functions 
+          bool hasBodyMaxSizeLimit() const { return this->bodyMaxSizeLimit_ != nullptr;};
+          void deleteBodyMaxSizeLimit() { this->bodyMaxSizeLimit_ = nullptr;};
+          inline int32_t getBodyMaxSizeLimit() const { DARABONBA_PTR_GET_DEFAULT(bodyMaxSizeLimit_, 0) };
+          inline Constraints& setBodyMaxSizeLimit(int32_t bodyMaxSizeLimit) { DARABONBA_PTR_SET_VALUE(bodyMaxSizeLimit_, bodyMaxSizeLimit) };
+
+
+        protected:
+          shared_ptr<int32_t> bodyMaxSizeLimit_ {};
+        };
+
+        virtual bool empty() const override { return this->constraints_ == nullptr
+        && this->definition_ == nullptr && this->value_ == nullptr; };
+        // constraints Field Functions 
+        bool hasConstraints() const { return this->constraints_ != nullptr;};
+        void deleteConstraints() { this->constraints_ = nullptr;};
+        inline const Items::Constraints & getConstraints() const { DARABONBA_PTR_GET_CONST(constraints_, Items::Constraints) };
+        inline Items::Constraints getConstraints() { DARABONBA_PTR_GET(constraints_, Items::Constraints) };
+        inline Items& setConstraints(const Items::Constraints & constraints) { DARABONBA_PTR_SET_VALUE(constraints_, constraints) };
+        inline Items& setConstraints(Items::Constraints && constraints) { DARABONBA_PTR_SET_RVALUE(constraints_, constraints) };
+
+
         // definition Field Functions 
         bool hasDefinition() const { return this->definition_ != nullptr;};
         void deleteDefinition() { this->definition_ = nullptr;};
@@ -343,6 +385,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<Items::Constraints> constraints_ {};
         // The parameter definition.
         shared_ptr<Items::Definition> definition_ {};
         // The parameter value.

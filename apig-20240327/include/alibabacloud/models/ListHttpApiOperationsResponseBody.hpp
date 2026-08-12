@@ -95,7 +95,7 @@ namespace Models
 
 
     protected:
-      // The list of API operations.
+      // The list of operations.
       shared_ptr<vector<HttpApiOperationInfo>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
@@ -140,7 +140,7 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The list of API operations.
+    // The list of operations.
     shared_ptr<ListHttpApiOperationsResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};

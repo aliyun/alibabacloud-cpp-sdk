@@ -163,7 +163,7 @@ namespace Models
 
 
         protected:
-          // The API operation information.
+          // The operation information.
           shared_ptr<HttpApiOperationInfo> operationInfo_ {};
           // The routing rule.
           shared_ptr<HttpRoute> route_ {};

@@ -226,31 +226,25 @@ namespace Models
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
     // The description of the imported API. If not specified, the description is extracted from the API definition. Maximum length: 255 bytes.
     shared_ptr<string> description_ {};
-    // Specifies whether to enable dry run mode. If enabled, only validation is performed without performing the actual import.
+    // Specifies whether to perform a dry run. If enabled, only validation is performed without the actual import.
     shared_ptr<bool> dryRun_ {};
     // The gateway ID.
     shared_ptr<string> gatewayId_ {};
     // The MCP route ID.
     shared_ptr<string> mcpRouteId_ {};
-    // The name of the imported API. If not specified, the name is extracted from the API definition file. If the API name and version configuration already exist, this import updates the existing API definition based on the strategy field.
+    // The name of the imported API. If not specified, the name is extracted from the API definition file. If an API with the same name and version configuration already exists, this import updates the existing API definition based on the strategy field.
     shared_ptr<string> name_ {};
     // The [resource group ID](https://help.aliyun.com/document_detail/151181.html).
     shared_ptr<string> resourceGroupId_ {};
-    // The Base64-encoded API definition that supports OAS 2.0 and OAS 3.0 specifications in YAML or JSON format. This parameter takes priority over the specFileUrl parameter. If the file size exceeds 10 MB, use the specFileUrl parameter instead.
+    // The Base64-encoded API definition. OAS 2.0 and OAS 3.0 specifications are supported in YAML or JSON format. This parameter takes priority over the specFileUrl parameter. If the file size exceeds 10 MB, use the specFileUrl parameter instead.
     shared_ptr<string> specContentBase64_ {};
-    // The download URL of the API definition file. The URL must be accessible from the public network or be an internal network OSS download URL in the same region. The URL must have download permissions. For OSS files that are not publicly readable, see References [Download objects using presigned URLs](https://help.aliyun.com/document_detail/39607.html) and provide a URL with download permissions. Currently, only API definition files stored on OSS are supported.
+    // The download URL of the API definition file. The URL must be accessible over the Internet or be an internal network OSS download URL in the same region. The URL must have download permissions. For OSS files that are not publicly readable, see References [Download objects using presigned URLs](https://help.aliyun.com/document_detail/39607.html) and provide a URL with download permissions. Only API definition files stored in OSS are supported.
     shared_ptr<string> specFileUrl_ {};
-    // The OSS configuration.
+    // The OSS information.
     shared_ptr<ImportHttpApiRequest::SpecOssConfig> specOssConfig_ {};
     // The update strategy to use when the imported API name and version management match an existing API. Valid values:
-    // 
-    // - SpecFirst: the imported file takes priority. New operations are added and existing operations are updated. Operations not mentioned in the file remain unchanged.
-    // - SpecOnly: the imported file is used as the sole source of truth.
-    // - ExistFirst: the existing API takes priority. Only new operations are added. Existing operations are not updated.
-    // 
-    // Default value: ExistFirst.
     shared_ptr<string> strategy_ {};
-    // If this field is specified, this import updates the specified API instead of importing a new one or searching for an existing API based on the API name and version management configuration. The target API must be of the REST type.
+    // If this field is specified, the import updates the specified API instead of importing a new one or searching for an existing API by name and version management configuration. The target API must be of the REST type.
     shared_ptr<string> targetHttpApiId_ {};
     // The API version configuration. If version configuration is enabled and the version number and API name match an existing API, this import is treated as an update. If version configuration is not enabled and the API name matches an existing API, this import is treated as an update.
     shared_ptr<HttpApiVersionConfig> versionConfig_ {};

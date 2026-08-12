@@ -114,7 +114,7 @@ namespace Models
   protected:
     // The mount resource ID.
     shared_ptr<string> attachResourceId_ {};
-    // The plug-in mount point type. This parameter is not yet enabled.
+    // The plugin mount point type. This parameter is not yet enabled.
     shared_ptr<string> attachResourceType_ {};
     // The mount point types. Separate multiple types with commas.
     shared_ptr<string> attachResourceTypes_ {};
@@ -124,9 +124,9 @@ namespace Models
     shared_ptr<string> gatewayId_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The plug-in ID.
+    // The plugin ID.
     shared_ptr<string> pluginId_ {};
     // Specifies whether to return parent resource mounts.
     shared_ptr<bool> withParentResource_ {};

@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(builtinRouteNames, builtinRouteNames_);
       DARABONBA_PTR_TO_JSON(customDomainIds, customDomainIds_);
       DARABONBA_PTR_TO_JSON(customDomainInfos, customDomainInfos_);
+      DARABONBA_PTR_TO_JSON(enableSystemModels, enableSystemModels_);
       DARABONBA_PTR_TO_JSON(envDomainIds, envDomainIds_);
       DARABONBA_PTR_TO_JSON(envDomainInfos, envDomainInfos_);
       DARABONBA_PTR_TO_JSON(environmentId, environmentId_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(builtinRouteNames, builtinRouteNames_);
       DARABONBA_PTR_FROM_JSON(customDomainIds, customDomainIds_);
       DARABONBA_PTR_FROM_JSON(customDomainInfos, customDomainInfos_);
+      DARABONBA_PTR_FROM_JSON(enableSystemModels, enableSystemModels_);
       DARABONBA_PTR_FROM_JSON(envDomainIds, envDomainIds_);
       DARABONBA_PTR_FROM_JSON(envDomainInfos, envDomainInfos_);
       DARABONBA_PTR_FROM_JSON(environmentId, environmentId_);
@@ -343,7 +345,7 @@ namespace Models
       shared_ptr<string> multiServiceRouteStrategy_ {};
       // The service display name.
       shared_ptr<string> name_ {};
-      // The observability-based routing configuration.
+      // The observability metric routing configuration.
       shared_ptr<ServiceConfigs::ObservabilityRouteConfig> observabilityRouteConfig_ {};
       // The service port number.
       shared_ptr<int32_t> port_ {};
@@ -468,9 +470,10 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->autoDeploy_ == nullptr
-        && this->backendScene_ == nullptr && this->builtinRouteNames_ == nullptr && this->customDomainIds_ == nullptr && this->customDomainInfos_ == nullptr && this->envDomainIds_ == nullptr
-        && this->envDomainInfos_ == nullptr && this->environmentId_ == nullptr && this->gatewayId_ == nullptr && this->gatewayInfo_ == nullptr && this->gatewayType_ == nullptr
-        && this->mock_ == nullptr && this->policyConfigs_ == nullptr && this->routeBackend_ == nullptr && this->serviceConfigs_ == nullptr && this->subDomains_ == nullptr; };
+        && this->backendScene_ == nullptr && this->builtinRouteNames_ == nullptr && this->customDomainIds_ == nullptr && this->customDomainInfos_ == nullptr && this->enableSystemModels_ == nullptr
+        && this->envDomainIds_ == nullptr && this->envDomainInfos_ == nullptr && this->environmentId_ == nullptr && this->gatewayId_ == nullptr && this->gatewayInfo_ == nullptr
+        && this->gatewayType_ == nullptr && this->mock_ == nullptr && this->policyConfigs_ == nullptr && this->routeBackend_ == nullptr && this->serviceConfigs_ == nullptr
+        && this->subDomains_ == nullptr; };
     // autoDeploy Field Functions 
     bool hasAutoDeploy() const { return this->autoDeploy_ != nullptr;};
     void deleteAutoDeploy() { this->autoDeploy_ = nullptr;};
@@ -510,6 +513,13 @@ namespace Models
     inline vector<HttpApiDeployConfig::CustomDomainInfos> getCustomDomainInfos() { DARABONBA_PTR_GET(customDomainInfos_, vector<HttpApiDeployConfig::CustomDomainInfos>) };
     inline HttpApiDeployConfig& setCustomDomainInfos(const vector<HttpApiDeployConfig::CustomDomainInfos> & customDomainInfos) { DARABONBA_PTR_SET_VALUE(customDomainInfos_, customDomainInfos) };
     inline HttpApiDeployConfig& setCustomDomainInfos(vector<HttpApiDeployConfig::CustomDomainInfos> && customDomainInfos) { DARABONBA_PTR_SET_RVALUE(customDomainInfos_, customDomainInfos) };
+
+
+    // enableSystemModels Field Functions 
+    bool hasEnableSystemModels() const { return this->enableSystemModels_ != nullptr;};
+    void deleteEnableSystemModels() { this->enableSystemModels_ = nullptr;};
+    inline bool getEnableSystemModels() const { DARABONBA_PTR_GET_DEFAULT(enableSystemModels_, false) };
+    inline HttpApiDeployConfig& setEnableSystemModels(bool enableSystemModels) { DARABONBA_PTR_SET_VALUE(enableSystemModels_, enableSystemModels) };
 
 
     // envDomainIds Field Functions 
@@ -606,19 +616,21 @@ namespace Models
 
 
   protected:
-    // Indicates whether auto-deploy is enabled.
+    // Specifies whether to automatically deploy.
     shared_ptr<bool> autoDeploy_ {};
-    // The publishing scenario.
+    // The deployment scenario.
     shared_ptr<string> backendScene_ {};
     // The list of built-in route names.
     shared_ptr<vector<string>> builtinRouteNames_ {};
     // The list of custom domain name IDs.
     shared_ptr<vector<string>> customDomainIds_ {};
-    // The list of custom domain name information.
+    // The list of custom domain name details.
     shared_ptr<vector<HttpApiDeployConfig::CustomDomainInfos>> customDomainInfos_ {};
-    // The list of environment domain name IDs. If this parameter is not specified, all environment domain names are bound. An empty array indicates that no environment domain names are bound.
+    // Specifies whether to enable gateway system models. This parameter takes effect only when the deployment scenario is AiAutoRouter. Default value: false. If enabled, built-in Qwen candidates from the platform are merged with the user\\"s own candidates.
+    shared_ptr<bool> enableSystemModels_ {};
+    // The list of environment domain name IDs. If not specified, all environment domain names are bound. An empty array indicates that no environment domain names are bound.
     shared_ptr<vector<string>> envDomainIds_ {};
-    // The list of environment domain name information.
+    // The list of environment domain name details.
     shared_ptr<vector<HttpApiDeployConfig::EnvDomainInfos>> envDomainInfos_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
@@ -636,7 +648,7 @@ namespace Models
     shared_ptr<Backend> routeBackend_ {};
     // The list of service configurations.
     shared_ptr<vector<HttpApiDeployConfig::ServiceConfigs>> serviceConfigs_ {};
-    // The list of subdomain information.
+    // The subdomain content list.
     shared_ptr<vector<HttpApiDeployConfig::SubDomains>> subDomains_ {};
   };
 

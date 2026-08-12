@@ -113,6 +113,42 @@ namespace APIG20240327
       Models::BatchDeleteConsumerAuthorizationRuleResponse batchDeleteConsumerAuthorizationRule(const Models::BatchDeleteConsumerAuthorizationRuleRequest &request);
 
       /**
+       * @summary 批量导出HTTP API
+       *
+       * @param request BatchExportHttpApisRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchExportHttpApisResponse
+       */
+      Models::BatchExportHttpApisResponse batchExportHttpApisWithOptions(const Models::BatchExportHttpApisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量导出HTTP API
+       *
+       * @param request BatchExportHttpApisRequest
+       * @return BatchExportHttpApisResponse
+       */
+      Models::BatchExportHttpApisResponse batchExportHttpApis(const Models::BatchExportHttpApisRequest &request);
+
+      /**
+       * @summary 批量导入HTTP API
+       *
+       * @param request BatchImportHttpApisRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchImportHttpApisResponse
+       */
+      Models::BatchImportHttpApisResponse batchImportHttpApisWithOptions(const Models::BatchImportHttpApisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量导入HTTP API
+       *
+       * @param request BatchImportHttpApisRequest
+       * @return BatchImportHttpApisResponse
+       */
+      Models::BatchImportHttpApisResponse batchImportHttpApis(const Models::BatchImportHttpApisRequest &request);
+
+      /**
        * @summary Removes consumer group members in batches.
        *
        * @param request BatchRemoveConsumerGroupConsumersRequest
@@ -1055,6 +1091,42 @@ namespace APIG20240327
       Models::GetAiModelProviderResponse getAiModelProvider(const string &modelProviderId, const Models::GetAiModelProviderRequest &request);
 
       /**
+       * @summary 查询批量导出任务
+       *
+       * @param request GetBatchExportTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetBatchExportTaskResponse
+       */
+      Models::GetBatchExportTaskResponse getBatchExportTaskWithOptions(const string &taskId, const Models::GetBatchExportTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询批量导出任务
+       *
+       * @param request GetBatchExportTaskRequest
+       * @return GetBatchExportTaskResponse
+       */
+      Models::GetBatchExportTaskResponse getBatchExportTask(const string &taskId, const Models::GetBatchExportTaskRequest &request);
+
+      /**
+       * @summary 查询批量操作任务
+       *
+       * @param request GetBatchImportTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetBatchImportTaskResponse
+       */
+      Models::GetBatchImportTaskResponse getBatchImportTaskWithOptions(const string &taskId, const Models::GetBatchImportTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询批量操作任务
+       *
+       * @param request GetBatchImportTaskRequest
+       * @return GetBatchImportTaskResponse
+       */
+      Models::GetBatchImportTaskResponse getBatchImportTask(const string &taskId, const Models::GetBatchImportTaskRequest &request);
+
+      /**
        * @summary Retrieves an API consumer.
        *
        * @param headers map
@@ -1273,7 +1345,7 @@ namespace APIG20240327
       /**
        * @summary Retrieves an MCP server.
        *
-       * @description The operation supports creating multiple services.
+       * @description This operation supports creating multiple services.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1284,7 +1356,7 @@ namespace APIG20240327
       /**
        * @summary Retrieves an MCP server.
        *
-       * @description The operation supports creating multiple services.
+       * @description This operation supports creating multiple services.
        *
        * @return GetMcpServerResponse
        */
@@ -1465,7 +1537,7 @@ namespace APIG20240327
       Models::GetTraceConfigResponse getTraceConfig(const string &gatewayId, const Models::GetTraceConfigRequest &request);
 
       /**
-       * @summary Imports an HTTP API. This operation supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
+       * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
        *
        * @param request ImportHttpApiRequest
        * @param headers map
@@ -1475,7 +1547,7 @@ namespace APIG20240327
       Models::ImportHttpApiResponse importHttpApiWithOptions(const Models::ImportHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports an HTTP API. This operation supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
+       * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
        *
        * @param request ImportHttpApiRequest
        * @return ImportHttpApiResponse
@@ -1535,6 +1607,24 @@ namespace APIG20240327
        * @return ListAiModelProvidersResponse
        */
       Models::ListAiModelProvidersResponse listAiModelProviders(const Models::ListAiModelProvidersRequest &request);
+
+      /**
+       * @summary 查询批量导出任务列表
+       *
+       * @param request ListBatchExportTasksRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListBatchExportTasksResponse
+       */
+      Models::ListBatchExportTasksResponse listBatchExportTasksWithOptions(const Models::ListBatchExportTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询批量导出任务列表
+       *
+       * @param request ListBatchExportTasksRequest
+       * @return ListBatchExportTasksResponse
+       */
+      Models::ListBatchExportTasksResponse listBatchExportTasks(const Models::ListBatchExportTasksRequest &request);
 
       /**
        * @summary Retrieves the list of consumer authorization rules.
@@ -1745,7 +1835,7 @@ namespace APIG20240327
       Models::ListGatewaysResponse listGateways(const Models::ListGatewaysRequest &request);
 
       /**
-       * @summary Retrieves a list of API operations.
+       * @summary Retrieves the list of API operations.
        *
        * @param request ListHttpApiOperationsRequest
        * @param headers map
@@ -1755,7 +1845,7 @@ namespace APIG20240327
       Models::ListHttpApiOperationsResponse listHttpApiOperationsWithOptions(const string &httpApiId, const Models::ListHttpApiOperationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of API operations.
+       * @summary Retrieves the list of API operations.
        *
        * @param request ListHttpApiOperationsRequest
        * @return ListHttpApiOperationsResponse
@@ -1821,7 +1911,7 @@ namespace APIG20240327
       Models::ListMcpServersResponse listMcpServers(const Models::ListMcpServersRequest &request);
 
       /**
-       * @summary Retrieves the list of plug-in mounts.
+       * @summary Retrieves the list of plugin mounts.
        *
        * @param request ListPluginAttachmentsRequest
        * @param headers map
@@ -1831,7 +1921,7 @@ namespace APIG20240327
       Models::ListPluginAttachmentsResponse listPluginAttachmentsWithOptions(const Models::ListPluginAttachmentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of plug-in mounts.
+       * @summary Retrieves the list of plugin mounts.
        *
        * @param request ListPluginAttachmentsRequest
        * @return ListPluginAttachmentsResponse
@@ -2509,7 +2599,7 @@ namespace APIG20240327
       Models::UpdateHttpApiOperationResponse updateHttpApiOperation(const string &httpApiId, const string &operationId, const Models::UpdateHttpApiOperationRequest &request);
 
       /**
-       * @summary Updates a route of an HttpApi.
+       * @summary Updates the route of an HTTP API.
        *
        * @param request UpdateHttpApiRouteRequest
        * @param headers map
@@ -2519,7 +2609,7 @@ namespace APIG20240327
       Models::UpdateHttpApiRouteResponse updateHttpApiRouteWithOptions(const string &httpApiId, const string &routeId, const Models::UpdateHttpApiRouteRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a route of an HttpApi.
+       * @summary Updates the route of an HTTP API.
        *
        * @param request UpdateHttpApiRouteRequest
        * @return UpdateHttpApiRouteResponse

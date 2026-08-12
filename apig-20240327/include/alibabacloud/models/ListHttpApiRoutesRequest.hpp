@@ -169,15 +169,15 @@ namespace Models
   protected:
     // The backend service name. You can use this name to filter routes.
     shared_ptr<string> backendServiceName_ {};
-    // Filters the API list by a specific consumer authorization rule ID. The response only includes authorized APIs.
+    // Filters the API list by a specific consumer authorization rule ID. The response includes only authorized APIs.
     shared_ptr<string> consumerAuthorizationRuleId_ {};
     // The deployment status of the route.
     shared_ptr<string> deployStatuses_ {};
-    // Filters route information by domain name ID.
+    // The domain name ID used to filter route information.
     shared_ptr<string> domainId_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
-    // Specifies whether the request is for a deployment scenario.
+    // Specifies whether this is a deployment scenario.
     shared_ptr<bool> forDeploy_ {};
     // The cloud-native API gateway ID.
     shared_ptr<string> gatewayId_ {};
@@ -191,11 +191,11 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // Fuzzy match by route path.
     shared_ptr<string> pathLike_ {};
-    // Includes consumer authorization information in the response.
+    // Specifies whether to include consumer authorization information in the response.
     shared_ptr<bool> withAuthPolicyInfo_ {};
-    // Includes the authorization rule list of the specified consumer ID for each route in the response.
+    // Specifies a consumer ID so that the response includes the authorization rule list for the specified consumer in each route.
     shared_ptr<string> withConsumerInfoById_ {};
-    // Includes the mount information of the specified plug-in ID for each route in the response.
+    // Specifies a plug-in ID so that the response includes the mount information of the specified plug-in in each route.
     shared_ptr<string> withPluginAttachmentByPluginId_ {};
   };
 

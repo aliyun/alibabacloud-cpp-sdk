@@ -124,9 +124,9 @@ namespace Models
     protected:
       // The environment ID.
       shared_ptr<string> environmentId_ {};
-      // The Ingress class to listen on.
+      // The Ingress Class to listen on.
       shared_ptr<string> ingressClass_ {};
-      // Specifies whether to update the address in the Ingress status.
+      // Specifies whether to update the address in the Ingress Status.
       shared_ptr<bool> overrideIngressIp_ {};
       // The source ID.
       shared_ptr<string> sourceId_ {};
@@ -250,13 +250,13 @@ namespace Models
     shared_ptr<vector<string>> aiProtocols_ {};
     // The authentication configuration.
     shared_ptr<AuthConfig> authConfig_ {};
-    // The base path of the API. The value must start with a forward slash (/).
+    // The API base path, which must start with /.
     // 
     // This parameter is required.
     shared_ptr<string> basePath_ {};
     // The list of API deployment configurations.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
-    // The description of the API.
+    // The API description.
     shared_ptr<string> description_ {};
     // Specifies whether to enable authentication.
     shared_ptr<bool> enableAuth_ {};
@@ -264,7 +264,7 @@ namespace Models
     shared_ptr<int32_t> firstByteTimeout_ {};
     // The configuration of the HTTP Ingress API.
     shared_ptr<UpdateHttpApiRequest::IngressConfig> ingressConfig_ {};
-    // Specifies whether to only update the configuration without triggering a redeployment. Set this parameter to true to update the configuration only.
+    // Specifies whether to only modify the configuration without triggering redeployment. A value of true indicates that only the configuration is modified.
     shared_ptr<bool> onlyChangeConfig_ {};
     // The list of API access protocols.
     shared_ptr<vector<string>> protocols_ {};

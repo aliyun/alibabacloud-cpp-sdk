@@ -634,7 +634,7 @@ namespace Models
     protected:
       // API ID。
       shared_ptr<string> apiId_ {};
-      // The list of assembly sources. This parameter is required when type is AssemblyMCP.
+      // The list of assembled sources. This parameter is required when type is AssemblyMCP.
       shared_ptr<vector<Data::AssembledSources>> assembledSources_ {};
       // The backend service of the route.
       shared_ptr<Backend> backend_ {};

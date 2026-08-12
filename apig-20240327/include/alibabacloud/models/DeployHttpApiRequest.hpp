@@ -102,7 +102,7 @@ namespace Models
 
 
       protected:
-        // The action type.
+        // The operation type.
         shared_ptr<string> action_ {};
         // The unique identifier of the operation.
         shared_ptr<string> operationId_ {};
@@ -214,8 +214,8 @@ namespace Models
           // The service port. Do not specify this parameter for dynamic ports.
           shared_ptr<int32_t> port_ {};
           // The service protocol. Valid values:
-          // - HTTP
-          // - HTTPS
+          // - HTTP.
+          // - HTTPS.
           shared_ptr<string> protocol_ {};
           // The service ID.
           shared_ptr<string> serviceId_ {};
@@ -266,7 +266,7 @@ namespace Models
         shared_ptr<vector<string>> customDomainIds_ {};
         // The environment ID.
         shared_ptr<string> environmentId_ {};
-        // The existing service configurations. In the single-service scenario, only one entry is allowed. In scenarios such as by-ratio or by-content, multiple entries are allowed.
+        // The existing service configurations. In the single service scenario, only one entry is allowed. In the by-ratio or by-content scenarios, multiple entries are allowed.
         shared_ptr<vector<Environment::ServiceConfigs>> serviceConfigs_ {};
       };
 

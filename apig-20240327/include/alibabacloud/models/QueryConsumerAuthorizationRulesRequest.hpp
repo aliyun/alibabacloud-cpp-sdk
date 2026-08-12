@@ -160,8 +160,9 @@ namespace Models
   protected:
     // The API name.
     shared_ptr<string> apiNameLike_ {};
-    // The consumer group ID. If specified, the authorization rules of the consumer group are queried.
+    // The consumer group ID. If specified, the authorization rules for the consumer group are queried.
     shared_ptr<string> consumerGroupId_ {};
+    // The consumer group name for fuzzy match.
     shared_ptr<string> consumerGroupNameLike_ {};
     // The consumer ID.
     shared_ptr<string> consumerId_ {};
