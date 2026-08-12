@@ -52,6 +52,9 @@
 #include <alibabacloud/models/CreateClientUserRequest.hpp>
 #include <alibabacloud/models/CreateClientUserResponseBody.hpp>
 #include <alibabacloud/models/CreateClientUserResponse.hpp>
+#include <alibabacloud/models/CreateDomainMetaRequest.hpp>
+#include <alibabacloud/models/CreateDomainMetaResponseBody.hpp>
+#include <alibabacloud/models/CreateDomainMetaResponse.hpp>
 #include <alibabacloud/models/CreateDynamicRouteRequest.hpp>
 #include <alibabacloud/models/CreateDynamicRouteResponseBody.hpp>
 #include <alibabacloud/models/CreateDynamicRouteResponse.hpp>
@@ -106,6 +109,9 @@
 #include <alibabacloud/models/DeleteClientUserRequest.hpp>
 #include <alibabacloud/models/DeleteClientUserResponseBody.hpp>
 #include <alibabacloud/models/DeleteClientUserResponse.hpp>
+#include <alibabacloud/models/DeleteDomainMetaRequest.hpp>
+#include <alibabacloud/models/DeleteDomainMetaResponseBody.hpp>
+#include <alibabacloud/models/DeleteDomainMetaResponse.hpp>
 #include <alibabacloud/models/DeleteDynamicRouteRequest.hpp>
 #include <alibabacloud/models/DeleteDynamicRouteResponseBody.hpp>
 #include <alibabacloud/models/DeleteDynamicRouteResponse.hpp>
@@ -177,6 +183,9 @@
 #include <alibabacloud/models/GetIdpConfigRequest.hpp>
 #include <alibabacloud/models/GetIdpConfigResponseBody.hpp>
 #include <alibabacloud/models/GetIdpConfigResponse.hpp>
+#include <alibabacloud/models/GetNacPortalSmsPhoneWhitelistRequest.hpp>
+#include <alibabacloud/models/GetNacPortalSmsPhoneWhitelistResponseBody.hpp>
+#include <alibabacloud/models/GetNacPortalSmsPhoneWhitelistResponse.hpp>
 #include <alibabacloud/models/GetPADiagnosisTaskRequest.hpp>
 #include <alibabacloud/models/GetPADiagnosisTaskResponseBody.hpp>
 #include <alibabacloud/models/GetPADiagnosisTaskResponse.hpp>
@@ -231,6 +240,9 @@
 #include <alibabacloud/models/ListConnectorsRequest.hpp>
 #include <alibabacloud/models/ListConnectorsResponseBody.hpp>
 #include <alibabacloud/models/ListConnectorsResponse.hpp>
+#include <alibabacloud/models/ListDomainMetasRequest.hpp>
+#include <alibabacloud/models/ListDomainMetasResponseBody.hpp>
+#include <alibabacloud/models/ListDomainMetasResponse.hpp>
 #include <alibabacloud/models/ListDynamicDisposalProcessesRequest.hpp>
 #include <alibabacloud/models/ListDynamicDisposalProcessesResponseBody.hpp>
 #include <alibabacloud/models/ListDynamicDisposalProcessesResponse.hpp>
@@ -299,6 +311,9 @@
 #include <alibabacloud/models/ListRegistrationPoliciesForUserGroupRequest.hpp>
 #include <alibabacloud/models/ListRegistrationPoliciesForUserGroupResponseBody.hpp>
 #include <alibabacloud/models/ListRegistrationPoliciesForUserGroupResponse.hpp>
+#include <alibabacloud/models/ListRiskItemsRequest.hpp>
+#include <alibabacloud/models/ListRiskItemsResponseBody.hpp>
+#include <alibabacloud/models/ListRiskItemsResponse.hpp>
 #include <alibabacloud/models/ListSoftwareForUserDeviceRequest.hpp>
 #include <alibabacloud/models/ListSoftwareForUserDeviceResponseBody.hpp>
 #include <alibabacloud/models/ListSoftwareForUserDeviceResponse.hpp>
@@ -364,6 +379,9 @@
 #include <alibabacloud/models/UpdateClientUserStatusRequest.hpp>
 #include <alibabacloud/models/UpdateClientUserStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdateClientUserStatusResponse.hpp>
+#include <alibabacloud/models/UpdateDomainMetaRequest.hpp>
+#include <alibabacloud/models/UpdateDomainMetaResponseBody.hpp>
+#include <alibabacloud/models/UpdateDomainMetaResponse.hpp>
 #include <alibabacloud/models/UpdateDynamicRouteRequest.hpp>
 #include <alibabacloud/models/UpdateDynamicRouteResponseBody.hpp>
 #include <alibabacloud/models/UpdateDynamicRouteResponse.hpp>
@@ -373,6 +391,9 @@
 #include <alibabacloud/models/UpdateIdpDepartmentRequest.hpp>
 #include <alibabacloud/models/UpdateIdpDepartmentResponseBody.hpp>
 #include <alibabacloud/models/UpdateIdpDepartmentResponse.hpp>
+#include <alibabacloud/models/UpdateNacPortalSmsPhoneWhitelistRequest.hpp>
+#include <alibabacloud/models/UpdateNacPortalSmsPhoneWhitelistResponseBody.hpp>
+#include <alibabacloud/models/UpdateNacPortalSmsPhoneWhitelistResponse.hpp>
 #include <alibabacloud/models/UpdateNacUserCertStatusRequest.hpp>
 #include <alibabacloud/models/UpdateNacUserCertStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdateNacUserCertStatusResponse.hpp>
@@ -387,6 +408,9 @@
 #include <alibabacloud/models/UpdateRegistrationPolicyShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateRegistrationPolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdateRegistrationPolicyResponse.hpp>
+#include <alibabacloud/models/UpdateRiskStatusRequest.hpp>
+#include <alibabacloud/models/UpdateRiskStatusResponseBody.hpp>
+#include <alibabacloud/models/UpdateRiskStatusResponse.hpp>
 #include <alibabacloud/models/UpdateUninstallApplicationsStatusRequest.hpp>
 #include <alibabacloud/models/UpdateUninstallApplicationsStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdateUninstallApplicationsStatusResponse.hpp>

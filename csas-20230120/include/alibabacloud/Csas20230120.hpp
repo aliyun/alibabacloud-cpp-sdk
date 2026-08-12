@@ -89,6 +89,27 @@ namespace Csas20230120
       Models::CreateClientUserResponse createClientUser(const Models::CreateClientUserRequest &request);
 
       /**
+       * @summary Creates a domain name list.
+       *
+       * @description Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. A maximum of 100 lists can be created for each list type per tenant.
+       *
+       * @param request CreateDomainMetaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDomainMetaResponse
+       */
+      Models::CreateDomainMetaResponse createDomainMetaWithOptions(const Models::CreateDomainMetaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a domain name list.
+       *
+       * @description Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. A maximum of 100 lists can be created for each list type per tenant.
+       *
+       * @param request CreateDomainMetaRequest
+       * @return CreateDomainMetaResponse
+       */
+      Models::CreateDomainMetaResponse createDomainMeta(const Models::CreateDomainMetaRequest &request);
+
+      /**
        * @summary Create dynamic routes for the current Alibaba Cloud account.
        *
        * @description By default, you can create a maximum of 100 dynamic routes.
@@ -383,6 +404,27 @@ namespace Csas20230120
        * @return DeleteClientUserResponse
        */
       Models::DeleteClientUserResponse deleteClientUser(const Models::DeleteClientUserRequest &request);
+
+      /**
+       * @summary Deletes a domain name list.
+       *
+       * @description Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If the list is referenced, the deletion is rejected.
+       *
+       * @param request DeleteDomainMetaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDomainMetaResponse
+       */
+      Models::DeleteDomainMetaResponse deleteDomainMetaWithOptions(const Models::DeleteDomainMetaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a domain name list.
+       *
+       * @description Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If the list is referenced, the deletion is rejected.
+       *
+       * @param request DeleteDomainMetaRequest
+       * @return DeleteDomainMetaResponse
+       */
+      Models::DeleteDomainMetaResponse deleteDomainMeta(const Models::DeleteDomainMetaRequest &request);
 
       /**
        * @summary Delete a dynamic route from your current Alibaba Cloud account.
@@ -821,6 +863,27 @@ namespace Csas20230120
       Models::GetIdpConfigResponse getIdpConfig(const Models::GetIdpConfigRequest &request);
 
       /**
+       * @summary Retrieves the phone number whitelist for visitor admission SMS logon.
+       *
+       * @description Retrieves all phone numbers in the whitelist.
+       *
+       * @param request GetNacPortalSmsPhoneWhitelistRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetNacPortalSmsPhoneWhitelistResponse
+       */
+      Models::GetNacPortalSmsPhoneWhitelistResponse getNacPortalSmsPhoneWhitelistWithOptions(const Models::GetNacPortalSmsPhoneWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the phone number whitelist for visitor admission SMS logon.
+       *
+       * @description Retrieves all phone numbers in the whitelist.
+       *
+       * @param request GetNacPortalSmsPhoneWhitelistRequest
+       * @return GetNacPortalSmsPhoneWhitelistResponse
+       */
+      Models::GetNacPortalSmsPhoneWhitelistResponse getNacPortalSmsPhoneWhitelist(const Models::GetNacPortalSmsPhoneWhitelistRequest &request);
+
+      /**
        * @summary Retrieves the details of a private access diagnostic task.
        *
        * @param request GetPADiagnosisTaskRequest
@@ -1125,6 +1188,27 @@ namespace Csas20230120
        * @return ListConnectorsResponse
        */
       Models::ListConnectorsResponse listConnectors(const Models::ListConnectorsRequest &request);
+
+      /**
+       * @summary Queries the list of domain name lists.
+       *
+       * @description Performs a paged query on the metadata of domain name lists (the header information of domain name blacklists/whitelists, excluding the specific domain name entries within the lists) for the current tenant with paging. You can filter by list type (blacklist/whitelist), perform fuzzy search by name, and specify whether to include system built-in default template lists in the results. Each record includes the number of domain name entries in the list.
+       *
+       * @param request ListDomainMetasRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDomainMetasResponse
+       */
+      Models::ListDomainMetasResponse listDomainMetasWithOptions(const Models::ListDomainMetasRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of domain name lists.
+       *
+       * @description Performs a paged query on the metadata of domain name lists (the header information of domain name blacklists/whitelists, excluding the specific domain name entries within the lists) for the current tenant with paging. You can filter by list type (blacklist/whitelist), perform fuzzy search by name, and specify whether to include system built-in default template lists in the results. Each record includes the number of domain name entries in the list.
+       *
+       * @param request ListDomainMetasRequest
+       * @return ListDomainMetasResponse
+       */
+      Models::ListDomainMetasResponse listDomainMetas(const Models::ListDomainMetasRequest &request);
 
       /**
        * @summary Batch Query Dynamic Policy Disposal Processes
@@ -1516,6 +1600,39 @@ namespace Csas20230120
       Models::ListRegistrationPoliciesForUserGroupResponse listRegistrationPoliciesForUserGroup(const Models::ListRegistrationPoliciesForUserGroupRequest &request);
 
       /**
+       * @summary Queries the list of risk events under the current Alibaba Cloud account.
+       *
+       * @description ## Operation description
+       * - This operation performs paging query of risk events based on specified conditional criteria.
+       * - `CurrentPage` and `PageSize` are required parameters that specify the current page number and the number of entries per page.
+       * - You can set parameters such as `RiskId`, `RiskScene`, and `RiskCategory` to perform exact or fuzzy queries for specific risk events.
+       * - The `Status` and `StatusList` parameters cannot be used at the same time. They are used to filter risk events by disposition status.
+       * - Fuzzy matching is supported for `PolicyName` and `Username`.
+       * - The response includes the total number of risk events that match the query conditions and their details.
+       *
+       * @param request ListRiskItemsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRiskItemsResponse
+       */
+      Models::ListRiskItemsResponse listRiskItemsWithOptions(const Models::ListRiskItemsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of risk events under the current Alibaba Cloud account.
+       *
+       * @description ## Operation description
+       * - This operation performs paging query of risk events based on specified conditional criteria.
+       * - `CurrentPage` and `PageSize` are required parameters that specify the current page number and the number of entries per page.
+       * - You can set parameters such as `RiskId`, `RiskScene`, and `RiskCategory` to perform exact or fuzzy queries for specific risk events.
+       * - The `Status` and `StatusList` parameters cannot be used at the same time. They are used to filter risk events by disposition status.
+       * - Fuzzy matching is supported for `PolicyName` and `Username`.
+       * - The response includes the total number of risk events that match the query conditions and their details.
+       *
+       * @param request ListRiskItemsRequest
+       * @return ListRiskItemsResponse
+       */
+      Models::ListRiskItemsResponse listRiskItems(const Models::ListRiskItemsRequest &request);
+
+      /**
        * @summary Lists the software installed on a user device.
        *
        * @param request ListSoftwareForUserDeviceRequest
@@ -1877,6 +1994,23 @@ namespace Csas20230120
       Models::UpdateClientUserStatusResponse updateClientUserStatus(const Models::UpdateClientUserStatusRequest &request);
 
       /**
+       * @summary Updates the name of a domain name list.
+       *
+       * @param request UpdateDomainMetaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDomainMetaResponse
+       */
+      Models::UpdateDomainMetaResponse updateDomainMetaWithOptions(const Models::UpdateDomainMetaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the name of a domain name list.
+       *
+       * @param request UpdateDomainMetaRequest
+       * @return UpdateDomainMetaResponse
+       */
+      Models::UpdateDomainMetaResponse updateDomainMeta(const Models::UpdateDomainMetaRequest &request);
+
+      /**
        * @summary Modifies a dynamic route in your Alibaba Cloud account.
        *
        * @param request UpdateDynamicRouteRequest
@@ -1926,6 +2060,31 @@ namespace Csas20230120
        * @return UpdateIdpDepartmentResponse
        */
       Models::UpdateIdpDepartmentResponse updateIdpDepartment(const Models::UpdateIdpDepartmentRequest &request);
+
+      /**
+       * @summary Updates the phone number whitelist for visitor access SMS logon.
+       *
+       * @description - A maximum of 1024 phone numbers are supported.
+       * - Duplicate phone numbers are not allowed. Phone numbers in invalid formats are rejected. Only Chinese mainland phone numbers are supported.
+       * - You must update all phone numbers at once. Incremental updates are not supported.
+       *
+       * @param request UpdateNacPortalSmsPhoneWhitelistRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateNacPortalSmsPhoneWhitelistResponse
+       */
+      Models::UpdateNacPortalSmsPhoneWhitelistResponse updateNacPortalSmsPhoneWhitelistWithOptions(const Models::UpdateNacPortalSmsPhoneWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the phone number whitelist for visitor access SMS logon.
+       *
+       * @description - A maximum of 1024 phone numbers are supported.
+       * - Duplicate phone numbers are not allowed. Phone numbers in invalid formats are rejected. Only Chinese mainland phone numbers are supported.
+       * - You must update all phone numbers at once. Incremental updates are not supported.
+       *
+       * @param request UpdateNacPortalSmsPhoneWhitelistRequest
+       * @return UpdateNacPortalSmsPhoneWhitelistResponse
+       */
+      Models::UpdateNacPortalSmsPhoneWhitelistResponse updateNacPortalSmsPhoneWhitelist(const Models::UpdateNacPortalSmsPhoneWhitelistRequest &request);
 
       /**
        * @summary Updates the network access certificate status for users in your Alibaba Cloud account.
@@ -1994,6 +2153,37 @@ namespace Csas20230120
        * @return UpdateRegistrationPolicyResponse
        */
       Models::UpdateRegistrationPolicyResponse updateRegistrationPolicy(const Models::UpdateRegistrationPolicyRequest &request);
+
+      /**
+       * @summary Updates the current handling status and conclusion of a specified risk event.
+       *
+       * @description ## Request description
+       * - This operation allows you to update the handling status of a specific risk event under your Alibaba Cloud account.
+       * - When `Status` is set to `Processed`, you must provide the `RiskConfirm` parameter to specify the manually confirmed risk conclusion.
+       * - If `Status` is `Unprocess` or `Processing`, do not include the `RiskConfirm` parameter.
+       * - The `RiskScene` parameter is optional. If not provided, the system automatically populates it based on `RiskId`.
+       * - The `RiskConfirmDesc` field provides additional explanation or remarks for the handling decision. The length must be 1 to 128 characters.
+       *
+       * @param request UpdateRiskStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateRiskStatusResponse
+       */
+      Models::UpdateRiskStatusResponse updateRiskStatusWithOptions(const Models::UpdateRiskStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the current handling status and conclusion of a specified risk event.
+       *
+       * @description ## Request description
+       * - This operation allows you to update the handling status of a specific risk event under your Alibaba Cloud account.
+       * - When `Status` is set to `Processed`, you must provide the `RiskConfirm` parameter to specify the manually confirmed risk conclusion.
+       * - If `Status` is `Unprocess` or `Processing`, do not include the `RiskConfirm` parameter.
+       * - The `RiskScene` parameter is optional. If not provided, the system automatically populates it based on `RiskId`.
+       * - The `RiskConfirmDesc` field provides additional explanation or remarks for the handling decision. The length must be 1 to 128 characters.
+       *
+       * @param request UpdateRiskStatusRequest
+       * @return UpdateRiskStatusResponse
+       */
+      Models::UpdateRiskStatusResponse updateRiskStatus(const Models::UpdateRiskStatusRequest &request);
 
       /**
        * @summary Batch updates the status of uninstall requests for your Alibaba Cloud account.

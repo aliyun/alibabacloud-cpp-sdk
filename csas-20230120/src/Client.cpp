@@ -19,8 +19,8 @@ namespace Csas20230120
 AlibabaCloud::Csas20230120::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"public" , "csas.aliyuncs.com"},
-    {"cn-hangzhou" , "csas.aliyuncs.com"}
+    {"cn-hangzhou" , "csas.aliyuncs.com"},
+    {"public" , "csas.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("csas", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -269,6 +269,56 @@ CreateClientUserResponse Client::createClientUserWithOptions(const CreateClientU
 CreateClientUserResponse Client::createClientUser(const CreateClientUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createClientUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a domain name list.
+ *
+ * @description Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. A maximum of 100 lists can be created for each list type per tenant.
+ *
+ * @param request CreateDomainMetaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDomainMetaResponse
+ */
+CreateDomainMetaResponse Client::createDomainMetaWithOptions(const CreateDomainMetaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasListType()) {
+    body["ListType"] = request.getListType();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateDomainMeta"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDomainMetaResponse>();
+}
+
+/**
+ * @summary Creates a domain name list.
+ *
+ * @description Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. A maximum of 100 lists can be created for each list type per tenant.
+ *
+ * @param request CreateDomainMetaRequest
+ * @return CreateDomainMetaResponse
+ */
+CreateDomainMetaResponse Client::createDomainMeta(const CreateDomainMetaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDomainMetaWithOptions(request, runtime);
 }
 
 /**
@@ -1496,6 +1546,56 @@ DeleteClientUserResponse Client::deleteClientUser(const DeleteClientUserRequest 
 }
 
 /**
+ * @summary Deletes a domain name list.
+ *
+ * @description Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If the list is referenced, the deletion is rejected.
+ *
+ * @param request DeleteDomainMetaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDomainMetaResponse
+ */
+DeleteDomainMetaResponse Client::deleteDomainMetaWithOptions(const DeleteDomainMetaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasListId()) {
+    body["ListId"] = request.getListId();
+  }
+
+  if (!!request.hasListType()) {
+    body["ListType"] = request.getListType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteDomainMeta"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDomainMetaResponse>();
+}
+
+/**
+ * @summary Deletes a domain name list.
+ *
+ * @description Deletes a specified domain name list under the current tenant. Before deletion, the system checks whether any domain name policy references the list. If the list is referenced, the deletion is rejected.
+ *
+ * @param request DeleteDomainMetaRequest
+ * @return DeleteDomainMetaResponse
+ */
+DeleteDomainMetaResponse Client::deleteDomainMeta(const DeleteDomainMetaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDomainMetaWithOptions(request, runtime);
+}
+
+/**
  * @summary Delete a dynamic route from your current Alibaba Cloud account.
  *
  * @param request DeleteDynamicRouteRequest
@@ -2590,6 +2690,45 @@ GetIdpConfigResponse Client::getIdpConfig(const GetIdpConfigRequest &request) {
 }
 
 /**
+ * @summary Retrieves the phone number whitelist for visitor admission SMS logon.
+ *
+ * @description Retrieves all phone numbers in the whitelist.
+ *
+ * @param request GetNacPortalSmsPhoneWhitelistRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetNacPortalSmsPhoneWhitelistResponse
+ */
+GetNacPortalSmsPhoneWhitelistResponse Client::getNacPortalSmsPhoneWhitelistWithOptions(const GetNacPortalSmsPhoneWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetNacPortalSmsPhoneWhitelist"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetNacPortalSmsPhoneWhitelistResponse>();
+}
+
+/**
+ * @summary Retrieves the phone number whitelist for visitor admission SMS logon.
+ *
+ * @description Retrieves all phone numbers in the whitelist.
+ *
+ * @param request GetNacPortalSmsPhoneWhitelistRequest
+ * @return GetNacPortalSmsPhoneWhitelistResponse
+ */
+GetNacPortalSmsPhoneWhitelistResponse Client::getNacPortalSmsPhoneWhitelist(const GetNacPortalSmsPhoneWhitelistRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getNacPortalSmsPhoneWhitelistWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the details of a private access diagnostic task.
  *
  * @param request GetPADiagnosisTaskRequest
@@ -3279,6 +3418,68 @@ ListConnectorsResponse Client::listConnectorsWithOptions(const ListConnectorsReq
 ListConnectorsResponse Client::listConnectors(const ListConnectorsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listConnectorsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of domain name lists.
+ *
+ * @description Performs a paged query on the metadata of domain name lists (the header information of domain name blacklists/whitelists, excluding the specific domain name entries within the lists) for the current tenant with paging. You can filter by list type (blacklist/whitelist), perform fuzzy search by name, and specify whether to include system built-in default template lists in the results. Each record includes the number of domain name entries in the list.
+ *
+ * @param request ListDomainMetasRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDomainMetasResponse
+ */
+ListDomainMetasResponse Client::listDomainMetasWithOptions(const ListDomainMetasRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasDefaultTemplate()) {
+    query["DefaultTemplate"] = request.getDefaultTemplate();
+  }
+
+  if (!!request.hasListType()) {
+    query["ListType"] = request.getListType();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDomainMetas"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDomainMetasResponse>();
+}
+
+/**
+ * @summary Queries the list of domain name lists.
+ *
+ * @description Performs a paged query on the metadata of domain name lists (the header information of domain name blacklists/whitelists, excluding the specific domain name entries within the lists) for the current tenant with paging. You can filter by list type (blacklist/whitelist), perform fuzzy search by name, and specify whether to include system built-in default template lists in the results. Each record includes the number of domain name entries in the list.
+ *
+ * @param request ListDomainMetasRequest
+ * @return ListDomainMetasResponse
+ */
+ListDomainMetasResponse Client::listDomainMetas(const ListDomainMetasRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDomainMetasWithOptions(request, runtime);
 }
 
 /**
@@ -4219,6 +4420,100 @@ ListRegistrationPoliciesForUserGroupResponse Client::listRegistrationPoliciesFor
 ListRegistrationPoliciesForUserGroupResponse Client::listRegistrationPoliciesForUserGroup(const ListRegistrationPoliciesForUserGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listRegistrationPoliciesForUserGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of risk events under the current Alibaba Cloud account.
+ *
+ * @description ## Operation description
+ * - This operation performs paging query of risk events based on specified conditional criteria.
+ * - `CurrentPage` and `PageSize` are required parameters that specify the current page number and the number of entries per page.
+ * - You can set parameters such as `RiskId`, `RiskScene`, and `RiskCategory` to perform exact or fuzzy queries for specific risk events.
+ * - The `Status` and `StatusList` parameters cannot be used at the same time. They are used to filter risk events by disposition status.
+ * - Fuzzy matching is supported for `PolicyName` and `Username`.
+ * - The response includes the total number of risk events that match the query conditions and their details.
+ *
+ * @param request ListRiskItemsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRiskItemsResponse
+ */
+ListRiskItemsResponse Client::listRiskItemsWithOptions(const ListRiskItemsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPolicyName()) {
+    query["PolicyName"] = request.getPolicyName();
+  }
+
+  if (!!request.hasRiskCategory()) {
+    query["RiskCategory"] = request.getRiskCategory();
+  }
+
+  if (!!request.hasRiskId()) {
+    query["RiskId"] = request.getRiskId();
+  }
+
+  if (!!request.hasRiskLevel()) {
+    query["RiskLevel"] = request.getRiskLevel();
+  }
+
+  if (!!request.hasRiskScene()) {
+    query["RiskScene"] = request.getRiskScene();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasStatusList()) {
+    query["StatusList"] = request.getStatusList();
+  }
+
+  if (!!request.hasUsername()) {
+    query["Username"] = request.getUsername();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRiskItems"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRiskItemsResponse>();
+}
+
+/**
+ * @summary Queries the list of risk events under the current Alibaba Cloud account.
+ *
+ * @description ## Operation description
+ * - This operation performs paging query of risk events based on specified conditional criteria.
+ * - `CurrentPage` and `PageSize` are required parameters that specify the current page number and the number of entries per page.
+ * - You can set parameters such as `RiskId`, `RiskScene`, and `RiskCategory` to perform exact or fuzzy queries for specific risk events.
+ * - The `Status` and `StatusList` parameters cannot be used at the same time. They are used to filter risk events by disposition status.
+ * - Fuzzy matching is supported for `PolicyName` and `Username`.
+ * - The response includes the total number of risk events that match the query conditions and their details.
+ *
+ * @param request ListRiskItemsRequest
+ * @return ListRiskItemsResponse
+ */
+ListRiskItemsResponse Client::listRiskItems(const ListRiskItemsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listRiskItemsWithOptions(request, runtime);
 }
 
 /**
@@ -5318,6 +5613,56 @@ UpdateClientUserStatusResponse Client::updateClientUserStatus(const UpdateClient
 }
 
 /**
+ * @summary Updates the name of a domain name list.
+ *
+ * @param request UpdateDomainMetaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDomainMetaResponse
+ */
+UpdateDomainMetaResponse Client::updateDomainMetaWithOptions(const UpdateDomainMetaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasListId()) {
+    body["ListId"] = request.getListId();
+  }
+
+  if (!!request.hasListType()) {
+    body["ListType"] = request.getListType();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateDomainMeta"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDomainMetaResponse>();
+}
+
+/**
+ * @summary Updates the name of a domain name list.
+ *
+ * @param request UpdateDomainMetaRequest
+ * @return UpdateDomainMetaResponse
+ */
+UpdateDomainMetaResponse Client::updateDomainMeta(const UpdateDomainMetaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDomainMetaWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies a dynamic route in your Alibaba Cloud account.
  *
  * @param request UpdateDynamicRouteRequest
@@ -5505,6 +5850,56 @@ UpdateIdpDepartmentResponse Client::updateIdpDepartmentWithOptions(const UpdateI
 UpdateIdpDepartmentResponse Client::updateIdpDepartment(const UpdateIdpDepartmentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateIdpDepartmentWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the phone number whitelist for visitor access SMS logon.
+ *
+ * @description - A maximum of 1024 phone numbers are supported.
+ * - Duplicate phone numbers are not allowed. Phone numbers in invalid formats are rejected. Only Chinese mainland phone numbers are supported.
+ * - You must update all phone numbers at once. Incremental updates are not supported.
+ *
+ * @param request UpdateNacPortalSmsPhoneWhitelistRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateNacPortalSmsPhoneWhitelistResponse
+ */
+UpdateNacPortalSmsPhoneWhitelistResponse Client::updateNacPortalSmsPhoneWhitelistWithOptions(const UpdateNacPortalSmsPhoneWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPhones()) {
+    query["Phones"] = request.getPhones();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateNacPortalSmsPhoneWhitelist"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateNacPortalSmsPhoneWhitelistResponse>();
+}
+
+/**
+ * @summary Updates the phone number whitelist for visitor access SMS logon.
+ *
+ * @description - A maximum of 1024 phone numbers are supported.
+ * - Duplicate phone numbers are not allowed. Phone numbers in invalid formats are rejected. Only Chinese mainland phone numbers are supported.
+ * - You must update all phone numbers at once. Incremental updates are not supported.
+ *
+ * @param request UpdateNacPortalSmsPhoneWhitelistRequest
+ * @return UpdateNacPortalSmsPhoneWhitelistResponse
+ */
+UpdateNacPortalSmsPhoneWhitelistResponse Client::updateNacPortalSmsPhoneWhitelist(const UpdateNacPortalSmsPhoneWhitelistRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateNacPortalSmsPhoneWhitelistWithOptions(request, runtime);
 }
 
 /**
@@ -5901,6 +6296,78 @@ UpdateRegistrationPolicyResponse Client::updateRegistrationPolicyWithOptions(con
 UpdateRegistrationPolicyResponse Client::updateRegistrationPolicy(const UpdateRegistrationPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateRegistrationPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Updates the current handling status and conclusion of a specified risk event.
+ *
+ * @description ## Request description
+ * - This operation allows you to update the handling status of a specific risk event under your Alibaba Cloud account.
+ * - When `Status` is set to `Processed`, you must provide the `RiskConfirm` parameter to specify the manually confirmed risk conclusion.
+ * - If `Status` is `Unprocess` or `Processing`, do not include the `RiskConfirm` parameter.
+ * - The `RiskScene` parameter is optional. If not provided, the system automatically populates it based on `RiskId`.
+ * - The `RiskConfirmDesc` field provides additional explanation or remarks for the handling decision. The length must be 1 to 128 characters.
+ *
+ * @param request UpdateRiskStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateRiskStatusResponse
+ */
+UpdateRiskStatusResponse Client::updateRiskStatusWithOptions(const UpdateRiskStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasRiskConfirm()) {
+    body["RiskConfirm"] = request.getRiskConfirm();
+  }
+
+  if (!!request.hasRiskConfirmDesc()) {
+    body["RiskConfirmDesc"] = request.getRiskConfirmDesc();
+  }
+
+  if (!!request.hasRiskId()) {
+    body["RiskId"] = request.getRiskId();
+  }
+
+  if (!!request.hasRiskScene()) {
+    body["RiskScene"] = request.getRiskScene();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateRiskStatus"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateRiskStatusResponse>();
+}
+
+/**
+ * @summary Updates the current handling status and conclusion of a specified risk event.
+ *
+ * @description ## Request description
+ * - This operation allows you to update the handling status of a specific risk event under your Alibaba Cloud account.
+ * - When `Status` is set to `Processed`, you must provide the `RiskConfirm` parameter to specify the manually confirmed risk conclusion.
+ * - If `Status` is `Unprocess` or `Processing`, do not include the `RiskConfirm` parameter.
+ * - The `RiskScene` parameter is optional. If not provided, the system automatically populates it based on `RiskId`.
+ * - The `RiskConfirmDesc` field provides additional explanation or remarks for the handling decision. The length must be 1 to 128 characters.
+ *
+ * @param request UpdateRiskStatusRequest
+ * @return UpdateRiskStatusResponse
+ */
+UpdateRiskStatusResponse Client::updateRiskStatus(const UpdateRiskStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateRiskStatusWithOptions(request, runtime);
 }
 
 /**

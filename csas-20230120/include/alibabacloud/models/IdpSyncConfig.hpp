@@ -111,8 +111,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether automatic synchronization is enabled.
     shared_ptr<bool> autoSyncEnabled_ {};
+    // The names of the departments selected for synchronization. The names have a one-to-one relationship with IdpDepartmentIds.
     shared_ptr<vector<IdpSyncConfig::IdpDepartmentInfos>> idpDepartmentInfos_ {};
+    // The scheduled synchronization interval, in seconds.
     shared_ptr<int64_t> scheduleSyncIntervalSecond_ {};
     shared_ptr<bool> userSyncEnabled_ {};
   };
