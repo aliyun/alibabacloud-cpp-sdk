@@ -75,10 +75,18 @@ namespace Models
 
 
   protected:
+    // The return code.
     shared_ptr<string> code_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation is successful. Valid values:
+    // 
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
+    // The tag request ID.
     shared_ptr<string> tagResponseId_ {};
   };
 

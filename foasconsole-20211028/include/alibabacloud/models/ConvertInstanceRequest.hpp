@@ -103,8 +103,12 @@ namespace Models
 
 
       protected:
+        // The number of CPUs.
+        // 
         // This parameter is required.
         shared_ptr<int32_t> cpu_ {};
+        // The memory size.
+        // 
         // This parameter is required.
         shared_ptr<int32_t> memoryGB_ {};
       };
@@ -128,8 +132,12 @@ namespace Models
 
 
     protected:
+      // The namespace name.
+      // 
       // This parameter is required.
       shared_ptr<string> namespace_ {};
+      // The resource specifications.
+      // 
       // This parameter is required.
       shared_ptr<NamespaceResourceSpecs::ResourceSpec> resourceSpec_ {};
     };
@@ -196,17 +204,29 @@ namespace Models
 
 
   protected:
+    // The number of subscription cycles.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> duration_ {};
+    // The order instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether to enable auto-renewal.
+    // 
     // This parameter is required.
     shared_ptr<bool> isAutoRenew_ {};
+    // The resource specifications of the namespace.
+    // 
     // This parameter is required.
     shared_ptr<vector<ConvertInstanceRequest::NamespaceResourceSpecs>> namespaceResourceSpecs_ {};
+    // The subscription cycle.
+    // 
     // This parameter is required.
     shared_ptr<string> pricingCycle_ {};
     shared_ptr<string> promotionCode_ {};
+    // The region.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
     shared_ptr<bool> usePromotionCode_ {};

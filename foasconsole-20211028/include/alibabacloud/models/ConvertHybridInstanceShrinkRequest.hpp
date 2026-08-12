@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The order instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The region.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // The maximum resource specifications available for the pay-as-you-go portion of hybrid billing.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceSpecShrink_ {};
   };

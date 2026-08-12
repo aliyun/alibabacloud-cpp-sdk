@@ -7,6 +7,7 @@
 #include <alibabacloud/models/ClusterState.hpp>
 #include <alibabacloud/models/FlussVswitch.hpp>
 #include <alibabacloud/models/FlussInstance.hpp>
+#include <alibabacloud/models/FlussResourceSpec.hpp>
 #include <alibabacloud/models/ConvertHybridInstanceRequest.hpp>
 #include <alibabacloud/models/ConvertHybridInstanceShrinkRequest.hpp>
 #include <alibabacloud/models/ConvertHybridInstanceResponseBody.hpp>

@@ -130,17 +130,28 @@ namespace Models
 
 
   protected:
+    // The architecture type.
     shared_ptr<string> architectureType_ {};
+    // The payment type.
     shared_ptr<string> chargeType_ {};
+    // Specifies whether mixed billing is used.
     shared_ptr<bool> elastic_ {};
+    // The order instance ID.
     shared_ptr<string> instanceId_ {};
+    // The instance name.
     shared_ptr<string> instanceName_ {};
+    // The namespace name.
     shared_ptr<string> namespaceName_ {};
+    // The current page number.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
     shared_ptr<string> resourceGroupId_ {};
+    // The tags of the instance.
     shared_ptr<string> tagsShrink_ {};
   };
 

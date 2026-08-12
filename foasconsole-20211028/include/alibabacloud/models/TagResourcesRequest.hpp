@@ -74,7 +74,9 @@ namespace Models
 
 
     protected:
+      // Tag key
       shared_ptr<string> key_ {};
+      // Tag value
       shared_ptr<string> value_ {};
     };
 
@@ -113,12 +115,20 @@ namespace Models
 
 
   protected:
+    // Region
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // List of order instance IDs
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
+    // Resource type. Set this parameter to vvpinstance.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // List of tags. You can specify up to 20 tags
+    // 
     // This parameter is required.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};
   };

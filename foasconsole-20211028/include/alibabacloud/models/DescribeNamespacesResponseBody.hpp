@@ -117,7 +117,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -168,8 +170,10 @@ namespace Models
 
 
       protected:
+        // The number of used CPUs.
         shared_ptr<float> cpu_ {};
         shared_ptr<float> cu_ {};
+        // The amount of used memory.
         shared_ptr<float> memoryGB_ {};
       };
 
@@ -211,7 +215,9 @@ namespace Models
 
 
       protected:
+        // The number of CPUs.
         shared_ptr<int32_t> cpu_ {};
+        // The memory size.
         shared_ptr<int32_t> memoryGB_ {};
       };
 
@@ -384,14 +390,26 @@ namespace Models
 
     protected:
       shared_ptr<Namespaces::ElasticResourceSpec> elasticResourceSpec_ {};
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
+      // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
       shared_ptr<Namespaces::GuaranteedResourceSpec> guaranteedResourceSpec_ {};
       shared_ptr<bool> ha_ {};
+      // The name of the namespace.
       shared_ptr<string> namespace_ {};
+      // The resource specification information.
       shared_ptr<Namespaces::ResourceSpec> resourceSpec_ {};
+      // The used resources.
       shared_ptr<Namespaces::ResourceUsed> resourceUsed_ {};
+      // The status of the namespace. Valid values:
+      // - CREATING: Being created.
+      // - DELETING: Being deleted.
+      // - MODIFYING: Resource specifications are being modified.
+      // - SUCCESS: The last operation was successful.
+      // - FAILED: The last operation failed.
       shared_ptr<string> status_ {};
+      // The list of tags.
       shared_ptr<vector<Namespaces::Tags>> tags_ {};
     };
 
@@ -450,12 +468,22 @@ namespace Models
 
 
   protected:
+    // The list of namespaces.
     shared_ptr<vector<DescribeNamespacesResponseBody::Namespaces>> namespaces_ {};
+    // The current page number.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

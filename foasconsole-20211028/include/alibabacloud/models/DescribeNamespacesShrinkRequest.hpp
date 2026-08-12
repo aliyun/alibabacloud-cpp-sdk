@@ -95,13 +95,21 @@ namespace Models
 
   protected:
     shared_ptr<bool> ha_ {};
+    // The order instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The namespace name.
     shared_ptr<string> namespace_ {};
+    // The current page number.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The region.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // The list of tags.
     shared_ptr<string> tagsShrink_ {};
   };
 

@@ -98,9 +98,13 @@ namespace Models
 
 
     protected:
+      // The description.
       shared_ptr<string> description_ {};
+      // The extended field.
       shared_ptr<string> extra_ {};
+      // The region ID.
       shared_ptr<string> region_ {};
+      // The region name.
       shared_ptr<string> regionName_ {};
     };
 
@@ -159,12 +163,22 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of regions per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The list of region information.
     shared_ptr<vector<DescribeSupportedRegionsResponseBody::Regions>> regions_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
+    // The total number of regions returned.
     shared_ptr<int64_t> totalCount_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

@@ -17,7 +17,28 @@ namespace Foasconsole20211028
 {
 
 AlibabaCloud::Foasconsole20211028::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "central";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-qingdao" , "foasconsole.cn-qingdao.aliyuncs.com"},
+    {"cn-wulanchabu" , "foasconsole.cn-wulanchabu.aliyuncs.com"},
+    {"cn-beijing" , "foasconsole.cn-beijing.aliyuncs.com"},
+    {"cn-shanghai" , "foasconsole.cn-shanghai.aliyuncs.com"},
+    {"cn-hongkong" , "foasconsole.cn-hongkong.aliyuncs.com"},
+    {"cn-zhangjiakou" , "foasconsole.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-shenzhen" , "foasconsole.cn-shenzhen.aliyuncs.com"},
+    {"ap-northeast-1" , "foasconsole.ap-northeast-1.aliyuncs.com"},
+    {"ap-southeast-1" , "foasconsole.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-3" , "foasconsole.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-5" , "foasconsole.ap-southeast-5.aliyuncs.com"},
+    {"cn-hangzhou" , "foasconsole.cn-hangzhou.aliyuncs.com"},
+    {"us-east-1" , "foasconsole.us-east-1.aliyuncs.com"},
+    {"eu-west-1" , "foasconsole.eu-west-1.aliyuncs.com"},
+    {"us-west-1" , "foasconsole.us-west-1.aliyuncs.com"},
+    {"eu-central-1" , "foasconsole.eu-central-1.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "foasconsole.cn-shenzhen-finance-1.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "foasconsole.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-north-2-gov-1" , "foasconsole.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("foasconsole", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +57,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 开通弹性计算
+ * @summary Converts a subscription instance to a hybrid billing instance.
+ *
+ * @description **Before using this API, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/hybrid-pricing) of hybrid billing for Realtime Compute for Apache Flink.**
  *
  * @param tmpReq ConvertHybridInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +104,9 @@ ConvertHybridInstanceResponse Client::convertHybridInstanceWithOptions(const Con
 }
 
 /**
- * @summary 开通弹性计算
+ * @summary Converts a subscription instance to a hybrid billing instance.
+ *
+ * @description **Before using this API, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/hybrid-pricing) of hybrid billing for Realtime Compute for Apache Flink.**
  *
  * @param request ConvertHybridInstanceRequest
  * @return ConvertHybridInstanceResponse
@@ -92,7 +117,9 @@ ConvertHybridInstanceResponse Client::convertHybridInstance(const ConvertHybridI
 }
 
 /**
- * @summary Changes the billing method of a workspace from pay-as-you-go to subscription.
+ * @summary Converts a pay-as-you-go workspace to a subscription workspace.
+ *
+ * @description **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/switch-from-pay-as-you-go-to-subscription) of fully managed Flink.**
  *
  * @param tmpReq ConvertInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -157,7 +184,9 @@ ConvertInstanceResponse Client::convertInstanceWithOptions(const ConvertInstance
 }
 
 /**
- * @summary Changes the billing method of a workspace from pay-as-you-go to subscription.
+ * @summary Converts a pay-as-you-go workspace to a subscription workspace.
+ *
+ * @description **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/switch-from-pay-as-you-go-to-subscription) of fully managed Flink.**
  *
  * @param request ConvertInstanceRequest
  * @return ConvertInstanceResponse
@@ -168,7 +197,9 @@ ConvertInstanceResponse Client::convertInstance(const ConvertInstanceRequest &re
 }
 
 /**
- * @summary Changes the billing method of a workspace from subscription to pay-as-you-go.
+ * @summary Converts a subscription instance to pay-as-you-go.
+ *
+ * @description Before using this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/flink/product-overview/switch-from-subscription-to-pay-as-you-go) of Alibaba Cloud Realtime Compute for Apache Flink.
  *
  * @param request ConvertPrepayInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -203,7 +234,9 @@ ConvertPrepayInstanceResponse Client::convertPrepayInstanceWithOptions(const Con
 }
 
 /**
- * @summary Changes the billing method of a workspace from subscription to pay-as-you-go.
+ * @summary Converts a subscription instance to pay-as-you-go.
+ *
+ * @description Before using this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/flink/product-overview/switch-from-subscription-to-pay-as-you-go) of Alibaba Cloud Realtime Compute for Apache Flink.
  *
  * @param request ConvertPrepayInstanceRequest
  * @return ConvertPrepayInstanceResponse
@@ -214,7 +247,9 @@ ConvertPrepayInstanceResponse Client::convertPrepayInstance(const ConvertPrepayI
 }
 
 /**
- * @summary Creates a subscription workspace or a pay-as-you-go workspace of Realtime Compute for Apache Flink.
+ * @summary Creates a subscription or pay-as-you-go fully managed Flink workspace.
+ *
+ * @description **Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/billing-overview) of fully managed Flink before you call this operation.**
  *
  * @param tmpReq CreateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -347,7 +382,9 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 }
 
 /**
- * @summary Creates a subscription workspace or a pay-as-you-go workspace of Realtime Compute for Apache Flink.
+ * @summary Creates a subscription or pay-as-you-go fully managed Flink workspace.
+ *
+ * @description **Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/billing-overview) of fully managed Flink before you call this operation.**
  *
  * @param request CreateInstanceRequest
  * @return CreateInstanceResponse
@@ -358,7 +395,7 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
- * @summary Creates a namespace in a Realtime Compute for Apache Flink workspace.
+ * @summary Creates a workspace in a fully managed Flink instance.
  *
  * @param tmpReq CreateNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -411,7 +448,7 @@ CreateNamespaceResponse Client::createNamespaceWithOptions(const CreateNamespace
 }
 
 /**
- * @summary Creates a namespace in a Realtime Compute for Apache Flink workspace.
+ * @summary Creates a workspace in a fully managed Flink instance.
  *
  * @param request CreateNamespaceRequest
  * @return CreateNamespaceResponse
@@ -422,7 +459,9 @@ CreateNamespaceResponse Client::createNamespace(const CreateNamespaceRequest &re
 }
 
 /**
- * @summary Deletes a pay-as-you-go workspace of Realtime Compute for Apache Flink.
+ * @summary Releases a pay-as-you-go Realtime Compute for Apache Flink workspace.
+ *
+ * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/refund-policy) of Realtime Compute for Apache Flink.**
  *
  * @param request DeleteInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -457,7 +496,9 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
 }
 
 /**
- * @summary Deletes a pay-as-you-go workspace of Realtime Compute for Apache Flink.
+ * @summary Releases a pay-as-you-go Realtime Compute for Apache Flink workspace.
+ *
+ * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/refund-policy) of Realtime Compute for Apache Flink.**
  *
  * @param request DeleteInstanceRequest
  * @return DeleteInstanceResponse
@@ -468,7 +509,7 @@ DeleteInstanceResponse Client::deleteInstance(const DeleteInstanceRequest &reque
 }
 
 /**
- * @summary Deletes a namespace.
+ * @summary Deletes a project workspace.
  *
  * @param request DeleteNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -507,7 +548,7 @@ DeleteNamespaceResponse Client::deleteNamespaceWithOptions(const DeleteNamespace
 }
 
 /**
- * @summary Deletes a namespace.
+ * @summary Deletes a project workspace.
  *
  * @param request DeleteNamespaceRequest
  * @return DeleteNamespaceResponse
@@ -518,7 +559,7 @@ DeleteNamespaceResponse Client::deleteNamespace(const DeleteNamespaceRequest &re
 }
 
 /**
- * @summary Queries the details of one or more Realtime Compute for Apache Flink workspaces.
+ * @summary Queries the details of one or more fully managed Flink workspaces.
  *
  * @param tmpReq DescribeInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -551,7 +592,7 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
 }
 
 /**
- * @summary Queries the details of one or more Realtime Compute for Apache Flink workspaces.
+ * @summary Queries the details of one or more fully managed Flink workspaces.
  *
  * @param request DescribeInstancesRequest
  * @return DescribeInstancesResponse
@@ -562,7 +603,7 @@ DescribeInstancesResponse Client::describeInstances(const DescribeInstancesReque
 }
 
 /**
- * @summary Queries the information about a namespace that belongs to a workspace.
+ * @summary Queries the namespace information of a specified instance.
  *
  * @param tmpReq DescribeNamespacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -595,7 +636,7 @@ DescribeNamespacesResponse Client::describeNamespacesWithOptions(const DescribeN
 }
 
 /**
- * @summary Queries the information about a namespace that belongs to a workspace.
+ * @summary Queries the namespace information of a specified instance.
  *
  * @param request DescribeNamespacesRequest
  * @return DescribeNamespacesResponse
@@ -606,9 +647,8 @@ DescribeNamespacesResponse Client::describeNamespaces(const DescribeNamespacesRe
 }
 
 /**
- * @summary Queries the regions that are available in which Realtime Compute for Apache Flink is supported.
+ * @summary Retrieves information about regions that support purchases of fully managed Flink.
  *
- * @param request DescribeSupportedRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeSupportedRegionsResponse
  */
@@ -629,7 +669,7 @@ DescribeSupportedRegionsResponse Client::describeSupportedRegionsWithOptions(con
 }
 
 /**
- * @summary Queries the regions that are available in which Realtime Compute for Apache Flink is supported.
+ * @summary Retrieves information about regions that support purchases of fully managed Flink.
  *
  * @return DescribeSupportedRegionsResponse
  */
@@ -639,7 +679,7 @@ DescribeSupportedRegionsResponse Client::describeSupportedRegions() {
 }
 
 /**
- * @summary Obtains the zones that are supported by Realtime Compute for Apache Flink.
+ * @summary Retrieves information about zones that are available for purchase.
  *
  * @param request DescribeSupportedZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -666,7 +706,7 @@ DescribeSupportedZonesResponse Client::describeSupportedZonesWithOptions(const D
 }
 
 /**
- * @summary Obtains the zones that are supported by Realtime Compute for Apache Flink.
+ * @summary Retrieves information about zones that are available for purchase.
  *
  * @param request DescribeSupportedZonesRequest
  * @return DescribeSupportedZonesResponse
@@ -677,7 +717,7 @@ DescribeSupportedZonesResponse Client::describeSupportedZones(const DescribeSupp
 }
 
 /**
- * @summary Queries the tags of specified resources. You can query the key of a tag by tag value, or query the value of a tag by tag key. You can also obtain information about all tags that you use in a workspace in the console of fully managed Flink.
+ * @summary Queries resource tags. You can query tag keys by tag values, query tag values by tag keys, or retrieve all tag information used in your Flink fully managed workspace.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -724,7 +764,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Queries the tags of specified resources. You can query the key of a tag by tag value, or query the value of a tag by tag key. You can also obtain information about all tags that you use in a workspace in the console of fully managed Flink.
+ * @summary Queries resource tags. You can query tag keys by tag values, query tag values by tag keys, or retrieve all tag information used in your Flink fully managed workspace.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -735,7 +775,9 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary 对按量弹性实例修改resource quota
+ * @summary Modifies the maximum pay-as-you-go resource limit for a hybrid billing instance.
+ *
+ * @description Make sure that you are familiar with the [billing methods](https://www.alibabacloud.com/help/en/flink/user-guide/reconfigure-resources#task-2507532) and pricing of Realtime Compute for Apache Flink before you call this operation.
  *
  * @param tmpReq ModifyElasticResourceSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -780,7 +822,9 @@ ModifyElasticResourceSpecResponse Client::modifyElasticResourceSpecWithOptions(c
 }
 
 /**
- * @summary 对按量弹性实例修改resource quota
+ * @summary Modifies the maximum pay-as-you-go resource limit for a hybrid billing instance.
+ *
+ * @description Make sure that you are familiar with the [billing methods](https://www.alibabacloud.com/help/en/flink/user-guide/reconfigure-resources#task-2507532) and pricing of Realtime Compute for Apache Flink before you call this operation.
  *
  * @param request ModifyElasticResourceSpecRequest
  * @return ModifyElasticResourceSpecResponse
@@ -791,7 +835,9 @@ ModifyElasticResourceSpecResponse Client::modifyElasticResourceSpec(const Modify
 }
 
 /**
- * @summary Scale in or out a workspace to reconfigure resources for the workspace.
+ * @summary Scales up or scales down the resources of a workspace.
+ *
+ * @description Make sure that you are familiar with the [billing methods](https://www.alibabacloud.com/help/en/flink/user-guide/reconfigure-resources#task-2507532) and pricing of Realtime Compute for Apache Flink before you call this operation.
  *
  * @param tmpReq ModifyInstanceSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -864,7 +910,9 @@ ModifyInstanceSpecResponse Client::modifyInstanceSpecWithOptions(const ModifyIns
 }
 
 /**
- * @summary Scale in or out a workspace to reconfigure resources for the workspace.
+ * @summary Scales up or scales down the resources of a workspace.
+ *
+ * @description Make sure that you are familiar with the [billing methods](https://www.alibabacloud.com/help/en/flink/user-guide/reconfigure-resources#task-2507532) and pricing of Realtime Compute for Apache Flink before you call this operation.
  *
  * @param request ModifyInstanceSpecRequest
  * @return ModifyInstanceSpecResponse
@@ -877,7 +925,9 @@ ModifyInstanceSpecResponse Client::modifyInstanceSpec(const ModifyInstanceSpecRe
 /**
  * @deprecated OpenAPI ModifyInstanceVswitch is deprecated
  *
- * @summary 修改集群交换机
+ * @summary Modifies the vSwitches available to a Flink workspace.
+ *
+ * @description Before using this operation, make sure that you fully understand the restrictions on [modifying vSwitches](https://www.alibabacloud.com/help/en/flink/user-guide/modify-a-vswitch) in Realtime Compute for Apache Flink.
  *
  * @param tmpReq ModifyInstanceVswitchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -928,7 +978,9 @@ ModifyInstanceVswitchResponse Client::modifyInstanceVswitchWithOptions(const Mod
 /**
  * @deprecated OpenAPI ModifyInstanceVswitch is deprecated
  *
- * @summary 修改集群交换机
+ * @summary Modifies the vSwitches available to a Flink workspace.
+ *
+ * @description Before using this operation, make sure that you fully understand the restrictions on [modifying vSwitches](https://www.alibabacloud.com/help/en/flink/user-guide/modify-a-vswitch) in Realtime Compute for Apache Flink.
  *
  * @param request ModifyInstanceVswitchRequest
  * @return ModifyInstanceVswitchResponse
@@ -939,7 +991,9 @@ ModifyInstanceVswitchResponse Client::modifyInstanceVswitch(const ModifyInstance
 }
 
 /**
- * @summary 修改namespace资源，包含按量和包年包月、混合计费
+ * @summary Modifies the resource configurations of a project namespace in a pay-as-you-go, subscription, or hybrid billing workspace.
+ *
+ * @description >When calling this operation, note the following: - The order status must be normal, that is, OrderType=NORMAL. - When decreasing the quota, the specified resource specification quantity cannot be less than the quantity already in use. For details about the project resource specifications before and after the change, call [DescribeNamespaces](https://help.aliyun.com/document_detail/323441.html).
  *
  * @param tmpReq ModifyNamespaceSpecV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -1002,7 +1056,9 @@ ModifyNamespaceSpecV2Response Client::modifyNamespaceSpecV2WithOptions(const Mod
 }
 
 /**
- * @summary 修改namespace资源，包含按量和包年包月、混合计费
+ * @summary Modifies the resource configurations of a project namespace in a pay-as-you-go, subscription, or hybrid billing workspace.
+ *
+ * @description >When calling this operation, note the following: - The order status must be normal, that is, OrderType=NORMAL. - When decreasing the quota, the specified resource specification quantity cannot be less than the quantity already in use. For details about the project resource specifications before and after the change, call [DescribeNamespaces](https://help.aliyun.com/document_detail/323441.html).
  *
  * @param request ModifyNamespaceSpecV2Request
  * @return ModifyNamespaceSpecV2Response
@@ -1015,7 +1071,9 @@ ModifyNamespaceSpecV2Response Client::modifyNamespaceSpecV2(const ModifyNamespac
 /**
  * @deprecated OpenAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead.
  *
- * @summary Modifies the configuration of the computing resources of a subscription fully managed Flink workspace. If the number of computing resources after the modification is less than the current number of computing resources, the scale-in operation is performed. If the number of computing resources after the modification is larger than the current number of computing resources, the scale-out operation is performed.
+ * @summary Modifies the compute resource specifications of a subscription Realtime Compute for Apache Flink instance. If the new specifications are smaller than the current specifications, a scale-in operation is performed. If the new specifications are larger than the current specifications, a scale-out operation is performed.
+ *
+ * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/subscription) of Realtime Compute for Apache Flink.**
  *
  * @param tmpReq ModifyPrepayInstanceSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1086,7 +1144,9 @@ ModifyPrepayInstanceSpecResponse Client::modifyPrepayInstanceSpecWithOptions(con
 /**
  * @deprecated OpenAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead.
  *
- * @summary Modifies the configuration of the computing resources of a subscription fully managed Flink workspace. If the number of computing resources after the modification is less than the current number of computing resources, the scale-in operation is performed. If the number of computing resources after the modification is larger than the current number of computing resources, the scale-out operation is performed.
+ * @summary Modifies the compute resource specifications of a subscription Realtime Compute for Apache Flink instance. If the new specifications are smaller than the current specifications, a scale-in operation is performed. If the new specifications are larger than the current specifications, a scale-out operation is performed.
+ *
+ * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/subscription) of Realtime Compute for Apache Flink.**
  *
  * @param request ModifyPrepayInstanceSpecRequest
  * @return ModifyPrepayInstanceSpecResponse
@@ -1099,7 +1159,7 @@ ModifyPrepayInstanceSpecResponse Client::modifyPrepayInstanceSpec(const ModifyPr
 /**
  * @deprecated OpenAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead.
  *
- * @summary Modifies the resource configurations of a namespace in a subscription workspace.
+ * @summary Modifies the specifications of a namespace in a subscription instance.
  *
  * @param tmpReq ModifyPrepayNamespaceSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1150,7 +1210,7 @@ ModifyPrepayNamespaceSpecResponse Client::modifyPrepayNamespaceSpecWithOptions(c
 /**
  * @deprecated OpenAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead.
  *
- * @summary Modifies the resource configurations of a namespace in a subscription workspace.
+ * @summary Modifies the specifications of a namespace in a subscription instance.
  *
  * @param request ModifyPrepayNamespaceSpecRequest
  * @return ModifyPrepayNamespaceSpecResponse
@@ -1161,7 +1221,7 @@ ModifyPrepayNamespaceSpecResponse Client::modifyPrepayNamespaceSpec(const Modify
 }
 
 /**
- * @summary Queries the fee of switching the billing method of a workspace from pay-as-you-go to subscription.
+ * @summary Queries the price for converting a pay-as-you-go instance to a subscription instance.
  *
  * @param tmpReq QueryConvertInstancePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1226,7 +1286,7 @@ QueryConvertInstancePriceResponse Client::queryConvertInstancePriceWithOptions(c
 }
 
 /**
- * @summary Queries the fee of switching the billing method of a workspace from pay-as-you-go to subscription.
+ * @summary Queries the price for converting a pay-as-you-go instance to a subscription instance.
  *
  * @param request QueryConvertInstancePriceRequest
  * @return QueryConvertInstancePriceResponse
@@ -1237,7 +1297,7 @@ QueryConvertInstancePriceResponse Client::queryConvertInstancePrice(const QueryC
 }
 
 /**
- * @summary Obtains the estimated refund after the billing method of your Realtime Compute for Apache Flink workspace is changed from subscription to pay-as-you-go. After you change the billing method of your workspace to pay-as-you-go, bills are generated on an hourly basis.
+ * @summary Queries the estimated refund amount after converting your Flink instance from subscription to pay-as-you-go. After the conversion, your usage is metered hourly and bills are generated accordingly.
  *
  * @param request QueryConvertPrepayInstancePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1272,7 +1332,7 @@ QueryConvertPrepayInstancePriceResponse Client::queryConvertPrepayInstancePriceW
 }
 
 /**
- * @summary Obtains the estimated refund after the billing method of your Realtime Compute for Apache Flink workspace is changed from subscription to pay-as-you-go. After you change the billing method of your workspace to pay-as-you-go, bills are generated on an hourly basis.
+ * @summary Queries the estimated refund amount after converting your Flink instance from subscription to pay-as-you-go. After the conversion, your usage is metered hourly and bills are generated accordingly.
  *
  * @param request QueryConvertPrepayInstancePriceRequest
  * @return QueryConvertPrepayInstancePriceResponse
@@ -1283,7 +1343,7 @@ QueryConvertPrepayInstancePriceResponse Client::queryConvertPrepayInstancePrice(
 }
 
 /**
- * @summary Queries the fee of creating a workspace.
+ * @summary Retrieves the price of a workspace for the current account.
  *
  * @param tmpReq QueryCreateInstancePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1392,7 +1452,7 @@ QueryCreateInstancePriceResponse Client::queryCreateInstancePriceWithOptions(con
 }
 
 /**
- * @summary Queries the fee of creating a workspace.
+ * @summary Retrieves the price of a workspace for the current account.
  *
  * @param request QueryCreateInstancePriceRequest
  * @return QueryCreateInstancePriceResponse
@@ -1403,7 +1463,7 @@ QueryCreateInstancePriceResponse Client::queryCreateInstancePrice(const QueryCre
 }
 
 /**
- * @summary Queries the fee of modifying the resource configuration of a workspace.
+ * @summary Queries the price for upgrading or downgrading an instance.
  *
  * @param tmpReq QueryModifyInstancePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1476,7 +1536,7 @@ QueryModifyInstancePriceResponse Client::queryModifyInstancePriceWithOptions(con
 }
 
 /**
- * @summary Queries the fee of modifying the resource configuration of a workspace.
+ * @summary Queries the price for upgrading or downgrading an instance.
  *
  * @param request QueryModifyInstancePriceRequest
  * @return QueryModifyInstancePriceResponse
@@ -1487,7 +1547,7 @@ QueryModifyInstancePriceResponse Client::queryModifyInstancePrice(const QueryMod
 }
 
 /**
- * @summary Queries the fee of renewing a subscription workspace.
+ * @summary Queries the renewal price of a subscription workspace.
  *
  * @param request QueryRenewInstancePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1538,7 +1598,7 @@ QueryRenewInstancePriceResponse Client::queryRenewInstancePriceWithOptions(const
 }
 
 /**
- * @summary Queries the fee of renewing a subscription workspace.
+ * @summary Queries the renewal price of a subscription workspace.
  *
  * @param request QueryRenewInstancePriceRequest
  * @return QueryRenewInstancePriceResponse
@@ -1549,7 +1609,9 @@ QueryRenewInstancePriceResponse Client::queryRenewInstancePrice(const QueryRenew
 }
 
 /**
- * @summary Renews a subscription workspace of Realtime Compute for Apache Flink.
+ * @summary Renews a subscription Realtime Compute for Apache Flink workspace.
+ *
+ * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of Realtime Compute for Apache Flink.**
  *
  * @param request RenewInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1600,7 +1662,9 @@ RenewInstanceResponse Client::renewInstanceWithOptions(const RenewInstanceReques
 }
 
 /**
- * @summary Renews a subscription workspace of Realtime Compute for Apache Flink.
+ * @summary Renews a subscription Realtime Compute for Apache Flink workspace.
+ *
+ * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of Realtime Compute for Apache Flink.**
  *
  * @param request RenewInstanceRequest
  * @return RenewInstanceResponse
@@ -1611,7 +1675,7 @@ RenewInstanceResponse Client::renewInstance(const RenewInstanceRequest &request)
 }
 
 /**
- * @summary Adds tags to specified resources.
+ * @summary Call this API to add tags to resources.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1654,7 +1718,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Adds tags to specified resources.
+ * @summary Call this API to add tags to resources.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -1665,7 +1729,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Removes tags from specified resources.
+ * @summary Deletes resource tags.
  *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1712,7 +1776,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
- * @summary Removes tags from specified resources.
+ * @summary Deletes resource tags.
  *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse

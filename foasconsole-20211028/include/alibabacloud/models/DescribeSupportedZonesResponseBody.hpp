@@ -97,12 +97,19 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
+    // The number of zones.
     shared_ptr<int64_t> totalCount_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
+    // The zone information.
     shared_ptr<vector<string>> zoneIds_ {};
   };
 

@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -122,12 +124,19 @@ namespace Models
 
 
   protected:
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The order instance IDs.
     shared_ptr<vector<string>> resourceId_ {};
+    // The resource type. Set the value to vvpinstance.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The tag list. A maximum of 20 items are supported.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

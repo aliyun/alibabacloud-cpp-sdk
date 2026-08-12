@@ -82,8 +82,11 @@ namespace Models
 
 
     protected:
+      // The instance ID of the pay-as-you-go portion of hybrid billing.
       shared_ptr<string> elasticInstanceId_ {};
+      // The instance ID of the subscription portion of hybrid billing.
       shared_ptr<string> instanceId_ {};
+      // The order ID.
       shared_ptr<int64_t> orderId_ {};
     };
 
@@ -120,9 +123,13 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The order information.
     shared_ptr<ConvertHybridInstanceResponseBody::OrderInfo> orderInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

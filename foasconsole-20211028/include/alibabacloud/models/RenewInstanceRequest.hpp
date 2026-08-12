@@ -84,13 +84,21 @@ namespace Models
 
 
   protected:
+    // The number of subscription periods.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> duration_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The subscription period.
+    // 
     // This parameter is required.
     shared_ptr<string> pricingCycle_ {};
     shared_ptr<string> promotionCode_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
     shared_ptr<bool> usePromotionCode_ {};

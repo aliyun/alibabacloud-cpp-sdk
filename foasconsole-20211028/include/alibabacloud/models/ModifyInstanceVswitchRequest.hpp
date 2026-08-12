@@ -62,9 +62,13 @@ namespace Models
 
 
   protected:
+    // The vSwitch IDs in the secondary zone for zone-disaster recovery. This parameter is required if zone-disaster recovery is enabled for your workspace.
     shared_ptr<vector<string>> haVSwitchIds_ {};
+    // The order instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The IDs of the vSwitches to use after the modification.
     shared_ptr<vector<string>> vSwitchIds_ {};
   };
 

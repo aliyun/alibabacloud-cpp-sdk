@@ -21,7 +21,9 @@ namespace Foasconsole20211028
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 开通弹性计算
+       * @summary Converts a subscription instance to a hybrid billing instance.
+       *
+       * @description **Before using this API, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/hybrid-pricing) of hybrid billing for Realtime Compute for Apache Flink.**
        *
        * @param tmpReq ConvertHybridInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +32,9 @@ namespace Foasconsole20211028
       Models::ConvertHybridInstanceResponse convertHybridInstanceWithOptions(const Models::ConvertHybridInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开通弹性计算
+       * @summary Converts a subscription instance to a hybrid billing instance.
+       *
+       * @description **Before using this API, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/hybrid-pricing) of hybrid billing for Realtime Compute for Apache Flink.**
        *
        * @param request ConvertHybridInstanceRequest
        * @return ConvertHybridInstanceResponse
@@ -38,7 +42,9 @@ namespace Foasconsole20211028
       Models::ConvertHybridInstanceResponse convertHybridInstance(const Models::ConvertHybridInstanceRequest &request);
 
       /**
-       * @summary Changes the billing method of a workspace from pay-as-you-go to subscription.
+       * @summary Converts a pay-as-you-go workspace to a subscription workspace.
+       *
+       * @description **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/switch-from-pay-as-you-go-to-subscription) of fully managed Flink.**
        *
        * @param tmpReq ConvertInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +53,9 @@ namespace Foasconsole20211028
       Models::ConvertInstanceResponse convertInstanceWithOptions(const Models::ConvertInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the billing method of a workspace from pay-as-you-go to subscription.
+       * @summary Converts a pay-as-you-go workspace to a subscription workspace.
+       *
+       * @description **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/switch-from-pay-as-you-go-to-subscription) of fully managed Flink.**
        *
        * @param request ConvertInstanceRequest
        * @return ConvertInstanceResponse
@@ -55,7 +63,9 @@ namespace Foasconsole20211028
       Models::ConvertInstanceResponse convertInstance(const Models::ConvertInstanceRequest &request);
 
       /**
-       * @summary Changes the billing method of a workspace from subscription to pay-as-you-go.
+       * @summary Converts a subscription instance to pay-as-you-go.
+       *
+       * @description Before using this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/flink/product-overview/switch-from-subscription-to-pay-as-you-go) of Alibaba Cloud Realtime Compute for Apache Flink.
        *
        * @param request ConvertPrepayInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +74,9 @@ namespace Foasconsole20211028
       Models::ConvertPrepayInstanceResponse convertPrepayInstanceWithOptions(const Models::ConvertPrepayInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the billing method of a workspace from subscription to pay-as-you-go.
+       * @summary Converts a subscription instance to pay-as-you-go.
+       *
+       * @description Before using this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/flink/product-overview/switch-from-subscription-to-pay-as-you-go) of Alibaba Cloud Realtime Compute for Apache Flink.
        *
        * @param request ConvertPrepayInstanceRequest
        * @return ConvertPrepayInstanceResponse
@@ -72,7 +84,9 @@ namespace Foasconsole20211028
       Models::ConvertPrepayInstanceResponse convertPrepayInstance(const Models::ConvertPrepayInstanceRequest &request);
 
       /**
-       * @summary Creates a subscription workspace or a pay-as-you-go workspace of Realtime Compute for Apache Flink.
+       * @summary Creates a subscription or pay-as-you-go fully managed Flink workspace.
+       *
+       * @description **Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/billing-overview) of fully managed Flink before you call this operation.**
        *
        * @param tmpReq CreateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +95,9 @@ namespace Foasconsole20211028
       Models::CreateInstanceResponse createInstanceWithOptions(const Models::CreateInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a subscription workspace or a pay-as-you-go workspace of Realtime Compute for Apache Flink.
+       * @summary Creates a subscription or pay-as-you-go fully managed Flink workspace.
+       *
+       * @description **Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/billing-overview) of fully managed Flink before you call this operation.**
        *
        * @param request CreateInstanceRequest
        * @return CreateInstanceResponse
@@ -89,7 +105,7 @@ namespace Foasconsole20211028
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
 
       /**
-       * @summary Creates a namespace in a Realtime Compute for Apache Flink workspace.
+       * @summary Creates a workspace in a fully managed Flink instance.
        *
        * @param tmpReq CreateNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +114,7 @@ namespace Foasconsole20211028
       Models::CreateNamespaceResponse createNamespaceWithOptions(const Models::CreateNamespaceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a namespace in a Realtime Compute for Apache Flink workspace.
+       * @summary Creates a workspace in a fully managed Flink instance.
        *
        * @param request CreateNamespaceRequest
        * @return CreateNamespaceResponse
@@ -106,7 +122,9 @@ namespace Foasconsole20211028
       Models::CreateNamespaceResponse createNamespace(const Models::CreateNamespaceRequest &request);
 
       /**
-       * @summary Deletes a pay-as-you-go workspace of Realtime Compute for Apache Flink.
+       * @summary Releases a pay-as-you-go Realtime Compute for Apache Flink workspace.
+       *
+       * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/refund-policy) of Realtime Compute for Apache Flink.**
        *
        * @param request DeleteInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +133,9 @@ namespace Foasconsole20211028
       Models::DeleteInstanceResponse deleteInstanceWithOptions(const Models::DeleteInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a pay-as-you-go workspace of Realtime Compute for Apache Flink.
+       * @summary Releases a pay-as-you-go Realtime Compute for Apache Flink workspace.
+       *
+       * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/refund-policy) of Realtime Compute for Apache Flink.**
        *
        * @param request DeleteInstanceRequest
        * @return DeleteInstanceResponse
@@ -123,7 +143,7 @@ namespace Foasconsole20211028
       Models::DeleteInstanceResponse deleteInstance(const Models::DeleteInstanceRequest &request);
 
       /**
-       * @summary Deletes a namespace.
+       * @summary Deletes a project workspace.
        *
        * @param request DeleteNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +152,7 @@ namespace Foasconsole20211028
       Models::DeleteNamespaceResponse deleteNamespaceWithOptions(const Models::DeleteNamespaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a namespace.
+       * @summary Deletes a project workspace.
        *
        * @param request DeleteNamespaceRequest
        * @return DeleteNamespaceResponse
@@ -140,7 +160,7 @@ namespace Foasconsole20211028
       Models::DeleteNamespaceResponse deleteNamespace(const Models::DeleteNamespaceRequest &request);
 
       /**
-       * @summary Queries the details of one or more Realtime Compute for Apache Flink workspaces.
+       * @summary Queries the details of one or more fully managed Flink workspaces.
        *
        * @param tmpReq DescribeInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +169,7 @@ namespace Foasconsole20211028
       Models::DescribeInstancesResponse describeInstancesWithOptions(const Models::DescribeInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of one or more Realtime Compute for Apache Flink workspaces.
+       * @summary Queries the details of one or more fully managed Flink workspaces.
        *
        * @param request DescribeInstancesRequest
        * @return DescribeInstancesResponse
@@ -157,7 +177,7 @@ namespace Foasconsole20211028
       Models::DescribeInstancesResponse describeInstances(const Models::DescribeInstancesRequest &request);
 
       /**
-       * @summary Queries the information about a namespace that belongs to a workspace.
+       * @summary Queries the namespace information of a specified instance.
        *
        * @param tmpReq DescribeNamespacesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +186,7 @@ namespace Foasconsole20211028
       Models::DescribeNamespacesResponse describeNamespacesWithOptions(const Models::DescribeNamespacesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a namespace that belongs to a workspace.
+       * @summary Queries the namespace information of a specified instance.
        *
        * @param request DescribeNamespacesRequest
        * @return DescribeNamespacesResponse
@@ -174,23 +194,22 @@ namespace Foasconsole20211028
       Models::DescribeNamespacesResponse describeNamespaces(const Models::DescribeNamespacesRequest &request);
 
       /**
-       * @summary Queries the regions that are available in which Realtime Compute for Apache Flink is supported.
+       * @summary Retrieves information about regions that support purchases of fully managed Flink.
        *
-       * @param request DescribeSupportedRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeSupportedRegionsResponse
        */
       Models::DescribeSupportedRegionsResponse describeSupportedRegionsWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the regions that are available in which Realtime Compute for Apache Flink is supported.
+       * @summary Retrieves information about regions that support purchases of fully managed Flink.
        *
        * @return DescribeSupportedRegionsResponse
        */
       Models::DescribeSupportedRegionsResponse describeSupportedRegions();
 
       /**
-       * @summary Obtains the zones that are supported by Realtime Compute for Apache Flink.
+       * @summary Retrieves information about zones that are available for purchase.
        *
        * @param request DescribeSupportedZonesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -199,7 +218,7 @@ namespace Foasconsole20211028
       Models::DescribeSupportedZonesResponse describeSupportedZonesWithOptions(const Models::DescribeSupportedZonesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the zones that are supported by Realtime Compute for Apache Flink.
+       * @summary Retrieves information about zones that are available for purchase.
        *
        * @param request DescribeSupportedZonesRequest
        * @return DescribeSupportedZonesResponse
@@ -207,7 +226,7 @@ namespace Foasconsole20211028
       Models::DescribeSupportedZonesResponse describeSupportedZones(const Models::DescribeSupportedZonesRequest &request);
 
       /**
-       * @summary Queries the tags of specified resources. You can query the key of a tag by tag value, or query the value of a tag by tag key. You can also obtain information about all tags that you use in a workspace in the console of fully managed Flink.
+       * @summary Queries resource tags. You can query tag keys by tag values, query tag values by tag keys, or retrieve all tag information used in your Flink fully managed workspace.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -216,7 +235,7 @@ namespace Foasconsole20211028
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the tags of specified resources. You can query the key of a tag by tag value, or query the value of a tag by tag key. You can also obtain information about all tags that you use in a workspace in the console of fully managed Flink.
+       * @summary Queries resource tags. You can query tag keys by tag values, query tag values by tag keys, or retrieve all tag information used in your Flink fully managed workspace.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -224,7 +243,9 @@ namespace Foasconsole20211028
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary 对按量弹性实例修改resource quota
+       * @summary Modifies the maximum pay-as-you-go resource limit for a hybrid billing instance.
+       *
+       * @description Make sure that you are familiar with the [billing methods](https://www.alibabacloud.com/help/en/flink/user-guide/reconfigure-resources#task-2507532) and pricing of Realtime Compute for Apache Flink before you call this operation.
        *
        * @param tmpReq ModifyElasticResourceSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -233,7 +254,9 @@ namespace Foasconsole20211028
       Models::ModifyElasticResourceSpecResponse modifyElasticResourceSpecWithOptions(const Models::ModifyElasticResourceSpecRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 对按量弹性实例修改resource quota
+       * @summary Modifies the maximum pay-as-you-go resource limit for a hybrid billing instance.
+       *
+       * @description Make sure that you are familiar with the [billing methods](https://www.alibabacloud.com/help/en/flink/user-guide/reconfigure-resources#task-2507532) and pricing of Realtime Compute for Apache Flink before you call this operation.
        *
        * @param request ModifyElasticResourceSpecRequest
        * @return ModifyElasticResourceSpecResponse
@@ -241,7 +264,9 @@ namespace Foasconsole20211028
       Models::ModifyElasticResourceSpecResponse modifyElasticResourceSpec(const Models::ModifyElasticResourceSpecRequest &request);
 
       /**
-       * @summary Scale in or out a workspace to reconfigure resources for the workspace.
+       * @summary Scales up or scales down the resources of a workspace.
+       *
+       * @description Make sure that you are familiar with the [billing methods](https://www.alibabacloud.com/help/en/flink/user-guide/reconfigure-resources#task-2507532) and pricing of Realtime Compute for Apache Flink before you call this operation.
        *
        * @param tmpReq ModifyInstanceSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -250,7 +275,9 @@ namespace Foasconsole20211028
       Models::ModifyInstanceSpecResponse modifyInstanceSpecWithOptions(const Models::ModifyInstanceSpecRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Scale in or out a workspace to reconfigure resources for the workspace.
+       * @summary Scales up or scales down the resources of a workspace.
+       *
+       * @description Make sure that you are familiar with the [billing methods](https://www.alibabacloud.com/help/en/flink/user-guide/reconfigure-resources#task-2507532) and pricing of Realtime Compute for Apache Flink before you call this operation.
        *
        * @param request ModifyInstanceSpecRequest
        * @return ModifyInstanceSpecResponse
@@ -260,7 +287,9 @@ namespace Foasconsole20211028
       /**
        * @deprecated OpenAPI ModifyInstanceVswitch is deprecated
        *
-       * @summary 修改集群交换机
+       * @summary Modifies the vSwitches available to a Flink workspace.
+       *
+       * @description Before using this operation, make sure that you fully understand the restrictions on [modifying vSwitches](https://www.alibabacloud.com/help/en/flink/user-guide/modify-a-vswitch) in Realtime Compute for Apache Flink.
        *
        * @param tmpReq ModifyInstanceVswitchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -271,7 +300,9 @@ namespace Foasconsole20211028
       /**
        * @deprecated OpenAPI ModifyInstanceVswitch is deprecated
        *
-       * @summary 修改集群交换机
+       * @summary Modifies the vSwitches available to a Flink workspace.
+       *
+       * @description Before using this operation, make sure that you fully understand the restrictions on [modifying vSwitches](https://www.alibabacloud.com/help/en/flink/user-guide/modify-a-vswitch) in Realtime Compute for Apache Flink.
        *
        * @param request ModifyInstanceVswitchRequest
        * @return ModifyInstanceVswitchResponse
@@ -279,7 +310,9 @@ namespace Foasconsole20211028
       Models::ModifyInstanceVswitchResponse modifyInstanceVswitch(const Models::ModifyInstanceVswitchRequest &request);
 
       /**
-       * @summary 修改namespace资源，包含按量和包年包月、混合计费
+       * @summary Modifies the resource configurations of a project namespace in a pay-as-you-go, subscription, or hybrid billing workspace.
+       *
+       * @description >When calling this operation, note the following: - The order status must be normal, that is, OrderType=NORMAL. - When decreasing the quota, the specified resource specification quantity cannot be less than the quantity already in use. For details about the project resource specifications before and after the change, call [DescribeNamespaces](https://help.aliyun.com/document_detail/323441.html).
        *
        * @param tmpReq ModifyNamespaceSpecV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -288,7 +321,9 @@ namespace Foasconsole20211028
       Models::ModifyNamespaceSpecV2Response modifyNamespaceSpecV2WithOptions(const Models::ModifyNamespaceSpecV2Request &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改namespace资源，包含按量和包年包月、混合计费
+       * @summary Modifies the resource configurations of a project namespace in a pay-as-you-go, subscription, or hybrid billing workspace.
+       *
+       * @description >When calling this operation, note the following: - The order status must be normal, that is, OrderType=NORMAL. - When decreasing the quota, the specified resource specification quantity cannot be less than the quantity already in use. For details about the project resource specifications before and after the change, call [DescribeNamespaces](https://help.aliyun.com/document_detail/323441.html).
        *
        * @param request ModifyNamespaceSpecV2Request
        * @return ModifyNamespaceSpecV2Response
@@ -298,7 +333,9 @@ namespace Foasconsole20211028
       /**
        * @deprecated OpenAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead.
        *
-       * @summary Modifies the configuration of the computing resources of a subscription fully managed Flink workspace. If the number of computing resources after the modification is less than the current number of computing resources, the scale-in operation is performed. If the number of computing resources after the modification is larger than the current number of computing resources, the scale-out operation is performed.
+       * @summary Modifies the compute resource specifications of a subscription Realtime Compute for Apache Flink instance. If the new specifications are smaller than the current specifications, a scale-in operation is performed. If the new specifications are larger than the current specifications, a scale-out operation is performed.
+       *
+       * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/subscription) of Realtime Compute for Apache Flink.**
        *
        * @param tmpReq ModifyPrepayInstanceSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -309,7 +346,9 @@ namespace Foasconsole20211028
       /**
        * @deprecated OpenAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead.
        *
-       * @summary Modifies the configuration of the computing resources of a subscription fully managed Flink workspace. If the number of computing resources after the modification is less than the current number of computing resources, the scale-in operation is performed. If the number of computing resources after the modification is larger than the current number of computing resources, the scale-out operation is performed.
+       * @summary Modifies the compute resource specifications of a subscription Realtime Compute for Apache Flink instance. If the new specifications are smaller than the current specifications, a scale-in operation is performed. If the new specifications are larger than the current specifications, a scale-out operation is performed.
+       *
+       * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/subscription) of Realtime Compute for Apache Flink.**
        *
        * @param request ModifyPrepayInstanceSpecRequest
        * @return ModifyPrepayInstanceSpecResponse
@@ -319,7 +358,7 @@ namespace Foasconsole20211028
       /**
        * @deprecated OpenAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead.
        *
-       * @summary Modifies the resource configurations of a namespace in a subscription workspace.
+       * @summary Modifies the specifications of a namespace in a subscription instance.
        *
        * @param tmpReq ModifyPrepayNamespaceSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -330,7 +369,7 @@ namespace Foasconsole20211028
       /**
        * @deprecated OpenAPI ModifyPrepayNamespaceSpec is deprecated, please use foasconsole::2021-10-28::ModifyNamespaceSpec instead.
        *
-       * @summary Modifies the resource configurations of a namespace in a subscription workspace.
+       * @summary Modifies the specifications of a namespace in a subscription instance.
        *
        * @param request ModifyPrepayNamespaceSpecRequest
        * @return ModifyPrepayNamespaceSpecResponse
@@ -338,7 +377,7 @@ namespace Foasconsole20211028
       Models::ModifyPrepayNamespaceSpecResponse modifyPrepayNamespaceSpec(const Models::ModifyPrepayNamespaceSpecRequest &request);
 
       /**
-       * @summary Queries the fee of switching the billing method of a workspace from pay-as-you-go to subscription.
+       * @summary Queries the price for converting a pay-as-you-go instance to a subscription instance.
        *
        * @param tmpReq QueryConvertInstancePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -347,7 +386,7 @@ namespace Foasconsole20211028
       Models::QueryConvertInstancePriceResponse queryConvertInstancePriceWithOptions(const Models::QueryConvertInstancePriceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the fee of switching the billing method of a workspace from pay-as-you-go to subscription.
+       * @summary Queries the price for converting a pay-as-you-go instance to a subscription instance.
        *
        * @param request QueryConvertInstancePriceRequest
        * @return QueryConvertInstancePriceResponse
@@ -355,7 +394,7 @@ namespace Foasconsole20211028
       Models::QueryConvertInstancePriceResponse queryConvertInstancePrice(const Models::QueryConvertInstancePriceRequest &request);
 
       /**
-       * @summary Obtains the estimated refund after the billing method of your Realtime Compute for Apache Flink workspace is changed from subscription to pay-as-you-go. After you change the billing method of your workspace to pay-as-you-go, bills are generated on an hourly basis.
+       * @summary Queries the estimated refund amount after converting your Flink instance from subscription to pay-as-you-go. After the conversion, your usage is metered hourly and bills are generated accordingly.
        *
        * @param request QueryConvertPrepayInstancePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -364,7 +403,7 @@ namespace Foasconsole20211028
       Models::QueryConvertPrepayInstancePriceResponse queryConvertPrepayInstancePriceWithOptions(const Models::QueryConvertPrepayInstancePriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the estimated refund after the billing method of your Realtime Compute for Apache Flink workspace is changed from subscription to pay-as-you-go. After you change the billing method of your workspace to pay-as-you-go, bills are generated on an hourly basis.
+       * @summary Queries the estimated refund amount after converting your Flink instance from subscription to pay-as-you-go. After the conversion, your usage is metered hourly and bills are generated accordingly.
        *
        * @param request QueryConvertPrepayInstancePriceRequest
        * @return QueryConvertPrepayInstancePriceResponse
@@ -372,7 +411,7 @@ namespace Foasconsole20211028
       Models::QueryConvertPrepayInstancePriceResponse queryConvertPrepayInstancePrice(const Models::QueryConvertPrepayInstancePriceRequest &request);
 
       /**
-       * @summary Queries the fee of creating a workspace.
+       * @summary Retrieves the price of a workspace for the current account.
        *
        * @param tmpReq QueryCreateInstancePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -381,7 +420,7 @@ namespace Foasconsole20211028
       Models::QueryCreateInstancePriceResponse queryCreateInstancePriceWithOptions(const Models::QueryCreateInstancePriceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the fee of creating a workspace.
+       * @summary Retrieves the price of a workspace for the current account.
        *
        * @param request QueryCreateInstancePriceRequest
        * @return QueryCreateInstancePriceResponse
@@ -389,7 +428,7 @@ namespace Foasconsole20211028
       Models::QueryCreateInstancePriceResponse queryCreateInstancePrice(const Models::QueryCreateInstancePriceRequest &request);
 
       /**
-       * @summary Queries the fee of modifying the resource configuration of a workspace.
+       * @summary Queries the price for upgrading or downgrading an instance.
        *
        * @param tmpReq QueryModifyInstancePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -398,7 +437,7 @@ namespace Foasconsole20211028
       Models::QueryModifyInstancePriceResponse queryModifyInstancePriceWithOptions(const Models::QueryModifyInstancePriceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the fee of modifying the resource configuration of a workspace.
+       * @summary Queries the price for upgrading or downgrading an instance.
        *
        * @param request QueryModifyInstancePriceRequest
        * @return QueryModifyInstancePriceResponse
@@ -406,7 +445,7 @@ namespace Foasconsole20211028
       Models::QueryModifyInstancePriceResponse queryModifyInstancePrice(const Models::QueryModifyInstancePriceRequest &request);
 
       /**
-       * @summary Queries the fee of renewing a subscription workspace.
+       * @summary Queries the renewal price of a subscription workspace.
        *
        * @param request QueryRenewInstancePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -415,7 +454,7 @@ namespace Foasconsole20211028
       Models::QueryRenewInstancePriceResponse queryRenewInstancePriceWithOptions(const Models::QueryRenewInstancePriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the fee of renewing a subscription workspace.
+       * @summary Queries the renewal price of a subscription workspace.
        *
        * @param request QueryRenewInstancePriceRequest
        * @return QueryRenewInstancePriceResponse
@@ -423,7 +462,9 @@ namespace Foasconsole20211028
       Models::QueryRenewInstancePriceResponse queryRenewInstancePrice(const Models::QueryRenewInstancePriceRequest &request);
 
       /**
-       * @summary Renews a subscription workspace of Realtime Compute for Apache Flink.
+       * @summary Renews a subscription Realtime Compute for Apache Flink workspace.
+       *
+       * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of Realtime Compute for Apache Flink.**
        *
        * @param request RenewInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -432,7 +473,9 @@ namespace Foasconsole20211028
       Models::RenewInstanceResponse renewInstanceWithOptions(const Models::RenewInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Renews a subscription workspace of Realtime Compute for Apache Flink.
+       * @summary Renews a subscription Realtime Compute for Apache Flink workspace.
+       *
+       * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of Realtime Compute for Apache Flink.**
        *
        * @param request RenewInstanceRequest
        * @return RenewInstanceResponse
@@ -440,7 +483,7 @@ namespace Foasconsole20211028
       Models::RenewInstanceResponse renewInstance(const Models::RenewInstanceRequest &request);
 
       /**
-       * @summary Adds tags to specified resources.
+       * @summary Call this API to add tags to resources.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -449,7 +492,7 @@ namespace Foasconsole20211028
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds tags to specified resources.
+       * @summary Call this API to add tags to resources.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -457,7 +500,7 @@ namespace Foasconsole20211028
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Removes tags from specified resources.
+       * @summary Deletes resource tags.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -466,7 +509,7 @@ namespace Foasconsole20211028
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes tags from specified resources.
+       * @summary Deletes resource tags.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse

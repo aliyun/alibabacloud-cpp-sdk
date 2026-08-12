@@ -80,13 +80,21 @@ namespace Models
 
 
   protected:
+    // Specifies whether to delete all resource tags. This parameter is valid only when TagKey is empty. Default value: false.
     shared_ptr<bool> all_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The list of order instance IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
+    // The resource type. Set this parameter to vvpinstance.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The list of tag keys. Maximum: 20 subkeys.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClusterStatus, clusterStatus_);
       DARABONBA_PTR_TO_JSON(ConsoleUrl, consoleUrl_);
       DARABONBA_PTR_TO_JSON(DiskSize, diskSize_);
+      DARABONBA_PTR_TO_JSON(Ha, ha_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(OrderState, orderState_);
@@ -29,6 +30,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TabletServerModel, tabletServerModel_);
       DARABONBA_PTR_TO_JSON(TabletServerNum, tabletServerNum_);
       DARABONBA_PTR_TO_JSON(TabletServerType, tabletServerType_);
+      DARABONBA_PTR_TO_JSON(TieringPostCu, tieringPostCu_);
+      DARABONBA_PTR_TO_JSON(TieringPreCu, tieringPreCu_);
       DARABONBA_PTR_TO_JSON(Uid, uid_);
       DARABONBA_PTR_TO_JSON(VSwitches, vSwitches_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
@@ -38,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClusterStatus, clusterStatus_);
       DARABONBA_PTR_FROM_JSON(ConsoleUrl, consoleUrl_);
       DARABONBA_PTR_FROM_JSON(DiskSize, diskSize_);
+      DARABONBA_PTR_FROM_JSON(Ha, ha_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(OrderState, orderState_);
@@ -47,6 +51,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TabletServerModel, tabletServerModel_);
       DARABONBA_PTR_FROM_JSON(TabletServerNum, tabletServerNum_);
       DARABONBA_PTR_FROM_JSON(TabletServerType, tabletServerType_);
+      DARABONBA_PTR_FROM_JSON(TieringPostCu, tieringPostCu_);
+      DARABONBA_PTR_FROM_JSON(TieringPreCu, tieringPreCu_);
       DARABONBA_PTR_FROM_JSON(Uid, uid_);
       DARABONBA_PTR_FROM_JSON(VSwitches, vSwitches_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -63,9 +69,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterState_ == nullptr
-        && this->clusterStatus_ == nullptr && this->consoleUrl_ == nullptr && this->diskSize_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr
-        && this->orderState_ == nullptr && this->regionId_ == nullptr && this->resourceCreateTime_ == nullptr && this->resourceExpiredTime_ == nullptr && this->tabletServerModel_ == nullptr
-        && this->tabletServerNum_ == nullptr && this->tabletServerType_ == nullptr && this->uid_ == nullptr && this->vSwitches_ == nullptr && this->vpcId_ == nullptr; };
+        && this->clusterStatus_ == nullptr && this->consoleUrl_ == nullptr && this->diskSize_ == nullptr && this->ha_ == nullptr && this->instanceId_ == nullptr
+        && this->instanceName_ == nullptr && this->orderState_ == nullptr && this->regionId_ == nullptr && this->resourceCreateTime_ == nullptr && this->resourceExpiredTime_ == nullptr
+        && this->tabletServerModel_ == nullptr && this->tabletServerNum_ == nullptr && this->tabletServerType_ == nullptr && this->tieringPostCu_ == nullptr && this->tieringPreCu_ == nullptr
+        && this->uid_ == nullptr && this->vSwitches_ == nullptr && this->vpcId_ == nullptr; };
     // clusterState Field Functions 
     bool hasClusterState() const { return this->clusterState_ != nullptr;};
     void deleteClusterState() { this->clusterState_ = nullptr;};
@@ -94,6 +101,13 @@ namespace Models
     void deleteDiskSize() { this->diskSize_ = nullptr;};
     inline int64_t getDiskSize() const { DARABONBA_PTR_GET_DEFAULT(diskSize_, 0L) };
     inline FlussInstance& setDiskSize(int64_t diskSize) { DARABONBA_PTR_SET_VALUE(diskSize_, diskSize) };
+
+
+    // ha Field Functions 
+    bool hasHa() const { return this->ha_ != nullptr;};
+    void deleteHa() { this->ha_ = nullptr;};
+    inline bool getHa() const { DARABONBA_PTR_GET_DEFAULT(ha_, false) };
+    inline FlussInstance& setHa(bool ha) { DARABONBA_PTR_SET_VALUE(ha_, ha) };
 
 
     // instanceId Field Functions 
@@ -159,6 +173,20 @@ namespace Models
     inline FlussInstance& setTabletServerType(string tabletServerType) { DARABONBA_PTR_SET_VALUE(tabletServerType_, tabletServerType) };
 
 
+    // tieringPostCu Field Functions 
+    bool hasTieringPostCu() const { return this->tieringPostCu_ != nullptr;};
+    void deleteTieringPostCu() { this->tieringPostCu_ = nullptr;};
+    inline int64_t getTieringPostCu() const { DARABONBA_PTR_GET_DEFAULT(tieringPostCu_, 0L) };
+    inline FlussInstance& setTieringPostCu(int64_t tieringPostCu) { DARABONBA_PTR_SET_VALUE(tieringPostCu_, tieringPostCu) };
+
+
+    // tieringPreCu Field Functions 
+    bool hasTieringPreCu() const { return this->tieringPreCu_ != nullptr;};
+    void deleteTieringPreCu() { this->tieringPreCu_ = nullptr;};
+    inline int64_t getTieringPreCu() const { DARABONBA_PTR_GET_DEFAULT(tieringPreCu_, 0L) };
+    inline FlussInstance& setTieringPreCu(int64_t tieringPreCu) { DARABONBA_PTR_SET_VALUE(tieringPreCu_, tieringPreCu) };
+
+
     // uid Field Functions 
     bool hasUid() const { return this->uid_ != nullptr;};
     void deleteUid() { this->uid_ = nullptr;};
@@ -184,20 +212,41 @@ namespace Models
 
   protected:
     shared_ptr<ClusterState> clusterState_ {};
+    // The cluster status.
     shared_ptr<string> clusterStatus_ {};
+    // The URL of the instance management console.
     shared_ptr<string> consoleUrl_ {};
+    // The disk size, in GB.
     shared_ptr<int64_t> diskSize_ {};
+    // Specifies whether high availability (HA) is enabled.
+    shared_ptr<bool> ha_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The instance name.
     shared_ptr<string> instanceName_ {};
+    // The order state.
     shared_ptr<string> orderState_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
+    // The creation time of the resource, as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> resourceCreateTime_ {};
+    // The expiration time of the resource, as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> resourceExpiredTime_ {};
+    // The tablet server model.
     shared_ptr<string> tabletServerModel_ {};
+    // The number of tablet servers.
     shared_ptr<int64_t> tabletServerNum_ {};
+    // The tablet server type.
     shared_ptr<string> tabletServerType_ {};
+    // The number of compute units (CUs) for post-tiering.
+    shared_ptr<int64_t> tieringPostCu_ {};
+    // The number of compute units (CUs) for pre-tiering.
+    shared_ptr<int64_t> tieringPreCu_ {};
+    // The Alibaba Cloud account ID (UID).
     shared_ptr<string> uid_ {};
+    // The VSwitch details.
     shared_ptr<vector<FlussVswitch>> vSwitches_ {};
+    // The VPC ID.
     shared_ptr<string> vpcId_ {};
   };
 

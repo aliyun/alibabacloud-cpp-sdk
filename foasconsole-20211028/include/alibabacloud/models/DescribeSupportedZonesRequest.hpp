@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The processor architecture.
     shared_ptr<string> architectureType_ {};
+    // The region ID.
     shared_ptr<string> region_ {};
   };
 

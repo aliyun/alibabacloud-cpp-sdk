@@ -103,14 +103,23 @@ namespace Models
 
 
   protected:
+    // Specifies whether the workspace has zone-disaster recovery resources.
     shared_ptr<bool> ha_ {};
+    // The zone-disaster recovery resource specifications.
     shared_ptr<string> haResourceSpecShrink_ {};
+    // The vSwitch group in the secondary zone for zone-disaster recovery.
     shared_ptr<string> haVSwitchIdsShrink_ {};
+    // The order instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> promotionCode_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // The resource specifications.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceSpecShrink_ {};
     shared_ptr<bool> usePromotionCode_ {};

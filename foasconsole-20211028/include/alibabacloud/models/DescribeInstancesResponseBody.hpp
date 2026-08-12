@@ -75,6 +75,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
         DARABONBA_PTR_TO_JSON(ResourceSpec, resourceSpec_);
         DARABONBA_PTR_TO_JSON(Storage, storage_);
+        DARABONBA_PTR_TO_JSON(SupportDisasterRecoveryDrill, supportDisasterRecoveryDrill_);
         DARABONBA_PTR_TO_JSON(Tags, tags_);
         DARABONBA_PTR_TO_JSON(Uid, uid_);
         DARABONBA_PTR_TO_JSON(VSwitchIds, vSwitchIds_);
@@ -114,6 +115,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
         DARABONBA_PTR_FROM_JSON(ResourceSpec, resourceSpec_);
         DARABONBA_PTR_FROM_JSON(Storage, storage_);
+        DARABONBA_PTR_FROM_JSON(SupportDisasterRecoveryDrill, supportDisasterRecoveryDrill_);
         DARABONBA_PTR_FROM_JSON(Tags, tags_);
         DARABONBA_PTR_FROM_JSON(Uid, uid_);
         DARABONBA_PTR_FROM_JSON(VSwitchIds, vSwitchIds_);
@@ -356,7 +358,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -415,6 +419,7 @@ namespace Models
 
 
         protected:
+          // The name of the OSS bucket.
           shared_ptr<string> bucket_ {};
         };
 
@@ -460,6 +465,7 @@ namespace Models
       protected:
         shared_ptr<bool> fullyManaged_ {};
         shared_ptr<string> orderState_ {};
+        // The OSS storage information.
         shared_ptr<Storage::Oss> oss_ {};
         shared_ptr<bool> supportCreateFullyManagedStorage_ {};
         shared_ptr<bool> supportMigrationProgressDetection_ {};
@@ -503,7 +509,9 @@ namespace Models
 
 
       protected:
+        // The number of CPUs.
         shared_ptr<int32_t> cpu_ {};
+        // The configured memory size.
         shared_ptr<int32_t> memoryGB_ {};
       };
 
@@ -1373,9 +1381,9 @@ namespace Models
         && this->elasticResourceSpec_ == nullptr && this->ha_ == nullptr && this->haResourceSpec_ == nullptr && this->haVSwitchIds_ == nullptr && this->haVSwitchInfo_ == nullptr
         && this->haZoneId_ == nullptr && this->hostAliases_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->monitorType_ == nullptr
         && this->orderState_ == nullptr && this->ossInfo_ == nullptr && this->region_ == nullptr && this->resourceCreateTime_ == nullptr && this->resourceExpiredTime_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->resourceId_ == nullptr && this->resourceSpec_ == nullptr && this->storage_ == nullptr && this->tags_ == nullptr
-        && this->uid_ == nullptr && this->vSwitchIds_ == nullptr && this->vSwitchInfo_ == nullptr && this->vpcId_ == nullptr && this->vpcInfo_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->resourceGroupId_ == nullptr && this->resourceId_ == nullptr && this->resourceSpec_ == nullptr && this->storage_ == nullptr && this->supportDisasterRecoveryDrill_ == nullptr
+        && this->tags_ == nullptr && this->uid_ == nullptr && this->vSwitchIds_ == nullptr && this->vSwitchInfo_ == nullptr && this->vpcId_ == nullptr
+        && this->vpcInfo_ == nullptr && this->zoneId_ == nullptr; };
       // ansm Field Functions 
       bool hasAnsm() const { return this->ansm_ != nullptr;};
       void deleteAnsm() { this->ansm_ = nullptr;};
@@ -1608,6 +1616,13 @@ namespace Models
       inline Instances& setStorage(Instances::Storage && storage) { DARABONBA_PTR_SET_RVALUE(storage_, storage) };
 
 
+      // supportDisasterRecoveryDrill Field Functions 
+      bool hasSupportDisasterRecoveryDrill() const { return this->supportDisasterRecoveryDrill_ != nullptr;};
+      void deleteSupportDisasterRecoveryDrill() { this->supportDisasterRecoveryDrill_ = nullptr;};
+      inline bool getSupportDisasterRecoveryDrill() const { DARABONBA_PTR_GET_DEFAULT(supportDisasterRecoveryDrill_, false) };
+      inline Instances& setSupportDisasterRecoveryDrill(bool supportDisasterRecoveryDrill) { DARABONBA_PTR_SET_VALUE(supportDisasterRecoveryDrill_, supportDisasterRecoveryDrill) };
+
+
       // tags Field Functions 
       bool hasTags() const { return this->tags_ != nullptr;};
       void deleteTags() { this->tags_ = nullptr;};
@@ -1669,12 +1684,22 @@ namespace Models
       shared_ptr<bool> ansm_ {};
       shared_ptr<string> architectureType_ {};
       shared_ptr<string> askClusterId_ {};
+      // The billing method. Valid values:
+      // - POST: pay-as-you-go.
+      // - PRE: subscription.
       shared_ptr<string> chargeType_ {};
       shared_ptr<Instances::ClusterState> clusterState_ {};
+      // The cluster status. Valid values:
+      // - CREATING: Being created.
+      // - RUNNING: Running.
+      // - DISABLE: Invalid.
+      // - DELETING: Being deleted.
+      // - DELETED: Deleted.
       shared_ptr<string> clusterStatus_ {};
       shared_ptr<Instances::ClusterUsedResources> clusterUsedResources_ {};
       shared_ptr<Instances::ClusterUsedStorage> clusterUsedStorage_ {};
       shared_ptr<bool> elastic_ {};
+      // The elastic order ID.
       shared_ptr<string> elasticInstanceId_ {};
       shared_ptr<string> elasticOrderState_ {};
       shared_ptr<Instances::ElasticResourceSpec> elasticResourceSpec_ {};
@@ -1685,24 +1710,43 @@ namespace Models
       shared_ptr<string> haZoneId_ {};
       // This parameter is required.
       shared_ptr<vector<Instances::HostAliases>> hostAliases_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The workspace name.
       shared_ptr<string> instanceName_ {};
       shared_ptr<string> monitorType_ {};
+      // The order status. Valid values:
+      // - NOT_INIT: The order is placed but components are not deployed.
+      // - NORMAL: Normal.
+      // - CEASE: Expired.
+      // - RELEASE: Overdue.
       shared_ptr<string> orderState_ {};
       shared_ptr<Instances::OssInfo> ossInfo_ {};
+      // The region of the instance.
       shared_ptr<string> region_ {};
+      // The time when the instance was created.
       shared_ptr<int64_t> resourceCreateTime_ {};
+      // The expiration time.
       shared_ptr<int64_t> resourceExpiredTime_ {};
       shared_ptr<string> resourceGroupId_ {};
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
+      // The resource specification information.
       shared_ptr<Instances::ResourceSpec> resourceSpec_ {};
+      // The storage information.
       shared_ptr<Instances::Storage> storage_ {};
+      shared_ptr<bool> supportDisasterRecoveryDrill_ {};
+      // The tags.
       shared_ptr<vector<Instances::Tags>> tags_ {};
+      // The ID of the user to whom the instance belongs.
       shared_ptr<string> uid_ {};
+      // The vSwitch IDs.
       shared_ptr<vector<string>> vSwitchIds_ {};
       shared_ptr<vector<Instances::VSwitchInfo>> vSwitchInfo_ {};
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
       shared_ptr<Instances::VpcInfo> vpcInfo_ {};
+      // The zone ID of the instance.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -1761,12 +1805,21 @@ namespace Models
 
 
   protected:
+    // The details of the instance group.
     shared_ptr<vector<DescribeInstancesResponseBody::Instances>> instances_ {};
+    // The current page number.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of instances per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
+    // The total number of instances.
     shared_ptr<int64_t> totalCount_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

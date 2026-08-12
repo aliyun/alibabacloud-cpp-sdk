@@ -84,14 +84,24 @@ namespace Models
 
 
   protected:
+    // The upper limit of pay-as-you-go resources allocated to the project namespace.
     shared_ptr<string> elasticResourceSpecShrink_ {};
+    // The size of subscription resources allocated to the project namespace.
     shared_ptr<string> guaranteedResourceSpecShrink_ {};
+    // Specifies whether the project namespace uses zone-disaster recovery.
+    // 
     // This parameter is required.
     shared_ptr<bool> ha_ {};
+    // The order instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The project namespace name.
+    // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
+    // The region.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
   };

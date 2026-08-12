@@ -73,8 +73,14 @@ namespace Models
 
 
     protected:
+      // The number of CPUs.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> cpu_ {};
+      // The memory size. Unit: GB.
+      // 
+      // > The memory size must be 4 times the number of CPUs.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> memoryGB_ {};
     };
@@ -112,12 +118,20 @@ namespace Models
 
 
   protected:
+    // The order instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The namespace name.
+    // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
+    // The region.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // The namespace resource details.
+    // 
     // This parameter is required.
     shared_ptr<ModifyPrepayNamespaceSpecRequest::ResourceSpec> resourceSpec_ {};
   };

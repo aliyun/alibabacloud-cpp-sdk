@@ -71,8 +71,13 @@ namespace Models
 
 
     protected:
+      // The number of CPUs.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> cpu_ {};
+      // The memory size.
+      // > The memory size must be 4 times the number of CPUs.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> memoryGB_ {};
     };
@@ -103,10 +108,16 @@ namespace Models
 
 
   protected:
+    // The order instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // The maximum pay-as-you-go resource specifications.
+    // 
     // This parameter is required.
     shared_ptr<ModifyElasticResourceSpecRequest::ResourceSpec> resourceSpec_ {};
   };

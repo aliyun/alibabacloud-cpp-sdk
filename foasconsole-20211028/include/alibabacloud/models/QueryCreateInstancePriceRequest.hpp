@@ -107,6 +107,7 @@ namespace Models
 
 
       protected:
+        // The name of the OSS bucket.
         shared_ptr<string> bucket_ {};
       };
 
@@ -121,6 +122,7 @@ namespace Models
 
 
     protected:
+      // The OSS storage information.
       shared_ptr<Storage::Oss> oss_ {};
     };
 
@@ -162,7 +164,9 @@ namespace Models
 
 
     protected:
+      // The number of CPUs.
       shared_ptr<int32_t> cpu_ {};
+      // The memory size.
       shared_ptr<int32_t> memoryGB_ {};
     };
 
@@ -204,7 +208,9 @@ namespace Models
 
 
     protected:
+      // The number of CPUs for zone-disaster recovery.
       shared_ptr<int32_t> cpu_ {};
+      // The active memory size for zone-disaster recovery.
       shared_ptr<int32_t> memoryGB_ {};
     };
 
@@ -333,23 +339,46 @@ namespace Models
 
 
   protected:
+    // The processor architecture.
     shared_ptr<string> architectureType_ {};
+    // Specifies whether to enable auto-renewal. Valid values:
+    // 
+    // - **true**: enables auto-renewal.
+    // - **false**: does not enable auto-renewal. (Default)
+    // 
+    // >This parameter is invalid for pay-as-you-go instances.
     shared_ptr<bool> autoRenew_ {};
+    // The billing type. Valid values:
+    // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
+    // The number of billing cycles.
     shared_ptr<int32_t> duration_ {};
+    // The extended reserved field.
     shared_ptr<string> extra_ {};
+    // Specifies whether to select zone-disaster recovery resources.
     shared_ptr<bool> ha_ {};
+    // The zone-disaster recovery resource specifications.
     shared_ptr<QueryCreateInstancePriceRequest::HaResourceSpec> haResourceSpec_ {};
+    // The workspace name.
     shared_ptr<string> instanceName_ {};
+    // The billing cycle. Subscription instances support only Year and Month. Pay-as-you-go instances support Hour.
     shared_ptr<string> pricingCycle_ {};
+    // The coupon code.
     shared_ptr<string> promotionCode_ {};
+    // The region.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // The resource specifications.
     shared_ptr<QueryCreateInstancePriceRequest::ResourceSpec> resourceSpec_ {};
+    // The storage information.
     shared_ptr<QueryCreateInstancePriceRequest::Storage> storage_ {};
+    // Specifies whether to use a coupon. Valid values:
     shared_ptr<bool> usePromotionCode_ {};
+    // The vSwitch IDs.
     shared_ptr<vector<string>> vSwitchIds_ {};
+    // The VPC ID of the user.
     shared_ptr<string> vpcId_ {};
   };
 

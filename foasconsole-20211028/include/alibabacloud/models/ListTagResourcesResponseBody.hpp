@@ -94,9 +94,13 @@ namespace Models
 
 
     protected:
+      // The order instance ID.
       shared_ptr<string> resourceId_ {};
+      // The resource type. The value is fixed as vvpinstance.
       shared_ptr<string> resourceType_ {};
+      // The tag key.
       shared_ptr<string> tagKey_ {};
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -140,10 +144,18 @@ namespace Models
 
 
   protected:
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
+    // The tag request ID.
     shared_ptr<string> tagReponseId_ {};
+    // The tags bound to the resources.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 
