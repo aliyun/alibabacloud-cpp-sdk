@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The unique request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The ID of the automatic response rule.
     shared_ptr<string> responseRuleId_ {};

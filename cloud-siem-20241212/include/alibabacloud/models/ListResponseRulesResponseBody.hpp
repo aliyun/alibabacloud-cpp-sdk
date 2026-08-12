@@ -52,6 +52,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ResponseRuleId, responseRuleId_);
         DARABONBA_PTR_TO_JSON(ResponseRuleName, responseRuleName_);
         DARABONBA_PTR_TO_JSON(ResponseRulePriority, responseRulePriority_);
+        DARABONBA_PTR_TO_JSON(ResponseRuleRemark, responseRuleRemark_);
         DARABONBA_PTR_TO_JSON(ResponseRuleStatus, responseRuleStatus_);
         DARABONBA_PTR_TO_JSON(ResponseRuleType, responseRuleType_);
         DARABONBA_PTR_TO_JSON(ResponseTriggerType, responseTriggerType_);
@@ -65,6 +66,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ResponseRuleId, responseRuleId_);
         DARABONBA_PTR_FROM_JSON(ResponseRuleName, responseRuleName_);
         DARABONBA_PTR_FROM_JSON(ResponseRulePriority, responseRulePriority_);
+        DARABONBA_PTR_FROM_JSON(ResponseRuleRemark, responseRuleRemark_);
         DARABONBA_PTR_FROM_JSON(ResponseRuleStatus, responseRuleStatus_);
         DARABONBA_PTR_FROM_JSON(ResponseRuleType, responseRuleType_);
         DARABONBA_PTR_FROM_JSON(ResponseTriggerType, responseTriggerType_);
@@ -83,7 +85,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createTime_ == nullptr
         && this->responseActionConfig_ == nullptr && this->responseActionType_ == nullptr && this->responseExecutionCondition_ == nullptr && this->responseRuleId_ == nullptr && this->responseRuleName_ == nullptr
-        && this->responseRulePriority_ == nullptr && this->responseRuleStatus_ == nullptr && this->responseRuleType_ == nullptr && this->responseTriggerType_ == nullptr && this->updateTime_ == nullptr; };
+        && this->responseRulePriority_ == nullptr && this->responseRuleRemark_ == nullptr && this->responseRuleStatus_ == nullptr && this->responseRuleType_ == nullptr && this->responseTriggerType_ == nullptr
+        && this->updateTime_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -133,6 +136,13 @@ namespace Models
       inline ResponseRules& setResponseRulePriority(int32_t responseRulePriority) { DARABONBA_PTR_SET_VALUE(responseRulePriority_, responseRulePriority) };
 
 
+      // responseRuleRemark Field Functions 
+      bool hasResponseRuleRemark() const { return this->responseRuleRemark_ != nullptr;};
+      void deleteResponseRuleRemark() { this->responseRuleRemark_ = nullptr;};
+      inline string getResponseRuleRemark() const { DARABONBA_PTR_GET_DEFAULT(responseRuleRemark_, "") };
+      inline ResponseRules& setResponseRuleRemark(string responseRuleRemark) { DARABONBA_PTR_SET_VALUE(responseRuleRemark_, responseRuleRemark) };
+
+
       // responseRuleStatus Field Functions 
       bool hasResponseRuleStatus() const { return this->responseRuleStatus_ != nullptr;};
       void deleteResponseRuleStatus() { this->responseRuleStatus_ = nullptr;};
@@ -164,51 +174,43 @@ namespace Models
     protected:
       // The time when the rule was created.
       shared_ptr<int64_t> createTime_ {};
-      // The configuration of the action that is performed if the automated response rule is triggered.
+      // The action configuration of the automatic response rule.
       shared_ptr<string> responseActionConfig_ {};
-      // The type of the action. Valid values:
+      // The action type of the automatic response rule. Valid values:
       // 
-      // - `doPlaybook`: executes a playbook.
-      // 
-      // - `changeEventStatus`: changes the status of an event.
-      // 
-      // - `changeThreatLevel`: changes the threat level of an event.
-      // 
-      // - `addEventTag`: adds a tag to an event.
-      // 
-      // - `deleteEventTag`: removes a tag from an event.
-      // 
-      // - `alertWhitelist`: adds an alert to the whitelist.
+      // - doPlaybook: execute a playbook
+      // - changeEventStatus: update event status
+      // - changeThreatLevel: update event threat level
+      // - addEventTag: add an event label
+      // - deleteEventTag: delete an event label
+      // - alertWhitelist: add alert to whitelist
       shared_ptr<string> responseActionType_ {};
-      // The trigger condition of the rule.
+      // The trigger condition configuration of the rule.
       shared_ptr<string> responseExecutionCondition_ {};
-      // The ID of the automated response rule.
+      // The ID of the automatic response rule.
       shared_ptr<string> responseRuleId_ {};
-      // The name of the automated response rule.
+      // The name of the automatic response rule.
       shared_ptr<string> responseRuleName_ {};
-      // The priority of the automated response rule.
+      // The execution priority of the automatic response rule.
       shared_ptr<int32_t> responseRulePriority_ {};
-      // The status of the automated response rule. Valid values:
+      shared_ptr<string> responseRuleRemark_ {};
+      // The status of the automatic response rule. Valid values:
       // 
-      // - `0`: disabled.
-      // 
-      // - `100`: enabled.
+      // - 0: disabled
+      // - 100: enabled
       shared_ptr<int32_t> responseRuleStatus_ {};
       // The type of the response rule. Valid values:
       // 
-      // - `preset`: a predefined rule.
-      // 
-      // - `custom`: a custom rule.
+      // - preset: predefined
+      // - custom: custom
       shared_ptr<string> responseRuleType_ {};
-      // The trigger type of the automated response rule. Valid values:
+      // The trigger type of the automatic response rule. Valid values:
       // 
-      // - `event`: triggered when an event occurs.
-      // 
-      // - `event_update`: triggered when an event is updated.
-      // 
-      // - `alert`: triggered when an alert is generated.
+      // - event: event occurred
+      // - event_update: event updated
+      // - alert: alert occurred
       shared_ptr<string> responseTriggerType_ {};
-      // The time when the rule was updated.
+      // The time when the rule was last updated.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -267,9 +269,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned for the current request.
+    // The maximum number of records returned in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The position where the current query ends. If this parameter is empty, all data is returned.
+    // The position from which the current call starts reading. An empty value indicates that all data has been read.
     // 
     // This parameter is required.
     shared_ptr<string> nextToken_ {};
@@ -277,11 +279,11 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The list of automated response rules.
+    // The list of automatic response rules.
     shared_ptr<vector<ListResponseRulesResponseBody::ResponseRules>> responseRules_ {};
-    // The total number of entries that match the query conditions. This parameter is optional and may not always be returned.
+    // The total number of records that match the request conditions. This parameter is optional and is not returned by default.
     shared_ptr<int32_t> totalCount_ {};
   };
 

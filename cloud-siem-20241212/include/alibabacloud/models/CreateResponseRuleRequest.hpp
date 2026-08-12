@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResponseExecutionCondition, responseExecutionCondition_);
       DARABONBA_PTR_TO_JSON(ResponseRuleName, responseRuleName_);
       DARABONBA_PTR_TO_JSON(ResponseRulePriority, responseRulePriority_);
+      DARABONBA_PTR_TO_JSON(ResponseRuleRemark, responseRuleRemark_);
       DARABONBA_PTR_TO_JSON(ResponseTriggerType, responseTriggerType_);
       DARABONBA_PTR_TO_JSON(RoleFor, roleFor_);
       DARABONBA_PTR_TO_JSON(RoleType, roleType_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResponseExecutionCondition, responseExecutionCondition_);
       DARABONBA_PTR_FROM_JSON(ResponseRuleName, responseRuleName_);
       DARABONBA_PTR_FROM_JSON(ResponseRulePriority, responseRulePriority_);
+      DARABONBA_PTR_FROM_JSON(ResponseRuleRemark, responseRuleRemark_);
       DARABONBA_PTR_FROM_JSON(ResponseTriggerType, responseTriggerType_);
       DARABONBA_PTR_FROM_JSON(RoleFor, roleFor_);
       DARABONBA_PTR_FROM_JSON(RoleType, roleType_);
@@ -53,8 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
         && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->regionId_ == nullptr && this->responseActionConfig_ == nullptr && this->responseActionType_ == nullptr
-        && this->responseExecutionCondition_ == nullptr && this->responseRuleName_ == nullptr && this->responseRulePriority_ == nullptr && this->responseTriggerType_ == nullptr && this->roleFor_ == nullptr
-        && this->roleType_ == nullptr; };
+        && this->responseExecutionCondition_ == nullptr && this->responseRuleName_ == nullptr && this->responseRulePriority_ == nullptr && this->responseRuleRemark_ == nullptr && this->responseTriggerType_ == nullptr
+        && this->roleFor_ == nullptr && this->roleType_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
@@ -118,6 +120,13 @@ namespace Models
     inline CreateResponseRuleRequest& setResponseRulePriority(string responseRulePriority) { DARABONBA_PTR_SET_VALUE(responseRulePriority_, responseRulePriority) };
 
 
+    // responseRuleRemark Field Functions 
+    bool hasResponseRuleRemark() const { return this->responseRuleRemark_ != nullptr;};
+    void deleteResponseRuleRemark() { this->responseRuleRemark_ = nullptr;};
+    inline string getResponseRuleRemark() const { DARABONBA_PTR_GET_DEFAULT(responseRuleRemark_, "") };
+    inline CreateResponseRuleRequest& setResponseRuleRemark(string responseRuleRemark) { DARABONBA_PTR_SET_VALUE(responseRuleRemark_, responseRuleRemark) };
+
+
     // responseTriggerType Field Functions 
     bool hasResponseTriggerType() const { return this->responseTriggerType_ != nullptr;};
     void deleteResponseTriggerType() { this->responseTriggerType_ = nullptr;};
@@ -141,58 +150,47 @@ namespace Models
 
   protected:
     // The language of the response. Valid values:
-    // 
-    // - **zh** (default): Chinese
-    // 
-    // - **en**: English
+    // - **zh** (default): Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The maximum number of results to return.
+    // The maximum number of data records to read in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that specifies the position from which to start the query. If you do not specify this parameter, the query starts from the beginning.
+    // The pagination token that marks the current reading position. Leave this parameter empty to start reading from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The deployment region of the data management center for threat analysis. You must select a region based on the location of your assets. Valid values:
-    // 
-    // - cn-hangzhou: Your assets are in the Chinese mainland or Hong Kong (China).
-    // 
-    // - ap-southeast-1: Your assets are in regions outside the Chinese mainland.
+    // The region where the threat detection and response data management center resides. Specify the management center based on the region of your assets. Valid values:
+    // - cn-hangzhou: the Chinese mainland and Hong Kong (China).
+    // - ap-southeast-1: regions outside China.
     shared_ptr<string> regionId_ {};
-    // The action configuration, specified as a JSON string.
+    // The action configuration of the automatic response rule.
     shared_ptr<string> responseActionConfig_ {};
-    // The action type for the automatic response rule. Valid values:
+    // The action type of the automatic response rule. Valid values:
     // 
-    // - doPlaybook: Runs a playbook.
-    // 
-    // - changeEventStatus: Changes the status of an event.
-    // 
-    // - changeThreatLevel: Changes the threat level of an event.
-    // 
-    // - addEventTag: Adds a tag to an event.
-    // 
-    // - deleteEventTag: Deletes a tag from an event.
-    // 
-    // - alertWhitelist: Adds an alert to the allowlist.
+    // - doPlaybook: execute a playbook.
+    // - changeEventStatus: update the event status.
+    // - changeThreatLevel: update the event threat level.
+    // - addEventTag: add an event label.
+    // - deleteEventTag: delete an event label.
+    // - alertWhitelist: add the alert to the whitelist.
     shared_ptr<string> responseActionType_ {};
-    // The trigger conditions for the rule, specified as a JSON string.
+    // The trigger condition configuration of the rule.
     shared_ptr<string> responseExecutionCondition_ {};
     // The name of the automatic response rule.
     shared_ptr<string> responseRuleName_ {};
     // The execution priority of the automatic response rule.
     shared_ptr<string> responseRulePriority_ {};
-    // The trigger type for the automatic response rule. Valid values:
+    shared_ptr<string> responseRuleRemark_ {};
+    // The trigger type of the automatic response rule. Valid values:
     // 
-    // - event: An event is generated.
-    // 
-    // - event_update: An event is updated.
-    // 
-    // - alert: An alert is generated.
+    // - event: event occurrence.
+    // - event_update: event update.
+    // - alert: alert occurrence.
     shared_ptr<string> responseTriggerType_ {};
-    // The ID of the member account. An administrator uses this parameter to operate on behalf of the specified member.
+    // The user ID that the administrator switches to for viewing from the perspective of another member.
     shared_ptr<int64_t> roleFor_ {};
-    // The operational scope. Valid values:
+    // The view type. Valid values:
     // 
-    // - 0: Sets the scope to the current Alibaba Cloud account.
-    // 
-    // - 1: Sets the scope to all accounts in the enterprise.
+    // - 0: the view of the current Alibaba Cloud account.
+    // - 1: the view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
   };
 

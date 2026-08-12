@@ -150,14 +150,12 @@ namespace Models
 
   protected:
     // The language of the response. Valid values:
-    // 
-    // - **zh** (default): Chinese
-    // 
-    // - **en**: English
+    // - **zh** (default): Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The maximum number of entries to return.
+    // The maximum number of data records to read in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to retrieve the next page of results. If you leave this parameter empty, the first page of results is returned.
+    // The pagination token that marks the current reading position. Leave this parameter empty to read from the beginning.
     shared_ptr<string> nextToken_ {};
     // The page number.
     // 
@@ -167,55 +165,43 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The region of the data management center for threat analysis. Select the region where your assets are located. Valid values:
-    // 
-    // - `cn-hangzhou`: Your assets are in the Chinese mainland or China (Hong Kong).
-    // 
-    // - `ap-southeast-1`: Your assets are in international regions.
+    // The region where the threat analysis data management center resides. Select the management center based on the region of your assets. Valid values:
+    // - cn-hangzhou: Your assets belong to the Chinese mainland or Hong Kong (China).
+    // - ap-southeast-1: Your assets belong to regions outside China.
     shared_ptr<string> regionId_ {};
-    // The action of the automated response rule. Valid values:
+    // The action type of the automatic response rule. Valid values:
     // 
-    // - `doPlaybook`: Executes a playbook.
-    // 
-    // - `changeEventStatus`: Updates the status of an event.
-    // 
-    // - `changeThreatLevel`: Updates the threat level of an event.
-    // 
-    // - `addEventTag`: Adds a tag to an event.
-    // 
-    // - `deleteEventTag`: Removes a tag from an event.
-    // 
-    // - `alertWhitelist`: Adds an alert to the allowlist.
+    // - doPlaybook: execute a playbook
+    // - changeEventStatus: update event status
+    // - changeThreatLevel: update event threat level
+    // - addEventTag: add an event label
+    // - deleteEventTag: delete an event label
+    // - alertWhitelist: add alert to whitelist
     shared_ptr<string> responseActionType_ {};
-    // The name of the automated response rule.
+    // The name of the automatic response rule.
     shared_ptr<string> responseRuleName_ {};
-    // The status of the automated response rule. Valid values:
+    // The status of the automatic response rule. Valid values:
     // 
-    // - `0`: disabled
-    // 
-    // - `100`: enabled
+    // - 0: disabled
+    // - 100: enabled
     shared_ptr<int32_t> responseRuleStatus_ {};
-    // The type of the automated response rule. Valid values:
+    // The type of the response rule. Valid values:
     // 
-    // - `preset`: A preset rule.
-    // 
-    // - `custom`: A custom rule.
+    // - preset: predefined
+    // - custom: custom
     shared_ptr<string> responseRuleType_ {};
-    // The trigger type of the automated response rule. Valid values:
+    // The trigger type of the automatic response rule. Valid values:
     // 
-    // - `event`: An event is generated.
-    // 
-    // - `event_update`: An event is updated.
-    // 
-    // - `alert`: An alert is generated.
+    // - event: event occurred
+    // - event_update: event updated
+    // - alert: alert occurred
     shared_ptr<string> responseTriggerType_ {};
-    // The ID of a member. An administrator can use this parameter to view data as the specified member.
+    // The user ID that the administrator switches to when viewing from another member\\"s perspective.
     shared_ptr<int64_t> roleFor_ {};
     // The view type. Valid values:
     // 
-    // - `0`: Displays data from the current Alibaba Cloud account.
-    // 
-    // - `1`: Displays data from all accounts in the enterprise.
+    // - 0: the current Alibaba Cloud account view.
+    // - 1: the view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
   };
 

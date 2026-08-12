@@ -231,39 +231,30 @@ namespace Models
       shared_ptr<string> attckTactics_ {};
       // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // The detection rule ID.
+      // The ID of the detection rule.
       shared_ptr<string> detectionRuleId_ {};
       shared_ptr<string> detectionRuleName_ {};
       shared_ptr<string> entityInfos_ {};
       shared_ptr<string> incidentDescription_ {};
       // The event name.
       shared_ptr<string> incidentName_ {};
-      // The event remark.
+      // The remark of the incident.
       shared_ptr<string> incidentRemark_ {};
       // The event status. Valid values:
-      // - 0: Unhandled.
-      // - 1: Handling.
-      // - 5: Handling failed.
-      // - 10: Handled.
       shared_ptr<int32_t> incidentStatus_ {};
       // The event tags.
       shared_ptr<string> incidentTags_ {};
-      // The event UUID.
+      // The UUID of the incident.
       shared_ptr<string> incidentUuid_ {};
       // The UID of the account responsible for the event.
       shared_ptr<string> owner_ {};
-      // The number of alerts associated with the event.
+      // The number of alerts associated with the incident.
       shared_ptr<int32_t> relateAlertCount_ {};
-      // The number of assets associated with the event.
+      // The number of assets associated with the incident.
       shared_ptr<int32_t> relateAssetCount_ {};
       // The response time, in milliseconds (ms).
       shared_ptr<int64_t> responseTime_ {};
       // The threat level. Valid values:
-      // - 5: Critical.
-      // - 4: High.
-      // - 3: Medium.
-      // - 2: Low.
-      // - 1: Informational.
       shared_ptr<string> threatLevel_ {};
       // The update time.
       shared_ptr<int64_t> updateTime_ {};
@@ -324,9 +315,9 @@ namespace Models
 
 
   protected:
-    // The list of events.
+    // The list of incidents.
     shared_ptr<vector<ListIncidentsResponseBody::Incidents>> incidents_ {};
-    // The maximum number of entries to return.
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next query. Leave this parameter empty for the first query or if no more results exist. If a next page exists, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};

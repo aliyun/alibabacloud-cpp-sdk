@@ -133,6 +133,9 @@
 #include <alibabacloud/models/GetUserConfigRequest.hpp>
 #include <alibabacloud/models/GetUserConfigResponseBody.hpp>
 #include <alibabacloud/models/GetUserConfigResponse.hpp>
+#include <alibabacloud/models/ListAlertAggregationsRequest.hpp>
+#include <alibabacloud/models/ListAlertAggregationsResponseBody.hpp>
+#include <alibabacloud/models/ListAlertAggregationsResponse.hpp>
 #include <alibabacloud/models/ListAlertsRequest.hpp>
 #include <alibabacloud/models/ListAlertsResponseBody.hpp>
 #include <alibabacloud/models/ListAlertsResponse.hpp>

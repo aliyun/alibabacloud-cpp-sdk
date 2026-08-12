@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResponseRuleId, responseRuleId_);
       DARABONBA_PTR_TO_JSON(ResponseRuleName, responseRuleName_);
       DARABONBA_PTR_TO_JSON(ResponseRulePriority, responseRulePriority_);
+      DARABONBA_PTR_TO_JSON(ResponseRuleRemark, responseRuleRemark_);
       DARABONBA_PTR_TO_JSON(ResponseRuleStatus, responseRuleStatus_);
       DARABONBA_PTR_TO_JSON(ResponseTriggerType, responseTriggerType_);
     };
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResponseRuleId, responseRuleId_);
       DARABONBA_PTR_FROM_JSON(ResponseRuleName, responseRuleName_);
       DARABONBA_PTR_FROM_JSON(ResponseRulePriority, responseRulePriority_);
+      DARABONBA_PTR_FROM_JSON(ResponseRuleRemark, responseRuleRemark_);
       DARABONBA_PTR_FROM_JSON(ResponseRuleStatus, responseRuleStatus_);
       DARABONBA_PTR_FROM_JSON(ResponseTriggerType, responseTriggerType_);
     };
@@ -53,8 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lang_ == nullptr
         && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->regionId_ == nullptr && this->responseActionConfig_ == nullptr && this->responseActionType_ == nullptr
-        && this->responseExecutionCondition_ == nullptr && this->responseRuleId_ == nullptr && this->responseRuleName_ == nullptr && this->responseRulePriority_ == nullptr && this->responseRuleStatus_ == nullptr
-        && this->responseTriggerType_ == nullptr; };
+        && this->responseExecutionCondition_ == nullptr && this->responseRuleId_ == nullptr && this->responseRuleName_ == nullptr && this->responseRulePriority_ == nullptr && this->responseRuleRemark_ == nullptr
+        && this->responseRuleStatus_ == nullptr && this->responseTriggerType_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
@@ -125,6 +127,13 @@ namespace Models
     inline UpdateResponseRuleRequest& setResponseRulePriority(int32_t responseRulePriority) { DARABONBA_PTR_SET_VALUE(responseRulePriority_, responseRulePriority) };
 
 
+    // responseRuleRemark Field Functions 
+    bool hasResponseRuleRemark() const { return this->responseRuleRemark_ != nullptr;};
+    void deleteResponseRuleRemark() { this->responseRuleRemark_ = nullptr;};
+    inline string getResponseRuleRemark() const { DARABONBA_PTR_GET_DEFAULT(responseRuleRemark_, "") };
+    inline UpdateResponseRuleRequest& setResponseRuleRemark(string responseRuleRemark) { DARABONBA_PTR_SET_VALUE(responseRuleRemark_, responseRuleRemark) };
+
+
     // responseRuleStatus Field Functions 
     bool hasResponseRuleStatus() const { return this->responseRuleStatus_ != nullptr;};
     void deleteResponseRuleStatus() { this->responseRuleStatus_ = nullptr;};
@@ -140,59 +149,48 @@ namespace Models
 
 
   protected:
-    // The language of the response messages. Valid values:
-    // 
+    // The language of the response. Valid values:
     // - **zh** (default): Chinese.
-    // 
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The maximum number of results to return for a single request.
+    // The maximum number of data records to read in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results. If you do not specify this parameter, the query starts from the first page.
+    // The pagination token that marks the position from which to start reading. If this parameter is left empty, data is read from the beginning.
     shared_ptr<string> nextToken_ {};
-    // The region where the data management center of Cloud SIEM is located. Select a region based on the location of your assets. Valid values:
-    // 
-    // - `cn-hangzhou`: China (Hangzhou). For assets in the Chinese mainland.
-    // 
-    // - `ap-southeast-1`: Asia Pacific SE 1 (Singapore). For assets in overseas regions.
+    // The region where the data management center of the threat analysis feature is located. Specify the management center based on the region of your assets. Valid values:
+    // - cn-hangzhou: the Chinese mainland.
+    // - ap-southeast-1: outside China.
     shared_ptr<string> regionId_ {};
-    // The action configuration for the automatic response rule.
+    // The action configuration of the automated response rule.
     shared_ptr<string> responseActionConfig_ {};
-    // The action for the automatic response rule. Valid values:
+    // The action type of the automated response rule. Valid values:
     // 
-    // - `doPlaybook`: Executes a playbook.
-    // 
-    // - `changeEventStatus`: Updates the event status.
-    // 
-    // - `changeThreatLevel`: Updates the event threat level.
-    // 
-    // - `addEventTag`: Adds an event tag.
-    // 
-    // - `deleteEventTag`: Deletes an event tag.
-    // 
-    // - `alertWhitelist`: Adds the alert to a whitelist.
+    // - doPlaybook: execute a playbook.
+    // - changeEventStatus: update the event status.
+    // - changeThreatLevel: update the event threat level.
+    // - addEventTag: add an event label.
+    // - deleteEventTag: delete an event label.
+    // - alertWhitelist: add the alert to the whitelist.
     shared_ptr<string> responseActionType_ {};
-    // The trigger conditions for the rule.
+    // The trigger condition configuration of the rule.
     shared_ptr<string> responseExecutionCondition_ {};
-    // The ID of the automatic response rule.
+    // The ID of the automated response rule.
     shared_ptr<string> responseRuleId_ {};
-    // The name of the automatic response rule.
+    // The name of the automated response rule.
     shared_ptr<string> responseRuleName_ {};
-    // The execution priority of the automatic response rule.
+    // The execution priority of the automated response rule.
     shared_ptr<int32_t> responseRulePriority_ {};
-    // The status of the rule. Valid values:
+    shared_ptr<string> responseRuleRemark_ {};
+    // The status of the automated response rule. Valid values:
     // 
-    // - `0`: disabled
-    // 
-    // - `100`: enabled
+    // - 0: disabled.
+    // - 100: enabled.
     shared_ptr<int32_t> responseRuleStatus_ {};
-    // The trigger for the automatic response rule. Valid values:
+    // The trigger type of the automated response rule. Valid values:
     // 
-    // - `event`: The rule is triggered when an event occurs.
-    // 
-    // - `event_update`: The rule is triggered when an event is updated.
-    // 
-    // - `alert`: The rule is triggered when an alert is generated.
+    // - event: event occurred.
+    // - event_update: event updated.
+    // - alert: alert occurred.
     shared_ptr<string> responseTriggerType_ {};
   };
 
