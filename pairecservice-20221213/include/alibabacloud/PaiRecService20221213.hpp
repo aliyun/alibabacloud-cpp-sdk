@@ -437,7 +437,7 @@ namespace PaiRecService20221213
       Models::CreateDataDiagnosisJobsResponse createDataDiagnosisJobs(const Models::CreateDataDiagnosisJobsRequest &request);
 
       /**
-       * @summary Creates an engine config.
+       * @summary Creates an engine configuration.
        *
        * @param request CreateEngineConfigRequest
        * @param headers map
@@ -447,7 +447,7 @@ namespace PaiRecService20221213
       Models::CreateEngineConfigResponse createEngineConfigWithOptions(const Models::CreateEngineConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an engine config.
+       * @summary Creates an engine configuration.
        *
        * @param request CreateEngineConfigRequest
        * @return CreateEngineConfigResponse
@@ -1629,7 +1629,7 @@ namespace PaiRecService20221213
       Models::GetDataDiagnosisResponse getDataDiagnosis(const string &DataDiagnosisId, const Models::GetDataDiagnosisRequest &request);
 
       /**
-       * @summary Gets the details of an engine configuration.
+       * @summary Retrieves the details of an engine configuration.
        *
        * @param request GetEngineConfigRequest
        * @param headers map
@@ -1639,7 +1639,7 @@ namespace PaiRecService20221213
       Models::GetEngineConfigResponse getEngineConfigWithOptions(const string &EngineConfigId, const Models::GetEngineConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the details of an engine configuration.
+       * @summary Retrieves the details of an engine configuration.
        *
        * @param request GetEngineConfigRequest
        * @return GetEngineConfigResponse
@@ -1755,7 +1755,7 @@ namespace PaiRecService20221213
       Models::GetInstanceResourceResponse getInstanceResource(const string &InstanceId, const string &ResourceId, const Models::GetInstanceResourceRequest &request);
 
       /**
-       * @summary Retrieves the schema of a specified data table within a resource.
+       * @summary Retrieves the list of data tables under a data source.
        *
        * @param request GetInstanceResourceTableRequest
        * @param headers map
@@ -1765,7 +1765,7 @@ namespace PaiRecService20221213
       Models::GetInstanceResourceTableResponse getInstanceResourceTableWithOptions(const string &InstanceId, const string &ResourceId, const string &TableName, const Models::GetInstanceResourceTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the schema of a specified data table within a resource.
+       * @summary Retrieves the list of data tables under a data source.
        *
        * @param request GetInstanceResourceTableRequest
        * @return GetInstanceResourceTableResponse
@@ -2323,7 +2323,7 @@ namespace PaiRecService20221213
       Models::ListDataDiagnosisReportsResponse listDataDiagnosisReports(const string &DataDiagnosisId, const Models::ListDataDiagnosisReportsRequest &request);
 
       /**
-       * @summary Retrieves a list of engine configurations.
+       * @summary Retrieves the list of engine configurations.
        *
        * @param request ListEngineConfigsRequest
        * @param headers map
@@ -2333,7 +2333,7 @@ namespace PaiRecService20221213
       Models::ListEngineConfigsResponse listEngineConfigsWithOptions(const Models::ListEngineConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of engine configurations.
+       * @summary Retrieves the list of engine configurations.
        *
        * @param request ListEngineConfigsRequest
        * @return ListEngineConfigsResponse
@@ -2651,13 +2651,13 @@ namespace PaiRecService20221213
       Models::ListRecallManagementServiceVersionsResponse listRecallManagementServiceVersions(const string &RecallManagementServiceId, const Models::ListRecallManagementServiceVersionsRequest &request);
 
       /**
-       * @summary This API returns a list of recall management services for a specified instance.
+       * @summary Queries the list of recall management services under a specified instance.
        *
-       * @description ## Description
-       * Call `ListRecallManagementServices` to retrieve a list of recall management services for a specified instance based on parameters such as `InstanceId`, `PageNumber`, and `PageSize`. You can sort the results by creation time or modification time in ascending or descending order.
-       * - **InstanceId** is required. It specifies the target instance.
-       * - The pagination parameters **PageNumber** and **PageSize** control the number of returned items and the page from which to start. This operation returns the first page of results by default.
-       * - Use the **SortBy** and **Order** parameters to customize the sort order of the list.
+       * @description ## Operation description
+       * By calling the `ListRecallManagementServices` operation, you can retrieve the list of recall management services under a specific instance based on given parameters such as InstanceId, PageNumber, and PageSize. You can sort results by creation time or update time in ascending or descending order.
+       * - **InstanceId** is required and specifies the instance to which the services belong.
+       * - The pagination parameters **PageNumber** and **PageSize** allow you to control the amount of returned data and the page from which to start displaying results. By default, data from the first page is returned.
+       * - Use the **SortBy** and **Order** parameters to customize the sorting of the list.
        *
        * @param request ListRecallManagementServicesRequest
        * @param headers map
@@ -2667,13 +2667,13 @@ namespace PaiRecService20221213
       Models::ListRecallManagementServicesResponse listRecallManagementServicesWithOptions(const Models::ListRecallManagementServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This API returns a list of recall management services for a specified instance.
+       * @summary Queries the list of recall management services under a specified instance.
        *
-       * @description ## Description
-       * Call `ListRecallManagementServices` to retrieve a list of recall management services for a specified instance based on parameters such as `InstanceId`, `PageNumber`, and `PageSize`. You can sort the results by creation time or modification time in ascending or descending order.
-       * - **InstanceId** is required. It specifies the target instance.
-       * - The pagination parameters **PageNumber** and **PageSize** control the number of returned items and the page from which to start. This operation returns the first page of results by default.
-       * - Use the **SortBy** and **Order** parameters to customize the sort order of the list.
+       * @description ## Operation description
+       * By calling the `ListRecallManagementServices` operation, you can retrieve the list of recall management services under a specific instance based on given parameters such as InstanceId, PageNumber, and PageSize. You can sort results by creation time or update time in ascending or descending order.
+       * - **InstanceId** is required and specifies the instance to which the services belong.
+       * - The pagination parameters **PageNumber** and **PageSize** allow you to control the amount of returned data and the page from which to start displaying results. By default, data from the first page is returned.
+       * - Use the **SortBy** and **Order** parameters to customize the sorting of the list.
        *
        * @param request ListRecallManagementServicesRequest
        * @return ListRecallManagementServicesResponse
@@ -3700,7 +3700,7 @@ namespace PaiRecService20221213
       Models::UpdateDataDiagnosisResponse updateDataDiagnosis(const string &DataDiagnosisId, const Models::UpdateDataDiagnosisRequest &request);
 
       /**
-       * @summary Updates an engine configuration.
+       * @summary Updates a specific engine configuration.
        *
        * @param request UpdateEngineConfigRequest
        * @param headers map
@@ -3710,7 +3710,7 @@ namespace PaiRecService20221213
       Models::UpdateEngineConfigResponse updateEngineConfigWithOptions(const string &EngineConfigId, const Models::UpdateEngineConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates an engine configuration.
+       * @summary Updates a specific engine configuration.
        *
        * @param request UpdateEngineConfigRequest
        * @return UpdateEngineConfigResponse

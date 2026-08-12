@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, GetEngineConfigResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(ConfigValue, configValue_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(Type, type_);
     };
     GetEngineConfigResponseBody() = default ;
     GetEngineConfigResponseBody(const GetEngineConfigResponseBody &) = default ;
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configValue_ == nullptr
         && this->description_ == nullptr && this->environment_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->gmtReleasedTime_ == nullptr
-        && this->name_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr; };
+        && this->name_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr && this->type_ == nullptr; };
     // configValue Field Functions 
     bool hasConfigValue() const { return this->configValue_ != nullptr;};
     void deleteConfigValue() { this->configValue_ = nullptr;};
@@ -111,24 +113,31 @@ namespace Models
     inline GetEngineConfigResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // type Field Functions 
+    bool hasType() const { return this->type_ != nullptr;};
+    void deleteType() { this->type_ = nullptr;};
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline GetEngineConfigResponseBody& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
   protected:
     // The content of the engine configuration.
     shared_ptr<string> configValue_ {};
-    // The description of the engine configuration.
+    // The description.
     shared_ptr<string> description_ {};
-    // The environment. Valid values:
+    // The runtime environment. Valid values:
     // 
-    // - Daily: The daily environment.
+    // - Daily: daily environment.
     // 
-    // - Pre: The pre-production environment.
+    // - Pre: staging environment.
     // 
-    // - Prod: The production environment.
+    // - Prod: production environment.
     shared_ptr<string> environment_ {};
-    // The time the engine configuration was created.
+    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
-    // The time the engine configuration was last modified.
+    // The update time.
     shared_ptr<string> gmtModifiedTime_ {};
-    // The time the engine configuration was published.
+    // The publish time.
     shared_ptr<string> gmtReleasedTime_ {};
     // The engine configuration name.
     shared_ptr<string> name_ {};
@@ -136,10 +145,12 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The status. Valid values:
     // 
-    // - Released: Published
+    // - Released: published.
     // 
-    // - UnReleased: Unpublished
+    // - UnReleased: not published.
     shared_ptr<string> status_ {};
+    // The engine configuration type.
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

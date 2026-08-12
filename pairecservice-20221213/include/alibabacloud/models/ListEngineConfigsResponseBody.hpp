@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(GmtReleasedTime, gmtReleasedTime_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(Type, type_);
         DARABONBA_PTR_TO_JSON(Version, version_);
       };
       friend void from_json(const Darabonba::Json& j, EngineConfigs& obj) { 
@@ -58,6 +59,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(GmtReleasedTime, gmtReleasedTime_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(Type, type_);
         DARABONBA_PTR_FROM_JSON(Version, version_);
       };
       EngineConfigs() = default ;
@@ -73,7 +75,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->configValue_ == nullptr
         && this->description_ == nullptr && this->engineConfigId_ == nullptr && this->environment_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr
-        && this->gmtReleasedTime_ == nullptr && this->name_ == nullptr && this->status_ == nullptr && this->version_ == nullptr; };
+        && this->gmtReleasedTime_ == nullptr && this->name_ == nullptr && this->status_ == nullptr && this->type_ == nullptr && this->version_ == nullptr; };
       // configValue Field Functions 
       bool hasConfigValue() const { return this->configValue_ != nullptr;};
       void deleteConfigValue() { this->configValue_ = nullptr;};
@@ -137,6 +139,13 @@ namespace Models
       inline EngineConfigs& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline EngineConfigs& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
       // version Field Functions 
       bool hasVersion() const { return this->version_ != nullptr;};
       void deleteVersion() { this->version_ = nullptr;};
@@ -147,33 +156,35 @@ namespace Models
     protected:
       // The content of the engine configuration.
       shared_ptr<string> configValue_ {};
-      // The description of the engine configuration.
+      // The description.
       shared_ptr<string> description_ {};
-      // The ID of the engine configuration.
+      // The engine configuration ID.
       shared_ptr<string> engineConfigId_ {};
-      // The environment. Valid values:
+      // The runtime environment.
       // 
-      // - **Daily**: the development and test environment.
+      // - Daily: daily environment.
       // 
-      // - **Pre**: the pre-production environment.
+      // - Pre: staging environment.
       // 
-      // - **Prod**: the production environment.
+      // - Prod: production environment.
       shared_ptr<string> environment_ {};
       // The creation time.
       shared_ptr<string> gmtCreateTime_ {};
-      // The modification time.
+      // The update time.
       shared_ptr<string> gmtModifiedTime_ {};
       // The release time.
       shared_ptr<string> gmtReleasedTime_ {};
-      // The name of the engine configuration.
+      // The engine configuration name.
       shared_ptr<string> name_ {};
-      // The status of the engine configuration. Valid values:
+      // The status.
       // 
-      // - **Released**: The configuration has been released.
+      // - Released: released.
       // 
-      // - **Unreleased**: The configuration has not been released.
+      // - UnReleased: not released.
       shared_ptr<string> status_ {};
-      // The version of the currently released or most recently updated engine configuration.
+      // The engine configuration type.
+      shared_ptr<string> type_ {};
+      // The version number of the currently released or most recently updated version.
       shared_ptr<string> version_ {};
     };
 
@@ -203,11 +214,11 @@ namespace Models
 
 
   protected:
-    // A list of engine configurations.
+    // The list of engine configurations.
     shared_ptr<vector<ListEngineConfigsResponseBody::EngineConfigs>> engineConfigs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of elements in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListRecallManagementServicesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(Order, order_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListRecallManagementServicesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(Order, order_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->sortBy_ == nullptr; };
+        && this->maxResults_ == nullptr && this->name_ == nullptr && this->nextToken_ == nullptr && this->order_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->sortBy_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     void deleteMaxResults() { this->maxResults_ = nullptr;};
     inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListRecallManagementServicesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // name Field Functions 
+    bool hasName() const { return this->name_ != nullptr;};
+    void deleteName() { this->name_ = nullptr;};
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline ListRecallManagementServicesRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // nextToken Field Functions 
@@ -94,27 +103,25 @@ namespace Models
 
 
   protected:
-    // **The ID of the instance.**
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // This parameter is not yet available.
+    // This parameter is not currently in effect.
     shared_ptr<int32_t> maxResults_ {};
-    // This parameter is not yet available.
+    // Filters results by name.
+    shared_ptr<string> name_ {};
+    // This parameter is not currently in effect.
     shared_ptr<string> nextToken_ {};
-    // **The sort order.** Valid values:
-    // 
+    // The sort order. Valid values:  
     // - ASC: ascending order.
-    // 
     // - DESC: descending order.
     shared_ptr<string> order_ {};
-    // **The number of the page to return.**
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // **The number of entries to return on each page.**
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
-    // **The field to sort by.** Valid values:
-    // 
-    // - GmtCreateTime: Sort by creation time.
-    // 
-    // - GmtModifiedTime: Sort by modification time.
+    // The sorting field. Valid values:  
+    // - GmtCreateTime: creation time.
+    // - GmtModifiedTime: update time.
     shared_ptr<string> sortBy_ {};
   };
 

@@ -94,33 +94,33 @@ namespace Models
 
 
   protected:
-    // The environment. Valid values:
+    // The runtime environment.
     // 
-    // - **Daily**: the development and test environment.
+    // - Daily: daily environment.
     // 
-    // - **Pre**: the pre-production environment.
+    // - Pre: staging environment.
     // 
-    // - **Prod**: the production environment.
+    // - Prod: production environment.
     shared_ptr<string> environment_ {};
-    // The instance ID. To obtain this ID, call the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+    // The instance ID. You can obtain the instance ID by calling the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name of the engine configuration.
+    // The engine configuration name.
     shared_ptr<string> name_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The status to filter by. Valid values:
+    // The status filter.
     // 
-    // - **Released**: returns only released configurations.
+    // - Released: released.
     // 
-    // - **Unreleased**: returns only unreleased configurations.
+    // - Unreleased: not released.
     shared_ptr<string> status_ {};
-    // The version to filter by.
+    // The version filter.
     // 
-    // Set this parameter to `latest` to retrieve the most recently updated version.
+    // latest: the most recently updated version.
     shared_ptr<string> version_ {};
   };
 

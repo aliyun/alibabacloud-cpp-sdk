@@ -21,16 +21,16 @@ namespace PaiRecService20221213
 AlibabaCloud::PaiRecService20221213::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"us-west-1" , "pairecservice.us-west-1.aliyuncs.com"},
-    {"us-east-1" , "pairecservice.us-east-1.aliyuncs.com"},
-    {"eu-central-1" , "pairecservice.eu-central-1.aliyuncs.com"},
     {"cn-shenzhen" , "pairecservice.cn-shenzhen.aliyuncs.com"},
     {"cn-shanghai" , "pairecservice.cn-shanghai.aliyuncs.com"},
     {"cn-hongkong" , "pairecservice.cn-hongkong.aliyuncs.com"},
     {"cn-hangzhou" , "pairecservice.cn-hangzhou.aliyuncs.com"},
     {"cn-beijing" , "pairecservice.cn-beijing.aliyuncs.com"},
     {"ap-southeast-5" , "pairecservice.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-1" , "pairecservice.ap-southeast-1.aliyuncs.com"}
+    {"ap-southeast-1" , "pairecservice.ap-southeast-1.aliyuncs.com"},
+    {"eu-central-1" , "pairecservice.eu-central-1.aliyuncs.com"},
+    {"us-east-1" , "pairecservice.us-east-1.aliyuncs.com"},
+    {"us-west-1" , "pairecservice.us-west-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("pairecservice", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -1304,7 +1304,7 @@ CreateDataDiagnosisJobsResponse Client::createDataDiagnosisJobs(const CreateData
 }
 
 /**
- * @summary Creates an engine config.
+ * @summary Creates an engine configuration.
  *
  * @param request CreateEngineConfigRequest
  * @param headers map
@@ -1334,6 +1334,10 @@ CreateEngineConfigResponse Client::createEngineConfigWithOptions(const CreateEng
     body["Name"] = request.getName();
   }
 
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"body" , Utils::Utils::parseToMap(body)}
@@ -1353,7 +1357,7 @@ CreateEngineConfigResponse Client::createEngineConfigWithOptions(const CreateEng
 }
 
 /**
- * @summary Creates an engine config.
+ * @summary Creates an engine configuration.
  *
  * @param request CreateEngineConfigRequest
  * @return CreateEngineConfigResponse
@@ -4829,7 +4833,7 @@ GetDataDiagnosisResponse Client::getDataDiagnosis(const string &DataDiagnosisId,
 }
 
 /**
- * @summary Gets the details of an engine configuration.
+ * @summary Retrieves the details of an engine configuration.
  *
  * @param request GetEngineConfigRequest
  * @param headers map
@@ -4862,7 +4866,7 @@ GetEngineConfigResponse Client::getEngineConfigWithOptions(const string &EngineC
 }
 
 /**
- * @summary Gets the details of an engine configuration.
+ * @summary Retrieves the details of an engine configuration.
  *
  * @param request GetEngineConfigRequest
  * @return GetEngineConfigResponse
@@ -5132,7 +5136,7 @@ GetInstanceResourceResponse Client::getInstanceResource(const string &InstanceId
 }
 
 /**
- * @summary Retrieves the schema of a specified data table within a resource.
+ * @summary Retrieves the list of data tables under a data source.
  *
  * @param request GetInstanceResourceTableRequest
  * @param headers map
@@ -5159,7 +5163,7 @@ GetInstanceResourceTableResponse Client::getInstanceResourceTableWithOptions(con
 }
 
 /**
- * @summary Retrieves the schema of a specified data table within a resource.
+ * @summary Retrieves the list of data tables under a data source.
  *
  * @param request GetInstanceResourceTableRequest
  * @return GetInstanceResourceTableResponse
@@ -6544,7 +6548,7 @@ ListDataDiagnosisReportsResponse Client::listDataDiagnosisReports(const string &
 }
 
 /**
- * @summary Retrieves a list of engine configurations.
+ * @summary Retrieves the list of engine configurations.
  *
  * @param request ListEngineConfigsRequest
  * @param headers map
@@ -6601,7 +6605,7 @@ ListEngineConfigsResponse Client::listEngineConfigsWithOptions(const ListEngineC
 }
 
 /**
- * @summary Retrieves a list of engine configurations.
+ * @summary Retrieves the list of engine configurations.
  *
  * @param request ListEngineConfigsRequest
  * @return ListEngineConfigsResponse
@@ -7530,13 +7534,13 @@ ListRecallManagementServiceVersionsResponse Client::listRecallManagementServiceV
 }
 
 /**
- * @summary This API returns a list of recall management services for a specified instance.
+ * @summary Queries the list of recall management services under a specified instance.
  *
- * @description ## Description
- * Call `ListRecallManagementServices` to retrieve a list of recall management services for a specified instance based on parameters such as `InstanceId`, `PageNumber`, and `PageSize`. You can sort the results by creation time or modification time in ascending or descending order.
- * - **InstanceId** is required. It specifies the target instance.
- * - The pagination parameters **PageNumber** and **PageSize** control the number of returned items and the page from which to start. This operation returns the first page of results by default.
- * - Use the **SortBy** and **Order** parameters to customize the sort order of the list.
+ * @description ## Operation description
+ * By calling the `ListRecallManagementServices` operation, you can retrieve the list of recall management services under a specific instance based on given parameters such as InstanceId, PageNumber, and PageSize. You can sort results by creation time or update time in ascending or descending order.
+ * - **InstanceId** is required and specifies the instance to which the services belong.
+ * - The pagination parameters **PageNumber** and **PageSize** allow you to control the amount of returned data and the page from which to start displaying results. By default, data from the first page is returned.
+ * - Use the **SortBy** and **Order** parameters to customize the sorting of the list.
  *
  * @param request ListRecallManagementServicesRequest
  * @param headers map
@@ -7552,6 +7556,10 @@ ListRecallManagementServicesResponse Client::listRecallManagementServicesWithOpt
 
   if (!!request.hasMaxResults()) {
     query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasNextToken()) {
@@ -7593,13 +7601,13 @@ ListRecallManagementServicesResponse Client::listRecallManagementServicesWithOpt
 }
 
 /**
- * @summary This API returns a list of recall management services for a specified instance.
+ * @summary Queries the list of recall management services under a specified instance.
  *
- * @description ## Description
- * Call `ListRecallManagementServices` to retrieve a list of recall management services for a specified instance based on parameters such as `InstanceId`, `PageNumber`, and `PageSize`. You can sort the results by creation time or modification time in ascending or descending order.
- * - **InstanceId** is required. It specifies the target instance.
- * - The pagination parameters **PageNumber** and **PageSize** control the number of returned items and the page from which to start. This operation returns the first page of results by default.
- * - Use the **SortBy** and **Order** parameters to customize the sort order of the list.
+ * @description ## Operation description
+ * By calling the `ListRecallManagementServices` operation, you can retrieve the list of recall management services under a specific instance based on given parameters such as InstanceId, PageNumber, and PageSize. You can sort results by creation time or update time in ascending or descending order.
+ * - **InstanceId** is required and specifies the instance to which the services belong.
+ * - The pagination parameters **PageNumber** and **PageSize** allow you to control the amount of returned data and the page from which to start displaying results. By default, data from the first page is returned.
+ * - Use the **SortBy** and **Order** parameters to customize the sorting of the list.
  *
  * @param request ListRecallManagementServicesRequest
  * @return ListRecallManagementServicesResponse
@@ -10428,7 +10436,7 @@ UpdateDataDiagnosisResponse Client::updateDataDiagnosis(const string &DataDiagno
 }
 
 /**
- * @summary Updates an engine configuration.
+ * @summary Updates a specific engine configuration.
  *
  * @param request UpdateEngineConfigRequest
  * @param headers map
@@ -10458,6 +10466,10 @@ UpdateEngineConfigResponse Client::updateEngineConfigWithOptions(const string &E
     body["Name"] = request.getName();
   }
 
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"body" , Utils::Utils::parseToMap(body)}
@@ -10477,7 +10489,7 @@ UpdateEngineConfigResponse Client::updateEngineConfigWithOptions(const string &E
 }
 
 /**
- * @summary Updates an engine configuration.
+ * @summary Updates a specific engine configuration.
  *
  * @param request UpdateEngineConfigRequest
  * @return UpdateEngineConfigResponse

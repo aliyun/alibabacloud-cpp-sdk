@@ -113,16 +113,20 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const NumberFeatureDifferences& obj) { 
         DARABONBA_PTR_TO_JSON(DiffValue, diffValue_);
         DARABONBA_PTR_TO_JSON(ItemId, itemId_);
+        DARABONBA_PTR_TO_JSON(ReplyTableFeatureRawValue, replyTableFeatureRawValue_);
         DARABONBA_PTR_TO_JSON(ReplyTableFeatureValue, replyTableFeatureValue_);
         DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+        DARABONBA_PTR_TO_JSON(SampleTableFeatureRawValue, sampleTableFeatureRawValue_);
         DARABONBA_PTR_TO_JSON(SampleTableFeatureValue, sampleTableFeatureValue_);
         DARABONBA_PTR_TO_JSON(UserId, userId_);
       };
       friend void from_json(const Darabonba::Json& j, NumberFeatureDifferences& obj) { 
         DARABONBA_PTR_FROM_JSON(DiffValue, diffValue_);
         DARABONBA_PTR_FROM_JSON(ItemId, itemId_);
+        DARABONBA_PTR_FROM_JSON(ReplyTableFeatureRawValue, replyTableFeatureRawValue_);
         DARABONBA_PTR_FROM_JSON(ReplyTableFeatureValue, replyTableFeatureValue_);
         DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+        DARABONBA_PTR_FROM_JSON(SampleTableFeatureRawValue, sampleTableFeatureRawValue_);
         DARABONBA_PTR_FROM_JSON(SampleTableFeatureValue, sampleTableFeatureValue_);
         DARABONBA_PTR_FROM_JSON(UserId, userId_);
       };
@@ -138,7 +142,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->diffValue_ == nullptr
-        && this->itemId_ == nullptr && this->replyTableFeatureValue_ == nullptr && this->requestId_ == nullptr && this->sampleTableFeatureValue_ == nullptr && this->userId_ == nullptr; };
+        && this->itemId_ == nullptr && this->replyTableFeatureRawValue_ == nullptr && this->replyTableFeatureValue_ == nullptr && this->requestId_ == nullptr && this->sampleTableFeatureRawValue_ == nullptr
+        && this->sampleTableFeatureValue_ == nullptr && this->userId_ == nullptr; };
       // diffValue Field Functions 
       bool hasDiffValue() const { return this->diffValue_ != nullptr;};
       void deleteDiffValue() { this->diffValue_ = nullptr;};
@@ -153,6 +158,13 @@ namespace Models
       inline NumberFeatureDifferences& setItemId(string itemId) { DARABONBA_PTR_SET_VALUE(itemId_, itemId) };
 
 
+      // replyTableFeatureRawValue Field Functions 
+      bool hasReplyTableFeatureRawValue() const { return this->replyTableFeatureRawValue_ != nullptr;};
+      void deleteReplyTableFeatureRawValue() { this->replyTableFeatureRawValue_ = nullptr;};
+      inline string getReplyTableFeatureRawValue() const { DARABONBA_PTR_GET_DEFAULT(replyTableFeatureRawValue_, "") };
+      inline NumberFeatureDifferences& setReplyTableFeatureRawValue(string replyTableFeatureRawValue) { DARABONBA_PTR_SET_VALUE(replyTableFeatureRawValue_, replyTableFeatureRawValue) };
+
+
       // replyTableFeatureValue Field Functions 
       bool hasReplyTableFeatureValue() const { return this->replyTableFeatureValue_ != nullptr;};
       void deleteReplyTableFeatureValue() { this->replyTableFeatureValue_ = nullptr;};
@@ -165,6 +177,13 @@ namespace Models
       void deleteRequestId() { this->requestId_ = nullptr;};
       inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
       inline NumberFeatureDifferences& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+      // sampleTableFeatureRawValue Field Functions 
+      bool hasSampleTableFeatureRawValue() const { return this->sampleTableFeatureRawValue_ != nullptr;};
+      void deleteSampleTableFeatureRawValue() { this->sampleTableFeatureRawValue_ = nullptr;};
+      inline string getSampleTableFeatureRawValue() const { DARABONBA_PTR_GET_DEFAULT(sampleTableFeatureRawValue_, "") };
+      inline NumberFeatureDifferences& setSampleTableFeatureRawValue(string sampleTableFeatureRawValue) { DARABONBA_PTR_SET_VALUE(sampleTableFeatureRawValue_, sampleTableFeatureRawValue) };
 
 
       // sampleTableFeatureValue Field Functions 
@@ -184,8 +203,10 @@ namespace Models
     protected:
       shared_ptr<double> diffValue_ {};
       shared_ptr<string> itemId_ {};
+      shared_ptr<string> replyTableFeatureRawValue_ {};
       shared_ptr<double> replyTableFeatureValue_ {};
       shared_ptr<string> requestId_ {};
+      shared_ptr<string> sampleTableFeatureRawValue_ {};
       shared_ptr<double> sampleTableFeatureValue_ {};
       shared_ptr<string> userId_ {};
     };

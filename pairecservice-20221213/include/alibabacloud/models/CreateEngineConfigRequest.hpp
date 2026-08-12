@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Environment, environment_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, CreateEngineConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ConfigValue, configValue_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Environment, environment_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(Type, type_);
     };
     CreateEngineConfigRequest() = default ;
     CreateEngineConfigRequest(const CreateEngineConfigRequest &) = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configValue_ == nullptr
-        && this->description_ == nullptr && this->environment_ == nullptr && this->instanceId_ == nullptr && this->name_ == nullptr; };
+        && this->description_ == nullptr && this->environment_ == nullptr && this->instanceId_ == nullptr && this->name_ == nullptr && this->type_ == nullptr; };
     // configValue Field Functions 
     bool hasConfigValue() const { return this->configValue_ != nullptr;};
     void deleteConfigValue() { this->configValue_ = nullptr;};
@@ -74,22 +76,32 @@ namespace Models
     inline CreateEngineConfigRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // type Field Functions 
+    bool hasType() const { return this->type_ != nullptr;};
+    void deleteType() { this->type_ = nullptr;};
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline CreateEngineConfigRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
   protected:
-    // The content of the engine config.
+    // The content of the engine configuration.
     shared_ptr<string> configValue_ {};
+    // The description.
     shared_ptr<string> description_ {};
-    // The environment. Valid values:
+    // The runtime environment. Valid values:
     // 
-    // - `Daily`: The daily environment.
+    // - Daily: daily environment.
     // 
-    // - `Pre`: The pre-production environment.
+    // - Pre: staging environment.
     // 
-    // - `Prod`: The production environment.
+    // - Prod: production environment.
     shared_ptr<string> environment_ {};
-    // The ID of the instance. You can obtain this ID by calling the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
+    // The instance ID. You can obtain the ID from the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
     shared_ptr<string> instanceId_ {};
-    // The name of the engine config.
+    // The name of the engine configuration.
     shared_ptr<string> name_ {};
+    // The type of the engine configuration.
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

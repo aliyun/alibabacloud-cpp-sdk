@@ -103,7 +103,7 @@ namespace Models
       shared_ptr<bool> isDimensionField_ {};
       // Indicates whether the field is a partition field.
       shared_ptr<bool> isPartitionField_ {};
-      // The meaning of the field.
+      // The field meaning.
       shared_ptr<string> meaning_ {};
       // The field name.
       shared_ptr<string> name_ {};
@@ -137,7 +137,7 @@ namespace Models
 
 
   protected:
-    // The list of fields in the data table.
+    // The list of fields in the table.
     shared_ptr<vector<GetInstanceResourceTableResponseBody::Fields>> fields_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
