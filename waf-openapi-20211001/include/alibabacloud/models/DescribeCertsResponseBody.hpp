@@ -118,17 +118,17 @@ namespace Models
 
 
     protected:
-      // The time when the certificate expires.
+      // The expiration time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> afterDate_ {};
-      // The time when the certificate takes effect.
+      // The effective period. The value is a UNIX timestamp in the format of milliseconds (ms).
       shared_ptr<int64_t> beforeDate_ {};
-      // The globally unique ID of the certificate. The value follows a "\\<Certificate ID>-cn-hangzhou" format. For example, if the ID of the certificate is 123, the value of CertIdentifier is 123-cn-hangzhou.
+      // The global certificate ID, which is in the format of certificate ID + "-cn-hangzhou". For example, if the certificate ID is 123, the CertIdentifier is "123-cn-hangzhou".
       shared_ptr<string> certIdentifier_ {};
-      // The name of the certificate.
+      // The certificate name.
       shared_ptr<string> certName_ {};
       // The common name.
       shared_ptr<string> commonName_ {};
-      // The domain name for which the certificate is issued.
+      // The domain name supported by the certificate.
       shared_ptr<string> domain_ {};
       // Indicates whether the certificate chain is complete. Valid values:
       // 
@@ -164,9 +164,9 @@ namespace Models
 
 
   protected:
-    // The list of certificates.
+    // The certificate list.
     shared_ptr<vector<DescribeCertsResponseBody::Certs>> certs_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};

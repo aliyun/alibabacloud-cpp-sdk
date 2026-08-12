@@ -94,39 +94,33 @@ namespace Models
 
 
   protected:
-    // The type of the protection rule. Valid values:
-    // 
-    // - **template** (default): a template protection rule.
-    // 
-    // - **resource**: a rule that is configured for a protected object.
+    // The type of the protection rule.
     shared_ptr<string> defenseType_ {};
-    // The ID of the WAF instance.
+    // Instance ID of the WAF instance.
     // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region of the WAF instance. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The ID of the protection rule to modify.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
-    // The new status of the protection rule. Valid values:
-    // 
-    // - **0**: disabled
-    // 
-    // - **1**: enabled
+    // The status of the protection rule to set. Valid values: 
+    // - **0**: Disabled.  
+    // - **1**: Enabled.
     // 
     // This parameter is required.
     shared_ptr<int32_t> ruleStatus_ {};
-    // The ID of the protection template.
+    // The ID of the protection rule template.
     shared_ptr<int64_t> templateId_ {};
   };
 

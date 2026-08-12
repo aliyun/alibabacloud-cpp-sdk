@@ -149,23 +149,23 @@ namespace Models
     protected:
       // The bill usage details. The value is a JSON string constructed from a series of parameters. For more information, refer to **Supplementary description of response parameters**.
       shared_ptr<string> chargeData_ {};
-      // The total number of Credits.
+      // The total Credit.
       shared_ptr<double> credit_ {};
       // The Credit bill usage details. The value is a JSON string constructed from a series of parameters. For more information, refer to **Supplementary description of response parameters**.
       shared_ptr<string> creditChargeData_ {};
-      // The total number of SeCUs.
+      // The total SeCU.
       shared_ptr<string> cu_ {};
       // The end time. The value is a UNIX timestamp (UTC). Unit: seconds.
       shared_ptr<int64_t> endTime_ {};
-      // The number of Credits consumed by features.
+      // The Credit consumed by features.
       shared_ptr<double> functionCredit_ {};
-      // The number of SeCUs consumed by features.
+      // The SeCU consumed by features.
       shared_ptr<string> functionCu_ {};
       // The start time. The value is a UNIX timestamp (UTC). Unit: seconds.
       shared_ptr<int64_t> startTime_ {};
-      // The number of Credits consumed by traffic processing.
+      // The Credit consumed by traffic processing.
       shared_ptr<double> trafficCredit_ {};
-      // The number of SeCUs consumed by traffic processing.
+      // The SeCU consumed by traffic processing.
       shared_ptr<string> trafficCu_ {};
     };
 
@@ -204,7 +204,7 @@ namespace Models
   protected:
     // The list of bill details.
     shared_ptr<vector<DescribePostpayBillsResponseBody::BillDetail>> billDetail_ {};
-    // The number of entries per page for a paged query.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page. If a next page exists, this field has a return value.
     shared_ptr<string> nextToken_ {};

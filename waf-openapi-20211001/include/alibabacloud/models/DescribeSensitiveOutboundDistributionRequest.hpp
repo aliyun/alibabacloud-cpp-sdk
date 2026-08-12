@@ -84,31 +84,32 @@ namespace Models
 
 
   protected:
-    // The ID of the hybrid cloud cluster.
-    // 
-    // > This parameter applies only to hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain information about hybrid cloud clusters.
+    // The hybrid cloud cluster ID.
+    // > This parameter applies only to hybrid cloud scenarios. You can call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain hybrid cloud cluster information.
     shared_ptr<string> clusterId_ {};
-    // The end of the time range to query. This value is a UNIX timestamp. Unit: seconds. The time is in UTC.
+    // The end time of the query. Specify the value as a UNIX timestamp (UTC). Unit: seconds.
     // 
-    // > Compliance review supports queries for the last month, the last 3 months, the last 6 months, the last 12 months, and the period from January 1 of the previous year to the present. Make sure that the specified time range is valid.
+    // > Compliance audit currently supports querying data only for the last 1 month, last 3 months, last 6 months, last 12 months, or from January 1 of the previous year to the present. The query time range must fall within one of these supported intervals. **StartTime** must not be earlier than the start time of the corresponding interval. The query fails if the time range exceeds the supported scope.
+    // > This parameter is optional. Default value: the current time.
     shared_ptr<int64_t> endTime_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
+    // The ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
-    // - **ap-southeast-1**: regions outside the Chinese mainland.
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds. The time is in Coordinated Universal Time (UTC).
+    // The start time of the query. Specify the value as a UNIX timestamp (UTC). Unit: seconds.
     // 
-    // > Compliance review supports queries for the last month, the last 3 months, the last 6 months, the last 12 months, and the period from January 1 of the previous year to the present. Make sure that the specified time range is valid.
+    // > Compliance audit currently supports querying data only for the last 1 month, last 3 months, last 6 months, last 12 months, or from January 1 of the previous year to the present. The query time range must fall within one of these supported intervals. **StartTime** must not be earlier than the start time of the corresponding interval. The query fails if the time range exceeds the supported scope.
+    // > This parameter is optional. Default value: 1 month before the current time.
     shared_ptr<int64_t> startTime_ {};
   };
 

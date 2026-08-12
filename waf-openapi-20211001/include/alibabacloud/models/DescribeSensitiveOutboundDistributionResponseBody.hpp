@@ -81,9 +81,9 @@ namespace Models
     protected:
       // The destination country.
       shared_ptr<string> country_ {};
-      // The number of outbound personal information entries.
+      // The number of personal information items transferred cross-border.
       shared_ptr<int64_t> infoOutboundCount_ {};
-      // The number of outbound sensitive information entries.
+      // The number of sensitive information items transferred cross-border.
       shared_ptr<int64_t> sensitiveOutboundCount_ {};
     };
 
@@ -106,7 +106,7 @@ namespace Models
 
 
   protected:
-    // A list of outbound traffic distributions that contain personal information.
+    // The list of cross-border traffic distribution that contains personal information.
     shared_ptr<vector<DescribeSensitiveOutboundDistributionResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

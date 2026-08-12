@@ -179,11 +179,11 @@ namespace Models
     // - **protocol_violation**: protocol violation.
     // - **scanner_behavior**: scanner behavior.
     // - **logic_flaw**: business logic bug.
-    // - **arbitrary_file_reading**: arbitrary file reading.
+    // - **arbitrary_file_reading**: arbitrary file read.
     // - **arbitrary_file_download**: arbitrary file download.
     // - **xxe**: XML external entity injection.
     // - **csrf**: cross-site request forgery.
-    // - **crlf**: CRLF.
+    // - **crlf**: CRLF injection.
     // - **other**: other.
     shared_ptr<string> detectType_ {};
     // The ID of the WAF instance.
@@ -192,14 +192,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The language of the returned rule content. Valid values:
+    // The language of the returned rules. Valid values:
     // 
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The page number to return in a paged query. Default value: **1**, which indicates the first page. For more information about paging, see the PageSize parameter.
+    // The page number to return in a paged query. Default value: **1**, which indicates the first page. This parameter is used for paging.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paged query. Default value: 100, which indicates 100 entries per page. For more information about paging, see the PageNumber parameter.
+    // The number of entries per page in a paged query. Default value: 100. This parameter is used for paging.
     shared_ptr<int32_t> pageSize_ {};
     // The region where the WAF instance is deployed. Valid values:
     // 
@@ -211,13 +211,13 @@ namespace Models
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The risk level. Valid values:
     // 
-    // - **super_strict**: Super strict.
+    // - **super_strict**: super strict.
     // 
-    // - **strict**: Strict.
+    // - **strict**: strict.
     // 
-    // - **medium**: Medium.
+    // - **medium**: medium.
     // 
-    // - **loose**: Loose.
+    // - **loose**: loose.
     shared_ptr<string> riskLevel_ {};
     // The rule action. Valid values:
     // 
@@ -232,14 +232,14 @@ namespace Models
     // The name of the system protection rule.
     shared_ptr<string> ruleName_ {};
     // The rule status. Valid values:
-    // - **1**: Disabled.
-    // - **0**: Enabled.
+    // - **1**: disabled.
+    // - **0**: enabled.
     shared_ptr<int32_t> ruleStatus_ {};
     // The ID of the protection template.
     // 
     // > 
-    // > - You can specify this parameter to query the system protection rules in a specific Web core protection rule template.
-    // > - If this parameter is left empty, the default settings of system protection rules are queried.
+    // > - You can set this parameter to query the system protection rules in a specific Web core protection rule template. Settings apply to the specified template.
+    // > - If this parameter is left empty, the default configurations of system protection rules are queried.
     shared_ptr<int64_t> templateId_ {};
   };
 

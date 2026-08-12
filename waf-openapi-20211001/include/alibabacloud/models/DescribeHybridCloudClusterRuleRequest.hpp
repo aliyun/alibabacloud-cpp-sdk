@@ -84,27 +84,26 @@ namespace Models
 
 
   protected:
-    // [Deprecated] The ID of the hybrid cloud cluster.
+    // **[Deprecated]** The hybrid cloud cluster ID.
     shared_ptr<int64_t> clusterId_ {};
-    // The resource ID of the cluster rule.
+    // The cluster rule resource ID.
     shared_ptr<string> clusterRuleResourceId_ {};
     // The ID of the WAF instance.
     // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region of the WAF instance. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: The Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
     // 
-    // - **ap-southeast-1**: Outside the Chinese mainland.
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // [Deprecated] The type of the rule. Valid value:
-    // 
-    // - **pullin**: Traffic routing.
+    // **[Deprecated]** The rule type. Valid values:
+    // - **pullin**: cluster traffic redirection
     shared_ptr<string> ruleType_ {};
   };
 

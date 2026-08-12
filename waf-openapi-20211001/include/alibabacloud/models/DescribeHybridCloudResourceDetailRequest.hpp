@@ -109,7 +109,7 @@ namespace Models
     // 
     // - **true**: Public cloud disaster recovery is enabled.
     // 
-    // - **false**: Public cloud disaster recovery is disabled.
+    // - **false**: Public cloud disaster recovery is not enabled.
     shared_ptr<bool> cnameEnabled_ {};
     // The domain name.
     // 

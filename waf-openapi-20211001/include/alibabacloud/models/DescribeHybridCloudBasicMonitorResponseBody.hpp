@@ -85,9 +85,9 @@ namespace Models
       // 
       // - **normal**: Normal.
       // 
-      // - \\*\\*\\*\\*: Abnormal.
+      // - `****`: abnormal (four asterisk characters are returned).
       shared_ptr<string> levle_ {};
-      // The metric. Valid values:
+      // The monitoring item. Valid values:
       // 
       // - **basic_monitor_cpu_usage**: CPU.
       // 
@@ -95,7 +95,7 @@ namespace Models
       // 
       // - **basic_monitor_disk_usage**: disk.
       shared_ptr<string> monitorName_ {};
-      // The usage percentage.
+      // The usage ratio.
       shared_ptr<int64_t> useRatio_ {};
     };
 
@@ -125,11 +125,11 @@ namespace Models
 
 
   protected:
-    // The list of basic monitoring metrics.
+    // The list of basic monitoring items.
     shared_ptr<vector<DescribeHybridCloudBasicMonitorResponseBody::BasicMonitors>> basicMonitors_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // > This parameter is deprecated. No meaningful data is returned.
+    // > This parameter is deprecated and no longer returns meaningful data.
     shared_ptr<int32_t> totalCount_ {};
   };
 

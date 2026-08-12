@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The ID of the hybrid cloud cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> clusterId_ {};
@@ -131,33 +131,33 @@ namespace Models
     // 
     // - **protect**: protection.
     // 
-    // - **control**: control.
+    // - **control**: management.
     // 
     // - **storage**: storage.
     // 
-    // - **controlStorage**: control and storage.
+    // - **controlStorage**: management and storage.
     shared_ptr<string> groupType_ {};
-    // The hostname of the server that you want to query.
+    // The hostname.
     shared_ptr<string> hostName_ {};
-    // The ID of the WAF instance.
+    // Instance ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The IP address of the server that you want to query.
+    // The IP address of the server.
     shared_ptr<string> ip_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **10**.
+    // The number of entries per page for paging. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

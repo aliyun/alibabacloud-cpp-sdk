@@ -94,29 +94,29 @@ namespace Models
 
 
   protected:
-    // The type of the encryption algorithm. Valid values:
+    // The type of encryption algorithm. Valid values:
     // 
-    // - **NotSM2 (default)**: Specifies a non-ShangMi (SM) cryptographic algorithm.
+    // - **NotSM2 (default)**: a non-Chinese cryptographic algorithm.
     // 
-    // - **SM2**: Specifies an SM cryptographic algorithm.
+    // - **SM2**: a Chinese cryptographic algorithm.
     shared_ptr<string> algorithm_ {};
     // The domain name.
     shared_ptr<string> domain_ {};
-    // The ID of the WAF instance.
+    // Instance ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of your current WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the paged query. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Default value: **10**. Maximum value: 100.
+    // The number of rows per page in a paged query. Default value: **10**. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The region of the WAF instance. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: The Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
     // 
-    // - **ap-southeast-1**: Outside the Chinese mainland.
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};

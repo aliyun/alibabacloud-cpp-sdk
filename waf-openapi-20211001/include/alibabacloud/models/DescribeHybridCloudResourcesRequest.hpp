@@ -105,11 +105,11 @@ namespace Models
   protected:
     // The IP address or domain name of the origin server that corresponds to the domain name.
     shared_ptr<string> backend_ {};
-    // Specifies whether to enable public cloud disaster recovery. Valid values:
+    // Specifies whether public cloud disaster recovery is enabled. Valid values:
     // 
-    // - **true**: Enabled.
+    // - **true**: Public cloud disaster recovery is enabled.
     // 
-    // - **false**: Disabled.
+    // - **false**: Public cloud disaster recovery is not enabled.
     shared_ptr<bool> cnameEnabled_ {};
     // The domain name to query.
     shared_ptr<string> domain_ {};
@@ -118,9 +118,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number to return when paging is used. Default value: **1**, which indicates the first page.
+    // The page number to return in a paging query. Default value: **1**, which indicates the first page.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page when paging is used. Default value: **10**, which indicates 10 entries per page.
+    // The number of entries per page in a paging query. Default value: **10**, which indicates 10 entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The region where the WAF instance resides. Valid values:
     // 

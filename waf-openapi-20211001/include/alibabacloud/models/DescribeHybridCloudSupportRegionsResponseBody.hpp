@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of regions that are supported for hybrid cloud access.
+    // The list of supported regions.
     shared_ptr<vector<string>> supportRegions_ {};
   };
 

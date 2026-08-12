@@ -103,35 +103,37 @@ namespace Models
 
 
   protected:
-    // The description of the IP address blacklist.
+    // The description of the IP blacklist.
     shared_ptr<string> description_ {};
-    // The timestamp after which the IP address blacklist becomes invalid. Unit: seconds.
-    // 
-    // > If you set this parameter to **0**, the IP address blacklist is permanently valid.
+    // The expiration timestamp, in seconds.
+    // > If this parameter is set to **0**, the rule takes effect permanently.
     // 
     // This parameter is required.
     shared_ptr<int64_t> expiredTime_ {};
-    // The ID of the WAF instance.
+    // The WAF instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The IP address blacklist to add. You can specify custom IP addresses or CIDR blocks. Both IPv4 and IPv6 addresses are supported. Separate multiple IP addresses with commas (,). For more information, see [Critical event protection](https://help.aliyun.com/document_detail/425591.html).
+    // The IP addresses to add to the IP blacklist. Custom IP addresses and CIDR blocks are supported. Both IPv4 and IPv6 are supported. Separate multiple IP addresses with commas (,).
+    // For more information, see [Critical event protection](https://help.aliyun.com/document_detail/425591.html).
     // 
     // This parameter is required.
     shared_ptr<string> ipList_ {};
-    // The region of the WAF instance. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
-    // - **ap-southeast-1**: regions outside the Chinese mainland.
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The ID of the IP address blacklist rule for critical event protection.
+    // The ID of the IP blacklist rule for critical event protection.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ruleId_ {};
-    // The ID of the protection template for critical event protection.
+    // The ID of the protection rule template for critical event protection.
+    // 
+    // > This parameter requires the ID of a protection template of the critical event protection type. You can create this type of template only after you purchase the critical event protection upgrade.
     // 
     // This parameter is required.
     shared_ptr<int64_t> templateId_ {};

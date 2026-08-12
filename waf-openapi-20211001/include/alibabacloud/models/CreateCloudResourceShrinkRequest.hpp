@@ -143,11 +143,11 @@ namespace Models
   protected:
     // The ID of the WAF instance.
     // 
-    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of your WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The listening configuration.
+    // The listener configuration.
     // 
     // This parameter is required.
     shared_ptr<string> listenShrink_ {};
@@ -155,7 +155,7 @@ namespace Models
     shared_ptr<string> ownerUserId_ {};
     // The forwarding configuration.
     shared_ptr<string> redirectShrink_ {};
-    // The region where the WAF instance resides. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 

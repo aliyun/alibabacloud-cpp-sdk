@@ -145,29 +145,27 @@ namespace Models
 
 
     protected:
-      // The name of the hybrid cloud cluster to which the SDK server belongs.
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // The time when the hybrid cloud SDK server was created. This value is a UNIX timestamp in milliseconds.
+      // The timestamp when the entry was created.
       shared_ptr<int64_t> createTime_ {};
-      // The hostname of the hybrid cloud SDK server.
+      // The hostname.
       shared_ptr<string> hostName_ {};
-      // The IP address of the hybrid cloud SDK server.
+      // The IP address.
       shared_ptr<string> ip_ {};
-      // The ID of the SDK server.
+      // The machine identifier (MID).
       shared_ptr<string> mid_ {};
-      // The address of the protection group associated with the SDK server.
+      // The IP address of the backend server.
       shared_ptr<string> protectionGroupAddress_ {};
-      // Indicates whether traffic redirection is enabled. Valid values:
-      // 
-      // - **on**: Traffic redirection is enabled.
-      // 
-      // - **off**: Traffic redirection is disabled.
+      // The traffic redirection status. Valid values:
+      // - **on**: enabled.
+      // - **off**: disabled.
       shared_ptr<string> pullinStatus_ {};
-      // The ID of the resource.
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The status of the hybrid cloud SDK server.
+      // The status.
       shared_ptr<string> status_ {};
-      // The time when the hybrid cloud SDK server was last updated. This value is a UNIX timestamp in milliseconds.
+      // The timestamp when the entry was updated.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -197,11 +195,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the hybrid cloud SDK servers.
+    // The SDK information.
     shared_ptr<vector<DescribeHybridCloudSdkServersResponseBody::SdkServers>> sdkServers_ {};
-    // The total number of hybrid cloud SDK servers returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

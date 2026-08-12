@@ -367,6 +367,9 @@ namespace Models
         // The listener port.
         shared_ptr<int32_t> listenPort_ {};
         // The protocol type of the listener port. Valid values:
+        // 
+        // - **http**: HTTP protocol.
+        // - **https**: HTTPS protocol.
         shared_ptr<string> protocol_ {};
       };
 
@@ -579,47 +582,89 @@ namespace Models
       shared_ptr<vector<Redirect::BackendPorts>> backendPorts_ {};
       // The back-to-origin addresses of the domain name.
       shared_ptr<vector<Redirect::Backends>> backends_ {};
-      // The secondary back-to-origin addresses of the domain name.
+      // The secondary origin addresses of the domain name.
+      // 
+      // > This parameter is about to be deprecated. Use **BackUpBackendList** to obtain the related information.
       shared_ptr<vector<Redirect::BackupBackends>> backupBackends_ {};
       // The connection timeout period. Unit: seconds.
       shared_ptr<int32_t> connectTimeout_ {};
       // Indicates whether forced HTTP back-to-origin is enabled. Valid values:
+      // 
+      // - **true**: Forced HTTP back-to-origin is enabled.
+      // 
+      // - **false**: Forced HTTP back-to-origin is not enabled.
       shared_ptr<bool> focusHttpBackend_ {};
-      // The HTTP/2 back-to-origin setting.
+      // Indicates whether HTTP/2 back-to-origin is enabled.
       shared_ptr<bool> http2Origin_ {};
-      // The number of concurrent connections for HTTP/2 back-to-origin.
+      // The maximum number of concurrent connections for HTTP/2 back-to-origin.
       shared_ptr<int32_t> http2OriginMaxConcurrency_ {};
-      // Indicates whether persistent connections are enabled. Valid values:
+      // Specifies whether to keep the connection alive. Valid values:
+      // 
+      // - **true** (default): The connection is kept alive.
+      // 
+      // - **false**: The connection is not kept alive.
       shared_ptr<bool> keepalive_ {};
       // The number of requests that reuse a persistent connection. Valid values: 60 to 1000.
       shared_ptr<int32_t> keepaliveRequests_ {};
       // The idle timeout period for persistent connections. Valid values: 1 to 60. Default value: 15. Unit: seconds.
       shared_ptr<int32_t> keepaliveTimeout_ {};
-      // The load balancing algorithm used for back-to-origin. Valid values:
+      // The load balancing algorithm used for back-to-origin requests. Valid values:
+      // 
+      // - **iphash**: IP Hash algorithm.
+      // 
+      // - **roundRobin**: round-robin algorithm.
+      // 
+      // - **leastTime**: Least Time algorithm.
       shared_ptr<string> loadbalance_ {};
       // The maximum request body size. Valid values: 2 to 10. Default value: 2. Unit: GB.
       shared_ptr<int32_t> maxBodySize_ {};
-      // Indicates whether the feature for preserving the originating IP address of the client is enabled.
+      // Indicates whether the client source IP address preservation feature is enabled.
+      // - **true**: The client source IP address preservation feature is enabled. After this feature is enabled, backend services can view the original IP address of the client.
+      // - **false**: The client source IP address preservation feature is not enabled.
       shared_ptr<bool> proxyProtocol_ {};
       // The read timeout period. Unit: seconds.
       shared_ptr<int32_t> readTimeout_ {};
-      // The traffic mark fields and values of the domain name, which are used to mark traffic processed by WAF.
+      // The traffic tag fields and values of the domain name, which are used to tag traffic processed by WAF.
       shared_ptr<vector<Redirect::RequestHeaders>> requestHeaders_ {};
-      // Indicates whether WAF retries when back-to-origin fails. Valid values:
+      // Specifies whether to retry when WAF fails to forward requests to the origin server. Valid values:
+      // 
+      // - **true** (default): Retry.
+      // 
+      // - **false**: Do not retry.
       shared_ptr<bool> retry_ {};
-      // Indicates whether back-to-origin SNI is enabled. Valid values:
+      // Indicates whether Server Name Indication (SNI) is enabled for back-to-origin requests. Valid values:
+      // 
+      // - **true**: SNI is enabled for back-to-origin requests.
+      // 
+      // - **false** (default): SNI is not enabled for back-to-origin requests.
       shared_ptr<bool> sniEnabled_ {};
       // The value of the custom SNI extension field.
       shared_ptr<string> sniHost_ {};
-      // Indicates whether WAF is allowed to overwrite WL-Proxy-Client-IP. Valid values:
+      // Specifies whether WAF is allowed to overwrite the WL-Proxy-Client-IP header. Valid values:
+      // 
+      // - **true** (default): WAF is allowed to overwrite the header.
+      // 
+      // - **false**: WAF is not allowed to overwrite the header.
       shared_ptr<bool> WLProxyClientIp_ {};
-      // Indicates whether WAF is allowed to overwrite Web-Server-Type. Valid values:
+      // Specifies whether WAF is allowed to overwrite the Web-Server-Type header. Valid values:
+      // 
+      // - **true** (default): WAF is allowed to overwrite the header.
+      // 
+      // - **false**: WAF is not allowed to overwrite the header.
       shared_ptr<bool> webServerType_ {};
       // The write timeout period. Unit: seconds.
       shared_ptr<int32_t> writeTimeout_ {};
-      // Indicates whether WAF is allowed to overwrite X-Client-IP. Valid values:
+      // Specifies whether WAF is allowed to overwrite X-Client-IP. Valid values:
+      // 
+      // - **true** (default): WAF is allowed to overwrite the header.
+      // 
+      // - **false**: WAF is not allowed to overwrite the header.
       shared_ptr<bool> XClientIp_ {};
-      // Indicates whether WAF is allowed to overwrite X-True-IP. Valid values:
+      // Specifies whether WAF is allowed to overwrite the X-True-IP header. Valid values:
+      // 
+      // - **true** (default): WAF is allowed to overwrite the header.
+      // 
+      // - **false**: WAF is not allowed to overwrite the header.
       shared_ptr<bool> XTrueIp_ {};
       // Indicates whether X-Forward-For-Proto is used to pass the protocol used by WAF. Valid values:
       shared_ptr<bool> xffProto_ {};
@@ -844,23 +889,39 @@ namespace Models
       shared_ptr<vector<string>> customCiphers_ {};
       // Indicates whether TLS 1.3 is supported. Valid values:
       shared_ptr<bool> enableTLSv3_ {};
-      // Indicates whether the exclusive IP address feature is enabled. Valid values:
+      // Indicates whether an exclusive IP address is enabled. Valid values:
+      // 
+      // - **true**: An exclusive IP address is enabled.
+      // 
+      // - **false**: An exclusive IP address is not enabled.
       shared_ptr<bool> exclusiveIp_ {};
       // Indicates whether HTTPS forced redirect is enabled. Valid values:
       shared_ptr<bool> focusHttps_ {};
       // Indicates whether HSTS includes subdomains. Valid values:
+      // 
+      // - **true**: Enabled.
+      // 
+      // - **false**: Not enabled.
       shared_ptr<bool> hstsIncludeSubDomain_ {};
       // The HSTS expiration time. Unit: seconds.
       shared_ptr<int64_t> hstsMaxAge_ {};
       // Indicates whether HSTS preloading is enabled. This feature is disabled by default. Valid values:
       shared_ptr<bool> hstsPreload_ {};
       // Indicates whether HTTP/2 is enabled. Valid values:
+      // 
+      // - **true**: HTTP/2 is enabled.
+      // 
+      // - **false**: HTTP/2 is not enabled.
       shared_ptr<bool> http2Enabled_ {};
       // The listening port for the HTTP protocol.
       shared_ptr<vector<int64_t>> httpPorts_ {};
       // The listening port for the HTTPS protocol.
       shared_ptr<vector<int64_t>> httpsPorts_ {};
       // Indicates whether IPv6 is enabled. Valid values:
+      // 
+      // - **true**: IPv6 is enabled.
+      // 
+      // - **false**: IPv6 is not enabled.
       shared_ptr<bool> IPv6Enabled_ {};
       // The type of protection resource to use. Valid values:
       shared_ptr<string> protectionResource_ {};
@@ -871,10 +932,26 @@ namespace Models
       // Indicates whether the China Encryption Standard (SM) certificate is enabled. Valid values:
       shared_ptr<bool> SM2Enabled_ {};
       // The TLS version. Valid values:
+      // 
+      // - **tlsv1**: Supports TLS 1.0 and later. Provides the highest compatibility and the lowest security.
+      // 
+      // - **tlsv1.1**: Supports TLS 1.1 and later. Provides good compatibility and good security.
+      // 
+      // - **tlsv1.2**: Supports TLS 1.2 and later. Provides good compatibility and the highest security.
+      // 
+      // - **tlsv1.3**: Supports only TLS 1.3. Provides the highest security and the lowest compatibility.
       shared_ptr<string> TLSVersion_ {};
       // The method that WAF uses to obtain the originating IP address of the client. Valid values:
+      // 
+      // - **0**: The client access traffic is not forwarded by other Layer 7 proxies before reaching WAF.
+      // 
+      // - **1**: WAF reads the first value in the X-Forwarded-For (XFF) header field of the request as the client IP address.
+      // 
+      // - **2**: WAF reads the value of a custom header field that you specify in the request as the client IP address.
+      // 
+      // - **3**: WAF reads the Client IP from the Proxy Protocol header as the client IP address.
       shared_ptr<int64_t> xffHeaderMode_ {};
-      // The list of custom header fields used to obtain the client IP address.
+      // The custom header fields used to obtain the client IP address.
       shared_ptr<vector<string>> xffHeaders_ {};
     };
 
@@ -1068,7 +1145,7 @@ namespace Models
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The SM2 certificate information.
     shared_ptr<DescribeDomainDetailResponseBody::SM2CertDetail> SM2CertDetail_ {};
-    // The status of the domain name. Valid values:
+    // The domain name status. Valid values:
     shared_ptr<int32_t> status_ {};
   };
 

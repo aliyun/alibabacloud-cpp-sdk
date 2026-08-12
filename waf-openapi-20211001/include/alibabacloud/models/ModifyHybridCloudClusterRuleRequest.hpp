@@ -103,13 +103,13 @@ namespace Models
 
 
   protected:
-    // [Deprecated] The ID of the hybrid cloud cluster.
+    // **[Deprecated]** The ID of the hybrid cloud cluster.
     shared_ptr<int64_t> clusterId_ {};
     // The resource ID of the cluster rule.
     shared_ptr<string> clusterRuleResourceId_ {};
     // Instance ID of the WAF instance.
     // 
-    // > You can call [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) to query instance ID of the current WAF instance.
+    // > You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query instance ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -124,19 +124,19 @@ namespace Models
     // The traffic redirection rule configuration.
     // 
     // <notice>The mode cannot be modified.</notice>
-    // - **check_mode**: The mode. Valid values:
+    // - **check_mode**: the mode. Valid values:
     //   - **all**: full traffic redirection.
     //   - **part**: partial traffic redirection.
-    // - **type**: The rule matching type. Valid values:
+    // - **type**: the rule matching type. Valid values:
     //   - **exact**: exact match.
     //   - **regex**: regular expression.
-    // - **substance**: The rule value.
+    // - **substance**: the rule value.
     shared_ptr<string> ruleConfig_ {};
     // The rule status. Valid values:
     // - **on**: enabled.
     // - **off**: disabled.
     shared_ptr<string> ruleStatus_ {};
-    // [Deprecated] The rule type. Valid values:
+    // **[Deprecated]** The rule type. Valid values:
     // - **pullin**: traffic redirection configuration.
     shared_ptr<string> ruleType_ {};
   };

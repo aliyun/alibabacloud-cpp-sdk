@@ -94,33 +94,31 @@ namespace Models
 
 
   protected:
-    // The delivery type. Valid value:
+    // The delivery type. Valid values:
     // 
     // - **sls**: Simple Log Service.
     shared_ptr<string> deliveryType_ {};
-    // The extended configuration for log delivery, in JSON format.
-    // 
-    // > For more information, see the description of the **ExtendConfig** parameter.
+    // The extended configuration for log delivery. The value is a JSON string constructed from a set of parameters.
+    // > For more information, see the **Log delivery extended configuration** parameter description.
     shared_ptr<string> extendConfig_ {};
-    // The list of log fields to deliver. Use the \\`a,b,c,...\\` format.
+    // The list of log fields to deliver. Specify the fields in the "a,b,c,..." format.
     // 
-    // > - You must include all required log fields. Call the [DescribeCommonLogFields](~~DescribeCommonLogFields~~) operation to view the log fields that WAF supports.
-    // >
-    // > - If the log fields include **request_header**, use the **ExtendConfig** parameter to specify the request headers to deliver.
+    // >   - All required log fields must be included. You can invoke the [DescribeCommonLogFields](~~DescribeCommonLogFields~~) operation to query the log fields supported by Simple Log Service for WAF. 
+    // > - If the log fields include **request_header**, use the **delivery extension configuration** (**ExtendConfig**) parameter to specify the request headers to deliver.
     // 
     // This parameter is required.
     shared_ptr<string> fieldList_ {};
-    // The ID of the WAF instance.
+    // Instance ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to view the ID of your WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The log delivery strategy, in JSON array format. You can specify multiple strategies.
+    // The log delivery strategy. Multiple strategies are supported. The value is a JSON array string constructed from a set of parameters.
     // 
-    // > For more information, see the description of the **LogDeliveryStrategy** parameter.
+    // > For more information, see the **Log delivery strategy** parameter description.
     shared_ptr<string> logDeliveryStrategy_ {};
-    // The region in which the WAF instance resides. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 

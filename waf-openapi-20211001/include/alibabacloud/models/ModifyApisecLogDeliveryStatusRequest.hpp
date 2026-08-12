@@ -99,9 +99,9 @@ namespace Models
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The enabling status of API security log subscribe. Valid values:
     // 
-    // - **true**: Enabled.
+    // - **true**: subscribe is enabled.
     // 
-    // - **false**: shutdown.
+    // - **false**: subscribe is shutdown.
     // 
     // This parameter is required.
     shared_ptr<bool> status_ {};

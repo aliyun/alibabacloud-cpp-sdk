@@ -92,11 +92,11 @@ namespace Models
     protected:
       // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The resource type. ALIYUN::WAF::DEFENSERESOURCE is returned.
+      // The resource type. Fixed value: ALIYUN::WAF::DEFENSERESOURCE.
       shared_ptr<string> resourceType_ {};
-      // The tag key.
+      // The tag key of the resource.
       shared_ptr<string> tagKey_ {};
-      // The tag value.
+      // The tag value of the resource.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -126,11 +126,11 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token that is used to start the next query. If NextToken is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource list.
+    // The list of resources.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

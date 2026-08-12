@@ -66,9 +66,8 @@ namespace Models
 
 
   protected:
-    // The ID of the Web Application Firewall (WAF) instance.
-    // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // The ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -78,9 +77,9 @@ namespace Models
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the WAF instance belongs.
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The protected objects that you want to query. Separate multiple protected objects with commas (,).
+    // The protected objects to query. Separate multiple protected objects with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> resources_ {};

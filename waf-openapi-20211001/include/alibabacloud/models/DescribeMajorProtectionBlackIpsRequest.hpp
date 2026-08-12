@@ -118,9 +118,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The IP address to query. You can set this parameter to perform a fuzzy query on the added IP address blacklist.
+    // The IP address to query. You can set this parameter to perform a fuzzy match against the added IP blacklist.
     shared_ptr<string> ipLike_ {};
-    // The property by which to sort the results in **descending order**. Valid values:
+    // The sorting attribute. Results are sorted in **descending order** by the specified attribute. Valid values:
     // 
     // - **gmtModified**: sorts by modification time.
     // 
@@ -130,21 +130,23 @@ namespace Models
     // 
     // - **id**: sorts by primary key.
     shared_ptr<string> orderBy_ {};
-    // The page number. Default value: **1**, which indicates the first page.
+    // The page number to return when paging is used. Default value: **1**, which indicates the first page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: **10**, which indicates 10 entries per page.
+    // The number of entries per page when paging is used. Default value: **10**, which indicates 10 entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The region in which the WAF instance is deployed. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
-    // - **ap-southeast-1**: regions outside the Chinese mainland.
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The ID of the IP address blacklist rule for critical event protection.
+    // The ID of the critical event protection IP blacklist rule.
     shared_ptr<int64_t> ruleId_ {};
     // The ID of the critical event protection template.
+    // 
+    // > This parameter requires the ID of a protection template of the critical event protection type. You can create this type of template only after purchasing the critical event protection upgrade separately.
     shared_ptr<int64_t> templateId_ {};
   };
 

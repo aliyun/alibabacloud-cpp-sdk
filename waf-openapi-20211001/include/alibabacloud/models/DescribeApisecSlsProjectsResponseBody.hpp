@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The names of the projects in Simple Log Service.
+    // The list of Simple Log Service projects.
     shared_ptr<vector<string>> projects_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

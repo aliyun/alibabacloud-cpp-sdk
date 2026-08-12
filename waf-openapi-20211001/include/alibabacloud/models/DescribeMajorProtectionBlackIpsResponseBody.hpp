@@ -108,17 +108,16 @@ namespace Models
 
 
     protected:
-      // The description of the template.
+      // The description.
       shared_ptr<string> description_ {};
-      // The timestamp after which the IP address blacklist becomes invalid. Unit: seconds.
-      // 
-      // > If the value is **0**, the IP address blacklist is permanently valid.
+      // The expiration timestamp, in seconds.
+      // > A value of **0** indicates that the entry is permanently effective.
       shared_ptr<int64_t> expiredTime_ {};
-      // The time when the IP address in the blacklist was modified.
+      // The time when the blacklisted IP address was last modified.
       shared_ptr<int64_t> gmtModified_ {};
       // The IP address.
       shared_ptr<string> ip_ {};
-      // The ID of the IP address blacklist rule for critical event protection.
+      // The ID of the critical event protection IP blacklist rule.
       shared_ptr<int64_t> ruleId_ {};
       // The ID of the critical event protection template.
       shared_ptr<int64_t> templateId_ {};
@@ -150,11 +149,11 @@ namespace Models
 
 
   protected:
-    // The list of IP addresses in the blacklist.
+    // The list of blacklisted IP addresses.
     shared_ptr<vector<DescribeMajorProtectionBlackIpsResponseBody::IpList>> ipList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of IP addresses in the blacklist.
+    // The total number of blacklisted IP addresses.
     shared_ptr<int64_t> totalCount_ {};
   };
 

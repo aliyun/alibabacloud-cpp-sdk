@@ -104,6 +104,8 @@ namespace Models
 
   protected:
     // The end time. The value is a UNIX timestamp (UTC). Unit: seconds.
+    // 
+    // > When querying pay-as-you-go bills, **StartTime** and **EndTime** are required parameters. You must specify both to determine the query time range.
     shared_ptr<int64_t> endTime_ {};
     // Instance ID of the WAF instance.
     // 
@@ -111,15 +113,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of entries per page for a paged query.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page. If a next page exists, this field has a return value.
     // 
-    // > If this parameter has a return value, a next page exists. Use the returned **NextToken** as a request parameter to obtain the next page of data. Repeat until no value is returned, which indicates that all data has been retrieved.
+    // > If this parameter has a return value, a next page exists. You can use the returned **NextToken** as a request parameter to obtain the data on the next page. Repeat this process until no value is returned, which indicates that all data has been retrieved.
     shared_ptr<string> nextToken_ {};
-    // The statistical period type for billing.
+    // The statistical period type of the bill.
     shared_ptr<string> periodType_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
@@ -128,6 +130,8 @@ namespace Models
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The start time. The value is a UNIX timestamp (UTC). Unit: seconds.
+    // 
+    // > When querying pay-as-you-go bills, **StartTime** and **EndTime** are required parameters. You must specify both to determine the query time range.
     shared_ptr<int64_t> startTime_ {};
   };
 

@@ -96,17 +96,17 @@ namespace Models
   protected:
     // Instance ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of your current WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of your WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // The type of bot rule tag to query.
     shared_ptr<string> labelType_ {};
-    // The number of entries per page for paging. Valid values: 1 to 200. Default value: 20.
+    // The number of entries per page in a paged query. Valid values: 1 to 200. Default value: 20. This parameter is used for paging.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page. If a next page exists, this field has a return value.
+    // The pagination token for the next page. If a value is returned for this parameter, the next page exists.
     // 
-    // > If this parameter has a return value, a next page exists. You can use the returned **NextToken** as a request parameter to obtain the data on the next page. Repeat this process until no value is returned, which indicates that all data has been retrieved.
+    // > If this parameter has a return value, the next page exists. Use the returned NextToken value as a request parameter to retrieve the next page of data. Repeat until no value is returned, which indicates that all data has been retrieved.
     shared_ptr<string> nextToken_ {};
     // The region where the WAF instance is deployed. Valid values:
     // 
@@ -116,7 +116,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The bot management protection scenario type.
+    // The type of bot management protection scenario.
     shared_ptr<string> subScene_ {};
   };
 

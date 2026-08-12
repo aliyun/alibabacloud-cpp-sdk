@@ -57,21 +57,20 @@ namespace Models
 
 
   protected:
-    // The ID of the WAF instance.
+    // Instance ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to view the current WAF instance ID.
+    // > You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query instance ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the SDK.
+    // The machine identifier (MID). You can call the [DescribeHybridCloudSdkServers](https://help.aliyun.com/document_detail/2982006.html) operation to query the hybrid cloud SDK list and obtain this value.
     // 
     // This parameter is required.
     shared_ptr<string> mid_ {};
-    // The status of traffic redirection. Valid values of the parameter:
+    // The traffic redirection status. Valid values:
     // 
-    // - **on**: Enable
-    // 
-    // - **off**: Disable
+    // - **on**: enabled.
+    // - **off**: disabled.
     // 
     // This parameter is required.
     shared_ptr<string> pullinStatus_ {};

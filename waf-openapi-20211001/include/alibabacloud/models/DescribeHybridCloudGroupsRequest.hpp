@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeHybridCloudGroupsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(ClusterProxyType, clusterProxyType_);
+      DARABONBA_PTR_TO_JSON(GroupDisplayName, groupDisplayName_);
       DARABONBA_PTR_TO_JSON(GroupName, groupName_);
       DARABONBA_PTR_TO_JSON(GroupType, groupType_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
@@ -26,6 +27,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeHybridCloudGroupsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(ClusterProxyType, clusterProxyType_);
+      DARABONBA_PTR_FROM_JSON(GroupDisplayName, groupDisplayName_);
       DARABONBA_PTR_FROM_JSON(GroupName, groupName_);
       DARABONBA_PTR_FROM_JSON(GroupType, groupType_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && this->clusterProxyType_ == nullptr && this->groupName_ == nullptr && this->groupType_ == nullptr && this->instanceId_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr; };
+        && this->clusterProxyType_ == nullptr && this->groupDisplayName_ == nullptr && this->groupName_ == nullptr && this->groupType_ == nullptr && this->instanceId_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -60,6 +62,13 @@ namespace Models
     void deleteClusterProxyType() { this->clusterProxyType_ = nullptr;};
     inline string getClusterProxyType() const { DARABONBA_PTR_GET_DEFAULT(clusterProxyType_, "") };
     inline DescribeHybridCloudGroupsRequest& setClusterProxyType(string clusterProxyType) { DARABONBA_PTR_SET_VALUE(clusterProxyType_, clusterProxyType) };
+
+
+    // groupDisplayName Field Functions 
+    bool hasGroupDisplayName() const { return this->groupDisplayName_ != nullptr;};
+    void deleteGroupDisplayName() { this->groupDisplayName_ = nullptr;};
+    inline string getGroupDisplayName() const { DARABONBA_PTR_GET_DEFAULT(groupDisplayName_, "") };
+    inline DescribeHybridCloudGroupsRequest& setGroupDisplayName(string groupDisplayName) { DARABONBA_PTR_SET_VALUE(groupDisplayName_, groupDisplayName) };
 
 
     // groupName Field Functions 
@@ -114,41 +123,43 @@ namespace Models
   protected:
     // The ID of the hybrid cloud cluster.
     shared_ptr<int64_t> clusterId_ {};
-    // The proxy type of the hybrid cloud cluster. Valid values:
+    // The proxy type of the cluster. Valid values:
     // 
-    // - **service**: SDK-based integration.
+    // - **service**: SDK integration.
     // 
-    // - **cname**: CNAME-based reverse proxy.
+    // - **cname**: reverse proxy.
     shared_ptr<string> clusterProxyType_ {};
-    // The name of the hybrid cloud node group that you want to query.
+    // The name of the hybrid cloud node group to query.
+    shared_ptr<string> groupDisplayName_ {};
+    // **[Deprecated]** Use GroupDisplayName for queries instead.
     shared_ptr<int32_t> groupName_ {};
     // The type of the hybrid cloud node group. Valid values:
     // 
-    // - **protect**: protection node group.
+    // - **protect**: protection.
     // 
-    // - **control**: control node group.
+    // - **control**: management.
     // 
-    // - **storage**: storage node group.
+    // - **storage**: storage.
     // 
-    // - **controlStorage**: control and storage node group.
+    // - **controlStorage**: management and storage.
     shared_ptr<string> groupType_ {};
     // The ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number to return in a paging query. Default value: **1**, which indicates that the first page is returned.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **10**.
+    // The number of entries per page in a paged query. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region in which the WAF instance resides. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the WAF instance belongs.
+    // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

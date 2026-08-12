@@ -70,7 +70,7 @@ namespace Models
 
 
     protected:
-      // The owner account ID of the protected object.
+      // The ID of the asset owner account of the protected object.
       shared_ptr<string> ownerUserId_ {};
       // The name of the protected object.
       shared_ptr<string> resourceName_ {};

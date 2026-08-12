@@ -97,7 +97,7 @@ namespace Models
 
 
     protected:
-      // The number of rules that meet all the query conditions.
+      // The number of rules that meet all query conditions.
       shared_ptr<int64_t> count_ {};
       // The value corresponding to the quaternary query condition.
       shared_ptr<string> fourthValue_ {};

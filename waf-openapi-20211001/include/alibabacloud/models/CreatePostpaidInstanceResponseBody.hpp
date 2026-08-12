@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the WAF instance.
+    // The WAF instance ID.
     shared_ptr<string> instanceId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

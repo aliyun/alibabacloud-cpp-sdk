@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The names of the Logstores in Simple Log Service.
+    // The list of Logstores in Simple Log Service.
     shared_ptr<vector<string>> logStores_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

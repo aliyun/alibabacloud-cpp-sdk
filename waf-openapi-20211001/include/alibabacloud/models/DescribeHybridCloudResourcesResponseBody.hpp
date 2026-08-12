@@ -274,34 +274,33 @@ namespace Models
       protected:
         // The IP address or domain name of the origin server that corresponds to the domain name.
         shared_ptr<vector<string>> backends_ {};
-        // Specifies whether to enable public cloud disaster recovery. Valid values:
+        // Specifies whether public cloud disaster recovery is enabled. Valid values:
         // 
-        // - **true**: Enabled.
+        // - **true**: Public cloud disaster recovery is enabled.
         // 
-        // - **false**: Disabled.
+        // - **false**: Public cloud disaster recovery is not enabled.
         shared_ptr<bool> cnameEnabled_ {};
-        // The connection timeout period. Unit: seconds.
-        // Valid values: 5 to 120.
+        // The connection timeout period. Unit: seconds. Valid values: 5 to 120.
         shared_ptr<int64_t> connectTimeout_ {};
         // Indicates whether forced HTTP back-to-origin is enabled. Valid values:
         // 
-        // - **true**: Enabled.
+        // - **true**: Forced HTTP back-to-origin is enabled.
         // 
-        // - **false**: Disabled.
+        // - **false**: Forced HTTP back-to-origin is not enabled.
         shared_ptr<bool> focusHttpBackend_ {};
         // Indicates whether persistent connections are enabled. Valid values:
         // 
-        // - **true**: Enabled.
+        // - **true**: Persistent connections are enabled.
         // 
-        // - **false**: Disabled.
+        // - **false**: Persistent connections are not enabled.
         shared_ptr<bool> keepalive_ {};
         // The number of requests that reuse persistent connections. Valid values: 60 to 1000.
         // 
-        // > The number of persistent connections to reuse after persistent connections are enabled.
+        // > Specifies how many requests can reuse persistent connections after persistent connections are enabled.
         shared_ptr<int64_t> keepaliveRequests_ {};
         // The idle timeout period for persistent connections. Valid values: 1 to 60. Default value: 15. Unit: seconds.
         // 
-        // > Specifies how long an idle reused persistent connection is kept before it is released.
+        // > Specifies how long an idle persistent connection is kept alive before it is released.
         shared_ptr<int64_t> keepaliveTimeout_ {};
         // The load balancing algorithm used for back-to-origin. Valid values:
         // 
@@ -311,18 +310,17 @@ namespace Models
         // 
         // - **leastTime**: Least Time algorithm.
         shared_ptr<string> loadbalance_ {};
-        // The read timeout period. Unit: seconds.
-        // Valid values: 5 to 1800.
+        // The read timeout period. Unit: seconds. Valid values: 5 to 1800.
         shared_ptr<int64_t> readTimeout_ {};
-        // The traffic tag fields and values of the domain name, used to tag traffic processed by WAF.
+        // The traffic mark header fields and values of the domain name, used to mark traffic processed by WAF.
         shared_ptr<vector<Redirect::RequestHeaders>> requestHeaders_ {};
         // Indicates whether WAF retries when back-to-origin fails. Valid values:
         // 
-        // - **true**: Retries.
+        // - **true**: WAF retries.
         // 
-        // - **false**: Does not retry.
+        // - **false**: WAF does not retry.
         shared_ptr<bool> retry_ {};
-        // The hybrid cloud forwarding rules, represented as a string converted from a JSON array. Each element in the JSON array is a struct that contains the following fields:
+        // The hybrid cloud forwarding rules, represented as a string converted from a JSON array. Each element in the JSON array is a structure that contains the following fields:
         // - **rs**: Array type. The list of back-to-origin IP addresses or back-to-origin CNAMEs.
         // 
         // - **location**: String type. The name of the protection node.
@@ -331,16 +329,15 @@ namespace Models
         shared_ptr<string> routingRules_ {};
         // Indicates whether back-to-origin Server Name Indication (SNI) is enabled. Valid values:
         // 
-        // - **true**: Enabled.
+        // - **true**: Back-to-origin SNI is enabled.
         // 
-        // - **false**: Disabled.
+        // - **false**: Back-to-origin SNI is not enabled.
         shared_ptr<bool> sniEnabled_ {};
         // The custom value of the SNI extension field. An empty value indicates that no custom SNI value is set. By default, the value of the **Host** field in the request header is used as the value of the SNI extension field.
         // 
-        // > This parameter is returned only when **SniEnabled** is set to **true**, which indicates that back-to-origin SNI is enabled.
+        // > This parameter is returned only when **SniEnabled** is set to **true** (back-to-origin SNI is enabled).
         shared_ptr<string> sniHost_ {};
-        // The write timeout period. Unit: seconds.
-        // Valid values: 5 to 1800.
+        // The write timeout period. Unit: seconds. Valid values: 5 to 1800.
         shared_ptr<int64_t> writeTimeout_ {};
       };
 
@@ -504,11 +501,11 @@ namespace Models
         shared_ptr<string> certId_ {};
         // The type of cipher suite. Valid values:
         // 
-        // - **1**: all cipher suites.
+        // - **1**: all cipher suites are added.
         // 
-        // - **2**: strong cipher suites.
+        // - **2**: strong cipher suites are added.
         // 
-        // - **99**: custom cipher suites.
+        // - **99**: custom cipher suites are added.
         shared_ptr<int32_t> cipherSuite_ {};
         // The specific custom cipher suites to add.
         // 
@@ -516,9 +513,9 @@ namespace Models
         shared_ptr<vector<string>> customCiphers_ {};
         // Indicates whether TLS 1.3 is supported. Valid values:
         // 
-        // - **true**: Supported.
+        // - **true**: TLS 1.3 is supported.
         // 
-        // - **false**: Not supported.
+        // - **false**: TLS 1.3 is not supported.
         shared_ptr<bool> enableTLSv3_ {};
         // Indicates whether an exclusive IP address is supported. Valid values:
         // - **true**: Supported.
@@ -527,15 +524,15 @@ namespace Models
         shared_ptr<bool> exclusiveIp_ {};
         // Indicates whether HTTPS forced redirect is enabled. Valid values:
         // 
-        // - **true**: Enabled.
+        // - **true**: HTTPS forced redirect is enabled.
         // 
-        // - **false**: Disabled.
+        // - **false**: HTTPS forced redirect is not enabled.
         shared_ptr<bool> focusHttps_ {};
         // Indicates whether HTTP/2 is enabled. Valid values:
         // 
-        // - **true**: Enabled.
+        // - **true**: HTTP/2 is enabled.
         // 
-        // - **false**: Disabled.
+        // - **false**: HTTP/2 is not enabled.
         shared_ptr<bool> http2Enabled_ {};
         // The list of HTTP listening ports.
         shared_ptr<vector<int64_t>> httpPorts_ {};
@@ -543,15 +540,15 @@ namespace Models
         shared_ptr<vector<int64_t>> httpsPorts_ {};
         // Indicates whether IPv6 is enabled. Valid values:
         // 
-        // - **true**: Enabled.
+        // - **true**: IPv6 is enabled.
         // 
-        // - **false**: Disabled.
+        // - **false**: IPv6 is not enabled.
         shared_ptr<bool> IPv6Enabled_ {};
         // The type of protection resource to use. Valid values:
         // 
         // - **share**: shared cluster.
         // 
-        // - **gslb**: intelligent load balancing of the shared cluster.
+        // - **gslb**: shared cluster with intelligent load balancing.
         shared_ptr<string> protectionResource_ {};
         // The TLS version. Valid values:
         // 
@@ -568,10 +565,12 @@ namespace Models
         // - **1**: WAF reads the first value of the X-Forwarded-For (XFF) header field as the client IP address.
         // 
         // - **2**: WAF reads the value of a custom header field that you specify as the client IP address.
+        // 
+        // - **3**: WAF reads the Client IP from the Proxy Protocol header as the client IP address.
         shared_ptr<int32_t> xffHeaderMode_ {};
         // The list of custom header fields used to obtain the client IP address, in the format of **["header1","header2",...]**.
         // 
-        // > This parameter is returned only when **XffHeaderMode** is set to 2, which indicates that WAF reads the value of a custom header field that you specify in the request header as the client IP address.
+        // > This parameter is returned only when **XffHeaderMode** is set to 2 (WAF reads the value of a custom header field that you specify in the request header as the client IP address).
         shared_ptr<vector<string>> xffHeaders_ {};
       };
 
@@ -640,7 +639,7 @@ namespace Models
 
     protected:
       // The CNAME assigned by WAF to the domain name.
-      // > This parameter is returned only when **CnameEnabled** is set to true, which indicates that public cloud disaster recovery is enabled.
+      // > This parameter is returned only when **CnameEnabled** is set to true (public cloud disaster recovery is enabled).
       shared_ptr<string> cname_ {};
       // The domain name.
       shared_ptr<string> domain_ {};
@@ -654,15 +653,15 @@ namespace Models
       shared_ptr<string> resourceManagerResourceGroupId_ {};
       // The status of the domain name. Valid values:
       // 
-      // - **1**: normal.
+      // - **1**: The domain name is in a normal state.
       // 
-      // - **2**: being created.
+      // - **2**: The domain name is being created.
       // 
-      // - **3**: being modified.
+      // - **3**: The domain name is being modified.
       // 
-      // - **4**: being released.
+      // - **4**: The domain name is being released.
       // 
-      // - **5**: forwarding stopped.
+      // - **5**: The domain name has stopped forwarding traffic.
       shared_ptr<int32_t> status_ {};
       // The user ID.
       shared_ptr<string> uid_ {};

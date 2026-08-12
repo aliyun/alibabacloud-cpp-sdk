@@ -103,17 +103,17 @@ namespace Models
 
 
   protected:
-    // The name of the hybrid cloud cluster that you want to query.
+    // The cluster name.
     shared_ptr<string> clusterName_ {};
-    // The hostname of the hybrid cloud SDK server that you want to query.
+    // The hostname.
     shared_ptr<string> hostName_ {};
     // The ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The IP address of the hybrid cloud SDK server that you want to query.
+    // The device IP address.
     shared_ptr<string> ip_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
@@ -125,7 +125,7 @@ namespace Models
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The ID of the Alibaba Cloud resource group.
+    // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
   };
 

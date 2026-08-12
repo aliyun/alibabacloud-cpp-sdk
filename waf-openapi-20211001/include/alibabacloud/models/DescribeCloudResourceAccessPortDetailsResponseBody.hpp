@@ -221,7 +221,7 @@ namespace Models
         shared_ptr<string> productCertName_ {};
         // The specific reason for the protection exception status. Valid values:
         // 
-        // - **UserUploadCert**: The certificate is manually uploaded.
+        // - **UserUploadCert**: The certificate was manually uploaded.
         // 
         // - **CertNotExistInCertCenter**: The certificate does not exist in SSL Certificates Service.
         // - **CertExpired**: The cloud certificate has expired.
@@ -269,7 +269,7 @@ namespace Models
       protected:
         // The specified custom request header field.
         shared_ptr<string> key_ {};
-        // The value of the specified custom request header field.
+        // The value set for the specified custom request header field.
         shared_ptr<string> value_ {};
       };
 
@@ -510,7 +510,7 @@ namespace Models
 
 
     protected:
-      // The list of certificates for the cloud service ports connected to WAF.
+      // The list of certificates for the cloud service port connected to WAF.
       shared_ptr<vector<AccessPortDetails::Certificates>> certificates_ {};
       // The cipher suite type. Valid values:
       // 
@@ -550,7 +550,7 @@ namespace Models
       shared_ptr<int32_t> keepaliveRequests_ {};
       // The idle timeout period for keep-alive connections. Valid values: 10 to 3600. Default value: 15. Unit: seconds.
       // 
-      // > Specifies how long an idle keep-alive connection is retained before it is released.
+      // > Specifies how long an idle keep-alive connection remains open before it is released.
       shared_ptr<int32_t> keepaliveTimeout_ {};
       // The traffic tag fields and values of the domain name, used to mark traffic processed by WAF.
       // 
@@ -558,7 +558,7 @@ namespace Models
       shared_ptr<vector<AccessPortDetails::LogHeaders>> logHeaders_ {};
       // The maximum request body size. Valid values: 2 to 10. Default value: 2. Unit: GB.
       shared_ptr<int32_t> maxBodySize_ {};
-      // The UID that indicates the resource ownership of the cloud service.
+      // The UID of the cloud service resource ownership.
       shared_ptr<string> ownerUserId_ {};
       // The port of the cloud service that is connected to WAF.
       shared_ptr<int32_t> port_ {};
@@ -566,7 +566,7 @@ namespace Models
       // - **http**: HTTP protocol.
       // - **https**: HTTPS protocol.
       shared_ptr<string> protocol_ {};
-      // The read timeout period. Unit: seconds.
+      // The read timeout period, in seconds.
       // Valid values: 1 to 3600.
       shared_ptr<int32_t> readTimeout_ {};
       // The domain name status. Valid values:
@@ -584,7 +584,7 @@ namespace Models
       // - **InvalidCert**: invalid certificate.
       // 
       // - **ClientCertOpend**: mutual authentication is enabled.
-      // - **NetworkConfigLost**: the cloud service network configuration is abnormal.
+      // - **NetworkConfigLost**: cloud service network configuration exception.
       shared_ptr<string> subStatus_ {};
       // The specific reasons for the protection exception status. This parameter has a value only when SubStatus is set to InvalidCert.
       shared_ptr<vector<AccessPortDetails::SubStatusDetails>> subStatusDetails_ {};
@@ -598,7 +598,7 @@ namespace Models
       // 
       // - **tlsv1.3**: Supports only TLS 1.3. Highest security, lower compatibility.
       shared_ptr<string> TLSVersion_ {};
-      // The write timeout period. Unit: seconds.
+      // The write timeout period, in seconds.
       // Valid values: 1 to 3600.
       shared_ptr<int32_t> writeTimeout_ {};
       // The method that WAF uses to obtain the originating IP address of the client. Valid values:
@@ -608,12 +608,14 @@ namespace Models
       // - **1**: WAF reads the first value in the X-Forwarded-For (XFF) header as the client IP address.
       // 
       // - **2**: WAF reads the value of a custom header field that you specify as the client IP address.
+      // 
+      // - **3**: WAF reads the Client IP from the Proxy Protocol header as the client IP address.
       shared_ptr<int32_t> xffHeaderMode_ {};
-      // The list of custom header fields used to obtain the client IP address, in the format **["header1","header2",...]**.
+      // The list of custom header fields used to obtain the client IP address, in the format **["header1","header2",……]**.
       // 
       // > This parameter is required only when **XffHeaderMode** is set to 2 (WAF reads the value of a custom header field that you specify as the client IP address).
       shared_ptr<vector<string>> xffHeaders_ {};
-      // Specifies whether the X-Forward-For-Proto header is used to pass the WAF protocol. Valid values:
+      // Specifies whether the X-Forward-For-Proto header passes the WAF protocol. Valid values:
       // 
       // - **true** (default): The WAF protocol is passed.
       // 

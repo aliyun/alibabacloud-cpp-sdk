@@ -151,16 +151,23 @@ namespace Models
 
   protected:
     // The access type of the WAF instance. Valid values:
+    // 
+    // - **share** (default): CNAME access.
+    // 
+    // - **hybrid_cloud_cname**: hybrid cloud CNAME access.
+    // 
+    // > If the value is **share**, or the value is **hybrid_cloud_cname** and public cloud disaster recovery is enabled, call the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations to verify domain name ownership first. If the domain name is connected to a region in the Chinese mainland, ICP filing must be completed.
     shared_ptr<string> accessType_ {};
     // The domain name to query.
     // 
     // This parameter is required.
     shared_ptr<string> domain_ {};
     // The ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The listening configuration.
+    // The listener configuration.
     // 
     // This parameter is required.
     shared_ptr<string> listenShrink_ {};
@@ -174,7 +181,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The tag list, which contains up to 20 items.
+    // The list of tags. You can specify up to 20 tags.
     shared_ptr<vector<CreateDomainShrinkRequest::Tag>> tag_ {};
   };
 

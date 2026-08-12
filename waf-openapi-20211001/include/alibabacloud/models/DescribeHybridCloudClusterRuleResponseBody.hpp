@@ -87,33 +87,27 @@ namespace Models
 
 
     protected:
-      // The resource ID of the cluster rule.
+      // The cluster rule resource ID.
       shared_ptr<string> clusterRuleResourceId_ {};
-      // The configuration of the traffic routing rule.
+      // The traffic redirection rule configuration:
       // 
-      // - **check_mode**: Defines the traffic scope for the routing rule. Valid values:
-      // 
-      //   - **all**: Routes all traffic.
-      // 
-      //   - **part**: Routes a portion of the traffic.
-      // 
-      // - **type**: The rule\\"s match type. Valid values:
-      // 
-      //   - **exact**: Exact match.
-      // 
-      //   - **regex**: Regular expression match.
-      // 
-      // - **substance**: The value of the rule.
+      // - **check_mode**: the mode selection. Valid values:
+      //   - **all**: full traffic redirection
+      //   - **part**: partial traffic redirection
+      // - **type**: the rule matching type. Valid values:
+      //   - **exact**: exact match
+      //   - **regex**: regular expression
+      // - **substance**: the rule value
       shared_ptr<string> ruleConfig_ {};
-      // The status of the rule. Valid values:
+      // The rule status. Valid values:
       // 
-      // - **on**: Enabled.
+      // - **on**: enabled.
       // 
-      // - **off**: Disabled.
+      // - **off**: disabled.
       shared_ptr<string> ruleStatus_ {};
-      // The type of the rule.
+      // The rule type. Valid values:
       // 
-      // - pullin: The traffic routing rule.
+      // - pullin: traffic redirection rule
       shared_ptr<string> ruleType_ {};
     };
 
@@ -136,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The information about the rule.
+    // The rule information.
     shared_ptr<DescribeHybridCloudClusterRuleResponseBody::ClusterRule> clusterRule_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
