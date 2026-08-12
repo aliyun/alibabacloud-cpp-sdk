@@ -19,24 +19,24 @@ namespace EfloController20221215
 AlibabaCloud::EfloController20221215::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"me-east-1" , "eflo-controller.me-east-1.aliyuncs.com"},
-    {"eu-central-1" , "eflo-controller.eu-central-1.aliyuncs.com"},
-    {"cn-zhangjiakou" , "eflo-controller.cn-zhangjiakou.aliyuncs.com"},
     {"cn-wulanchabu" , "eflo-controller.cn-wulanchabu.aliyuncs.com"},
-    {"cn-shenzhen" , "eflo-controller.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "eflo-controller.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-beijing" , "eflo-controller.cn-beijing.aliyuncs.com"},
     {"cn-shanghai" , "eflo-controller.cn-shanghai.aliyuncs.com"},
-    {"cn-huhehaote" , "eflo-controller.cn-huhehaote.aliyuncs.com"},
     {"cn-hongkong" , "eflo-controller.cn-hongkong.aliyuncs.com"},
     {"cn-heyuan" , "eflo-controller.cn-heyuan.aliyuncs.com"},
-    {"cn-hangzhou" , "eflo-controller.cn-hangzhou.aliyuncs.com"},
+    {"cn-zhangjiakou" , "eflo-controller.cn-zhangjiakou.aliyuncs.com"},
+    {"cn-shenzhen" , "eflo-controller.cn-shenzhen.aliyuncs.com"},
+    {"ap-northeast-1" , "eflo-controller.ap-northeast-1.aliyuncs.com"},
     {"cn-guangzhou" , "eflo-controller.cn-guangzhou.aliyuncs.com"},
-    {"cn-beijing" , "eflo-controller.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-8" , "eflo-controller.ap-sourtheast-8.aliyuncs.com"},
-    {"ap-southeast-7" , "eflo-controller.ap-southeast-7.aliyuncs.com"},
-    {"ap-southeast-3" , "eflo-controller.ap-southeast-3.aliyuncs.com"},
     {"ap-southeast-1" , "eflo-controller.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-1" , "eflo-controller.ap-northeast-1.aliyuncs.com"}
+    {"ap-southeast-3" , "eflo-controller.ap-southeast-3.aliyuncs.com"},
+    {"cn-huhehaote" , "eflo-controller.cn-huhehaote.aliyuncs.com"},
+    {"ap-southeast-7" , "eflo-controller.ap-southeast-7.aliyuncs.com"},
+    {"cn-hangzhou" , "eflo-controller.cn-hangzhou.aliyuncs.com"},
+    {"ap-southeast-8" , "eflo-controller.ap-southeast-8.aliyuncs.com"},
+    {"eu-central-1" , "eflo-controller.eu-central-1.aliyuncs.com"},
+    {"me-east-1" , "eflo-controller.me-east-1.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "eflo-controller.cn-shanghai-finance-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("eflo-controller", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -1306,6 +1306,76 @@ DescribeNodeGroupResponse Client::describeNodeGroup(const DescribeNodeGroupReque
 }
 
 /**
+ * @summary Queries the detailed progress of a node group configuration refresh task. Returns the actual execution result for each node, including refreshed properties, properties skipped because they exceeded the MaxDisruptiveAction constraint, and failure reasons.
+ *
+ * @description The returned results include the following:
+ * - The processing status of each node with configuration drift
+ * - The processing result, status, and reason for each node
+ * - The refreshed and skipped properties for each node
+ *
+ * @param tmpReq DescribeNodeGroupRefreshTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeNodeGroupRefreshTaskResponse
+ */
+DescribeNodeGroupRefreshTaskResponse Client::describeNodeGroupRefreshTaskWithOptions(const DescribeNodeGroupRefreshTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeNodeGroupRefreshTaskShrinkRequest request = DescribeNodeGroupRefreshTaskShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNodeStatuses()) {
+    request.setNodeStatusesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNodeStatuses(), "NodeStatuses", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasNodeGroupRefreshTaskId()) {
+    body["NodeGroupRefreshTaskId"] = request.getNodeGroupRefreshTaskId();
+  }
+
+  if (!!request.hasNodeStatusesShrink()) {
+    body["NodeStatuses"] = request.getNodeStatusesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DescribeNodeGroupRefreshTask"},
+    {"version" , "2022-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeNodeGroupRefreshTaskResponse>();
+}
+
+/**
+ * @summary Queries the detailed progress of a node group configuration refresh task. Returns the actual execution result for each node, including refreshed properties, properties skipped because they exceeded the MaxDisruptiveAction constraint, and failure reasons.
+ *
+ * @description The returned results include the following:
+ * - The processing status of each node with configuration drift
+ * - The processing result, status, and reason for each node
+ * - The refreshed and skipped properties for each node
+ *
+ * @param request DescribeNodeGroupRefreshTaskRequest
+ * @return DescribeNodeGroupRefreshTaskResponse
+ */
+DescribeNodeGroupRefreshTaskResponse Client::describeNodeGroupRefreshTask(const DescribeNodeGroupRefreshTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeNodeGroupRefreshTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary Describes the constraints for a node type.
  *
  * @param request DescribeNodeTypeRequest
@@ -2322,6 +2392,138 @@ ListNetTestResultsResponse Client::listNetTestResults(const ListNetTestResultsRe
 }
 
 /**
+ * @summary Queries nodes with configuration drift within a node group and the drift details.
+ *
+ * @description Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the difference type, before-and-after values, and the action level required for refresh for each inconsistent property. This is a read-only operation.
+ *
+ * @param tmpReq ListNodeGroupDriftedNodesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListNodeGroupDriftedNodesResponse
+ */
+ListNodeGroupDriftedNodesResponse Client::listNodeGroupDriftedNodesWithOptions(const ListNodeGroupDriftedNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListNodeGroupDriftedNodesShrinkRequest request = ListNodeGroupDriftedNodesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNodeIds()) {
+    request.setNodeIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNodeIds(), "NodeIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasNodeGroupId()) {
+    body["NodeGroupId"] = request.getNodeGroupId();
+  }
+
+  if (!!request.hasNodeIdsShrink()) {
+    body["NodeIds"] = request.getNodeIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListNodeGroupDriftedNodes"},
+    {"version" , "2022-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListNodeGroupDriftedNodesResponse>();
+}
+
+/**
+ * @summary Queries nodes with configuration drift within a node group and the drift details.
+ *
+ * @description Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the difference type, before-and-after values, and the action level required for refresh for each inconsistent property. This is a read-only operation.
+ *
+ * @param request ListNodeGroupDriftedNodesRequest
+ * @return ListNodeGroupDriftedNodesResponse
+ */
+ListNodeGroupDriftedNodesResponse Client::listNodeGroupDriftedNodes(const ListNodeGroupDriftedNodesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listNodeGroupDriftedNodesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a paging list of node group configuration refresh tasks.
+ *
+ * @description If you do not know which node group has refresh tasks, you can perform a conditional query. The task list contains only summary information. To query task details, use the DescribeNodeGroupRefreshTask operation.
+ *
+ * @param tmpReq ListNodeGroupRefreshTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListNodeGroupRefreshTasksResponse
+ */
+ListNodeGroupRefreshTasksResponse Client::listNodeGroupRefreshTasksWithOptions(const ListNodeGroupRefreshTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListNodeGroupRefreshTasksShrinkRequest request = ListNodeGroupRefreshTasksShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasStatuses()) {
+    request.setStatusesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatuses(), "Statuses", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasNodeGroupId()) {
+    body["NodeGroupId"] = request.getNodeGroupId();
+  }
+
+  if (!!request.hasStatusesShrink()) {
+    body["Statuses"] = request.getStatusesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListNodeGroupRefreshTasks"},
+    {"version" , "2022-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListNodeGroupRefreshTasksResponse>();
+}
+
+/**
+ * @summary Queries a paging list of node group configuration refresh tasks.
+ *
+ * @description If you do not know which node group has refresh tasks, you can perform a conditional query. The task list contains only summary information. To query task details, use the DescribeNodeGroupRefreshTask operation.
+ *
+ * @param request ListNodeGroupRefreshTasksRequest
+ * @return ListNodeGroupRefreshTasksResponse
+ */
+ListNodeGroupRefreshTasksResponse Client::listNodeGroupRefreshTasks(const ListNodeGroupRefreshTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listNodeGroupRefreshTasksWithOptions(request, runtime);
+}
+
+/**
  * @summary Query Node Group Information Under the Cluster
  *
  * @param request ListNodeGroupsRequest
@@ -2655,6 +2857,74 @@ RebootNodesResponse Client::rebootNodesWithOptions(const RebootNodesRequest &tmp
 RebootNodesResponse Client::rebootNodes(const RebootNodesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return rebootNodesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
+ *
+ * @description Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
+ * Limits:
+ * - A node group can have only one running node group configuration refresh task at a time.
+ * - When the asynchronous task executes the refresh, if a node is not in the "In Use" state, the refresh of that node is failed.
+ * <warning>Currently, only the RamRoleName property is supported for refresh.</warning>
+ *
+ * @param tmpReq RefreshNodeGroupNodesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RefreshNodeGroupNodesResponse
+ */
+RefreshNodeGroupNodesResponse Client::refreshNodeGroupNodesWithOptions(const RefreshNodeGroupNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RefreshNodeGroupNodesShrinkRequest request = RefreshNodeGroupNodesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNodeIds()) {
+    request.setNodeIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNodeIds(), "NodeIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasMaxDisruptiveAction()) {
+    body["MaxDisruptiveAction"] = request.getMaxDisruptiveAction();
+  }
+
+  if (!!request.hasNodeGroupId()) {
+    body["NodeGroupId"] = request.getNodeGroupId();
+  }
+
+  if (!!request.hasNodeIdsShrink()) {
+    body["NodeIds"] = request.getNodeIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RefreshNodeGroupNodes"},
+    {"version" , "2022-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RefreshNodeGroupNodesResponse>();
+}
+
+/**
+ * @summary Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
+ *
+ * @description Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
+ * Limits:
+ * - A node group can have only one running node group configuration refresh task at a time.
+ * - When the asynchronous task executes the refresh, if a node is not in the "In Use" state, the refresh of that node is failed.
+ * <warning>Currently, only the RamRoleName property is supported for refresh.</warning>
+ *
+ * @param request RefreshNodeGroupNodesRequest
+ * @return RefreshNodeGroupNodesResponse
+ */
+RefreshNodeGroupNodesResponse Client::refreshNodeGroupNodes(const RefreshNodeGroupNodesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return refreshNodeGroupNodesWithOptions(request, runtime);
 }
 
 /**

@@ -77,6 +77,10 @@
 #include <alibabacloud/models/DescribeNodeGroupRequest.hpp>
 #include <alibabacloud/models/DescribeNodeGroupResponseBody.hpp>
 #include <alibabacloud/models/DescribeNodeGroupResponse.hpp>
+#include <alibabacloud/models/DescribeNodeGroupRefreshTaskRequest.hpp>
+#include <alibabacloud/models/DescribeNodeGroupRefreshTaskShrinkRequest.hpp>
+#include <alibabacloud/models/DescribeNodeGroupRefreshTaskResponseBody.hpp>
+#include <alibabacloud/models/DescribeNodeGroupRefreshTaskResponse.hpp>
 #include <alibabacloud/models/DescribeNodeTypeRequest.hpp>
 #include <alibabacloud/models/DescribeNodeTypeResponseBody.hpp>
 #include <alibabacloud/models/DescribeNodeTypeResponse.hpp>
@@ -134,6 +138,14 @@
 #include <alibabacloud/models/ListNetTestResultsRequest.hpp>
 #include <alibabacloud/models/ListNetTestResultsResponseBody.hpp>
 #include <alibabacloud/models/ListNetTestResultsResponse.hpp>
+#include <alibabacloud/models/ListNodeGroupDriftedNodesRequest.hpp>
+#include <alibabacloud/models/ListNodeGroupDriftedNodesShrinkRequest.hpp>
+#include <alibabacloud/models/ListNodeGroupDriftedNodesResponseBody.hpp>
+#include <alibabacloud/models/ListNodeGroupDriftedNodesResponse.hpp>
+#include <alibabacloud/models/ListNodeGroupRefreshTasksRequest.hpp>
+#include <alibabacloud/models/ListNodeGroupRefreshTasksShrinkRequest.hpp>
+#include <alibabacloud/models/ListNodeGroupRefreshTasksResponseBody.hpp>
+#include <alibabacloud/models/ListNodeGroupRefreshTasksResponse.hpp>
 #include <alibabacloud/models/ListNodeGroupsRequest.hpp>
 #include <alibabacloud/models/ListNodeGroupsResponseBody.hpp>
 #include <alibabacloud/models/ListNodeGroupsResponse.hpp>
@@ -153,6 +165,10 @@
 #include <alibabacloud/models/RebootNodesShrinkRequest.hpp>
 #include <alibabacloud/models/RebootNodesResponseBody.hpp>
 #include <alibabacloud/models/RebootNodesResponse.hpp>
+#include <alibabacloud/models/RefreshNodeGroupNodesRequest.hpp>
+#include <alibabacloud/models/RefreshNodeGroupNodesShrinkRequest.hpp>
+#include <alibabacloud/models/RefreshNodeGroupNodesResponseBody.hpp>
+#include <alibabacloud/models/RefreshNodeGroupNodesResponse.hpp>
 #include <alibabacloud/models/ReimageNodesRequest.hpp>
 #include <alibabacloud/models/ReimageNodesShrinkRequest.hpp>
 #include <alibabacloud/models/ReimageNodesResponseBody.hpp>

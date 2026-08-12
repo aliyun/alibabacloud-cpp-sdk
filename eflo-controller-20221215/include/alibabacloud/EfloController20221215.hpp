@@ -452,6 +452,33 @@ namespace EfloController20221215
       Models::DescribeNodeGroupResponse describeNodeGroup(const Models::DescribeNodeGroupRequest &request);
 
       /**
+       * @summary Queries the detailed progress of a node group configuration refresh task. Returns the actual execution result for each node, including refreshed properties, properties skipped because they exceeded the MaxDisruptiveAction constraint, and failure reasons.
+       *
+       * @description The returned results include the following:
+       * - The processing status of each node with configuration drift
+       * - The processing result, status, and reason for each node
+       * - The refreshed and skipped properties for each node
+       *
+       * @param tmpReq DescribeNodeGroupRefreshTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeNodeGroupRefreshTaskResponse
+       */
+      Models::DescribeNodeGroupRefreshTaskResponse describeNodeGroupRefreshTaskWithOptions(const Models::DescribeNodeGroupRefreshTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the detailed progress of a node group configuration refresh task. Returns the actual execution result for each node, including refreshed properties, properties skipped because they exceeded the MaxDisruptiveAction constraint, and failure reasons.
+       *
+       * @description The returned results include the following:
+       * - The processing status of each node with configuration drift
+       * - The processing result, status, and reason for each node
+       * - The refreshed and skipped properties for each node
+       *
+       * @param request DescribeNodeGroupRefreshTaskRequest
+       * @return DescribeNodeGroupRefreshTaskResponse
+       */
+      Models::DescribeNodeGroupRefreshTaskResponse describeNodeGroupRefreshTask(const Models::DescribeNodeGroupRefreshTaskRequest &request);
+
+      /**
        * @summary Describes the constraints for a node type.
        *
        * @param request DescribeNodeTypeRequest
@@ -770,6 +797,48 @@ namespace EfloController20221215
       Models::ListNetTestResultsResponse listNetTestResults(const Models::ListNetTestResultsRequest &request);
 
       /**
+       * @summary Queries nodes with configuration drift within a node group and the drift details.
+       *
+       * @description Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the difference type, before-and-after values, and the action level required for refresh for each inconsistent property. This is a read-only operation.
+       *
+       * @param tmpReq ListNodeGroupDriftedNodesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListNodeGroupDriftedNodesResponse
+       */
+      Models::ListNodeGroupDriftedNodesResponse listNodeGroupDriftedNodesWithOptions(const Models::ListNodeGroupDriftedNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries nodes with configuration drift within a node group and the drift details.
+       *
+       * @description Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the difference type, before-and-after values, and the action level required for refresh for each inconsistent property. This is a read-only operation.
+       *
+       * @param request ListNodeGroupDriftedNodesRequest
+       * @return ListNodeGroupDriftedNodesResponse
+       */
+      Models::ListNodeGroupDriftedNodesResponse listNodeGroupDriftedNodes(const Models::ListNodeGroupDriftedNodesRequest &request);
+
+      /**
+       * @summary Queries a paging list of node group configuration refresh tasks.
+       *
+       * @description If you do not know which node group has refresh tasks, you can perform a conditional query. The task list contains only summary information. To query task details, use the DescribeNodeGroupRefreshTask operation.
+       *
+       * @param tmpReq ListNodeGroupRefreshTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListNodeGroupRefreshTasksResponse
+       */
+      Models::ListNodeGroupRefreshTasksResponse listNodeGroupRefreshTasksWithOptions(const Models::ListNodeGroupRefreshTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a paging list of node group configuration refresh tasks.
+       *
+       * @description If you do not know which node group has refresh tasks, you can perform a conditional query. The task list contains only summary information. To query task details, use the DescribeNodeGroupRefreshTask operation.
+       *
+       * @param request ListNodeGroupRefreshTasksRequest
+       * @return ListNodeGroupRefreshTasksResponse
+       */
+      Models::ListNodeGroupRefreshTasksResponse listNodeGroupRefreshTasks(const Models::ListNodeGroupRefreshTasksRequest &request);
+
+      /**
        * @summary Query Node Group Information Under the Cluster
        *
        * @param request ListNodeGroupsRequest
@@ -872,6 +941,35 @@ namespace EfloController20221215
        * @return RebootNodesResponse
        */
       Models::RebootNodesResponse rebootNodes(const Models::RebootNodesRequest &request);
+
+      /**
+       * @summary Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
+       *
+       * @description Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
+       * Limits:
+       * - A node group can have only one running node group configuration refresh task at a time.
+       * - When the asynchronous task executes the refresh, if a node is not in the "In Use" state, the refresh of that node is failed.
+       * <warning>Currently, only the RamRoleName property is supported for refresh.</warning>
+       *
+       * @param tmpReq RefreshNodeGroupNodesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RefreshNodeGroupNodesResponse
+       */
+      Models::RefreshNodeGroupNodesResponse refreshNodeGroupNodesWithOptions(const Models::RefreshNodeGroupNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
+       *
+       * @description Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
+       * Limits:
+       * - A node group can have only one running node group configuration refresh task at a time.
+       * - When the asynchronous task executes the refresh, if a node is not in the "In Use" state, the refresh of that node is failed.
+       * <warning>Currently, only the RamRoleName property is supported for refresh.</warning>
+       *
+       * @param request RefreshNodeGroupNodesRequest
+       * @return RefreshNodeGroupNodesResponse
+       */
+      Models::RefreshNodeGroupNodesResponse refreshNodeGroupNodes(const Models::RefreshNodeGroupNodesRequest &request);
 
       /**
        * @summary Reinstalls machines.

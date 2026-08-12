@@ -1,3 +1,10 @@
+2026-08-12 Version: 2.6.0
+- Support API DescribeNodeGroupRefreshTask.
+- Support API ListNodeGroupDriftedNodes.
+- Support API ListNodeGroupRefreshTasks.
+- Support API RefreshNodeGroupNodes.
+
+
 2026-07-10 Version: 2.5.9
 - Update API UpdateNodeGroup: add request parameters SystemDisk.
 
