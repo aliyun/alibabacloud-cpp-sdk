@@ -125,6 +125,46 @@ CreateTeamResponse Client::createTeam(const CreateTeamRequest &request) {
 }
 
 /**
+ * @summary Creates a volume.
+ *
+ * @param request CreateVolumeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateVolumeResponse
+ */
+CreateVolumeResponse Client::createVolumeWithOptions(const CreateVolumeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateVolume"},
+    {"version" , "2026-05-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-05-09/volumes")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateVolumeResponse>();
+}
+
+/**
+ * @summary Creates a volume.
+ *
+ * @param request CreateVolumeRequest
+ * @return CreateVolumeResponse
+ */
+CreateVolumeResponse Client::createVolume(const CreateVolumeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createVolumeWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Deletes an API key.
  *
  * @param request DeleteApiKeyRequest
@@ -248,6 +288,51 @@ DeleteTeamResponse Client::deleteTeam(const string &teamID, const DeleteTeamRequ
 }
 
 /**
+ * @summary 删除 Volume 
+ *
+ * @param request DeleteVolumeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteVolumeResponse
+ */
+DeleteVolumeResponse Client::deleteVolumeWithOptions(const string &volumeID, const DeleteVolumeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTeamID()) {
+    query["teamID"] = request.getTeamID();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteVolume"},
+    {"version" , "2026-05-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-05-09/volumes/" , Darabonba::Encode::Encoder::percentEncode(volumeID))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteVolumeResponse>();
+}
+
+/**
+ * @summary 删除 Volume 
+ *
+ * @param request DeleteVolumeRequest
+ * @return DeleteVolumeResponse
+ */
+DeleteVolumeResponse Client::deleteVolume(const string &volumeID, const DeleteVolumeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteVolumeWithOptions(volumeID, request, headers, runtime);
+}
+
+/**
  * @summary Queries an API key.
  *
  * @param request DescribeApiKeyRequest
@@ -368,6 +453,51 @@ GetTeamResponse Client::getTeam(const string &teamID, const GetTeamRequest &requ
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getTeamWithOptions(teamID, request, headers, runtime);
+}
+
+/**
+ * @summary 查看 Volume
+ *
+ * @param request GetVolumeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVolumeResponse
+ */
+GetVolumeResponse Client::getVolumeWithOptions(const string &volumeID, const GetVolumeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTeamID()) {
+    query["teamID"] = request.getTeamID();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetVolume"},
+    {"version" , "2026-05-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-05-09/volumes/" , Darabonba::Encode::Encoder::percentEncode(volumeID))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVolumeResponse>();
+}
+
+/**
+ * @summary 查看 Volume
+ *
+ * @param request GetVolumeRequest
+ * @return GetVolumeResponse
+ */
+GetVolumeResponse Client::getVolume(const string &volumeID, const GetVolumeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getVolumeWithOptions(volumeID, request, headers, runtime);
 }
 
 /**
@@ -550,6 +680,75 @@ ListTeamsResponse Client::listTeams(const ListTeamsRequest &request) {
 }
 
 /**
+ * @summary 分页查询 Volumes
+ *
+ * @param request ListVolumesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVolumesResponse
+ */
+ListVolumesResponse Client::listVolumesWithOptions(const ListVolumesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasResourceGroupID()) {
+    query["resourceGroupID"] = request.getResourceGroupID();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  if (!!request.hasTeamID()) {
+    query["teamID"] = request.getTeamID();
+  }
+
+  if (!!request.hasUserID()) {
+    query["userID"] = request.getUserID();
+  }
+
+  if (!!request.hasVolumeName()) {
+    query["volumeName"] = request.getVolumeName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListVolumes"},
+    {"version" , "2026-05-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-05-09/volumes")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVolumesResponse>();
+}
+
+/**
+ * @summary 分页查询 Volumes
+ *
+ * @param request ListVolumesRequest
+ * @return ListVolumesResponse
+ */
+ListVolumesResponse Client::listVolumes(const ListVolumesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listVolumesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Resets an API key.
  *
  * @param request ResetApiKeyRequest
@@ -706,6 +905,46 @@ UpdateTeamResponse Client::updateTeam(const string &teamID, const UpdateTeamRequ
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateTeamWithOptions(teamID, request, headers, runtime);
+}
+
+/**
+ * @summary 更新 Volume
+ *
+ * @param request UpdateVolumeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateVolumeResponse
+ */
+UpdateVolumeResponse Client::updateVolumeWithOptions(const string &volumeID, const UpdateVolumeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateVolume"},
+    {"version" , "2026-05-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-05-09/volumes/" , Darabonba::Encode::Encoder::percentEncode(volumeID))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateVolumeResponse>();
+}
+
+/**
+ * @summary 更新 Volume
+ *
+ * @param request UpdateVolumeRequest
+ * @return UpdateVolumeResponse
+ */
+UpdateVolumeResponse Client::updateVolume(const string &volumeID, const UpdateVolumeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateVolumeWithOptions(volumeID, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace FCSandbox20260509

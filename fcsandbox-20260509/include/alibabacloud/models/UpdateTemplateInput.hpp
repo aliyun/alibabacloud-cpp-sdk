@@ -19,11 +19,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(containerConfiguration, containerConfiguration_);
       DARABONBA_PTR_TO_JSON(logConfiguration, logConfiguration_);
       DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
+      DARABONBA_PTR_TO_JSON(teamID, teamID_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateTemplateInput& obj) { 
       DARABONBA_PTR_FROM_JSON(containerConfiguration, containerConfiguration_);
       DARABONBA_PTR_FROM_JSON(logConfiguration, logConfiguration_);
       DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
+      DARABONBA_PTR_FROM_JSON(teamID, teamID_);
     };
     UpdateTemplateInput() = default ;
     UpdateTemplateInput(const UpdateTemplateInput &) = default ;
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->containerConfiguration_ == nullptr
-        && this->logConfiguration_ == nullptr && this->networkConfiguration_ == nullptr; };
+        && this->logConfiguration_ == nullptr && this->networkConfiguration_ == nullptr && this->teamID_ == nullptr; };
     // containerConfiguration Field Functions 
     bool hasContainerConfiguration() const { return this->containerConfiguration_ != nullptr;};
     void deleteContainerConfiguration() { this->containerConfiguration_ = nullptr;};
@@ -65,10 +67,18 @@ namespace Models
     inline UpdateTemplateInput& setNetworkConfiguration(NetworkConfiguration && networkConfiguration) { DARABONBA_PTR_SET_RVALUE(networkConfiguration_, networkConfiguration) };
 
 
+    // teamID Field Functions 
+    bool hasTeamID() const { return this->teamID_ != nullptr;};
+    void deleteTeamID() { this->teamID_ = nullptr;};
+    inline string getTeamID() const { DARABONBA_PTR_GET_DEFAULT(teamID_, "") };
+    inline UpdateTemplateInput& setTeamID(string teamID) { DARABONBA_PTR_SET_VALUE(teamID_, teamID) };
+
+
   protected:
     shared_ptr<ContainerConfiguration> containerConfiguration_ {};
     shared_ptr<LogConfiguration> logConfiguration_ {};
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
+    shared_ptr<string> teamID_ {};
   };
 
   } // namespace Models

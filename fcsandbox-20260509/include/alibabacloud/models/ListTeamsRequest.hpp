@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The page number, starting from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of teams to display per page.
+    // The number of teams displayed per page.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> plan_ {};
     // The resource group ID.

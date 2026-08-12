@@ -57,6 +57,24 @@ namespace FCSandbox20260509
       Models::CreateTeamResponse createTeam(const Models::CreateTeamRequest &request);
 
       /**
+       * @summary Creates a volume.
+       *
+       * @param request CreateVolumeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateVolumeResponse
+       */
+      Models::CreateVolumeResponse createVolumeWithOptions(const Models::CreateVolumeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a volume.
+       *
+       * @param request CreateVolumeRequest
+       * @return CreateVolumeResponse
+       */
+      Models::CreateVolumeResponse createVolume(const Models::CreateVolumeRequest &request);
+
+      /**
        * @summary Deletes an API key.
        *
        * @param request DeleteApiKeyRequest
@@ -109,6 +127,24 @@ namespace FCSandbox20260509
        * @return DeleteTeamResponse
        */
       Models::DeleteTeamResponse deleteTeam(const string &teamID, const Models::DeleteTeamRequest &request);
+
+      /**
+       * @summary 删除 Volume 
+       *
+       * @param request DeleteVolumeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteVolumeResponse
+       */
+      Models::DeleteVolumeResponse deleteVolumeWithOptions(const string &volumeID, const Models::DeleteVolumeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除 Volume 
+       *
+       * @param request DeleteVolumeRequest
+       * @return DeleteVolumeResponse
+       */
+      Models::DeleteVolumeResponse deleteVolume(const string &volumeID, const Models::DeleteVolumeRequest &request);
 
       /**
        * @summary Queries an API key.
@@ -165,6 +201,24 @@ namespace FCSandbox20260509
       Models::GetTeamResponse getTeam(const string &teamID, const Models::GetTeamRequest &request);
 
       /**
+       * @summary 查看 Volume
+       *
+       * @param request GetVolumeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetVolumeResponse
+       */
+      Models::GetVolumeResponse getVolumeWithOptions(const string &volumeID, const Models::GetVolumeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看 Volume
+       *
+       * @param request GetVolumeRequest
+       * @return GetVolumeResponse
+       */
+      Models::GetVolumeResponse getVolume(const string &volumeID, const Models::GetVolumeRequest &request);
+
+      /**
        * @summary Queries API keys by paging.
        *
        * @param request ListApiKeysRequest
@@ -217,6 +271,24 @@ namespace FCSandbox20260509
        * @return ListTeamsResponse
        */
       Models::ListTeamsResponse listTeams(const Models::ListTeamsRequest &request);
+
+      /**
+       * @summary 分页查询 Volumes
+       *
+       * @param request ListVolumesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVolumesResponse
+       */
+      Models::ListVolumesResponse listVolumesWithOptions(const Models::ListVolumesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询 Volumes
+       *
+       * @param request ListVolumesRequest
+       * @return ListVolumesResponse
+       */
+      Models::ListVolumesResponse listVolumes(const Models::ListVolumesRequest &request);
 
       /**
        * @summary Resets an API key.
@@ -289,6 +361,24 @@ namespace FCSandbox20260509
        * @return UpdateTeamResponse
        */
       Models::UpdateTeamResponse updateTeam(const string &teamID, const Models::UpdateTeamRequest &request);
+
+      /**
+       * @summary 更新 Volume
+       *
+       * @param request UpdateVolumeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateVolumeResponse
+       */
+      Models::UpdateVolumeResponse updateVolumeWithOptions(const string &volumeID, const Models::UpdateVolumeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新 Volume
+       *
+       * @param request UpdateVolumeRequest
+       * @return UpdateVolumeResponse
+       */
+      Models::UpdateVolumeResponse updateVolume(const string &volumeID, const Models::UpdateVolumeRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace FCSandbox20260509

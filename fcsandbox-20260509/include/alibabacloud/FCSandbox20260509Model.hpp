@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_FCSANDBOX20260509MODEL_HPP_
 #define ALIBABACLOUD_FCSANDBOX20260509MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AgenticFSVolumeConfig.hpp>
 #include <alibabacloud/models/IPConfig.hpp>
 #include <alibabacloud/models/ApiKey.hpp>
 #include <alibabacloud/models/CertConfig.hpp>
@@ -10,6 +11,8 @@
 #include <alibabacloud/models/TLSConfig.hpp>
 #include <alibabacloud/models/CreateCustomDomainInput.hpp>
 #include <alibabacloud/models/CreateTeamInput.hpp>
+#include <alibabacloud/models/OSSVolumeConfig.hpp>
+#include <alibabacloud/models/CreateVolumeInput.hpp>
 #include <alibabacloud/models/CustomDomainResp.hpp>
 #include <alibabacloud/models/E2BLifecycle.hpp>
 #include <alibabacloud/models/E2BListedSandbox.hpp>
@@ -22,6 +25,7 @@
 #include <alibabacloud/models/NetworkConfiguration.hpp>
 #include <alibabacloud/models/E2BTemplate.hpp>
 #include <alibabacloud/models/E2BTemplateBuild.hpp>
+#include <alibabacloud/models/E2BVolume.hpp>
 #include <alibabacloud/models/E2BVolumeMount.hpp>
 #include <alibabacloud/models/ImportApiKeyInput.hpp>
 #include <alibabacloud/models/Quota.hpp>
@@ -29,12 +33,16 @@
 #include <alibabacloud/models/UpdateCustomDomainInput.hpp>
 #include <alibabacloud/models/UpdateTeamInput.hpp>
 #include <alibabacloud/models/UpdateTemplateInput.hpp>
+#include <alibabacloud/models/UpdateVolumeInput.hpp>
 #include <alibabacloud/models/CreateApiKeyRequest.hpp>
 #include <alibabacloud/models/CreateApiKeyResponseBody.hpp>
 #include <alibabacloud/models/CreateApiKeyResponse.hpp>
 #include <alibabacloud/models/CreateTeamRequest.hpp>
 #include <alibabacloud/models/CreateTeamResponseBody.hpp>
 #include <alibabacloud/models/CreateTeamResponse.hpp>
+#include <alibabacloud/models/CreateVolumeRequest.hpp>
+#include <alibabacloud/models/CreateVolumeResponseBody.hpp>
+#include <alibabacloud/models/CreateVolumeResponse.hpp>
 #include <alibabacloud/models/DeleteApiKeyRequest.hpp>
 #include <alibabacloud/models/DeleteApiKeyResponseBody.hpp>
 #include <alibabacloud/models/DeleteApiKeyResponse.hpp>
@@ -44,6 +52,9 @@
 #include <alibabacloud/models/DeleteTeamRequest.hpp>
 #include <alibabacloud/models/DeleteTeamResponseBody.hpp>
 #include <alibabacloud/models/DeleteTeamResponse.hpp>
+#include <alibabacloud/models/DeleteVolumeRequest.hpp>
+#include <alibabacloud/models/DeleteVolumeResponseBody.hpp>
+#include <alibabacloud/models/DeleteVolumeResponse.hpp>
 #include <alibabacloud/models/DescribeApiKeyRequest.hpp>
 #include <alibabacloud/models/DescribeApiKeyResponseBody.hpp>
 #include <alibabacloud/models/DescribeApiKeyResponse.hpp>
@@ -53,6 +64,9 @@
 #include <alibabacloud/models/GetTeamRequest.hpp>
 #include <alibabacloud/models/GetTeamResponseBody.hpp>
 #include <alibabacloud/models/GetTeamResponse.hpp>
+#include <alibabacloud/models/GetVolumeRequest.hpp>
+#include <alibabacloud/models/GetVolumeResponseBody.hpp>
+#include <alibabacloud/models/GetVolumeResponse.hpp>
 #include <alibabacloud/models/ListApiKeysRequest.hpp>
 #include <alibabacloud/models/ListApiKeysResponseBody.hpp>
 #include <alibabacloud/models/ListApiKeysResponse.hpp>
@@ -62,6 +76,9 @@
 #include <alibabacloud/models/ListTeamsRequest.hpp>
 #include <alibabacloud/models/ListTeamsResponseBody.hpp>
 #include <alibabacloud/models/ListTeamsResponse.hpp>
+#include <alibabacloud/models/ListVolumesRequest.hpp>
+#include <alibabacloud/models/ListVolumesResponseBody.hpp>
+#include <alibabacloud/models/ListVolumesResponse.hpp>
 #include <alibabacloud/models/ResetApiKeyRequest.hpp>
 #include <alibabacloud/models/ResetApiKeyResponseBody.hpp>
 #include <alibabacloud/models/ResetApiKeyResponse.hpp>
@@ -74,5 +91,8 @@
 #include <alibabacloud/models/UpdateTeamRequest.hpp>
 #include <alibabacloud/models/UpdateTeamResponseBody.hpp>
 #include <alibabacloud/models/UpdateTeamResponse.hpp>
+#include <alibabacloud/models/UpdateVolumeRequest.hpp>
+#include <alibabacloud/models/UpdateVolumeResponseBody.hpp>
+#include <alibabacloud/models/UpdateVolumeResponse.hpp>
 
 #endif
