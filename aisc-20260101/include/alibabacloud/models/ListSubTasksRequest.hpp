@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The main task ID returned upon task submission.
     shared_ptr<string> rootTaskId_ {};
+    // The task type.
     shared_ptr<string> taskType_ {};
   };
 

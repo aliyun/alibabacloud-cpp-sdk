@@ -21,7 +21,7 @@ namespace AISC20260101
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 批量发起用户自定义Skill检测
+       * @summary Initiates batch detection for user-defined skills.
        *
        * @param request CreateSkillFileCheckRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace AISC20260101
       Models::CreateSkillFileCheckResponse createSkillFileCheckWithOptions(const Models::CreateSkillFileCheckRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量发起用户自定义Skill检测
+       * @summary Initiates batch detection for user-defined skills.
        *
        * @param request CreateSkillFileCheckRequest
        * @return CreateSkillFileCheckResponse
@@ -38,7 +38,24 @@ namespace AISC20260101
       Models::CreateSkillFileCheckResponse createSkillFileCheck(const Models::CreateSkillFileCheckRequest &request);
 
       /**
-       * @summary 获取子任务信息
+       * @summary Retrieves a list of agent risk events.
+       *
+       * @param request ListAIAgentEventRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAIAgentEventResponse
+       */
+      Models::ListAIAgentEventResponse listAIAgentEventWithOptions(const Models::ListAIAgentEventRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a list of agent risk events.
+       *
+       * @param request ListAIAgentEventRequest
+       * @return ListAIAgentEventResponse
+       */
+      Models::ListAIAgentEventResponse listAIAgentEvent(const Models::ListAIAgentEventRequest &request);
+
+      /**
+       * @summary Get subtask information.
        *
        * @param request ListSubTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +64,7 @@ namespace AISC20260101
       Models::ListSubTasksResponse listSubTasksWithOptions(const Models::ListSubTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取子任务信息
+       * @summary Get subtask information.
        *
        * @param request ListSubTasksRequest
        * @return ListSubTasksResponse

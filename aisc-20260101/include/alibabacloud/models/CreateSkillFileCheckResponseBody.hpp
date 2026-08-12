@@ -122,10 +122,17 @@ namespace Models
 
 
       protected:
+        // The error message returned when the file fails to be uploaded.
         shared_ptr<string> errorMsg_ {};
+        // The SHA256 value of the uploaded file.
         shared_ptr<string> fileHash_ {};
+        // The name of the file.
         shared_ptr<string> fileName_ {};
+        // The unique ID of the uploaded file. You can use this ID to query the task result.
         shared_ptr<string> identifyId_ {};
+        // Indicates whether the operation is successful. Valid values:
+        // - true: Successful.
+        // - false: Failed.
         shared_ptr<bool> success_ {};
       };
 
@@ -162,9 +169,13 @@ namespace Models
 
 
     protected:
+      // The number of files that failed to be uploaded.
       shared_ptr<int32_t> failCount_ {};
+      // The ID of the root task returned after the task is submitted.
       shared_ptr<string> rootTaskId_ {};
+      // The number of files that are uploaded.
       shared_ptr<int32_t> successCount_ {};
+      // The upload results.
       shared_ptr<vector<Data::UploadResults>> uploadResults_ {};
     };
 
@@ -187,7 +198,9 @@ namespace Models
 
 
   protected:
+    // The task creation result.
     shared_ptr<CreateSkillFileCheckResponseBody::Data> data_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

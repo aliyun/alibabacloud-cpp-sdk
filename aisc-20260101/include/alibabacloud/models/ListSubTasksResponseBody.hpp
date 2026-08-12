@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // The number of data entries displayed on the current page.
       shared_ptr<string> count_ {};
+      // The current page number.
       shared_ptr<int32_t> currentPage_ {};
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of records in the query result.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -256,8 +260,11 @@ namespace Models
 
 
               protected:
+                // The extended information field. This is a reserved parameter.
                 shared_ptr<string> ext_ {};
+                // The risk score. Maximum value: 100.
                 shared_ptr<int32_t> score_ {};
+                // The virus type.
                 shared_ptr<string> type_ {};
               };
 
@@ -320,7 +327,9 @@ namespace Models
 
 
                 protected:
+                  // The description.
                   shared_ptr<string> desc_ {};
+                  // The list of sensitive information.
                   shared_ptr<vector<string>> result_ {};
                 };
 
@@ -335,6 +344,7 @@ namespace Models
 
 
               protected:
+                // The list of risk details.
                 shared_ptr<vector<Sensitive::Detail>> detail_ {};
               };
 
@@ -440,9 +450,18 @@ namespace Models
 
 
                   protected:
+                    // The confidence score. Valid values: 0 to 100.
                     shared_ptr<float> confidence_ {};
+                    // The result description.
                     shared_ptr<string> description_ {};
+                    // The label information.
                     shared_ptr<string> label_ {};
+                    // The risk level. Valid values:
+                    // 
+                    // - **high**: High risk.
+                    // - **medium**: Medium risk.
+                    // - **low**: Low risk.
+                    // - **none**: No risk.
                     shared_ptr<string> level_ {};
                   };
 
@@ -479,9 +498,18 @@ namespace Models
 
 
                 protected:
+                  // The risk level. Valid values:
+                  // 
+                  // - **high**: High risk.
+                  // - **medium**: Medium risk.
+                  // - **low**: Low risk.
+                  // - **none**: No risk.
                   shared_ptr<string> level_ {};
+                  // The list of result details.
                   shared_ptr<vector<Detail::Result>> result_ {};
+                  // The processing suggestion.
                   shared_ptr<string> suggestion_ {};
+                  // The risk type.
                   shared_ptr<string> type_ {};
                 };
 
@@ -504,7 +532,9 @@ namespace Models
 
 
               protected:
+                // The list of risk details.
                 shared_ptr<vector<Guardrail::Detail>> detail_ {};
+                // The processing suggestion.
                 shared_ptr<string> suggestion_ {};
               };
 
@@ -583,9 +613,13 @@ namespace Models
 
 
                 protected:
+                  // The detected content.
                   shared_ptr<string> content_ {};
+                  // The description.
                   shared_ptr<string> description_ {};
+                  // The check item name.
                   shared_ptr<string> itemName_ {};
+                  // The line number of the detected content.
                   shared_ptr<string> line_ {};
                 };
 
@@ -600,6 +634,7 @@ namespace Models
 
 
               protected:
+                // The list of risk details.
                 shared_ptr<vector<Config::Detail>> detail_ {};
               };
 
@@ -642,9 +677,13 @@ namespace Models
 
 
             protected:
+              // The configuration detection risks.
               shared_ptr<Ext::Config> config_ {};
+              // The safety guardrail detection risks.
               shared_ptr<Ext::Guardrail> guardrail_ {};
+              // The sensitive information risks.
               shared_ptr<Ext::Sensitive> sensitive_ {};
+              // The virus detection risks.
               shared_ptr<vector<Ext::Virus>> virus_ {};
             };
 
@@ -674,8 +713,11 @@ namespace Models
 
 
           protected:
+            // The file detection risk list.
             shared_ptr<RiskInfo::Ext> ext_ {};
+            // The file path.
             shared_ptr<string> path_ {};
+            // The result type.
             shared_ptr<string> resultType_ {};
           };
 
@@ -690,6 +732,7 @@ namespace Models
 
 
         protected:
+          // The file detection risk information.
           shared_ptr<vector<SkillCheckResult::RiskInfo>> riskInfo_ {};
         };
 
@@ -704,6 +747,7 @@ namespace Models
 
 
       protected:
+        // The skill check task result.
         shared_ptr<TaskResultMessage::SkillCheckResult> skillCheckResult_ {};
       };
 
@@ -747,10 +791,15 @@ namespace Models
 
 
     protected:
+      // The hash value of the uploaded file.
       shared_ptr<string> fileHash_ {};
+      // The task ID.
       shared_ptr<int64_t> id_ {};
+      // The detection target.
       shared_ptr<string> target_ {};
+      // The task result information.
       shared_ptr<Data::TaskResultMessage> taskResultMessage_ {};
+      // The task status.
       shared_ptr<string> taskStatus_ {};
     };
 
@@ -782,8 +831,11 @@ namespace Models
 
 
   protected:
+    // The list of task results.
     shared_ptr<vector<ListSubTasksResponseBody::Data>> data_ {};
+    // The pagination information.
     shared_ptr<ListSubTasksResponseBody::PageInfo> pageInfo_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 
