@@ -60,10 +60,11 @@ namespace Models
 
 
   protected:
+    // The operation type.
     shared_ptr<string> op_ {};
-    // create/update 必填
+    // Required for create and update operations.
     shared_ptr<SubscriptionForModify> payload_ {};
-    // update/remove 必填
+    // Required for update and remove operations.
     shared_ptr<string> uuid_ {};
   };
 

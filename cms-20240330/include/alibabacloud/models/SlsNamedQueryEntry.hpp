@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The end offset of the time range. This parameter is mutually exclusive with window.
     shared_ptr<int64_t> end_ {};
+    // The SPL query expression.
     shared_ptr<string> expr_ {};
+    // The start offset of the time range. This parameter is mutually exclusive with window.
     shared_ptr<int64_t> start_ {};
+    // The time unit. Valid values: day, hour, minute, and second.
     shared_ptr<string> timeUnit_ {};
+    // The snap window size. This parameter is mutually exclusive with start and end.
     shared_ptr<int64_t> window_ {};
   };
 

@@ -323,32 +323,53 @@ namespace Models
 
   protected:
     shared_ptr<ActionIntegrationConfig> actionIntegrationConfig_ {};
+    // The annotations.
     shared_ptr<map<string, string>> annotations_ {};
     shared_ptr<ArmsIntegrationConfig> armsIntegrationConfig_ {};
+    // The business source. This field is read-only. Example values: managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, and sls.
     shared_ptr<string> bizSource_ {};
     shared_ptr<ConditionConfigUnified> conditionConfig_ {};
+    // The content template.
     shared_ptr<string> contentTemplate_ {};
+    // The creation time in ISO 8601 format. This field is read-only.
     shared_ptr<string> createdAt_ {};
     shared_ptr<DatasourceConfigUnified> datasourceConfig_ {};
+    // The data source type. This field is read-only and derived.
     shared_ptr<string> datasourceType_ {};
+    // The display name.
     shared_ptr<string> displayName_ {};
+    // Specifies whether the alert rule is enabled.
     shared_ptr<bool> enabled_ {};
+    // The labels.
     shared_ptr<map<string, string>> labels_ {};
     shared_ptr<NotifyConfigUnified> notifyConfig_ {};
+    // The notification strategy ID. This field is read-only and derived from the first item in the notification strategy list.
     shared_ptr<string> notifyStrategyId_ {};
+    // The observable resource configuration.
     shared_ptr<ObserveResourceConfig> observeResourceConfig_ {};
+    // **[Deprecated]** Indicates whether the rule applies to all resources of this type. This field is read-only and derived. Use observeResourceConfig.relationType set to ALL for equivalent semantics in new integrations.
     shared_ptr<bool> observeResourceGlobalScope_ {};
+    // The list of observable resource IDs. This field is read-only and derived.
     shared_ptr<vector<string>> observeResourceList_ {};
+    // **[Deprecated]** The observable resource type. This field is read-only and derived. Use observeResourceConfig.entityType instead for new integrations.
     shared_ptr<string> observeResourceType_ {};
+    // The partition key. This field is read-only and maintained by the system for rule routing and sharding.
     shared_ptr<string> partitionKey_ {};
     shared_ptr<QueryConfigUnified> queryConfig_ {};
+    // The RCA (root cause analysis) configuration.
     shared_ptr<AlertRuleRcaConfig> rcaConfig_ {};
+    // The region ID. This field is aligned with V1 AlertRule.regionId. Priority: request body regionId > gateway callerRegionId.
     shared_ptr<string> regionId_ {};
     shared_ptr<ScheduleConfigUnified> scheduleConfig_ {};
+    // The severity levels covered by this rule, separated by commas. This field is read-only and derived. The format is the same as the filter.severityLevels query parameter.
     shared_ptr<string> severityLevels_ {};
+    // The alert status. This field is read-only.
     shared_ptr<string> status_ {};
+    // The update time in ISO 8601 format. This field is read-only.
     shared_ptr<string> updatedAt_ {};
+    // The rule UUID. This field is system-generated and read-only.
     shared_ptr<string> uuid_ {};
+    // The workspace.
     shared_ptr<string> workspace_ {};
   };
 

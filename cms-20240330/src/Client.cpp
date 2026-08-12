@@ -21,48 +21,48 @@ namespace Cms20240330
 AlibabaCloud::Cms20240330::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"us-west-1" , "metrics.us-west-1.aliyuncs.com"},
-    {"us-southeast-1" , "metrics.us-southeast-1.aliyuncs.com"},
-    {"us-east-1" , "metrics.us-east-1.aliyuncs.com"},
-    {"na-south-1" , "metrics.na-south-1.aliyuncs.com"},
-    {"me-east-1" , "metrics.me-east-1.aliyuncs.com"},
-    {"me-central-1" , "metrics.me-central-1.aliyuncs.com"},
-    {"eu-west-2" , "metrics.eu-west-2.aliyuncs.com"},
-    {"eu-west-1" , "metrics.eu-west-1.aliyuncs.com"},
-    {"eu-central-1" , "metrics.eu-central-1.aliyuncs.com"},
-    {"cn-zhongwei" , "metrics.cn-zhongwei.aliyuncs.com"},
+    {"cn-beijing" , "metrics.cn-beijing.aliyuncs.com"},
     {"cn-zhengzhou-jva" , "metrics.cn-zhengzhou-jva.aliyuncs.com"},
-    {"cn-zhangjiakou" , "metrics.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu-gic-1" , "metrics.cn-wulanchabu-gic-1.aliyuncs.com"},
-    {"cn-wulanchabu" , "metrics.cn-wulanchabu.aliyuncs.com"},
-    {"cn-wuhan-lr" , "metrics.cn-wuhan-lr.aliyuncs.com"},
-    {"cn-shenzhen-finance-1" , "metrics.cn-shenzhen-finance-1.aliyuncs.com"},
-    {"cn-shenzhen" , "metrics.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "metrics.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-shanghai" , "metrics.cn-shanghai.aliyuncs.com"},
-    {"cn-qingdao" , "metrics.cn-qingdao.aliyuncs.com"},
-    {"cn-north-2-gov-1" , "metrics.cn-north-2-gov-1.aliyuncs.com"},
-    {"cn-nanjing" , "metrics.cn-nanjing.aliyuncs.com"},
-    {"cn-huhehaote" , "metrics.cn-huhehaote.aliyuncs.com"},
-    {"cn-hongkong" , "metrics.cn-hongkong.aliyuncs.com"},
-    {"cn-heyuan-acdr-1" , "metrics.cn-heyuan-acdr-1.aliyuncs.com"},
     {"cn-heyuan" , "metrics.cn-heyuan.aliyuncs.com"},
-    {"cn-hangzhou-finance" , "metrics.cn-hangzhou-finance.aliyuncs.com"},
-    {"cn-hangzhou" , "metrics.cn-hangzhou.aliyuncs.com"},
-    {"cn-guangzhou" , "metrics.cn-guangzhou.aliyuncs.com"},
+    {"cn-zhangjiakou" , "metrics.cn-zhangjiakou.aliyuncs.com"},
+    {"ap-northeast-2" , "metrics.ap-northeast-2.aliyuncs.com"},
+    {"ap-northeast-1" , "metrics.ap-northeast-1.aliyuncs.com"},
+    {"ap-southeast-1" , "metrics.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-3" , "metrics.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-5" , "metrics.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-6" , "metrics.ap-southeast-6.aliyuncs.com"},
+    {"ap-southeast-7" , "metrics.ap-southeast-7.aliyuncs.com"},
+    {"ap-southeast-8" , "metrics.ap-southeast-8.aliyuncs.com"},
+    {"cn-zhongwei" , "metrics.cn-zhongwei.aliyuncs.com"},
+    {"cn-wulanchabu" , "metrics.cn-wulanchabu.aliyuncs.com"},
+    {"cn-qingdao" , "metrics.cn-qingdao.aliyuncs.com"},
+    {"cn-wuhan-lr" , "metrics.cn-wuhan-lr.aliyuncs.com"},
+    {"cn-shanghai" , "metrics.cn-shanghai.aliyuncs.com"},
+    {"cn-hongkong" , "metrics.cn-hongkong.aliyuncs.com"},
+    {"cn-shenzhen" , "metrics.cn-shenzhen.aliyuncs.com"},
+    {"cn-nanjing" , "metrics.cn-nanjing.aliyuncs.com"},
     {"cn-fuzhou" , "metrics.cn-fuzhou.aliyuncs.com"},
     {"cn-chengdu" , "metrics.cn-chengdu.aliyuncs.com"},
-    {"cn-beijing-finance-1" , "metrics.cn-beijing-finance-1.aliyuncs.com"},
-    {"cn-beijing" , "metrics.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-8" , "metrics.ap-southeast-8.aliyuncs.com"},
-    {"ap-southeast-7" , "metrics.ap-southeast-7.aliyuncs.com"},
-    {"ap-southeast-6" , "metrics.ap-southeast-6.aliyuncs.com"},
-    {"ap-southeast-5" , "metrics.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-3" , "metrics.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-1" , "metrics.ap-southeast-1.aliyuncs.com"},
+    {"cn-guangzhou" , "metrics.cn-guangzhou.aliyuncs.com"},
+    {"cn-huhehaote" , "metrics.cn-huhehaote.aliyuncs.com"},
+    {"cn-hangzhou" , "metrics.cn-hangzhou.aliyuncs.com"},
+    {"us-southeast-1" , "metrics.us-southeast-1.aliyuncs.com"},
+    {"eu-west-1" , "metrics.eu-west-1.aliyuncs.com"},
+    {"eu-west-2" , "metrics.eu-west-2.aliyuncs.com"},
+    {"eu-central-1" , "metrics.eu-central-1.aliyuncs.com"},
+    {"us-east-1" , "metrics.us-east-1.aliyuncs.com"},
+    {"us-west-1" , "metrics.us-west-1.aliyuncs.com"},
+    {"na-south-1" , "metrics.na-south-1.aliyuncs.com"},
+    {"me-east-1" , "metrics.me-east-1.aliyuncs.com"},
     {"ap-south-1" , "metrics.ap-south-1.aliyuncs.com"},
-    {"ap-northeast-2" , "metrics.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "metrics.ap-northeast-1.aliyuncs.com"}
+    {"me-central-1" , "metrics.me-central-1.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "metrics.cn-hangzhou-finance.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "metrics.cn-shenzhen-finance-1.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "metrics.cn-beijing-finance-1.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "metrics.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-wulanchabu-gic-1" , "metrics.cn-wulanchabu-gic-1.aliyuncs.com"},
+    {"cn-heyuan-acdr-1" , "metrics.cn-heyuan-acdr-1.aliyuncs.com"},
+    {"cn-north-2-gov-1" , "metrics.cn-north-2-gov-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cms", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -745,6 +745,79 @@ CreateContextStoreAPIKeyResponse Client::createContextStoreAPIKey(const string &
 }
 
 /**
+ * @summary Creates a DataPipeline.
+ *
+ * @description Creates a data pipeline in a specified workspace.
+ *
+ * @param request CreateDataPipelineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDataPipelineResponse
+ */
+CreateDataPipelineResponse Client::createDataPipelineWithOptions(const string &workspace, const CreateDataPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasKind()) {
+    body["kind"] = request.getKind();
+  }
+
+  if (!!request.hasOutputs()) {
+    body["outputs"] = request.getOutputs();
+  }
+
+  if (!!request.hasPipelineName()) {
+    body["pipelineName"] = request.getPipelineName();
+  }
+
+  if (!!request.hasProcessors()) {
+    body["processors"] = request.getProcessors();
+  }
+
+  if (!!request.hasSinks()) {
+    body["sinks"] = request.getSinks();
+  }
+
+  if (!!request.hasSource()) {
+    body["source"] = request.getSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateDataPipeline"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/datapipeline")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDataPipelineResponse>();
+}
+
+/**
+ * @summary Creates a DataPipeline.
+ *
+ * @description Creates a data pipeline in a specified workspace.
+ *
+ * @param request CreateDataPipelineRequest
+ * @return CreateDataPipelineResponse
+ */
+CreateDataPipelineResponse Client::createDataPipeline(const string &workspace, const CreateDataPipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createDataPipelineWithOptions(workspace, request, headers, runtime);
+}
+
+/**
  * @summary Creates a dataset.
  *
  * @param request CreateDatasetRequest
@@ -1398,7 +1471,7 @@ CreatePrometheusVirtualInstanceResponse Client::createPrometheusVirtualInstance(
 }
 
 /**
- * @summary Creates a service for application observability.
+ * @summary Creates an application observability service.
  *
  * @param request CreateServiceRequest
  * @param headers map
@@ -1463,7 +1536,7 @@ CreateServiceResponse Client::createServiceWithOptions(const string &workspace, 
 }
 
 /**
- * @summary Creates a service for application observability.
+ * @summary Creates an application observability service.
  *
  * @param request CreateServiceRequest
  * @return CreateServiceResponse
@@ -1632,7 +1705,7 @@ CreateServiceTaskResponse Client::createServiceTask(const string &workspace, con
 }
 
 /**
- * @summary To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
+ * @summary Generates a ticket for passwordless access if you need to share console pages with others without requiring logon or embed them in third-party systems. After generating the ticket by calling CreateTicket, you can construct a passwordless access link.
  *
  * @param request CreateTicketRequest
  * @param headers map
@@ -1669,7 +1742,7 @@ CreateTicketResponse Client::createTicketWithOptions(const CreateTicketRequest &
 }
 
 /**
- * @summary To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
+ * @summary Generates a ticket for passwordless access if you need to share console pages with others without requiring logon or embed them in third-party systems. After generating the ticket by calling CreateTicket, you can construct a passwordless access link.
  *
  * @param request CreateTicketRequest
  * @return CreateTicketResponse
@@ -2111,6 +2184,49 @@ DeleteContextsResponse Client::deleteContexts(const string &workspace, const str
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteContextsWithOptions(workspace, contextStoreName, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes a DataPipeline.
+ *
+ * @description Deletes a data pipeline from a specified workspace.
+ *
+ * @param request DeleteDataPipelineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDataPipelineResponse
+ */
+DeleteDataPipelineResponse Client::deleteDataPipelineWithOptions(const string &workspace, const string &pipelineName, const DeleteDataPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDataPipeline"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/datapipeline/" , Darabonba::Encode::Encoder::percentEncode(pipelineName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDataPipelineResponse>();
+}
+
+/**
+ * @summary Deletes a DataPipeline.
+ *
+ * @description Deletes a data pipeline from a specified workspace.
+ *
+ * @param request DeleteDataPipelineRequest
+ * @return DeleteDataPipelineResponse
+ */
+DeleteDataPipelineResponse Client::deleteDataPipeline(const string &workspace, const string &pipelineName, const DeleteDataPipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteDataPipelineWithOptions(workspace, pipelineName, request, headers, runtime);
 }
 
 /**
@@ -2628,7 +2744,7 @@ DeletePrometheusVirtualInstanceResponse Client::deletePrometheusVirtualInstance(
 }
 
 /**
- * @summary Deletes an Application Monitoring service.
+ * @summary Deletes an application observability service.
  *
  * @param request DeleteServiceRequest
  * @param headers map
@@ -2655,7 +2771,7 @@ DeleteServiceResponse Client::deleteServiceWithOptions(const string &workspace, 
 }
 
 /**
- * @summary Deletes an Application Monitoring service.
+ * @summary Deletes an application observability service.
  *
  * @param request DeleteServiceRequest
  * @return DeleteServiceResponse
@@ -3748,6 +3864,49 @@ GetContextStoreResponse Client::getContextStore(const string &workspace, const s
 }
 
 /**
+ * @summary Queries a DataPipeline.
+ *
+ * @description Queries the configuration and running status of a data pipeline in a specified workspace.
+ *
+ * @param request GetDataPipelineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDataPipelineResponse
+ */
+GetDataPipelineResponse Client::getDataPipelineWithOptions(const string &workspace, const string &pipelineName, const GetDataPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDataPipeline"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/datapipeline/" , Darabonba::Encode::Encoder::percentEncode(pipelineName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDataPipelineResponse>();
+}
+
+/**
+ * @summary Queries a DataPipeline.
+ *
+ * @description Queries the configuration and running status of a data pipeline in a specified workspace.
+ *
+ * @param request GetDataPipelineRequest
+ * @return GetDataPipelineResponse
+ */
+GetDataPipelineResponse Client::getDataPipeline(const string &workspace, const string &pipelineName, const GetDataPipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getDataPipelineWithOptions(workspace, pipelineName, request, headers, runtime);
+}
+
+/**
  * @summary Retrieves the details of a specified dataset.
  *
  * @param request GetDatasetRequest
@@ -4460,7 +4619,7 @@ GetPrometheusViewResponse Client::getPrometheusView(const string &prometheusView
 }
 
 /**
- * @summary Retrieves the details of an Application Monitoring service.
+ * @summary Queries an application observability service.
  *
  * @param request GetServiceRequest
  * @param headers map
@@ -4487,7 +4646,7 @@ GetServiceResponse Client::getServiceWithOptions(const string &workspace, const 
 }
 
 /**
- * @summary Retrieves the details of an Application Monitoring service.
+ * @summary Queries an application observability service.
  *
  * @param request GetServiceRequest
  * @return GetServiceResponse
@@ -5530,6 +5689,59 @@ ListContextStoresResponse Client::listContextStores(const string &workspace, con
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listContextStoresWithOptions(workspace, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the list of DataPipelines.
+ *
+ * @description Uses a paged query to retrieve data stream pipelines in a specified workspace. Paging is supported.
+ *
+ * @param request ListDataPipelinesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataPipelinesResponse
+ */
+ListDataPipelinesResponse Client::listDataPipelinesWithOptions(const string &workspace, const ListDataPipelinesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataPipelines"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/datapipeline")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataPipelinesResponse>();
+}
+
+/**
+ * @summary Queries the list of DataPipelines.
+ *
+ * @description Uses a paged query to retrieve data stream pipelines in a specified workspace. Paging is supported.
+ *
+ * @param request ListDataPipelinesRequest
+ * @return ListDataPipelinesResponse
+ */
+ListDataPipelinesResponse Client::listDataPipelines(const string &workspace, const ListDataPipelinesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listDataPipelinesWithOptions(workspace, request, headers, runtime);
 }
 
 /**
@@ -6732,7 +6944,7 @@ ListServiceTaskResponse Client::listServiceTask(const string &workspace, const s
 }
 
 /**
- * @summary Queries a list of application observability services.
+ * @summary Queries application observability services in batches.
  *
  * @param tmpReq ListServicesRequest
  * @param headers map
@@ -6791,7 +7003,7 @@ ListServicesResponse Client::listServicesWithOptions(const string &workspace, co
 }
 
 /**
- * @summary Queries a list of application observability services.
+ * @summary Queries application observability services in batches.
  *
  * @param request ListServicesRequest
  * @return ListServicesResponse
@@ -7046,6 +7258,87 @@ OpenCmsServiceResponse Client::openCmsService(const OpenCmsServiceRequest &reque
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return openCmsServiceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Previews a data pipeline.
+ *
+ * @description Compiles a candidate configuration and queries read-only samples grouped by dataset within a specified time window.
+ *
+ * @param request PreviewDataPipelineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PreviewDataPipelineResponse
+ */
+PreviewDataPipelineResponse Client::previewDataPipelineWithOptions(const string &workspace, const PreviewDataPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasFromTime()) {
+    body["fromTime"] = request.getFromTime();
+  }
+
+  if (!!request.hasKind()) {
+    body["kind"] = request.getKind();
+  }
+
+  if (!!request.hasOutputs()) {
+    body["outputs"] = request.getOutputs();
+  }
+
+  if (!!request.hasPipelineName()) {
+    body["pipelineName"] = request.getPipelineName();
+  }
+
+  if (!!request.hasProcessors()) {
+    body["processors"] = request.getProcessors();
+  }
+
+  if (!!request.hasSinks()) {
+    body["sinks"] = request.getSinks();
+  }
+
+  if (!!request.hasSource()) {
+    body["source"] = request.getSource();
+  }
+
+  if (!!request.hasToTime()) {
+    body["toTime"] = request.getToTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "PreviewDataPipeline"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/datapipeline/preview")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PreviewDataPipelineResponse>();
+}
+
+/**
+ * @summary Previews a data pipeline.
+ *
+ * @description Compiles a candidate configuration and queries read-only samples grouped by dataset within a specified time window.
+ *
+ * @param request PreviewDataPipelineRequest
+ * @return PreviewDataPipelineResponse
+ */
+PreviewDataPipelineResponse Client::previewDataPipeline(const string &workspace, const PreviewDataPipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return previewDataPipelineWithOptions(workspace, request, headers, runtime);
 }
 
 /**
@@ -7909,6 +8202,79 @@ UpdateContextStoreResponse Client::updateContextStore(const string &workspace, c
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateContextStoreWithOptions(workspace, contextStoreName, request, headers, runtime);
+}
+
+/**
+ * @summary Updates a DataPipeline.
+ *
+ * @description Modifies a specified data pipeline by using a complete candidate configuration.
+ *
+ * @param request UpdateDataPipelineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDataPipelineResponse
+ */
+UpdateDataPipelineResponse Client::updateDataPipelineWithOptions(const string &workspace, const string &pipelineName, const UpdateDataPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasExpectedVersion()) {
+    body["expectedVersion"] = request.getExpectedVersion();
+  }
+
+  if (!!request.hasKind()) {
+    body["kind"] = request.getKind();
+  }
+
+  if (!!request.hasOutputs()) {
+    body["outputs"] = request.getOutputs();
+  }
+
+  if (!!request.hasProcessors()) {
+    body["processors"] = request.getProcessors();
+  }
+
+  if (!!request.hasSinks()) {
+    body["sinks"] = request.getSinks();
+  }
+
+  if (!!request.hasSource()) {
+    body["source"] = request.getSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateDataPipeline"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/datapipeline/" , Darabonba::Encode::Encoder::percentEncode(pipelineName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDataPipelineResponse>();
+}
+
+/**
+ * @summary Updates a DataPipeline.
+ *
+ * @description Modifies a specified data pipeline by using a complete candidate configuration.
+ *
+ * @param request UpdateDataPipelineRequest
+ * @return UpdateDataPipelineResponse
+ */
+UpdateDataPipelineResponse Client::updateDataPipeline(const string &workspace, const string &pipelineName, const UpdateDataPipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateDataPipelineWithOptions(workspace, pipelineName, request, headers, runtime);
 }
 
 /**

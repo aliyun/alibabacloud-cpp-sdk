@@ -223,6 +223,9 @@
 #include <alibabacloud/models/CreateContextStoreAPIKeyRequest.hpp>
 #include <alibabacloud/models/CreateContextStoreAPIKeyResponseBody.hpp>
 #include <alibabacloud/models/CreateContextStoreAPIKeyResponse.hpp>
+#include <alibabacloud/models/CreateDataPipelineRequest.hpp>
+#include <alibabacloud/models/CreateDataPipelineResponseBody.hpp>
+#include <alibabacloud/models/CreateDataPipelineResponse.hpp>
 #include <alibabacloud/models/CreateDatasetRequest.hpp>
 #include <alibabacloud/models/CreateDatasetResponseBody.hpp>
 #include <alibabacloud/models/CreateDatasetResponse.hpp>
@@ -298,6 +301,9 @@
 #include <alibabacloud/models/DeleteContextsRequest.hpp>
 #include <alibabacloud/models/DeleteContextsResponseBody.hpp>
 #include <alibabacloud/models/DeleteContextsResponse.hpp>
+#include <alibabacloud/models/DeleteDataPipelineRequest.hpp>
+#include <alibabacloud/models/DeleteDataPipelineResponseBody.hpp>
+#include <alibabacloud/models/DeleteDataPipelineResponse.hpp>
 #include <alibabacloud/models/DeleteDatasetRequest.hpp>
 #include <alibabacloud/models/DeleteDatasetResponseBody.hpp>
 #include <alibabacloud/models/DeleteDatasetResponse.hpp>
@@ -402,6 +408,9 @@
 #include <alibabacloud/models/GetContextStoreRequest.hpp>
 #include <alibabacloud/models/GetContextStoreResponseBody.hpp>
 #include <alibabacloud/models/GetContextStoreResponse.hpp>
+#include <alibabacloud/models/GetDataPipelineRequest.hpp>
+#include <alibabacloud/models/GetDataPipelineResponseBody.hpp>
+#include <alibabacloud/models/GetDataPipelineResponse.hpp>
 #include <alibabacloud/models/GetDatasetRequest.hpp>
 #include <alibabacloud/models/GetDatasetResponseBody.hpp>
 #include <alibabacloud/models/GetDatasetResponse.hpp>
@@ -511,6 +520,9 @@
 #include <alibabacloud/models/ListContextStoresRequest.hpp>
 #include <alibabacloud/models/ListContextStoresResponseBody.hpp>
 #include <alibabacloud/models/ListContextStoresResponse.hpp>
+#include <alibabacloud/models/ListDataPipelinesRequest.hpp>
+#include <alibabacloud/models/ListDataPipelinesResponseBody.hpp>
+#include <alibabacloud/models/ListDataPipelinesResponse.hpp>
 #include <alibabacloud/models/ListDatasetsRequest.hpp>
 #include <alibabacloud/models/ListDatasetsResponseBody.hpp>
 #include <alibabacloud/models/ListDatasetsResponse.hpp>
@@ -590,6 +602,9 @@
 #include <alibabacloud/models/OpenCmsServiceRequest.hpp>
 #include <alibabacloud/models/OpenCmsServiceResponseBody.hpp>
 #include <alibabacloud/models/OpenCmsServiceResponse.hpp>
+#include <alibabacloud/models/PreviewDataPipelineRequest.hpp>
+#include <alibabacloud/models/PreviewDataPipelineResponseBody.hpp>
+#include <alibabacloud/models/PreviewDataPipelineResponse.hpp>
 #include <alibabacloud/models/PutWorkspaceRequest.hpp>
 #include <alibabacloud/models/PutWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/PutWorkspaceResponse.hpp>
@@ -629,6 +644,9 @@
 #include <alibabacloud/models/UpdateContextStoreRequest.hpp>
 #include <alibabacloud/models/UpdateContextStoreResponseBody.hpp>
 #include <alibabacloud/models/UpdateContextStoreResponse.hpp>
+#include <alibabacloud/models/UpdateDataPipelineRequest.hpp>
+#include <alibabacloud/models/UpdateDataPipelineResponseBody.hpp>
+#include <alibabacloud/models/UpdateDataPipelineResponse.hpp>
 #include <alibabacloud/models/UpdateDatasetRequest.hpp>
 #include <alibabacloud/models/UpdateDatasetResponseBody.hpp>
 #include <alibabacloud/models/UpdateDatasetResponse.hpp>

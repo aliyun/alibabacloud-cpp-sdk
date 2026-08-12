@@ -131,9 +131,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of records to return for this request.
+    // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results. If this parameter is empty, it means you have reached the last page.
+    // The token for the next query. An empty value indicates the last page.
     shared_ptr<string> nextToken_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
@@ -141,7 +141,7 @@ namespace Models
     shared_ptr<string> serviceName_ {};
     // The service type.
     shared_ptr<string> serviceType_ {};
-    // An array of tags.
+    // The tags.
     shared_ptr<vector<ListServicesRequest::Tags>> tags_ {};
   };
 

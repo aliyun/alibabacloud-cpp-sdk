@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The comparison operator.
     shared_ptr<string> comparisonOperator_ {};
+    // The precondition.
     shared_ptr<string> preCondition_ {};
+    // The severity level.
     shared_ptr<string> severity_ {};
+    // The statistics method.
     shared_ptr<string> statistics_ {};
+    // The threshold.
     shared_ptr<string> threshold_ {};
+    // The number of consecutive times the condition is triggered.
     shared_ptr<int32_t> times_ {};
   };
 

@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Whether ARMS integration is enabled.
+    // Specifies whether ARMS integration is enabled.
     shared_ptr<bool> enabled_ {};
   };
 

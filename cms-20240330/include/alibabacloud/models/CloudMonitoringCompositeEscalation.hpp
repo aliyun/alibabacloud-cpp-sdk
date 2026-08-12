@@ -70,13 +70,13 @@ namespace Models
 
 
   protected:
-    // A single entry in the escalation policy. See the `CloudMonitoringCompositeEscalationEntry` object for details.
+    // The list of multi-condition configurations.
     shared_ptr<vector<CloudMonitoringCompositeEscalationEntry>> escalations_ {};
-    // Specifies the logical relationship for evaluating the conditions of the composite alert rule. Valid values: `and` and `or`.
+    // The logical relationship between conditions (AND/OR).
     shared_ptr<string> relation_ {};
-    // Specifies the severity level of the alert. For example: `Critical`, `Warning`, and `Info`.
+    // The severity level.
     shared_ptr<string> severity_ {};
-    // Specifies the number of times the alert conditions must be met to trigger this escalation policy.
+    // The number of consecutive times the conditions are met before the alert is triggered.
     shared_ptr<int32_t> times_ {};
   };
 

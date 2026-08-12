@@ -207,6 +207,28 @@ namespace Cms20240330
       Models::CreateContextStoreAPIKeyResponse createContextStoreAPIKey(const string &workspace, const string &contextStoreName, const Models::CreateContextStoreAPIKeyRequest &request);
 
       /**
+       * @summary Creates a DataPipeline.
+       *
+       * @description Creates a data pipeline in a specified workspace.
+       *
+       * @param request CreateDataPipelineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDataPipelineResponse
+       */
+      Models::CreateDataPipelineResponse createDataPipelineWithOptions(const string &workspace, const Models::CreateDataPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a DataPipeline.
+       *
+       * @description Creates a data pipeline in a specified workspace.
+       *
+       * @param request CreateDataPipelineRequest
+       * @return CreateDataPipelineResponse
+       */
+      Models::CreateDataPipelineResponse createDataPipeline(const string &workspace, const Models::CreateDataPipelineRequest &request);
+
+      /**
        * @summary Creates a dataset.
        *
        * @param request CreateDatasetRequest
@@ -403,7 +425,7 @@ namespace Cms20240330
       Models::CreatePrometheusVirtualInstanceResponse createPrometheusVirtualInstance(const Models::CreatePrometheusVirtualInstanceRequest &request);
 
       /**
-       * @summary Creates a service for application observability.
+       * @summary Creates an application observability service.
        *
        * @param request CreateServiceRequest
        * @param headers map
@@ -413,7 +435,7 @@ namespace Cms20240330
       Models::CreateServiceResponse createServiceWithOptions(const string &workspace, const Models::CreateServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a service for application observability.
+       * @summary Creates an application observability service.
        *
        * @param request CreateServiceRequest
        * @return CreateServiceResponse
@@ -491,7 +513,7 @@ namespace Cms20240330
       Models::CreateServiceTaskResponse createServiceTask(const string &workspace, const string &serviceId, const Models::CreateServiceTaskRequest &request);
 
       /**
-       * @summary To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
+       * @summary Generates a ticket for passwordless access if you need to share console pages with others without requiring logon or embed them in third-party systems. After generating the ticket by calling CreateTicket, you can construct a passwordless access link.
        *
        * @param request CreateTicketRequest
        * @param headers map
@@ -501,7 +523,7 @@ namespace Cms20240330
       Models::CreateTicketResponse createTicketWithOptions(const Models::CreateTicketRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
+       * @summary Generates a ticket for passwordless access if you need to share console pages with others without requiring logon or embed them in third-party systems. After generating the ticket by calling CreateTicket, you can construct a passwordless access link.
        *
        * @param request CreateTicketRequest
        * @return CreateTicketResponse
@@ -689,6 +711,28 @@ namespace Cms20240330
        * @return DeleteContextsResponse
        */
       Models::DeleteContextsResponse deleteContexts(const string &workspace, const string &contextStoreName, const Models::DeleteContextsRequest &request);
+
+      /**
+       * @summary Deletes a DataPipeline.
+       *
+       * @description Deletes a data pipeline from a specified workspace.
+       *
+       * @param request DeleteDataPipelineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDataPipelineResponse
+       */
+      Models::DeleteDataPipelineResponse deleteDataPipelineWithOptions(const string &workspace, const string &pipelineName, const Models::DeleteDataPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a DataPipeline.
+       *
+       * @description Deletes a data pipeline from a specified workspace.
+       *
+       * @param request DeleteDataPipelineRequest
+       * @return DeleteDataPipelineResponse
+       */
+      Models::DeleteDataPipelineResponse deleteDataPipeline(const string &workspace, const string &pipelineName, const Models::DeleteDataPipelineRequest &request);
 
       /**
        * @summary Deletes a dataset.
@@ -919,7 +963,7 @@ namespace Cms20240330
       Models::DeletePrometheusVirtualInstanceResponse deletePrometheusVirtualInstance(const string &prometheusInstanceId, const Models::DeletePrometheusVirtualInstanceRequest &request);
 
       /**
-       * @summary Deletes an Application Monitoring service.
+       * @summary Deletes an application observability service.
        *
        * @param request DeleteServiceRequest
        * @param headers map
@@ -929,7 +973,7 @@ namespace Cms20240330
       Models::DeleteServiceResponse deleteServiceWithOptions(const string &workspace, const string &serviceId, const Models::DeleteServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an Application Monitoring service.
+       * @summary Deletes an application observability service.
        *
        * @param request DeleteServiceRequest
        * @return DeleteServiceResponse
@@ -1393,6 +1437,28 @@ namespace Cms20240330
       Models::GetContextStoreResponse getContextStore(const string &workspace, const string &contextStoreName, const Models::GetContextStoreRequest &request);
 
       /**
+       * @summary Queries a DataPipeline.
+       *
+       * @description Queries the configuration and running status of a data pipeline in a specified workspace.
+       *
+       * @param request GetDataPipelineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDataPipelineResponse
+       */
+      Models::GetDataPipelineResponse getDataPipelineWithOptions(const string &workspace, const string &pipelineName, const Models::GetDataPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a DataPipeline.
+       *
+       * @description Queries the configuration and running status of a data pipeline in a specified workspace.
+       *
+       * @param request GetDataPipelineRequest
+       * @return GetDataPipelineResponse
+       */
+      Models::GetDataPipelineResponse getDataPipeline(const string &workspace, const string &pipelineName, const Models::GetDataPipelineRequest &request);
+
+      /**
        * @summary Retrieves the details of a specified dataset.
        *
        * @param request GetDatasetRequest
@@ -1691,7 +1757,7 @@ namespace Cms20240330
       Models::GetPrometheusViewResponse getPrometheusView(const string &prometheusViewId, const Models::GetPrometheusViewRequest &request);
 
       /**
-       * @summary Retrieves the details of an Application Monitoring service.
+       * @summary Queries an application observability service.
        *
        * @param request GetServiceRequest
        * @param headers map
@@ -1701,7 +1767,7 @@ namespace Cms20240330
       Models::GetServiceResponse getServiceWithOptions(const string &workspace, const string &serviceId, const Models::GetServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of an Application Monitoring service.
+       * @summary Queries an application observability service.
        *
        * @param request GetServiceRequest
        * @return GetServiceResponse
@@ -2057,6 +2123,28 @@ namespace Cms20240330
        * @return ListContextStoresResponse
        */
       Models::ListContextStoresResponse listContextStores(const string &workspace, const Models::ListContextStoresRequest &request);
+
+      /**
+       * @summary Queries the list of DataPipelines.
+       *
+       * @description Uses a paged query to retrieve data stream pipelines in a specified workspace. Paging is supported.
+       *
+       * @param request ListDataPipelinesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataPipelinesResponse
+       */
+      Models::ListDataPipelinesResponse listDataPipelinesWithOptions(const string &workspace, const Models::ListDataPipelinesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of DataPipelines.
+       *
+       * @description Uses a paged query to retrieve data stream pipelines in a specified workspace. Paging is supported.
+       *
+       * @param request ListDataPipelinesRequest
+       * @return ListDataPipelinesResponse
+       */
+      Models::ListDataPipelinesResponse listDataPipelines(const string &workspace, const Models::ListDataPipelinesRequest &request);
 
       /**
        * @summary Retrieves a list of datasets in a specified workspace.
@@ -2455,7 +2543,7 @@ namespace Cms20240330
       Models::ListServiceTaskResponse listServiceTask(const string &workspace, const string &serviceId, const Models::ListServiceTaskRequest &request);
 
       /**
-       * @summary Queries a list of application observability services.
+       * @summary Queries application observability services in batches.
        *
        * @param tmpReq ListServicesRequest
        * @param headers map
@@ -2465,7 +2553,7 @@ namespace Cms20240330
       Models::ListServicesResponse listServicesWithOptions(const string &workspace, const Models::ListServicesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of application observability services.
+       * @summary Queries application observability services in batches.
        *
        * @param request ListServicesRequest
        * @return ListServicesResponse
@@ -2543,6 +2631,28 @@ namespace Cms20240330
        * @return OpenCmsServiceResponse
        */
       Models::OpenCmsServiceResponse openCmsService(const Models::OpenCmsServiceRequest &request);
+
+      /**
+       * @summary Previews a data pipeline.
+       *
+       * @description Compiles a candidate configuration and queries read-only samples grouped by dataset within a specified time window.
+       *
+       * @param request PreviewDataPipelineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PreviewDataPipelineResponse
+       */
+      Models::PreviewDataPipelineResponse previewDataPipelineWithOptions(const string &workspace, const Models::PreviewDataPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Previews a data pipeline.
+       *
+       * @description Compiles a candidate configuration and queries read-only samples grouped by dataset within a specified time window.
+       *
+       * @param request PreviewDataPipelineRequest
+       * @return PreviewDataPipelineResponse
+       */
+      Models::PreviewDataPipelineResponse previewDataPipeline(const string &workspace, const Models::PreviewDataPipelineRequest &request);
 
       /**
        * @summary Creates a workspace.
@@ -2793,6 +2903,28 @@ namespace Cms20240330
        * @return UpdateContextStoreResponse
        */
       Models::UpdateContextStoreResponse updateContextStore(const string &workspace, const string &contextStoreName, const Models::UpdateContextStoreRequest &request);
+
+      /**
+       * @summary Updates a DataPipeline.
+       *
+       * @description Modifies a specified data pipeline by using a complete candidate configuration.
+       *
+       * @param request UpdateDataPipelineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDataPipelineResponse
+       */
+      Models::UpdateDataPipelineResponse updateDataPipelineWithOptions(const string &workspace, const string &pipelineName, const Models::UpdateDataPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a DataPipeline.
+       *
+       * @description Modifies a specified data pipeline by using a complete candidate configuration.
+       *
+       * @param request UpdateDataPipelineRequest
+       * @return UpdateDataPipelineResponse
+       */
+      Models::UpdateDataPipelineResponse updateDataPipeline(const string &workspace, const string &pipelineName, const Models::UpdateDataPipelineRequest &request);
 
       /**
        * @summary Updates a dataset.

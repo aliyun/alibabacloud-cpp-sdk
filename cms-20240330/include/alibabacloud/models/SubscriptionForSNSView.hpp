@@ -178,9 +178,10 @@ namespace Models
     shared_ptr<FilterSetting> filterSetting_ {};
     shared_ptr<string> mode_ {};
     shared_ptr<string> name_ {};
+    // The reverse association to SNS (= snsUuid).
     shared_ptr<string> notifyStrategyUuid_ {};
     shared_ptr<string> regionId_ {};
-    // Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace=null). Valid values: true: subscribed. false or null: not subscribed.
+    // Indicates whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace=null). Valid values: true: subscribed. false or null: not subscribed.
     shared_ptr<bool> subscribeLegacyEvent_ {};
     shared_ptr<string> subscriptionType_ {};
     shared_ptr<string> syncFromType_ {};

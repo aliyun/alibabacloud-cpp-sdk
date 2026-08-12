@@ -60,13 +60,13 @@ namespace Models
 
 
   protected:
-    // An array of dimension keys used to group the results.
+    // The grouping dimension.
     shared_ptr<vector<string>> groupBy_ {};
-    // The unique code that identifies the metric.
+    // The metric code.
     // 
     // This parameter is required.
     shared_ptr<string> measureCode_ {};
-    // The aggregation period in seconds, which determines the time granularity of data points.
+    // The query time window in seconds.
     // 
     // This parameter is required.
     shared_ptr<int32_t> windowSecs_ {};

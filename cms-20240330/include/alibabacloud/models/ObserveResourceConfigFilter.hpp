@@ -102,11 +102,17 @@ namespace Models
 
 
   protected:
+    // The UModel resource domain filter (exact match).
     shared_ptr<QueryAlertRulesEntityDomainFilter> entityDomain_ {};
+    // The UModel entity type filter (set inclusion/exclusion).
     shared_ptr<QueryAlertRulesEntityTypeFilter> entityType_ {};
+    // The CloudMonitor namespace filter (exact match).
     shared_ptr<QueryAlertRulesNamespaceFilter> namespace_ {};
+    // The CloudMonitor product category filter (exact match).
     shared_ptr<QueryAlertRulesProductCategoryFilter> productCategory_ {};
+    // The relationship type filter (set inclusion/exclusion): ALL/UMODEL_ENTITY/CLOUD_INSTANCE/GROUP_V1/GROUP_V2/TAG.
     shared_ptr<QueryAlertRulesRelationTypeFilter> relationType_ {};
+    // The resources filter (contains uses OR matching; notContains excludes all).
     shared_ptr<QueryAlertRulesResourcesFilter> resources_ {};
   };
 

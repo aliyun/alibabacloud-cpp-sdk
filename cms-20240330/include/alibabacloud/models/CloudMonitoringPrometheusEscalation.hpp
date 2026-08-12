@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The PromQL expression that defines the alert condition. This parameter is required.
+    // The PromQL query statement.
     shared_ptr<string> promQl_ {};
-    // The severity of the alert that triggers the escalation. This parameter is required.
+    // The severity level.
     shared_ptr<string> severity_ {};
-    // The number of consecutive times the condition must be met to trigger an escalation. This parameter is required.
+    // The number of consecutive times the alert is triggered.
     shared_ptr<int32_t> times_ {};
   };
 

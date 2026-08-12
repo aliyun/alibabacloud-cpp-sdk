@@ -228,26 +228,47 @@ namespace Models
 
 
   protected:
+    // The comparison operator for CLOUD_MONITORING_CONDITION.
     shared_ptr<string> comparisonOperator_ {};
+    // The list of sub-conditions for UMODEL_METRICSET_MULTI or PROMETHEUS_MULTI with expressionType=COMPOSITE. Each item contains queryName, operator, and threshold.
     shared_ptr<vector<TriggerConditions>> conditions_ {};
+    // The count comparison operator for SLS_MULTI_CONDITION. Valid values: GTE, GT, EQ, LTE, and LT.
     shared_ptr<string> countOperator_ {};
+    // The count threshold for SLS_MULTI_CONDITION. An alert is triggered when this threshold is met.
     shared_ptr<int64_t> countThreshold_ {};
+    // The duration in seconds during which data must continuously meet the condition before an alert is triggered. If this parameter is not specified, the value of conditionConfig.durationSecs is inherited. This parameter is used by UMODEL_METRICSET_MULTI_CONDITION and PROMETHEUS_MULTI_CONDITION.
     shared_ptr<int32_t> durationSecs_ {};
+    // The expression type. Valid values: SIMPLE and COMPOSITE. This parameter takes effect for UMODEL_METRICSET_MULTI_CONDITION and PROMETHEUS_MULTI_CONDITION.
     shared_ptr<string> expressionType_ {};
+    // The logical operator for UMODEL_METRICSET_MULTI or PROMETHEUS_MULTI with expressionType=COMPOSITE. Valid values: AND, OR, and UNLESS.
     shared_ptr<string> logicOperator_ {};
+    // The log field name for SLS_MULTI_CONDITION. This parameter is required when matchOperator is set to CONTAINS, EQUALS, or REGEX. When matchOperator is set to PRESENT or NOT_PRESENT, specify the field name.
     shared_ptr<string> matchField_ {};
+    // The log match operator for SLS_MULTI_CONDITION. Valid values: PRESENT, NOT_PRESENT, CONTAINS, EQUALS, and REGEX. If this parameter is left empty, any data matches.
     shared_ptr<string> matchOperator_ {};
+    // The log match value for SLS_MULTI_CONDITION. This parameter is required when matchOperator is set to CONTAINS, EQUALS, or REGEX.
     shared_ptr<string> matchValue_ {};
+    // The upper bound of the range for UMODEL_METRICSET_MULTI with expressionType=SIMPLE. This parameter is required when operator is set to IN_RANGE or OUT_OF_RANGE. The value must be greater than or equal to min.
     shared_ptr<double> max_ {};
+    // The metric name. This parameter is used for CLOUD_MONITORING_CONDITION with expressionType=COMPOSITE. For SIMPLE, the metric name is specified at the conditionConfig level by the metricName parameter.
     shared_ptr<string> metricName_ {};
+    // The lower bound of the range for UMODEL_METRICSET_MULTI with expressionType=SIMPLE. This parameter is required when operator is set to IN_RANGE or OUT_OF_RANGE.
     shared_ptr<double> min_ {};
+    // The comparison operator for UMODEL_METRICSET_MULTI or PROMETHEUS_MULTI with expressionType=SIMPLE.
     shared_ptr<string> operator_ {};
+    // The aggregation period in seconds. This parameter is used for CLOUD_MONITORING_CONDITION with expressionType=COMPOSITE. For SIMPLE, the period is specified at the conditionConfig level by the period parameter.
     shared_ptr<int32_t> period_ {};
+    // The precondition for CLOUD_MONITORING_CONDITION.
     shared_ptr<string> preCondition_ {};
+    // The referenced query name for UMODEL_METRICSET_MULTI or PROMETHEUS_MULTI with expressionType=SIMPLE. This corresponds to QueryConfigUnified.queries[].name.
     shared_ptr<string> queryName_ {};
+    // The severity level. Priority order: CRITICAL > ERROR > WARN / WARNING > INFO. When multiple triggers exist, they are sorted by this priority, and the first match triggers the alert. This parameter takes effect for SLS_MULTI_CONDITION and CLOUD_MONITORING_CONDITION with expressionType=SIMPLE.
     shared_ptr<string> severity_ {};
+    // The statistical method for CLOUD_MONITORING_CONDITION.
     shared_ptr<string> statistics_ {};
+    // The threshold value. For CLOUD_MONITORING_CONDITION, this is a string. For UMODEL_METRICSET_MULTI and PROMETHEUS_MULTI, this is a numeric value.
     Darabonba::Json threshold_ {};
+    // The number of consecutive times the condition must be met before an alert is triggered. This parameter is used for CLOUD_MONITORING_CONDITION with expressionType=SIMPLE and is set independently for each entry.
     shared_ptr<int32_t> times_ {};
   };
 

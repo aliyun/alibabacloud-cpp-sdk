@@ -125,18 +125,20 @@ namespace Models
 
 
   protected:
+    // The description.
     shared_ptr<string> description_ {};
+    // Specifies whether to enable the subscription. Enabled by default during creation.
     shared_ptr<bool> enabled_ {};
-    // Optional. If omitted, the backend derives the name from `notifyStrategy`.
+    // Optional. The backend derives the name from notifyStrategy if this parameter is not specified.
     shared_ptr<string> name_ {};
     shared_ptr<NotifyStrategyForSNSModify> notifyStrategy_ {};
     shared_ptr<IncidentResponsePlanForSNSModify> responsePlan_ {};
     shared_ptr<SubscriptionForSNSModify> subscription_ {};
-    // For update operations only. Use this parameter to batch create, update, and remove member subscriptions.
+    // Used exclusively for Update operations. Performs batch create, update, or remove adjustments on member subscriptions.
     shared_ptr<vector<SubscriptionOp>> subscriptions_ {};
-    // Required for update operations but optional for create operations. If omitted during creation, the backend automatically generates a UUID.
+    // Required for Update. Can be omitted for Create, in which case the backend generates it.
     shared_ptr<string> uuid_ {};
-    // Required for update operations. The value must match the current version of the record. If the versions do not match, the request fails with an `OPTIMISTIC_LOCK_FAILED` error.
+    // Required for Update. The value must match the backend record for the write to succeed. If the values do not match, OPTIMISTIC_LOCK_FAILED is returned.
     shared_ptr<int32_t> version_ {};
   };
 

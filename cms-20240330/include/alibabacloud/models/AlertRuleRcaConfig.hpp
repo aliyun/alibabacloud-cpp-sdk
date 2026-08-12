@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The digital employee name.
     shared_ptr<string> digitalEmployeeName_ {};
+    // Indicates whether RCA is enabled.
     shared_ptr<bool> enableRca_ {};
   };
 

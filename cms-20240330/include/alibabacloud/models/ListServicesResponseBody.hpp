@@ -158,15 +158,15 @@ namespace Models
 
 
     protected:
-      // Additional information.
+      // The extended information.
       shared_ptr<string> attributes_ {};
       // The creation time.
       shared_ptr<string> createTime_ {};
-      // The service description. This parameter is valid only when serviceType is RUM.
+      // The service description. This parameter is valid only when serviceType is set to RUM.
       shared_ptr<string> description_ {};
-      // The display name. This parameter is valid only when serviceType is RUM.
+      // The display name. This parameter is valid only when serviceType is set to RUM.
       shared_ptr<string> displayName_ {};
-      // The ID of the ARMS application for backward compatibility.
+      // The ARMS application ID for backward compatibility.
       shared_ptr<string> pid_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
@@ -174,7 +174,7 @@ namespace Models
       shared_ptr<string> serviceId_ {};
       // The service name.
       shared_ptr<string> serviceName_ {};
-      // The service status. This parameter is valid only when serviceType is RUM.
+      // The service status. This parameter is valid only when serviceType is set to RUM.
       shared_ptr<string> serviceStatus_ {};
       // The service type.
       shared_ptr<string> serviceType_ {};
@@ -222,15 +222,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of results returned. The maximum value is 200.
+    // The maximum number of entries returned. Maximum value: 200.
     shared_ptr<int32_t> maxResults_ {};
-    // The paging token.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of service information.
+    // The list of service information.
     shared_ptr<vector<ListServicesResponseBody::Services>> services_ {};
-    // The total number of records.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

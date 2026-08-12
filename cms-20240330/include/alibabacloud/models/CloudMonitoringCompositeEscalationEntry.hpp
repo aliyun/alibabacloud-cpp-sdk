@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The comparison operator.
     shared_ptr<string> comparisonOperator_ {};
+    // The metric name.
     shared_ptr<string> metricName_ {};
+    // The collection period, in seconds.
     shared_ptr<int32_t> period_ {};
+    // The precondition.
     shared_ptr<string> preCondition_ {};
+    // The statistical method.
     shared_ptr<string> statistics_ {};
+    // The threshold.
     shared_ptr<string> threshold_ {};
   };
 

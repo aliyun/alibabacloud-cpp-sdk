@@ -397,42 +397,79 @@ namespace Models
 
 
   protected:
+    // The aggregation function (used when type=UMODEL_METRICSET_QUERY / UMODEL_LOGSET_QUERY).
     shared_ptr<string> aggregate_ {};
+    // **[Deprecated]** Specifies whether to perform alert detection only after data is complete (originally used when type=PROMETHEUS_MULTI_QUERY). This field overlaps with enableDataCompleteCheck. Using this field in write path returns 400.
     shared_ptr<bool> checkAfterDataComplete_ {};
+    // The dimension list (used when type=CLOUD_MONITORING_QUERY. Each dimension is a key/value string mapping).
     shared_ptr<vector<map<string, string>>> dimensions_ {};
+    // The duration in seconds (used when type=PROMETHEUS_MULTI_QUERY).
     shared_ptr<int64_t> durationSecs_ {};
+    // Indicates whether the data integrity check is enabled (used when type=PROMETHEUS_SINGLE_QUERY / PROMETHEUS_MULTI_QUERY / PROMETHEUS_PREDEFINED_METRIC_QUERY / PROMETHEUS_METRIC_GROUP_QUERY [deprecated]).
     shared_ptr<bool> enableDataCompleteCheck_ {};
+    // The entity domain (used when type=UMODEL_METRICSET_QUERY / UMODEL_METRICSET_MULTI_QUERY / UMODEL_LOGSET_QUERY. Works with entityType/entityFilters to locate UModel entities).
     shared_ptr<string> entityDomain_ {};
+    // The entity fields to include in the response (used when type=UMODEL_METRICSET_QUERY / UMODEL_METRICSET_MULTI_QUERY / UMODEL_LOGSET_QUERY).
     shared_ptr<vector<EntityFields>> entityFields_ {};
+    // The entity filter list (used when type=UMODEL_METRICSET_QUERY / UMODEL_METRICSET_MULTI_QUERY / UMODEL_LOGSET_QUERY).
     shared_ptr<vector<EntityFilters>> entityFilters_ {};
+    // The entity type (used when type=UMODEL_METRICSET_QUERY / UMODEL_METRICSET_MULTI_QUERY / UMODEL_LOGSET_QUERY).
     shared_ptr<string> entityType_ {};
+    // The query expression or SPL statement. Recommended when type=PROMETHEUS_SINGLE_QUERY. Optional when type=UMODEL_METRICSET_QUERY for custom SPL. Required when type=UMODEL_LOGSET_QUERY, where an SPL query statement must be provided (the service layer enforces this requirement).
     shared_ptr<string> expr_ {};
+    // The APM filter condition list.
     shared_ptr<vector<FilterList>> filterList_ {};
+    // The list of predefined metric filter values (used when type=PROMETHEUS_PREDEFINED_METRIC_QUERY / PROMETHEUS_METRIC_GROUP_QUERY [deprecated]).
     shared_ptr<vector<PrometheusMetricFilterValue>> filterValues_ {};
+    // The group field list (used when type=SLS_MULTI_QUERY and groupType=custom).
     shared_ptr<vector<string>> groupFieldList_ {};
+    // The resource group ID (used when type=CLOUD_MONITORING_QUERY and relationType=GROUP).
     shared_ptr<string> groupId_ {};
+    // The grouping policy (used when type=SLS_MULTI_QUERY): none / label / custom.
     shared_ptr<string> groupType_ {};
+    // The join list (used when type=SLS_MULTI_QUERY. Maximum of 2: joinings[0] corresponds to the set operation between query 0 and query 1. joinings[1] corresponds to the set operation between query 1 and query 2).
     shared_ptr<vector<Joinings>> joinings_ {};
+    // The label filter conditions (used when type=UMODEL_METRICSET_QUERY. For UMODEL_METRICSET_MULTI_QUERY, place labelFilters in each queries[*] entry).
     shared_ptr<vector<LabelFilters>> labelFilters_ {};
+    // The original V1 query JSON string returned as a fallback when type=UNKNOWN_QUERY and read path parsing fails (contains the field values that triggered the failure, such as filter.operator=ABC). The frontend displays this field as read-only when it is not empty.
     shared_ptr<string> legacyRaw_ {};
+    // Returned when type=UNKNOWN_QUERY, indicating that this rule cannot be edited through the new API. Submit a ticket to contact the CloudMonitor team.
     shared_ptr<string> legacyType_ {};
+    // The log set name (used when type=UMODEL_LOGSET_QUERY).
     shared_ptr<string> logSet_ {};
+    // The measure group key (optional when type=APM_MULTI_QUERY, corresponds to V1 alertMetricInput.groupKey).
     shared_ptr<string> measureGroupKey_ {};
+    // The APM measure configuration list.
     shared_ptr<vector<MeasureList>> measureList_ {};
+    // The metric name (required when type=UMODEL_METRICSET_QUERY. Required when type=CLOUD_MONITORING_QUERY, used together with namespace to uniquely identify CloudMonitor monitoring metrics).
     shared_ptr<string> metric_ {};
+    // The metric group ID (used when type=PROMETHEUS_PREDEFINED_METRIC_QUERY / PROMETHEUS_METRIC_GROUP_QUERY [deprecated]).
     shared_ptr<string> metricGroupId_ {};
+    // The predefined metric ID (used when type=PROMETHEUS_PREDEFINED_METRIC_QUERY).
     shared_ptr<string> metricId_ {};
+    // **[Deprecated]** The list of predefined metric IDs (originally used when type=PROMETHEUS_METRIC_GROUP_QUERY). This query type is deprecated. Write path returns 400.
     shared_ptr<vector<string>> metricIds_ {};
+    // The metric set name (used when type=UMODEL_METRICSET_QUERY).
     shared_ptr<string> metricSet_ {};
+    // The CloudMonitor namespace (Alibaba Cloud service name, used when type=CLOUD_MONITORING_QUERY).
     shared_ptr<string> namespace_ {};
+    // The query time offset in seconds (used when type=UMODEL_METRICSET_QUERY / UMODEL_LOGSET_QUERY). Works with windowSecs to implement an offset query over the range [T - windowSecs - offsetSecs, T - offsetSecs]. Valid range: [0, 86400].
     shared_ptr<int64_t> offsetSecs_ {};
+    // The list of predefined metric parameter values (used when type=PROMETHEUS_PREDEFINED_METRIC_QUERY / PROMETHEUS_METRIC_GROUP_QUERY [deprecated]).
     shared_ptr<vector<PrometheusMetricParamValue>> paramValues_ {};
+    // **[Deprecated]** The legacy Prometheus query statement field. Use expr instead. This field is retained for backward compatibility. The backend automatically normalizes it to expr.
     shared_ptr<string> promQl_ {};
+    // The subquery list (polymorphic by type): when type=SLS_MULTI_QUERY, each entry is a SlsNamedQueryEntry (timeUnit/start/end/window/expr). When type=PROMETHEUS_MULTI_QUERY, each entry is a PrometheusNamedQueryEntry (name/expr). When type=UMODEL_METRICSET_MULTI_QUERY, each entry is a MetricSetNamedQueryEntry.
     shared_ptr<vector<Queries>> queries_ {};
+    // The resource relation type (used when type=CLOUD_MONITORING_QUERY).
     shared_ptr<string> relationType_ {};
+    // The list of service IDs (used when type=APM_MULTI_QUERY).
     shared_ptr<vector<string>> serviceIdList_ {};
+    // The query type. Valid values and associated fields: PROMETHEUS_SINGLE_QUERY (required: expr. Optional: enableDataCompleteCheck). PROMETHEUS_PREDEFINED_METRIC_QUERY (required: metricGroupId, metricId. Optional: paramValues, filterValues, enableDataCompleteCheck). PROMETHEUS_METRIC_GROUP_QUERY ([deprecated] required: metricGroupId, metricIds. Optional: paramValues, filterValues, enableDataCompleteCheck. Write path returns 400). UMODEL_METRICSET_QUERY (required: metricSet, metric, windowSecs, aggregate. Optional: expr, entityDomain/entityType/entityFilters, labelFilters, entityFields, offsetSecs). UMODEL_METRICSET_MULTI_QUERY (required: queries[*]. Optional: entityDomain/entityType/entityFilters, windowSecs, offsetSecs, aggregate). UMODEL_LOGSET_QUERY (required: logSet, expr, windowSecs, aggregate. Optional: entityDomain/entityType/entityFilters, labelFilters, offsetSecs). APM_MULTI_QUERY (required: serviceIdList, measureList. Optional: filterList, measureGroupKey). CLOUD_MONITORING_QUERY (required: namespace, metric, relationType. When relationType=INSTANCE, dimensions is required. When relationType=GROUP, groupId is required. When relationType=USER, leave both empty). UNKNOWN_QUERY (read-only fallback. Do not use in write path). Do not use non-enumerated values (such as CMS_BASIC_QUERY/SLS_QUERY). The backend returns Invalidtype 400.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
+    // The aggregation time window in seconds (used when type=UMODEL_METRICSET_QUERY / UMODEL_LOGSET_QUERY). Valid range: [60, 86400].
     shared_ptr<int64_t> windowSecs_ {};
   };
 

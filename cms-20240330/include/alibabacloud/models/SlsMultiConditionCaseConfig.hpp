@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The count comparison operator. Valid values: GTE, GT, EQ, LTE, LT.
     shared_ptr<string> countOperator_ {};
+    // The count threshold. The alert is triggered when this threshold is met.
     shared_ptr<int64_t> countThreshold_ {};
+    // The log field name. Required when matchOperator is set to CONTAINS, EQUALS, or REGEX. Specify the field name when matchOperator is set to PRESENT or NOT_PRESENT.
     shared_ptr<string> matchField_ {};
+    // The log matching operator. Valid values: PRESENT (field exists), NOT_PRESENT (field does not exist), CONTAINS (contains), EQUALS (equals), REGEX (regular expression). If left empty, any data matches.
     shared_ptr<string> matchOperator_ {};
+    // The log match value. Required when matchOperator is set to CONTAINS, EQUALS, or REGEX.
     shared_ptr<string> matchValue_ {};
+    // The severity level.
     shared_ptr<string> severity_ {};
   };
 

@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // A list of actions to perform.
+    // The list of action integration IDs.
     shared_ptr<vector<string>> actions_ {};
-    // Indicates whether action integration is enabled.
+    // Indicates whether action integration is started.
     shared_ptr<bool> enabled_ {};
   };
 

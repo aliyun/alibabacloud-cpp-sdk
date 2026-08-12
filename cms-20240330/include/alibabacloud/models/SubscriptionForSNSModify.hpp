@@ -63,11 +63,13 @@ namespace Models
 
 
   protected:
+    // The filter configuration.
     shared_ptr<FilterSetting> filterSetting_ {};
-    // Specifies whether to subscribe to legacy product events (CMS 1.0 / ARMS / SLS events where workspace=null). Valid values:
+    // Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values:
     // - true: Subscribe.
     // - false or null: Do not subscribe.
     shared_ptr<bool> subscribeLegacyEvent_ {};
+    // The workspace filter configuration.
     shared_ptr<WorkspaceFilterSetting> workspaceFilterSetting_ {};
   };
 

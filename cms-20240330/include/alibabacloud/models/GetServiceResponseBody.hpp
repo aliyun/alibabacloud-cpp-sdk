@@ -219,13 +219,13 @@ namespace Models
     protected:
       // The extended information.
       shared_ptr<string> attributes_ {};
-      // The time when the service was created.
+      // The creation time.
       shared_ptr<string> createTime_ {};
       // The description. This parameter is valid only when serviceType is set to RUM.
       shared_ptr<string> description_ {};
       // The display name. This parameter is valid only when serviceType is set to RUM.
       shared_ptr<string> displayName_ {};
-      // The ID of the ARMS application that is compatible with earlier versions.
+      // The ARMS application ID for backward compatibility.
       shared_ptr<string> pid_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -239,7 +239,7 @@ namespace Models
       shared_ptr<string> serviceStatus_ {};
       // The service type.
       shared_ptr<string> serviceType_ {};
-      // The array of tags.
+      // The tags.
       shared_ptr<vector<Service::Tags>> tags_ {};
       // The workspace name.
       shared_ptr<string> workspace_ {};

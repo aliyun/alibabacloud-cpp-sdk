@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The list of join conditions.
     shared_ptr<vector<SlsJoinCondition>> conditions_ {};
+    // The set operation type. Valid values: InnerJoin, LeftJoin, RightJoin, FullJoin, LeftExclude, RightExclude, CrossJoin, NoJoin, and Concat.
     shared_ptr<string> type_ {};
   };
 

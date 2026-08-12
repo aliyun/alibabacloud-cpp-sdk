@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The expression that defines the alert condition.
+    // The raw expression.
     shared_ptr<string> rawExpression_ {};
-    // The alert severity that triggers the escalation.
+    // The severity level.
     shared_ptr<string> severity_ {};
-    // The number of alert occurrences required to trigger the escalation.
+    // The number of consecutive times the alert is triggered.
     shared_ptr<int32_t> times_ {};
   };
 

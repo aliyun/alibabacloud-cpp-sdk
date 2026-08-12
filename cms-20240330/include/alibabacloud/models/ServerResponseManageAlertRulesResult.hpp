@@ -115,23 +115,22 @@ namespace Models
 
 
   protected:
-    // The operation status code.
+    // The response code.
     shared_ptr<string> code_ {};
-    // The result of the operation.
     shared_ptr<ManageAlertRulesResult> data_ {};
-    // A message detailing the outcome of the request, such as a success message or an error description.
+    // The error message.
     shared_ptr<string> message_ {};
-    // The token used to retrieve the next page of results. If the token is not returned, there are no more results.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The current page number.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The unique ID for the request. Provide this ID when contacting support for assistance.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded (`true`) or failed (`false`).
+    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
-    // The total number of entries that match the query.
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The upper bound of the range.
     shared_ptr<double> max_ {};
+    // The lower bound of the range.
     shared_ptr<double> min_ {};
+    // The alert level.
+    // 
     // This parameter is required.
     shared_ptr<string> severity_ {};
+    // The threshold. This parameter is required for APM_SIMPLE_CONDITION.
     shared_ptr<float> threshold_ {};
   };
 

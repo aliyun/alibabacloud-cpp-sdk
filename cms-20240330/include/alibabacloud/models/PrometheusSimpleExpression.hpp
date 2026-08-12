@@ -57,8 +57,17 @@ namespace Models
 
 
   protected:
+    // The comparison operator. Valid values:
+    // - GT: greater than
+    // - GE: greater than or equal to
+    // - LT: less than
+    // - LE: less than or equal to
+    // - EQ: equal to
+    // - NE: not equal to
     shared_ptr<string> operator_ {};
+    // The referenced query name, corresponding to QueryConfigUnified.queries[].name.
     shared_ptr<string> queryName_ {};
+    // The comparison threshold.
     shared_ptr<double> threshold_ {};
   };
 
