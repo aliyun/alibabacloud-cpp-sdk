@@ -79,7 +79,9 @@ namespace Models
 
 
     protected:
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The order ID.
       shared_ptr<int64_t> orderId_ {};
     };
 
@@ -138,12 +140,19 @@ namespace Models
 
 
   protected:
+    // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The response data.
     shared_ptr<CreateInstanceV1ResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

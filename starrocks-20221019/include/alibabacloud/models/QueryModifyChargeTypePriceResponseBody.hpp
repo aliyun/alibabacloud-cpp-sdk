@@ -128,8 +128,11 @@ namespace Models
 
 
       protected:
+        // The amount.
         shared_ptr<float> amount_ {};
+        // The rule name.
         shared_ptr<string> name_ {};
+        // The rule ID.
         shared_ptr<string> ruleDescId_ {};
       };
 
@@ -180,8 +183,11 @@ namespace Models
 
 
       protected:
+        // The coupon description.
         shared_ptr<string> promotionDesc_ {};
+        // The coupon name.
         shared_ptr<string> promotionName_ {};
+        // The coupon ID.
         shared_ptr<string> promotionOptionNo_ {};
       };
 
@@ -241,9 +247,13 @@ namespace Models
 
 
       protected:
+        // The code of the pricing module.
         shared_ptr<string> moduleCode_ {};
+        // The name of the pricing module.
         shared_ptr<string> moduleName_ {};
+        // The discounted price.
         shared_ptr<string> standPrice_ {};
+        // The original price of the product.
         shared_ptr<string> totalProductFee_ {};
       };
 
@@ -303,9 +313,13 @@ namespace Models
 
 
       protected:
+        // The price reduction ratio.
         shared_ptr<float> cheapRate_ {};
+        // The total official price after the price reduction.
         shared_ptr<float> cheapStandAmount_ {};
+        // Indicates whether to display the price reduction amount.
         shared_ptr<bool> isShow_ {};
+        // The original total official price.
         shared_ptr<float> originalStandAmount_ {};
       };
 
@@ -365,9 +379,13 @@ namespace Models
 
 
       protected:
+        // The component name.
         shared_ptr<string> componentName_ {};
+        // The discount amount for the order.
         shared_ptr<float> discountAmount_ {};
+        // The original price.
         shared_ptr<float> originalAmount_ {};
+        // The final price. This is the original price minus the discount amount.
         shared_ptr<float> tradeAmount_ {};
       };
 
@@ -462,16 +480,27 @@ namespace Models
 
 
     protected:
+      // The component prices.
       shared_ptr<vector<Data::ComponentPrices>> componentPrices_ {};
+      // The currency.
       shared_ptr<string> currency_ {};
+      // The cost after discounts.
       shared_ptr<Data::DepreciateInfo> depreciateInfo_ {};
+      // The discount amount. This is the original amount minus the payable amount, which includes coupon deductions.
       shared_ptr<float> discountAmount_ {};
+      // The module ID.
       shared_ptr<vector<Data::ModuleInstance>> moduleInstance_ {};
+      // The coupon information.
       shared_ptr<vector<Data::OptionalPromotions>> optionalPromotions_ {};
+      // The original price (list price × usage).
       shared_ptr<float> originalAmount_ {};
+      // The price calculation rules.
       shared_ptr<vector<Data::Rules>> rules_ {};
+      // The discount price.
       shared_ptr<float> standDiscountPrice_ {};
+      // The official discounted price.
       shared_ptr<float> standPrice_ {};
+      // The amount.
       shared_ptr<float> tradeAmount_ {};
     };
 
@@ -532,11 +561,17 @@ namespace Models
   protected:
     // AccessDeniedDetail
     shared_ptr<string> accessDeniedDetail_ {};
+    // The order amount.
     shared_ptr<QueryModifyChargeTypePriceResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

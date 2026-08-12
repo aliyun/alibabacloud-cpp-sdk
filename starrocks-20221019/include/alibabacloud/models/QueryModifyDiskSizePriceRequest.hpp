@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Compute group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
+    // Coupon ID.
     shared_ptr<string> promotionOptionNo_ {};
+    // Target disk size. Unit: GB.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> target_ {};
   };

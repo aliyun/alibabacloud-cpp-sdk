@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The backup task ID.
     shared_ptr<string> backupTaskId_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The query page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page for paged query.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID of the instance.
     shared_ptr<string> regionId_ {};
+    // The list of statuses.
     shared_ptr<string> statuses_ {};
+    // The end time for querying backup jobs.
     shared_ptr<int64_t> timePeriodEndTime_ {};
+    // The start time for querying backup jobs.
     shared_ptr<int64_t> timePeriodStartTime_ {};
   };
 

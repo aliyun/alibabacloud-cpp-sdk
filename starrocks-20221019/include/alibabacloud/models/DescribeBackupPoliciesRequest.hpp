@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The policy ID.
     shared_ptr<string> policyId_ {};
+    // The ID of the region where the instance resides.
     shared_ptr<string> regionId_ {};
   };
 

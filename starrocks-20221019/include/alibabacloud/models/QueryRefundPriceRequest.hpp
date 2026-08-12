@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // A comma-separated list of instance IDs to cancel.
     shared_ptr<string> billingInstanceIds_ {};
+    // The instance ID. This field is deprecated.
     shared_ptr<string> instanceId_ {};
   };
 

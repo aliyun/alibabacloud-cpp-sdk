@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Instance ID.
     shared_ptr<string> instanceId_ {};
+    // Policy ID.
     shared_ptr<string> policyId_ {};
   };
 

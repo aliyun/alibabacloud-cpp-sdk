@@ -76,16 +76,16 @@ namespace Models
 
   protected:
     shared_ptr<bool> fastMode_ {};
-    // The instance ID.
+    // The ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The warehouse ID.
+    // The ID of the compute group.
     // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
     shared_ptr<string> promotionOptionNo_ {};
-    // The disk size to which you want to change to. Unit: GB.
+    // The target disk size. Unit: GB.
     // 
     // This parameter is required.
     shared_ptr<int32_t> target_ {};

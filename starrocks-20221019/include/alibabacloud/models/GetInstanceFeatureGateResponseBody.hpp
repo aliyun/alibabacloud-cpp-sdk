@@ -258,27 +258,50 @@ namespace Models
 
 
     protected:
+      // Whether the restart process can be controlled from the console.
       shared_ptr<bool> consoleControlRestart_ {};
+      // Whether materialized views can be managed.
       shared_ptr<bool> enableManageMv_ {};
+      // Whether managed security groups are supported.
       shared_ptr<bool> fullManagedSecurityGroup_ {};
+      // Whether DLF meta tokens can be mounted.
       shared_ptr<bool> mountDlfMetaToken_ {};
+      // A list of new configuration types.
       shared_ptr<vector<string>> supportAddConfigTypes_ {};
+      // Whether data backup is supported.
+      // 
+      // - **1**: Supports data backup.
+      // 
+      // - **2**: Does not support data backup.
       shared_ptr<bool> supportBackup_ {};
+      // Whether agents can be created.
       shared_ptr<bool> supportCreateAgent_ {};
+      // Whether compute groups with specifications other than `standard` can be created.
       shared_ptr<bool> supportCreateNonStandardNodeGroup_ {};
+      // Whether elastic ephemeral disks are supported.
       shared_ptr<bool> supportEed_ {};
+      // Whether the AI function is supported.
       shared_ptr<bool> supportEnableAi_ {};
+      // Whether SSL can be enabled.
       shared_ptr<bool> supportEnableSSL_ {};
+      // Whether fast restart is supported for configuration changes.
       shared_ptr<bool> supportFastModeModifyConfig_ {};
+      // Whether resources can be modified by using fast restart.
       shared_ptr<bool> supportFastModeModifyResource_ {};
+      // Whether fast restart is supported.
       shared_ptr<bool> supportFastRestart_ {};
+      // Whether the FE gateway is supported.
       shared_ptr<bool> supportFeGateway_ {};
+      // Whether custom domain names are supported.
       shared_ptr<bool> supportHostAlias_ {};
+      // Whether the time zone can be modified.
       shared_ptr<bool> supportModifyTimezone_ {};
+      // Whether observers can be deployed across multiple availability zones (AZs).
       shared_ptr<bool> supportMultiAZ_ {};
+      // Whether the instance uses compute nodes (CNs).
       shared_ptr<bool> useComputeNode_ {};
       shared_ptr<bool> supportCompactionService_ {};
-      // 是否支持Compaction Service白名单功能
+      // Whether the Compaction Service allowlist feature is supported.
       shared_ptr<bool> supportCompactionServiceWhiteList_ {};
     };
 
@@ -344,14 +367,21 @@ namespace Models
 
 
   protected:
-    // AccessDeniedDetail
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The returned data.
     shared_ptr<GetInstanceFeatureGateResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of instances.
     shared_ptr<int32_t> total_ {};
   };
 

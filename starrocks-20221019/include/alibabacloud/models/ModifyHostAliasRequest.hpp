@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // Host alias.
       shared_ptr<vector<string>> hostnames_ {};
+      // Machine IP
       shared_ptr<string> ip_ {};
     };
 
@@ -95,7 +97,9 @@ namespace Models
 
 
   protected:
+    // Instance ID.
     shared_ptr<string> instanceId_ {};
+    // Host alias list.
     shared_ptr<vector<ModifyHostAliasRequest::HostAliases>> hostAliases_ {};
   };
 

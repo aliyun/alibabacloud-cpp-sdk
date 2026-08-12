@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Internal network whitelist group name.
+    // 
     // This parameter is required.
     shared_ptr<string> innerIpWhitelistGroupId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

@@ -170,8 +170,11 @@ namespace Models
 
 
       protected:
+        // Indicates whether the vSwitch is the primary vSwitch.
         shared_ptr<bool> primary_ {};
+        // The vSwitch ID.
         shared_ptr<string> vswId_ {};
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -213,7 +216,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -454,38 +459,184 @@ namespace Models
 
 
     protected:
+      // The ID of the network access control list (ACL).
       shared_ptr<string> aclId_ {};
       shared_ptr<string> aiFunctionInstanceId_ {};
+      // The instance architecture. Valid values:
+      // 
+      // - onEci: deployed on ECI.
+      // 
+      // - onECS: deployed on ECS.
+      // 
+      // - onBareMetal: deployed on a bare metal resource pool.
       shared_ptr<string> architecture_ {};
+      // The time when the cluster was created.
       shared_ptr<int64_t> beginTime_ {};
       shared_ptr<bool> enableAiFunction_ {};
+      // Indicates whether automatic minor version upgrades are enabled.
       shared_ptr<bool> enableAutoMinorVersionUpgrade_ {};
       shared_ptr<bool> enableMultiAz_ {};
+      // Indicates whether SSL is enabled.
       shared_ptr<bool> enableSSL_ {};
+      // Indicates whether the audit plugin is enabled.
       shared_ptr<bool> enabledAuditLoader_ {};
+      // Indicates whether encryption is enabled.
       shared_ptr<bool> encrypted_ {};
+      // The time when the cluster expires.
       shared_ptr<int64_t> expireTime_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The instance name.
       shared_ptr<string> instanceName_ {};
+      // The instance status. Valid values:
+      // 
+      // - not_init: The instance is not initialized.
+      // 
+      // - unpaid: The instance is pending payment.
+      // 
+      // - paid: The payment is made.
+      // 
+      // - creating: The instance is being created.
+      // 
+      // - creating_failed: The instance failed to be created.
+      // 
+      // - created: The instance is created.
+      // 
+      // - running: The instance is running.
+      // 
+      // - updating: The instance is being upgraded.
+      // 
+      // - agent_creating: The agent is being created.
+      // 
+      // - agent_scaling_up: The agent is being upgraded.
+      // 
+      // - modifying_config: The configurations are being updated.
+      // 
+      // - scaling_out: The instance is being scaled out.
+      // 
+      // - restarting: The instance is restarting.
+      // 
+      // - scaling_in: The instance is being scaled in.
+      // 
+      // - scaling_up: The instance is being upgraded.
+      // 
+      // - scaling_down: The instance is being downgraded.
+      // 
+      // - upgrading: The instance is being upgraded.
+      // 
+      // - enable_public_network: The public endpoint is being enabled.
+      // 
+      // - disable_public_network: The public endpoint is being disabled.
+      // 
+      // - convert_from_trial_to_official: The instance edition is being changed.
+      // 
+      // - migration_cluster_to_serverless: The cluster is being migrated.
+      // 
+      // - modifying_timezone: The time zone is being modified.
+      // 
+      // - switch_az: The primary and secondary zones are being switched.
+      // 
+      // - enabling: The instance is being resumed.
+      // 
+      // - disable: The instance is unavailable.
+      // 
+      // - actively_disabled: The instance is unavailable.
+      // 
+      // - deleting: The instance is being deleted.
+      // 
+      // - deleting_failed: The instance failed to be deleted.
+      // 
+      // - deleted_with_error: The instance is deleted due to a creation failure.
+      // 
+      // - deleted: The instance is deleted.
       shared_ptr<string> instanceStatus_ {};
+      // Indicates whether read/write splitting is enabled. If this parameter is set to true, the leader FE node processes write requests, and the other FE nodes process read requests.
       shared_ptr<bool> isolateLeader_ {};
+      // The ID of the KMS key.
       shared_ptr<string> kmsKeyId_ {};
+      // The maintenance window of the instance. Valid values:
+      // 
+      // - 00:00-06:00
+      // 
+      // - 06:00-07:00
+      // 
+      // - 07:00-08:00
+      // 
+      // - 08:00-09:00
+      // 
+      // - 09:00-10:00
+      // 
+      // - 10:00-11:00
+      // 
+      // - 11:00-12:00
+      // 
+      // - 12:00-13:00
+      // 
+      // - 13:00-14:00
+      // 
+      // - 14:00-15:00
+      // 
+      // - 15:00-16:00
+      // 
+      // - 16:00-17:00
+      // 
+      // - 17:00-18:00
+      // 
+      // - 18:00-19:00
+      // 
+      // - 19:00-20:00
+      // 
+      // - 20:00-21:00
+      // 
+      // - 21:00-22:00
+      // 
+      // - 22:00-23:00
+      // 
+      // - 23:00-24:00
       shared_ptr<string> maintainablePeriod_ {};
+      // The minor version number.
       shared_ptr<string> minorVersion_ {};
+      // The type of the monitoring service.
       shared_ptr<string> monitorType_ {};
+      // The OSS URL.
       shared_ptr<string> ossLocation_ {};
+      // The instance edition. Valid values:
+      // 
+      // - trial: Trial Edition.
+      // 
+      // - official: Standard Edition.
       shared_ptr<string> packageType_ {};
+      // The billing method:
+      // 
+      // - prePaid: subscription.
+      // 
+      // - postPaid: pay-as-you-go.
       shared_ptr<string> payType_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
+      // The running mode of the cluster:
+      // 
+      // - shared_nothing: all-in-one.
+      // 
+      // - shared_data: storage-compute separation.
+      // 
+      // - lakehouse: data lake analytics.
       shared_ptr<string> runMode_ {};
+      // The duration for which the cluster has been running. Unit: seconds.
       shared_ptr<int64_t> runningTime_ {};
+      // Indicates whether the security group is a managed security group.
       shared_ptr<bool> securityGroupManaged_ {};
+      // The security group ID.
       shared_ptr<string> sgId_ {};
+      // The tags attached to the instance.
       shared_ptr<vector<Data::Tags>> tags_ {};
+      // The list of vSwitches.
       shared_ptr<vector<Data::VSwitches>> vSwitches_ {};
+      // The cluster version.
       shared_ptr<string> version_ {};
-      // VPC ID。
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -544,12 +695,19 @@ namespace Models
 
 
   protected:
+    // The query results.
     shared_ptr<vector<DescribeInstancesResponseBody::Data>> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of instances.
     shared_ptr<int32_t> total_ {};
   };
 

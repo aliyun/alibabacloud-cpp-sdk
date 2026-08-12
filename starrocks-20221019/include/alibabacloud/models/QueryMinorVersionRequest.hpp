@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The region ID of the cluster.
     shared_ptr<string> regionId_ {};
+    // The major version of the instance.
     shared_ptr<string> version_ {};
   };
 

@@ -57,8 +57,27 @@ namespace Models
 
 
   protected:
+    // Specifies the instance architecture. Valid values:
+    // 
+    // - onEci: The instance is deployed on ECI.
+    // 
+    // - onEcs: The instance is deployed on ECS.
+    // 
+    // - onBareMetal: The instance is deployed on a bare metal resource pool.
     shared_ptr<string> architecture_ {};
+    // Specifies the instance edition. Valid values:
+    // 
+    // - trial: The entry-level edition.
+    // 
+    // - official: The Standard Edition.
     shared_ptr<string> packageType_ {};
+    // Specifies the run mode of the cluster. Valid values:
+    // 
+    // - shared_nothing: The shared-nothing mode.
+    // 
+    // - shared_data: The shared-data mode.
+    // 
+    // - lakehouse: The data lake analytics mode.
     shared_ptr<string> runMode_ {};
   };
 

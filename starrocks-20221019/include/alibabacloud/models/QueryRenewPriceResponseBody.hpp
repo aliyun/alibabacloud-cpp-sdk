@@ -124,8 +124,11 @@ namespace Models
 
 
       protected:
+        // Resource count.
         shared_ptr<float> amount_ {};
+        // Rule name.
         shared_ptr<string> name_ {};
+        // Rule ID.
         shared_ptr<string> ruleDescId_ {};
       };
 
@@ -176,8 +179,11 @@ namespace Models
 
 
       protected:
+        // Coupon description.
         shared_ptr<string> promotionDesc_ {};
+        // Coupon name.
         shared_ptr<string> promotionName_ {};
+        // Coupon ID.
         shared_ptr<string> promotionOptionNo_ {};
       };
 
@@ -237,9 +243,13 @@ namespace Models
 
 
       protected:
+        // Discount rate.
         shared_ptr<float> cheapRate_ {};
+        // Total official price after discount.
         shared_ptr<float> cheapStandAmount_ {};
+        // Indicates whether the discount amount is displayed.
         shared_ptr<bool> isShow_ {};
+        // Original total official price.
         shared_ptr<float> originalStandAmount_ {};
       };
 
@@ -323,15 +333,25 @@ namespace Models
 
 
     protected:
+      // Billing instance ID. For the default compute group (FE compute group and default BE compute group), this value is the instance ID. Otherwise, it is the compute group ID.
       shared_ptr<string> billingInstanceId_ {};
+      // Currency.
       shared_ptr<string> currency_ {};
+      // Total official price after discount.
       shared_ptr<Data::DepreciateInfo> depreciateInfo_ {};
+      // Discount amount = original amount − billable amount (including coupon discounts).
       shared_ptr<float> discountAmount_ {};
+      // Coupon ID.
       shared_ptr<vector<Data::OptionalPromotions>> optionalPromotions_ {};
+      // Original amount = catalog price × usage.
       shared_ptr<float> originalAmount_ {};
+      // Data structure of the response.
       shared_ptr<vector<Data::Rules>> rules_ {};
+      // Discounted price based on the official discount.
       shared_ptr<float> standDiscountPrice_ {};
+      // Official discounted price.
       shared_ptr<float> standPrice_ {};
+      // Amount.
       shared_ptr<float> tradeAmount_ {};
     };
 
@@ -382,11 +402,17 @@ namespace Models
 
 
   protected:
+    // Response data.
     shared_ptr<vector<QueryRenewPriceResponseBody::Data>> data_ {};
+    // Error code.
     shared_ptr<string> errCode_ {};
+    // Error message.
     shared_ptr<string> errMessage_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

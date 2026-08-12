@@ -159,9 +159,13 @@ namespace Models
 
 
       protected:
+        // The default value.
         shared_ptr<int32_t> def_ {};
+        // The maximum value.
         shared_ptr<int32_t> max_ {};
+        // The minimum value.
         shared_ptr<int32_t> min_ {};
+        // The step.
         shared_ptr<int32_t> step_ {};
       };
 
@@ -216,8 +220,11 @@ namespace Models
 
 
       protected:
+        // The beta versions.
         shared_ptr<vector<string>> betaVersions_ {};
+        // The default version.
         shared_ptr<string> defaultVersion_ {};
+        // The available versions.
         shared_ptr<vector<string>> versions_ {};
       };
 
@@ -259,7 +266,9 @@ namespace Models
 
 
       protected:
+        // The display name.
         shared_ptr<string> display_ {};
+        // The name.
         shared_ptr<string> name_ {};
       };
 
@@ -310,8 +319,11 @@ namespace Models
 
 
       protected:
+        // The CU (Compute Unit) size.
         shared_ptr<int32_t> cu_ {};
+        // The total number of nodes.
         shared_ptr<int32_t> nodeNumber_ {};
+        // The storage size, in GiB.
         shared_ptr<int32_t> storageSize_ {};
       };
 
@@ -408,13 +420,21 @@ namespace Models
 
 
       protected:
+        // The number of vCPUs.
         shared_ptr<int32_t> cpu_ {};
+        // The disk count.
         shared_ptr<string> diskNumber_ {};
+        // The display name.
         shared_ptr<string> display_ {};
+        // The corresponding ECS instance family.
         shared_ptr<string> ecsInstanceType_ {};
+        // The instance type.
         shared_ptr<string> instanceType_ {};
+        // Indicates whether this is the default option.
         shared_ptr<string> isDefault_ {};
+        // The memory size, in GiB.
         shared_ptr<int32_t> memory_ {};
+        // The storage size, in GiB.
         shared_ptr<string> storageSize_ {};
       };
 
@@ -465,8 +485,11 @@ namespace Models
 
 
       protected:
+        // The CU (Compute Unit) size.
         shared_ptr<int32_t> cu_ {};
+        // The total number of nodes.
         shared_ptr<int32_t> nodeNumber_ {};
+        // The storage size, in GiB.
         shared_ptr<int32_t> storageSize_ {};
       };
 
@@ -526,9 +549,13 @@ namespace Models
 
 
       protected:
+        // The default value.
         shared_ptr<int32_t> default_ {};
+        // The maximum value.
         shared_ptr<int32_t> max_ {};
+        // The minimum value.
         shared_ptr<int32_t> min_ {};
+        // The step.
         shared_ptr<int32_t> step_ {};
       };
 
@@ -570,7 +597,9 @@ namespace Models
 
 
       protected:
+        // The display name.
         shared_ptr<string> display_ {};
+        // The name.
         shared_ptr<string> name_ {};
       };
 
@@ -630,9 +659,13 @@ namespace Models
 
 
       protected:
+        // The default value.
         shared_ptr<int32_t> default_ {};
+        // The maximum value.
         shared_ptr<int32_t> max_ {};
+        // The minimum value.
         shared_ptr<int32_t> min_ {};
+        // The step.
         shared_ptr<int32_t> step_ {};
       };
 
@@ -729,13 +762,21 @@ namespace Models
 
 
       protected:
+        // The number of vCPUs.
         shared_ptr<int32_t> cpu_ {};
+        // The disk count.
         shared_ptr<string> diskNumber_ {};
+        // The display name.
         shared_ptr<string> display_ {};
+        // The corresponding ECS instance family.
         shared_ptr<string> ecsInstanceType_ {};
+        // The instance type.
         shared_ptr<string> instanceType_ {};
+        // Indicates whether this is the default option.
         shared_ptr<string> isDefault_ {};
+        // The memory size, in GiB.
         shared_ptr<int32_t> memory_ {};
+        // The storage size, in GiB.
         shared_ptr<string> storageSize_ {};
       };
 
@@ -822,9 +863,13 @@ namespace Models
 
 
         protected:
+          // The default value.
           shared_ptr<int32_t> default_ {};
+          // The maximum value.
           shared_ptr<int32_t> max_ {};
+          // The minimum value.
           shared_ptr<int32_t> min_ {};
+          // The step.
           shared_ptr<int32_t> step_ {};
         };
 
@@ -884,9 +929,13 @@ namespace Models
 
 
         protected:
+          // The default value.
           shared_ptr<int32_t> default_ {};
+          // The maximum number of disks.
           shared_ptr<int32_t> max_ {};
+          // The minimum number of disks.
           shared_ptr<int32_t> min_ {};
+          // The step.
           shared_ptr<int32_t> step_ {};
         };
 
@@ -932,10 +981,15 @@ namespace Models
 
 
       protected:
+        // The description.
         shared_ptr<string> desc_ {};
+        // The disk count constraint.
         shared_ptr<BeStorageConstraints::DiskNumberConstraint> diskNumberConstraint_ {};
+        // Indicates whether this is the default option.
         shared_ptr<bool> isDefault_ {};
+        // The disk performance level.
         shared_ptr<string> level_ {};
+        // The value constraint.
         shared_ptr<BeStorageConstraints::ValueConstraint> valueConstraint_ {};
       };
 
@@ -995,9 +1049,13 @@ namespace Models
 
 
       protected:
+        // The default value.
         shared_ptr<int32_t> default_ {};
+        // The maximum value.
         shared_ptr<int32_t> max_ {};
+        // The minimum value.
         shared_ptr<int32_t> min_ {};
+        // The step.
         shared_ptr<int32_t> step_ {};
       };
 
@@ -1196,26 +1254,57 @@ namespace Models
 
 
     protected:
+      // The CU sizes for agents.
       shared_ptr<vector<int32_t>> agentCu_ {};
+      // The available CU (Compute Unit) sizes for BE nodes.
       shared_ptr<vector<int32_t>> beCu_ {};
+      // The CU sizes for BE nodes on ECS.
       shared_ptr<vector<int32_t>> beCuOnEcs_ {};
+      // The BE node configuration.
       shared_ptr<Data::BeNumber> beNumber_ {};
+      // The storage constraints for BE nodes.
       shared_ptr<vector<Data::BeStorageConstraints>> beStorageConstraints_ {};
+      // The specification constraints for big data instance types.
       shared_ptr<vector<Data::BigDataInstanceTypeConstraints>> bigDataInstanceTypeConstraints_ {};
+      // The available CU sizes for FE nodes.
       shared_ptr<vector<int32_t>> feCu_ {};
+      // The CU sizes for FE nodes on ECS.
       shared_ptr<vector<int32_t>> feCuOnEcs_ {};
+      // The number of FE nodes.
       shared_ptr<Data::FeNumber> feNumber_ {};
+      // The instance types for FE nodes.
       shared_ptr<vector<Data::FeSpecType>> feSpecType_ {};
+      // The storage size for the FE node.
       shared_ptr<Data::FeStorage> feStorage_ {};
+      // The high availability (HA) FE node configuration.
       shared_ptr<Data::HaFeResourceSpec> haFeResourceSpec_ {};
+      // The specification constraints for local SSD instance types.
       shared_ptr<vector<Data::LocalSSDInstanceTypeConstraints>> localSSDInstanceTypeConstraints_ {};
+      // The standard FE resource configuration.
       shared_ptr<Data::NormalFeResourceSpec> normalFeResourceSpec_ {};
+      // The instance type for compute nodes. Valid values:
+      // 
+      // - `standard`: Standard.
+      // 
+      // - `localSSD`: Local SSD.
+      // 
+      // - `bigData`: Large-capacity storage.
+      // 
+      // - `ramEnhanced`: Memory-enhanced.
+      // 
+      // - `networkEnhanced`: Network-enhanced.
       shared_ptr<vector<Data::SpecType>> specType_ {};
+      // This parameter is deprecated.
       shared_ptr<map<string, Darabonba::Json>> splitDiskThresholdMap_ {};
+      // The version constraint.
       shared_ptr<Data::VersionConstraint> versionConstraint_ {};
+      // The EED types supported in each availability zone.
       shared_ptr<map<string, vector<string>>> zoneSupportedEedTypes_ {};
+      // The instance types supported in each availability zone.
       shared_ptr<map<string, vector<string>>> zoneSupportedSpecTypes_ {};
+      // The CU constraints for the compaction service.
       shared_ptr<Data::CompactionServiceCuConstraint> compactionServiceCuConstraint_ {};
+      // The compaction services supported in each availability zone.
       shared_ptr<map<string, vector<DataZoneSupportCompactionServiceValue>>> zoneSupportCompactionService_ {};
     };
 
@@ -1274,13 +1363,19 @@ namespace Models
 
 
   protected:
-    // AccessDeniedDetail
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The response data.
     shared_ptr<DescribeResourceConstraintsResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The error code. A value of `Success` indicates that the request was successful.
     shared_ptr<string> errorCode_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

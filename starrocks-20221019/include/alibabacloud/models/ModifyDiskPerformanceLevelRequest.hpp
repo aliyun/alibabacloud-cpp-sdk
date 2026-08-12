@@ -70,19 +70,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The warehouse ID.
+    // The compute group ID.
     // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
     shared_ptr<string> promotionOptionNo_ {};
-    // The disk performance level to which you want to change.
-    // 
-    // Valid values:
-    // 
-    // *   pl0
-    // *   pl1
-    // *   pl2
-    // *   pl3
+    // The target disk performance level.
     // 
     // This parameter is required.
     shared_ptr<string> target_ {};

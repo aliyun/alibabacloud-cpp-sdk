@@ -126,8 +126,11 @@ namespace Models
 
 
       protected:
+        // Quantity.
         shared_ptr<float> amount_ {};
+        // Rule name.
         shared_ptr<string> name_ {};
+        // Rule ID.
         shared_ptr<string> ruleDescId_ {};
       };
 
@@ -178,8 +181,11 @@ namespace Models
 
 
       protected:
+        // The description of the coupon.
         shared_ptr<string> promotionDesc_ {};
+        // Coupon name.
         shared_ptr<string> promotionName_ {};
+        // Coupon ID.
         shared_ptr<string> promotionOptionNo_ {};
       };
 
@@ -239,9 +245,13 @@ namespace Models
 
 
       protected:
+        // Price reduction ratio.
         shared_ptr<float> cheapRate_ {};
+        // Total official website price after reduction.
         shared_ptr<float> cheapStandAmount_ {};
+        // Display price reduction range.
         shared_ptr<bool> isShow_ {};
+        // Original total official website price.
         shared_ptr<float> originalStandAmount_ {};
       };
 
@@ -301,9 +311,13 @@ namespace Models
 
 
       protected:
+        // Resource group ID.
         shared_ptr<string> componentName_ {};
+        // Discount.
         shared_ptr<float> discountAmount_ {};
+        // Original price.
         shared_ptr<float> originalAmount_ {};
+        // Final price, which is the original price minus the discount amount.
         shared_ptr<float> tradeAmount_ {};
       };
 
@@ -389,15 +403,25 @@ namespace Models
 
 
     protected:
+      // Component prices.
       shared_ptr<vector<Data::ComponentPrices>> componentPrices_ {};
+      // Currency.
       shared_ptr<string> currency_ {};
+      // Price reduction ratio.
       shared_ptr<Data::DepreciateInfo> depreciateInfo_ {};
+      // Discount amount = original amount - bill payable amount (including coupon deduction amount).
       shared_ptr<float> discountAmount_ {};
+      // Coupon information.
       shared_ptr<vector<Data::OptionalPromotions>> optionalPromotions_ {};
+      // Original price (original amount) = catalog price × usage.
       shared_ptr<float> originalAmount_ {};
+      // Returned data structure.
       shared_ptr<vector<Data::Rules>> rules_ {};
+      // Discounted price based on the official website discount.
       shared_ptr<float> standDiscountPrice_ {};
+      // Official website discount price.
       shared_ptr<float> standPrice_ {};
+      // Amount.
       shared_ptr<float> tradeAmount_ {};
     };
 
@@ -458,11 +482,17 @@ namespace Models
   protected:
     // AccessDeniedDetail
     shared_ptr<string> accessDeniedDetail_ {};
+    // Returned data.
     shared_ptr<QueryModifyDiskTypePriceResponseBody::Data> data_ {};
+    // Error code.
     shared_ptr<string> errCode_ {};
+    // Error message.
     shared_ptr<string> errMessage_ {};
+    // HTTP request status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Is the request successful.
     shared_ptr<bool> success_ {};
   };
 

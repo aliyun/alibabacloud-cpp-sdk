@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The client\\"s new password.
     shared_ptr<string> password_ {};
   };
 

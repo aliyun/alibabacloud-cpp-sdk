@@ -129,16 +129,27 @@ namespace Models
 
 
   protected:
+    // [Deprecated] List of configurations to add
     shared_ptr<string> addConfigList_ {};
+    // Additional information
     shared_ptr<string> configList_ {};
+    // [Deprecated] List of configurations to delete
     shared_ptr<string> deleteConfigList_ {};
+    // Sample ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Reason for modification
     shared_ptr<string> reason_ {};
+    // Configurations to add
     shared_ptr<vector<InstanceConfigDto>> configsToAdd_ {};
+    // Configurations to delete
     shared_ptr<vector<InstanceConfigDto>> configsToDelete_ {};
+    // Configurations to update
     shared_ptr<vector<InstanceConfigDto>> configsToUpdate_ {};
+    // Whether to restart quickly
     shared_ptr<bool> fastMode_ {};
+    // Whether to restart.
     shared_ptr<bool> restart_ {};
   };
 

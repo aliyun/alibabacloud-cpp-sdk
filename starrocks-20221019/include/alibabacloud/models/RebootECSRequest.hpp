@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The system event ID.
     shared_ptr<string> eventId_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The reboot time for the instance.
     shared_ptr<int64_t> rebootTime_ {};
   };
 

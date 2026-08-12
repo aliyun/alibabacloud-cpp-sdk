@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The ID of the instance that is associated with the bill. For the default compute group, which includes the FE compute group and the default BE compute group, this parameter is the instance ID. For other compute groups, this parameter is the compute group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> billingInstanceId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Order type
     shared_ptr<string> orderType_ {};
   };
 

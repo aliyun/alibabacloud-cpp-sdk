@@ -57,8 +57,15 @@ namespace Models
 
 
   protected:
+    // The ID of the configuration modification history.
     shared_ptr<int64_t> configHistoryId_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether to restart the instance after the configuration is changed. Valid values:
+    // 
+    // - **true**: Restart the instance.
+    // 
+    // - **false**: Do not restart the instance.
     shared_ptr<bool> restart_ {};
   };
 

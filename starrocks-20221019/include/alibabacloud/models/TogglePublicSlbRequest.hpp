@@ -57,8 +57,15 @@ namespace Models
 
 
   protected:
+    // Is Internet-facing SLB enabled?
+    // 
+    // - Enable: true
+    // 
+    // - Disable: false
     shared_ptr<bool> enablePublicSlb_ {};
+    // Private gateway ID.
     shared_ptr<string> gatewayId_ {};
+    // Instance ID.
     shared_ptr<string> instanceId_ {};
   };
 

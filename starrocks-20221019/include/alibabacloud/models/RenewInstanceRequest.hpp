@@ -75,14 +75,29 @@ namespace Models
 
 
   protected:
+    // A comma-separated list of billing instance IDs to renew. Billing instances include clusters and compute groups.
+    // 
     // This parameter is required.
     shared_ptr<string> billingInstanceIds_ {};
+    // The subscription duration.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> duration_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Duration unit:
+    // 
+    // - Month
+    // 
+    // - Year
+    // 
+    // Valid only when payType is PrePaid.
+    // 
     // This parameter is required.
     shared_ptr<string> pricingCycle_ {};
+    // The coupon ID.
     shared_ptr<string> promotionOptionNo_ {};
   };
 

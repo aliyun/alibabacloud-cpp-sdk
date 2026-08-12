@@ -90,7 +90,9 @@ namespace Models
 
 
     protected:
+      // VSwitch ID.
       shared_ptr<string> vswId_ {};
+      // Zone ID of the VSwitch.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -132,7 +134,9 @@ namespace Models
 
 
     protected:
+      // Tag key.
       shared_ptr<string> key_ {};
+      // Tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -229,18 +233,33 @@ namespace Models
 
 
   protected:
+    // Cluster administrator password.
     shared_ptr<string> adminPassword_ {};
+    // Enable auto-renewal. This parameter applies only when PayType is prePaid. Default: false.
     shared_ptr<bool> autoRenew_ {};
+    // Backup job ID.
     shared_ptr<string> backupTaskId_ {};
+    // Subscription duration. This parameter applies only when PayType is prePaid.
     shared_ptr<int32_t> duration_ {};
+    // Instance name.
     shared_ptr<string> instanceName_ {};
+    // Payment type:
+    // prePaid for subscription
+    // postPaid for pay-as-you-go
     shared_ptr<string> payType_ {};
+    // Billing cycle unit. This parameter applies only when PayType is prePaid.
+    // Month for monthly billing
+    // Year for yearly billing
     shared_ptr<string> pricingCycle_ {};
+    // Region ID.
     shared_ptr<string> regionId_ {};
+    // Resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // Tag struct.
     shared_ptr<vector<RestoreInstanceRequest::Tags>> tags_ {};
+    // VSwitch and zone information.
     shared_ptr<vector<RestoreInstanceRequest::VSwitches>> vSwitches_ {};
-    // vpc ID
+    // VPC ID.
     shared_ptr<string> vpcId_ {};
   };
 

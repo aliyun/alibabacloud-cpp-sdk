@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The ID of the target zone.
     shared_ptr<string> targetZoneId_ {};
   };
 

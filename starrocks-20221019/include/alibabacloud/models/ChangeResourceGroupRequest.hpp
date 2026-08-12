@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the destination resource group.
+    // 
     // This parameter is required.
     shared_ptr<string> newResourceGroupId_ {};
+    // The ID of the region where the cluster resides.
     shared_ptr<string> regionId_ {};
+    // The resource type. Only instance is supported.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
   };

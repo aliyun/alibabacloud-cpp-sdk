@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // vSwitch ID.
       shared_ptr<string> vswId_ {};
+      // Zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -102,8 +104,11 @@ namespace Models
 
 
   protected:
+    // Instance ID.
     shared_ptr<string> instanceId_ {};
+    // Multi-zone information.
     shared_ptr<vector<EnableMultiAzRequest::Observers>> observers_ {};
+    // Coupon.
     shared_ptr<string> promotionOptionNo_ {};
   };
 

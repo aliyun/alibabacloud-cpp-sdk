@@ -176,13 +176,21 @@ namespace Models
 
 
       protected:
+        // The database name.
         shared_ptr<string> dataBase_ {};
+        // The snapshot ID.
         shared_ptr<string> detail_ {};
+        // The task end time.
         shared_ptr<int64_t> finishedTime_ {};
+        // The data size in GiB.
         shared_ptr<int64_t> size_ {};
+        // The snapshot name.
         shared_ptr<string> snapshotName_ {};
+        // The task start date.
         shared_ptr<int64_t> startTime_ {};
+        // The backup job status.
         shared_ptr<string> status_ {};
+        // The data table name.
         shared_ptr<string> table_ {};
       };
 
@@ -261,7 +269,9 @@ namespace Models
 
 
         protected:
+          // The tag key.
           shared_ptr<string> key_ {};
+          // The tag value.
           shared_ptr<string> value_ {};
         };
 
@@ -358,13 +368,49 @@ namespace Models
 
 
         protected:
+          // The compute group type. Includes the following values:
+          // 
+          // - FE
+          // 
+          // - BE
+          // 
+          // - CN
+          // 
+          // - OBSERVER
+          // 
+          // - AGENT
           shared_ptr<string> componentType_ {};
+          // The number of CUs. A CU (Compute Unit) is the basic unit of measurement for the service. 1 CU equals 1 CPU core + 4 GiB memory. If SpecType is memory-enhanced instance family, 1 CU equals 1 CPU core + 8 GiB memory.
           shared_ptr<int32_t> cu_ {};
+          // The number of disks.
           shared_ptr<string> diskNumber_ {};
+          // The node group\\"s local SSD instance type. This value is only meaningful for ECS instances where SpecType is local SSD or large-capacity storage.
           shared_ptr<string> localStorageInstanceType_ {};
+          // The number of nodes.
           shared_ptr<string> residentNodeNumber_ {};
+          // The compute group specification type. Includes the following types:
+          // 
+          // - standard: Standard Edition.
+          // 
+          // - localSSD: Local SSD.
+          // 
+          // - bigData: Large-capacity storage.
+          // 
+          // - ramEnhanced: Memory-enhanced instance family.
+          // 
+          // - networkEnhanced: Network-enhanced.
           shared_ptr<string> specType_ {};
+          // The performance level (PL) of the cloud disk. Includes the following values:
+          // 
+          // - pl0: Maximum random read/write IOPS of 10,000 per disk.
+          // 
+          // - pl1: Maximum random read/write IOPS of 50,000 per disk.
+          // 
+          // - pl2: Maximum random read/write IOPS of 100,000 per disk.
+          // 
+          // - pl3: Maximum random read/write IOPS of 1,000,000 per disk.
           shared_ptr<string> storagePerformanceLevel_ {};
+          // The storage size in GiB.
           shared_ptr<int32_t> storageSize_ {};
         };
 
@@ -446,16 +492,39 @@ namespace Models
 
 
       protected:
+        // The instance name.
         shared_ptr<string> instanceName_ {};
+        // The minor version number.
         shared_ptr<string> minorVersion_ {};
+        // The compute group information.
         shared_ptr<vector<InstanceSnapshot::NodeGroups>> nodeGroups_ {};
+        // The region ID of the instance.
         shared_ptr<string> regionId_ {};
+        // The resource group ID.
         shared_ptr<string> resourceGroupId_ {};
+        // The cluster\\"s running mode:
+        // 
+        // - Shared-nothing.
+        // 
+        // - Shared-data.
         shared_ptr<string> runMode_ {};
+        // The compute group specification type. Includes the following types:
+        // 
+        // - standard: Standard Edition.
+        // 
+        // - localSSD: Local SSD.
+        // 
+        // - bigData: Large-capacity storage.
+        // 
+        // - ramEnhanced: Memory-enhanced instance family.
+        // 
+        // - networkEnhanced: Network-enhanced.
         shared_ptr<string> specType_ {};
+        // The tag information.
         shared_ptr<vector<InstanceSnapshot::Tags>> tags_ {};
+        // The cluster version.
         shared_ptr<string> version_ {};
-        // VPC ID。
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -552,17 +621,33 @@ namespace Models
 
 
     protected:
+      // The end time of this backup.
       shared_ptr<int64_t> backupFinishedTime_ {};
+      // The start time of this backup.
       shared_ptr<int64_t> backupStartTime_ {};
+      // The backup task ID.
       shared_ptr<string> backupTaskId_ {};
+      // The backup type:
+      // 
+      // - **0**: Fast backup.
+      // 
+      // - **1**: Consistent backup.
       shared_ptr<string> backupType_ {};
+      // The task description.
       shared_ptr<string> description_ {};
+      // The expiration time of the backup data.
       shared_ptr<int64_t> expireTime_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The backup instance information.
       shared_ptr<Data::InstanceSnapshot> instanceSnapshot_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The cloud disk size in GiB.
       shared_ptr<int64_t> size_ {};
+      // The backup job status.
       shared_ptr<string> status_ {};
+      // The list of backup subtasks.
       shared_ptr<vector<Data::SubTasks>> subTasks_ {};
     };
 
@@ -621,12 +706,19 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<vector<DescribeBackupsResponseBody::Data>> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP request status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of query results.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -160,17 +160,27 @@ namespace Models
 
 
     protected:
+      // Indicates whether public network access is enabled.
       shared_ptr<bool> enablePublicNet_ {};
+      // The number of gateway nodes.
       shared_ptr<int32_t> feNodeNumber_ {};
+      // The gateway ID.
       shared_ptr<string> gatewayId_ {};
+      // The gateway name.
       shared_ptr<string> gatewayName_ {};
+      // The gateway type. Valid values are \\`Slb\\` and \\`Privatezone\\`.
       shared_ptr<string> gatewayType_ {};
+      // The internal endpoint.
       shared_ptr<string> internalDomain_ {};
+      // The ID of the internal-facing Server Load Balancer (SLB) instance.
       shared_ptr<string> internalSlbId_ {};
-      // PrivatezoneId
+      // The ID of the PrivateZone.
       shared_ptr<string> privatezoneId_ {};
+      // The public endpoint.
       shared_ptr<string> publicDomain_ {};
+      // The ID of the access control list (ACL) for public network access.
       shared_ptr<string> publicSlbAclId_ {};
+      // The ID of the public-facing SLB instance.
       shared_ptr<string> publicSlbId_ {};
     };
 
@@ -221,11 +231,17 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<vector<ListGatewayResponseBody::Data>> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

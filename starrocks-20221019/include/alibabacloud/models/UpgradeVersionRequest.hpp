@@ -66,17 +66,19 @@ namespace Models
 
 
   protected:
+    // Specifies whether to perform a fast restart.
     shared_ptr<bool> fastMode_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether the minor version is upgraded. Default value: true. Valid values:
+    // Specifies whether this upgrade is a minor version upgrade. Default value: true.
     // 
-    // *   true: The minor version is upgraded.
-    // *   false: The major version is upgraded.
+    // Valid values:
+    // - true: minor version upgrade.
+    // - false: major engine version upgrade.
     shared_ptr<bool> minor_ {};
-    // The version to which you want to upgrade.
+    // The target version number.
     // 
     // This parameter is required.
     shared_ptr<string> targetVersion_ {};

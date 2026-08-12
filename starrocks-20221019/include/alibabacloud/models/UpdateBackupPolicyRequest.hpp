@@ -97,12 +97,19 @@ namespace Models
 
 
   protected:
+    // Validity period in days.
     shared_ptr<int32_t> expireDays_ {};
+    // Trigger time: hour.
     shared_ptr<int32_t> hour_ {};
+    // Instance ID.
     shared_ptr<string> instanceId_ {};
+    // Trigger time: minute.
     shared_ptr<int32_t> minute_ {};
+    // Backup policy ID.
     shared_ptr<string> policyId_ {};
+    // Numerical values for the policy execution cycle.
     shared_ptr<vector<int32_t>> recurrenceValues_ {};
+    // Timeout duration for the backup policy.
     shared_ptr<int32_t> timeoutSeconds_ {};
   };
 

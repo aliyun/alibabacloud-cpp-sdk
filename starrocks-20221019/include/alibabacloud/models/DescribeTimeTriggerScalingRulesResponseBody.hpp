@@ -175,14 +175,41 @@ namespace Models
 
 
       protected:
+        // The day of the execution time.
         shared_ptr<int32_t> day_ {};
+        // The hour of the execution time.
         shared_ptr<int32_t> hour_ {};
+        // The minute of the execution time.
         shared_ptr<int32_t> minute_ {};
+        // The month of the execution time.
         shared_ptr<int32_t> month_ {};
+        // The trigger interval. Its meaning depends on the RecurrenceType value:
+        // 
+        // - DAILY: The interval in days.
+        // 
+        // - WEEKLY: The interval in weeks.
+        // 
+        // - MONTHLY: The interval in months.
         shared_ptr<int32_t> recurrenceInterval_ {};
+        // The trigger method. Valid values:
+        // 
+        // - ONCE: One-time
+        // 
+        // - DAILY: Daily
+        // 
+        // - WEEKLY: Weekly
+        // 
+        // - MONTHLY: Monthly
         shared_ptr<string> recurrenceType_ {};
+        // The trigger values. Their meaning depends on the RecurrenceType value:
+        // 
+        // -WEEKLY: The days of the week for execution.
+        // 
+        // -MONTHLY: The days of the month for execution.
         shared_ptr<vector<string>> recurrenceValues_ {};
+        // The second of the execution time.
         shared_ptr<int32_t> second_ {};
+        // The year of the execution time.
         shared_ptr<int32_t> year_ {};
       };
 
@@ -290,14 +317,41 @@ namespace Models
 
 
       protected:
+        // The day of the execution time.
         shared_ptr<int32_t> day_ {};
+        // The hour of the execution time.
         shared_ptr<int32_t> hour_ {};
+        // The minute of the execution time.
         shared_ptr<int32_t> minute_ {};
+        // The month of the execution time.
         shared_ptr<int32_t> month_ {};
+        // The trigger interval. Its meaning depends on the RecurrenceType value:
+        // 
+        // - DAILY: The interval in days.
+        // 
+        // - WEEKLY: The interval in weeks.
+        // 
+        // - MONTHLY: The interval in months.
         shared_ptr<int32_t> recurrenceInterval_ {};
+        // The trigger method. Valid values:
+        // 
+        // - ONCE: One-time
+        // 
+        // - DAILY: Daily
+        // 
+        // - WEEKLY: Weekly
+        // 
+        // - MONTHLY: Monthly
         shared_ptr<string> recurrenceType_ {};
+        // The trigger values. Their meaning depends on the RecurrenceType value:
+        // 
+        // -WEEKLY: The days of the week for execution.
+        // 
+        // -MONTHLY: The days of the month for execution.
         shared_ptr<vector<string>> recurrenceValues_ {};
+        // The second of the execution time.
         shared_ptr<int32_t> second_ {};
+        // The year of the execution time.
         shared_ptr<int32_t> year_ {};
       };
 
@@ -350,11 +404,23 @@ namespace Models
 
 
     protected:
+      // The number of elastic nodes.
       shared_ptr<string> nodeNumber_ {};
+      // The scale-in rule.
       shared_ptr<Data::ScalingInRule> scalingInRule_ {};
+      // The scale-out rule.
       shared_ptr<Data::ScalingOutRule> scalingOutRule_ {};
+      // The ID of the scaling rule.
       shared_ptr<string> scalingRuleId_ {};
+      // The name of the Auto Scaling policy.
       shared_ptr<string> scalingRuleName_ {};
+      // The current status of the rule. Valid values:
+      // 
+      // - INACTIVE: The rule is not triggered.
+      // 
+      // - ACTIVE: The rule is triggered.
+      // 
+      // - DISABLED: The rule is disabled due to an overdue payment.
       shared_ptr<string> status_ {};
     };
 
@@ -413,12 +479,19 @@ namespace Models
 
 
   protected:
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The returned data.
     shared_ptr<vector<DescribeTimeTriggerScalingRulesResponseBody::Data>> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code of the request.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

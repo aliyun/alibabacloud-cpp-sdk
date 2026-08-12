@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The number of gateway nodes.
     shared_ptr<int32_t> feNodeNumber_ {};
+    // The ID of the gateway.
     shared_ptr<string> gatewayId_ {};
+    // The name of the gateway.
     shared_ptr<string> gatewayName_ {};
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
   };
 

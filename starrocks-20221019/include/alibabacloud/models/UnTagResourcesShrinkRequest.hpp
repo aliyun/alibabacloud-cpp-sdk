@@ -75,13 +75,21 @@ namespace Models
 
 
   protected:
+    // Specifies whether to remove all tags from the resources. This parameter is valid only when the TagKey parameter is left empty. The default value is false.
     shared_ptr<bool> all_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // A list of resource IDs. The list can contain up to 50 resource IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceIdShrink_ {};
+    // The resource type.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // A list of tag keys to remove. The list can contain up to 20 tag keys.
     shared_ptr<string> tagKeyShrink_ {};
   };
 

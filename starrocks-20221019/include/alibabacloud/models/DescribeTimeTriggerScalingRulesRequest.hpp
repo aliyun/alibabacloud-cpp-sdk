@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the compute group.
     shared_ptr<string> nodeGroupId_ {};
   };
 

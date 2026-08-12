@@ -98,9 +98,13 @@ namespace Models
 
 
     protected:
+      // The description of the region.
       shared_ptr<string> description_ {};
+      // The English description.
       shared_ptr<string> descriptionEn_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The region name.
       shared_ptr<string> regionName_ {};
     };
 
@@ -159,13 +163,19 @@ namespace Models
 
 
   protected:
-    // AccessDeniedDetail
+    // Details about access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The instance information.
     shared_ptr<vector<DescribeRegionsResponseBody::Data>> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP request status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

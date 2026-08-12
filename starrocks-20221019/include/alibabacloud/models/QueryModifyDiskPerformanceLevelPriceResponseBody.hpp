@@ -126,8 +126,11 @@ namespace Models
 
 
       protected:
+        // The number of purchased resources.
         shared_ptr<float> amount_ {};
+        // The rule name.
         shared_ptr<string> name_ {};
+        // The rule ID.
         shared_ptr<string> ruleDescId_ {};
       };
 
@@ -178,8 +181,11 @@ namespace Models
 
 
       protected:
+        // The coupon description.
         shared_ptr<string> promotionDesc_ {};
+        // The coupon name.
         shared_ptr<string> promotionName_ {};
+        // The coupon ID.
         shared_ptr<string> promotionOptionNo_ {};
       };
 
@@ -239,9 +245,13 @@ namespace Models
 
 
       protected:
+        // The price reduction ratio.
         shared_ptr<float> cheapRate_ {};
+        // The total official price after the price reduction.
         shared_ptr<float> cheapStandAmount_ {};
+        // Indicates whether to display the price reduction range.
         shared_ptr<bool> isShow_ {};
+        // The original total official price.
         shared_ptr<float> originalStandAmount_ {};
       };
 
@@ -301,9 +311,13 @@ namespace Models
 
 
       protected:
+        // Resource group ID
         shared_ptr<string> componentName_ {};
+        // The discount.
         shared_ptr<float> discountAmount_ {};
+        // The original price.
         shared_ptr<float> originalAmount_ {};
+        // The final price, which is the original price minus the discount.
         shared_ptr<float> tradeAmount_ {};
       };
 
@@ -389,15 +403,31 @@ namespace Models
 
 
     protected:
+      // The component prices.
       shared_ptr<vector<Data::ComponentPrices>> componentPrices_ {};
+      // The currency. Valid values:
+      // 
+      // - CNY: Chinese Yuan.
+      // 
+      // - USD: US Dollar.
+      // 
+      // - JPY: Japanese Yen.
       shared_ptr<string> currency_ {};
+      // The total official price after the price reduction.
       shared_ptr<Data::DepreciateInfo> depreciateInfo_ {};
+      // The discount amount. Discount amount = Original price - Amount payable (including the amount deducted by coupons).
       shared_ptr<float> discountAmount_ {};
+      // The coupon information.
       shared_ptr<vector<Data::OptionalPromotions>> optionalPromotions_ {};
+      // The original price. Original price = List price × Usage.
       shared_ptr<float> originalAmount_ {};
+      // A list of hit rules. Each item is a rule. Only information about the hit rules and their locations is returned.
       shared_ptr<vector<Data::Rules>> rules_ {};
+      // The discounted price based on the official discount.
       shared_ptr<float> standDiscountPrice_ {};
+      // The official discounted price.
       shared_ptr<float> standPrice_ {};
+      // The amount.
       shared_ptr<float> tradeAmount_ {};
     };
 
@@ -456,13 +486,19 @@ namespace Models
 
 
   protected:
-    // AccessDeniedDetail
+    // The details about access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The order ID.
     shared_ptr<QueryModifyDiskPerformanceLevelPriceResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code of the request.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

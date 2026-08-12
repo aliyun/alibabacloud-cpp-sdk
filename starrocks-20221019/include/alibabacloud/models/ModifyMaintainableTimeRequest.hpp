@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The maintenance window for the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> maintainableTimePeriod_ {};
   };

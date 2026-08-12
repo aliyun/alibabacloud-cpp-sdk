@@ -82,7 +82,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -148,13 +150,65 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The instance name.
     shared_ptr<string> instanceName_ {};
+    // The instance status to filter by. You can specify multiple statuses, separated by commas. Valid values:
+    // 
+    // - unpaid
+    // 
+    // - paid
+    // 
+    // - creating
+    // 
+    // - running
+    // 
+    // - updating
+    // 
+    // - disable
+    // 
+    // - deleting
+    // 
+    // - scaling_out
+    // 
+    // - scaling_in
+    // 
+    // - scaling_up
+    // 
+    // - scaling_down
+    // 
+    // - upgrading
+    // 
+    // - modifying_config
+    // 
+    // - enable_public_network
+    // 
+    // - disable_public_network
+    // 
+    // - convert_from_trial_to_official
+    // 
+    // - restarting
+    // 
+    // - migration_cluster_to_serverless
+    // 
+    // - actively_disabled
+    // 
+    // - enabling
+    // 
+    // - agent_creating
+    // 
+    // - agent_scaling_up
     shared_ptr<string> instanceStatus_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID of the instance.
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The list of tags.
     shared_ptr<vector<DescribeInstancesRequest::Tag>> tag_ {};
   };
 

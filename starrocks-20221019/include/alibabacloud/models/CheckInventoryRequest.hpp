@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Cluster information.
     shared_ptr<string> clusterInfo_ {};
+    // Zone.
     shared_ptr<string> zoneId_ {};
   };
 

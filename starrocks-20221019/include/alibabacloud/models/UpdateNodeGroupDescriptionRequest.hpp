@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The description of the compute group.
     shared_ptr<string> description_ {};
+    // The ID of the compute group.
     shared_ptr<string> nodeGroupId_ {};
+    // The RAM authorization information.
     shared_ptr<string> xAcsRamAuthContext_ {};
   };
 

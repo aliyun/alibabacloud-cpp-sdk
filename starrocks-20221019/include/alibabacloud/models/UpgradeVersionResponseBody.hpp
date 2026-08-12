@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The detailed information about the failed permission verification.
+    // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
     // The returned data.
     shared_ptr<bool> data_ {};

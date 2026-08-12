@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // The list of CIDR blocks.
       shared_ptr<vector<string>> cidrIpList_ {};
+      // The name of the whitelist group.
       shared_ptr<string> innerIpWhitelistGroupId_ {};
     };
 
@@ -131,11 +133,17 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code of the request.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // List of devices.
     shared_ptr<vector<DescribeInnerIpWhitelistGroupsResponseBody::Data>> data_ {};
   };
 

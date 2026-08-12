@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The instance ID of the EMR Serverless StarRocks instance.
     shared_ptr<string> instanceId_ {};
   };
 

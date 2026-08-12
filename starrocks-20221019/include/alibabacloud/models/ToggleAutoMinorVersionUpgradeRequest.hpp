@@ -48,8 +48,16 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable automatic minor version upgrades. Valid values:
+    // 
+    // - true: Enables automatic upgrades.
+    // 
+    // - false: Disables automatic upgrades.
+    // 
     // This parameter is required.
     shared_ptr<bool> autoUpgrade_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

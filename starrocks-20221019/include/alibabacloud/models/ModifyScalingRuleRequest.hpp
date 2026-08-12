@@ -75,14 +75,24 @@ namespace Models
 
 
   protected:
+    // New trigger type.
+    // 
     // This parameter is required.
     shared_ptr<string> newTriggerType_ {};
+    // Compute group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
+    // Old trigger type.
+    // 
     // This parameter is required.
     shared_ptr<string> oldTriggerType_ {};
+    // Rule content.
+    // 
     // This parameter is required.
     shared_ptr<string> rule_ {};
+    // ID of the scaling rule to modify.
+    // 
     // This parameter is required.
     shared_ptr<string> scalingRuleId_ {};
   };

@@ -57,8 +57,15 @@ namespace Models
 
 
   protected:
+    // Whether to restart in fast mode. Default value: false.
+    // 
+    // - true: Restart compute nodes in fast mode. Nodes restart in batches. Within each batch, nodes restart in parallel. Between batches, restarts run sequentially.
+    // 
+    // - false: Restart compute nodes using rolling restart.
     shared_ptr<bool> fastMode_ {};
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The ID of the compute group.
     shared_ptr<string> nodeGroupId_ {};
   };
 

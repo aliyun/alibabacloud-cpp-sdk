@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // Details about the access denied error.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether the maintenance window was updated successfully.
     shared_ptr<bool> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code of the request.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

@@ -197,6 +197,7 @@ namespace Models
 
 
       protected:
+        // The node ID.
         shared_ptr<string> nodeId_ {};
       };
 
@@ -444,38 +445,120 @@ namespace Models
 
 
     protected:
+      // The account status. Valid values:
+      // 
+      // - NORMAL: The account is in a normal state.
+      // - OVERDUE: The account has an overdue payment.
       shared_ptr<string> accountStatus_ {};
+      // The compute group architecture. Valid values:
+      // 
+      // - onEci: Deployed on Elastic Container Instance (ECI).
+      // - onECS: Deployed on Elastic Compute Service (ECS).
+      // - onBareMetal: Deployed on a bare metal resource pool.
       shared_ptr<string> architecture_ {};
+      // The creation time of the compute group.
       shared_ptr<int64_t> beginTime_ {};
+      // The instance ID associated with the bill. For default compute groups (FE compute group and default BE compute group), this value is the instance ID. Otherwise, it is the compute group ID.
       shared_ptr<string> billingInstanceId_ {};
+      // The commodity code.
       shared_ptr<string> commodityCode_ {};
+      // The compute group type. Valid values:
+      // 
+      // - FE
+      // - BE
+      // - CN
+      // - OBSERVER
+      // - AGENT
       shared_ptr<string> componentType_ {};
+      // The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU = 1 CPU core + 4 GiB memory. When SpecType is memory-enhanced instance family, 1 CU = 1 CPU core + 8 GiB memory.
       shared_ptr<int32_t> cu_ {};
+      // Indicates whether this is the default compute group.
       shared_ptr<bool> defaultGroup_ {};
+      // The compute group description.
       shared_ptr<string> description_ {};
+      // The number of disks.
       shared_ptr<int32_t> diskNumber_ {};
+      // The number of elastic nodes.
       shared_ptr<int32_t> elasticNodeNumber_ {};
+      // Indicates whether public network access is enabled.
       shared_ptr<bool> enablePublicNetwork_ {};
+      // The compute group endpoint.
       shared_ptr<string> endpoint_ {};
+      // The expiration time of the compute group.
       shared_ptr<int64_t> expireTime_ {};
+      // The HTTP port of the compute group.
       shared_ptr<int32_t> httpPort_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The local SSD instance type of the node group. This value is meaningful only when the deployment is based on ECS instances and SpecType is local SSD or large-scale storage.
       shared_ptr<string> localStorageInstanceType_ {};
+      // The ratio of memory size to the number of CUs. The value is 8 when SpecType is memory-enhanced instance family, and 4 for other specification types.
       shared_ptr<int32_t> memoryCpuRatio_ {};
+      // The compute group ID.
       shared_ptr<string> nodeGroupId_ {};
+      // The compute group name.
       shared_ptr<string> nodeGroupName_ {};
+      // The information about nodes in the compute group.
       shared_ptr<vector<Data::NodeInfo>> nodeInfo_ {};
+      // The billing type:
+      // <ol>
+      // <li>Subscription (prePaid).</li>
+      // <li>Pay-as-you-go (postPaid).</li>
+      // </ol>
       shared_ptr<string> payType_ {};
+      // The public network address. This field has a value only when EnablePublicNetwork is set to true.
       shared_ptr<string> publicAddress_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The number of nodes.
       shared_ptr<int32_t> residentNodeNumber_ {};
+      // The duration that the compute group has been running. Unit: seconds.
       shared_ptr<int64_t> runningTime_ {};
+      // The compute group specification type. Valid values:
+      // 
+      // - standard: Standard.
+      // - localSSD: Local SSD.
+      // - bigData: Large-scale storage.
+      // - ramEnhanced: Memory-enhanced instance family.
+      // - networkEnhanced: Network-enhanced.
       shared_ptr<string> specType_ {};
+      // The compute group status. Valid values:
+      // 
+      // - UNPAID: Unpaid.
+      // - PAID: Paid.
+      // - CREATING_FAILED: Creation failed.
+      // - CREATING: Being created.
+      // - RUNNING: Running.
+      // - MODIFYING_CONFIG: Configuration being modified.
+      // - MODIFYING_TIMEZONE: Time zone being modified.
+      // - ELASTIC_SCALING_OUT: Elastic scale-out in progress.
+      // - ELASTIC_SCALING_IN: Elastic scale-in in progress.
+      // - SCALING_OUT: Scale-out in progress.
+      // - RESTARTING: Restarting.
+      // - SCALING_IN: Scale-in in progress.
+      // - SCALING_UP: Upgrading specifications.
+      // - SCALING_DOWN: Downgrading specifications.
+      // - UPGRADING: Upgrading.
+      // - ENABLE_PUBLIC_NETWORK: Enabling public network access.
+      // - DISABLE_PUBLIC_NETWORK: Disabling public network access.
+      // - SWITCH_AZ: Switching zone.
+      // - DISABLE: Disabled.
+      // - DELETING: Being deleted.
+      // - DELETED: Deleted.
       shared_ptr<string> status_ {};
+      // The performance level (PL) of the cloud disk. Valid values:
+      // 
+      // - pl0: Maximum random read/write IOPS of 10,000 per disk.
+      // - pl1: Maximum random read/write IOPS of 50,000 per disk.
+      // - pl2: Maximum random read/write IOPS of 100,000 per disk.
+      // - pl3: Maximum random read/write IOPS of 1,000,000 per disk.
       shared_ptr<string> storagePerformanceLevel_ {};
+      // The storage size. Unit: GiB.
       shared_ptr<int32_t> storageSize_ {};
       shared_ptr<vector<Data::Tags>> tags_ {};
+      // The target number of elastic nodes.
       shared_ptr<int32_t> targetElasticNodeNumber_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -541,13 +624,21 @@ namespace Models
 
 
   protected:
+    // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The returned data.
     shared_ptr<vector<DescribeNodeGroupsResponseBody::Data>> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of query results.
     shared_ptr<int32_t> total_ {};
   };
 

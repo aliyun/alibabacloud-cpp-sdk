@@ -99,9 +99,13 @@ namespace Models
 
 
     protected:
+      // Node restart required after modifying disk size.
       shared_ptr<bool> needRestartAfterModifyDiskSize_ {};
+      // Supports modifying resources with fast restart.
       shared_ptr<bool> supportFastModeModifyResource_ {};
+      // Supports fast restart.
       shared_ptr<bool> supportFastRestart_ {};
+      // Supports modifying specification type.
       shared_ptr<bool> supportModifySpecType_ {};
     };
 
@@ -169,12 +173,19 @@ namespace Models
   protected:
     // AccessDeniedDetail
     shared_ptr<string> accessDeniedDetail_ {};
+    // Returned data.
     shared_ptr<GetNodeGroupFeatureGateResponseBody::Data> data_ {};
+    // Error code.
     shared_ptr<string> errCode_ {};
+    // Error message.
     shared_ptr<string> errMessage_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Is the request successful?
     shared_ptr<bool> success_ {};
+    // Total number of instances.
     shared_ptr<int32_t> total_ {};
   };
 

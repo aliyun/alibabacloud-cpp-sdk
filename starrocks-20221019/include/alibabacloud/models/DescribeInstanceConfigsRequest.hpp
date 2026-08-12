@@ -112,15 +112,31 @@ namespace Models
 
 
   protected:
+    // Indicates whether the configuration item can be modified.
     shared_ptr<bool> allowModify_ {};
+    // The key of the configuration item.
     shared_ptr<string> configKey_ {};
+    // The type of the configuration item. Valid values:
+    // 
+    // - FE
+    // 
+    // - BE
+    // 
+    // - CORE
     shared_ptr<string> configType_ {};
+    // The description of the configuration item\\"s feature.
     shared_ptr<string> description_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Indicates whether to return all configuration items.
     shared_ptr<bool> needTotal_ {};
+    // The compute group ID.
     shared_ptr<string> nodeGroupId_ {};
+    // The page number for the query. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page for a paged query. The default value is 20.
     shared_ptr<int32_t> pageSize_ {};
   };
 

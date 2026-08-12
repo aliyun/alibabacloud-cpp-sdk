@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DlfCatalogName, dlfCatalogName_);
       DARABONBA_PTR_TO_JSON(DlfCatalogType, dlfCatalogType_);
       DARABONBA_PTR_TO_JSON(Duration, duration_);
+      DARABONBA_PTR_TO_JSON(EnableAiFunction, enableAiFunction_);
       DARABONBA_PTR_TO_JSON(EnableMultiAz, enableMultiAz_);
       DARABONBA_PTR_TO_JSON(Encrypted, encrypted_);
       DARABONBA_PTR_TO_JSON(FrontendNodeGroups, frontendNodeGroups_);
@@ -57,6 +58,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DlfCatalogName, dlfCatalogName_);
       DARABONBA_PTR_FROM_JSON(DlfCatalogType, dlfCatalogType_);
       DARABONBA_PTR_FROM_JSON(Duration, duration_);
+      DARABONBA_PTR_FROM_JSON(EnableAiFunction, enableAiFunction_);
       DARABONBA_PTR_FROM_JSON(EnableMultiAz, enableMultiAz_);
       DARABONBA_PTR_FROM_JSON(Encrypted, encrypted_);
       DARABONBA_PTR_FROM_JSON(FrontendNodeGroups, frontendNodeGroups_);
@@ -130,8 +132,11 @@ namespace Models
 
 
     protected:
+      // The vSwitch ID.
+      // 
       // This parameter is required.
       shared_ptr<string> vswId_ {};
+      // The zone ID of the vSwitch.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -173,7 +178,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -270,13 +277,21 @@ namespace Models
 
 
     protected:
+      // The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU = 1 CPU core + 4 GiB memory.
       shared_ptr<int32_t> cu_ {};
+      // The number of disks.
       shared_ptr<int32_t> diskNumber_ {};
+      // The local SSD instance type. This parameter does not need to be set for the Observer node group.
       shared_ptr<string> localStorageInstanceType_ {};
+      // The number of nodes.
       shared_ptr<int32_t> residentNodeNumber_ {};
+      // The specification type of the node group. Only standard is supported.
       shared_ptr<string> specType_ {};
+      // The performance level (PL) of the cloud disk. Only pl1 is supported, which provides up to 50,000 random read/write IOPS per disk.
       shared_ptr<string> storagePerformanceLevel_ {};
+      // The storage size. Unit: GiB.
       shared_ptr<int32_t> storageSize_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -373,13 +388,21 @@ namespace Models
 
 
     protected:
+      // The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU = 1 CPU core + 4 GiB memory.
       shared_ptr<int32_t> cu_ {};
+      // The number of disks.
       shared_ptr<int32_t> diskNumber_ {};
+      // The local SSD instance type. This parameter does not need to be set for the FE node group.
       shared_ptr<string> localStorageInstanceType_ {};
+      // The number of nodes.
       shared_ptr<int32_t> residentNodeNumber_ {};
+      // The specification type of the node group. Only standard is supported.
       shared_ptr<string> specType_ {};
+      // The performance level (PL) of the cloud disk. Only pl1 is supported, which provides up to 50,000 random read/write IOPS per disk.
       shared_ptr<string> storagePerformanceLevel_ {};
+      // The storage size. Unit: GiB.
       shared_ptr<int32_t> storageSize_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -476,13 +499,26 @@ namespace Models
 
 
     protected:
+      // The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU = 1 CPU core + 4 GiB memory. When SpecType is set to memory-enhanced instance family, 1 CU = 1 CPU core + 8 GiB memory.
       shared_ptr<int32_t> cu_ {};
+      // The number of disks.
       shared_ptr<int32_t> diskNumber_ {};
+      // The local SSD instance type of the node group. This parameter takes effect only when the instance is ECS-based and SpecType is set to local SSD or large-scale storage.
       shared_ptr<string> localStorageInstanceType_ {};
+      // The number of nodes.
       shared_ptr<int32_t> residentNodeNumber_ {};
+      // The specification type of the node group. Valid values:
       shared_ptr<string> specType_ {};
+      // The performance level of the cloud disk. Valid values:
+      // 
+      // - pl0: A single disk delivers up to 10,000 random read/write IOPS.
+      // - pl1: A single disk delivers up to 50,000 random read/write IOPS.
+      // - pl2: A single disk delivers up to 100,000 random read/write IOPS.
+      // - pl3: A single disk delivers up to 1,000,000 random read/write IOPS.
       shared_ptr<string> storagePerformanceLevel_ {};
+      // The storage size. Unit: GiB.
       shared_ptr<int32_t> storageSize_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -519,12 +555,12 @@ namespace Models
 
     virtual bool empty() const override { return this->adminPassword_ == nullptr
         && this->agentNodeGroup_ == nullptr && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->backendNodeGroups_ == nullptr && this->clientToken_ == nullptr
-        && this->dlfCatalogName_ == nullptr && this->dlfCatalogType_ == nullptr && this->duration_ == nullptr && this->enableMultiAz_ == nullptr && this->encrypted_ == nullptr
-        && this->frontendNodeGroups_ == nullptr && this->gatewayType_ == nullptr && this->instanceName_ == nullptr && this->kmsKeyId_ == nullptr && this->linkedRamUserName_ == nullptr
-        && this->observerNodeGroups_ == nullptr && this->ossAccessingRoleName_ == nullptr && this->packageType_ == nullptr && this->payType_ == nullptr && this->pricingCycle_ == nullptr
-        && this->principalType_ == nullptr && this->promotionOptionNo_ == nullptr && this->ramUserId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->runMode_ == nullptr && this->tags_ == nullptr && this->vSwitches_ == nullptr && this->version_ == nullptr && this->vpcId_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->dlfCatalogName_ == nullptr && this->dlfCatalogType_ == nullptr && this->duration_ == nullptr && this->enableAiFunction_ == nullptr && this->enableMultiAz_ == nullptr
+        && this->encrypted_ == nullptr && this->frontendNodeGroups_ == nullptr && this->gatewayType_ == nullptr && this->instanceName_ == nullptr && this->kmsKeyId_ == nullptr
+        && this->linkedRamUserName_ == nullptr && this->observerNodeGroups_ == nullptr && this->ossAccessingRoleName_ == nullptr && this->packageType_ == nullptr && this->payType_ == nullptr
+        && this->pricingCycle_ == nullptr && this->principalType_ == nullptr && this->promotionOptionNo_ == nullptr && this->ramUserId_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->runMode_ == nullptr && this->tags_ == nullptr && this->vSwitches_ == nullptr && this->version_ == nullptr
+        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // adminPassword Field Functions 
     bool hasAdminPassword() const { return this->adminPassword_ != nullptr;};
     void deleteAdminPassword() { this->adminPassword_ = nullptr;};
@@ -590,6 +626,13 @@ namespace Models
     void deleteDuration() { this->duration_ = nullptr;};
     inline int32_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0) };
     inline CreateInstanceV1Request& setDuration(int32_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
+
+
+    // enableAiFunction Field Functions 
+    bool hasEnableAiFunction() const { return this->enableAiFunction_ != nullptr;};
+    void deleteEnableAiFunction() { this->enableAiFunction_ = nullptr;};
+    inline bool getEnableAiFunction() const { DARABONBA_PTR_GET_DEFAULT(enableAiFunction_, false) };
+    inline CreateInstanceV1Request& setEnableAiFunction(bool enableAiFunction) { DARABONBA_PTR_SET_VALUE(enableAiFunction_, enableAiFunction) };
 
 
     // enableMultiAz Field Functions 
@@ -762,47 +805,102 @@ namespace Models
 
 
   protected:
+    // The administrator password of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> adminPassword_ {};
     shared_ptr<CreateInstanceV1Request::AgentNodeGroup> agentNodeGroup_ {};
     shared_ptr<bool> autoPay_ {};
+    // Specifies whether to enable auto-renewal. This parameter takes effect only when payType is set to PrePaid. Auto-renewal is disabled by default.
     shared_ptr<bool> autoRenew_ {};
+    // The BE or CN node group information.
     shared_ptr<vector<CreateInstanceV1Request::BackendNodeGroups>> backendNodeGroups_ {};
+    // Ensures the idempotence of the request. Generate a unique parameter value from your client. The ClientToken value supports only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The name of the DLF Catalog.
     shared_ptr<string> dlfCatalogName_ {};
+    // The type of the DLF Catalog. Valid values: paimon and iceberg.
     shared_ptr<string> dlfCatalogType_ {};
+    // The subscription duration. This parameter takes effect only when payType is set to PrePaid.
     shared_ptr<int32_t> duration_ {};
+    shared_ptr<bool> enableAiFunction_ {};
+    // Specifies whether to enable disaster recovery.
     shared_ptr<bool> enableMultiAz_ {};
+    // Specifies whether to enable encryption.
     shared_ptr<bool> encrypted_ {};
+    // The FE node group information.
     shared_ptr<vector<CreateInstanceV1Request::FrontendNodeGroups>> frontendNodeGroups_ {};
     shared_ptr<string> gatewayType_ {};
+    // The instance name.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
+    // The KMS key ID.
     shared_ptr<string> kmsKeyId_ {};
+    // The username of the associated Resource Access Management (RAM) user or the name of the associated RAM role.
     shared_ptr<string> linkedRamUserName_ {};
+    // The Observer node group information. Specify this parameter only when you need to enable cross-zone disaster recovery. The Observer node group specifications must be the same as those of the FE node group.
     shared_ptr<vector<CreateInstanceV1Request::ObserverNodeGroups>> observerNodeGroups_ {};
+    // The name of the role used for password-free access to Object Storage Service (OSS).
     shared_ptr<string> ossAccessingRoleName_ {};
+    // The instance edition. Valid values:
+    // <ul>
+    // <li>trial: Trial Edition.</li>
+    // <li>official: Standard Edition.</li>
+    // </ul>
+    // 
     // This parameter is required.
     shared_ptr<string> packageType_ {};
+    // The billing method. Valid values:
+    // <ol>
+    // <li>prePaid: subscription.</li>
+    // <li>postPaid: pay-as-you-go.</li>
+    // </ol>
+    // 
     // This parameter is required.
     shared_ptr<string> payType_ {};
+    // The unit of the subscription duration. Valid values:
+    // <ul>
+    // <li>Month</li>
+    // <li>Year</li>
+    // </ul>
+    // This parameter takes effect only when payType is set to PrePaid.
     shared_ptr<string> pricingCycle_ {};
+    // The RAM authentication type. Valid values:
+    // - RS: Resource Access Management (RAM) user.
+    // - RR: RAM role.
     shared_ptr<string> principalType_ {};
+    // The coupon ID.
     shared_ptr<string> promotionOptionNo_ {};
+    // The ID of the Resource Access Management (RAM) user or RAM role.
     shared_ptr<string> ramUserId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The running mode of the cluster. Valid values:
+    // 
+    // - shared_nothing: compute-storage coupled.
+    // - shared_data: storage-compute disaggregation.
+    // 
     // This parameter is required.
     shared_ptr<string> runMode_ {};
+    // The instance tags.
     shared_ptr<vector<CreateInstanceV1Request::Tags>> tags_ {};
+    // The vSwitch and zone information.
     shared_ptr<vector<CreateInstanceV1Request::VSwitches>> vSwitches_ {};
+    // The major version of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> version_ {};
     // VPC ID。
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
+    // The primary zone ID.
+    // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};
   };

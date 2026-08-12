@@ -60,10 +60,16 @@ namespace Models
 
 
   protected:
+    // The list of CIDR blocks for the whitelist.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> cidrIpList_ {};
+    // The ID of the private network whitelist group.
+    // 
     // This parameter is required.
     shared_ptr<string> innerIpWhitelistGroupId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

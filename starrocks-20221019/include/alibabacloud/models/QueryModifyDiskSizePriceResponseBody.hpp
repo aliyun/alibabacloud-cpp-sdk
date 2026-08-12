@@ -126,8 +126,11 @@ namespace Models
 
 
       protected:
+        // The quantity.
         shared_ptr<float> amount_ {};
+        // The rule name.
         shared_ptr<string> name_ {};
+        // The rule ID.
         shared_ptr<string> ruleDescId_ {};
       };
 
@@ -178,8 +181,11 @@ namespace Models
 
 
       protected:
+        // The coupon description.
         shared_ptr<string> promotionDesc_ {};
+        // The coupon name.
         shared_ptr<string> promotionName_ {};
+        // The coupon ID.
         shared_ptr<string> promotionOptionNo_ {};
       };
 
@@ -239,9 +245,13 @@ namespace Models
 
 
       protected:
+        // The price reduction ratio.
         shared_ptr<float> cheapRate_ {};
+        // The total official website price after the price reduction.
         shared_ptr<float> cheapStandAmount_ {};
+        // Indicates whether to display the price reduction.
         shared_ptr<bool> isShow_ {};
+        // The original total official website price.
         shared_ptr<float> originalStandAmount_ {};
       };
 
@@ -301,9 +311,13 @@ namespace Models
 
 
       protected:
+        // The component name. Defaults to the component ID.
         shared_ptr<string> componentName_ {};
+        // The order discount amount.
         shared_ptr<float> discountAmount_ {};
+        // The original price.
         shared_ptr<float> originalAmount_ {};
+        // The final price, which is the original price minus the discount.
         shared_ptr<float> tradeAmount_ {};
       };
 
@@ -389,15 +403,31 @@ namespace Models
 
 
     protected:
+      // The component prices.
       shared_ptr<vector<Data::ComponentPrices>> componentPrices_ {};
+      // The currency. Valid values:
+      // 
+      // - CNY: Chinese Yuan.
+      // 
+      // - USD: US Dollar.
+      // 
+      // - JPY: Japanese Yen.
       shared_ptr<string> currency_ {};
+      // Indicates whether to display the price reduction.
       shared_ptr<Data::DepreciateInfo> depreciateInfo_ {};
+      // The discount amount. Discount amount = original amount - billable amount (including coupon deductions).
       shared_ptr<float> discountAmount_ {};
+      // The coupon information.
       shared_ptr<vector<Data::OptionalPromotions>> optionalPromotions_ {};
+      // The original price. Original amount = catalog price × billing usage.
       shared_ptr<float> originalAmount_ {};
+      // The price calculation rules.
       shared_ptr<vector<Data::Rules>> rules_ {};
+      // The discounted price based on the official website discount.
       shared_ptr<float> standDiscountPrice_ {};
+      // The official website discount price.
       shared_ptr<float> standPrice_ {};
+      // The amount.
       shared_ptr<float> tradeAmount_ {};
     };
 
@@ -458,11 +488,17 @@ namespace Models
   protected:
     // AccessDeniedDetail
     shared_ptr<string> accessDeniedDetail_ {};
+    // The order information.
     shared_ptr<QueryModifyDiskSizePriceResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP request status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

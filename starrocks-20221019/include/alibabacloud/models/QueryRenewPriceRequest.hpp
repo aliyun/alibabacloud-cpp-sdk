@@ -75,14 +75,23 @@ namespace Models
 
 
   protected:
+    // List of billing instance IDs to renew. Separate multiple IDs with commas.
+    // 
     // This parameter is required.
     shared_ptr<string> billingInstanceIds_ {};
+    // Renewal period.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> duration_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Renewal unit.
+    // 
     // This parameter is required.
     shared_ptr<string> pricingCycle_ {};
+    // Coupon ID.
     shared_ptr<string> promotionOptionNo_ {};
   };
 

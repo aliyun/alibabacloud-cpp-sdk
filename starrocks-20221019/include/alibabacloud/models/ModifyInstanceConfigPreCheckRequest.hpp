@@ -74,10 +74,15 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The configurations to add.
     shared_ptr<vector<InstanceConfigDto>> configsToAdd_ {};
+    // The configurations to delete.
     shared_ptr<vector<InstanceConfigDto>> configsToDelete_ {};
+    // The configurations to update.
     shared_ptr<vector<InstanceConfigDto>> configsToUpdate_ {};
   };
 

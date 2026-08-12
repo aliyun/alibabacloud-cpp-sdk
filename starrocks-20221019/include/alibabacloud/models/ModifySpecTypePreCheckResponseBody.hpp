@@ -79,7 +79,9 @@ namespace Models
 
 
     protected:
+      // Indicates whether the number of CUs can be modified.
       shared_ptr<bool> allow_ {};
+      // The reason why the number of CUs cannot be modified.
       shared_ptr<string> reason_ {};
     };
 
@@ -140,11 +142,17 @@ namespace Models
   protected:
     // AccessDeniedDetail
     shared_ptr<string> accessDeniedDetail_ {};
+    // The returned data.
     shared_ptr<ModifySpecTypePreCheckResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code of the request.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

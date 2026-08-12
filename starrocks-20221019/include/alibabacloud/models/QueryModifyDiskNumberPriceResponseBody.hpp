@@ -126,8 +126,13 @@ namespace Models
 
 
       protected:
+        // The number of Elastic Compute Service (ECS) instances for which you want to query the price. Valid values: 1 to 1000. Default value: 1.
+        // 
+        // Default value: 1.
         shared_ptr<float> amount_ {};
+        // The name of the rule.
         shared_ptr<string> name_ {};
+        // The ID of the rule.
         shared_ptr<string> ruleDescId_ {};
       };
 
@@ -178,8 +183,11 @@ namespace Models
 
 
       protected:
+        // The description of the coupon.
         shared_ptr<string> promotionDesc_ {};
+        // The name of the coupon.
         shared_ptr<string> promotionName_ {};
+        // The ID of the coupon.
         shared_ptr<string> promotionOptionNo_ {};
       };
 
@@ -239,9 +247,13 @@ namespace Models
 
 
       protected:
+        // The discount rate.
         shared_ptr<float> cheapRate_ {};
+        // The total official price after discount.
         shared_ptr<float> cheapStandAmount_ {};
+        // Indicates whether to show the discount amount.
         shared_ptr<bool> isShow_ {};
+        // The original total official price.
         shared_ptr<float> originalStandAmount_ {};
       };
 
@@ -301,9 +313,13 @@ namespace Models
 
 
       protected:
+        // The name of the component.
         shared_ptr<string> componentName_ {};
+        // The discount amount for the order.
         shared_ptr<float> discountAmount_ {};
+        // The original amount.
         shared_ptr<float> originalAmount_ {};
+        // The final amount, which equals the original amount minus the discount.
         shared_ptr<float> tradeAmount_ {};
       };
 
@@ -389,15 +405,25 @@ namespace Models
 
 
     protected:
+      // The prices of components.
       shared_ptr<vector<Data::ComponentPrices>> componentPrices_ {};
+      // The currency.
       shared_ptr<string> currency_ {};
+      // The total official price after discount.
       shared_ptr<Data::DepreciateInfo> depreciateInfo_ {};
+      // The discount amount = original amount − payable amount on the bill (including coupon deductions).
       shared_ptr<float> discountAmount_ {};
+      // The coupon information.
       shared_ptr<vector<Data::OptionalPromotions>> optionalPromotions_ {};
+      // The original amount = catalog price × usage.
       shared_ptr<float> originalAmount_ {};
+      // The list of rules that match your request. Each item is a matching rule. Only matching rule information and the location of each matching rule are returned.
       shared_ptr<vector<Data::Rules>> rules_ {};
+      // The discounted price.
       shared_ptr<float> standDiscountPrice_ {};
+      // The official discounted price.
       shared_ptr<float> standPrice_ {};
+      // The final amount.
       shared_ptr<float> tradeAmount_ {};
     };
 
@@ -458,11 +484,17 @@ namespace Models
   protected:
     // AccessDeniedDetail
     shared_ptr<string> accessDeniedDetail_ {};
+    // The ID of the order.
     shared_ptr<QueryModifyDiskNumberPriceResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code of the request.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

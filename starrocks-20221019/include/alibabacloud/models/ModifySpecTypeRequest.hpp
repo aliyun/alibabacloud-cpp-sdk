@@ -75,12 +75,24 @@ namespace Models
 
 
   protected:
+    // Restart in fast restart mode. Default is false.
+    // 
+    // - true: Restarts compute nodes in fast restart mode. Nodes restart in parallel within a batch, and batches execute sequentially.
+    // 
+    // - false: Restarts compute nodes in rolling restart mode.
     shared_ptr<bool> fastMode_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Compute group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
+    // Coupon ID.
     shared_ptr<string> promotionOptionNo_ {};
+    // Target specifications type.
+    // 
     // This parameter is required.
     shared_ptr<string> targetSpecType_ {};
   };

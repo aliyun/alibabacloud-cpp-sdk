@@ -97,12 +97,25 @@ namespace Models
 
 
   protected:
+    // The number of days to retain the backup data.
     shared_ptr<int32_t> expireDays_ {};
+    // The hour.
     shared_ptr<int32_t> hour_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The minute.
     shared_ptr<int32_t> minute_ {};
+    // The recurrence type for the policy. Valid values:
+    // 
+    // - DAILY: Daily.
+    // 
+    // - WEEKLY: Weekly.
+    // 
+    // - MONTHLY: Monthly.
     shared_ptr<string> recurrenceType_ {};
+    // The values for the recurrence.
     shared_ptr<vector<int32_t>> recurrenceValues_ {};
+    // The timeout period for the backup job in seconds.
     shared_ptr<int32_t> timeoutSeconds_ {};
   };
 

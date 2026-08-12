@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The gateway ID.
     shared_ptr<string> gatewayId_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
   };
 

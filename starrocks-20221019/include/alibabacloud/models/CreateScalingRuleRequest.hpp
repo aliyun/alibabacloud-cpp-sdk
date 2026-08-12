@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The compute group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
+    // The rule content.
+    // 
     // This parameter is required.
     shared_ptr<string> rule_ {};
+    // The trigger type.
+    // 
     // This parameter is required.
     shared_ptr<string> triggerType_ {};
   };

@@ -130,12 +130,19 @@ namespace Models
 
 
     protected:
+      // The number of days to retain backup data.
       shared_ptr<int32_t> expireDays_ {};
+      // The hour.
       shared_ptr<string> hour_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The minute.
       shared_ptr<string> minute_ {};
+      // The backup policy ID.
       shared_ptr<string> policyId_ {};
+      // The numeric values for the policy execution cycle.
       shared_ptr<vector<int32_t>> recurrenceValues_ {};
+      // The timeout period for the backup job.
       shared_ptr<int32_t> timeoutSeconds_ {};
     };
 
@@ -201,14 +208,21 @@ namespace Models
 
 
   protected:
-    // AccessDeniedDetail
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Information about the instance.
     shared_ptr<vector<DescribeBackupPoliciesResponseBody::Data>> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of instances.
     shared_ptr<int32_t> total_ {};
   };
 

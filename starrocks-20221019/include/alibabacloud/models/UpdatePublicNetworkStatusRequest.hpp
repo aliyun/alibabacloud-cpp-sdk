@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // Data returned by the operation.
     shared_ptr<string> componentType_ {};
+    // Data returned by the operation.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The compute group ID.
     shared_ptr<string> nodeGroupId_ {};
+    // Enable or disable the public network.
     shared_ptr<bool> publicNetworkEnabled_ {};
   };
 

@@ -126,8 +126,13 @@ namespace Models
 
 
       protected:
+        // The number of instances to purchase in a batch. You can use this parameter to query the price of purchasing multiple Elastic Compute Service (ECS) instances with a specific configuration. Valid values: 1 to 1000.
+        // 
+        // Default value: 1.
         shared_ptr<float> amount_ {};
+        // The name of the rule.
         shared_ptr<string> name_ {};
+        // The ID of the rule.
         shared_ptr<string> ruleDescId_ {};
       };
 
@@ -178,8 +183,11 @@ namespace Models
 
 
       protected:
+        // The description of the coupon.
         shared_ptr<string> promotionDesc_ {};
+        // The name of the coupon.
         shared_ptr<string> promotionName_ {};
+        // The ID of the coupon.
         shared_ptr<string> promotionOptionNo_ {};
       };
 
@@ -239,9 +247,13 @@ namespace Models
 
 
       protected:
+        // The price reduction ratio.
         shared_ptr<float> cheapRate_ {};
+        // The total list price after the price reduction.
         shared_ptr<float> cheapStandAmount_ {};
+        // Indicates whether to show the price reduction information.
         shared_ptr<bool> isShow_ {};
+        // The original total list price.
         shared_ptr<float> originalStandAmount_ {};
       };
 
@@ -301,9 +313,13 @@ namespace Models
 
 
       protected:
+        // The name of the component.
         shared_ptr<string> componentName_ {};
+        // The discount amount.
         shared_ptr<float> discountAmount_ {};
+        // The original price.
         shared_ptr<float> originalAmount_ {};
+        // The final price, which is the original price minus the discount.
         shared_ptr<float> tradeAmount_ {};
       };
 
@@ -389,15 +405,25 @@ namespace Models
 
 
     protected:
+      // The prices of the components.
       shared_ptr<vector<Data::ComponentPrices>> componentPrices_ {};
+      // The currency.
       shared_ptr<string> currency_ {};
+      // The depreciation rate.
       shared_ptr<Data::DepreciateInfo> depreciateInfo_ {};
+      // The discount amount. Discount amount = Original amount - Billable amount. The billable amount includes coupon deductions.
       shared_ptr<float> discountAmount_ {};
+      // The coupon information.
       shared_ptr<vector<Data::OptionalPromotions>> optionalPromotions_ {};
+      // The original price. Original price = List price × Billing usage.
       shared_ptr<float> originalAmount_ {};
+      // The data structure returned in the response.
       shared_ptr<vector<Data::Rules>> rules_ {};
+      // The price after the standard discount is applied.
       shared_ptr<float> standDiscountPrice_ {};
+      // The discounted price on the official website.
       shared_ptr<float> standPrice_ {};
+      // The transaction amount.
       shared_ptr<float> tradeAmount_ {};
     };
 
@@ -456,13 +482,19 @@ namespace Models
 
 
   protected:
-    // AccessDeniedDetail
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The returned data.
     shared_ptr<QueryModifyCuPriceResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

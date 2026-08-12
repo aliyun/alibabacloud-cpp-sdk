@@ -88,16 +88,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The warehouse ID.
+    // The compute group ID.
     // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
+    // The decommission concurrency for BE scale-in scenarios in compute-storage decoupled architecture. Default value: 1.
     shared_ptr<int32_t> parallelism_ {};
+    // The coupon ID.
     shared_ptr<string> promotionOptionNo_ {};
-    // The number of nodes to which you want to change to.
+    // The target number of nodes.
     // 
     // This parameter is required.
     shared_ptr<int32_t> target_ {};
+    // The duration to wait for running tasks to complete before dropping nodes during CN scale-in scenarios in storage-compute disaggregation architecture.
     shared_ptr<int32_t> terminationGracePeriodSeconds_ {};
   };
 

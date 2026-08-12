@@ -75,13 +75,22 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Compute group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
+    // Coupon ID.
     shared_ptr<string> promotionOptionNo_ {};
+    // Target disk type.
+    // 
     // This parameter is required.
     shared_ptr<string> targetDiskType_ {};
+    // Target disk performance.
+    // 
     // This parameter is required.
     shared_ptr<string> targetPerformanceLevel_ {};
   };

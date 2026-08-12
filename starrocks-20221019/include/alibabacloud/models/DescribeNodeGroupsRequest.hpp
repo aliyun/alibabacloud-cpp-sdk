@@ -159,13 +159,49 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> clusterId_ {};
+    // The page number for paging. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page for paging. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The compute group type. Valid values:
+    // 
+    // - FE
+    // - BE
+    // - CN
+    // - OBSERVER
+    // - AGENT
     shared_ptr<string> componentType_ {};
+    // **[Deprecated]** The instance ID. This parameter is deprecated.
     shared_ptr<string> instanceId_ {};
+    // The list of compute group IDs to query.
     shared_ptr<vector<string>> nodeGroupIds_ {};
+    // The compute group name.
     shared_ptr<string> nodeGroupName_ {};
+    // The compute group status. Valid values:
+    // 
+    // - UNPAID: Unpaid.
+    // - PAID: Paid.
+    // - CREATING_FAILED: Creation failed.
+    // - CREATING: Being created.
+    // - RUNNING: Running.
+    // - MODIFYING_CONFIG: Configuration being modified.
+    // - MODIFYING_TIMEZONE: Time zone being modified.
+    // - ELASTIC_SCALING_OUT: Elastic scale-out in progress.
+    // - ELASTIC_SCALING_IN: Elastic scale-in in progress.
+    // - SCALING_OUT: Scale-out in progress.
+    // - RESTARTING: Restarting.
+    // - SCALING_IN: Scale-in in progress.
+    // - SCALING_UP: Upgrading specifications.
+    // - SCALING_DOWN: Downgrading specifications.
+    // - UPGRADING: Upgrading.
+    // - ENABLE_PUBLIC_NETWORK: Enabling public network access.
+    // - DISABLE_PUBLIC_NETWORK: Disabling public network access.
+    // - SWITCH_AZ: Switching zone.
+    // - DISABLE: Disabled.
+    // - DELETING: Being deleted.
+    // - DELETED: Deleted.
     shared_ptr<string> status_ {};
     shared_ptr<vector<DescribeNodeGroupsRequest::Tags>> tags_ {};
   };

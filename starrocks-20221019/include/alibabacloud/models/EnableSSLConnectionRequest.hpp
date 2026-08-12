@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Custom SSL certificate.
     shared_ptr<string> customSSLCertificate_ {};
+    // Specifies whether to use a custom certificate.
     shared_ptr<bool> enableCustom_ {};
+    // Instance ID.
     shared_ptr<string> instanceId_ {};
+    // Indicates whether this request renews an existing certificate.
     shared_ptr<bool> renewal_ {};
+    // Key password.
     shared_ptr<string> sslKeyPassword_ {};
+    // Keystore password.
     shared_ptr<string> sslKeystorePassword_ {};
   };
 

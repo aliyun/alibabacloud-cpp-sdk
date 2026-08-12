@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The availability zone ID.
     shared_ptr<string> zoneId_ {};
+    // The resource level.
     shared_ptr<string> resourceLevel_ {};
+    // Indicates whether this is the recommended option.
     shared_ptr<bool> recommended_ {};
   };
 

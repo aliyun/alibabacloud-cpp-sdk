@@ -201,20 +201,45 @@ namespace Models
 
 
     protected:
+      // Indicates whether the configuration item can be modified.
       shared_ptr<string> allowModify_ {};
+      // The key of the configuration item.
       shared_ptr<string> configKey_ {};
+      // The type of the configuration item. Valid values:
+      // 
+      // - FE
+      // 
+      // - BE
+      // 
+      // - CORE
       shared_ptr<string> configType_ {};
+      // The value of the configuration item.
       shared_ptr<string> configValue_ {};
+      // Indicates whether the item is a custom configuration.
       shared_ptr<bool> custom_ {};
+      // Indicates whether it is the default compute group.
       shared_ptr<bool> defaultNodeGroup_ {};
+      // The default value of the configuration item.
       shared_ptr<string> defaultValue_ {};
+      // The description of the configuration item\\"s feature.
       shared_ptr<string> description_ {};
+      // The English description of the configuration item.
       shared_ptr<string> descriptionEn_ {};
+      // The compute group ID.
       shared_ptr<string> nodeGroupId_ {};
+      // The name of the compute group.
       shared_ptr<string> nodeGroupName_ {};
+      // Indicates whether the instance needs to be restarted after the configuration item is changed. Valid values:
+      // 
+      // - **true**: Restart.
+      // 
+      // - **false**: Do not restart.
       shared_ptr<bool> restart_ {};
+      // The unit of the configuration item. An empty string is returned if no unit is available.
       shared_ptr<string> unit_ {};
+      // The value range of the configuration item. An empty string is returned if no value range is available.
       shared_ptr<string> valueRange_ {};
+      // The data type of the configuration item\\"s value.
       shared_ptr<string> valueType_ {};
     };
 
@@ -280,13 +305,21 @@ namespace Models
 
 
   protected:
+    // The details of the access denied error.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The returned data.
     shared_ptr<vector<DescribeInstanceConfigsResponseBody::Data>> data_ {};
+    // The error code.
     shared_ptr<string> errCode_ {};
+    // The error message.
     shared_ptr<string> errMessage_ {};
+    // The HTTP request status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of query results.
     shared_ptr<int32_t> total_ {};
   };
 

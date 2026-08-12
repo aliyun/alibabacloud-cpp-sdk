@@ -79,7 +79,9 @@ namespace Models
 
 
     protected:
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
+      // Order ID.
       shared_ptr<int64_t> orderId_ {};
     };
 
@@ -140,11 +142,17 @@ namespace Models
   protected:
     // AccessDeniedDetail
     shared_ptr<string> accessDeniedDetail_ {};
+    // Response data.
     shared_ptr<RestoreInstanceResponseBody::Data> data_ {};
+    // Error code.
     shared_ptr<string> errCode_ {};
+    // Error message.
     shared_ptr<string> errMessage_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

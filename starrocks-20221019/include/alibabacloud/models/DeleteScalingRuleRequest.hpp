@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Compute group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
+    // ID of the scaling rule to delete.
+    // 
     // This parameter is required.
     shared_ptr<string> scalingRuleId_ {};
+    // Trigger type.
+    // 
     // This parameter is required.
     shared_ptr<string> triggerType_ {};
   };

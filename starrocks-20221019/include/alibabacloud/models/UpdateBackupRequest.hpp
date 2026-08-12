@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the region where the cluster is located.
     shared_ptr<string> regionId_ {};
+    // The ID of the backup job.
     shared_ptr<string> backupTaskId_ {};
+    // The description of the backup.
     shared_ptr<string> description_ {};
   };
 

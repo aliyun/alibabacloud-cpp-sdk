@@ -134,12 +134,19 @@ namespace Models
 
 
     protected:
+      // Number of CUs. A Compute Unit (CU) is the basic billing unit. One CU equals one vCPU plus 4 GiB of memory.
       shared_ptr<string> cu_ {};
+      // Number of disks.
       shared_ptr<int32_t> diskNumber_ {};
+      // Local SSD instance type. Do not set this field for Observer compute groups.
       shared_ptr<string> localStorageInstanceType_ {};
+      // Number of nodes.
       shared_ptr<int32_t> residentNodeNumber_ {};
+      // Compute group specification type. Only standard is supported.
       shared_ptr<string> specType_ {};
+      // Disk performance level. Only pl1 is supported. Maximum random read/write IOPS per disk is 50,000.
       shared_ptr<string> storagePerformanceLevel_ {};
+      // Storage size in GiB.
       shared_ptr<int32_t> storageSize_ {};
     };
 
@@ -227,12 +234,19 @@ namespace Models
 
 
     protected:
+      // Number of CUs. A Compute Unit (CU) is the basic billing unit. One CU equals one vCPU plus 4 GiB of memory.
       shared_ptr<string> cu_ {};
+      // Number of disks.
       shared_ptr<int32_t> diskNumber_ {};
+      // Local SSD instance type. Do not set this field for FE compute groups.
       shared_ptr<string> localStorageInstanceType_ {};
+      // Number of nodes.
       shared_ptr<int32_t> residentNodeNumber_ {};
+      // Compute group specification type. Only standard is supported.
       shared_ptr<string> specType_ {};
+      // Disk performance level. Only pl1 is supported. Maximum random read/write IOPS per disk is 50,000.
       shared_ptr<string> storagePerformanceLevel_ {};
+      // Storage size in GiB.
       shared_ptr<int32_t> storageSize_ {};
     };
 
@@ -320,12 +334,37 @@ namespace Models
 
 
     protected:
+      // Number of CUs. A Compute Unit (CU) is the basic billing unit. One CU equals one vCPU plus 4 GiB of memory. For ramEnhanced instances, one CU equals one vCPU plus 8 GiB of memory.
       shared_ptr<string> cu_ {};
+      // Number of disks.
       shared_ptr<int32_t> diskNumber_ {};
+      // Local SSD instance type for the node group. This field applies only to ECS-based instances with specType set to localSSD or bigData.
       shared_ptr<string> localStorageInstanceType_ {};
+      // Number of nodes.
       shared_ptr<int32_t> residentNodeNumber_ {};
+      // Compute group specification type. Supported types include the following:
+      // 
+      // - standard: Standard Edition.
+      // 
+      // - localSSD: Local SSD.
+      // 
+      // - bigData: Large-storage Edition.
+      // 
+      // - ramEnhanced: Memory-enhanced instance family.
+      // 
+      // - networkEnhanced: Network-enhanced instance family.
       shared_ptr<string> specType_ {};
+      // Disk performance level. Supported values include the following:
+      // 
+      // - pl0: Maximum random read/write IOPS per disk is 10,000.
+      // 
+      // - pl1: Maximum random read/write IOPS per disk is 50,000.
+      // 
+      // - pl2: Maximum random read/write IOPS per disk is 100,000.
+      // 
+      // - pl3: Maximum random read/write IOPS per disk is 1,000,000.
       shared_ptr<string> storagePerformanceLevel_ {};
+      // Storage size in GiB.
       shared_ptr<int32_t> storageSize_ {};
     };
 
@@ -357,6 +396,7 @@ namespace Models
 
 
     protected:
+      // Number of CUs. A Compute Unit (CU) is the basic billing unit. One CU equals one vCPU plus 4 GiB of memory.
       shared_ptr<int32_t> cu_ {};
     };
 
@@ -449,16 +489,45 @@ namespace Models
 
 
   protected:
+    // Agent compute group.
     shared_ptr<QueryPriceV1Request::AgentNodeGroup> agentNodeGroup_ {};
+    // BE or CN compute group information.
     shared_ptr<vector<QueryPriceV1Request::BackendNodeGroups>> backendNodeGroups_ {};
+    // Subscription duration. Valid only when PayType is prePaid.
     shared_ptr<int32_t> duration_ {};
+    // FE node group information.
     shared_ptr<vector<QueryPriceV1Request::FrontendNodeGroups>> frontendNodeGroups_ {};
+    // Observer compute group information.
     shared_ptr<vector<QueryPriceV1Request::ObserverNodeGroups>> observerNodeGroups_ {};
+    // Instance edition:
+    // 
+    // - Trial Edition (trial).
+    // 
+    // - Standard Edition (official).
     shared_ptr<string> packageType_ {};
+    // Payment type:
+    // 
+    // 1. Subscription (prePaid).
+    // 
+    // 2. Pay-as-you-go (postPaid).
     shared_ptr<string> payType_ {};
+    // Subscription duration unit:
+    // 
+    // - Month (Month)
+    // 
+    // - Year (Year)
+    // 
+    // Valid only when PayType is prePaid.
     shared_ptr<string> pricingCycle_ {};
+    // Coupon ID.
     shared_ptr<string> promotionOptionNo_ {};
+    // Region ID.
     shared_ptr<string> regionId_ {};
+    // Cluster run mode:
+    // 
+    // - Shared-nothing (shared_nothing).
+    // 
+    // - Shared-data (shared_data).
     shared_ptr<string> runMode_ {};
   };
 

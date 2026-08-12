@@ -183,18 +183,39 @@ namespace Models
 
 
     protected:
+      // Best Practices.
       shared_ptr<string> bestPractice_ {};
+      // Diagnosis item description.
       shared_ptr<string> description_ {};
+      // Evaluation dimension.
       shared_ptr<string> dimension_ {};
+      // Evaluation time.
       shared_ptr<int64_t> evaluationTime_ {};
+      // Full score for the evaluation item.
       shared_ptr<double> fullScore_ {};
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
+      // Evaluation item introduction.
       shared_ptr<string> introduction_ {};
+      // Evaluation item ID.
       shared_ptr<string> itemId_ {};
+      // Evaluation item name.
       shared_ptr<string> itemName_ {};
+      // Report date.
       shared_ptr<string> reportDate_ {};
+      // Diagnosis score.
       shared_ptr<double> score_ {};
+      // Status list.
+      // 
+      // - healthy
+      // 
+      // - info
+      // 
+      // - medium
+      // 
+      // - critical
       shared_ptr<string> status_ {};
+      // Diagnosis suggestion.
       shared_ptr<string> suggestion_ {};
     };
 
@@ -262,12 +283,19 @@ namespace Models
   protected:
     // AccessDeniedDetail
     shared_ptr<string> accessDeniedDetail_ {};
+    // Returned data.
     shared_ptr<vector<DescribeInstanceDiagnosisResultResponseBody::Data>> data_ {};
+    // Error code.
     shared_ptr<string> errCode_ {};
+    // Error message.
     shared_ptr<string> errMessage_ {};
+    // HTTP request status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Whether the request was successful.
     shared_ptr<bool> success_ {};
+    // Total number of query results.
     shared_ptr<int32_t> total_ {};
   };
 

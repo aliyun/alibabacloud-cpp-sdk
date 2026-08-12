@@ -84,11 +84,23 @@ namespace Models
 
 
   protected:
+    // Whether to enable auto-renewal. This parameter takes effect only when payType is PrePaid. Default: disabled.
     shared_ptr<bool> autoRenew_ {};
+    // List of billing instance IDs that require renewal. Separate multiple IDs with commas.
     shared_ptr<string> billingInstanceIds_ {};
+    // Subscription duration. This parameter takes effect only when payType is PrePaid.
     shared_ptr<string> duration_ {};
+    // Cluster ID
     shared_ptr<string> instanceId_ {};
+    // Subscription duration unit:
+    // 
+    // - Month
+    // 
+    // - Year
+    // 
+    // This parameter takes effect only when payType is PrePaid.
     shared_ptr<string> pricingCycle_ {};
+    // Coupon ID.
     shared_ptr<string> promotionOptionNo_ {};
   };
 

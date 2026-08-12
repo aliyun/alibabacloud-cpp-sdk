@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // Enable read/write splitting. The Leader FE node handles write requests, and other nodes handle read requests.
     shared_ptr<bool> isolateLeader_ {};
   };
 
