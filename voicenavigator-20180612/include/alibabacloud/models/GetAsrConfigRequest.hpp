@@ -49,10 +49,9 @@ namespace Models
 
   protected:
     // The policy level. Valid values:
-    // 
-    // - 0: system
-    // - 1: tenant
-    // - 2: instance
+    // - 0: system.
+    // - 1: tenant.
+    // - 2: instance.
     shared_ptr<int32_t> configLevel_ {};
     // The entity ID corresponding to config_level.
     shared_ptr<string> entryId_ {};

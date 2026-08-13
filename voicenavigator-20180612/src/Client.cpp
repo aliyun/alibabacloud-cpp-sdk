@@ -19,8 +19,8 @@ namespace VoiceNavigator20180612
 AlibabaCloud::VoiceNavigator20180612::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"cn-shanghai" , "voicenavigator.cn-shanghai.aliyuncs.com"},
-    {"cn-hangzhou" , "voicenavigator.cn-hangzhou.aliyuncs.com"}
+    {"cn-hangzhou" , "voicenavigator.cn-hangzhou.aliyuncs.com"},
+    {"cn-shanghai" , "voicenavigator.cn-shanghai.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("voicenavigator", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -246,7 +246,7 @@ BeginDialogueResponse Client::beginDialogue(const BeginDialogueRequest &request)
 }
 
 /**
- * @summary Collects a number entered by a user during a call.
+ * @summary Collects digits.
  *
  * @param request CollectedNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -293,7 +293,7 @@ CollectedNumberResponse Client::collectedNumberWithOptions(const CollectedNumber
 }
 
 /**
- * @summary Collects a number entered by a user during a call.
+ * @summary Collects digits.
  *
  * @param request CollectedNumberRequest
  * @return CollectedNumberResponse
@@ -878,7 +878,7 @@ DescribeStatisticalDataResponse Client::describeStatisticalData(const DescribeSt
 }
 
 /**
- * @summary Queries the TTS configuration.
+ * @summary Queries the text-to-speech (TTS) configuration.
  *
  * @param request DescribeTTSConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -886,7 +886,15 @@ DescribeStatisticalDataResponse Client::describeStatisticalData(const DescribeSt
  */
 DescribeTTSConfigResponse Client::describeTTSConfigWithOptions(const DescribeTTSConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  map<string, string> query = Utils::Utils::query(request.toMap());
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasInstanceOwnerId()) {
+    query["InstanceOwnerId"] = request.getInstanceOwnerId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -895,7 +903,7 @@ DescribeTTSConfigResponse Client::describeTTSConfigWithOptions(const DescribeTTS
     {"version" , "2018-06-12"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
-    {"method" , "GET"},
+    {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
@@ -905,7 +913,7 @@ DescribeTTSConfigResponse Client::describeTTSConfigWithOptions(const DescribeTTS
 }
 
 /**
- * @summary Queries the TTS configuration.
+ * @summary Queries the text-to-speech (TTS) configuration.
  *
  * @param request DescribeTTSConfigRequest
  * @return DescribeTTSConfigResponse
@@ -916,7 +924,7 @@ DescribeTTSConfigResponse Client::describeTTSConfig(const DescribeTTSConfigReque
 }
 
 /**
- * @summary Use this API to continue a conversation with an intelligent assistant by processing a user\\"s utterance.
+ * @summary Initiates a conversation.
  *
  * @param request DialogueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -975,7 +983,7 @@ DialogueResponse Client::dialogueWithOptions(const DialogueRequest &request, con
 }
 
 /**
- * @summary Use this API to continue a conversation with an intelligent assistant by processing a user\\"s utterance.
+ * @summary Initiates a conversation.
  *
  * @param request DialogueRequest
  * @return DialogueResponse
@@ -1817,6 +1825,10 @@ ModifyTTSConfigResponse Client::modifyTTSConfigWithOptions(const ModifyTTSConfig
 
   if (!!request.hasAppKey()) {
     query["AppKey"] = request.getAppKey();
+  }
+
+  if (!!request.hasBackgroundMusicName()) {
+    query["BackgroundMusicName"] = request.getBackgroundMusicName();
   }
 
   if (!!request.hasEngine()) {

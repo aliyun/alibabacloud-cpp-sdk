@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The greeting words.
+    // The greeting message.
     // 
     // This parameter is required.
     shared_ptr<string> greetingWords_ {};
@@ -74,7 +74,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The intent trigger.
+    // The trigger intent.
     shared_ptr<string> intentTrigger_ {};
     // The type.
     // 

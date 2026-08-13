@@ -130,7 +130,7 @@ namespace Models
     // The dataset ID.
     shared_ptr<string> asrCustomizationId_ {};
     shared_ptr<string> asrOverrides_ {};
-    // The hotword ID. You can view the ASR hotword ID on the [ASR Hotword Management page](https://aiccs.console.aliyun.com/sentence/vocab?spm=a2c4g.11186623.0.0.7f9bf965IKBpsi).
+    // The hotword ID. View the ASR hotword ID on the [ASR Hotword Management page](https://aiccs.console.aliyun.com/sentence/vocab?spm=a2c4g.11186623.0.0.7f9bf965IKBpsi).
     shared_ptr<string> asrVocabularyId_ {};
     // The policy level. Valid values:
     // 
@@ -138,6 +138,7 @@ namespace Models
     // - 1: tenant.
     // - 2: instance.
     shared_ptr<int32_t> configLevel_ {};
+    // The TTS engine.
     shared_ptr<string> engine_ {};
     // The entity ID corresponding to config_level.
     shared_ptr<string> entryId_ {};

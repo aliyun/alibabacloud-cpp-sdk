@@ -76,17 +76,17 @@ namespace Models
 
   protected:
     shared_ptr<string> additionalContext_ {};
-    // The ID of the conversation.
+    // The session ID.
     // 
     // This parameter is required.
     shared_ptr<string> conversationId_ {};
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the instance owner.
+    // The instance owner ID.
     shared_ptr<int64_t> instanceOwnerId_ {};
-    // The number entered by the user.
+    // The phone number.
     shared_ptr<string> number_ {};
   };
 

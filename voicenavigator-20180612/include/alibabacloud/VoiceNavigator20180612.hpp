@@ -72,7 +72,7 @@ namespace VoiceNavigator20180612
       Models::BeginDialogueResponse beginDialogue(const Models::BeginDialogueRequest &request);
 
       /**
-       * @summary Collects a number entered by a user during a call.
+       * @summary Collects digits.
        *
        * @param request CollectedNumberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace VoiceNavigator20180612
       Models::CollectedNumberResponse collectedNumberWithOptions(const Models::CollectedNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Collects a number entered by a user during a call.
+       * @summary Collects digits.
        *
        * @param request CollectedNumberRequest
        * @return CollectedNumberResponse
@@ -310,7 +310,7 @@ namespace VoiceNavigator20180612
       Models::DescribeStatisticalDataResponse describeStatisticalData(const Models::DescribeStatisticalDataRequest &request);
 
       /**
-       * @summary Queries the TTS configuration.
+       * @summary Queries the text-to-speech (TTS) configuration.
        *
        * @param request DescribeTTSConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +319,7 @@ namespace VoiceNavigator20180612
       Models::DescribeTTSConfigResponse describeTTSConfigWithOptions(const Models::DescribeTTSConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the TTS configuration.
+       * @summary Queries the text-to-speech (TTS) configuration.
        *
        * @param request DescribeTTSConfigRequest
        * @return DescribeTTSConfigResponse
@@ -327,7 +327,7 @@ namespace VoiceNavigator20180612
       Models::DescribeTTSConfigResponse describeTTSConfig(const Models::DescribeTTSConfigRequest &request);
 
       /**
-       * @summary Use this API to continue a conversation with an intelligent assistant by processing a user\\"s utterance.
+       * @summary Initiates a conversation.
        *
        * @param request DialogueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -336,7 +336,7 @@ namespace VoiceNavigator20180612
       Models::DialogueResponse dialogueWithOptions(const Models::DialogueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Use this API to continue a conversation with an intelligent assistant by processing a user\\"s utterance.
+       * @summary Initiates a conversation.
        *
        * @param request DialogueRequest
        * @return DialogueResponse

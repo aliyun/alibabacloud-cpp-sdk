@@ -150,7 +150,7 @@ namespace Models
         protected:
           // The file ID.
           shared_ptr<string> fileId_ {};
-          // The completion progress of the download task.
+          // The download task completion progress.
           shared_ptr<int32_t> progress_ {};
           // The status.
           shared_ptr<string> status_ {};
