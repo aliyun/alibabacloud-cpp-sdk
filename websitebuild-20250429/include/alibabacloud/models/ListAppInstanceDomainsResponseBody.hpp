@@ -245,6 +245,7 @@ namespace Models
           shared_ptr<string> errorMsg_ {};
           // The ownership verification status.
           shared_ptr<string> verificationStatus_ {};
+          // The verification status code.
           shared_ptr<string> verificationStatusCode_ {};
         };
 
@@ -356,7 +357,7 @@ namespace Models
           shared_ptr<Resolution::DnsRecord> dnsRecord_ {};
           // The error message.
           shared_ptr<string> errorMsg_ {};
-          // The domain name resolution status.
+          // The domain resolution status.
           shared_ptr<string> resolutionStatus_ {};
         };
 
@@ -466,6 +467,7 @@ namespace Models
           shared_ptr<string> account_ {};
           // The registrar type. Valid values: ALIYUN and OTHER.
           shared_ptr<string> provider_ {};
+          // The primary domain name.
           shared_ptr<string> rootDomain_ {};
         };
 
@@ -509,7 +511,9 @@ namespace Models
 
 
         protected:
+          // The migration status. Valid values: NOT_STARTED, IN_PROGRESS, and COMPLETED.
           shared_ptr<string> migrationStatus_ {};
+          // The complete domain status before migration. The structure is consistent with the current domain DTO, so the frontend can directly reuse the rendering logic.
           Darabonba::Json previousDomain_ {};
         };
 
@@ -585,8 +589,11 @@ namespace Models
 
 
           protected:
+            // The host record.
             shared_ptr<string> host_ {};
+            // The record type.
             shared_ptr<string> recordType_ {};
+            // The record value.
             shared_ptr<string> value_ {};
           };
 
@@ -623,9 +630,13 @@ namespace Models
 
 
         protected:
+          // Indicates whether automatic override is supported. A value of true indicates the domain is under the current Alibaba Cloud account. A value of false indicates otherwise.
           shared_ptr<bool> canAutoResolve_ {};
+          // Indicates whether a conflict exists.
           shared_ptr<bool> hasConflict_ {};
+          // The user-facing prompt message. Different guidance text is generated based on the scenario.
           shared_ptr<string> message_ {};
+          // The list of conflicting DNS records. This reuses the existing AppDomainDnsRecordDTO structure.
           shared_ptr<vector<DnsConflict::Records>> records_ {};
         };
 
@@ -685,13 +696,13 @@ namespace Models
 
 
         protected:
-          // The name of the certificate.
+          // The certificate name.
           shared_ptr<string> certificateName_ {};
-          // The status of the certificate.
+          // The certificate status.
           shared_ptr<string> certificateStatus_ {};
-          // The type of the certificate.
+          // The certificate type.
           shared_ptr<string> certificateType_ {};
-          // The expiration date of the certificate.
+          // The certificate expiration date.
           shared_ptr<string> endTime_ {};
         };
 
@@ -783,23 +794,25 @@ namespace Models
 
 
       protected:
-        // The domain name SSL certificate information.
+        // The domain SSL certificate information.
         shared_ptr<Next::Certificate> certificate_ {};
         // The instance creation time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> createTime_ {};
+        // The DNS conflict information. This field has a value when resolveStatus is DNS_CONFLICT.
         shared_ptr<Next::DnsConflict> dnsConflict_ {};
         // The domain name.
         shared_ptr<string> domainName_ {};
+        // The domain migration information. This field is returned when a region switch occurs.
         shared_ptr<Next::Migration> migration_ {};
         // The overall binding status.
         shared_ptr<string> overallStatus_ {};
-        // The domain name ownership information.
+        // The domain ownership information.
         shared_ptr<Next::Ownership> ownership_ {};
-        // The domain name qualification information.
+        // The domain qualification information.
         shared_ptr<Next::Qualification> qualification_ {};
-        // The domain name resolution information.
+        // The domain resolution information.
         shared_ptr<Next::Resolution> resolution_ {};
-        // The domain name verification information.
+        // The domain verification information.
         shared_ptr<Next::Verification> verification_ {};
       };
 
@@ -808,8 +821,10 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Data& obj) { 
           DARABONBA_PTR_TO_JSON(Certificate, certificate_);
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+          DARABONBA_PTR_TO_JSON(DeployType, deployType_);
           DARABONBA_PTR_TO_JSON(DnsConflict, dnsConflict_);
           DARABONBA_PTR_TO_JSON(DomainName, domainName_);
+          DARABONBA_PTR_TO_JSON(DomainType, domainType_);
           DARABONBA_PTR_TO_JSON(Migration, migration_);
           DARABONBA_PTR_TO_JSON(OverallStatus, overallStatus_);
           DARABONBA_PTR_TO_JSON(Ownership, ownership_);
@@ -820,8 +835,10 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, Data& obj) { 
           DARABONBA_PTR_FROM_JSON(Certificate, certificate_);
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+          DARABONBA_PTR_FROM_JSON(DeployType, deployType_);
           DARABONBA_PTR_FROM_JSON(DnsConflict, dnsConflict_);
           DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
+          DARABONBA_PTR_FROM_JSON(DomainType, domainType_);
           DARABONBA_PTR_FROM_JSON(Migration, migration_);
           DARABONBA_PTR_FROM_JSON(OverallStatus, overallStatus_);
           DARABONBA_PTR_FROM_JSON(Ownership, ownership_);
@@ -1071,7 +1088,7 @@ namespace Models
           shared_ptr<Resolution::DnsRecord> dnsRecord_ {};
           // The error message.
           shared_ptr<string> errorMsg_ {};
-          // The domain name resolution status.
+          // The domain resolution status.
           shared_ptr<string> resolutionStatus_ {};
         };
 
@@ -1181,7 +1198,7 @@ namespace Models
           shared_ptr<string> account_ {};
           // The registrar type. Valid values: ALIYUN and OTHER.
           shared_ptr<string> provider_ {};
-          // The root domain name corresponding to the domain name.
+          // The root domain name that corresponds to the domain name.
           shared_ptr<string> rootDomain_ {};
         };
 
@@ -1225,7 +1242,9 @@ namespace Models
 
 
         protected:
+          // The migration status. Valid values: NOT_STARTED, IN_PROGRESS, and COMPLETED.
           shared_ptr<string> migrationStatus_ {};
+          // The complete domain status before migration. The structure is consistent with the current domain DTO, so the frontend can directly reuse the rendering logic.
           Darabonba::Json previousDomain_ {};
         };
 
@@ -1310,9 +1329,12 @@ namespace Models
 
 
           protected:
+            // The host record.
             shared_ptr<string> host_ {};
+            // The record type.
             shared_ptr<string> recordType_ {};
             shared_ptr<string> status_ {};
+            // The record value.
             shared_ptr<string> value_ {};
           };
 
@@ -1349,9 +1371,13 @@ namespace Models
 
 
         protected:
+          // Indicates whether automatic override is supported. A value of true indicates the domain is under the current Alibaba Cloud account. A value of false indicates otherwise.
           shared_ptr<bool> canAutoResolve_ {};
+          // Indicates whether a conflict exists.
           shared_ptr<bool> hasConflict_ {};
+          // The user-facing prompt message. Different guidance text is generated based on the scenario.
           shared_ptr<string> message_ {};
+          // The list of conflicting DNS records. This reuses the existing AppDomainDnsRecordDTO structure.
           shared_ptr<vector<DnsConflict::Records>> records_ {};
         };
 
@@ -1411,19 +1437,20 @@ namespace Models
 
 
         protected:
-          // The name of the certificate.
+          // The certificate name.
           shared_ptr<string> certificateName_ {};
-          // The status of the certificate.
+          // The certificate status.
           shared_ptr<string> certificateStatus_ {};
-          // The type of the certificate.
+          // The certificate type.
           shared_ptr<string> certificateType_ {};
-          // The expiration date of the certificate.
+          // The certificate expiration date.
           shared_ptr<string> endTime_ {};
         };
 
         virtual bool empty() const override { return this->certificate_ == nullptr
-        && this->createTime_ == nullptr && this->dnsConflict_ == nullptr && this->domainName_ == nullptr && this->migration_ == nullptr && this->overallStatus_ == nullptr
-        && this->ownership_ == nullptr && this->qualification_ == nullptr && this->resolution_ == nullptr && this->verification_ == nullptr; };
+        && this->createTime_ == nullptr && this->deployType_ == nullptr && this->dnsConflict_ == nullptr && this->domainName_ == nullptr && this->domainType_ == nullptr
+        && this->migration_ == nullptr && this->overallStatus_ == nullptr && this->ownership_ == nullptr && this->qualification_ == nullptr && this->resolution_ == nullptr
+        && this->verification_ == nullptr; };
         // certificate Field Functions 
         bool hasCertificate() const { return this->certificate_ != nullptr;};
         void deleteCertificate() { this->certificate_ = nullptr;};
@@ -1440,6 +1467,13 @@ namespace Models
         inline Data& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
+        // deployType Field Functions 
+        bool hasDeployType() const { return this->deployType_ != nullptr;};
+        void deleteDeployType() { this->deployType_ = nullptr;};
+        inline string getDeployType() const { DARABONBA_PTR_GET_DEFAULT(deployType_, "") };
+        inline Data& setDeployType(string deployType) { DARABONBA_PTR_SET_VALUE(deployType_, deployType) };
+
+
         // dnsConflict Field Functions 
         bool hasDnsConflict() const { return this->dnsConflict_ != nullptr;};
         void deleteDnsConflict() { this->dnsConflict_ = nullptr;};
@@ -1454,6 +1488,13 @@ namespace Models
         void deleteDomainName() { this->domainName_ = nullptr;};
         inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
         inline Data& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
+
+
+        // domainType Field Functions 
+        bool hasDomainType() const { return this->domainType_ != nullptr;};
+        void deleteDomainType() { this->domainType_ = nullptr;};
+        inline string getDomainType() const { DARABONBA_PTR_GET_DEFAULT(domainType_, "") };
+        inline Data& setDomainType(string domainType) { DARABONBA_PTR_SET_VALUE(domainType_, domainType) };
 
 
         // migration Field Functions 
@@ -1509,23 +1550,29 @@ namespace Models
 
 
       protected:
-        // The domain name SSL certificate information.
+        // The domain SSL certificate information.
         shared_ptr<Data::Certificate> certificate_ {};
         // The instance creation time. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> createTime_ {};
+        // The network deployment type. Valid values: CDN, INDEP_DEPLOY, and ESA_SAAS.
+        shared_ptr<string> deployType_ {};
+        // The DNS conflict information. This field has a value when resolveStatus is DNS_CONFLICT.
         shared_ptr<Data::DnsConflict> dnsConflict_ {};
         // The domain name.
         shared_ptr<string> domainName_ {};
+        // The domain management type. Valid values: CUSTOM and PLATFORM_PREFIX.
+        shared_ptr<string> domainType_ {};
+        // The domain migration information. This field is returned when a region switch occurs.
         shared_ptr<Data::Migration> migration_ {};
         // The overall binding status.
         shared_ptr<string> overallStatus_ {};
-        // The domain name ownership information.
+        // The domain ownership information.
         shared_ptr<Data::Ownership> ownership_ {};
-        // The domain name qualification information.
+        // The domain qualification information.
         shared_ptr<Data::Qualification> qualification_ {};
-        // The domain name resolution information.
+        // The domain resolution information.
         shared_ptr<Data::Resolution> resolution_ {};
-        // The domain name verification information.
+        // The domain verification information.
         shared_ptr<Data::Verification> verification_ {};
       };
 
@@ -1602,7 +1649,7 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The request results.
+      // The request result.
       shared_ptr<vector<Module::Data>> data_ {};
       // The decision weight.
       shared_ptr<Module::Next> next_ {};
@@ -1612,9 +1659,9 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to pagination limits, the server processes a maximum of 1000 recent records per query. If the results exceed 1000 entries, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // Indicates whether the result set exceeds the server-side limit. The server processes up to 1000 records for the current query regardless of pagination settings. If the results exceed 1000 records, **ResultLimit** is **true** and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
-      // The total number of entries.
+      // The total number of records.
       shared_ptr<int32_t> totalItemNum_ {};
       // The total number of pages.
       shared_ptr<int32_t> totalPageNum_ {};
@@ -1720,26 +1767,24 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access was denied.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name.
+    // The app name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** return parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message. It is used to replace the `%s` variable in the **ErrMessage** response parameter.
+    // > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** that you specify is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters returned.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The maximum number of entries per query.
-    // 
-    // Valid values: 10 to 100. Default value: 20.
+    // The maximum number of entries returned per query.
     shared_ptr<int32_t> maxResults_ {};
     // The response data.
     shared_ptr<ListAppInstanceDomainsResponseBody::Module> module_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token for the next query. This parameter is empty if no more results are available.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
@@ -1747,7 +1792,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // A reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

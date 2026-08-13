@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ChatId, chatId_);
       DARABONBA_PTR_TO_JSON(ConversationId, conversationId_);
       DARABONBA_PTR_TO_JSON(LastEventId, lastEventId_);
+      DARABONBA_PTR_TO_JSON(LatestMessageCreateTime, latestMessageCreateTime_);
     };
     friend void from_json(const Darabonba::Json& j, ReconnectAppChatRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ChatId, chatId_);
       DARABONBA_PTR_FROM_JSON(ConversationId, conversationId_);
       DARABONBA_PTR_FROM_JSON(LastEventId, lastEventId_);
+      DARABONBA_PTR_FROM_JSON(LatestMessageCreateTime, latestMessageCreateTime_);
     };
     ReconnectAppChatRequest() = default ;
     ReconnectAppChatRequest(const ReconnectAppChatRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->chatId_ == nullptr
-        && this->conversationId_ == nullptr && this->lastEventId_ == nullptr; };
+        && this->conversationId_ == nullptr && this->lastEventId_ == nullptr && this->latestMessageCreateTime_ == nullptr; };
     // chatId Field Functions 
     bool hasChatId() const { return this->chatId_ != nullptr;};
     void deleteChatId() { this->chatId_ = nullptr;};
@@ -56,13 +58,21 @@ namespace Models
     inline ReconnectAppChatRequest& setLastEventId(int32_t lastEventId) { DARABONBA_PTR_SET_VALUE(lastEventId_, lastEventId) };
 
 
+    // latestMessageCreateTime Field Functions 
+    bool hasLatestMessageCreateTime() const { return this->latestMessageCreateTime_ != nullptr;};
+    void deleteLatestMessageCreateTime() { this->latestMessageCreateTime_ = nullptr;};
+    inline string getLatestMessageCreateTime() const { DARABONBA_PTR_GET_DEFAULT(latestMessageCreateTime_, "") };
+    inline ReconnectAppChatRequest& setLatestMessageCreateTime(string latestMessageCreateTime) { DARABONBA_PTR_SET_VALUE(latestMessageCreateTime_, latestMessageCreateTime) };
+
+
   protected:
     // The chat record ID.
     shared_ptr<string> chatId_ {};
     // The session ID.
     shared_ptr<string> conversationId_ {};
-    // The ID of the last event.
+    // The last event ID.
     shared_ptr<int32_t> lastEventId_ {};
+    shared_ptr<string> latestMessageCreateTime_ {};
   };
 
   } // namespace Models

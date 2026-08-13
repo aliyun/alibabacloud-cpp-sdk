@@ -221,7 +221,7 @@ namespace Models
         shared_ptr<string> sectionId_ {};
         // The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
         shared_ptr<string> siteId_ {};
-        // The current viewpoint, which is equivalent to the news title.
+        // The current viewpoint, equivalent to the news title.
         shared_ptr<string> title_ {};
         // The user ID.
         shared_ptr<string> userId_ {};
@@ -260,13 +260,13 @@ namespace Models
 
 
     protected:
-      // The request result.
+      // The request results.
       shared_ptr<vector<Module::Data>> data_ {};
       // The page number. Default value: 1.
       shared_ptr<int32_t> pageNum_ {};
       // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The resource count that matches the conditional filter criteria.
+      // The resource count that matches the conditional filter.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -374,7 +374,7 @@ namespace Models
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The application with this name is queried.
+    // The application name. Queries the application with this name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -382,13 +382,13 @@ namespace Models
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The maximum number of entries to return per query.
+    // The number of results returned per query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The response data.
     shared_ptr<ListAppConversationsResponseBody::Module> module_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token for the next query. This parameter is empty if no more results are available.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

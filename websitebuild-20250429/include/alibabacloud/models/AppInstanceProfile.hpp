@@ -29,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PayTime, payTime_);
       DARABONBA_PTR_TO_JSON(PreviewUrl, previewUrl_);
       DARABONBA_PTR_TO_JSON(SeoSite, seoSite_);
+      DARABONBA_PTR_TO_JSON(ShareRenderWatermark, shareRenderWatermark_);
       DARABONBA_PTR_TO_JSON(SiteVersion, siteVersion_);
       DARABONBA_PTR_TO_JSON(SiteVersionText, siteVersionText_);
       DARABONBA_PTR_TO_JSON(Source, source_);
@@ -52,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PayTime, payTime_);
       DARABONBA_PTR_FROM_JSON(PreviewUrl, previewUrl_);
       DARABONBA_PTR_FROM_JSON(SeoSite, seoSite_);
+      DARABONBA_PTR_FROM_JSON(ShareRenderWatermark, shareRenderWatermark_);
       DARABONBA_PTR_FROM_JSON(SiteVersion, siteVersion_);
       DARABONBA_PTR_FROM_JSON(SiteVersionText, siteVersionText_);
       DARABONBA_PTR_FROM_JSON(Source, source_);
@@ -73,7 +75,8 @@ namespace Models
         && this->applicationTypeText_ == nullptr && this->bizId_ == nullptr && this->chatbiTaskId_ == nullptr && this->chatbiTaskStatus_ == nullptr && this->commodityCode_ == nullptr
         && this->customerService_ == nullptr && this->deployArea_ == nullptr && this->icpbaNo_ == nullptr && this->instanceId_ == nullptr && this->openChatBi_ == nullptr
         && this->ordTime_ == nullptr && this->orderId_ == nullptr && this->payTime_ == nullptr && this->previewUrl_ == nullptr && this->seoSite_ == nullptr
-        && this->siteVersion_ == nullptr && this->siteVersionText_ == nullptr && this->source_ == nullptr && this->templateEtag_ == nullptr && this->templateId_ == nullptr; };
+        && this->shareRenderWatermark_ == nullptr && this->siteVersion_ == nullptr && this->siteVersionText_ == nullptr && this->source_ == nullptr && this->templateEtag_ == nullptr
+        && this->templateId_ == nullptr; };
     // applicationType Field Functions 
     bool hasApplicationType() const { return this->applicationType_ != nullptr;};
     void deleteApplicationType() { this->applicationType_ = nullptr;};
@@ -186,6 +189,13 @@ namespace Models
     inline AppInstanceProfile& setSeoSite(string seoSite) { DARABONBA_PTR_SET_VALUE(seoSite_, seoSite) };
 
 
+    // shareRenderWatermark Field Functions 
+    bool hasShareRenderWatermark() const { return this->shareRenderWatermark_ != nullptr;};
+    void deleteShareRenderWatermark() { this->shareRenderWatermark_ = nullptr;};
+    inline string getShareRenderWatermark() const { DARABONBA_PTR_GET_DEFAULT(shareRenderWatermark_, "") };
+    inline AppInstanceProfile& setShareRenderWatermark(string shareRenderWatermark) { DARABONBA_PTR_SET_VALUE(shareRenderWatermark_, shareRenderWatermark) };
+
+
     // siteVersion Field Functions 
     bool hasSiteVersion() const { return this->siteVersion_ != nullptr;};
     void deleteSiteVersion() { this->siteVersion_ = nullptr;};
@@ -224,7 +234,7 @@ namespace Models
   protected:
     // The application type code.
     shared_ptr<string> applicationType_ {};
-    // The text description of the application type.
+    // The application type text description.
     shared_ptr<string> applicationTypeText_ {};
     // The business ID.
     shared_ptr<string> bizId_ {};
@@ -249,13 +259,14 @@ namespace Models
     shared_ptr<string> previewUrl_ {};
     // The SEO site information.
     shared_ptr<string> seoSite_ {};
+    shared_ptr<string> shareRenderWatermark_ {};
     // The site version code.
     shared_ptr<string> siteVersion_ {};
-    // The text description of the site version.
+    // The site version text description.
     shared_ptr<string> siteVersionText_ {};
     // The source information.
     shared_ptr<string> source_ {};
-    // The ETag of the template.
+    // The template ETag identifier.
     shared_ptr<string> templateEtag_ {};
     // The template ID.
     shared_ptr<string> templateId_ {};

@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListAppInstanceDomainsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
       DARABONBA_PTR_TO_JSON(DomainKeyword, domainKeyword_);
+      DARABONBA_PTR_TO_JSON(DomainType, domainType_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(OrderColumn, orderColumn_);
@@ -25,6 +26,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListAppInstanceDomainsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(DomainKeyword, domainKeyword_);
+      DARABONBA_PTR_FROM_JSON(DomainType, domainType_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(OrderColumn, orderColumn_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && this->domainKeyword_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orderColumn_ == nullptr && this->orderType_ == nullptr
-        && this->pageNum_ == nullptr && this->pageSize_ == nullptr; };
+        && this->domainKeyword_ == nullptr && this->domainType_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orderColumn_ == nullptr
+        && this->orderType_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     void deleteDomainKeyword() { this->domainKeyword_ = nullptr;};
     inline string getDomainKeyword() const { DARABONBA_PTR_GET_DEFAULT(domainKeyword_, "") };
     inline ListAppInstanceDomainsRequest& setDomainKeyword(string domainKeyword) { DARABONBA_PTR_SET_VALUE(domainKeyword_, domainKeyword) };
+
+
+    // domainType Field Functions 
+    bool hasDomainType() const { return this->domainType_ != nullptr;};
+    void deleteDomainType() { this->domainType_ = nullptr;};
+    inline string getDomainType() const { DARABONBA_PTR_GET_DEFAULT(domainType_, "") };
+    inline ListAppInstanceDomainsRequest& setDomainType(string domainType) { DARABONBA_PTR_SET_VALUE(domainType_, domainType) };
 
 
     // maxResults Field Functions 
@@ -105,16 +114,23 @@ namespace Models
   protected:
     // The business ID.
     shared_ptr<string> bizId_ {};
+    // The domain name keyword. This parameter is optional and used for fuzzy match.
     shared_ptr<string> domainKeyword_ {};
-    // The maximum number of entries per query.
+    // The domain management type. Valid values:
+    // - CUSTOM
+    // - PLATFORM_PREFIX
     // 
-    // Valid values: 10 to 100. Default value: 20.
+    // Default value: CUSTOM.
+    shared_ptr<string> domainType_ {};
+    // The maximum number of entries returned per query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token for the next query. This parameter is empty if no more results are available.
     shared_ptr<string> nextToken_ {};
     // The field used for sorting.
     shared_ptr<string> orderColumn_ {};
-    // The sort type. Valid values: ASC and DESC.
+    // The sort type. Valid values:
+    // - ASC
+    // - DESC
     shared_ptr<string> orderType_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};

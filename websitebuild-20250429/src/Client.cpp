@@ -286,6 +286,10 @@ BindAppDomainResponse Client::bindAppDomainWithOptions(const BindAppDomainReques
     query["DomainName"] = request.getDomainName();
   }
 
+  if (!!request.hasDomainType()) {
+    query["DomainType"] = request.getDomainType();
+  }
+
   if (!!request.hasExtend()) {
     query["Extend"] = request.getExtend();
   }
@@ -4968,7 +4972,7 @@ ListAppConversationMessagesResponse Client::listAppConversationMessages(const Li
 /**
  * @summary Searches the conversation list.
  *
- * @description Creates an AI session by using Wanxiaozhi 2.0.
+ * @description Creates an AI session through the Wanxiaozhi 2.0 interface.
  *
  * @param request ListAppConversationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5029,7 +5033,7 @@ ListAppConversationsResponse Client::listAppConversationsWithOptions(const ListA
 /**
  * @summary Searches the conversation list.
  *
- * @description Creates an AI session by using Wanxiaozhi 2.0.
+ * @description Creates an AI session through the Wanxiaozhi 2.0 interface.
  *
  * @param request ListAppConversationsRequest
  * @return ListAppConversationsResponse
@@ -5105,6 +5109,10 @@ ListAppInstanceDomainsResponse Client::listAppInstanceDomainsWithOptions(const L
 
   if (!!request.hasDomainKeyword()) {
     query["DomainKeyword"] = request.getDomainKeyword();
+  }
+
+  if (!!request.hasDomainType()) {
+    query["DomainType"] = request.getDomainType();
   }
 
   if (!!request.hasMaxResults()) {
@@ -8263,6 +8271,10 @@ FutureGenerator<ReconnectAppChatResponse> Client::reconnectAppChatWithSSE(const 
     body["LastEventId"] = request.getLastEventId();
   }
 
+  if (!!request.hasLatestMessageCreateTime()) {
+    body["LatestMessageCreateTime"] = request.getLatestMessageCreateTime();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
   }).get<map<string, json>>());
@@ -8316,6 +8328,10 @@ ReconnectAppChatResponse Client::reconnectAppChatWithOptions(const ReconnectAppC
 
   if (!!request.hasLastEventId()) {
     body["LastEventId"] = request.getLastEventId();
+  }
+
+  if (!!request.hasLatestMessageCreateTime()) {
+    body["LatestMessageCreateTime"] = request.getLatestMessageCreateTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

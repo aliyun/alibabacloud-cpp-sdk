@@ -1839,7 +1839,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Searches the conversation list.
        *
-       * @description Creates an AI session by using Wanxiaozhi 2.0.
+       * @description Creates an AI session through the Wanxiaozhi 2.0 interface.
        *
        * @param request ListAppConversationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1850,7 +1850,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Searches the conversation list.
        *
-       * @description Creates an AI session by using Wanxiaozhi 2.0.
+       * @description Creates an AI session through the Wanxiaozhi 2.0 interface.
        *
        * @param request ListAppConversationsRequest
        * @return ListAppConversationsResponse

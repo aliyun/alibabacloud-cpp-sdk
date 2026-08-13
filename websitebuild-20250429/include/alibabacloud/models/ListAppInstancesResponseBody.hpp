@@ -249,7 +249,7 @@ namespace Models
     shared_ptr<bool> prePage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // In addition to the pagination limit, the server processes a maximum of 1000 recent records per query. If the results exceed 1000 records, **ResultLimit** is **true** and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+    // In addition to the pagination limit, the server processes a maximum of 1000 recent records per query. If the results exceed 1000 records, **ResultLimit** is **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
     shared_ptr<bool> resultLimit_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
