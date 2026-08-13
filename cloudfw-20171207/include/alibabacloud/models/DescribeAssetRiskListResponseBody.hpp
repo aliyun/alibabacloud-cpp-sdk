@@ -90,17 +90,17 @@ namespace Models
 
 
     protected:
-      // The IP address of the server.
+      // The server IP address.
       shared_ptr<string> ip_ {};
-      // The IP version of the asset protected by Cloud Firewall.
+      // The IP address version of the assets protected by Cloud Firewall.
       // 
       // Valid values:
       // 
-      // - **4**: IPv4
+      // - **4**: IPv4 address.
       // 
-      // - **6**: IPv6
+      // - **6**: IPv6 address.
       shared_ptr<int64_t> ipVersion_ {};
-      // The reason for the risk.
+      // The risk reason.
       shared_ptr<string> reason_ {};
       // The risk level. Valid values:
       // - **low**: low risk
@@ -135,7 +135,7 @@ namespace Models
 
 
   protected:
-    // The details of the assets.
+    // The asset details returned.
     shared_ptr<vector<DescribeAssetRiskListResponseBody::AssetList>> assetList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

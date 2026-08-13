@@ -68,7 +68,7 @@ namespace Models
 
 
     protected:
-      // The remarks for the Cloud Firewall member account. The value must be 1 to 256 characters in length. You can add up to 20 member accounts.
+      // The description of the Cloud Firewall member account. The description must be 1 to 256 characters in length. You can add up to 20 member accounts.
       shared_ptr<string> memberDesc_ {};
       // The UID of the Cloud Firewall member account. You can add up to 20 member accounts.
       // 
@@ -87,7 +87,7 @@ namespace Models
 
 
   protected:
-    // The Cloud Firewall member accounts. Call DescribeInstanceRdAccounts to obtain valid MemberUid values. You can add up to 20 members at a time, subject to the maximum member count of the instance.
+    // The list of Cloud Firewall member accounts to add. Call DescribeInstanceRdAccounts to obtain the available MemberUid values. You can add up to 20 members at a time, subject to the instance member quota.
     // 
     // This parameter is required.
     shared_ptr<vector<AddInstanceMembersRequest::Members>> members_ {};

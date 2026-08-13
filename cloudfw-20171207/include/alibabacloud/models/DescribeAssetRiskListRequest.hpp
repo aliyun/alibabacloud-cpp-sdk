@@ -69,7 +69,7 @@ namespace Models
 
 
   protected:
-    // The list of IP addresses to query. Separate multiple IP addresses with commas (,). You can query up to 20 IP addresses at a time. This parameter is required in practice. If you do not specify this parameter, the API returns a 400 error.
+    // The list of IP addresses to query. Separate multiple IP addresses with commas (,). You can query up to 20 IP addresses at a time. This parameter is required in practice. If this parameter is not specified, the API returns a 400 error.
     // 
     // >- IPv4 example: 47.97.XX.XX.
     // >- IPv6 example: 2001:db8:ffff:ffff:ffff:XXXX:ffff.
@@ -84,7 +84,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> ipVersion_ {};
-    // The language of the response. Valid values:
+    // The language type of the response message. Valid values:
     // 
     // - **zh** (default): Chinese
     // - **en**: English

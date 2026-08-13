@@ -20,7 +20,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AssetMemberUids, assetMemberUids_);
       DARABONBA_PTR_TO_JSON(AssetRegionResourceTypes, assetRegionResourceTypes_);
       DARABONBA_PTR_TO_JSON(AutoAddTagEcs, autoAddTagEcs_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(GroupName, groupName_);
       DARABONBA_PTR_TO_JSON(GroupUuid, groupUuid_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
@@ -36,7 +38,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AssetMemberUids, assetMemberUids_);
       DARABONBA_PTR_FROM_JSON(AssetRegionResourceTypes, assetRegionResourceTypes_);
       DARABONBA_PTR_FROM_JSON(AutoAddTagEcs, autoAddTagEcs_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(GroupName, groupName_);
       DARABONBA_PTR_FROM_JSON(GroupUuid, groupUuid_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
@@ -511,7 +515,7 @@ namespace Models
 
 
     protected:
-      // The region ID of the asset.
+      // The asset region ID.
       shared_ptr<string> assetRegionId_ {};
       // The asset type.
       shared_ptr<AssetRegionResourceTypes::ResourceType> resourceType_ {};
@@ -555,16 +559,16 @@ namespace Models
 
 
     protected:
-      // The key of the ACK cluster pod label.
+      // The key of the label for pods in the ACK cluster.
       shared_ptr<string> key_ {};
-      // The value of the ACK cluster pod label.
+      // The value of the label for pods in the ACK cluster.
       shared_ptr<string> value_ {};
     };
 
     virtual bool empty() const override { return this->ackLabels_ == nullptr
         && this->ackNamespaces_ == nullptr && this->addressList_ == nullptr && this->assetMemberUids_ == nullptr && this->assetRegionResourceTypes_ == nullptr && this->autoAddTagEcs_ == nullptr
-        && this->description_ == nullptr && this->groupName_ == nullptr && this->groupUuid_ == nullptr && this->lang_ == nullptr && this->modifyMode_ == nullptr
-        && this->sourceIp_ == nullptr && this->tagList_ == nullptr && this->tagRelation_ == nullptr; };
+        && this->clientToken_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr && this->groupName_ == nullptr && this->groupUuid_ == nullptr
+        && this->lang_ == nullptr && this->modifyMode_ == nullptr && this->sourceIp_ == nullptr && this->tagList_ == nullptr && this->tagRelation_ == nullptr; };
     // ackLabels Field Functions 
     bool hasAckLabels() const { return this->ackLabels_ != nullptr;};
     void deleteAckLabels() { this->ackLabels_ = nullptr;};
@@ -615,11 +619,25 @@ namespace Models
     inline ModifyAddressBookRequest& setAutoAddTagEcs(string autoAddTagEcs) { DARABONBA_PTR_SET_VALUE(autoAddTagEcs_, autoAddTagEcs) };
 
 
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline ModifyAddressBookRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyAddressBookRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline ModifyAddressBookRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // groupName Field Functions 
@@ -674,57 +692,43 @@ namespace Models
 
 
   protected:
-    // The list of labels for ACK cluster pods.
-    // 
-    // > A maximum of 10 labels are supported.
+    // The list of labels for pods in the ACK cluster.
     shared_ptr<vector<ModifyAddressBookRequest::AckLabels>> ackLabels_ {};
-    // The list of namespaces for ACK cluster pods.
-    // > A maximum of 10 namespaces are supported.
+    // The list of namespaces for pods in the ACK cluster.
     shared_ptr<vector<string>> ackNamespaces_ {};
     // The addresses in the address book. Separate multiple addresses with commas (,). Use a space to separate an address from its description. This parameter is required when GroupType is set to **ip**, **port**, or **domain**.
-    // 
-    // - When GroupType is set to **ip**, specify IP addresses. Example: 1.2.XX.XX/32 Development CIDR block,10.0.0.X/24,1.2.XX.XX/24 Test CIDR block.
-    // 
-    // - When GroupType is set to **port**, specify ports or port ranges. Example: 80/80 HTTP port,100/200,3306 Database port.
-    // 
-    // - When GroupType is set to **domain**, specify domain names. Example: demo1.aliyun.com Test domain name,demo2.aliyun.com,www.aliyun.com Alibaba Cloud official website.
     shared_ptr<string> addressList_ {};
-    // The list of member accounts for the asset address book.
+    // The list of member accounts in the asset address book.
     shared_ptr<vector<int64_t>> assetMemberUids_ {};
-    // The list of regions and resource types for the asset address book.
+    // The cloud address book, including the list of regions and resource types.
     shared_ptr<vector<ModifyAddressBookRequest::AssetRegionResourceTypes>> assetRegionResourceTypes_ {};
-    // Specifies whether the public IP addresses of Elastic Compute Service (ECS) instances that match new labels is automatically added to the address book.
+    // Indicates whether the public IP addresses of Elastic Compute Service (ECS) instances that match the specified tags are automatically added to the address book.
     shared_ptr<string> autoAddTagEcs_ {};
+    // The idempotency token.
+    shared_ptr<string> clientToken_ {};
     // The description of the address book.
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // Specifies whether to perform a dry run.
+    shared_ptr<bool> dryRun_ {};
     // The name of the address book.
     // 
     // This parameter is required.
     shared_ptr<string> groupName_ {};
     // The unique ID of the address book.
     // 
-    // > You can obtain the value by calling the [DescribeAddressBook](~~DescribeAddressBook~~) operation.
-    // 
     // This parameter is required.
     shared_ptr<string> groupUuid_ {};
-    // The language type. Valid values:
-    // - **en**: English.
-    // - **zh**: Chinese (default).
+    // The language type.
     shared_ptr<string> lang_ {};
     // The modification mode.
-    // 
-    // > When GroupType is set to **ip**, **ipv6**, **port**, or **domain**, the default value is **Cover** if this parameter is not specified.
-    // >Notice: When GroupType is set to **tag**, this parameter must be left empty.</notice>
     shared_ptr<string> modifyMode_ {};
     // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
-    // The ECS tag list.
+    // The list of ECS tags.
     shared_ptr<vector<ModifyAddressBookRequest::TagList>> tagList_ {};
-    // The logical relationship among multiple ECS tags. Valid values:
-    // - **or**: The public IP address of an ECS instance is added to the address book if the instance matches any of the specified tags.
-    // - **and**: The public IP address of an ECS instance is added to the address book only if the instance matches all of the specified tags.
+    // The logical relationship among multiple ECS tags.
     shared_ptr<string> tagRelation_ {};
   };
 

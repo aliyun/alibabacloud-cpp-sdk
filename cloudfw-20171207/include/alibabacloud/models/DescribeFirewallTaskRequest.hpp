@@ -66,14 +66,14 @@ namespace Models
 
 
   protected:
-    // The VPC-connected instance ID. You must specify at least one of TaskId and ChildInstanceId. If neither is specified, the API returns ErrorParameters(400).
+    // The child instance ID. You must specify at least one of ChildInstanceId and TaskId. If both are empty, the error MissingParameter.TaskId (-360448) is returned.
     shared_ptr<string> childInstanceId_ {};
     // The language type. Valid values:
     // 
     // - **zh** (default): Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The task ID. You must specify at least one of TaskId and ChildInstanceId. If neither is specified, the API returns ErrorParameters(400).
+    // The task ID. You must specify at least one of TaskId and ChildInstanceId. If both are empty, the error MissingParameter.TaskId (-360448, At least one of TaskId or ChildInstanceId is required.) is returned.
     shared_ptr<string> taskId_ {};
     // The type of the task. Valid values:
     // 

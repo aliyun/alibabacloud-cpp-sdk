@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AclUuid, aclUuid_);
       DARABONBA_PTR_TO_JSON(ApplicationName, applicationName_);
       DARABONBA_PTR_TO_JSON(ApplicationNameList, applicationNameList_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DestPort, destPort_);
       DARABONBA_PTR_TO_JSON(DestPortGroup, destPortGroup_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DestinationType, destinationType_);
       DARABONBA_PTR_TO_JSON(Direction, direction_);
       DARABONBA_PTR_TO_JSON(DomainResolveType, domainResolveType_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(Proto, proto_);
@@ -43,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AclUuid, aclUuid_);
       DARABONBA_PTR_FROM_JSON(ApplicationName, applicationName_);
       DARABONBA_PTR_FROM_JSON(ApplicationNameList, applicationNameList_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DestPort, destPort_);
       DARABONBA_PTR_FROM_JSON(DestPortGroup, destPortGroup_);
@@ -51,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DestinationType, destinationType_);
       DARABONBA_PTR_FROM_JSON(Direction, direction_);
       DARABONBA_PTR_FROM_JSON(DomainResolveType, domainResolveType_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(Proto, proto_);
@@ -75,11 +79,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclAction_ == nullptr
-        && this->aclUuid_ == nullptr && this->applicationName_ == nullptr && this->applicationNameList_ == nullptr && this->description_ == nullptr && this->destPort_ == nullptr
-        && this->destPortGroup_ == nullptr && this->destPortType_ == nullptr && this->destination_ == nullptr && this->destinationType_ == nullptr && this->direction_ == nullptr
-        && this->domainResolveType_ == nullptr && this->endTime_ == nullptr && this->lang_ == nullptr && this->proto_ == nullptr && this->release_ == nullptr
-        && this->repeatDays_ == nullptr && this->repeatEndTime_ == nullptr && this->repeatStartTime_ == nullptr && this->repeatType_ == nullptr && this->source_ == nullptr
-        && this->sourceType_ == nullptr && this->startTime_ == nullptr; };
+        && this->aclUuid_ == nullptr && this->applicationName_ == nullptr && this->applicationNameList_ == nullptr && this->clientToken_ == nullptr && this->description_ == nullptr
+        && this->destPort_ == nullptr && this->destPortGroup_ == nullptr && this->destPortType_ == nullptr && this->destination_ == nullptr && this->destinationType_ == nullptr
+        && this->direction_ == nullptr && this->domainResolveType_ == nullptr && this->dryRun_ == nullptr && this->endTime_ == nullptr && this->lang_ == nullptr
+        && this->proto_ == nullptr && this->release_ == nullptr && this->repeatDays_ == nullptr && this->repeatEndTime_ == nullptr && this->repeatStartTime_ == nullptr
+        && this->repeatType_ == nullptr && this->source_ == nullptr && this->sourceType_ == nullptr && this->startTime_ == nullptr; };
     // aclAction Field Functions 
     bool hasAclAction() const { return this->aclAction_ != nullptr;};
     void deleteAclAction() { this->aclAction_ = nullptr;};
@@ -108,6 +112,13 @@ namespace Models
     inline vector<string> getApplicationNameList() { DARABONBA_PTR_GET(applicationNameList_, vector<string>) };
     inline ModifyControlPolicyRequest& setApplicationNameList(const vector<string> & applicationNameList) { DARABONBA_PTR_SET_VALUE(applicationNameList_, applicationNameList) };
     inline ModifyControlPolicyRequest& setApplicationNameList(vector<string> && applicationNameList) { DARABONBA_PTR_SET_RVALUE(applicationNameList_, applicationNameList) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline ModifyControlPolicyRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // description Field Functions 
@@ -164,6 +175,13 @@ namespace Models
     void deleteDomainResolveType() { this->domainResolveType_ = nullptr;};
     inline string getDomainResolveType() const { DARABONBA_PTR_GET_DEFAULT(domainResolveType_, "") };
     inline ModifyControlPolicyRequest& setDomainResolveType(string domainResolveType) { DARABONBA_PTR_SET_VALUE(domainResolveType_, domainResolveType) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline ModifyControlPolicyRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // endTime Field Functions 
@@ -246,58 +264,44 @@ namespace Models
 
 
   protected:
-    // The action that Cloud Firewall performs on the traffic. Valid values:
-    // 
-    // - **accept**: allows the traffic.
-    // 
-    // - **drop**: denies the traffic.
-    // 
+    // The action that the access control policy performs on the traffic that passes through the firewall. Valid values:
+    // - **accept**: allows access.
+    // - **drop**: deny access.
     // - **log**: monitors the traffic.
     shared_ptr<string> aclAction_ {};
     // The unique ID of the access control policy.
     // 
-    // > To modify an access control policy, provide the unique ID of the policy. Call the [DescribeControlPolicy](https://help.aliyun.com/document_detail/138866.html) operation to obtain the ID.
+    // > To modify an access control policy, you must provide the unique ID of the policy. You can call the [DescribeControlPolicy](https://help.aliyun.com/document_detail/138866.html) operation to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<string> aclUuid_ {};
-    // The application type supported by the access control policy. The following application types are supported:
+    // The application type supported by the access control policy. Valid values:
     // 
     // - **ANY**
-    // 
     // - **HTTP**
-    // 
     // - **HTTPS**
-    // 
     // - **MySQL**
-    // 
     // - **SMTP**
-    // 
     // - **SMTPS**
-    // 
     // - **RDP**
-    // 
     // - **VNC**
-    // 
     // - **SSH**
-    // 
     // - **Redis**
-    // 
     // - **MQTT**
-    // 
     // - **MongoDB**
-    // 
     // - **Memcache**
-    // 
     // - **SSL**
     // 
-    // > **ANY** indicates that the policy applies to all application types.
+    // > **ANY** indicates that the policy applies to all types of applications.
     // 
-    // > Specify either ApplicationNameList or ApplicationName. You cannot leave both empty. If you specify both, ApplicationNameList takes precedence.
+    // > You must specify either ApplicationNameList or ApplicationName. You cannot leave both parameters empty. If you specify both parameters, the value of ApplicationNameList takes precedence.
     shared_ptr<string> applicationName_ {};
-    // The list of application names.
+    // The application name list.
     // 
-    // > Specify either ApplicationNameList or ApplicationName. You cannot leave both empty. If you specify both, ApplicationNameList takes precedence.
+    // > You must specify either ApplicationNameList or ApplicationName. You cannot leave both parameters empty. If you specify both parameters, the value of ApplicationNameList takes precedence.
     shared_ptr<vector<string>> applicationNameList_ {};
+    // The idempotence token.
+    shared_ptr<string> clientToken_ {};
     // The description of the access control policy.
     shared_ptr<string> description_ {};
     // The destination port in the access control policy.
@@ -307,127 +311,95 @@ namespace Models
     // The type of the destination port in the access control policy. Valid values:
     // 
     // - **port**: port
-    // 
     // - **group**: port address book
     shared_ptr<string> destPortType_ {};
     // The destination address in the access control policy.
     // 
-    // - If **DestinationType** is set to net, set **Destination** to a destination CIDR block. Example: 1.2.XX.XX/24
-    // 
-    // - If **DestinationType** is set to group, set **Destination** to the name of a destination address book. Example: db_group
-    // 
-    // - If **DestinationType** is set to domain, set **Destination** to a destination domain name. Example: \\*.aliyuncs.com
-    // 
-    // - If **DestinationType** is set to location, set **Destination** to a destination location code. Example: ["BJ11", "ZB"]
+    // - If **DestinationType** is set to net, **Destination** is a destination CIDR block. Example: 1.2.XX.XX/24.
+    // - If **DestinationType** is set to group, **Destination** is a destination address book name. Example: db_group.
+    // - If **DestinationType** is set to domain, **Destination** is a destination domain name. Example: *.aliyuncs.com.
+    // - If **DestinationType** is set to location, **Destination** is a destination area. For specific area positional encoding, see the subsequent sections. Example: ["BJ11", "ZB"\\].
     shared_ptr<string> destination_ {};
     // The type of the destination address in the access control policy. Valid values:
     // 
     // - **net**: destination CIDR block
-    // 
     // - **group**: destination address book
-    // 
     // - **domain**: destination domain name
-    // 
     // - **location**: destination region
     shared_ptr<string> destinationType_ {};
-    // The direction of the traffic to which the access control policy applies. Valid values:
+    // The traffic direction of the access control policy. Valid values:
     // 
-    // - **in**: inbound traffic
-    // 
-    // - **out**: outbound traffic
+    // - **in**: inbound traffic access control
+    // - **out**: outbound traffic access control
     shared_ptr<string> direction_ {};
-    // The domain name resolution method for the access control policy. Valid values:
+    // The domain name resolution method of the access control policy. Valid values:
     // 
-    // - **FQDN**: FQDN-based resolution
-    // 
-    // - **DNS**: DNS-based dynamic resolution
-    // 
-    // - **FQDN_AND_DNS**: FQDN-based and DNS-based dynamic resolution
+    // * **FQDN**: FQDN-based
+    // * **DNS**: DNS-based dynamic resolution
+    // * **FQDN_AND_DNS**: FQDN and DNS-based dynamic resolution
     shared_ptr<string> domainResolveType_ {};
-    // The end time of the policy validity period. The value is a UNIX timestamp. The time must be on the hour or half hour, and at least 30 minutes later than the start time.
-    // 
-    // > If RepeatType is set to Permanent, leave this parameter empty. If RepeatType is set to None, Daily, Weekly, or Monthly, you must specify this parameter.
+    // Specifies whether to perform a dry run.
+    shared_ptr<bool> dryRun_ {};
+    // The end time of the Policy Validity Period for the access control policy. The value is a UNIX timestamp in seconds format. The time must be on the hour or half hour and must be at least 30 minutes later than the start time. Settings for the access control policy validity period.
+    // > If RepeatType is set to Permanent, this parameter is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, this parameter is required.
     shared_ptr<int64_t> endTime_ {};
     // The language of the request and response. Valid values:
-    // 
     // - **zh** (default): Chinese
-    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The protocol type of the traffic in the access control policy. Valid values:
+    // The security protocol type in the access control policy. Valid values:
     // 
     // - **ANY**
-    // 
     // - **TCP**
-    // 
     // - **UDP**
-    // 
     // - **ICMP**
     // 
     // > **ANY** indicates that the policy applies to all protocol types.
     // 
-    // > If the traffic direction is outbound and the destination is a domain name that belongs to a threat intelligence address book or a cloud service address book, you can set this parameter to TCP or ANY. If you set this parameter to TCP, you can set the application to HTTP, HTTPS, SMTP, SMTPS, or SSL. If you set this parameter to ANY, you must set the application to ANY.
+    // > If the traffic direction is outbound and the destination address is a threat intelligence address book or cloud service address book of the domain type, you can configure only the TCP or ANY protocol. If you select TCP, the application can be HTTP, HTTPS, SMTP, SMTPS, or SSL. If you select ANY, the application can only be ANY.
     shared_ptr<string> proto_ {};
-    // The status of the access control policy. Valid values:
+    // The enabling status of the access control policy. Valid values:
     // 
     // - true: The policy is enabled.
-    // 
-    // - false: The policy is disabled.
+    // - false: The policy is in shutdown state.
     shared_ptr<string> release_ {};
-    // The days of the week or month on which the policy is recurrent.
-    // 
-    // - If RepeatType is set to `Permanent`, `None`, or `Daily`, leave this parameter empty.
+    // The days of a week or of a month on which the access control policy takes effect. Settings for the Policy Validity Period recurrence days.
+    // - If RepeatType is set to `Permanent`, `None`, or `Daily`, RepeatDays is an empty collection.
     //   Example: []
-    // 
-    // - If RepeatType is set to Weekly, you must specify this parameter.
+    // - If RepeatType is set to Weekly, RepeatDays cannot be empty.
     //   Example: [0, 6]
-    // 
-    // > If RepeatType is set to Weekly, the values in the array cannot be repeated.
-    // 
-    // - If RepeatType is set to `Monthly`, you must specify this parameter.
+    // > If RepeatType is set to Weekly, the values in RepeatDays cannot be repeated.
+    // - If RepeatType is set to `Monthly`, RepeatDays cannot be empty.
     //   Example: [1, 31]
-    // 
-    // > If RepeatType is set to Monthly, the values in the array cannot be repeated.
+    // > If RepeatType is set to Monthly, the values in RepeatDays cannot be repeated.
     shared_ptr<vector<int64_t>> repeatDays_ {};
-    // The end time of the recurrence. The time is in the HH:mm format and in 24-hour format. Example: 23:00.
-    // 
-    // > If RepeatType is set to Permanent or None, leave this parameter empty. If RepeatType is set to Daily, Weekly, or Monthly, you must specify this parameter.
+    // The recurrence end time of the policy validity period. The time is in the HH:mm format and uses a 24-hour clock. Example: 23:00.
+    // > If RepeatType is set to Permanent or None, this parameter is left empty. If RepeatType is set to Daily, Weekly, or Monthly, this parameter is required.
     shared_ptr<string> repeatEndTime_ {};
-    // The start time of the recurrence. The time is in the HH:mm format and in 24-hour format. Example: 08:00.
-    // 
-    // > If RepeatType is set to Permanent or None, leave this parameter empty. If RepeatType is set to Daily, Weekly, or Monthly, you must specify this parameter.
+    // The recurrence start time of the policy validity period. The time is in the HH:mm format and uses a 24-hour clock. Example: 08:00.
+    // > If RepeatType is set to Permanent or None, this parameter is left empty. If RepeatType is set to Daily, Weekly, or Monthly, this parameter is required.
     shared_ptr<string> repeatStartTime_ {};
-    // The recurrence type for the policy validity period. Valid values:
-    // 
-    // - **Permanent** (default): The policy is always valid.
-    // 
-    // - **None**: The policy is valid only once.
-    // 
-    // - **Daily**: The policy is valid daily.
-    // 
-    // - **Weekly**: The policy is valid weekly.
-    // 
-    // - **Monthly**: The policy is valid monthly.
+    // The recurrence type for the policy validity period of the access control policy. Valid values:
+    // - **Permanent** (default): always
+    // - **None**: one-time
+    // - **Daily**: daily
+    // - **Weekly**: weekly
+    // - **Monthly**: monthly
     shared_ptr<string> repeatType_ {};
     // The source address in the access control policy.
     // 
-    // - If **SourceType** is set to net, set **Source** to a source CIDR block. Example: 1.2.XX.XX/24
-    // 
-    // - If **SourceType** is set to group, set **Source** to the name of a source address book. Example: db_group
-    // 
-    // - If **SourceType** is set to location, set **Source** to a source location code. Example: ["BJ11", "ZB"]
+    // - If **SourceType** is set to net, **Source** is a source CIDR block. Example: 1.2.XX.XX/24.
+    // - If **SourceType** is set to group, **Source** is a source address book name. Example: db_group.
+    // - If **SourceType** is set to location, **Source** is a source area. For specific area positional encoding, see the subsequent sections. Example: ["BJ11", "ZB"\\].
     shared_ptr<string> source_ {};
     // The type of the source address in the access control policy. Valid values:
     // 
     // - **net**: source CIDR block
-    // 
     // - **group**: source address book
-    // 
     // - **location**: source region
     shared_ptr<string> sourceType_ {};
-    // The start time of the policy validity period. The value is a UNIX timestamp. The time must be on the hour or half hour, and at least 30 minutes earlier than the end time.
-    // 
-    // > If RepeatType is set to Permanent, leave this parameter empty. If RepeatType is set to None, Daily, Weekly, or Monthly, you must specify this parameter.
+    // The start time of the Policy Validity Period for the access control policy. The value is a UNIX timestamp in seconds format. The time must be on the hour or half hour and must be at least 30 minutes earlier than the end time. Settings for the access control policy validity period.
+    // > If RepeatType is set to Permanent, this parameter is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, this parameter is required.
     shared_ptr<int64_t> startTime_ {};
   };
 

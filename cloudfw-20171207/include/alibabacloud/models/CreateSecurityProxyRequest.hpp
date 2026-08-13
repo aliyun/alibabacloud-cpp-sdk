@@ -14,6 +14,8 @@ namespace Models
   class CreateSecurityProxyRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateSecurityProxyRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(FirewallServiceMode, firewallServiceMode_);
+      DARABONBA_PTR_TO_JSON(FirewallServiceZones, firewallServiceZones_);
       DARABONBA_PTR_TO_JSON(FirewallSwitch, firewallSwitch_);
       DARABONBA_PTR_TO_JSON(FwVswitchZoneId, fwVswitchZoneId_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
@@ -28,6 +30,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VswitchId, vswitchId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSecurityProxyRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(FirewallServiceMode, firewallServiceMode_);
+      DARABONBA_PTR_FROM_JSON(FirewallServiceZones, firewallServiceZones_);
       DARABONBA_PTR_FROM_JSON(FirewallSwitch, firewallSwitch_);
       DARABONBA_PTR_FROM_JSON(FwVswitchZoneId, fwVswitchZoneId_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
@@ -126,10 +130,26 @@ namespace Models
       shared_ptr<string> routeTableId_ {};
     };
 
-    virtual bool empty() const override { return this->firewallSwitch_ == nullptr
-        && this->fwVswitchZoneId_ == nullptr && this->lang_ == nullptr && this->natGatewayId_ == nullptr && this->natRouteEntryList_ == nullptr && this->proxyName_ == nullptr
-        && this->regionNo_ == nullptr && this->strictMode_ == nullptr && this->vpcId_ == nullptr && this->vswitchAuto_ == nullptr && this->vswitchCidr_ == nullptr
-        && this->vswitchId_ == nullptr; };
+    virtual bool empty() const override { return this->firewallServiceMode_ == nullptr
+        && this->firewallServiceZones_ == nullptr && this->firewallSwitch_ == nullptr && this->fwVswitchZoneId_ == nullptr && this->lang_ == nullptr && this->natGatewayId_ == nullptr
+        && this->natRouteEntryList_ == nullptr && this->proxyName_ == nullptr && this->regionNo_ == nullptr && this->strictMode_ == nullptr && this->vpcId_ == nullptr
+        && this->vswitchAuto_ == nullptr && this->vswitchCidr_ == nullptr && this->vswitchId_ == nullptr; };
+    // firewallServiceMode Field Functions 
+    bool hasFirewallServiceMode() const { return this->firewallServiceMode_ != nullptr;};
+    void deleteFirewallServiceMode() { this->firewallServiceMode_ = nullptr;};
+    inline string getFirewallServiceMode() const { DARABONBA_PTR_GET_DEFAULT(firewallServiceMode_, "") };
+    inline CreateSecurityProxyRequest& setFirewallServiceMode(string firewallServiceMode) { DARABONBA_PTR_SET_VALUE(firewallServiceMode_, firewallServiceMode) };
+
+
+    // firewallServiceZones Field Functions 
+    bool hasFirewallServiceZones() const { return this->firewallServiceZones_ != nullptr;};
+    void deleteFirewallServiceZones() { this->firewallServiceZones_ = nullptr;};
+    inline const vector<string> & getFirewallServiceZones() const { DARABONBA_PTR_GET_CONST(firewallServiceZones_, vector<string>) };
+    inline vector<string> getFirewallServiceZones() { DARABONBA_PTR_GET(firewallServiceZones_, vector<string>) };
+    inline CreateSecurityProxyRequest& setFirewallServiceZones(const vector<string> & firewallServiceZones) { DARABONBA_PTR_SET_VALUE(firewallServiceZones_, firewallServiceZones) };
+    inline CreateSecurityProxyRequest& setFirewallServiceZones(vector<string> && firewallServiceZones) { DARABONBA_PTR_SET_RVALUE(firewallServiceZones_, firewallServiceZones) };
+
+
     // firewallSwitch Field Functions 
     bool hasFirewallSwitch() const { return this->firewallSwitch_ != nullptr;};
     void deleteFirewallSwitch() { this->firewallSwitch_ = nullptr;};
@@ -217,9 +237,16 @@ namespace Models
 
 
   protected:
+    // The deployment mode of the firewall service. Valid values:
+    // 
+    // - PrimaryStandby: active/standby mode
+    // - MultiPrimary: active-active mode
+    shared_ptr<string> firewallServiceMode_ {};
+    // The list of zone IDs used by the firewall service.
+    shared_ptr<vector<string>> firewallServiceZones_ {};
     // The security protection switch. Valid values:
-    // - **open**: Enabled.
-    // - **close**: Disabled.
+    // - **open**: enabled
+    // - **close**: disabled
     shared_ptr<string> firewallSwitch_ {};
     // The zone of the firewall vSwitch.
     shared_ptr<string> fwVswitchZoneId_ {};
@@ -256,8 +283,8 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
     // Specifies whether to use the automatic vSwitch mode. Valid values:
-    // - **true**: Automatic mode.
-    // - **false**: Manual mode.
+    // - **true**: automatic mode
+    // - **false**: manual mode
     // > The default value of VswitchAuto is true. If VswitchAuto is set to true, VswitchCidr is required and must be a valid CIDR block. If VswitchAuto is set to false, VswitchId is required.
     shared_ptr<string> vswitchAuto_ {};
     // The CIDR block of the vSwitch. This parameter is required when the vSwitch is in automatic mode.

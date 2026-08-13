@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The switch for basic policies. Valid values:
+    // Specifies whether to enable Basic Policies. Valid values:
     // 
     // - **1**: Enable.
     // 
-    // - **0**: Disable.
+    // - **0**: shutdown.
     shared_ptr<int32_t> basicRules_ {};
-    // The switch for threat intelligence. Valid values:
+    // Specifies whether to enable threat intelligence. Valid values:
     // 
     // - **1**: Enable.
     // 
     // - **0**: Disable.
     shared_ptr<int32_t> ctiRules_ {};
-    // The language of the request and response. Valid values:
+    // The language type of the request and response. Valid values:
     // 
     // - **zh** (default): Chinese.
     // 
@@ -114,13 +114,13 @@ namespace Models
     shared_ptr<string> lang_ {};
     // The daily traffic limit for sensitive data detection.
     shared_ptr<int64_t> maxSdl_ {};
-    // The switch for virtual patching. Valid values:
+    // Specifies whether to enable virtual patches. Valid values:
     // 
     // - **1**: Enable.
     // 
     // - **0**: Disable.
     shared_ptr<int32_t> patchRules_ {};
-    // The IPS rule group. Valid values:
+    // The IPS rules group. Valid values:
     // 
     // - **1**: Loose rule group.
     // 
@@ -128,11 +128,11 @@ namespace Models
     // 
     // - **3**: Strict rule group.
     shared_ptr<int32_t> ruleClass_ {};
-    // The mode of the IPS. Valid values:
+    // The IPS defense mode. Valid values:
     // 
     // - **1**: Block Mode.
     // 
-    // - **0**: Monitor Mode.
+    // - **0**: monitor mode.
     // 
     // This parameter is required.
     shared_ptr<int32_t> runMode_ {};

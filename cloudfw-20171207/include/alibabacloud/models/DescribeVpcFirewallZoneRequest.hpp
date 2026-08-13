@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The ID of the CEN instance.
+    // The ID of the Cloud Enterprise Network (CEN) instance.
     shared_ptr<string> cenId_ {};
     // The environment.
     shared_ptr<string> environment_ {};
-    // The language of the response.
+    // The language type.
     shared_ptr<string> lang_ {};
-    // The UID of the Cloud Firewall member account.
+    // The UID of the Cloud Firewall member accounts.
     shared_ptr<string> memberUid_ {};
     // The region ID.
     shared_ptr<string> regionNo_ {};
     // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};
-    // The ID of the TransitRouter instance.
+    // The transit router instance ID.
     shared_ptr<string> transitRouterId_ {};
   };
 

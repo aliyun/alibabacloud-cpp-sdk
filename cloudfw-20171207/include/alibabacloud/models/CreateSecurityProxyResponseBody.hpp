@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The NAT firewall ID.
+    // The ID of the NAT firewall.
     shared_ptr<string> proxyId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

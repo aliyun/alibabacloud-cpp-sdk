@@ -154,7 +154,7 @@ namespace Models
         protected:
           // The destination CIDR block of the VPC.
           shared_ptr<string> destinationCidr_ {};
-          // The ID of the next hop instance in the VPC.
+          // The next hop instance ID in the VPC.
           shared_ptr<string> nextHopInstanceId_ {};
         };
 
@@ -177,9 +177,9 @@ namespace Models
 
 
       protected:
-        // The list of route entries for the VPC.
+        // The route entry list of the VPC.
         shared_ptr<vector<VpcCidrTableList::RouteEntryList>> routeEntryList_ {};
-        // The ID of the route table for the VPC.
+        // The route table ID of the VPC.
         shared_ptr<string> routeTableId_ {};
       };
 
@@ -189,11 +189,13 @@ namespace Models
           DARABONBA_PTR_TO_JSON(EniId, eniId_);
           DARABONBA_PTR_TO_JSON(EniPrivateIpAddress, eniPrivateIpAddress_);
           DARABONBA_PTR_TO_JSON(EniVSwitchId, eniVSwitchId_);
+          DARABONBA_PTR_TO_JSON(EniZoneId, eniZoneId_);
         };
         friend void from_json(const Darabonba::Json& j, EniList& obj) { 
           DARABONBA_PTR_FROM_JSON(EniId, eniId_);
           DARABONBA_PTR_FROM_JSON(EniPrivateIpAddress, eniPrivateIpAddress_);
           DARABONBA_PTR_FROM_JSON(EniVSwitchId, eniVSwitchId_);
+          DARABONBA_PTR_FROM_JSON(EniZoneId, eniZoneId_);
         };
         EniList() = default ;
         EniList(const EniList &) = default ;
@@ -207,7 +209,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->eniId_ == nullptr
-        && this->eniPrivateIpAddress_ == nullptr && this->eniVSwitchId_ == nullptr; };
+        && this->eniPrivateIpAddress_ == nullptr && this->eniVSwitchId_ == nullptr && this->eniZoneId_ == nullptr; };
         // eniId Field Functions 
         bool hasEniId() const { return this->eniId_ != nullptr;};
         void deleteEniId() { this->eniId_ = nullptr;};
@@ -229,13 +231,22 @@ namespace Models
         inline EniList& setEniVSwitchId(string eniVSwitchId) { DARABONBA_PTR_SET_VALUE(eniVSwitchId_, eniVSwitchId) };
 
 
+        // eniZoneId Field Functions 
+        bool hasEniZoneId() const { return this->eniZoneId_ != nullptr;};
+        void deleteEniZoneId() { this->eniZoneId_ = nullptr;};
+        inline string getEniZoneId() const { DARABONBA_PTR_GET_DEFAULT(eniZoneId_, "") };
+        inline EniList& setEniZoneId(string eniZoneId) { DARABONBA_PTR_SET_VALUE(eniZoneId_, eniZoneId) };
+
+
       protected:
-        // The instance ID of the ENI in the VPC.
+        // The instance ID of the elastic network interface (ENI) that serves as the network interface controller (NIC) in the VPC.
         shared_ptr<string> eniId_ {};
-        // The private IP address of the ENI in the VPC.
+        // The private IP of the elastic network interface (ENI) that serves as the network interface controller (NIC) in the VPC.
         shared_ptr<string> eniPrivateIpAddress_ {};
-        // The ID of the vSwitch for the ENI in the VPC.
+        // The vSwitch ID of the elastic network interface (ENI) that serves as the network interface controller (NIC) in the VPC.
         shared_ptr<string> eniVSwitchId_ {};
+        // The zone ID where the elastic network interface (ENI) that serves as the network interface controller (NIC) is active.
+        shared_ptr<string> eniZoneId_ {};
       };
 
       virtual bool empty() const override { return this->attachmentId_ == nullptr
@@ -369,21 +380,21 @@ namespace Models
 
 
     protected:
-      // The ID of the network instance connection.
+      // The connection ID of the network instance.
       shared_ptr<string> attachmentId_ {};
-      // The name of the network instance connection.
+      // The connection name of the network instance.
       shared_ptr<string> attachmentName_ {};
-      // The list of CIDR blocks that are protected by the VPC firewall.
+      // The CIDR blocks protected by the virtual private cloud (VPC) firewall.
       shared_ptr<vector<string>> defendCidrList_ {};
-      // The list of elastic network interfaces (ENIs).
+      // The network interface controller (NIC) list.
       shared_ptr<vector<LocalVpc::EniList>> eniList_ {};
-      // The ID of the vSwitch that is specified for the manual routing mode.
+      // The ID of the vSwitch specified when the routing mode is manual.
       shared_ptr<string> manualVSwitchId_ {};
-      // The ID of the VPC instance for which the VPC firewall is created.
+      // The VPC instance ID used to create a VPC firewall.
       shared_ptr<string> networkInstanceId_ {};
       // The name of the network instance.
       shared_ptr<string> networkInstanceName_ {};
-      // The type of the network instance. The value is fixed as **VPC**.
+      // The type of the network instance. Valid values: **VPC**.
       shared_ptr<string> networkInstanceType_ {};
       // The UID of the Alibaba Cloud account to which the VPC belongs.
       shared_ptr<string> ownerId_ {};
@@ -395,21 +406,20 @@ namespace Models
       // 
       // - manual: manual mode.
       shared_ptr<string> routeMode_ {};
-      // Indicates whether the manual routing mode is supported. Valid values:
+      // Indicates whether the routing mode supports manual mode. Valid values:
       // 
-      // - **1**: yes.
-      // 
-      // - **0**: no.
+      // - **1**: Supported.
+      // - **0**: Not supported.
       shared_ptr<string> supportManualMode_ {};
-      // The instance ID of the CEN transit router.
+      // The instance ID of the CEN-TR.
       shared_ptr<string> transitRouterId_ {};
-      // The edition of the CEN transit router. Valid values:
+      // The version of the CEN transit router (CEN-TR). Valid values:
       // 
       // - **Basic**: Basic Edition.
       // 
       // - **Enterprise**: Enterprise Edition.
       shared_ptr<string> transitRouterType_ {};
-      // The list of CIDR blocks for the VPC.
+      // The CIDR block list of the VPC.
       shared_ptr<vector<LocalVpc::VpcCidrTableList>> vpcCidrTableList_ {};
       // The instance ID of the VPC.
       shared_ptr<string> vpcId_ {};
@@ -421,6 +431,8 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const FirewallVpc& obj) { 
         DARABONBA_PTR_TO_JSON(AllowConfiguration, allowConfiguration_);
+        DARABONBA_PTR_TO_JSON(FirewallServiceMode, firewallServiceMode_);
+        DARABONBA_PTR_TO_JSON(FirewallServiceZones, firewallServiceZones_);
         DARABONBA_PTR_TO_JSON(StandbyZoneId, standbyZoneId_);
         DARABONBA_PTR_TO_JSON(VpcCidr, vpcCidr_);
         DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
@@ -431,6 +443,8 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, FirewallVpc& obj) { 
         DARABONBA_PTR_FROM_JSON(AllowConfiguration, allowConfiguration_);
+        DARABONBA_PTR_FROM_JSON(FirewallServiceMode, firewallServiceMode_);
+        DARABONBA_PTR_FROM_JSON(FirewallServiceZones, firewallServiceZones_);
         DARABONBA_PTR_FROM_JSON(StandbyZoneId, standbyZoneId_);
         DARABONBA_PTR_FROM_JSON(VpcCidr, vpcCidr_);
         DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -451,13 +465,29 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->allowConfiguration_ == nullptr
-        && this->standbyZoneId_ == nullptr && this->vpcCidr_ == nullptr && this->vpcId_ == nullptr && this->vswitchCidr_ == nullptr && this->vswitchId_ == nullptr
-        && this->vswitchZoneId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->firewallServiceMode_ == nullptr && this->firewallServiceZones_ == nullptr && this->standbyZoneId_ == nullptr && this->vpcCidr_ == nullptr && this->vpcId_ == nullptr
+        && this->vswitchCidr_ == nullptr && this->vswitchId_ == nullptr && this->vswitchZoneId_ == nullptr && this->zoneId_ == nullptr; };
       // allowConfiguration Field Functions 
       bool hasAllowConfiguration() const { return this->allowConfiguration_ != nullptr;};
       void deleteAllowConfiguration() { this->allowConfiguration_ = nullptr;};
       inline int32_t getAllowConfiguration() const { DARABONBA_PTR_GET_DEFAULT(allowConfiguration_, 0) };
       inline FirewallVpc& setAllowConfiguration(int32_t allowConfiguration) { DARABONBA_PTR_SET_VALUE(allowConfiguration_, allowConfiguration) };
+
+
+      // firewallServiceMode Field Functions 
+      bool hasFirewallServiceMode() const { return this->firewallServiceMode_ != nullptr;};
+      void deleteFirewallServiceMode() { this->firewallServiceMode_ = nullptr;};
+      inline string getFirewallServiceMode() const { DARABONBA_PTR_GET_DEFAULT(firewallServiceMode_, "") };
+      inline FirewallVpc& setFirewallServiceMode(string firewallServiceMode) { DARABONBA_PTR_SET_VALUE(firewallServiceMode_, firewallServiceMode) };
+
+
+      // firewallServiceZones Field Functions 
+      bool hasFirewallServiceZones() const { return this->firewallServiceZones_ != nullptr;};
+      void deleteFirewallServiceZones() { this->firewallServiceZones_ = nullptr;};
+      inline const vector<string> & getFirewallServiceZones() const { DARABONBA_PTR_GET_CONST(firewallServiceZones_, vector<string>) };
+      inline vector<string> getFirewallServiceZones() { DARABONBA_PTR_GET(firewallServiceZones_, vector<string>) };
+      inline FirewallVpc& setFirewallServiceZones(const vector<string> & firewallServiceZones) { DARABONBA_PTR_SET_VALUE(firewallServiceZones_, firewallServiceZones) };
+      inline FirewallVpc& setFirewallServiceZones(vector<string> && firewallServiceZones) { DARABONBA_PTR_SET_RVALUE(firewallServiceZones_, firewallServiceZones) };
 
 
       // standbyZoneId Field Functions 
@@ -510,25 +540,27 @@ namespace Models
 
 
     protected:
-      // Indicates whether you can specify a CIDR block for the firewall VPC when you create a VPC firewall for a Basic Edition transit router. Valid values:
-      // 
-      // - **1**: yes.
-      // 
-      // - **0**: no.
+      // Indicates whether the firewall VPC CIDR block is allowed to be configured when you create a VPC firewall for CEN Basic Edition. Valid values:
+      // - **1**: Allowed.
+      // - **0**: Not allowed.
       shared_ptr<int32_t> allowConfiguration_ {};
-      // The ID of the secondary zone for the firewall.
+      // The deployment mode of the VPC firewall service. Valid values: **PrimaryStandby** (active/standby mode) and **MultiPrimary** (active-active mode).
+      shared_ptr<string> firewallServiceMode_ {};
+      // The zone IDs used by the VPC firewall service.
+      shared_ptr<vector<string>> firewallServiceZones_ {};
+      // The secondary zone ID of the firewall.
       shared_ptr<string> standbyZoneId_ {};
       // The CIDR block of the VPC.
       shared_ptr<string> vpcCidr_ {};
       // The VPC instance ID.
       shared_ptr<string> vpcId_ {};
-      // The CIDR block of the virtual switch.
+      // The CIDR block of the vSwitch.
       shared_ptr<string> vswitchCidr_ {};
-      // The virtual switch ID.
+      // The vSwitch ID.
       shared_ptr<string> vswitchId_ {};
-      // The zone ID of the virtual switch.
+      // The zone ID of the vSwitch.
       shared_ptr<string> vswitchZoneId_ {};
-      // The ID of the primary zone for the firewall.
+      // The primary zone ID of the firewall.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -589,25 +621,25 @@ namespace Models
 
 
   protected:
-    // The connection type of the VPC firewall. The value is fixed as **cen**, which indicates CEN.
+    // The connectivity type of the virtual private cloud (VPC) firewall. Valid values: **cen**, which indicates Cloud Enterprise Network.
     shared_ptr<string> connectType_ {};
-    // The status of the VPC firewall. Valid values:
+    // The switch status of the virtual private cloud (VPC) firewall. Valid values:
     // 
-    // - **opened**: The firewall is enabled.
+    // - **opened**: Enabled.
     // 
-    // - **closed**: The firewall is disabled.
+    // - **closed**: Shutdown.
     // 
-    // - **notconfigured**: The firewall is not configured.
+    // - **notconfigured**: Not configured.
     shared_ptr<string> firewallSwitchStatus_ {};
-    // The VPC that is used by the firewall.
+    // The VPC used by the firewall.
     shared_ptr<DescribeVpcFirewallCenDetailResponseBody::FirewallVpc> firewallVpc_ {};
-    // The details of the VPC.
+    // The VPC details.
     shared_ptr<DescribeVpcFirewallCenDetailResponseBody::LocalVpc> localVpc_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The instance ID of the VPC firewall.
+    // The instance ID of the virtual private cloud (VPC) firewall.
     shared_ptr<string> vpcFirewallId_ {};
-    // The instance name of the VPC firewall.
+    // The instance name of the virtual private cloud (VPC) firewall.
     shared_ptr<string> vpcFirewallName_ {};
   };
 

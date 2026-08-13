@@ -59,10 +59,10 @@ namespace Models
   protected:
     // The instance ID of the virtual private cloud (VPC) firewall.
     // 
-    // > FirewallId and FirewallName are jointly required. If both are not provided, an ErrorParameters(400) error is returned. You can call DescribeTrFirewallsV2List to obtain the FirewallId.
+    // > FirewallId and FirewallName are both required. If either is not provided, an ErrorParameters(400) error is returned. You can call DescribeTrFirewallsV2List to obtain the FirewallId.
     shared_ptr<string> firewallId_ {};
     // The instance name of the virtual private cloud (VPC) firewall.
-    // > FirewallId and FirewallName are jointly required. If both are not provided, an ErrorParameters(400) error is returned.
+    // > FirewallId and FirewallName are both required. If either is not provided, an ErrorParameters(400) error is returned.
     shared_ptr<string> firewallName_ {};
     // The language of the content within the response. Valid values:
     // 

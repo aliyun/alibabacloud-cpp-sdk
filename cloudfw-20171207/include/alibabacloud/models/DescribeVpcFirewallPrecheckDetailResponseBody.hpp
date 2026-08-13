@@ -302,7 +302,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether a task exists.
+    // Indicates whether the task exists.
     shared_ptr<bool> isFound_ {};
     // The precheck details.
     shared_ptr<DescribeVpcFirewallPrecheckDetailResponseBody::PrecheckDetail> precheckDetail_ {};

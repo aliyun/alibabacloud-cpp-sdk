@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CenId, cenId_);
       DARABONBA_PTR_TO_JSON(FirewallSwitch, firewallSwitch_);
       DARABONBA_PTR_TO_JSON(FirewallVSwitchCidrBlock, firewallVSwitchCidrBlock_);
+      DARABONBA_PTR_TO_JSON(FirewallVSwitchZoneId, firewallVSwitchZoneId_);
       DARABONBA_PTR_TO_JSON(FirewallVpcCidrBlock, firewallVpcCidrBlock_);
       DARABONBA_PTR_TO_JSON(FirewallVpcStandbyZoneId, firewallVpcStandbyZoneId_);
       DARABONBA_PTR_TO_JSON(FirewallVpcZoneId, firewallVpcZoneId_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CenId, cenId_);
       DARABONBA_PTR_FROM_JSON(FirewallSwitch, firewallSwitch_);
       DARABONBA_PTR_FROM_JSON(FirewallVSwitchCidrBlock, firewallVSwitchCidrBlock_);
+      DARABONBA_PTR_FROM_JSON(FirewallVSwitchZoneId, firewallVSwitchZoneId_);
       DARABONBA_PTR_FROM_JSON(FirewallVpcCidrBlock, firewallVpcCidrBlock_);
       DARABONBA_PTR_FROM_JSON(FirewallVpcStandbyZoneId, firewallVpcStandbyZoneId_);
       DARABONBA_PTR_FROM_JSON(FirewallVpcZoneId, firewallVpcZoneId_);
@@ -52,9 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cenId_ == nullptr
-        && this->firewallSwitch_ == nullptr && this->firewallVSwitchCidrBlock_ == nullptr && this->firewallVpcCidrBlock_ == nullptr && this->firewallVpcStandbyZoneId_ == nullptr && this->firewallVpcZoneId_ == nullptr
-        && this->lang_ == nullptr && this->memberUid_ == nullptr && this->networkInstanceId_ == nullptr && this->vSwitchId_ == nullptr && this->vpcFirewallName_ == nullptr
-        && this->vpcRegion_ == nullptr; };
+        && this->firewallSwitch_ == nullptr && this->firewallVSwitchCidrBlock_ == nullptr && this->firewallVSwitchZoneId_ == nullptr && this->firewallVpcCidrBlock_ == nullptr && this->firewallVpcStandbyZoneId_ == nullptr
+        && this->firewallVpcZoneId_ == nullptr && this->lang_ == nullptr && this->memberUid_ == nullptr && this->networkInstanceId_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcFirewallName_ == nullptr && this->vpcRegion_ == nullptr; };
     // cenId Field Functions 
     bool hasCenId() const { return this->cenId_ != nullptr;};
     void deleteCenId() { this->cenId_ = nullptr;};
@@ -74,6 +76,13 @@ namespace Models
     void deleteFirewallVSwitchCidrBlock() { this->firewallVSwitchCidrBlock_ = nullptr;};
     inline string getFirewallVSwitchCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(firewallVSwitchCidrBlock_, "") };
     inline CreateVpcFirewallCenConfigureRequest& setFirewallVSwitchCidrBlock(string firewallVSwitchCidrBlock) { DARABONBA_PTR_SET_VALUE(firewallVSwitchCidrBlock_, firewallVSwitchCidrBlock) };
+
+
+    // firewallVSwitchZoneId Field Functions 
+    bool hasFirewallVSwitchZoneId() const { return this->firewallVSwitchZoneId_ != nullptr;};
+    void deleteFirewallVSwitchZoneId() { this->firewallVSwitchZoneId_ = nullptr;};
+    inline string getFirewallVSwitchZoneId() const { DARABONBA_PTR_GET_DEFAULT(firewallVSwitchZoneId_, "") };
+    inline CreateVpcFirewallCenConfigureRequest& setFirewallVSwitchZoneId(string firewallVSwitchZoneId) { DARABONBA_PTR_SET_VALUE(firewallVSwitchZoneId_, firewallVSwitchZoneId) };
 
 
     // firewallVpcCidrBlock Field Functions 
@@ -142,44 +151,48 @@ namespace Models
   protected:
     // The instance ID of the CEN instance.
     // 
+    // >  Prerequisite: The CEN instance must have been created by invoking the Cbn.CreateCen operation.
+    // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
-    // The status of the virtual private cloud (VPC) firewall after you create a VPC firewall. Valid values:
+    // Settings for the virtual private cloud (VPC) firewall status after you create a VPC. Valid values:
     // 
-    // - **open** (default): The VPC firewall is automatically enabled after it is created.
-    // - **close**: The VPC firewall is not automatically enabled after it is created. You can invoke the [ModifyVpcFirewallCenSwitchStatus](https://help.aliyun.com/document_detail/345780.html) operation to enable the VPC firewall.
+    // - **open** (default): The virtual private cloud (VPC) firewall is automatically enabled after it is created.
+    // - **close**: The virtual private cloud (VPC) firewall is not automatically enabled after it is created. You can invoke the [ModifyVpcFirewallCenSwitchStatus](https://help.aliyun.com/document_detail/345780.html) operation to enable the firewall.
     // 
     // This parameter is required.
     shared_ptr<string> firewallSwitch_ {};
-    // The CIDR block of the vSwitch used by the firewall. Specify a CIDR block with a subnet mask of no more than 29 bits that does not conflict with your network planning. This CIDR block is allocated to the vSwitch that is created during the process to create a VPC firewall within the firewall security VPC (Cloud_Firewall_VSWITCH) for traffic redirection. The vSwitch CIDR block must be a subnet of the firewall VPC CIDR block.
+    // The CIDR block of the vSwitch used by the firewall. Specify a CIDR block with a subnet mask of no more than 29 bits that does not conflict with your network planning. This CIDR block is allocated to the vSwitch that is required during the create a VPC firewall procedure and is used for automatic creation of a vSwitch (Cloud_Firewall_VSWITCH) within the security VPC for traffic redirection. The vSwitch CIDR block must be a subnet of the firewall VPC CIDR block.
     // 
-    // If you leave this parameter empty, the default CIDR block 10.219.219.216/29 is automatically allocated.
+    // If you leave this parameter empty, the CIDR block 10.219.219.216/29 is automatically allocated by default.
     // 
     // > This parameter takes effect only when a VPC firewall is created for the first time in the local region of the CEN instance.
     shared_ptr<string> firewallVSwitchCidrBlock_ {};
-    // The CIDR block of the VPC used by the firewall. Specify a CIDR block with a subnet mask of no more than 28 bits. This CIDR block is allocated to the VPC that is created during the process to create a VPC firewall (Cloud_Firewall_VPC) for traffic redirection.
+    // The zone ID of the vSwitch used by the firewall.
+    shared_ptr<string> firewallVSwitchZoneId_ {};
+    // The CIDR block of the VPC used by the firewall. Specify a CIDR block with a subnet mask of no more than 28 bits. This CIDR block is allocated to the VPC that is required during the create a VPC firewall procedure and is used for automatic creation of a security VPC (Cloud_Firewall_VPC) for traffic redirection.
     // 
-    // If you leave this parameter empty, the default CIDR block 10.0.0.0/8 is automatically allocated.
+    // If you leave this parameter empty, the CIDR block 10.0.0.0/8 is automatically allocated by default.
     // 
     // > This parameter takes effect only when a VPC firewall is created for the first time in the local region of the CEN instance.
     shared_ptr<string> firewallVpcCidrBlock_ {};
-    // The ID of the secondary zone to which the firewall belongs. The firewall performs an automatic switchover to the secondary zone to continue running only when the primary zone becomes unavailable.
+    // The ID of the secondary active zone of the firewall. The firewall performs an automatic switchover to the secondary zone to continue running only when the primary zone becomes unavailable.
     // 
-    // If you leave this parameter empty, a default secondary zone is automatically allocated for the firewall.
+    // If you leave this parameter empty, a secondary zone is automatically allocated by default.
     // 
     // 
     // 
-    // > This parameter takes effect only when a VPC firewall is created for the first time in the local region of the CEN instance.
+    // > This parameter takes effect only when you create a VPC firewall for the first time in the local region of the CEN instance.
     shared_ptr<string> firewallVpcStandbyZoneId_ {};
-    // The ID of the primary active zone to which the firewall belongs. If your business is latency-sensitive, you can set the firewall zone to the same zone as the vSwitch of the business VPC to reduce latency.
+    // The ID of the primary active zone of the firewall. If your business is latency-sensitive, you can set the firewall zone to the same zone as the vSwitch of the business VPC to reduce latency.
     // 
-    // If you leave this parameter empty, a default zone is automatically allocated for the firewall.
+    // If you leave this parameter empty, a zone is automatically allocated by default.
     // 
     // 
     // 
-    // > This parameter takes effect only when a VPC firewall is created for the first time in the local region of the CEN instance.
+    // > This parameter takes effect only when you create a VPC firewall for the first time in the local region of the CEN instance.
     shared_ptr<string> firewallVpcZoneId_ {};
-    // The language of the request and response. Valid values:
+    // The language of the content within the request and response. Valid values:
     // 
     // - **zh** (default): Chinese.
     // 
@@ -187,7 +200,9 @@ namespace Models
     shared_ptr<string> lang_ {};
     // The UID of the member account of the current Alibaba Cloud account.
     shared_ptr<string> memberUid_ {};
-    // The instance ID of the VPC for which you want to create a VPC firewall.
+    // The instance ID of the VPC-connected instance for which you want to create a virtual private cloud (VPC) firewall.
+    // 
+    // >  Prerequisite: The VPC must have been attached to the CEN instance specified by CenId by invoking the Cbn.AttachCenChildInstance operation.
     // 
     // This parameter is required.
     shared_ptr<string> networkInstanceId_ {};
@@ -197,7 +212,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> vpcFirewallName_ {};
-    // The region ID of the VPC for which you want to create a VPC firewall.
+    // The region ID of the VPC for which you want to create a virtual private cloud (VPC) firewall.
     // 
     // > For more information about the regions supported by Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
     // 

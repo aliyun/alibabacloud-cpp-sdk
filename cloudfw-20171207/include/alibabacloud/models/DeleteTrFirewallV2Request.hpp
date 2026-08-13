@@ -48,12 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the VPC firewall for the transit router.
+    // The instance ID of the virtual private cloud (VPC) firewall.
     shared_ptr<string> firewallId_ {};
-    // The language of the response message. Valid values:
+    // The language of the content within the response. Valid values:
     // 
     // - **zh** (default): Chinese
-    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
   };

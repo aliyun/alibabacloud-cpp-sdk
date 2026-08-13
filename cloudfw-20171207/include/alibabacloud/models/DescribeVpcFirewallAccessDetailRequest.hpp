@@ -188,13 +188,13 @@ namespace Models
   protected:
     // The IP address of the local asset. You must specify at least one of AssetIP and Port. If both are left empty, the API returns a 400 error.
     shared_ptr<string> assetIP_ {};
-    // The page number in a paging query. Settings this parameter to specify the current page for paging.
+    // The page number in a paged query.
     shared_ptr<string> currentPage_ {};
     // The traffic direction. Valid values:
     // - **in**: inbound.
     // - **out**: outbound.
     // 
-    // >If this parameter is not specified in Settings, traffic in all directions is queried.
+    // >If you do not configure this parameter in Settings, traffic in all directions is queried.
     shared_ptr<string> direction_ {};
     // The end time of the query. The value is a UNIX timestamp. Unit: seconds.
     // 
@@ -214,7 +214,7 @@ namespace Models
     // - **asc**: ascending order.
     // -  **desc** (default): descending order.
     shared_ptr<string> order_ {};
-    // The number of entries per page in a paging query.
+    // The number of entries per page in a paged query.
     shared_ptr<string> pageSize_ {};
     // The source IP address of the peer.
     shared_ptr<string> peerAssetIP_ {};

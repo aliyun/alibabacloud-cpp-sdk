@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATETRFIREWALLV2REQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATETRFIREWALLV2REQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,8 +15,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateTrFirewallV2Request& obj) { 
       DARABONBA_PTR_TO_JSON(CenId, cenId_);
+      DARABONBA_PTR_TO_JSON(FirewallAttachmentZone, firewallAttachmentZone_);
       DARABONBA_PTR_TO_JSON(FirewallDescription, firewallDescription_);
       DARABONBA_PTR_TO_JSON(FirewallName, firewallName_);
+      DARABONBA_PTR_TO_JSON(FirewallServiceMode, firewallServiceMode_);
+      DARABONBA_PTR_TO_JSON(FirewallServiceZones, firewallServiceZones_);
       DARABONBA_PTR_TO_JSON(FirewallSubnetCidr, firewallSubnetCidr_);
       DARABONBA_PTR_TO_JSON(FirewallVpcCidr, firewallVpcCidr_);
       DARABONBA_PTR_TO_JSON(FirewallVpcId, firewallVpcId_);
@@ -27,12 +31,16 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TrAttachmentMasterZone, trAttachmentMasterZone_);
       DARABONBA_PTR_TO_JSON(TrAttachmentSlaveCidr, trAttachmentSlaveCidr_);
       DARABONBA_PTR_TO_JSON(TrAttachmentSlaveZone, trAttachmentSlaveZone_);
+      DARABONBA_PTR_TO_JSON(TrAttachmentZones, trAttachmentZones_);
       DARABONBA_PTR_TO_JSON(TransitRouterId, transitRouterId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateTrFirewallV2Request& obj) { 
       DARABONBA_PTR_FROM_JSON(CenId, cenId_);
+      DARABONBA_PTR_FROM_JSON(FirewallAttachmentZone, firewallAttachmentZone_);
       DARABONBA_PTR_FROM_JSON(FirewallDescription, firewallDescription_);
       DARABONBA_PTR_FROM_JSON(FirewallName, firewallName_);
+      DARABONBA_PTR_FROM_JSON(FirewallServiceMode, firewallServiceMode_);
+      DARABONBA_PTR_FROM_JSON(FirewallServiceZones, firewallServiceZones_);
       DARABONBA_PTR_FROM_JSON(FirewallSubnetCidr, firewallSubnetCidr_);
       DARABONBA_PTR_FROM_JSON(FirewallVpcCidr, firewallVpcCidr_);
       DARABONBA_PTR_FROM_JSON(FirewallVpcId, firewallVpcId_);
@@ -44,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TrAttachmentMasterZone, trAttachmentMasterZone_);
       DARABONBA_PTR_FROM_JSON(TrAttachmentSlaveCidr, trAttachmentSlaveCidr_);
       DARABONBA_PTR_FROM_JSON(TrAttachmentSlaveZone, trAttachmentSlaveZone_);
+      DARABONBA_PTR_FROM_JSON(TrAttachmentZones, trAttachmentZones_);
       DARABONBA_PTR_FROM_JSON(TransitRouterId, transitRouterId_);
     };
     CreateTrFirewallV2Request() = default ;
@@ -58,14 +67,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cenId_ == nullptr
-        && this->firewallDescription_ == nullptr && this->firewallName_ == nullptr && this->firewallSubnetCidr_ == nullptr && this->firewallVpcCidr_ == nullptr && this->firewallVpcId_ == nullptr
-        && this->firewallVswitchId_ == nullptr && this->lang_ == nullptr && this->regionNo_ == nullptr && this->routeMode_ == nullptr && this->trAttachmentMasterCidr_ == nullptr
-        && this->trAttachmentMasterZone_ == nullptr && this->trAttachmentSlaveCidr_ == nullptr && this->trAttachmentSlaveZone_ == nullptr && this->transitRouterId_ == nullptr; };
+        && this->firewallAttachmentZone_ == nullptr && this->firewallDescription_ == nullptr && this->firewallName_ == nullptr && this->firewallServiceMode_ == nullptr && this->firewallServiceZones_ == nullptr
+        && this->firewallSubnetCidr_ == nullptr && this->firewallVpcCidr_ == nullptr && this->firewallVpcId_ == nullptr && this->firewallVswitchId_ == nullptr && this->lang_ == nullptr
+        && this->regionNo_ == nullptr && this->routeMode_ == nullptr && this->trAttachmentMasterCidr_ == nullptr && this->trAttachmentMasterZone_ == nullptr && this->trAttachmentSlaveCidr_ == nullptr
+        && this->trAttachmentSlaveZone_ == nullptr && this->trAttachmentZones_ == nullptr && this->transitRouterId_ == nullptr; };
     // cenId Field Functions 
     bool hasCenId() const { return this->cenId_ != nullptr;};
     void deleteCenId() { this->cenId_ = nullptr;};
     inline string getCenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
     inline CreateTrFirewallV2Request& setCenId(string cenId) { DARABONBA_PTR_SET_VALUE(cenId_, cenId) };
+
+
+    // firewallAttachmentZone Field Functions 
+    bool hasFirewallAttachmentZone() const { return this->firewallAttachmentZone_ != nullptr;};
+    void deleteFirewallAttachmentZone() { this->firewallAttachmentZone_ = nullptr;};
+    inline string getFirewallAttachmentZone() const { DARABONBA_PTR_GET_DEFAULT(firewallAttachmentZone_, "") };
+    inline CreateTrFirewallV2Request& setFirewallAttachmentZone(string firewallAttachmentZone) { DARABONBA_PTR_SET_VALUE(firewallAttachmentZone_, firewallAttachmentZone) };
 
 
     // firewallDescription Field Functions 
@@ -80,6 +97,22 @@ namespace Models
     void deleteFirewallName() { this->firewallName_ = nullptr;};
     inline string getFirewallName() const { DARABONBA_PTR_GET_DEFAULT(firewallName_, "") };
     inline CreateTrFirewallV2Request& setFirewallName(string firewallName) { DARABONBA_PTR_SET_VALUE(firewallName_, firewallName) };
+
+
+    // firewallServiceMode Field Functions 
+    bool hasFirewallServiceMode() const { return this->firewallServiceMode_ != nullptr;};
+    void deleteFirewallServiceMode() { this->firewallServiceMode_ = nullptr;};
+    inline string getFirewallServiceMode() const { DARABONBA_PTR_GET_DEFAULT(firewallServiceMode_, "") };
+    inline CreateTrFirewallV2Request& setFirewallServiceMode(string firewallServiceMode) { DARABONBA_PTR_SET_VALUE(firewallServiceMode_, firewallServiceMode) };
+
+
+    // firewallServiceZones Field Functions 
+    bool hasFirewallServiceZones() const { return this->firewallServiceZones_ != nullptr;};
+    void deleteFirewallServiceZones() { this->firewallServiceZones_ = nullptr;};
+    inline const vector<string> & getFirewallServiceZones() const { DARABONBA_PTR_GET_CONST(firewallServiceZones_, vector<string>) };
+    inline vector<string> getFirewallServiceZones() { DARABONBA_PTR_GET(firewallServiceZones_, vector<string>) };
+    inline CreateTrFirewallV2Request& setFirewallServiceZones(const vector<string> & firewallServiceZones) { DARABONBA_PTR_SET_VALUE(firewallServiceZones_, firewallServiceZones) };
+    inline CreateTrFirewallV2Request& setFirewallServiceZones(vector<string> && firewallServiceZones) { DARABONBA_PTR_SET_RVALUE(firewallServiceZones_, firewallServiceZones) };
 
 
     // firewallSubnetCidr Field Functions 
@@ -159,6 +192,15 @@ namespace Models
     inline CreateTrFirewallV2Request& setTrAttachmentSlaveZone(string trAttachmentSlaveZone) { DARABONBA_PTR_SET_VALUE(trAttachmentSlaveZone_, trAttachmentSlaveZone) };
 
 
+    // trAttachmentZones Field Functions 
+    bool hasTrAttachmentZones() const { return this->trAttachmentZones_ != nullptr;};
+    void deleteTrAttachmentZones() { this->trAttachmentZones_ = nullptr;};
+    inline const vector<string> & getTrAttachmentZones() const { DARABONBA_PTR_GET_CONST(trAttachmentZones_, vector<string>) };
+    inline vector<string> getTrAttachmentZones() { DARABONBA_PTR_GET(trAttachmentZones_, vector<string>) };
+    inline CreateTrFirewallV2Request& setTrAttachmentZones(const vector<string> & trAttachmentZones) { DARABONBA_PTR_SET_VALUE(trAttachmentZones_, trAttachmentZones) };
+    inline CreateTrFirewallV2Request& setTrAttachmentZones(vector<string> && trAttachmentZones) { DARABONBA_PTR_SET_RVALUE(trAttachmentZones_, trAttachmentZones) };
+
+
     // transitRouterId Field Functions 
     bool hasTransitRouterId() const { return this->transitRouterId_ != nullptr;};
     void deleteTransitRouterId() { this->transitRouterId_ = nullptr;};
@@ -167,12 +209,23 @@ namespace Models
 
 
   protected:
-    // The CEN instance ID. This parameter is required when you invoke this operation.
+    // The ID of the CEN instance. This parameter is required. Create a CEN instance in the CEN console before calling this operation, and ensure that an Enterprise Edition transit router has been created.
     shared_ptr<string> cenId_ {};
+    // The zone ID used by the firewall connection.
+    shared_ptr<string> firewallAttachmentZone_ {};
     // The description of the firewall.
     shared_ptr<string> firewallDescription_ {};
     // The name of the Cloud Firewall instance.
     shared_ptr<string> firewallName_ {};
+    // The deployment mode of the firewall service. Valid values:
+    // 
+    // - **PrimaryStandby**: Primary/standby mode.
+    // - **MultiPrimary**: Active-active mode.
+    // 
+    // > If this parameter is not specified, the system automatically selects a deployment mode based on the capabilities of the transit router. If an invalid value is specified, the error ErrorFwServiceMode (-360437) is returned. MultiPrimary mode does not support specifying zones.
+    shared_ptr<string> firewallServiceMode_ {};
+    // The list of zone IDs used by the firewall service.
+    shared_ptr<vector<string>> firewallServiceZones_ {};
     // The subnet CIDR block used to store the firewall ENI in the firewall VPC in automatic mode.
     shared_ptr<string> firewallSubnetCidr_ {};
     // The CIDR block of the firewall VPC in automatic mode.
@@ -181,30 +234,26 @@ namespace Models
     shared_ptr<string> firewallVpcId_ {};
     // The ID of the vSwitch in which the firewall ENI is created in manual mode.
     shared_ptr<string> firewallVswitchId_ {};
-    // The language of the content within the response. Valid values:
+    // The language of the response. Valid values:
     // 
     // - **zh** (default): Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The region ID of the transit router instance. This parameter is required in actual calls.
+    // The region ID of the Enterprise Edition transit router. This parameter is required.
     shared_ptr<string> regionNo_ {};
-    // The routing mode. Valid values:
-    // 
-    // - **managed**: automatic mode.
-    // 
-    // - **manual**: manual mode.
-    // 
-    // > This parameter is required in actual calls. If RouteMode is set to managed (automatic), FirewallVpcCidr, FirewallSubnetCidr, TrAttachmentSlaveCidr, and TrAttachmentMasterCidr are required. If RouteMode is set to manual, FirewallVpcId, FirewallVswitchId, TrAttachmentSlaveZone, and TrAttachmentMasterZone are required. Required parameters vary by mode.
+    // The routing mode. This parameter is required. Valid values: managed (automatic mode) and manual (manual mode). In managed mode, you must specify FirewallVpcCidr, FirewallSubnetCidr, TrAttachmentSlaveCidr, and TrAttachmentMasterCidr. In manual mode, you must specify FirewallVpcId, FirewallVswitchId, TrAttachmentSlaveZone, and TrAttachmentMasterZone.
     shared_ptr<string> routeMode_ {};
-    // The primary subnet CIDR block used to connect to the transit router in the firewall VPC in automatic mode.
+    // The primary subnet CIDR block used to connect to the TR in the firewall VPC in automatic mode.
     shared_ptr<string> trAttachmentMasterCidr_ {};
     // The primary zone of the vSwitch.
     shared_ptr<string> trAttachmentMasterZone_ {};
-    // The secondary subnet CIDR block used to connect to the transit router in the firewall VPC in automatic mode.
+    // The secondary subnet CIDR block used to connect to the TR in the firewall VPC in automatic mode.
     shared_ptr<string> trAttachmentSlaveCidr_ {};
     // The secondary zone of the vSwitch.
     shared_ptr<string> trAttachmentSlaveZone_ {};
-    // The transit router instance ID. This parameter is required when you invoke this operation.
+    // The list of zone IDs used by the TR connection.
+    shared_ptr<vector<string>> trAttachmentZones_ {};
+    // The ID of the Enterprise Edition transit router instance. This parameter is required. The transit router must belong to the CEN instance specified by CenId.
     shared_ptr<string> transitRouterId_ {};
   };
 

@@ -108,7 +108,7 @@ namespace Models
       shared_ptr<string> stepName_ {};
       // The progress of the task step.
       shared_ptr<string> stepProgress_ {};
-      // The status of the task step. Valid values:
+      // The task step status. Valid values:
       // 
       // - **init** 
       // 

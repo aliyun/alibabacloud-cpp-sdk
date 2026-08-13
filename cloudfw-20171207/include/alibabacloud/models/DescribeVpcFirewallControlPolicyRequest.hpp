@@ -149,81 +149,31 @@ namespace Models
 
 
   protected:
-    // The action that is performed on traffic. Valid values:
-    // 
-    // - **accept**: allows the traffic.
-    // 
-    // - **drop**: denies the traffic.
-    // 
-    // - **log**: monitors the traffic.
-    // 
-    // > If you do not set this parameter, policies of all actions are queried.
+    // The action (settings) that Cloud Firewall performs on the traffic in the access control policy of the virtual private cloud (VPC) firewall. Valid values:
     shared_ptr<string> aclAction_ {};
-    // The unique ID of the access control policy.
+    // The unique identity ID of the access control policy of the virtual private cloud (VPC) firewall.
     shared_ptr<string> aclUuid_ {};
-    // The page number.
+    // The page number in a paged query. Settings the current page number for paging.
     shared_ptr<string> currentPage_ {};
-    // The description of the access control policy. Fuzzy match is supported.
+    // The description of the access control policy of the virtual private cloud (VPC) firewall. Fuzzy queries are supported.
     shared_ptr<string> description_ {};
-    // The destination address in the access control policy. Fuzzy match is supported.
-    // 
-    // > The value can be a CIDR block, a domain name, or an address book.
+    // The destination address in the access control policy of the virtual private cloud (VPC) firewall. Fuzzy queries are supported.
     shared_ptr<string> destination_ {};
-    // The language of the request and response.
-    // 
-    // Valid values:
-    // 
-    // - **zh** (default): Chinese
-    // 
-    // - **en**: English
+    // The language type for requests and responses.
     shared_ptr<string> lang_ {};
-    // The UID of the member that is managed by your Alibaba Cloud account.
+    // The UID of a member account of the current Alibaba Cloud account.
     shared_ptr<string> memberUid_ {};
-    // The number of entries per page.
-    // 
-    // Maximum value: 50.
+    // The number of access control policies for the virtual private cloud (VPC) firewall on each page in a paged query. Settings the number of policies per page for paging.
     shared_ptr<string> pageSize_ {};
-    // The protocol type in the access control policy. Valid values:
-    // 
-    // - **TCP**
-    // 
-    // - **UDP**
-    // 
-    // - **ICMP**
-    // 
-    // - **ANY**: all protocols
-    // 
-    // > If you do not set this parameter, policies of all protocols are queried.
+    // The protocol type of the traffic in the access control policy of the virtual private cloud (VPC) firewall. Valid values:
     shared_ptr<string> proto_ {};
-    // The status of the access control policy. Valid values:
-    // 
-    // - **true**: enabled
-    // 
-    // - **false**: disabled
+    // The enabled status of the access control policy. Valid values:
     shared_ptr<string> release_ {};
-    // The recurrence type of the access control policy. Valid values:
-    // 
-    // - **Permanent** (default): The policy is always in effect.
-    // 
-    // - **None**: The policy is a one-time policy.
-    // 
-    // - **Daily**: The policy recurs daily.
-    // 
-    // - **Weekly**: The policy recurs weekly.
-    // 
-    // - **Monthly**: The policy recurs monthly.
+    // The recurrence type of the policy validity period for the access control policy. Valid values:
     shared_ptr<string> repeatType_ {};
-    // The source address in the access control policy. Fuzzy match is supported.
-    // 
-    // > The value can be a CIDR block or an address book.
+    // The source address in the access control policy of the virtual private cloud (VPC) firewall. Fuzzy queries are supported.
     shared_ptr<string> source_ {};
-    // The instance ID of the VPC boundary firewall. You can specify one of the following IDs:
-    // 
-    // - The ID of a Cloud Enterprise Network (CEN) instance if the firewall protects traffic between two VPCs connected via the CEN instance.
-    // 
-    // - The instance ID of the VPC boundary firewall if the firewall protects traffic between two VPCs connected via an Express Connect circuit.
-    // 
-    // > You can call the [DescribeVpcFirewallList](https://help.aliyun.com/document_detail/159760.html) operation to obtain the ID.
+    // The instance ID of the virtual private cloud (VPC) firewall. Valid values:
     // 
     // This parameter is required.
     shared_ptr<string> vpcFirewallId_ {};

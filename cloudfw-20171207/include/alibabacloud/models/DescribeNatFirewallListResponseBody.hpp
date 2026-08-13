@@ -39,6 +39,8 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const NatFirewallList& obj) { 
         DARABONBA_PTR_TO_JSON(AliUid, aliUid_);
         DARABONBA_PTR_TO_JSON(ErrorDetail, errorDetail_);
+        DARABONBA_PTR_TO_JSON(FirewallServiceMode, firewallServiceMode_);
+        DARABONBA_PTR_TO_JSON(FirewallServiceZones, firewallServiceZones_);
         DARABONBA_PTR_TO_JSON(MemberUid, memberUid_);
         DARABONBA_PTR_TO_JSON(NatGatewayId, natGatewayId_);
         DARABONBA_PTR_TO_JSON(NatGatewayName, natGatewayName_);
@@ -57,6 +59,8 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, NatFirewallList& obj) { 
         DARABONBA_PTR_FROM_JSON(AliUid, aliUid_);
         DARABONBA_PTR_FROM_JSON(ErrorDetail, errorDetail_);
+        DARABONBA_PTR_FROM_JSON(FirewallServiceMode, firewallServiceMode_);
+        DARABONBA_PTR_FROM_JSON(FirewallServiceZones, firewallServiceZones_);
         DARABONBA_PTR_FROM_JSON(MemberUid, memberUid_);
         DARABONBA_PTR_FROM_JSON(NatGatewayId, natGatewayId_);
         DARABONBA_PTR_FROM_JSON(NatGatewayName, natGatewayName_);
@@ -141,18 +145,19 @@ namespace Models
       protected:
         // The destination CIDR block of the default route.
         shared_ptr<string> destinationCidr_ {};
-        // The next hop of the original NAT Gateway.
+        // The original next hop address of the NAT gateway.
         shared_ptr<string> nextHopId_ {};
-        // The network type of the next hop. The value is \\`NatGateway\\`.
+        // The network type of the next hop. Valid values: NatGateway.
         shared_ptr<string> nextHopType_ {};
-        // The route table that contains the default route of the NAT Gateway.
+        // The route table that contains the default route of the NAT gateway.
         shared_ptr<string> routeTableId_ {};
       };
 
       virtual bool empty() const override { return this->aliUid_ == nullptr
-        && this->errorDetail_ == nullptr && this->memberUid_ == nullptr && this->natGatewayId_ == nullptr && this->natGatewayName_ == nullptr && this->natRouteEntryList_ == nullptr
-        && this->proxyId_ == nullptr && this->proxyName_ == nullptr && this->proxyNetworkInterfaceId_ == nullptr && this->proxyRouteTableId_ == nullptr && this->proxyStatus_ == nullptr
-        && this->proxyVSwitchId_ == nullptr && this->regionId_ == nullptr && this->strictMode_ == nullptr && this->vpcId_ == nullptr && this->vpcName_ == nullptr; };
+        && this->errorDetail_ == nullptr && this->firewallServiceMode_ == nullptr && this->firewallServiceZones_ == nullptr && this->memberUid_ == nullptr && this->natGatewayId_ == nullptr
+        && this->natGatewayName_ == nullptr && this->natRouteEntryList_ == nullptr && this->proxyId_ == nullptr && this->proxyName_ == nullptr && this->proxyNetworkInterfaceId_ == nullptr
+        && this->proxyRouteTableId_ == nullptr && this->proxyStatus_ == nullptr && this->proxyVSwitchId_ == nullptr && this->regionId_ == nullptr && this->strictMode_ == nullptr
+        && this->vpcId_ == nullptr && this->vpcName_ == nullptr; };
       // aliUid Field Functions 
       bool hasAliUid() const { return this->aliUid_ != nullptr;};
       void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -165,6 +170,22 @@ namespace Models
       void deleteErrorDetail() { this->errorDetail_ = nullptr;};
       inline string getErrorDetail() const { DARABONBA_PTR_GET_DEFAULT(errorDetail_, "") };
       inline NatFirewallList& setErrorDetail(string errorDetail) { DARABONBA_PTR_SET_VALUE(errorDetail_, errorDetail) };
+
+
+      // firewallServiceMode Field Functions 
+      bool hasFirewallServiceMode() const { return this->firewallServiceMode_ != nullptr;};
+      void deleteFirewallServiceMode() { this->firewallServiceMode_ = nullptr;};
+      inline string getFirewallServiceMode() const { DARABONBA_PTR_GET_DEFAULT(firewallServiceMode_, "") };
+      inline NatFirewallList& setFirewallServiceMode(string firewallServiceMode) { DARABONBA_PTR_SET_VALUE(firewallServiceMode_, firewallServiceMode) };
+
+
+      // firewallServiceZones Field Functions 
+      bool hasFirewallServiceZones() const { return this->firewallServiceZones_ != nullptr;};
+      void deleteFirewallServiceZones() { this->firewallServiceZones_ = nullptr;};
+      inline const vector<string> & getFirewallServiceZones() const { DARABONBA_PTR_GET_CONST(firewallServiceZones_, vector<string>) };
+      inline vector<string> getFirewallServiceZones() { DARABONBA_PTR_GET(firewallServiceZones_, vector<string>) };
+      inline NatFirewallList& setFirewallServiceZones(const vector<string> & firewallServiceZones) { DARABONBA_PTR_SET_VALUE(firewallServiceZones_, firewallServiceZones) };
+      inline NatFirewallList& setFirewallServiceZones(vector<string> && firewallServiceZones) { DARABONBA_PTR_SET_RVALUE(firewallServiceZones_, firewallServiceZones) };
 
 
       // memberUid Field Functions 
@@ -270,55 +291,51 @@ namespace Models
     protected:
       // The UID of the Alibaba Cloud account.
       // 
-      // > This is the primary account of the Cloud Firewall member account.
+      // > The management account of the Cloud Firewall member accounts.
       shared_ptr<int64_t> aliUid_ {};
-      // The cause of the error.
+      // The error details.
       shared_ptr<string> errorDetail_ {};
-      // The UID of the Cloud Firewall member account.
+      // The deployment mode of the NAT firewall service. Valid values: **PrimaryStandby** (active/standby mode) and **MultiPrimary** (active-active mode).
+      shared_ptr<string> firewallServiceMode_ {};
+      // The list of zone IDs used by the NAT firewall service.
+      shared_ptr<vector<string>> firewallServiceZones_ {};
+      // The UID of the Cloud Firewall member accounts.
       shared_ptr<int64_t> memberUid_ {};
-      // The ID of the NAT Gateway to query.
+      // The ID of the NAT gateway to query.
       shared_ptr<string> natGatewayId_ {};
-      // The name of the NAT Gateway.
+      // The name of the NAT gateway.
       shared_ptr<string> natGatewayName_ {};
-      // The list of default route entries for the NAT Gateway.
+      // The list of default route entries for the NAT gateway.
       shared_ptr<vector<NatFirewallList::NatRouteEntryList>> natRouteEntryList_ {};
-      // The ID of the NAT firewall.
+      // The NAT firewall ID.
       shared_ptr<string> proxyId_ {};
-      // The name of the NAT firewall.
+      // The NAT firewall name.
       shared_ptr<string> proxyName_ {};
-      // The ID of the Elastic Network Interface (ENI) that the firewall uses.
+      // The elastic network interface (ENI) ID used by the firewall.
       shared_ptr<string> proxyNetworkInterfaceId_ {};
-      // The ID of the route table that the firewall uses.
+      // The route table ID used by the firewall.
       shared_ptr<string> proxyRouteTableId_ {};
-      // The status of the Cloud Firewall. Valid values:
+      // The Cloud Firewall status. Valid values:
       // 
-      // - configuring: The firewall is being created.
-      // 
-      // - deleting: The firewall is being deleted.
-      // 
-      // - normal: The firewall is working as expected.
-      // 
-      // - abnormal: The firewall is not working as expected.
-      // 
-      // - opening: The firewall is being enabled.
-      // 
-      // - closing: The firewall is being disabled.
-      // 
-      // - closed: The firewall is disabled.
+      // - configuring: being created
+      // - deleting: being deleted
+      // - normal: normal 
+      // - abnormal: abnormal
+      // - opening: being enabled
+      // - closing: being disabled
+      // - closed: disabled
       shared_ptr<string> proxyStatus_ {};
-      // The ID of the vSwitch that the firewall uses.
+      // The vSwitch ID used by the firewall.
       shared_ptr<string> proxyVSwitchId_ {};
-      // The region ID where the Cloud Firewall is located.
-      // 
-      // > For more information about the regions where Cloud Firewall is available, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
+      // The region ID of the Cloud Firewall.
+      // > For more information about the regions supported by Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
       shared_ptr<string> regionId_ {};
       // Indicates whether strict mode is enabled.
       // 
-      // - 1: Strict mode is enabled.
-      // 
+      // - 1: Strict mode is enabled. 
       // - 0: Strict mode is disabled.
       shared_ptr<int32_t> strictMode_ {};
-      // The ID of the VPC instance.
+      // The VPC-connected instance ID.
       shared_ptr<string> vpcId_ {};
       // The name of the VPC instance.
       shared_ptr<string> vpcName_ {};
@@ -352,7 +369,7 @@ namespace Models
   protected:
     // The list of Cloud Firewalls.
     shared_ptr<vector<DescribeNatFirewallListResponseBody::NatFirewallList>> natFirewallList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of NAT firewalls.
     shared_ptr<int32_t> totalCount_ {};

@@ -215,7 +215,7 @@ namespace Models
     shared_ptr<string> IPProtocol_ {};
     // Specifies whether to collect statistics only on traffic that accesses AI services.
     shared_ptr<string> isAITraffic_ {};
-    // The language type of the request and response messages.
+    // The language of the request and response.
     shared_ptr<string> lang_ {};
     // The sort order.
     shared_ptr<string> order_ {};

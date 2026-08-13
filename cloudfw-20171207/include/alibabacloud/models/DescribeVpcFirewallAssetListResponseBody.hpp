@@ -178,7 +178,7 @@ namespace Models
       shared_ptr<int64_t> ipsHitCnt_ {};
       // The outbound traffic, in bytes.
       shared_ptr<int64_t> outBytes_ {};
-      // The port list.
+      // The list of ports.
       shared_ptr<vector<string>> portList_ {};
       // The region.
       shared_ptr<string> regionNo_ {};

@@ -160,7 +160,7 @@ namespace Models
 
 
       protected:
-        // The risk category ID.
+        // The risk classification ID.
         shared_ptr<string> classId_ {};
         // The risk level.
         shared_ptr<int32_t> riskLevel_ {};
@@ -341,7 +341,7 @@ namespace Models
       shared_ptr<int32_t> lastTime_ {};
       // The NAT gateway ID.
       shared_ptr<string> natGatewayId_ {};
-      // The name of the NAT gateway.
+      // The NAT gateway name.
       shared_ptr<string> natGatewayName_ {};
       // The outbound traffic (request traffic), in bytes.
       shared_ptr<int64_t> outBytes_ {};
@@ -357,9 +357,9 @@ namespace Models
       shared_ptr<string> resourceInstanceName_ {};
       // The public IP address type of the asset.
       shared_ptr<string> resourceType_ {};
-      // The ID of the ACL rule.
+      // The ACL rule ID.
       shared_ptr<string> ruleId_ {};
-      // The name of the rule.
+      // The rule name.
       shared_ptr<string> ruleName_ {};
       // The number of access sessions.
       shared_ptr<int64_t> sessionCount_ {};
@@ -367,7 +367,7 @@ namespace Models
       shared_ptr<vector<AssetList::TagList>> tagList_ {};
       // The total traffic.
       shared_ptr<string> totalBytes_ {};
-      // The instance ID of the VPC-connected instance.
+      // The VPC instance ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -412,7 +412,7 @@ namespace Models
     shared_ptr<vector<DescribeOutgoingDomainDetailResponseBody::AssetList>> assetList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

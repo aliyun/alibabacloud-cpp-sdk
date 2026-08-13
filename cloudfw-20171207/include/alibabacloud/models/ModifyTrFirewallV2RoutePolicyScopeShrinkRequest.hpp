@@ -84,27 +84,26 @@ namespace Models
 
 
   protected:
-    // The destination instances.
+    // The list of secondary traffic redirection instances.
     shared_ptr<string> destCandidateListShrink_ {};
-    // The ID of the TR firewall instance.
+    // The instance ID of the virtual private cloud (VPC) firewalls.
     // 
     // This parameter is required.
     shared_ptr<string> firewallId_ {};
-    // The language of the response. Valid values:
+    // The language of the response message. Valid values:
     // 
     // - **zh** (default): Chinese
-    // 
     // - **en**: English
     shared_ptr<string> lang_ {};
     // Specifies whether to restore the traffic redirection configuration. Valid values:
     // 
-    // - true: Rolls back the routes.
+    // - true: Route rollback.
     // 
-    // - false: Revokes the routes.
+    // - false: Route withdrawal.
     shared_ptr<string> shouldRecover_ {};
-    // The source instances.
+    // The list of primary traffic redirection instances.
     shared_ptr<string> srcCandidateListShrink_ {};
-    // The ID of the routing policy.
+    // The ID of the firewall route policy.
     // 
     // This parameter is required.
     shared_ptr<string> trFirewallRoutePolicyId_ {};

@@ -201,9 +201,11 @@ namespace Models
     shared_ptr<string> applicationName_ {};
     // The category ID.
     shared_ptr<string> categoryId_ {};
-    // The current page number.
+    // The page number.
     shared_ptr<string> currentPage_ {};
-    // The destination IP address.
+    // The legacy destination IP parameter.
+    // 
+    // > The POP gateway passes this parameter through, but the backend of this operation does not read it. Specifying this parameter has no filtering effect. To filter by IP address, use PublicIP or PrivateIP. If only DstIP is specified, the operation returns MissingParameter.IpFilter (-340415) because no valid IP filtering parameter is provided.
     shared_ptr<string> dstIP_ {};
     // The end time of the query. The value is a UNIX timestamp in seconds.
     // 
@@ -220,14 +222,16 @@ namespace Models
     // The port number.
     shared_ptr<string> port_ {};
     // The private IP address.
+    // > At least one of PublicIP and PrivateIP must be specified.
     shared_ptr<string> privateIP_ {};
     // The public IP address.
+    // > At least one of PublicIP and PrivateIP must be specified.
     shared_ptr<string> publicIP_ {};
-    // The security policy for Outbound Domain of outbound connections.
+    // The security policy for the Outbound Domain.
     shared_ptr<string> securitySuggest_ {};
     // The field by which to sort the results.
     shared_ptr<string> sort_ {};
-    // The IP address of the access source. (This field is deprecated.)
+    // The IP address of the access source. **[Deprecated]**
     shared_ptr<string> sourceIp_ {};
     // The start time of the query. The value is a UNIX timestamp in seconds.
     // 

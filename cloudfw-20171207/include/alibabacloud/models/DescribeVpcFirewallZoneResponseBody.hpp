@@ -14,10 +14,12 @@ namespace Models
   class DescribeVpcFirewallZoneResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeVpcFirewallZoneResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(FirewallServiceMode, firewallServiceMode_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ZoneList, zoneList_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeVpcFirewallZoneResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(FirewallServiceMode, firewallServiceMode_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ZoneList, zoneList_);
     };
@@ -32,8 +34,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->requestId_ == nullptr
-        && this->zoneList_ == nullptr; };
+    virtual bool empty() const override { return this->firewallServiceMode_ == nullptr
+        && this->requestId_ == nullptr && this->zoneList_ == nullptr; };
+    // firewallServiceMode Field Functions 
+    bool hasFirewallServiceMode() const { return this->firewallServiceMode_ != nullptr;};
+    void deleteFirewallServiceMode() { this->firewallServiceMode_ = nullptr;};
+    inline string getFirewallServiceMode() const { DARABONBA_PTR_GET_DEFAULT(firewallServiceMode_, "") };
+    inline DescribeVpcFirewallZoneResponseBody& setFirewallServiceMode(string firewallServiceMode) { DARABONBA_PTR_SET_VALUE(firewallServiceMode_, firewallServiceMode) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -51,7 +60,12 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The deployment mode of the virtual private cloud (VPC) firewall service. Valid values:
+    // 
+    // - **PrimaryStandby**: active/standby mode.
+    // - **MultiPrimary**: active-active mode.
+    shared_ptr<string> firewallServiceMode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The list of zones.
     shared_ptr<vector<vector<DescribeVpcFirewallZoneResponseBody::ZoneList>>> zoneList_ {};

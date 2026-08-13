@@ -165,13 +165,13 @@ namespace Models
     shared_ptr<bool> isFound_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The time when the task was completed.
+    // The task completion time.
     shared_ptr<int64_t> taskFinishTimestamp_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};
     // The task name.
     shared_ptr<string> taskName_ {};
-    // The time when the task was created.
+    // The task creation time.
     shared_ptr<int64_t> taskStartTimestamp_ {};
     // The task status.
     shared_ptr<string> taskStatus_ {};

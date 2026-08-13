@@ -187,29 +187,32 @@ namespace Models
 
 
   protected:
-    // The secondary traffic redirection instances.
+    // The list of secondary traffic redirection instances.
+    // > DestCandidateList is required. If this parameter is not specified, ErrorParameters(400) is returned.
     shared_ptr<vector<CreateTrFirewallV2RoutePolicyRequest::DestCandidateList>> destCandidateList_ {};
-    // The ID of the virtual private cloud (VPC) firewall instance.
-    // > FirewallId is required. If it is not specified, ErrorParameters(400) is returned. You can call DescribeTrFirewallsV2List to obtain the instance ID.
+    // The instance ID of the virtual private cloud (VPC) firewall.
+    // > FirewallId is required. If this parameter is not specified, ErrorParameters(400) is returned. You can call DescribeTrFirewallsV2List to obtain instance ID.
     shared_ptr<string> firewallId_ {};
     // The language of the content within the response. Valid values:
     // 
     // - **zh** (default): Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The description of the traffic redirection configuration.
+    // The description of the traffic redirection scenario.
     shared_ptr<string> policyDescription_ {};
-    // The name of the traffic redirection configuration.
+    // The name of the traffic redirection scenario.
     shared_ptr<string> policyName_ {};
-    // The traffic redirection scenario type for the virtual private cloud (VPC) firewall on a Cloud Enterprise Network (CEN) Enterprise Edition transit router. Valid values:
+    // The traffic redirection scenario type for the virtual private cloud (VPC) firewall for a CEN Enterprise Edition transit router. Valid values:
     // 
     // - **fullmesh**: multi-point interconnection
     // 
     // - **one_to_one**: point-to-point
     // 
     // - **end_to_end**: point-to-multipoint
+    // > PolicyType is required. If this parameter is not specified, ErrorParameters(400) is returned.
     shared_ptr<string> policyType_ {};
-    // The primary traffic redirection instances.
+    // The list of primary traffic redirection instances.
+    // > SrcCandidateList is required. If this parameter is not specified, ErrorParameters(400) is returned.
     shared_ptr<vector<CreateTrFirewallV2RoutePolicyRequest::SrcCandidateList>> srcCandidateList_ {};
   };
 

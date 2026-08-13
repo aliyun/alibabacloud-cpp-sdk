@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page.
+      // The page number of the current page in a paging query.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries per page in a paging query.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of breach detection events.
+      // The total number of compromise awareness events.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -266,94 +266,32 @@ namespace Models
       // The name of the affected asset.
       shared_ptr<string> assetsInstanceName_ {};
       // The type of the affected asset. Valid values:
-      // 
-      // - **BastionHostIP**: the egress IP address of a bastion host.
-      // 
-      // - **BastionHostIngressIP**: the ingress IP address of a bastion host.
-      // 
-      // - **EcsEIP**: the EIP of an ECS instance.
-      // 
-      // - **EcsPublicIP**: the public IP address of an ECS instance.
-      // 
-      // - **EIP**: an EIP.
-      // 
-      // - **EniEIP**: the EIP of an ENI.
-      // 
-      // - **NatEIP**: the EIP of a NAT gateway.
-      // 
-      // - **SlbEIP**: the EIP of a CLB instance.
-      // 
-      // - **SlbPublicIP**: the public IP address of a CLB instance.
-      // 
-      // - **NatPublicIP**: the public IP address of a NAT gateway.
-      // 
-      // - **HAVIP**: an HAVIP.
       shared_ptr<string> assetsType_ {};
-      // The ID of the breach detection event.
+      // The ID of the compromise awareness event.
       shared_ptr<string> eventKey_ {};
-      // The name of the breach detection event.
+      // The name of the compromise awareness event.
       shared_ptr<string> eventName_ {};
-      // The source of the breach detection event. Valid values:
-      // 
-      // - **IPS**: an intrusion prevention system event.
-      // 
-      // - **offline**: an offline event.
+      // The source of the compromise awareness event. Valid values:
       shared_ptr<string> eventSrc_ {};
-      // The UUID of the breach detection event.
+      // The UUID of the compromise awareness event.
       shared_ptr<string> eventUuid_ {};
-      // The time when the breach detection event first occurred. This value is a UNIX timestamp. Unit: seconds.
+      // The time when the compromise awareness event first occurred. The value is a UNIX timestamp in seconds.
       shared_ptr<int32_t> firstTime_ {};
-      // Indicates whether the breach detection event is ignored. Valid values:
-      // 
-      // - **true**: The event is ignored.
-      // 
-      // - **false**: The event is not ignored.
+      // Indicates whether the compromise awareness event is ignored. Valid values:
       shared_ptr<bool> isIgnore_ {};
-      // The time when the breach detection event last occurred. This value is a UNIX timestamp. Unit: seconds.
+      // The time when the compromise awareness event last occurred. The value is a UNIX timestamp in seconds.
       shared_ptr<int32_t> lastTime_ {};
-      // The UID of the member.
+      // The UID of the member accounts.
       shared_ptr<string> memberUid_ {};
       // The private IP address of the affected asset.
       shared_ptr<string> privateIP_ {};
-      // The handling status of the breach detection event. Valid values:
-      // 
-      // - **0**: pending
-      // 
-      // - **20**: handled
+      // The processing status of the compromise awareness event. Valid values:
       shared_ptr<int32_t> processStatus_ {};
       // The public IP address of the affected asset.
       shared_ptr<string> publicIP_ {};
       // The type of the affected asset. Valid values:
-      // 
-      // - **BastionHostIP**: the egress IP address of a bastion host.
-      // 
-      // - **BastionHostIngressIP**: the ingress IP address of a bastion host.
-      // 
-      // - **EcsEIP**: the EIP of an ECS instance.
-      // 
-      // - **EcsPublicIP**: the public IP address of an ECS instance.
-      // 
-      // - **EIP**: an EIP.
-      // 
-      // - **EniEIP**: the EIP of an ENI.
-      // 
-      // - **NatEIP**: the EIP of a NAT gateway.
-      // 
-      // - **SlbEIP**: the EIP of a CLB instance.
-      // 
-      // - **SlbPublicIP**: the public IP address of a CLB instance.
-      // 
-      // - **NatPublicIP**: the public IP address of a NAT gateway.
-      // 
-      // - **HAVIP**: an HAVIP.
       shared_ptr<string> publicIpType_ {};
-      // The risk level. Valid values:
-      // 
-      // - **1**: low
-      // 
-      // - **2**: medium
-      // 
-      // - **3**: high
+      // The risk assessment level. Valid values:
       shared_ptr<int32_t> riskLevel_ {};
     };
 
@@ -406,17 +344,17 @@ namespace Models
 
 
   protected:
-    // The list of breach detection events.
+    // The list of compromise awareness events.
     shared_ptr<vector<DescribeInvadeEventListResponseBody::EventList>> eventList_ {};
-    // The percentage of high-risk events.
+    // The percentage of high-risk level events.
     shared_ptr<int32_t> highLevelPercent_ {};
-    // The percentage of low-risk events.
+    // The percentage of low-risk level events.
     shared_ptr<int32_t> lowLevelPercent_ {};
-    // The percentage of medium-risk events.
+    // The percentage of medium-risk level events.
     shared_ptr<int32_t> middleLevelPercent_ {};
     // The pagination information.
     shared_ptr<DescribeInvadeEventListResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

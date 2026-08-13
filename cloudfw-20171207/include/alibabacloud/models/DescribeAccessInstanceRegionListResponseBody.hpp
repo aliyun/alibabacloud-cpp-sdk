@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The list of regions that support the current synchronization node type.
+    // The list of regions that support the current sync node type.
     shared_ptr<vector<string>> regionNoList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

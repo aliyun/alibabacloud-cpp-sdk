@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AclAction, aclAction_);
       DARABONBA_PTR_TO_JSON(ApplicationName, applicationName_);
       DARABONBA_PTR_TO_JSON(ApplicationNameList, applicationNameList_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DestPort, destPort_);
       DARABONBA_PTR_TO_JSON(DestPortGroup, destPortGroup_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DestinationType, destinationType_);
       DARABONBA_PTR_TO_JSON(Direction, direction_);
       DARABONBA_PTR_TO_JSON(DomainResolveType, domainResolveType_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(IpVersion, ipVersion_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
@@ -44,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AclAction, aclAction_);
       DARABONBA_PTR_FROM_JSON(ApplicationName, applicationName_);
       DARABONBA_PTR_FROM_JSON(ApplicationNameList, applicationNameList_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DestPort, destPort_);
       DARABONBA_PTR_FROM_JSON(DestPortGroup, destPortGroup_);
@@ -52,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DestinationType, destinationType_);
       DARABONBA_PTR_FROM_JSON(Direction, direction_);
       DARABONBA_PTR_FROM_JSON(DomainResolveType, domainResolveType_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(IpVersion, ipVersion_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
@@ -79,11 +83,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclAction_ == nullptr
-        && this->applicationName_ == nullptr && this->applicationNameList_ == nullptr && this->description_ == nullptr && this->destPort_ == nullptr && this->destPortGroup_ == nullptr
-        && this->destPortType_ == nullptr && this->destination_ == nullptr && this->destinationType_ == nullptr && this->direction_ == nullptr && this->domainResolveType_ == nullptr
-        && this->endTime_ == nullptr && this->ipVersion_ == nullptr && this->lang_ == nullptr && this->newOrder_ == nullptr && this->proto_ == nullptr
-        && this->release_ == nullptr && this->repeatDays_ == nullptr && this->repeatEndTime_ == nullptr && this->repeatStartTime_ == nullptr && this->repeatType_ == nullptr
-        && this->source_ == nullptr && this->sourceIp_ == nullptr && this->sourceType_ == nullptr && this->startTime_ == nullptr; };
+        && this->applicationName_ == nullptr && this->applicationNameList_ == nullptr && this->clientToken_ == nullptr && this->description_ == nullptr && this->destPort_ == nullptr
+        && this->destPortGroup_ == nullptr && this->destPortType_ == nullptr && this->destination_ == nullptr && this->destinationType_ == nullptr && this->direction_ == nullptr
+        && this->domainResolveType_ == nullptr && this->dryRun_ == nullptr && this->endTime_ == nullptr && this->ipVersion_ == nullptr && this->lang_ == nullptr
+        && this->newOrder_ == nullptr && this->proto_ == nullptr && this->release_ == nullptr && this->repeatDays_ == nullptr && this->repeatEndTime_ == nullptr
+        && this->repeatStartTime_ == nullptr && this->repeatType_ == nullptr && this->source_ == nullptr && this->sourceIp_ == nullptr && this->sourceType_ == nullptr
+        && this->startTime_ == nullptr; };
     // aclAction Field Functions 
     bool hasAclAction() const { return this->aclAction_ != nullptr;};
     void deleteAclAction() { this->aclAction_ = nullptr;};
@@ -105,6 +110,13 @@ namespace Models
     inline vector<string> getApplicationNameList() { DARABONBA_PTR_GET(applicationNameList_, vector<string>) };
     inline AddControlPolicyRequest& setApplicationNameList(const vector<string> & applicationNameList) { DARABONBA_PTR_SET_VALUE(applicationNameList_, applicationNameList) };
     inline AddControlPolicyRequest& setApplicationNameList(vector<string> && applicationNameList) { DARABONBA_PTR_SET_RVALUE(applicationNameList_, applicationNameList) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline AddControlPolicyRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // description Field Functions 
@@ -161,6 +173,13 @@ namespace Models
     void deleteDomainResolveType() { this->domainResolveType_ = nullptr;};
     inline string getDomainResolveType() const { DARABONBA_PTR_GET_DEFAULT(domainResolveType_, "") };
     inline AddControlPolicyRequest& setDomainResolveType(string domainResolveType) { DARABONBA_PTR_SET_VALUE(domainResolveType_, domainResolveType) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline AddControlPolicyRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // endTime Field Functions 
@@ -264,10 +283,10 @@ namespace Models
 
 
   protected:
-    // The action that is set in the access control policy. Settings the method in which traffic passes through Cloud Firewall. Valid values:
+    // The action configured in the access control policy for the traffic that passes through Cloud Firewall. Valid values:
     // 
-    // - **accept**: allows the access.
-    // - **drop**: deny the access.
+    // - **accept**: allows the traffic.
+    // - **drop**: denies the traffic.
     // - **log**: monitors the traffic.
     // 
     // This parameter is required.
@@ -288,12 +307,14 @@ namespace Models
     // - **SSL_No_Cert**
     // - **SSL**
     // - **VNC**
-    // - **ANY**: all application types
+    // - **ANY** (all application types)
     // 
-    // > The valid values of ApplicationName depend on the value of the protocol type (Proto). If Proto is set to TCP, ApplicationName can be set to any of the preceding application types. If Proto is set to UDP, ICMP, or ANY, ApplicationName can be set only to ANY. You must specify either ApplicationNameList or ApplicationName. You cannot leave both of them empty.
+    // > The supported application types depend on the value of the protocol type (Proto). If Proto is set to TCP, ApplicationName can be set to any of the preceding application types. If Proto is set to UDP, ICMP, or ANY, ApplicationName can be set only to ANY. You must specify either ApplicationNameList or ApplicationName. You cannot leave both of them empty.
     shared_ptr<string> applicationName_ {};
-    // The application types supported by the access control policy.
+    // The list of application types supported by the access control policy.
     shared_ptr<vector<string>> applicationNameList_ {};
+    // The idempotence token.
+    shared_ptr<string> clientToken_ {};
     // The description of the access control policy.
     // 
     // This parameter is required.
@@ -320,7 +341,7 @@ namespace Models
     // Valid values:
     // 
     // - **port**: port
-    // - **group**: port address book.
+    // - **group**: port address book
     shared_ptr<string> destPortType_ {};
     // The destination address in the access control policy.
     // 
@@ -350,25 +371,27 @@ namespace Models
     // - **net**: destination CIDR block
     // - **group**: destination address book
     // - **domain**: destination domain name
-    // - **location**: destination region.
+    // - **location**: destination region
     // 
     // This parameter is required.
     shared_ptr<string> destinationType_ {};
     // The traffic direction of the access control policy. Valid values:
     // 
-    // - **in**: inbound traffic
-    // - **out**: outbound traffic.
+    // - **in**: inbound traffic access control
+    // - **out**: outbound traffic access control
     // 
     // This parameter is required.
     shared_ptr<string> direction_ {};
     // The domain name resolution method of the access control policy. Valid values:
     // 
-    // * **FQDN**: FQDN-based resolution
+    // * **FQDN**: FQDN-based
     // * **DNS**: DNS-based dynamic resolution
-    // * **FQDN_AND_DNS**: FQDN-based and DNS-based dynamic resolution.
+    // * **FQDN_AND_DNS**: FQDN and DNS-based dynamic resolution
     shared_ptr<string> domainResolveType_ {};
-    // The end time of the policy validity period for the access control policy. The value is a UNIX timestamp in seconds. The value must be on the hour or on the half hour, and at least 30 minutes later than the start time.
-    // > If RepeatType is set to Permanent, this parameter is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, this parameter is required.
+    // Specifies whether to perform a dry run.
+    shared_ptr<bool> dryRun_ {};
+    // The end time of the policy validity period for the access control policy. The value is a UNIX timestamp in seconds. The value must be on the hour or half hour and must be at least 30 minutes later than the start time.
+    // > If RepeatType is set to Permanent, EndTime is empty. If RepeatType is set to None, Daily, Weekly, or Monthly, EndTime must have a value.
     shared_ptr<int64_t> endTime_ {};
     // The IP address version supported.
     // 
@@ -376,25 +399,25 @@ namespace Models
     // 
     // - **4**: IPv4
     // 
-    // - **6**: IPv6.
+    // - **6**: IPv6
     shared_ptr<string> ipVersion_ {};
     // The language of the request and response. Valid values:
     // 
     // - **zh** (default): Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The priority of the access control policy. The priority value starts from 1. A smaller value indicates a higher priority.
+    // The priority of the access control policy. The priority value starts from 1. A smaller priority value indicates a higher priority.
     // 
     // This parameter is required.
     shared_ptr<string> newOrder_ {};
     // The protocol type in the access control policy. Valid values:
     // 
-    // - **ANY**: any protocol
+    // - **ANY**
     // - **TCP**
     // - **UDP**
     // - **ICMP**
     // 
-    // > If the traffic direction is outbound and the destination address is a threat intelligence address book or cloud service address book of the domain name type, only TCP is supported. The application type can be set to HTTP, HTTPS, SMTP, SMTPS, or SSL.
+    // > If the traffic direction is outbound and the destination address is a threat intelligence address book or cloud service address book of the domain type, only TCP is supported. The application type can be set to HTTP, HTTPS, SMTP, SMTPS, or SSL.
     // 
     // This parameter is required.
     shared_ptr<string> proto_ {};
@@ -404,21 +427,21 @@ namespace Models
     // - **false**: disables the access control policy.
     shared_ptr<string> release_ {};
     // The days of the recurrence for the policy validity period of the access control policy.
-    // - If RepeatType is set to `Permanent`, `None`, or `Daily`, the value of RepeatDays is an empty array.
+    // - If RepeatType is set to `Permanent`, `None`, or `Daily`, RepeatDays is an empty collection.
     //   Example: []
-    // - If RepeatType is set to Weekly, the value of RepeatDays must not be empty.
+    // - If RepeatType is set to Weekly, RepeatDays cannot be empty.
     //   Example: [0, 6]
-    // > If RepeatType is set to Weekly, the values in RepeatDays cannot be repeated.
-    // - If RepeatType is set to `Monthly`, the value of RepeatDays must not be empty.
+    // > If RepeatType is set to Weekly, values in RepeatDays cannot be repeated.
+    // - If RepeatType is set to `Monthly`, RepeatDays cannot be empty.
     //   Example: [1, 31]
-    // > If RepeatType is set to Monthly, the values in RepeatDays cannot be repeated.
+    // > If RepeatType is set to Monthly, values in RepeatDays cannot be repeated.
     shared_ptr<vector<int64_t>> repeatDays_ {};
-    // The recurrence end time of the policy validity period for the access control policy. Example: 23:30. The value must be on the hour or on the half hour, and at least 30 minutes later than the recurrence start time.
-    // > If RepeatType is set to Permanent or None, this parameter is left empty. If RepeatType is set to Daily, Weekly, or Monthly, this parameter is required.
+    // The recurrence end time of the policy validity period for the access control policy. Example: 23:30. The value must be on the hour or half hour and must be at least 30 minutes later than the recurrence start time.
+    // > If RepeatType is set to Permanent or None, RepeatEndTime is empty. If RepeatType is set to Daily, Weekly, or Monthly, RepeatEndTime must have a value.
     // > The time is in the HH:mm format (24-hour clock). Example: 08:00 or 23:30.
     shared_ptr<string> repeatEndTime_ {};
-    // The recurrence start time of the policy validity period for the access control policy. Example: 08:00. The value must be on the hour or on the half hour, and at least 30 minutes earlier than the recurrence end time.
-    // > If RepeatType is set to Permanent or None, this parameter is left empty. If RepeatType is set to Daily, Weekly, or Monthly, this parameter is required.
+    // The recurrence start time of the policy validity period for the access control policy. Example: 08:00. The value must be on the hour or half hour and must be at least 30 minutes earlier than the recurrence end time.
+    // > If RepeatType is set to Permanent or None, RepeatStartTime is empty. If RepeatType is set to Daily, Weekly, or Monthly, RepeatStartTime must have a value.
     // > The time is in the HH:mm format (24-hour clock). Example: 08:00 or 23:30.
     shared_ptr<string> repeatStartTime_ {};
     // The recurrence type of the policy validity period for the access control policy. Valid values:
@@ -451,12 +474,12 @@ namespace Models
     // The type of the source address in the access control policy. Valid values:
     // - **net**: source CIDR block
     // - **group**: source address book
-    // - **location**: source region.
+    // - **location**: source region
     // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
-    // The start time of the policy validity period for the access control policy. The value is a UNIX timestamp in seconds. The value must be on the hour or on the half hour, and at least 30 minutes earlier than the end time.
-    // > If RepeatType is set to Permanent, this parameter is left empty. If RepeatType is set to None, Daily, Weekly, or Monthly, this parameter is required.
+    // The start time of the policy validity period for the access control policy. The value is a UNIX timestamp in seconds. The value must be on the hour or half hour and must be at least 30 minutes earlier than the end time.
+    // > If RepeatType is set to Permanent, StartTime is empty. If RepeatType is set to None, Daily, Weekly, or Monthly, StartTime must have a value.
     shared_ptr<int64_t> startTime_ {};
   };
 
