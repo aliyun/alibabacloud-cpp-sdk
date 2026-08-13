@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_TO_JSON(Eni, eni_);
       DARABONBA_PTR_TO_JSON(InstanceVersion, instanceVersion_);
+      DARABONBA_PTR_TO_JSON(Lightweight, lightweight_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(PrivateConnectUrl, privateConnectUrl_);
       DARABONBA_PTR_TO_JSON(ProjectDescription, projectDescription_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_FROM_JSON(Eni, eni_);
       DARABONBA_PTR_FROM_JSON(InstanceVersion, instanceVersion_);
+      DARABONBA_PTR_FROM_JSON(Lightweight, lightweight_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(PrivateConnectUrl, privateConnectUrl_);
       DARABONBA_PTR_FROM_JSON(ProjectDescription, projectDescription_);
@@ -81,10 +83,11 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoScale_ == nullptr
         && this->createTime_ == nullptr && this->DBSecurityIpList_ == nullptr && this->dashboardPassword_ == nullptr && this->dashboardUserName_ == nullptr && this->diskPerformanceLevel_ == nullptr
-        && this->engine_ == nullptr && this->engineVersion_ == nullptr && this->eni_ == nullptr && this->instanceVersion_ == nullptr && this->payType_ == nullptr
-        && this->privateConnectUrl_ == nullptr && this->projectDescription_ == nullptr && this->projectId_ == nullptr && this->projectName_ == nullptr && this->projectSpec_ == nullptr
-        && this->publicConnectUrl_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->securityIpList_ == nullptr && this->status_ == nullptr
-        && this->storageSize_ == nullptr && this->storageType_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->engine_ == nullptr && this->engineVersion_ == nullptr && this->eni_ == nullptr && this->instanceVersion_ == nullptr && this->lightweight_ == nullptr
+        && this->payType_ == nullptr && this->privateConnectUrl_ == nullptr && this->projectDescription_ == nullptr && this->projectId_ == nullptr && this->projectName_ == nullptr
+        && this->projectSpec_ == nullptr && this->publicConnectUrl_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->securityIpList_ == nullptr
+        && this->status_ == nullptr && this->storageSize_ == nullptr && this->storageType_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
+        && this->zoneId_ == nullptr; };
     // autoScale Field Functions 
     bool hasAutoScale() const { return this->autoScale_ != nullptr;};
     void deleteAutoScale() { this->autoScale_ = nullptr;};
@@ -153,6 +156,13 @@ namespace Models
     void deleteInstanceVersion() { this->instanceVersion_ = nullptr;};
     inline string getInstanceVersion() const { DARABONBA_PTR_GET_DEFAULT(instanceVersion_, "") };
     inline GetSupabaseProjectResponseBody& setInstanceVersion(string instanceVersion) { DARABONBA_PTR_SET_VALUE(instanceVersion_, instanceVersion) };
+
+
+    // lightweight Field Functions 
+    bool hasLightweight() const { return this->lightweight_ != nullptr;};
+    void deleteLightweight() { this->lightweight_ = nullptr;};
+    inline string getLightweight() const { DARABONBA_PTR_GET_DEFAULT(lightweight_, "") };
+    inline GetSupabaseProjectResponseBody& setLightweight(string lightweight) { DARABONBA_PTR_SET_VALUE(lightweight_, lightweight) };
 
 
     // payType Field Functions 
@@ -297,6 +307,7 @@ namespace Models
     shared_ptr<string> eni_ {};
     // The current instance version.
     shared_ptr<string> instanceVersion_ {};
+    shared_ptr<string> lightweight_ {};
     // The billing method. Valid values:
     // 
     // - `POSTPAY`: pay-as-you-go

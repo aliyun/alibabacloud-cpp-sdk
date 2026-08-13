@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DiskPerformanceLevel, diskPerformanceLevel_);
       DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
+      DARABONBA_PTR_TO_JSON(Lightweight, lightweight_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DiskPerformanceLevel, diskPerformanceLevel_);
       DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
+      DARABONBA_PTR_FROM_JSON(Lightweight, lightweight_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
@@ -105,10 +107,10 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->accountPassword_ == nullptr
-        && this->autoScale_ == nullptr && this->clientToken_ == nullptr && this->diskPerformanceLevel_ == nullptr && this->engineVersion_ == nullptr && this->payType_ == nullptr
-        && this->period_ == nullptr && this->projectName_ == nullptr && this->projectSpec_ == nullptr && this->regionId_ == nullptr && this->securityIPList_ == nullptr
-        && this->storageSize_ == nullptr && this->tags_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->autoScale_ == nullptr && this->clientToken_ == nullptr && this->diskPerformanceLevel_ == nullptr && this->engineVersion_ == nullptr && this->lightweight_ == nullptr
+        && this->payType_ == nullptr && this->period_ == nullptr && this->projectName_ == nullptr && this->projectSpec_ == nullptr && this->regionId_ == nullptr
+        && this->securityIPList_ == nullptr && this->storageSize_ == nullptr && this->tags_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // accountPassword Field Functions 
     bool hasAccountPassword() const { return this->accountPassword_ != nullptr;};
     void deleteAccountPassword() { this->accountPassword_ = nullptr;};
@@ -142,6 +144,13 @@ namespace Models
     void deleteEngineVersion() { this->engineVersion_ = nullptr;};
     inline string getEngineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
     inline CreateSupabaseProjectRequest& setEngineVersion(string engineVersion) { DARABONBA_PTR_SET_VALUE(engineVersion_, engineVersion) };
+
+
+    // lightweight Field Functions 
+    bool hasLightweight() const { return this->lightweight_ != nullptr;};
+    void deleteLightweight() { this->lightweight_ = nullptr;};
+    inline bool getLightweight() const { DARABONBA_PTR_GET_DEFAULT(lightweight_, false) };
+    inline CreateSupabaseProjectRequest& setLightweight(bool lightweight) { DARABONBA_PTR_SET_VALUE(lightweight_, lightweight) };
 
 
     // payType Field Functions 
@@ -261,6 +270,7 @@ namespace Models
     // - PG15: PostgreSQL 15.
     // - PG17: PostgreSQL 17, which supports the data sandbox feature.
     shared_ptr<string> engineVersion_ {};
+    shared_ptr<bool> lightweight_ {};
     // The billing method. If this parameter is not specified, the default value Free is used.
     // 
     // Valid values:
