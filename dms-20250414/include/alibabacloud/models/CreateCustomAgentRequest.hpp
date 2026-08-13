@@ -234,12 +234,14 @@ namespace Models
     class ExecutionConfig : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ExecutionConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(ForbiddenAppendDataSource, forbiddenAppendDataSource_);
         DARABONBA_PTR_TO_JSON(SkipAskHuman, skipAskHuman_);
         DARABONBA_PTR_TO_JSON(SkipPlan, skipPlan_);
         DARABONBA_PTR_TO_JSON(SkipSqlConfirm, skipSqlConfirm_);
         DARABONBA_PTR_TO_JSON(SkipWebReportConfirm, skipWebReportConfirm_);
       };
       friend void from_json(const Darabonba::Json& j, ExecutionConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(ForbiddenAppendDataSource, forbiddenAppendDataSource_);
         DARABONBA_PTR_FROM_JSON(SkipAskHuman, skipAskHuman_);
         DARABONBA_PTR_FROM_JSON(SkipPlan, skipPlan_);
         DARABONBA_PTR_FROM_JSON(SkipSqlConfirm, skipSqlConfirm_);
@@ -256,8 +258,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->skipAskHuman_ == nullptr
-        && this->skipPlan_ == nullptr && this->skipSqlConfirm_ == nullptr && this->skipWebReportConfirm_ == nullptr; };
+      virtual bool empty() const override { return this->forbiddenAppendDataSource_ == nullptr
+        && this->skipAskHuman_ == nullptr && this->skipPlan_ == nullptr && this->skipSqlConfirm_ == nullptr && this->skipWebReportConfirm_ == nullptr; };
+      // forbiddenAppendDataSource Field Functions 
+      bool hasForbiddenAppendDataSource() const { return this->forbiddenAppendDataSource_ != nullptr;};
+      void deleteForbiddenAppendDataSource() { this->forbiddenAppendDataSource_ = nullptr;};
+      inline bool getForbiddenAppendDataSource() const { DARABONBA_PTR_GET_DEFAULT(forbiddenAppendDataSource_, false) };
+      inline ExecutionConfig& setForbiddenAppendDataSource(bool forbiddenAppendDataSource) { DARABONBA_PTR_SET_VALUE(forbiddenAppendDataSource_, forbiddenAppendDataSource) };
+
+
       // skipAskHuman Field Functions 
       bool hasSkipAskHuman() const { return this->skipAskHuman_ != nullptr;};
       void deleteSkipAskHuman() { this->skipAskHuman_ = nullptr;};
@@ -287,6 +296,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<bool> forbiddenAppendDataSource_ {};
       // Specifies whether to disable user inquiries during the process.
       shared_ptr<bool> skipAskHuman_ {};
       // Specifies whether to skip the plan confirmation step.
@@ -497,21 +507,21 @@ namespace Models
 
   protected:
     shared_ptr<CreateCustomAgentRequest::CallbackConfig> callbackConfig_ {};
-    // The current Data Management unit.
+    // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
-    // The specified data scope in **JSON string format**.
+    // The specified data range in **JSON string format**.
     // - Common parameter description
-    //   - tableFlag: true indicates a specified data scope
-    //   - scope: personal is a fixed value
-    //   - personal: pass parameters for file or database types
+    //   - tableFlag: true indicates a specified data range.
+    //   - scope: personal is a fixed value.
+    //   - personal: pass parameters for file or database types.
     // 
     // **File type**. Pass parameters in the following format:
-    // - DataSourceType: remote_data_center is a fixed value
-    // - FileId: the file ID
-    // - Database: the database name returned by the ListDataCenterTable operation, which is typically the file name
-    // - Tables: the table name returned by the ListDataCenterTable operation
-    // - TableIds: the TableId returned by the ListDataCenterTable operation
-    // - RegionId: the current region
+    // - DataSourceType: remote_data_center is a fixed value.
+    // - FileId: The file ID.
+    // - Database: The database name returned by the ListDataCenterTable operation, which is usually the file name.
+    // - Tables: The table name returned by the ListDataCenterTable operation.
+    // - TableIds: The TableId returned by the ListDataCenterTable operation.
+    // - RegionId: The current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -526,22 +536,22 @@ namespace Models
     //     "TableIds": [
     //       "35hfn94pxl********50pi"
     //     ],
-    //     "RegionId": "ap-southeast-1"
+    //     "RegionId": "cn-hangzhou"
     //   }
     // }
     // ```
     // 
-    // **Database type**. Pass parameters in the following format:
-    // - DataSourceType: database is a fixed value
-    // - DmsInstanceId: the DMS instance ID returned by the data center operation
-    // - DmsDatabaseId: the DMS database ID returned by the data center operation
-    // - FileId: the instance name (deprecated)
-    // - DbName: the database name returned by the data center operation
-    // - Database: the database name returned by the data center operation
-    // - Tables: the table name returned by the data center operation
-    // - TableIds: the TableId returned by the data center operation
-    // - Engine: the engine type (mysql or postgresql)
-    // - RegionId: the current region
+    // **Database type**. Pass parameters as follows:
+    // - DataSourceType: database is a fixed value.
+    // - DmsInstanceId: The DMS instance ID returned by the data center operation.
+    // - DmsDatabaseId: The DMS database ID returned by the data center operation.
+    // - FileId: The instance name (deprecated).
+    // - DbName: The database name returned by the data center operation.
+    // - Database: The database name returned by the data center operation.
+    // - Tables: The table name returned by the data center operation.
+    // - TableIds: The TableId returned by the data center operation.
+    // - Engine: The engine type (mysql or postgresql).
+    // - RegionId: The current region.
     // ```
     // {
     //   "tableFlag": true,
@@ -560,7 +570,7 @@ namespace Models
     //       "5263****31"
     //     ],
     //     "Engine": "postgresql",
-    //     "RegionId": "ap-southeast-1"
+    //     "RegionId": "cn-hangzhou"
     //   }
     // }
     // ```

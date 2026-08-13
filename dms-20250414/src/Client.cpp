@@ -417,7 +417,7 @@ ConfigAirflowResponse Client::configAirflow(const ConfigAirflowRequest &request)
 }
 
 /**
- * @summary ConfigDataAgentMemory
+ * @summary Configures memory generation and usage for a DataAgent.
  *
  * @param request ConfigDataAgentMemoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -456,7 +456,7 @@ ConfigDataAgentMemoryResponse Client::configDataAgentMemoryWithOptions(const Con
 }
 
 /**
- * @summary ConfigDataAgentMemory
+ * @summary Configures memory generation and usage for a DataAgent.
  *
  * @param request ConfigDataAgentMemoryRequest
  * @return ConfigDataAgentMemoryResponse
@@ -2155,7 +2155,7 @@ DeleteWorkspaceCodeResponse Client::deleteWorkspaceCode(const DeleteWorkspaceCod
 }
 
 /**
- * @summary Retrieves the details of a custom agent by its ID.
+ * @summary Retrieves the details of a custom agent by custom agent ID.
  *
  * @param request DescribeCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2190,7 +2190,7 @@ DescribeCustomAgentResponse Client::describeCustomAgentWithOptions(const Describ
 }
 
 /**
- * @summary Retrieves the details of a custom agent by its ID.
+ * @summary Retrieves the details of a custom agent by custom agent ID.
  *
  * @param request DescribeCustomAgentRequest
  * @return DescribeCustomAgentResponse
@@ -2856,7 +2856,7 @@ GetDataAgentSubAccountInfoResponse Client::getDataAgentSubAccountInfo(const GetD
 /**
  * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
  *
- * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+ * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor model resource consumption of DataAgent analysis tasks.
  *
  * @param request GetDataAgentTaskModelUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2875,6 +2875,10 @@ GetDataAgentTaskModelUsageResponse Client::getDataAgentTaskModelUsageWithOptions
 
   if (!!request.hasEndTime()) {
     query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPayLevel()) {
+    query["PayLevel"] = request.getPayLevel();
   }
 
   if (!!request.hasRegionId()) {
@@ -2901,7 +2905,7 @@ GetDataAgentTaskModelUsageResponse Client::getDataAgentTaskModelUsageWithOptions
 /**
  * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
  *
- * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+ * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor model resource consumption of DataAgent analysis tasks.
  *
  * @param request GetDataAgentTaskModelUsageRequest
  * @return GetDataAgentTaskModelUsageResponse
@@ -2933,6 +2937,10 @@ GetDataAgentTaskModelUsageMetricsResponse Client::getDataAgentTaskModelUsageMetr
 
   if (!!request.hasEndTime()) {
     query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPayLevel()) {
+    query["PayLevel"] = request.getPayLevel();
   }
 
   if (!!request.hasRegionId()) {

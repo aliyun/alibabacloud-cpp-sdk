@@ -127,7 +127,7 @@ namespace Dms20250414
       Models::ConfigAirflowResponse configAirflow(const Models::ConfigAirflowRequest &request);
 
       /**
-       * @summary ConfigDataAgentMemory
+       * @summary Configures memory generation and usage for a DataAgent.
        *
        * @param request ConfigDataAgentMemoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -136,7 +136,7 @@ namespace Dms20250414
       Models::ConfigDataAgentMemoryResponse configDataAgentMemoryWithOptions(const Models::ConfigDataAgentMemoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ConfigDataAgentMemory
+       * @summary Configures memory generation and usage for a DataAgent.
        *
        * @param request ConfigDataAgentMemoryRequest
        * @return ConfigDataAgentMemoryResponse
@@ -615,7 +615,7 @@ namespace Dms20250414
       Models::DeleteWorkspaceCodeResponse deleteWorkspaceCode(const Models::DeleteWorkspaceCodeRequest &request);
 
       /**
-       * @summary Retrieves the details of a custom agent by its ID.
+       * @summary Retrieves the details of a custom agent by custom agent ID.
        *
        * @param request DescribeCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -624,7 +624,7 @@ namespace Dms20250414
       Models::DescribeCustomAgentResponse describeCustomAgentWithOptions(const Models::DescribeCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a custom agent by its ID.
+       * @summary Retrieves the details of a custom agent by custom agent ID.
        *
        * @param request DescribeCustomAgentRequest
        * @return DescribeCustomAgentResponse
@@ -859,7 +859,7 @@ namespace Dms20250414
       /**
        * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
        *
-       * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+       * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor model resource consumption of DataAgent analysis tasks.
        *
        * @param request GetDataAgentTaskModelUsageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -870,7 +870,7 @@ namespace Dms20250414
       /**
        * @summary Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
        *
-       * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+       * @description Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor model resource consumption of DataAgent analysis tasks.
        *
        * @param request GetDataAgentTaskModelUsageRequest
        * @return GetDataAgentTaskModelUsageResponse

@@ -57,8 +57,19 @@ namespace Models
 
 
   protected:
+    // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
+    // Specifies whether to enable memory generation. Valid values:
+    // 
+    // - true: Enabled.
+    // 
+    // - false: Disabled.
     shared_ptr<bool> enabled_ {};
+    // Specifies whether to enable memory recall usage. Valid values:
+    // 
+    // true: Enabled.
+    // 
+    // false: Disabled.
     shared_ptr<bool> recallEnabled_ {};
   };
 

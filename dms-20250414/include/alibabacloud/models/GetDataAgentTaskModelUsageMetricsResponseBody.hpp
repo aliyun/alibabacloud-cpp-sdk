@@ -133,7 +133,7 @@ namespace Models
 
 
   protected:
-    // The list of TPM time series metrics for model usage, returned in chronological order with usage at each time point.
+    // The list of TPM time series metrics for model usage, returned in chronological order.
     shared_ptr<vector<GetDataAgentTaskModelUsageMetricsResponseBody::Data>> data_ {};
     // The error code returned when the request is abnormal.
     shared_ptr<string> errorCode_ {};

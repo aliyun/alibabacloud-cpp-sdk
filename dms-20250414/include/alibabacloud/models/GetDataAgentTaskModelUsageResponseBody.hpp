@@ -40,12 +40,20 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AccelerationRatio, accelerationRatio_);
+        DARABONBA_PTR_TO_JSON(RateLimitedSessionCount, rateLimitedSessionCount_);
+        DARABONBA_PTR_TO_JSON(TotalLlmWaitDuration, totalLlmWaitDuration_);
+        DARABONBA_PTR_TO_JSON(TotalSessionCount, totalSessionCount_);
         DARABONBA_PTR_TO_JSON(peakTpm, peakTpm_);
         DARABONBA_PTR_TO_JSON(totalCallCount, totalCallCount_);
         DARABONBA_PTR_TO_JSON(totalTokenConsumed, totalTokenConsumed_);
         DARABONBA_PTR_TO_JSON(usedModels, usedModels_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AccelerationRatio, accelerationRatio_);
+        DARABONBA_PTR_FROM_JSON(RateLimitedSessionCount, rateLimitedSessionCount_);
+        DARABONBA_PTR_FROM_JSON(TotalLlmWaitDuration, totalLlmWaitDuration_);
+        DARABONBA_PTR_FROM_JSON(TotalSessionCount, totalSessionCount_);
         DARABONBA_PTR_FROM_JSON(peakTpm, peakTpm_);
         DARABONBA_PTR_FROM_JSON(totalCallCount, totalCallCount_);
         DARABONBA_PTR_FROM_JSON(totalTokenConsumed, totalTokenConsumed_);
@@ -62,8 +70,37 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->peakTpm_ == nullptr
-        && this->totalCallCount_ == nullptr && this->totalTokenConsumed_ == nullptr && this->usedModels_ == nullptr; };
+      virtual bool empty() const override { return this->accelerationRatio_ == nullptr
+        && this->rateLimitedSessionCount_ == nullptr && this->totalLlmWaitDuration_ == nullptr && this->totalSessionCount_ == nullptr && this->peakTpm_ == nullptr && this->totalCallCount_ == nullptr
+        && this->totalTokenConsumed_ == nullptr && this->usedModels_ == nullptr; };
+      // accelerationRatio Field Functions 
+      bool hasAccelerationRatio() const { return this->accelerationRatio_ != nullptr;};
+      void deleteAccelerationRatio() { this->accelerationRatio_ = nullptr;};
+      inline double getAccelerationRatio() const { DARABONBA_PTR_GET_DEFAULT(accelerationRatio_, 0.0) };
+      inline Data& setAccelerationRatio(double accelerationRatio) { DARABONBA_PTR_SET_VALUE(accelerationRatio_, accelerationRatio) };
+
+
+      // rateLimitedSessionCount Field Functions 
+      bool hasRateLimitedSessionCount() const { return this->rateLimitedSessionCount_ != nullptr;};
+      void deleteRateLimitedSessionCount() { this->rateLimitedSessionCount_ = nullptr;};
+      inline int64_t getRateLimitedSessionCount() const { DARABONBA_PTR_GET_DEFAULT(rateLimitedSessionCount_, 0L) };
+      inline Data& setRateLimitedSessionCount(int64_t rateLimitedSessionCount) { DARABONBA_PTR_SET_VALUE(rateLimitedSessionCount_, rateLimitedSessionCount) };
+
+
+      // totalLlmWaitDuration Field Functions 
+      bool hasTotalLlmWaitDuration() const { return this->totalLlmWaitDuration_ != nullptr;};
+      void deleteTotalLlmWaitDuration() { this->totalLlmWaitDuration_ = nullptr;};
+      inline double getTotalLlmWaitDuration() const { DARABONBA_PTR_GET_DEFAULT(totalLlmWaitDuration_, 0.0) };
+      inline Data& setTotalLlmWaitDuration(double totalLlmWaitDuration) { DARABONBA_PTR_SET_VALUE(totalLlmWaitDuration_, totalLlmWaitDuration) };
+
+
+      // totalSessionCount Field Functions 
+      bool hasTotalSessionCount() const { return this->totalSessionCount_ != nullptr;};
+      void deleteTotalSessionCount() { this->totalSessionCount_ = nullptr;};
+      inline int64_t getTotalSessionCount() const { DARABONBA_PTR_GET_DEFAULT(totalSessionCount_, 0L) };
+      inline Data& setTotalSessionCount(int64_t totalSessionCount) { DARABONBA_PTR_SET_VALUE(totalSessionCount_, totalSessionCount) };
+
+
       // peakTpm Field Functions 
       bool hasPeakTpm() const { return this->peakTpm_ != nullptr;};
       void deletePeakTpm() { this->peakTpm_ = nullptr;};
@@ -93,6 +130,10 @@ namespace Models
 
 
     protected:
+      shared_ptr<double> accelerationRatio_ {};
+      shared_ptr<int64_t> rateLimitedSessionCount_ {};
+      shared_ptr<double> totalLlmWaitDuration_ {};
+      shared_ptr<int64_t> totalSessionCount_ {};
       // The peak TPM (tokens per minute) within the query time range, which is the maximum number of tokens consumed per minute.
       shared_ptr<int64_t> peakTpm_ {};
       // The total number of model calls within the query time range.
@@ -145,16 +186,16 @@ namespace Models
   protected:
     // The summary data of model usage for DataAgent analysis tasks.
     shared_ptr<GetDataAgentTaskModelUsageResponseBody::Data> data_ {};
-    // The error code returned if the request failed.
+    // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
     // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request was successful.
-    // - **false**: The request failed.
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<string> success_ {};
   };
 

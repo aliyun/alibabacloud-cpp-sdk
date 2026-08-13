@@ -119,7 +119,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The database schema.
     shared_ptr<string> schema_ {};
-    // The type of the SQL statement.
+    // The SQL statement type.
     shared_ptr<string> sqlType_ {};
     // The start time of the logs.
     // 

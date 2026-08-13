@@ -75,7 +75,17 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable memory generation. Valid values:
+      // 
+      // - true: Enabled.
+      // 
+      // - false: Disabled.
       shared_ptr<bool> enabled_ {};
+      // Indicates whether memory recall usage is enabled. Valid values:
+      // 
+      // - true: Enabled.
+      // 
+      // - false: Disabled.
       shared_ptr<bool> recallEnabled_ {};
     };
 
@@ -119,10 +129,18 @@ namespace Models
 
 
   protected:
+    // The response struct.
     shared_ptr<ConfigDataAgentMemoryResponseBody::Data> data_ {};
+    // The error code returned when the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message returned when the request fails.
     shared_ptr<string> errorMessage_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 
