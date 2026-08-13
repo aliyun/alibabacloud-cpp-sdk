@@ -176,21 +176,37 @@ namespace Models
 
 
   protected:
+    // The number of cache workers.
     shared_ptr<int64_t> cacheWorkerNum_ {};
+    // The cache size per cache worker. Unit: GB.
     shared_ptr<int64_t> cacheWorkerSize_ {};
+    // The SmartCache description.
     shared_ptr<string> description_ {};
+    // The SmartCache name.
     shared_ptr<string> displayName_ {};
+    // The running duration.
     shared_ptr<string> duration_ {};
+    // OSS Endpoint
     shared_ptr<string> endpoint_ {};
+    // The Alibaba Cloud NAS file system ID.
     shared_ptr<string> fileSystemId_ {};
+    // The creation time in UTC.
     shared_ptr<string> gmtCreateTime_ {};
+    // The modification time in UTC.
     shared_ptr<string> gmtModifyTime_ {};
+    // The local mount directory of the data source.
     shared_ptr<string> mountPath_ {};
+    // The optional hyperparameters.
     shared_ptr<string> options_ {};
+    // The OSS data source path.
     shared_ptr<string> path_ {};
+    // SmartCacheId
     shared_ptr<string> smartCacheId_ {};
+    // The running status.
     shared_ptr<string> status_ {};
+    // The mounted data type.
     shared_ptr<string> type_ {};
+    // The creator ID.
     shared_ptr<string> userId_ {};
   };
 

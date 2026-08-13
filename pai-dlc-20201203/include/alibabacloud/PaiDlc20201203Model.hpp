@@ -186,6 +186,13 @@
 #include <alibabacloud/models/StopTensorboardRequest.hpp>
 #include <alibabacloud/models/StopTensorboardResponseBody.hpp>
 #include <alibabacloud/models/StopTensorboardResponse.hpp>
+#include <alibabacloud/models/TagResourcesRequest.hpp>
+#include <alibabacloud/models/TagResourcesResponseBody.hpp>
+#include <alibabacloud/models/TagResourcesResponse.hpp>
+#include <alibabacloud/models/UntagResourcesRequest.hpp>
+#include <alibabacloud/models/UntagResourcesShrinkRequest.hpp>
+#include <alibabacloud/models/UntagResourcesResponseBody.hpp>
+#include <alibabacloud/models/UntagResourcesResponse.hpp>
 #include <alibabacloud/models/UpdateJobRequest.hpp>
 #include <alibabacloud/models/UpdateJobResponseBody.hpp>
 #include <alibabacloud/models/UpdateJobResponse.hpp>

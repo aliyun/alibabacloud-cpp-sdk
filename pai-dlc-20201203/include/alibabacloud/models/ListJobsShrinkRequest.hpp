@@ -391,7 +391,7 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // Specifies whether to retrieve jobs across all workspaces. This parameter must be used together with `ShowOwn=true` to query jobs recently submitted by the current user.
     shared_ptr<bool> fromAllWorkspaces_ {};
-    // Retrieves nodes by performing a full-text index on the images field. Supports Chinese and English tokenization.
+    // Uses full-text index to retrieve the images field. Supports Chinese and English tokenization.
     shared_ptr<string> imageSearch_ {};
     // The job ID. Fuzzy match is not supported. Case-insensitive. Wildcards are not supported.
     // Default value: empty, which indicates all job IDs.
@@ -405,7 +405,7 @@ namespace Models
     // - OneFlowJob
     // - ElasticBatchJob
     shared_ptr<string> jobType_ {};
-    // The field name for numeric range filtering. Must be used together with NumericRangeMin/NumericRangeMax.
+    // The field name for numeric range filtering. Must be used together with NumericRangeMin or NumericRangeMax.
     shared_ptr<string> numericRangeField_ {};
     // The maximum value (inclusive) for numeric range filtering. Must be used together with NumericRangeField.
     shared_ptr<int64_t> numericRangeMax_ {};
@@ -416,13 +416,13 @@ namespace Models
     // - desc: Descending order. This is the default value.
     // - asc: Ascending order.
     shared_ptr<string> order_ {};
-    // The idle resource information. Valid values:
+    // The off-peak resource information. Valid values:
     // - ForbiddenQuotaOverSold
     // - ForceQuotaOverSold
-    // - AcceptQuotaOverSold-true (true indicates the job actually used idle resources)
+    // - AcceptQuotaOverSold-true (true indicates the job actually used off-peak resources)
     // - AcceptQuotaOverSold-false (false indicates the job actually used guaranteed resources)
     shared_ptr<string> oversoldInfo_ {};
-    // The page number to return in a paged query. Minimum value: 1. Default value: 1.
+    // The page number to return in a paged query. Minimum value: 1. Default value: 1. Paging starts from page 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of jobs to return per page.
     shared_ptr<int32_t> pageSize_ {};
@@ -431,18 +431,18 @@ namespace Models
     // - Spot: preemptible resources.
     // - PostPaid: public resources.
     shared_ptr<string> paymentType_ {};
-    // Filters jobs created by the specified workflow ID.
+    // Filters jobs created by the specified pipeline ID.
     shared_ptr<string> pipelineId_ {};
-    // Retrieves nodes by performing a full-text index on the node failed reason field. Supports Chinese and English tokenization.
+    // Uses full-text index to retrieve the node failed reason field. Supports Chinese and English tokenization.
     shared_ptr<string> reasonSearch_ {};
-    // The resource group ID. For information about how to query the dedicated resource group ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
+    // The resource group ID. For information about how to obtain the dedicated resource group ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> resourceIds_ {};
-    // Filters the job list by the resource quota name. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by resource quota.
+    // The name of the resource quota, used to filter the job list. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by resource quota.
     shared_ptr<string> resourceQuotaName_ {};
     // Specifies whether to return only jobs submitted by the current user.
     shared_ptr<bool> showOwn_ {};
-    // The field by which to sort results:
+    // The field by which to sort results. Valid values:
     // 
     // - DisplayName
     // - JobType
@@ -450,7 +450,7 @@ namespace Models
     // - GmtCreateTime
     // - GmtFinishTime
     shared_ptr<string> sortBy_ {};
-    // The start time of the query range. The job creation time is used for filtering. Default value: the current time minus 7 days. If neither StartTime nor EndTime is specified, jobs from the last 7 days are returned by default.
+    // The start time of the query range. The job creation time is used for filtering. Default value: the current time minus 7 days. If neither StartTime nor EndTime is specified, jobs created in the last 7 days are returned by default.
     shared_ptr<string> startTime_ {};
     // The job status. Valid values:
     // - Creating
@@ -469,15 +469,15 @@ namespace Models
     shared_ptr<string> status_ {};
     // The tags used for filtering.
     shared_ptr<string> tagsShrink_ {};
-    // The template ID. Filters jobs created from the specified template.
+    // The template ID, used to filter jobs created from the specified template.
     shared_ptr<string> templateId_ {};
     // The time field used for StartTime/EndTime filtering. Default value: creation time.
     shared_ptr<string> timeRangeField_ {};
-    // Retrieves nodes by performing a full-text index on the user_command field. Supports Chinese and English tokenization.
+    // Uses full-text index to retrieve the user_command field. Supports Chinese and English tokenization.
     shared_ptr<string> userCommandSearch_ {};
-    // Filters the job list by the user ID of the job submitter.
+    // The user ID of the job submitter, used to filter the job list.
     shared_ptr<string> userIdForFilter_ {};
-    // Filters the job list by the username of the job submitter. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by username.
+    // The username of the job submitter, used to filter the job list. Supports fuzzy match. Wildcards are not supported. Default value: empty, which indicates no filtering by username.
     shared_ptr<string> username_ {};
     // The workspace ID. <props="china">For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};

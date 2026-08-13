@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The member ID.
     shared_ptr<string> memberId_ {};
+    // The member role.
     shared_ptr<string> memberType_ {};
   };
 

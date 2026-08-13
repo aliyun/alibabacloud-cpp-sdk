@@ -63,24 +63,24 @@ AlibabaCloud::PaiDlc20201203::Client::Client(Config &config): OpenApiClient(conf
     {"eu-west-1-oxs" , "pai-dlc.aliyuncs.com"},
     {"me-east-1" , "pai-dlc.aliyuncs.com"},
     {"rus-west-1-pop" , "pai-dlc.aliyuncs.com"},
-    {"us-west-1" , "pai-dlc.us-west-1.aliyuncs.com"},
-    {"us-southeast-1" , "pai-dlc.us-southeast-1.aliyuncs.com"},
-    {"us-east-1" , "pai-dlc.us-east-1.aliyuncs.com"},
-    {"eu-central-1" , "pai-dlc.eu-central-1.aliyuncs.com"},
     {"cn-wulanchabu" , "pai-dlc.cn-wulanchabu.aliyuncs.com"},
-    {"cn-shenzhen" , "pai-dlc.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "pai-dlc.cn-shanghai-finance-1.aliyuncs.com"},
+    {"cn-beijing" , "pai-dlc.cn-beijing.aliyuncs.com"},
     {"cn-shanghai" , "pai-dlc.cn-shanghai.aliyuncs.com"},
     {"cn-hongkong" , "pai-dlc.cn-hongkong.aliyuncs.com"},
-    {"cn-hangzhou" , "pai-dlc.cn-hangzhou.aliyuncs.com"},
+    {"cn-shenzhen" , "pai-dlc.cn-shenzhen.aliyuncs.com"},
+    {"ap-northeast-1" , "pai-dlc.ap-northeast-1.aliyuncs.com"},
     {"cn-guangzhou" , "pai-dlc.cn-guangzhou.aliyuncs.com"},
-    {"cn-beijing" , "pai-dlc.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-8" , "pai-dlc.ap-southeast-8.aliyuncs.com"},
-    {"ap-southeast-7" , "pai-dlc.ap-southeast-7.aliyuncs.com"},
-    {"ap-southeast-5" , "pai-dlc.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-3" , "pai-dlc.ap-southeast-3.aliyuncs.com"},
     {"ap-southeast-1" , "pai-dlc.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-1" , "pai-dlc.ap-northeast-1.aliyuncs.com"}
+    {"ap-southeast-3" , "pai-dlc.ap-southeast-3.aliyuncs.com"},
+    {"ap-southeast-5" , "pai-dlc.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-7" , "pai-dlc.ap-southeast-7.aliyuncs.com"},
+    {"cn-hangzhou" , "pai-dlc.cn-hangzhou.aliyuncs.com"},
+    {"ap-southeast-8" , "pai-dlc.ap-southeast-8.aliyuncs.com"},
+    {"us-east-1" , "pai-dlc.us-east-1.aliyuncs.com"},
+    {"us-southeast-1" , "pai-dlc.us-southeast-1.aliyuncs.com"},
+    {"us-west-1" , "pai-dlc.us-west-1.aliyuncs.com"},
+    {"eu-central-1" , "pai-dlc.eu-central-1.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "pai-dlc.cn-shanghai-finance-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("pai-dlc", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -100,10 +100,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+ * @summary Creates a job to run in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
  *
- * @description Make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
- * >Notice: The total length of CreateJob request parameters (including system-generated parameters) cannot exceed 65,536 bytes.
+ * @description Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
  *
  * @param request CreateJobRequest
  * @param headers map
@@ -236,10 +235,9 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &request, 
 }
 
 /**
- * @summary Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+ * @summary Creates a job to run in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
  *
- * @description Make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
- * >Notice: The total length of CreateJob request parameters (including system-generated parameters) cannot exceed 65,536 bytes.
+ * @description Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
  *
  * @param request CreateJobRequest
  * @return CreateJobResponse
@@ -2549,6 +2547,134 @@ StopTensorboardResponse Client::stopTensorboard(const string &TensorboardId, con
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return stopTensorboardWithOptions(TensorboardId, request, headers, runtime);
+}
+
+/**
+ * @summary Creates and attaches tags to specified resources.
+ *
+ * @description Before attaching tags, Alibaba Cloud checks the number of existing tags on the resource. If the limit is exceeded, an error message is returned.
+ *
+ * @param request TagResourcesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceId()) {
+    body["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    body["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTag()) {
+    body["Tag"] = request.getTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TagResources"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tags")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TagResourcesResponse>();
+}
+
+/**
+ * @summary Creates and attaches tags to specified resources.
+ *
+ * @description Before attaching tags, Alibaba Cloud checks the number of existing tags on the resource. If the limit is exceeded, an error message is returned.
+ *
+ * @param request TagResourcesRequest
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return tagResourcesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Unbinds tags from a specified list of resources.
+ *
+ * @param tmpReq UntagResourcesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UntagResourcesShrinkRequest request = UntagResourcesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasResourceId()) {
+    request.setResourceIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceId(), "ResourceId", "json"));
+  }
+
+  if (!!tmpReq.hasTagKey()) {
+    request.setTagKeyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTagKey(), "TagKey", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAll()) {
+    query["All"] = request.getAll();
+  }
+
+  if (!!request.hasResourceIdShrink()) {
+    query["ResourceId"] = request.getResourceIdShrink();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTagKeyShrink()) {
+    query["TagKey"] = request.getTagKeyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UntagResources"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tags")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UntagResourcesResponse>();
+}
+
+/**
+ * @summary Unbinds tags from a specified list of resources.
+ *
+ * @param request UntagResourcesRequest
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return untagResourcesWithOptions(request, headers, runtime);
 }
 
 /**

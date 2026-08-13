@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The number of CPU cores.
     shared_ptr<string> CPU_ {};
+    // The number of GPU cards.
     shared_ptr<string> GPU_ {};
+    // The memory size.
     shared_ptr<string> memory_ {};
   };
 

@@ -686,7 +686,7 @@ namespace Models
         shared_ptr<string> resourceType_ {};
         // The pod status.
         shared_ptr<string> status_ {};
-        // The pod substatus, such as preemption status. Valid values:
+        // The pod sub-status, such as preemption status. Valid values:
         shared_ptr<string> subStatus_ {};
         // The pod type.
         shared_ptr<string> type_ {};
@@ -815,7 +815,7 @@ namespace Models
       shared_ptr<string> gmtFinishTime_ {};
       // The pod start time (UTC).
       shared_ptr<string> gmtStartTime_ {};
-      // The history pods.
+      // The historical pods.
       shared_ptr<vector<Pods::HistoryPods>> historyPods_ {};
       // The network IP address of the pod.
       shared_ptr<string> ip_ {};
@@ -831,9 +831,9 @@ namespace Models
       shared_ptr<string> resourceType_ {};
       // The pod status. Valid values:
       shared_ptr<string> status_ {};
-      // The pod substatus, such as preemption status. Valid values:
+      // The pod sub-status, such as preemption status. Valid values:
       shared_ptr<string> subStatus_ {};
-      // The pod type, which corresponds to a JobSpec in JobSpecs of CreateJob.
+      // The pod type, which corresponds to a JobSpec in the JobSpecs parameter of CreateJob.
       shared_ptr<string> type_ {};
       shared_ptr<string> supportedProfilingTypes_ {};
     };
@@ -887,7 +887,7 @@ namespace Models
     protected:
       // The data source ID.
       shared_ptr<string> dataSourceId_ {};
-      // The local mount path. This is an optional parameter. The default value is empty, which indicates that the mount path in the data source is used.
+      // The local mount path. This is an optional parameter. If left empty, the mount path specified in the data source is used.
       shared_ptr<string> mountPath_ {};
       // The data source path.
       shared_ptr<string> uri_ {};
@@ -1407,11 +1407,11 @@ namespace Models
     shared_ptr<int64_t> duration_ {};
     // The elastic job parameters.
     shared_ptr<JobElasticSpec> elasticSpec_ {};
-    // Specifies whether the debugger task is enabled.
+    // Specifies whether the debugger job is enabled.
     shared_ptr<bool> enabledDebugger_ {};
     // The environment variable configuration.
     shared_ptr<map<string, string>> envs_ {};
-    // The job creation time (UTC).
+    // The time when the job was created (UTC).
     shared_ptr<string> gmtCreateTime_ {};
     // The time when the job failed (UTC).
     shared_ptr<string> gmtFailedTime_ {};
@@ -1437,9 +1437,9 @@ namespace Models
     shared_ptr<vector<GetJobResponseBody::Pods>> pods_ {};
     // The priority of the job. Valid values: 1 to 9.
     shared_ptr<int32_t> priority_ {};
-    // The status detail code, which is a classification of the sub-status under the current status (Status).
+    // The status detail code, which categorizes the sub-status under the current status (Status).
     shared_ptr<string> reasonCode_ {};
-    // The detailed description of the status detail.
+    // The detailed description of the status.
     shared_ptr<string> reasonMessage_ {};
     // The request ID, used for diagnostics and troubleshooting.
     shared_ptr<string> requestId_ {};
@@ -1451,7 +1451,7 @@ namespace Models
     shared_ptr<string> resourceType_ {};
     // The job restart records.
     shared_ptr<vector<GetJobResponseBody::RestartRecord>> restartRecord_ {};
-    // The used retry count and maximum retry count for the job.
+    // The number of restarts used and the maximum number of restarts for the job.
     shared_ptr<string> restartTimes_ {};
     shared_ptr<map<string, Darabonba::Json>> roleSystemEnvs_ {};
     shared_ptr<string> schedulingStrategy_ {};
@@ -1461,7 +1461,7 @@ namespace Models
     shared_ptr<string> status_ {};
     // The status history.
     shared_ptr<vector<StatusTransitionItem>> statusHistory_ {};
-    // The job substatus, such as preemption retry status.
+    // The job sub-status, such as preemption retry status.
     shared_ptr<string> subStatus_ {};
     // The tenant ID.
     shared_ptr<string> tenantId_ {};

@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The configuration item details in JSON format.
     shared_ptr<string> content_ {};
+    // The system-generated unique ID of the debug config.
     shared_ptr<string> debuggerConfigId_ {};
+    // The description of the configuration item.
     shared_ptr<string> description_ {};
+    // The name of the template configuration item.
     shared_ptr<string> displayName_ {};
+    // The creation time in UTC.
     shared_ptr<string> gmtCreateTime_ {};
+    // The modification time in UTC.
     shared_ptr<string> gmtModifyTime_ {};
   };
 
