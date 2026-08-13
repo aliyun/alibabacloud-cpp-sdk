@@ -13,9 +13,11 @@ namespace Models
   class DescribeDisposeAndPlaybookRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeDisposeAndPlaybookRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AvailableOnly, availableOnly_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(EntityType, entityType_);
       DARABONBA_PTR_TO_JSON(EntityUuid, entityUuid_);
+      DARABONBA_PTR_TO_JSON(EntityUuidList, entityUuidList_);
       DARABONBA_PTR_TO_JSON(IncidentUuid, incidentUuid_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -23,9 +25,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RoleType, roleType_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDisposeAndPlaybookRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AvailableOnly, availableOnly_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(EntityType, entityType_);
       DARABONBA_PTR_FROM_JSON(EntityUuid, entityUuid_);
+      DARABONBA_PTR_FROM_JSON(EntityUuidList, entityUuidList_);
       DARABONBA_PTR_FROM_JSON(IncidentUuid, incidentUuid_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -43,9 +47,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->currentPage_ == nullptr
-        && this->entityType_ == nullptr && this->entityUuid_ == nullptr && this->incidentUuid_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr
-        && this->roleFor_ == nullptr && this->roleType_ == nullptr; };
+    virtual bool empty() const override { return this->availableOnly_ == nullptr
+        && this->currentPage_ == nullptr && this->entityType_ == nullptr && this->entityUuid_ == nullptr && this->entityUuidList_ == nullptr && this->incidentUuid_ == nullptr
+        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->roleFor_ == nullptr && this->roleType_ == nullptr; };
+    // availableOnly Field Functions 
+    bool hasAvailableOnly() const { return this->availableOnly_ != nullptr;};
+    void deleteAvailableOnly() { this->availableOnly_ = nullptr;};
+    inline bool getAvailableOnly() const { DARABONBA_PTR_GET_DEFAULT(availableOnly_, false) };
+    inline DescribeDisposeAndPlaybookRequest& setAvailableOnly(bool availableOnly) { DARABONBA_PTR_SET_VALUE(availableOnly_, availableOnly) };
+
+
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
@@ -65,6 +76,13 @@ namespace Models
     void deleteEntityUuid() { this->entityUuid_ = nullptr;};
     inline string getEntityUuid() const { DARABONBA_PTR_GET_DEFAULT(entityUuid_, "") };
     inline DescribeDisposeAndPlaybookRequest& setEntityUuid(string entityUuid) { DARABONBA_PTR_SET_VALUE(entityUuid_, entityUuid) };
+
+
+    // entityUuidList Field Functions 
+    bool hasEntityUuidList() const { return this->entityUuidList_ != nullptr;};
+    void deleteEntityUuidList() { this->entityUuidList_ = nullptr;};
+    inline string getEntityUuidList() const { DARABONBA_PTR_GET_DEFAULT(entityUuidList_, "") };
+    inline DescribeDisposeAndPlaybookRequest& setEntityUuidList(string entityUuidList) { DARABONBA_PTR_SET_VALUE(entityUuidList_, entityUuidList) };
 
 
     // incidentUuid Field Functions 
@@ -103,12 +121,14 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> availableOnly_ {};
     // The current page number. The value must be greater than or equal to 1.
     shared_ptr<int32_t> currentPage_ {};
     // The entity type. Valid values:
     shared_ptr<string> entityType_ {};
     // The entity UUID.
     shared_ptr<string> entityUuid_ {};
+    shared_ptr<string> entityUuidList_ {};
     // The incident UUID.
     shared_ptr<string> incidentUuid_ {};
     // The number of entries per page. Maximum value: 100.

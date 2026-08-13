@@ -2098,6 +2098,15 @@ DescribeDataSourceParametersResponse Client::describeDataSourceParameters(const 
  */
 DescribeDisposeAndPlaybookResponse Client::describeDisposeAndPlaybookWithOptions(const DescribeDisposeAndPlaybookRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasAvailableOnly()) {
+    query["AvailableOnly"] = request.getAvailableOnly();
+  }
+
+  if (!!request.hasEntityUuidList()) {
+    query["EntityUuidList"] = request.getEntityUuidList();
+  }
+
   json body = {};
   if (!!request.hasCurrentPage()) {
     body["CurrentPage"] = request.getCurrentPage();
@@ -2132,8 +2141,9 @@ DescribeDisposeAndPlaybookResponse Client::describeDisposeAndPlaybookWithOptions
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "DescribeDisposeAndPlaybook"},
     {"version" , "2022-06-16"},
@@ -4172,7 +4182,7 @@ ListDeliveryResponse Client::listDelivery(const ListDeliveryRequest &request) {
 }
 
 /**
- * @summary Retrieves the list of system-recommended disposal policies.
+ * @summary Retrieves the list of system-recommended response policies.
  *
  * @param tmpReq ListDisposeStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4315,7 +4325,7 @@ ListDisposeStrategyResponse Client::listDisposeStrategyWithOptions(const ListDis
 }
 
 /**
- * @summary Retrieves the list of system-recommended disposal policies.
+ * @summary Retrieves the list of system-recommended response policies.
  *
  * @param request ListDisposeStrategyRequest
  * @return ListDisposeStrategyResponse

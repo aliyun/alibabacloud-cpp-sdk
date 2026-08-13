@@ -71,6 +71,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Entity, entity_);
           DARABONBA_PTR_TO_JSON(EntityId, entityId_);
           DARABONBA_PTR_TO_JSON(EntityType, entityType_);
+          DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
           DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
           DARABONBA_PTR_TO_JSON(FinishTime, finishTime_);
           DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
@@ -96,6 +97,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Entity, entity_);
           DARABONBA_PTR_FROM_JSON(EntityId, entityId_);
           DARABONBA_PTR_FROM_JSON(EntityType, entityType_);
+          DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
           DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
           DARABONBA_PTR_FROM_JSON(FinishTime, finishTime_);
           DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
@@ -126,10 +128,10 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->alertName_ == nullptr
         && this->alertUuid_ == nullptr && this->aliuid_ == nullptr && this->effectiveStatus_ == nullptr && this->entity_ == nullptr && this->entityId_ == nullptr
-        && this->entityType_ == nullptr && this->errorMessage_ == nullptr && this->finishTime_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
-        && this->id_ == nullptr && this->incidentName_ == nullptr && this->incidentUuid_ == nullptr && this->playbookName_ == nullptr && this->playbookType_ == nullptr
-        && this->playbookUuid_ == nullptr && this->scope_ == nullptr && this->sophonTaskId_ == nullptr && this->status_ == nullptr && this->subAliuid_ == nullptr
-        && this->taskParam_ == nullptr && this->taskUrl_ == nullptr; };
+        && this->entityType_ == nullptr && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->finishTime_ == nullptr && this->gmtCreate_ == nullptr
+        && this->gmtModified_ == nullptr && this->id_ == nullptr && this->incidentName_ == nullptr && this->incidentUuid_ == nullptr && this->playbookName_ == nullptr
+        && this->playbookType_ == nullptr && this->playbookUuid_ == nullptr && this->scope_ == nullptr && this->sophonTaskId_ == nullptr && this->status_ == nullptr
+        && this->subAliuid_ == nullptr && this->taskParam_ == nullptr && this->taskUrl_ == nullptr; };
         // alertName Field Functions 
         bool hasAlertName() const { return this->alertName_ != nullptr;};
         void deleteAlertName() { this->alertName_ = nullptr;};
@@ -179,6 +181,13 @@ namespace Models
         void deleteEntityType() { this->entityType_ = nullptr;};
         inline string getEntityType() const { DARABONBA_PTR_GET_DEFAULT(entityType_, "") };
         inline ResponseData& setEntityType(string entityType) { DARABONBA_PTR_SET_VALUE(entityType_, entityType) };
+
+
+        // errorCode Field Functions 
+        bool hasErrorCode() const { return this->errorCode_ != nullptr;};
+        void deleteErrorCode() { this->errorCode_ = nullptr;};
+        inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+        inline ResponseData& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
 
 
         // errorMessage Field Functions 
@@ -309,9 +318,10 @@ namespace Models
         shared_ptr<int64_t> entityId_ {};
         // The entity type. Valid values:
         shared_ptr<string> entityType_ {};
+        shared_ptr<string> errorCode_ {};
         // The failure summary of the task.
         shared_ptr<string> errorMessage_ {};
-        // The end time of the task.
+        // The finish time of the task.
         shared_ptr<string> finishTime_ {};
         // The creation time.
         shared_ptr<string> gmtCreate_ {};
@@ -336,7 +346,7 @@ namespace Models
         shared_ptr<string> playbookUuid_ {};
         // The disposition scope.
         shared_ptr<vector<Darabonba::Json>> scope_ {};
-        // The SOAR disposal policy ID.
+        // The SOAR response policy ID.
         shared_ptr<string> sophonTaskId_ {};
         // The playbook invocation status. Valid values:
         shared_ptr<int32_t> status_ {};

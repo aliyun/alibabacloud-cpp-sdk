@@ -1185,7 +1185,7 @@ namespace CloudSiem20220616
       Models::ListDeliveryResponse listDelivery(const Models::ListDeliveryRequest &request);
 
       /**
-       * @summary Retrieves the list of system-recommended disposal policies.
+       * @summary Retrieves the list of system-recommended response policies.
        *
        * @param tmpReq ListDisposeStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1194,7 +1194,7 @@ namespace CloudSiem20220616
       Models::ListDisposeStrategyResponse listDisposeStrategyWithOptions(const Models::ListDisposeStrategyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of system-recommended disposal policies.
+       * @summary Retrieves the list of system-recommended response policies.
        *
        * @param request ListDisposeStrategyRequest
        * @return ListDisposeStrategyResponse

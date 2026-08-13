@@ -42,10 +42,12 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Available, available_);
         DARABONBA_PTR_TO_JSON(PageInfo, pageInfo_);
         DARABONBA_PTR_TO_JSON(ResponseData, responseData_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Available, available_);
         DARABONBA_PTR_FROM_JSON(PageInfo, pageInfo_);
         DARABONBA_PTR_FROM_JSON(ResponseData, responseData_);
       };
@@ -68,6 +70,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(EntityId, entityId_);
           DARABONBA_ANY_TO_JSON(EntityInfo, entityInfo_);
           DARABONBA_PTR_TO_JSON(EntityType, entityType_);
+          DARABONBA_PTR_TO_JSON(EntityUuid, entityUuid_);
           DARABONBA_PTR_TO_JSON(OpcodeMap, opcodeMap_);
           DARABONBA_PTR_TO_JSON(OpcodeSet, opcodeSet_);
           DARABONBA_PTR_TO_JSON(PlaybookList, playbookList_);
@@ -79,6 +82,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(EntityId, entityId_);
           DARABONBA_ANY_FROM_JSON(EntityInfo, entityInfo_);
           DARABONBA_PTR_FROM_JSON(EntityType, entityType_);
+          DARABONBA_PTR_FROM_JSON(EntityUuid, entityUuid_);
           DARABONBA_PTR_FROM_JSON(OpcodeMap, opcodeMap_);
           DARABONBA_PTR_FROM_JSON(OpcodeSet, opcodeSet_);
           DARABONBA_PTR_FROM_JSON(PlaybookList, playbookList_);
@@ -267,8 +271,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->alertNum_ == nullptr
-        && this->dispose_ == nullptr && this->entityId_ == nullptr && this->entityInfo_ == nullptr && this->entityType_ == nullptr && this->opcodeMap_ == nullptr
-        && this->opcodeSet_ == nullptr && this->playbookList_ == nullptr && this->scope_ == nullptr; };
+        && this->dispose_ == nullptr && this->entityId_ == nullptr && this->entityInfo_ == nullptr && this->entityType_ == nullptr && this->entityUuid_ == nullptr
+        && this->opcodeMap_ == nullptr && this->opcodeSet_ == nullptr && this->playbookList_ == nullptr && this->scope_ == nullptr; };
         // alertNum Field Functions 
         bool hasAlertNum() const { return this->alertNum_ != nullptr;};
         void deleteAlertNum() { this->alertNum_ = nullptr;};
@@ -304,6 +308,13 @@ namespace Models
         void deleteEntityType() { this->entityType_ = nullptr;};
         inline string getEntityType() const { DARABONBA_PTR_GET_DEFAULT(entityType_, "") };
         inline ResponseData& setEntityType(string entityType) { DARABONBA_PTR_SET_VALUE(entityType_, entityType) };
+
+
+        // entityUuid Field Functions 
+        bool hasEntityUuid() const { return this->entityUuid_ != nullptr;};
+        void deleteEntityUuid() { this->entityUuid_ = nullptr;};
+        inline string getEntityUuid() const { DARABONBA_PTR_GET_DEFAULT(entityUuid_, "") };
+        inline ResponseData& setEntityUuid(string entityUuid) { DARABONBA_PTR_SET_VALUE(entityUuid_, entityUuid) };
 
 
         // opcodeMap Field Functions 
@@ -359,6 +370,7 @@ namespace Models
         // - file: file
         // - host: host
         shared_ptr<string> entityType_ {};
+        shared_ptr<string> entityUuid_ {};
         // The key-value pairs of opcode and oplevel.
         shared_ptr<map<string, string>> opcodeMap_ {};
         // The recommended playbook opcodes for entity disposition.
@@ -424,8 +436,15 @@ namespace Models
         shared_ptr<int64_t> totalCount_ {};
       };
 
-      virtual bool empty() const override { return this->pageInfo_ == nullptr
-        && this->responseData_ == nullptr; };
+      virtual bool empty() const override { return this->available_ == nullptr
+        && this->pageInfo_ == nullptr && this->responseData_ == nullptr; };
+      // available Field Functions 
+      bool hasAvailable() const { return this->available_ != nullptr;};
+      void deleteAvailable() { this->available_ = nullptr;};
+      inline bool getAvailable() const { DARABONBA_PTR_GET_DEFAULT(available_, false) };
+      inline Data& setAvailable(bool available) { DARABONBA_PTR_SET_VALUE(available_, available) };
+
+
       // pageInfo Field Functions 
       bool hasPageInfo() const { return this->pageInfo_ != nullptr;};
       void deletePageInfo() { this->pageInfo_ = nullptr;};
@@ -445,6 +464,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<bool> available_ {};
       // The pagination information.
       shared_ptr<Data::PageInfo> pageInfo_ {};
       // The detailed data.
@@ -491,7 +511,7 @@ namespace Models
 
 
   protected:
-    // The request status code.
+    // The response status code.
     shared_ptr<int32_t> code_ {};
     // The response data.
     shared_ptr<DescribeDisposeAndPlaybookResponseBody::Data> data_ {};
