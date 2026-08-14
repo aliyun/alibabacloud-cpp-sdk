@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The description of the phrases list.
     shared_ptr<string> description_ {};
+    // The name of the phrases list.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // A JSON-formatted string that represents a map of words and their corresponding weights.
+    // 
     // This parameter is required.
     shared_ptr<string> wordWeights_ {};
   };

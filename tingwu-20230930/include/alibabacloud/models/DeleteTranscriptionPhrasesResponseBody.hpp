@@ -82,8 +82,11 @@ namespace Models
 
 
     protected:
+      // Error code.
       shared_ptr<string> errorCode_ {};
+      // Error message.
       shared_ptr<string> errorMessage_ {};
+      // Is the operation successful?
       shared_ptr<string> status_ {};
     };
 
@@ -121,8 +124,11 @@ namespace Models
 
   protected:
     shared_ptr<DeleteTranscriptionPhrasesResponseBody::Data> data_ {};
+    // Error code.
     shared_ptr<string> errorCode_ {};
+    // Error message.
     shared_ptr<string> errorMessage_ {};
+    // Is the operation successful?
     shared_ptr<string> status_ {};
   };
 

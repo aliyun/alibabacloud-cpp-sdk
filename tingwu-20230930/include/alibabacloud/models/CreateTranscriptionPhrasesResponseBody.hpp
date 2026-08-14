@@ -91,9 +91,13 @@ namespace Models
 
 
     protected:
+      // The error code.
       shared_ptr<string> errorCode_ {};
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // The ID of the phrases list.
       shared_ptr<string> phraseId_ {};
+      // Indicates whether the operation was successful.
       shared_ptr<string> status_ {};
     };
 
@@ -130,8 +134,11 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned object.
     shared_ptr<CreateTranscriptionPhrasesResponseBody::Data> data_ {};
+    // A description of the status.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

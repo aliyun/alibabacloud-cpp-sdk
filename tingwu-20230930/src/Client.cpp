@@ -18,7 +18,10 @@ namespace Tingwu20230930
 {
 
 AlibabaCloud::Tingwu20230930::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"cn-beijing" , "tingwu.cn-beijing.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("tingwu", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -37,7 +40,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 创建听悟任务
+ * @summary Create offline transcription and real-time meeting tasks in Tingwu.
  *
  * @param request CreateTaskRequest
  * @param headers map
@@ -88,7 +91,7 @@ CreateTaskResponse Client::createTaskWithOptions(const CreateTaskRequest &reques
 }
 
 /**
- * @summary 创建听悟任务
+ * @summary Create offline transcription and real-time meeting tasks in Tingwu.
  *
  * @param request CreateTaskRequest
  * @return CreateTaskResponse
@@ -100,7 +103,7 @@ CreateTaskResponse Client::createTask(const CreateTaskRequest &request) {
 }
 
 /**
- * @summary 创建热词词表
+ * @summary Creates a custom vocabulary of transcription phrases.
  *
  * @param request CreateTranscriptionPhrasesRequest
  * @param headers map
@@ -141,7 +144,7 @@ CreateTranscriptionPhrasesResponse Client::createTranscriptionPhrasesWithOptions
 }
 
 /**
- * @summary 创建热词词表
+ * @summary Creates a custom vocabulary of transcription phrases.
  *
  * @param request CreateTranscriptionPhrasesRequest
  * @return CreateTranscriptionPhrasesResponse
@@ -153,7 +156,7 @@ CreateTranscriptionPhrasesResponse Client::createTranscriptionPhrases(const Crea
 }
 
 /**
- * @summary 删除词表
+ * @summary Deletes phrase tables.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -178,7 +181,7 @@ DeleteTranscriptionPhrasesResponse Client::deleteTranscriptionPhrasesWithOptions
 }
 
 /**
- * @summary 删除词表
+ * @summary Deletes phrase tables.
  *
  * @return DeleteTranscriptionPhrasesResponse
  */
@@ -189,7 +192,7 @@ DeleteTranscriptionPhrasesResponse Client::deleteTranscriptionPhrases(const stri
 }
 
 /**
- * @summary 查询听悟任务信息
+ * @summary Query the job status and job result.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -214,7 +217,7 @@ GetTaskInfoResponse Client::getTaskInfoWithOptions(const string &TaskId, const m
 }
 
 /**
- * @summary 查询听悟任务信息
+ * @summary Query the job status and job result.
  *
  * @return GetTaskInfoResponse
  */
@@ -225,7 +228,7 @@ GetTaskInfoResponse Client::getTaskInfo(const string &TaskId) {
 }
 
 /**
- * @summary 查询热词词表信息
+ * @summary Queries information about hotword lists.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -250,7 +253,7 @@ GetTranscriptionPhrasesResponse Client::getTranscriptionPhrasesWithOptions(const
 }
 
 /**
- * @summary 查询热词词表信息
+ * @summary Queries information about hotword lists.
  *
  * @return GetTranscriptionPhrasesResponse
  */
@@ -261,7 +264,7 @@ GetTranscriptionPhrasesResponse Client::getTranscriptionPhrases(const string &Ph
 }
 
 /**
- * @summary 列举用户所有热词词表信息
+ * @summary Lists all of a user\\"s hot phrase lists.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -286,7 +289,7 @@ ListTranscriptionPhrasesResponse Client::listTranscriptionPhrasesWithOptions(con
 }
 
 /**
- * @summary 列举用户所有热词词表信息
+ * @summary Lists all of a user\\"s hot phrase lists.
  *
  * @return ListTranscriptionPhrasesResponse
  */
@@ -297,7 +300,7 @@ ListTranscriptionPhrasesResponse Client::listTranscriptionPhrases() {
 }
 
 /**
- * @summary 更新热词词表
+ * @summary Update a hotword list.
  *
  * @param request UpdateTranscriptionPhrasesRequest
  * @param headers map
@@ -338,7 +341,7 @@ UpdateTranscriptionPhrasesResponse Client::updateTranscriptionPhrasesWithOptions
 }
 
 /**
- * @summary 更新热词词表
+ * @summary Update a hotword list.
  *
  * @param request UpdateTranscriptionPhrasesRequest
  * @return UpdateTranscriptionPhrasesResponse

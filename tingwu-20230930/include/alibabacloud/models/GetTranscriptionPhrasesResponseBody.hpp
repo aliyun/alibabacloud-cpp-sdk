@@ -117,9 +117,13 @@ namespace Models
 
 
       protected:
+        // Hotword list description.
         shared_ptr<string> description_ {};
+        // Hotword list name.
         shared_ptr<string> name_ {};
+        // ID of the phrase list.
         shared_ptr<string> phraseId_ {};
+        // Words and their weights in the hotword list, formatted as a JSON map string.
         shared_ptr<string> wordWeights_ {};
       };
 
@@ -156,9 +160,13 @@ namespace Models
 
 
     protected:
+      // Error code.
       shared_ptr<string> errorCode_ {};
+      // Error message.
       shared_ptr<string> errorMessage_ {};
+      // Hotword objects.
       shared_ptr<vector<Data::Phrases>> phrases_ {};
+      // Indicates whether the operation succeeded.
       shared_ptr<string> status_ {};
     };
 
@@ -195,10 +203,13 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Response object.
     shared_ptr<GetTranscriptionPhrasesResponseBody::Data> data_ {};
+    // Status message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -82,8 +82,11 @@ namespace Models
 
 
     protected:
+      // The error code.
       shared_ptr<string> errorCode_ {};
+      // The error message.
       shared_ptr<string> errorMessage_ {};
+      // Indicates whether the operation succeeded.
       shared_ptr<string> status_ {};
     };
 
@@ -120,10 +123,13 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response object.
     shared_ptr<UpdateTranscriptionPhrasesResponseBody::Data> data_ {};
+    // The status message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

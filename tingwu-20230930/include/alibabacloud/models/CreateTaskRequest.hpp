@@ -107,11 +107,13 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AdditionalStreamOutputLevel, additionalStreamOutputLevel_);
           DARABONBA_PTR_TO_JSON(OutputLevel, outputLevel_);
           DARABONBA_PTR_TO_JSON(TargetLanguages, targetLanguages_);
+          DARABONBA_PTR_TO_JSON(TranslateLlmSceneEnabled, translateLlmSceneEnabled_);
         };
         friend void from_json(const Darabonba::Json& j, Translation& obj) { 
           DARABONBA_PTR_FROM_JSON(AdditionalStreamOutputLevel, additionalStreamOutputLevel_);
           DARABONBA_PTR_FROM_JSON(OutputLevel, outputLevel_);
           DARABONBA_PTR_FROM_JSON(TargetLanguages, targetLanguages_);
+          DARABONBA_PTR_FROM_JSON(TranslateLlmSceneEnabled, translateLlmSceneEnabled_);
         };
         Translation() = default ;
         Translation(const Translation &) = default ;
@@ -125,7 +127,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->additionalStreamOutputLevel_ == nullptr
-        && this->outputLevel_ == nullptr && this->targetLanguages_ == nullptr; };
+        && this->outputLevel_ == nullptr && this->targetLanguages_ == nullptr && this->translateLlmSceneEnabled_ == nullptr; };
         // additionalStreamOutputLevel Field Functions 
         bool hasAdditionalStreamOutputLevel() const { return this->additionalStreamOutputLevel_ != nullptr;};
         void deleteAdditionalStreamOutputLevel() { this->additionalStreamOutputLevel_ = nullptr;};
@@ -149,10 +151,33 @@ namespace Models
         inline Translation& setTargetLanguages(vector<string> && targetLanguages) { DARABONBA_PTR_SET_RVALUE(targetLanguages_, targetLanguages) };
 
 
+        // translateLlmSceneEnabled Field Functions 
+        bool hasTranslateLlmSceneEnabled() const { return this->translateLlmSceneEnabled_ != nullptr;};
+        void deleteTranslateLlmSceneEnabled() { this->translateLlmSceneEnabled_ = nullptr;};
+        inline bool getTranslateLlmSceneEnabled() const { DARABONBA_PTR_GET_DEFAULT(translateLlmSceneEnabled_, false) };
+        inline Translation& setTranslateLlmSceneEnabled(bool translateLlmSceneEnabled) { DARABONBA_PTR_SET_VALUE(translateLlmSceneEnabled_, translateLlmSceneEnabled) };
+
+
       protected:
+        // Specifies the level of detail for real-time translation results for the active speaker.
+        // 
+        // - **1**: Returns results only for complete sentences.
+        // 
+        // - **2**: Returns both intermediate and final results.
+        // 
+        // This parameter applies only to real-time recordings when `MultipleStreamsEnabled` is set to `true`.
         shared_ptr<int32_t> additionalStreamOutputLevel_ {};
+        // Specifies the level of detail for real-time translation results. Default value: `1`.
+        // 
+        // - **1**: Returns results only for complete sentences.
+        // 
+        // - **2**: Returns both intermediate and final results.
+        // 
+        // This parameter applies only to real-time recordings.
         shared_ptr<int32_t> outputLevel_ {};
+        // The target languages for translation. This parameter is required if translation is enabled. Supported languages include Chinese, English, and Japanese.
         shared_ptr<vector<string>> targetLanguages_ {};
+        shared_ptr<bool> translateLlmSceneEnabled_ {};
       };
 
       class Transcription : public Darabonba::Model {
@@ -162,6 +187,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AudioEventDetectionEnabled, audioEventDetectionEnabled_);
           DARABONBA_PTR_TO_JSON(Diarization, diarization_);
           DARABONBA_PTR_TO_JSON(DiarizationEnabled, diarizationEnabled_);
+          DARABONBA_PTR_TO_JSON(DisfluencyEnabled, disfluencyEnabled_);
           DARABONBA_PTR_TO_JSON(Model, model_);
           DARABONBA_PTR_TO_JSON(OutputLevel, outputLevel_);
           DARABONBA_PTR_TO_JSON(PhraseId, phraseId_);
@@ -173,6 +199,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(AudioEventDetectionEnabled, audioEventDetectionEnabled_);
           DARABONBA_PTR_FROM_JSON(Diarization, diarization_);
           DARABONBA_PTR_FROM_JSON(DiarizationEnabled, diarizationEnabled_);
+          DARABONBA_PTR_FROM_JSON(DisfluencyEnabled, disfluencyEnabled_);
           DARABONBA_PTR_FROM_JSON(Model, model_);
           DARABONBA_PTR_FROM_JSON(OutputLevel, outputLevel_);
           DARABONBA_PTR_FROM_JSON(PhraseId, phraseId_);
@@ -218,12 +245,19 @@ namespace Models
 
 
         protected:
+          // Specifies the number of speakers to identify.
+          // 
+          // If this parameter is not set, speakers are not differentiated in the transcript.
+          // 
+          // Set the value to `0` to identify an unknown number of speakers.
+          // 
+          // Set the value to `2` to identify two speakers.
           shared_ptr<int32_t> speakerCount_ {};
         };
 
         virtual bool empty() const override { return this->additionalStreamOutputLevel_ == nullptr
-        && this->audioEventDetectionEnabled_ == nullptr && this->diarization_ == nullptr && this->diarizationEnabled_ == nullptr && this->model_ == nullptr && this->outputLevel_ == nullptr
-        && this->phraseId_ == nullptr && this->profanityFilterEnabled_ == nullptr && this->realtimeDiarizationEnabled_ == nullptr; };
+        && this->audioEventDetectionEnabled_ == nullptr && this->diarization_ == nullptr && this->diarizationEnabled_ == nullptr && this->disfluencyEnabled_ == nullptr && this->model_ == nullptr
+        && this->outputLevel_ == nullptr && this->phraseId_ == nullptr && this->profanityFilterEnabled_ == nullptr && this->realtimeDiarizationEnabled_ == nullptr; };
         // additionalStreamOutputLevel Field Functions 
         bool hasAdditionalStreamOutputLevel() const { return this->additionalStreamOutputLevel_ != nullptr;};
         void deleteAdditionalStreamOutputLevel() { this->additionalStreamOutputLevel_ = nullptr;};
@@ -252,6 +286,13 @@ namespace Models
         void deleteDiarizationEnabled() { this->diarizationEnabled_ = nullptr;};
         inline bool getDiarizationEnabled() const { DARABONBA_PTR_GET_DEFAULT(diarizationEnabled_, false) };
         inline Transcription& setDiarizationEnabled(bool diarizationEnabled) { DARABONBA_PTR_SET_VALUE(diarizationEnabled_, diarizationEnabled) };
+
+
+        // disfluencyEnabled Field Functions 
+        bool hasDisfluencyEnabled() const { return this->disfluencyEnabled_ != nullptr;};
+        void deleteDisfluencyEnabled() { this->disfluencyEnabled_ = nullptr;};
+        inline bool getDisfluencyEnabled() const { DARABONBA_PTR_GET_DEFAULT(disfluencyEnabled_, false) };
+        inline Transcription& setDisfluencyEnabled(bool disfluencyEnabled) { DARABONBA_PTR_SET_VALUE(disfluencyEnabled_, disfluencyEnabled) };
 
 
         // model Field Functions 
@@ -290,13 +331,32 @@ namespace Models
 
 
       protected:
+        // Specifies the level of detail for speech transcription results for the active speaker in a real-time recording scenario.
+        // 
+        // - **1**: Returns results only when a complete sentence is recognized.
+        // 
+        // - **2**: Returns both intermediate and final results as they are recognized.
+        // 
+        // This parameter applies only to real-time recordings when `MultipleStreamsEnabled` is set to `true`.
         shared_ptr<int32_t> additionalStreamOutputLevel_ {};
+        // Specifies whether to enable sound event detection, which identifies non-speech events in the audio, such as music.
         shared_ptr<bool> audioEventDetectionEnabled_ {};
+        // Parameters for the speaker diarization feature.
         shared_ptr<Transcription::Diarization> diarization_ {};
+        // Specifies whether to enable speaker diarization.
         shared_ptr<bool> diarizationEnabled_ {};
+        shared_ptr<bool> disfluencyEnabled_ {};
+        // Set the speech transcription model to improve accuracy for specific domains.
         shared_ptr<string> model_ {};
+        // Specifies the level of detail for the speech transcription results. Default value: `1`.
+        // 
+        // - **1**: Returns results only when a complete sentence is recognized.
+        // 
+        // - **2**: Returns both intermediate and final results as they are recognized.
         shared_ptr<int32_t> outputLevel_ {};
+        // The ID of the hotword list.
         shared_ptr<string> phraseId_ {};
+        // Enable sensitive word filtering during speech transcription. Enabled by default.
         shared_ptr<bool> profanityFilterEnabled_ {};
         shared_ptr<bool> realtimeDiarizationEnabled_ {};
       };
@@ -357,9 +417,13 @@ namespace Models
 
 
       protected:
+        // Specifies whether to generate and save an audio waveform from the source audio/video file or audio stream. This parameter is optional for offline transcription and real-time recording tasks.
         shared_ptr<bool> spectrumEnabled_ {};
+        // Specifies the target format for the transcoded audio. Set to `mp3` to transcode the source audio into MP3 format for storage. This parameter is optional for offline transcription and real-time recording tasks.
         shared_ptr<string> targetAudioFormat_ {};
+        // Specifies the target format for the transcoded video. Set to `mp4` to transcode the source video into MP4 format for storage. This parameter applies only to offline transcription tasks with a video source file.
         shared_ptr<string> targetVideoFormat_ {};
+        // Specifies whether to extract and save video thumbnails from the source video file. This parameter applies only to offline transcription tasks with a video source file.
         shared_ptr<bool> videoThumbnailEnabled_ {};
       };
 
@@ -393,6 +457,7 @@ namespace Models
 
 
       protected:
+        // The types of summaries to generate. This parameter is required when summarization is enabled. Supported types include `Paragraph` (full-text summary), `Conversational` (speaker summary), and `QuestionsAnswering` (Q\\&A summary).
         shared_ptr<vector<string>> types_ {};
       };
 
@@ -459,7 +524,9 @@ namespace Models
 
 
         protected:
+          // Definition of the inspection dimension.
           shared_ptr<string> content_ {};
+          // Name of the inspection dimension.
           shared_ptr<string> title_ {};
         };
 
@@ -498,8 +565,11 @@ namespace Models
 
 
       protected:
+        // List of inspection dimensions for service quality inspection. Each dimension includes a name and definition, which tells the Large Language Model how to evaluate whether the dimension is met.
         shared_ptr<vector<ServiceInspection::InspectionContents>> inspectionContents_ {};
+        // Description of the inspection goals and focus areas for service quality inspection.
         shared_ptr<string> inspectionIntroduction_ {};
+        // Description of the conversation scenario for service quality inspection.
         shared_ptr<string> sceneIntroduction_ {};
         Darabonba::Json speakerMap_ {};
       };
@@ -534,6 +604,7 @@ namespace Models
 
 
       protected:
+        // The types of analysis to perform when the intelligent minutes feature is enabled. Supported values: `Actions` (action items) and `KeyInformation` (key information, including keywords and key points).
         shared_ptr<vector<string>> types_ {};
       };
 
@@ -596,7 +667,9 @@ namespace Models
 
 
         protected:
+          // Identity description.
           shared_ptr<string> description_ {};
+          // Identity name.
           shared_ptr<string> name_ {};
         };
 
@@ -619,7 +692,9 @@ namespace Models
 
 
       protected:
+        // List of identities, including identity name and description.
         shared_ptr<vector<IdentityRecognition::IdentityContents>> identityContents_ {};
+        // Description of the scenario for identity recognition.
         shared_ptr<string> sceneIntroduction_ {};
       };
 
@@ -752,8 +827,11 @@ namespace Models
 
       protected:
         shared_ptr<bool> domainEducationEnabled_ {};
+        // Full-text summary format.
         shared_ptr<string> fullTextSummaryFormat_ {};
+        // Maximum number of keywords.
         shared_ptr<int32_t> maxKeywords_ {};
+        // Specifies whether to enable nfix. You do not typically need to configure this parameter.
         shared_ptr<bool> nfixEnabled_ {};
         shared_ptr<bool> ocrAuxiliaryEnabled_ {};
         shared_ptr<bool> translateLlmSceneEnabled_ {};
@@ -835,11 +913,17 @@ namespace Models
 
 
         protected:
+          // The model to use for the prompt.
           shared_ptr<string> model_ {};
+          // A custom name for the prompt, used to identify the corresponding output.
+          // 
           // This parameter is required.
           shared_ptr<string> name_ {};
+          // The content of the custom prompt.
+          // 
           // This parameter is required.
           shared_ptr<string> prompt_ {};
+          // Specifies the format for the `{Transcription}` tag.
           shared_ptr<string> transType_ {};
         };
 
@@ -854,6 +938,7 @@ namespace Models
 
 
       protected:
+        // A list of custom prompt parameters.
         shared_ptr<vector<CustomPrompt::Contents>> contents_ {};
       };
 
@@ -927,8 +1012,10 @@ namespace Models
 
 
         protected:
+          // Definition of the content extraction dimension.
           shared_ptr<string> content_ {};
           shared_ptr<string> identity_ {};
+          // Name of the content extraction dimension.
           shared_ptr<string> title_ {};
         };
 
@@ -960,7 +1047,9 @@ namespace Models
 
 
       protected:
+        // List of content extraction dimensions. Each dimension includes a name and definition.
         shared_ptr<vector<ContentExtraction::ExtractionContents>> extractionContents_ {};
+        // Description of the conversation scenario for content extraction.
         shared_ptr<string> sceneIntroduction_ {};
         Darabonba::Json speakerMap_ {};
       };
@@ -1187,27 +1276,46 @@ namespace Models
 
     protected:
       shared_ptr<Parameters::AutoChapters> autoChapters_ {};
+      // Specifies whether to generate a chapter summary, which includes chapter titles and summaries for each chapter.
       shared_ptr<bool> autoChaptersEnabled_ {};
+      // Conversation content extraction parameters.
       shared_ptr<Parameters::ContentExtraction> contentExtraction_ {};
       shared_ptr<bool> contentExtractionEnabled_ {};
+      // Parameters to control the custom prompt feature.
       shared_ptr<Parameters::CustomPrompt> customPrompt_ {};
+      // Specifies whether to enable the custom prompt feature.
       shared_ptr<bool> customPromptEnabled_ {};
+      // Extended parameters for advanced use cases. You do not typically need to configure these parameters.
       shared_ptr<Parameters::ExtraParams> extraParams_ {};
+      // Identity recognition parameters.
       shared_ptr<Parameters::IdentityRecognition> identityRecognition_ {};
+      // Enable identity recognition.
       shared_ptr<bool> identityRecognitionEnabled_ {};
       shared_ptr<string> llmOutputLanguage_ {};
+      // Parameters for the intelligent minutes feature, which supports processing for action items, keywords, and key points. If `MeetingAssistanceEnabled` is set to `true` but you do not specify this object, all analysis types are enabled by default.
       shared_ptr<Parameters::MeetingAssistance> meetingAssistance_ {};
+      // Specifies whether to generate intelligent minutes, which include keywords, key points, and action items.
       shared_ptr<bool> meetingAssistanceEnabled_ {};
       shared_ptr<string> model_ {};
+      // Specifies whether to enable PPT extraction. If enabled, the service extracts slides from the video file and generates corresponding summaries. This feature applies only to offline transcription tasks with a video source file and has no effect on other task types.
       shared_ptr<bool> pptExtractionEnabled_ {};
+      // Service quality inspection parameters.
       shared_ptr<Parameters::ServiceInspection> serviceInspection_ {};
+      // Enable service quality inspection. Default is false.
       shared_ptr<bool> serviceInspectionEnabled_ {};
+      // Parameters for the summarization feature.
       shared_ptr<Parameters::Summarization> summarization_ {};
+      // Specifies whether to enable the summarization feature, which can generate results such as a full-text summary and a speaker summary.
       shared_ptr<bool> summarizationEnabled_ {};
+      // Specifies whether to enable the spoken-to-written conversion feature.
       shared_ptr<bool> textPolishEnabled_ {};
+      // Parameters for transcoding source audio/video files or audio streams.
       shared_ptr<Parameters::Transcoding> transcoding_ {};
+      // Parameters to control the speech transcription process.
       shared_ptr<Parameters::Transcription> transcription_ {};
+      // Parameters to control the translation feature.
       shared_ptr<Parameters::Translation> translation_ {};
+      // Specifies whether to enable the translation feature.
       shared_ptr<bool> translationEnabled_ {};
     };
 
@@ -1333,17 +1441,53 @@ namespace Models
 
 
     protected:
+      // Multi-channel audio or video processing mode.
       shared_ptr<string> audioChannelMode_ {};
+      // The HTTP or HTTPS URL of the source audio or video file. This parameter is required when you create an offline transcription task.
       shared_ptr<string> fileUrl_ {};
+      // The encoding format of the audio stream data. This parameter is required when you create a real-time recording task. The following values are supported:
+      // 
+      // - **pcm**
+      // 
+      // - **opus**
+      // 
+      // - **aac**
+      // 
+      // - **speex**
+      // 
+      // - **mp3**
       shared_ptr<string> format_ {};
+      // Preferred languages. This applies only when SourceLanguage is multilingual. It restricts the output language of the model.
       shared_ptr<vector<string>> languageHints_ {};
+      // Specifies whether to enable multi-channel audio stream recognition. This parameter applies only to real-time recording scenarios. The default value is `false`.
       shared_ptr<bool> multipleStreamsEnabled_ {};
+      // After you configure OSS settings in the console, specify an OSS path to save results directly to your OSS bucket.
       shared_ptr<string> outputPath_ {};
+      // Specifies whether to enable callbacks. To receive callbacks, you must configure the callback type and URL in the console and set this parameter to `true`.
       shared_ptr<bool> progressiveCallbacksEnabled_ {};
+      // The sample rate of the audio stream data. This parameter is required when you create a real-time recording task. The supported values are 8000 and 16000.
+      // 
+      // - **8000**: Suitable for telephony and customer service scenarios.
+      // 
+      // - **16000**: Suitable for real-time meeting audio capture scenarios.
       shared_ptr<int32_t> sampleRate_ {};
+      // The language model for speech transcription. The following values are supported:
+      // 
+      // - **cn**: Chinese
+      // 
+      // - **en**: English
+      // 
+      // - **fspk**: Chinese-English code-switching
+      // 
+      // - **ja**: Japanese
+      // 
+      // - **yue**: Cantonese
+      // 
       // This parameter is required.
       shared_ptr<string> sourceLanguage_ {};
+      // The task ID that is returned when you create a real-time recording. This ID is required to stop the recording. Specify this parameter only when stopping a real-time recording.
       shared_ptr<string> taskId_ {};
+      // A custom identifier that you can set for the task.
       shared_ptr<string> taskKey_ {};
     };
 
@@ -1389,10 +1533,28 @@ namespace Models
 
 
   protected:
+    // The AppKey of the project that you created in the console.
     shared_ptr<string> appKey_ {};
+    // The basic input parameters for creating a task. The required parameters vary based on the task type.
+    // 
+    // - For an offline task (`type="offline"`), you must specify the `SourceLanguage` and `FileUrl` parameters.
+    // 
+    // - For a real-time task (`type="realtime"`), you must also specify the `SourceLanguage`, `Format`, and `SampleRate` parameters.
     shared_ptr<CreateTaskRequest::Input> input_ {};
+    // Algorithm-related parameters for customizing task processing.
     shared_ptr<CreateTaskRequest::Parameters> parameters_ {};
+    // The operation to perform. Valid values:
+    // 
+    // - **start**: Creates a task. This is the default value and does not typically need to be set.
+    // 
+    // - **stop**: Stops a real-time recording task. This value is used only for real-time tasks. To end the recording, set this parameter to `stop`.
     shared_ptr<string> operation_ {};
+    // The type of the task. Valid values:
+    // 
+    // - **offline**: An offline task, such as an offline transcription.
+    // 
+    // - **realtime**: A real-time task, such as a real-time recording.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

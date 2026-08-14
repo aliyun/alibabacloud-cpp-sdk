@@ -192,16 +192,27 @@ namespace Models
 
 
       protected:
+        // Link to the result of the Auto Chapters feature.
         shared_ptr<string> autoChapters_ {};
+        // URL link to the result of conversation content extraction
         shared_ptr<string> contentExtraction_ {};
+        // Link to the result of the Custom prompt
         shared_ptr<string> customPrompt_ {};
+        // The URL link to the identity recognition result.
         shared_ptr<string> identityRecognition_ {};
+        // URL link to the result of Intelligent Meeting Summary
         shared_ptr<string> meetingAssistance_ {};
+        // URL link to the result of video PPT extraction and summarization
         shared_ptr<string> pptExtraction_ {};
+        // Link to the result of service inspection
         shared_ptr<string> serviceInspection_ {};
+        // Link to the result of LLM-based summarization.
         shared_ptr<string> summarization_ {};
+        // Link to the result of spoken-to-written text conversion
         shared_ptr<string> textPolish_ {};
+        // Link to the result of speech transcription.
         shared_ptr<string> transcription_ {};
+        // URL link to the result of text translation
         shared_ptr<string> translation_ {};
       };
 
@@ -281,15 +292,30 @@ namespace Models
 
 
     protected:
+      // Error code
       shared_ptr<string> errorCode_ {};
+      // Error message
       shared_ptr<string> errorMessage_ {};
+      // URL link to the MP3 conversion result
       shared_ptr<string> outputMp3Path_ {};
+      // URL link to the MP4 conversion result
       shared_ptr<string> outputMp4Path_ {};
+      // URL link to the audio waveform graph
       shared_ptr<string> outputSpectrumPath_ {};
+      // URL link to the video thumbnail
       shared_ptr<string> outputThumbnailPath_ {};
+      // A collection of results from various algorithm processing tasks. The result is returned as an HTTP link, which the user can use to parse the native result.
       shared_ptr<Data::Result> result_ {};
+      // Job ID.
       shared_ptr<string> taskId_ {};
+      // The custom ID set by the user when creating the job.
       shared_ptr<string> taskKey_ {};
+      // Task Status.
+      // 
+      // - ONGOING: The job is in progress.
+      // - COMPLETED: The job is completed.
+      // - FAILED: The job has failed.
+      // - INVALID: The job is invalid.
       shared_ptr<string> taskStatus_ {};
     };
 
@@ -326,9 +352,13 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // Returned object.
     shared_ptr<GetTaskInfoResponseBody::Data> data_ {};
+    // Status description.
     shared_ptr<string> message_ {};
+    // Request ID, used only for joint debugging.
     shared_ptr<string> requestId_ {};
   };
 

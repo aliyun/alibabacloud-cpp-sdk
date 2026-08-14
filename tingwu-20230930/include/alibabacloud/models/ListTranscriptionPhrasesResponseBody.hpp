@@ -108,8 +108,11 @@ namespace Models
 
 
       protected:
+        // Phrase list description.
         shared_ptr<string> description_ {};
+        // Phrase list name.
         shared_ptr<string> name_ {};
+        // Phrase list ID.
         shared_ptr<string> phraseId_ {};
       };
 
@@ -146,9 +149,13 @@ namespace Models
 
 
     protected:
+      // error code.
       shared_ptr<string> errorCode_ {};
+      // error message.
       shared_ptr<string> errorMessage_ {};
+      // Phrase objects.
       shared_ptr<vector<Data::Phrases>> phrases_ {};
+      // Indicates whether the operation was successful.
       shared_ptr<string> status_ {};
     };
 
@@ -185,8 +192,11 @@ namespace Models
 
 
   protected:
+    // status code.
     shared_ptr<string> code_ {};
+    // Response object.
     shared_ptr<ListTranscriptionPhrasesResponseBody::Data> data_ {};
+    // status description.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

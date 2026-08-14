@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // A description of the hotword list.
     shared_ptr<string> description_ {};
+    // The name of the hotword list.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // A JSON map string that defines hotwords and their weights.
+    // 
     // This parameter is required.
     shared_ptr<string> wordWeights_ {};
   };

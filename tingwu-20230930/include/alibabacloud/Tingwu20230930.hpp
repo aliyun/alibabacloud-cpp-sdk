@@ -21,7 +21,7 @@ namespace Tingwu20230930
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 创建听悟任务
+       * @summary Create offline transcription and real-time meeting tasks in Tingwu.
        *
        * @param request CreateTaskRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace Tingwu20230930
       Models::CreateTaskResponse createTaskWithOptions(const Models::CreateTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建听悟任务
+       * @summary Create offline transcription and real-time meeting tasks in Tingwu.
        *
        * @param request CreateTaskRequest
        * @return CreateTaskResponse
@@ -39,7 +39,7 @@ namespace Tingwu20230930
       Models::CreateTaskResponse createTask(const Models::CreateTaskRequest &request);
 
       /**
-       * @summary 创建热词词表
+       * @summary Creates a custom vocabulary of transcription phrases.
        *
        * @param request CreateTranscriptionPhrasesRequest
        * @param headers map
@@ -49,7 +49,7 @@ namespace Tingwu20230930
       Models::CreateTranscriptionPhrasesResponse createTranscriptionPhrasesWithOptions(const Models::CreateTranscriptionPhrasesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建热词词表
+       * @summary Creates a custom vocabulary of transcription phrases.
        *
        * @param request CreateTranscriptionPhrasesRequest
        * @return CreateTranscriptionPhrasesResponse
@@ -57,7 +57,7 @@ namespace Tingwu20230930
       Models::CreateTranscriptionPhrasesResponse createTranscriptionPhrases(const Models::CreateTranscriptionPhrasesRequest &request);
 
       /**
-       * @summary 删除词表
+       * @summary Deletes phrase tables.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -66,14 +66,14 @@ namespace Tingwu20230930
       Models::DeleteTranscriptionPhrasesResponse deleteTranscriptionPhrasesWithOptions(const string &PhraseId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除词表
+       * @summary Deletes phrase tables.
        *
        * @return DeleteTranscriptionPhrasesResponse
        */
       Models::DeleteTranscriptionPhrasesResponse deleteTranscriptionPhrases(const string &PhraseId);
 
       /**
-       * @summary 查询听悟任务信息
+       * @summary Query the job status and job result.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -82,14 +82,14 @@ namespace Tingwu20230930
       Models::GetTaskInfoResponse getTaskInfoWithOptions(const string &TaskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询听悟任务信息
+       * @summary Query the job status and job result.
        *
        * @return GetTaskInfoResponse
        */
       Models::GetTaskInfoResponse getTaskInfo(const string &TaskId);
 
       /**
-       * @summary 查询热词词表信息
+       * @summary Queries information about hotword lists.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,14 +98,14 @@ namespace Tingwu20230930
       Models::GetTranscriptionPhrasesResponse getTranscriptionPhrasesWithOptions(const string &PhraseId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询热词词表信息
+       * @summary Queries information about hotword lists.
        *
        * @return GetTranscriptionPhrasesResponse
        */
       Models::GetTranscriptionPhrasesResponse getTranscriptionPhrases(const string &PhraseId);
 
       /**
-       * @summary 列举用户所有热词词表信息
+       * @summary Lists all of a user\\"s hot phrase lists.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -114,14 +114,14 @@ namespace Tingwu20230930
       Models::ListTranscriptionPhrasesResponse listTranscriptionPhrasesWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举用户所有热词词表信息
+       * @summary Lists all of a user\\"s hot phrase lists.
        *
        * @return ListTranscriptionPhrasesResponse
        */
       Models::ListTranscriptionPhrasesResponse listTranscriptionPhrases();
 
       /**
-       * @summary 更新热词词表
+       * @summary Update a hotword list.
        *
        * @param request UpdateTranscriptionPhrasesRequest
        * @param headers map
@@ -131,7 +131,7 @@ namespace Tingwu20230930
       Models::UpdateTranscriptionPhrasesResponse updateTranscriptionPhrasesWithOptions(const string &PhraseId, const Models::UpdateTranscriptionPhrasesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新热词词表
+       * @summary Update a hotword list.
        *
        * @param request UpdateTranscriptionPhrasesRequest
        * @return UpdateTranscriptionPhrasesResponse
