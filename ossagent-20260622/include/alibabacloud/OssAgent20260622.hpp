@@ -21,7 +21,7 @@ namespace OssAgent20260622
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 聊天流式接口
+       * @summary Initiates a streaming chat session.
        *
        * @param request ChatRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace OssAgent20260622
       FutureGenerator<Models::ChatResponse> chatWithSSE(const Models::ChatRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 聊天流式接口
+       * @summary Initiates a streaming chat session.
        *
        * @param request ChatRequest
        * @param headers map
@@ -41,7 +41,7 @@ namespace OssAgent20260622
       Models::ChatResponse chatWithOptions(const Models::ChatRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 聊天流式接口
+       * @summary Initiates a streaming chat session.
        *
        * @param request ChatRequest
        * @return ChatResponse
@@ -49,7 +49,7 @@ namespace OssAgent20260622
       Models::ChatResponse chat(const Models::ChatRequest &request);
 
       /**
-       * @summary 工具确认接口
+       * @summary Confirms a tool calling operation.
        *
        * @param request ConfirmRequest
        * @param headers map
@@ -59,7 +59,7 @@ namespace OssAgent20260622
       FutureGenerator<Models::ConfirmResponse> confirmWithSSE(const Models::ConfirmRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 工具确认接口
+       * @summary Confirms a tool calling operation.
        *
        * @param request ConfirmRequest
        * @param headers map
@@ -69,7 +69,7 @@ namespace OssAgent20260622
       Models::ConfirmResponse confirmWithOptions(const Models::ConfirmRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 工具确认接口
+       * @summary Confirms a tool calling operation.
        *
        * @param request ConfirmRequest
        * @return ConfirmResponse
@@ -77,7 +77,7 @@ namespace OssAgent20260622
       Models::ConfirmResponse confirm(const Models::ConfirmRequest &request);
 
       /**
-       * @summary 聊天中断接口
+       * @summary Interrupts a chat session.
        *
        * @param request InterruptRequest
        * @param headers map
@@ -87,7 +87,7 @@ namespace OssAgent20260622
       Models::InterruptResponse interruptWithOptions(const string &sessionId, const Models::InterruptRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 聊天中断接口
+       * @summary Interrupts a chat session.
        *
        * @param request InterruptRequest
        * @return InterruptResponse

@@ -19,7 +19,7 @@ namespace OssAgent20260622
 {
 
 AlibabaCloud::OssAgent20260622::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("ossagent", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -38,7 +38,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 聊天流式接口
+ * @summary Initiates a streaming chat session.
  *
  * @param request ChatRequest
  * @param headers map
@@ -89,7 +89,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 聊天流式接口
+ * @summary Initiates a streaming chat session.
  *
  * @param request ChatRequest
  * @param headers map
@@ -126,7 +126,7 @@ ChatResponse Client::chatWithOptions(const ChatRequest &request, const map<strin
 }
 
 /**
- * @summary 聊天流式接口
+ * @summary Initiates a streaming chat session.
  *
  * @param request ChatRequest
  * @return ChatResponse
@@ -138,7 +138,7 @@ ChatResponse Client::chat(const ChatRequest &request) {
 }
 
 /**
- * @summary 工具确认接口
+ * @summary Confirms a tool calling operation.
  *
  * @param request ConfirmRequest
  * @param headers map
@@ -201,7 +201,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 工具确认接口
+ * @summary Confirms a tool calling operation.
  *
  * @param request ConfirmRequest
  * @param headers map
@@ -250,7 +250,7 @@ ConfirmResponse Client::confirmWithOptions(const ConfirmRequest &request, const 
 }
 
 /**
- * @summary 工具确认接口
+ * @summary Confirms a tool calling operation.
  *
  * @param request ConfirmRequest
  * @return ConfirmResponse
@@ -262,7 +262,7 @@ ConfirmResponse Client::confirm(const ConfirmRequest &request) {
 }
 
 /**
- * @summary 聊天中断接口
+ * @summary Interrupts a chat session.
  *
  * @param request InterruptRequest
  * @param headers map
@@ -289,7 +289,7 @@ InterruptResponse Client::interruptWithOptions(const string &sessionId, const In
 }
 
 /**
- * @summary 聊天中断接口
+ * @summary Interrupts a chat session.
  *
  * @param request InterruptRequest
  * @return InterruptResponse

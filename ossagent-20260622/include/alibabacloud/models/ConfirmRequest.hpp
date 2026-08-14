@@ -87,8 +87,11 @@ namespace Models
 
 
     protected:
+      // The tool ID, returned by the Chat operation.
       shared_ptr<string> id_ {};
+      // The command to execute for the tool calling operation, returned by the Chat operation.
       Darabonba::Json modifiedInput_ {};
+      // The consumer name.
       shared_ptr<string> name_ {};
     };
 
@@ -132,10 +135,15 @@ namespace Models
 
 
   protected:
+    // Specifies whether to approve the tool execution.
     shared_ptr<bool> confirmed_ {};
+    // The current execution phase.
     shared_ptr<string> phase_ {};
+    // The reason for whether to call the tool.
     shared_ptr<string> reason_ {};
+    // The Q&A session ID.
     shared_ptr<string> sessionId_ {};
+    // The tool invocations.
     shared_ptr<vector<ConfirmRequest::ToolCalls>> toolCalls_ {};
   };
 

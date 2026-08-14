@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // The conversation text content.
       shared_ptr<string> content_ {};
+      // The role of the message.
       shared_ptr<string> role_ {};
     };
 
@@ -93,7 +95,9 @@ namespace Models
 
 
   protected:
+    // The messages.
     shared_ptr<vector<ChatRequest::Messages>> messages_ {};
+    // The ID of the Q&A session.
     shared_ptr<string> sessionId_ {};
   };
 
