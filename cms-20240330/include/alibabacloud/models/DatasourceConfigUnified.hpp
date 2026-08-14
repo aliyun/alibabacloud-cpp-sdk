@@ -107,13 +107,22 @@ namespace Models
 
 
   protected:
+    // The Prometheus instance ID (required when type=PROMETHEUS; ignored for other types).
     shared_ptr<string> instanceId_ {};
+    // The original V1 datasource JSON string returned as a fallback when type=UNKNOWN and the read path fails to parse the datasource. If the frontend detects that this field is not empty, display it as read-only.
     shared_ptr<string> legacyRaw_ {};
+    // Returned when type=UNKNOWN, indicating that this rule cannot be edited through the new API. Submit a ticket to contact the CloudMonitor team.
     shared_ptr<string> legacyType_ {};
+    // The Alibaba Cloud service category (optional when type=CLOUD_MONITORING). If the source does not contain this information, the value unknown is returned.
     shared_ptr<string> productCategory_ {};
+    // The Simple Log Service project name (required when type=SLS; all stores share the same project).
     shared_ptr<string> project_ {};
+    // The region ID (optional for PROMETHEUS / UMODEL / APM / SLS types; defaults to the same region as the rule or gateway. CLOUD_MONITORING does not use this field; use AlertRuleV2.regionId instead).
     shared_ptr<string> regionId_ {};
+    // The list of Simple Log Service stores (used when type=SLS; at least one store is required). Each store contains store and storeType fields. The project and regionId fields have been moved to the top level. The deprecated fields with the same names that remain in stores cause a 400 error if used in write paths.
     shared_ptr<vector<Stores>> stores_ {};
+    // The datasource type. Valid values: PROMETHEUS (instanceId is required; regionId is optional). UMODEL (regionId is optional; other settings are carried in queryConfig/conditionConfig). APM (regionId is optional). CLOUD_MONITORING (regionId and productCategory are optional). UNKNOWN (read-only fallback; do not use in write paths). Do not use non-enumerated values (such as CMS_BASIC_DS or SLS_DS). The backend returns an Invalidtype 400 error.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListIntegrationPolicyCustomScrapeJobRulesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(addonReleaseName, addonReleaseName_);
+      DARABONBA_PTR_TO_JSON(collectorReleaseName, collectorReleaseName_);
       DARABONBA_PTR_TO_JSON(encryptYaml, encryptYaml_);
       DARABONBA_PTR_TO_JSON(namespace, namespace_);
     };
     friend void from_json(const Darabonba::Json& j, ListIntegrationPolicyCustomScrapeJobRulesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(addonReleaseName, addonReleaseName_);
+      DARABONBA_PTR_FROM_JSON(collectorReleaseName, collectorReleaseName_);
       DARABONBA_PTR_FROM_JSON(encryptYaml, encryptYaml_);
       DARABONBA_PTR_FROM_JSON(namespace, namespace_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addonReleaseName_ == nullptr
-        && this->encryptYaml_ == nullptr && this->namespace_ == nullptr; };
+        && this->collectorReleaseName_ == nullptr && this->encryptYaml_ == nullptr && this->namespace_ == nullptr; };
     // addonReleaseName Field Functions 
     bool hasAddonReleaseName() const { return this->addonReleaseName_ != nullptr;};
     void deleteAddonReleaseName() { this->addonReleaseName_ = nullptr;};
     inline string getAddonReleaseName() const { DARABONBA_PTR_GET_DEFAULT(addonReleaseName_, "") };
     inline ListIntegrationPolicyCustomScrapeJobRulesRequest& setAddonReleaseName(string addonReleaseName) { DARABONBA_PTR_SET_VALUE(addonReleaseName_, addonReleaseName) };
+
+
+    // collectorReleaseName Field Functions 
+    bool hasCollectorReleaseName() const { return this->collectorReleaseName_ != nullptr;};
+    void deleteCollectorReleaseName() { this->collectorReleaseName_ = nullptr;};
+    inline string getCollectorReleaseName() const { DARABONBA_PTR_GET_DEFAULT(collectorReleaseName_, "") };
+    inline ListIntegrationPolicyCustomScrapeJobRulesRequest& setCollectorReleaseName(string collectorReleaseName) { DARABONBA_PTR_SET_VALUE(collectorReleaseName_, collectorReleaseName) };
 
 
     // encryptYaml Field Functions 
@@ -57,9 +66,11 @@ namespace Models
 
 
   protected:
-    // The name of the add-on release.
+    // The name of the addon release.
     shared_ptr<string> addonReleaseName_ {};
-    // Specifies whether to encrypt the YAML file.
+    // The probe identifier. If a release exists, pass the release name. If no release exists, pass the component name.
+    shared_ptr<string> collectorReleaseName_ {};
+    // Specifies whether to encrypt the YAML content.
     shared_ptr<bool> encryptYaml_ {};
     // The namespace.
     shared_ptr<string> namespace_ {};

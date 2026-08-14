@@ -163,9 +163,9 @@ namespace Models
       protected:
         // The scrape job name.
         shared_ptr<string> jobName_ {};
-        // The details.
+        // The detailed information.
         shared_ptr<string> message_ {};
-        // The scrape path.
+        // The metrics path.
         shared_ptr<string> metricsPath_ {};
         // The invocation method.
         shared_ptr<string> scheme_ {};
@@ -260,21 +260,21 @@ namespace Models
 
 
     protected:
-      // The add-on name.
+      // The addon name.
       shared_ptr<string> addonName_ {};
-      // The name of the add-on release.
+      // The addon release name.
       shared_ptr<string> addonReleaseName_ {};
-      // The add-on version.
+      // The addon version.
       shared_ptr<string> addonVersion_ {};
-      // The configuration YAML file.
+      // The configuration YAML.
       shared_ptr<string> configYaml_ {};
-      // The enabled status.
+      // The enabling status.
       shared_ptr<string> enableStatus_ {};
-      // Indicates whether the YAML file is encrypted.
+      // The encrypted YAML.
       shared_ptr<bool> encryptYaml_ {};
       // The number of matched pods.
       shared_ptr<int64_t> matchedPodCount_ {};
-      // The details.
+      // The detailed information.
       shared_ptr<string> message_ {};
       // The service name.
       shared_ptr<string> name_ {};
@@ -323,7 +323,7 @@ namespace Models
     shared_ptr<vector<ListIntegrationPolicyCustomScrapeJobRulesResponseBody::CustomScrapeJobRules>> customScrapeJobRules_ {};
     // The policy ID.
     shared_ptr<string> policyId_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

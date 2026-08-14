@@ -35,6 +35,7 @@ namespace Models
     class Policy : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Policy& obj) { 
+        DARABONBA_PTR_TO_JSON(addonNames, addonNames_);
         DARABONBA_PTR_TO_JSON(bindResource, bindResource_);
         DARABONBA_PTR_TO_JSON(csUmodelStatus, csUmodelStatus_);
         DARABONBA_PTR_TO_JSON(entityGroup, entityGroup_);
@@ -49,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(workspace, workspace_);
       };
       friend void from_json(const Darabonba::Json& j, Policy& obj) { 
+        DARABONBA_PTR_FROM_JSON(addonNames, addonNames_);
         DARABONBA_PTR_FROM_JSON(bindResource, bindResource_);
         DARABONBA_PTR_FROM_JSON(csUmodelStatus, csUmodelStatus_);
         DARABONBA_PTR_FROM_JSON(entityGroup, entityGroup_);
@@ -438,7 +440,7 @@ namespace Models
           protected:
             // The unique identifier of the field.
             shared_ptr<string> fieldKey_ {};
-            // The field values.
+            // The field content.
             shared_ptr<vector<string>> fieldValues_ {};
             // The operation to perform.
             shared_ptr<string> op_ {};
@@ -588,7 +590,7 @@ namespace Models
           shared_ptr<vector<EntityRules::Annotations>> annotations_ {};
           // The list of entity types.
           shared_ptr<vector<string>> entityTypes_ {};
-          // The list of field rules.
+          // The list of property rules.
           shared_ptr<vector<EntityRules::FieldRules>> fieldRules_ {};
           // The instance IDs.
           shared_ptr<vector<string>> instanceIds_ {};
@@ -674,7 +676,7 @@ namespace Models
         shared_ptr<string> entityGroupName_ {};
         // The entity rules.
         shared_ptr<EntityGroup::EntityRules> entityRules_ {};
-        // The query parameter.
+        // Used for querying.
         shared_ptr<string> query_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
@@ -750,10 +752,19 @@ namespace Models
         shared_ptr<string> vpcId_ {};
       };
 
-      virtual bool empty() const override { return this->bindResource_ == nullptr
-        && this->csUmodelStatus_ == nullptr && this->entityGroup_ == nullptr && this->managedInfo_ == nullptr && this->policyId_ == nullptr && this->policyName_ == nullptr
-        && this->policyType_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->tags_ == nullptr && this->userId_ == nullptr
-        && this->workspace_ == nullptr; };
+      virtual bool empty() const override { return this->addonNames_ == nullptr
+        && this->bindResource_ == nullptr && this->csUmodelStatus_ == nullptr && this->entityGroup_ == nullptr && this->managedInfo_ == nullptr && this->policyId_ == nullptr
+        && this->policyName_ == nullptr && this->policyType_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->tags_ == nullptr
+        && this->userId_ == nullptr && this->workspace_ == nullptr; };
+      // addonNames Field Functions 
+      bool hasAddonNames() const { return this->addonNames_ != nullptr;};
+      void deleteAddonNames() { this->addonNames_ = nullptr;};
+      inline const vector<string> & getAddonNames() const { DARABONBA_PTR_GET_CONST(addonNames_, vector<string>) };
+      inline vector<string> getAddonNames() { DARABONBA_PTR_GET(addonNames_, vector<string>) };
+      inline Policy& setAddonNames(const vector<string> & addonNames) { DARABONBA_PTR_SET_VALUE(addonNames_, addonNames) };
+      inline Policy& setAddonNames(vector<string> && addonNames) { DARABONBA_PTR_SET_RVALUE(addonNames_, addonNames) };
+
+
       // bindResource Field Functions 
       bool hasBindResource() const { return this->bindResource_ != nullptr;};
       void deleteBindResource() { this->bindResource_ = nullptr;};
@@ -847,6 +858,8 @@ namespace Models
 
 
     protected:
+      // The names of all components installed in this policy.
+      shared_ptr<vector<string>> addonNames_ {};
       // The bound resource information.
       shared_ptr<Policy::BindResource> bindResource_ {};
       // The umodel installation status in the container environment.

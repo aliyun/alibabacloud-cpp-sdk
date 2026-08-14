@@ -226,17 +226,17 @@ namespace Models
 
 
     protected:
-      // The name of the add-on.
+      // The addon name.
       shared_ptr<string> addonName_ {};
-      // The name of the add-on release.
+      // The addon release name.
       shared_ptr<string> addonReleaseName_ {};
-      // The version of the add-on.
+      // The addon version.
       shared_ptr<string> addonVersion_ {};
-      // The YAML configuration.
+      // The configuration YAML.
       shared_ptr<string> configYaml_ {};
-      // The status.
+      // The enabling status.
       shared_ptr<string> enableStatus_ {};
-      // Indicates whether the YAML file is encrypted.
+      // The encrypted YAML.
       shared_ptr<bool> encryptYaml_ {};
       // The endpoints of the instance.
       shared_ptr<vector<PodMonitors::Endpoints>> endpoints_ {};
@@ -287,7 +287,7 @@ namespace Models
     shared_ptr<vector<ListIntegrationPolicyPodMonitorsResponseBody::PodMonitors>> podMonitors_ {};
     // The policy ID.
     shared_ptr<string> policyId_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

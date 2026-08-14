@@ -41,6 +41,7 @@ namespace Models
     class Policies : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Policies& obj) { 
+        DARABONBA_PTR_TO_JSON(addonNames, addonNames_);
         DARABONBA_PTR_TO_JSON(bindResource, bindResource_);
         DARABONBA_PTR_TO_JSON(csUmodelStatus, csUmodelStatus_);
         DARABONBA_PTR_TO_JSON(entityGroup, entityGroup_);
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(workspace, workspace_);
       };
       friend void from_json(const Darabonba::Json& j, Policies& obj) { 
+        DARABONBA_PTR_FROM_JSON(addonNames, addonNames_);
         DARABONBA_PTR_FROM_JSON(bindResource, bindResource_);
         DARABONBA_PTR_FROM_JSON(csUmodelStatus, csUmodelStatus_);
         DARABONBA_PTR_FROM_JSON(entityGroup, entityGroup_);
@@ -121,7 +123,7 @@ namespace Models
       protected:
         // The number of ready sub-releases.
         shared_ptr<int32_t> ready_ {};
-        // The total number of rules.
+        // The number of rules.
         shared_ptr<int32_t> total_ {};
       };
 
@@ -457,7 +459,7 @@ namespace Models
           protected:
             // The unique identifier of the field.
             shared_ptr<string> fieldKey_ {};
-            // The field values. Multiple values are separated by commas.
+            // The field values. Multiple values are separated by commas (,).
             shared_ptr<vector<string>> fieldValues_ {};
             // The operation to perform.
             shared_ptr<string> op_ {};
@@ -769,10 +771,19 @@ namespace Models
         shared_ptr<string> vpcId_ {};
       };
 
-      virtual bool empty() const override { return this->bindResource_ == nullptr
-        && this->csUmodelStatus_ == nullptr && this->entityGroup_ == nullptr && this->feePackage_ == nullptr && this->managedInfo_ == nullptr && this->policyId_ == nullptr
-        && this->policyName_ == nullptr && this->policyType_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->subAddonRelease_ == nullptr
-        && this->userId_ == nullptr && this->workspace_ == nullptr; };
+      virtual bool empty() const override { return this->addonNames_ == nullptr
+        && this->bindResource_ == nullptr && this->csUmodelStatus_ == nullptr && this->entityGroup_ == nullptr && this->feePackage_ == nullptr && this->managedInfo_ == nullptr
+        && this->policyId_ == nullptr && this->policyName_ == nullptr && this->policyType_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->subAddonRelease_ == nullptr && this->userId_ == nullptr && this->workspace_ == nullptr; };
+      // addonNames Field Functions 
+      bool hasAddonNames() const { return this->addonNames_ != nullptr;};
+      void deleteAddonNames() { this->addonNames_ = nullptr;};
+      inline const vector<string> & getAddonNames() const { DARABONBA_PTR_GET_CONST(addonNames_, vector<string>) };
+      inline vector<string> getAddonNames() { DARABONBA_PTR_GET(addonNames_, vector<string>) };
+      inline Policies& setAddonNames(const vector<string> & addonNames) { DARABONBA_PTR_SET_VALUE(addonNames_, addonNames) };
+      inline Policies& setAddonNames(vector<string> && addonNames) { DARABONBA_PTR_SET_RVALUE(addonNames_, addonNames) };
+
+
       // bindResource Field Functions 
       bool hasBindResource() const { return this->bindResource_ != nullptr;};
       void deleteBindResource() { this->bindResource_ = nullptr;};
@@ -873,6 +884,8 @@ namespace Models
 
 
     protected:
+      // The names of all components installed in this policy.
+      shared_ptr<vector<string>> addonNames_ {};
       // The bound resource information.
       shared_ptr<Policies::BindResource> bindResource_ {};
       // The umodel installation status in the container environment.
@@ -893,7 +906,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The number of sub-releases.
+      // The sub-release count.
       shared_ptr<Policies::SubAddonRelease> subAddonRelease_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
@@ -942,10 +955,6 @@ namespace Models
 
   protected:
     // The page size.
-    // Default value:
-    // 	50
-    // Maximum value:
-    // 	50.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};

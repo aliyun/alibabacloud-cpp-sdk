@@ -2245,7 +2245,7 @@ namespace Cms20240330
       Models::ListIntegrationPolicyCollectorsResponse listIntegrationPolicyCollectors(const string &policyId, const Models::ListIntegrationPolicyCollectorsRequest &request);
 
       /**
-       * @summary Lists the custom service discovery rules for an Integration Center policy.
+       * @summary Retrieves the custom service discovery rules of a Provisioning policy.
        *
        * @param request ListIntegrationPolicyCustomScrapeJobRulesRequest
        * @param headers map
@@ -2255,7 +2255,7 @@ namespace Cms20240330
       Models::ListIntegrationPolicyCustomScrapeJobRulesResponse listIntegrationPolicyCustomScrapeJobRulesWithOptions(const string &policyId, const Models::ListIntegrationPolicyCustomScrapeJobRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the custom service discovery rules for an Integration Center policy.
+       * @summary Retrieves the custom service discovery rules of a Provisioning policy.
        *
        * @param request ListIntegrationPolicyCustomScrapeJobRulesRequest
        * @return ListIntegrationPolicyCustomScrapeJobRulesResponse
@@ -2285,9 +2285,9 @@ namespace Cms20240330
       Models::ListIntegrationPolicyDashboardsResponse listIntegrationPolicyDashboards(const string &policyId, const Models::ListIntegrationPolicyDashboardsRequest &request);
 
       /**
-       * @summary Lists the PodMonitor resources for an Integration Center policy.
+       * @summary Retrieves the PodMonitor resources of an access center policy.
        *
-       * @description This topic provides an example of how to list the PodMonitor resources for an Integration Center policy.
+       * @description This topic provides an example on how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
        *
        * @param request ListIntegrationPolicyPodMonitorsRequest
        * @param headers map
@@ -2297,9 +2297,9 @@ namespace Cms20240330
       Models::ListIntegrationPolicyPodMonitorsResponse listIntegrationPolicyPodMonitorsWithOptions(const string &policyId, const Models::ListIntegrationPolicyPodMonitorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists the PodMonitor resources for an Integration Center policy.
+       * @summary Retrieves the PodMonitor resources of an access center policy.
        *
-       * @description This topic provides an example of how to list the PodMonitor resources for an Integration Center policy.
+       * @description This topic provides an example on how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
        *
        * @param request ListIntegrationPolicyPodMonitorsRequest
        * @return ListIntegrationPolicyPodMonitorsResponse
@@ -2307,7 +2307,7 @@ namespace Cms20240330
       Models::ListIntegrationPolicyPodMonitorsResponse listIntegrationPolicyPodMonitors(const string &policyId, const Models::ListIntegrationPolicyPodMonitorsRequest &request);
 
       /**
-       * @summary Retrieves the ServiceMonitor information for an Integration Center policy.
+       * @summary Retrieves the ServiceMonitor information of a Provisioning policy.
        *
        * @param request ListIntegrationPolicyServiceMonitorsRequest
        * @param headers map
@@ -2317,7 +2317,7 @@ namespace Cms20240330
       Models::ListIntegrationPolicyServiceMonitorsResponse listIntegrationPolicyServiceMonitorsWithOptions(const string &policyId, const Models::ListIntegrationPolicyServiceMonitorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the ServiceMonitor information for an Integration Center policy.
+       * @summary Retrieves the ServiceMonitor information of a Provisioning policy.
        *
        * @param request ListIntegrationPolicyServiceMonitorsRequest
        * @return ListIntegrationPolicyServiceMonitorsResponse

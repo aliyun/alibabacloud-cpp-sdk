@@ -6068,7 +6068,7 @@ ListIntegrationPolicyCollectorsResponse Client::listIntegrationPolicyCollectors(
 }
 
 /**
- * @summary Lists the custom service discovery rules for an Integration Center policy.
+ * @summary Retrieves the custom service discovery rules of a Provisioning policy.
  *
  * @param request ListIntegrationPolicyCustomScrapeJobRulesRequest
  * @param headers map
@@ -6080,6 +6080,10 @@ ListIntegrationPolicyCustomScrapeJobRulesResponse Client::listIntegrationPolicyC
   json query = {};
   if (!!request.hasAddonReleaseName()) {
     query["addonReleaseName"] = request.getAddonReleaseName();
+  }
+
+  if (!!request.hasCollectorReleaseName()) {
+    query["collectorReleaseName"] = request.getCollectorReleaseName();
   }
 
   if (!!request.hasEncryptYaml()) {
@@ -6109,7 +6113,7 @@ ListIntegrationPolicyCustomScrapeJobRulesResponse Client::listIntegrationPolicyC
 }
 
 /**
- * @summary Lists the custom service discovery rules for an Integration Center policy.
+ * @summary Retrieves the custom service discovery rules of a Provisioning policy.
  *
  * @param request ListIntegrationPolicyCustomScrapeJobRulesRequest
  * @return ListIntegrationPolicyCustomScrapeJobRulesResponse
@@ -6178,9 +6182,9 @@ ListIntegrationPolicyDashboardsResponse Client::listIntegrationPolicyDashboards(
 }
 
 /**
- * @summary Lists the PodMonitor resources for an Integration Center policy.
+ * @summary Retrieves the PodMonitor resources of an access center policy.
  *
- * @description This topic provides an example of how to list the PodMonitor resources for an Integration Center policy.
+ * @description This topic provides an example on how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param request ListIntegrationPolicyPodMonitorsRequest
  * @param headers map
@@ -6192,6 +6196,10 @@ ListIntegrationPolicyPodMonitorsResponse Client::listIntegrationPolicyPodMonitor
   json query = {};
   if (!!request.hasAddonReleaseName()) {
     query["addonReleaseName"] = request.getAddonReleaseName();
+  }
+
+  if (!!request.hasCollectorReleaseName()) {
+    query["collectorReleaseName"] = request.getCollectorReleaseName();
   }
 
   if (!!request.hasEncryptYaml()) {
@@ -6221,9 +6229,9 @@ ListIntegrationPolicyPodMonitorsResponse Client::listIntegrationPolicyPodMonitor
 }
 
 /**
- * @summary Lists the PodMonitor resources for an Integration Center policy.
+ * @summary Retrieves the PodMonitor resources of an access center policy.
  *
- * @description This topic provides an example of how to list the PodMonitor resources for an Integration Center policy.
+ * @description This topic provides an example on how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param request ListIntegrationPolicyPodMonitorsRequest
  * @return ListIntegrationPolicyPodMonitorsResponse
@@ -6235,7 +6243,7 @@ ListIntegrationPolicyPodMonitorsResponse Client::listIntegrationPolicyPodMonitor
 }
 
 /**
- * @summary Retrieves the ServiceMonitor information for an Integration Center policy.
+ * @summary Retrieves the ServiceMonitor information of a Provisioning policy.
  *
  * @param request ListIntegrationPolicyServiceMonitorsRequest
  * @param headers map
@@ -6247,6 +6255,10 @@ ListIntegrationPolicyServiceMonitorsResponse Client::listIntegrationPolicyServic
   json query = {};
   if (!!request.hasAddonReleaseName()) {
     query["addonReleaseName"] = request.getAddonReleaseName();
+  }
+
+  if (!!request.hasCollectorReleaseName()) {
+    query["collectorReleaseName"] = request.getCollectorReleaseName();
   }
 
   if (!!request.hasEncryptYaml()) {
@@ -6276,7 +6288,7 @@ ListIntegrationPolicyServiceMonitorsResponse Client::listIntegrationPolicyServic
 }
 
 /**
- * @summary Retrieves the ServiceMonitor information for an Integration Center policy.
+ * @summary Retrieves the ServiceMonitor information of a Provisioning policy.
  *
  * @param request ListIntegrationPolicyServiceMonitorsRequest
  * @return ListIntegrationPolicyServiceMonitorsResponse
