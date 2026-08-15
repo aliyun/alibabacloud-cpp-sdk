@@ -260,6 +260,9 @@
 #include <alibabacloud/models/ModifyInstanceChargeTypeRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceChargeTypeResponseBody.hpp>
 #include <alibabacloud/models/ModifyInstanceChargeTypeResponse.hpp>
+#include <alibabacloud/models/ModifyInstanceGroupSpecRequest.hpp>
+#include <alibabacloud/models/ModifyInstanceGroupSpecResponseBody.hpp>
+#include <alibabacloud/models/ModifyInstanceGroupSpecResponse.hpp>
 #include <alibabacloud/models/ModifyJVSInstanceRequest.hpp>
 #include <alibabacloud/models/ModifyJVSInstanceResponseBody.hpp>
 #include <alibabacloud/models/ModifyJVSInstanceResponse.hpp>
@@ -315,6 +318,7 @@
 #include <alibabacloud/models/ResumeAgentTaskResponseBody.hpp>
 #include <alibabacloud/models/ResumeAgentTaskResponse.hpp>
 #include <alibabacloud/models/RunAgentTaskRequest.hpp>
+#include <alibabacloud/models/RunAgentTaskShrinkRequest.hpp>
 #include <alibabacloud/models/RunAgentTaskResponseBody.hpp>
 #include <alibabacloud/models/RunAgentTaskResponse.hpp>
 #include <alibabacloud/models/RunCommandRequest.hpp>

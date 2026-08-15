@@ -19,8 +19,8 @@ namespace EdsAic20230930
 AlibabaCloud::EdsAic20230930::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
   this->_endpointMap = json({
-    {"cn-shanghai" , "eds-aic.cn-shanghai.aliyuncs.com"},
-    {"ap-southeast-1" , "eds-aic.ap-southeast-1.aliyuncs.com"}
+    {"ap-southeast-1" , "eds-aic.ap-southeast-1.aliyuncs.com"},
+    {"cn-shanghai" , "eds-aic.cn-shanghai.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("eds-aic", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -2220,7 +2220,7 @@ DeletePolicyGroupResponse Client::deletePolicyGroup(const DeletePolicyGroupReque
 }
 
 /**
- * @summary Deletes an agent scheduled task.
+ * @summary Deletes a scheduled task of an agent.
  *
  * @param request DeleteScheduledTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2251,7 +2251,7 @@ DeleteScheduledTaskResponse Client::deleteScheduledTaskWithOptions(const DeleteS
 }
 
 /**
- * @summary Deletes an agent scheduled task.
+ * @summary Deletes a scheduled task of an agent.
  *
  * @param request DeleteScheduledTaskRequest
  * @return DeleteScheduledTaskResponse
@@ -3728,7 +3728,7 @@ DescribeScheduledTaskExecutionsResponse Client::describeScheduledTaskExecutions(
 }
 
 /**
- * @summary Queries the list of scheduled tasks for an agent.
+ * @summary Queries the list of agent scheduled tasks.
  *
  * @param request DescribeScheduledTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3787,7 +3787,7 @@ DescribeScheduledTasksResponse Client::describeScheduledTasksWithOptions(const D
 }
 
 /**
- * @summary Queries the list of scheduled tasks for an agent.
+ * @summary Queries the list of agent scheduled tasks.
  *
  * @param request DescribeScheduledTasksRequest
  * @return DescribeScheduledTasksResponse
@@ -5414,6 +5414,60 @@ ModifyInstanceChargeTypeResponse Client::modifyInstanceChargeType(const ModifyIn
 }
 
 /**
+ * @summary Changes the specifications of instance groups. Currently, only specification upgrades are supported. Specification downgrades are not supported.
+ *
+ * @param request ModifyInstanceGroupSpecRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyInstanceGroupSpecResponse
+ */
+ModifyInstanceGroupSpecResponse Client::modifyInstanceGroupSpecWithOptions(const ModifyInstanceGroupSpecRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoPay()) {
+    query["AutoPay"] = request.getAutoPay();
+  }
+
+  if (!!request.hasInstanceGroupIds()) {
+    query["InstanceGroupIds"] = request.getInstanceGroupIds();
+  }
+
+  if (!!request.hasInstanceGroupSpec()) {
+    query["InstanceGroupSpec"] = request.getInstanceGroupSpec();
+  }
+
+  if (!!request.hasPromotionId()) {
+    query["PromotionId"] = request.getPromotionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyInstanceGroupSpec"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyInstanceGroupSpecResponse>();
+}
+
+/**
+ * @summary Changes the specifications of instance groups. Currently, only specification upgrades are supported. Specification downgrades are not supported.
+ *
+ * @param request ModifyInstanceGroupSpecRequest
+ * @return ModifyInstanceGroupSpecResponse
+ */
+ModifyInstanceGroupSpecResponse Client::modifyInstanceGroupSpec(const ModifyInstanceGroupSpecRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyInstanceGroupSpecWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the configuration of a JVS instance.
  *
  * @param request ModifyJVSInstanceRequest
@@ -6288,7 +6342,7 @@ RenewCloudPhoneNodesResponse Client::renewCloudPhoneNodes(const RenewCloudPhoneN
 }
 
 /**
- * @summary Renews a mobile agent package.
+ * @summary Renews a resource plan.
  *
  * @param request RenewMobileAgentPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6303,6 +6357,10 @@ RenewMobileAgentPackageResponse Client::renewMobileAgentPackageWithOptions(const
 
   if (!!request.hasAutoRenew()) {
     query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasMobileAgentPackageIds()) {
@@ -6343,7 +6401,7 @@ RenewMobileAgentPackageResponse Client::renewMobileAgentPackageWithOptions(const
 }
 
 /**
- * @summary Renews a mobile agent package.
+ * @summary Renews a resource plan.
  *
  * @param request RenewMobileAgentPackageRequest
  * @return RenewMobileAgentPackageResponse
@@ -6466,14 +6524,20 @@ ResumeAgentTaskResponse Client::resumeAgentTask(const ResumeAgentTaskRequest &re
 }
 
 /**
- * @summary Triggers an Agent to execute an AI automation task on Mobile nodes.
+ * @summary Triggers an Agent on Mobile nodes to execute an AI automation task.
  *
- * @param request RunAgentTaskRequest
+ * @param tmpReq RunAgentTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunAgentTaskResponse
  */
-RunAgentTaskResponse Client::runAgentTaskWithOptions(const RunAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+RunAgentTaskResponse Client::runAgentTaskWithOptions(const RunAgentTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunAgentTaskShrinkRequest request = RunAgentTaskShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRunConfig()) {
+    request.setRunConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRunConfig(), "RunConfig", "json"));
+  }
+
   json query = {};
   if (!!request.hasBizRegionId()) {
     query["BizRegionId"] = request.getBizRegionId();
@@ -6485,6 +6549,10 @@ RunAgentTaskResponse Client::runAgentTaskWithOptions(const RunAgentTaskRequest &
 
   if (!!request.hasMaxSteps()) {
     query["MaxSteps"] = request.getMaxSteps();
+  }
+
+  if (!!request.hasRunConfigShrink()) {
+    query["RunConfig"] = request.getRunConfigShrink();
   }
 
   if (!!request.hasScheduleId()) {
@@ -6525,7 +6593,7 @@ RunAgentTaskResponse Client::runAgentTaskWithOptions(const RunAgentTaskRequest &
 }
 
 /**
- * @summary Triggers an Agent to execute an AI automation task on Mobile nodes.
+ * @summary Triggers an Agent on Mobile nodes to execute an AI automation task.
  *
  * @param request RunAgentTaskRequest
  * @return RunAgentTaskResponse

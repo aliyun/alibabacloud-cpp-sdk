@@ -304,9 +304,7 @@ namespace Models
     shared_ptr<string> appManagePolicyId_ {};
     // The user ID assigned to the instance, which is the China Wuying convenience account ID.
     shared_ptr<string> authorizedUserId_ {};
-    // <props="china">The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) to query the list of regions that support purchasing cloud phones of different editions (Instance Edition/Matrix Edition).
-    // 
-    // <props="intl">The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) to query the list of regions that support purchasing cloud phones..
+    // <props="china">The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/2807298.html) to query the list of regions that support purchasing cloud phones of different editions (Instance Edition or Matrix Edition).
     shared_ptr<string> bizRegionId_ {};
     // The billing type.
     shared_ptr<string> chargeType_ {};
@@ -316,28 +314,29 @@ namespace Models
     shared_ptr<vector<string>> instanceGroupIds_ {};
     // The instance group name.
     shared_ptr<string> instanceGroupName_ {};
+    // The instance version. Default value: basic, which queries Wuying cloud phone instances.
     shared_ptr<string> instanceVersion_ {};
     // The ID of the bound key pair.
     shared_ptr<string> keyPairId_ {};
     // The maximum number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that indicates the position from which to start reading. Leave this parameter empty to start reading from the beginning.
+    // The pagination token that indicates the position from which to start reading. Leave this parameter empty to read from the beginning.
     shared_ptr<string> nextToken_ {};
     // <props="china">The matrix ID.
-    // <props="intl">This parameter is not publicly available..
     shared_ptr<string> nodeId_ {};
     // <props="china">The name of the matrix.
-    // <props="intl">This parameter is not publicly available..
     shared_ptr<string> nodeName_ {};
-    // The cloud phone network ID.
+    // The cloud phone network IDs.
     shared_ptr<vector<string>> officeSiteIds_ {};
     // The private IP address of the instance.
     shared_ptr<string> privateIpAddress_ {};
-    // The public network rate limiting rule group ID. The rate limiting rule for instances in the basic shared network.
+    // The IDs of the public network rate limiting rule groups. These are rate limiting rules for instances in the basic shared network.
     shared_ptr<vector<string>> qosRuleIds_ {};
     // The sales mode.
     shared_ptr<string> saleMode_ {};
+    // The sort key used when querying resources.
     shared_ptr<string> sortKey_ {};
+    // The sort order. Default value: descending order. Valid values:
     shared_ptr<string> sortType_ {};
     // The instance status.
     shared_ptr<string> status_ {};

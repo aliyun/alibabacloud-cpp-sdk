@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(BandwidthPackageStatus, bandwidthPackageStatus_);
         DARABONBA_PTR_TO_JSON(BandwidthPackageType, bandwidthPackageType_);
         DARABONBA_PTR_TO_JSON(BizTags, bizTags_);
+        DARABONBA_PTR_TO_JSON(Channel, channel_);
         DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
         DARABONBA_PTR_TO_JSON(Cpu, cpu_);
         DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
         DARABONBA_PTR_TO_JSON(NodeId, nodeId_);
         DARABONBA_PTR_TO_JSON(NodeName, nodeName_);
+        DARABONBA_PTR_TO_JSON(PackageId, packageId_);
         DARABONBA_PTR_TO_JSON(PhoneCount, phoneCount_);
         DARABONBA_PTR_TO_JSON(PhoneDataInfo, phoneDataInfo_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -74,6 +76,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(BandwidthPackageStatus, bandwidthPackageStatus_);
         DARABONBA_PTR_FROM_JSON(BandwidthPackageType, bandwidthPackageType_);
         DARABONBA_PTR_FROM_JSON(BizTags, bizTags_);
+        DARABONBA_PTR_FROM_JSON(Channel, channel_);
         DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
         DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
         DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
@@ -86,6 +89,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
         DARABONBA_PTR_FROM_JSON(NodeId, nodeId_);
         DARABONBA_PTR_FROM_JSON(NodeName, nodeName_);
+        DARABONBA_PTR_FROM_JSON(PackageId, packageId_);
         DARABONBA_PTR_FROM_JSON(PhoneCount, phoneCount_);
         DARABONBA_PTR_FROM_JSON(PhoneDataInfo, phoneDataInfo_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -317,12 +321,12 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->bandwidthPackageId_ == nullptr
-        && this->bandwidthPackageStatus_ == nullptr && this->bandwidthPackageType_ == nullptr && this->bizTags_ == nullptr && this->chargeType_ == nullptr && this->cpu_ == nullptr
-        && this->gmtCreate_ == nullptr && this->gmtExpired_ == nullptr && this->gmtModified_ == nullptr && this->instanceType_ == nullptr && this->memory_ == nullptr
-        && this->networkId_ == nullptr && this->networkInfos_ == nullptr && this->networkType_ == nullptr && this->nodeId_ == nullptr && this->nodeName_ == nullptr
-        && this->phoneCount_ == nullptr && this->phoneDataInfo_ == nullptr && this->regionId_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionWidth_ == nullptr
-        && this->serverType_ == nullptr && this->shareDataVolume_ == nullptr && this->status_ == nullptr && this->swapSize_ == nullptr && this->tags_ == nullptr
-        && this->vSwitchId_ == nullptr; };
+        && this->bandwidthPackageStatus_ == nullptr && this->bandwidthPackageType_ == nullptr && this->bizTags_ == nullptr && this->channel_ == nullptr && this->chargeType_ == nullptr
+        && this->cpu_ == nullptr && this->gmtCreate_ == nullptr && this->gmtExpired_ == nullptr && this->gmtModified_ == nullptr && this->instanceType_ == nullptr
+        && this->memory_ == nullptr && this->networkId_ == nullptr && this->networkInfos_ == nullptr && this->networkType_ == nullptr && this->nodeId_ == nullptr
+        && this->nodeName_ == nullptr && this->packageId_ == nullptr && this->phoneCount_ == nullptr && this->phoneDataInfo_ == nullptr && this->regionId_ == nullptr
+        && this->resolutionHeight_ == nullptr && this->resolutionWidth_ == nullptr && this->serverType_ == nullptr && this->shareDataVolume_ == nullptr && this->status_ == nullptr
+        && this->swapSize_ == nullptr && this->tags_ == nullptr && this->vSwitchId_ == nullptr; };
       // bandwidthPackageId Field Functions 
       bool hasBandwidthPackageId() const { return this->bandwidthPackageId_ != nullptr;};
       void deleteBandwidthPackageId() { this->bandwidthPackageId_ = nullptr;};
@@ -351,6 +355,13 @@ namespace Models
       inline vector<NodeModel::BizTags> getBizTags() { DARABONBA_PTR_GET(bizTags_, vector<NodeModel::BizTags>) };
       inline NodeModel& setBizTags(const vector<NodeModel::BizTags> & bizTags) { DARABONBA_PTR_SET_VALUE(bizTags_, bizTags) };
       inline NodeModel& setBizTags(vector<NodeModel::BizTags> && bizTags) { DARABONBA_PTR_SET_RVALUE(bizTags_, bizTags) };
+
+
+      // channel Field Functions 
+      bool hasChannel() const { return this->channel_ != nullptr;};
+      void deleteChannel() { this->channel_ = nullptr;};
+      inline string getChannel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
+      inline NodeModel& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
 
 
       // chargeType Field Functions 
@@ -437,6 +448,13 @@ namespace Models
       void deleteNodeName() { this->nodeName_ = nullptr;};
       inline string getNodeName() const { DARABONBA_PTR_GET_DEFAULT(nodeName_, "") };
       inline NodeModel& setNodeName(string nodeName) { DARABONBA_PTR_SET_VALUE(nodeName_, nodeName) };
+
+
+      // packageId Field Functions 
+      bool hasPackageId() const { return this->packageId_ != nullptr;};
+      void deletePackageId() { this->packageId_ = nullptr;};
+      inline string getPackageId() const { DARABONBA_PTR_GET_DEFAULT(packageId_, "") };
+      inline NodeModel& setPackageId(string packageId) { DARABONBA_PTR_SET_VALUE(packageId_, packageId) };
 
 
       // phoneCount Field Functions 
@@ -532,6 +550,7 @@ namespace Models
       shared_ptr<string> bandwidthPackageType_ {};
       // The array of tag information.
       shared_ptr<vector<NodeModel::BizTags>> bizTags_ {};
+      shared_ptr<string> channel_ {};
       // The billing type.
       shared_ptr<string> chargeType_ {};
       // The number of CPU cores.
@@ -556,6 +575,7 @@ namespace Models
       shared_ptr<string> nodeId_ {};
       // The name of the cloud phone matrix.
       shared_ptr<string> nodeName_ {};
+      shared_ptr<string> packageId_ {};
       // The number of instances provisioned under the cloud phone matrix.
       shared_ptr<int32_t> phoneCount_ {};
       // The independent device storage information.
@@ -620,9 +640,9 @@ namespace Models
   protected:
     // The maximum number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // Indicates whether a next pagination token exists. Valid values:
-    // - If **NextToken** is empty, no next query exists.
-    // - If **NextToken** has a value, the value is the token for the next query.
+    // The pagination token for the next query. Valid values:
+    // - If **NextToken** is empty, no more results exist.
+    // - If **NextToken** has a value, the value indicates the token from which the next query starts.
     shared_ptr<string> nextToken_ {};
     // The details of the cloud phone matrix.
     shared_ptr<vector<DescribeCloudPhoneNodesResponseBody::NodeModel>> nodeModel_ {};

@@ -674,7 +674,7 @@ namespace EdsAic20230930
       Models::DeletePolicyGroupResponse deletePolicyGroup(const Models::DeletePolicyGroupRequest &request);
 
       /**
-       * @summary Deletes an agent scheduled task.
+       * @summary Deletes a scheduled task of an agent.
        *
        * @param request DeleteScheduledTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -683,7 +683,7 @@ namespace EdsAic20230930
       Models::DeleteScheduledTaskResponse deleteScheduledTaskWithOptions(const Models::DeleteScheduledTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an agent scheduled task.
+       * @summary Deletes a scheduled task of an agent.
        *
        * @param request DeleteScheduledTaskRequest
        * @return DeleteScheduledTaskResponse
@@ -1083,7 +1083,7 @@ namespace EdsAic20230930
       Models::DescribeScheduledTaskExecutionsResponse describeScheduledTaskExecutions(const Models::DescribeScheduledTaskExecutionsRequest &request);
 
       /**
-       * @summary Queries the list of scheduled tasks for an agent.
+       * @summary Queries the list of agent scheduled tasks.
        *
        * @param request DescribeScheduledTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1092,7 +1092,7 @@ namespace EdsAic20230930
       Models::DescribeScheduledTasksResponse describeScheduledTasksWithOptions(const Models::DescribeScheduledTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of scheduled tasks for an agent.
+       * @summary Queries the list of agent scheduled tasks.
        *
        * @param request DescribeScheduledTasksRequest
        * @return DescribeScheduledTasksResponse
@@ -1650,6 +1650,23 @@ namespace EdsAic20230930
       Models::ModifyInstanceChargeTypeResponse modifyInstanceChargeType(const Models::ModifyInstanceChargeTypeRequest &request);
 
       /**
+       * @summary Changes the specifications of instance groups. Currently, only specification upgrades are supported. Specification downgrades are not supported.
+       *
+       * @param request ModifyInstanceGroupSpecRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyInstanceGroupSpecResponse
+       */
+      Models::ModifyInstanceGroupSpecResponse modifyInstanceGroupSpecWithOptions(const Models::ModifyInstanceGroupSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Changes the specifications of instance groups. Currently, only specification upgrades are supported. Specification downgrades are not supported.
+       *
+       * @param request ModifyInstanceGroupSpecRequest
+       * @return ModifyInstanceGroupSpecResponse
+       */
+      Models::ModifyInstanceGroupSpecResponse modifyInstanceGroupSpec(const Models::ModifyInstanceGroupSpecRequest &request);
+
+      /**
        * @summary Modifies the configuration of a JVS instance.
        *
        * @param request ModifyJVSInstanceRequest
@@ -1918,7 +1935,7 @@ namespace EdsAic20230930
       Models::RenewCloudPhoneNodesResponse renewCloudPhoneNodes(const Models::RenewCloudPhoneNodesRequest &request);
 
       /**
-       * @summary Renews a mobile agent package.
+       * @summary Renews a resource plan.
        *
        * @param request RenewMobileAgentPackageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1927,7 +1944,7 @@ namespace EdsAic20230930
       Models::RenewMobileAgentPackageResponse renewMobileAgentPackageWithOptions(const Models::RenewMobileAgentPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Renews a mobile agent package.
+       * @summary Renews a resource plan.
        *
        * @param request RenewMobileAgentPackageRequest
        * @return RenewMobileAgentPackageResponse
@@ -1973,16 +1990,16 @@ namespace EdsAic20230930
       Models::ResumeAgentTaskResponse resumeAgentTask(const Models::ResumeAgentTaskRequest &request);
 
       /**
-       * @summary Triggers an Agent to execute an AI automation task on Mobile nodes.
+       * @summary Triggers an Agent on Mobile nodes to execute an AI automation task.
        *
-       * @param request RunAgentTaskRequest
+       * @param tmpReq RunAgentTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunAgentTaskResponse
        */
-      Models::RunAgentTaskResponse runAgentTaskWithOptions(const Models::RunAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::RunAgentTaskResponse runAgentTaskWithOptions(const Models::RunAgentTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Triggers an Agent to execute an AI automation task on Mobile nodes.
+       * @summary Triggers an Agent on Mobile nodes to execute an AI automation task.
        *
        * @param request RunAgentTaskRequest
        * @return RunAgentTaskResponse

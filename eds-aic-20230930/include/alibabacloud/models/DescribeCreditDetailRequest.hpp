@@ -114,7 +114,7 @@ namespace Models
     shared_ptr<vector<string>> instanceIds_ {};
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};
-    // The list of plan packages or credit top-up packages.
+    // The list of plan packages or credit booster packages.
     shared_ptr<vector<string>> packageIds_ {};
     // The page number. Default value: 1.
     shared_ptr<string> pageNum_ {};

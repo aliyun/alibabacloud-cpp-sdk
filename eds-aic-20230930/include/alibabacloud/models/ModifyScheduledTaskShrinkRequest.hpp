@@ -116,7 +116,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> scheduledId_ {};
-    // The status switch: ACTIVE/DISABLED.
+    // Switches the status. Valid values: ACTIVE and DISABLED.
     shared_ptr<string> status_ {};
     // The task name.
     shared_ptr<string> taskName_ {};

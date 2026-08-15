@@ -452,7 +452,7 @@ namespace Models
       protected:
         // The application management policy ID.
         shared_ptr<string> appManagePolicyId_ {};
-        // The name of the application management policy.
+        // The name of the application management rule.
         shared_ptr<string> appManagePolicyName_ {};
       };
 
@@ -866,19 +866,21 @@ namespace Models
       shared_ptr<string> appInstanceGroupId_ {};
       // The physical instance ID.
       shared_ptr<string> appInstanceId_ {};
-      // The application management policy information. This corresponds to the blacklists and whitelists management of application management policies in the console.
+      // The application management rule information. This corresponds to the blacklists and whitelists management of application management rules in the console.
       shared_ptr<InstanceModel::AppManagePolicy> appManagePolicy_ {};
       // The assigned user.
       shared_ptr<string> authorizedUserId_ {};
-      // The bandwidth package ID.
+      // The ID of the bandwidth package.
       shared_ptr<string> bandwidthPackageId_ {};
       // The bandwidth type.
       shared_ptr<string> bandwidthPackageType_ {};
       // The bound user.
       shared_ptr<string> bindUserId_ {};
+      // The image type.
       shared_ptr<string> bizImageType_ {};
       // The tag array.
       shared_ptr<vector<InstanceModel::BizTags>> bizTags_ {};
+      // The order source.
       shared_ptr<string> channel_ {};
       // The billing type of the instance.
       shared_ptr<string> chargeType_ {};
@@ -890,7 +892,7 @@ namespace Models
       shared_ptr<InstanceModel::DisplayConfig> displayConfig_ {};
       // The downstream bandwidth throttling. Unit: Mbit/s.
       shared_ptr<int32_t> downBandwidthLimit_ {};
-      // The error reason for instance data backup failure or recovery failure.
+      // The error reason for instance data backup failure or restoration failure.
       shared_ptr<string> errorCode_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
@@ -904,6 +906,15 @@ namespace Models
       shared_ptr<string> imageVersion_ {};
       // The instance type.
       shared_ptr<string> instanceType_ {};
+      // The network status.
+      // 
+      // - INIT: Being created.
+      // 
+      // - UPDATING: Being updated.
+      // 
+      // - AVAILABLE: Available.
+      // 
+      // - UNAVAILABLE: Unavailable.
       shared_ptr<string> internetStatus_ {};
       // The key pair ID.
       shared_ptr<string> keyPairId_ {};
@@ -917,11 +928,11 @@ namespace Models
       shared_ptr<string> networkType_ {};
       // The network ID. This corresponds to the network selected during creation in the console (basic shared network or advanced shared network).
       shared_ptr<string> officeSiteId_ {};
+      // The ID of the plan associated with the AI cloud phone.
       shared_ptr<string> packageId_ {};
       // The persistent session ID.
       shared_ptr<string> persistentAppInstanceId_ {};
-      // <props="china">The independent device storage information of the cloud phone matrix edition instance.
-      // <props="intl">This parameter is not publicly available..
+      // <props="china">The independent device storage information of the cloud phone matrix instance.
       shared_ptr<InstanceModel::PhoneDataInfo> phoneDataInfo_ {};
       // The policy group ID.
       shared_ptr<string> policyGroupId_ {};
@@ -929,34 +940,31 @@ namespace Models
       shared_ptr<string> publicIpAddress_ {};
       // > This parameter is not publicly available.
       shared_ptr<string> publicIpv6Address_ {};
-      // The public network rate limiting rule ID (applies only to premium bandwidth).
+      // The ID of the public network rate limiting rule. This applies only to premium bandwidth.
       shared_ptr<string> qosRuleId_ {};
-      // The progress of instance data backup or recovery.
+      // The progress of instance data backup or restoration.
       shared_ptr<int32_t> rate_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The rendering type.
       shared_ptr<string> renderingType_ {};
       // <props="china">The matrix status.
-      // <props="intl">This parameter is not publicly available..
       shared_ptr<string> serverStatus_ {};
       // <props="china">The cloud phone matrix specification.
-      // <props="intl">This parameter is not publicly available..
       shared_ptr<string> serverType_ {};
       // The session connection status.
       shared_ptr<string> sessionStatus_ {};
-      // <props="china">The streaming mode of instances in the cloud phone matrix.
-      // <props="intl">This parameter is not publicly available..
+      // <props="china">The streaming mode of the instance in the cloud phone matrix.
       shared_ptr<int32_t> streamMode_ {};
       // The Android system version.
       shared_ptr<string> systemVersion_ {};
-      // The list of tags.
+      // The tag list.
       shared_ptr<vector<InstanceModel::Tags>> tags_ {};
       // The upstream bandwidth throttling. Unit: Mbit/s.
       shared_ptr<int32_t> upBandwidthLimit_ {};
       // The vSwitch ID in the VPC.
       shared_ptr<string> vSwitchId_ {};
-      // The zone ID to which the instance belongs.
+      // The zone ID of the instance.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -995,7 +1003,7 @@ namespace Models
   protected:
     // The instance information.
     shared_ptr<vector<DescribeAndroidInstancesResponseBody::InstanceModel>> instanceModel_ {};
-    // The pagination token that indicates the position to which the current call has read. An empty value indicates that all data has been read.
+    // The position from which the current call starts reading. An empty value indicates that all data has been read.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

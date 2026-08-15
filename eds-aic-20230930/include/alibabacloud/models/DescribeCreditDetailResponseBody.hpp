@@ -69,6 +69,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ChangeTime, changeTime_);
           DARABONBA_PTR_TO_JSON(CreditChange, creditChange_);
           DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(DurationMs, durationMs_);
           DARABONBA_PTR_TO_JSON(InputTokens, inputTokens_);
           DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
           DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
@@ -78,6 +79,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(RequestId, requestId_);
           DARABONBA_PTR_TO_JSON(TaskId, taskId_);
           DARABONBA_PTR_TO_JSON(TotalTokens, totalTokens_);
+          DARABONBA_PTR_TO_JSON(TtftMs, ttftMs_);
         };
         friend void from_json(const Darabonba::Json& j, Details& obj) { 
           DARABONBA_PTR_FROM_JSON(ApiKeyName, apiKeyName_);
@@ -85,6 +87,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ChangeTime, changeTime_);
           DARABONBA_PTR_FROM_JSON(CreditChange, creditChange_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(DurationMs, durationMs_);
           DARABONBA_PTR_FROM_JSON(InputTokens, inputTokens_);
           DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
           DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
@@ -94,6 +97,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
           DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
           DARABONBA_PTR_FROM_JSON(TotalTokens, totalTokens_);
+          DARABONBA_PTR_FROM_JSON(TtftMs, ttftMs_);
         };
         Details() = default ;
         Details(const Details &) = default ;
@@ -107,9 +111,9 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->apiKeyName_ == nullptr
-        && this->cachedTokens_ == nullptr && this->changeTime_ == nullptr && this->creditChange_ == nullptr && this->description_ == nullptr && this->inputTokens_ == nullptr
-        && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->modelId_ == nullptr && this->outputTokens_ == nullptr && this->packageId_ == nullptr
-        && this->requestId_ == nullptr && this->taskId_ == nullptr && this->totalTokens_ == nullptr; };
+        && this->cachedTokens_ == nullptr && this->changeTime_ == nullptr && this->creditChange_ == nullptr && this->description_ == nullptr && this->durationMs_ == nullptr
+        && this->inputTokens_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->modelId_ == nullptr && this->outputTokens_ == nullptr
+        && this->packageId_ == nullptr && this->requestId_ == nullptr && this->taskId_ == nullptr && this->totalTokens_ == nullptr && this->ttftMs_ == nullptr; };
         // apiKeyName Field Functions 
         bool hasApiKeyName() const { return this->apiKeyName_ != nullptr;};
         void deleteApiKeyName() { this->apiKeyName_ = nullptr;};
@@ -143,6 +147,13 @@ namespace Models
         void deleteDescription() { this->description_ = nullptr;};
         inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
         inline Details& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // durationMs Field Functions 
+        bool hasDurationMs() const { return this->durationMs_ != nullptr;};
+        void deleteDurationMs() { this->durationMs_ = nullptr;};
+        inline int64_t getDurationMs() const { DARABONBA_PTR_GET_DEFAULT(durationMs_, 0L) };
+        inline Details& setDurationMs(int64_t durationMs) { DARABONBA_PTR_SET_VALUE(durationMs_, durationMs) };
 
 
         // inputTokens Field Functions 
@@ -208,6 +219,13 @@ namespace Models
         inline Details& setTotalTokens(int64_t totalTokens) { DARABONBA_PTR_SET_VALUE(totalTokens_, totalTokens) };
 
 
+        // ttftMs Field Functions 
+        bool hasTtftMs() const { return this->ttftMs_ != nullptr;};
+        void deleteTtftMs() { this->ttftMs_ = nullptr;};
+        inline int64_t getTtftMs() const { DARABONBA_PTR_GET_DEFAULT(ttftMs_, 0L) };
+        inline Details& setTtftMs(int64_t ttftMs) { DARABONBA_PTR_SET_VALUE(ttftMs_, ttftMs) };
+
+
       protected:
         shared_ptr<string> apiKeyName_ {};
         shared_ptr<int64_t> cachedTokens_ {};
@@ -217,6 +235,7 @@ namespace Models
         shared_ptr<string> creditChange_ {};
         // The task description.
         shared_ptr<string> description_ {};
+        shared_ptr<int64_t> durationMs_ {};
         shared_ptr<int64_t> inputTokens_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
@@ -229,6 +248,7 @@ namespace Models
         // The task ID, which is globally unique.
         shared_ptr<string> taskId_ {};
         shared_ptr<int64_t> totalTokens_ {};
+        shared_ptr<int64_t> ttftMs_ {};
       };
 
       virtual bool empty() const override { return this->details_ == nullptr

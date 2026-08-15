@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const RenewMobileAgentPackageRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(MobileAgentPackageIds, mobileAgentPackageIds_);
       DARABONBA_PTR_TO_JSON(PaidCallbackUrl, paidCallbackUrl_);
       DARABONBA_PTR_TO_JSON(Period, period_);
@@ -25,6 +26,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, RenewMobileAgentPackageRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(MobileAgentPackageIds, mobileAgentPackageIds_);
       DARABONBA_PTR_FROM_JSON(PaidCallbackUrl, paidCallbackUrl_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
@@ -43,8 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && this->autoRenew_ == nullptr && this->mobileAgentPackageIds_ == nullptr && this->paidCallbackUrl_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr
-        && this->promotionId_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->clientToken_ == nullptr && this->mobileAgentPackageIds_ == nullptr && this->paidCallbackUrl_ == nullptr && this->period_ == nullptr
+        && this->periodUnit_ == nullptr && this->promotionId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -57,6 +59,13 @@ namespace Models
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
     inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
     inline RenewMobileAgentPackageRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline RenewMobileAgentPackageRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // mobileAgentPackageIds Field Functions 
@@ -99,28 +108,32 @@ namespace Models
   protected:
     // Specifies whether to enable automatic payment. Valid values:
     // 
-    // - **true**: Enables automatic payment. Make sure that your account balance is sufficient.
+    // - **true**: Automatic payment is enabled. Make sure that your account balance is sufficient.
+    // - **false** (default): Only an order is generated. No payment is made.
     // 
-    // - **false** (default): Generates an unpaid order.
     // 
-    // > If your account balance is insufficient, set this parameter to `false` to generate an unpaid order. You can then pay for the order in the Wuying Mobile Cloud Phone management console.
+    // 
+    // 
+    // > If your payment method has an insufficient balance, set this parameter to false. An unpaid order is generated, and you can log on to the Elastic Cloud Phone console to complete the payment.
+    // >
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to enable auto-renewal. The default value is `false`.
+    // Specifies whether to enable auto-renewal. Default value: false.
     shared_ptr<bool> autoRenew_ {};
-    // A list of mobile agent package IDs.
+    // The idempotence key.
+    shared_ptr<string> clientToken_ {};
+    // The list of resource plan IDs.
     shared_ptr<vector<string>> mobileAgentPackageIds_ {};
-    // The URL to which a user is redirected after a successful payment.
+    // The redirect URL after a successful payment.
     shared_ptr<string> paidCallbackUrl_ {};
-    // The renewal period. The `PeriodUnit` parameter specifies the time unit.
+    // The duration for which you want to purchase the resource. The unit is specified by `PeriodUnit`.
     shared_ptr<int32_t> period_ {};
-    // The unit of the renewal period.
+    // The unit of the duration for which you want to purchase the resource.
+    // 
     // Valid values:
-    // 
     // - **Month**: month.
-    // 
     // - **Year**: year.
     shared_ptr<string> periodUnit_ {};
-    // The promotion ID.
+    // The ID of the promotional campaign.
     shared_ptr<string> promotionId_ {};
   };
 

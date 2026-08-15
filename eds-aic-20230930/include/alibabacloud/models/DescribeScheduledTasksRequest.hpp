@@ -118,9 +118,9 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The scheduled task IDs used to filter results.
+    // Filters by scheduled task IDs.
     shared_ptr<vector<string>> scheduledIds_ {};
-    // The status used to filter results. Valid values: ACTIVE and DISABLED.
+    // Filters by status: ACTIVE/DISABLED.
     shared_ptr<string> status_ {};
     // The task name.
     shared_ptr<string> taskName_ {};

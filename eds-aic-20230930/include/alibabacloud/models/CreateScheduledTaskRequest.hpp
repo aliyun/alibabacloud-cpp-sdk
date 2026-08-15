@@ -45,11 +45,13 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const RunConfig& obj) { 
         DARABONBA_PTR_TO_JSON(ExtraParams, extraParams_);
         DARABONBA_PTR_TO_JSON(MaxSteps, maxSteps_);
+        DARABONBA_PTR_TO_JSON(Skills, skills_);
         DARABONBA_PTR_TO_JSON(TimeoutSeconds, timeoutSeconds_);
       };
       friend void from_json(const Darabonba::Json& j, RunConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(ExtraParams, extraParams_);
         DARABONBA_PTR_FROM_JSON(MaxSteps, maxSteps_);
+        DARABONBA_PTR_FROM_JSON(Skills, skills_);
         DARABONBA_PTR_FROM_JSON(TimeoutSeconds, timeoutSeconds_);
       };
       RunConfig() = default ;
@@ -64,7 +66,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->extraParams_ == nullptr
-        && this->maxSteps_ == nullptr && this->timeoutSeconds_ == nullptr; };
+        && this->maxSteps_ == nullptr && this->skills_ == nullptr && this->timeoutSeconds_ == nullptr; };
       // extraParams Field Functions 
       bool hasExtraParams() const { return this->extraParams_ != nullptr;};
       void deleteExtraParams() { this->extraParams_ = nullptr;};
@@ -79,6 +81,15 @@ namespace Models
       inline RunConfig& setMaxSteps(int32_t maxSteps) { DARABONBA_PTR_SET_VALUE(maxSteps_, maxSteps) };
 
 
+      // skills Field Functions 
+      bool hasSkills() const { return this->skills_ != nullptr;};
+      void deleteSkills() { this->skills_ = nullptr;};
+      inline const vector<string> & getSkills() const { DARABONBA_PTR_GET_CONST(skills_, vector<string>) };
+      inline vector<string> getSkills() { DARABONBA_PTR_GET(skills_, vector<string>) };
+      inline RunConfig& setSkills(const vector<string> & skills) { DARABONBA_PTR_SET_VALUE(skills_, skills) };
+      inline RunConfig& setSkills(vector<string> && skills) { DARABONBA_PTR_SET_RVALUE(skills_, skills) };
+
+
       // timeoutSeconds Field Functions 
       bool hasTimeoutSeconds() const { return this->timeoutSeconds_ != nullptr;};
       void deleteTimeoutSeconds() { this->timeoutSeconds_ = nullptr;};
@@ -87,11 +98,13 @@ namespace Models
 
 
     protected:
-      // The extended parameter JSON string.
+      // The extended parameters as a JSON string.
       shared_ptr<string> extraParams_ {};
       // The maximum number of execution steps.
       shared_ptr<int32_t> maxSteps_ {};
-      // The timeout period, in seconds.
+      // The list of skill IDs, up to 1. Written to aim_task_config.run_config when the scheduled task is created and read when the callback is delivered.
+      shared_ptr<vector<string>> skills_ {};
+      // The timeout in seconds.
       shared_ptr<int32_t> timeoutSeconds_ {};
     };
 

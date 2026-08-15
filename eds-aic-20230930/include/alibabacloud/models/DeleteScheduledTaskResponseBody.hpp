@@ -78,7 +78,7 @@ namespace Models
     protected:
       // The ID of the scheduled task.
       shared_ptr<string> scheduledId_ {};
-      // Indicates whether the scheduled task is deleted successfully.
+      // Indicates whether the deletion is successful.
       shared_ptr<bool> success_ {};
     };
 
