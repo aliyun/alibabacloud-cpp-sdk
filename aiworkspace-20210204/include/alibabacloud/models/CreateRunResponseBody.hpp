@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the run.
+    // The run ID.
     shared_ptr<string> runId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

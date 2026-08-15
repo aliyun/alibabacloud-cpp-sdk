@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The count after aggregation.
     shared_ptr<int32_t> count_ {};
+    // The metadata property content.
     shared_ptr<string> key_ {};
   };
 

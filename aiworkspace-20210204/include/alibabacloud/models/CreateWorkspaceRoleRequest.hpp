@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ModulePermissions, modulePermissions_);
       DARABONBA_PTR_TO_JSON(RoleName, roleName_);
       DARABONBA_PTR_TO_JSON(RoleType, roleType_);
+      DARABONBA_PTR_TO_JSON(UserId, userId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateWorkspaceRoleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ModulePermissions, modulePermissions_);
       DARABONBA_PTR_FROM_JSON(RoleName, roleName_);
       DARABONBA_PTR_FROM_JSON(RoleType, roleType_);
+      DARABONBA_PTR_FROM_JSON(UserId, userId_);
     };
     CreateWorkspaceRoleRequest() = default ;
     CreateWorkspaceRoleRequest(const CreateWorkspaceRoleRequest &) = default ;
@@ -230,7 +232,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->modulePermissions_ == nullptr
-        && this->roleName_ == nullptr && this->roleType_ == nullptr; };
+        && this->roleName_ == nullptr && this->roleType_ == nullptr && this->userId_ == nullptr; };
     // modulePermissions Field Functions 
     bool hasModulePermissions() const { return this->modulePermissions_ != nullptr;};
     void deleteModulePermissions() { this->modulePermissions_ = nullptr;};
@@ -254,6 +256,13 @@ namespace Models
     inline CreateWorkspaceRoleRequest& setRoleType(string roleType) { DARABONBA_PTR_SET_VALUE(roleType_, roleType) };
 
 
+    // userId Field Functions 
+    bool hasUserId() const { return this->userId_ != nullptr;};
+    void deleteUserId() { this->userId_ = nullptr;};
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline CreateWorkspaceRoleRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
+
+
   protected:
     // The permission settings for the role.
     shared_ptr<vector<CreateWorkspaceRoleRequest::ModulePermissions>> modulePermissions_ {};
@@ -261,6 +270,7 @@ namespace Models
     shared_ptr<string> roleName_ {};
     // The role type. This operation only creates custom roles. Valid value: custom.
     shared_ptr<string> roleType_ {};
+    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

@@ -455,7 +455,7 @@ namespace AIWorkSpace20210204
       Models::CreatePromptResponse createPrompt(const Models::CreatePromptRequest &request);
 
       /**
-       * @summary Creates a run for an experiment. The run can be associated with a specific workload or be a standalone code execution.
+       * @summary Creates a run. A run belongs to an experiment and can be associated with a specific workload or can be a standalone code execution.
        *
        * @param request CreateRunRequest
        * @param headers map
@@ -465,7 +465,7 @@ namespace AIWorkSpace20210204
       Models::CreateRunResponse createRunWithOptions(const Models::CreateRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a run for an experiment. The run can be associated with a specific workload or be a standalone code execution.
+       * @summary Creates a run. A run belongs to an experiment and can be associated with a specific workload or can be a standalone code execution.
        *
        * @param request CreateRunRequest
        * @return CreateRunResponse

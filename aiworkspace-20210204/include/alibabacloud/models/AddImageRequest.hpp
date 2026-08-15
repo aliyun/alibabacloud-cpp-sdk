@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Size, size_);
       DARABONBA_PTR_TO_JSON(SourceId, sourceId_);
       DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
+      DARABONBA_PTR_TO_JSON(UserId, userId_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, AddImageRequest& obj) { 
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Size, size_);
       DARABONBA_PTR_FROM_JSON(SourceId, sourceId_);
       DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
+      DARABONBA_PTR_FROM_JSON(UserId, userId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     AddImageRequest() = default ;
@@ -94,7 +96,7 @@ namespace Models
 
     virtual bool empty() const override { return this->accessibility_ == nullptr
         && this->description_ == nullptr && this->imageId_ == nullptr && this->imageUri_ == nullptr && this->labels_ == nullptr && this->name_ == nullptr
-        && this->size_ == nullptr && this->sourceId_ == nullptr && this->sourceType_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->size_ == nullptr && this->sourceId_ == nullptr && this->sourceType_ == nullptr && this->userId_ == nullptr && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -158,6 +160,13 @@ namespace Models
     void deleteSourceType() { this->sourceType_ = nullptr;};
     inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
     inline AddImageRequest& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
+
+
+    // userId Field Functions 
+    bool hasUserId() const { return this->userId_ != nullptr;};
+    void deleteUserId() { this->userId_ = nullptr;};
+    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
+    inline AddImageRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
     // workspaceId Field Functions 
@@ -241,6 +250,7 @@ namespace Models
     // Import
     // Build
     shared_ptr<string> sourceType_ {};
+    shared_ptr<string> userId_ {};
     // The ID of the workspace to which the image belongs. For more information, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
