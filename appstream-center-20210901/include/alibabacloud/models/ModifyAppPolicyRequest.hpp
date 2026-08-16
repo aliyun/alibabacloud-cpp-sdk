@@ -123,7 +123,7 @@ namespace Models
       shared_ptr<int32_t> sessionResolutionHeight_ {};
       // The width of the resolution, in pixels.
       shared_ptr<int32_t> sessionResolutionWidth_ {};
-      // The streaming mode. This parameter is used together with the Webrtc parameter to specify the protocol type.
+      // The streaming mode. Used together with the Webrtc parameter to specify the protocol type.
       // 
       // - Webrtc=`true` and StreamingMode=`video`: WebRTC stream.
       // - Webrtc=`false` and StreamingMode=`video`: video stream.
@@ -137,7 +137,7 @@ namespace Models
       shared_ptr<bool> terminalResolutionAdaptive_ {};
       // The visual quality strategy.
       shared_ptr<string> visualQualityStrategy_ {};
-      // Specifies whether to enable WebRTC. This parameter is used together with the StreamingMode parameter to specify the protocol type.
+      // Specifies whether to enable WebRTC. Used together with the StreamingMode parameter to specify the protocol type.
       // 
       // - Webrtc=`true` and StreamingMode=`video`: WebRTC stream.
       // - Webrtc=`false` and StreamingMode=`video`: video stream.

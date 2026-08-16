@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The application image ID. You can obtain this ID from the Image Management page in the WUYING Cloud Application console.
+    // The application image ID. You can obtain this value from the Image Management page in the WUYING Cloud Application console.
     // 
     // This parameter is required.
     shared_ptr<string> appCenterImageId_ {};

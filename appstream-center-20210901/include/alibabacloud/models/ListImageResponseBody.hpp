@@ -357,7 +357,7 @@ namespace Models
 
 
       protected:
-        // The image ID. System image IDs are meaningful, while custom image IDs are automatically generated.
+        // The image ID. System image IDs are meaningful, while custom image IDs are auto-generated.
         shared_ptr<string> imageId_ {};
         // The progress percentage.
         shared_ptr<string> progress_ {};
@@ -811,35 +811,35 @@ namespace Models
       // The image creation type.
       shared_ptr<string> imageCreateMode_ {};
       shared_ptr<string> imageIconUrl_ {};
-      // The image ID. System image IDs are meaningful, while custom image IDs are automatically generated.
+      // The image ID. System image IDs are meaningful, while custom image IDs are auto-generated.
       shared_ptr<string> imageId_ {};
       // The image name.
       shared_ptr<string> imageName_ {};
-      // The effective region information for overlay layers.
+      // The overlay effective region information.
       shared_ptr<vector<Data::ImageRegionDistributeList>> imageRegionDistributeList_ {};
       // The regions.
       shared_ptr<vector<string>> imageRegionList_ {};
       // The image type.
       shared_ptr<string> imageType_ {};
-      // The image language. If the package type is VHD or Container, this property is inherited from the ECS-packaged image in the image combination.
+      // The image language. If the package type is VHD/Container, this property is inherited from the ECS package type image in the image combination.
       shared_ptr<string> language_ {};
       // The latest sub-version of the image. An image consists of multiple sub-versions.
       shared_ptr<string> latestVersionId_ {};
       // Indicates whether the current version is the active version.
       shared_ptr<bool> onlineVersion_ {};
-      // The sub-version from which the current image reads the primary image information. An image consists of multiple sub-versions.
+      // The sub-version from which the current image reads the main image information. An image consists of multiple sub-versions.
       shared_ptr<string> onlineVersionId_ {};
       // The image type.
       shared_ptr<string> osType_ {};
       // The image package type.
       shared_ptr<string> packageType_ {};
-      // The parent image ID. This parameter indicates only the inheritance relationship. System images do not have a parent image.
+      // The parent image ID. This only indicates the inheritance relationship. System images have no parent image.
       shared_ptr<string> parentImageId_ {};
       // The parent image version.
       shared_ptr<string> parentImageVersion_ {};
-      // The operating system platform of the image.
+      // The image operating system platform.
       // 
-      // > If the package type is VHD or Container, this property is inherited from the ECS-packaged image in the image combination.
+      // > If the package type is VHD/Container, this property is inherited from the ECS package type image in the image combination.
       shared_ptr<int32_t> platform_ {};
       // The system platform name.
       shared_ptr<string> platformName_ {};
@@ -867,9 +867,9 @@ namespace Models
       shared_ptr<string> versionId_ {};
       // The version name.
       shared_ptr<string> versionName_ {};
-      // Indicates whether cloud disk encryption is enabled.
+      // Indicates whether disk encryption is enabled.
       shared_ptr<bool> volumeEncryptionEnabled_ {};
-      // The KMS key ID used when cloud disk encryption is enabled.
+      // The KMS key ID used when disk encryption is enabled.
       shared_ptr<string> volumeEncryptionKey_ {};
     };
 

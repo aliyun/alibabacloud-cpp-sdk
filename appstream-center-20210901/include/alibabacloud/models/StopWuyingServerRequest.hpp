@@ -62,8 +62,8 @@ namespace Models
   protected:
     // Specifies whether to forcibly restart the workstation. Valid values:
     // 
-    // - True: forcibly restart
-    // - False: do not forcibly restart.
+    // - True: forcibly
+    // - False: not forcibly
     shared_ptr<bool> force_ {};
     shared_ptr<string> productType_ {};
     // The list of workstation IDs.

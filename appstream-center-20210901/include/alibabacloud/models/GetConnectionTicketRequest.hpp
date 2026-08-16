@@ -152,7 +152,9 @@ namespace Models
 
 
   protected:
-    // The access type. If you do not specify this parameter, both types are displayed. Valid values:
+    // The access type. If you do not specify this parameter, both types are displayed.
+    // 
+    // Valid values:
     // - INTERNET: Internet access.
     // - VPC: Express Connect access.
     shared_ptr<string> accessType_ {};
@@ -174,7 +176,7 @@ namespace Models
     // The persistent session ID.
     shared_ptr<string> appInstancePersistentId_ {};
     shared_ptr<string> appPolicyId_ {};
-    // The application startup parameter. For information about how to obtain startup parameters, see [How to obtain application installation and startup parameters](https://help.aliyun.com/document_detail/426045.html).
+    // The application startup parameter. For information about how to obtain startup parameters, see [How to obtain application installation parameters and startup parameters](https://help.aliyun.com/document_detail/426045.html).
     shared_ptr<string> appStartParam_ {};
     // The application version. If you specify this parameter, only the specified version of the application is opened. If you do not specify this parameter, any authorized version of the application is opened.
     shared_ptr<string> appVersion_ {};
@@ -194,7 +196,7 @@ namespace Models
     shared_ptr<string> productType_ {};
     // The task ID.
     // 
-    // > This request parameter is required for non-initial invokes. Use this parameter to check the task status and connection credentials.
+    // > This parameter is required for non-initial calls. Use this parameter to query the task status and connection credentials.
     shared_ptr<string> taskId_ {};
   };
 

@@ -89,6 +89,7 @@ namespace Models
         class LlmInfoList : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const LlmInfoList& obj) { 
+            DARABONBA_PTR_TO_JSON(CreditMultiplier, creditMultiplier_);
             DARABONBA_PTR_TO_JSON(Description, description_);
             DARABONBA_PTR_TO_JSON(Features, features_);
             DARABONBA_PTR_TO_JSON(InferenceMetadata, inferenceMetadata_);
@@ -98,6 +99,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(RiskType, riskType_);
           };
           friend void from_json(const Darabonba::Json& j, LlmInfoList& obj) { 
+            DARABONBA_PTR_FROM_JSON(CreditMultiplier, creditMultiplier_);
             DARABONBA_PTR_FROM_JSON(Description, description_);
             DARABONBA_PTR_FROM_JSON(Features, features_);
             DARABONBA_PTR_FROM_JSON(InferenceMetadata, inferenceMetadata_);
@@ -159,15 +161,68 @@ namespace Models
 
 
           protected:
-            // The list of request modalities, such as Text, Image, and Audio.
+            // The list of request modalities (such as Text, Image, and Audio).
             shared_ptr<vector<string>> requestModality_ {};
-            // The list of response modalities, such as Text, Image, and Audio.
+            // The list of response modalities (such as Text, Image, and Audio).
             shared_ptr<vector<string>> responseModality_ {};
           };
 
-          virtual bool empty() const override { return this->description_ == nullptr
-        && this->features_ == nullptr && this->inferenceMetadata_ == nullptr && this->llmCode_ == nullptr && this->name_ == nullptr && this->publishedTime_ == nullptr
-        && this->riskType_ == nullptr; };
+          class CreditMultiplier : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const CreditMultiplier& obj) { 
+              DARABONBA_PTR_TO_JSON(Max, max_);
+              DARABONBA_PTR_TO_JSON(Min, min_);
+            };
+            friend void from_json(const Darabonba::Json& j, CreditMultiplier& obj) { 
+              DARABONBA_PTR_FROM_JSON(Max, max_);
+              DARABONBA_PTR_FROM_JSON(Min, min_);
+            };
+            CreditMultiplier() = default ;
+            CreditMultiplier(const CreditMultiplier &) = default ;
+            CreditMultiplier(CreditMultiplier &&) = default ;
+            CreditMultiplier(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~CreditMultiplier() = default ;
+            CreditMultiplier& operator=(const CreditMultiplier &) = default ;
+            CreditMultiplier& operator=(CreditMultiplier &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->max_ == nullptr
+        && this->min_ == nullptr; };
+            // max Field Functions 
+            bool hasMax() const { return this->max_ != nullptr;};
+            void deleteMax() { this->max_ = nullptr;};
+            inline float getMax() const { DARABONBA_PTR_GET_DEFAULT(max_, 0.0) };
+            inline CreditMultiplier& setMax(float max) { DARABONBA_PTR_SET_VALUE(max_, max) };
+
+
+            // min Field Functions 
+            bool hasMin() const { return this->min_ != nullptr;};
+            void deleteMin() { this->min_ = nullptr;};
+            inline float getMin() const { DARABONBA_PTR_GET_DEFAULT(min_, 0.0) };
+            inline CreditMultiplier& setMin(float min) { DARABONBA_PTR_SET_VALUE(min_, min) };
+
+
+          protected:
+            // The maximum multiplier. An empty value indicates no upper limit. For example, Min=1 with an empty Max is displayed as 1x and above.
+            shared_ptr<float> max_ {};
+            // The minimum multiplier. When equal to Max, it is a fixed multiplier. For example, Min=Max=2 is displayed as 2x.
+            shared_ptr<float> min_ {};
+          };
+
+          virtual bool empty() const override { return this->creditMultiplier_ == nullptr
+        && this->description_ == nullptr && this->features_ == nullptr && this->inferenceMetadata_ == nullptr && this->llmCode_ == nullptr && this->name_ == nullptr
+        && this->publishedTime_ == nullptr && this->riskType_ == nullptr; };
+          // creditMultiplier Field Functions 
+          bool hasCreditMultiplier() const { return this->creditMultiplier_ != nullptr;};
+          void deleteCreditMultiplier() { this->creditMultiplier_ = nullptr;};
+          inline const LlmInfoList::CreditMultiplier & getCreditMultiplier() const { DARABONBA_PTR_GET_CONST(creditMultiplier_, LlmInfoList::CreditMultiplier) };
+          inline LlmInfoList::CreditMultiplier getCreditMultiplier() { DARABONBA_PTR_GET(creditMultiplier_, LlmInfoList::CreditMultiplier) };
+          inline LlmInfoList& setCreditMultiplier(const LlmInfoList::CreditMultiplier & creditMultiplier) { DARABONBA_PTR_SET_VALUE(creditMultiplier_, creditMultiplier) };
+          inline LlmInfoList& setCreditMultiplier(LlmInfoList::CreditMultiplier && creditMultiplier) { DARABONBA_PTR_SET_RVALUE(creditMultiplier_, creditMultiplier) };
+
+
           // description Field Functions 
           bool hasDescription() const { return this->description_ != nullptr;};
           void deleteDescription() { this->description_ = nullptr;};
@@ -222,19 +277,21 @@ namespace Models
 
 
         protected:
+          // The credit consumption multiplier. An empty value indicates the model does not participate in credit-based billing.
+          shared_ptr<LlmInfoList::CreditMultiplier> creditMultiplier_ {};
           // The model description.
           shared_ptr<string> description_ {};
-          // The list of model features, such as function-calling, web-search, and structured-outputs.
+          // The list of model features (such as function-calling, web-search, and structured-outputs).
           shared_ptr<vector<string>> features_ {};
-          // The inference metadata, including request and response modalities.
+          // The inference metadata (request and response modalities).
           shared_ptr<LlmInfoList::InferenceMetadata> inferenceMetadata_ {};
           // The model code.
           shared_ptr<string> llmCode_ {};
           // The model name.
           shared_ptr<string> name_ {};
-          // The publish time in ISO 8601 format.
+          // The publish time (ISO 8601 format).
           shared_ptr<string> publishedTime_ {};
-          // The model risk type. This parameter is returned only when the request parameter IncludeRiskInfo is set to true.
+          // The model risk type (returned only when the request parameter IncludeRiskInfo is set to true).
           shared_ptr<string> riskType_ {};
         };
 
@@ -336,9 +393,9 @@ namespace Models
       shared_ptr<string> modelTemplateId_ {};
       // The model group name.
       shared_ptr<string> modelTemplateName_ {};
-      // The model template association type (returned only when an association exists).
+      // The model template association type (returned only when present).
       shared_ptr<string> modelTemplateRefType_ {};
-      // The resource group ID to which the runtime belongs. The value is null if the runtime is not associated with a resource group.
+      // The resource group ID to which the runtime belongs (null if not assigned to a resource group).
       shared_ptr<string> resourceGroupId_ {};
     };
 

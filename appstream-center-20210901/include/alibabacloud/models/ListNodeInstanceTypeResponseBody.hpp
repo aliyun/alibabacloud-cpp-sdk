@@ -137,7 +137,7 @@ namespace Models
       shared_ptr<string> gpu_ {};
       // The GPU memory size. Unit: MB.
       shared_ptr<int64_t> gpuMemory_ {};
-      // The maximum number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected simultaneously, the application experience may degrade. The valid values vary depending on the resource specification. The valid values for each resource specification are as follows:
+      // The maximum number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected simultaneously, the application experience may degrade. The valid values vary by resource specification. The valid values for each resource specification are as follows:
       // 
       // - appstreaming.general.2c4g: 1
       // - appstreaming.general.4c8g: 1 to 2
@@ -154,15 +154,15 @@ namespace Models
       // - appstreaming.vgpu.12c46g.11g28: 1 to 6
       // - appstreaming.vgpu.14c93g.12g: 1 to 7
       // - appstreaming.vgpu.16c32g.8g: 1 to 8
-      // - appstreaming.vgpu.16c62g.8ga10: 1 to 8.
+      // - appstreaming.vgpu.16c62g.8ga10: 1 to 8
       shared_ptr<int32_t> maxCapacity_ {};
       // The memory size. Unit: MB.
       shared_ptr<int64_t> memory_ {};
-      // The ID of the resource specification type.
+      // The resource specification type ID.
       shared_ptr<string> nodeInstanceType_ {};
       // The resource specification family.
       shared_ptr<string> nodeInstanceTypeFamily_ {};
-      // The name of the resource specification.
+      // The resource specification name.
       shared_ptr<string> nodeTypeName_ {};
     };
 

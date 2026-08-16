@@ -608,15 +608,15 @@ namespace Models
       protected:
         // The number of resources purchased when the delivery group was created.
         shared_ptr<int32_t> amount_ {};
-        // The upper limit of idle sessions. When this value is specified, automatic scale-out is triggered only when the session usage exceeds `ScalingUsageThreshold` and the number of idle sessions in the delivery group is less than `MaxIdleAppInstanceAmount`. Otherwise, the delivery group is considered to have sufficient idle sessions and no automatic scale-out is performed. This parameter allows you to flexibly control elastic scaling behavior and reduce costs.
+        // The upper limit of idle sessions. When this value is specified, automatic scale-out is triggered only when the session usage exceeds `ScalingUsageThreshold` and the number of idle sessions in the delivery group is less than `MaxIdleAppInstanceAmount`. Otherwise, the delivery group is considered to have sufficient idle sessions and automatic scale-out is not triggered. This parameter allows flexible control over elastic scaling behavior and helps reduce costs.
         shared_ptr<int32_t> maxIdleAppInstanceAmount_ {};
         // The maximum number of resources that can be created during scale-out.
         shared_ptr<int32_t> maxScalingAmount_ {};
         // The total number of current subscription resources.
         shared_ptr<int32_t> nodeAmount_ {};
-        // The number of concurrent sessions, which is the number of sessions that a single resource can handle simultaneously. Too many simultaneous sessions may degrade the application experience. The valid values vary depending on the resource specification.
+        // The number of concurrent sessions, which is the number of sessions that a single resource can handle simultaneously. If too many sessions are connected simultaneously, the application experience may degrade. The valid values vary depending on the resource specification.
         shared_ptr<int32_t> nodeCapacity_ {};
-        // The specification type ID of the purchased resources.
+        // The specification type ID of the purchased resource.
         shared_ptr<string> nodeInstanceType_ {};
         // The resource group ID.
         shared_ptr<string> nodePoolId_ {};
@@ -632,9 +632,9 @@ namespace Models
         shared_ptr<int32_t> scalingNodeAmount_ {};
         // The resource count of elastic resources in use.
         shared_ptr<int32_t> scalingNodeUsed_ {};
-        // The number of resources created during each scale-out event. Valid values: 1 to 10.
+        // The number of resources created per scale-out operation. Valid values: 1 to 10.
         shared_ptr<int32_t> scalingStep_ {};
-        // The upper threshold of session usage (%). When the session usage exceeds this threshold, automatic scale-out is triggered. The formula for session usage is: `Session usage = Number of current sessions ÷ (Total number of resources × Concurrent sessions per resource) × 100%`.
+        // The upper threshold of session usage (%). When the session usage exceeds this threshold, automatic scale-out is triggered. The formula for session usage is: `session usage = current number of sessions ÷ (total number of resources × concurrent sessions per resource) × 100%`.
         shared_ptr<string> scalingUsageThreshold_ {};
         // The date when the policy expires. Format: yyyy-MM-dd.
         shared_ptr<string> strategyDisableDate_ {};
@@ -1051,17 +1051,17 @@ namespace Models
       shared_ptr<string> officeSiteId_ {};
       // The operating system type.
       shared_ptr<string> osType_ {};
-      // The over-the-air update task information.
+      // The OTA upgrade task information.
       shared_ptr<AppInstanceGroupModels::OtaInfo> otaInfo_ {};
       // The product type.
       shared_ptr<string> productType_ {};
       // The region ID of the delivery group. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
       shared_ptr<string> regionId_ {};
-      // The percentage of reserved instances, which represents the ratio of unused sessions in the delivery group. Valid values: 0 to 99.
+      // The reserved instance percentage, which is the ratio of unused sessions in the delivery group. Valid values: 0 to 99.
       shared_ptr<string> reserveAmountRatio_ {};
-      // The maximum number of reserved instances, which represents the maximum number of unused sessions in the delivery group. Minimum value: 1.
+      // The maximum number of reserved instances, which is the maximum number of unused sessions in the delivery group. Minimum value: 1.
       shared_ptr<int32_t> reserveMaxAmount_ {};
-      // The minimum number of reserved instances, which represents the minimum number of unused sessions in the delivery group. Minimum value: 1.
+      // The minimum number of reserved instances, which is the minimum number of unused sessions in the delivery group. Minimum value: 1.
       shared_ptr<int32_t> reserveMinAmount_ {};
       // The resource status.
       shared_ptr<string> resourceStatus_ {};
@@ -1069,13 +1069,13 @@ namespace Models
       shared_ptr<vector<AppInstanceGroupModels::ResourceTags>> resourceTags_ {};
       // The duration of no session connections, in minutes. When a resource remains in a no-session-connection state for the specified duration, automatic scale-in is triggered. Minimum value: 0.
       shared_ptr<int32_t> scalingDownAfterIdleMinutes_ {};
-      // The number of sessions created during each scale-out event. Minimum value: 1.
+      // The number of sessions created per scale-out operation. Minimum value: 1.
       shared_ptr<int32_t> scalingStep_ {};
-      // The upper threshold of session usage (%). When the session usage exceeds this threshold, automatic scale-out is triggered. The formula for session usage is: Session usage = Number of sessions in use ÷ Total number of sessions × 100%. Valid values: 0 to 99.
+      // The upper threshold of session usage (%). When the session usage exceeds this threshold, automatic scale-out is triggered. The formula for session usage is: session usage = number of sessions in use ÷ total number of sessions × 100%. Valid values: 0 to 99.
       shared_ptr<string> scalingUsageThreshold_ {};
-      // The session disconnection retention duration, in minutes. After an end user session is disconnected, the session is retained for the specified duration before being logged off. Set this parameter to `-1` to retain the session indefinitely. Valid values: -1 and 3 to 300. Default value: `15`.
+      // The session disconnection retention duration, in minutes. After an end user session is disconnected, the session is retained for the specified duration before being logged off. Set this value to `-1` to retain the session indefinitely. Valid values: -1 and 3 to 300. Default value: `15`.
       shared_ptr<string> sessionTimeout_ {};
-      // Indicates whether user authorization verification is skipped.
+      // Specifies whether to skip user authorization verification.
       shared_ptr<bool> skipUserAuthCheck_ {};
       // The ID that uniquely corresponds to the delivery group ID.
       shared_ptr<string> specId_ {};
@@ -1129,7 +1129,7 @@ namespace Models
   protected:
     // The delivery group information.
     shared_ptr<vector<ListAppInstanceGroupResponseBody::AppInstanceGroupModels>> appInstanceGroupModels_ {};
-    // The page number of the query results currently displayed.
+    // The page number of the displayed query results.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of query results per page.
     shared_ptr<int32_t> pageSize_ {};

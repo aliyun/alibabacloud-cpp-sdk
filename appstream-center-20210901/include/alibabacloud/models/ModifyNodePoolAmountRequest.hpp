@@ -87,9 +87,9 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<int32_t> nodeAmount_ {};
-      // The modification mode for subscription nodes.
+      // The subscription node modification mode.
       shared_ptr<string> prePaidNodeAmountModifyMode_ {};
-      // The list of nodes whose billing type is to be changed.
+      // The list of nodes whose billing type is to be modified.
       shared_ptr<vector<string>> prePaidNodeAmountModifyNodeIds_ {};
     };
 
@@ -123,7 +123,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The node pool specification change parameters.
+    // The parameters for node pool specification changes.
     // 
     // This parameter is required.
     shared_ptr<ModifyNodePoolAmountRequest::NodePool> nodePool_ {};

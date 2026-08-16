@@ -72,11 +72,11 @@ namespace Models
 
 
     protected:
-      // The tag key. This parameter is case-sensitive. The tag key must be 1 to 128 characters in length.
+      // The tag key. Tags are case-sensitive. The key must be 1 to 128 characters in length.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // The tag value. This parameter is case-sensitive. The tag value must be 1 to 128 characters in length.
+      // The tag value. Tags are case-sensitive. The value must be 1 to 128 characters in length.
       // 
       // This parameter is required.
       shared_ptr<string> value_ {};
@@ -110,7 +110,7 @@ namespace Models
 
 
   protected:
-    // The list of resource IDs. A maximum of 50 resource IDs are supported. You do not need to specify this parameter when the resource type is tenant ID.
+    // The list of resource IDs. A maximum of 50 IDs are supported. You do not need to specify this parameter when the resource type is tenant ID.
     shared_ptr<vector<string>> resourceIds_ {};
     // The cloud resource type.
     // 
@@ -120,7 +120,7 @@ namespace Models
     // 
     // - System tag enumeration values:
     //    - `System/Scheduler/GRAYSCALE`: canary release tag
-    //    - `System/Scheduler/STOP_NEW_USER_CONNECTION`: tag that prevents new user connections from being established for the delivery group
+    //    - `System/Scheduler/STOP_NEW_USER_CONNECTION`: tag that prevents newly bound users in a delivery group from establishing connections
     // 
     // - Custom tags: A maximum of 20 custom tags can be created.
     // 

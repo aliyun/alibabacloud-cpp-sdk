@@ -41,20 +41,30 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AgentPlatform, agentPlatform_);
         DARABONBA_PTR_TO_JSON(AgentProvider, agentProvider_);
         DARABONBA_PTR_TO_JSON(Config, config_);
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(HasModel, hasModel_);
+        DARABONBA_PTR_TO_JSON(ModelCount, modelCount_);
         DARABONBA_PTR_TO_JSON(ModelTemplateId, modelTemplateId_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(RefScope, refScope_);
+        DARABONBA_PTR_TO_JSON(UserCount, userCount_);
+        DARABONBA_PTR_TO_JSON(UserGroupCount, userGroupCount_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AgentPlatform, agentPlatform_);
         DARABONBA_PTR_FROM_JSON(AgentProvider, agentProvider_);
         DARABONBA_PTR_FROM_JSON(Config, config_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(HasModel, hasModel_);
+        DARABONBA_PTR_FROM_JSON(ModelCount, modelCount_);
         DARABONBA_PTR_FROM_JSON(ModelTemplateId, modelTemplateId_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(RefScope, refScope_);
+        DARABONBA_PTR_FROM_JSON(UserCount, userCount_);
+        DARABONBA_PTR_FROM_JSON(UserGroupCount, userGroupCount_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -67,8 +77,16 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->agentProvider_ == nullptr
-        && this->config_ == nullptr && this->description_ == nullptr && this->hasModel_ == nullptr && this->modelTemplateId_ == nullptr && this->name_ == nullptr; };
+      virtual bool empty() const override { return this->agentPlatform_ == nullptr
+        && this->agentProvider_ == nullptr && this->config_ == nullptr && this->description_ == nullptr && this->hasModel_ == nullptr && this->modelCount_ == nullptr
+        && this->modelTemplateId_ == nullptr && this->name_ == nullptr && this->refScope_ == nullptr && this->userCount_ == nullptr && this->userGroupCount_ == nullptr; };
+      // agentPlatform Field Functions 
+      bool hasAgentPlatform() const { return this->agentPlatform_ != nullptr;};
+      void deleteAgentPlatform() { this->agentPlatform_ = nullptr;};
+      inline string getAgentPlatform() const { DARABONBA_PTR_GET_DEFAULT(agentPlatform_, "") };
+      inline Data& setAgentPlatform(string agentPlatform) { DARABONBA_PTR_SET_VALUE(agentPlatform_, agentPlatform) };
+
+
       // agentProvider Field Functions 
       bool hasAgentProvider() const { return this->agentProvider_ != nullptr;};
       void deleteAgentProvider() { this->agentProvider_ = nullptr;};
@@ -97,6 +115,13 @@ namespace Models
       inline Data& setHasModel(bool hasModel) { DARABONBA_PTR_SET_VALUE(hasModel_, hasModel) };
 
 
+      // modelCount Field Functions 
+      bool hasModelCount() const { return this->modelCount_ != nullptr;};
+      void deleteModelCount() { this->modelCount_ = nullptr;};
+      inline int32_t getModelCount() const { DARABONBA_PTR_GET_DEFAULT(modelCount_, 0) };
+      inline Data& setModelCount(int32_t modelCount) { DARABONBA_PTR_SET_VALUE(modelCount_, modelCount) };
+
+
       // modelTemplateId Field Functions 
       bool hasModelTemplateId() const { return this->modelTemplateId_ != nullptr;};
       void deleteModelTemplateId() { this->modelTemplateId_ = nullptr;};
@@ -111,19 +136,52 @@ namespace Models
       inline Data& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // refScope Field Functions 
+      bool hasRefScope() const { return this->refScope_ != nullptr;};
+      void deleteRefScope() { this->refScope_ = nullptr;};
+      inline string getRefScope() const { DARABONBA_PTR_GET_DEFAULT(refScope_, "") };
+      inline Data& setRefScope(string refScope) { DARABONBA_PTR_SET_VALUE(refScope_, refScope) };
+
+
+      // userCount Field Functions 
+      bool hasUserCount() const { return this->userCount_ != nullptr;};
+      void deleteUserCount() { this->userCount_ = nullptr;};
+      inline int32_t getUserCount() const { DARABONBA_PTR_GET_DEFAULT(userCount_, 0) };
+      inline Data& setUserCount(int32_t userCount) { DARABONBA_PTR_SET_VALUE(userCount_, userCount) };
+
+
+      // userGroupCount Field Functions 
+      bool hasUserGroupCount() const { return this->userGroupCount_ != nullptr;};
+      void deleteUserGroupCount() { this->userGroupCount_ = nullptr;};
+      inline int32_t getUserGroupCount() const { DARABONBA_PTR_GET_DEFAULT(userGroupCount_, 0) };
+      inline Data& setUserGroupCount(int32_t userGroupCount) { DARABONBA_PTR_SET_VALUE(userGroupCount_, userGroupCount) };
+
+
     protected:
-      // The name of the Agent provider.
+      // The Agent platform (such as ENTERPRISE or ENTERPRISE_JVS).
+      shared_ptr<string> agentPlatform_ {};
+      // The Agent provider name.
       shared_ptr<string> agentProvider_ {};
       // The model group configuration JSON object.
       shared_ptr<string> config_ {};
       // The template group description.
       shared_ptr<string> description_ {};
-      // Specifies whether models have been configured in the group.
+      // Specifies whether models are configured in the group.
       shared_ptr<bool> hasModel_ {};
+      // The number of models in the model group, including referenced system provider models.
+      shared_ptr<int32_t> modelCount_ {};
       // The model group ID.
       shared_ptr<string> modelTemplateId_ {};
       // The template group name.
       shared_ptr<string> name_ {};
+      // The group authorization scope. Valid values:
+      // - ALL_USER: all users.
+      // - USER_MIXED: user mixed (a mix of user groups and users, only for Common groups).
+      shared_ptr<string> refScope_ {};
+      // The number of authorized users in the group. Returned only when ListModelTemplates is called with refScope=USER_MIXED. Otherwise null.
+      shared_ptr<int32_t> userCount_ {};
+      // The number of authorized user groups in the group. Returned only when ListModelTemplates is called with refScope=USER_MIXED. Otherwise null.
+      shared_ptr<int32_t> userGroupCount_ {};
     };
 
     virtual bool empty() const override { return this->data_ == nullptr
@@ -168,13 +226,13 @@ namespace Models
   protected:
     // The list of returned data objects.
     shared_ptr<vector<ListModelTemplatesResponseBody::Data>> data_ {};
-    // The page number of the current query result.
+    // The current page number of the query results.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in the query result.
+    // The number of query results per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the query result.
+    // The total number of query results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

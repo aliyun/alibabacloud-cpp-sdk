@@ -106,9 +106,13 @@ namespace Models
 
 
   protected:
-    // The Agent platform (such as ENTERPRISE or JVS).
+    // The Agent platform.
     shared_ptr<string> agentPlatform_ {};
     // The Agent provider.
+    // 
+    // - JVS Computer: set to OpenClaw.
+    // - OpenClaw: set to OpenClaw.
+    // - Hermes Agent: set to HermesAgent.
     // 
     // This parameter is required.
     shared_ptr<string> agentProvider_ {};
@@ -117,6 +121,23 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> code_ {};
     // The channel configuration JSON string.
+    // 
+    // - Simple configuration mode example:
+    // ```json
+    // {
+    //     "appKey": "abc",
+    //     "appSecret": "efg"
+    // }
+    // ```
+    // 
+    // - Custom configuration mode example:
+    // ```json
+    // {
+    //   "enabled": true,
+    //   "clientId": "xxx",
+    //   "clientSecret": "xxx"
+    // }
+    // ```
     // 
     // This parameter is required.
     shared_ptr<string> config_ {};

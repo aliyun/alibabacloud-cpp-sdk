@@ -13,20 +13,24 @@ namespace Models
   class ListLlmTemplatesShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListLlmTemplatesShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BizType, bizType_);
       DARABONBA_PTR_TO_JSON(LlmCode, llmCode_);
       DARABONBA_PTR_TO_JSON(LlmTemplateIds, llmTemplateIdsShrink_);
       DARABONBA_PTR_TO_JSON(ModelTemplateId, modelTemplateId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ProviderTemplateId, providerTemplateId_);
+      DARABONBA_PTR_TO_JSON(SmartModel, smartModel_);
     };
     friend void from_json(const Darabonba::Json& j, ListLlmTemplatesShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BizType, bizType_);
       DARABONBA_PTR_FROM_JSON(LlmCode, llmCode_);
       DARABONBA_PTR_FROM_JSON(LlmTemplateIds, llmTemplateIdsShrink_);
       DARABONBA_PTR_FROM_JSON(ModelTemplateId, modelTemplateId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ProviderTemplateId, providerTemplateId_);
+      DARABONBA_PTR_FROM_JSON(SmartModel, smartModel_);
     };
     ListLlmTemplatesShrinkRequest() = default ;
     ListLlmTemplatesShrinkRequest(const ListLlmTemplatesShrinkRequest &) = default ;
@@ -39,8 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->llmCode_ == nullptr
-        && this->llmTemplateIdsShrink_ == nullptr && this->modelTemplateId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->providerTemplateId_ == nullptr; };
+    virtual bool empty() const override { return this->bizType_ == nullptr
+        && this->llmCode_ == nullptr && this->llmTemplateIdsShrink_ == nullptr && this->modelTemplateId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->providerTemplateId_ == nullptr && this->smartModel_ == nullptr; };
+    // bizType Field Functions 
+    bool hasBizType() const { return this->bizType_ != nullptr;};
+    void deleteBizType() { this->bizType_ = nullptr;};
+    inline int32_t getBizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, 0) };
+    inline ListLlmTemplatesShrinkRequest& setBizType(int32_t bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
+
+
     // llmCode Field Functions 
     bool hasLlmCode() const { return this->llmCode_ != nullptr;};
     void deleteLlmCode() { this->llmCode_ = nullptr;};
@@ -83,19 +95,30 @@ namespace Models
     inline ListLlmTemplatesShrinkRequest& setProviderTemplateId(string providerTemplateId) { DARABONBA_PTR_SET_VALUE(providerTemplateId_, providerTemplateId) };
 
 
+    // smartModel Field Functions 
+    bool hasSmartModel() const { return this->smartModel_ != nullptr;};
+    void deleteSmartModel() { this->smartModel_ = nullptr;};
+    inline bool getSmartModel() const { DARABONBA_PTR_GET_DEFAULT(smartModel_, false) };
+    inline ListLlmTemplatesShrinkRequest& setSmartModel(bool smartModel) { DARABONBA_PTR_SET_VALUE(smartModel_, smartModel) };
+
+
   protected:
-    // The model code used for filtering. Fuzzy match is supported.
+    // The business type. This parameter is required when SmartModel is set to true.
+    shared_ptr<int32_t> bizType_ {};
+    // The model code filter. Fuzzy match is supported.
     shared_ptr<string> llmCode_ {};
     // The model template IDs used for filtering.
     shared_ptr<string> llmTemplateIdsShrink_ {};
     // The ID of the associated model group.
     shared_ptr<string> modelTemplateId_ {};
-    // The page number. Pages start from page 1. Values 0 and 1 return the same result.
+    // The page number, starting from 1. Values 0 and 1 return the same result.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the model provider template.
     shared_ptr<string> providerTemplateId_ {};
+    // Specifies whether to query smart models. If set to true, only LLMs under system preset smart models are returned, and BizType is required. Default value: false.
+    shared_ptr<bool> smartModel_ {};
   };
 
   } // namespace Models

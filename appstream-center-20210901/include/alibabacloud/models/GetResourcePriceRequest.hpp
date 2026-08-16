@@ -107,7 +107,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> amount_ {};
-    // The ID of the session instance type to purchase. You can call the `ListAppInstanceType` operation to obtain the ID.
+    // The ID of the session specification type to purchase. You can obtain this value by calling the `ListAppInstanceType` operation.
     // 
     // Either AppInstanceType or NodeInstanceType must have a value. If both have values, NodeInstanceType is used.
     shared_ptr<string> appInstanceType_ {};
@@ -119,15 +119,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
-    // The ID of the resource instance type to purchase. You can call the [ListNodeInstanceType](https://help.aliyun.com/document_detail/428502.html) operation to obtain the ID.
+    // The ID of the resource specification type to purchase. You can obtain this value by calling the [ListNodeInstanceType](https://help.aliyun.com/document_detail/428502.html) operation.
     // 
     // Either AppInstanceType or NodeInstanceType must have a value. If both have values, NodeInstanceType is used.
     shared_ptr<string> nodeInstanceType_ {};
-    // The numeric part of the purchase duration. This parameter is used together with PeriodUnit to specify the complete purchase duration.
+    // The numeric part of the resource purchase duration. This parameter is used together with PeriodUnit to specify the complete purchase duration.
     // 
     // This parameter is required.
     shared_ptr<int64_t> period_ {};
-    // The unit part of the purchase duration. This parameter is used together with Period to specify the complete purchase duration. The following combinations of Period and PeriodUnit are supported:
+    // The unit part of the resource purchase duration. This parameter is used together with Period to specify the complete purchase duration. Valid combinations of Period and PeriodUnit:
     // 
     // - 1 Week (1 week)
     // - 1 Month (1 month)
@@ -138,7 +138,7 @@ namespace Models
     // - 2 Year (2 years)
     // - 3 Year (3 years)
     // 
-    // > This parameter is case-sensitive. For example, `Week` is valid, but `week` is invalid. If the request parameters do not match the supported combinations, such as `2 Week`, the API call succeeds but an error occurs during the order placement stage.
+    // > This parameter is case-sensitive. For example, `Week` is valid, but `week` is invalid. If the request parameters do not match the combinations listed above, such as `2 Week`, the call to this operation succeeds, but an error occurs during the order placement phase.
     // 
     // This parameter is required.
     shared_ptr<string> periodUnit_ {};

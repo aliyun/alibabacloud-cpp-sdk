@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListNodeInstanceTypeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
+      DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(Cpu, cpu_);
       DARABONBA_PTR_TO_JSON(Gpu, gpu_);
       DARABONBA_PTR_TO_JSON(GpuMemory, gpuMemory_);
@@ -32,6 +33,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListNodeInstanceTypeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
+      DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
       DARABONBA_PTR_FROM_JSON(Gpu, gpu_);
       DARABONBA_PTR_FROM_JSON(GpuMemory, gpuMemory_);
@@ -60,14 +62,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizRegionId_ == nullptr
-        && this->cpu_ == nullptr && this->gpu_ == nullptr && this->gpuMemory_ == nullptr && this->instanceTypeForModify_ == nullptr && this->language_ == nullptr
-        && this->memory_ == nullptr && this->nodeInstanceType_ == nullptr && this->nodeInstanceTypeFamily_ == nullptr && this->orderBy_ == nullptr && this->orderType_ == nullptr
-        && this->osType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->productType_ == nullptr && this->sortType_ == nullptr; };
+        && this->chargeType_ == nullptr && this->cpu_ == nullptr && this->gpu_ == nullptr && this->gpuMemory_ == nullptr && this->instanceTypeForModify_ == nullptr
+        && this->language_ == nullptr && this->memory_ == nullptr && this->nodeInstanceType_ == nullptr && this->nodeInstanceTypeFamily_ == nullptr && this->orderBy_ == nullptr
+        && this->orderType_ == nullptr && this->osType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->productType_ == nullptr
+        && this->sortType_ == nullptr; };
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
     inline string getBizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
     inline ListNodeInstanceTypeRequest& setBizRegionId(string bizRegionId) { DARABONBA_PTR_SET_VALUE(bizRegionId_, bizRegionId) };
+
+
+    // chargeType Field Functions 
+    bool hasChargeType() const { return this->chargeType_ != nullptr;};
+    void deleteChargeType() { this->chargeType_ = nullptr;};
+    inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline ListNodeInstanceTypeRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
     // cpu Field Functions 
@@ -178,22 +188,23 @@ namespace Models
   protected:
     // The region ID of the resource. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
     shared_ptr<string> bizRegionId_ {};
+    shared_ptr<string> chargeType_ {};
     // The number of CPU cores.
     shared_ptr<float> cpu_ {};
     // The number of GPUs.
     shared_ptr<float> gpu_ {};
-    // The GPU memory size. This parameter is meaningful only for GPU-accelerated cloud desktops. Unit: MB.
+    // The GPU memory size. This parameter is meaningful for GPU-accelerated cloud desktops. Unit: MB.
     shared_ptr<int32_t> gpuMemory_ {};
     shared_ptr<string> instanceTypeForModify_ {};
     // The language type.
     shared_ptr<string> language_ {};
     // The memory size. Unit: MB.
     shared_ptr<int32_t> memory_ {};
-    // The resource specification type to query. If you leave this parameter empty, all specification types are returned.
+    // The resource specification type to query. If this parameter is not specified, all specification types are returned.
     shared_ptr<string> nodeInstanceType_ {};
     // The instance family.
     shared_ptr<string> nodeInstanceTypeFamily_ {};
-    // CPU/Memory.
+    // CPU/Memory
     shared_ptr<string> orderBy_ {};
     shared_ptr<string> orderType_ {};
     // The supported operating system type.
@@ -210,7 +221,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
-    // DESC/ASC.
+    // DESC/ASC
     shared_ptr<string> sortType_ {};
   };
 

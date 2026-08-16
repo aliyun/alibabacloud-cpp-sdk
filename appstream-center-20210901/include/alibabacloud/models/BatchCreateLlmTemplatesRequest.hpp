@@ -103,7 +103,7 @@ namespace Models
       shared_ptr<string> config_ {};
       // The model description.
       shared_ptr<string> description_ {};
-      // Specifies whether to set this model as the default model. Each model group can have at most one default model.
+      // Specifies whether to set the model as the default model. A model group can have at most one default model.
       shared_ptr<bool> isDefaultModel_ {};
       // The model code, which must be unique within the same provider.
       shared_ptr<string> llmCode_ {};

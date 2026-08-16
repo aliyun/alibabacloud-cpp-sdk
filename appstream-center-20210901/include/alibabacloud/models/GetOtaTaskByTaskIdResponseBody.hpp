@@ -90,7 +90,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The OTA version.
     shared_ptr<string> otaVersion_ {};
-    // The version description that describes the content of the over-the-air update.
+    // The release note that describes the content of the over-the-air update.
     shared_ptr<string> releaseNote_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

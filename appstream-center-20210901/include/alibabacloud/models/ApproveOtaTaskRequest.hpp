@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The delivery group ID. You can call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the ID.
+    // The delivery group ID. You can call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain this value.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
@@ -83,19 +83,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> bizRegionId_ {};
-    // The over-the-air upgrade task type.
+    // The OTA upgrade task type.
     // 
     // This parameter is required.
     shared_ptr<string> otaType_ {};
-    // The start time of the over-the-air upgrade task. Specify the time in ISO 8601 format.
+    // The start time of the OTA upgrade task. Specify the time in ISO 8601 format.
     // 
     // This parameter is required.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> startTime_ {};
-    // The over-the-air upgrade task ID. You can call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the ID.
+    // The OTA upgrade task ID. You can call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain this value.
     // 
-    // > Each successful call of `ApproveOtaTask` causes the `TaskId` to change. Therefore, before calling this operation again, call `ListAppInstanceGroup` again to obtain the latest `TaskId`.
+    // > Each successful call to `ApproveOtaTask` causes the `TaskId` to change. Therefore, before calling this operation again, call `ListAppInstanceGroup` again to obtain the latest `TaskId`.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

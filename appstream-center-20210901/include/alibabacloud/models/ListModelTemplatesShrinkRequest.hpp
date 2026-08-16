@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTMODELTEMPLATESSHRINKREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_LISTMODELTEMPLATESSHRINKREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,21 +15,31 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListModelTemplatesShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AgentPlatform, agentPlatform_);
+      DARABONBA_PTR_TO_JSON(AgentPlatformList, agentPlatformList_);
       DARABONBA_PTR_TO_JSON(AgentProvider, agentProvider_);
+      DARABONBA_PTR_TO_JSON(AgentProviderList, agentProviderList_);
       DARABONBA_PTR_TO_JSON(BizType, bizType_);
       DARABONBA_PTR_TO_JSON(HasModel, hasModel_);
       DARABONBA_PTR_TO_JSON(ModelTemplateIdList, modelTemplateIdListShrink_);
+      DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(RefScope, refScope_);
+      DARABONBA_PTR_TO_JSON(Source, source_);
     };
     friend void from_json(const Darabonba::Json& j, ListModelTemplatesShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentPlatform, agentPlatform_);
+      DARABONBA_PTR_FROM_JSON(AgentPlatformList, agentPlatformList_);
       DARABONBA_PTR_FROM_JSON(AgentProvider, agentProvider_);
+      DARABONBA_PTR_FROM_JSON(AgentProviderList, agentProviderList_);
       DARABONBA_PTR_FROM_JSON(BizType, bizType_);
       DARABONBA_PTR_FROM_JSON(HasModel, hasModel_);
       DARABONBA_PTR_FROM_JSON(ModelTemplateIdList, modelTemplateIdListShrink_);
+      DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(RefScope, refScope_);
+      DARABONBA_PTR_FROM_JSON(Source, source_);
     };
     ListModelTemplatesShrinkRequest() = default ;
     ListModelTemplatesShrinkRequest(const ListModelTemplatesShrinkRequest &) = default ;
@@ -42,8 +53,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentPlatform_ == nullptr
-        && this->agentProvider_ == nullptr && this->bizType_ == nullptr && this->hasModel_ == nullptr && this->modelTemplateIdListShrink_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr; };
+        && this->agentPlatformList_ == nullptr && this->agentProvider_ == nullptr && this->agentProviderList_ == nullptr && this->bizType_ == nullptr && this->hasModel_ == nullptr
+        && this->modelTemplateIdListShrink_ == nullptr && this->name_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->refScope_ == nullptr
+        && this->source_ == nullptr; };
     // agentPlatform Field Functions 
     bool hasAgentPlatform() const { return this->agentPlatform_ != nullptr;};
     void deleteAgentPlatform() { this->agentPlatform_ = nullptr;};
@@ -51,11 +63,29 @@ namespace Models
     inline ListModelTemplatesShrinkRequest& setAgentPlatform(string agentPlatform) { DARABONBA_PTR_SET_VALUE(agentPlatform_, agentPlatform) };
 
 
+    // agentPlatformList Field Functions 
+    bool hasAgentPlatformList() const { return this->agentPlatformList_ != nullptr;};
+    void deleteAgentPlatformList() { this->agentPlatformList_ = nullptr;};
+    inline const vector<string> & getAgentPlatformList() const { DARABONBA_PTR_GET_CONST(agentPlatformList_, vector<string>) };
+    inline vector<string> getAgentPlatformList() { DARABONBA_PTR_GET(agentPlatformList_, vector<string>) };
+    inline ListModelTemplatesShrinkRequest& setAgentPlatformList(const vector<string> & agentPlatformList) { DARABONBA_PTR_SET_VALUE(agentPlatformList_, agentPlatformList) };
+    inline ListModelTemplatesShrinkRequest& setAgentPlatformList(vector<string> && agentPlatformList) { DARABONBA_PTR_SET_RVALUE(agentPlatformList_, agentPlatformList) };
+
+
     // agentProvider Field Functions 
     bool hasAgentProvider() const { return this->agentProvider_ != nullptr;};
     void deleteAgentProvider() { this->agentProvider_ = nullptr;};
     inline string getAgentProvider() const { DARABONBA_PTR_GET_DEFAULT(agentProvider_, "") };
     inline ListModelTemplatesShrinkRequest& setAgentProvider(string agentProvider) { DARABONBA_PTR_SET_VALUE(agentProvider_, agentProvider) };
+
+
+    // agentProviderList Field Functions 
+    bool hasAgentProviderList() const { return this->agentProviderList_ != nullptr;};
+    void deleteAgentProviderList() { this->agentProviderList_ = nullptr;};
+    inline const vector<string> & getAgentProviderList() const { DARABONBA_PTR_GET_CONST(agentProviderList_, vector<string>) };
+    inline vector<string> getAgentProviderList() { DARABONBA_PTR_GET(agentProviderList_, vector<string>) };
+    inline ListModelTemplatesShrinkRequest& setAgentProviderList(const vector<string> & agentProviderList) { DARABONBA_PTR_SET_VALUE(agentProviderList_, agentProviderList) };
+    inline ListModelTemplatesShrinkRequest& setAgentProviderList(vector<string> && agentProviderList) { DARABONBA_PTR_SET_RVALUE(agentProviderList_, agentProviderList) };
 
 
     // bizType Field Functions 
@@ -79,6 +109,13 @@ namespace Models
     inline ListModelTemplatesShrinkRequest& setModelTemplateIdListShrink(string modelTemplateIdListShrink) { DARABONBA_PTR_SET_VALUE(modelTemplateIdListShrink_, modelTemplateIdListShrink) };
 
 
+    // name Field Functions 
+    bool hasName() const { return this->name_ != nullptr;};
+    void deleteName() { this->name_ = nullptr;};
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline ListModelTemplatesShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -93,25 +130,49 @@ namespace Models
     inline ListModelTemplatesShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // refScope Field Functions 
+    bool hasRefScope() const { return this->refScope_ != nullptr;};
+    void deleteRefScope() { this->refScope_ = nullptr;};
+    inline string getRefScope() const { DARABONBA_PTR_GET_DEFAULT(refScope_, "") };
+    inline ListModelTemplatesShrinkRequest& setRefScope(string refScope) { DARABONBA_PTR_SET_VALUE(refScope_, refScope) };
+
+
+    // source Field Functions 
+    bool hasSource() const { return this->source_ != nullptr;};
+    void deleteSource() { this->source_ = nullptr;};
+    inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline ListModelTemplatesShrinkRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
   protected:
     // The Agent platform.
     shared_ptr<string> agentPlatform_ {};
-    // The name of the Agent provider.
-    // 
-    // This parameter is required.
+    // The Agent platform list. Supports COMMON. If specified together with AgentPlatform, AgentPlatform takes precedence and this list is ignored. Defaults to ENTERPRISE if no platform filter is specified. To query Common model groups, explicitly include COMMON. If filtering by Provider simultaneously, set the value to Common.
+    shared_ptr<vector<string>> agentPlatformList_ {};
+    // The Agent provider name.
     shared_ptr<string> agentProvider_ {};
+    // The Agent provider list. Supports Common. If specified together with AgentProvider, AgentProvider takes precedence and this list is ignored. To query Common model groups, explicitly include COMMON in the platform filter.
+    shared_ptr<vector<string>> agentProviderList_ {};
     // The business type.
     // 
     // This parameter is required.
     shared_ptr<int32_t> bizType_ {};
-    // Specifies whether models have been configured in the group.
+    // Specifies whether models are configured in the group.
     shared_ptr<bool> hasModel_ {};
-    // The list of template group IDs used for filtering.
+    // The list of template group IDs to filter by.
     shared_ptr<string> modelTemplateIdListShrink_ {};
+    // The model group name. Fuzzy match is supported.
+    shared_ptr<string> name_ {};
     // The page number, starting from 1. Values 0 and 1 return the same result.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The authorization scope filter. Valid values: ALL_USER, USER_MIXED, or RESOURCE_MIXED (strictly uppercase. Case variants or unknown values return InvalidParameter). If not specified, no filtering is applied. Unlike create/update operations, the filter scenario allows RESOURCE_MIXED (to filter non-Common model groups).
+    shared_ptr<string> refScope_ {};
+    // The template source filter. Valid values:
+    // - User: tenant-created (default if not specified).
+    // - System: system preset.
+    shared_ptr<string> source_ {};
   };
 
   } // namespace Models

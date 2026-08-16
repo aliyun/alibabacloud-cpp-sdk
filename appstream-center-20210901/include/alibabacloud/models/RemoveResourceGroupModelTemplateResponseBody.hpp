@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The error code returned if the operation fails.
+      // The error code returned when the operation fails.
       shared_ptr<string> code_ {};
-      // The error message returned if the operation fails.
+      // The error message returned when the operation fails.
       shared_ptr<string> message_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // Indicates whether the operation is successful.
+      // Indicates whether the execution is successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -130,7 +130,7 @@ namespace Models
     shared_ptr<vector<RemoveResourceGroupModelTemplateResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -181,11 +181,11 @@ namespace Models
 
 
   protected:
-    // The token that determines whether the next query exists based on the NextToken value.
+    // The pagination token that indicates whether more results exist.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of tags bound to the resources.
+    // The list of tags bound to resources.
     shared_ptr<vector<ListTagCloudResourcesResponseBody::ResourceTags>> resourceTags_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

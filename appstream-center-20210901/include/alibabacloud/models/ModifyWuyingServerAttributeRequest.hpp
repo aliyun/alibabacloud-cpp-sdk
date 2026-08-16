@@ -66,12 +66,12 @@ namespace Models
 
 
   protected:
-    // The logon password of the cloud graphics workstation.
+    // The logon password of the workstation.
     shared_ptr<string> password_ {};
     shared_ptr<string> productType_ {};
-    // The ID of the cloud graphics workstation.
+    // The workstation ID.
     shared_ptr<string> wuyingServerId_ {};
-    // The name of the cloud graphics workstation.
+    // The name.
     shared_ptr<string> wuyingServerName_ {};
   };
 

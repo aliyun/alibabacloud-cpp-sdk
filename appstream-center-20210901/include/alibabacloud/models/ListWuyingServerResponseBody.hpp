@@ -80,6 +80,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(VkVersion, vkVersion_);
         DARABONBA_PTR_TO_JSON(WuyingServerId, wuyingServerId_);
         DARABONBA_PTR_TO_JSON(WuyingServerName, wuyingServerName_);
+        DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
       };
       friend void from_json(const Darabonba::Json& j, WuyingServerList& obj) { 
         DARABONBA_PTR_FROM_JSON(AddVirtualNodePoolStatus, addVirtualNodePoolStatus_);
@@ -121,6 +122,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(VkVersion, vkVersion_);
         DARABONBA_PTR_FROM_JSON(WuyingServerId, wuyingServerId_);
         DARABONBA_PTR_FROM_JSON(WuyingServerName, wuyingServerName_);
+        DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
       };
       WuyingServerList() = default ;
       WuyingServerList(const WuyingServerList &) = default ;
@@ -171,7 +173,9 @@ namespace Models
 
 
       protected:
+        // The start time of the session.
         shared_ptr<string> resourceSessionStartTime_ {};
+        // The user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -255,6 +259,7 @@ namespace Models
         shared_ptr<string> gpu_ {};
         // The GPU memory size. Unit: MB.
         shared_ptr<int32_t> gpuMemory_ {};
+        // The GPU specification description.
         shared_ptr<string> gpuSpec_ {};
         // The memory size. Unit: MB.
         shared_ptr<int32_t> memory_ {};
@@ -300,7 +305,9 @@ namespace Models
 
 
       protected:
+        // Indicates whether the IP address is the primary private IP address. A value of true indicates the primary private IP address. A value of false indicates a secondary private IP address.
         shared_ptr<bool> primary_ {};
+        // The private IP address.
         shared_ptr<string> privateIpAddress_ {};
       };
 
@@ -344,7 +351,7 @@ namespace Models
       protected:
         // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The network interface controller (NIC) ID.
+        // The ID of the network interface controller (NIC).
         shared_ptr<string> networkInterfaceId_ {};
       };
 
@@ -415,9 +422,11 @@ namespace Models
       protected:
         // The data cloud disk type.
         shared_ptr<string> dataDiskCategory_ {};
+        // The data cloud disk ID.
         shared_ptr<string> dataDiskId_ {};
+        // The data cloud disk sequence number.
         shared_ptr<string> dataDiskNo_ {};
-        // The performance level of the data cloud disk.
+        // The data cloud disk performance level.
         shared_ptr<string> dataDiskPerformanceLevel_ {};
         // The data cloud disk size. Unit: GB.
         shared_ptr<int32_t> dataDiskSize_ {};
@@ -431,7 +440,7 @@ namespace Models
         && this->resourceSessionStatus_ == nullptr && this->securityGroupIds_ == nullptr && this->serverInstanceTypeInfo_ == nullptr && this->sessions_ == nullptr && this->status_ == nullptr
         && this->subPayType_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskId_ == nullptr && this->systemDiskPerformanceLevel_ == nullptr && this->systemDiskSize_ == nullptr
         && this->timerGroupId_ == nullptr && this->users_ == nullptr && this->virtualKubeletIp_ == nullptr && this->virtualNodePoolId_ == nullptr && this->vkUpgradeNeeded_ == nullptr
-        && this->vkVersion_ == nullptr && this->wuyingServerId_ == nullptr && this->wuyingServerName_ == nullptr; };
+        && this->vkVersion_ == nullptr && this->wuyingServerId_ == nullptr && this->wuyingServerName_ == nullptr && this->zoneId_ == nullptr; };
       // addVirtualNodePoolStatus Field Functions 
       bool hasAddVirtualNodePoolStatus() const { return this->addVirtualNodePoolStatus_ != nullptr;};
       void deleteAddVirtualNodePoolStatus() { this->addVirtualNodePoolStatus_ = nullptr;};
@@ -721,10 +730,19 @@ namespace Models
       inline WuyingServerList& setWuyingServerName(string wuyingServerName) { DARABONBA_PTR_SET_VALUE(wuyingServerName_, wuyingServerName) };
 
 
+      // zoneId Field Functions 
+      bool hasZoneId() const { return this->zoneId_ != nullptr;};
+      void deleteZoneId() { this->zoneId_ = nullptr;};
+      inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+      inline WuyingServerList& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
+
+
     protected:
-      // The status of joining a virtual node pool.
+      // The status of adding to the virtual node pool.
       shared_ptr<string> addVirtualNodePoolStatus_ {};
+      // The tenant UID.
       shared_ptr<int64_t> aliUid_ {};
+      // The bandwidth size. Unit: Mbit/s.
       shared_ptr<int32_t> bandwidth_ {};
       // The region.
       shared_ptr<string> bizRegionId_ {};
@@ -734,16 +752,19 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The list of data cloud disks.
       shared_ptr<vector<WuyingServerList::DataDisk>> dataDisk_ {};
+      // The maximum number of private IP addresses per ENI, including the primary IP address.
       shared_ptr<int32_t> eniPrivateIpAddressQuantity_ {};
       // The expiration time.
       shared_ptr<string> expiredTime_ {};
+      // The FOTA version number.
       shared_ptr<string> fotaVersion_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
       // The image name.
       shared_ptr<string> imageName_ {};
-      // The list of workstation instance information.
+      // The list of workspace instance information.
       shared_ptr<vector<WuyingServerList::InstanceInfoList>> instanceInfoList_ {};
+      // The maximum price of the spot instance.
       shared_ptr<float> maxPrice_ {};
       // The internal IP address.
       shared_ptr<string> networkInterfaceIp_ {};
@@ -755,35 +776,48 @@ namespace Models
       shared_ptr<string> officeSiteType_ {};
       // The operating system type.
       shared_ptr<string> osType_ {};
+      // The list of policy group IDs.
       shared_ptr<vector<string>> policyGroupIdList_ {};
+      // The set of private IP addresses, including the primary IP address and secondary IP addresses.
       shared_ptr<vector<WuyingServerList::PrivateIpSets>> privateIpSets_ {};
+      // The resource session status.
       shared_ptr<string> resourceSessionStatus_ {};
       // The list of security group IDs.
       shared_ptr<vector<string>> securityGroupIds_ {};
       // The instance type information.
       shared_ptr<WuyingServerList::ServerInstanceTypeInfo> serverInstanceTypeInfo_ {};
+      // The list of sessions.
       shared_ptr<vector<WuyingServerList::Sessions>> sessions_ {};
       // The workstation status.
       shared_ptr<string> status_ {};
+      // The sub-payment type.
       shared_ptr<string> subPayType_ {};
       // The system cloud disk type.
       shared_ptr<string> systemDiskCategory_ {};
+      // The ID of the system cloud disk.
       shared_ptr<string> systemDiskId_ {};
-      // The performance level of the system cloud disk.
+      // The system cloud disk performance level.
       shared_ptr<string> systemDiskPerformanceLevel_ {};
       // The system cloud disk size. Unit: GB.
       shared_ptr<int32_t> systemDiskSize_ {};
+      // The ID of the timer group.
       shared_ptr<string> timerGroupId_ {};
+      // The list of authorized users.
       shared_ptr<vector<string>> users_ {};
+      // The IP address of the Virtual Kubelet node.
       shared_ptr<string> virtualKubeletIp_ {};
       // The virtual node pool ID.
       shared_ptr<string> virtualNodePoolId_ {};
+      // Indicates whether the Virtual Kubelet needs to be upgraded.
       shared_ptr<bool> vkUpgradeNeeded_ {};
+      // The Virtual Kubelet version.
       shared_ptr<string> vkVersion_ {};
       // The workstation ID.
       shared_ptr<string> wuyingServerId_ {};
       // The workstation name.
       shared_ptr<string> wuyingServerName_ {};
+      // The zone ID.
+      shared_ptr<string> zoneId_ {};
     };
 
     virtual bool empty() const override { return this->pageNumber_ == nullptr
@@ -828,11 +862,11 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
     // The list of workstation information.
     shared_ptr<vector<ListWuyingServerResponseBody::WuyingServerList>> wuyingServerList_ {};

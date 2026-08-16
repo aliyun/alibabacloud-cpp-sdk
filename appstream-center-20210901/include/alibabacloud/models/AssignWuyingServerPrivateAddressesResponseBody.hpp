@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The list of assigned secondary private IP addresses.
     shared_ptr<vector<string>> assignedPrivateIpAddresses_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

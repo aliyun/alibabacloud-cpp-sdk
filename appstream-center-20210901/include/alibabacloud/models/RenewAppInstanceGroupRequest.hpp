@@ -115,28 +115,28 @@ namespace Models
 
 
   protected:
-    // The ID of the delivery group.
+    // The delivery group ID.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
     // Specifies whether to enable automatic payment.
     shared_ptr<bool> autoPay_ {};
-    // The numeric part of the resource purchase duration. This parameter is used together with PeriodUnit to specify the complete purchase duration.
+    // The numeric part of the resource purchase duration. This parameter is used together with `PeriodUnit` to represent the complete purchase duration.
     // 
     // This parameter is required.
     shared_ptr<int32_t> period_ {};
-    // The unit part of the resource purchase duration. This parameter is used together with Period to specify the complete purchase duration. Valid combinations of Period and PeriodUnit:
+    // The unit part of the resource purchase duration. This parameter is used together with `Period` to represent the complete purchase duration. Valid combinations of `Period` and `PeriodUnit`:
     // 
-    // - 1 Week (1 week)
-    // - 1 Month (1 month)
-    // - 2 Month (2 months)
-    // - 3 Month (3 months)
-    // - 6 Month (6 months)
-    // - 1 Year (1 year)
-    // - 2 Year (2 years)
-    // - 3 Year (3 years)
+    // - 1 Week
+    // - 1 Month
+    // - 2 Month
+    // - 3 Month
+    // - 6 Month
+    // - 1 Year
+    // - 2 Year
+    // - 3 Year
     // 
-    // > This parameter is case-sensitive. For example, `Week` is valid, but `week` is invalid. If the request parameters do not match the combinations listed above, such as `2 Week`, the call to this operation succeeds, but an error occurs during the order placement phase.
+    // > This parameter is case-sensitive. For example, `Week` is valid, but `week` is invalid. If the request parameters do not match the valid combinations listed above, such as `2 Week`, the call to this operation succeeds, but an error occurs during the order placement phase.
     // 
     // This parameter is required.
     shared_ptr<string> periodUnit_ {};

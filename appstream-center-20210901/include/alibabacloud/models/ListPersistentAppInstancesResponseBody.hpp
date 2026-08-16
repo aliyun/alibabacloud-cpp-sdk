@@ -191,7 +191,7 @@ namespace Models
 
 
   protected:
-    // The page number of the query results currently displayed.
+    // The current page number of the query results.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of query results per page.
     shared_ptr<int32_t> pageSize_ {};

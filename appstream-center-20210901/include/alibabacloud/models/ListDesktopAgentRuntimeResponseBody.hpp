@@ -142,11 +142,11 @@ namespace Models
 
 
       protected:
-        // Indicates whether the agent is uninstalled.
+        // Indicates whether the agent has been uninstalled.
         shared_ptr<bool> agentUninstalled_ {};
-        // Indicates whether the third-party channel configuration is modified (inconsistent with the admin-distributed configuration).
+        // Indicates whether the third-party channel configuration has been modified (inconsistent with the administrator-distributed configuration).
         shared_ptr<bool> channelModified_ {};
-        // Indicates whether the model configuration is modified (inconsistent with the admin-distributed configuration).
+        // Indicates whether the model configuration has been modified (inconsistent with the administrator-distributed configuration).
         shared_ptr<bool> modelModified_ {};
       };
 
@@ -302,15 +302,17 @@ namespace Models
         shared_ptr<string> agentInstanceStatus_ {};
         // The agent instance version.
         shared_ptr<string> agentInstanceVersion_ {};
+        // The agent platform (enum name, such as ENTERPRISE, JVS, or ENTERPRISE_JVS).
         shared_ptr<string> agentPlatform_ {};
+        // The agent provider (enum name, such as OPEN_CLAW or HERMES_AGENT).
         shared_ptr<string> agentProvider_ {};
-        // Indicates whether the agent instance has a configured third-party channel.
+        // Indicates whether a third-party channel has been configured for the agent instance.
         shared_ptr<bool> channelConfigure_ {};
         // The list of third-party channels configured for the agent instance.
         shared_ptr<vector<string>> channelConfiguredList_ {};
         // The deployment source.
         shared_ptr<string> deploymentSource_ {};
-        // Indicates whether the agent instance has a configured model.
+        // Indicates whether a model has been configured for the agent instance.
         shared_ptr<bool> modelConfigure_ {};
         // The configured model group ID.
         shared_ptr<string> modelTemplateId_ {};
@@ -319,10 +321,12 @@ namespace Models
       class AgentImInfo : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const AgentImInfo& obj) { 
+          DARABONBA_PTR_TO_JSON(AgentImOnlineStatus, agentImOnlineStatus_);
           DARABONBA_PTR_TO_JSON(AgentImStatus, agentImStatus_);
           DARABONBA_PTR_TO_JSON(CloudSpaceStatus, cloudSpaceStatus_);
         };
         friend void from_json(const Darabonba::Json& j, AgentImInfo& obj) { 
+          DARABONBA_PTR_FROM_JSON(AgentImOnlineStatus, agentImOnlineStatus_);
           DARABONBA_PTR_FROM_JSON(AgentImStatus, agentImStatus_);
           DARABONBA_PTR_FROM_JSON(CloudSpaceStatus, cloudSpaceStatus_);
         };
@@ -337,8 +341,15 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->agentImStatus_ == nullptr
-        && this->cloudSpaceStatus_ == nullptr; };
+        virtual bool empty() const override { return this->agentImOnlineStatus_ == nullptr
+        && this->agentImStatus_ == nullptr && this->cloudSpaceStatus_ == nullptr; };
+        // agentImOnlineStatus Field Functions 
+        bool hasAgentImOnlineStatus() const { return this->agentImOnlineStatus_ != nullptr;};
+        void deleteAgentImOnlineStatus() { this->agentImOnlineStatus_ = nullptr;};
+        inline string getAgentImOnlineStatus() const { DARABONBA_PTR_GET_DEFAULT(agentImOnlineStatus_, "") };
+        inline AgentImInfo& setAgentImOnlineStatus(string agentImOnlineStatus) { DARABONBA_PTR_SET_VALUE(agentImOnlineStatus_, agentImOnlineStatus) };
+
+
         // agentImStatus Field Functions 
         bool hasAgentImStatus() const { return this->agentImStatus_ != nullptr;};
         void deleteAgentImStatus() { this->agentImStatus_ = nullptr;};
@@ -354,6 +365,8 @@ namespace Models
 
 
       protected:
+        // The agent IM online status (Online/Offline). Default value: Offline.
+        shared_ptr<string> agentImOnlineStatus_ {};
         // The agent IM status.
         shared_ptr<string> agentImStatus_ {};
         // The CloudSpace status.
@@ -528,7 +541,7 @@ namespace Models
       shared_ptr<vector<Data::AgentInstanceInfoList>> agentInstanceInfoList_ {};
       // The list of authorized users.
       shared_ptr<vector<string>> authUsers_ {};
-      // Indicates whether the agent runtime has a configured third-party channel.
+      // Indicates whether a third-party channel has been configured for the agent runtime.
       shared_ptr<bool> channelConfigure_ {};
       // The list of third-party channels configured for the agent runtime.
       shared_ptr<vector<string>> channelConfiguredList_ {};
@@ -536,30 +549,31 @@ namespace Models
       shared_ptr<string> desktopId_ {};
       // The agent runtime name.
       shared_ptr<string> desktopName_ {};
-      // The cloud computer status.
+      // The Cloud Desktop status.
       shared_ptr<string> desktopStatus_ {};
-      // Indicates whether authorized users exist.
+      // Indicates whether there is an authorized user with authorization.
       shared_ptr<bool> hasAuthUser_ {};
+      // The management status list, parsed from the managementStatus composite value.
       shared_ptr<vector<string>> managementStatuses_ {};
-      // Indicates whether the agent runtime has a configured model.
+      // Indicates whether a model has been configured for the agent runtime.
       shared_ptr<bool> modelConfigure_ {};
-      // The effective model template ID (returned only when modelConfigure=true).
+      // The active model template ID. This parameter is returned only when modelConfigure is set to true.
       shared_ptr<string> modelTemplateId_ {};
-      // The effective model template name (returned only when modelConfigure=true).
+      // The active model template name. This parameter is returned only when modelConfigure is set to true.
       shared_ptr<string> modelTemplateName_ {};
       // The operating system type.
       shared_ptr<string> osType_ {};
-      // The list of channels in QR code configuration.
+      // The list of channel codes in QR code configuration.
       shared_ptr<vector<string>> qrCodeConfiguringList_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The region location (domestic/overseas).
+      // The region location (the Chinese mainland or outside China).
       shared_ptr<string> regionLocation_ {};
       // The resource group information.
       shared_ptr<Data::ResourceGroup> resourceGroup_ {};
-      // The resource ID, which is the cloud computer ID.
+      // The resource ID, which is the Cloud Desktop ID.
       shared_ptr<string> resourceId_ {};
-      // The risk information (returned only when the request parameter IncludeRiskInfo is set to true, otherwise null).
+      // The risk information. This parameter is returned only when the request parameter IncludeRiskInfo is set to true. Otherwise, null is returned.
       shared_ptr<Data::RiskInfo> riskInfo_ {};
     };
 
@@ -611,7 +625,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

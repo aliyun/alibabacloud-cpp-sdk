@@ -166,23 +166,23 @@ namespace Models
 
 
   protected:
-    // This parameter is applicable only when the instance type is cloud desktop. Specifies whether to clear user personal data. If you set this parameter to true, the created image clears data in all directories under C:\\Users except the Administrator and Public directories.
+    // This parameter applies only to Cloud Desktop instances. Specifies whether to clear user personal data. If set to true, the created image clears data in all directories under C:\\Users except Administrator and Public.
     shared_ptr<bool> autoCleanUserdata_ {};
     // This parameter is not publicly available.
     shared_ptr<int32_t> bizType_ {};
     // The image description.
     shared_ptr<string> description_ {};
-    // The type of disk data included in the image. By default, the image includes both the system cloud disk and data cloud disk of the instance.
+    // The type of disk data included in the image. By default, both the system cloud disk and data cloud disk of the instance are included.
     shared_ptr<string> diskType_ {};
     // The image name.
     shared_ptr<string> imageName_ {};
-    // The WUYING instance ID. The instance can be a cloud desktop instance or a workstation instance. To ensure data consistency in the image, stop the instance before creating the image.
+    // The WUYING instance ID. The instance can be a Cloud Desktop instance or a workstation instance. To ensure data consistency in the image, stop the instance before creating the image.
     shared_ptr<string> instanceId_ {};
     // The instance type.
     shared_ptr<string> instanceType_ {};
     // This parameter is not publicly available.
     shared_ptr<string> productType_ {};
-    // The sub-instance ID. This parameter is not applicable to cloud desktop scenarios. In workstation scenarios, specify the persistent session ID to identify a specific instance.
+    // The sub-instance ID. This parameter does not apply to Cloud Desktop scenarios. In workstation scenarios, specify the persistent session ID to identify a specific instance.
     shared_ptr<string> subInstanceId_ {};
     shared_ptr<vector<CreateImageByInstanceRequest::TagList>> tagList_ {};
   };

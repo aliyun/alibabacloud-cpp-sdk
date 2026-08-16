@@ -99,11 +99,11 @@ namespace Models
 
 
     protected:
-      // The error code returned if the operation fails.
+      // The error code returned when the operation fails.
       shared_ptr<string> code_ {};
-      // The HTTP status code returned if the operation fails.
+      // The HTTP status code returned when the operation fails.
       shared_ptr<int32_t> httpStatusCode_ {};
-      // The error message returned if the operation fails.
+      // The error message returned when the operation fails.
       shared_ptr<string> message_ {};
       // The Agent runtime ID. The ID mapping is as follows:
       // 
@@ -111,7 +111,7 @@ namespace Models
       // - OpenClaw: cloud computer ID, in the format of ecd-xxxx.
       // - Hermes Agent: Hermes Agent ID, in the format of jvs-xxxx.
       shared_ptr<string> runtimeId_ {};
-      // Indicates whether the operation is successful.
+      // Indicates whether the operation was successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -145,7 +145,7 @@ namespace Models
     shared_ptr<vector<RemoveRuntimeModelTemplateResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

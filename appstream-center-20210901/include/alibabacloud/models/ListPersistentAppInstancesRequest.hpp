@@ -84,9 +84,9 @@ namespace Models
     shared_ptr<string> appInstanceGroupId_ {};
     // The list of persistent session IDs.
     shared_ptr<vector<string>> appInstancePersistentIds_ {};
-    // The page number of the query results to display. Minimum value: **1**. Default value: **1**.
+    // The page number of the query results to display. The value starts from **1**. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of query results per page. Maximum value: **100**. Default value: **20**.
+    // The number of query results per page. The maximum value is **100**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
     // The product type.
     // 

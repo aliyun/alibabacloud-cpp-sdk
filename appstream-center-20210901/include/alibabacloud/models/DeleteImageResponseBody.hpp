@@ -75,12 +75,15 @@ namespace Models
 
 
   protected:
-    // The status code:
+    // The status code. Valid values:
     // 
     // - `200`: Success.
     // - `400`: Error.
     shared_ptr<string> code_ {};
-    // Indicates whether the deletion is successful.
+    // Indicates whether the deletion is successful. Valid values:
+    // 
+    // - true: Deletion succeeded.
+    // - false: Deletion failed.
     shared_ptr<bool> data_ {};
     // The error message returned when an error occurs.
     shared_ptr<string> message_ {};

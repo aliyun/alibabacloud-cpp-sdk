@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // The delivery group ID.
+    // The ID of the delivery group.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The user group ID. This parameter is used for exact match.
+    // The ID of the user group. This parameter is used for exact match.
     shared_ptr<string> groupId_ {};
-    // The user group name. This parameter is used for fuzzy match.
+    // The name of the user group. This parameter is used for fuzzy match.
     shared_ptr<string> groupName_ {};
     // The page number, starting from 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of entries per page.
+    // The maximum number of entries to return per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BizType, bizType_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(RefScope, refScope_);
     };
     friend void from_json(const Darabonba::Json& j, CreateModelTemplateRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentPlatform, agentPlatform_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BizType, bizType_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(RefScope, refScope_);
     };
     CreateModelTemplateRequest() = default ;
     CreateModelTemplateRequest(const CreateModelTemplateRequest &) = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentPlatform_ == nullptr
-        && this->agentProvider_ == nullptr && this->bizType_ == nullptr && this->description_ == nullptr && this->name_ == nullptr; };
+        && this->agentProvider_ == nullptr && this->bizType_ == nullptr && this->description_ == nullptr && this->name_ == nullptr && this->refScope_ == nullptr; };
     // agentPlatform Field Functions 
     bool hasAgentPlatform() const { return this->agentPlatform_ != nullptr;};
     void deleteAgentPlatform() { this->agentPlatform_ = nullptr;};
@@ -74,6 +76,13 @@ namespace Models
     inline CreateModelTemplateRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // refScope Field Functions 
+    bool hasRefScope() const { return this->refScope_ != nullptr;};
+    void deleteRefScope() { this->refScope_ = nullptr;};
+    inline string getRefScope() const { DARABONBA_PTR_GET_DEFAULT(refScope_, "") };
+    inline CreateModelTemplateRequest& setRefScope(string refScope) { DARABONBA_PTR_SET_VALUE(refScope_, refScope) };
+
+
   protected:
     // The Agent platform.
     shared_ptr<string> agentPlatform_ {};
@@ -85,12 +94,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> bizType_ {};
-    // The template group description.
+    // The description of the model group.
     shared_ptr<string> description_ {};
-    // The template group name.
+    // The name of the model group.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The authorization scope. This parameter is optional and effective only for Common model groups. Valid values: ALL_USER and USER_MIXED (strictly uppercase). If not specified, the default value is USER_MIXED for Common groups. Non-Common groups ignore this parameter and use RESOURCE_MIXED.
+    shared_ptr<string> refScope_ {};
   };
 
   } // namespace Models

@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The error code returned when an error occurs.
+    // The error code returned if the operation failed.
     shared_ptr<string> code_ {};
-    // The error message returned when an error occurs.
+    // The error message returned if the operation failed.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -156,7 +156,7 @@ namespace Models
     protected:
       // The error code.
       shared_ptr<string> code_ {};
-      // The error message.
+      // The error description.
       shared_ptr<string> message_ {};
       // The resource ID.
       shared_ptr<string> resourceId_ {};

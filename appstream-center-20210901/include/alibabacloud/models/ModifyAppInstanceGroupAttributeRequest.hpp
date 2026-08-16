@@ -153,7 +153,7 @@ namespace Models
 
 
       protected:
-        // The ID of the user data storage system (NAS ID).
+        // The user data storage system ID (NAS ID).
         shared_ptr<string> fileSystemId_ {};
         // Specifies whether to enable user data roaming.
         shared_ptr<bool> userProfileSwitch_ {};
@@ -278,7 +278,7 @@ namespace Models
 
 
     protected:
-      // The number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. Too many simultaneous sessions may degrade the application experience. The valid value range varies by resource specification. You can call the ListNodeInstanceType operation to query the valid value range for each resource specification.
+      // The number of concurrent sessions, which is the number of sessions that can be simultaneously connected to a single resource. If too many sessions are connected simultaneously, the application experience may degrade. The valid value range varies depending on the resource specification. You can call the ListNodeInstanceType operation to obtain the valid value range for each resource specification.
       shared_ptr<int32_t> nodeCapacity_ {};
       // The resource group ID.
       shared_ptr<string> nodePoolId_ {};
@@ -463,10 +463,10 @@ namespace Models
     shared_ptr<ModifyAppInstanceGroupAttributeRequest::Network> network_ {};
     // The resource group object.
     shared_ptr<ModifyAppInstanceGroupAttributeRequest::NodePool> nodePool_ {};
-    // Specifies whether to allow only one application per session.
-    // - If enabled, opening multiple applications within a delivery group allocates a separate session for each application, consuming more sessions.
+    // Specifies whether only one application can be opened per session.
+    // - If enabled, opening multiple applications within the delivery group allocates a separate session for each application, consuming more sessions.
     shared_ptr<bool> perSessionPerApp_ {};
-    // The AppId of the pre-open application. If the PreOpenMode parameter is set to `SINGLE_APP`, PreOpenAppId cannot be an empty string.
+    // The AppId of the pre-open application. If the `PreOpenMode` parameter is set to `SINGLE_APP`, the `PreOpenAppId` parameter cannot be an empty string.
     shared_ptr<string> preOpenAppId_ {};
     // The pre-open mode.
     shared_ptr<string> preOpenMode_ {};
@@ -476,7 +476,7 @@ namespace Models
     shared_ptr<string> productType_ {};
     // The security policy.
     shared_ptr<ModifyAppInstanceGroupAttributeRequest::SecurityPolicy> securityPolicy_ {};
-    // The session retention duration after disconnection, in minutes. After an end user session is disconnected, the session is retained for the specified duration before being logged off. Set this parameter to `-1` to retain the session indefinitely. Valid values: -1 and 3 to 300. Default value: `15`.
+    // The session disconnection retention duration, in minutes. After an end user session is disconnected, the session is retained for the duration specified here before being logged off. Set this parameter to `-1` to retain the session indefinitely. Valid values: -1 and 3 to 300. Default value: `15`.
     shared_ptr<int32_t> sessionTimeout_ {};
     // The storage policy.
     shared_ptr<ModifyAppInstanceGroupAttributeRequest::StoragePolicy> storagePolicy_ {};

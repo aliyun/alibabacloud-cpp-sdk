@@ -292,7 +292,7 @@ namespace Models
 
 
   protected:
-    // The application image ID. You can obtain the ID from the **O&M** > **Custom Images** or **System Images** page in the [WUYING Cloud Application console](https://appstreaming.console.aliyun.com/).
+    // The application image ID. You can obtain the ID from the **O&M** > **Custom Images** or **System Images** page in the [WUYING CloudApp console](https://appstreaming.console.aliyun.com/).
     // 
     // This parameter is required.
     shared_ptr<string> appCenterImageId_ {};
@@ -302,7 +302,7 @@ namespace Models
     shared_ptr<string> appPackageType_ {};
     // The policy ID.
     shared_ptr<string> appPolicyId_ {};
-    // The authorization mode of the delivery group.
+    // The delivery group authorization mode.
     shared_ptr<string> authMode_ {};
     // Specifies whether to enable automatic payment.
     shared_ptr<bool> autoPay_ {};
@@ -353,26 +353,26 @@ namespace Models
     shared_ptr<int32_t> period_ {};
     // The unit of the subscription duration when `ChargeType` is set to `PrePaid`.
     // 
-    // > This parameter is case-sensitive. For example, `Week` is valid, but `week` is invalid.
+    // > This parameter is case-sensitive. For example, `Week` is valid, but `week` is not.
     // If the request parameters do not match the valid combinations, such as `2 Week`, the API call succeeds but an error occurs during the order placement.
     // 
     // > If `ChargeType` is set to `PostPaid`, set this parameter to `Month`.
     // 
     // This parameter is required.
     shared_ptr<string> periodUnit_ {};
-    // The pre-opened application ID.
+    // The pre-opened AppId.
     shared_ptr<string> preOpenAppId_ {};
     // The product type.
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
-    // The promotion ID. You can call the [GetResourcePrice](https://help.aliyun.com/document_detail/428503.html) operation to obtain the ID.
+    // The promotion ID. You can obtain the ID by calling the [GetResourcePrice](https://help.aliyun.com/document_detail/428503.html) operation.
     shared_ptr<string> promotionId_ {};
     // The runtime policy.
     shared_ptr<string> runtimePolicyShrink_ {};
     // The security policy.
     shared_ptr<string> securityPolicyShrink_ {};
-    // The application recycling timeout period, in minutes. After an end user disconnects from a cloud application for a period of time, the cloud application process exits. This period is the application recycling timeout. Set this parameter to `-1` if you do not want the application to be recycled. Valid values: -1 and 3 to 300 (integer). Default value: `15`.
+    // The application recycling time, in minutes. After an end user disconnects from the cloud application for a period of time, the cloud application process exits. This period is the application recycling time. Set this parameter to `-1` if you do not want to recycle the application. Valid values: -1 and 3 to 300 (integer). Default value: `15`.
     // 
     // This parameter is required.
     shared_ptr<int32_t> sessionTimeout_ {};
@@ -384,7 +384,7 @@ namespace Models
     shared_ptr<string> userDefinePolicyShrink_ {};
     // The list of authorized user group IDs.
     shared_ptr<vector<string>> userGroupIds_ {};
-    // The user information of the users to be added to the delivery group. This field is required if the `Users` parameter is specified.
+    // The user information to be added to the delivery group as assigned users. This field is required if the `Users` parameter is specified.
     shared_ptr<string> userInfoShrink_ {};
     // The list of usernames to be added to the delivery group as assigned users.
     shared_ptr<vector<string>> users_ {};

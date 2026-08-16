@@ -220,16 +220,16 @@ namespace Models
       shared_ptr<string> appInstanceId_ {};
       // The binding information between the instance and the user.
       shared_ptr<AppInstanceModels::BindInfo> bindInfo_ {};
-      // The billing method of the instance. Valid values:
-      // - **PrePaid**: subscription.
-      // - **PostPaid**: pay-as-you-go.
+      // The billing type of the instance. Valid values:
+      // - **PrePaid**: subscription (prepaid).
+      // - **PostPaid**: pay-as-you-go (postpaid).
       // > This parameter is returned only when the billing mode of the delivery group to which this instance belongs is resource-based billing (ChargeResourceMode=Node).
       shared_ptr<string> chargeType_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
       // The update time.
       shared_ptr<string> gmtModified_ {};
-      // The public IP address of the primary network interface controller (NIC). This value is returned only when the network policy (`StrategyType`) of the delivery group is set to the mixed pattern (`Mixed`). Otherwise, this value is empty.
+      // The public IP address of the primary network interface controller (NIC). This value is returned only when the network policy (`StrategyType`) of the delivery group is set to mixed mode pattern (`Mixed`). Otherwise, this value is empty.
       shared_ptr<string> mainEthPublicIp_ {};
       shared_ptr<string> networkInterfaceId_ {};
       shared_ptr<string> networkInterfaceIp_ {};

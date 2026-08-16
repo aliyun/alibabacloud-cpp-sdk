@@ -81,10 +81,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether resource expiration reminders are enabled. Valid values:
-      // 
-      // - true: Enabled.
-      // - false: Not enabled.
+      // Indicates whether resource expiration reminders are enabled.
       shared_ptr<bool> appInstanceGroupExpireRemind_ {};
       shared_ptr<string> multiSessionSupportType_ {};
       shared_ptr<vector<string>> multiSessionSupportedRegions_ {};

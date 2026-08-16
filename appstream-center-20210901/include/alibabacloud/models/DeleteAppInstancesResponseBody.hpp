@@ -94,7 +94,7 @@ namespace Models
       shared_ptr<string> code_ {};
       // The error message returned when an error occurs.
       shared_ptr<string> message_ {};
-      // Indicates whether the deletion is triggered.
+      // Indicates whether the deletion is triggered successfully.
       shared_ptr<bool> success_ {};
     };
 

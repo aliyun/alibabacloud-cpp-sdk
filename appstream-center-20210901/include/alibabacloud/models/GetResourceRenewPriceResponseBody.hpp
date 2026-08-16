@@ -243,13 +243,13 @@ namespace Models
       protected:
         // The currency.
         shared_ptr<string> currency_ {};
-        // The discount amount. The actual price is calculated by subtracting the discount amount from the original price.
+        // The discount amount. The actual price equals the original price minus the discount amount.
         shared_ptr<string> discountPrice_ {};
         // The original price.
         shared_ptr<string> originalPrice_ {};
         // The coupon descriptions.
         shared_ptr<vector<Price::Promotions>> promotions_ {};
-        // The actual price. The actual price is calculated by subtracting the discount amount from the original price.
+        // The actual price. The actual price equals the original price minus the discount amount.
         shared_ptr<string> tradePrice_ {};
       };
 

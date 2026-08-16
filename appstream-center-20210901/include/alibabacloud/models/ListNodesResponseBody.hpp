@@ -78,10 +78,10 @@ namespace Models
     protected:
       // The billing type of the resource node.
       // 
-      // > This parameter is returned only when the billing mode of the delivery group is per-resource billing (ChargeResourceMode=Node).
+      // > This parameter is returned only when the billing mode of the delivery group is resource-based billing (ChargeResourceMode=Node).
       shared_ptr<string> chargeType_ {};
       // The resource node ID.
-      // > This parameter is returned only when the billing mode of the delivery group is per-resource billing (ChargeResourceMode=Node).
+      // > This parameter is returned only when the billing mode of the delivery group is resource-based billing (ChargeResourceMode=Node).
       shared_ptr<string> nodeId_ {};
     };
 
@@ -125,7 +125,7 @@ namespace Models
 
 
   protected:
-    // The total number of entries that can be returned.
+    // The total number of data entries that can be returned.
     shared_ptr<int32_t> count_ {};
     // The list of resource nodes.
     shared_ptr<vector<ListNodesResponseBody::NodeModels>> nodeModels_ {};

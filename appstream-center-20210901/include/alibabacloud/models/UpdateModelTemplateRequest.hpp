@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(ModelTemplateId, modelTemplateId_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(RefScope, refScope_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateModelTemplateRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Config, config_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(ModelTemplateId, modelTemplateId_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(RefScope, refScope_);
     };
     UpdateModelTemplateRequest() = default ;
     UpdateModelTemplateRequest(const UpdateModelTemplateRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && this->description_ == nullptr && this->modelTemplateId_ == nullptr && this->name_ == nullptr; };
+        && this->description_ == nullptr && this->modelTemplateId_ == nullptr && this->name_ == nullptr && this->refScope_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
@@ -65,8 +67,24 @@ namespace Models
     inline UpdateModelTemplateRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // refScope Field Functions 
+    bool hasRefScope() const { return this->refScope_ != nullptr;};
+    void deleteRefScope() { this->refScope_ = nullptr;};
+    inline string getRefScope() const { DARABONBA_PTR_GET_DEFAULT(refScope_, "") };
+    inline UpdateModelTemplateRequest& setRefScope(string refScope) { DARABONBA_PTR_SET_VALUE(refScope_, refScope) };
+
+
   protected:
-    // The model group configuration JSON object.
+    // The model group configuration JSON object. You can use this field to modify the default model. The configuration format varies depending on the agent provider (AgentProvider):
+    // 
+    // - **OpenClaw / AgenticComputer scenarios:**
+    // Set the default model by using the `defaults.model.primary` field in the format of `provider name/model code`.
+    // 
+    // - **HermesAgent scenarios:**
+    // Specify the provider name by using `model.provider` and the model code by using `model.default`.
+    // 
+    // > Note:
+    // > - When you modify the default model, the system verifies whether the specified provider and model code already exist in the model group.
     shared_ptr<string> config_ {};
     // The template group description.
     shared_ptr<string> description_ {};
@@ -76,6 +94,8 @@ namespace Models
     shared_ptr<string> modelTemplateId_ {};
     // The template group name.
     shared_ptr<string> name_ {};
+    // The authorization scope. This parameter is optional and can be modified only for Common model groups. Valid values: ALL_USER and USER_MIXED.
+    shared_ptr<string> refScope_ {};
   };
 
   } // namespace Models

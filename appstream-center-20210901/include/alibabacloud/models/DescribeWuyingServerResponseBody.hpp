@@ -125,7 +125,11 @@ namespace Models
 
 
       protected:
+        // Indicates whether the IP address is the primary private IP address. Valid values:
+        // - true: The IP address is the primary private IP address.
+        // - false: The IP address is a secondary private IP address.
         shared_ptr<bool> primary_ {};
+        // The private IP address.
         shared_ptr<string> privateIpAddress_ {};
       };
 
@@ -270,24 +274,43 @@ namespace Models
 
 
     protected:
+      // The bandwidth. Unit: Mbit/s.
       shared_ptr<int32_t> bandwidth_ {};
+      // The region ID.
       shared_ptr<string> bizRegionId_ {};
+      // The billing type.
       shared_ptr<string> chargeType_ {};
+      // The time when the workstation was created.
       shared_ptr<string> createTime_ {};
+      // The maximum number of private IP addresses per ENI, including the primary IP address.
       shared_ptr<int32_t> eniPrivateIpAddressQuantity_ {};
+      // The time when the workstation expires.
       shared_ptr<string> expiredTime_ {};
+      // The image ID.
       shared_ptr<string> imageId_ {};
+      // The image name.
       shared_ptr<string> imageName_ {};
+      // The internal IP address.
       shared_ptr<string> networkInterfaceIp_ {};
+      // The workspace ID.
       shared_ptr<string> officeSiteId_ {};
+      // The workspace name.
       shared_ptr<string> officeSiteName_ {};
+      // The workspace type.
       shared_ptr<string> officeSiteType_ {};
+      // The operating system type.
       shared_ptr<string> osType_ {};
+      // The set of private IP addresses, including the primary and secondary IP addresses.
       shared_ptr<vector<Data::PrivateIpSets>> privateIpSets_ {};
+      // The status of the development workstation.
       shared_ptr<string> status_ {};
+      // The type of the system cloud disk.
       shared_ptr<string> systemDiskCategory_ {};
+      // The size of the system cloud disk. Unit: GB.
       shared_ptr<int32_t> systemDiskSize_ {};
+      // The ID of the development workstation.
       shared_ptr<string> wuyingServerId_ {};
+      // The name of the development workstation.
       shared_ptr<string> wuyingServerName_ {};
     };
 
@@ -310,7 +333,9 @@ namespace Models
 
 
   protected:
+    // The details of the development workstation.
     shared_ptr<DescribeWuyingServerResponseBody::Data> data_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

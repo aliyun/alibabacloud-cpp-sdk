@@ -110,9 +110,9 @@ namespace Models
 
 
     protected:
-      // The custom tag key.
+      // The user-defined tag key.
       shared_ptr<string> key_ {};
-      // The custom tag value.
+      // The user-defined tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -289,8 +289,7 @@ namespace Models
 
 
   protected:
-    // The list of supported regions.
-    // WUYING images are centralized. Use this parameter to query the regions where the image is deployed.
+    // The list of supported regions. WUYING images are centralized. Use this parameter to query the regions where the image is deployed.
     shared_ptr<vector<string>> bizRegionIdList_ {};
     // The business type. This parameter is not publicly available.
     shared_ptr<int32_t> bizType_ {};
@@ -313,7 +312,7 @@ namespace Models
     shared_ptr<string> osType_ {};
     // The image package type.
     shared_ptr<string> packageType_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page for paging queries. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};

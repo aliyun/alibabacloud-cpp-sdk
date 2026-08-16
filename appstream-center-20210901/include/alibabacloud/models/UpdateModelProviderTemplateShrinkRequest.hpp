@@ -79,7 +79,7 @@ namespace Models
     shared_ptr<string> configShrink_ {};
     // The description of the model provider template.
     shared_ptr<string> description_ {};
-    // Specifies whether to enable the Wuying security gateway proxy.
+    // Specifies whether to enable the WUYING security gateway proxy.
     shared_ptr<bool> enableWuyingProxy_ {};
     // The name of the model provider template.
     shared_ptr<string> name_ {};

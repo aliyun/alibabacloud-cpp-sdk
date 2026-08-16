@@ -215,12 +215,12 @@ namespace Models
     shared_ptr<string> appCenterImageId_ {};
     // The delivery group ID.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The delivery group name. Fuzzy match is used for the query. For example, if you set the delivery group name to `Office App`, all delivery groups whose names contain `Office App` are returned, such as `My Office App` and `Office App A`.
+    // The delivery group name. Fuzzy matching is used for the query. For example, if you set the delivery group name to `OfficeApp`, all delivery groups whose names contain `OfficeApp` are returned, such as `MyOfficeApp` and `OfficeAppA`.
     shared_ptr<string> appInstanceGroupName_ {};
     // The region ID of the delivery group. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
     shared_ptr<string> bizRegionId_ {};
     shared_ptr<vector<string>> excludedUserGroupIds_ {};
-    // The specification type ID of the purchased resources. You can call the [ListNodeInstanceType](~~ListNodeInstanceType~~) operation to obtain this value.
+    // The specification type ID of the purchased resource. You can call the [ListNodeInstanceType](~~ListNodeInstanceType~~) operation to obtain this value.
     shared_ptr<string> nodeInstanceType_ {};
     // The office network ID.
     shared_ptr<string> officeSiteId_ {};
@@ -236,7 +236,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The list of delivery group statuses.
     shared_ptr<vector<string>> status_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<ListAppInstanceGroupRequest::Tag>> tag_ {};
     shared_ptr<vector<string>> userGroupIds_ {};
   };

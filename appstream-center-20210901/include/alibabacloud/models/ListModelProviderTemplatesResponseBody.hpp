@@ -122,15 +122,15 @@ namespace Models
 
 
     protected:
-      // The model provider configuration as a JSON object.
+      // The model provider configuration JSON object.
       shared_ptr<string> config_ {};
-      // The description of the model provider template.
+      // The model provider template description.
       shared_ptr<string> description_ {};
       // Indicates whether the WUYING secure gateway proxy is enabled.
       shared_ptr<bool> enableWuyingProxy_ {};
-      // The name of the model provider template.
+      // The model provider template name.
       shared_ptr<string> name_ {};
-      // The name of the model provider.
+      // The model provider name.
       shared_ptr<string> providerName_ {};
       // The model provider template ID.
       shared_ptr<string> providerTemplateId_ {};
@@ -180,13 +180,13 @@ namespace Models
   protected:
     // The list of returned data objects.
     shared_ptr<vector<ListModelProviderTemplatesResponseBody::Data>> data_ {};
-    // The page number of the current query result.
+    // The page number of the current query results.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in the query result.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of query results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

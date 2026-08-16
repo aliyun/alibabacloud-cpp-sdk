@@ -14,11 +14,16 @@ namespace Models
   class ListDesktopAgentRuntimeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListDesktopAgentRuntimeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AgentImOnlineStatus, agentImOnlineStatus_);
       DARABONBA_PTR_TO_JSON(AgentInstanceStatuses, agentInstanceStatuses_);
       DARABONBA_PTR_TO_JSON(AgentInstanceVersions, agentInstanceVersions_);
       DARABONBA_PTR_TO_JSON(AgentPlatform, agentPlatform_);
+      DARABONBA_PTR_TO_JSON(AgentPlatformList, agentPlatformList_);
       DARABONBA_PTR_TO_JSON(AgentProvider, agentProvider_);
+      DARABONBA_PTR_TO_JSON(AgentProviderList, agentProviderList_);
+      DARABONBA_PTR_TO_JSON(AgentTemplateIds, agentTemplateIds_);
       DARABONBA_PTR_TO_JSON(AuthUsers, authUsers_);
+      DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_TO_JSON(BizType, bizType_);
       DARABONBA_PTR_TO_JSON(ChannelConfigure, channelConfigure_);
       DARABONBA_PTR_TO_JSON(DeploymentSource, deploymentSource_);
@@ -31,17 +36,23 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ManagementStatus, managementStatus_);
       DARABONBA_PTR_TO_JSON(ModelConfigure, modelConfigure_);
       DARABONBA_PTR_TO_JSON(ModelTemplateId, modelTemplateId_);
+      DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(ResourceIds, resourceIds_);
     };
     friend void from_json(const Darabonba::Json& j, ListDesktopAgentRuntimeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AgentImOnlineStatus, agentImOnlineStatus_);
       DARABONBA_PTR_FROM_JSON(AgentInstanceStatuses, agentInstanceStatuses_);
       DARABONBA_PTR_FROM_JSON(AgentInstanceVersions, agentInstanceVersions_);
       DARABONBA_PTR_FROM_JSON(AgentPlatform, agentPlatform_);
+      DARABONBA_PTR_FROM_JSON(AgentPlatformList, agentPlatformList_);
       DARABONBA_PTR_FROM_JSON(AgentProvider, agentProvider_);
+      DARABONBA_PTR_FROM_JSON(AgentProviderList, agentProviderList_);
+      DARABONBA_PTR_FROM_JSON(AgentTemplateIds, agentTemplateIds_);
       DARABONBA_PTR_FROM_JSON(AuthUsers, authUsers_);
+      DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_FROM_JSON(BizType, bizType_);
       DARABONBA_PTR_FROM_JSON(ChannelConfigure, channelConfigure_);
       DARABONBA_PTR_FROM_JSON(DeploymentSource, deploymentSource_);
@@ -54,6 +65,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ManagementStatus, managementStatus_);
       DARABONBA_PTR_FROM_JSON(ModelConfigure, modelConfigure_);
       DARABONBA_PTR_FROM_JSON(ModelTemplateId, modelTemplateId_);
+      DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
@@ -70,11 +82,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->agentInstanceStatuses_ == nullptr
-        && this->agentInstanceVersions_ == nullptr && this->agentPlatform_ == nullptr && this->agentProvider_ == nullptr && this->authUsers_ == nullptr && this->bizType_ == nullptr
+    virtual bool empty() const override { return this->agentImOnlineStatus_ == nullptr
+        && this->agentInstanceStatuses_ == nullptr && this->agentInstanceVersions_ == nullptr && this->agentPlatform_ == nullptr && this->agentPlatformList_ == nullptr && this->agentProvider_ == nullptr
+        && this->agentProviderList_ == nullptr && this->agentTemplateIds_ == nullptr && this->authUsers_ == nullptr && this->bizRegionId_ == nullptr && this->bizType_ == nullptr
         && this->channelConfigure_ == nullptr && this->deploymentSource_ == nullptr && this->desktopIds_ == nullptr && this->desktopNames_ == nullptr && this->desktopStatuses_ == nullptr
         && this->hasAuthUser_ == nullptr && this->hasRisk_ == nullptr && this->includeRiskInfo_ == nullptr && this->managementStatus_ == nullptr && this->modelConfigure_ == nullptr
-        && this->modelTemplateId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceIds_ == nullptr; };
+        && this->modelTemplateId_ == nullptr && this->officeSiteId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceIds_ == nullptr; };
+    // agentImOnlineStatus Field Functions 
+    bool hasAgentImOnlineStatus() const { return this->agentImOnlineStatus_ != nullptr;};
+    void deleteAgentImOnlineStatus() { this->agentImOnlineStatus_ = nullptr;};
+    inline string getAgentImOnlineStatus() const { DARABONBA_PTR_GET_DEFAULT(agentImOnlineStatus_, "") };
+    inline ListDesktopAgentRuntimeRequest& setAgentImOnlineStatus(string agentImOnlineStatus) { DARABONBA_PTR_SET_VALUE(agentImOnlineStatus_, agentImOnlineStatus) };
+
+
     // agentInstanceStatuses Field Functions 
     bool hasAgentInstanceStatuses() const { return this->agentInstanceStatuses_ != nullptr;};
     void deleteAgentInstanceStatuses() { this->agentInstanceStatuses_ = nullptr;};
@@ -100,11 +121,38 @@ namespace Models
     inline ListDesktopAgentRuntimeRequest& setAgentPlatform(string agentPlatform) { DARABONBA_PTR_SET_VALUE(agentPlatform_, agentPlatform) };
 
 
+    // agentPlatformList Field Functions 
+    bool hasAgentPlatformList() const { return this->agentPlatformList_ != nullptr;};
+    void deleteAgentPlatformList() { this->agentPlatformList_ = nullptr;};
+    inline const vector<string> & getAgentPlatformList() const { DARABONBA_PTR_GET_CONST(agentPlatformList_, vector<string>) };
+    inline vector<string> getAgentPlatformList() { DARABONBA_PTR_GET(agentPlatformList_, vector<string>) };
+    inline ListDesktopAgentRuntimeRequest& setAgentPlatformList(const vector<string> & agentPlatformList) { DARABONBA_PTR_SET_VALUE(agentPlatformList_, agentPlatformList) };
+    inline ListDesktopAgentRuntimeRequest& setAgentPlatformList(vector<string> && agentPlatformList) { DARABONBA_PTR_SET_RVALUE(agentPlatformList_, agentPlatformList) };
+
+
     // agentProvider Field Functions 
     bool hasAgentProvider() const { return this->agentProvider_ != nullptr;};
     void deleteAgentProvider() { this->agentProvider_ = nullptr;};
     inline string getAgentProvider() const { DARABONBA_PTR_GET_DEFAULT(agentProvider_, "") };
     inline ListDesktopAgentRuntimeRequest& setAgentProvider(string agentProvider) { DARABONBA_PTR_SET_VALUE(agentProvider_, agentProvider) };
+
+
+    // agentProviderList Field Functions 
+    bool hasAgentProviderList() const { return this->agentProviderList_ != nullptr;};
+    void deleteAgentProviderList() { this->agentProviderList_ = nullptr;};
+    inline const vector<string> & getAgentProviderList() const { DARABONBA_PTR_GET_CONST(agentProviderList_, vector<string>) };
+    inline vector<string> getAgentProviderList() { DARABONBA_PTR_GET(agentProviderList_, vector<string>) };
+    inline ListDesktopAgentRuntimeRequest& setAgentProviderList(const vector<string> & agentProviderList) { DARABONBA_PTR_SET_VALUE(agentProviderList_, agentProviderList) };
+    inline ListDesktopAgentRuntimeRequest& setAgentProviderList(vector<string> && agentProviderList) { DARABONBA_PTR_SET_RVALUE(agentProviderList_, agentProviderList) };
+
+
+    // agentTemplateIds Field Functions 
+    bool hasAgentTemplateIds() const { return this->agentTemplateIds_ != nullptr;};
+    void deleteAgentTemplateIds() { this->agentTemplateIds_ = nullptr;};
+    inline const vector<string> & getAgentTemplateIds() const { DARABONBA_PTR_GET_CONST(agentTemplateIds_, vector<string>) };
+    inline vector<string> getAgentTemplateIds() { DARABONBA_PTR_GET(agentTemplateIds_, vector<string>) };
+    inline ListDesktopAgentRuntimeRequest& setAgentTemplateIds(const vector<string> & agentTemplateIds) { DARABONBA_PTR_SET_VALUE(agentTemplateIds_, agentTemplateIds) };
+    inline ListDesktopAgentRuntimeRequest& setAgentTemplateIds(vector<string> && agentTemplateIds) { DARABONBA_PTR_SET_RVALUE(agentTemplateIds_, agentTemplateIds) };
 
 
     // authUsers Field Functions 
@@ -114,6 +162,13 @@ namespace Models
     inline vector<string> getAuthUsers() { DARABONBA_PTR_GET(authUsers_, vector<string>) };
     inline ListDesktopAgentRuntimeRequest& setAuthUsers(const vector<string> & authUsers) { DARABONBA_PTR_SET_VALUE(authUsers_, authUsers) };
     inline ListDesktopAgentRuntimeRequest& setAuthUsers(vector<string> && authUsers) { DARABONBA_PTR_SET_RVALUE(authUsers_, authUsers) };
+
+
+    // bizRegionId Field Functions 
+    bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
+    void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
+    inline string getBizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
+    inline ListDesktopAgentRuntimeRequest& setBizRegionId(string bizRegionId) { DARABONBA_PTR_SET_VALUE(bizRegionId_, bizRegionId) };
 
 
     // bizType Field Functions 
@@ -206,6 +261,13 @@ namespace Models
     inline ListDesktopAgentRuntimeRequest& setModelTemplateId(string modelTemplateId) { DARABONBA_PTR_SET_VALUE(modelTemplateId_, modelTemplateId) };
 
 
+    // officeSiteId Field Functions 
+    bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
+    void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
+    inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
+    inline ListDesktopAgentRuntimeRequest& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -237,19 +299,29 @@ namespace Models
 
 
   protected:
+    // The agent IM online status filter.
+    shared_ptr<string> agentImOnlineStatus_ {};
     // The list of agent instance statuses.
     shared_ptr<vector<string>> agentInstanceStatuses_ {};
     // The list of agent instance versions.
     shared_ptr<vector<string>> agentInstanceVersions_ {};
     // The agent platform.
     shared_ptr<string> agentPlatform_ {};
-    // The name of the agent provider.
+    // The list of agent platforms. If AgentPlatform is also specified, AgentPlatform takes precedence and this list is ignored.
+    shared_ptr<vector<string>> agentPlatformList_ {};
+    // The agent provider name.
     shared_ptr<string> agentProvider_ {};
+    // The list of agent providers. If AgentProvider is also specified, AgentProvider takes precedence and this list is ignored.
+    shared_ptr<vector<string>> agentProviderList_ {};
+    // The list of agent template IDs. A match occurs only when all valid templates are assigned.
+    shared_ptr<vector<string>> agentTemplateIds_ {};
     // The list of authorized users.
     shared_ptr<vector<string>> authUsers_ {};
+    // The business region ID.
+    shared_ptr<string> bizRegionId_ {};
     // The business type.
     shared_ptr<int32_t> bizType_ {};
-    // Specifies whether the third-party channel is configured.
+    // Specifies whether a third-party channel is configured.
     shared_ptr<bool> channelConfigure_ {};
     // The deployment source.
     shared_ptr<string> deploymentSource_ {};
@@ -257,28 +329,31 @@ namespace Models
     shared_ptr<vector<string>> desktopIds_ {};
     // The list of agent runtime names.
     shared_ptr<vector<string>> desktopNames_ {};
-    // The list of cloud computer statuses.
+    // The list of Cloud Desktop statuses.
     shared_ptr<vector<string>> desktopStatuses_ {};
-    // Specifies whether authorized users exist.
+    // Indicates whether an authorized user exists for authorization.
     shared_ptr<bool> hasAuthUser_ {};
-    // Specifies whether a risk exists. Used to filter cloud computers with or without risks. This parameter takes effect only when IncludeRiskInfo is set to true.
+    // Specifies whether a risk exists. This parameter is used to filter Cloud Desktops with or without risks and takes effect only when IncludeRiskInfo is set to true.
     // 
-    // Set to true to return only records with risks. Set to false to return only records without risks. If not specified, no filtering is applied.
+    // Set this parameter to true to return only records with risks. Set this parameter to false to return only records without risks. If you do not specify this parameter, no filtering is applied.
     shared_ptr<bool> hasRisk_ {};
-    // Specifies whether to query and return risk information. Default value: false. When set to true, the response includes the RiskInfo field, and the HasRisk filter condition takes effect.
+    // Specifies whether to query and return risk information. Default value: false. If set to true, the response includes the RiskInfo field, and the HasRisk filter takes effect.
     shared_ptr<bool> includeRiskInfo_ {};
+    // The management status filter, such as Hibernated.
     shared_ptr<string> managementStatus_ {};
-    // Specifies whether the model is configured.
+    // Specifies whether a model is configured.
     shared_ptr<bool> modelConfigure_ {};
     // The model group ID.
     shared_ptr<string> modelTemplateId_ {};
-    // The page number, starting from 1. Values 0 and 1 return the same result.
+    // The office network ID.
+    shared_ptr<string> officeSiteId_ {};
+    // The page number. Starts from 1. Values 0 and 1 return the same result.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The list of resource IDs (underlying real resource IDs).
+    // The list of resource IDs (underlying actual resource IDs).
     shared_ptr<vector<string>> resourceIds_ {};
   };
 

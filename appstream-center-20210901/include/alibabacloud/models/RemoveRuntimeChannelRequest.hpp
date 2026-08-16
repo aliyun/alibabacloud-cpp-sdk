@@ -78,9 +78,9 @@ namespace Models
 
 
   protected:
-    // The agent platform.
+    // The Agent platform.
     shared_ptr<string> agentPlatform_ {};
-    // The agent provider.
+    // The Agent provider.
     // 
     // This parameter is required.
     shared_ptr<string> agentProvider_ {};
@@ -88,7 +88,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> code_ {};
-    // The list of agent runtime IDs.
+    // The list of Agent runtime IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> runtimeIds_ {};

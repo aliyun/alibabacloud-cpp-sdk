@@ -136,27 +136,23 @@ namespace Models
 
 
     protected:
-      // The URL of the channel avatar.
+      // The channel avatar URL.
       shared_ptr<string> avatarUrl_ {};
-      // The channel type. Valid values:
-      // - System: a channel supported by the system.
-      // - Custom: a custom channel.
+      // The channel type.
       shared_ptr<string> channelType_ {};
       // The channel code.
       shared_ptr<string> code_ {};
       // The channel configuration JSON string.
       // 
-      // Currently, only the simple configuration mode is supported. You must pass the AppKey and AppSecret parameters.
+      // Currently, only the simple configuration mode is supported. You must pass AppKey and AppSecret.
       shared_ptr<string> config_ {};
-      // The configuration mode. Valid values:
-      // - Simple: simple configuration mode.
-      // - Custom: custom configuration mode.
+      // The configuration mode.
       shared_ptr<string> configMode_ {};
-      // The URL of the QR code configuration notification page. This parameter is returned only for the ENTERPRISE or ENTERPRISE_JVS platform.
+      // The QR code configuration notification page URL (returned only for ENTERPRISE/ENTERPRISE_JVS platforms).
       shared_ptr<string> qrCodeNotifyUrl_ {};
-      // The QR code configuration status. This parameter is returned only when the status is not in a final state.
+      // The QR code configuration status (returned only when not in a desired state).
       shared_ptr<string> qrCodeStatus_ {};
-      // The risk type. This parameter is returned only when **includeRiskInfo=true**.
+      // The risk type (returned only when **includeRiskInfo=true**).
       shared_ptr<string> riskType_ {};
       // The configuration status.
       shared_ptr<string> status_ {};
@@ -192,7 +188,7 @@ namespace Models
     shared_ptr<vector<GetRuntimeChannelResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

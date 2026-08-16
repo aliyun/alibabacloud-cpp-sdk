@@ -18,7 +18,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_TO_JSON(BizType, bizType_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
+      DARABONBA_PTR_TO_JSON(CreateTimeEnd, createTimeEnd_);
+      DARABONBA_PTR_TO_JSON(CreateTimeStart, createTimeStart_);
+      DARABONBA_PTR_TO_JSON(ExpiredTimeEnd, expiredTimeEnd_);
+      DARABONBA_PTR_TO_JSON(ExpiredTimeStart, expiredTimeStart_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
+      DARABONBA_PTR_TO_JSON(NetworkInterfaceIp, networkInterfaceIp_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -29,13 +34,19 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VirtualNodePoolId, virtualNodePoolId_);
       DARABONBA_PTR_TO_JSON(WuyingServerIdList, wuyingServerIdList_);
       DARABONBA_PTR_TO_JSON(WuyingServerNameOrId, wuyingServerNameOrId_);
+      DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, ListWuyingServerRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AddVirtualNodePoolStatusList, addVirtualNodePoolStatusList_);
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_FROM_JSON(BizType, bizType_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
+      DARABONBA_PTR_FROM_JSON(CreateTimeEnd, createTimeEnd_);
+      DARABONBA_PTR_FROM_JSON(CreateTimeStart, createTimeStart_);
+      DARABONBA_PTR_FROM_JSON(ExpiredTimeEnd, expiredTimeEnd_);
+      DARABONBA_PTR_FROM_JSON(ExpiredTimeStart, expiredTimeStart_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
+      DARABONBA_PTR_FROM_JSON(NetworkInterfaceIp, networkInterfaceIp_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -46,6 +57,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(VirtualNodePoolId, virtualNodePoolId_);
       DARABONBA_PTR_FROM_JSON(WuyingServerIdList, wuyingServerIdList_);
       DARABONBA_PTR_FROM_JSON(WuyingServerNameOrId, wuyingServerNameOrId_);
+      DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
     };
     ListWuyingServerRequest() = default ;
     ListWuyingServerRequest(const ListWuyingServerRequest &) = default ;
@@ -59,9 +71,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addVirtualNodePoolStatusList_ == nullptr
-        && this->bizRegionId_ == nullptr && this->bizType_ == nullptr && this->chargeType_ == nullptr && this->imageId_ == nullptr && this->officeSiteId_ == nullptr
+        && this->bizRegionId_ == nullptr && this->bizType_ == nullptr && this->chargeType_ == nullptr && this->createTimeEnd_ == nullptr && this->createTimeStart_ == nullptr
+        && this->expiredTimeEnd_ == nullptr && this->expiredTimeStart_ == nullptr && this->imageId_ == nullptr && this->networkInterfaceIp_ == nullptr && this->officeSiteId_ == nullptr
         && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->productType_ == nullptr && this->serverInstanceType_ == nullptr && this->status_ == nullptr
-        && this->users_ == nullptr && this->virtualNodePoolId_ == nullptr && this->wuyingServerIdList_ == nullptr && this->wuyingServerNameOrId_ == nullptr; };
+        && this->users_ == nullptr && this->virtualNodePoolId_ == nullptr && this->wuyingServerIdList_ == nullptr && this->wuyingServerNameOrId_ == nullptr && this->zoneId_ == nullptr; };
     // addVirtualNodePoolStatusList Field Functions 
     bool hasAddVirtualNodePoolStatusList() const { return this->addVirtualNodePoolStatusList_ != nullptr;};
     void deleteAddVirtualNodePoolStatusList() { this->addVirtualNodePoolStatusList_ = nullptr;};
@@ -92,11 +105,46 @@ namespace Models
     inline ListWuyingServerRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
+    // createTimeEnd Field Functions 
+    bool hasCreateTimeEnd() const { return this->createTimeEnd_ != nullptr;};
+    void deleteCreateTimeEnd() { this->createTimeEnd_ = nullptr;};
+    inline string getCreateTimeEnd() const { DARABONBA_PTR_GET_DEFAULT(createTimeEnd_, "") };
+    inline ListWuyingServerRequest& setCreateTimeEnd(string createTimeEnd) { DARABONBA_PTR_SET_VALUE(createTimeEnd_, createTimeEnd) };
+
+
+    // createTimeStart Field Functions 
+    bool hasCreateTimeStart() const { return this->createTimeStart_ != nullptr;};
+    void deleteCreateTimeStart() { this->createTimeStart_ = nullptr;};
+    inline string getCreateTimeStart() const { DARABONBA_PTR_GET_DEFAULT(createTimeStart_, "") };
+    inline ListWuyingServerRequest& setCreateTimeStart(string createTimeStart) { DARABONBA_PTR_SET_VALUE(createTimeStart_, createTimeStart) };
+
+
+    // expiredTimeEnd Field Functions 
+    bool hasExpiredTimeEnd() const { return this->expiredTimeEnd_ != nullptr;};
+    void deleteExpiredTimeEnd() { this->expiredTimeEnd_ = nullptr;};
+    inline string getExpiredTimeEnd() const { DARABONBA_PTR_GET_DEFAULT(expiredTimeEnd_, "") };
+    inline ListWuyingServerRequest& setExpiredTimeEnd(string expiredTimeEnd) { DARABONBA_PTR_SET_VALUE(expiredTimeEnd_, expiredTimeEnd) };
+
+
+    // expiredTimeStart Field Functions 
+    bool hasExpiredTimeStart() const { return this->expiredTimeStart_ != nullptr;};
+    void deleteExpiredTimeStart() { this->expiredTimeStart_ = nullptr;};
+    inline string getExpiredTimeStart() const { DARABONBA_PTR_GET_DEFAULT(expiredTimeStart_, "") };
+    inline ListWuyingServerRequest& setExpiredTimeStart(string expiredTimeStart) { DARABONBA_PTR_SET_VALUE(expiredTimeStart_, expiredTimeStart) };
+
+
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
     inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline ListWuyingServerRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
+
+
+    // networkInterfaceIp Field Functions 
+    bool hasNetworkInterfaceIp() const { return this->networkInterfaceIp_ != nullptr;};
+    void deleteNetworkInterfaceIp() { this->networkInterfaceIp_ = nullptr;};
+    inline string getNetworkInterfaceIp() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceIp_, "") };
+    inline ListWuyingServerRequest& setNetworkInterfaceIp(string networkInterfaceIp) { DARABONBA_PTR_SET_VALUE(networkInterfaceIp_, networkInterfaceIp) };
 
 
     // officeSiteId Field Functions 
@@ -173,27 +221,47 @@ namespace Models
     inline ListWuyingServerRequest& setWuyingServerNameOrId(string wuyingServerNameOrId) { DARABONBA_PTR_SET_VALUE(wuyingServerNameOrId_, wuyingServerNameOrId) };
 
 
+    // zoneId Field Functions 
+    bool hasZoneId() const { return this->zoneId_ != nullptr;};
+    void deleteZoneId() { this->zoneId_ = nullptr;};
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline ListWuyingServerRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
+
+
   protected:
     // The list of statuses for joining a virtual node pool.
     shared_ptr<vector<string>> addVirtualNodePoolStatusList_ {};
     // The region ID.
     shared_ptr<string> bizRegionId_ {};
+    // The business type.
     shared_ptr<int32_t> bizType_ {};
     // The billing type.
     shared_ptr<string> chargeType_ {};
+    // The end time of the creation time range, in ISO 8601 format. This time point is exclusive.
+    shared_ptr<string> createTimeEnd_ {};
+    // The start time of the creation time range, in ISO 8601 format. This time point is inclusive.
+    shared_ptr<string> createTimeStart_ {};
+    // The end time of the expiration time range, in ISO 8601 format. This time point is exclusive.
+    shared_ptr<string> expiredTimeEnd_ {};
+    // The start time of the expiration time range, in ISO 8601 format. This time point is inclusive.
+    shared_ptr<string> expiredTimeStart_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
+    // The internal IP address.
+    shared_ptr<string> networkInterfaceIp_ {};
     // The office network ID.
     shared_ptr<string> officeSiteId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The product type.
     shared_ptr<string> productType_ {};
     // The workstation instance type.
     shared_ptr<string> serverInstanceType_ {};
     // The workstation status.
     shared_ptr<string> status_ {};
+    // The list of authorized users.
     shared_ptr<vector<string>> users_ {};
     // The virtual node pool ID.
     shared_ptr<string> virtualNodePoolId_ {};
@@ -201,6 +269,8 @@ namespace Models
     shared_ptr<vector<string>> wuyingServerIdList_ {};
     // The workstation name or workstation ID.
     shared_ptr<string> wuyingServerNameOrId_ {};
+    // The zone ID.
+    shared_ptr<string> zoneId_ {};
   };
 
   } // namespace Models

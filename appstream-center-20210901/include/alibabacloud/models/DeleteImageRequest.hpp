@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The AppStream image ID.
+    // The WUYING image ID.
     shared_ptr<string> imageId_ {};
   };
 

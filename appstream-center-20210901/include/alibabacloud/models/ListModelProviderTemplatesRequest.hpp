@@ -122,7 +122,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the model provider to filter by.
+    // The model provider name to filter by.
     shared_ptr<string> providerName_ {};
     // The model provider template IDs to filter by.
     shared_ptr<vector<string>> providerTemplateIds_ {};

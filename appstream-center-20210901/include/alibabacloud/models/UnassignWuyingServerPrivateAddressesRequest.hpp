@@ -51,8 +51,12 @@ namespace Models
 
 
   protected:
+    // The list of secondary private IP addresses to unbind.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> privateIpAddresses_ {};
+    // The ID of the development host.
+    // 
     // This parameter is required.
     shared_ptr<string> wuyingServerId_ {};
   };

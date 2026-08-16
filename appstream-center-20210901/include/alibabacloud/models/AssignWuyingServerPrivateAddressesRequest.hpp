@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The number of secondary private IP addresses to assign. Valid values: 1 to 50.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> secondaryPrivateIpAddressCount_ {};
+    // The ID of the development host.
+    // 
     // This parameter is required.
     shared_ptr<string> wuyingServerId_ {};
   };

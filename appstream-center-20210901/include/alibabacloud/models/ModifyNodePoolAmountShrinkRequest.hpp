@@ -61,7 +61,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};
-    // The node pool specification change parameters.
+    // The parameters for node pool specification changes.
     // 
     // This parameter is required.
     shared_ptr<string> nodePoolShrink_ {};
