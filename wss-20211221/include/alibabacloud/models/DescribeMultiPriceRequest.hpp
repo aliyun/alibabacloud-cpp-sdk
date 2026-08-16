@@ -114,30 +114,6 @@ namespace Models
         // The key of the module.
         shared_ptr<string> key_ {};
         // The value of the module.
-        // 
-        // The following example values and valid values are for the Enterprise Edition monthly duration package:
-        // 
-        // - RegionId: cn-shanghai
-        // - InstanceType: eds.enterprise_office.4c8g
-        // - DurationType (hours): Valid values: 
-        //    - 120
-        //    - 250
-        // - OsType: Valid values: 
-        //    - Windows
-        //    - Linux
-        // - RootDiskSize (GiB): 80
-        // - RootDiskCategory: Valid values: 
-        //    - cloud_efficiency: ultra cloud disk
-        //    - cloud_auto: ESSD AutoPL cloud disk
-        //    - cloud_essd: enhanced standard SSD. Only specific instance types support this value.
-        // - RootPerformanceLevel: Valid values: 
-        //    - PL0
-        //    - PL1
-        //    - PL2
-        //    - PL3
-        // - DataDiskSize (GiB): same as RootDiskSize
-        // - DataDiskCategory: same as RootDiskCategory
-        // - DataPerformanceLevel: same as RootPerformanceLevel
         shared_ptr<string> value_ {};
       };
 
@@ -221,18 +197,15 @@ namespace Models
 
 
     protected:
-      // The purchase quantity.
+      // The quantity to purchase.
       shared_ptr<int32_t> amount_ {};
       // The list of product modules.
       shared_ptr<vector<OrderItems::Components>> components_ {};
+      // The extended properties.
       shared_ptr<string> data_ {};
       // The list of instance IDs.
       shared_ptr<vector<string>> instanceIds_ {};
       // The subscription duration. Valid values:
-      // 
-      // - If PeriodUnit is set to Year: 1, 2, or 3.
-      // 
-      // - If PeriodUnit is set to Month: 1, 2, 3, or 6.
       shared_ptr<int32_t> period_ {};
       // The unit of the subscription duration.
       shared_ptr<string> periodUnit_ {};
@@ -241,8 +214,8 @@ namespace Models
       // The list of resource IDs.
       shared_ptr<vector<string>> resourceIds_ {};
       // The resource type.
-      // > This parameter is case-sensitive. Make sure that the value is spelled correctly.
       shared_ptr<string> resourceType_ {};
+      // The period of the savings plan.
       shared_ptr<string> savingPlanPeriod_ {};
     };
 
@@ -283,9 +256,9 @@ namespace Models
     shared_ptr<vector<DescribeMultiPriceRequest::OrderItems>> orderItems_ {};
     // The order type.
     shared_ptr<string> orderType_ {};
-    // The package code. You do not need to specify this parameter for non-package types.
+    // The package code. You do not need to specify this parameter if the product is not a package.
     shared_ptr<string> packageCode_ {};
-    // The user ID of the resource ownership in reseller pattern. You do not need to specify this parameter in non-reseller pattern.
+    // The user ID of resource ownership in the reselling pattern. You do not need to specify this parameter if the product is not in the reselling pattern.
     shared_ptr<int64_t> resellerOwnerUid_ {};
   };
 

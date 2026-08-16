@@ -129,21 +129,21 @@ namespace Models
 
 
     protected:
-      // The ID of the agent.
+      // Agent ID
       shared_ptr<string> agentId_ {};
-      // **The creation time of the instance.**
+      // **The instance creation time.**
       shared_ptr<string> createdTime_ {};
-      // **The ID of the active credit package instance.**
+      // **The ID of the currently active credit package instance.**
       shared_ptr<string> creditPackageId_ {};
-      // **The expiration time of the instance.**
+      // **The time when the instance expires.**
       shared_ptr<string> expiredTime_ {};
       // The instance type.
       shared_ptr<string> instanceType_ {};
-      // **The total credit.**
+      // **The total number of credits.**
       shared_ptr<int64_t> totalCredit_ {};
-      // **The amount of credit used.**
+      // **The amount of credits used.**
       shared_ptr<int64_t> usedCredit_ {};
-      // **The alarm threshold, specified as a percentage. Valid values: 0 to 100.**
+      // **The alert threshold percentage (0–100).**
       shared_ptr<int32_t> warnPercent_ {};
     };
 
@@ -180,13 +180,13 @@ namespace Models
 
 
   protected:
-    // A list of agents.
+    // The Agent list.
     shared_ptr<vector<DescribeCreditPackageAgentsResponseBody::Agents>> agents_ {};
-    // The number of results returned on the current page.
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. If this value is empty, all results have been returned.
+    // The pagination token. Set this parameter to an empty string for the first request. For subsequent requests, use the `nextToken` value from the previous response.
     shared_ptr<string> nextToken_ {};
-    // The request ID. Provide this ID when contacting support.
+    // The request trace ID, which is used for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

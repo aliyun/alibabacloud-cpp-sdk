@@ -251,12 +251,17 @@ namespace Models
 
 
         protected:
+          // The activity ID.
           shared_ptr<string> activityId_ {};
+          // Indicates whether the activity is effective.
           shared_ptr<bool> effective_ {};
+          // The timestamp when the activity ends.
           shared_ptr<string> endTimestamp_ {};
           // The description of the promotion rule.
           shared_ptr<string> optionCode_ {};
+          // The tiered pricing discount value.
           shared_ptr<string> priceBreakReduceValue_ {};
+          // The tiered pricing threshold.
           shared_ptr<string> priceBreakThreshold_ {};
           // The description of the promotion.
           shared_ptr<string> promotionDesc_ {};
@@ -266,6 +271,7 @@ namespace Models
           shared_ptr<string> promotionName_ {};
           // Indicates whether the promotion is selected.
           shared_ptr<bool> selected_ {};
+          // The timestamp when the activity starts.
           shared_ptr<string> startTimestamp_ {};
         };
 
@@ -363,6 +369,7 @@ namespace Models
             shared_ptr<float> originalPrice_ {};
             // The resource type.
             shared_ptr<string> resourceType_ {};
+            // The savings plan recommended price.
             shared_ptr<float> savingPlanRecommendPrice_ {};
             // The actual payment price. The value is the original price minus the discount.
             shared_ptr<float> tradePrice_ {};
@@ -462,6 +469,7 @@ namespace Models
             shared_ptr<string> moduleValue_ {};
             // The original price.
             shared_ptr<float> originalPrice_ {};
+            // The savings plan discount price.
             shared_ptr<float> savingPlanDiscountPrice_ {};
             // The actual payment price. The value is the original price minus the discount.
             shared_ptr<float> tradePrice_ {};
@@ -570,10 +578,6 @@ namespace Models
 
       protected:
         // The currency unit.
-        // 
-        // China site: CNY.
-        // 
-        // International site: USD.
         shared_ptr<string> currency_ {};
         // The discount price.
         shared_ptr<float> discountPrice_ {};

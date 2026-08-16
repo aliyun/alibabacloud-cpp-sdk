@@ -102,7 +102,7 @@ namespace Models
 
 
       protected:
-        // **The consumption duration in seconds.**
+        // **The consumption duration, in seconds.**
         shared_ptr<int64_t> consumeSecond_ {};
         // **The time period.**
         shared_ptr<string> period_ {};
@@ -157,7 +157,7 @@ namespace Models
 
 
       protected:
-        // The consumption duration in seconds.
+        // The consumption duration, in seconds.
         shared_ptr<int64_t> consumeSecond_ {};
         // The deduction date.
         shared_ptr<string> deductionDate_ {};
@@ -313,7 +313,7 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud account ID.
+        // The Alibaba Cloud UID.
         shared_ptr<int64_t> aliUid_ {};
         // The creation time.
         shared_ptr<string> createTime_ {};
@@ -325,9 +325,9 @@ namespace Models
         shared_ptr<string> groupId_ {};
         // The group resource type.
         shared_ptr<string> groupResourceType_ {};
-        // Indicates whether the resource is a No-Lx resource.
+        // Indicates whether LingXiao is excluded.
         shared_ptr<bool> noLx_ {};
-        // The source of the No-Lx resource.
+        // The source when LingXiao is excluded.
         shared_ptr<string> noLxSource_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
@@ -373,11 +373,11 @@ namespace Models
 
 
     protected:
-      // **The available core-hour packages.**
+      // **The list of available core-hour package resources.**
       shared_ptr<vector<Data::AvailableCorePackages>> availableCorePackages_ {};
       // The deduction details.
       shared_ptr<vector<Data::Deductions>> deductions_ {};
-      // **The usage details.**
+      // **The usage list.**
       shared_ptr<vector<Data::Usages>> usages_ {};
     };
 

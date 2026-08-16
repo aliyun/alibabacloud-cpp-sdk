@@ -23,6 +23,9 @@
 #include <alibabacloud/models/DescribePackageDeductionsRequest.hpp>
 #include <alibabacloud/models/DescribePackageDeductionsResponseBody.hpp>
 #include <alibabacloud/models/DescribePackageDeductionsResponse.hpp>
+#include <alibabacloud/models/DescribeRunIdDeductionsRequest.hpp>
+#include <alibabacloud/models/DescribeRunIdDeductionsResponseBody.hpp>
+#include <alibabacloud/models/DescribeRunIdDeductionsResponse.hpp>
 #include <alibabacloud/models/ModifyInstancePropertiesRequest.hpp>
 #include <alibabacloud/models/ModifyInstancePropertiesResponseBody.hpp>
 #include <alibabacloud/models/ModifyInstancePropertiesResponse.hpp>

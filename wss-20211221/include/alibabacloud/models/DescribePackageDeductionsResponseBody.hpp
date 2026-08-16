@@ -242,33 +242,39 @@ namespace Models
       shared_ptr<int32_t> cpu_ {};
       // The cloud computer ID.
       shared_ptr<string> desktopId_ {};
-      // The cloud computer name.
+      // The name of the cloud computer.
       shared_ptr<string> desktopName_ {};
-      // The desktop type.
+      // The specifications of the cloud computer.
       shared_ptr<string> desktopType_ {};
-      // The billing cycle end time.
+      // The end time of the period.
       shared_ptr<string> endTime_ {};
+      // The group resource type.
       shared_ptr<string> groupResourceType_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The core-hour package state.
+      // The status of the core-hour package.
       shared_ptr<string> instanceState_ {};
+      // The instance type.
       shared_ptr<string> instanceType_ {};
-      // The memory size, in MB.
+      // The memory size. Unit: MB.
       shared_ptr<int64_t> memory_ {};
-      // The OS of the cloud computer.
+      // The operating system type of the cloud computer.
       shared_ptr<string> osType_ {};
-      // The region ID.
+      // The region ID of the cloud computer.
       shared_ptr<string> regionId_ {};
       // The resource type.
       shared_ptr<string> resourceType_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
-      // The billing cycle start time.
+      // The start time of the period.
       shared_ptr<string> staTime_ {};
-      // The deducted core-hours.
+      // The number of cores deducted in this period.
       shared_ptr<float> usedCoreTime_ {};
-      // The usage duration, in seconds.
+      // The usage duration. Unit: seconds.
       shared_ptr<int64_t> usedTime_ {};
+      // The usage duration in decimal format.
       shared_ptr<string> usedTimeDecimal_ {};
+      // The usage duration after proportional scaling.
       shared_ptr<int64_t> usedTimeWithScale_ {};
     };
 
@@ -334,20 +340,21 @@ namespace Models
 
 
   protected:
-    // The deduction details.
+    // The list of deduction details.
     shared_ptr<vector<DescribePackageDeductionsResponseBody::Deductions>> deductions_ {};
     // The current page number.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query. Settings the number of rows per page for paging.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of matching entries.
+    // The total number of deduction detail records returned.
     shared_ptr<int64_t> totalCount_ {};
-    // The total core-hours deducted for all matching entries.
+    // The total deducted core-hours.
     shared_ptr<float> totalUsedCoreTime_ {};
-    // The total usage duration of all matching entries, in seconds.
+    // The total usage duration.
     shared_ptr<int64_t> totalUsedTime_ {};
+    // The total usage duration in decimal format.
     shared_ptr<string> totalUsedTimeDecimal_ {};
   };
 

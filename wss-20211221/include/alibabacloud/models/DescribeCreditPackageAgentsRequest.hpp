@@ -78,15 +78,15 @@ namespace Models
 
 
   protected:
-    // An array of agent IDs to query. Example: `["agent-1","agent-2"]`.
+    // A JSON string of the AgentId list. Example: `["agent-1","agent-2"]`.
     shared_ptr<vector<string>> agentIds_ {};
-    // The agent type. Valid values: `CREDIT_PACKAGE`, `JVS_CLAW`, `OPEN_CLAW`, and `JVS_COPILOT`.
+    // The Agent type. Valid values: `CREDIT_PACKAGE`, `JVS_CLAW`, `OPEN_CLAW`, and `JVS_COPILOT`.
     shared_ptr<string> agentType_ {};
     // The business type.
     shared_ptr<string> bizType_ {};
-    // The maximum number of results to return per page.
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results. Obtain this value from the `NextToken` parameter of the previous response. For the first request, set this parameter to an empty string.
+    // The pagination token. Set this parameter to an empty string for the first request. For subsequent requests, use the `nextToken` value from the previous response.
     shared_ptr<string> nextToken_ {};
   };
 

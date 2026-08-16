@@ -110,20 +110,21 @@ namespace Models
 
 
   protected:
-    // The end time, in Unix timestamp format.
+    // The end time in UNIX timestamp format.
     shared_ptr<int64_t> endTime_ {};
-    // An array of instance IDs. If you specify this parameter, the `PackageIds` parameter is required.
+    // The list of cloud computer IDs. If this parameter is specified, the `PackageIds` parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};
-    // An array of package IDs.
+    // The list of core-hour package IDs in JSON format.
     shared_ptr<vector<string>> packageIds_ {};
-    // The page number. Default value: 1.
+    // The current page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page. Maximum value: 100.
+    // The number of entries per page in a paged query. Settings the number of rows per page for paging. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
     // The resource type.
     shared_ptr<string> resourceType_ {};
+    // The list of resource types.
     shared_ptr<vector<string>> resourceTypes_ {};
-    // The start time, in Unix timestamp format.
+    // The start time in UNIX timestamp format.
     shared_ptr<int64_t> startTime_ {};
   };
 

@@ -56,15 +56,19 @@ namespace Models
       class UsageInfo : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const UsageInfo& obj) { 
+          DARABONBA_PTR_TO_JSON(AvailableAmount, availableAmount_);
+          DARABONBA_PTR_TO_JSON(ContactGroupNames, contactGroupNames_);
           DARABONBA_PTR_TO_JSON(CreditTrendList, creditTrendList_);
           DARABONBA_PTR_TO_JSON(CurrentInstanceId, currentInstanceId_);
           DARABONBA_PTR_TO_JSON(CurrentRemainCredit, currentRemainCredit_);
           DARABONBA_PTR_TO_JSON(CurrentTotalCredit, currentTotalCredit_);
           DARABONBA_PTR_TO_JSON(CurrentUsedCredit, currentUsedCredit_);
           DARABONBA_PTR_TO_JSON(DayUsedCredit, dayUsedCredit_);
+          DARABONBA_PTR_TO_JSON(LastTriggeredAt, lastTriggeredAt_);
           DARABONBA_PTR_TO_JSON(PeriodTotalCredit, periodTotalCredit_);
           DARABONBA_PTR_TO_JSON(PeriodUsedCredit, periodUsedCredit_);
           DARABONBA_PTR_TO_JSON(RemainCredit, remainCredit_);
+          DARABONBA_PTR_TO_JSON(RemainCreditInfo, remainCreditInfo_);
           DARABONBA_PTR_TO_JSON(TodayUsed, todayUsed_);
           DARABONBA_PTR_TO_JSON(TotalCredit, totalCredit_);
           DARABONBA_PTR_TO_JSON(TotalUsed, totalUsed_);
@@ -73,15 +77,19 @@ namespace Models
           DARABONBA_PTR_TO_JSON(WeekUsedCredit, weekUsedCredit_);
         };
         friend void from_json(const Darabonba::Json& j, UsageInfo& obj) { 
+          DARABONBA_PTR_FROM_JSON(AvailableAmount, availableAmount_);
+          DARABONBA_PTR_FROM_JSON(ContactGroupNames, contactGroupNames_);
           DARABONBA_PTR_FROM_JSON(CreditTrendList, creditTrendList_);
           DARABONBA_PTR_FROM_JSON(CurrentInstanceId, currentInstanceId_);
           DARABONBA_PTR_FROM_JSON(CurrentRemainCredit, currentRemainCredit_);
           DARABONBA_PTR_FROM_JSON(CurrentTotalCredit, currentTotalCredit_);
           DARABONBA_PTR_FROM_JSON(CurrentUsedCredit, currentUsedCredit_);
           DARABONBA_PTR_FROM_JSON(DayUsedCredit, dayUsedCredit_);
+          DARABONBA_PTR_FROM_JSON(LastTriggeredAt, lastTriggeredAt_);
           DARABONBA_PTR_FROM_JSON(PeriodTotalCredit, periodTotalCredit_);
           DARABONBA_PTR_FROM_JSON(PeriodUsedCredit, periodUsedCredit_);
           DARABONBA_PTR_FROM_JSON(RemainCredit, remainCredit_);
+          DARABONBA_PTR_FROM_JSON(RemainCreditInfo, remainCreditInfo_);
           DARABONBA_PTR_FROM_JSON(TodayUsed, todayUsed_);
           DARABONBA_PTR_FROM_JSON(TotalCredit, totalCredit_);
           DARABONBA_PTR_FROM_JSON(TotalUsed, totalUsed_);
@@ -100,6 +108,48 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class RemainCreditInfo : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const RemainCreditInfo& obj) { 
+            DARABONBA_PTR_TO_JSON(DeductingAmount, deductingAmount_);
+            DARABONBA_PTR_TO_JSON(PendingAmount, pendingAmount_);
+          };
+          friend void from_json(const Darabonba::Json& j, RemainCreditInfo& obj) { 
+            DARABONBA_PTR_FROM_JSON(DeductingAmount, deductingAmount_);
+            DARABONBA_PTR_FROM_JSON(PendingAmount, pendingAmount_);
+          };
+          RemainCreditInfo() = default ;
+          RemainCreditInfo(const RemainCreditInfo &) = default ;
+          RemainCreditInfo(RemainCreditInfo &&) = default ;
+          RemainCreditInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~RemainCreditInfo() = default ;
+          RemainCreditInfo& operator=(const RemainCreditInfo &) = default ;
+          RemainCreditInfo& operator=(RemainCreditInfo &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->deductingAmount_ == nullptr
+        && this->pendingAmount_ == nullptr; };
+          // deductingAmount Field Functions 
+          bool hasDeductingAmount() const { return this->deductingAmount_ != nullptr;};
+          void deleteDeductingAmount() { this->deductingAmount_ = nullptr;};
+          inline int32_t getDeductingAmount() const { DARABONBA_PTR_GET_DEFAULT(deductingAmount_, 0) };
+          inline RemainCreditInfo& setDeductingAmount(int32_t deductingAmount) { DARABONBA_PTR_SET_VALUE(deductingAmount_, deductingAmount) };
+
+
+          // pendingAmount Field Functions 
+          bool hasPendingAmount() const { return this->pendingAmount_ != nullptr;};
+          void deletePendingAmount() { this->pendingAmount_ = nullptr;};
+          inline int32_t getPendingAmount() const { DARABONBA_PTR_GET_DEFAULT(pendingAmount_, 0) };
+          inline RemainCreditInfo& setPendingAmount(int32_t pendingAmount) { DARABONBA_PTR_SET_VALUE(pendingAmount_, pendingAmount) };
+
+
+        protected:
+          shared_ptr<int32_t> deductingAmount_ {};
+          shared_ptr<int32_t> pendingAmount_ {};
+        };
+
         class CreditTrendList : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const CreditTrendList& obj) { 
@@ -138,16 +188,33 @@ namespace Models
 
 
         protected:
-          // The time point in the format of `yyyy-MM-dd HH` (accurate to the hour).
+          // The time point in the format `yyyy-MM-dd HH` (accurate to the hour).
           shared_ptr<string> timePoint_ {};
-          // The number of credits consumed during the hour.
+          // The number of credits consumed in this hour.
           shared_ptr<int64_t> usedCredit_ {};
         };
 
-        virtual bool empty() const override { return this->creditTrendList_ == nullptr
-        && this->currentInstanceId_ == nullptr && this->currentRemainCredit_ == nullptr && this->currentTotalCredit_ == nullptr && this->currentUsedCredit_ == nullptr && this->dayUsedCredit_ == nullptr
-        && this->periodTotalCredit_ == nullptr && this->periodUsedCredit_ == nullptr && this->remainCredit_ == nullptr && this->todayUsed_ == nullptr && this->totalCredit_ == nullptr
-        && this->totalUsed_ == nullptr && this->totalUsedCredit_ == nullptr && this->warnPercent_ == nullptr && this->weekUsedCredit_ == nullptr; };
+        virtual bool empty() const override { return this->availableAmount_ == nullptr
+        && this->contactGroupNames_ == nullptr && this->creditTrendList_ == nullptr && this->currentInstanceId_ == nullptr && this->currentRemainCredit_ == nullptr && this->currentTotalCredit_ == nullptr
+        && this->currentUsedCredit_ == nullptr && this->dayUsedCredit_ == nullptr && this->lastTriggeredAt_ == nullptr && this->periodTotalCredit_ == nullptr && this->periodUsedCredit_ == nullptr
+        && this->remainCredit_ == nullptr && this->remainCreditInfo_ == nullptr && this->todayUsed_ == nullptr && this->totalCredit_ == nullptr && this->totalUsed_ == nullptr
+        && this->totalUsedCredit_ == nullptr && this->warnPercent_ == nullptr && this->weekUsedCredit_ == nullptr; };
+        // availableAmount Field Functions 
+        bool hasAvailableAmount() const { return this->availableAmount_ != nullptr;};
+        void deleteAvailableAmount() { this->availableAmount_ = nullptr;};
+        inline int32_t getAvailableAmount() const { DARABONBA_PTR_GET_DEFAULT(availableAmount_, 0) };
+        inline UsageInfo& setAvailableAmount(int32_t availableAmount) { DARABONBA_PTR_SET_VALUE(availableAmount_, availableAmount) };
+
+
+        // contactGroupNames Field Functions 
+        bool hasContactGroupNames() const { return this->contactGroupNames_ != nullptr;};
+        void deleteContactGroupNames() { this->contactGroupNames_ = nullptr;};
+        inline const vector<string> & getContactGroupNames() const { DARABONBA_PTR_GET_CONST(contactGroupNames_, vector<string>) };
+        inline vector<string> getContactGroupNames() { DARABONBA_PTR_GET(contactGroupNames_, vector<string>) };
+        inline UsageInfo& setContactGroupNames(const vector<string> & contactGroupNames) { DARABONBA_PTR_SET_VALUE(contactGroupNames_, contactGroupNames) };
+        inline UsageInfo& setContactGroupNames(vector<string> && contactGroupNames) { DARABONBA_PTR_SET_RVALUE(contactGroupNames_, contactGroupNames) };
+
+
         // creditTrendList Field Functions 
         bool hasCreditTrendList() const { return this->creditTrendList_ != nullptr;};
         void deleteCreditTrendList() { this->creditTrendList_ = nullptr;};
@@ -192,6 +259,13 @@ namespace Models
         inline UsageInfo& setDayUsedCredit(int64_t dayUsedCredit) { DARABONBA_PTR_SET_VALUE(dayUsedCredit_, dayUsedCredit) };
 
 
+        // lastTriggeredAt Field Functions 
+        bool hasLastTriggeredAt() const { return this->lastTriggeredAt_ != nullptr;};
+        void deleteLastTriggeredAt() { this->lastTriggeredAt_ = nullptr;};
+        inline string getLastTriggeredAt() const { DARABONBA_PTR_GET_DEFAULT(lastTriggeredAt_, "") };
+        inline UsageInfo& setLastTriggeredAt(string lastTriggeredAt) { DARABONBA_PTR_SET_VALUE(lastTriggeredAt_, lastTriggeredAt) };
+
+
         // periodTotalCredit Field Functions 
         bool hasPeriodTotalCredit() const { return this->periodTotalCredit_ != nullptr;};
         void deletePeriodTotalCredit() { this->periodTotalCredit_ = nullptr;};
@@ -211,6 +285,15 @@ namespace Models
         void deleteRemainCredit() { this->remainCredit_ = nullptr;};
         inline int64_t getRemainCredit() const { DARABONBA_PTR_GET_DEFAULT(remainCredit_, 0L) };
         inline UsageInfo& setRemainCredit(int64_t remainCredit) { DARABONBA_PTR_SET_VALUE(remainCredit_, remainCredit) };
+
+
+        // remainCreditInfo Field Functions 
+        bool hasRemainCreditInfo() const { return this->remainCreditInfo_ != nullptr;};
+        void deleteRemainCreditInfo() { this->remainCreditInfo_ = nullptr;};
+        inline const UsageInfo::RemainCreditInfo & getRemainCreditInfo() const { DARABONBA_PTR_GET_CONST(remainCreditInfo_, UsageInfo::RemainCreditInfo) };
+        inline UsageInfo::RemainCreditInfo getRemainCreditInfo() { DARABONBA_PTR_GET(remainCreditInfo_, UsageInfo::RemainCreditInfo) };
+        inline UsageInfo& setRemainCreditInfo(const UsageInfo::RemainCreditInfo & remainCreditInfo) { DARABONBA_PTR_SET_VALUE(remainCreditInfo_, remainCreditInfo) };
+        inline UsageInfo& setRemainCreditInfo(UsageInfo::RemainCreditInfo && remainCreditInfo) { DARABONBA_PTR_SET_RVALUE(remainCreditInfo_, remainCreditInfo) };
 
 
         // todayUsed Field Functions 
@@ -256,6 +339,8 @@ namespace Models
 
 
       protected:
+        shared_ptr<int32_t> availableAmount_ {};
+        shared_ptr<vector<string>> contactGroupNames_ {};
         // The hourly consumption samples of the current credit package.
         shared_ptr<vector<UsageInfo::CreditTrendList>> creditTrendList_ {};
         // The instance ID of the current active credit package.
@@ -268,15 +353,19 @@ namespace Models
         shared_ptr<int64_t> currentUsedCredit_ {};
         // The credit usage in the last 1 day.
         shared_ptr<int64_t> dayUsedCredit_ {};
+        shared_ptr<string> lastTriggeredAt_ {};
         // The shared credit quota in the current active period.
         shared_ptr<int64_t> periodTotalCredit_ {};
         // The shared credit usage in the current active period.
         shared_ptr<int64_t> periodUsedCredit_ {};
         // The cumulative remaining credits.
         shared_ptr<int64_t> remainCredit_ {};
+        shared_ptr<UsageInfo::RemainCreditInfo> remainCreditInfo_ {};
+        // The quota used today.
         shared_ptr<string> todayUsed_ {};
-        // The cumulative total credits.
+        // The total cumulative credits.
         shared_ptr<int64_t> totalCredit_ {};
+        // The cumulative used quota.
         shared_ptr<string> totalUsed_ {};
         // The cumulative credit usage.
         shared_ptr<int64_t> totalUsedCredit_ {};

@@ -23,8 +23,8 @@ namespace Wss20211221
       /**
        * @summary Places, renews, or modifies orders for specific products of Elastic Desktop Service (EDS) Enterprise Edition, such as monthly duration packages.
        *
-       * @description <props="china">Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws) of EDS.
-       * <props="intl">Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/cloud-desktop?#J_8623712560) of EDS.
+       * @description <props="china">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws) of EDS.
+       * <props="intl">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/cloud-desktop?#J_8623712560) of EDS.
        * If automatic payment is not specified, this operation does not process the payment. You must use the order ID returned by this operation to construct a payment redirect URL and complete the payment before the order takes effect and the resources are provisioned.
        *
        * @param tmpReq CreateMultiOrderRequest
@@ -36,8 +36,8 @@ namespace Wss20211221
       /**
        * @summary Places, renews, or modifies orders for specific products of Elastic Desktop Service (EDS) Enterprise Edition, such as monthly duration packages.
        *
-       * @description <props="china">Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws) of EDS.
-       * <props="intl">Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/cloud-desktop?#J_8623712560) of EDS.
+       * @description <props="china">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws) of EDS.
+       * <props="intl">Before you use this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/cloud-desktop?#J_8623712560) of EDS.
        * If automatic payment is not specified, this operation does not process the payment. You must use the order ID returned by this operation to construct a payment redirect URL and complete the payment before the order takes effect and the resources are provisioned.
        *
        * @param request CreateMultiOrderRequest
@@ -46,14 +46,14 @@ namespace Wss20211221
       Models::CreateMultiOrderResponse createMultiOrder(const Models::CreateMultiOrderRequest &request);
 
       /**
-       * @summary Queries a list of agents and their usage information.
+       * @summary Queries the list of Agents and usage summary information under the current username.
        *
-       * @description ## Usage notes
-       * - **Pagination**: This operation supports pagination by using the `NextToken` and `MaxResults` parameters. For the first request, set `NextToken` to an empty string.
-       * - **Filtering**: Use the `AgentType` and `AgentIds` parameters to filter the results.
-       * - **Status filtering**: Use the `Status` parameter to filter agents by status. Valid values are 0 (deleted) and 1 (active).
-       * - **Sorting**: By default, the results are sorted by `id` in ascending order.
-       * - **Additional parameter for anonymous edition**: The `FillInstance` parameter automatically populates the ID of the JVS_COPILOT agent that is associated with the current user.
+       * @description ## Request description
+       * - **Paging support**: Use the `NextToken` and `MaxResults` parameters for paging. Set `NextToken` to an empty character string for the first request.
+       * - **Filtering**: Use the `AgentType` and `AgentIds` parameters to filter the returned Agent list.
+       * - **Status filtering**: Use the `Status` parameter to filter Agents by status (0: deleted, 1: active).
+       * - **Sorting**: Results are sorted by `id` in ascending order by default.
+       * - **Additional parameter for anonymous edition**: The `FillInstance` parameter automatically populates the bound JVS_COPILOT AgentId of the currently logged-on user.
        *
        * @param request DescribeCreditPackageAgentsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -62,14 +62,14 @@ namespace Wss20211221
       Models::DescribeCreditPackageAgentsResponse describeCreditPackageAgentsWithOptions(const Models::DescribeCreditPackageAgentsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of agents and their usage information.
+       * @summary Queries the list of Agents and usage summary information under the current username.
        *
-       * @description ## Usage notes
-       * - **Pagination**: This operation supports pagination by using the `NextToken` and `MaxResults` parameters. For the first request, set `NextToken` to an empty string.
-       * - **Filtering**: Use the `AgentType` and `AgentIds` parameters to filter the results.
-       * - **Status filtering**: Use the `Status` parameter to filter agents by status. Valid values are 0 (deleted) and 1 (active).
-       * - **Sorting**: By default, the results are sorted by `id` in ascending order.
-       * - **Additional parameter for anonymous edition**: The `FillInstance` parameter automatically populates the ID of the JVS_COPILOT agent that is associated with the current user.
+       * @description ## Request description
+       * - **Paging support**: Use the `NextToken` and `MaxResults` parameters for paging. Set `NextToken` to an empty character string for the first request.
+       * - **Filtering**: Use the `AgentType` and `AgentIds` parameters to filter the returned Agent list.
+       * - **Status filtering**: Use the `Status` parameter to filter Agents by status (0: deleted, 1: active).
+       * - **Sorting**: Results are sorted by `id` in ascending order by default.
+       * - **Additional parameter for anonymous edition**: The `FillInstance` parameter automatically populates the bound JVS_COPILOT AgentId of the currently logged-on user.
        *
        * @param request DescribeCreditPackageAgentsRequest
        * @return DescribeCreditPackageAgentsResponse
@@ -77,16 +77,16 @@ namespace Wss20211221
       Models::DescribeCreditPackageAgentsResponse describeCreditPackageAgents(const Models::DescribeCreditPackageAgentsRequest &request);
 
       /**
-       * @summary Queries credit usage by a specified dimension such as user, credit package, or agent.
+       * @summary Queries credit usage details by a specified dimension such as user, credit package, or agent.
        *
-       * @description ## Operation description
-       * This API operation queries credit usage details based on the dimension specified by `UsageType` (User, CreditPackage, or Agent). The response includes the total, remaining, and used credits of the current credit package, hourly consumption samples, alert thresholds, period quotas, and other information.
-       * - **User**: User dimension. Returns the aggregated usage and remaining credits across all active credit packages for the current user.
-       * - **CreditPackage**: Credit package dimension. Returns the total, remaining, and consumption samples for a specified credit package instance.
-       * - **Agent**: Agent dimension. Returns the cumulative usage, current period usage, quota, alert, and other information for a specified agent.
+       * @description ## Request description
+       * This API queries credit usage details based on the dimension specified by `UsageType` (User / CreditPackage / Agent). The response includes the total credits, remaining credits, used credits, hourly consumption samples, alert thresholds, and period quotas of the current credit package.
+       * - **User**: User dimension. Returns the aggregated usage and remaining credits of all active credit packages for the current user.
+       * - **CreditPackage**: Credit package dimension. Returns the total credits, remaining credits, and consumption samples of a specified credit package instance.
+       * - **Agent**: Agent dimension. Returns the cumulative usage, current period usage, quota, and alert information of a specified agent.
        * **Notes**:
-       * - The `InstanceIds` parameter can be omitted when `UsageType=User`. Set this parameter to the credit package instance ID when `UsageType=CreditPackage`, or to the AgentId when `UsageType=Agent`.
-       * - Anonymous requests support the `FillInstance` parameter. If `InstanceIds` is not explicitly specified and `FillInstance=true`, the server automatically populates the bound `JVS_COPILOT` AgentId based on the current logon `wyId`.
+       * - The `InstanceIds` parameter can be omitted when `UsageType=User`. Pass a credit package instance ID when `UsageType=CreditPackage`, or pass an AgentId when `UsageType=Agent`.
+       * - Anonymous requests support the `FillInstance` parameter. When `InstanceIds` is not explicitly provided and `FillInstance=true`, the server automatically populates the bound `JVS_COPILOT` AgentId based on the current logon `wyId`.
        * - Time window constants: The `dayUsedCredit` statistics window is `now - ONE_DAY_MILLIS`, and the `weekUsedCredit` statistics window is `now - ONE_WEEK_MILLIS`.
        * - The consumption samples in `currentCreditConsumeList` are aggregated by hour and may have an asynchronous synchronization delay of up to 5 minutes.
        *
@@ -97,16 +97,16 @@ namespace Wss20211221
       Models::DescribeCreditUsageInfoResponse describeCreditUsageInfoWithOptions(const Models::DescribeCreditUsageInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries credit usage by a specified dimension such as user, credit package, or agent.
+       * @summary Queries credit usage details by a specified dimension such as user, credit package, or agent.
        *
-       * @description ## Operation description
-       * This API operation queries credit usage details based on the dimension specified by `UsageType` (User, CreditPackage, or Agent). The response includes the total, remaining, and used credits of the current credit package, hourly consumption samples, alert thresholds, period quotas, and other information.
-       * - **User**: User dimension. Returns the aggregated usage and remaining credits across all active credit packages for the current user.
-       * - **CreditPackage**: Credit package dimension. Returns the total, remaining, and consumption samples for a specified credit package instance.
-       * - **Agent**: Agent dimension. Returns the cumulative usage, current period usage, quota, alert, and other information for a specified agent.
+       * @description ## Request description
+       * This API queries credit usage details based on the dimension specified by `UsageType` (User / CreditPackage / Agent). The response includes the total credits, remaining credits, used credits, hourly consumption samples, alert thresholds, and period quotas of the current credit package.
+       * - **User**: User dimension. Returns the aggregated usage and remaining credits of all active credit packages for the current user.
+       * - **CreditPackage**: Credit package dimension. Returns the total credits, remaining credits, and consumption samples of a specified credit package instance.
+       * - **Agent**: Agent dimension. Returns the cumulative usage, current period usage, quota, and alert information of a specified agent.
        * **Notes**:
-       * - The `InstanceIds` parameter can be omitted when `UsageType=User`. Set this parameter to the credit package instance ID when `UsageType=CreditPackage`, or to the AgentId when `UsageType=Agent`.
-       * - Anonymous requests support the `FillInstance` parameter. If `InstanceIds` is not explicitly specified and `FillInstance=true`, the server automatically populates the bound `JVS_COPILOT` AgentId based on the current logon `wyId`.
+       * - The `InstanceIds` parameter can be omitted when `UsageType=User`. Pass a credit package instance ID when `UsageType=CreditPackage`, or pass an AgentId when `UsageType=Agent`.
+       * - Anonymous requests support the `FillInstance` parameter. When `InstanceIds` is not explicitly provided and `FillInstance=true`, the server automatically populates the bound `JVS_COPILOT` AgentId based on the current logon `wyId`.
        * - Time window constants: The `dayUsedCredit` statistics window is `now - ONE_DAY_MILLIS`, and the `weekUsedCredit` statistics window is `now - ONE_WEEK_MILLIS`.
        * - The consumption samples in `currentCreditConsumeList` are aggregated by hour and may have an asynchronous synchronization delay of up to 5 minutes.
        *
@@ -116,15 +116,15 @@ namespace Wss20211221
       Models::DescribeCreditUsageInfoResponse describeCreditUsageInfo(const Models::DescribeCreditUsageInfoRequest &request);
 
       /**
-       * @summary Retrieves resource deduction and usage statistics based on specified criteria.
+       * @summary Retrieves resource deduction and usage statistics based on specified conditions.
        *
-       * @description ## Request
-       * - This API supports GET and POST methods.
-       * - The `periods` parameter is a JSON array of `PeriodParam` objects, each containing the `periodUnit` and `baseTime` fields.
-       * - The `resourceTypes` parameter is a JSON array of resource type strings.
-       * - The `startTime` and `endTime` parameters are timestamps that define the query\\"s time range.
-       * - The `nextToken`, `maxResults`, `pageNo`, and `pageSize` parameters control pagination and the number of results to return.
-       * - The API throws a `SalesClientException` if the `resourceTypes` parameter contains an invalid value or if the `periods` parameter fails JSON parsing.
+       * @description ## Request description
+       * - This operation supports GET and POST methods.
+       * - The `periods` parameter is in JSON array format. Each element is a `PeriodParam` object that contains the `periodUnit` and `baseTime` fields.
+       * - The `resourceTypes` parameter is in JSON array format and contains multiple resource type strings.
+       * - The `startTime` and `endTime` parameters are in timestamp format and specify the time range for the query.
+       * - Pagination parameters include `nextToken`, `maxResults`, `pageNo`, and `pageSize`, which control the number and pagination of returned results.
+       * - When the `resourceTypes` parameter contains invalid values or the `periods` parameter fails JSON parsing, a `SalesClientException` exception is thrown.
        *
        * @param request DescribeDeductionStatisticRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -133,15 +133,15 @@ namespace Wss20211221
       Models::DescribeDeductionStatisticResponse describeDeductionStatisticWithOptions(const Models::DescribeDeductionStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves resource deduction and usage statistics based on specified criteria.
+       * @summary Retrieves resource deduction and usage statistics based on specified conditions.
        *
-       * @description ## Request
-       * - This API supports GET and POST methods.
-       * - The `periods` parameter is a JSON array of `PeriodParam` objects, each containing the `periodUnit` and `baseTime` fields.
-       * - The `resourceTypes` parameter is a JSON array of resource type strings.
-       * - The `startTime` and `endTime` parameters are timestamps that define the query\\"s time range.
-       * - The `nextToken`, `maxResults`, `pageNo`, and `pageSize` parameters control pagination and the number of results to return.
-       * - The API throws a `SalesClientException` if the `resourceTypes` parameter contains an invalid value or if the `periods` parameter fails JSON parsing.
+       * @description ## Request description
+       * - This operation supports GET and POST methods.
+       * - The `periods` parameter is in JSON array format. Each element is a `PeriodParam` object that contains the `periodUnit` and `baseTime` fields.
+       * - The `resourceTypes` parameter is in JSON array format and contains multiple resource type strings.
+       * - The `startTime` and `endTime` parameters are in timestamp format and specify the time range for the query.
+       * - Pagination parameters include `nextToken`, `maxResults`, `pageNo`, and `pageSize`, which control the number and pagination of returned results.
+       * - When the `resourceTypes` parameter contains invalid values or the `periods` parameter fails JSON parsing, a `SalesClientException` exception is thrown.
        *
        * @param request DescribeDeductionStatisticRequest
        * @return DescribeDeductionStatisticResponse
@@ -166,7 +166,7 @@ namespace Wss20211221
       /**
        * @summary Queries the prices of Elastic Desktop Service products, including prices for new purchases, renewals, specification changes, and unsubscriptions.
        *
-       * @description <props="china">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws) of Elastic Desktop Service.
+       * @description <props="china">Before you call this operation, make sure that you fully understand the billing of Elastic Desktop Service and its [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws).
        *
        * @param request DescribeMultiPriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -177,7 +177,7 @@ namespace Wss20211221
       /**
        * @summary Queries the prices of Elastic Desktop Service products, including prices for new purchases, renewals, specification changes, and unsubscriptions.
        *
-       * @description <props="china">Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws) of Elastic Desktop Service.
+       * @description <props="china">Before you call this operation, make sure that you fully understand the billing of Elastic Desktop Service and its [pricing](https://www.aliyun.com/price/product?#/gws/detail/gws).
        *
        * @param request DescribeMultiPriceRequest
        * @return DescribeMultiPriceResponse
@@ -185,7 +185,7 @@ namespace Wss20211221
       Models::DescribeMultiPriceResponse describeMultiPrice(const Models::DescribeMultiPriceRequest &request);
 
       /**
-       * @summary Query deduction details for time-based packages.
+       * @summary Queries the deduction details of a core-hour package.
        *
        * @param request DescribePackageDeductionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -194,12 +194,45 @@ namespace Wss20211221
       Models::DescribePackageDeductionsResponse describePackageDeductionsWithOptions(const Models::DescribePackageDeductionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query deduction details for time-based packages.
+       * @summary Queries the deduction details of a core-hour package.
        *
        * @param request DescribePackageDeductionsRequest
        * @return DescribePackageDeductionsResponse
        */
       Models::DescribePackageDeductionsResponse describePackageDeductions(const Models::DescribePackageDeductionsRequest &request);
+
+      /**
+       * @summary Queries AI credit deductions.
+       *
+       * @description ## Operation description
+       * - This operation supports GET and POST methods.
+       * - The `periods` parameter is in JSON array format. Each element is a `PeriodParam` object that contains the `periodUnit` and `baseTime` fields.
+       * - The `resourceTypes` parameter is in JSON array format and contains multiple resource type strings.
+       * - The `startTime` and `endTime` parameters are in timestamp format and specify the time range for the query.
+       * - Pagination parameters include `nextToken`, `maxResults`, `pageNo`, and `pageSize`, which control the number of returned results and pagination.
+       * - When the `resourceTypes` parameter contains invalid values or the `periods` parameter fails JSON parsing, a `SalesClientException` exception is thrown.
+       *
+       * @param request DescribeRunIdDeductionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRunIdDeductionsResponse
+       */
+      Models::DescribeRunIdDeductionsResponse describeRunIdDeductionsWithOptions(const Models::DescribeRunIdDeductionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries AI credit deductions.
+       *
+       * @description ## Operation description
+       * - This operation supports GET and POST methods.
+       * - The `periods` parameter is in JSON array format. Each element is a `PeriodParam` object that contains the `periodUnit` and `baseTime` fields.
+       * - The `resourceTypes` parameter is in JSON array format and contains multiple resource type strings.
+       * - The `startTime` and `endTime` parameters are in timestamp format and specify the time range for the query.
+       * - Pagination parameters include `nextToken`, `maxResults`, `pageNo`, and `pageSize`, which control the number of returned results and pagination.
+       * - When the `resourceTypes` parameter contains invalid values or the `periods` parameter fails JSON parsing, a `SalesClientException` exception is thrown.
+       *
+       * @param request DescribeRunIdDeductionsRequest
+       * @return DescribeRunIdDeductionsResponse
+       */
+      Models::DescribeRunIdDeductionsResponse describeRunIdDeductions(const Models::DescribeRunIdDeductionsRequest &request);
 
       /**
        * @summary Modifies the attributes of an instance.
