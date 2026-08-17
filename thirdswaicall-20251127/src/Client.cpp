@@ -49,6 +49,14 @@ CreateCallOutboundInstantResponse Client::createCallOutboundInstantWithOptions(c
     body["CalledNumber"] = request.getCalledNumber();
   }
 
+  if (!!request.hasCallerUacAccountId()) {
+    body["CallerUacAccountId"] = request.getCallerUacAccountId();
+  }
+
+  if (!!request.hasCurrentWorkspaceId()) {
+    body["CurrentWorkspaceId"] = request.getCurrentWorkspaceId();
+  }
+
   if (!!request.hasCustomerName()) {
     body["CustomerName"] = request.getCustomerName();
   }
@@ -105,6 +113,14 @@ QueryTaskConcurrencyResponse Client::queryTaskConcurrencyWithOptions(const Query
   json body = {};
   if (!!request.hasApplicationCode()) {
     body["ApplicationCode"] = request.getApplicationCode();
+  }
+
+  if (!!request.hasCallerUacAccountId()) {
+    body["CallerUacAccountId"] = request.getCallerUacAccountId();
+  }
+
+  if (!!request.hasCurrentWorkspaceId()) {
+    body["CurrentWorkspaceId"] = request.getCurrentWorkspaceId();
   }
 
   if (!!request.hasTaskId()) {
@@ -175,8 +191,16 @@ ReadOutboundTaskCallListResponse Client::readOutboundTaskCallListWithOptions(con
     body["CallStartTimeEnd"] = request.getCallStartTimeEnd();
   }
 
+  if (!!request.hasCallerUacAccountId()) {
+    body["CallerUacAccountId"] = request.getCallerUacAccountId();
+  }
+
   if (!!request.hasCurrent()) {
     body["Current"] = request.getCurrent();
+  }
+
+  if (!!request.hasCurrentWorkspaceId()) {
+    body["CurrentWorkspaceId"] = request.getCurrentWorkspaceId();
   }
 
   if (!!request.hasCustomerNameOrPhone()) {
