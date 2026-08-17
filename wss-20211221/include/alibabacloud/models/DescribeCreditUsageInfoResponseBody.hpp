@@ -59,6 +59,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AvailableAmount, availableAmount_);
           DARABONBA_PTR_TO_JSON(ContactGroupNames, contactGroupNames_);
           DARABONBA_PTR_TO_JSON(CreditTrendList, creditTrendList_);
+          DARABONBA_PTR_TO_JSON(CurrentInstanceExpiredTime, currentInstanceExpiredTime_);
           DARABONBA_PTR_TO_JSON(CurrentInstanceId, currentInstanceId_);
           DARABONBA_PTR_TO_JSON(CurrentRemainCredit, currentRemainCredit_);
           DARABONBA_PTR_TO_JSON(CurrentTotalCredit, currentTotalCredit_);
@@ -80,6 +81,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(AvailableAmount, availableAmount_);
           DARABONBA_PTR_FROM_JSON(ContactGroupNames, contactGroupNames_);
           DARABONBA_PTR_FROM_JSON(CreditTrendList, creditTrendList_);
+          DARABONBA_PTR_FROM_JSON(CurrentInstanceExpiredTime, currentInstanceExpiredTime_);
           DARABONBA_PTR_FROM_JSON(CurrentInstanceId, currentInstanceId_);
           DARABONBA_PTR_FROM_JSON(CurrentRemainCredit, currentRemainCredit_);
           DARABONBA_PTR_FROM_JSON(CurrentTotalCredit, currentTotalCredit_);
@@ -195,10 +197,10 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->availableAmount_ == nullptr
-        && this->contactGroupNames_ == nullptr && this->creditTrendList_ == nullptr && this->currentInstanceId_ == nullptr && this->currentRemainCredit_ == nullptr && this->currentTotalCredit_ == nullptr
-        && this->currentUsedCredit_ == nullptr && this->dayUsedCredit_ == nullptr && this->lastTriggeredAt_ == nullptr && this->periodTotalCredit_ == nullptr && this->periodUsedCredit_ == nullptr
-        && this->remainCredit_ == nullptr && this->remainCreditInfo_ == nullptr && this->todayUsed_ == nullptr && this->totalCredit_ == nullptr && this->totalUsed_ == nullptr
-        && this->totalUsedCredit_ == nullptr && this->warnPercent_ == nullptr && this->weekUsedCredit_ == nullptr; };
+        && this->contactGroupNames_ == nullptr && this->creditTrendList_ == nullptr && this->currentInstanceExpiredTime_ == nullptr && this->currentInstanceId_ == nullptr && this->currentRemainCredit_ == nullptr
+        && this->currentTotalCredit_ == nullptr && this->currentUsedCredit_ == nullptr && this->dayUsedCredit_ == nullptr && this->lastTriggeredAt_ == nullptr && this->periodTotalCredit_ == nullptr
+        && this->periodUsedCredit_ == nullptr && this->remainCredit_ == nullptr && this->remainCreditInfo_ == nullptr && this->todayUsed_ == nullptr && this->totalCredit_ == nullptr
+        && this->totalUsed_ == nullptr && this->totalUsedCredit_ == nullptr && this->warnPercent_ == nullptr && this->weekUsedCredit_ == nullptr; };
         // availableAmount Field Functions 
         bool hasAvailableAmount() const { return this->availableAmount_ != nullptr;};
         void deleteAvailableAmount() { this->availableAmount_ = nullptr;};
@@ -222,6 +224,13 @@ namespace Models
         inline vector<UsageInfo::CreditTrendList> getCreditTrendList() { DARABONBA_PTR_GET(creditTrendList_, vector<UsageInfo::CreditTrendList>) };
         inline UsageInfo& setCreditTrendList(const vector<UsageInfo::CreditTrendList> & creditTrendList) { DARABONBA_PTR_SET_VALUE(creditTrendList_, creditTrendList) };
         inline UsageInfo& setCreditTrendList(vector<UsageInfo::CreditTrendList> && creditTrendList) { DARABONBA_PTR_SET_RVALUE(creditTrendList_, creditTrendList) };
+
+
+        // currentInstanceExpiredTime Field Functions 
+        bool hasCurrentInstanceExpiredTime() const { return this->currentInstanceExpiredTime_ != nullptr;};
+        void deleteCurrentInstanceExpiredTime() { this->currentInstanceExpiredTime_ = nullptr;};
+        inline string getCurrentInstanceExpiredTime() const { DARABONBA_PTR_GET_DEFAULT(currentInstanceExpiredTime_, "") };
+        inline UsageInfo& setCurrentInstanceExpiredTime(string currentInstanceExpiredTime) { DARABONBA_PTR_SET_VALUE(currentInstanceExpiredTime_, currentInstanceExpiredTime) };
 
 
         // currentInstanceId Field Functions 
@@ -343,6 +352,7 @@ namespace Models
         shared_ptr<vector<string>> contactGroupNames_ {};
         // The hourly consumption samples of the current credit package.
         shared_ptr<vector<UsageInfo::CreditTrendList>> creditTrendList_ {};
+        shared_ptr<string> currentInstanceExpiredTime_ {};
         // The instance ID of the current active credit package.
         shared_ptr<string> currentInstanceId_ {};
         // The remaining credits of the current active credit package.
