@@ -1,3 +1,13 @@
+2026-08-17 Version: 5.2.0
+- Support API DiduiAreaDeduction.
+- Support API ProductHotspotDetection.
+- Update API ImageRemove: add request parameters Position.
+- Update API ImageRemove: add request parameters UserImage.
+- Update API ImageRemove: add request parameters UserText.
+- Update API VideoGeneration: add request parameters Input.AssetBindings.
+- Update API VideoGeneration: add request parameters Intent.Script.
+
+
 2026-07-31 Version: 5.1.1
 - Generated cpp 2026-04-28 for Aidge.
 

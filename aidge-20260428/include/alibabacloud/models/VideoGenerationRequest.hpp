@@ -98,10 +98,12 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Intent& obj) { 
         DARABONBA_PTR_TO_JSON(Channel, channel_);
         DARABONBA_PTR_TO_JSON(Goal, goal_);
+        DARABONBA_PTR_TO_JSON(Script, script_);
       };
       friend void from_json(const Darabonba::Json& j, Intent& obj) { 
         DARABONBA_PTR_FROM_JSON(Channel, channel_);
         DARABONBA_PTR_FROM_JSON(Goal, goal_);
+        DARABONBA_PTR_FROM_JSON(Script, script_);
       };
       Intent() = default ;
       Intent(const Intent &) = default ;
@@ -115,7 +117,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->channel_ == nullptr
-        && this->goal_ == nullptr; };
+        && this->goal_ == nullptr && this->script_ == nullptr; };
       // channel Field Functions 
       bool hasChannel() const { return this->channel_ != nullptr;};
       void deleteChannel() { this->channel_ = nullptr;};
@@ -130,21 +132,32 @@ namespace Models
       inline Intent& setGoal(string goal) { DARABONBA_PTR_SET_VALUE(goal_, goal) };
 
 
+      // script Field Functions 
+      bool hasScript() const { return this->script_ != nullptr;};
+      void deleteScript() { this->script_ = nullptr;};
+      inline string getScript() const { DARABONBA_PTR_GET_DEFAULT(script_, "") };
+      inline Intent& setScript(string script) { DARABONBA_PTR_SET_VALUE(script_, script) };
+
+
     protected:
       // The distribution channel.
       shared_ptr<string> channel_ {};
       // The business goal.
       shared_ptr<string> goal_ {};
+      // Required when goal is set to scripted_video.
+      shared_ptr<string> script_ {};
     };
 
     class Input : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Input& obj) { 
+        DARABONBA_PTR_TO_JSON(AssetBindings, assetBindings_);
         DARABONBA_ANY_TO_JSON(Extra, extra_);
         DARABONBA_PTR_TO_JSON(Images, images_);
         DARABONBA_PTR_TO_JSON(Title, title_);
       };
       friend void from_json(const Darabonba::Json& j, Input& obj) { 
+        DARABONBA_PTR_FROM_JSON(AssetBindings, assetBindings_);
         DARABONBA_ANY_FROM_JSON(Extra, extra_);
         DARABONBA_PTR_FROM_JSON(Images, images_);
         DARABONBA_PTR_FROM_JSON(Title, title_);
@@ -160,8 +173,74 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->extra_ == nullptr
-        && this->images_ == nullptr && this->title_ == nullptr; };
+      class AssetBindings : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AssetBindings& obj) { 
+          DARABONBA_PTR_TO_JSON(AssetIndex, assetIndex_);
+          DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(Slot, slot_);
+        };
+        friend void from_json(const Darabonba::Json& j, AssetBindings& obj) { 
+          DARABONBA_PTR_FROM_JSON(AssetIndex, assetIndex_);
+          DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(Slot, slot_);
+        };
+        AssetBindings() = default ;
+        AssetBindings(const AssetBindings &) = default ;
+        AssetBindings(AssetBindings &&) = default ;
+        AssetBindings(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AssetBindings() = default ;
+        AssetBindings& operator=(const AssetBindings &) = default ;
+        AssetBindings& operator=(AssetBindings &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->assetIndex_ == nullptr
+        && this->description_ == nullptr && this->slot_ == nullptr; };
+        // assetIndex Field Functions 
+        bool hasAssetIndex() const { return this->assetIndex_ != nullptr;};
+        void deleteAssetIndex() { this->assetIndex_ = nullptr;};
+        inline int32_t getAssetIndex() const { DARABONBA_PTR_GET_DEFAULT(assetIndex_, 0) };
+        inline AssetBindings& setAssetIndex(int32_t assetIndex) { DARABONBA_PTR_SET_VALUE(assetIndex_, assetIndex) };
+
+
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline AssetBindings& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // slot Field Functions 
+        bool hasSlot() const { return this->slot_ != nullptr;};
+        void deleteSlot() { this->slot_ = nullptr;};
+        inline string getSlot() const { DARABONBA_PTR_GET_DEFAULT(slot_, "") };
+        inline AssetBindings& setSlot(string slot) { DARABONBA_PTR_SET_VALUE(slot_, slot) };
+
+
+      protected:
+        // The asset index.
+        shared_ptr<int32_t> assetIndex_ {};
+        // The natural language description of the asset.
+        shared_ptr<string> description_ {};
+        // Valid values:
+        // - look_reference: appearance reference.
+        // - scene_reference: scene reference.
+        shared_ptr<string> slot_ {};
+      };
+
+      virtual bool empty() const override { return this->assetBindings_ == nullptr
+        && this->extra_ == nullptr && this->images_ == nullptr && this->title_ == nullptr; };
+      // assetBindings Field Functions 
+      bool hasAssetBindings() const { return this->assetBindings_ != nullptr;};
+      void deleteAssetBindings() { this->assetBindings_ = nullptr;};
+      inline const vector<Input::AssetBindings> & getAssetBindings() const { DARABONBA_PTR_GET_CONST(assetBindings_, vector<Input::AssetBindings>) };
+      inline vector<Input::AssetBindings> getAssetBindings() { DARABONBA_PTR_GET(assetBindings_, vector<Input::AssetBindings>) };
+      inline Input& setAssetBindings(const vector<Input::AssetBindings> & assetBindings) { DARABONBA_PTR_SET_VALUE(assetBindings_, assetBindings) };
+      inline Input& setAssetBindings(vector<Input::AssetBindings> && assetBindings) { DARABONBA_PTR_SET_RVALUE(assetBindings_, assetBindings) };
+
+
       // extra Field Functions 
       bool hasExtra() const { return this->extra_ != nullptr;};
       void deleteExtra() { this->extra_ = nullptr;};
@@ -188,6 +267,8 @@ namespace Models
 
 
     protected:
+      // Specifies the purpose and description of images by asset index.
+      shared_ptr<vector<Input::AssetBindings>> assetBindings_ {};
       // The extended information.
       Darabonba::Json extra_ {};
       // The list of product image URLs (1 to 6 images). The URLs must be publicly accessible.

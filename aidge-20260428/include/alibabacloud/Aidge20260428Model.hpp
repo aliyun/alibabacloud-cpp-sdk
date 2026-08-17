@@ -16,6 +16,10 @@
 #include <alibabacloud/models/CategoryMatchRequest.hpp>
 #include <alibabacloud/models/CategoryMatchResponseBody.hpp>
 #include <alibabacloud/models/CategoryMatchResponse.hpp>
+#include <alibabacloud/models/DiduiAreaDeductionRequest.hpp>
+#include <alibabacloud/models/DiduiAreaDeductionShrinkRequest.hpp>
+#include <alibabacloud/models/DiduiAreaDeductionResponseBody.hpp>
+#include <alibabacloud/models/DiduiAreaDeductionResponse.hpp>
 #include <alibabacloud/models/DocumentTranslateRequest.hpp>
 #include <alibabacloud/models/DocumentTranslateResponseBody.hpp>
 #include <alibabacloud/models/DocumentTranslateResponse.hpp>
@@ -61,6 +65,10 @@
 #include <alibabacloud/models/PrepaidTextTranslateShrinkRequest.hpp>
 #include <alibabacloud/models/PrepaidTextTranslateResponseBody.hpp>
 #include <alibabacloud/models/PrepaidTextTranslateResponse.hpp>
+#include <alibabacloud/models/ProductHotspotDetectionRequest.hpp>
+#include <alibabacloud/models/ProductHotspotDetectionShrinkRequest.hpp>
+#include <alibabacloud/models/ProductHotspotDetectionResponseBody.hpp>
+#include <alibabacloud/models/ProductHotspotDetectionResponse.hpp>
 #include <alibabacloud/models/QueryAsyncTaskResultRequest.hpp>
 #include <alibabacloud/models/QueryAsyncTaskResultResponseBody.hpp>
 #include <alibabacloud/models/QueryAsyncTaskResultResponse.hpp>

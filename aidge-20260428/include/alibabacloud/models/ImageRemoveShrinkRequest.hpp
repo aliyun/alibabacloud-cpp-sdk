@@ -17,12 +17,18 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Mask, mask_);
       DARABONBA_PTR_TO_JSON(NonObjectRemoveElements, nonObjectRemoveElementsShrink_);
       DARABONBA_PTR_TO_JSON(ObjectRemoveElements, objectRemoveElementsShrink_);
+      DARABONBA_PTR_TO_JSON(Position, position_);
+      DARABONBA_PTR_TO_JSON(UserImage, userImageShrink_);
+      DARABONBA_PTR_TO_JSON(UserText, userTextShrink_);
     };
     friend void from_json(const Darabonba::Json& j, ImageRemoveShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_FROM_JSON(Mask, mask_);
       DARABONBA_PTR_FROM_JSON(NonObjectRemoveElements, nonObjectRemoveElementsShrink_);
       DARABONBA_PTR_FROM_JSON(ObjectRemoveElements, objectRemoveElementsShrink_);
+      DARABONBA_PTR_FROM_JSON(Position, position_);
+      DARABONBA_PTR_FROM_JSON(UserImage, userImageShrink_);
+      DARABONBA_PTR_FROM_JSON(UserText, userTextShrink_);
     };
     ImageRemoveShrinkRequest() = default ;
     ImageRemoveShrinkRequest(const ImageRemoveShrinkRequest &) = default ;
@@ -36,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageUrl_ == nullptr
-        && this->mask_ == nullptr && this->nonObjectRemoveElementsShrink_ == nullptr && this->objectRemoveElementsShrink_ == nullptr; };
+        && this->mask_ == nullptr && this->nonObjectRemoveElementsShrink_ == nullptr && this->objectRemoveElementsShrink_ == nullptr && this->position_ == nullptr && this->userImageShrink_ == nullptr
+        && this->userTextShrink_ == nullptr; };
     // imageUrl Field Functions 
     bool hasImageUrl() const { return this->imageUrl_ != nullptr;};
     void deleteImageUrl() { this->imageUrl_ = nullptr;};
@@ -65,6 +72,27 @@ namespace Models
     inline ImageRemoveShrinkRequest& setObjectRemoveElementsShrink(string objectRemoveElementsShrink) { DARABONBA_PTR_SET_VALUE(objectRemoveElementsShrink_, objectRemoveElementsShrink) };
 
 
+    // position Field Functions 
+    bool hasPosition() const { return this->position_ != nullptr;};
+    void deletePosition() { this->position_ = nullptr;};
+    inline string getPosition() const { DARABONBA_PTR_GET_DEFAULT(position_, "") };
+    inline ImageRemoveShrinkRequest& setPosition(string position) { DARABONBA_PTR_SET_VALUE(position_, position) };
+
+
+    // userImageShrink Field Functions 
+    bool hasUserImageShrink() const { return this->userImageShrink_ != nullptr;};
+    void deleteUserImageShrink() { this->userImageShrink_ = nullptr;};
+    inline string getUserImageShrink() const { DARABONBA_PTR_GET_DEFAULT(userImageShrink_, "") };
+    inline ImageRemoveShrinkRequest& setUserImageShrink(string userImageShrink) { DARABONBA_PTR_SET_VALUE(userImageShrink_, userImageShrink) };
+
+
+    // userTextShrink Field Functions 
+    bool hasUserTextShrink() const { return this->userTextShrink_ != nullptr;};
+    void deleteUserTextShrink() { this->userTextShrink_ = nullptr;};
+    inline string getUserTextShrink() const { DARABONBA_PTR_GET_DEFAULT(userTextShrink_, "") };
+    inline ImageRemoveShrinkRequest& setUserTextShrink(string userTextShrink) { DARABONBA_PTR_SET_VALUE(userTextShrink_, userTextShrink) };
+
+
   protected:
     // The URL of the image to process. This parameter is mutually exclusive with ImageBase64. You must specify one of them.
     // 
@@ -88,6 +116,9 @@ namespace Models
     // 
     // You can specify multiple values.
     shared_ptr<string> objectRemoveElementsShrink_ {};
+    shared_ptr<string> position_ {};
+    shared_ptr<string> userImageShrink_ {};
+    shared_ptr<string> userTextShrink_ {};
   };
 
   } // namespace Models

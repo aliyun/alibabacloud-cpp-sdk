@@ -18,12 +18,18 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Mask, mask_);
       DARABONBA_PTR_TO_JSON(NonObjectRemoveElements, nonObjectRemoveElements_);
       DARABONBA_PTR_TO_JSON(ObjectRemoveElements, objectRemoveElements_);
+      DARABONBA_PTR_TO_JSON(Position, position_);
+      DARABONBA_PTR_TO_JSON(UserImage, userImage_);
+      DARABONBA_PTR_TO_JSON(UserText, userText_);
     };
     friend void from_json(const Darabonba::Json& j, ImageRemoveRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_FROM_JSON(Mask, mask_);
       DARABONBA_PTR_FROM_JSON(NonObjectRemoveElements, nonObjectRemoveElements_);
       DARABONBA_PTR_FROM_JSON(ObjectRemoveElements, objectRemoveElements_);
+      DARABONBA_PTR_FROM_JSON(Position, position_);
+      DARABONBA_PTR_FROM_JSON(UserImage, userImage_);
+      DARABONBA_PTR_FROM_JSON(UserText, userText_);
     };
     ImageRemoveRequest() = default ;
     ImageRemoveRequest(const ImageRemoveRequest &) = default ;
@@ -37,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageUrl_ == nullptr
-        && this->mask_ == nullptr && this->nonObjectRemoveElements_ == nullptr && this->objectRemoveElements_ == nullptr; };
+        && this->mask_ == nullptr && this->nonObjectRemoveElements_ == nullptr && this->objectRemoveElements_ == nullptr && this->position_ == nullptr && this->userImage_ == nullptr
+        && this->userText_ == nullptr; };
     // imageUrl Field Functions 
     bool hasImageUrl() const { return this->imageUrl_ != nullptr;};
     void deleteImageUrl() { this->imageUrl_ = nullptr;};
@@ -70,6 +77,31 @@ namespace Models
     inline ImageRemoveRequest& setObjectRemoveElements(vector<int32_t> && objectRemoveElements) { DARABONBA_PTR_SET_RVALUE(objectRemoveElements_, objectRemoveElements) };
 
 
+    // position Field Functions 
+    bool hasPosition() const { return this->position_ != nullptr;};
+    void deletePosition() { this->position_ = nullptr;};
+    inline string getPosition() const { DARABONBA_PTR_GET_DEFAULT(position_, "") };
+    inline ImageRemoveRequest& setPosition(string position) { DARABONBA_PTR_SET_VALUE(position_, position) };
+
+
+    // userImage Field Functions 
+    bool hasUserImage() const { return this->userImage_ != nullptr;};
+    void deleteUserImage() { this->userImage_ = nullptr;};
+    inline const vector<string> & getUserImage() const { DARABONBA_PTR_GET_CONST(userImage_, vector<string>) };
+    inline vector<string> getUserImage() { DARABONBA_PTR_GET(userImage_, vector<string>) };
+    inline ImageRemoveRequest& setUserImage(const vector<string> & userImage) { DARABONBA_PTR_SET_VALUE(userImage_, userImage) };
+    inline ImageRemoveRequest& setUserImage(vector<string> && userImage) { DARABONBA_PTR_SET_RVALUE(userImage_, userImage) };
+
+
+    // userText Field Functions 
+    bool hasUserText() const { return this->userText_ != nullptr;};
+    void deleteUserText() { this->userText_ = nullptr;};
+    inline const vector<string> & getUserText() const { DARABONBA_PTR_GET_CONST(userText_, vector<string>) };
+    inline vector<string> getUserText() { DARABONBA_PTR_GET(userText_, vector<string>) };
+    inline ImageRemoveRequest& setUserText(const vector<string> & userText) { DARABONBA_PTR_SET_VALUE(userText_, userText) };
+    inline ImageRemoveRequest& setUserText(vector<string> && userText) { DARABONBA_PTR_SET_RVALUE(userText_, userText) };
+
+
   protected:
     // The URL of the image to process. This parameter is mutually exclusive with ImageBase64. You must specify one of them.
     // 
@@ -93,6 +125,9 @@ namespace Models
     // 
     // You can specify multiple values.
     shared_ptr<vector<int32_t>> objectRemoveElements_ {};
+    shared_ptr<string> position_ {};
+    shared_ptr<vector<string>> userImage_ {};
+    shared_ptr<vector<string>> userText_ {};
   };
 
   } // namespace Models
