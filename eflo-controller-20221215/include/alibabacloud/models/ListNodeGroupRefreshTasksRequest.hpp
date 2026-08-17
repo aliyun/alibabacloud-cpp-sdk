@@ -80,7 +80,7 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The maximum number of entries per page for a paging query. Valid values: 1 to 500. Default value: 100.
+    // The maximum number of entries per page for paging. Valid values: 1 to 500. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request.
     shared_ptr<string> nextToken_ {};

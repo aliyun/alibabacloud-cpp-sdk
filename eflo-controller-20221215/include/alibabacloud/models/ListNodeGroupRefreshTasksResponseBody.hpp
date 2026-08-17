@@ -158,7 +158,7 @@ namespace Models
       // - Success: The refresh task is executed.
       // - Failed: The refresh task failed.
       shared_ptr<string> status_ {};
-      // The total number of nodes to be refreshed by this task.
+      // The total number of nodes to refresh in this task.
       shared_ptr<int64_t> totalNodeCount_ {};
     };
 

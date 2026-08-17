@@ -219,7 +219,7 @@ namespace Models
       shared_ptr<string> errorMessage_ {};
       // The ID of the node.
       shared_ptr<string> nodeId_ {};
-      // The property drift list for the node, including both executed and skipped properties.
+      // The list of property drifts for the node, including both executed and skipped properties.
       shared_ptr<vector<Nodes::PropertyDrifts>> propertyDrifts_ {};
       // The node refresh status. Valid values:
       // - Pending: the node is waiting to be refreshed.
