@@ -1190,6 +1190,27 @@ namespace Csas20230120
       Models::ListConnectorsResponse listConnectors(const Models::ListConnectorsRequest &request);
 
       /**
+       * @summary 分页查询域名条目
+       *
+       * @description 分页查询指定域名名单下的域名条目明细。与 ListDomainMetas配套使用：先拿到 `ListId`，再用本接口翻页查看该名单里的域名。
+       *
+       * @param request ListDomainItemsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDomainItemsResponse
+       */
+      Models::ListDomainItemsResponse listDomainItemsWithOptions(const Models::ListDomainItemsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询域名条目
+       *
+       * @description 分页查询指定域名名单下的域名条目明细。与 ListDomainMetas配套使用：先拿到 `ListId`，再用本接口翻页查看该名单里的域名。
+       *
+       * @param request ListDomainItemsRequest
+       * @return ListDomainItemsResponse
+       */
+      Models::ListDomainItemsResponse listDomainItems(const Models::ListDomainItemsRequest &request);
+
+      /**
        * @summary Queries the list of domain name lists.
        *
        * @description Performs a paged query on the metadata of domain name lists (the header information of domain name blacklists/whitelists, excluding the specific domain name entries within the lists) for the current tenant with paging. You can filter by list type (blacklist/whitelist), perform fuzzy search by name, and specify whether to include system built-in default template lists in the results. Each record includes the number of domain name entries in the list.

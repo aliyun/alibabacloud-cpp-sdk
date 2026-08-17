@@ -240,6 +240,9 @@
 #include <alibabacloud/models/ListConnectorsRequest.hpp>
 #include <alibabacloud/models/ListConnectorsResponseBody.hpp>
 #include <alibabacloud/models/ListConnectorsResponse.hpp>
+#include <alibabacloud/models/ListDomainItemsRequest.hpp>
+#include <alibabacloud/models/ListDomainItemsResponseBody.hpp>
+#include <alibabacloud/models/ListDomainItemsResponse.hpp>
 #include <alibabacloud/models/ListDomainMetasRequest.hpp>
 #include <alibabacloud/models/ListDomainMetasResponseBody.hpp>
 #include <alibabacloud/models/ListDomainMetasResponse.hpp>

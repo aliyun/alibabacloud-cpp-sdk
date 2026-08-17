@@ -3421,6 +3421,68 @@ ListConnectorsResponse Client::listConnectors(const ListConnectorsRequest &reque
 }
 
 /**
+ * @summary 分页查询域名条目
+ *
+ * @description 分页查询指定域名名单下的域名条目明细。与 ListDomainMetas配套使用：先拿到 `ListId`，再用本接口翻页查看该名单里的域名。
+ *
+ * @param request ListDomainItemsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDomainItemsResponse
+ */
+ListDomainItemsResponse Client::listDomainItemsWithOptions(const ListDomainItemsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasItemValue()) {
+    query["ItemValue"] = request.getItemValue();
+  }
+
+  if (!!request.hasListId()) {
+    query["ListId"] = request.getListId();
+  }
+
+  if (!!request.hasListType()) {
+    query["ListType"] = request.getListType();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDomainItems"},
+    {"version" , "2023-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDomainItemsResponse>();
+}
+
+/**
+ * @summary 分页查询域名条目
+ *
+ * @description 分页查询指定域名名单下的域名条目明细。与 ListDomainMetas配套使用：先拿到 `ListId`，再用本接口翻页查看该名单里的域名。
+ *
+ * @param request ListDomainItemsRequest
+ * @return ListDomainItemsResponse
+ */
+ListDomainItemsResponse Client::listDomainItems(const ListDomainItemsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDomainItemsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the list of domain name lists.
  *
  * @description Performs a paged query on the metadata of domain name lists (the header information of domain name blacklists/whitelists, excluding the specific domain name entries within the lists) for the current tenant with paging. You can filter by list type (blacklist/whitelist), perform fuzzy search by name, and specify whether to include system built-in default template lists in the results. Each record includes the number of domain name entries in the list.
