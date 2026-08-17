@@ -21,6 +21,23 @@ namespace Foasconsole20211028
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary Disables the Flink AI service.
+       *
+       * @param request CloseFlinkAiServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CloseFlinkAiServiceResponse
+       */
+      Models::CloseFlinkAiServiceResponse closeFlinkAiServiceWithOptions(const Models::CloseFlinkAiServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Disables the Flink AI service.
+       *
+       * @param request CloseFlinkAiServiceRequest
+       * @return CloseFlinkAiServiceResponse
+       */
+      Models::CloseFlinkAiServiceResponse closeFlinkAiService(const Models::CloseFlinkAiServiceRequest &request);
+
+      /**
        * @summary Converts a subscription instance to a hybrid billing instance.
        *
        * @description **Before using this API, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/hybrid-pricing) of hybrid billing for Realtime Compute for Apache Flink.**
@@ -226,6 +243,40 @@ namespace Foasconsole20211028
       Models::DescribeSupportedZonesResponse describeSupportedZones(const Models::DescribeSupportedZonesRequest &request);
 
       /**
+       * @summary Retrieves the status of the Flink AI service.
+       *
+       * @param request GetFlinkAiServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetFlinkAiServiceResponse
+       */
+      Models::GetFlinkAiServiceResponse getFlinkAiServiceWithOptions(const Models::GetFlinkAiServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the status of the Flink AI service.
+       *
+       * @param request GetFlinkAiServiceRequest
+       * @return GetFlinkAiServiceResponse
+       */
+      Models::GetFlinkAiServiceResponse getFlinkAiService(const Models::GetFlinkAiServiceRequest &request);
+
+      /**
+       * @summary Retrieves the free quota usage of Flink AI services.
+       *
+       * @param request GetFlinkAiServiceFreeQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetFlinkAiServiceFreeQuotaResponse
+       */
+      Models::GetFlinkAiServiceFreeQuotaResponse getFlinkAiServiceFreeQuotaWithOptions(const Models::GetFlinkAiServiceFreeQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the free quota usage of Flink AI services.
+       *
+       * @param request GetFlinkAiServiceFreeQuotaRequest
+       * @return GetFlinkAiServiceFreeQuotaResponse
+       */
+      Models::GetFlinkAiServiceFreeQuotaResponse getFlinkAiServiceFreeQuota(const Models::GetFlinkAiServiceFreeQuotaRequest &request);
+
+      /**
        * @summary Queries resource tags. You can query tag keys by tag values, query tag values by tag keys, or retrieve all tag information used in your Flink fully managed workspace.
        *
        * @param request ListTagResourcesRequest
@@ -241,6 +292,23 @@ namespace Foasconsole20211028
        * @return ListTagResourcesResponse
        */
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
+
+      /**
+       * @summary Modifies the shutdown protection setting for a Flink AI service.
+       *
+       * @param request ModifyAiServiceProtectionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAiServiceProtectionResponse
+       */
+      Models::ModifyAiServiceProtectionResponse modifyAiServiceProtectionWithOptions(const Models::ModifyAiServiceProtectionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies the shutdown protection setting for a Flink AI service.
+       *
+       * @param request ModifyAiServiceProtectionRequest
+       * @return ModifyAiServiceProtectionResponse
+       */
+      Models::ModifyAiServiceProtectionResponse modifyAiServiceProtection(const Models::ModifyAiServiceProtectionRequest &request);
 
       /**
        * @summary Modifies the maximum pay-as-you-go resource limit for a hybrid billing instance.
@@ -375,6 +443,23 @@ namespace Foasconsole20211028
        * @return ModifyPrepayNamespaceSpecResponse
        */
       Models::ModifyPrepayNamespaceSpecResponse modifyPrepayNamespaceSpec(const Models::ModifyPrepayNamespaceSpecRequest &request);
+
+      /**
+       * @summary Activates the Flink AI service.
+       *
+       * @param request OpenFlinkAiServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OpenFlinkAiServiceResponse
+       */
+      Models::OpenFlinkAiServiceResponse openFlinkAiServiceWithOptions(const Models::OpenFlinkAiServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Activates the Flink AI service.
+       *
+       * @param request OpenFlinkAiServiceRequest
+       * @return OpenFlinkAiServiceResponse
+       */
+      Models::OpenFlinkAiServiceResponse openFlinkAiService(const Models::OpenFlinkAiServiceRequest &request);
 
       /**
        * @summary Queries the price for converting a pay-as-you-go instance to a subscription instance.

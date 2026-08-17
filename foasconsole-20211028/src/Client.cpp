@@ -57,6 +57,48 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary Disables the Flink AI service.
+ *
+ * @param request CloseFlinkAiServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CloseFlinkAiServiceResponse
+ */
+CloseFlinkAiServiceResponse Client::closeFlinkAiServiceWithOptions(const CloseFlinkAiServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasRegion()) {
+    body["Region"] = request.getRegion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CloseFlinkAiService"},
+    {"version" , "2021-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CloseFlinkAiServiceResponse>();
+}
+
+/**
+ * @summary Disables the Flink AI service.
+ *
+ * @param request CloseFlinkAiServiceRequest
+ * @return CloseFlinkAiServiceResponse
+ */
+CloseFlinkAiServiceResponse Client::closeFlinkAiService(const CloseFlinkAiServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return closeFlinkAiServiceWithOptions(request, runtime);
+}
+
+/**
  * @summary Converts a subscription instance to a hybrid billing instance.
  *
  * @description **Before using this API, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/hybrid-pricing) of hybrid billing for Realtime Compute for Apache Flink.**
@@ -717,6 +759,90 @@ DescribeSupportedZonesResponse Client::describeSupportedZones(const DescribeSupp
 }
 
 /**
+ * @summary Retrieves the status of the Flink AI service.
+ *
+ * @param request GetFlinkAiServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetFlinkAiServiceResponse
+ */
+GetFlinkAiServiceResponse Client::getFlinkAiServiceWithOptions(const GetFlinkAiServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasRegion()) {
+    body["Region"] = request.getRegion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetFlinkAiService"},
+    {"version" , "2021-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetFlinkAiServiceResponse>();
+}
+
+/**
+ * @summary Retrieves the status of the Flink AI service.
+ *
+ * @param request GetFlinkAiServiceRequest
+ * @return GetFlinkAiServiceResponse
+ */
+GetFlinkAiServiceResponse Client::getFlinkAiService(const GetFlinkAiServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getFlinkAiServiceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the free quota usage of Flink AI services.
+ *
+ * @param request GetFlinkAiServiceFreeQuotaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetFlinkAiServiceFreeQuotaResponse
+ */
+GetFlinkAiServiceFreeQuotaResponse Client::getFlinkAiServiceFreeQuotaWithOptions(const GetFlinkAiServiceFreeQuotaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasRegion()) {
+    body["Region"] = request.getRegion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetFlinkAiServiceFreeQuota"},
+    {"version" , "2021-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetFlinkAiServiceFreeQuotaResponse>();
+}
+
+/**
+ * @summary Retrieves the free quota usage of Flink AI services.
+ *
+ * @param request GetFlinkAiServiceFreeQuotaRequest
+ * @return GetFlinkAiServiceFreeQuotaResponse
+ */
+GetFlinkAiServiceFreeQuotaResponse Client::getFlinkAiServiceFreeQuota(const GetFlinkAiServiceFreeQuotaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getFlinkAiServiceFreeQuotaWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries resource tags. You can query tag keys by tag values, query tag values by tag keys, or retrieve all tag information used in your Flink fully managed workspace.
  *
  * @param request ListTagResourcesRequest
@@ -772,6 +898,52 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listTagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies the shutdown protection setting for a Flink AI service.
+ *
+ * @param request ModifyAiServiceProtectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAiServiceProtectionResponse
+ */
+ModifyAiServiceProtectionResponse Client::modifyAiServiceProtectionWithOptions(const ModifyAiServiceProtectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDeletionProtection()) {
+    body["DeletionProtection"] = request.getDeletionProtection();
+  }
+
+  if (!!request.hasRegion()) {
+    body["Region"] = request.getRegion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ModifyAiServiceProtection"},
+    {"version" , "2021-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAiServiceProtectionResponse>();
+}
+
+/**
+ * @summary Modifies the shutdown protection setting for a Flink AI service.
+ *
+ * @param request ModifyAiServiceProtectionRequest
+ * @return ModifyAiServiceProtectionResponse
+ */
+ModifyAiServiceProtectionResponse Client::modifyAiServiceProtection(const ModifyAiServiceProtectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAiServiceProtectionWithOptions(request, runtime);
 }
 
 /**
@@ -1218,6 +1390,48 @@ ModifyPrepayNamespaceSpecResponse Client::modifyPrepayNamespaceSpecWithOptions(c
 ModifyPrepayNamespaceSpecResponse Client::modifyPrepayNamespaceSpec(const ModifyPrepayNamespaceSpecRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyPrepayNamespaceSpecWithOptions(request, runtime);
+}
+
+/**
+ * @summary Activates the Flink AI service.
+ *
+ * @param request OpenFlinkAiServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OpenFlinkAiServiceResponse
+ */
+OpenFlinkAiServiceResponse Client::openFlinkAiServiceWithOptions(const OpenFlinkAiServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasRegion()) {
+    body["Region"] = request.getRegion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "OpenFlinkAiService"},
+    {"version" , "2021-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OpenFlinkAiServiceResponse>();
+}
+
+/**
+ * @summary Activates the Flink AI service.
+ *
+ * @param request OpenFlinkAiServiceRequest
+ * @return OpenFlinkAiServiceResponse
+ */
+OpenFlinkAiServiceResponse Client::openFlinkAiService(const OpenFlinkAiServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return openFlinkAiServiceWithOptions(request, runtime);
 }
 
 /**
