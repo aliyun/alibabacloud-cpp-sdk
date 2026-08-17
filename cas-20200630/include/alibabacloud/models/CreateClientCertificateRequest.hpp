@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AfterTime, afterTime_);
       DARABONBA_PTR_TO_JSON(Algorithm, algorithm_);
       DARABONBA_PTR_TO_JSON(AliasName, aliasName_);
+      DARABONBA_PTR_TO_JSON(AsynchronousFlag, asynchronousFlag_);
       DARABONBA_PTR_TO_JSON(BeforeTime, beforeTime_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(CommonName, commonName_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AfterTime, afterTime_);
       DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
       DARABONBA_PTR_FROM_JSON(AliasName, aliasName_);
+      DARABONBA_PTR_FROM_JSON(AsynchronousFlag, asynchronousFlag_);
       DARABONBA_PTR_FROM_JSON(BeforeTime, beforeTime_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(CommonName, commonName_);
@@ -117,11 +119,11 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->afterTime_ == nullptr
-        && this->algorithm_ == nullptr && this->aliasName_ == nullptr && this->beforeTime_ == nullptr && this->clientToken_ == nullptr && this->commonName_ == nullptr
-        && this->country_ == nullptr && this->customIdentifier_ == nullptr && this->days_ == nullptr && this->enableCrl_ == nullptr && this->immediately_ == nullptr
-        && this->locality_ == nullptr && this->months_ == nullptr && this->organization_ == nullptr && this->organizationUnit_ == nullptr && this->parentIdentifier_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->sanType_ == nullptr && this->sanValue_ == nullptr && this->state_ == nullptr && this->tags_ == nullptr
-        && this->years_ == nullptr; };
+        && this->algorithm_ == nullptr && this->aliasName_ == nullptr && this->asynchronousFlag_ == nullptr && this->beforeTime_ == nullptr && this->clientToken_ == nullptr
+        && this->commonName_ == nullptr && this->country_ == nullptr && this->customIdentifier_ == nullptr && this->days_ == nullptr && this->enableCrl_ == nullptr
+        && this->immediately_ == nullptr && this->locality_ == nullptr && this->months_ == nullptr && this->organization_ == nullptr && this->organizationUnit_ == nullptr
+        && this->parentIdentifier_ == nullptr && this->resourceGroupId_ == nullptr && this->sanType_ == nullptr && this->sanValue_ == nullptr && this->state_ == nullptr
+        && this->tags_ == nullptr && this->years_ == nullptr; };
     // afterTime Field Functions 
     bool hasAfterTime() const { return this->afterTime_ != nullptr;};
     void deleteAfterTime() { this->afterTime_ = nullptr;};
@@ -141,6 +143,13 @@ namespace Models
     void deleteAliasName() { this->aliasName_ = nullptr;};
     inline string getAliasName() const { DARABONBA_PTR_GET_DEFAULT(aliasName_, "") };
     inline CreateClientCertificateRequest& setAliasName(string aliasName) { DARABONBA_PTR_SET_VALUE(aliasName_, aliasName) };
+
+
+    // asynchronousFlag Field Functions 
+    bool hasAsynchronousFlag() const { return this->asynchronousFlag_ != nullptr;};
+    void deleteAsynchronousFlag() { this->asynchronousFlag_ = nullptr;};
+    inline bool getAsynchronousFlag() const { DARABONBA_PTR_GET_DEFAULT(asynchronousFlag_, false) };
+    inline CreateClientCertificateRequest& setAsynchronousFlag(bool asynchronousFlag) { DARABONBA_PTR_SET_VALUE(asynchronousFlag_, asynchronousFlag) };
 
 
     // beforeTime Field Functions 
@@ -279,93 +288,86 @@ namespace Models
 
 
   protected:
-    // The expiration time of the client certificate in UNIX timestamp format. The unit is seconds.
-    // 
-    // > **BeforeTime** and **AfterTime** must be specified together or left empty together.
+    // The expiration time of the client certificate in UNIX timestamp format. Unit: seconds.
+    // >The **BeforeTime** and **AfterTime** parameters must both be empty or both be specified.
     shared_ptr<int64_t> afterTime_ {};
-    // The key algorithm for the client certificate. The format is `<encryption algorithm>_<key length>`. Valid values:
+    // The key algorithm of the client certificate. The key algorithm is in the format of `<encryption algorithm>_<key length>`. Valid values:
     // 
     // - **RSA_1024**: The signature algorithm is Sha256WithRSA.
-    // 
     // - **RSA_2048**: The signature algorithm is Sha256WithRSA.
-    // 
     // - **RSA_4096**: The signature algorithm is Sha256WithRSA.
-    // 
     // - **ECC_256**: The signature algorithm is Sha256WithECDSA.
-    // 
     // - **ECC_384**: The signature algorithm is Sha256WithECDSA.
-    // 
     // - **ECC_512**: The signature algorithm is Sha256WithECDSA.
-    // 
     // - **SM2_256**: The signature algorithm is SM3WithSM2.
     // 
-    // The encryption algorithm of the client certificate must be the same as the subordinate CA certificate. The key length can be different. For example, if the subordinate CA certificate uses the RSA_2048 key algorithm, the client certificate must use RSA_1024, RSA_2048, or RSA_4096.
+    // The encryption algorithm of the client certificate must be the same as that of the subordinate CA certificate, but the key length can be different. For example, if the key algorithm of the subordinate CA certificate is RSA_2048, the key algorithm of the client certificate must be RSA_1024, RSA_2048, or RSA_4096.
     // 
-    // > Call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) to find the key algorithm of the subordinate CA certificate.
+    // >You can call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) to query the key algorithm of the subordinate CA certificate.
     shared_ptr<string> algorithm_ {};
-    // Set the name of the issued certificate.
+    // The name of the issued certificate.
     shared_ptr<string> aliasName_ {};
-    // The issuance time of the client certificate in UNIX timestamp format. The unit is seconds. The default value is the time when you call this operation.
+    // The asynchronous processing flag. If the value is set to "true", the backend service issues the certificate asynchronously.
+    // After the request is submitted, you can call the ListClientCertificate operation to obtain the latest certificate.
+    shared_ptr<bool> asynchronousFlag_ {};
+    // The issuance time of the client certificate in UNIX timestamp format. Default value: the time when you call this operation. Unit: seconds.
     // 
-    // > **BeforeTime** and **AfterTime** must be specified together or left empty together.
+    // >The **BeforeTime** and **AfterTime** parameters must both be empty or both be specified.
     shared_ptr<int64_t> beforeTime_ {};
-    // Used to ensure request idempotence. The client generates this parameter value, which must be unique across different requests. It can contain a maximum of 64 ASCII characters and must not include any non-ASCII characters.
+    // The client token that is used to ensure the idempotence of the request. The value is generated by the client and must be unique among different requests. The value can contain up to 64 ASCII characters and cannot contain non-ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // The name of the certificate user. For a client authentication (ClientAuth) certificate, the user is typically an individual, a company, an organization, or an application. Specify the common name of the user, such as John Doe, Alibaba, Alibaba Cloud Cryptography Platform, or Tmall Genie.
+    // The common name of the certificate subject. For client authentication (ClientAuth) certificates, the subject is typically a person, company, organization, or application. Specify the common name of the subject. For example, John Smith, Alibaba Group, Alibaba Cloud Crypto Platform, or Tmall Genie.
     shared_ptr<string> commonName_ {};
-    // The country code. Default: CN.
+    // The country. Default value: CN.
     shared_ptr<string> country_ {};
-    // A custom identifier. This is a unique key.
+    // The custom identifier, which serves as a unique key.
     shared_ptr<string> customIdentifier_ {};
-    // The validity period of the client certificate in days. The **Days**, **BeforeTime**, or **AfterTime** parameters cannot all be empty. The **BeforeTime** and **AfterTime** parameters must be set together or left empty. The parameters are configured as follows:
+    // The validity period of the client certificate. Unit: days.
+    // The **Days**, **BeforeTime**, and **AfterTime** parameters cannot all be empty. The **BeforeTime** and **AfterTime** parameters must both be empty or both be specified. The following rules apply:
     // 
-    // - If you set the **Days** parameter, the **BeforeTime** and **AfterTime** parameters are optional.
+    // - If you specify the **Days** parameter, you can optionally specify or omit both the **BeforeTime** and **AfterTime** parameters.
+    // - If you do not specify the **Days** parameter, you must specify both the **BeforeTime** and **AfterTime** parameters.
     // 
-    // - If you do not set the **Days** parameter, you must set both the **BeforeTime** and **AfterTime** parameters.
-    // 
-    // > * If you set the **Days**, **BeforeTime**, and **AfterTime** parameters, the value of the **Days** parameter takes precedence.
-    // 
-    // - The validity period of the client certificate cannot exceed the validity period of the subordinate CA certificate. To view the validity period of the subordinate CA certificate, you can call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html).
+    // >- If you specify the **Days**, **BeforeTime**, and **AfterTime** parameters at the same time, the validity period of the client certificate is determined by the **Days** parameter.
+    // - The validity period of the client certificate cannot exceed that of the subordinate CA certificate. You can call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) to query the validity period of the subordinate CA certificate.
     shared_ptr<int32_t> days_ {};
-    // Specifies whether to include the Certificate Revocation List (CRL) address.
+    // Specifies whether to include the Certificate Revocation List (CRL) address. Valid values:
     // 
-    // Valid values: 0 (No) and 1 (Yes).
+    // - 0: no.
+    // - 1: yes.
     shared_ptr<int64_t> enableCrl_ {};
-    // Specifies whether to return the digital certificate immediately.
-    // 
-    // - **0**: No. This is the default value.
-    // 
-    // - **1**: Yes, return the certificate.
-    // 
-    // - **2**: Yes, return the certificate and its certificate chain.
+    // Specifies whether to immediately return the digital certificate. Valid values:
+    // - **0**: does not return the certificate. This is the default value.
+    // - **1**: returns the certificate.
+    // - **2**: returns the certificate and its certificate chain.
     shared_ptr<int32_t> immediately_ {};
-    // The name of the city where the organization is located. The default value is the city of the subordinate CA that issues the certificate.
+    // The name of the city where the certificate organization is located. Chinese and English characters are supported.
+    // Default value: the city of the subordinate CA certificate that issues this certificate.
     shared_ptr<string> locality_ {};
-    // The validity period of the certificate in months.
+    // The validity period of the certificate. Unit: months.
     shared_ptr<int32_t> months_ {};
-    // The name of the organization. Default: Alibaba Inc.
+    // The organization name. Default value: Alibaba Inc.
     shared_ptr<string> organization_ {};
-    // The name of the department. Default: Alibaba Cloud CDN.
+    // The department name. Default value: Aliyun CDN.
     shared_ptr<string> organizationUnit_ {};
     // The unique identifier of the subordinate CA certificate that issues this certificate.
-    // 
-    // > Call DescribeCACertificateList to query the unique identifier of the subordinate CA certificate.
+    // >You can call [DescribeCACertificateList] to query the unique identifier of the subordinate CA certificate.
     shared_ptr<string> parentIdentifier_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The type of Subject Alternative Name (SAN) extension for the client certificate. Valid values:
+    // The type of Subject Alternative Name (SAN) extension supported by the client certificate. Valid values:
     // 
-    // - **1**: Email
-    // 
-    // - **6**: Uniform Resource Identifier (URI)
+    // - **1**: email address.
+    // - **6**: Uniform Resource Identifier (URI).
     shared_ptr<int32_t> sanType_ {};
-    // The extension information for the client certificate. To enter multiple extensions, separate them with commas (,).
+    // The specific SAN extension information of the client certificate. You can enter multiple SAN values separated by commas (,).
     shared_ptr<string> sanValue_ {};
-    // Specify the province or state of the certificate organization. The value can contain letters. The default value is the province or state of the organization for the intermediate CA that issued the certificate.
+    // <props="china">The name of the province, municipality, or autonomous region where the certificate organization is located. Chinese and English characters are supported. Default value: the province, municipality, or autonomous region of the subordinate CA certificate that issues this certificate.
+    // <props="intl">The name of the province or state where the certificate organization is located. Chinese and English characters are supported. Default value: the province or state of the subordinate CA certificate that issues this certificate.
     shared_ptr<string> state_ {};
-    // A list of tags.
+    // The tag list.
     shared_ptr<vector<CreateClientCertificateRequest::Tags>> tags_ {};
-    // The validity period of the certificate in years.
+    // The validity period of the certificate. Unit: years.
     shared_ptr<int32_t> years_ {};
   };
 

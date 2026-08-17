@@ -87,11 +87,11 @@ namespace Models
     // The status of the CA instance.
     shared_ptr<string> caInstanceStatus_ {};
     shared_ptr<string> caType_ {};
-    // The cron expression.
+    // The CRL URL.
     shared_ptr<string> crlUrl_ {};
-    // Used to identify whether there are new revoked certificates in the revocation list.
+    // The hash code used to identify whether the CRL contains new revoked certificates.
     shared_ptr<string> hashCode_ {};
-    // The next update time of the revocation list.
+    // The next update time of the CRL.
     shared_ptr<string> nextUpdateTime_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

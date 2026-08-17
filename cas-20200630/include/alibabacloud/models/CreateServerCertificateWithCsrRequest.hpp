@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateServerCertificateWithCsrRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AfterTime, afterTime_);
       DARABONBA_PTR_TO_JSON(Algorithm, algorithm_);
+      DARABONBA_PTR_TO_JSON(AsynchronousFlag, asynchronousFlag_);
       DARABONBA_PTR_TO_JSON(BeforeTime, beforeTime_);
       DARABONBA_PTR_TO_JSON(CommonName, commonName_);
       DARABONBA_PTR_TO_JSON(Country, country_);
@@ -38,6 +39,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateServerCertificateWithCsrRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AfterTime, afterTime_);
       DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
+      DARABONBA_PTR_FROM_JSON(AsynchronousFlag, asynchronousFlag_);
       DARABONBA_PTR_FROM_JSON(BeforeTime, beforeTime_);
       DARABONBA_PTR_FROM_JSON(CommonName, commonName_);
       DARABONBA_PTR_FROM_JSON(Country, country_);
@@ -106,17 +108,17 @@ namespace Models
 
 
     protected:
-      // Tag key.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // Tag value.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
     virtual bool empty() const override { return this->afterTime_ == nullptr
-        && this->algorithm_ == nullptr && this->beforeTime_ == nullptr && this->commonName_ == nullptr && this->country_ == nullptr && this->csr_ == nullptr
-        && this->customIdentifier_ == nullptr && this->days_ == nullptr && this->domain_ == nullptr && this->enableCrl_ == nullptr && this->immediately_ == nullptr
-        && this->locality_ == nullptr && this->months_ == nullptr && this->organization_ == nullptr && this->organizationUnit_ == nullptr && this->parentIdentifier_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->state_ == nullptr && this->tags_ == nullptr && this->years_ == nullptr; };
+        && this->algorithm_ == nullptr && this->asynchronousFlag_ == nullptr && this->beforeTime_ == nullptr && this->commonName_ == nullptr && this->country_ == nullptr
+        && this->csr_ == nullptr && this->customIdentifier_ == nullptr && this->days_ == nullptr && this->domain_ == nullptr && this->enableCrl_ == nullptr
+        && this->immediately_ == nullptr && this->locality_ == nullptr && this->months_ == nullptr && this->organization_ == nullptr && this->organizationUnit_ == nullptr
+        && this->parentIdentifier_ == nullptr && this->resourceGroupId_ == nullptr && this->state_ == nullptr && this->tags_ == nullptr && this->years_ == nullptr; };
     // afterTime Field Functions 
     bool hasAfterTime() const { return this->afterTime_ != nullptr;};
     void deleteAfterTime() { this->afterTime_ = nullptr;};
@@ -129,6 +131,13 @@ namespace Models
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
     inline string getAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
     inline CreateServerCertificateWithCsrRequest& setAlgorithm(string algorithm) { DARABONBA_PTR_SET_VALUE(algorithm_, algorithm) };
+
+
+    // asynchronousFlag Field Functions 
+    bool hasAsynchronousFlag() const { return this->asynchronousFlag_ != nullptr;};
+    void deleteAsynchronousFlag() { this->asynchronousFlag_ = nullptr;};
+    inline bool getAsynchronousFlag() const { DARABONBA_PTR_GET_DEFAULT(asynchronousFlag_, false) };
+    inline CreateServerCertificateWithCsrRequest& setAsynchronousFlag(bool asynchronousFlag) { DARABONBA_PTR_SET_VALUE(asynchronousFlag_, asynchronousFlag) };
 
 
     // beforeTime Field Functions 
@@ -260,100 +269,90 @@ namespace Models
 
 
   protected:
-    // Expiration time of the server-side certificate, in UNIX timestamp format. Unit: seconds.
-    // 
-    // > The **BeforeTime** and **AfterTime** parameters must both be empty or both configured.
+    // The expiration time of the server certificate in UNIX timestamp format. Unit: seconds.
+    // >The **BeforeTime** and **AfterTime** parameters must both be empty or both be specified.
     shared_ptr<int64_t> afterTime_ {};
-    // Key algorithm for the server-side certificate. Use the format `<encryption algorithm>_<key length>`. Valid values:
+    // The key algorithm of the server certificate. The key algorithm is in the `<Encryption algorithm>_<Key length>` format. Valid values:
     // 
-    // - **RSA_1024**: Signature algorithm is Sha256WithRSA.
+    // - **RSA_1024**: The signature algorithm is Sha256WithRSA.
+    // - **RSA_2048**: The signature algorithm is Sha256WithRSA.
+    // - **RSA_4096**: The signature algorithm is Sha256WithRSA.
+    // - **ECC_256**: The signature algorithm is Sha256WithECDSA.
+    // - **ECC_384**: The signature algorithm is Sha256WithECDSA.
+    // - **ECC_512**: The signature algorithm is Sha256WithECDSA.
+    // - **SM2_256**: The signature algorithm is SM3WithSM2.
     // 
-    // - **RSA_2048**: Signature algorithm is Sha256WithRSA.
     // 
-    // - **RSA_4096**: Signature algorithm is Sha256WithRSA.
+    // The encryption algorithm of the server certificate must be the same as that of the subordinate CA certificate, but the key length can be different. For example, if the key algorithm of the subordinate CA certificate is RSA_2048, the key algorithm of the server certificate must be RSA_1024, RSA_2048, or RSA_4096.
     // 
-    // - **ECC_256**: Signature algorithm is Sha256WithECDSA.
-    // 
-    // - **ECC_384**: Signature algorithm is Sha256WithECDSA.
-    // 
-    // - **ECC_512**: Signature algorithm is Sha256WithECDSA.
-    // 
-    // - **SM2_256**: Signature algorithm is SM3WithSM2.
-    // 
-    // The encryption algorithm of the server-side certificate must match that of the sub-CA certificate. The key length can differ. For example, if the sub-CA certificate uses RSA_2048, the server-side certificate must use RSA_1024, RSA_2048, or RSA_4096.
-    // 
-    // > Call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) to check the key algorithm of the sub-CA certificate.
+    // >You can call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) to query the key algorithm of the subordinate CA certificate.
     shared_ptr<string> algorithm_ {};
-    // Issue time of the server-side certificate, in UNIX timestamp format. Default: current time when you call this API. Unit: seconds.
+    shared_ptr<bool> asynchronousFlag_ {};
+    // The issuance time of the server certificate in UNIX timestamp format. The default value is the time when you call this operation. Unit: seconds.
     // 
-    // > The **BeforeTime** and **AfterTime** parameters must both be empty or both configured.
+    // >The **BeforeTime** and **AfterTime** parameters must both be empty or both be specified.
     shared_ptr<int64_t> beforeTime_ {};
-    // Set the common name for the certificate. Supports Chinese, English, and other characters.
-    // 
-    // > If you set the **Csr** parameter, the value of **CommonName** comes from the corresponding field in the **Csr** parameter.
+    // The common name of the certificate. Chinese characters, English characters, and other characters are supported.
+    // >If you set the **Csr** parameter, the value of the **CommonName** parameter is determined by the corresponding information in the **Csr** parameter.
     shared_ptr<string> commonName_ {};
-    // The country code. For example, CN or US.
+    // The country code, such as **CN**.
     shared_ptr<string> country_ {};
-    // You can generate a CSR using OpenSSL or Keytool. For more information, see [How to create a CSR file](https://help.aliyun.com/document_detail/42218.html).
-    // 
-    // <props="china">
-    // 
-    // You can also create a CSR in the SSL Certificate console. For more information, see [Create a CSR](https://help.aliyun.com/document_detail/313297.html).
+    // The CSR content.
+    // You can use OpenSSL or Keytool to generate a CSR. For more information, see [How do I create a CSR file?](https://help.aliyun.com/document_detail/42218.html).
+    // <props="china">You can also create a CSR in the SSL Certificates Service console. For more information, see [Create a CSR](https://help.aliyun.com/document_detail/313297.html).
     // 
     // This parameter is required.
     shared_ptr<string> csr_ {};
-    // A custom identifier. This is a unique key.
+    // The user-defined identifier, which serves as a unique key.
     shared_ptr<string> customIdentifier_ {};
-    // The **Days**, **BeforeTime**, and **AfterTime** parameters cannot all be empty. The **BeforeTime** and **AfterTime** parameters must both be empty or both set. Follow these rules:
+    // The validity period of the server certificate. Unit: days.
+    // The **Days**, **BeforeTime**, and **AfterTime** parameters cannot all be empty. The **BeforeTime** and **AfterTime** parameters must both be empty or both be specified. The following rules apply:
     // 
-    // - If you set **Days**, you can optionally set **BeforeTime** and **AfterTime**.
+    // - If you set the **Days** parameter, you can choose to set or not set the **BeforeTime** and **AfterTime** parameters.
     // 
-    // - If you do not set **Days**, you must set both **BeforeTime** and **AfterTime**.
     // 
-    // > * If you set **Days**, **BeforeTime**, and **AfterTime** together, the validity period uses the value of **Days**.
+    // - If you do not set the **Days** parameter, you must set the **BeforeTime** and **AfterTime** parameters.
     // 
-    // - The server-side certificate validity period cannot exceed that of the sub-CA certificate. Call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) to check the sub-CA certificate validity period.
+    // >- If you set the **Days**, **BeforeTime**, and **AfterTime** parameters at the same time, the validity period of the server certificate is determined by the value of the **Days** parameter.
+    // - The validity period of the server certificate cannot exceed the validity period of the subordinate CA certificate. You can call [DescribeCACertificate](https://help.aliyun.com/document_detail/465954.html) to query the validity period of the subordinate CA certificate.
     shared_ptr<int32_t> days_ {};
-    // Additional domain names or IP addresses for the server-side certificate. Adding this information lets you apply the certificate to multiple domains or IP addresses.
+    // The extended domain name or extended IP address of the server certificate. After you add extended information to the certificate, you can apply the certificate to multiple domain names or IP addresses.
     // 
-    // You can enter multiple domain names and IP addresses. Separate them with commas (,).
+    // You can enter multiple domain names and IP addresses at the same time. Separate multiple values with commas (,).
     shared_ptr<string> domain_ {};
-    // Specifies whether to include the certificate revocation list (CRL) address.
+    // Specifies whether to include the CRL address. Valid values:
     // 
-    // 0 - No
+    // - 0: No. 
     // 
-    // 1 - Yes
+    // - 1: Yes.
     shared_ptr<int64_t> enableCrl_ {};
-    // Specifies whether to return the digital certificate immediately.
-    // 
-    // - **0**: Do not return. Default.
-    // 
-    // - **1**: Return the certificate.
-    // 
-    // - **2**: Return the certificate and its certificate chain.
+    // Specifies whether to immediately return the digital certificate. Valid values:
+    // - **0**: Does not return the certificate. This is the default value.
+    // - **1**: Returns the certificate.
+    // - **2**: Returns the certificate and its certificate chain.
     shared_ptr<int32_t> immediately_ {};
-    // The city where the organization for the certificate is located. The name can contain both Chinese and English characters. By default, this parameter is set to the city of the organization for the issuing subordinate Certificate Authority (CA).
+    // The name of the city where the certificate organization is located. Chinese characters, English characters, and other characters are supported.
+    // The default value is the name of the city where the organization of the subordinate CA certificate that issues this certificate is located.
     shared_ptr<string> locality_ {};
-    // The validity period of the certificate, in months.
+    // The certificate validity period. Unit: months.
     shared_ptr<int32_t> months_ {};
-    // The name of the organization. Default value: Alibaba Inc.
+    // The organization name. Default value: Alibaba Inc.
     shared_ptr<string> organization_ {};
-    // The name of the department. Default value: Alibaba Cloud CDN.
+    // The department name. Default value: Aliyun CDN.
     shared_ptr<string> organizationUnit_ {};
-    // Unique identifier of the sub-CA certificate that issues this certificate.
-    // 
-    // > Call [DescribeCACertificateList](https://help.aliyun.com/document_detail/465957.html) to query the unique identifier of the sub-CA certificate.
+    // The unique identifier of the subordinate CA certificate that issues this certificate.
+    // >You can call [DescribeCACertificateList](https://help.aliyun.com/document_detail/465957.html) to query the unique identifier of the subordinate CA certificate.
     // 
     // This parameter is required.
     shared_ptr<string> parentIdentifier_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // <props="china">Set the name of the province, municipality, or autonomous region where the organization is located. Supports Chinese, English, and other characters. Defaults to the province, municipality, or autonomous region of the issuing sub-CA certificate\\"s organization.
-    // <props="intl">Set the name of the state or province where the organization is located. Supports Chinese, English, and other characters. Defaults to the state or province of the issuing sub-CA certificate\\"s organization.
+    // <props="china">The name of the province, municipality, or autonomous region where the certificate organization is located. Chinese characters, English characters, and other characters are supported. The default value is the name of the province, municipality, or autonomous region where the organization of the subordinate CA certificate that issues this certificate is located.
+    // <props="intl">The name of the province or state where the certificate organization is located. Chinese characters, English characters, and other characters are supported. The default value is the name of the province or state where the organization of the subordinate CA certificate that issues this certificate is located.
     shared_ptr<string> state_ {};
-    // A list of tags.
+    // The tag list.
     shared_ptr<vector<CreateServerCertificateWithCsrRequest::Tags>> tags_ {};
-    // The validity period of the certificate, in years.
+    // The certificate validity period. Unit: years.
     shared_ptr<int32_t> years_ {};
   };
 

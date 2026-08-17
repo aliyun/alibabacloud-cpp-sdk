@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The identifier of the CA certificate.
+    // The CA certificate identifier.
     shared_ptr<string> caIdentifier_ {};
-    // The ID of the zone where the CAS instance resides.
+    // The zone ID of the China CAS instance.
     shared_ptr<string> uuid_ {};
   };
 
